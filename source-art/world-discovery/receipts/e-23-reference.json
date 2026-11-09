@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-e-23",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:39:00.128Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-31bc4dbd-541d-4e51-8d38-fa63c6dcb130.png",
+  "sourceSha256": "ec77d0d06c7fad1df07f1c9218570ec7028e42586fa34518432acd40411d3b75",
+  "output": "source-art/world-discovery/e-23-reference.webp",
+  "outputSha256": "5ee8109fde841225d28b4f38dfd309b97d9e3c344f2cf0b80b26f9b2121c1f6b",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. Unlettered PRODUCTION REFERENCE BOARD,1536x1024 landscape on off-white. Match image1 EXACT WorldDiscovery Kit and Zoe, equal standing height and age. Kit light-medium golden skin, short black sidepart, tealTshirt, MUSTARDshorts, navywhite shoes; Zoe deepbrown skin,two black puff buns,yellowTshirt,plumoveralls,whiteshoes. One fullbodyfrontview of each with natural twoarms/twohands. One separate simple LOW lightwood rectangular table and TWO simple blue classroom chairs, sized to children. One separate LARGE SOFT RED BALL, unbranded round. Bottom small room key: palecreamwall, leftwindow, plain lightwoodfloor, no wallwriting. In room key children sit opposite at left/right table, KitLEFT,ZoeRIGHT, redball once midtable. Do not draw anatomy diagrams on this reference; those will be added only on required finalpages. Bold crisp dark outlines, flat clean2D colors, restrained celshadows; no texture,grain,3D or realism. Leave broad whitespace betweenitems, all heads/feet/tablelegs at least150px fromedges. No letters,numbers,labels,arrows,flags or logos.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "1b0de6058b2611192f79942f4ecd03b97dc9da569d20816897fdbc11f5ab098a",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.561Z",
+    "sha256": "5ee8109fde841225d28b4f38dfd309b97d9e3c344f2cf0b80b26f9b2121c1f6b",
+    "note": "Actual PNG and installed WebP directly inspected as production reference: canonical Kit and Zoe equal size, correct clothes; one low table, two chairs, large red ball and consistent Kit-left/Zoe-right setting key. Unlettered, no premature anatomy overlays. Reference only, not a finished page.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-26",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T06:49:31.382Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-64acf52f-c0c5-4810-b0c4-f628854b549a.png",
+  "sourceSha256": "dac31ed1ac1e514ad428867669df1b8d1ecb2457aceeb747ac7b429673a0859d",
+  "output": "public/guided-reading/world-discovery/e-26/page-01.webp",
+  "outputSha256": "7a3eae4bcdc25ad2bfa105257a8c9df10e6bb96668dfba3f5d7d1a3a071d76cb",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit only framing of this exact picture. Zoom OUT 30 percent so all essential subjects, top of hair, devices and any diagram tiles sit within the central 65 percent width AND height. Add generous existing room/background on all sides, minimum 15 percent safe space. Preserve exact cast, every device, wire/radio arcs, screen state, colors, counts and connections unchanged. No new humans or objects. If more furniture/legs are revealed, show complete natural supports on the floor or crop naturally at image edge, never floating cutoffs. Full bleed 3:2 clean flat 2D cartoon, no border, no lettering.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/.artifacts/nonfiction-next-50/reference-inputs/e-26-page-01-c05c3a6d8be8.webp",
+      "sha256": "c05c3a6d8be8d11b0bdc0a5c7619f381e5e548483af55077f7ada5d68669ea30"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "a04b6d0950794fec64943013d30facc27daa8410774f7062963be893ca44e0a3",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
+    "sha256": "7a3eae4bcdc25ad2bfa105257a8c9df10e6bb96668dfba3f5d7d1a3a071d76cb",
+    "note": "Repaired wide room framing keeps Zoe hair and tablet far within safe area; red boat/send symbol, no network signal yet. Furniture grounded.",
+    "limits": "Individual installed WebP directly inspected. Independent sequence, reader/card and audio approval separate."
+  }
+}

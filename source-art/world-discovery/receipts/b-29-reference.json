@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-b-29",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T08:00:49.782Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-fb06ac66-fcd3-4df2-9a8a-7a4ae8d11bc8.png",
+  "sourceSha256": "d2cae789b75b5e42fb28ad28fc7dcde3ec5879e99fecaaff6d54ce259b8d7fb7",
+  "output": "source-art/world-discovery/b-29-reference.webp",
+  "outputSha256": "d79c1d2efaebfb2969da8c498f11a71929abe90ddcb81279a587f910b1aba182",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Correct ONLY the cube count in this reference sheet. In the central large tabletop study there are currently seven loose yellow cubes: remove the FAR-RIGHT loose cube near the right table edge (the one centered around x1380 y465). Leave exactly SIX equal loose yellow cubes beside the blue book. Preserve all other details and the separate lower six-cube scale study unchanged. No numerals or new marks. Keep clean flat colors and same 3:2 canvas. Do not change children, book, table or other cubes.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-b299f457-bd8c-4e30-85c0-6d1ec0d31b7f.png",
+      "sha256": "a4e43541913152ca53f2cdd991f05fa13f6bfe6bff910e78e1eb434f94879c2b"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "7c50af653f4ee559098243cdcd631837ff440776161b09c1d029dc86ea556fcc",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T08:01:15.425862+00:00",
+    "sha256": "d79c1d2efaebfb2969da8c498f11a71929abe90ddcb81279a587f910b1aba182",
+    "note": "Directly viewed native PNG and installed WebP: cast and blank blue book fixed; exactly six loose yellow cubes in central study, separate six-unit touching row matches book width for proportion reference. No letters or numbers.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

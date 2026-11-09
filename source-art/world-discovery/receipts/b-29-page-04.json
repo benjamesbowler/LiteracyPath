@@ -1,0 +1,42 @@
+{
+  "bookId": "world-discovery-b-29",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:42:05.426Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-396534ad-bdb6-4f6e-a78c-1c083974320a.png",
+  "sourceSha256": "2659cf90f4e8752cd557cbc8e208d9a53a465490be0fd0b36612a5fa923a469f",
+  "output": "public/guided-reading/world-discovery/b-29/page-04.webp",
+  "outputSha256": "a5c4b081d335b1afc0c8501f4345c3462d70e30bbc455e8d4a82fb4b517c0ee8",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Next measurement step. Follow FIRST reference exact geometry: FIVE touching equal yellow cubes in row starting at book LEFT edge, ending ONE full cube width short of book RIGHT edge. Sixth equal cube remains separate upper-right. Follow SECOND reference same real blue book, white tabletop, slight top-oblique view and cube design. Add Kit's one small tan hand from lower-left gently sliding the first cube into the touching row, without hiding any cube face. EXACTLY five in row plus one spare. No gap between these five. Book width remains six cube widths. LANDSCAPE 3:2, 1536x1024. Clean smooth flat illustration, no grain or paper/paint texture. No text, numbers, labels or guide lines. All essential props and hands inside central75%, wrists may naturally continue out frame. White table and cream classroom consistent.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/.artifacts/nonfiction-next-50/b29-five-touch-reference.png",
+      "sha256": "5d7ec1e539361467bd406f634405709e75e3ef5381eb9dc9420b3f46a03d2cbc"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/b-29/page-02.webp",
+      "sha256": "ea3ca74df0db8f25e1a3a9b6331a89416f68d01e3ad12fd5c1713b77591fece0"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/b-29/cover.webp",
+      "sha256": "08567a9520d6b455442be8996af4a34f3fe525f17d167c8201fec3583020bf43"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "7c50af653f4ee559098243cdcd631837ff440776161b09c1d029dc86ea556fcc",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T10:43:44.539757+00:00",
+    "sha256": "a5c4b081d335b1afc0c8501f4345c3462d70e30bbc455e8d4a82fb4b517c0ee8",
+    "note": "Directly viewed native PNG and installed WebP: five identical touching cubes start at book left edge with one-unit shortfall at right, sixth spare above right; Kit hand moves first cube.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

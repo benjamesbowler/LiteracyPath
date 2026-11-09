@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-23",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:15:06.459Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-84cf4aec-3d82-4a55-8022-8719fad09224.png",
+  "sourceSha256": "43f10171910fc92b8f7c5872714ace8253c80614a0b9e57378b95fe9b5c872a3",
+  "output": "public/guided-reading/world-discovery/a-23/page-02.webp",
+  "outputSha256": "b40f51d4bcbc73c5788a5c5f8eab0b4ebfc92f35d26bcc710f6b77946e4d6e7d",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit ONLY framing. Pull ENTIRE scene back uniformly by30%, extending the same plain room naturally. Zoe's FULL side-view figure must occupy about70%imageheight, hair top y150 and shoesbottomy870 on1024canvas, >=12%margin top/bottom. Preserve her proportions, pose, TWO palms resting upperchest, closedlips, exact BLUE AIR ARROW pointing LEFT INTO NOSTRILS, and all furniture/room/rug scale relationships. Arrow stays beside nose, do not add diagrams. Feet grounded. Smooth flat colors, no texture, no text. Landscape3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-eea61412-000f-414f-9f14-565d3fe3af9b.png",
+      "sha256": "3996c04c7bcc8dd5398a81d9973dff04e6946534da3080a9f13062489ee415d5"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "9d1d4dd6d93c7ff9e1f38dd1d3858cfe95edf848dc9e464d8d8c183b2a6aee4a",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "b40f51d4bcbc73c5788a5c5f8eab0b4ebfc92f35d26bcc710f6b77946e4d6e7d",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:15:06.461Z",
+    "note": "Directly inspected framing repair: full side-view figure now has ~17%top and19%bottom margins, relaxed hands/chest pose and body proportions preserved, blue arrow still points into closed-lip nostril area. Entire room/rug scaled together, feet grounded."
+  }
+}

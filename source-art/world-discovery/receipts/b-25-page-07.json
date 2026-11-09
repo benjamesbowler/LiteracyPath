@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-b-25",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T06:53:01.551Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-c0137288-5963-47b8-a1cb-a2a9fba2cec9.png",
+  "sourceSha256": "e1ec43063e658e53f756419876882a6f2ce8b2b071c80edba6c57305684be0db",
+  "output": "public/guided-reading/world-discovery/b-25/page-07.webp",
+  "outputSha256": "5117a8e40211f7b7562c46aaad48f2cd210c1450c3e50b73203807b22cc922af",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Return to the EXACT ORIGINAL mirror angle and central screen spot shown in reference. Kit uses one hand gently on gray mirror BASE as he finishes turning it back to original straight-on orientation. Zoe holds one blue card lowered well to her RIGHT side away from all optical paths, and watches the screen. Flashlight and white screen have never moved. Only one screen spot at original CENTRAL position (not right-shifted). Preserve exact fixed camera, table, flashlight/cradle frontLEFT, mirror center and white screen frontRIGHT. No visible light cones, beams or arrows in clear air, no text or extra objects. Same locked Kit and Zoe. Safe margins, landscape3:2 clean smooth flat cartoon, no texture.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/b-25/page-01.webp",
+      "sha256": "1ce2d007fb001c5f25884b8d4a8339d5c175b61d2919de61e9202ad121959391"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "e7608249f7559688257799a2fcfb8d87f204d853906b14b220ac4f2eddd1acf3",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T06:53:58.951411+00:00",
+    "sha256": "5117a8e40211f7b7562c46aaad48f2cd210c1450c3e50b73203807b22cc922af",
+    "note": "Directly viewed native PNG and installed WebP. Kit turns mirror back to original straight-on angle; central screen spot matches opening position. Zoe holds blue card below and clear of optical path. Source and screen stay fixed; no extra light spot.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

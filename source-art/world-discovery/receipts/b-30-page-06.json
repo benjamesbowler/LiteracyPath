@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-b-30",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:48:37.803Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-3a17e43b-646a-4480-96e7-bd13fbdaf624.png",
+  "sourceSha256": "99b18f722a92ce206f44ecead34cba3606c81d3f6b017da99d0d8622a8a33af2",
+  "output": "public/guided-reading/world-discovery/b-30/page-06.webp",
+  "outputSha256": "6af0c45a09871d3a95ad0794d095426a98738ba643d08745834f959e16581a03",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Make ONE scientific correction to the reference: change ONLY the surface bands of the golden Saturn disc into a SOUTH POLAR view. Replace all horizontal latitude stripes by subtle CONCENTRIC circular atmospheric cloud bands centered on a small darker gold south-pole spot at the center of this disc. Bands are pale gold and cream, flat colored with no texture. Keep the disc's size and position exactly. Preserve EVERY separate ice piece, all dark gaps, the C-shaped curved particle field, the dark navy background, and EXACTLY the THREE white curved clockwise tangent arrows in their present positions and directions. This is an enlarged teaching view looking down toward Saturn's SOUTH pole, so the nearby ice particles orbit clockwise in the equatorial plane. No extra continuous ring, no fourth arrow, no word, no symbol, no face. All other image elements unchanged. Landscape 3:2. Children's nonfiction illustration, crisp black outlines, pure flat vector-like fills, no texture, grain, speckles, gradients, lettering, captions, numbers or border. Keep all educational objects within central 75 percent with generous margins.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-4d9c6141-80ec-4ed5-b14d-8c6f94d4c10b.png",
+      "sha256": "3d1eeb76d69d42109e001d780d1eee034c35c58573c152696d4b8c4415a541c9"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "f280a32df1585bc29fde637e24c87b820bf93699a99cac7d7239db824c8b14f3",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T10:50:39.358737+00:00",
+    "sha256": "6af0c45a09871d3a95ad0794d095426a98738ba643d08745834f959e16581a03",
+    "note": "Native and installed WebP directly viewed: south-polar concentric atmospheric bands around darker pole, separated enlarged ice arc and exactly three coherent clockwise tangent arrows; all major content safely framed.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

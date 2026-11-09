@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-c-21",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:04:03.837Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-3cc95e3a-f635-49e0-a67c-043415b35b8e.png",
+  "sourceSha256": "4ce7cdf77f0f5c4407acd8c75907fcdd7ff4f60cf3a31e7a93abc821905b03fe",
+  "output": "public/guided-reading/world-discovery/c-21/page-01.webp",
+  "outputSha256": "887dc3c93278da7b27043fc1716efdc34cf4332eae486afb060a1119783e6e4f",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use attached reference only for identity: Kit, a six-year-old boy with light-medium golden skin, short side-parted black hair, teal tee, mustard shorts, navy sneakers; his adult guardian has short black hair, medium golden skin, navy shirt, gray trousers. One blue wheeled suitcase has ONE broad orange diagonal stripe from lower left to upper right, black top and side handles and a plain white route tag secured to the TOP handle. Unbranded white narrow-body jet with teal vertical tail. Airport CHECK-IN desk. A friendly adult worker with brown hair in bun and pale blue uniform stands behind the counter fastening a plain white tag to the TOP black handle of the blue striped suitcase. Kit and guardian wait together on the public side. Bag beside counter low enough for realistic worker reach, wheels grounded on a low baggage scale. Show the actual hand/tag contact clearly. No scanner, carousel or plane cutaway. Landscape 3:2, clean children's cartoon with crisp dark outlines and pure flat vector-like colors. No grain, paint, stipple, speckles, gradient or fuzzy texture. Pull back enough that all essential people, hands, bag, mechanism and plane fit within central 75 percent; entire heads and shoes visible. No captions, numbers, logos, flags, badges, labels or writing. Single continuous scene, never a reference board or collage. Only the listed scene contents appear.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/c-21-reference.webp",
+      "sha256": "7b43aa2de357cf3abba0e67409cbcec8f0ad0a190ad2eac801aaa542875d9e54"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "adafabd724e58b7f6c3e03af760b56ae0cdebf5dbdc7ec8e6a3d11c2e19a0ce2",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:06:02.007353+00:00",
+    "sha256": "887dc3c93278da7b27043fc1716efdc34cf4332eae486afb060a1119783e6e4f",
+    "note": "Native and installed WebP directly inspected: natural worker hands fasten white tag to exact bag top handle while Kit/guardian wait, bag on grounded scale, canonical wardrobe and main-subject margins.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

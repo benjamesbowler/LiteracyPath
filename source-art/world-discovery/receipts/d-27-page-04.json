@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-27",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:15:40.692Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-efc97a82-73e2-4ddd-8136-e9602ba19b71.png",
+  "sourceSha256": "11302cf1eb78793366de8f3c662c8e802482c1b7c291336836b4a9a5a21d73bc",
+  "output": "public/guided-reading/world-discovery/d-27/page-04.webp",
+  "outputSha256": "a0c623e1658e3aa0bd236ff065d3c6e2fc61ed5e3da0a65317a400e96897c784",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "One finished rice-drying scene near the same plain farm shed. On a dedicated CLEAN pale concrete drying pad, a broad thin layer of straw-gold harvested paddy grains is spread evenly. Two adults in ordinary plain work clothes use LONG-HANDLED wooden rakes with broad flat heads to spread the grains. Adult woman medium-brown skin, dark hair tied back, teal shirt and navy trousers; adult man light-medium skin, short dark hair, pale blue shirt and charcoal trousers. Exactly two arms and hands each, natural gripping, both standing on the clear edge of the drying pad and reaching across it; no child. Clear weather and mild daylight, no timer or temperature labels. Low golden rice field and shed in background. Grain must lie on the clean drying surface, no dirty road, traffic, standing water or heap of wet straw. No machines or bowls. All feet and rake heads safely framed. Clean bold dark-outlined flat 2D early-reader illustration, restrained cel shading; no photorealism, 3D, grain or painterly texture. Landscape 3:2, 1536x1024. Keep all important subjects safely inside the central70% with at least140px margins; background extends to all edges. No lettering, numbers, captions, flags, logos or watermarks.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-4e2a4626-8d46-4669-8c9a-1cb8057b106a.png",
+      "sha256": "254bf55d2d01aa6318d16bad7574792ab6ca7b41f959ebef4a1e1ec6b804d54e"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "d7159e37a1a2ef16cf6332c998d1e18c7c5e1c835d8925d2049fd3bf922c1538",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.534Z",
+    "sha256": "a0c623e1658e3aa0bd236ff065d3c6e2fc61ed5e3da0a65317a400e96897c784",
+    "note": "Direct native inspection: two adults with natural two-hand rake grips spread thin paddy layer on dedicated clean concrete pad; no traffic/dirty road/water; feet/rake heads/grain clearly visible.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

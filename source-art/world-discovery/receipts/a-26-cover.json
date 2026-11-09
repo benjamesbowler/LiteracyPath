@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-26",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:52:39.246Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-eb85b565-8fc3-4795-8e81-e8fb4068c1c6.png",
+  "sourceSha256": "edaa0a810ba8c6f374c5221aac3d299714bf0f818df09a8d512c871ab1dd214c",
+  "output": "public/guided-reading/world-discovery/a-26/cover.webp",
+  "outputSha256": "f0ec45112ea5caa2c057930a5e5596e8477c6d1cfb98e9fc3984a8c9136ab847",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit ONLY camera framing: pull ENTIRE exterior entrance scene back uniformly20%, extend same house/porch naturally. Kit's COMPLETE shoes at least15%abovebottom and full figure at least12%fromright/left edges. Preserve exact proportions and pose: Kit one index finger presses oval white button, other arm down. Preserve closed teal door, brass handle on RIGHT, narrow sidelight immediately RIGHT of door with Zoe and adult visible inside, ovalbutton on wall RIGHT of sidelight and LEFT of porchpost. Every physical contact/device/door geometry unchanged; do not flip scene or movebutton. All feet grounded, flat clean colors, no texture/text. Landscape3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-cfdb9f81-f5e3-4d8d-87ec-c87c73cdeadd.png",
+      "sha256": "38396b49675f5c9100d96c510d509546d2f203d3366db5227bd8591acc7b2d68"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "de8c9a9188fb06c5b2fcfe6cb817e2a178c34835d5f8b5bd10d4255d93ec1d12",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "f0ec45112ea5caa2c057930a5e5596e8477c6d1cfb98e9fc3984a8c9136ab847",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:52:39.247Z",
+    "note": "Directly inspected native framing replacement: whole porch and cast pulled back, Kit shoes about 17% above bottom; fingertip contacts button, other arm down. Closed door right-side brass handle, glass and button placement preserved with Zoe and adult behind glass."
+  }
+}

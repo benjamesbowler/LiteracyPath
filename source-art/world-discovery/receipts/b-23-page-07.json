@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-b-23",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:20:00.690Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-2eda1bc8-f838-43d1-bea8-6875323d14b5.png",
+  "sourceSha256": "d150a8a273aa7f209669b6ccdd195a6bc5c732801a2f9f24771e7e070da75f60",
+  "output": "public/guided-reading/world-discovery/b-23/page-07.webp",
+  "outputSha256": "889f00775d4ab0293bf74cb7321acec1e6b5fbb4789d93a482828583f0c8ed42",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact child lower-dental-arch illustration ONLY by shrinking the ENTIRE connected arch uniformly by 15 percent around the image center and extending the same plain pale background around it. Preserve EXACTLY TEN child teeth in identical order and shapes: FOUR flat front incisors, TWO pointed canines, FOUR broad rear molars (two per side). Preserve the same pink gums and all existing apple pieces if present, with their exact count and tooth placement. Do not add or remove ANY tooth or apple piece. All outer gums must be at least 12 percent inside left and right frame edges. Landscape3:2, crisp outlines, clean flat colors, no texture, text, symbols or extra objects.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/b-23/page-07.webp",
+      "sha256": "353c712bf3d61c575290cb93c314883befce9c9a41dae9af65c105851614c26d"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "645b4a3a4d22eb876a75ddaa40ade656cc1ad18dd1be8213019b648b10ad63d3",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:20:57.438030+00:00",
+    "sha256": "889f00775d4ab0293bf74cb7321acec1e6b5fbb4789d93a482828583f0c8ed42",
+    "note": "Native and final WebP directly viewed: whole gum arc safely inset; ten child teeth preserved, three smaller apple chips on rear-left molar and one larger piece at front incisors; other sequence artwork unchanged.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

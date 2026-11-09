@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-28",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:21:52.753Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-ab6a80d0-ca70-4af7-9ccb-a84e17937f2c.png",
+  "sourceSha256": "66b5762874a7b08ef38bfeffbcdac945f0845f5f0af702c2678ea006896ab0cd",
+  "output": "public/guided-reading/world-discovery/e-28/page-05.webp",
+  "outputSha256": "1e5b4ee6ecec54cac206f2001a763b7633275c83af5eb6d9d8b2001cc99ebf35",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit only the blue feet of this keel-billed toucan. Keep the entire illustration, framing, colors, bill, fruit, branch and background unchanged. Correct zygodactyl anatomy: each foot has TWO and only TWO blue forward toes visibly curled over the NEAR side of the brown branch. Each foot's other two backward toes grip the far side and are mostly naturally hidden behind branch. Remove third front-facing blue band/toe from each foot. Exactly two feet, each has two visible near-side curled toes. Flat clean cartoon with dark outline; no text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-a6f80cfa-604b-42e3-853e-806221cd0ea3.png",
+      "sha256": "8d0880ea2411b1b32660fd962e1b2faa47d54c11045261dad36cfbae053de1cb"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "df581f1e09d045c551bc8ca44241da96c6f37a19dcfc6731641f5fa8f7f955bf",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
+    "sha256": "1e5b4ee6ecec54cac206f2001a763b7633275c83af5eb6d9d8b2001cc99ebf35",
+    "note": "Corrected two visible forward toes per foot; fruit and regional toucan anatomy; whole bird safely framed.",
+    "limits": "Installed WebP individually inspected. Independent sequence review, reader rendering, cards and audio checked separately."
+  }
+}

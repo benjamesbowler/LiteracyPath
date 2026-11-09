@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-25",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:19:34.324Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-194e1e5d-c5fd-4428-aa01-07b00c6850d3.png",
+  "sourceSha256": "8e01ec56ff33e314b4e3209741b13c6f2317da05eb295ff3375ff9b898c38a18",
+  "output": "public/guided-reading/world-discovery/d-25/page-08.webp",
+  "outputSha256": "6e38a470732d08b347148de1c0e42a576e0caa3bb872eba58fa53c15e8e453fe",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Framing correction only: uniformly shrink BOTH the straight strip and zigzag strip together to80percent current width and height, centered on same pale cream1536x1024canvas. Minimum200px blank margin left/right. Preserve exactly three zigzag peaks, connected thin strip path, identical paper thickness, total lengths and positions relative to each other. No new objects/text/arrows; clean flat2D end-on comparison.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-a9c1d149-9b3c-4ae6-a23d-a42f5bdd4413.png",
+      "sha256": "a061293fd2064ab32d886d9062ef3c8476ceec84b559480293b7d4829cf452c8"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "8337d31fb142299fa5e714fdc1bffff0a8db8bc933c0eeb3ee2b649380ddbd8b",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.524Z",
+    "sha256": "6e38a470732d08b347148de1c0e42a576e0caa3bb872eba58fa53c15e8e453fe",
+    "note": "Direct inspection: end-on straight and connected three-peak zigzag cross-sections have same thin thickness and comparable total material length; folded profile has greater depth, no extra layers/labels, generous margins.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

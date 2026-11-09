@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-b-23",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T06:23:09.286Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-f6e52f74-4c18-4d6a-a38a-7794a6cbf6d4.png",
+  "sourceSha256": "8a3093db78c11222fee59564d7734971da4c6e54554e34d2027d40435a8d36b0",
+  "output": "public/guided-reading/world-discovery/b-23/page-02.webp",
+  "outputSha256": "0892fd4390a122bd0a7c98a3c2ed2efa2db17f693a872dc76f727a96df63e1ff",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Create one landscape3:2 friendly scientific TEACHING CLOSE-UP of the FRONT INCISORS only. A small area of upper pink gum supports white upper front incisors with thin cutting edges; lower pink gum supports matching lower incisors below. Show these thin front edges closing through ONE thin piece of pale peeled apple: a small bite separates toward the INSIDE of the mouth, while the remaining slice extends OUTSIDE at the right. Only anterior teeth and small surrounding pink gums, one apple slice with its small cut bite, and pale cream background. No full jaw, back molars, exposed throat, blood, human face, child, hand, arrows, inset, separate model, labels or text. It is one anatomically clear integrated tooth close-up, not a full character eating scene. Keep entire illustrated mechanism inside central75percent with generous margin. Reference supplies only tooth/food colors and clean cartoon style.\nClean bold continuous dark outlines, perfectly smooth flat vectorlike colors, no texture, grain, stipple or painted finish.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/b-23-reference.webp",
+      "sha256": "f5339ba2c8d25dab58581bce2c4680f9ac76f869eceda648a19170b9e47e90e7"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "645b4a3a4d22eb876a75ddaa40ade656cc1ad18dd1be8213019b648b10ad63d3",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T06:23:39.178270+00:00",
+    "sha256": "0892fd4390a122bd0a7c98a3c2ed2efa2db17f693a872dc76f727a96df63e1ff",
+    "note": "Directly viewed native PNG and installed WebP. Four upper and four lower front incisors have thin cutting edges closing through one thin peeled apple slice, with a small separated bite visible. No adult molars, full jaw, throat or unrelated diagram. Entire mechanism has safe margins.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

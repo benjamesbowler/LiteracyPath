@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-e-24",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:51:00.209Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-cac7b5e8-456c-4205-b216-bbf4e4e0601b.png",
+  "sourceSha256": "8f51e86988345103aac8be1eb56a2d898dd353ca342859610f4a018d7e370139",
+  "output": "source-art/world-discovery/e-24-reference.webp",
+  "outputSha256": "7b42ac072df274310bcf0639bd2d12289f66966e45eba88c999107b88992e7a8",
+  "width": 1774,
+  "height": 887,
+  "prompt": "Use case: illustration-story. Landscape production reference board only, not a book page. Bold clean 2D children's cartoon, crisp continuous dark outlines, flat clean colors with very restrained cel shadows. No 3D, photographic lighting, texture, grain, paint, relief, lettering, numbers, pseudo-writing, captions, logos, borders or watermarks. White background and generous clear separation, everything at least 10 percent inside the canvas. Show exactly TWO separated views of the SAME schematic pair of adjoining solid rock blocks for a strike-slip fault book. LEFT large three-quarter view: two low rectangular solid blocks touching along a straight vertical fault plane, one warm brown block and one gray-brown block. Their flat tops are level. A single narrow dark horizontal rock stripe crosses BOTH tops and meets continuously at the seam with NO offset in this initial state. RIGHT smaller top-down view of exactly the same pair: left warm-brown rectangle touching right gray-brown rectangle, straight vertical seam down their shared boundary, a thin horizontal dark stripe crossing their centers in one unbroken straight line. The seam is only a thin line, NOT a trench or open gap. Blocks are rigid solid rock; no lava, holes, cracks branching, broken pieces, arrows, wavefronts, separate plates, continents, vegetation, characters, houses, or later slipped/deformed states. These are explanatory models, not literal giant separated boulders. Preserve a clean readable top surface for later motion diagrams.",
+  "references": [],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "17528444f6f2269814e9707fa662c0af729daea3afd65b636b1b1d274c6dcea2",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.561Z",
+    "sha256": "7b42ac072df274310bcf0639bd2d12289f66966e45eba88c999107b88992e7a8",
+    "note": "Actual PNG and WebP inspected as reference only: two adjoining solid blocks in two views, thin aligned dark stripe, contact line with no open gap, level tops, no arrows, lava, or later slip state. Not a finished page.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

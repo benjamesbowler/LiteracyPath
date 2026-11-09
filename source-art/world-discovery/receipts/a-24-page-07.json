@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-24",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:36:09.180Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-87736775-0fa0-418b-9d86-10a96bfcb909.png",
+  "sourceSha256": "68b17ad659d59ee838ac638fc2a4ca0f1d854c480c23923234da33c992cb388e",
+  "output": "public/guided-reading/world-discovery/a-24/page-07.webp",
+  "outputSha256": "94ca4dc318b548bf14fec24da472ad0258b74317f5671b22cd0a905922f455e5",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit ONLY camera framing. Pull entire scene back uniformly35%, hair top at least15%belowtop and complete dish AND lower supporting hand at least15%abovebottom. Preserve exact two-handed contact: screen-left hand grips raised LEFT rim, screen-right hand supports LOWER RIGHT rim. Dish tilted down RIGHT, water pools against LOW RIGHT side with level free surface, NO spill or solid ice. Keep same body proportions, seatedpose, room. Extend pale tabletop naturally. Smooth flat colors, no texture/text. Landscape3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-f517cb69-8165-4363-803c-f00032b0a1ba.png",
+      "sha256": "ba5d718d9dfd8e218a2c212ffd0e49839dbe353e76aec24556180074f711c372"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "9c77e1f07a52338299286dd5ca1c02bdc85189d203f83376727f78ec56a237f5",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "94ca4dc318b548bf14fec24da472ad0258b74317f5671b22cd0a905922f455e5",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:36:09.181Z",
+    "note": "Directly inspected native framing repair: hair~20%top and supporting hand/dish~20%bottom, both hands retain plausible rim contact. Dish tilts down right, water rests at lower right with horizontal free surface, no spilling/ice; uniform scene scale."
+  }
+}

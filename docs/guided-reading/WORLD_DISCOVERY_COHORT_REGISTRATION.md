@@ -1,26 +1,34 @@
 # World Discovery cohort registration
 
-Expansion must preserve the published first fifty books. The confirmed expansion is 50
-additional books, ten at each public App level A–E, for 100 World Discovery
-books in total. `src/content/world-discovery/cohorts.json` declares two ordered
-cohorts. Both `01-10` and `11-20` are registered and active in the source catalogue.
+During this additive expansion, the existing published books remain unchanged.
+All three cohorts are locally registered: 150 World Discovery books, including
+the 50 new nonfiction books in `21-30`, ten at each public App level A–E.
+`src/content/world-discovery/cohorts.json` declares three ordered cohorts.
+`01-10`, `11-20` and `21-30` are active in the local source catalogue. The complete
+local Guided Reading runtime contains 447 books, including 217 nonfiction.
 Their exact source, complete-book reviews, media and screening inventories are
 bound by separate registration receipts. Publication still requires the global
-release, browser and live-deployment checks below.
+release, browser and live-deployment checks below; local activation does not
+claim that those checks are complete or that the new books are live.
 
-Each cohort contains ten consecutive numbers at each of A–E: `01-10` and `11-20`.
-Numbers repeat the existing ten topic strands;
-they do not justify repeating a manuscript or inquiry. Every cohort declares
+Each cohort contains ten consecutive numbers at each of A–E: `01-10`, `11-20`
+and `21-30`. The first two retain the `original` topic profile (the backward-compatible
+default). The third must explicitly declare `nonfiction-discovery`, with the ten
+exact topics in the [content Bible](WORLD_DISCOVERY_CONTENT_BIBLE.md). The shared
+authority is `src/data/worldDiscoveryTopicProfiles.js`. Profile changes cannot
+reinterpret published cohorts, and all fifty new books must be nonfiction.
+Topic strands never justify repeating a manuscript or inquiry. Every cohort declares
 50 books and 440 pages independently of the files currently present. An editorial
 page-count exception requires updating the reviewed declaration explicitly.
 
 ## Sources and preservation
 
-During expansion, the original five level JSON files, `reviews.json`, cast,
-references, receipts, illustrations, card copies and consumed audio stay unchanged. New final sources
-belong in `src/content/world-discovery/cohorts/11-20/`, with the same five
+The original five level JSON files, `reviews.json`, cast, references, receipts,
+illustrations, card copies and consumed audio stay unchanged. Existing second-cohort
+sources and evidence are also preserved. New final sources belong in
+`src/content/world-discovery/cohorts/21-30/`, with the same five
 `level-{a,b,c,d,e}.json` files and a separate `reviews.json`. Drafts may remain
-under `.artifacts/world-discovery-expansion/manuscripts/first-50/` while authored.
+under `.artifacts/nonfiction-next-50/manuscripts/` while authored.
 Do not import these draft files into runtime code.
 
 The fixed preservation fixture in `tests/fixtures/world-discovery/published-first-50.json`
@@ -38,22 +46,24 @@ expansion to rewrite earlier books.
 
 The original series orders remain 1–50. Later orders use
 `cohort.index * 50 + levelIndex * 10 + number - cohort.firstNumber + 1`, yielding
-51–100 without renumbering any original book. IDs and media folders remain
-`world-discovery-a-11` and `/guided-reading/world-discovery/a-11/`, etc.
+51–100 for the second cohort and 101–150 for the third without renumbering any
+existing book. New IDs and media folders are `world-discovery-a-21` and
+`/guided-reading/world-discovery/a-21/`, etc.
 
 ## Isolated production
 
-The production tools retain their original defaults. To select a draft cohort:
+The production tools retain their original defaults. To select the `21-30` nonfiction
+cohort explicitly (use a separate draft directory instead if still authoring):
 
 ```sh
-node tools/worldDiscoveryImageJobs.mjs job world-discovery-a-11 reference \
-  --source-dir .artifacts/world-discovery-expansion/manuscripts/first-50 \
-  --first-number 11 --last-number 20
+node tools/worldDiscoveryImageJobs.mjs job world-discovery-a-21 reference \
+  --source-dir src/content/world-discovery/cohorts/21-30 \
+  --first-number 21 --last-number 30 --topic-profile nonfiction-discovery
 
 node tools/prepareWorldDiscoveryNarration.mjs \
-  --source-dir .artifacts/world-discovery-expansion/manuscripts/first-50 \
-  --first-number 11 --last-number 20 \
-  --output-dir .artifacts/world-discovery-expansion/audio/11-20
+  --source-dir src/content/world-discovery/cohorts/21-30 \
+  --first-number 21 --last-number 30 --topic-profile nonfiction-discovery \
+  --output-dir .artifacts/nonfiction-next-50/audio/21-30
 ```
 
 Pass the same source flags to image `install`. The exact job JSON and prompt
@@ -66,7 +76,10 @@ Declare page `imageLayout` only where a reviewed brief needs an
 coherent moment without panels or insets. Diagram prompts allow only authored
 explanatory elements, never a contact sheet. Nonempty `embeddedImageText` is an
 exact lettering whitelist; an empty value prohibits all text. Cover and reference
-jobs always prohibit text. Layout, labels and briefs are part of the manuscript
+jobs always prohibit text. Optional `coverImageLayout` permits only the diagram
+elements explicitly specified in `coverBrief`, with no lettering. Reference-board
+prompts explicitly ignore any lettering requested by their opening-page context.
+Layout, labels and briefs are part of the manuscript
 hash, so finalize them before generating images and keep receipts current.
 
 Narration preparation requires all fifty manuscripts and independent matching
@@ -100,7 +113,7 @@ Once final sources are placed at their declared checked-in paths, prepare card
 copies without activating books or changing the global card manifest:
 
 ```sh
-node tools/buildGuidedReadingCoverRenditions.mjs --world-discovery-cohort 11-20
+node tools/buildGuidedReadingCoverRenditions.mjs --world-discovery-cohort 21-30
 ```
 
 The isolated output is generated delivery metadata, not a review. Directly inspect
@@ -121,7 +134,7 @@ After final audio bindings and complete review metadata are stable, write the
 explicit audio screening inventory:
 
 ```sh
-node tools/registerWorldDiscoveryCohorts.mjs --plan-audio 11-20
+node tools/registerWorldDiscoveryCohorts.mjs --plan-audio 21-30
 ```
 
 The inventory partitions every consumed audio path, role, text and actual hash
@@ -135,8 +148,8 @@ registration; neither file length nor a status label defines expected coverage.
 Audit without changing registration, then register only after all findings close:
 
 ```sh
-node tools/registerWorldDiscoveryCohorts.mjs --audit 11-20
-node tools/registerWorldDiscoveryCohorts.mjs --register 11-20
+node tools/registerWorldDiscoveryCohorts.mjs --audit 21-30
+node tools/registerWorldDiscoveryCohorts.mjs --register 21-30
 ```
 
 Registration runs complete source/review/media checks before writing anything.
@@ -181,9 +194,10 @@ Final expansion completion additionally requires:
 npm run check:world-discovery-expansion
 ```
 
-This fails until both declared cohorts and all 100 books are registered and
-pass release checks. Keep the original fifty-book release evidence unchanged and
-record expansion evidence separately. Use the existing PR-triggered Security
+This requires all three declared cohorts and all 150 books to be registered and
+pass release checks. Local registration now supplies that cohort membership;
+it does not replace the remaining checks. Keep both prior cohorts' release evidence
+unchanged and record the new fifty's evidence separately. Use the existing PR-triggered Security
 workflow, normal merge, automatic production deployment, and exact live UI/media
 verification. A manual workflow-dispatch success does not satisfy the required
 Security check. No workflow/protection bypass or manual deployment is part of
@@ -192,10 +206,11 @@ this process.
 Preserve the original browser evidence when checking the expansion:
 
 ```sh
-LP_WORLD_DISCOVERY_EVIDENCE_DIR=.artifacts/world-discovery-expansion npm run test:world-discovery
+LP_WORLD_DISCOVERY_EVIDENCE_DIR=.artifacts/nonfiction-next-50 npm run test:world-discovery
 ```
 
-This changes only the evidence directory; it still exercises all 100 books.
+This changes only the evidence directory; it still exercises every active book
+(currently 150 locally registered books). All original checks remain required.
 
 ## Authorized catalogue repairs
 

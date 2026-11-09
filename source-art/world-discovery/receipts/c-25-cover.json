@@ -1,0 +1,42 @@
+{
+  "bookId": "world-discovery-c-25",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:17:44.707Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-0b94007e-e990-4a06-8687-20ade6ab2f53.png",
+  "sourceSha256": "598aafdac6dcc712253a7452bb4c2f55aa82620cb4d50014dd925fba6ec485f1",
+  "output": "public/guided-reading/world-discovery/c-25/cover.webp",
+  "outputSha256": "36a27cc90efe331a8b33b24741a8e9236c41798b8c78238533369ae3b5211c49",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Perform one tiny prop-continuity repair on the FIRST reference image. At the end of the YELLOW wire beside the LEFT bulb-holder terminal, add the same yellow insulated alligator clip seen in the SECOND reference, visibly clamped onto that left terminal. Replace only the last short section of the yellow wire with this clip; maintain its wire connection. Keep the clip restrained in scale, matching the second reference relative to the bulb holder. Do NOT add clips elsewhere or any new wire. Preserve every other pixel relationship, people, natural hands, exact three-wire routing and battery. Preserve CLOSED switch and visibly glowing ON bulb exactly as first image. Kit and Zoe equal-height children where both present. Third reference locks cast and props only. Single scene, same3:2 landscape, clean smooth flat colors/crisp outlines/no grain. No text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/c-25/cover.webp",
+      "sha256": "a6ad311e13edac9773a764b4655c664fb9fc779671fa14561ff999368e935c2b"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/c-25/page-08.webp",
+      "sha256": "32de188303a7fbcba4ec233017f2c91e0c1f105ff488aaaf148f2c9b3654d4a2"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/c-25-reference.webp",
+      "sha256": "1895d1763d6be7d6723e07b2630d0a5b953e1d352b018d6cae6f7ec4b71ebce2"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "80a761f584aae85b11ebe49a406e8cb90888a1b11ff118888f7b7b3758e1246c",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T13:17:45.924440+00:00",
+    "sha256": "36a27cc90efe331a8b33b24741a8e9236c41798b8c78238533369ae3b5211c49",
+    "note": "Native and actual WebP directly viewed: yellow insulated clip now visibly clamped to bulb left terminal before later removal. Closed switch/ON bulb and exact three-wire loop preserved; natural children and clean style.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

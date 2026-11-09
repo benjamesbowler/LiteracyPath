@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-e-23",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:55:06.624Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-24696bd3-a63f-4541-88b8-058864c04a7f.png",
+  "sourceSha256": "559125e9e58ef3312489b63a1fd5191c4650cce1c125c3e80e68fcf4ec270426",
+  "output": "public/guided-reading/world-discovery/e-23/page-07.webp",
+  "outputSha256": "08afc26271d8cc438d3c5ce1eeeff7a9627159edd6fe024b294f60fdbf52296c",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit exact hand-touch scientific illustration only for safe framing. Uniformly shrink the ball, both complete hands, skin inset and leader to80percent of current size and recenter. Extend creambackground and woodtable appropriately. Topofinset must be at least120pixels belowtopedge; ballbottom must endatleast120pixels abovebottomedge on1536x1024. Keep bothforearms continuingnaturally offRIGHTedge with theiryellowcuffs; intentional forearmcrop allowed but NO finger, ball or insetcropping. Preserve exacttouch, intactskin and BLUEarrows pointingRIGHTfromskininto nerve. Do not change anatomy, addhands/ball/letters or alter diagram.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-b4b8f65c-42e2-4a79-b699-830a4a02f02c.png",
+      "sha256": "af08722271f81bc70bff37077ba3d58cbfc9a755c7422c3c7889715efa05bcc5"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "1b0de6058b2611192f79942f4ecd03b97dc9da569d20816897fdbc11f5ab098a",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.559Z",
+    "sha256": "08afc26271d8cc438d3c5ce1eeeff7a9627159edd6fe024b294f60fdbf52296c",
+    "note": "Actual PNG and installed WebP directly inspected. Actual fingertip contact, intact skin and branching sensory ending; blue arrows point inward toward finger base; closeup and inset safely framed.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

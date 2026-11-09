@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-27",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:31:11.758Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-3bc915f2-2b03-434b-a780-3f84d1aaf108.png",
+  "sourceSha256": "7adfa1a4e44409ccdea302e2c4ab68b0386c14b9833c55121c2f0403d3cf32f9",
+  "output": "public/guided-reading/world-discovery/a-27/cover.webp",
+  "outputSha256": "8721b73b1439ac03f35785d01a38c392794d31c7af2dbf8f389615070f311523",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Modify the popcorn appliance in this illustration: the entire small red rocker switch and its white I-shaped symbol must be replaced by one SOLID BLACK filled rectangle with softly rounded corners. Pure black inside, no highlight, no letter, no stripe, no mark, no inset red button. It is a blank black switch. Preserve exactly all other illustration details and this wide framing. The appliance remains bright red with closed clear lid. Smooth flat children's illustration; no added writing.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-0c872173-f6d5-4637-9f23-d442ab91edcc.png",
+      "sha256": "40c45490eeccb41fbebafe91b6fef14e3ad09fcd016dcc6f97697165e9bba7a3"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "54df5f6be0ca6e59f447c22d2431c43d463a335ffaf26ebbf520c3a8450a76f2",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "8721b73b1439ac03f35785d01a38c392794d31c7af2dbf8f389615070f311523",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T07:31:11.761Z",
+    "note": "Directly inspected final: adult safely stands back with both hands behind, closed red popper beside white bowl of popcorn. Plain black unlabelled switch; hair about20% from top, bowl bottom about16% from bottom, all props complete."
+  }
+}

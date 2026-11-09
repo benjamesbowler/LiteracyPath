@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-c-27",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:27:15.716Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-d5d38403-6440-426c-a94f-2be7cb76e513.png",
+  "sourceSha256": "387d38652f30c61817627e64987186227d2c1925797aff51569a1c72a0353933",
+  "output": "public/guided-reading/world-discovery/c-27/page-01.webp",
+  "outputSha256": "efd633d019a7cc60e5b48845dd6c7afc25e4b229cfad56908ffd85d5c65cc1db",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this finished illustration with a uniform22 percent camera pullback on the same landscape canvas. Extend the same room around it. Preserve all subject proportions, exact action, colors, hands and prop counts. Add generous clear wall above and table/floor below so all essential head/hair, hands and props sit at least12 percent inside every edge. No new text or objects. Crisp clean flat2D. Preserve Zoe holding red pencil with pale wood cone/dark graphite tip just outside the enclosed blue sharpener. Keep only Zoe, same classroom. Do not add feet or a full-body pose; retain intentional seated tabletop composition with more wall above complete puffs and more tabletop below sharpener.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-3c90c234-b8a5-4461-b6ae-e4743588da55.png",
+      "sha256": "06809403f818db96f29e51eb44421d85beddd6e83ba47b50191a64293195b092"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "3a70fa1d14c972360847c319383d83f2ce0d2b4c35e4355bf29e90a292205a2e",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T12:32:10.617347+00:00",
+    "sha256": "efd633d019a7cc60e5b48845dd6c7afc25e4b229cfad56908ffd85d5c65cc1db",
+    "note": "Zoe holds newly sharpened red pencil just outside enclosed blue sharpener; pale wood cone and dark core visible. Complete puffs, hands and housing comfortably inset after pullback.",
+    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  }
+}

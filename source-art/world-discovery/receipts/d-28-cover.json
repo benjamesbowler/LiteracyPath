@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-28",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:35:54.248Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-ba9c9ad3-39d9-4e46-9722-9d55d89666a4.png",
+  "sourceSha256": "448180cc11a26e44d920f0036e27192b2e58acce80afa46ec9277e2eda0e9844",
+  "output": "public/guided-reading/world-discovery/d-28/cover.webp",
+  "outputSha256": "c2cfcff47923d21031cef250adadf6f82ef47f74e86748fa5ff0a8f31de04855",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "One finished unlettered book cover scene in an eastern North American spring oak woodland. Reference for exact Carolina chickadee, caterpillar and rounded-lobed oak-leaf design only; do NOT copy the board layout. ONE Carolina chickadee perches in three-quarter side view facing RIGHT on a horizontal brown oak twig, holding ONE small intact green caterpillar crosswise gently in its short dark beak. Caterpillar about one-sixth bird body length, no blood, tearing, smile or face. Bird black cap and neat black bib, white cheeks, gray back/wings with minimal pale edging, pale cream underside and gray tail. Exactly two feet naturally grip twig, three forward toes and one rear toe per foot. Nearby oak leaves have rounded lobes; ONE leaf has a small locally chewed edge. Background only simple softly colored green tree shapes and a gray-brown trunk. All bird parts and caterpillar safely framed. No nest, chick, arrows or second bird. Clean bold dark-outlined flat 2D nonfiction cartoon matching reference, with simple restrained cel shading. No fine feather/bark texture, grain, painting, photorealism or 3D. Landscape 3:2, 1536x1024. Main animal, beak, tail, feet and focal leaf safely inside central70% with at least140px margins; natural background fills edges. No text, labels, letters, numbers, logos, flags or human props.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-07b4b21e-40d4-483c-a6f7-8f79c66f5668.png",
+      "sha256": "47b60e8fba3781b55632924222de2fc18d97348b577bcabaafdbddf3255a54c5"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "78c2904e582ff26b4d4ca84266e2154c9a1849a22caf6695aebc788bc09c7b58",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.538Z",
+    "sha256": "c2cfcff47923d21031cef250adadf6f82ef47f74e86748fa5ff0a8f31de04855",
+    "note": "Actual native PNG and installed WebP directly inspected: One Carolina chickadee holds one small intact caterpillar beside chewed oak leaf; consistent markings, natural feet, safe primary subjects, no lettering.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

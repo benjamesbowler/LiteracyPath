@@ -16,8 +16,10 @@ The live book modules are the authority:
 - `src/data/meadowPalsScienceBooks.js`
 - `src/data/meadowPalsScienceNarration.js`
 
-The integrated catalogue contains 397 books and 3,501 pages: 43 A, 106 B,
-83 C, 76 D, 35 E, 36 F, 16 G and 2 H.
+The locally registered catalogue contains 447 books and 3,941 pages: 53 A, 116 B,
+93 C, 86 D, 45 E, 36 F, 16 G and 2 H. This includes 217 nonfiction books.
+These local counts do not establish production deployment or completion of
+release verification.
 
 Every book uses one public **App level A–H**, assigned by full-manuscript
 editorial review. The [reading-level authority](READING_LEVELS_AND_TEXT_MEASURES.md)
@@ -56,14 +58,17 @@ decisions are recorded in the [expansion review](foundations-expansion-visual-re
 Release verification is recorded separately; an active local module alone is
 not a deployment claim.
 
-World Discovery contains one hundred original predictable/levelled books,
-twenty each at App levels A–E, across ten recurring topics. Its 880 story pages, one hundred covers,
-exact Leda narration and unscored teacher discussion support are governed by
+World Discovery contains 150 locally registered predictable/levelled books,
+thirty each at App levels A–E. The first 100 retain their original topic profile;
+the fifty books in cohort `21-30` add distinct nonfiction inquiries across ten
+declared strands. Its 1,320 reading pages, 150 covers, exact Leda narration and
+unscored teacher discussion support are governed by
 the [World Discovery content Bible](WORLD_DISCOVERY_CONTENT_BIBLE.md). Full-text
 level reviews remain separate from image inspection and narration evidence.
 The [9 November ESL and image audit handoff](WORLD_DISCOVERY_ESL_AUDIT_HANDOFF.md)
-records open remediation findings across both cohorts; it is not a new
-publication or media approval.
+records the earlier 397-book review and its remediation evidence, including the
+first two World Discovery cohorts. It remains historical evidence, not a new
+publication or media approval for the fifty additions.
 
 **The Case of the Missing Sandwich** is a twelve-page Meadow Pals science
 read-aloud for interest ages 5–7. Its `READ_ALOUD` placement appears as

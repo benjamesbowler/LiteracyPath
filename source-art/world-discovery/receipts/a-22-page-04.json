@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-22",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:14:55.883Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-7cfcba39-8306-4eb0-ad89-c43029287f00.png",
+  "sourceSha256": "b96b175a5dd19f655566b6a0ecac7c5c9ebc099f15e1ccc4a93193b4eeb14e9e",
+  "output": "public/guided-reading/world-discovery/a-22/page-04.webp",
+  "outputSha256": "5676987305f28deedbe98fe8e4c934559a459882d73e6db1f95a803fbce8c875",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Make this same illustration slightly smaller on the same landscape3:2 canvas: scale the complete child, globe and table group to85% of its current size, centered vertically, extending only existing plain cream wall and blue-gray floor around it. Top of black hair around y130 and bottom of shoes around y890 on1024-highcanvas. Preserve all geography, continental colors, globe rotation and tilted axle, hand pose, clothing and table. No new props, no frame, no text, no texture. Small zoom-out only.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-d604edb3-be24-4c8b-93ea-7930f6694762.png",
+      "sha256": "bf0b3a66c98e268974c75494bd5a54ea736861e19ea56183610d5c006b4cd1bb"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "7fb9d0dad2e1f226cbad13b27e944537df495d6a4ae001fea7e1424f5a78d89a",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "5676987305f28deedbe98fe8e4c934559a459882d73e6db1f95a803fbce8c875",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T07:14:55.885Z",
+    "note": "Directly viewed final framing repair: balanced Pacific view; hair~12% top, shoes~13% bottom, large globe with tan Australia and clipped Americas, turning hand retained. No added text, extra globe or map-state change."
+  }
+}

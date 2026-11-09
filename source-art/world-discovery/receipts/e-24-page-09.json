@@ -1,0 +1,35 @@
+{
+  "bookId": "world-discovery-e-24",
+  "slot": "page-09",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T14:30:48.680Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-334265b0-65ec-44a5-b012-f2e61b6f13a1.png",
+  "sourceSha256": "2fb982e165f47dbc0559d03ae0dbb27b0469b64091b8add33f5d7ee4525a1766",
+  "output": "public/guided-reading/world-discovery/e-24/page-09.webp",
+  "outputSha256": "3676882e873b3e9bbd3c932e4a85624b72935534ff318441c96858e356a76f46",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Landscape 1536x1024, completely UNLETTERED early-reader scientific illustration. Crisp dark outlines, flat clean colors with restrained cel shadow. Warm cream background. No photographic texture, painterly treatment or rendered plastic. One uncluttered teaching diagram; all essential parts at least 10% inset. Edit reference preserving exactly the single solid grassy ground block, closed central fault, left warm brown and right gray-brown rock. Preserve the ONE teal outlined small rock patch below the right-hand ground surface and its short teal double-headed horizontal arrow. The patch remains attached at exactly the same location. Replace the orange semicircles with EXACTLY THREE ghosted positions of ONE passing wavefront: three tall thin orange arcs inside rock, progressively further RIGHT, centered horizontally near x800, x950, x1100. Curves bulge right like parentheses, oldest pale orange on left, middle medium, rightmost vivid orange. All three curves stay within the block. One tiny orange right-pointing arrow beneath the curves indicates wave travel, separate from the teal back-and-forth motion arrow at the fixed patch. No duplication of the block or patch, no drifting block, no lava, no holes or cracks. Focus: the wave travels onward while a small patch only moves back and forth locally.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-76b3e410-597e-406d-b3e4-6e266a87c39c.png",
+      "sha256": "9add4058d7bb9fce00eaa960b7e54813c0991eb20d4abc9d0bcc0a857704ab81"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "17528444f6f2269814e9707fa662c0af729daea3afd65b636b1b1d274c6dcea2",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:31:13.936Z",
+    "sha256": "3676882e873b3e9bbd3c932e4a85624b72935534ff318441c96858e356a76f46",
+    "note": "Direct PNG and installed WebP inspection: exactly three increasingly vivid ghosted right-curving wavefront positions progress rightward with one short orange travel arrow. The single teal rock patch remains attached at its prior location with one local double-headed teal motion arrow. One solid block only, intact flat land and no drifting rock; all essential content safely framed.",
+    "reviewer": "/root/gap_taxonomy",
+    "limits": "Individual installed image inspection; independent sequence, reader, cards and audio reviewed separately."
+  }
+}

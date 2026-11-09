@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-c-24",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:32:38.714Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-0c58c9c1-95e7-4a38-b241-162e03127887.png",
+  "sourceSha256": "8aec89ff957d550da78a3ae1d7802f73e24950f2d0ccbe77cd340e348f767d4c",
+  "output": "source-art/world-discovery/c-24-reference.webp",
+  "outputSha256": "493a51ef79ef1bc26db7cfb85d8c8c5f133eaaba45a0058938f3bec3c7c5bd3a",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Create a precise UNLETTERED scientific visual continuity reference board for a children's book about cloud formation. Use referenced lake scene and palette as visual guide, but REMOVE ALL people, ducks, rabbits and any other animals completely. No human or animal belongs in this book. White reference board has four clear views only: (1) blue lake with grassy meadow, distant green hills and ONE small fair-weather white cloud, clear transparent air between lake and cloud, (2) same landscape with ONE sparse blue upward teaching arrow, no visible vapor plume, (3) circular enlarged scale study of exactly six small spherical liquid droplets each enclosing one tiny brown dust nucleus at its center, (4) small separate angular ice-crystal study. Tiny round droplets, never teardrop raindrops. Not a final page. Flat smooth children's illustration with solid colors, crisp clean outlines and no texture, no text, no captions, no lettering. No cast or unrelated objects.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-cfc53a83-5235-4d7a-a8e8-7816c93a8288.png",
+      "sha256": "dbb9722630d58a83ae5df21ceb559d5e34128db31dd1af2966268fa9c945df6f"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "cbfc1a0f277ec5764a733f36e711277c72ce51d08853c5fd50b0372b7684550a",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:33:30.233197+00:00",
+    "sha256": "493a51ef79ef1bc26db7cfb85d8c8c5f133eaaba45a0058938f3bec3c7c5bd3a",
+    "note": "Native and final WebP directly viewed: lake/meadow continuity only, no people or animals; clear ordinary air and one optional teaching arrow, six magnified round liquid drops each with central solid nucleus, separate sixfold angular ice study. Reference board only; diagram scale is explanatory.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

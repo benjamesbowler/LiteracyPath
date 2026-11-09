@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-22",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T06:54:39.572Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-32544905-4c0b-421f-a2e9-a295747a2667.png",
+  "sourceSha256": "9976b906e8c132ffb4fd90d3075aafdb811814777edfa026cb6d5c342f0a8380",
+  "output": "public/guided-reading/world-discovery/d-22/page-02.webp",
+  "outputSha256": "c1f9c002f0cda87753aac714b476ee7ca81f13452fe8231c2c8d15b6e16f754f",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "One tiny map-color correction only. In the map, the thin RED SEA between northeast Africa and the Arabian Peninsula is incorrectly white. Recolor that existing narrow water shape blue, exactly matching the map's blue ocean. Preserve its geographic geometry, and keep the orange African land west of it and coral Asian land east of it unchanged. Do not change any other coastline, color, label, child, furniture, framing, expression or object. No new text or symbols.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-e9353160-74b6-4471-b8da-df1bf8609118.png",
+      "sha256": "ae0f7447ce0c0fb0ee06d89beb178f933482658f84d4151e51cb6e7c45e5350d"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "fb0bd240fdf5f14fbd4f0ae2e2b112472e599d3754b28e979aad8f5f59410003",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.501Z",
+    "sha256": "c1f9c002f0cda87753aac714b476ee7ca81f13452fe8231c2c8d15b6e16f754f",
+    "note": "Direct inspection: two children and full seven-color/label map safely framed; narrow Red Sea now correctly blue, Madagascar orange, all main coasts stable.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-21",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:29:55.598Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-9f828871-f314-4a2d-a865-73781de8e551.png",
+  "sourceSha256": "abe042986fea84acb609ba42c6eaf76d1078a3afd3fa973e8e28896e81b7b95f",
+  "output": "public/guided-reading/world-discovery/e-21/page-05.webp",
+  "outputSha256": "b2b76ffb7a01e20951dc1012bbd489a0d907ece38848ca957beb0df073ccaec3",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Create one simple finished 3:2 landscape time-comparison diagram for a children's nonfiction book. Flat 2D bold clean outlines, solid fills, white background. EXACTLY THREE touching rectangular horizontal time blocks form ONE bar, centered in the middle of canvas. First block width 2 units green, second block width 2 units orange, third block width 3 units pale blue. Within first green block: two small walking-person pictograms side by side to mean the walking at both ends, with ONE large black number 10 below both icons. Within second orange block: ONE simple clock pictogram (no digits on clock) with ONE large number 10 below. Within third pale-blue block: ONE yellow bus matching reference with ONE large number 15 below it. Under the whole three-block bar draw one continuous black bracket spanning all three segments, with the large total number 35 centered below the bracket. Only printed numerals: 10, 10, 15, 35, each exactly once. No plus or equals symbols, title, words, units, labels, extra numbers, map, people outside the pictograms, or reference board. All bar, pictograms, numbers and bracket within central 72 percent of image width and central 60 percent height with generous white margins; never touch image edges.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-f19cf581-712d-4140-8a59-22d724c3c433.png",
+      "sha256": "36c01933e6404087d4ae36493a91a089b9728237a85f267e6070eab50f9a75c7"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "9421bb4bb1f97c822674b76871fc5ee9b7b4398f02e9bdb626223b2a8cf9283e",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T11:31:58.778621+00:00",
+    "sha256": "b2b76ffb7a01e20951dc1012bbd489a0d907ece38848ca957beb0df073ccaec3",
+    "note": "Exactly three proportional10/10/15 blocks with paired walking pictograms, waiting clock and bus; bracket total35. All numerals crisp, boundaries safely inset.",
+    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  }
+}

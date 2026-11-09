@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-25",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:47:21.119Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-1fb6bdc2-0717-4c13-8ee2-caae4699b076.png",
+  "sourceSha256": "a8d1e99a93a933de37ba31289cf8195d592ab1e8147c0773b8a73a0f1e7de823",
+  "output": "public/guided-reading/world-discovery/e-25/page-06.webp",
+  "outputSha256": "62d2a88c57f2cd1c9e231ba03eac69fd045964a06f6955718901fd08ed1f96e8",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Create one polished LiteracyPath nonfiction book page in the same crisp black-outlined flat 2D children's educational style as the supplied reference, with smooth solid colors and simple cel shadows. No grain, text, labels, outer border or logos. Keep every essential wing, airplane and arrow within the central 76 percent of the canvas (12 percent margins). Use the same horizontal white wing section, rounded LEADING edge left and pointed TRAILING edge right, on pale blue. Retain the eight SMALL BLUE inward pressure arrows: four unequal arrows above aimed mostly down perpendicular to local top surface, four unequal arrows below aimed mostly up perpendicular to bottom. Lower pressure arrows collectively longer than upper. Scale the small pressure arrows to about half their current size so they read as local pushes. Add exactly ONE large GREEN upward resultant-force arrow from the middle of the solid wing, higher than the small arrows. This is a single combined net lift, not two lift arrows. Keep every blue tip in contact with the surface pointing IN. No streamlines or comparison boxes.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-4b948dee-a686-468d-985c-27e29b5d0e1f.png",
+      "sha256": "5f958721ecd2c0decc505b4489eb62966fde9c58a1be8d83589d8dd03922e900"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "6fa387a94832069dfd8f41a5c0089a80fb10f81c60c90df001e050c556eb4819",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T13:58:43.728403+00:00",
+    "sha256": "62d2a88c57f2cd1c9e231ba03eac69fd045964a06f6955718901fd08ed1f96e8",
+    "note": "Small variable inward pressure arrows above/below, greater combined upward pushes, exactly one larger green upward resultant; all arrow tips intact and within safe frame.",
+    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  }
+}

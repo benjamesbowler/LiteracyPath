@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-24",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:28:09.535Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-28f5ccc2-23f8-4005-a015-7aa69d4c6028.png",
+  "sourceSha256": "1dfe524c6576fd9befe7a5d50629e2b226aadfc95d7100701c2b1e8e6c08bf5a",
+  "output": "public/guided-reading/world-discovery/a-24/page-02.webp",
+  "outputSha256": "e2462ab594d20b4526ddab73085c2d10a1c7f6571d2a790301cd0fa3f84a9323",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit ONLY camera framing: pull ENTIRE scene back uniformly35%, extending same room and pale tabletop around it. Kit's hair top at least15%belowtop, complete dish bottom at least15%abovebottom. Preserve exact head/body proportions, seated looking-down pose, both hands on tabletop, room/window/furniture relationships. Preserve single sharp angular icecube, with NO melt puddle yet, only its subtle gray contact shadow. Same shallow white dish with teal rim, unchanged cube-to-dish scale. Do not separately scale child or dish; extend foreground table naturally. Smooth flat clean colors, no texture or text. Landscape3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-ea7702fd-3dff-4173-8ed5-a3d5a1e3061d.png",
+      "sha256": "4ee0a331dc86af695ae48d39a63aabb0371b5c361fea77d378e649af872ded45"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "9c77e1f07a52338299286dd5ca1c02bdc85189d203f83376727f78ec56a237f5",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "e2462ab594d20b4526ddab73085c2d10a1c7f6571d2a790301cd0fa3f84a9323",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:28:09.535Z",
+    "note": "Directly inspected native framing repair: complete scene uniformly widened, Kit hair~20%fromtop and complete dish at least17%abovebottom; body proportions, two resting hands and shallow teal-rim dish preserved. Single angular cube remains solid with gray contact shadow and no melt puddle."
+  }
+}

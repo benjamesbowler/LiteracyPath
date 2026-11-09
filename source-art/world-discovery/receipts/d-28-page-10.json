@@ -1,0 +1,40 @@
+{
+  "bookId": "world-discovery-d-28",
+  "slot": "page-10",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:48:08.030Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-e23b9429-c347-428c-9a5c-b757c737e19b.png",
+  "sourceSha256": "8c2ba638badc442a1b9bc1d31eeca6e2d44c55864748add62f61c816b41150cd",
+  "output": "public/guided-reading/world-discovery/d-28/page-10.webp",
+  "outputSha256": "6e841eb0e86e72a06b490fd0632519128c3df8d3a86376252a576c0fcc9a8436",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. Finished1536x1024 landscape final page in same clean bold-outlined flat oak woodland style. One coherent wide moment: LEFT foreground a new rounded-lobed oak leaf with small chewed edge, a SECOND green brown-headed caterpillar clinging underneath and taking a bite, tiny natural legs grasp upward toward leaf. RIGHT middle distance the same Carolina chickadee searches a DIFFERENT branch farther away, faces RIGHT away from caterpillar, empty short beak. Keep clear physical space separating bird from feeding larva; no guaranteed capture, eye-line toward prey or action arrow. Use image1 exact bird species marks black cap/neatbib/whitecheek/graywings/creambelly; image2 for natural larva and leaf only. Bird two feet grasp its branch, eyes small natural. Main leaf/caterpillar and entire bird/tail in central75% with at least140px margins. Background simple flat green trees, no cavity/chicks/spider, no duplicate birds, no text, labels, texture or realism.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-2b1901e2-8980-41ad-8303-c726a7b7ed0f.png",
+      "sha256": "0007645e56f0c5e47759b92489630e3c278ba26d4a4276307385845b0ffb40e1"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-6cfb5b26-2dd4-497b-b93e-07f60e08212a.png",
+      "sha256": "078515b9318bf93f91ed5538ccdc426b9ab1b5a8890dfd9c35268c19248d0899"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "78c2904e582ff26b4d4ca84266e2154c9a1849a22caf6695aebc788bc09c7b58",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.544Z",
+    "sha256": "6e841eb0e86e72a06b490fd0632519128c3df8d3a86376252a576c0fcc9a8436",
+    "note": "Native PNG and installed WebP directly inspected: Second larva feeds on foreground leaf; separate bird faces away on farther branch.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-b-22",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T05:59:10.683Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-34b32df8-cf4e-4e09-90b5-872d5d27582d.png",
+  "sourceSha256": "9813f98673252eff45722c8f47a5b371b95f3cdfcce07195335a9deb491f4f4e",
+  "output": "public/guided-reading/world-discovery/b-22/page-06.webp",
+  "outputSha256": "efff5dd12baa1d75ccc586483f19c048faa832efd407433b2add410e81249ad5",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit image one only: move the exact words Arctic Ocean DOWN so their top edge is 100 pixels below the top of this 1024px-high canvas. Reduce lettering size slightly if needed so it fits above the orange arrowhead without touching it. Preserve EVERY coastline, island, ocean fill, orange line and arrow exactly. No other changes.\n\nUse case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one integrated explanatory diagram. Allow only the cutaways, insets, schematic elements or arrows explicitly authored in this page's illustration brief; keep them spatially connected to the subject they explain. No unrequested panels, insets, annotations or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, watermarks or page borders. The ONLY permitted written content is the exact authored embeddedImageText: \"Arctic Ocean\". Preserve its spelling and case; place it only as the illustration brief specifies. No additional text, letters, numbers, captions, pseudo-writing, legends or written title. Printed prose below is context only, never extra lettering. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nBook: One Ocean Around Earth; World Discovery; nonfiction.\nSetting: A classroom globe investigation with Kit and Zoe. Geographically accurate continent outlines on a plain globe and close map views; ocean regions stay the same blue. Route is a thin orange teaching overlay, never a real painted line on Earth.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Accurate blue-and-green Earth globe; Thin orange route overlay kept entirely in seawater; Plain gray globe stand\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and specific stages explicitly required below; the declared diagram permits no other scenes or story events.\nPage 6. Printed prose (NOT text to put in art): A narrow sea gap leads north.\nIt joins the Arctic Ocean.\nRequired illustration: Accurate northern Pacific/Bering Strait/Arctic close map with unobstructed narrow water passage between Alaska and northeast Asia.\nExact current state: Route through Bering Strait; mainland shapes and islands accurate.\nDo not add events or stages beyond the authored diagram. Repeat a subject only when the authored comparison or cutaway requires it. No written title; the app renders live text.\nFinish: smooth flat clean vectorlike color. No grain, stipple, texture or paint.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-e9e3eb03-6cbe-435b-ae03-e06749d24bc5.png",
+      "sha256": "de13e7d05a9c83cbb94225d71fa55628f8f698c46007f5f57e287ffe77bb9a8e"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "20ecca19d99fe9f835680d66d0bb8b60c48e7bfbd2c48e9ed200c12d2524db14",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T06:00:35.538Z",
+    "sha256": "efff5dd12baa1d75ccc586483f19c048faa832efd407433b2add410e81249ad5",
+    "note": "Directly viewed native PNG and installed WebP. Accurate close map preserves northeast Asia left, Alaska right, small islands in the Bering Strait, and a northward route in water west of the Diomedes. Correct Arctic Ocean label placed inside the safe area.",
+    "limits": "Direct image inspection only; independent sequence and app review follow separately."
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-b-26",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:16:25.783Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-ea6c9538-23cd-478f-a626-16d1ca96f9c1.png",
+  "sourceSha256": "9447f7f7cffb802679c5e749d76eb961949d456ee2677f329d7bbeed73a9d81d",
+  "output": "public/guided-reading/world-discovery/b-26/page-02.webp",
+  "outputSha256": "223a4b3eb84c58530ab1e86e6ad6c0a77777ee691e011810ce7884dc45d639e1",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "One finished landscape 3:2 children's nonfiction illustration, clean bold 2D cartoon, smooth flat vector-like fills, crisp dark outlines, no grain or texture. Use references for exact Zoe, gray compact camera and red/blue block designs. A single coherent OVER-ZOE'S-SHOULDER view: foreground Zoe seen from behind at right with both hands securely holding camera, its REAR LCD clearly facing Zoe and the reader, front lens on the opposite side pointing toward the real stack farther away on the white table. Exactly ONE red cube centered ON TOP of exactly ONE blue rectangular block (blue width twice cube), both visible beyond the camera. LCD shows a LIVE preview of the SAME stacked red-on-blue blocks with the same orientation and no extra objects. No playback triangle yet; no letters, numbers or menus. Gray camera has two circular buttons to right of screen. Do not show a lens on the back. Background only bright classroom window/wall; no inset or floating camera, no extra blocks, no duplicated Zoe. The real stack and whole camera are at least 9% inside all edges and do not overlap each other. Back of Zoe's shoulder/torso may naturally continue out lower-right as foreground framing, hands complete and safe.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/b-26/cover.webp",
+      "sha256": "f0446ba766caeef8f55ceaba7b860c191808c3c0ee4723889ac2bae6fea85a47"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/b-26-reference.webp",
+      "sha256": "6d3491be148c3447edd2a8ee38ae24ced75addc63886daeb1c214546fb9458df"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "92cd13a2772ca31a9f3db39eee27ddd9fb03eec7e4ce66785453ca94f8823761",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T07:16:47.660962+00:00",
+    "sha256": "223a4b3eb84c58530ab1e86e6ad6c0a77777ee691e011810ce7884dc45d639e1",
+    "note": "Directly viewed native PNG and installed WebP. Coherent over-shoulder view with rear screen facing Zoe, matching red cube on twice-width blue block in actual scene and live preview; two rear buttons, no playback icon or extra blocks, clear safe camera and block margins.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

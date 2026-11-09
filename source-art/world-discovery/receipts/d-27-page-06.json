@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-27",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:48:07.560Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-052a1a7c-293e-41c2-87fb-0ac6b70ea318.png",
+  "sourceSha256": "d111c32a0afba078b06dd48f9213309d6a0b957da8700ede679f80de7bddf286",
+  "output": "public/guided-reading/world-discovery/d-27/page-06.webp",
+  "outputSha256": "96e51b857b36e81e79ff7147987e8219758811f7ee5144e03fa6c38ec17991f5",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Preserve this exact 1536x1024 cream-background rice dehusking diagram, all colors, contours, three intact gold husked input grains, gray enclosed mill, six hollow gold husk halves upper right, three brown output grains lower right, and all orange flow arrows exactly. Uniformly shrink the COMPLETE diagram composition to80% of current size and recenter it on same cream canvas, extending plain cream background around. All diagram elements including leftmost input grain and far-right husk edge must be at least170px from each image edge. No changes to counts, anatomy, layers or arrow directions. No added text, shading texture, objects or border. Bold dark outline flat 2D remains unchanged.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-832bf97e-9577-4c6e-ab76-4483d35c995d.png",
+      "sha256": "67fbbaf1e998ef573ca93a1901eb134863a9e0faa8c05bd5b65c2cf81939a53b"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "d7159e37a1a2ef16cf6332c998d1e18c7c5e1c835d8925d2049fd3bf922c1538",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.535Z",
+    "sha256": "96e51b857b36e81e79ff7147987e8219758811f7ee5144e03fa6c38ec17991f5",
+    "note": "Native PNG and installed WebP directly inspected: Independent-review repair: diagram shrunk to80%; input3, brownoutput3, hollowhusks6 and arrows preserved, safe margins.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-22",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T06:42:39.166Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-df8397aa-ed16-4523-93b6-5906cc3150cd.png",
+  "sourceSha256": "d550feba73d1652be8d7d2ced08bcf95e141fd4d2d5a3b0af5eead01e15a859a",
+  "output": "public/guided-reading/world-discovery/d-22/page-07.webp",
+  "outputSha256": "ce98cf91e1c11239cff4e0b2e0180d09801cdc265c504722844429bd1ae424fe",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Make ONLY this typography position correction: move the label Asia left by approximately 140 pixels, so its rightmost letter is at least 10 percent of the image width away from the right canvas edge. Keep the whole word entirely within the existing coral-red western Asian land area, around the same vertical level. Preserve exact spelling, black font style and comparable readable size. Do not alter any coastline, island, land color, sea, Europe/Africa label or other element. No extra text or objects. One precise edit to the label's location only.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-5241c3f9-9370-491c-9141-9b48d446d2c2.png",
+      "sha256": "c4a9c48d8f64553b82432d5c4d16a4cae0092ef0960cb953386a5950a14e1f4b"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "fb0bd240fdf5f14fbd4f0ae2e2b112472e599d3754b28e979aad8f5f59410003",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.504Z",
+    "sha256": "ce98cf91e1c11239cff4e0b2e0180d09801cdc265c504722844429bd1ae424fe",
+    "note": "Direct inspection: correct Mediterranean-facing coasts and Gibraltar, Italy, Greece, Black Sea, northern Africa, Red Sea; exact Europe/Africa/Asia labels safely inside edges, Asia moved inward; no extra objects or words.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

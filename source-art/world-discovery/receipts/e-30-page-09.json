@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-30",
+  "slot": "page-09",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:41:13.376Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-e3784f0e-dbd2-417e-8a46-d8c6db332390.png",
+  "sourceSha256": "b4806461925ad4af0fc46e72f0eb86309e5a07dc59254467c68ba6a410ac7afc",
+  "output": "public/guided-reading/world-discovery/e-30/page-09.webp",
+  "outputSha256": "ba893fee2ca180e09e8f2c5d8e04b1aa4813c782e9da1a1bddf9909043a75dad",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Keep this exact two-state coral comparison intact, but pull the camera back: uniformly reduce BOTH whole colonies, rocks, polyp circles, links and arrow as one complete composition to 80% of their current size centered in the canvas. Extend the simple aqua water background around it. Both coral colonies and every teaching element must now be entirely inside the central 76% of width and central 76% of height, giving 12% clear margins on all sides. Keep exact biological states and color, four algae on the left versus many on the partly tan right, and all anatomy. No new labels, text, numbers, border, frame or props. Flat 2D clean bold outlines, same landscape dimensions.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-4e2c1781-1179-479f-80cf-cdf485c16cdf.png",
+      "sha256": "22536d277df7780e651f604c210bff7fb0b3a3da2f00052c0d0b0e182e9a07d0"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "eead7bd4e8d787dff3440b9ff337f914a50daa5a1c9dfe20a0688cac4e6a5f42",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T10:41:35.868569+00:00",
+    "sha256": "ba893fee2ca180e09e8f2c5d8e04b1aa4813c782e9da1a1bddf9909043a75dad",
+    "note": "Directly inspected installed WebP: Two states show one pale colony and one partial recovery example, with residual pale patch and increased algae in living tissue; no timeline. Comparison objects comfortably framed, contextual waves are a floating diagram backdrop.",
+    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  }
+}

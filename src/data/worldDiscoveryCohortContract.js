@@ -1,3 +1,5 @@
+import { worldDiscoveryTopicProfile } from "./worldDiscoveryTopicProfiles.js";
+
 export const WORLD_DISCOVERY_LEVELS = Object.freeze(["A", "B", "C", "D", "E"]);
 export const stableWorldDiscoveryJson = value => JSON.stringify(value, (key, row) => row && typeof row === "object" && !Array.isArray(row)
   ? Object.fromEntries(Object.entries(row).sort(([a], [b]) => a < b ? -1 : a > b ? 1 : 0)) : row);
@@ -27,6 +29,7 @@ export function validateWorldDiscoveryCohortManifest(manifest) {
   let sawInactive = false;
   const paths = new Set();
   for (const [index, cohort] of manifest.cohorts.entries()) {
+    try { worldDiscoveryTopicProfile(cohort); } catch (error) { failures.push(`${cohort.id}: ${error.message}`); }
     const first = index * 10 + 1, last = first + 9;
     if (cohort.index !== index || cohort.firstNumber !== first || cohort.lastNumber !== last
       || cohort.id !== `${String(first).padStart(2, "0")}-${last}` || cohort.expectedBooks !== 50

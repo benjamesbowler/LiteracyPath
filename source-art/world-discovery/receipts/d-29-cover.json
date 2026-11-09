@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-29",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:52:53.259Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-256dc2ca-f94f-449b-aacc-7ece3e241248.png",
+  "sourceSha256": "959b9c3442c896a21636010cc28cc86fd0158bddb193807e9986c4f3472efd9c",
+  "output": "public/guided-reading/world-discovery/d-29/cover.webp",
+  "outputSha256": "77338a0f9df0e170de65b0cc35d39be7315495fac9ef8ef9c96f8e30577ac6f0",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished unlettered book cover scene in a plain classroom pretend shop, not a reference board. Kit, same golden light-medium skin, short black side-part hair, teal T-shirt, MUSTARD shorts, navy/white shoes, stands behind a low light-wood table. Exactly TWO pale-green rectangular play notes lie separately on table, BOTH PLAIN UNPRINTED BACKS up. Kit points with natural right index finger near one note while left hand rests on table. One clear empty wide-neck glass jar stands center; one smooth orange ball rests to right. No Zoe needed. Simple pale cream wall, low unlabelled shelf behind. All notes and every other object must contain absolutely NO letters/numbers/symbols; no prices or signs. Landscape1536x1024, bold continuous dark outlines, flat clean 2D color, small restrained cel shadows. No texture, realism, painting, branding. All essential hands/props/feet inside central75% with at least140px margins; ordinary room background fills edges.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-4e1310f4-80aa-434b-83fa-9269d75eeb84.png",
+      "sha256": "a652d64208463461606cb3c97489d238cd6b2d4c5b287f9dd8378df240cff345"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "13c2a4841f0bfa3c412602a383f905ed05acc5de2a917f6491164caa74117013",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.544Z",
+    "sha256": "77338a0f9df0e170de65b0cc35d39be7315495fac9ef8ef9c96f8e30577ac6f0",
+    "note": "Actual PNG and installed WebP directly inspected: Plain backs on exactly2notes, empty jar, orangeball, correct Kit and natural pointing hand; safe focal framing, no lettering.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

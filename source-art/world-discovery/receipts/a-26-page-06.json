@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-26",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:58:32.370Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-f6ed1551-0f3f-496e-96b1-8568e19782b0.png",
+  "sourceSha256": "9511ecd973c1d0b616067dee29d987ffe68568d68217b3df247eb032aadda6b1",
+  "output": "public/guided-reading/world-discovery/a-26/page-06.webp",
+  "outputSha256": "e60b24c841263e2d73a67a1504502775f3aa45dba42d701b48a60357f1bae4d5",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Edit the exact supplied flat children's book illustration. Pull the ENTIRE composition back by 25 percent; keep each person, furniture and architecture at the same relative scale to each other. Extend existing room/porch naturally. All essential content at least 12 percent from every image edge, shoes at least 18 percent above bottom. Landscape 1536x1024, smooth flat fills and clean bold outlines, no grain or texture. Interior view. Preserve Zoe looking LEFT toward the still closed teal door with adult beside her. LEFT handle and LEFT narrow glass, white speaker fixed RIGHT above shoe shelf. Remove the two yellow sound arcs; this is a natural scene after hearing the bell. Preserve the faces and gazes. No extra people, items, lettering or symbols.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-3c7eb67d-76fd-422c-a4bb-695dab718e19.png",
+      "sha256": "5dfd450d2aea824cae76c4d5bd0cbede3021db6644b1045acad10272a34b0afd"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "de8c9a9188fb06c5b2fcfe6cb817e2a178c34835d5f8b5bd10d4255d93ec1d12",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "e60b24c841263e2d73a67a1504502775f3aa45dba42d701b48a60357f1bae4d5",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:58:32.371Z",
+    "note": "Direct native inspection: complete scene inset about 20%; Zoe looks toward closed door, adult beside her, fixed speaker above right shelf. Removed sound arcs for natural scene; no Kit through wall. Grounded feet and anatomy retained."
+  }
+}

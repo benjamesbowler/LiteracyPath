@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-29",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:59:45.866Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-2c7c7c70-8f9b-4296-ba84-791541bd8d73.png",
+  "sourceSha256": "6c026710186748c3696b23b0a016fc59b079df53572dcbe4d25be8ce594645a2",
+  "output": "public/guided-reading/world-discovery/d-29/page-06.webp",
+  "outputSha256": "cc1a0b881073cfd6fb336cf9710a79f295ab378a5926ea66f4a9d63510fc2043",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. New page in same plain classroom pretend shop. Kit, exact tealshirt/MUSTARDshorts/navyshoes, stands behind low wooden counter, looks calmly toward one small RED toy car farther right. He is considering, no purchase. Exactly FOUR identical pale-green play notes, each with ONE centered dark1, stay together in a neat row on counter directly in front of him. All four individually visible; his hands rest near them without taking or giving notes. Same EMPTY clear jar at left, one orange ball near back-left of counter, red toy car far-right separated from money. No Zoe, seller, exchanged money, sad/moralizing expression, coins or price tags. Entire child and counter scaled to70% ofcanvas width with at least160px floor beneath feet and140px abovehead, wide framing. Same1536x1024 clean flat bold-outlined2D art, palecreamwall lilacfloor. Only text four1s.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-15198c62-0475-4945-a894-12db13b64605.png",
+      "sha256": "2cecfb8f6f1a74bbbf5aae53403a76b7e886833bde7b6f64c471487c89ff1fc3"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "13c2a4841f0bfa3c412602a383f905ed05acc5de2a917f6491164caa74117013",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.547Z",
+    "sha256": "cc1a0b881073cfd6fb336cf9710a79f295ab378a5926ea66f4a9d63510fc2043",
+    "note": "Native and final WebP directly inspected: Exactly4notes retained with Kit; looks toward redtoycar, no purchase, emptyjar/singleball, safe framing.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

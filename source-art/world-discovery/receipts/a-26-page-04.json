@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-26",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:55:23.518Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-af0e1895-7bb7-47ce-8513-480a2b8117cd.png",
+  "sourceSha256": "06f4299c650734966b44ae3aacbd2f8d92e94b0fe00635466a71993b0ee62d2f",
+  "output": "public/guided-reading/world-discovery/a-26/page-04.webp",
+  "outputSha256": "2f33c83e51c9adadca7385675c9e5ca4880cab2755337222464cb9e4d4ddb1e1",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Edit this exact flat cartoon children's science-book illustration. Pull the ENTIRE scene back uniformly by 25 percent, expanding the existing environment naturally around it. All people, the door/button/speaker and every existing diagram arrow must reduce together; do not change individual proportions or placements. Essential content must have at least 12 percent clear inset from every canvas edge; feet at least 15 percent above bottom. Keep landscape 1536x1024. Preserve the exact action and mechanical arrangement: Integrated cutaway: Kit outside LEFT touches wall button, Zoe and adult inside RIGHT look toward speaker. Same red dashed explanatory arrow crosses cut wall from button toward speaker. Same shelf and floor. Preserve all anatomy, poses and relative geometry. Crisp smooth flat color, solid clean outlines, no texture/grain, no labels/text. No extra people, props, arrows or actions. Extend grounds under all feet with natural contact shadows.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-8489c7a7-8599-46b8-9fcd-8998faab9c9f.png",
+      "sha256": "be897be0c185b4bf8895a47dcde7bd4a982d628712dd00a842d99ed1b80d6ced"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "de8c9a9188fb06c5b2fcfe6cb817e2a178c34835d5f8b5bd10d4255d93ec1d12",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "2f33c83e51c9adadca7385675c9e5ca4880cab2755337222464cb9e4d4ddb1e1",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:55:23.519Z",
+    "note": "Direct native inspection: complete integrated wall cutaway pulled back; Kit touches outside button, dashed red cause arrow reaches indoor speaker, Zoe and adult retained inside. All figures shoes about 22% above bottom, hair and sides widely inset."
+  }
+}

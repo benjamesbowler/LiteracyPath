@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-b-30",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:24:41.301Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-6c36159f-a123-4663-9003-3512548307be.png",
+  "sourceSha256": "bab7e371183214b58dabb33bb0bfdf2d620e9f2e31bb80074cc62eea5d558b89",
+  "output": "public/guided-reading/world-discovery/b-30/page-05.webp",
+  "outputSha256": "e26abc7fc5a1ac79b6d34329903fd628d887bcebcc402a0a4b5f07910c974916",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Closer illustrative view of Saturn ring pieces emphasizing OPEN DARK GAPS. Only seven irregular pale icy angular chunks, varied shapes/sizes, clearly separated by broad dark navy spaces through which background is visible. Main central dark gap is easy to trace between neighboring chunks. Same clean white/pale-blue facets as reference ice, no particles touching. No glue, chains, rails, ring sheet, planet, circular border, connectors, stars or spacecraft. Chunks fully within central70% with outer empty space. LANDSCAPE 3:2 1536x1024. Clean flat colors and crisp shapes, no grain, paper texture or painted shading. No text, numerals, labels or arrows. Keep all essential objects inside central75%, with 150px side and 120px top/bottom margins.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/b-30/cover.webp",
+      "sha256": "04cb6fe50fba55a15b6521e582c39623ba9f5a4f75197beddbc0664e6809bf56"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "f280a32df1585bc29fde637e24c87b820bf93699a99cac7d7239db824c8b14f3",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T10:25:18.183831+00:00",
+    "sha256": "e26abc7fc5a1ac79b6d34329903fd628d887bcebcc402a0a4b5f07910c974916",
+    "note": "Directly viewed native PNG and installed WebP: seven separate irregular ice pieces with broad traceable dark gaps, no rails/chains/glue, safe framing.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

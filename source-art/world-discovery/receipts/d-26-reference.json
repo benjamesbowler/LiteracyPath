@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-26",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:29:12.173Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-cf0a6fe7-5232-47d7-a6de-c48ef748f4fa.png",
+  "sourceSha256": "831ee587267b4920733ea9b7505257fa1828e0df59a2a0a7ea3bc34a01858e63",
+  "output": "source-art/world-discovery/d-26-reference.webp",
+  "outputSha256": "f95247fbe33811a2f02a5a3772ecade1648f902777e23d34730ad02181aaa498",
+  "width": 1754,
+  "height": 897,
+  "prompt": "Repair the robot's TOUCH-SENSOR MECHANISM consistently in every view of this reference board. REMOVE the red pushbutton from TOP of the blue chassis in all THREE robot depictions; the top must have only gray controller box, never a red top button. Instead put one small gray sensor module on FRONT vertical blue face, centered directly BEHIND red bumper bar, with a short horizontal white plunger pointing FORWARD toward the bumper. Bumper pressing BACKWARD must physically press that plunger; it must not require an upward press. Controller wire goes to this front sensor, never to a button on top. Keep gray controller, bluechassis, two side drivewheels and rear caster unchanged. The TWO bumper springs are arranged LEFT and RIGHT across the bumper width; in SIDE views show ONLY ONE spring because the second is hidden behind it, not two springs stacked vertically. Front threequarter view can show both spaced across width. Preserve one red bumperbar, extendedinitialstate, and robotlocationapproachingoneblock withclear gap. Preserve castandboardlayout, no letters/arrows/newobjects.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-30e893fa-8fc3-4a71-b80a-bbdddeed2748.png",
+      "sha256": "f24fe819b9c3a3064718339dad444e845bea354f44c3a22e9109aa20921f5878"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "975d5f5420efb1308d6c48d6cf7633e175e59f4e879e625913e4b4acfddfb28a",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.532Z",
+    "sha256": "f95247fbe33811a2f02a5a3772ecade1648f902777e23d34730ad02181aaa498",
+    "note": "Reference inspected: one front-mounted horizontal plunger directly behind red bumper, wire to top controller; no top red button, two side drive wheels/rear caster, side-view spring occlusion, correct initial extended bumper and one block.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-21",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:24:52.074Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-bdd496df-3570-4cb4-9fb2-9f836c8cfd8d.png",
+  "sourceSha256": "3eaaec3997d322c51437c58c9fb125b3536dde96156c5cde6c0119acfb1e240b",
+  "output": "public/guided-reading/world-discovery/e-21/page-02.webp",
+  "outputSha256": "f97a308d2ad7abd5022682b94b1ba0d9239e7b5ac7ba098e78d0d9a91e41abf7",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Make one finished 3:2 landscape children's nonfiction illustration in the exact flat 2D clean bold-outline style of the attached reference. Solid cheerful colors, no texture, gradients, 3D, collage, decorative frame or printed narration. Preserve exact Kit (teal shirt/yellow shorts), Zoe (yellow shirt/purple overalls/two hair puffs), adult (teal polo/navy trousers), yellow bus and white-blue enclosed ferry designs wherever shown. All essential subjects and diagram boundaries must sit at least 12 percent inside ALL four image edges; backgrounds may extend. Make a single crisp overhead map diagram, enlarged from ONLY the map at right in the reference. Do not include reference-board people or large vehicle samples. Exact geometry: turquoise vertical river; orange start dot lower-left west bank; cream museum/red roof/ONE circular blue window lower-right east bank; gray road connects start north up west bank across FARTHER UPPER gray road bridge and back down east bank to museum. SEPARATE tan footpath goes from start up across LOWER BROWN FOOTBRIDGE and down to museum. Below footbridge are two opposite ferry quays, each linked by short tan footpath to start or museum. Show a continuous chain of large clear purple dots ONLY along the pedestrian footpath from orange start dot UP WEST BANK, ACROSS BROWN FOOTBRIDGE, and DOWN EAST BANK to museum. Never cross unbridged water. Road is not highlighted. Put one walking person icon with the exact numeral 25 together in a small clear white badge inside the lower-left map area, without hiding route or start. Only visible text is 25. No compass letters, flags, other numbers, extra text or legend. Keep whole map and badge at least 12 percent inside canvas edges on white background. Route orientation and bridge ordering exactly match the reference.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-f19cf581-712d-4140-8a59-22d724c3c433.png",
+      "sha256": "36c01933e6404087d4ae36493a91a089b9728237a85f267e6070eab50f9a75c7"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "9421bb4bb1f97c822674b76871fc5ee9b7b4398f02e9bdb626223b2a8cf9283e",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T11:31:58.778000+00:00",
+    "sha256": "f97a308d2ad7abd5022682b94b1ba0d9239e7b5ac7ba098e78d0d9a91e41abf7",
+    "note": "Continuous purple walking route remains on tan path and lower brown footbridge; 25 walking badge clear. Road and ferry access paths separate; full map safely inset.",
+    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  }
+}

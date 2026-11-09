@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-27",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:42:26.593Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-bc99924d-ab22-42f4-904b-c7a633f67161.png",
+  "sourceSha256": "5c6bb292a1cf1419c4430cc147452f45df6a7b241deea57ee44050b05c7959b3",
+  "output": "public/guided-reading/world-discovery/a-27/page-05.webp",
+  "outputSha256": "83f732340a2be886c0cdc924cca0a7009c65c2bad4c0cbfdbe6586fc04716545",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Make this exact single split kernel 80% of its current size centered within the same landscape3:2 canvas. Extend the same plain warm cream background. Top of seed should be near y160, bottom near y860 on1024-highcanvas. Preserve its golden hard hull, brown pointed base, single small split and small cream nub exactly. No additional object, scene or inset. Smooth flat clean diagram, no writing. A slight zoom-out only.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-dc8b4696-09e4-4625-b3d3-e7f0ce92d5f7.png",
+      "sha256": "4351b59d6cef508b6c03d42020e0ac2164bc8c496ce912c14b58e9352bafd759"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "54df5f6be0ca6e59f447c22d2431c43d463a335ffaf26ebbf520c3a8450a76f2",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "83f732340a2be886c0cdc924cca0a7009c65c2bad4c0cbfdbe6586fc04716545",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T07:42:26.594Z",
+    "note": "Directly inspected: one early split in otherwise intact golden hull, small cream nub only, identifying brown base attached. No person/appliance/inset; seed entirely about15% inside top/bottom against clean cream."
+  }
+}

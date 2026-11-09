@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-25",
+  "slot": "page-09",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:47:21.264Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-060fdee9-ad8f-4ff9-b197-2fabb4c420e0.png",
+  "sourceSha256": "b75f57c8c98317d940e09b11a8dfc2e444553d75c4b474a7778c962277ed0a84",
+  "output": "public/guided-reading/world-discovery/e-25/page-09.webp",
+  "outputSha256": "38ece65f90d5a4a8734da1140a1cb761eba7a2f2cb35bf9e12903bf08df94f62",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Create one polished LiteracyPath nonfiction book page in the same crisp black-outlined flat 2D children's educational style as the supplied reference, with smooth solid colors and simple cel shadows. No grain, text, labels, outer border or logos. Keep every essential wing, airplane and arrow within the central 76 percent of the canvas (12 percent margins). Make a simple comparison diagram with TWO identical white wing sections in two generously spaced horizontal rows. Same accurate airfoil silhouette: rounded leading edge LEFT, thin pointed trailing edge RIGHT. Top row airfoil is horizontal (0 degrees). Bottom row the same wing is rotated a SMALL 8 degrees nose up, so its LEFT rounded leading edge is a little higher than its RIGHT trailing edge. Both wings remain nearly horizontal, not steep or upright. To the LEFT of each wing show TWO short parallel BLUE incoming-air arrows pointing perfectly horizontally RIGHT; air direction identical in both rows despite the changed wing angle. Do not put arrows to right of wings, no lift arrows, no labels, no quantities or implication bigger angle is always better. Plenty of clear space between both rows and all edges.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-ed071171-7219-44f9-9205-a024b14a9f5f.png",
+      "sha256": "d07a0c03654f0801ac23e4cef95c7a25825266b9e9da861aba71d478912217df"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "6fa387a94832069dfd8f41a5c0089a80fb10f81c60c90df001e050c556eb4819",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T13:58:43.728403+00:00",
+    "sha256": "38ece65f90d5a4a8734da1140a1cb761eba7a2f2cb35bf9e12903bf08df94f62",
+    "note": "Two same wing sections at horizontal and modest nose-up angles, four horizontal rightward incoming arrows retain direction; no lift magnitude or always-increases claim.",
+    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-b-24",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T06:36:59.134Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-8c538760-aee7-4d45-bbb4-8f98cfbae4e7.png",
+  "sourceSha256": "7e058b29a960f0298a9d054a98a3c5f8e446fd054238bf6adb3a4cc15afb761d",
+  "output": "public/guided-reading/world-discovery/b-24/page-02.webp",
+  "outputSha256": "30e44a070d71edb88b4390e6562e9e30eb0a45f2db12918e91bc08f440773aa8",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "A light breeze from the LEFT begins to inflate the wide open mouth facing LEFT. First half of orange tube lifts slightly toward RIGHT, but long soft narrow tail still droops steeply down. This is only partial inflation, much less extended than reference. Keep this same school field, gray pole and swivel, blue bench permanently LEFT, green tree permanently RIGHT, same relative scale and camera. ONLY change the wind state described. Entire pole, cloth, bench and tree have generous margins. Orange cloth is soft and wrinkled, open at both ends. No people, faces, captions, arrows, speed numbers, detached cloth or visible wind ribbons. Landscape 3:2, smooth flat vectorlike colors and bold clean outlines, no texture.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/b-24/cover.webp",
+      "sha256": "e38b1619d8cea773b314690016ac4dd3e57dab74961be53634657c30c79b27ec"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "256ab5090d5f31f1862a8c4796e0dd9302a80857dadb5beb8a5f75e7127629bd",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T06:40:00.666582+00:00",
+    "sha256": "30e44a070d71edb88b4390e6562e9e30eb0a45f2db12918e91bc08f440773aa8",
+    "note": "Directly viewed native PNG and installed WebP. Wide opening faces left while the first section lifts right; the soft narrow tail still droops steeply. Fixed ring, pole, bench and tree preserve clear directional comparison.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

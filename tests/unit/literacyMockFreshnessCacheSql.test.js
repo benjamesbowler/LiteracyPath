@@ -84,7 +84,9 @@ test('43-question registration expands 86-answer history once and leaves unchang
     assert.equal(prepared.ok, true, prepared.error);
     const sessionId = prepared.session.id;
     assert.equal((await query(db, "select teacher_control_literacy_mock_session($1,'start',0,'start') value", [sessionId])).ok, true);
-    const plan = selectLiteracyMockPlan(bank, { sessionId, studentId, exposures });
+    // Keep the gate item first so leaked canonical-alias exposure fails deterministically.
+    const plan = selectLiteracyMockPlan(bank, { sessionId, studentId, seed: 'cache-current-22', exposures });
+    assert.equal(plan.itemIds[0], 'lp3.initial_sounds.l1.B.g.v2');
     const rpcAcl = await query(db, "select proacl::text value from pg_proc where oid='public.student_save_literacy_mock_run(text,uuid,text,integer,jsonb,jsonb)'::regprocedure");
     const historicalBytes = await db.query('select session_id,md5(responses::text) digest from literacy_mock_runs order by session_id');
     await countHistoryReads(db);
@@ -113,40 +115,44 @@ test('43-question registration expands 86-answer history once and leaves unchang
     assert.equal(await query(db, 'select last_value::integer value from fixture_history_reads'), 0);
 
     await t.test('the pure matcher preserves all reason sets and canonical aliases', async () => {
-      const records = [
-        { exposureItemId: 'familiar-item' },
-        { exposurePassageKey: 'familiar passage' },
-        { exposureFamilyId: 'familiar-family' },
-        { exposureItemId: 'literacy.letter_knowledge.name-z' },
-        { exposureFamilyId: 'hfw-word:from' },
-        { exposureFamilyId: 'v6-phonics-team:rain' },
-        { exposureFamilyId: 'v4-context-word-senses:glass' },
-        { exposureFamilyId: 'v8-context-word-senses:wave' },
-        { exposureItemId: 'mock.letters.round' },
-        { exposureItemId: 'lp3.long_vowels_silent_e.l2.A.a_e.v1' },
-      ];
-      await db.query(`insert into student_progress(student_id,area,key,payload) values($1,'literacy-practice','alias-fixture',$2)`,
-        [studentId, { completions: [{ gameId: 'literacy-practice', steps: records }] }]);
-      const targets = [...exposures.filter((_, index) => index % 7 === 0).map(row => row.itemSnapshot),
-        ...records, ...plan.itemIds.slice(0, 3).map(id => byId.get(id)),
-        { exposureItemId: 'mock.capacity.foundation.letter-case.l2.z' },
-        { exposureFamilyId: 'mock-foundation-word:from' },
-        { exposureFamilyId: 'mock-foundation-word:rain' },
-        { exposureFamilyId: 'v8-context-word-senses:glass' },
-        { exposureFamilyId: 'v4-context-word-senses:wave' },
-        { exposureFamilyId: 'letter-case:a' },
-        { exposureFamilyId: 'mock-foundation-word:gate' },
-        { exposureItemId: 'never-seen', exposurePassageKey: 'unseen passage', exposureFamilyId: 'unseen-family' }];
-      const rows = (await db.query(`with prior as materialized (select public.lp_literacy_exposures($1) identities)
-        select n::integer index,public.lp_literacy_familiarity($1,target) original,
-          public.lp_literacy_familiarity_from_exposures(prior.identities,target) cached
-        from prior cross join jsonb_array_elements($2::jsonb) with ordinality targets(target,n) order by n`, [studentId, targets])).rows;
-      for (const row of rows) assert.deepEqual(row.cached, row.original, JSON.stringify(targets[row.index - 1]));
-      const reasons = new Set(rows.flatMap(row => row.cached));
-      assert.deepEqual([...reasons].sort(), ['family', 'item', 'passage']);
-      assert.deepEqual(rows.at(-1).cached, []);
-      assert.ok(rows.find(row => targets[row.index - 1].exposureItemId === 'mock.capacity.foundation.letter-case.l2.z').cached.includes('family'));
-      assert.deepEqual(await query(db, 'select lp_literacy_familiarity_from_exposures(null,$1) value', [{}]), []);
+      // These synthetic aliases belong only to the matcher test, not later presentations.
+      await db.exec('begin');
+      try {
+        const records = [
+          { exposureItemId: 'familiar-item' },
+          { exposurePassageKey: 'familiar passage' },
+          { exposureFamilyId: 'familiar-family' },
+          { exposureItemId: 'literacy.letter_knowledge.name-z' },
+          { exposureFamilyId: 'hfw-word:from' },
+          { exposureFamilyId: 'v6-phonics-team:rain' },
+          { exposureFamilyId: 'v4-context-word-senses:glass' },
+          { exposureFamilyId: 'v8-context-word-senses:wave' },
+          { exposureItemId: 'mock.letters.round' },
+          { exposureItemId: 'lp3.long_vowels_silent_e.l2.A.a_e.v1' },
+        ];
+        await db.query(`insert into student_progress(student_id,area,key,payload) values($1,'literacy-practice','alias-fixture',$2)`,
+          [studentId, { completions: [{ gameId: 'literacy-practice', steps: records }] }]);
+        const targets = [...exposures.filter((_, index) => index % 7 === 0).map(row => row.itemSnapshot),
+          ...records, ...plan.itemIds.slice(0, 3).map(id => byId.get(id)),
+          { exposureItemId: 'mock.capacity.foundation.letter-case.l2.z' },
+          { exposureFamilyId: 'mock-foundation-word:from' },
+          { exposureFamilyId: 'mock-foundation-word:rain' },
+          { exposureFamilyId: 'v8-context-word-senses:glass' },
+          { exposureFamilyId: 'v4-context-word-senses:wave' },
+          { exposureFamilyId: 'letter-case:a' },
+          { exposureFamilyId: 'mock-foundation-word:gate' },
+          { exposureItemId: 'never-seen', exposurePassageKey: 'unseen passage', exposureFamilyId: 'unseen-family' }];
+        const rows = (await db.query(`with prior as materialized (select public.lp_literacy_exposures($1) identities)
+          select n::integer index,public.lp_literacy_familiarity($1,target) original,
+            public.lp_literacy_familiarity_from_exposures(prior.identities,target) cached
+          from prior cross join jsonb_array_elements($2::jsonb) with ordinality targets(target,n) order by n`, [studentId, targets])).rows;
+        for (const row of rows) assert.deepEqual(row.cached, row.original, JSON.stringify(targets[row.index - 1]));
+        const reasons = new Set(rows.flatMap(row => row.cached));
+        assert.deepEqual([...reasons].sort(), ['family', 'item', 'passage']);
+        assert.deepEqual(rows.at(-1).cached, []);
+        assert.ok(rows.find(row => targets[row.index - 1].exposureItemId === 'mock.capacity.foundation.letter-case.l2.z').cached.includes('family'));
+        assert.deepEqual(await query(db, 'select lp_literacy_familiarity_from_exposures(null,$1) value', [{}]), []);
+      } finally { await db.exec('rollback'); }
     });
 
     await t.test('every invocation reads current history and a newly exposed replacement is rejected', async () => {

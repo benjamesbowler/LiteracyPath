@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-d-21",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T06:02:03.690Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-be986999-9bb3-4952-84be-a0cf4eafaeb7.png",
+  "sourceSha256": "c7df16d06f15270fb256a2fb19065bb3e88280fad938931787204473f61859b1",
+  "output": "public/guided-reading/world-discovery/d-21/page-01.webp",
+  "outputSha256": "cbe743b739e65223a69687b770c8ced8d1c361522afa33b970dc6905e870abc0",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Pull the camera back slightly in this exact illustration, extending the existing scene naturally around all edges. Preserve EVERY person, container, vehicle, pose, cargo, color, door state and object count. Shrink and reposition the existing scene within the canvas just enough that every foreground boot, every complete foreground carton and its open flaps, and all visible blue notebooks sit at least 9 percent of the image height ABOVE the bottom edge and at least 9 percent of image width INSIDE the left/right edges. Leave a broad clean strip of ordinary flat pavement beneath all feet and cartons. Do not crop any carton or footwear. Do not duplicate, remove or redesign any subject, and do not add people, letters, numbers, symbols, vehicles or objects. Preserve the orange corrugated container and blue square only on its left cargo door, two adult workers in PPE where already present, blue notebooks in brown cartons, and the same location. This is framing-only, not a change in story state. Bold crisp 2D cartoon with smooth flat colors, no grain or stipple. Keep landscape 3:2 full-bleed format.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/d-21/page-01.webp",
+      "sha256": "415a9e6642a5ec61e103334d7493085d324e1906233b3490d47a43cb8a91dc81",
+      "preservedInputPath": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/.artifacts/nonfiction-next-50/media-review-inputs/d21-page-01-before-margin.webp"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "4cd850616c2e31aecc557996032490d0fb984ea0f222fa11e0f2a878a417a9c7",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.493Z",
+    "sha256": "cbe743b739e65223a69687b770c8ced8d1c361522afa33b970dc6905e870abc0",
+    "note": "Direct inspection of independent-review framing repair: all foreground cartons, flaps, notebooks and worker footwear now fully inside >9% bottom/side margins; loading/locking/unloading state, same workers, cargo, marker and vehicle preserved. Prior reviewed input and receipt retained as hash-bound review evidence.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

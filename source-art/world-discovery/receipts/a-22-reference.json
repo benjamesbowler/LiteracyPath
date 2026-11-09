@@ -1,0 +1,49 @@
+{
+  "bookId": "world-discovery-a-22",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T06:03:37.025Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-7ae7eaf6-524f-49ec-b452-eba88f82c09f.png",
+  "sourceSha256": "1c64f4d79c980ec8716edee4ae6ba7db2facd3b7c76685ff792398b76c33b30d",
+  "output": "source-art/world-discovery/a-22-reference.webp",
+  "outputSha256": "6d274384b8beb6de95b57fc15a0ac90d14d94010de852484fbddb5b65998ea2d",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. PRODUCTION REFERENCE SHEET, landscape, not a finished book page. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. The ONLY named human protagonist is Kit. Zoe MUST NOT appear. Ignore every other child shown in reference sheets; unnamed adults may appear only when this scene explicitly requires them. Preserve exact reference identity and clothing.\nBook: Turn the Globe; World Discovery; nonfiction.\nSetting: Bright classroom table with one freely rotating geography globe on a navy stand, axis tilted consistently. Kit stands beside it. Plain pale wall and no other models.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One blue-ocean globe with accurately shaped continents in flat green and tan, white polar ice; no country borders, words, place names or longitude labels; One navy semicircular meridian support and round base; geographic North is consistently at top; Start view centered on the Americas; then rotate through Pacific, eastern Asia and Africa back to Americas without mirroring or changing coastlines\n Create a clean separated reference board on white: show the principal recurring props/animals in front, side and three-quarter views, their relative scale beside any named human cast, and a single simple location key showing the persistent setting and daylight/palette. The human character model sheet is a supporting identity reference, not content to copy wholesale. Show only the subjects this book requires. Use initial object states: Globe on stand; Americas face viewer; Kit points without rotating.. For orientation, the opening location/action is: Kit points to the one globe on the table; front view shows North and South America with their recognizable outline and the Atlantic to the right. No miniature towns or oversized mountains.. Do not show a completed craft or later scene merely because the finished object is listed in design locks. No future story events, no captions. Reference-sheet override: any lettering requested by the opening page brief belongs only in that finished page. Keep this production reference board entirely unlabelled; no letters, numbers or pseudo-writing.\nProduction finish: every surface must be perfectly flat, clean digital cel color with smooth crisp outlines. ZERO paper grain, speckling, stipple, dither, paint, canvas fibers, mottling, scuffs or noisy gradients anywhere, including skin, rug, walls, table, floor and shadows. Prefer solid flat fills; any small shadow is one smooth flat shape. This is polished vector-like raster art, never a textured watercolor print. CRITICAL CARTOGRAPHY AUTHORITY: input image 1 is character identity only. Input images 2,3,4,5 are mathematically correct Natural Earth ORTHOGRAPHIC globe faces: Americas, Pacific, eastern Asia/Australia, Africa/Europe. They override any generic imagined globe coastlines. Carefully reproduce these exact visible-hemisphere coastline silhouettes, proportions, clipping at rim, island positions and 23.5-degree clockwise visual tilt. The dark dots mark geographic poles: north is at UPPER RIGHT and south LOWER LEFT, and the physical navy globe axle MUST attach exactly at those locations, not above upright continents. The hemisphere must not be stretched into a flat world map: Pacific view shows only narrow Americas at right limb, Asia/Australia view shows NO Africa on left. On this factual reference board, show Kit identity, one clear simple room key, and FOUR LARGE globe-on-same-navy-stand rotation designs using those four exact map faces in order. Do not add smaller generic globes or additional inaccurate map views. Keep ocean blue; Americas/Asia green; Africa and Australia tan; Antarctica white in its actual tilted position. Tiny white polar ice stays around the actual pole, never a centered top/bottom cap inconsistent with tilted axle. No country borders, labels, graticule, directional letters or text. Reference geographic studies are prop designs only, not future events.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/.artifacts/nonfiction-next-50/geography-reference/a22-americas-tilted.png",
+      "sha256": "9c5bb0ce282d1a0bdbc935436f66d3a5ee58b44e973058bdc5ef052c722a674b"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/.artifacts/nonfiction-next-50/geography-reference/a22-pacific-tilted.png",
+      "sha256": "7f5ad8621349a947cfe3b1109d730ffd66211b233de25935ede5dfadc5e1271a"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/.artifacts/nonfiction-next-50/geography-reference/a22-asia-australia-tilted.png",
+      "sha256": "f68ef50c626d18adcfb6002cb1c9e1ac93a6685fcc48b6fe07fbf9ef695b1cda"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/.artifacts/nonfiction-next-50/geography-reference/a22-africa-europe-tilted.png",
+      "sha256": "82a00cd3f17acc1c512e4d339e3fbabbb30504c10434493777879ead1384cbc6"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "7fb9d0dad2e1f226cbad13b27e944537df495d6a4ae001fea7e1424f5a78d89a",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "6d274384b8beb6de95b57fc15a0ac90d14d94010de852484fbddb5b65998ea2d",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T06:03:37.027Z",
+    "note": "Viewed full native board against all four Natural Earth orthographic reference PNGs: Americas centered with only narrow Africa limb; Pacific centered with clipped Asia/Australia left and Americas right; Asia/Australia view omits Africa; Africa/Europe view respects limb clipping. Pole positions and southern coastlines align upper-right/lower-left axle orientation. Kit and navy semicircular stand retained. Reference is a design input; all old final pages still require replacement."
+  }
+}

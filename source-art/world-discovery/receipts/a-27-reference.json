@@ -1,0 +1,28 @@
+{
+  "bookId": "world-discovery-a-27",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T04:55:08.028Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-6842781a-3640-47a6-9a19-8d335bd87fb8.png",
+  "sourceSha256": "ee50498104dfef2230f55780b37eaf95dd603a25eac8e9fd3f0a9086da2178d8",
+  "output": "source-art/world-discovery/a-27-reference.webp",
+  "outputSha256": "1e0d663660b4a106446be589bc6cc8b7b92ab5b72e2de0bc97192848bd46a0c6",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. PRODUCTION REFERENCE SHEET, landscape, not a finished book page. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Popcorn Pops; World Discovery; nonfiction.\nSetting: An adult-operated clear-lidded electric popcorn popper on a kitchen counter. Only the adult handles the hot machine. Magnified kernel views are declared teaching diagrams, not a giant real seed.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One unbranded red electric popper with clear lid, short guarded chute and white receiving bowl; Adult operator: light-brown skin, short dark hair, plain teal top and navy trousers; no children near hot machine; One featured golden teardrop-shaped popcorn kernel among a small normal batch; its brown pointed base is the identifying teaching feature; Final popped piece has cream irregular lobes and small brown hull remains; no candy, eyes, mouth or miniature plant\n Create a clean separated reference board on white: show the principal recurring props/animals in front, side and three-quarter views, their relative scale beside any named human cast, and a single simple location key showing the persistent setting and daylight/palette. The human character model sheet is a supporting identity reference, not content to copy wholesale. Show only the subjects this book requires. Use initial object states: Unheated intact featured kernel; normal-scale comparison with adult hand.. For orientation, the opening location/action is: One small golden popcorn kernel lies in the adult’s open palm beside the unheated popper. Its hard teardrop shape and brown point are clear; normal scale relative to the hand. Other batch kernels remain in a small cup behind.. Do not show a completed craft or later scene merely because the finished object is listed in design locks. No future story events, no captions.\nProduction finish: every surface must be perfectly flat, clean digital cel color with smooth crisp outlines. ZERO paper grain, speckling, stipple, dither, paint, canvas fibers, mottling, scuffs or noisy gradients anywhere, including skin, rug, walls, table, floor and shadows. Prefer solid flat fills; any small shadow is one smooth flat shape. This is polished vector-like raster art, never a textured watercolor print.",
+  "references": [],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "54df5f6be0ca6e59f447c22d2431c43d463a335ffaf26ebbf520c3a8450a76f2",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "1e0d663660b4a106446be589bc6cc8b7b92ab5b72e2de0bc97192848bd46a0c6",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T04:55:08.031Z",
+    "note": "Inspected board: adult-only operator in teal/navy; red popper with clear cover and guarded chute, white bowl, small golden pointed kernel shown at normal hand scale and separate enlarged design views. Popped forms have cream lobes and brown hull remains. No child, text, candy features or dangerous handling; future popped-state designs reference only."
+  }
+}

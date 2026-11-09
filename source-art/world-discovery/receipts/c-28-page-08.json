@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-c-28",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:42:28.570Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-a24a8102-8c0e-4d90-8e4f-8c7cd1382c8a.png",
+  "sourceSha256": "75ebf897622b2e73ac648282284185f99a796f321c2f346e527ac618d79f67f4",
+  "output": "public/guided-reading/world-discovery/c-28/page-08.webp",
+  "outputSha256": "aeb7e349ba09e82ff000a596ce303e6a0e5728fd14369786ff97f0d6cc5d13ca",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. EDIT THE FIRST SUPPLIED IMAGE ONLY. Second image is the approved smooth-ground design reference, not a composition to copy. Preserve first image exact composition, framing, every animal pose and count, prey, nest, cutaway status, season, branch geometry, all leaves/plants/stones, shadows and color palette. Change ONLY the diffuse mottled/stippled soil to one perfectly smooth flat earthy brown fill with restrained smooth cel shadows. REMOVE ALL tiny unoutlined soil dots, gritty patches, painted flecks, noise or grain. Retain deliberate discrete outlined stones, leaves, grass clumps and anatomical quill/spine pattern. Preserve feet and prey ground contact. Do not crop, zoom, redraw animals or change light/time/season. No text/letters. Opaque landscape3:2. This is only a surface-style correction.\nCanonical exact page instructions (all existing scene states remain):\nOne finished landscape3:2 full-bleed children nonfiction illustration, crisp flat2D cartoon with continuous clean dark outlines, flat colors and restrained cel shading. No grain, paint texture,3D, words, logos, captions, border or frame. Essential subjects fully inside CENTRAL65 percent canvas, generous naturally extended scene margins. Finalpage SPRING DUSK, new widergardenedge view. Same single naturalhedgehog actively walks LEFT along lowgardenhedge; small natural EARTHWORM visible ahead on ground left ofsnout. Closedleafdome nestBEHIND onRIGHT, forkedfallenbranch immediatelyrightofnest retained. Fresh green spring leaves/shoots, no snow/frost, soft pinkeveningsky. Whole animal includingfourshortlegs andworm withincentral60percent; nest/branchalsofullyvisible. No human, no extrahedgehogs, no symbols/anatomy, no exposedchamber. This warmactive ending contrasts withquietcurledwinter.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-d404df87-5842-408f-875f-1bd0bb24f42b.png",
+      "sha256": "bb887c14990e493d8c4afc67dcf4541c937d6261994941fabbbc8045519c5973"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/c-28-reference.webp",
+      "sha256": "cbc7bcf1b015a1055cd8e29600f89c60343e4c6b3eee9a93f1bb59ced64ef2c9"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "f40ade2ce093f8630b07993486f43c74b2e43b93f146bfeab9275339bae07c05",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "aeb7e349ba09e82ff000a596ce303e6a0e5728fd14369786ff97f0d6cc5d13ca",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T13:42:28.572Z",
+    "note": "Native directly inspected: active four-legged hedgehog walks left toward earthworm at spring dusk. Same leaf nest, forked branch and fresh growth behind; direction/season/animal identity preserved. Soil is clean smooth brown with outlined stones/leaves, no diffuse stipple, essential worm and hedgehog safely framed."
+  }
+}

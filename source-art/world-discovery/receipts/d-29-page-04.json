@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-29",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:59:45.461Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-57770a94-41a5-4a33-b360-169aa9a9befa.png",
+  "sourceSha256": "401d249ec64b34e8cccbcfbd81922cfd2ac03582456497f3eca2c4ca0452ae02",
+  "output": "public/guided-reading/world-discovery/d-29/page-04.webp",
+  "outputSha256": "3bab3237909e2f9a4470aadcfd6448ce4149fe33d266fa824604f41afd01aa9a",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Preserve exact1536x1024 picture, two children, natural hands, same clear jar with TWO visible notes inside, TWO additional notes in handoff outside, one orange ball and all four numeral1s. Uniformly shrink entire foreground children/table/props to80%, centered on same canvas. Extend cream wall/lilac floor naturally; full hair and feet and table legs need minimum150px margins. Keep exact counts, relative scales, poses and flat bold-outline style. No extra money, objects or lettering.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-9d726888-f824-448f-97b8-dfbeca72fd1d.png",
+      "sha256": "54b7ae2e93e5db60df5e4caa333c27607e97b677b8a79d664be83f9c92be9059"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "13c2a4841f0bfa3c412602a383f905ed05acc5de2a917f6491164caa74117013",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.546Z",
+    "sha256": "3bab3237909e2f9a4470aadcfd6448ce4149fe33d266fa824604f41afd01aa9a",
+    "note": "Native and final WebP directly inspected: Exactly4notes:2injar+2newhandoff; equalheight cast, naturalhands, repairedsafe feet/headmargins.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

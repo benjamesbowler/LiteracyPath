@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-b-28",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:26:44.495Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-93f46e77-f3cd-4cd1-a49b-9dc465840ef6.png",
+  "sourceSha256": "9dab5f738603ae12967c9eb4bd348eba7ece6193e1a65e23609394991e454f8a",
+  "output": "public/guided-reading/world-discovery/b-28/page-01.webp",
+  "outputSha256": "bc39d7c456ff242bf6ddea13731fcf0c1a014a66f7680d512ff57122af9e00e0",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Reframe this exact opening giraffe scene a little WIDER, pulling viewpoint back 15 percent. Preserve animal and tree relative positions, unchanged natural neck proportions, FOUR legs all standing on ground, target leafy thorn twig still above mouth, no extended tongue. Most importantly leave at least 140px visible ground BELOW every giraffe hoof; every hoof, whole tail, both ossicones and ears must be inside the central 80% height and width. Do not lengthen legs or neck. Show more woodland/sky/ground around them. Keep branch and foliage states unchanged. No lettering. Smooth clean flat cartoon color and crisp outlines, no grain or painted texture.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-4de7f397-7515-45d8-9000-889cd7593d2f.png",
+      "sha256": "2814b294a958aaa855da82dc18c68837b0fca296e2fb8ae70c0feaecbc016073"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "3b2da464191b00e55de10d772304d97a74700fcde5ac76ab45ab88f364075677",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T07:27:52.154688+00:00",
+    "sha256": "bc39d7c456ff242bf6ddea13731fcf0c1a014a66f7680d512ff57122af9e00e0",
+    "note": "Directly viewed repaired native PNG and installed WebP. Whole four-legged giraffe now has generous ground below hooves, safe ears/ossicones/tail, natural neck, untouched thorny target branch above closed mouth; consistent woodland and coat.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

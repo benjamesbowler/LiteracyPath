@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-23",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:06:41.790Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-f469e879-890d-4e82-83e3-3de82b7db597.png",
+  "sourceSha256": "5c7f0b68e756139dc30658c593eca62e2f992a613202a409469084c5b4e8e8fc",
+  "output": "public/guided-reading/world-discovery/d-23/page-03.webp",
+  "outputSha256": "06daf7e7cf5ba977fe7fc1f0bd04d76477ea4bb153aa9b5aa607c8bd444a3622",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Resize the COMPLETE existing heart diagram including all vessel ends uniformly to 70 percent of the canvas height and center it horizontally and vertically. It currently almost touches top and bottom; add large plain cream margins approximately 150 pixels above the tallest vessel and 150 pixels below the heart tip on the 1024-pixel-high image. Preserve the four chambers, solid central septum, every blood tube, the two arrows pointing into the right atrium on viewer left, all small pale oxygen dots, and red colors exactly. Add nothing. No labels, lettering, extra arrows or organs. Crisp clean 2D flat-color non-graphic diagram.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-479935f6-c710-45b2-ad19-c89a3d62259d.png",
+      "sha256": "80c735f934d7e72ea069556837b35e42a00cd5405ba85f5ff403a399ab3f0572"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "53f321fe6f6525dbc7142913453889b170e4387f03930954a85dc6f67239997e",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.508Z",
+    "sha256": "06daf7e7cf5ba977fe7fc1f0bd04d76477ea4bb153aa9b5aa607c8bd444a3622",
+    "note": "Direct inspection: four-chamber front-view heart, right atrium viewer-left receives superior/downward and inferior/upward dark-red venous arrows; sparse oxygen dots, red blood, distinct septum, safe margins.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

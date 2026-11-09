@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-26",
+  "slot": "page-10",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T06:12:04.510Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-d677279c-7070-4066-9eca-b41612e19002.png",
+  "sourceSha256": "3c89ed47dfe477edf581ed6fb7a76c8babc09c762b46ff3307a98de8c8a09e02",
+  "output": "public/guided-reading/world-discovery/e-26/page-10.webp",
+  "outputSha256": "935cf217342aaae69a50dd109bced1898dd644ac47adf14d5c6699d0520c48aa",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit the attached finished nonfiction cartoon illustration. Preserve ALL depicted people, objects, graphic symbols, their order, colors, designs, contents and connections exactly. This edit is ONLY a framing correction: zoom out so every essential foreground subject lies at least 12 percent inside ALL outer canvas edges. Reduce the entire foreground composition to 75 percent its current size, centered on the same 3:2 landscape canvas, extending the existing plain background or coherent room/floor naturally to all edges. Do not add any border, inset, lettering, number, new object, duplicate, or new event. No cropping. Crisp clean flat 2D cartoon style. Preserve exact complete diagram connectivity and symbol content.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-eb7cf80c-3d93-4cba-93c3-55c18628742b.png",
+      "sha256": "76e0bd5d59cabe0eec8efc0e969cf6fc3c3ba2eef11348129aaeab804e1d784c"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "a04b6d0950794fec64943013d30facc27daa8410774f7062963be893ca44e0a3",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
+    "sha256": "935cf217342aaae69a50dd109bced1898dd644ac47adf14d5c6699d0520c48aa",
+    "note": "Complete device\u2013home router\u2013network router\u2013server\u2013network router\u2013home router\u2013device chain; two local Wi-Fi gaps only, matching red boat screens, wide safe framing.",
+    "limits": "Individual installed WebP inspected. Independent whole-sequence, actual reader/card and audio approval are separate."
+  }
+}

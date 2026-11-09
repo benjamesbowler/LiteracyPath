@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-29",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:54:06.671Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-9c847a1d-7000-4ef7-a91f-ac88f518a072.png",
+  "sourceSha256": "086eddc2b434720f0a1dd4ba5f102d9f3b8413a5caeeabfc11e03fe480af218c",
+  "output": "public/guided-reading/world-discovery/a-29/page-04.webp",
+  "outputSha256": "4a8b37d6b08b6f599299ab10c24e23018e33afcfc7eaaecbe528138c45611f96",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Make the folded red paper rectangle horizontally15% SHORTER, keeping its height unchanged and keeping its LEFT edge fixed. Move right pressing hand LEFT together with right fold edge. Final folded sheet must be2:1 width:height, with two exactly aligned layers and same flat pressed fold. Preserve two natural hands, yellow sleeves, tabletop and framing. Do not scale all content, only shorten horizontal paper dimension and reposition the right hand to match.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-03493b16-f3c3-41ee-897d-9bd87f79fbd8.png",
+      "sha256": "5789fc1dc24d75b365d9d20d70d0ef1cf51b44f2c3a8c142f98c26a28d4a9587"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "f901b0be0bea47b49de26868818727681b20b5057666da316e0fa78bccc25576",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "4a8b37d6b08b6f599299ab10c24e23018e33afcfc7eaaecbe528138c45611f96",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T10:54:06.672Z",
+    "note": "Directly inspected native image: final folded rectangle is approximately 2:1, two thin aligned layers visible at front; left hand holds aligned free edges and right hand presses flat right fold. Hands and paper have clear margins; forearms naturally enter top crop. No extra paper."
+  }
+}

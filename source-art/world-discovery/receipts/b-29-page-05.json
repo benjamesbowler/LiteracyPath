@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-b-29",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:11:21.218Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-19bf2658-7ede-44ce-9e93-e41cc7d2f00c.png",
+  "sourceSha256": "4bbfc0120e158436211242480b7ff015ff00a28e0579cecc8f72e285ffdd41b7",
+  "output": "public/guided-reading/world-discovery/b-29/page-05.webp",
+  "outputSha256": "2615461e8acffe32d836e7b1689db7774183cf7af13243e2323b9c8bd45f8ea4",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit ONLY the separate spare yellow square at upper right: move it LEFT by 50 pixels and make its width and height exactly match one of the five yellow squares in the row. Leave the book and touching five-cube row entirely unchanged. The relocated square should end at least 130 pixels from the image right edge. Keep exactly SIX squares total, FIVE touching plus ONE spare. No change to the exact one-unit shortfall at the book right edge. Preserve all correct content, exact identity, flat clean colors, crisp outlines, landscape3:2. No text, grain, texture or new props. Essential content stays within central75percent.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-db2dcff0-6774-4e4c-8f2d-45f00012e04c.png",
+      "sha256": "202113386fc085eeb8ae6e5ce7c0ee31f555e5d74225950083ac59a99515efc0"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "7c50af653f4ee559098243cdcd631837ff440776161b09c1d029dc86ea556fcc",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:11:50.407180+00:00",
+    "sha256": "2615461e8acffe32d836e7b1689db7774183cf7af13243e2323b9c8bd45f8ea4",
+    "note": "Directly viewed current native PNG and installed WebP: true overhead book width six units, five touching equal square tops start at left and stop one unit short at right; sixth spare moved safely inset, no extra cube or perspective sides.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

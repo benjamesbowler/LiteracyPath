@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-30",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T08:10:55.133Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-2ddf55dc-de53-4feb-9ec5-9ac16ffab8f0.png",
+  "sourceSha256": "c3bd6ba284ce48e016ebb4d1da693fe6f8029ac2b77c0f62fd515e58d9e820ce",
+  "output": "public/guided-reading/world-discovery/e-30/page-01.webp",
+  "outputSha256": "1adb3200ca0131a795a855cf15739ff274b0130d13570c308b655b23da287f54",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact illustration. Same clean flat 2D cartoon and unlettered content. Remove embossed 3D bumpy shaded texture across coral. Make coral one smooth flat warm-tan cartoon surface with dark outlined small oval polyp openings; optional single flat shadow along lower rim. No individual raised convex glossy bumps, no airbrush gradients. Preserve rounded colony silhouette and all scene layout. Reduce focal colony and underlying rock by 10% in scene for generous margins. Keep clear tropical water, no diagram.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-0bfd2bc8-52a3-43a0-867e-399174ebabf1.png",
+      "sha256": "1d64bcaf1d130860b4c7484ef64c1c53cdb644411ecad51abecb3073d49b9d9a"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "eead7bd4e8d787dff3440b9ff337f914a50daa5a1c9dfe20a0688cac4e6a5f42",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
+    "sha256": "1adb3200ca0131a795a855cf15739ff274b0130d13570c308b655b23da287f54",
+    "note": "Flat tan colony firmly attached to rock, polyp openings; embossed texture removed; full colony visible.",
+    "limits": "Individual installed WebP only; independent sequence, reader, card and audio separate."
+  }
+}

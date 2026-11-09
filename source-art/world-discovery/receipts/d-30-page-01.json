@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-30",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:04:36.881Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-524f6c88-aae5-4b25-adac-0c59698d8e0e.png",
+  "sourceSha256": "1238ee3906de08f16045b18d6fc61d32083cc0f1985b592ac3a42dfcb1927200",
+  "output": "public/guided-reading/world-discovery/d-30/page-01.webp",
+  "outputSha256": "a51075c552199975fa8c843b3c81480b10393a9d6a1ac9ee5916ae3bc75e5bb0",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. Landscape 1536x1024 finished clean 2D children's cartoon, bold continuous dark outlines, flat clean colors, restrained cel shadows, no texture or 3D/photo look. No lettering, numbers, pseudo-writing, logos, watermarks or frame. A wider view than the reference: SAME ONE gray box satellite with TWO opposite blue panels, each exactly THREE columns by TWO rows, at upper center of navy space. Make the full satellite about 65 percent of reference width, entirely inside central60percent of canvas; preserve its perspective/design and short gray hinges. Below it Earth's broad curved blue OCEAN horizon fills lower third, two restrained white cloud shapes well below horizon. Clear large space gap between craft and Earth. Only this satellite, Earth horizon and three tiny stars. NO arrows, orbital track, stage, flames, wings, strings, continents, faces, inset or second craft. Every satellite edge at least180pixels inside canvas. The picture shows one artificial satellite high above Earth, not touching ground.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-452adff8-dac4-4350-9cc7-af210c498d35.png",
+      "sha256": "60707e857feaf6bfb44ad4f46d36f2643a5a6f11d51fb2d8264b17b829a32fc5"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "66c03f602e2ff45268c6d939a796addf9ba66a77cb551a19d2ddd57408b04e48",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.550Z",
+    "sha256": "a51075c552199975fa8c843b3c81480b10393a9d6a1ac9ee5916ae3bc75e5bb0",
+    "note": "Actual PNG and WebP directly inspected: one matching gray satellite with exactly two six-cell panels, safely inset above curved ocean horizon, no extra craft/flames/arrows.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

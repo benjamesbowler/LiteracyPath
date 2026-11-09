@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-c-26",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T15:12:07.869Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-3e816546-00b5-491e-b839-ec8c573060d8.png",
+  "sourceSha256": "b585db555002b5b0c380178da780b3164110065f872645e997ed8f84edd5f3f2",
+  "output": "public/guided-reading/world-discovery/c-26/page-03.webp",
+  "outputSha256": "d56eecadeb3f7142949c7355f9b56c348be8b77e1cb8995155c7b23a144c7593",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Preserve the supplied successful illustration and its exact valid barcode as an immutable finished insert. A framing-only outpainting edit: uniformly reduce the entire existing foreground group to75% of present size, center it within a3:2 landscape canvas, and add only plain warm cream background around it. All heads, feet, scanner, carton, arrows and monitor where present must be at least12% from every canvas edge. Retain actual same carton, blue circle, hands, cast, scanner, monitor, barcode bar/white-space widths and guards, and current diagram arrows. Do not independently reinterpret the stripes, rotate or perspective-distort the label. Clean crisp flat2D cartoon without grain. No text or numerals, no new objects. One precise diagram correction: extend the two gold light rays slightly farther right across the carton outline so their endpoints actually meet the leftmost barcode stripes/white gaps, not the black outer carton border. Upper ray arrowhead points TO the first barcode bar; lower ray starts at its neighboring white gap and arrowhead points BACK TO the scanner window. Small gold tips may touch the leftmost edge at mid-height, but do not erase any black bars or white spaces. Only two rays with one arrowhead each. Preserve all other geometry.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-0bd10706-a8e6-4288-907f-76712a6bb42f.png",
+      "sha256": "0f88093f87263b87651545c994f9ffbee99c7b5694f6bc39608aabc1164f47b7"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "f5e9b37923e2ab34dcac374e68d093636a36b1ac72b9174419833b623d02c398",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T15:13:58.746345+00:00",
+    "sha256": "d56eecadeb3f7142949c7355f9b56c348be8b77e1cb8995155c7b23a144c7593",
+    "note": "Actual installed WebP inspected: front-parallel intact barcode; scanner reading window faces code; two pale arrows reach actual barcode edge and point oppositely for outgoing/return light, with no amount measurement claimed. Generous margins. Actual code automatically decodes EAN_13 9526064055028.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

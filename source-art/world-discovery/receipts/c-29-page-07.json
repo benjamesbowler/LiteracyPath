@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-c-29",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:24:41.441Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-a8598e76-0f6e-4f75-986b-8eddd69f90d5.png",
+  "sourceSha256": "a849779aa244827068da233b9192c9fc2e29f98f853c74a08cdd7f6fb3b309c8",
+  "output": "public/guided-reading/world-discovery/c-29/page-07.webp",
+  "outputSha256": "3008828a1c544f954b1e9e971b5575cb4d62525db690bc1c4256a07874b51085",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit the referenced finished landscape3:2 flat2D children nonfiction illustration. Crisp clean dark outlines and flat colors. Pull BOTH clocks back together uniformly by25 percent, keep equal size and existing gap, extend same cream background edge-to-edge with NO frame or border. Whole outer blue rims must have at least12 percent left/right margins. Preserve EXACT left3:00 blueup12/redright3 and right4:00 blueup12/reddiagonal4; same correct numerals1\u201312 on each, exactlytwohands each. Do not change hand angles, colors or numbers; no extra labels.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-d3b4fa70-45bb-4373-abd6-d9ac34c5b3b6.png",
+      "sha256": "5d06b55475e4095f349f27e559e531efd0abbd80f3b6d010416b935087c5a273"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "7dacb274608cd92e9787048ea3b34f4e75fff582b4c227e3e6234a48171cbea7",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T13:26:30.896237+00:00",
+    "sha256": "3008828a1c544f954b1e9e971b5575cb4d62525db690bc1c4256a07874b51085",
+    "note": "Exactly two equal clocks, both long blue hands at12; left short red3/right short red4. Twelve correct numerals each; safe outer rim margins after pullback.",
+    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  }
+}

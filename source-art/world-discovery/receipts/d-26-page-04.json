@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-26",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:48:49.001Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-f8f31a5b-da8d-4156-ba73-dc6ab8585f09.png",
+  "sourceSha256": "592b91d3af47d648c2fe59f2558b9d8220c63eed247befa237875d15229ae37c",
+  "output": "public/guided-reading/world-discovery/d-26/page-04.webp",
+  "outputSha256": "25accbe80fcaf3e2e87d3ca4132f3546554ad2547d8bac1cacab3be72596f7f9",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Create the next classroom scene using this image for exact Kit, room and robot identity. Kit sits behind and to the LEFT of the stationary blue robot, now holding a plain landscape tablet in his left hand and pointing at its screen with his right index finger. Tablet visible to reader. Show exactly THREE simple pictorial program icons across the tablet screen: a RED filled square for stop, a BLUE straight LEFT arrow for backward, and a BLUE curved turning arrow. Nothing else on the screen: no text, numbers, play button or pseudo-code. Robot remains facing RIGHT with red bumper touching the LEFT face of the unmoved yellow foam block, compressed lower spring, straight white upper plunger, top gray controller and black wire unchanged. Kit golden light-medium skin, black side-parted hair, teal T-shirt, mustard SHORTS, navy/white shoes. Natural exactly two hands; keep all fingers away from the robot and block. No Zoe, extra robots, loose diagram panels or floating symbols. Use clean dark-outlined flat 2D children’s nonfiction illustration with restrained cel shading, no grain, brush texture, photorealism or 3D render. Landscape 3:2, 1536 by 1024. Keep all instructional subjects inside central 70% with generous 140px margins. No words, letters, numbers, logos, captions or watermarks.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-b97a0b41-bd95-42b6-88a0-5e9f718d8708.png",
+      "sha256": "3e2465b8ad6c8e0b8fff5dabf6eff3ff1ef6461f0d0d9dc8f81974c7574dd470"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "975d5f5420efb1308d6c48d6cf7633e175e59f4e879e625913e4b4acfddfb28a",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.529Z",
+    "sha256": "25accbe80fcaf3e2e87d3ca4132f3546554ad2547d8bac1cacab3be72596f7f9",
+    "note": "Direct native image inspection: Kit has two natural hands and correct mustard shorts; tablet shows exactly stop square, backward arrow and turn arrow, no text; robot remains stationary at block with compressed bumper.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

@@ -2,11 +2,13 @@
 // cache identity: the old file remains available with its original bytes.
 import { WORLD_DISCOVERY_AUDIO_REPAIRS } from "./worldDiscoveryAudioRepairs.mjs";
 import { WORLD_DISCOVERY_EXPANSION_AUDIO_REPAIRS } from "./worldDiscoveryExpansionAudioRepairs.mjs";
+import { WORLD_DISCOVERY_NONFICTION_AUDIO_REPAIRS } from "./worldDiscoveryNonfictionAudioRepairs.mjs";
 import { GUIDED_READING_REMEDIATION_AUDIO_REPAIRS } from "./guidedReadingRemediationAudioRepairs.mjs";
 
 export const GUIDED_READING_AUDIO_REPAIRS = Object.freeze({
   ...WORLD_DISCOVERY_AUDIO_REPAIRS,
   ...WORLD_DISCOVERY_EXPANSION_AUDIO_REPAIRS,
+  ...WORLD_DISCOVERY_NONFICTION_AUDIO_REPAIRS,
   ...GUIDED_READING_REMEDIATION_AUDIO_REPAIRS,
   "guided_page:woolly chases the loose wool": Object.freeze({
     role: "guided_page",

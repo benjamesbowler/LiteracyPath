@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-b-23",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T06:26:44.586Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-9d37e6bb-3757-433a-bf3f-d2a62a9561b8.png",
+  "sourceSha256": "3e8718e723360e127f1b0fc5c4382bc791423e3d27913d6a79237f9e053c944b",
+  "output": "public/guided-reading/world-discovery/b-23/page-03.webp",
+  "outputSha256": "31a6b554085925d76088fc4eb8464e1e245c0e051303faaf57287fe66295d8b6",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Create ONE friendly simplified child-jaw teaching cutaway, viewed from above and slightly in front. Show one pink LOWER dental arch with exactly ten primary teeth: four small incisors at front, one canine each side, then two wider ridged molars each side. A broad pink tongue inside the arch bends gently toward the right rear molars and moves ONE small pale peeled-apple bite next to those molars. No remaining apple slice, no detached food elsewhere. The tongue sits inside and behind the front teeth, never underneath the jaw. One coherent anatomical model, not multiple panels. No exposed throat, blood, lips, human face, child, arrows or decorative objects. Reference is for model colors and tooth shapes only.\nLandscape 3:2. All essential shapes within central 70 percent of canvas, with generous 15 percent margins. Crisp bold continuous black outlines, perfectly smooth flat vectorlike color, no grain, no stipple, no painted texture. No letters, numbers or labels.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/b-23-reference.webp",
+      "sha256": "f5339ba2c8d25dab58581bce2c4680f9ac76f869eceda648a19170b9e47e90e7"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "645b4a3a4d22eb876a75ddaa40ade656cc1ad18dd1be8213019b648b10ad63d3",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T06:27:54.337326+00:00",
+    "sha256": "31a6b554085925d76088fc4eb8464e1e245c0e051303faaf57287fe66295d8b6",
+    "note": "Directly viewed native PNG and installed WebP. One lower child dental arch has four incisors, two canines and four molars; pink tongue inside the arch positions one small apple bite beside rear molars. No throat or extra food is shown.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-c-29",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:06:43.514Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-333f4825-ff71-4f82-970d-0908d8450e82.png",
+  "sourceSha256": "5ef69de3d8df0d806371640aee94d9c30f05ed0be1a5f9ec02063df1e7ceb40e",
+  "output": "source-art/world-discovery/c-29-reference.webp",
+  "outputSha256": "0e4cc615adc85c760ca977456842c568796faa70ce5a3972164905339528f992",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this production model reference sheet. Preserve the useful design, colors and bold crisp flat 2D cartoon style. Pull the ENTIRE composition back uniformly by 22 percent on the SAME landscape white canvas, adding blank white space all around, so every character, prop and inset sits at least 10 percent inside all four edges. Keep proportions and do not crop anything. No titles, letters, numbers, logos or watermark. Preserve twelve hour tick marks, long blue hand pointing straight UP and shorter red hand pointing RIGHT. No numerals or lettering in this reference. Preserve exact Kit and Zoe models and same classroom paper-strip props.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-0e960004-2e05-4076-8427-5b16cd2f2c77.png",
+      "sha256": "fc9986a31260b6a27e7e8539f433a9449c61a09e3ab8b71988ecd5403812a4ac"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "7dacb274608cd92e9787048ea3b34f4e75fff582b4c227e3e6234a48171cbea7",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T12:08:26.147181+00:00",
+    "sha256": "0e4cc615adc85c760ca977456842c568796faa70ce5a3972164905339528f992",
+    "note": "Matching Kit/Zoe models, blue-rim clock with twelve ticks and correct long blue up/short red right 3:00 hands, classroom and blank paper-strip props; all safely inset.",
+    "limits": "Production reference inspection only; final pages reviewed separately."
+  }
+}

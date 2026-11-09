@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-29",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:55:10.372Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-79b943be-4aa2-480c-a142-9b4ef56d9101.png",
+  "sourceSha256": "18cd7a8414a04cda1156a2c2eec632e3a75d1a450a6fa1e9fbcd004a46d21707",
+  "output": "public/guided-reading/world-discovery/e-29/page-04.webp",
+  "outputSha256": "a54b87f4272cdfbce73f5845f4a6667317fab2b6bcf1fdaa71942a959557fb86",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit ONLY the central wringer rollers and the shirt's path. Keep entire scene, adult pose, hands away from rollers, crank, framing, colors and other props unchanged. There must be exactly TWO black rubber rollers. Yellow shirt comes through the horizontal CONTACT GAP BETWEEN upper and lower roller, then drapes down OVER THE FRONT OF THE LOWER ROLLER before lying on gray draining tray. Upper roller remains wholly visible, while most of lower roller center is OCCLUDED by emerging yellow cloth, leaving its two black ends visible at left and right of shirt. This makes cloth squeezing BETWEEN the pair unmistakable. Never place cloth entirely below both fully visible rollers as current image does. Shirt blue square pocket retained farther down exiting cloth. Do not add a third roller, no text/inset/arrows.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-10dd5637-fc33-495d-b5f8-b59ffa508385.png",
+      "sha256": "d783ec4a113cf6899c73be7243a60bb93425bb3327a3c02a42a2872568006915"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "7b5d49fa464ddfe3c488fb7295ea82cbaa37ae0e01b14b633c270d651f53cb42",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
+    "sha256": "a54b87f4272cdfbce73f5845f4a6667317fab2b6bcf1fdaa71942a959557fb86",
+    "note": "Cloth now visibly emerges between upper and lower roller, covering lower roller front. Adult cranks safely with other hand on thigh; drained water enters tub.",
+    "limits": "Individual installed WebP only; independent sequence, reader, card and audio separate."
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-23",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:17:44.901Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-848ad564-0450-401b-af00-941466f8142e.png",
+  "sourceSha256": "2ca9489a47a23cecf3cef93020a420cc5e7ae2c482fed1cc7e8aebd0346d2266",
+  "output": "public/guided-reading/world-discovery/a-23/page-03.webp",
+  "outputSha256": "98a86ef621c8a73381102c316702eea2c666a5d84023e44a051895e40f9d9621",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit ONLY framing. Pull ENTIRE scene back uniformly by30%, extending room naturally. Zoe's FULL side-view figure must occupy about70%imageheight, hair top y150 and shoesbottomy870 on1024canvas, >=12%margin top/bottom. Preserve natural body proportions, hands on upperchest, exact TWO short purple arrows pointing OUTWARD beside chest, thin dashed inner chest outline, closedlips and relaxed pose. Keep diagram anchored to chest, no new anatomy. Entire furniture/rug/room scales together, feet grounded. Smooth flat colors, no texture or words. Landscape3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-a90900b6-7d3f-479a-b42f-632d6af361b7.png",
+      "sha256": "c20d0654ac3093f7284817dabe152c3df1e04501a5e9c19f5dfa268c3faccdb9"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "9d1d4dd6d93c7ff9e1f38dd1d3858cfe95edf848dc9e464d8d8c183b2a6aee4a",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "98a86ef621c8a73381102c316702eea2c666a5d84023e44a051895e40f9d9621",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:17:44.903Z",
+    "note": "Directly inspected framing repair: full figure hair~16% and shoes~16% inset, natural side pose/hands preserved; two outward purple chest arrows and dashed smaller chest outline retain expansion cue. Entire room scaled uniformly, feet on rug."
+  }
+}

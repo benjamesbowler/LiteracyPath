@@ -1,0 +1,1649 @@
+[
+  {
+    "id": "world-discovery-d-21",
+    "number": 21,
+    "title": "A Container's Journey",
+    "topic": "transport",
+    "type": "nonfiction",
+    "appLevel": "D",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "How can the same box carry goods on a ship, a train and a truck?",
+      "progression": "Follow one sealed container through successive transfers, keeping its contents fixed while its carrier changes.",
+      "synthesis": "The container moves between carriers without unpacking its goods at every transfer.",
+      "scienceSources": [
+        {
+          "title": "Port of Los Angeles: Supply Chain",
+          "url": "https://portoflosangeles.org/business/supply-chain",
+          "evidence": "The port connects ships, rail, trucks and warehouses; the manuscript uses an illustrative shipment."
+        },
+        {
+          "title": "Port of Los Angeles: Rail",
+          "url": "https://portoflosangeles.org/business/supply-chain/rail",
+          "evidence": "On-dock and near-dock rail connect marine terminals and inland freight routes."
+        },
+        {
+          "title": "Port of Los Angeles: Trucks",
+          "url": "https://portoflosangeles.org/business/supply-chain/trucks",
+          "evidence": "Road haulage connects containers with inland destinations."
+        }
+      ]
+    },
+    "setting": "An illustrative modern freight journey, not a record of a real shipment. One orange corrugated container with a plain blue square on its left door. No brands or flags. Workers wear ordinary safety equipment; children never enter operating areas.",
+    "props": [
+      "One orange container with two end doors and blue square marker",
+      "Ship, spreader crane, railcar, tractor and container trailer",
+      "Brown cartons of plain notebooks"
+    ],
+    "coverBrief": "The orange container hangs level beneath a spreader crane beside a moored ship.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "These notebooks must travel a long way. Workers pack their boxes inside one large container.",
+        "imageBrief": "Workers load notebook cartons into an orange container. Both doors are open; one open carton reveals plain notebooks. The blue square is on the left door.",
+        "imageAlt": "Workers load notebook cartons into an orange container.",
+        "pageDescription": "Workers load notebook cartons into an orange container.",
+        "state": "Both doors are open; one open carton reveals plain notebooks. The blue square is on the left door.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "The doors close. The container keeps the boxes together while different vehicles carry them.",
+        "imageBrief": "A worker secures the container doors and locking bars. Doors now shut and remain shut until the final warehouse; no lettering or logos.",
+        "imageAlt": "A worker secures the container doors and locking bars.",
+        "pageDescription": "A worker secures the container doors and locking bars.",
+        "state": "Doors now shut and remain shut until the final warehouse; no lettering or logos.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "At the port, a crane lifts the whole container onto a ship. The boxes stay inside.",
+        "imageBrief": "A spreader crane lowers the container onto a moored ship. Spreader attaches at all four top corners; container hangs level over a clear deck position, no person below.",
+        "imageAlt": "A spreader crane lowers the container onto a moored ship.",
+        "pageDescription": "A spreader crane lowers the container onto a moored ship.",
+        "state": "Spreader attaches at all four top corners; container hangs level over a clear deck position, no person below.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "The ship carries many containers across the sea. Our orange box travels among them.",
+        "imageBrief": "The ship crosses open water with the orange container secured on deck. Same container visible at outer edge of an orderly stack; containers properly fastened, no crane at sea.",
+        "imageAlt": "The ship crosses open water with the orange container secured on deck.",
+        "pageDescription": "The ship crosses open water with the orange container secured on deck.",
+        "state": "Same container visible at outer edge of an orderly stack; containers properly fastened, no crane at sea.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "At another port, a crane lifts the orange container from the ship. It still holds the same notebooks.",
+        "imageBrief": "A shore crane lifts the same container at a different quay. Same blue marker and closed doors; different port skyline; clear landing area under the load.",
+        "imageAlt": "A shore crane lifts the same container at a different quay.",
+        "pageDescription": "A shore crane lifts the same container at a different quay.",
+        "state": "Same blue marker and closed doors; different port skyline; clear landing area under the load.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "Workers place the container on a railcar. The train can carry it far from the coast.",
+        "imageBrief": "The orange container rests securely on a container railcar. Railcar stationary, proper railway wheels and rails, secure corner connections, no passenger seats.",
+        "imageAlt": "The orange container rests securely on a container railcar.",
+        "pageDescription": "The orange container rests securely on a container railcar.",
+        "state": "Railcar stationary, proper railway wheels and rails, secure corner connections, no passenger seats.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "The train follows its tracks to a freight yard. Here, the container changes vehicles again.",
+        "imageBrief": "The train enters an inland yard beside a waiting crane and road trailer. Container remains on the railcar at this moment; no opening or unloading of cartons.",
+        "imageAlt": "The train enters an inland yard beside a waiting crane and road trailer.",
+        "pageDescription": "The train enters an inland yard beside a waiting crane and road trailer.",
+        "state": "Container remains on the railcar at this moment; no opening or unloading of cartons.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "A crane lowers the container onto a truck trailer. The driver can now take roads to the warehouse.",
+        "imageBrief": "The orange container is lowered onto a skeletal trailer attached to one tractor. Spreader aligned with four top corners; trailer beneath the full load; nobody below the crane.",
+        "imageAlt": "The orange container is lowered onto a skeletal trailer attached to one tractor.",
+        "pageDescription": "The orange container is lowered onto a skeletal trailer attached to one tractor.",
+        "state": "Spreader aligned with four top corners; trailer beneath the full load; nobody below the crane.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 9,
+        "text": "At the warehouse, workers finally open the doors. They lift out the boxes of notebooks.",
+        "imageBrief": "Workers unload the original cartons at a warehouse. Truck stationary; same orange doors now open and blue square visible; cartons match page one.",
+        "imageAlt": "Workers unload the original cartons at a warehouse.",
+        "pageDescription": "Workers unload the original cartons at a warehouse.",
+        "state": "Truck stationary; same orange doors now open and blue square visible; cartons match page one.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 10,
+        "text": "Ship, train, then truck: three kinds of transport carried one container. The notebooks stayed packed through every change.",
+        "imageBrief": "The notebook cartons stand inside the warehouse beside the open container. Journey complete; same notebooks and container, truck parked outside; one scene rather than vehicle collage.",
+        "imageAlt": "The notebook cartons stand inside the warehouse beside the open container.",
+        "pageDescription": "The notebook cartons stand inside the warehouse beside the open container.",
+        "state": "Journey complete; same notebooks and container, truck parked outside; one scene rather than vehicle collage.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why do workers move the whole container?",
+        "listenFor": "The packed goods stay together when the carrier changes."
+      },
+      "visual": {
+        "page": 8,
+        "prompt": "What holds the container during this transfer?",
+        "lookFor": "The crane spreader holds its top corners above the trailer."
+      }
+    },
+    "levelRationale": "Candidate D: Follow one sealed container through successive transfers, keeping its contents fixed while its carrier changes. The connected explanation uses concrete clauses and supported topic words. Independent placement and media review remain pending.",
+    "languagePrep": [
+      {
+        "word": "container",
+        "meaning": "a large strong box that carries goods"
+      },
+      {
+        "word": "freight",
+        "meaning": "things carried from one place to another"
+      },
+      {
+        "word": "warehouse",
+        "meaning": "a building where goods are kept"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-d-22",
+    "number": 22,
+    "title": "The Continents on One Earth",
+    "topic": "geography",
+    "type": "nonfiction",
+    "appLevel": "D",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "topicQuestion": "Must an ocean separate every pair of continents?",
+      "progression": "Compare connected and separated land areas on one accurate map, using the seven-continent convention.",
+      "synthesis": "Continents are named land divisions; some share land and some have water between them.",
+      "scienceSources": [
+        {
+          "title": "National Geographic Society: Map Policy",
+          "url": "https://www.nationalgeographic.org/national-geographic-map-policy",
+          "evidence": "Declares seven continent names and the conventional Europe–Asia division; Oceania is a region."
+        },
+        {
+          "title": "National Geographic Society: Continent",
+          "url": "https://education.nationalgeographic.org/resource/Continent/",
+          "evidence": "Explains the shared Eurasian landmass, continental connections and Antarctic ice."
+        }
+      ]
+    },
+    "setting": "Accurate globe and maps in an ordinary classroom. Seven-continent convention: Africa, Antarctica, Asia, Australia, Europe, North America, South America. Oceania is a region here. Real coastlines and relative positions are mandatory. No flags or country borders. Map colors are diagram coding only. Overview maps label all seven continents; focused maps use only the exact embeddedImageText whitelist, placed on the correct land areas.",
+    "props": [
+      "Accurate globe",
+      "Accurate full-world map with seven restrained consistent continent colors"
+    ],
+    "coverBrief": "Kit and Zoe examine an accurate globe beside a plain map; no cover lettering.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Earth has wide stretches of land and water. On a map, we can look at them together.",
+        "imageBrief": "An accurate whole-world map shows major land areas and blue oceans. Include Antarctica and recognizable real coastlines; no invented islands or land connections. Clearly place only these map labels on their correct land areas: Africa, Antarctica, Asia, Australia, Europe, North America, South America.",
+        "imageAlt": "An accurate whole-world map shows major land areas and blue oceans.",
+        "pageDescription": "An accurate whole-world map shows major land areas and blue oceans.",
+        "state": "Include Antarctica and recognizable real coastlines; no invented islands or land connections.",
+        "embeddedImageText": "Africa, Antarctica, Asia, Australia, Europe, North America, South America",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 2,
+        "text": "People divide much of the land into continents. This map uses seven continent names.",
+        "imageBrief": "Kit and Zoe examine seven colored areas on the map. Same map geometry and seven consistent colors; seven is this book's named convention. Clearly place only these map labels on their correct land areas: Africa, Antarctica, Asia, Australia, Europe, North America, South America.",
+        "imageAlt": "Kit and Zoe examine seven colored areas on the map.",
+        "pageDescription": "Kit and Zoe examine seven colored areas on the map.",
+        "state": "Same map geometry and seven consistent colors; seven is this book's named convention.",
+        "embeddedImageText": "Africa, Antarctica, Asia, Australia, Europe, North America, South America",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 3,
+        "text": "North America and South America meet along a narrow stretch of land. Water does not lie between all of their edges.",
+        "imageBrief": "The map focuses on the Americas and their narrow Central American connection. Correct north-south positions; keep the land connection visible rather than inventing an ocean gap. Clearly place only these map labels on their correct land areas: North America, South America.",
+        "imageAlt": "The map focuses on the Americas and their narrow Central American connection.",
+        "pageDescription": "The map focuses on the Americas and their narrow Central American connection.",
+        "state": "Correct north-south positions; keep the land connection visible rather than inventing an ocean gap.",
+        "embeddedImageText": "North America, South America",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 4,
+        "text": "Their names are different, but their land connects. A continent does not always stand alone in the sea.",
+        "imageBrief": "A finger follows the land connection between the Americas. Same coastline and colors; fingertip does not obscure the narrow connection; no route across water. Clearly place only these map labels on their correct land areas: North America, South America.",
+        "imageAlt": "A finger follows the land connection between the Americas.",
+        "pageDescription": "A finger follows the land connection between the Americas.",
+        "state": "Same coastline and colors; fingertip does not obscure the narrow connection; no route across water.",
+        "embeddedImageText": "North America, South America",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 5,
+        "text": "Europe and Asia share an even wider stretch of land. Together, that land is called Eurasia.",
+        "imageBrief": "Europe and Asia appear as neighboring colors on one continuous landmass. Use the conventional Ural-region division as a thin diagram line; never a sea channel. Clearly place only these map labels on their correct land areas: Europe, Asia.",
+        "imageAlt": "Europe and Asia appear as neighboring colors on one continuous landmass.",
+        "pageDescription": "Europe and Asia appear as neighboring colors on one continuous landmass.",
+        "state": "Use the conventional Ural-region division as a thin diagram line; never a sea channel.",
+        "embeddedImageText": "Europe, Asia",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 6,
+        "text": "The line between those two continents is a boundary people use. It is not a strip of ocean.",
+        "imageBrief": "A close map view shows uninterrupted land on both sides of the Europe–Asia boundary. Thin artificial map line only; no wall, cliff, full-length river or physical gap. Clearly place only these map labels on their correct land areas: Europe, Asia.",
+        "imageAlt": "A close map view shows uninterrupted land on both sides of the Europe–Asia boundary.",
+        "pageDescription": "A close map view shows uninterrupted land on both sides of the Europe–Asia boundary.",
+        "state": "Thin artificial map line only; no wall, cliff, full-length river or physical gap.",
+        "embeddedImageText": "Europe, Asia",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 7,
+        "text": "South of Europe lies Africa. The sea between them helps us find their facing coasts.",
+        "imageBrief": "The Mediterranean separates the facing coasts of southern Europe and northern Africa. Real shoreline geometry, narrow Strait of Gibraltar and correct nearby western Asia; Africa is not drawn as wholly isolated. Clearly place only these map labels on their correct land areas: Europe, Africa, Asia.",
+        "imageAlt": "The Mediterranean separates the facing coasts of southern Europe and northern Africa.",
+        "pageDescription": "The Mediterranean separates the facing coasts of southern Europe and northern Africa.",
+        "state": "Real shoreline geometry, narrow Strait of Gibraltar and correct nearby western Asia; Africa is not drawn as wholly isolated.",
+        "embeddedImageText": "Europe, Africa, Asia",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 8,
+        "text": "Water surrounds Australia. Farther south, Antarctica lies around the South Pole, mostly covered by thick ice.",
+        "imageBrief": "A globe view shows Australia and ice-covered Antarctica in the southern hemisphere. Correct ocean spacing and shapes; Antarctica is land under ice, not floating sea ice. Clearly place only these map labels on their correct land areas: Australia, Antarctica.",
+        "imageAlt": "A globe view shows Australia and ice-covered Antarctica in the southern hemisphere.",
+        "pageDescription": "A globe view shows Australia and ice-covered Antarctica in the southern hemisphere.",
+        "state": "Correct ocean spacing and shapes; Antarctica is land under ice, not floating sea ice.",
+        "embeddedImageText": "Australia, Antarctica",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 9,
+        "text": "The map colors help us follow the names. Earth does not have colored lines drawn across its land.",
+        "imageBrief": "The coded map appears beside a globe with natural land and ocean colors. Same geographic features correspond; no political symbols or invented geographic divisions. Clearly place only these map labels on their correct land areas: Africa, Antarctica, Asia, Australia, Europe, North America, South America.",
+        "imageAlt": "The coded map appears beside a globe with natural land and ocean colors.",
+        "pageDescription": "The coded map appears beside a globe with natural land and ocean colors.",
+        "state": "Same geographic features correspond; no political symbols or invented geographic divisions.",
+        "embeddedImageText": "Africa, Antarctica, Asia, Australia, Europe, North America, South America",
+        "imageLayout": "comparison-diagram"
+      },
+      {
+        "pageNumber": 10,
+        "text": "Some continents share land. Others have water between them. We can find all seven on this one Earth.",
+        "imageBrief": "Kit and Zoe return to the full map, pointing to Eurasia and Australia. All seven areas visible with unchanged geometry and colors; opening comparison resolved. Clearly place only these map labels on their correct land areas: Africa, Antarctica, Asia, Australia, Europe, North America, South America.",
+        "imageAlt": "Kit and Zoe return to the full map, pointing to Eurasia and Australia.",
+        "pageDescription": "Kit and Zoe return to the full map, pointing to Eurasia and Australia.",
+        "state": "All seven areas visible with unchanged geometry and colors; opening comparison resolved.",
+        "embeddedImageText": "Africa, Antarctica, Asia, Australia, Europe, North America, South America",
+        "imageLayout": "integrated-diagram"
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Does a different continent name always mean an ocean lies between the places?",
+        "listenFor": "No. Europe and Asia share land; the Americas connect too."
+      },
+      "visual": {
+        "page": 5,
+        "prompt": "Where do these two map colors meet? Is there an ocean there?",
+        "lookFor": "The Europe and Asia colors meet on continuous land."
+      }
+    },
+    "levelRationale": "Candidate D: Compare connected and separated land areas on one accurate map, using the seven-continent convention. The connected explanation uses concrete clauses and supported topic words. Independent placement and media review remain pending.",
+    "languagePrep": [
+      {
+        "word": "continent",
+        "meaning": "one of the large land divisions named on a world map"
+      },
+      {
+        "word": "boundary",
+        "meaning": "a line used to mark where one area ends"
+      },
+      {
+        "word": "coast",
+        "meaning": "the edge where land meets the sea"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-d-23",
+    "number": 23,
+    "title": "Where Does My Heart Send Blood?",
+    "topic": "human body",
+    "type": "nonfiction",
+    "appLevel": "D",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-ZOE"
+      ],
+      "topicQuestion": "How does blood travel between the heart, lungs and the body?",
+      "progression": "Trace heart-to-lungs-to-heart-to-body circulation, connecting each stage to oxygen delivery and return.",
+      "synthesis": "The heart pumps blood through connected lung and body routes that repeat.",
+      "scienceSources": [
+        {
+          "title": "NHLBI: How Blood Flows through the Heart",
+          "url": "https://www.nhlbi.nih.gov/health/heart/blood-flow",
+          "evidence": "Right heart sends blood to lungs; blood returns to left heart and goes to the body."
+        },
+        {
+          "title": "NHLBI: The Heart",
+          "url": "https://www.nhlbi.nih.gov/health/heart",
+          "evidence": "Muscle pump, vessels, oxygen delivery and carbon-dioxide return."
+        },
+        {
+          "title": "NHLBI: What Breathing Does for the Body",
+          "url": "https://www.nhlbi.nih.gov/health/lungs/breathing-benefits",
+          "evidence": "Gas exchange connects lung air, capillary blood and body cells."
+        }
+      ]
+    },
+    "setting": "Zoe in an ordinary room and non-graphic teaching diagrams. Heart between lungs, slightly left of center. Anatomical right is viewer left in front views. Blood remains red; pale oxygen dots and gray carbon-dioxide symbols are teaching codes, not literal large bubbles.",
+    "props": [
+      "Simple accurate heart, lung and body diagrams",
+      "Arrows show direction; blood remains inside vessels"
+    ],
+    "coverBrief": "Zoe rests her hand on her chest beside an accurate simple heart-and-lungs diagram.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Zoe feels a beat inside her chest. Her heart is a muscle that squeezes to push blood along.",
+        "imageBrief": "Zoe rests a hand on her upper chest after walking. Ordinary fully clothed child, no exposed anatomy or heart icon on clothing; no illness implied.",
+        "imageAlt": "Zoe rests a hand on her upper chest after walking.",
+        "pageDescription": "Zoe rests a hand on her upper chest after walking.",
+        "state": "Ordinary fully clothed child, no exposed anatomy or heart icon on clothing; no illness implied.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Blood travels through blood vessels. These branching tubes reach all around the body.",
+        "imageBrief": "A body diagram shows vessels branching from the heart. Vessels remain within the body outline; red blood, accurate heart position, no disconnected tubes.",
+        "imageAlt": "A body diagram shows vessels branching from the heart.",
+        "pageDescription": "A body diagram shows vessels branching from the heart.",
+        "state": "Vessels remain within the body outline; red blood, accurate heart position, no disconnected tubes.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 3,
+        "text": "Blood returning from the body first reaches the right side of the heart. It needs more oxygen.",
+        "imageBrief": "Arrows lead returning blood into the right heart. Anatomical right is viewer left; dark-red blood has fewer oxygen symbols, never zero oxygen or blue blood.",
+        "imageAlt": "Arrows lead returning blood into the right heart.",
+        "pageDescription": "Arrows lead returning blood into the right heart.",
+        "state": "Anatomical right is viewer left; dark-red blood has fewer oxygen symbols, never zero oxygen or blue blood.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 4,
+        "text": "That side pumps blood toward the lungs. When we breathe in, fresh air enters the lungs too.",
+        "imageBrief": "Separate routes show blood entering lung vessels and air entering the airway. Airways and blood vessels remain separate; they do not merge into a single open tube.",
+        "imageAlt": "Separate routes show blood entering lung vessels and air entering the airway.",
+        "pageDescription": "Separate routes show blood entering lung vessels and air entering the airway.",
+        "state": "Airways and blood vessels remain separate; they do not merge into a single open tube.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 5,
+        "text": "In the lungs, oxygen moves from the air into the blood. Blood carries this oxygen away.",
+        "imageBrief": "A close diagram shows oxygen symbols crossing from an air sac into a vessel. One thin intact boundary, small symbolic dots crossing; no holes, pouring air or giant bubbles.",
+        "imageAlt": "A close diagram shows oxygen symbols crossing from an air sac into a vessel.",
+        "pageDescription": "A close diagram shows oxygen symbols crossing from an air sac into a vessel.",
+        "state": "One thin intact boundary, small symbolic dots crossing; no holes, pouring air or giant bubbles.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 6,
+        "text": "The blood returns to the left side of the heart. Now the heart sends it out toward the body.",
+        "imageBrief": "Arrows connect lungs to the left heart and then to the body. Anatomical left is viewer right; blood bright red, continuous correct route, no direct lung-to-body shortcut.",
+        "imageAlt": "Arrows connect lungs to the left heart and then to the body.",
+        "pageDescription": "Arrows connect lungs to the left heart and then to the body.",
+        "state": "Anatomical left is viewer right; blood bright red, continuous correct route, no direct lung-to-body shortcut.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 7,
+        "text": "Tiny vessels bring blood close to body cells. Oxygen leaves the blood and helps those cells do their work.",
+        "imageBrief": "Oxygen symbols cross a tiny vessel wall toward nearby muscle cells. Magnified teaching view; cells remain outside the vessel, oxygen symbols small and consistent.",
+        "imageAlt": "Oxygen symbols cross a tiny vessel wall toward nearby muscle cells.",
+        "pageDescription": "Oxygen symbols cross a tiny vessel wall toward nearby muscle cells.",
+        "state": "Magnified teaching view; cells remain outside the vessel, oxygen symbols small and consistent.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 8,
+        "text": "Blood also carries carbon dioxide away from the cells. This waste gas will travel back to the lungs.",
+        "imageBrief": "Gray gas symbols move from body cells into returning blood. Different shapes distinguish the gases; restrained arrows show return direction; blood remains red.",
+        "imageAlt": "Gray gas symbols move from body cells into returning blood.",
+        "pageDescription": "Gray gas symbols move from body cells into returning blood.",
+        "state": "Different shapes distinguish the gases; restrained arrows show return direction; blood remains red.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 9,
+        "text": "The blood returns to the heart, then reaches the lungs again. Carbon dioxide leaves the blood, and we breathe it out.",
+        "imageBrief": "The returning route passes through the heart to lungs, with an outward breath arrow. Gray gas symbols cross into the air sac and leave through the airway; blood never exits the mouth.",
+        "imageAlt": "The returning route passes through the heart to lungs, with an outward breath arrow.",
+        "pageDescription": "The returning route passes through the heart to lungs, with an outward breath arrow.",
+        "state": "Gray gas symbols cross into the air sac and leave through the airway; blood never exits the mouth.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 10,
+        "text": "Heart to lungs, back to heart, then around the body: blood keeps moving through these connected routes.",
+        "imageBrief": "The complete diagram shows the connected lung and body circulation routes. Separate right and left heart paths and accurate direction arrows; no one-chamber shortcut or reversed flow.",
+        "imageAlt": "The complete diagram shows the connected lung and body circulation routes.",
+        "pageDescription": "The complete diagram shows the connected lung and body circulation routes.",
+        "state": "Separate right and left heart paths and accurate direction arrows; no one-chamber shortcut or reversed flow.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why does blood go to the lungs before traveling around the body again?",
+        "listenFor": "It gains oxygen and releases carbon dioxide there."
+      },
+      "visual": {
+        "page": 6,
+        "prompt": "Where does blood go after leaving the lungs?",
+        "lookFor": "To the left heart, then toward the body."
+      }
+    },
+    "levelRationale": "Candidate D: Trace heart-to-lungs-to-heart-to-body circulation, connecting each stage to oxygen delivery and return. The connected explanation uses concrete clauses and supported topic words. Independent placement and media review remain pending.",
+    "languagePrep": [
+      {
+        "word": "blood vessel",
+        "meaning": "a tube that carries blood inside the body"
+      },
+      {
+        "word": "oxygen",
+        "meaning": "a gas in air that body cells need"
+      },
+      {
+        "word": "carbon dioxide",
+        "meaning": "a gas the body makes and breathes out"
+      }
+    ],
+    "coverImageLayout": "integrated-diagram",
+    "coverEmbeddedImageText": ""
+  },
+  {
+    "id": "world-discovery-d-24",
+    "number": 24,
+    "title": "Why Does Wind Blow?",
+    "topic": "weather and earth",
+    "type": "nonfiction",
+    "appLevel": "D",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "How can uneven heating make a sea breeze?",
+      "progression": "Follow one daytime coast through unequal warming, density differences, rising air and incoming cooler air.",
+      "synthesis": "Moving air is wind; unequal warming helps drive this daytime sea breeze.",
+      "scienceSources": [
+        {
+          "title": "NOAA JetStream: The Sea Breeze",
+          "url": "https://www.noaa.gov/jetstream/ocean/sea-breeze",
+          "evidence": "Unequal warming, density differences, inland surface flow and upper return circulation."
+        },
+        {
+          "title": "Met Office: Types of Wind",
+          "url": "https://weather.metoffice.gov.uk/learn-about/weather/types-of-weather/wind/types-of-wind",
+          "evidence": "Sea breezes are local winds; wider weather also controls wind."
+        }
+      ]
+    },
+    "setting": "An illustrative sunny coast: sea left, beach center, land right. Fixed viewpoint and plain orange windsock. This local pattern does not explain every wind or every sunny coast. Air arrows are teaching symbols; no flags.",
+    "props": [
+      "Orange windsock on a short pole",
+      "Coast section with restrained direction arrows"
+    ],
+    "coverBrief": "An orange windsock trails inland beside a sunny beach as low arrows show incoming sea air.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "The windsock points inland. Air is moving from the sea toward the beach. Moving air is wind.",
+        "imageBrief": "The orange windsock trails right toward the land, with sea to the left. Open mouth faces incoming sea air; fabric trails inland; daytime breeze.",
+        "imageAlt": "The orange windsock trails right toward the land, with sea to the left.",
+        "pageDescription": "The orange windsock trails right toward the land, with sea to the left.",
+        "state": "Open mouth faces incoming sea air; fabric trails inland; daytime breeze.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Why is the air moving this way? On this sunny day, the land warms faster than the nearby sea.",
+        "imageBrief": "Sunlight reaches the beach and the water together. One sun, comparable light coverage; warmer land and cooler sea are diagram colors, no invented temperatures.",
+        "imageAlt": "Sunlight reaches the beach and the water together.",
+        "pageDescription": "Sunlight reaches the beach and the water together.",
+        "state": "One sun, comparable light coverage; warmer land and cooler sea are diagram colors, no invented temperatures.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 3,
+        "text": "The warm ground heats the air above it. The sea keeps the air near its surface cooler.",
+        "imageBrief": "A coastal section compares air above warm land with air above cooler water. Relative warmth shown simply; no claim water is always cold or air visibly colored.",
+        "imageAlt": "A coastal section compares air above warm land with air above cooler water.",
+        "pageDescription": "A coastal section compares air above warm land with air above cooler water.",
+        "state": "Relative warmth shown simply; no claim water is always cold or air visibly colored.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 4,
+        "text": "As air warms, it spreads out. The same amount of air takes up more room.",
+        "imageBrief": "Two teaching boxes show the same number of air dots in different spaces. Exactly eight dots in each box; warm box larger. Dots are a model, not visible sky particles.",
+        "imageAlt": "Two teaching boxes show the same number of air dots in different spaces.",
+        "pageDescription": "Two teaching boxes show the same number of air dots in different spaces.",
+        "state": "Exactly eight dots in each box; warm box larger. Dots are a model, not visible sky particles.",
+        "embeddedImageText": "",
+        "imageLayout": "comparison-diagram"
+      },
+      {
+        "pageNumber": 5,
+        "text": "The warmer air is less dense than cooler air nearby. It can rise above that cooler air.",
+        "imageBrief": "An upward arrow appears over the warm beach. No vacuum, empty hole or solid air wall beneath the arrow; all areas still contain air.",
+        "imageAlt": "An upward arrow appears over the warm beach.",
+        "pageDescription": "An upward arrow appears over the warm beach.",
+        "state": "No vacuum, empty hole or solid air wall beneath the arrow; all areas still contain air.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 6,
+        "text": "Cooler air near the sea moves inland. It pushes beneath the warmer air and helps lift it.",
+        "imageBrief": "A low arrow runs from sea to land beneath rising air. Sea-left to land-right flow; no water wave moves with the air; windsock remains consistent.",
+        "imageAlt": "A low arrow runs from sea to land beneath rising air.",
+        "pageDescription": "A low arrow runs from sea to land beneath rising air.",
+        "state": "Sea-left to land-right flow; no water wave moves with the air; windsock remains consistent.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 7,
+        "text": "Higher above the coast, air moves back toward the sea. The air follows a larger turning route.",
+        "imageBrief": "An upper arrow points seaward above the low inland arrow. Upper flow right to left; lower flow left to right; enough vertical separation for clarity.",
+        "imageAlt": "An upper arrow points seaward above the low inland arrow.",
+        "pageDescription": "An upper arrow points seaward above the low inland arrow.",
+        "state": "Upper flow right to left; lower flow left to right; enough vertical separation for clarity.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 8,
+        "text": "Farther over the water, cooler air sinks. This helps complete the moving-air loop.",
+        "imageBrief": "A downward arrow over the sea connects the high and low routes. Schematic loop: low inland, rising over land, high seaward, sinking over sea.",
+        "imageAlt": "A downward arrow over the sea connects the high and low routes.",
+        "pageDescription": "A downward arrow over the sea connects the high and low routes.",
+        "state": "Schematic loop: low inland, rising over land, high seaward, sinking over sea.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 9,
+        "text": "Other weather can change this breeze. Wind does not always blow toward land whenever the Sun shines.",
+        "imageBrief": "The coast appears within a simple wider weather diagram. One larger outside air-flow arrow indicates wider conditions; no contradictory second windsock or invented storm.",
+        "imageAlt": "The coast appears within a simple wider weather diagram.",
+        "pageDescription": "The coast appears within a simple wider weather diagram.",
+        "state": "One larger outside air-flow arrow indicates wider conditions; no contradictory second windsock or invented storm.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 10,
+        "text": "Here, uneven warming helped start a sea breeze. The windsock stretches inland as the cooler air passes.",
+        "imageBrief": "Return to the original windsock trailing inland beside the beach. Match opening coastline and wind direction; no visible particle dots in this real scene.",
+        "imageAlt": "Return to the original windsock trailing inland beside the beach.",
+        "pageDescription": "Return to the original windsock trailing inland beside the beach.",
+        "state": "Match opening coastline and wind direction; no visible particle dots in this real scene.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What starts the difference between air over this land and sea?",
+        "listenFor": "The land and sea warm at different rates."
+      },
+      "visual": {
+        "page": 8,
+        "prompt": "Which way does air move near the beach?",
+        "lookFor": "From the sea toward land at the surface."
+      }
+    },
+    "levelRationale": "Candidate D: Follow one daytime coast through unequal warming, density differences, rising air and incoming cooler air. The connected explanation uses concrete clauses and supported topic words. Independent placement and media review remain pending.",
+    "languagePrep": [
+      {
+        "word": "breeze",
+        "meaning": "a gentle wind"
+      },
+      {
+        "word": "dense",
+        "meaning": "packed into a smaller space"
+      },
+      {
+        "word": "inland",
+        "meaning": "away from the sea and toward the land"
+      }
+    ],
+    "coverImageLayout": "integrated-diagram",
+    "coverEmbeddedImageText": ""
+  },
+  {
+    "id": "world-discovery-d-25",
+    "number": 25,
+    "title": "A Bridge Holds the Load",
+    "topic": "physics and engineering",
+    "type": "nonfiction",
+    "appLevel": "D",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "topicQuestion": "Can changing paper shape help it hold a load across the same gap?",
+      "progression": "Compare one flat and then folded sheet while the gap, supports and load stay unchanged.",
+      "synthesis": "The changed shape makes this folded paper bridge harder to bend.",
+      "scienceSources": [
+        {
+          "title": "ANU: Paper Bridge Challenge",
+          "url": "https://science.anu.edu.au/engagement/science-lab-experiments-home-school/paper-bridge-challenge-science-strong-shapes",
+          "evidence": "Compare flat paper and folded or rolled shapes under load."
+        },
+        {
+          "title": "Science Buddies: Paper Bridge Design Challenge",
+          "url": "https://www.sciencebuddies.org/teacher-resources/lesson-plans/paper-bridge-design",
+          "evidence": "Changing cross-sectional shape changes bending resistance; compare conditions fairly."
+        }
+      ]
+    },
+    "setting": "Original tabletop demonstration with Kit and Zoe, based on published paper-bridge experiments. Two equal blue blocks fixed 12 centimeters apart, one sheet of card-weight cream paper, one wide flat-bottom wooden counter. This is an illustrative test, not recorded experimental data.",
+    "props": [
+      "Two blue support blocks, fixed gap",
+      "One cream sheet, first flat then accordion-folded lengthwise",
+      "One wide wooden counter"
+    ],
+    "coverBrief": "Kit and Zoe examine a folded paper bridge carrying one wooden counter between two blue blocks.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "A flat sheet of paper lies across two blocks. Can this little bridge hold a wooden counter?",
+        "imageBrief": "A cream sheet spans a gap between equal-height blue blocks. One counter waits beside the setup; sheet ends rest equally on supports; no hidden middle support.",
+        "imageAlt": "A cream sheet spans a gap between equal-height blue blocks.",
+        "pageDescription": "A cream sheet spans a gap between equal-height blue blocks.",
+        "state": "One counter waits beside the setup; sheet ends rest equally on supports; no hidden middle support.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Kit places the counter in the middle. The paper bends down between the blocks.",
+        "imageBrief": "The centered wooden counter weighs down the flat sheet. Paper sags smoothly while both ends stay on blocks; no tearing or extra load.",
+        "imageAlt": "The centered wooden counter weighs down the flat sheet.",
+        "pageDescription": "The centered wooden counter weighs down the flat sheet.",
+        "state": "Paper sags smoothly while both ends stay on blocks; no tearing or extra load.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "The paper is easy to bend this way. Zoe takes the counter off before the paper slips.",
+        "imageBrief": "Zoe lifts the same counter above the sagging paper. One natural grip and one counter; paper remains intact, supports unmoved.",
+        "imageAlt": "Zoe lifts the same counter above the sagging paper.",
+        "pageDescription": "Zoe lifts the same counter above the sagging paper.",
+        "state": "One natural grip and one counter; paper remains intact, supports unmoved.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "They could add more paper. Instead, they try changing the shape of this same sheet.",
+        "imageBrief": "Kit lifts the single sheet from the supports. No added layers, tape, glue or stiffeners; counter beside the setup.",
+        "imageAlt": "Kit lifts the single sheet from the supports.",
+        "pageDescription": "Kit lifts the single sheet from the supports.",
+        "state": "No added layers, tape, glue or stiffeners; counter beside the setup.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Zoe folds the paper back and forth. The crease lines run parallel to the long edges, making long ridges and grooves.",
+        "imageBrief": "Zoe makes alternating accordion folds across the width of one sheet. Every crease runs parallel to its long edges, so each ridge extends the full future span between supports. Hands contact paper naturally.",
+        "imageAlt": "Zoe makes parallel creases along the long edges of one sheet.",
+        "pageDescription": "Zoe forms long accordion ridges by alternating folds across the sheet’s width.",
+        "state": "One sheet only; all creases parallel to long edges and future span, with alternating folds across its width.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "The folded sheet goes back across the same gap. Each long ridge reaches from one block to the other.",
+        "imageBrief": "The accordion-folded sheet spans the original supports. Ridges and valleys run along the span; gap and support positions match page one.",
+        "imageAlt": "The accordion-folded sheet spans the original supports.",
+        "pageDescription": "The accordion-folded sheet spans the original supports.",
+        "state": "Ridges and valleys run along the span; gap and support positions match page one.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Kit adds the same counter in the middle. This time, the folded paper bends much less.",
+        "imageBrief": "The folded bridge carries the same wooden counter with visibly less downward bending than the flat sheet. The counter rests across several ridge tops; no extra paper or center prop. Keep the same gap and load.",
+        "imageAlt": "The folded bridge carries the wooden counter over an open gap.",
+        "pageDescription": "The folded bridge carries the wooden counter over an open gap.",
+        "state": "Same counter centered on same sheet and supports; folded sheet has much less sag than page two, with a clear gap below.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "The folds make the paper harder to bend downward. The material stayed the same, but its shape changed.",
+        "imageBrief": "An end-on comparison shows a flat sheet beside the folded cross-section. Same paper thickness; folded shape has greater depth, not more material.",
+        "imageAlt": "An end-on comparison shows a flat sheet beside the folded cross-section.",
+        "pageDescription": "An end-on comparison shows a flat sheet beside the folded cross-section.",
+        "state": "Same paper thickness; folded shape has greater depth, not more material.",
+        "embeddedImageText": "",
+        "imageLayout": "comparison-diagram"
+      },
+      {
+        "pageNumber": 9,
+        "text": "Real bridges must hold much larger loads. Engineers test materials, shapes and supports before people use them.",
+        "imageBrief": "An adult engineer examines a beam-bridge model on a workbench. Plain work clothes, visible model supports and loads; no children on a construction site.",
+        "imageAlt": "An adult engineer examines a beam-bridge model on a workbench.",
+        "pageDescription": "An adult engineer examines a beam-bridge model on a workbench.",
+        "state": "Plain work clothes, visible model supports and loads; no children on a construction site.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 10,
+        "text": "One sheet, one counter, the same gap: folding helped this bridge carry its load with less bending.",
+        "imageBrief": "Kit and Zoe view the successful folded bridge at table height. Exactly two blue blocks, one folded cream sheet and one centered counter; comparison complete.",
+        "imageAlt": "Kit and Zoe view the successful folded bridge at table height.",
+        "pageDescription": "Kit and Zoe view the successful folded bridge at table height.",
+        "state": "Exactly two blue blocks, one folded cream sheet and one centered counter; comparison complete.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What changed, and what stayed the same?",
+        "listenFor": "The shape changed; the paper, counter, gap and supports stayed the same."
+      },
+      "visual": {
+        "page": 7,
+        "prompt": "Where is the paper supported?",
+        "lookFor": "At the two blocks, with no support in the middle."
+      }
+    },
+    "levelRationale": "Candidate D: Compare one flat and then folded sheet while the gap, supports and load stay unchanged. The connected explanation uses concrete clauses and supported topic words. Independent placement and media review remain pending.",
+    "languagePrep": [
+      {
+        "word": "load",
+        "meaning": "the weight something carries"
+      },
+      {
+        "word": "ridge",
+        "meaning": "a long raised part"
+      },
+      {
+        "word": "support",
+        "meaning": "something that holds another thing up"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-d-26",
+    "number": 26,
+    "title": "What Can a Robot Sense?",
+    "topic": "technology",
+    "type": "nonfiction",
+    "appLevel": "D",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "topicQuestion": "How can a simple robot use a touch sensor to change direction?",
+      "progression": "Follow a slow robot through contact, sensor input, a programmed rule and a motor response, then vary the obstacle position.",
+      "synthesis": "A sensor supplies information, while a program tells this robot how to respond.",
+      "scienceSources": [
+        {
+          "title": "LEGO Education: Using the Touch Sensor",
+          "url": "https://ev3-help-online.api.education.lego.com/Education/en-gb/page.html?Path=editor%2FUsingSensors_Touch.html",
+          "evidence": "A touch sensor detects pressed/released state, including contact with an obstacle; an authored program uses the input."
+        },
+        {
+          "title": "NASA: What Is Robotics? Grades 5–8",
+          "url": "https://www.nasa.gov/learning-resources/for-kids-and-students/what-is-robotics-grades-5-8/",
+          "evidence": "Robots are machines that carry out tasks; the classroom robot is an original illustrative design, not a NASA vehicle."
+        }
+      ]
+    },
+    "setting": "An illustrative unbranded classroom robot with two driven wheels, rear caster, front red spring bumper and visible controller box. Kit and Zoe test it on a large floor mat. One low foam block; no stairs, roads or dangerous equipment. The program is a simple authored rule, not artificial intelligence.",
+    "props": [
+      "Blue two-wheel robot, red front bumper, gray controller",
+      "One yellow foam block; large gray floor mat"
+    ],
+    "coverBrief": "Kit watches a small blue robot stop with its red bumper touching a yellow foam block.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "A little robot rolls toward a foam block. It has no human eyes, but it has a touch sensor.",
+        "imageBrief": "The blue robot approaches a yellow block on the mat. Front red bumper extended; robot moving slowly, child hands clear, obstacle directly ahead.",
+        "imageAlt": "The blue robot approaches a yellow block on the mat.",
+        "pageDescription": "The blue robot approaches a yellow block on the mat.",
+        "state": "Front red bumper extended; robot moving slowly, child hands clear, obstacle directly ahead.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "The sensor sits behind the front bumper. When something presses the bumper, the sensor detects that push.",
+        "imageBrief": "A simple cutaway shows the bumper connected to a push-button sensor. One contact mechanism behind bumper; no face, brain or invented light beam.",
+        "imageAlt": "A simple cutaway shows the bumper connected to a push-button sensor.",
+        "pageDescription": "A simple cutaway shows the bumper connected to a push-button sensor.",
+        "state": "One contact mechanism behind bumper; no face, brain or invented light beam.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 3,
+        "text": "The robot reaches the block. Its bumper presses inward, and the sensor sends a message to the controller.",
+        "imageBrief": "The bumper touches the foam block and compresses slightly. Robot body stays intact; small arrow follows wire to controller; no electrical spark.",
+        "imageAlt": "The bumper touches the foam block and compresses slightly.",
+        "pageDescription": "The bumper touches the foam block and compresses slightly.",
+        "state": "Robot body stays intact; small arrow follows wire to controller; no electrical spark.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 4,
+        "text": "The controller runs a program. This program says what the robot should do when the bumper is pressed.",
+        "imageBrief": "Kit points to a simple program sequence on a tablet beside the robot. Use only pictorial stop, backward and turn arrows; no pseudo-code or lettering; robot stationary.",
+        "imageAlt": "Kit points to a simple program sequence on a tablet beside the robot.",
+        "pageDescription": "Kit points to a simple program sequence on a tablet beside the robot.",
+        "state": "Use only pictorial stop, backward and turn arrows; no pseudo-code or lettering; robot stationary.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "First, the program stops the wheels. The robot does not keep pushing against the block.",
+        "imageBrief": "The robot has stopped with bumper against the block. No forward motion marks, foam block unmoved, two wheels still on the floor.",
+        "imageAlt": "The robot has stopped with bumper against the block.",
+        "pageDescription": "The robot has stopped with bumper against the block.",
+        "state": "No forward motion marks, foam block unmoved, two wheels still on the floor.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "Next, the wheels turn backward. The robot moves away, and the bumper springs out again.",
+        "imageBrief": "The robot backs away from the same block. Clear gap now visible; bumper extended; robot heading still faces block.",
+        "imageAlt": "The robot backs away from the same block.",
+        "pageDescription": "The robot backs away from the same block.",
+        "state": "Clear gap now visible; bumper extended; robot heading still faces block.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Then the robot turns and rolls along a clear path. Its sensor helped trigger these actions.",
+        "imageBrief": "The robot turns to one side of the block. One curved motion arrow, enough clearance around block, no instant teleport to the far side.",
+        "imageAlt": "The robot turns to one side of the block.",
+        "pageDescription": "The robot turns to one side of the block.",
+        "state": "One curved motion arrow, enough clearance around block, no instant teleport to the far side.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "Zoe moves the block into the new path. This robot uses its bumper each time it meets an obstacle.",
+        "imageBrief": "Zoe places the block ahead while the robot waits. Robot stopped during setup; no child hand in its path when it runs again.",
+        "imageAlt": "Zoe places the block ahead while the robot waits.",
+        "pageDescription": "Zoe places the block ahead while the robot waits.",
+        "state": "Robot stopped during setup; no child hand in its path when it runs again.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 9,
+        "text": "When its bumper touches again, the same program runs: stop, move back, then turn.",
+        "imageBrief": "The robot touches the relocated block with its bumper. Same touch event in a visibly new position; no claim that every sensor detects every object.",
+        "imageAlt": "The robot touches the relocated block with its bumper.",
+        "pageDescription": "The robot touches the relocated block with its bumper.",
+        "state": "Same touch event in a visibly new position; no claim that every sensor detects every object.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 10,
+        "text": "The sensor reports a push. The program gives the next steps. Together, they help this robot change its route.",
+        "imageBrief": "The robot rolls along a newly clear stretch of mat. Final clear route and unchanged bumper/controller; one coherent scene, no human-like smile or thought bubble.",
+        "imageAlt": "The robot rolls along a newly clear stretch of mat.",
+        "pageDescription": "The robot rolls along a newly clear stretch of mat.",
+        "state": "Final clear route and unchanged bumper/controller; one coherent scene, no human-like smile or thought bubble.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Does the sensor decide the whole route by itself?",
+        "listenFor": "No. It detects contact; the program tells the robot what to do next."
+      },
+      "visual": {
+        "page": 3,
+        "prompt": "What has changed at the front of the robot?",
+        "lookFor": "The block has pressed the bumper inward."
+      }
+    },
+    "levelRationale": "Candidate D: Follow a slow robot through contact, sensor input, a programmed rule and a motor response, then vary the obstacle position. The connected explanation uses concrete clauses and supported topic words. Independent placement and media review remain pending.",
+    "languagePrep": [
+      {
+        "word": "sensor",
+        "meaning": "a part that detects something, such as a push"
+      },
+      {
+        "word": "controller",
+        "meaning": "the part that runs the robot’s instructions"
+      },
+      {
+        "word": "program",
+        "meaning": "instructions that tell a computer what to do"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-d-27",
+    "number": 27,
+    "title": "From Rice Field to Bowl",
+    "topic": "food and making",
+    "type": "nonfiction",
+    "appLevel": "D",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "What changes a rice plant’s grain into the rice in a bowl?",
+      "progression": "Follow one white-rice production route through harvest, separation, drying, milling and cooking.",
+      "synthesis": "The edible grain passes through several different changes before it reaches the bowl.",
+      "scienceSources": [
+        {
+          "title": "Philippine Rice Research Institute: Post Care on Rice",
+          "url": "https://www.philrice.gov.ph/post-care-on-rice-2/",
+          "evidence": "Postproduction includes harvesting, drying, storage and milling; timing affects grain quality."
+        },
+        {
+          "title": "IRRI Analytical Service Laboratory: Rice Grain Sample Preparation",
+          "url": "https://isl.irri.org/services/rice-plant-grain-and-soil-physico-chemical-analyses/rice-grain-sample-prep-submission-guide",
+          "evidence": "Dehulling yields brown rice; removing the bran gives white/polished rice."
+        },
+        {
+          "title": "FAO: Rice in Human Nutrition—Introduction",
+          "url": "https://www.fao.org/4/T0567E/T0567E03.htm",
+          "evidence": "Rice cultivation, harvesting and threshing vary in method; the book shows one example sequence."
+        },
+        {
+          "title": "The Rice Association: Milling",
+          "url": "https://www.riceassociation.org.uk/milling",
+          "evidence": "Husk removal and further bran removal are distinct stages in making brown and white rice."
+        },
+        {
+          "title": "FAO: Rice in Human Nutrition, Home Preparation and Cooking",
+          "url": "https://www.fao.org/4/t0567e/t0567e0i.htm",
+          "evidence": "Describes cooking rice in water, including water absorption by rice starch."
+        }
+      ]
+    },
+    "setting": "One illustrative modern rice supply chain, not a universal method. Mature golden rice panicles, clean harvest machinery, drying floor, guarded mill and ordinary kitchen. Adults alone handle machinery and cooking. Plain contemporary clothes, no flags or cultural costumes.",
+    "props": [
+      "Mature rice plants with grains on branching panicles",
+      "Grain with straw-colored husk, brown rice and white rice samples",
+      "Guarded processing machines; plain rice bag; kitchen saucepan and bowl"
+    ],
+    "coverBrief": "A bowl of cooked white rice sits beside a small dry rice panicle and an unbranded bag.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "A bowl of rice begins with a plant. The grains grow in clusters near the tops of its stems.",
+        "imageBrief": "A mature rice plant carries drooping clusters of grain. Correct rice panicle structure, narrow leaves, grains attached individually; no wheat heads or rice growing underground.",
+        "imageAlt": "A mature rice plant carries drooping clusters of grain.",
+        "pageDescription": "A mature rice plant carries drooping clusters of grain.",
+        "state": "Correct rice panicle structure, narrow leaves, grains attached individually; no wheat heads or rice growing underground.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "When this crop is ready, a machine cuts the stems and collects the grain.",
+        "imageBrief": "A guarded harvester works through a golden rice field. One adult operator enclosed in cab; children absent; depict one method without implying every farmer uses it.",
+        "imageAlt": "A guarded harvester works through a golden rice field.",
+        "pageDescription": "A guarded harvester works through a golden rice field.",
+        "state": "One adult operator enclosed in cab; children absent; depict one method without implying every farmer uses it.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "The grain must be separated from the stems. This step is called threshing.",
+        "imageBrief": "A clear diagram shows grain separated from cut rice stems. Machine mechanism safely enclosed; output grain distinct from straw, no impossible whole-plant flow.",
+        "imageAlt": "A clear diagram shows grain separated from cut rice stems.",
+        "pageDescription": "A clear diagram shows grain separated from cut rice stems.",
+        "state": "Machine mechanism safely enclosed; output grain distinct from straw, no impossible whole-plant flow.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 4,
+        "text": "Fresh grain holds moisture. Drying removes some water so the grain can be stored with less risk of spoilage.",
+        "imageBrief": "Workers spread harvested grain on a clean drying surface. Plain work clothes and tools; no grain on dirty road; an example drying method, not a fixed time claim.",
+        "imageAlt": "Workers spread harvested grain on a clean drying surface.",
+        "pageDescription": "Workers spread harvested grain on a clean drying surface.",
+        "state": "Plain work clothes and tools; no grain on dirty road; an example drying method, not a fixed time claim.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Each grain still has a tough outer husk. We do not cook and eat that covering.",
+        "imageBrief": "A magnified grain shows its straw-colored husk around the rice inside. Accurate longitudinal grain shape; husk separate from bran layer, no shell like a nut.",
+        "imageAlt": "A magnified grain shows its straw-colored husk around the rice inside.",
+        "pageDescription": "A magnified grain shows its straw-colored husk around the rice inside.",
+        "state": "Accurate longitudinal grain shape; husk separate from bran layer, no shell like a nut.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 6,
+        "text": "At the mill, a machine removes the husk. The grain underneath is brown rice.",
+        "imageBrief": "A diagram separates loose husks from intact brown rice grains. Brown grain retains its thin bran layer; never show husk removal turning it white immediately.",
+        "imageAlt": "A diagram separates loose husks from intact brown rice grains.",
+        "pageDescription": "A diagram separates loose husks from intact brown rice grains.",
+        "state": "Brown grain retains its thin bran layer; never show husk removal turning it white immediately.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 7,
+        "text": "To make white rice, milling also removes much of the brown outer layer. The grain looks paler now.",
+        "imageBrief": "Brown and white rice samples show the removed outer layer. Same grain type and scale; separate bran from white grain, no bleaching liquid or paint.",
+        "imageAlt": "Brown and white rice samples show the removed outer layer.",
+        "pageDescription": "Brown and white rice samples show the removed outer layer.",
+        "state": "Same grain type and scale; separate bran from white grain, no bleaching liquid or paint.",
+        "embeddedImageText": "",
+        "imageLayout": "comparison-diagram"
+      },
+      {
+        "pageNumber": 8,
+        "text": "Workers sort and pack the rice. A bag can now travel to a shop and then a kitchen.",
+        "imageBrief": "Clean white rice is packed into a plain bag. Unbranded bag, guarded equipment, no writing; grain remains dry.",
+        "imageAlt": "Clean white rice is packed into a plain bag.",
+        "pageDescription": "Clean white rice is packed into a plain bag.",
+        "state": "Unbranded bag, guarded equipment, no writing; grain remains dry.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 9,
+        "text": "An adult cooks the rice with water. The grains take in water and become softer.",
+        "imageBrief": "An adult serves cooked rice from a saucepan into a bowl. Kitchen worktop, safe handles, child away from hot pan; cooked grains larger and soft, no precise cooking ratio implied.",
+        "imageAlt": "An adult serves cooked rice from a saucepan into a bowl.",
+        "pageDescription": "An adult serves cooked rice from a saucepan into a bowl.",
+        "state": "Kitchen worktop, safe handles, child away from hot pan; cooked grains larger and soft, no precise cooking ratio implied.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 10,
+        "text": "Plant, grain, husk removed, then cooking: the rice in this bowl has changed at each step.",
+        "imageBrief": "Return to the bowl of cooked rice beside the dry plant and grain samples. One orderly teaching display, not a field-to-factory collage; samples accurately distinguish husk, brown grain and white grain.",
+        "imageAlt": "Return to the bowl of cooked rice beside the dry plant and grain samples.",
+        "pageDescription": "Return to the bowl of cooked rice beside the dry plant and grain samples.",
+        "state": "One orderly teaching display, not a field-to-factory collage; samples accurately distinguish husk, brown grain and white grain.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why does removing the husk not always make rice white?",
+        "listenFor": "Brown rice still has a thin outer bran layer; more milling removes it."
+      },
+      "visual": {
+        "page": 6,
+        "prompt": "Which part has come away from the grain?",
+        "lookFor": "The tough straw-colored husk, leaving brown rice."
+      }
+    },
+    "levelRationale": "Candidate D: Follow one white-rice production route through harvest, separation, drying, milling and cooking. The connected explanation uses concrete clauses and supported topic words. Independent placement and media review remain pending.",
+    "languagePrep": [
+      {
+        "word": "grain",
+        "meaning": "a small seed from a plant such as rice"
+      },
+      {
+        "word": "husk",
+        "meaning": "the tough outer covering of a rice grain"
+      },
+      {
+        "word": "mill",
+        "meaning": "a place with machines that prepare grain"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-d-28",
+    "number": 28,
+    "title": "Who Eats the Leaves?",
+    "topic": "animals and habitats",
+    "type": "nonfiction",
+    "appLevel": "D",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "How can an oak leaf help feed a young bird?",
+      "progression": "Trace a specific oak–caterpillar–Carolina chickadee feeding connection, then consider what happens when caterpillars are scarce.",
+      "synthesis": "Leaves feed caterpillars, and caterpillars can feed young chickadees.",
+      "scienceSources": [
+        {
+          "title": "Smithsonian National Zoo: Carolina Chickadee Expedition Blog",
+          "url": "https://nationalzoo.si.edu/migratory-birds/news/carolina-chickadee-expedition-blog",
+          "evidence": "Researchers observe caterpillar availability on native oaks and chickadees carrying caterpillars and other prey to young."
+        },
+        {
+          "title": "Cornell Lab: Carolina Chickadee Life History",
+          "url": "https://www.allaboutbirds.org/guide/Carolina_Chickadee/lifehistory",
+          "evidence": "Carolina chickadees glean insects from leaves and bark, use cavities and vary diet with season."
+        }
+      ]
+    },
+    "setting": "A spring eastern North American oak woodland edge. One lobed-leaf oak; small green leaf-eating caterpillars, adult Carolina chickadees with black cap and bib, white cheeks, gray back, pale underside; young in a natural tree cavity. No bird anthropomorphism or gory predation.",
+    "props": [
+      "Oak branch with rounded lobed leaves and chewed edges",
+      "Natural nest cavity in nearby trunk"
+    ],
+    "coverBrief": "A Carolina chickadee holds a small green caterpillar beside oak leaves with chewed edges.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Something has chewed the edge of an oak leaf. Look underneath: a small caterpillar is eating there.",
+        "imageBrief": "A green caterpillar clings below an oak leaf with a chewed edge. Rounded lobed oak leaf, believable caterpillar body and legs; no face or teeth added for expression.",
+        "imageAlt": "A green caterpillar clings below an oak leaf with a chewed edge.",
+        "pageDescription": "A green caterpillar clings below an oak leaf with a chewed edge.",
+        "state": "Rounded lobed oak leaf, believable caterpillar body and legs; no face or teeth added for expression.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "The leaf is food for the caterpillar. As it eats and grows, more of the leaf disappears.",
+        "imageBrief": "The caterpillar feeds beside a larger missing patch of leaf. Same leaf vein pattern; damage increases locally, not an entirely new leaf or instant caterpillar transformation.",
+        "imageAlt": "The caterpillar feeds beside a larger missing patch of leaf.",
+        "pageDescription": "The caterpillar feeds beside a larger missing patch of leaf.",
+        "state": "Same leaf vein pattern; damage increases locally, not an entirely new leaf or instant caterpillar transformation.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "A Carolina chickadee searches the branches. It checks leaves and twigs for insects.",
+        "imageBrief": "A Carolina chickadee looks along the leafy branch. Black cap and bib, white cheeks, gray back, natural small beak; no robin coloring or cartoon clothing.",
+        "imageAlt": "A Carolina chickadee looks along the leafy branch.",
+        "pageDescription": "A Carolina chickadee looks along the leafy branch.",
+        "state": "Black cap and bib, white cheeks, gray back, natural small beak; no robin coloring or cartoon clothing.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "The bird finds the caterpillar. Now the animal eating the leaf becomes food for another animal.",
+        "imageBrief": "The chickadee gently holds the caterpillar in its beak. No blood or torn body; realistic relative scale, one prey item and one beak.",
+        "imageAlt": "The chickadee gently holds the caterpillar in its beak.",
+        "pageDescription": "The chickadee gently holds the caterpillar in its beak.",
+        "state": "No blood or torn body; realistic relative scale, one prey item and one beak.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "The chickadee carries the caterpillar to a hole in a tree. Hungry young birds wait inside.",
+        "imageBrief": "The adult reaches a natural nest cavity with the caterpillar. One cavity, not an open woven nest; only young birds inside, parent outside entrance.",
+        "imageAlt": "The adult reaches a natural nest cavity with the caterpillar.",
+        "pageDescription": "The adult reaches a natural nest cavity with the caterpillar.",
+        "state": "One cavity, not an open woven nest; only young birds inside, parent outside entrance.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "A young bird opens its beak. The parent passes in the caterpillar, then searches for more food.",
+        "imageBrief": "The adult passes the caterpillar to one nestling. Natural feeding posture, no human hands, no regurgitated blob; other nestlings remain behind.",
+        "imageAlt": "The adult passes the caterpillar to one nestling.",
+        "pageDescription": "The adult passes the caterpillar to one nestling.",
+        "state": "Natural feeding posture, no human hands, no regurgitated blob; other nestlings remain behind.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "The oak did not feed the chick directly. Its leaves fed the caterpillar that the chick ate.",
+        "imageBrief": "A simple diagram links oak leaf, caterpillar and chickadee chick. Arrows point from food toward eater; accurate subjects, no claim that oak leaves directly enter the chick.",
+        "imageAlt": "A simple diagram links oak leaf, caterpillar and chickadee chick.",
+        "pageDescription": "A simple diagram links oak leaf, caterpillar and chickadee chick.",
+        "state": "Arrows point from food toward eater; accurate subjects, no claim that oak leaves directly enter the chick.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 8,
+        "text": "If there are fewer caterpillars nearby, the parent may need to search longer to find enough food.",
+        "imageBrief": "The adult checks several leaves on a branch with few visible caterpillars. Same species and habitat; do not show every insect gone or a guaranteed starving chick.",
+        "imageAlt": "The adult checks several leaves on a branch with few visible caterpillars.",
+        "pageDescription": "The adult checks several leaves on a branch with few visible caterpillars.",
+        "state": "Same species and habitat; do not show every insect gone or a guaranteed starving chick.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 9,
+        "text": "Chickadees eat other small creatures too. This leaf, caterpillar and bird show just one feeding connection in the woodland.",
+        "imageBrief": "A chickadee investigates a small spider on another twig. One restrained, anatomically correct spider; broader food link without replacing the main sequence.",
+        "imageAlt": "A chickadee investigates a small spider on another twig.",
+        "pageDescription": "A chickadee investigates a small spider on another twig.",
+        "state": "One restrained, anatomically correct spider; broader food link without replacing the main sequence.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 10,
+        "text": "Back at the oak, another caterpillar takes a bite. A chickadee searches the next branch.",
+        "imageBrief": "A second caterpillar feeds as the adult searches nearby foliage. Two distinct animals in different positions; one coherent woodland moment, not an inevitable immediate capture.",
+        "imageAlt": "A second caterpillar feeds as the adult searches nearby foliage.",
+        "pageDescription": "A second caterpillar feeds as the adult searches nearby foliage.",
+        "state": "Two distinct animals in different positions; one coherent woodland moment, not an inevitable immediate capture.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "How did the oak leaf help feed the young bird?",
+        "listenFor": "A caterpillar ate the leaf, and the parent fed that caterpillar to its chick."
+      },
+      "visual": {
+        "page": 7,
+        "prompt": "Follow the arrows. Which thing is eaten at each step?",
+        "lookFor": "The leaf is eaten by the caterpillar; the caterpillar is eaten by the chick."
+      }
+    },
+    "levelRationale": "Candidate D: Trace a specific oak–caterpillar–Carolina chickadee feeding connection, then consider what happens when caterpillars are scarce. The connected explanation uses concrete clauses and supported topic words. Independent placement and media review remain pending.",
+    "languagePrep": [
+      {
+        "word": "caterpillar",
+        "meaning": "the young stage of a butterfly or moth before it changes"
+      },
+      {
+        "word": "nestling",
+        "meaning": "a young bird still in its nest"
+      },
+      {
+        "word": "connection",
+        "meaning": "a link between two things"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-d-29",
+    "number": 29,
+    "title": "Saving for the Ball",
+    "topic": "everyday knowledge",
+    "type": "nonfiction",
+    "appLevel": "D",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "topicQuestion": "How can small amounts saved at different times reach one price?",
+      "progression": "Use an explicitly pretend shop and exact two-dollar increments to compare money saved with a six-dollar price.",
+      "synthesis": "Money put aside can add up over time; the total must reach the price before this pretend purchase.",
+      "scienceSources": [
+        {
+          "title": "Consumer Financial Protection Bureau: School-Age Children and Saving",
+          "url": "https://www.consumerfinance.gov/consumer-tools/money-as-you-grow/school-age-children-preteens/explore-saving/",
+          "evidence": "A clear goal and a saving plan help children connect small amounts with a target. All prices and dates here are original pretend examples."
+        },
+        {
+          "title": "FDIC: Money Smart Basics for Kids",
+          "url": "https://www.fdic.gov/consumer-resource-center/money-smart-basics-kids",
+          "evidence": "Introduces goals and saving; the manuscript arithmetic is independently exact: 2+2+2=6."
+        }
+      ]
+    },
+    "setting": "Kit and Zoe use an ordinary classroom pretend shop. Six identical play one-dollar notes have a large 1 only, no portraits, flags or copied banknote design. One orange ball costs six play dollars throughout. Monday/Wednesday/Saturday are narrated time steps; pictures need no calendar lettering.",
+    "props": [
+      "Six identical play notes, each worth one dollar",
+      "One transparent savings jar",
+      "One orange ball; plain pretend-shop counter"
+    ],
+    "coverBrief": "Kit counts play money beside an orange ball and a clear jar. Show only the plain, entirely unlettered backs of every play note on this cover; no numerals, words or symbols appear on the notes or elsewhere.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "In our pretend shop, this ball costs six dollars. Kit has two dollars in play money.",
+        "imageBrief": "Kit stands beside an orange ball and exactly two play notes. Each note has a clear 1, simple unbranded design; six-dollar price is in printed story text, not invented shop lettering.",
+        "imageAlt": "Kit stands beside an orange ball and exactly two play notes.",
+        "pageDescription": "Kit stands beside an orange ball and exactly two play notes.",
+        "state": "Each note has a clear 1, simple unbranded design; six-dollar price is in printed story text, not invented shop lettering.",
+        "embeddedImageText": "1"
+      },
+      {
+        "pageNumber": 2,
+        "text": "Two dollars is not enough yet. Kit needs four more dollars before he can buy the ball.",
+        "imageBrief": "Two notes lie in a row with room for four more. Use six faint rectangular places, only two filled; do not draw four extra real notes.",
+        "imageAlt": "Two notes lie in a row with room for four more.",
+        "pageDescription": "Two notes lie in a row with room for four more.",
+        "state": "Use six faint rectangular places, only two filled; do not draw four extra real notes.",
+        "embeddedImageText": "1",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 3,
+        "text": "On Monday, he puts his two dollars in a jar. He is saving them for the ball.",
+        "imageBrief": "Kit places the two notes into a clear jar. Exactly two notes total; no other money on table; same orange ball visible at pretend shop.",
+        "imageAlt": "Kit places the two notes into a clear jar.",
+        "pageDescription": "Kit places the two notes into a clear jar.",
+        "state": "Exactly two notes total; no other money on table; same orange ball visible at pretend shop.",
+        "embeddedImageText": "1"
+      },
+      {
+        "pageNumber": 4,
+        "text": "On Wednesday, Zoe gives him two more play dollars. Kit adds them to the jar.",
+        "imageBrief": "Zoe hands Kit exactly two new notes beside the jar. Two old notes inside, two new outside; four notes total, distinct natural hands.",
+        "imageAlt": "Zoe hands Kit exactly two new notes beside the jar.",
+        "pageDescription": "Zoe hands Kit exactly two new notes beside the jar.",
+        "state": "Two old notes inside, two new outside; four notes total, distinct natural hands.",
+        "embeddedImageText": "1"
+      },
+      {
+        "pageNumber": 5,
+        "text": "Now he has four dollars. The price is still six dollars, so he needs two more.",
+        "imageBrief": "Four play notes are spread beside the jar. Exactly four notes and two empty outline spaces; same six-dollar target.",
+        "imageAlt": "Four play notes are spread beside the jar.",
+        "pageDescription": "Four play notes are spread beside the jar.",
+        "state": "Exactly four notes and two empty outline spaces; same six-dollar target.",
+        "embeddedImageText": "1",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 6,
+        "text": "Kit could spend some money on something else. Then he would have less saved for the ball.",
+        "imageBrief": "Kit looks from his four notes to a small pretend-shop toy. No purchase happens; all four notes remain his, no moralized sad expression.",
+        "imageAlt": "Kit looks from his four notes to a small pretend-shop toy.",
+        "pageDescription": "Kit looks from his four notes to a small pretend-shop toy.",
+        "state": "No purchase happens; all four notes remain his, no moralized sad expression.",
+        "embeddedImageText": "1"
+      },
+      {
+        "pageNumber": 7,
+        "text": "He keeps the four dollars together. On Saturday, he adds two more play dollars.",
+        "imageBrief": "Kit adds the final two notes to the four beside his jar. Exactly six notes visible, grouped four and two; no unsupported jump in total.",
+        "imageAlt": "Kit adds the final two notes to the four beside his jar.",
+        "pageDescription": "Kit adds the final two notes to the four beside his jar.",
+        "state": "Exactly six notes visible, grouped four and two; no unsupported jump in total.",
+        "embeddedImageText": "1"
+      },
+      {
+        "pageNumber": 8,
+        "text": "Kit counts his savings: two, four, six. Now the saved amount matches the ball's price.",
+        "imageBrief": "Six notes form three groups of two on the table. Each note identical and worth one; six total, no missing or duplicate note.",
+        "imageAlt": "Six notes form three groups of two on the table.",
+        "pageDescription": "Six notes form three groups of two on the table.",
+        "state": "Each note identical and worth one; six total, no missing or duplicate note.",
+        "embeddedImageText": "1",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 9,
+        "text": "He gives Zoe the six dollars and takes the ball. The jar is empty now.",
+        "imageBrief": "At the pretend counter, Zoe receives six notes while Kit holds the orange ball. All money transferred, jar empty, only one ball; purchase complete with no change required.",
+        "imageAlt": "At the pretend counter, Zoe receives six notes while Kit holds the orange ball.",
+        "pageDescription": "At the pretend counter, Zoe receives six notes while Kit holds the orange ball.",
+        "state": "All money transferred, jar empty, only one ball; purchase complete with no change required.",
+        "embeddedImageText": "1"
+      },
+      {
+        "pageNumber": 10,
+        "text": "Three groups of two dollars made six dollars. Kit saved enough to buy the ball.",
+        "imageBrief": "Kit places the ball beside the empty jar as Zoe sorts the six notes. Closing state proves the transaction; no claim that real children must receive money on this schedule.",
+        "imageAlt": "Kit places the ball beside the empty jar as Zoe sorts the six notes.",
+        "pageDescription": "Kit places the ball beside the empty jar as Zoe sorts the six notes.",
+        "state": "Closing state proves the transaction; no claim that real children must receive money on this schedule.",
+        "embeddedImageText": "1"
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why could Kit buy the ball on Saturday but not Monday?",
+        "listenFor": "He saved six dollars by Saturday; on Monday he had only two."
+      },
+      "visual": {
+        "page": 8,
+        "prompt": "How many groups of two can you see?",
+        "lookFor": "Three groups of two notes, making six dollars."
+      }
+    },
+    "levelRationale": "Candidate D: Use an explicitly pretend shop and exact two-dollar increments to compare money saved with a six-dollar price. The connected explanation uses concrete clauses and supported topic words. Independent placement and media review remain pending.",
+    "languagePrep": [
+      {
+        "word": "save",
+        "meaning": "keep money to use later"
+      },
+      {
+        "word": "price",
+        "meaning": "how much money something costs"
+      },
+      {
+        "word": "amount",
+        "meaning": "how much there is"
+      }
+    ],
+    "coverImageLayout": "scene"
+  },
+  {
+    "id": "world-discovery-d-30",
+    "number": 30,
+    "title": "A Satellite Keeps Going",
+    "topic": "space and environment",
+    "type": "nonfiction",
+    "appLevel": "D",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "Why can a satellite keep going around Earth while gravity pulls it?",
+      "progression": "Combine forward motion with an inward gravitational pull, then distinguish orbit from escaping gravity or hovering.",
+      "synthesis": "An orbiting satellite keeps falling toward Earth while moving forward fast enough to keep missing the surface.",
+      "scienceSources": [
+        {
+          "title": "NASA Space Place: What Is an Orbit?",
+          "url": "https://spaceplace.nasa.gov/orbits/en/",
+          "evidence": "Gravity changes a moving satellite’s direction; sufficient sideways motion lets it keep falling around Earth."
+        },
+        {
+          "title": "Smithsonian National Air and Space Museum: Gravity in Orbit",
+          "url": "https://howthingsfly.si.edu/flight-dynamics/gravity-orbit",
+          "evidence": "An orbiting spacecraft remains under gravity and falls without reaching the ground."
+        },
+        {
+          "title": "NASA Earth Observatory: Catalog of Earth Satellite Orbits",
+          "url": "https://science.nasa.gov/earth/earth-observatory/catalog-of-earth-satellite-orbits/",
+          "evidence": "Orbits differ in altitude and purpose, and spacecraft can adjust orbital motion."
+        }
+      ]
+    },
+    "setting": "Accurate simplified space diagrams of one small artificial satellite around Earth. Satellite has gray box body and two blue solar panels. Use a circular example orbit; Earth and satellite not to scale, stated in image scope. No astronauts, flags or rocket flames during normal orbit.",
+    "props": [
+      "One gray satellite with two blue panels",
+      "Earth sphere and restrained direction arrows"
+    ],
+    "coverBrief": "A gray satellite with blue panels travels above the curve of Earth; no flames or drawn face.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "A satellite travels high above Earth. It keeps moving around our planet instead of dropping straight to the ground.",
+        "imageBrief": "The gray satellite appears above Earth's curved horizon. Earth below, satellite separate with two blue panels; no support string, wing flapping or rocket flame.",
+        "imageAlt": "The gray satellite appears above Earth's curved horizon.",
+        "pageDescription": "The gray satellite appears above Earth's curved horizon.",
+        "state": "Earth below, satellite separate with two blue panels; no support string, wing flapping or rocket flame.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Earth's gravity still pulls the satellite. Being in space does not make that pull disappear.",
+        "imageBrief": "A teaching arrow points from the satellite toward Earth's center. Arrow goes radially inward, not toward a pole; one satellite, diagram not to scale.",
+        "imageAlt": "A teaching arrow points from the satellite toward Earth's center.",
+        "pageDescription": "A teaching arrow points from the satellite toward Earth's center.",
+        "state": "Arrow goes radially inward, not toward a pole; one satellite, diagram not to scale.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 3,
+        "text": "A rocket gave the satellite speed before letting it go. The satellite keeps moving forward after that.",
+        "imageBrief": "A rocket's upper stage releases the satellite above Earth. Satellite separates cleanly with panels folded for release; stage distinct, no astronauts handling it in open air.",
+        "imageAlt": "A rocket's upper stage releases the satellite above Earth.",
+        "pageDescription": "A rocket's upper stage releases the satellite above Earth.",
+        "state": "Satellite separates cleanly with panels folded for release; stage distinct, no astronauts handling it in open air.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Without Earth's pull, it would continue along a straight path. But gravity keeps changing the direction of its travel.",
+        "imageBrief": "A straight tangent guide differs from the satellite's curving route. Straight line is explicitly a diagram possibility, not a second real satellite; gravity arrow inward.",
+        "imageAlt": "A straight tangent guide differs from the satellite's curving route.",
+        "pageDescription": "A straight tangent guide differs from the satellite's curving route.",
+        "state": "Straight line is explicitly a diagram possibility, not a second real satellite; gravity arrow inward.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 5,
+        "text": "The satellite moves forward while falling toward Earth. Below it, Earth's surface curves away.",
+        "imageBrief": "A close orbital diagram shows forward travel above the curved surface. Tangent forward arrow and inward gravity arrow remain distinct; no outward force arrow.",
+        "imageAlt": "A close orbital diagram shows forward travel above the curved surface.",
+        "pageDescription": "A close orbital diagram shows forward travel above the curved surface.",
+        "state": "Tangent forward arrow and inward gravity arrow remain distinct; no outward force arrow.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 6,
+        "text": "With the right speed and height, it keeps missing the ground. Its curved path goes around the planet.",
+        "imageBrief": "The satellite follows a continuous circular guide around Earth. Single craft, one path, no solid rail; relative sizes simplified for teaching.",
+        "imageAlt": "The satellite follows a continuous circular guide around Earth.",
+        "pageDescription": "The satellite follows a continuous circular guide around Earth.",
+        "state": "Single craft, one path, no solid rail; relative sizes simplified for teaching.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 7,
+        "text": "That path is an orbit. The satellite is falling around Earth, not floating where gravity cannot reach it.",
+        "imageBrief": "A wider diagram shows the complete orbit and inward pull. Gravity remains inward at the craft's new position; no zero-gravity bubble or fixed hovering position.",
+        "imageAlt": "A wider diagram shows the complete orbit and inward pull.",
+        "pageDescription": "A wider diagram shows the complete orbit and inward pull.",
+        "state": "Gravity remains inward at the craft's new position; no zero-gravity bubble or fixed hovering position.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 8,
+        "text": "Different satellites use different orbits. Some travel close to Earth, while others travel much farther away.",
+        "imageBrief": "Two example orbital paths lie at different heights above Earth. Use one gray craft on each clearly separate path for comparison; no exact scale or period claims.",
+        "imageAlt": "Two example orbital paths lie at different heights above Earth.",
+        "pageDescription": "Two example orbital paths lie at different heights above Earth.",
+        "state": "Use one gray craft on each clearly separate path for comparison; no exact scale or period claims.",
+        "embeddedImageText": "",
+        "imageLayout": "comparison-diagram"
+      },
+      {
+        "pageNumber": 9,
+        "text": "Engineers choose a path for the satellite's job. They also plan ways to adjust it when needed.",
+        "imageBrief": "An engineer studies a simple orbit diagram at a control desk. Plain clothing and unbranded screens, recognizable path with no pseudo-writing; no claim every orbit lasts forever.",
+        "imageAlt": "An engineer studies a simple orbit diagram at a control desk.",
+        "pageDescription": "An engineer studies a simple orbit diagram at a control desk.",
+        "state": "Plain clothing and unbranded screens, recognizable path with no pseudo-writing; no claim every orbit lasts forever.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 10,
+        "text": "Forward motion and Earth's pull keep this satellite following a curved route. Around Earth it goes again.",
+        "imageBrief": "Return to the original satellite above the curved horizon. Same two blue panels extended, no continuous flame; position advanced along its orbit, opening question resolved.",
+        "imageAlt": "Return to the original satellite above the curved horizon.",
+        "pageDescription": "Return to the original satellite above the curved horizon.",
+        "state": "Same two blue panels extended, no continuous flame; position advanced along its orbit, opening question resolved.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Has a satellite in orbit escaped Earth’s gravity?",
+        "listenFor": "No. Gravity keeps bending its path while it moves forward."
+      },
+      "visual": {
+        "page": 5,
+        "prompt": "Which arrow shows travel forward, and which points toward Earth?",
+        "lookFor": "The tangent arrow shows forward motion; the inward arrow shows gravity."
+      }
+    },
+    "levelRationale": "Candidate D: Combine forward motion with an inward gravitational pull, then distinguish orbit from escaping gravity or hovering. The connected explanation uses concrete clauses and supported topic words. Independent placement and media review remain pending.",
+    "languagePrep": [
+      {
+        "word": "satellite",
+        "meaning": "something that travels around a larger object in space"
+      },
+      {
+        "word": "orbit",
+        "meaning": "the curved path around another object in space"
+      },
+      {
+        "word": "gravity",
+        "meaning": "the pull that draws things toward each other"
+      }
+    ]
+  }
+]

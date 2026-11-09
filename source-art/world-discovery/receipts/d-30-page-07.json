@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-30",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:24:30.907Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-474e25d2-d20f-4d83-8047-c131751e1f2c.png",
+  "sourceSha256": "aedfa41c284c5895dd0112af607b92d16a78ab1b65b1b59472604e124cbf8343",
+  "output": "public/guided-reading/world-discovery/d-30/page-07.webp",
+  "outputSha256": "8c8f9dd26d3c56d89fec160fadd6aa6c010038feb3f2265c3ddd2798795eb585",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Create a landscape1536x1024 early-reader science illustration, matching reference crisp continuous dark outlines and flatclean colors, restrained cel shadows, no texture/photo/3D. Entirely unlettered. Dark navy space, accurate same Atlantic-facing simplified Earth. Essential objects and arrows at least8percent inset. Same gray box satellite with TWO blue rectangular panels, each3columns by2rows. Relative diagram sizes simplified, not to scale. A complete circular orbit and gravity at a NEW position. Recompose Earth centered(768,480),radius160; ONE thin WHITE circular guide centeredonEarth radius300 (boundsx468..1068,y180..780). Move the SAME SINGLE satellite from top to SIX O'CLOCK, centered(768,780), two panels horizontal,totalwidth330,height130. The top position is now EMPTY: one craft only. Circle passes behind craft. ONE solid ORANGE gravity arrow starts at cube TOP and points vertically UP, ending precisely at Earth CENTER(768,480). One small clockwise route arrow on the LEFT side of circle points UP. There is NO straight tangent, NO outwardarrow, noflame, norail. Keep orbit and craft wholly within safe margins, cube bottom at850orless.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-cd968b2f-898b-476c-99d0-bb8449f4d7eb.png",
+      "sha256": "2d681d841f052964d79bee4fc07ac4576ea078811471bb44a2fae1c0f95b4a4f"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "66c03f602e2ff45268c6d939a796addf9ba66a77cb551a19d2ddd57408b04e48",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.553Z",
+    "sha256": "8c8f9dd26d3c56d89fec160fadd6aa6c010038feb3f2265c3ddd2798795eb585",
+    "note": "Actual PNG and installed WebP directly inspected. Single craft now at lower orbit position; orange arrow points up toward Earth center, clockwise route cue consistent, entire orbit and craft safely framed.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

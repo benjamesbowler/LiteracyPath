@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-b-30",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:42:06.215Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-bda81a92-4b7d-4c5a-9ba5-39d17b640657.png",
+  "sourceSha256": "c5570409618463749e09c75265ae91dccbee43dfa994ff1ff22757bebb67b633",
+  "output": "public/guided-reading/world-discovery/b-30/page-08.webp",
+  "outputSha256": "5ab41d5ea84c4f16134f3378294fa8ee81a42eb09d26b55cc614e4c9014ea312",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Final integrated comparison of SAME Saturn rings at two viewing scales. Small complete gold Saturn with flat equatorial rings on LEFT, preserving reference1 correct occlusion. On RIGHT a generously sized circular magnified view shows many separate angular white/pale-blue icy chunks with dark gaps, using reference2 particle style. ONE small sampling circle on Saturn's FRONT ring connects by a clear pair of narrow diverging lines to enlarged circle. No separate boxes, labels, arrows or text. All planet, ring tips, sampling/connector and enlarged circle comfortably inside central70% leaving wide space. LANDSCAPE3:2 1536x1024, clean flat colors, no texture. This is an explanatory illustration, not a photograph.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/b-30/cover.webp",
+      "sha256": "04cb6fe50fba55a15b6521e582c39623ba9f5a4f75197beddbc0664e6809bf56"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/b-30/page-04.webp",
+      "sha256": "22ad736b634bbd155ca46f4ec611f414a7ecbd0eedb8343080500602c71ea534"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "f280a32df1585bc29fde637e24c87b820bf93699a99cac7d7239db824c8b14f3",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T10:43:44.542758+00:00",
+    "sha256": "5ab41d5ea84c4f16134f3378294fa8ee81a42eb09d26b55cc614e4c9014ea312",
+    "note": "Directly viewed native PNG and installed WebP: whole Saturn left connects one ring sampling point to magnified separated ice pieces right; no extra arrow, letter or misleading solid ice field.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-25",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:19:34.141Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-09f4ecc9-6287-425f-abd4-4c3ca7c2e278.png",
+  "sourceSha256": "20adc68c3ea3a755be96782bdc23f91b9360a4e3a6bde245ad23b6ca96fcc24c",
+  "output": "public/guided-reading/world-discovery/d-25/page-05.webp",
+  "outputSha256": "bb724695c0596c00c114ccd67834194cf3343b30935c4489194cec42e34b436b",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Correct this instructional folding scene: REMOVE the two floating blue blocks and wooden counter behind the table. They are outside this close-up's field of view, so the blank background behind Zoe/table contains NO props. Preserve the same one cream sheet and the correct LEFT-to-RIGHT long accordion ridges, Zoe's two natural hands folding the near long-edge flap, identity, outfit and table. Do not add or change paper or any fold. Then shrink the entire Zoe/table/paper scene slightly to85percent of current size, centered, to leave generous blank white margins around Zoe's hair, shoes and table feet. No extra objects, text or arrows. Clean flat2D.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-6e515d3a-b3d3-44af-911b-048fe2fcc106.png",
+      "sha256": "50ff8450598df3e66989982d758bf8bc0d4e618118a4d18b3b79b7c2f1c3bd87"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "8337d31fb142299fa5e714fdc1bffff0a8db8bc933c0eeb3ee2b649380ddbd8b",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.523Z",
+    "sha256": "bb724695c0596c00c114ccd67834194cf3343b30935c4489194cec42e34b436b",
+    "note": "Direct inspection: close folding scene contains one cream sheet with long parallel spanwise ridges, near long-edge flap being folded with two natural hands; no floating/out-of-place idle props, safe margins.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

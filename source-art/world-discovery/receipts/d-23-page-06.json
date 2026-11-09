@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-23",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:20:11.740Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-00075ff1-4cb5-4055-bf80-0466c72d214c.png",
+  "sourceSha256": "9a8fb29bbf17e843ba4c07af4d10d2d086e0980cdde4d00c61dff0c365afcbfa",
+  "output": "public/guided-reading/world-discovery/d-23/page-06.webp",
+  "outputSha256": "ceba2f42bbc27dd1f546db2e341923ece59d5ea5e31397df4a29dccfcfa9a41e",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Make only a framing correction. Uniformly reduce this ENTIRE three-organ flow diagram to 75 percent of its current width and height, centered on the same 1536x1024 cream canvas. Preserve exactly every organ shape, heart chamber, red arrow direction, oxygen dot and body-vessel branch. Provide broad blank cream margins on all four sides: no essential element may be closer than 12 percent to any edge. The arrow still goes from lungs into upper-right heart chamber, down to lower-right chamber, then right to body. No new anatomical pipes, loops, objects or text. Crisp flat 2D illustration.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-daf2f1c4-fb9e-42df-9110-ff8006b39a39.png",
+      "sha256": "2df722d52246c7c8abe2ea75550d7e035ae5c811a5e4a0c953d7bfdfc46c2b92"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "53f321fe6f6525dbc7142913453889b170e4387f03930954a85dc6f67239997e",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.511Z",
+    "sha256": "ceba2f42bbc27dd1f546db2e341923ece59d5ea5e31397df4a29dccfcfa9a41e",
+    "note": "Direct inspection: schematic external route arrows clearly carry blood from lungs into viewer-right left atrium, then down left ventricle and out to body. No incorrect physical aortic tube or left/right mixing. Generous margins and red blood/oxygen dots retained.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

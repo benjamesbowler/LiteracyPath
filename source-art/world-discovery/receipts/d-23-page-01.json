@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-23",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T06:19:47.505Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-9933e485-2b83-4a2f-b555-9e5e903d78c6.png",
+  "sourceSha256": "79c549cc54fe219889a545a3b5ea1c9507ecb8504a7138fd047fabec13b146b3",
+  "output": "public/guided-reading/world-discovery/d-23/page-01.webp",
+  "outputSha256": "da7fc6277d19492204cf3c3ac771a040ca0be2ca1233df7df4adf2f8ee6c99fb",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Correct Zoe's pose in this illustration. She now stands comfortably UPRIGHT after walking, relaxed and smiling. She has exactly TWO arms and TWO hands: one arm bends naturally so its hand rests on her upper chest; the other arm hangs naturally at her side. Remove the extra hand and extra arm resting on a knee; neither hand touches a knee. Two legs, two feet, natural shoulder/elbow anatomy. Remove all blue action/breath droplets beside her mouth; no illness or exhaustion is implied. Preserve her exact canonical face, deep brown skin, two black puffs, yellow shirt, plum overalls and white shoes, and the same room. Pull back enough that both complete shoes and both hair puffs sit at least 9 percent inside canvas edges, with empty floor below her. Make the rug smooth flat blue without stipple. No anatomy diagram, no heart icon, no symbols, no other person or object changes, no lettering. One landscape 3:2 clean flat outlined cartoon scene.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-accfea7a-7912-4a98-b2fc-822778173f74.png",
+      "sha256": "b19657a3045d9dede4b02f45e3a46a4efdee9ef21a378a81a206f9854528f246"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "53f321fe6f6525dbc7142913453889b170e4387f03930954a85dc6f67239997e",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.507Z",
+    "sha256": "da7fc6277d19492204cf3c3ac771a040ca0be2ca1233df7df4adf2f8ee6c99fb",
+    "note": "Direct inspection: upright relaxed Zoe with exactly two arms/hands, one on chest and other at side; no droplets or diagrams, exact clothing/identity, complete shoes and puffs inside >9% margins; clean flat rug.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

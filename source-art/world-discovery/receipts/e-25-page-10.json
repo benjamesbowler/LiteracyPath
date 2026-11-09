@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-25",
+  "slot": "page-10",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:54:23.094Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-bad623a0-ca3e-4ff9-a30f-ed23777b375e.png",
+  "sourceSha256": "76671078248d12a36863d70424761764c83b3d8cf567a59849884da795ce987d",
+  "output": "public/guided-reading/world-discovery/e-25/page-10.webp",
+  "outputSha256": "4db9d88ffaba161745804799ec1b389cc68d50937b885ba57b68ca267d816398",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Create the closing full-scene illustration of this same white passenger plane with teal tail flying steadily LEFT over open farmland. Exact side-profile anatomy and silhouette, one near engine and one near wing with far components occluded, level attitude. Plane a little smaller and slightly left of center; tip-to-tail all within 15% canvas edges. Add just TWO restrained THIN BLUE curved airflow wake marks immediately behind the visible wing's trailing edge, flowing toward the RIGHT and curving gently DOWN. They originate in outside air alongside the wing and extend a short way down-right, no marks or jets coming from inside the wing or engine, no colored flames. These are subtle educational wake cues. No big force arrows, no inset, no text/logos, no extra plane. Match crisp black outlines, flat colors and simple cel shadows.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-0600bd03-8707-4c99-84a6-1d457e22aacf.png",
+      "sha256": "8362420f42705e657ee7c67ad6c5b4602aa6850c9892efce0e63aaab5812c2b7"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "6fa387a94832069dfd8f41a5c0089a80fb10f81c60c90df001e050c556eb4819",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T13:58:43.728403+00:00",
+    "sha256": "4db9d88ffaba161745804799ec1b389cc68d50937b885ba57b68ca267d816398",
+    "note": "Same level left-facing plane with two restrained external down-right wake curves just behind wing; no force diagram, flames or new lift mechanism.",
+    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-25",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:45:12.187Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-73afaff8-c2a9-487c-917a-2ae544eabae0.png",
+  "sourceSha256": "d0724404614dd77364fe4ee17243a7889110c99e070ad528e05c244033c150e4",
+  "output": "public/guided-reading/world-discovery/a-25/page-07.webp",
+  "outputSha256": "674b50d2f12fdb1c9e7f7c45db3ae33f5f53724e3cf21c0aa6af9c0142962d9f",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit ONLY framing. Pull ENTIRE scene back uniformly30%, extend same room/floor. Kit hair top at least15%belowtop, full shoes and drum feet at least15%abovebottom. Preserve natural bodyproportions, exact cross-leggedpose, relative Kit/drum scale, right arm and handcontact. Preserve second gentle tap: RIGHT hand at cream drumhead centre just after contact, LEFT hand on knee and only existing small motion tick. No duplicated hand. Red cylinder, navy rim/feet, cream taut head unchanged; all grounded on rug. Clean flat smooth colors, no texture/text. Landscape3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-0ca3ee8c-8e7e-48c9-bee6-d8f8a89fd394.png",
+      "sha256": "be42b0b188bcdafe737ab9d216ab2bea3b00152bbf4bb265dd3da304aaa527de"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "43250b481932e7fd088b4db9dca6c6655e0ffe81fdc9bbd2dd349daea8124cbd",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "674b50d2f12fdb1c9e7f7c45db3ae33f5f53724e3cf21c0aa6af9c0142962d9f",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:45:12.188Z",
+    "note": "Directly inspected native framing repair: whole scene uniformly pulled back with hair~19–21%top and shoes/drum feet~19–22%bottom, natural cross-legged anatomy and grounded stand. Right hand at membrane after second tap, left on knee, only short renewed motion tick."
+  }
+}

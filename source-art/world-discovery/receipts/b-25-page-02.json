@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-b-25",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T06:53:01.087Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-afb13aac-c1f7-40f9-b27e-9f35b161c73b.png",
+  "sourceSha256": "556f92b173decc41c8e4732634f795a3e10fbab2b273bd914c0de84e8494d851",
+  "output": "public/guided-reading/world-discovery/b-25/page-02.webp",
+  "outputSha256": "aacd26ecaaa148b449c1037cca6e19f0cbc385955f8b19b0de3390ad504adc77",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit ONLY the material finish: remove ALL wood grain, streaks, shading noise, mottling and texture from the large brown tabletop. Make its interior one perfectly smooth uniform flat warm tan color. Keep every existing black outline, flashlight and cradle geometry, both thin gold arrows, exact arrow contact point on mirror FRONT surface, mirror and screen orientation and bright spot EXACTLY unchanged. Maintain scientific equal-angle V geometry. No new shapes, text, arrows or effects. Landscape3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-b68a4678-5c0a-4948-b292-1e656be24a12.png",
+      "sha256": "8b4ab0a71fa6d4fa4a575e36747a12397c7b02a4d9ca16ea865ef876aa28c938"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "e7608249f7559688257799a2fcfb8d87f204d853906b14b220ac4f2eddd1acf3",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T06:53:58.949812+00:00",
+    "sha256": "aacd26ecaaa148b449c1037cca6e19f0cbc385955f8b19b0de3390ad504adc77",
+    "note": "Directly viewed native PNG and installed WebP. Overhead diagram has exactly two thin gold arrows, source-to-mirror and mirror-to-screen, meeting at the same front reflective contact. Both rays lie on same side of mirror and have approximately equal angles. Screen spot is at second arrow endpoint. Smooth flat table finish, no extra ray or visible-air cone.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-25",
+  "slot": "page-10",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:37:47.362Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-3e9b466a-02bb-4000-8190-53fffda75225.png",
+  "sourceSha256": "b04ae6612512721e818f121726f54e70a7fe71fb7ec8917dfdea55184f4c9d95",
+  "output": "public/guided-reading/world-discovery/d-25/page-10.webp",
+  "outputSha256": "8bc6f9e5e4b8a60fb32a9db555203aa6e978fc5ce6d02475a387fdd7786697b8",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "One tiny continuity correction only: recolor Kit's SHORTS from the current blue to his canonical MUSTARD YELLOW. Kit is the child crouching on LEFT. His T-shirt stays teal and shoes stay navy/white. Preserve all poses, exact two blue support blocks, cream folded sheet, one wooden counter, table geometry, Zoe, safe margins, background and every other detail. Do not recolor the blue blocks. Clean flat2D, no new elements.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-9e9ec8a9-5379-4e5c-b7f6-ddb5759a10e6.png",
+      "sha256": "ceece45062226e905dd5afe17846ed7f859960d9d9145c8eaef76429f678dbe6"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "8337d31fb142299fa5e714fdc1bffff0a8db8bc933c0eeb3ee2b649380ddbd8b",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.525Z",
+    "sha256": "8bc6f9e5e4b8a60fb32a9db555203aa6e978fc5ce6d02475a387fdd7786697b8",
+    "note": "Direct inspection: Kit's mustard shorts corrected, both canonical children crouch naturally to view unchanged folded bridge at table height; one load, two supports, no hidden help, safe margins.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

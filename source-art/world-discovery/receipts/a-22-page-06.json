@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-22",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:11:52.937Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-689aa070-73b4-44be-b4a7-b5274e73845c.png",
+  "sourceSha256": "c60e853d4491267ec05c45b58f146b73bbd10806566ad7a2304da47b3ece3ca0",
+  "output": "public/guided-reading/world-discovery/a-22/page-06.webp",
+  "outputSha256": "7b0bde32ce1ca8e88e58e874a7f69c30d7dc61e88f71a33858c3bde42b72f37c",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this landscape 3:2 illustration. Zoom OUT to a balanced wider classroom view. Keep the entire child with 12% headroom and at least 12% clear floor below his shoes, so his full height occupies about 70% of the image. Preserve EXACTLY the same map coastline shapes, continental colors, hemisphere orientation, pole/axle tilt, hand pose, globe and navy base geometry. No geography changes. Extend any cropped lower body naturally with his mustard shorts and navy shoes grounded on the floor. Keep the same pale wooden table if present; no added table in a hand-held view. Flat muted blue-gray classroom floor, cream wall. Globe remains large enough to read, about 40% of image height. Full bleed polished clean2D cartoon, crisp outlines, smooth flat fills, zero grain, no text or border. Only wider camera framing changes.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-e11366e1-8306-4022-b7c9-b5cd64a2b0d9.png",
+      "sha256": "368622827b3bb01d995807c13849c7e881492c323ece87fd4aeed1ed870ed66c"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "7fb9d0dad2e1f226cbad13b27e944537df495d6a4ae001fea7e1424f5a78d89a",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "7b0bde32ce1ca8e88e58e874a7f69c30d7dc61e88f71a33858c3bde42b72f37c",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T07:11:52.940Z",
+    "note": "Viewed wider Africa/Europe rotation with hair~13% top and grounded shoes~10% bottom, globe/base comfortably inset. Fixed continental colors and tilted pole alignment preserved; blue-gray floor and full table support coherent."
+  }
+}

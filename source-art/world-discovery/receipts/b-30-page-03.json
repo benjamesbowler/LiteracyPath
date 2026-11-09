@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-b-30",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:24:40.909Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-826db975-39f2-4ed5-a504-972c07d0e35d.png",
+  "sourceSha256": "1d789cac99bf08975213d743ef4b2b497cf8ccd8c6e77b4e277a77d719109cc1",
+  "output": "public/guided-reading/world-discovery/b-30/page-03.webp",
+  "outputSha256": "df76f47113adc2234a207aaaedcf2edf0df4fb3df1cf29b0b9a831a6ed7581a8",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Scientific close illustration of Saturn ring material. Show ONLY a central loose field of about24 separate irregular pale icy chunks floating in dark navy space, matching the ice-piece shapes and colors in reference's magnified circle. Pieces occupy central70% with clear dark spaces between every piece; mostly white/pale-blue ice, just three small gray dusty particles. No planet, ring rail, magnifier border, zoom connector, stars, spacecraft or text. This is illustrative close view, not photo. Chunks have crisp flat polygon facets rather than fluffy clouds. LANDSCAPE 3:2 1536x1024. Clean flat colors and crisp shapes, no grain, paper texture or painted shading. No text, numerals, labels or arrows. Keep all essential objects inside central75%, with 150px side and 120px top/bottom margins.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/b-30/cover.webp",
+      "sha256": "04cb6fe50fba55a15b6521e582c39623ba9f5a4f75197beddbc0664e6809bf56"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "f280a32df1585bc29fde637e24c87b820bf93699a99cac7d7239db824c8b14f3",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T10:25:18.183040+00:00",
+    "sha256": "df76f47113adc2234a207aaaedcf2edf0df4fb3df1cf29b0b9a831a6ed7581a8",
+    "note": "Directly viewed native PNG and installed WebP: many separate pale ice pieces with a few gray particles; dark gaps and consistent crisp faceted style, no ring sheet or unrequested diagrams.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

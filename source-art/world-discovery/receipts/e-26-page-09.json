@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-e-26",
+  "slot": "page-09",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T06:29:58.678Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-d184c194-41fc-46c5-89bd-d98ccc8083fe.png",
+  "sourceSha256": "18f9794942d2379bee52e8ab6eb3b0b8b6ecdc49255c86d04691b90ee648cbbc",
+  "output": "public/guided-reading/world-discovery/e-26/page-09.webp",
+  "outputSha256": "6c26a77aa8c04949212a2a3ad0712a9048381ec0c189d5f9e8fe125af3c4151f",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit FIRST reference into the next page. Preserve exactly its room, wide camera, entire furniture, boy Kit with teal shirt MUSTARD YELLOW SHORTS white socks navy shoes, all positions and grounded feet. Only change: put the same RED PAPER BOAT picture from the SECOND reference onto the formerly blank laptop screen; give Kit a pleased open smile looking at that screen. Remove the blue Wi-Fi arcs now that reception has completed. Do not add anything from the second reference except its boat picture. No new characters or clothes. No text/digits/logos/borders. Clean flat 2D cartoon as reference.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/e-26/page-08.webp",
+      "sha256": "b548edb3e779a1fa6d30aa573606587550020b532fda1a0a59c488601e05e12e"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/e-26/page-01.webp",
+      "sha256": "c05c3a6d8be8d11b0bdc0a5c7619f381e5e548483af55077f7ada5d68669ea30"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "a04b6d0950794fec64943013d30facc27daa8410774f7062963be893ca44e0a3",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
+    "sha256": "6c26a77aa8c04949212a2a3ad0712a9048381ec0c189d5f9e8fe125af3c4151f",
+    "note": "Exact p8 room and Kit clothing preserved; red boat image now appears on laptop and Kit smiles, Wi-Fi arcs removed after reception. All furniture grounded.",
+    "limits": "Individual installed WebP inspected. Independent whole-sequence, actual reader/card and audio approval are separate."
+  }
+}

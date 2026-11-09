@@ -1,0 +1,42 @@
+{
+  "bookId": "world-discovery-b-21",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T05:20:34.619Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-a3c8cce3-e97e-438e-9e78-bdf0aa5d0977.png",
+  "sourceSha256": "9402ac59157c2ca45239c94387cd36a3b0b55538c65e9ad53fdf21e947327917",
+  "output": "public/guided-reading/world-discovery/b-21/page-08.webp",
+  "outputSha256": "1d624419ba29c224f23158e18f60b80a58c48780ba9af5abc43ba4e623348fac",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit the FIRST image. Match the destination warehouse EXACTLY to the final supporting reference image: plain pale GRAY walls, simple GREEN roof, TWO wide gray bays, no windows and NO awning. Keep the raised loading platform and exactly TWELVE delivered wooden crates in three groups of four. All three boxcars remain empty and OPEN. Also shrink and center the entire train so its nose begins around x=250 and its final green car ends around x=1280 on a 1536-wide image. No forklift or worker is present now. Preserve flat clean color, blue/red/yellow/green order, connected couplers and rails. Do not add labels, borders, panels or texture.\n\nAuthoritative scene specification:\nUse case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Train for Heavy Loads; World Discovery; nonfiction.\nSetting: A short contemporary freight journey between two warehouses. No public access to tracks. Unbranded blue diesel-electric locomotive, followed by red, yellow and green enclosed boxcars in that fixed order. Adult railway workers have orange safety vests, blue trousers and hard hats.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One blue locomotive; Exactly three boxcars in red/yellow/green order; Gray steel couplers between all vehicles; Wooden crates secured inside the cars; One continuous pair of rails\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 8. Printed prose (NOT text to put in art): One engine pulls three linked cars.\nMany boxes make one trip.\nRequired illustration: Final broad view shows blue locomotive with the three stationary cars and delivered crates neatly beside second warehouse.\nExact current state: The three-car load has arrived; couplers remain connected.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nAll colors perfectly smooth and flat; no grain or speckling.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-5e078375-c38c-4eae-8964-8433580745d3.png",
+      "sha256": "89048f56be19b46ce189426f4deb68afd10327b0e2df3b1a538d458342e0b67b"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/b-21-reference.webp",
+      "sha256": "7855ef43e8e33eeeed6375214c4aa318ef90c9ff4f2c415843cfbdb563694042"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-a217dc7a-4682-40a7-890d-f10ea89173f8.png",
+      "sha256": "6a2548fc01f26cd8eefc82c76ae87afdf5354faf275d74c36ade480fae5ec634"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "e2840abe2bce545cbddeb0319fa0aade90784202e01e047d8bcd74ba38ddbcbb",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T05:24:08.487Z",
+    "sha256": "1d624419ba29c224f23158e18f60b80a58c48780ba9af5abc43ba4e623348fac",
+    "note": "Directly viewed native source and installed WebP. Three open empty boxcars stand at the gray two-bay green-roof destination warehouse. Twelve delivered crates form three groups of four on the platform. Vehicle order and wheel contact are preserved.",
+    "limits": "Direct image inspection only; complete sequence and app display review follow separately."
+  }
+}

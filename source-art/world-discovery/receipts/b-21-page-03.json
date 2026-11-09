@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-b-21",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T05:02:43.449Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-8da3d65e-3ec2-4504-b14d-1ad37e23f18c.png",
+  "sourceSha256": "68cd8b7e3f2920366a55573f2091bba1db97663742ca19d8e574f4ae129932d9",
+  "output": "public/guided-reading/world-discovery/b-21/page-03.webp",
+  "outputSha256": "bbb2b3c0a9373bd02848e4fcfe6c6543b5cf242e753252916ab4b90281e2b462",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Train for Heavy Loads; World Discovery; nonfiction.\nSetting: A short contemporary freight journey between two warehouses. No public access to tracks. Unbranded blue diesel-electric locomotive, followed by red, yellow and green enclosed boxcars in that fixed order. Adult railway workers have orange safety vests, blue trousers and hard hats.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One blue locomotive; Exactly three boxcars in red/yellow/green order; Gray steel couplers between all vehicles; Wooden crates secured inside the cars; One continuous pair of rails\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 3. Printed prose (NOT text to put in art): Strong metal links join the cars.\nThese links are called couplers.\nRequired illustration: Close view between red and yellow boxcars shows one correctly joined knuckle-coupler pair and separate brake hose.\nExact current state: One actual coupling, no human hand near it.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nFinish requirement: all fills are perfectly smooth, clean, flat vector-like color. Absolutely no paper grain, stipple, speckles, mottled paint, fuzzy edges or surface noise anywhere, including backgrounds. Clear crisp outlines and only a few flat cel-shadow shapes. Do not imitate texture from any supporting reference. The two steel knuckle coupler heads mechanically interlock at the center; show short drawbars extending from each car body. A separate flexible black brake hose hangs below; it is not the structural coupler. No chain-link substitute, open uncoupled ends or impossible fused car bodies.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/b-21-reference.webp",
+      "sha256": "7855ef43e8e33eeeed6375214c4aa318ef90c9ff4f2c415843cfbdb563694042"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "e2840abe2bce545cbddeb0319fa0aade90784202e01e047d8bcd74ba38ddbcbb",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T05:07:31.030535+00:00",
+    "sha256": "bbb2b3c0a9373bd02848e4fcfe6c6543b5cf242e753252916ab4b90281e2b462",
+    "note": "Directly viewed native source and installed WebP. Red and yellow cars are joined by a large centered interlocking steel coupler pair. A separate flexible brake hose hangs underneath; no person is between cars. Correct source colors and loaded/open early state, clean outlines and readable mechanical connection.",
+    "limits": "Direct image inspection only; complete sequence and app display review follow separately."
+  }
+}

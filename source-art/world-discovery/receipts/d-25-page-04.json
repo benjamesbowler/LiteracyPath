@@ -1,0 +1,40 @@
+{
+  "bookId": "world-discovery-d-25",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T08:17:19.242Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-f1800d86-6198-42cb-9e9b-9f11a88a6a6d.png",
+  "sourceSha256": "5cbb012fdf02c8d76c816f47cc646f9548fd89e2caa6b630d9b9f1dc4215f934",
+  "output": "public/guided-reading/world-discovery/d-25/page-04.webp",
+  "outputSha256": "537e0433856332269cda4f49de9b510338ae3e82585caa87fa70c0e5f5a836d7",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Correct ONLY experiment continuity in first picture. The SECOND picture shows the locked positions of the same table and two blue support blocks. Restore those exact support positions and size in FIRST picture: left block around x525–635; right block around x880–990 (1536canvas). The right block must move RIGHT to restore the original gap; do not narrow gap. Keep both blue blocks identical size. Place the ONE waiting wooden counter on tabletop just right of right block, without overlap. Lengthen the ONE lifted cream paper slightly so its long dimension remains the original full bridge-sheet length; Kit still holds it with two natural hands above both supports, clear air gap under it, no folds. Preserve Kit identity/pose, whole table, generous framing, flat2Dstyle. No extra objects or text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-77558161-eebf-4175-ab0a-e5a94d47b77c.png",
+      "sha256": "9c11901eb3fa6ed119906d84a3adae5afd4f0e8773ed1c4e3b92a2169a3f2fce"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-e6a11128-bfae-40c9-b0d0-d6b75d6472ef.png",
+      "sha256": "d5ea6643cadf2eaf11fa2f8340f878d36ef63e930c2d68912d3f898025284d07"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "8337d31fb142299fa5e714fdc1bffff0a8db8bc933c0eeb3ee2b649380ddbd8b",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.522Z",
+    "sha256": "537e0433856332269cda4f49de9b510338ae3e82585caa87fa70c0e5f5a836d7",
+    "note": "Direct inspection: Kit lifts one intact unfolded sheet with two natural grips; two matching blocks preserve the original gap relative to their size, one counter waits beside; generous margins.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

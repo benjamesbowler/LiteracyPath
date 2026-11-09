@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-d-30",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:38:59.912Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-55769a3e-adbf-4318-9c95-d2a94aeacbc6.png",
+  "sourceSha256": "748b22e1d454c0274a084171ace0dd3bd71747513c79eb10ffe767ce659f6db6",
+  "output": "source-art/world-discovery/d-30-reference.webp",
+  "outputSha256": "3d113367901e16b316655b8a2a8a0be4af3ab2dc7e9ed68e3d991ab92b9a0d60",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: scientific-educational. Unlettered PRODUCTION REFERENCE BOARD, landscape1536x1024, plain off-white background, bold continuous dark outlines and clean FLAT2D cartoon style, minimal cel shadows, no photorealism/3D/metaltexture. Consistent simple ARTIFICIAL SATELLITE in three clearly separated views: front and three-quarter with panels extended; compact launch state with panels folded flat along two opposite sides of the same gray box body. Body a plain gray cuboid, no face/eyes/printedmarks. Exactly TWO rectangular BLUE solar panels, one on each opposite side via short gray hinge. Each extended panel same3columnsby2rows grid, sixcells perpanel, bold simple lines. Folded state preserves two panels without extra wings. Separate small plain white cylindrical rocket UPPER STAGE with dark rear nozzle and gray front adapter ring, no fullrocket/nosecone/fins/flame. Bottom-right small setting key ONLY darknavyspace above blue curved ocean horizon and a few broadwhitecloudshapes; no detailed continents needed here, no orbit arrows or geometry diagram. Objects with generous whitespace, every whole shape at least140px inset. Absolutely NO letters,numbers,labels,logos,flags,characters or caption.",
+  "references": [],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "66c03f602e2ff45268c6d939a796addf9ba66a77cb551a19d2ddd57408b04e48",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.555Z",
+    "sha256": "3d113367901e16b316655b8a2a8a0be4af3ab2dc7e9ed68e3d991ab92b9a0d60",
+    "note": "Actual PNG and installed WebP directly inspected as production reference: one gray box satellite shown in extended front/three-quarter and folded states; exactly two blue panels with 3x2 grid, separate upper stage and ocean-horizon palette, unlettered. Reference only, not a finished page.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

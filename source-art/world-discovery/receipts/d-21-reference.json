@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-21",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T04:57:54.370Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-7dae9e7e-810d-4570-8b43-39c8d842bb1d.png",
+  "sourceSha256": "a68f1be22a39ac25d563392492e12c55ea4fce5b2554366d787607bed459e407",
+  "output": "source-art/world-discovery/d-21-reference.webp",
+  "outputSha256": "c9f245ba0f568a1ae3182927ff1961cd43a353bd7122c7ed6b03a2883edb26e6",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Edit this production reference board, preserving its clean 2D cartoon style, orange container design, the two adult workers, blue notebooks, cartons, transport equipment, white board and original book constraints. Make these exact corrections everywhere on the board: The orange freight container has ONLY ONE pair of cargo doors at ONE short end; the opposite short end is a plain solid corrugated wall with NO doors or locking bars. Its ONLY blue square marker belongs on the LEFT cargo door, with zero blue squares on either long side, the roof or opposite solid end. Remove the erroneous blue square on the side-view containers resting on the railcar and truck trailer. In the unlabeled straight-on second end view, replace the two barred doors with one plain solid corrugated orange end wall. Preserve front, side and three-quarter container views, correct real container proportions, corner castings and the open doors/loading scene. Keep all floor, sky, vehicle and object surfaces completely clean flat color with restrained smooth cel shading; remove mottled texture from the port pavement. No added text, labels, numbers, logos, extra props or people. This remains an unlabelled production design board, not a finished book page.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-a38133a5-428a-47d2-8bb4-d4c4a983eb1e.png",
+      "sha256": "268083b0f3c756b3fb477b96deca59ad601b83e0156e9dbe346667dbc1d26a53"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "4cd850616c2e31aecc557996032490d0fb984ea0f222fa11e0f2a878a417a9c7",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.499Z",
+    "sha256": "c9f245ba0f568a1ae3182927ff1961cd43a353bd7122c7ed6b03a2883edb26e6",
+    "note": "Direct native result inspection: corrected one two-door short end, opposite solid corrugated end, blue square confined to left cargo door. Long sides unmarked. Clean flat port surfaces, no lettering, ordinary PPE workers and blue notebook/carton identity. Reference only; final cover/page sequence still unreviewed.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

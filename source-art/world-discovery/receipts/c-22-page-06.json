@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-c-22",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:30:53.598Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-1eb16e5e-0786-4997-bc41-c38caf9651f0.png",
+  "sourceSha256": "837796b4e6655a23414daf0a1ee8966eeda02857ec9a7b1cbce84fa459d22329",
+  "output": "public/guided-reading/world-discovery/c-22/page-06.webp",
+  "outputSha256": "ae6fa97483678e592b83de51e737d2eed7fbfd8fa0e9f7a496b5f102121df7d5",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Repair exactly TWO things in FIRST image. Move the entire north tree straight DOWN on the grass until its ROOT BASE is horizontally level with the children's SHOES. Tree must stand directly LEFT/NORTH of the east-facing observers, not ahead-left. Keep gray east gate straight ahead. Then zoom entire composition OUT to80% size with more matching grass around all edges, so complete tree canopy, both complete children and gate have generous13% margins on ALL sides. Preserve exact compass: E top, S right, W bottom, N left; red needle LEFT/N, white RIGHT/S. Same small palm-sized level compass, not enlarged. Kit and Zoe equal height. Second reference locks cast/props only. No arrows, lines, inset or additional words/objects.3:2 landscape, crisp flat smooth colors, no texture. Also correct compass plane: it lies HORIZONTAL and level on the open palm, so its round face appears as a shallow horizontal ellipse in this camera (width about1.7 times height), not a vertical circle held toward the camera. Preserve exact letter order and needle direction.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-f3de1628-38c1-429a-9d83-81d9d62eb384.png",
+      "sha256": "95aa810249ccff2148be73aba4b36c55f3a38ceee353915bdd2b30ac26dbefe3"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/c-22-reference.webp",
+      "sha256": "f7640bca6dc2c687a2f53c1956c4db9411d4faaa9c4331d71b6acdc1b6a98ef2"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "7ef8d8649d4bf890384d714a7be54ffe8301439e049fa826d123aaf98f10b5ea",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T13:30:54.105819+00:00",
+    "sha256": "ae6fa97483678e592b83de51e737d2eed7fbfd8fa0e9f7a496b5f102121df7d5",
+    "note": "Native and actual WebP directly viewed: east-facing observer now sees gate ahead, north tree directly left at same ground depth, small horizontal compass E ahead/N left/red left. Complete safe margins and clean cast maintained.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-22",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T06:50:47.169Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-fdb5e99b-8fc1-4567-9d0e-c51af6c423c8.png",
+  "sourceSha256": "9621607979014beafe1085325eb6aeb8f9034d77f3feb997179cb3e0220e4040",
+  "output": "public/guided-reading/world-discovery/d-22/page-03.webp",
+  "outputSha256": "31a5d893b5c8f407fff2c7882c60be92dcbeb0c114c2f270cbf579855abd0ea6",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Make only a framing correction to this exact Americas classroom illustration. Pull the camera back and reduce the existing composition uniformly so both children's COMPLETE hair, hands and shoes and the COMPLETE Americas map including its frame are at least 10 percent inside every canvas edge. Extend the same room walls and floor naturally, not a border. Keep Kit and Zoe's designs, expressions, poses and equal standing height, exact two labels North America and South America, correct yellow/green coastlines and narrow Central American land connection, furniture and all states unchanged. No extra globe, inset, arrow, object or text. Clean crisp 2D cartoon, flat color, no texture.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-1475fb02-18f4-4cf8-b865-e244794c863c.png",
+      "sha256": "a7c1a93533721a39a0cd3bd3f1f83d2f0b3bf75339be1df647c50583d4d14f7c"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "fb0bd240fdf5f14fbd4f0ae2e2b112472e599d3754b28e979aad8f5f59410003",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.502Z",
+    "sha256": "31a5d893b5c8f407fff2c7882c60be92dcbeb0c114c2f270cbf579855abd0ea6",
+    "note": "Direct inspection: complete equal-height children and focused Americas map safely framed; correct yellow/green land connection uninterrupted, two names exact, no extra insets/globes.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

@@ -1788,3 +1788,62 @@ ZIP and two temporary provenance-recovery files. Current MP3s, native image
 originals, durable recovered receipts and necessary final review evidence remain.
 Scoped receipts are under `.artifacts/book-language-continuity/` and
 `.artifacts/app-image-logic-audit/`; protected shelved animation roots were untouched.
+
+## World Discovery nonfiction cohort declaration — 9 November 2026
+
+Added one shared topic-profile authority for the inactive `21-30` cohort and
+updated the existing content Bible, cohort guide and documentation index. The
+original profile remains the default for `01-20`; no competing content or release
+registry was added. Existing manuscript, media, registration and active-import
+files were preserved. No project source or media was deleted. Focused test-only
+temporary manuscript/audio-snapshot fixtures are disposable and removed by their
+test teardown; they are reproducible from the checked-in tests. Protected shelved
+animation roots are outside this worktree and were unaffected.
+
+## World Discovery nonfiction local registration — 10 November 2026
+
+The previously declared `21-30` cohort is now registered in the local source
+catalogue, adding 50 nonfiction books and 440 reading pages. All three cohorts
+contain 150 books and 1,320 reading pages; the complete local Guided Reading
+runtime contains 447 books, including 217 nonfiction. The earlier 397-book audit
+above remains the historical baseline. Local registration does not establish a
+production deployment or completion of the remaining release checks.
+
+The content Bible, cohort guide and documentation index now describe this local
+state. The refreshed topic inventory under `.artifacts/nonfiction-next-50/topics/`
+lists all 217 nonfiction books and distinguishes the 167-book baseline from the
+50 additions, with 27 remaining subject areas and 108 specific inquiry ideas.
+Its source snapshots and classification inputs remain active audit evidence.
+This documentation refresh deleted no project source or media; it created no
+disposable temporary output. Protected shelved animation roots were untouched.
+
+## World Discovery nonfiction scoped cleanup — 10 November 2026
+
+The three scoped receipts under `.artifacts/nonfiction-next-50/` record removal
+of 518,041,868 bytes (494.04 MiB): `cleanup.json` covers 486,100,249 bytes of
+reproducible ASR model cache; `audio-cleanup-deletion.json` covers 13 unused,
+unpublished audition MP3s totaling 494,409 bytes; and
+`browser-scoped-cleanup.json` covers six obsolete interrupted traces plus seven
+superseded page-transition screenshots totaling 31,447,210 bytes. Exact runtime,
+canonical-evidence and active-use checks preceded the scoped deletions.
+
+The model cache can be downloaded again. Audition requests and screening logs
+remain, but the 13 rejected recordings' exact bytes were not backed up;
+resynthesis is not bitwise reproducible. The removed browser traces and frames
+are likewise not recoverable as exact bytes; retained scripts can repeat the
+captures with different timing/bytes. Four canonical-provenance clips, required
+native originals, selected media, references, receipts, independent reviews,
+audio provenance, logs and settled accepted screenshots remain. Protected-work
+exclusions were read and the shelved animation roots were untouched. Final
+browser coverage, the last hygiene pass and production verification remain
+separate; these cleanup receipts do not claim those outcomes.
+
+After the complete 196-case reader suite passed, the final scoped cleanup removed
+two more interrupted traces (2,703,435 bytes) and four superseded partial-run
+folders (449,120,178 bytes). All 1,580 final reader screenshots, seven settled
+legibility screenshots and compact prior logs/reports remain. Total cleanup for
+this task is 969,865,481 bytes; exact removed capture bytes were not backed up,
+but the tests are reproducible. The 17 superseded original audio takes remain
+because their exact bytes are required by the canonical repair evidence; seven
+also remain shared resolver defaults. See the task’s final cleanup and audio
+provenance audit receipts under `.artifacts/nonfiction-next-50/`.

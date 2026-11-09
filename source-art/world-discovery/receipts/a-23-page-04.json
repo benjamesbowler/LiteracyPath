@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-23",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:21:00.654Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-372d0cff-d36f-4211-aaf9-3cdf9c91e632.png",
+  "sourceSha256": "7cf2c687b34043886ad1d06ccaeb6bc25cffbc5f153cc55964466fbebb9e074c",
+  "output": "public/guided-reading/world-discovery/a-23/page-04.webp",
+  "outputSha256": "c8c3d995033326fb8e782c28bfe7765ad2230cacf51aadbe64bf22808cfbacc6",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit ONLY framing. Pull ENTIRE scene back uniformly by30%, extending same room naturally. Full figure hair top aroundy150 and shoesbottomaroundy870 on1024canvas, >=12%margin abovehair and belowfeet; body proportions unchanged. Preserve transparent integrated pink paired lungs positioned INSIDE UPPER CHEST and blue arrows from NOSTRILS DOWN the central windpipe then branching into BOTH lungs. Keep all diagram aligned to resized body, two palms on upper chest, closed lips; no new anatomy. All furniture/rug/room scales together; feet remain grounded. Smooth clean flat colors, no texture or words. Landscape3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-031c9899-aaf2-46b4-9e63-2becc8511d70.png",
+      "sha256": "d1adbc7a6a09f79c10705c734b330f3d0932c21ec925c7f036dd55414820b915"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "9d1d4dd6d93c7ff9e1f38dd1d3858cfe95edf848dc9e464d8d8c183b2a6aee4a",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "c8c3d995033326fb8e782c28bfe7765ad2230cacf51aadbe64bf22808cfbacc6",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:21:00.657Z",
+    "note": "Directly inspected native framing repair: whole scene uniformly pulled back with hair and shoes each at least15% inset, natural figure proportions and grounded feet. Integrated upper-chest paired lungs and nose-to-windpipe-to-both-lungs downward arrows preserve the reviewed anatomy layout; two palms remain at upper chest."
+  }
+}

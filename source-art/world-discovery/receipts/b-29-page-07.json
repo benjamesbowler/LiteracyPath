@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-b-29",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:48:37.605Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-692c18d2-a43e-4167-98ec-12afaf455d1b.png",
+  "sourceSha256": "82cfc16d1c07029b0071f6e1ce46e0683b2b49524341ddd923d02f4bd338ee7f",
+  "output": "public/guided-reading/world-discovery/b-29/page-07.webp",
+  "outputSha256": "0a3c3cbf6419732b20c1287a0dcbf81cb4aae96b1fdceedb9ea7e6e9254a4c30",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Show the completed measurement from a TRUE straight-down OVERHEAD camera. Entire background is continuous white tabletop; no table edges, legs, floor or perspective anywhere. Exactly one closed plain blue book as a flat RECTANGLE with a narrow spine strip at left, occupying x360..1080,y240..600. No visible cream page block or book sides. Exactly SIX identical yellow cube TOP faces, perfect SQUARES 120x120, touching edge-to-edge in one straight horizontal row from x360 to x1080, y660..780. Left row edge is exactly at book LEFT edge and right row edge exactly at book RIGHT edge. Six equally spaced vertical boundaries make six equal square units. No spare cube, hands, people, ruler, labels or shadows pretending to be cube sides. Strongly clear measurement: book width SIX units, touching row SIX units. Preserve blue/yellow flat palette. Landscape 3:2. Children's nonfiction illustration, crisp black outlines, pure flat vector-like fills, no texture, grain, speckles, gradients, lettering, captions, numbers or border. Keep all educational objects within central 75 percent with generous margins.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/b-29/page-06.webp",
+      "sha256": "579102f05e828c476d6e35d5ab41c006421750c0814361496b48ec641397059c"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "7c50af653f4ee559098243cdcd631837ff440776161b09c1d029dc86ea556fcc",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T10:50:39.358224+00:00",
+    "sha256": "0a3c3cbf6419732b20c1287a0dcbf81cb4aae96b1fdceedb9ea7e6e9254a4c30",
+    "note": "Native and installed WebP directly viewed: true overhead rectangular book and six identical square cube tops, touching and aligned exactly with both book ends; no hands or spare.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

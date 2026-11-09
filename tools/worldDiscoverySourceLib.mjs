@@ -12,7 +12,7 @@ const sha256 = value => createHash("sha256").update(value).digest("hex");
 export function parseWorldDiscoverySourceArgs(args, { allowOutputDir = false } = {}) {
   const options = {};
   const remaining = [];
-  const flags = new Map([["--source-dir", "sourceDir"], ["--first-number", "firstNumber"], ["--last-number", "lastNumber"]]);
+  const flags = new Map([["--source-dir", "sourceDir"], ["--first-number", "firstNumber"], ["--last-number", "lastNumber"], ["--topic-profile", "topicProfile"]]);
   if (allowOutputDir) flags.set("--output-dir", "outputDir");
   for (let index = 0; index < args.length; index += 1) {
     const key = flags.get(args[index]);
@@ -28,7 +28,7 @@ export function parseWorldDiscoverySourceArgs(args, { allowOutputDir = false } =
 // Isolated manuscripts are production inputs, never runtime registrations.
 // The original source remains the default. New inputs require an explicit
 // ten-strand range and may never impersonate the published first fifty IDs.
-export function readWorldDiscoverySource({ sourceDir, firstNumber, lastNumber, bookId, requireReviews = false } = {}) {
+export function readWorldDiscoverySource({ sourceDir, firstNumber, lastNumber, topicProfile, bookId, requireReviews = false } = {}) {
   const directory = fs.realpathSync(path.resolve(root, sourceDir || WORLD_DISCOVERY_SOURCE_DIR));
   const isolated = directory !== fs.realpathSync(WORLD_DISCOVERY_SOURCE_DIR);
   if (!isolated && (firstNumber !== undefined || lastNumber !== undefined)) throw Error("Number ranges apply only to an explicit isolated --source-dir");
@@ -46,8 +46,8 @@ export function readWorldDiscoverySource({ sourceDir, firstNumber, lastNumber, b
     throw Error("Isolated source collides with the published first fifty World Discovery IDs");
   }
   const validation = isolated
-    ? validateWorldDiscoveryDraftBatch(books, { firstNumber, lastNumber, requireComplete: !bookId })
-    : validateWorldDiscoveryDrafts(books, { requireComplete: !bookId });
+    ? validateWorldDiscoveryDraftBatch(books, { firstNumber, lastNumber, topicProfile, requireComplete: !bookId })
+    : validateWorldDiscoveryDrafts(books, { topicProfile, requireComplete: !bookId });
   if (validation.failures.length) throw Error(validation.failures.join("\n"));
   let reviews;
   if (requireReviews) {
@@ -55,6 +55,6 @@ export function readWorldDiscoverySource({ sourceDir, firstNumber, lastNumber, b
     const failures = validateWorldDiscoveryReviews(books, reviews);
     if (failures.length) throw Error(failures.join("\n"));
   }
-  return { books, reviews, directory, isolated, firstNumber, lastNumber,
+  return { books, reviews, directory, isolated, firstNumber, lastNumber, topicProfile: topicProfile ?? "original",
     manuscriptSha256: sha256(JSON.stringify(books)) };
 }

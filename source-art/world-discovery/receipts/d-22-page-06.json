@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-22",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T06:29:40.446Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-4eb28636-7b86-4895-ba08-17b435ac5657.png",
+  "sourceSha256": "6235c82d9348581ba82578c5c9e552171ea0d3bbb9297757c2278656c8c3785d",
+  "output": "public/guided-reading/world-discovery/d-22/page-06.webp",
+  "outputSha256": "4faf7fea6fa35ced06fae6c388241ddcd17db41f617e52b492e7ff58a942359d",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this close map view to match the established book palette and safe typography. Replace the oversaturated violet region with restrained soft lavender-purple, approximately #AA69CC. Replace the bright red region with soft coral/salmon, approximately #F47C78. Use uniform flat fills, no gradients or texture. Keep exactly one thin black gently bending artificial map boundary, uninterrupted land on both sides, and no blue water. Reduce BOTH black labels by about 25 percent: Europe centered comfortably in the left region, Asia centered comfortably in the right; all letters at least 12 percent of canvas width from outer left/right edges. Preserve their exact spelling/case and rounded clear black lettering. No other content, no people, inset, symbols or extra words. Landscape 3:2 finished close-map illustration.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-a1fd8fd5-d318-46ab-a2ef-58ef4dd5b51f.png",
+      "sha256": "c1154b550493589fbd3a63174ad421bdf448a1938ffd0083abb41f9c4acc0aa5"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "fb0bd240fdf5f14fbd4f0ae2e2b112472e599d3754b28e979aad8f5f59410003",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.503Z",
+    "sha256": "4faf7fea6fa35ced06fae6c388241ddcd17db41f617e52b492e7ff58a942359d",
+    "note": "Direct inspection: tight inland Ural-boundary crop shows continuous adjacent lavender/coral land and one thin artificial line, no ocean/channel/wall; exact two labels entirely within safe margins, restrained palette.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

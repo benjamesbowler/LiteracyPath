@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-b-27",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T08:04:53.366Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-7d96d26e-ec51-4eb6-b454-90295705e7c2.png",
+  "sourceSha256": "4b145543f638218d6f995fcc18167fc95e42b38f36d89c03c2570a7ec8dedf9e",
+  "output": "public/guided-reading/world-discovery/b-27/page-03.webp",
+  "outputSha256": "40651a7c2e5efdec6a0e89eafeaf7458301b2f45cfb8f9d5fbf86f8c741a301f",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit ONLY stove continuity in the first image. It must be the same FOUR-BURNER stove shown in the second reference: two burners in left row and two empty burners in right row. Pan sits on BACK-LEFT burner, and empty FRONT-LEFT burner visible in front. Add the missing right-side two burners and broaden stove worktop accordingly, safely within the frame. Keep exactly the first image's adult torso, two hands, lemon-juice pour, wooden spoon, first curds and whey, pan and inward-pointing handle. No children or new kitchen props. LANDSCAPE 3:2 1536x1024; all pan/hand/juice contents well inside 12% margin. Smooth clean flat fills with no grain, no text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-996dd0d6-18c0-4517-a565-2966bfe0bb77.png",
+      "sha256": "41b189f630005163c8b8d772b843e29708915dcc2a6747232946fb709ac20f96"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-4766367a-f0ab-44b1-867c-8f0b439844b5.png",
+      "sha256": "a8131fdaeb124b812bfba146a429b605376ca770460ef2c37eccea1d4be7e911"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "14bdf1a9b4c155d155a7916b5fde211a1d4c1dddaf582d022d5985416f706b7c",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T08:05:34.728342+00:00",
+    "sha256": "40651a7c2e5efdec6a0e89eafeaf7458301b2f45cfb8f9d5fbf86f8c741a301f",
+    "note": "Directly viewed native PNG and installed WebP: adult adds lemon juice while stirring first curds; two correct hands, same four-burner stove, pan on back-left burner with inward handle; essential pan/hand/juice action safely inset.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

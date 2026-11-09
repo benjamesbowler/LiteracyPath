@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-29",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T08:09:53.644Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-8aae8dc5-b19d-4217-9964-5ca038b39518.png",
+  "sourceSha256": "a3b8f21a2cc81c42e80200794311f23e2f215912eb47b3bbd03971353ad251a4",
+  "output": "public/guided-reading/world-discovery/a-29/cover.webp",
+  "outputSha256": "1930de84dbcfb1cd7dd5555da73c4c3838b60e659a2ff50b952b9a8c3b541b80",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Shorten BOTH red rectangles horizontally to85% of their present length while keeping their present HEIGHT unchanged. Keep each rectangle centered in its current area; move the holding hand slightly inward as needed. Both pieces must be IDENTICAL and precisely2:1 width:height. They currently look too long and thin; this edit makes each horizontally shorter and more compact without altering height. Preserve all else: Zoe's face, safe wide framing, outfit, classroom, table, flat colors. No other change, no extra objects or text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-3ade7a68-8f1f-4702-828f-60b9c8bef82f.png",
+      "sha256": "107dd490b72666a668a0e85776e029e32c68066c6982c5aaad1996f773d1ce23"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "f901b0be0bea47b49de26868818727681b20b5057666da316e0fa78bccc25576",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "1930de84dbcfb1cd7dd5555da73c4c3838b60e659a2ff50b952b9a8c3b541b80",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T08:09:53.647Z",
+    "note": "Directly inspected repaired cover: Zoe holds exactly two congruent horizontal red rectangles, each visually2:1 with aligned top/bottom edges. Hands grip outer edges; no extra scrap/scissors/adult. Hair safely inset about16%, hands about14% side clearance."
+  }
+}

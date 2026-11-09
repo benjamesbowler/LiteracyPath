@@ -18641,6 +18641,2406 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
       "reason": "No authorized MetaMetrics measurement receipt for this exact text."
     }
   },
+  "world-discovery-a-21": {
+    "title": "The Bus Stop",
+    "appReadingLevel": "A",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Eight pages; each page is one short present-tense statement of at most six words, without dialogue or subordinate clauses.",
+      "vocabulary": "Bus, doors, on/off and stop repeat across the journey; another and between receive concrete location support.",
+      "knowledge": "A bus is shown taking people between two stops; no fare system, route-map or timetabling knowledge is assumed.",
+      "progression": "Opening stop to unloading, loading, movement and second stop; the final statement answers what the same bus does.",
+      "inference": "Eight concrete present-tense clauses; on/off and open/shut comparisons supply audible structure, visible rider changes and a direct transport synthesis. No dialogue or unstated causal inference. Six words maximum per page. This is levelled, not cumulative decodable text."
+    },
+    "rationale": "Eight concrete present-tense clauses; on/off and open/shut comparisons supply audible structure, visible rider changes and a direct transport synthesis. No dialogue or unstated causal inference. Six words maximum per page. This is levelled, not cumulative decodable text.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:0e96f8907e6e90a3",
+    "textHash": "sha256:8e0429fb186de01b917952724bf9c79d75ffe44a9125b50692579033689dc5d9",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 39,
+      "uniqueWordCount": 24,
+      "uniqueWordRatio": 0.62,
+      "averageWordLength": 4.03,
+      "averageWordsPerPage": 4.88,
+      "minWordsPerPage": 4,
+      "maxWordsPerPage": 6,
+      "sentenceUnitCount": 8,
+      "averageWordsPerSentence": 4.88,
+      "maxWordsPerSentence": 6,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.25,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-a-22": {
+    "title": "Turn the Globe",
+    "appReadingLevel": "A",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Eight pages; each page is one short present-tense statement of at most six words, without dialogue or subordinate clauses.",
+      "vocabulary": "Globe/model, land/water and turning are limited to one demonstration; continent names are absent from child text.",
+      "knowledge": "A globe represents Earth; child follows visible turns rather than naming continents or explaining day/night.",
+      "progression": "A front, hidden side, turn, newly visible land and return form a coherent spatial inquiry.",
+      "inference": "Revised p1 and p5 use direct familiar actions instead of compressed model Earth and comes into view. Short repeated turning statements, concrete land/water observations and an explicit return support A. Whole-Earth representation is introduced through the globe demonstration and oral preparation, not assumed geographic naming knowledge."
+    },
+    "rationale": "Revised p1 and p5 use direct familiar actions instead of compressed model Earth and comes into view. Short repeated turning statements, concrete land/water observations and an explicit return support A. Whole-Earth representation is introduced through the globe demonstration and oral preparation, not assumed geographic naming knowledge.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:985e2e9ffc681d52",
+    "textHash": "sha256:a86104b5c7e3e8364f75e2597e69fa0d1c7b111a014396e5492c7c5e48da76ca",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 43,
+      "uniqueWordCount": 28,
+      "uniqueWordRatio": 0.65,
+      "averageWordLength": 4.02,
+      "averageWordsPerPage": 5.38,
+      "minWordsPerPage": 5,
+      "maxWordsPerPage": 6,
+      "sentenceUnitCount": 8,
+      "averageWordsPerSentence": 5.38,
+      "maxWordsPerSentence": 6,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.13,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-a-23": {
+    "title": "My Chest Moves",
+    "appReadingLevel": "A",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Eight pages; each page is one short present-tense statement of at most six words, without dialogue or subordinate clauses.",
+      "vocabulary": "Chest, lungs and breath form a focused topic vocabulary set supported by oral preparation; in/out and bigger/smaller repeat.",
+      "knowledge": "Quiet breathing and chest movement are directly observed; airway drawings introduce lungs without demanding physiology terminology.",
+      "progression": "Hands locate chest; inhalation and chest change are paired with air entering; the inverse sequence supports a clear normal-breathing synthesis.",
+      "inference": "Paired first-person in/out and bigger/smaller frames give predictable short clauses. Chest, nose, lungs and breath are a small focused vocabulary set. Every relationship is directly stated; diagrams support meaning without imposing print-based inference. Actual readability still depends on clear restrained anatomy art."
+    },
+    "rationale": "Paired first-person in/out and bigger/smaller frames give predictable short clauses. Chest, nose, lungs and breath are a small focused vocabulary set. Every relationship is directly stated; diagrams support meaning without imposing print-based inference. Actual readability still depends on clear restrained anatomy art.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:73418b12e12b494b",
+    "textHash": "sha256:1a3137b88e68c8b3386ef6d95eb9587406dd5fd4c5b522b20777382dbccea898",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 47,
+      "uniqueWordCount": 26,
+      "uniqueWordRatio": 0.55,
+      "averageWordLength": 3.83,
+      "averageWordsPerPage": 5.88,
+      "minWordsPerPage": 5,
+      "maxWordsPerPage": 6,
+      "sentenceUnitCount": 8,
+      "averageWordsPerSentence": 5.88,
+      "maxWordsPerSentence": 6,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.38,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-a-24": {
+    "title": "Ice in a Dish",
+    "appReadingLevel": "A",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Eight pages; each page is one short present-tense statement of at most six words, without dialogue or subordinate clauses.",
+      "vocabulary": "Ice, water and dish repeat; melts is orally prepared and directly demonstrated.",
+      "knowledge": "One familiar ice cube changes to liquid in a warm room; no particle model or exact time/rate knowledge is assumed.",
+      "progression": "Same cube becomes smaller as meltwater grows; tilting demonstrates the changed material flows, then the ending identifies its source.",
+      "inference": "Short direct observations repeat ice, water and dish through one visible change. Warm room, shrinking solid, growing liquid and final same-water synthesis are explicit; no molecules, latent heat or elapsed-time inference is required. A with oral preparation for melts."
+    },
+    "rationale": "Short direct observations repeat ice, water and dish through one visible change. Warm room, shrinking solid, growing liquid and final same-water synthesis are explicit; no molecules, latent heat or elapsed-time inference is required. A with oral preparation for melts.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:5cf797b8620040fe",
+    "textHash": "sha256:cfaee677ed63415d80c1560bd662fd1ba3be8a006a6a185c8f279655c67d1585",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 42,
+      "uniqueWordCount": 24,
+      "uniqueWordRatio": 0.57,
+      "averageWordLength": 3.93,
+      "averageWordsPerPage": 5.25,
+      "minWordsPerPage": 4,
+      "maxWordsPerPage": 6,
+      "sentenceUnitCount": 8,
+      "averageWordsPerSentence": 5.25,
+      "maxWordsPerSentence": 6,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.38,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-a-25": {
+    "title": "Stop the Drum",
+    "appReadingLevel": "A",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Eight pages; each page is one short present-tense statement of at most six words, without dialogue or subordinate clauses.",
+      "vocabulary": "Drum, top, hand and sound repeat; no vibration terminology appears in child text.",
+      "knowledge": "A familiar drum is tapped, damped and tapped again; the child compares sound/no sound rather than explaining wave physics.",
+      "progression": "The stop-and-restart comparison gives causal evidence instead of a fact list.",
+      "inference": "Tap/move/sound then resting-hand/stop and a second tap form one explicit reversible cause-and-effect sequence. Repeated top, hand and sound support A despite the new science idea. Tiny vibration is diagram-supported and does not require printed technical vocabulary."
+    },
+    "rationale": "Tap/move/sound then resting-hand/stop and a second tap form one explicit reversible cause-and-effect sequence. Repeated top, hand and sound support A despite the new science idea. Tiny vibration is diagram-supported and does not require printed technical vocabulary.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:cc35debd86825be0",
+    "textHash": "sha256:8dc3fb5091dcacc359a68828490180ce8cc93b92d1a1a2ef1afbde25bbdcc89d",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 42,
+      "uniqueWordCount": 21,
+      "uniqueWordRatio": 0.5,
+      "averageWordLength": 3.69,
+      "averageWordsPerPage": 5.25,
+      "minWordsPerPage": 4,
+      "maxWordsPerPage": 6,
+      "sentenceUnitCount": 8,
+      "averageWordsPerSentence": 5.25,
+      "maxWordsPerSentence": 6,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.25,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-a-26": {
+    "title": "The Doorbell",
+    "appReadingLevel": "A",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Eight pages; each page is one short present-tense statement of at most six words, without dialogue or subordinate clauses.",
+      "vocabulary": "Button/bell, outside/inside and sound recur; signal is prepared as a message without requiring electronics vocabulary.",
+      "knowledge": "Outside button and inside sound are linked explicitly; the signal is prepared orally and no circuit construction is assumed.",
+      "progression": "Locate button, activate, transmit, hear, open, and summarize the linked devices.",
+      "inference": "Concrete outside/inside locations, a single button action, sound and response give a directly stated mechanism. Signal is one supported new word; no circuit knowledge or invisible intermediate process must be inferred. The short phrases and repeated button/bell terms support A; this is not a decoding claim."
+    },
+    "rationale": "Concrete outside/inside locations, a single button action, sound and response give a directly stated mechanism. Signal is one supported new word; no circuit knowledge or invisible intermediate process must be inferred. The short phrases and repeated button/bell terms support A; this is not a decoding claim.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:6224873786951158",
+    "textHash": "sha256:13618d8755478c952419ba4f6de8841f68f286c1b60137f242741ce3fde6f6d9",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 38,
+      "uniqueWordCount": 22,
+      "uniqueWordRatio": 0.58,
+      "averageWordLength": 4.18,
+      "averageWordsPerPage": 4.75,
+      "minWordsPerPage": 4,
+      "maxWordsPerPage": 6,
+      "sentenceUnitCount": 8,
+      "averageWordsPerSentence": 4.75,
+      "maxWordsPerSentence": 6,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.25,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-a-27": {
+    "title": "Popcorn Pops",
+    "appReadingLevel": "A",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Eight pages; each page is one short present-tense statement of at most six words, without dialogue or subordinate clauses.",
+      "vocabulary": "Seed, coat, inside, puffs and bigger describe observable change; no pressure, starch or molecular vocabulary appears in child text.",
+      "knowledge": "Heating one suitable kernel changes its visible shape and size; no molecular pressure explanation is required.",
+      "progression": "One hard seed changes into one puffy piece through linked visible stages.",
+      "inference": "Eight short clauses follow the observable seed, hard coat, heating, split, expansion and before/after size comparison. The author removed molecular explanation; no pressure/steam/starch knowledge is required to follow the printed inquiry. A with prepared popcorn/coat/puffs vocabulary and explicit magnification support."
+    },
+    "rationale": "Eight short clauses follow the observable seed, hard coat, heating, split, expansion and before/after size comparison. The author removed molecular explanation; no pressure/steam/starch knowledge is required to follow the printed inquiry. A with prepared popcorn/coat/puffs vocabulary and explicit magnification support.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:bd7a3b3d01e07f61",
+    "textHash": "sha256:7bba67ccbc44229d6e49af659b176c02ec56159ced7a7bbf3166ebfc7a679393",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 42,
+      "uniqueWordCount": 28,
+      "uniqueWordRatio": 0.67,
+      "averageWordLength": 3.88,
+      "averageWordsPerPage": 5.25,
+      "minWordsPerPage": 5,
+      "maxWordsPerPage": 6,
+      "sentenceUnitCount": 8,
+      "averageWordsPerSentence": 5.25,
+      "maxWordsPerSentence": 6,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.13,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-a-28": {
+    "title": "The Ant Trail",
+    "appReadingLevel": "A",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Eight pages; each page is one short present-tense statement of at most six words, without dialogue or subordinate clauses.",
+      "vocabulary": "Ant, sweet drop, nest, scent and trail recur; scent/trail/nest are orally prepared and invisibility is printed explicitly.",
+      "knowledge": "Ants can follow an invisible scent. The text now states the invisibility; no pheromone terminology or ant-memory theory is required.",
+      "progression": "Discovery, return, scent deposition, explicit invisibility, recruitment and arrival form one complete connected inquiry.",
+      "inference": "Short direct clauses follow finding food, feeding, returning, leaving scent and recruiting other ants. The revised p5 explicitly states that scent cannot be seen, so the diagram convention does not require unsupported inference. Repeated ant/scent/drop words and oral preparation support A; detailed chemical mechanisms and memory research remain outside the child text."
+    },
+    "rationale": "Short direct clauses follow finding food, feeding, returning, leaving scent and recruiting other ants. The revised p5 explicitly states that scent cannot be seen, so the diagram convention does not require unsupported inference. Repeated ant/scent/drop words and oral preparation support A; detailed chemical mechanisms and memory research remain outside the child text.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:e45d545b43927daf",
+    "textHash": "sha256:87a54d810a857aabcc37d386016d9c40ed4fe6a2ed5427c543dba275983574bf",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 43,
+      "uniqueWordCount": 27,
+      "uniqueWordRatio": 0.63,
+      "averageWordLength": 3.81,
+      "averageWordsPerPage": 5.38,
+      "minWordsPerPage": 5,
+      "maxWordsPerPage": 6,
+      "sentenceUnitCount": 8,
+      "averageWordsPerSentence": 5.38,
+      "maxWordsPerSentence": 6,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.13,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-a-29": {
+    "title": "Two Equal Pieces",
+    "appReadingLevel": "A",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Eight pages; each page is one short present-tense statement of at most six words, without dialogue or subordinate clauses.",
+      "vocabulary": "Strip, fold, piece, edges and half name directly observed actions and relationships; half/equal are orally prepared.",
+      "knowledge": "Folding, cutting, matching and joining two pieces demonstrate halves; numeric measurement and fraction notation are unnecessary.",
+      "progression": "Fold establishes midpoint, cut creates two pieces, superposition checks equality and reconstruction verifies the whole.",
+      "inference": "Short concrete folding, meeting, pressing, cutting and matching clauses supply direct evidence for half. No written measurement or abstract arithmetic is required. Matching edges and final reassembly make the new concept visible, with half/equal in oral preparation; A is supported."
+    },
+    "rationale": "Short concrete folding, meeting, pressing, cutting and matching clauses supply direct evidence for half. No written measurement or abstract arithmetic is required. Matching edges and final reassembly make the new concept visible, with half/equal in oral preparation; A is supported.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:2c667fe507512968",
+    "textHash": "sha256:4ed8a51e2c5777b8b448fee00eb3d65cef5022b6d0b30661a9a23203e8d57685",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 44,
+      "uniqueWordCount": 33,
+      "uniqueWordRatio": 0.75,
+      "averageWordLength": 3.89,
+      "averageWordsPerPage": 5.5,
+      "minWordsPerPage": 5,
+      "maxWordsPerPage": 6,
+      "sentenceUnitCount": 8,
+      "averageWordsPerSentence": 5.5,
+      "maxWordsPerSentence": 6,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.13,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-a-30": {
+    "title": "The Bag in the Wind",
+    "appReadingLevel": "A",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Eight pages; each page is one short present-tense statement of at most six words, without dialogue or subordinate clauses.",
+      "vocabulary": "Bag repeats throughout; wind, stream and trash are prepared and tied to visible locations/actions.",
+      "knowledge": "Wind and flowing water move one loose bag; no watershed, degradation or ocean-current background is assumed.",
+      "progression": "Initial position, wind transport, temporary catch/release, entry to water and stream transport connect one physical journey.",
+      "inference": "The same concrete bag moves through familiar places in short present-tense clauses. Wind and stream are stated agents; the brief catch/release adds change without a hidden cause. Final can scopes the generalization. A with wind/stream/trash preparation."
+    },
+    "rationale": "The same concrete bag moves through familiar places in short present-tense clauses. Wind and stream are stated agents; the brief catch/release adds change without a hidden cause. Final can scopes the generalization. A with wind/stream/trash preparation.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:07630fd1233b9a02",
+    "textHash": "sha256:a85c2c03002964b7d1cde6468b95755ec0d7c9d2cc17bbdfebb511870546cc0f",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 47,
+      "uniqueWordCount": 29,
+      "uniqueWordRatio": 0.62,
+      "averageWordLength": 3.83,
+      "averageWordsPerPage": 5.88,
+      "minWordsPerPage": 5,
+      "maxWordsPerPage": 6,
+      "sentenceUnitCount": 8,
+      "averageWordsPerSentence": 5.88,
+      "maxWordsPerSentence": 6,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.25,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-b-21": {
+    "title": "A Train for Heavy Loads",
+    "appReadingLevel": "B",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Eight pages with short paired clauses, no dialogue; each authored line was read for ordinary spoken English.",
+      "vocabulary": "Focused terms engine, rails, couplers are introduced through named objects/actions and oral preparation.",
+      "knowledge": "The opening question and concrete example introduce the needed context; no unintroduced off-page knowledge is required for the stated answer.",
+      "progression": "Linked cars move together from loading to unloading.",
+      "inference": "Short paired present-tense statements follow one visible freight journey. Three cars and one engine remain fixed; couplers is immediately explained as metal links."
+    },
+    "rationale": "Short paired present-tense statements follow one visible freight journey. Three cars and one engine remain fixed; couplers is immediately explained as metal links.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:590293c92252c135",
+    "textHash": "sha256:bc1bb53239df5f300bca20495d8437852204cdb05378307debd1b2d579ad3fbe",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 86,
+      "uniqueWordCount": 57,
+      "uniqueWordRatio": 0.66,
+      "averageWordLength": 4.44,
+      "averageWordsPerPage": 10.75,
+      "minWordsPerPage": 10,
+      "maxWordsPerPage": 12,
+      "sentenceUnitCount": 16,
+      "averageWordsPerSentence": 5.38,
+      "maxWordsPerSentence": 7,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.13,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-b-22": {
+    "title": "One Ocean Around Earth",
+    "appReadingLevel": "B",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Eight pages with short paired clauses, no dialogue; each authored line was read for ordinary spoken English.",
+      "vocabulary": "Focused terms Atlantic, Southern, Indian, Pacific, Arctic are introduced through named objects/actions and oral preparation.",
+      "knowledge": "The opening question and concrete example introduce the needed context; no unintroduced off-page knowledge is required for the stated answer.",
+      "progression": "A continuous water route answers the opening separation question.",
+      "inference": "Short direct directions follow connected blue water around Earth. Ocean names are the main new vocabulary and receive exact map labels; no national borders or memorized geography is required."
+    },
+    "rationale": "Short direct directions follow connected blue water around Earth. Ocean names are the main new vocabulary and receive exact map labels; no national borders or memorized geography is required.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:6c4fe226d96b9d5b",
+    "textHash": "sha256:498f1ca01d9893ec8b962eba0312323b5c7454c576eef844618eb0fcbce10949",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 82,
+      "uniqueWordCount": 59,
+      "uniqueWordRatio": 0.72,
+      "averageWordLength": 4.74,
+      "averageWordsPerPage": 10.25,
+      "minWordsPerPage": 9,
+      "maxWordsPerPage": 11,
+      "sentenceUnitCount": 16,
+      "averageWordsPerSentence": 5.13,
+      "maxWordsPerSentence": 7,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.13,
+      "dialoguePageCount": 0,
+      "questionPageCount": 1,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-b-23": {
+    "title": "Teeth Have Different Jobs",
+    "appReadingLevel": "B",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Eight pages with short paired clauses, no dialogue; each authored line was read for ordinary spoken English.",
+      "vocabulary": "Focused terms front teeth, molars, grind are introduced through named objects/actions and oral preparation.",
+      "knowledge": "The opening question and concrete example introduce the needed context; no unintroduced off-page knowledge is required for the stated answer.",
+      "progression": "Front edges cut, the tongue moves the bite, and broad back teeth grind it.",
+      "inference": "Brief paired clauses name teeth by observable positions and shapes before introducing molars. The apple bite follows one explicit sequence; the revised ending stays in present tense."
+    },
+    "rationale": "Brief paired clauses name teeth by observable positions and shapes before introducing molars. The apple bite follows one explicit sequence; the revised ending stays in present tense.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:ed444118760763c9",
+    "textHash": "sha256:2bbbfa336199ded5ad3402afb325751865e12039832895ca91192649aef82ca6",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 82,
+      "uniqueWordCount": 51,
+      "uniqueWordRatio": 0.62,
+      "averageWordLength": 4.34,
+      "averageWordsPerPage": 10.25,
+      "minWordsPerPage": 8,
+      "maxWordsPerPage": 11,
+      "sentenceUnitCount": 16,
+      "averageWordsPerSentence": 5.13,
+      "maxWordsPerSentence": 6,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.13,
+      "dialoguePageCount": 0,
+      "questionPageCount": 1,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-b-24": {
+    "title": "The Windsock Turns",
+    "appReadingLevel": "B",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Eight pages with short paired clauses, no dialogue; each authored line was read for ordinary spoken English.",
+      "vocabulary": "Focused terms windsock, opening, direction are introduced through named objects/actions and oral preparation.",
+      "knowledge": "The opening question and concrete example introduce the needed context; no unintroduced off-page knowledge is required for the stated answer.",
+      "progression": "One windsock responds to starting, stronger, reversing and stopping wind.",
+      "inference": "Still, lift, stretch, turn and hang are directly observable. Bench/tree anchors make the direction reversal explicit; air is correctly described as invisible."
+    },
+    "rationale": "Still, lift, stretch, turn and hang are directly observable. Bench/tree anchors make the direction reversal explicit; air is correctly described as invisible.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:81eb63e8f83c5283",
+    "textHash": "sha256:de89b15d67d8cc12d242552c2489e4deebba2d05648c7e49284481475614e9d7",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 87,
+      "uniqueWordCount": 50,
+      "uniqueWordRatio": 0.57,
+      "averageWordLength": 4.53,
+      "averageWordsPerPage": 10.88,
+      "minWordsPerPage": 9,
+      "maxWordsPerPage": 12,
+      "sentenceUnitCount": 16,
+      "averageWordsPerSentence": 5.44,
+      "maxWordsPerSentence": 7,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.25,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-b-25": {
+    "title": "A Mirror Moves the Light",
+    "appReadingLevel": "B",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Eight pages with short paired clauses, no dialogue; each authored line was read for ordinary spoken English.",
+      "vocabulary": "Focused terms mirror, screen, path are introduced through named objects/actions and oral preparation.",
+      "knowledge": "The opening question and concrete example introduce the needed context; no unintroduced off-page knowledge is required for the stated answer.",
+      "progression": "Turn mirror, block beam, restore beam and restore angle provide connected comparisons.",
+      "inference": "Two short clauses per page isolate one change at a time. Light-path vocabulary has concrete flashlight, mirror and screen support; the ending states the observed relationship."
+    },
+    "rationale": "Two short clauses per page isolate one change at a time. Light-path vocabulary has concrete flashlight, mirror and screen support; the ending states the observed relationship.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:c896b3df4406df15",
+    "textHash": "sha256:9d52efc2e5b107f5a24bae8aaf83ceec21145f3adc7e328bb538d5eaba81f251",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 90,
+      "uniqueWordCount": 48,
+      "uniqueWordRatio": 0.53,
+      "averageWordLength": 4.56,
+      "averageWordsPerPage": 11.25,
+      "minWordsPerPage": 9,
+      "maxWordsPerPage": 13,
+      "sentenceUnitCount": 16,
+      "averageWordsPerSentence": 5.63,
+      "maxWordsPerSentence": 7,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.25,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-b-26": {
+    "title": "The Camera Keeps a Picture",
+    "appReadingLevel": "B",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Eight pages with short paired clauses, no dialogue; each authored line was read for ordinary spoken English.",
+      "vocabulary": "Focused terms lens, saves, photo are introduced through named objects/actions and oral preparation.",
+      "knowledge": "The opening question and concrete example introduce the needed context; no unintroduced off-page knowledge is required for the stated answer.",
+      "progression": "Capture the stack, move the cube, then compare the unchanged saved image.",
+      "inference": "The red cube and blue block stay explicitly distinguished. Real/saved positions are compared in short clauses; the corrected seventh page says only the cube changed position."
+    },
+    "rationale": "The red cube and blue block stay explicitly distinguished. Real/saved positions are compared in short clauses; the corrected seventh page says only the cube changed position.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:f828bc673ffcba5b",
+    "textHash": "sha256:1f4aab3ba06e82f40a8404c471ab8324035e1e067cf5dbfafbdb1b00274768a7",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 97,
+      "uniqueWordCount": 45,
+      "uniqueWordRatio": 0.46,
+      "averageWordLength": 3.98,
+      "averageWordsPerPage": 12.13,
+      "minWordsPerPage": 9,
+      "maxWordsPerPage": 13,
+      "sentenceUnitCount": 16,
+      "averageWordsPerSentence": 6.06,
+      "maxWordsPerSentence": 8,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.13,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-b-27": {
+    "title": "Milk into Cheese",
+    "appReadingLevel": "B",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Eight pages with short paired clauses, no dialogue; each authored line was read for ordinary spoken English.",
+      "vocabulary": "Focused terms pasteurized, curds, whey are introduced through named objects/actions and oral preparation.",
+      "knowledge": "The opening question and concrete example introduce the needed context; no unintroduced off-page knowledge is required for the stated answer.",
+      "progression": "Milk separates after lemon juice; cloth retains curds and drains whey.",
+      "inference": "A question leads into short observable steps. Curds and whey are named beside their physical outcomes; the adult handles all heat and pouring."
+    },
+    "rationale": "A question leads into short observable steps. Curds and whey are named beside their physical outcomes; the adult handles all heat and pouring.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:20762b9f16812f17",
+    "textHash": "sha256:1e745f2841fb44040e1a59da13ec394ab3dcc23c9065da4b62e46e97b3c29875",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 85,
+      "uniqueWordCount": 52,
+      "uniqueWordRatio": 0.61,
+      "averageWordLength": 4.41,
+      "averageWordsPerPage": 10.63,
+      "minWordsPerPage": 10,
+      "maxWordsPerPage": 12,
+      "sentenceUnitCount": 16,
+      "averageWordsPerSentence": 5.31,
+      "maxWordsPerSentence": 7,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.13,
+      "dialoguePageCount": 0,
+      "questionPageCount": 1,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-b-28": {
+    "title": "A Giraffe Reaches Up",
+    "appReadingLevel": "B",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Eight pages with short paired clauses, no dialogue; each authored line was read for ordinary spoken English.",
+      "vocabulary": "Focused terms twig, tongue, thorns are introduced through named objects/actions and oral preparation.",
+      "knowledge": "The opening question and concrete example introduce the needed context; no unintroduced off-page knowledge is required for the stated answer.",
+      "progression": "Reach, grasp, pull and chew leaves; the thorn-bearing twig remains behind.",
+      "inference": "Short present-tense clauses connect neck, tongue and lips to one feeding action. Each page changes the same branch state; no talking animal or unsupported motive."
+    },
+    "rationale": "Short present-tense clauses connect neck, tongue and lips to one feeding action. Each page changes the same branch state; no talking animal or unsupported motive.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:c223231787d367af",
+    "textHash": "sha256:1d243598380615b6b6a1afdfeade5404ea99feb579795ab182af60216b5a3491",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 93,
+      "uniqueWordCount": 49,
+      "uniqueWordRatio": 0.53,
+      "averageWordLength": 4.43,
+      "averageWordsPerPage": 11.63,
+      "minWordsPerPage": 10,
+      "maxWordsPerPage": 12,
+      "sentenceUnitCount": 16,
+      "averageWordsPerSentence": 5.81,
+      "maxWordsPerSentence": 7,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.25,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-b-29": {
+    "title": "No Gaps in the Line",
+    "appReadingLevel": "B",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Eight pages with short paired clauses, no dialogue; each authored line was read for ordinary spoken English.",
+      "vocabulary": "Focused terms equal, gaps, width are introduced through named objects/actions and oral preparation.",
+      "knowledge": "The opening question and concrete example introduce the needed context; no unintroduced off-page knowledge is required for the stated answer.",
+      "progression": "Close the gaps in five units, observe shortfall, then add the sixth unit.",
+      "inference": "A concrete five-versus-six demonstration explains gaps without an abstract rule first. Short clauses and repeated cube/book/edge vocabulary support B."
+    },
+    "rationale": "A concrete five-versus-six demonstration explains gaps without an abstract rule first. Short clauses and repeated cube/book/edge vocabulary support B.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:1efa2eb28dff6627",
+    "textHash": "sha256:229d2d15e9d1401f6b2f1351dce5841023a5dd188f32117b5fa521d10208a8b9",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 88,
+      "uniqueWordCount": 58,
+      "uniqueWordRatio": 0.66,
+      "averageWordLength": 4,
+      "averageWordsPerPage": 11,
+      "minWordsPerPage": 9,
+      "maxWordsPerPage": 13,
+      "sentenceUnitCount": 16,
+      "averageWordsPerSentence": 5.5,
+      "maxWordsPerSentence": 7,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.13,
+      "dialoguePageCount": 0,
+      "questionPageCount": 1,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-b-30": {
+    "title": "Saturn’s Rings Are Pieces",
+    "appReadingLevel": "B",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Eight pages with short paired clauses, no dialogue; each authored line was read for ordinary spoken English.",
+      "vocabulary": "Focused terms Saturn, rings, pieces are introduced through named objects/actions and oral preparation.",
+      "knowledge": "The opening question and concrete example introduce the needed context; no unintroduced off-page knowledge is required for the stated answer.",
+      "progression": "Apparent smoothness resolves into separate moving particles, then returns to the distant appearance.",
+      "inference": "Short questions and direct present-tense statements compare distant and enlarged views. Rings/pieces/ice repeat; the imaginary close view is explicit, avoiding a claim that children travel there."
+    },
+    "rationale": "Short questions and direct present-tense statements compare distant and enlarged views. Rings/pieces/ice repeat; the imaginary close view is explicit, avoiding a claim that children travel there.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:28c7d7e93f5eb90f",
+    "textHash": "sha256:19aeb16fc92adc093e9f72bd2aa980b56b423ff5d1f6fd4591ce37a9cea609f6",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 89,
+      "uniqueWordCount": 57,
+      "uniqueWordRatio": 0.64,
+      "averageWordLength": 4.45,
+      "averageWordsPerPage": 11.13,
+      "minWordsPerPage": 8,
+      "maxWordsPerPage": 14,
+      "sentenceUnitCount": 16,
+      "averageWordsPerSentence": 5.56,
+      "maxWordsPerSentence": 7,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.13,
+      "dialoguePageCount": 0,
+      "questionPageCount": 1,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-c-21": {
+    "title": "My Bag at the Airport",
+    "appReadingLevel": "C",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Eight connected pages with varied simple explanatory sentences and explicitly linked causes; page caps alone did not determine the level.",
+      "vocabulary": "Focused terms tag, scanner, passenger are introduced through named objects/actions and oral preparation.",
+      "knowledge": "The opening question and concrete example introduce the needed context; no unintroduced off-page knowledge is required for the stated answer.",
+      "progression": "Follow one bag and its owner on separate airport routes onto the same aircraft.",
+      "inference": "Varied simple sentences sustain one tagged bag through eight steps. The tag gives an explicit cause for routing; cabin and hold comparison supports the final reunion."
+    },
+    "rationale": "Varied simple sentences sustain one tagged bag through eight steps. The tag gives an explicit cause for routing; cabin and hold comparison supports the final reunion.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:e934d385c60a5830",
+    "textHash": "sha256:6dcba3cb115ae708c416a306111709f67c6c40e1a7486d1d6bfcecbf3b6035fc",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 142,
+      "uniqueWordCount": 81,
+      "uniqueWordRatio": 0.57,
+      "averageWordLength": 4.27,
+      "averageWordsPerPage": 17.75,
+      "minWordsPerPage": 15,
+      "maxWordsPerPage": 19,
+      "sentenceUnitCount": 18,
+      "averageWordsPerSentence": 7.89,
+      "maxWordsPerSentence": 12,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.13,
+      "dialoguePageCount": 0,
+      "questionPageCount": 1,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-c-22": {
+    "title": "Which Way Is North?",
+    "appReadingLevel": "C",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Eight connected pages with varied simple explanatory sentences and explicitly linked causes; page caps alone did not determine the level.",
+      "vocabulary": "Focused terms magnet, compass, magnetic north are introduced through named objects/actions and oral preparation.",
+      "knowledge": "The opening question and concrete example introduce the needed context; no unintroduced off-page knowledge is required for the stated answer.",
+      "progression": "Hold level, wait, align ring, turn toward gate and turn back toward tree.",
+      "inference": "The compass inquiry introduces magnet and magnetic north in context, then applies the same direction to a body turn. Pronouns have named anchors and the gate/tree relation is explicit."
+    },
+    "rationale": "The compass inquiry introduces magnet and magnetic north in context, then applies the same direction to a body turn. Pronouns have named anchors and the gate/tree relation is explicit.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:5d3a95b4fdfe09e2",
+    "textHash": "sha256:13b6a3d79c0fb17fb820dbe89cd9de8c88ebc0224baf0ad14bc49b5baab3059a",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 150,
+      "uniqueWordCount": 81,
+      "uniqueWordRatio": 0.54,
+      "averageWordLength": 4.15,
+      "averageWordsPerPage": 18.75,
+      "minWordsPerPage": 17,
+      "maxWordsPerPage": 20,
+      "sentenceUnitCount": 21,
+      "averageWordsPerSentence": 7.14,
+      "maxWordsPerSentence": 13,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.25,
+      "dialoguePageCount": 0,
+      "questionPageCount": 1,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-c-23": {
+    "title": "How Can a Bone Move?",
+    "appReadingLevel": "C",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Eight connected pages with varied simple explanatory sentences and explicitly linked causes; page caps alone did not determine the level.",
+      "vocabulary": "Focused terms joint, tendon, muscle are introduced through named objects/actions and oral preparation.",
+      "knowledge": "The opening question and concrete example introduce the needed context; no unintroduced off-page knowledge is required for the stated answer.",
+      "progression": "Rigid bones change angle through a joint as opposed muscle groups contract.",
+      "inference": "Short explanatory sentences name joint and tendon while retaining the same unloaded arm. Pulling and opposite actions are stated directly; the final demonstration answers the opening question."
+    },
+    "rationale": "Short explanatory sentences name joint and tendon while retaining the same unloaded arm. Pulling and opposite actions are stated directly; the final demonstration answers the opening question.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:080d0a0711aeacf7",
+    "textHash": "sha256:16cb3cbbe043a0b43479fcf9b679562a4646b5f674a28fd0fa7abc0177b13f96",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 136,
+      "uniqueWordCount": 71,
+      "uniqueWordRatio": 0.52,
+      "averageWordLength": 4.57,
+      "averageWordsPerPage": 17,
+      "minWordsPerPage": 15,
+      "maxWordsPerPage": 18,
+      "sentenceUnitCount": 18,
+      "averageWordsPerSentence": 7.56,
+      "maxWordsPerSentence": 13,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.25,
+      "dialoguePageCount": 0,
+      "questionPageCount": 1,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-c-24": {
+    "title": "How Does a Cloud Form?",
+    "appReadingLevel": "C",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Eight connected pages with varied simple explanatory sentences and explicitly linked causes; page caps alone did not determine the level.",
+      "vocabulary": "Focused terms vapor, liquid, drops are introduced through named objects/actions and oral preparation.",
+      "knowledge": "The opening question and concrete example introduce the needed context; no unintroduced off-page knowledge is required for the stated answer.",
+      "progression": "Lake evaporation, rising cooling air and condensation make the cloud visible.",
+      "inference": "The visible cloud is distinguished from invisible vapor throughout. Short sentences connect cooling to droplets around specks; one warm liquid cloud is scoped without denying ice clouds."
+    },
+    "rationale": "The visible cloud is distinguished from invisible vapor throughout. Short sentences connect cooling to droplets around specks; one warm liquid cloud is scoped without denying ice clouds.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:754227700caf01a1",
+    "textHash": "sha256:15d5647bbef2502db3fdfdd3e9368c9bb83cc9ddf96ab026443e09dd869eebf5",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 137,
+      "uniqueWordCount": 77,
+      "uniqueWordRatio": 0.56,
+      "averageWordLength": 4.47,
+      "averageWordsPerPage": 17.13,
+      "minWordsPerPage": 13,
+      "maxWordsPerPage": 19,
+      "sentenceUnitCount": 19,
+      "averageWordsPerSentence": 7.21,
+      "maxWordsPerSentence": 11,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.13,
+      "dialoguePageCount": 0,
+      "questionPageCount": 1,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-c-25": {
+    "title": "A Complete Circuit",
+    "appReadingLevel": "C",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Eight connected pages with varied simple explanatory sentences and explicitly linked causes; page caps alone did not determine the level.",
+      "vocabulary": "Focused terms switch, circuit, current are introduced through named objects/actions and oral preparation.",
+      "knowledge": "The opening question and concrete example introduce the needed context; no unintroduced off-page knowledge is required for the stated answer.",
+      "progression": "Close/open switch, then disconnect/reconnect another contact to test the whole loop.",
+      "inference": "One low-voltage loop is varied in two controlled ways. Complete, gap and current are explained through immediate light changes, with explicit cause and restoration."
+    },
+    "rationale": "One low-voltage loop is varied in two controlled ways. Complete, gap and current are explained through immediate light changes, with explicit cause and restoration.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:4295ad07eb00a402",
+    "textHash": "sha256:d2992afd98351397e3a85e10661c4a7b4ad92069dad64c2439e7486df3e98965",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 153,
+      "uniqueWordCount": 77,
+      "uniqueWordRatio": 0.5,
+      "averageWordLength": 4.16,
+      "averageWordsPerPage": 19.13,
+      "minWordsPerPage": 15,
+      "maxWordsPerPage": 21,
+      "sentenceUnitCount": 20,
+      "averageWordsPerSentence": 7.65,
+      "maxWordsPerSentence": 15,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.13,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-c-26": {
+    "title": "The Stripes on the Box",
+    "appReadingLevel": "C",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Eight connected pages with varied simple explanatory sentences and explicitly linked causes; page caps alone did not determine the level.",
+      "vocabulary": "Focused terms barcode, number, record are introduced through named objects/actions and oral preparation.",
+      "knowledge": "The opening question and concrete example introduce the needed context; no unintroduced off-page knowledge is required for the stated answer.",
+      "progression": "Scan pattern, decode identifier, look up record, update price and scan again.",
+      "inference": "Short mechanism explanations distinguish identifier from price. One concrete cereal item and a changed saved price make the invisible lookup process explicit."
+    },
+    "rationale": "Short mechanism explanations distinguish identifier from price. One concrete cereal item and a changed saved price make the invisible lookup process explicit.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:d99ccb015f2db9a1",
+    "textHash": "sha256:17f89ce6dfdabd498f5f9f688a635b5735502cabce29416123311258ba6cb9cb",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 148,
+      "uniqueWordCount": 65,
+      "uniqueWordRatio": 0.44,
+      "averageWordLength": 4.55,
+      "averageWordsPerPage": 18.5,
+      "minWordsPerPage": 14,
+      "maxWordsPerPage": 21,
+      "sentenceUnitCount": 17,
+      "averageWordsPerSentence": 8.71,
+      "maxWordsPerSentence": 14,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.25,
+      "dialoguePageCount": 0,
+      "questionPageCount": 1,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-c-27": {
+    "title": "How a Pencil Is Made",
+    "appReadingLevel": "C",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Eight connected pages with varied simple explanatory sentences and explicitly linked causes; page caps alone did not determine the level.",
+      "vocabulary": "Focused terms graphite, core, groove are introduced through named objects/actions and oral preparation.",
+      "knowledge": "The opening question and concrete example introduce the needed context; no unintroduced off-page knowledge is required for the stated answer.",
+      "progression": "Form cores, groove boards, place cores, close the wood sandwich, cut and sharpen.",
+      "inference": "The opening pencil question is answered by a concrete manufacturing sequence. New core/groove terms recur with exact five-to-five counts; no unexplained metallic lead is introduced."
+    },
+    "rationale": "The opening pencil question is answered by a concrete manufacturing sequence. New core/groove terms recur with exact five-to-five counts; no unexplained metallic lead is introduced.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:46005108b1a0a1e2",
+    "textHash": "sha256:81bd7ce24c2e3fc27da3ef3d35ffa5a78f42cc3d4e5ee821c99a4197d1ff01ce",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 146,
+      "uniqueWordCount": 88,
+      "uniqueWordRatio": 0.6,
+      "averageWordLength": 4.33,
+      "averageWordsPerPage": 18.25,
+      "minWordsPerPage": 16,
+      "maxWordsPerPage": 22,
+      "sentenceUnitCount": 17,
+      "averageWordsPerSentence": 8.59,
+      "maxWordsPerSentence": 16,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.13,
+      "dialoguePageCount": 0,
+      "questionPageCount": 1,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-c-28": {
+    "title": "A Hedgehog in Winter",
+    "appReadingLevel": "C",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Eight connected pages with varied simple explanatory sentences and explicitly linked causes; page caps alone did not determine the level.",
+      "vocabulary": "Focused terms stored fat, energy, hibernation are introduced through named objects/actions and oral preparation.",
+      "knowledge": "The opening question and concrete example introduce the needed context; no unintroduced off-page knowledge is required for the stated answer.",
+      "progression": "Fall feeding and nest building lead to slower winter activity and renewed spring feeding.",
+      "inference": "The seasonal sequence explains stored energy and slower body activity with clear cause. European species scope and possible winter awakenings avoid the all-winter-sleep misconception."
+    },
+    "rationale": "The seasonal sequence explains stored energy and slower body activity with clear cause. European species scope and possible winter awakenings avoid the all-winter-sleep misconception.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:719d5017ffd98bba",
+    "textHash": "sha256:03c032a1d3736704be7584d1b3e4f242ef84aa6de1276e95d35c728f957ba2b1",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 148,
+      "uniqueWordCount": 95,
+      "uniqueWordRatio": 0.64,
+      "averageWordLength": 4.68,
+      "averageWordsPerPage": 18.5,
+      "minWordsPerPage": 16,
+      "maxWordsPerPage": 20,
+      "sentenceUnitCount": 18,
+      "averageWordsPerSentence": 8.22,
+      "maxWordsPerSentence": 13,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.25,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-c-29": {
+    "title": "The Long Hand Goes Around",
+    "appReadingLevel": "C",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Eight connected pages with varied simple explanatory sentences and explicitly linked causes; page caps alone did not determine the level.",
+      "vocabulary": "Focused terms minute hand, hour, fifteen are introduced through named objects/actions and oral preparation.",
+      "knowledge": "The opening question and concrete example introduce the needed context; no unintroduced off-page knowledge is required for the stated answer.",
+      "progression": "Track 3:00, 3:15, 3:30, 3:45 and 4:00; compare identical minute-hand positions.",
+      "inference": "One exact hour connects elapsed time with both hands. Quarter-hour steps are explicit and the positive opening question avoids unnecessary negative syntax."
+    },
+    "rationale": "One exact hour connects elapsed time with both hands. Quarter-hour steps are explicit and the positive opening question avoids unnecessary negative syntax.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:7463c321b56ceb8e",
+    "textHash": "sha256:0e1fb511981e7a5a4cda3bfc3d32162070da9ae50744b78acbcad52957e219fb",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 148,
+      "uniqueWordCount": 60,
+      "uniqueWordRatio": 0.41,
+      "averageWordLength": 4.26,
+      "averageWordsPerPage": 18.5,
+      "minWordsPerPage": 16,
+      "maxWordsPerPage": 22,
+      "sentenceUnitCount": 21,
+      "averageWordsPerSentence": 7.05,
+      "maxWordsPerSentence": 12,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.38,
+      "dialoguePageCount": 0,
+      "questionPageCount": 1,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-c-30": {
+    "title": "A Rocket Pushes Up",
+    "appReadingLevel": "C",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Eight connected pages with varied simple explanatory sentences and explicitly linked causes; page caps alone did not determine the level.",
+      "vocabulary": "Focused terms fuel, nozzle, thrust are introduced through named objects/actions and oral preparation.",
+      "knowledge": "The opening question and concrete example introduce the needed context; no unintroduced off-page knowledge is required for the stated answer.",
+      "progression": "Propellants make gas; backward exhaust gives forward thrust, including in space.",
+      "inference": "A launch question leads to a concrete gas/nozzle/thrust explanation. Opposite directions recur, gravity remains present, and the space example explicitly removes the ground-pushing misconception."
+    },
+    "rationale": "A launch question leads to a concrete gas/nozzle/thrust explanation. Opposite directions recur, gravity remains present, and the space example explicitly removes the ground-pushing misconception.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:980d650188a10dd7",
+    "textHash": "sha256:3264dfd0a8bde964188a7a6f6e75576fbdb0159717e87eda82820b60f0afcd7b",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 142,
+      "uniqueWordCount": 80,
+      "uniqueWordRatio": 0.56,
+      "averageWordLength": 4.37,
+      "averageWordsPerPage": 17.75,
+      "minWordsPerPage": 15,
+      "maxWordsPerPage": 20,
+      "sentenceUnitCount": 17,
+      "averageWordsPerSentence": 8.35,
+      "maxWordsPerSentence": 14,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.13,
+      "dialoguePageCount": 0,
+      "questionPageCount": 1,
+      "illustratedPageCount": 8,
+      "independentlyDescribedPageCount": 8
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-d-21": {
+    "title": "A Container's Journey",
+    "appReadingLevel": "D",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Ten pages, 159 word tokens; maximum 18 words per page. Short sentences combine with explicit sequence, comparison and introductory causal clauses.",
+      "vocabulary": "Oral preparation supports container, freight, warehouse. Topic terms are linked to named objects, visible processes or direct explanations; this is levelled text, not a cumulative-decodable claim.",
+      "knowledge": "How can the same box carry goods on a ship, a train and a truck?",
+      "progression": "Follow one sealed container through successive transfers, keeping its contents fixed while its carrier changes.",
+      "inference": "Ten connected transfer steps retain one container and unchanged contents while carriers change. While/when-style relationships, freight vocabulary and tracking one object across several places exceed a simple list, but explicit transitions and repeated container references support D."
+    },
+    "rationale": "Ten connected transfer steps retain one container and unchanged contents while carriers change. While/when-style relationships, freight vocabulary and tracking one object across several places exceed a simple list, but explicit transitions and repeated container references support D.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:3dde59ce1f22685b",
+    "textHash": "sha256:1de94fe78bdce9f0869d7d5501ccaa864ffebde6342643dfaa36367633fd43ed",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 159,
+      "uniqueWordCount": 89,
+      "uniqueWordRatio": 0.56,
+      "averageWordLength": 4.75,
+      "averageWordsPerPage": 15.9,
+      "minWordsPerPage": 14,
+      "maxWordsPerPage": 18,
+      "sentenceUnitCount": 20,
+      "averageWordsPerSentence": 7.95,
+      "maxWordsPerSentence": 12,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.2,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 10,
+      "independentlyDescribedPageCount": 10
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-d-22": {
+    "title": "The Continents on One Earth",
+    "appReadingLevel": "D",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Ten pages, 171 word tokens; maximum 21 words per page. Short sentences combine with explicit sequence, comparison and introductory causal clauses.",
+      "vocabulary": "Oral preparation supports continent, boundary, coast. Topic terms are linked to named objects, visible processes or direct explanations; this is levelled text, not a cumulative-decodable claim.",
+      "knowledge": "Must an ocean separate every pair of continents?",
+      "progression": "Compare connected and separated land areas on one accurate map, using the seven-continent convention.",
+      "inference": "The book compares connected and sea-separated continental areas and distinguishes conventional map divisions from physical gaps. The inquiry supplies introductory geography relationships with short supported clauses. D is supported; the named-map text and explicit label whitelist now agree."
+    },
+    "rationale": "The book compares connected and sea-separated continental areas and distinguishes conventional map divisions from physical gaps. The inquiry supplies introductory geography relationships with short supported clauses. D is supported; the named-map text and explicit label whitelist now agree.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:1b69ad6e16bf246c",
+    "textHash": "sha256:756562ee23463b7cd3bd3d6258aae82e5d3ee2b8022abed429d75e1898eeaa0e",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 171,
+      "uniqueWordCount": 99,
+      "uniqueWordRatio": 0.58,
+      "averageWordLength": 4.5,
+      "averageWordsPerPage": 17.1,
+      "minWordsPerPage": 14,
+      "maxWordsPerPage": 21,
+      "sentenceUnitCount": 21,
+      "averageWordsPerSentence": 8.14,
+      "maxWordsPerSentence": 13,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.1,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 10,
+      "independentlyDescribedPageCount": 10
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-d-23": {
+    "title": "Where Does My Heart Send Blood?",
+    "appReadingLevel": "D",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Ten pages, 175 word tokens; maximum 21 words per page. Short sentences combine with explicit sequence, comparison and introductory causal clauses.",
+      "vocabulary": "Oral preparation supports blood vessel, oxygen, carbon dioxide. Topic terms are linked to named objects, visible processes or direct explanations; this is levelled text, not a cumulative-decodable claim.",
+      "knowledge": "How does blood travel between the heart, lungs and the body?",
+      "progression": "Trace heart-to-lungs-to-heart-to-body circulation, connecting each stage to oxygen delivery and return.",
+      "inference": "A concrete heartbeat leads through body return, right heart, lungs, left heart, body oxygen delivery and gas return. Each route is explicitly linked, with short clauses and supported oxygen/carbon-dioxide vocabulary. The specialized subject alone does not set the level; the ordered explanation supports D."
+    },
+    "rationale": "A concrete heartbeat leads through body return, right heart, lungs, left heart, body oxygen delivery and gas return. Each route is explicitly linked, with short clauses and supported oxygen/carbon-dioxide vocabulary. The specialized subject alone does not set the level; the ordered explanation supports D.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:3798de203779ff80",
+    "textHash": "sha256:9067ac765183fe5f269b63fd65c4ef5f5768dfd4c88e997de675d577fc9069d9",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 175,
+      "uniqueWordCount": 84,
+      "uniqueWordRatio": 0.48,
+      "averageWordLength": 4.43,
+      "averageWordsPerPage": 17.5,
+      "minWordsPerPage": 13,
+      "maxWordsPerPage": 21,
+      "sentenceUnitCount": 19,
+      "averageWordsPerSentence": 9.21,
+      "maxWordsPerSentence": 17,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.2,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 10,
+      "independentlyDescribedPageCount": 10
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-d-24": {
+    "title": "Why Does Wind Blow?",
+    "appReadingLevel": "D",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Ten pages, 166 word tokens; maximum 19 words per page. Short sentences combine with explicit sequence, comparison and introductory causal clauses.",
+      "vocabulary": "Oral preparation supports breeze, dense, inland. Topic terms are linked to named objects, visible processes or direct explanations; this is levelled text, not a cumulative-decodable claim.",
+      "knowledge": "How can uneven heating make a sea breeze?",
+      "progression": "Follow one daytime coast through unequal warming, density differences, rising air and incoming cooler air.",
+      "inference": "The observed windsock leads through unequal warming, air expansion/density, rising/incoming air and a complete local circulation. The comparison and explicit cause sequence support D while all-weather claims are carefully avoided."
+    },
+    "rationale": "The observed windsock leads through unequal warming, air expansion/density, rising/incoming air and a complete local circulation. The comparison and explicit cause sequence support D while all-weather claims are carefully avoided.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:284005ad136c23c3",
+    "textHash": "sha256:d9b77c654e701cb991e827916b3926d1dbc54e689181f16fce5840efefbb1932",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 166,
+      "uniqueWordCount": 88,
+      "uniqueWordRatio": 0.53,
+      "averageWordLength": 4.31,
+      "averageWordsPerPage": 16.6,
+      "minWordsPerPage": 13,
+      "maxWordsPerPage": 19,
+      "sentenceUnitCount": 21,
+      "averageWordsPerSentence": 7.9,
+      "maxWordsPerSentence": 12,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.1,
+      "dialoguePageCount": 0,
+      "questionPageCount": 1,
+      "illustratedPageCount": 10,
+      "independentlyDescribedPageCount": 10
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-d-25": {
+    "title": "A Bridge Holds the Load",
+    "appReadingLevel": "D",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Ten pages, 171 word tokens; maximum 21 words per page. Short sentences combine with explicit sequence, comparison and introductory causal clauses.",
+      "vocabulary": "Oral preparation supports load, ridge, support. Topic terms are linked to named objects, visible processes or direct explanations; this is levelled text, not a cumulative-decodable claim.",
+      "knowledge": "Can changing paper shape help it hold a load across the same gap?",
+      "progression": "Compare one flat and then folded sheet while the gap, supports and load stay unchanged.",
+      "inference": "A controlled comparison tracks same material/load/span against changed cross-section, then connects less bending to shape. This requires following one changed factor and several constants across ten pages, supporting D; fold direction and the less-bending result are now explicit."
+    },
+    "rationale": "A controlled comparison tracks same material/load/span against changed cross-section, then connects less bending to shape. This requires following one changed factor and several constants across ten pages, supporting D; fold direction and the less-bending result are now explicit.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:03bcb35ada4acf09",
+    "textHash": "sha256:252d27f224a5190116f6d99e2f9ce58a59271345680cc7aa706a3e830640d2f0",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 171,
+      "uniqueWordCount": 97,
+      "uniqueWordRatio": 0.57,
+      "averageWordLength": 4.45,
+      "averageWordsPerPage": 17.1,
+      "minWordsPerPage": 14,
+      "maxWordsPerPage": 21,
+      "sentenceUnitCount": 19,
+      "averageWordsPerSentence": 9,
+      "maxWordsPerSentence": 17,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.1,
+      "dialoguePageCount": 0,
+      "questionPageCount": 1,
+      "illustratedPageCount": 10,
+      "independentlyDescribedPageCount": 10
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-d-26": {
+    "title": "What Can a Robot Sense?",
+    "appReadingLevel": "D",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Ten pages, 170 word tokens; maximum 19 words per page. Short sentences combine with explicit sequence, comparison and introductory causal clauses.",
+      "vocabulary": "Oral preparation supports sensor, controller, program. Topic terms are linked to named objects, visible processes or direct explanations; this is levelled text, not a cumulative-decodable claim.",
+      "knowledge": "How can a simple robot use a touch sensor to change direction?",
+      "progression": "Follow a slow robot through contact, sensor input, a programmed rule and a motor response, then vary the obstacle position.",
+      "inference": "The ordered contact→sensor input→controller program→motor response chain distinguishes sensing from decision instructions, then repeats under a changed obstacle position. Explicit transitions and defined terms support D without AI knowledge."
+    },
+    "rationale": "The ordered contact→sensor input→controller program→motor response chain distinguishes sensing from decision instructions, then repeats under a changed obstacle position. Explicit transitions and defined terms support D without AI knowledge.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:647bf2d63bf0167f",
+    "textHash": "sha256:12a4d18a8e42002ce9f288579d58480b4344c66cfe20a9ab88bf4d3a82dbd8f0",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 170,
+      "uniqueWordCount": 90,
+      "uniqueWordRatio": 0.53,
+      "averageWordLength": 4.48,
+      "averageWordsPerPage": 17,
+      "minWordsPerPage": 14,
+      "maxWordsPerPage": 19,
+      "sentenceUnitCount": 20,
+      "averageWordsPerSentence": 8.5,
+      "maxWordsPerSentence": 14,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.2,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 10,
+      "independentlyDescribedPageCount": 10
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-d-27": {
+    "title": "From Rice Field to Bowl",
+    "appReadingLevel": "D",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Ten pages, 162 word tokens; maximum 19 words per page. Short sentences combine with explicit sequence, comparison and introductory causal clauses.",
+      "vocabulary": "Oral preparation supports grain, husk, mill. Topic terms are linked to named objects, visible processes or direct explanations; this is levelled text, not a cumulative-decodable claim.",
+      "knowledge": "What changes a rice plant’s grain into the rice in a bowl?",
+      "progression": "Follow one white-rice production route through harvest, separation, drying, milling and cooking.",
+      "inference": "A single crop-to-white-rice sequence distinguishes harvesting/threshing, water removal, husk removal, bran removal and water uptake. Topic words are embedded beside actions and the brown/white comparison is explicitly stated. Ten linked processing steps support D."
+    },
+    "rationale": "A single crop-to-white-rice sequence distinguishes harvesting/threshing, water removal, husk removal, bran removal and water uptake. Topic words are embedded beside actions and the brown/white comparison is explicitly stated. Ten linked processing steps support D.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:e861936c3b8467e3",
+    "textHash": "sha256:06ff7c41c6278f8fc0f3e758dc8456299c1ad1aac45127e3aec2f0948f5b572a",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 162,
+      "uniqueWordCount": 90,
+      "uniqueWordRatio": 0.56,
+      "averageWordLength": 4.14,
+      "averageWordsPerPage": 16.2,
+      "minWordsPerPage": 13,
+      "maxWordsPerPage": 19,
+      "sentenceUnitCount": 18,
+      "averageWordsPerSentence": 9,
+      "maxWordsPerSentence": 16,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.1,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 10,
+      "independentlyDescribedPageCount": 10
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-d-28": {
+    "title": "Who Eats the Leaves?",
+    "appReadingLevel": "D",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Ten pages, 164 word tokens; maximum 19 words per page. Short sentences combine with explicit sequence, comparison and introductory causal clauses.",
+      "vocabulary": "Oral preparation supports caterpillar, nestling, connection. Topic terms are linked to named objects, visible processes or direct explanations; this is levelled text, not a cumulative-decodable claim.",
+      "knowledge": "How can an oak leaf help feed a young bird?",
+      "progression": "Trace a specific oak–caterpillar–Carolina chickadee feeding connection, then consider what happens when caterpillars are scarce.",
+      "inference": "The feeding sequence is concrete, then asks the reader to connect indirect leaf-to-chick feeding and a conditional scarcity effect. Scoped may and one feeding connection avoid overgeneralization. Linked relative/conditional clauses and supported inference fit D."
+    },
+    "rationale": "The feeding sequence is concrete, then asks the reader to connect indirect leaf-to-chick feeding and a conditional scarcity effect. Scoped may and one feeding connection avoid overgeneralization. Linked relative/conditional clauses and supported inference fit D.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:face72855d14cece",
+    "textHash": "sha256:9d58ff2c923947a54b0cd32c818800ecb4a655830ba3820d811315f1e5ee5191",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 164,
+      "uniqueWordCount": 93,
+      "uniqueWordRatio": 0.57,
+      "averageWordLength": 4.7,
+      "averageWordsPerPage": 16.4,
+      "minWordsPerPage": 13,
+      "maxWordsPerPage": 19,
+      "sentenceUnitCount": 19,
+      "averageWordsPerSentence": 8.63,
+      "maxWordsPerSentence": 17,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.1,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 10,
+      "independentlyDescribedPageCount": 10
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-d-29": {
+    "title": "Saving for the Ball",
+    "appReadingLevel": "D",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Ten pages, 157 word tokens; maximum 17 words per page. Short sentences combine with explicit sequence, comparison and introductory causal clauses.",
+      "vocabulary": "Oral preparation supports save, price, amount. Topic terms are linked to named objects, visible processes or direct explanations; this is levelled text, not a cumulative-decodable claim.",
+      "knowledge": "How can small amounts saved at different times reach one price?",
+      "progression": "Use an explicitly pretend shop and exact two-dollar increments to compare money saved with a six-dollar price.",
+      "inference": "The explicitly pretend saving example tracks three additions, a fixed target, shortfall comparisons and a spend-versus-save conditional. This linked time/arithmetic sequence supports D; the revised final wording names the demonstrated groups and result directly."
+    },
+    "rationale": "The explicitly pretend saving example tracks three additions, a fixed target, shortfall comparisons and a spend-versus-save conditional. This linked time/arithmetic sequence supports D; the revised final wording names the demonstrated groups and result directly.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:f36697f0f2ef5e08",
+    "textHash": "sha256:b57233ebb42b03c932f5b86ee56a17b990fd6f2cd0b6134c02536d0279581f6d",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 157,
+      "uniqueWordCount": 70,
+      "uniqueWordRatio": 0.45,
+      "averageWordLength": 3.99,
+      "averageWordsPerPage": 15.7,
+      "minWordsPerPage": 14,
+      "maxWordsPerPage": 17,
+      "sentenceUnitCount": 20,
+      "averageWordsPerSentence": 7.85,
+      "maxWordsPerSentence": 11,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.1,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 10,
+      "independentlyDescribedPageCount": 10
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-d-30": {
+    "title": "A Satellite Keeps Going",
+    "appReadingLevel": "D",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Ten pages, 170 word tokens; maximum 19 words per page. Short sentences combine with explicit sequence, comparison and introductory causal clauses.",
+      "vocabulary": "Oral preparation supports satellite, orbit, gravity. Topic terms are linked to named objects, visible processes or direct explanations; this is levelled text, not a cumulative-decodable claim.",
+      "knowledge": "Why can a satellite keep going around Earth while gravity pulls it?",
+      "progression": "Combine forward motion with an inward gravitational pull, then distinguish orbit from escaping gravity or hovering.",
+      "inference": "The text sustains forward motion plus inward gravity across a counterfactual straight path, a curved-surface explanation and a repeated orbit. Every causal link is stated and the topic vocabulary is limited. The supported model and introductory orbital relationship fit D rather than relying on the space subject for placement."
+    },
+    "rationale": "The text sustains forward motion plus inward gravity across a counterfactual straight path, a curved-surface explanation and a repeated orbit. Every causal link is stated and the topic vocabulary is limited. The supported model and introductory orbital relationship fit D rather than relying on the space subject for placement.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:079b497be54b9f4c",
+    "textHash": "sha256:c3e026060bf8648666332d0886cd90c6b825fecdf8fb512d543aa2d02d4fbda2",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 170,
+      "uniqueWordCount": 99,
+      "uniqueWordRatio": 0.58,
+      "averageWordLength": 4.97,
+      "averageWordsPerPage": 17,
+      "minWordsPerPage": 14,
+      "maxWordsPerPage": 19,
+      "sentenceUnitCount": 20,
+      "averageWordsPerSentence": 8.5,
+      "maxWordsPerSentence": 13,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.1,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 10,
+      "independentlyDescribedPageCount": 10
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-e-21": {
+    "title": "How Do We Choose a Ride?",
+    "appReadingLevel": "E",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Ten pages, 179 word tokens; maximum 20 words per page. Short sentences combine with varied causal, conditional and temporal clauses across a sustained explanation.",
+      "vocabulary": "Oral preparation supports route, ferry, compare. Topic terms are linked to named objects, visible processes or direct explanations; this is levelled text, not a cumulative-decodable claim.",
+      "knowledge": "How can comparing whole journeys help us choose a way to travel?",
+      "progression": "Compare walking, bus and ferry routes in an explicit practice example, including time spent waiting and walking.",
+      "inference": "The practice example distinguishes a ride segment from a whole journey, combines three time components and compares three alternatives before considering a changed waiting time. Conditional and contrast clauses support a sustained comparison rather than a vehicle list. Exact example arithmetic and direct time words keep the E inference fair."
+    },
+    "rationale": "The practice example distinguishes a ride segment from a whole journey, combines three time components and compares three alternatives before considering a changed waiting time. Conditional and contrast clauses support a sustained comparison rather than a vehicle list. Exact example arithmetic and direct time words keep the E inference fair.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:8536590032aff0ef",
+    "textHash": "sha256:237271806ccb3434bf7eec7374988127a7d1f33df1f227a062d5cb25d7e1832e",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 179,
+      "uniqueWordCount": 91,
+      "uniqueWordRatio": 0.51,
+      "averageWordLength": 4.74,
+      "averageWordsPerPage": 17.9,
+      "minWordsPerPage": 13,
+      "maxWordsPerPage": 20,
+      "sentenceUnitCount": 20,
+      "averageWordsPerSentence": 8.95,
+      "maxWordsPerSentence": 14,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.2,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 10,
+      "independentlyDescribedPageCount": 10
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-e-22": {
+    "title": "City, Town or Village?",
+    "appReadingLevel": "E",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Ten pages, 190 word tokens; maximum 21 words per page. Short sentences combine with varied causal, conditional and temporal clauses across a sustained explanation.",
+      "vocabulary": "Oral preparation supports village, status, settlement. Topic terms are linked to named objects, visible processes or direct explanations; this is levelled text, not a cumulative-decodable claim.",
+      "knowledge": "Can a place name alone tell us how large a settlement is?",
+      "progression": "Compare three named English settlements and their everyday features, then separate city status from size.",
+      "inference": "Three concrete settlements establish a distinction between a formal name and size. Although, just by and world-wide qualification ask the reader to revise an expected classification using explicit evidence. The final observation invitation follows the comparison and fits E with place-name/status preparation."
+    },
+    "rationale": "Three concrete settlements establish a distinction between a formal name and size. Although, just by and world-wide qualification ask the reader to revise an expected classification using explicit evidence. The final observation invitation follows the comparison and fits E with place-name/status preparation.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:4a37c6e06f0dc7f2",
+    "textHash": "sha256:8728e1b0684c8066ee18cfe2a2720cde8a6fb4a41c3a4aaac2abb7b854ee0b80",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 190,
+      "uniqueWordCount": 108,
+      "uniqueWordRatio": 0.57,
+      "averageWordLength": 4.31,
+      "averageWordsPerPage": 19,
+      "minWordsPerPage": 16,
+      "maxWordsPerPage": 21,
+      "sentenceUnitCount": 23,
+      "averageWordsPerSentence": 8.26,
+      "maxWordsPerSentence": 15,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.1,
+      "dialoguePageCount": 0,
+      "questionPageCount": 1,
+      "illustratedPageCount": 10,
+      "independentlyDescribedPageCount": 10
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-e-23": {
+    "title": "Messages Through My Body",
+    "appReadingLevel": "E",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Ten pages, 185 word tokens; maximum 20 words per page. Short sentences combine with varied causal, conditional and temporal clauses across a sustained explanation.",
+      "vocabulary": "Oral preparation supports nerve, spinal cord, muscle. Topic terms are linked to named objects, visible processes or direct explanations; this is levelled text, not a cumulative-decodable claim.",
+      "knowledge": "How do nerves help us sense something and move in response?",
+      "progression": "Follow a deliberate ball-catching action through sight, brain processing, movement and touch feedback.",
+      "inference": "One deliberate action is explained through sensory input, brain use, outgoing movement commands and returning touch feedback. Several related routes and microscopic-to-whole-body views require sustained integration; short explicit clauses and a visible ball catch support E without assuming reflex knowledge."
+    },
+    "rationale": "One deliberate action is explained through sensory input, brain use, outgoing movement commands and returning touch feedback. Several related routes and microscopic-to-whole-body views require sustained integration; short explicit clauses and a visible ball catch support E without assuming reflex knowledge.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:b7538616bb350044",
+    "textHash": "sha256:1ff237152ac401d75ce729106413830294e256b551a52bc737092ee1e1e98cdc",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 185,
+      "uniqueWordCount": 90,
+      "uniqueWordRatio": 0.49,
+      "averageWordLength": 4.31,
+      "averageWordsPerPage": 18.5,
+      "minWordsPerPage": 15,
+      "maxWordsPerPage": 20,
+      "sentenceUnitCount": 21,
+      "averageWordsPerSentence": 8.81,
+      "maxWordsPerSentence": 14,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.1,
+      "dialoguePageCount": 0,
+      "questionPageCount": 1,
+      "illustratedPageCount": 10,
+      "independentlyDescribedPageCount": 10
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-e-24": {
+    "title": "When the Ground Shakes",
+    "appReadingLevel": "E",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Ten pages, 189 word tokens; maximum 22 words per page. Short sentences combine with varied causal, conditional and temporal clauses across a sustained explanation.",
+      "vocabulary": "Oral preparation supports fault, strain, wave. Topic terms are linked to named objects, visible processes or direct explanations; this is levelled text, not a cumulative-decodable claim.",
+      "knowledge": "How can a sudden slip deep in rock make the ground shake?",
+      "progression": "Use one sideways-slipping fault to connect slow motion, stuck rock, stored strain, sudden slip and spreading waves.",
+      "inference": "The explanation distinguishes slow plate movement, a locked segment, shape change, sudden slip and traveling waves from local rock motion. These related causes and model changes support E; qualifying one fault example and using push/slip words preserve accessibility."
+    },
+    "rationale": "The explanation distinguishes slow plate movement, a locked segment, shape change, sudden slip and traveling waves from local rock motion. These related causes and model changes support E; qualifying one fault example and using push/slip words preserve accessibility.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:e28e1ede72518df7",
+    "textHash": "sha256:d9efc0b63ca172021dd94ec499741e5e476e644bd7507435d36176fe55d490d4",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 189,
+      "uniqueWordCount": 110,
+      "uniqueWordRatio": 0.58,
+      "averageWordLength": 4.65,
+      "averageWordsPerPage": 18.9,
+      "minWordsPerPage": 16,
+      "maxWordsPerPage": 22,
+      "sentenceUnitCount": 21,
+      "averageWordsPerSentence": 9,
+      "maxWordsPerSentence": 14,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.1,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 10,
+      "independentlyDescribedPageCount": 10
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-e-25": {
+    "title": "How Wings Lift a Plane",
+    "appReadingLevel": "E",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Ten pages, 182 word tokens; maximum 21 words per page. Short sentences combine with varied causal, conditional and temporal clauses across a sustained explanation.",
+      "vocabulary": "Oral preparation supports lift, pressure, balance. Topic terms are linked to named objects, visible processes or direct explanations; this is levelled text, not a cumulative-decodable claim.",
+      "knowledge": "How can moving air around wings help hold a plane up?",
+      "progression": "Connect relative airflow, turned air and pressure differences to lift, then compare lift and weight in steady level flight.",
+      "inference": "The reader links visible airflow turning to pressure over both wing surfaces, understands these as two descriptions of one interaction, and distinguishes steady support from changing flight. Varied clauses and supported causal comparison make E appropriate; the terms pressure, lift and balance are concretely prepared."
+    },
+    "rationale": "The reader links visible airflow turning to pressure over both wing surfaces, understands these as two descriptions of one interaction, and distinguishes steady support from changing flight. Varied clauses and supported causal comparison make E appropriate; the terms pressure, lift and balance are concretely prepared.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:090c9a62e03faf40",
+    "textHash": "sha256:f514aae19483baedbaf47988585edbef46ff71d63c2772e7faff95662cc7d272",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 182,
+      "uniqueWordCount": 100,
+      "uniqueWordRatio": 0.55,
+      "averageWordLength": 4.49,
+      "averageWordsPerPage": 18.2,
+      "minWordsPerPage": 14,
+      "maxWordsPerPage": 21,
+      "sentenceUnitCount": 20,
+      "averageWordsPerSentence": 9.1,
+      "maxWordsPerSentence": 13,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.1,
+      "dialoguePageCount": 0,
+      "questionPageCount": 1,
+      "illustratedPageCount": 10,
+      "independentlyDescribedPageCount": 10
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-e-26": {
+    "title": "A Message Crosses the Internet",
+    "appReadingLevel": "E",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Ten pages, 187 word tokens; maximum 22 words per page. Short sentences combine with varied causal, conditional and temporal clauses across a sustained explanation.",
+      "vocabulary": "Oral preparation supports data, packet, router. Topic terms are linked to named objects, visible processes or direct explanations; this is levelled text, not a cumulative-decodable claim.",
+      "knowledge": "How can a picture move from one device to another across the internet?",
+      "progression": "Follow one picture through data packets, local Wi-Fi, routers, a messaging server and the receiving device.",
+      "inference": "One familiar picture is tracked through coded data, packets, local wireless links, network routing, a service server and reconstruction. The text differentiates the physical object from its representation, and fixed route examples support the multi-stage E explanation."
+    },
+    "rationale": "One familiar picture is tracked through coded data, packets, local wireless links, network routing, a service server and reconstruction. The text differentiates the physical object from its representation, and fixed route examples support the multi-stage E explanation.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:67a0d996e203866c",
+    "textHash": "sha256:4cdc0ccc4eb6ab87f99808eed0680502855607257a7a54c63e70f44e2081815a",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 187,
+      "uniqueWordCount": 103,
+      "uniqueWordRatio": 0.55,
+      "averageWordLength": 4.88,
+      "averageWordsPerPage": 18.7,
+      "minWordsPerPage": 15,
+      "maxWordsPerPage": 22,
+      "sentenceUnitCount": 21,
+      "averageWordsPerSentence": 8.9,
+      "maxWordsPerSentence": 13,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.2,
+      "dialoguePageCount": 0,
+      "questionPageCount": 1,
+      "illustratedPageCount": 10,
+      "independentlyDescribedPageCount": 10
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-e-27": {
+    "title": "From Cotton to Shirt",
+    "appReadingLevel": "E",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Ten pages, 179 word tokens; maximum 20 words per page. Short sentences combine with varied causal, conditional and temporal clauses across a sustained explanation.",
+      "vocabulary": "Oral preparation supports fiber, yarn, seam. Topic terms are linked to named objects, visible processes or direct explanations; this is levelled text, not a cumulative-decodable claim.",
+      "knowledge": "How do short cotton fibers become a woven shirt?",
+      "progression": "Track material through separating, aligning, twisting, weaving, finishing, cutting and sewing.",
+      "inference": "A continuous material account connects short fibers, twisted long yarn, interlaced fabric and shaped sewn pieces while retaining the plant origin through scale changes. Past/present shifts, subordinate timing and a material-preservation synthesis support E. This is the one woven shirt, not a universal claim about all shirts."
+    },
+    "rationale": "A continuous material account connects short fibers, twisted long yarn, interlaced fabric and shaped sewn pieces while retaining the plant origin through scale changes. Past/present shifts, subordinate timing and a material-preservation synthesis support E. This is the one woven shirt, not a universal claim about all shirts.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:97d45dfd421582c2",
+    "textHash": "sha256:423b023dc7f28441173d7cbd6bdc08e44119b942791a6aa3ed4415904c34db32",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 179,
+      "uniqueWordCount": 106,
+      "uniqueWordRatio": 0.59,
+      "averageWordLength": 4.56,
+      "averageWordsPerPage": 17.9,
+      "minWordsPerPage": 15,
+      "maxWordsPerPage": 20,
+      "sentenceUnitCount": 20,
+      "averageWordsPerSentence": 8.95,
+      "maxWordsPerSentence": 13,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.1,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 10,
+      "independentlyDescribedPageCount": 10
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-e-28": {
+    "title": "Light in the Rainforest",
+    "appReadingLevel": "E",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Ten pages, 201 word tokens; maximum 22 words per page. Short sentences combine with varied causal, conditional and temporal clauses across a sustained explanation.",
+      "vocabulary": "Oral preparation supports canopy, absorb, gap. Topic terms are linked to named objects, visible processes or direct explanations; this is levelled text, not a cumulative-decodable claim.",
+      "knowledge": "How does the amount of light change life from the treetops to the ground?",
+      "progression": "Follow sunlight through a tropical canopy, connect leaf food-making with animals, then show shade and a changing canopy gap.",
+      "inference": "The spatial light comparison develops into food-making, animal feeding and a temporal gap-growth-shade cycle. Conditional may/can and comparative clauses sustain multiple connected relationships with a visible anchor tree. The information remains concrete enough for E when the exact tree/light sequence is preserved."
+    },
+    "rationale": "The spatial light comparison develops into food-making, animal feeding and a temporal gap-growth-shade cycle. Conditional may/can and comparative clauses sustain multiple connected relationships with a visible anchor tree. The information remains concrete enough for E when the exact tree/light sequence is preserved.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:514985cf95d55a00",
+    "textHash": "sha256:9dad8791be3b41c989f89d81cdf0c8c6a3935ca437ea8a744e3c13c4a421eb0a",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 201,
+      "uniqueWordCount": 109,
+      "uniqueWordRatio": 0.54,
+      "averageWordLength": 4.52,
+      "averageWordsPerPage": 20.1,
+      "minWordsPerPage": 17,
+      "maxWordsPerPage": 22,
+      "sentenceUnitCount": 22,
+      "averageWordsPerSentence": 9.14,
+      "maxWordsPerSentence": 16,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.1,
+      "dialoguePageCount": 0,
+      "questionPageCount": 1,
+      "illustratedPageCount": 10,
+      "independentlyDescribedPageCount": 10
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-e-29": {
+    "title": "One Shirt, Two Washdays",
+    "appReadingLevel": "E",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Ten pages, 202 word tokens; maximum 22 words per page. Short sentences combine with varied causal, conditional and temporal clauses across a sustained explanation.",
+      "vocabulary": "Oral preparation supports wringer, rinse, drum. Topic terms are linked to named objects, visible processes or direct explanations; this is levelled text, not a cumulative-decodable claim.",
+      "knowledge": "Which jobs stay the same when washing tools change?",
+      "progression": "Compare an illustrative washboard-and-hand-wringer demonstration with a later automatic wash of the same shirt.",
+      "inference": "Two explicit washdays retain the same shirt while comparing cleaning, rinsing and water-removal functions across changed tools. Temporal shifts and same-function/different-method synthesis support E, with no universal or moralized historical progression."
+    },
+    "rationale": "Two explicit washdays retain the same shirt while comparing cleaning, rinsing and water-removal functions across changed tools. Temporal shifts and same-function/different-method synthesis support E, with no universal or moralized historical progression.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:7ddb8ebc54bd002b",
+    "textHash": "sha256:c6cc27b8389f879c1c41707a26ce2f24287d467e359f844389f8c7377c69cff0",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 202,
+      "uniqueWordCount": 117,
+      "uniqueWordRatio": 0.58,
+      "averageWordLength": 4.51,
+      "averageWordsPerPage": 20.2,
+      "minWordsPerPage": 17,
+      "maxWordsPerPage": 22,
+      "sentenceUnitCount": 20,
+      "averageWordsPerSentence": 10.1,
+      "maxWordsPerSentence": 15,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.2,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 10,
+      "independentlyDescribedPageCount": 10
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-e-30": {
+    "title": "When a Reef Gets Too Warm",
+    "appReadingLevel": "E",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "Ten pages, 190 word tokens; maximum 21 words per page. Short sentences combine with varied causal, conditional and temporal clauses across a sustained explanation.",
+      "vocabulary": "Oral preparation supports polyp, algae, bleaching. Topic terms are linked to named objects, visible processes or direct explanations; this is levelled text, not a cumulative-decodable claim.",
+      "knowledge": "Why can warm water turn a living coral pale or white?",
+      "progression": "Connect coral animals and algae, heat stress, algae loss, visible white skeleton and conditional recovery.",
+      "inference": "Coral/algae nutrient sharing, heat-associated loss, tissue/skeleton visibility and conditional survival form a sustained cause chain with alternative outcomes. Explicit definitions and restricted one-colony scope support E. The revised relationship sentences name food and algae loss directly; the ending now answers the warming/algae-loss inquiry and preserves conditional recovery."
+    },
+    "rationale": "Coral/algae nutrient sharing, heat-associated loss, tissue/skeleton visibility and conditional survival form a sustained cause chain with alternative outcomes. Explicit definitions and restricted one-colony scope support E. The revised relationship sentences name food and algae loss directly; the ending now answers the warming/algae-loss inquiry and preserves conditional recovery.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:30b5556418a8c888",
+    "textHash": "sha256:1bb8987f5bf1faaccdce716a60ea63d07f070dc09d8ef1a3b62bd9891a1cdcc5",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 190,
+      "uniqueWordCount": 103,
+      "uniqueWordRatio": 0.54,
+      "averageWordLength": 4.59,
+      "averageWordsPerPage": 19,
+      "minWordsPerPage": 17,
+      "maxWordsPerPage": 21,
+      "sentenceUnitCount": 21,
+      "averageWordsPerSentence": 9.05,
+      "maxWordsPerSentence": 14,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.1,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 10,
+      "independentlyDescribedPageCount": 10
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
   "meadow-pals-science-01-missing-sandwich": {
     "title": "The Case of the Missing Sandwich",
     "appReadingLevel": "H",

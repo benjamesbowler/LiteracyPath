@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-c-24",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:14:09.637Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-9273926a-ba0c-41cc-88d1-eaac5b86ce96.png",
+  "sourceSha256": "233e6e22208af103bf9113e9113f4b766a940b138cdec7a029cb7ba2a0735d0d",
+  "output": "public/guided-reading/world-discovery/c-24/cover.webp",
+  "outputSha256": "752cd6e3924c77daeeda3aabcd24592d98aa26177b09470a5102885bdc4550af",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact educational cover illustration with one framing correction. Keep the lake landscape and white cloud unchanged. Shrink the entire upper-right magnifying circle and all its contents by 20 percent about its centre, and move it slightly down and left so its entire rim has at least 12 percent canvas margin from top and right. Preserve six round liquid droplets each centered on a small nucleus and reconnect thin magnification lines to the same cloud. No lettering anywhere. No vapor plume. Smooth clean flat vectorlike color, crisp outlines, no grain or texture. Keep 3:2 landscape.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-8fca4645-bc90-4445-98f4-6e6fb80a7371.png",
+      "sha256": "e426d4cffcf09db974f144ddb7d0f6fa61fd4c00b489d84caeb286b8237e08f5"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "cbfc1a0f277ec5764a733f36e711277c72ce51d08853c5fd50b0372b7684550a",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T12:15:01.418009+00:00",
+    "sha256": "752cd6e3924c77daeeda3aabcd24592d98aa26177b09470a5102885bdc4550af",
+    "note": "Native and final WebP directly viewed. Unlettered cover, six round liquid droplets centered on nuclei, integrated magnifier safely inset, no gas plume.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

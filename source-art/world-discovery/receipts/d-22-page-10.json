@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-22",
+  "slot": "page-10",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:01:59.806Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-2c05b6c0-5002-4089-8a33-7f672ac807c2.png",
+  "sourceSha256": "1d86ef742790eb4036862053ab74ef40ac3f57510f473589d032d82dc3e6c768",
+  "output": "public/guided-reading/world-discovery/d-22/page-10.webp",
+  "outputSha256": "115c50a79988bf773174e2b39a272b9d1bb2409f904c6598ba9d5dc4fdfb0c39",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Correct only Kit's pointing target. Keep Kit in the same position with exactly two hands, but let his raised hand hold a slender plain wooden classroom pointer angled up-right across the blue ocean. Its tip ends just beside the broad continuous Europe-Asia land boundary, near 55 degrees east and 55 degrees north, without obscuring Europe or Asia lettering. This pointer clearly indicates the connected Eurasian landmass instead of the Pacific Ocean. The shaft may cross empty blue map water but never hide labels. Zoe continues pointing to Australia exactly as shown. Preserve all other geometry, all seven exact labels and colors, both children's poses/designs/complete feet, safe margins and room. No extra text, arrow or object beyond this one ordinary pointer.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-79a0b5f2-7c42-4969-85cb-000915094086.png",
+      "sha256": "5ddd954b0c168a0d7ab22e9c6b6b60ac63ae8d1f130088180eba9f3d7a8fb427"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "fb0bd240fdf5f14fbd4f0ae2e2b112472e599d3754b28e979aad8f5f59410003",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.506Z",
+    "sha256": "115c50a79988bf773174e2b39a272b9d1bb2409f904c6598ba9d5dc4fdfb0c39",
+    "note": "Direct inspection: full seven-color/label map and both children safely framed. Kit's plain classroom pointer now reaches continuous Eurasian land boundary, Zoe points to Australia; labels remain visible, geography/color code maintained.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

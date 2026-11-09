@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-b-30",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:42:06.014Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-f105061e-f006-44e7-b6b8-1f95a89df5b2.png",
+  "sourceSha256": "ecd46275a32418ec72632e9715f514738240576555fb8efaf24e4dee0ecc258d",
+  "output": "public/guided-reading/world-discovery/b-30/page-07.webp",
+  "outputSha256": "6a34415b1b6580052952bc6d76eac64660632b5d4b55962565059372a5449a76",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Return to distant whole Saturn after close particle views. Same pale-gold banded planet and flat equatorial rings from reference, near ring in front and far side hidden correctly. View slightly farther away and a little higher than reference so planet/ring group is centered within middle60% width; individual ice pieces no longer resolved and rings look like smooth pale concentric bands. No ice chunks floating outside rings, arrows, callouts or borders. Dark navy space with just two tiny distant stars. LANDSCAPE3:2 1536x1024, smooth flat colors, no grain, no words.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/b-30/page-01.webp",
+      "sha256": "c03bf2c1c634c212c54bf7a5f1d1aeec15744eaa32f35a017a8c14153e3ec959"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "f280a32df1585bc29fde637e24c87b820bf93699a99cac7d7239db824c8b14f3",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T10:43:44.542179+00:00",
+    "sha256": "6a34415b1b6580052952bc6d76eac64660632b5d4b55962565059372a5449a76",
+    "note": "Directly viewed native PNG and installed WebP: smaller distant Saturn with equatorial thin ring sheet appearance, correct front/back occlusion and generous margins.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

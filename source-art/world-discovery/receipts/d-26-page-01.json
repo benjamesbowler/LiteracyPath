@@ -1,0 +1,40 @@
+{
+  "bookId": "world-discovery-d-26",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:37:47.579Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-3157ffda-195f-43cb-a589-668913a49522.png",
+  "sourceSha256": "9c055eb68e3cd9c6667773ceaff29788164b39cea18e42154140ffec108f36e7",
+  "output": "public/guided-reading/world-discovery/d-26/page-01.webp",
+  "outputSha256": "36c15cf6303d711f7f8f0cbb8dedc27a3ead34ea731a80fa4686d81dc118c8fb",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Correct the approach geometry in FIRST finished scene. Turn the robot to an EXACT SIDE PROFILE facing RIGHT, as in the side-view model in SECOND reference. Its front red bumper must point directly RIGHT at the yellow block's left face, so forward movement would actually hit that face. One large black side wheel visible, opposite driven wheel naturally hidden; one small rear caster at LEFT. Robot stays left of block with clear gap about half body length. Preserve blue body, gray controller on top, red extended bumper and front gray touch-sensor module with plain straight WHITE HORIZONTAL PLUNGER connected behind bumper. One coil spring visible below plunger in side profile; opposite spring hidden. No red button on top, no eyes/face. Keep one yellow block on same mat, align its left face directly in front of bumper at same floor height. Frame entire mat a little smaller so corners are comfortably inside edges; extend ordinary room background to canvas edges. NO people, duplicate robots, diagrams or text. Landscape1536x1024, crisp outlined flat colors.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-1fd72312-7f64-483b-96c5-adeb41ed79c4.png",
+      "sha256": "bd1df90038f8444895158ee6f7f000f01fb40c6d557ab18182b16fe377344c72"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-cf0a6fe7-5232-47d7-a6de-c48ef748f4fa.png",
+      "sha256": "831ee587267b4920733ea9b7505257fa1828e0df59a2a0a7ea3bc34a01858e63"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "975d5f5420efb1308d6c48d6cf7633e175e59f4e879e625913e4b4acfddfb28a",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.527Z",
+    "sha256": "36c15cf6303d711f7f8f0cbb8dedc27a3ead34ea731a80fa4686d81dc118c8fb",
+    "note": "Direct inspection: robot now faces block directly in side profile with clear pre-contact gap, extended bumper and plain horizontal white plunger, front sensor wired to top controller; one visible side wheel/opposite occluded, rear caster distinct, no face or people.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

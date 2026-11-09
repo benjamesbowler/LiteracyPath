@@ -1,0 +1,29 @@
+{
+  "bookId": "world-discovery-b-30",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:44:10.406Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-716b2ddd-7d52-4783-8409-4eb53aa4f531.png",
+  "sourceSha256": "cf5636a1cdee05ffe207ff0d5dcb519fd4de69a92992d60d262c3b743843dfbe",
+  "output": "source-art/world-discovery/b-30-reference.webp",
+  "outputSha256": "1777644a0ac8e1560cecc9e75d1b128026cfee873e3c79ccf6b788caf59c1bcf",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. PRODUCTION REFERENCE SHEET, landscape, not a finished book page. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Saturn\u2019s Rings Are Pieces; World Discovery; nonfiction.\nSetting: Scientific illustration journey around Saturn. No children or spacecraft visiting. Pale gold gas planet with restrained flat bands; rings in its equatorial plane. Close particle views are explicitly illustrations, not photographs.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Saturn with accurately oriented flat equatorial rings; Many separate irregular pale icy particles; Smaller dark dust/rock particles; Space background without dense decorative stars\n Create a clean separated reference board on white: show the principal recurring props/animals in front, side and three-quarter views, their relative scale beside any named human cast, and a single simple location key showing the persistent setting and daylight/palette. The human character model sheet is a supporting identity reference, not content to copy wholesale. Show only the subjects this book requires. Use initial object states: Distant view makes rings appear continuous.. For orientation, the opening location/action is: Whole Saturn with flat bright rings crossing in front and hidden behind the planet correctly.. Do not show a completed craft or later scene merely because the finished object is listed in design locks. No future story events, no captions. Reference-sheet override: any lettering requested by the opening page brief belongs only in that finished page. Keep this production reference board entirely unlabelled; no letters, numbers or pseudo-writing.\nFinish requirement: all fills are perfectly smooth, clean, flat vector-like color. Absolutely no paper grain, stipple, speckles, mottled paint, fuzzy edges or surface noise anywhere, including backgrounds. Clear crisp outlines and only a few flat cel-shadow shapes. Do not imitate texture from any supporting reference.\nScientific design precision: one large three-quarter Saturn study and one small edge-on ring-plane study. Rings are thin flat concentric annuli in ONE equatorial plane. Golden atmospheric bands follow latitude parallel to ring equator. Rings pass in FRONT of lower hemisphere and BEHIND upper hemisphere with correct occlusion; never draw full unoccluded ellipse over the globe. Separate small study of irregular pale ice chunks and scattered smaller dark grains, all with open gaps. No solid bridges or road tiles. No scale labels, people or spacecraft. Sparse quiet dark space palette in a small location key.",
+  "references": [],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "f280a32df1585bc29fde637e24c87b820bf93699a99cac7d7239db824c8b14f3",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T07:47:29.244350+00:00",
+    "sha256": "1777644a0ac8e1560cecc9e75d1b128026cfee873e3c79ccf6b788caf59c1bcf",
+    "note": "Directly viewed native PNG and installed WebP. Pale-gold banded sphere and thin flat concentric equatorial rings with correct front/back occlusion; edge-on study and irregular separate pale ice/dark grains. Design reference only; every final scientific diagram requires its own geometry inspection.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

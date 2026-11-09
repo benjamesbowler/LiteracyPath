@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-28",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:48:08.224Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-02a56315-ff3c-417a-91b0-23c059452e88.png",
+  "sourceSha256": "5da12b0a769961969f160ab3474a1236037a37f618feee6be44049eb3e6e5ed7",
+  "output": "public/guided-reading/world-discovery/d-28/page-07.webp",
+  "outputSha256": "c6e00b7bbecfd2f5318e64a3d90fabdeac7ba5721706c379348a3c9d94d0d090",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Keep this exact 1536x1024 diagram and all its factual content unchanged. Shrink the ENTIRE foreground diagram row (leaf, both right-pointing orange arrows, caterpillar with twig, and chick in cavity) to 80% of its present size, centered on same canvas. Extend only the pale simple woodland backdrop into freed margin. Every part including the leaf stalk and right cavity edge must sit at least160px from left/right edges. Preserve exactly two right arrows leaf to caterpillar to chick, same anatomy, clean flat colors, thick outlines and no text. Do not crop, add or remove diagram elements.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-07323532-a15b-4a41-967d-58b02af651dd.png",
+      "sha256": "3063cb21cd5ea366e9dd5f3d084dfff2df41eee1b000a3174d0212809409fcfa"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "78c2904e582ff26b4d4ca84266e2154c9a1849a22caf6695aebc788bc09c7b58",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.542Z",
+    "sha256": "c6e00b7bbecfd2f5318e64a3d90fabdeac7ba5721706c379348a3c9d94d0d090",
+    "note": "Native PNG and installed WebP directly inspected: Two arrows food to eater: leaf, caterpillar, nestling; safe margins.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

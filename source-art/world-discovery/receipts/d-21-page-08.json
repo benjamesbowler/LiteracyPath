@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-21",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T05:25:06.604Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-52e83673-ee1f-408b-9454-722261a8fa39.png",
+  "sourceSha256": "9d8df77146e3843b0ab45a93c4f0c89a1e949e0d6844dcd4b1ff5d72a990019f",
+  "output": "public/guided-reading/world-discovery/d-21/page-08.webp",
+  "outputSha256": "fc40a7ca6b406535db276473869b4a2c682f0c6736b9c8815b6996aba9b8ddfc",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit ONLY the tractor unit in this image: add its missing rear axle and two visible corresponding rear tires immediately behind the cab, beneath the fuel-tank area at image right, supporting the tractor chassis and its coupling to the trailer. The tractor must have its existing front axle beneath the cab AND one separate rear axle behind the cab. Preserve the three existing trailer axles at image left. These are separate wheel groups on an articulated tractor and trailer, physically connected through the coupling. Do not move the container, crane, trailer frame, corner locks or any background object. Preserve doors at truck rear/image left, one blue marker only on left cargo door, inland location, level load and clean flat cartoon style. No other edits, no words. One landscape 3:2 image.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-4f5dfbce-bb24-431d-a75c-fdd07b0961c4.png",
+      "sha256": "4553145b22aa565b097a075a4f482fcff138013fa6eeced4228957570c7b862d"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "4cd850616c2e31aecc557996032490d0fb984ea0f222fa11e0f2a878a417a9c7",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.497Z",
+    "sha256": "fc40a7ca6b406535db276473869b4a2c682f0c6736b9c8815b6996aba9b8ddfc",
+    "note": "Direct image inspection: container lower corners now align vertically with trailer locks; rear doors left, cab right, restored tractor rear axle and three separate trailer axles, inland yard, closed left-door-marked container, no people below load. All D21 cover/page assets now installed; sequence cross-check still pending independent final review.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

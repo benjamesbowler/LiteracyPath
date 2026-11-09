@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-29",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:35:45.179Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-6aaa163e-ccc7-4147-aae9-197ac903254f.png",
+  "sourceSha256": "101ec7b03222baa1d6bc5ce7403f1a1f512bf05eb2d4627a1b085e625158900f",
+  "output": "public/guided-reading/world-discovery/a-29/page-02.webp",
+  "outputSha256": "c2195adb5f5d68c3aa3b538bbdb3dc98699ff33de08b82a7bd1000678e2c7ae5",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Advance this physical fold: bring the lifted RIGHT short end LEFTWARD, over the flat left half. The flat left half stays from about x380to750. The strip bends in a rounded U at the CENTER near x750; its raised returning flap now extends BACK LEFT from that bend to a free short edge around x550, held by the right hand. Thus the moving free short edge is LEFT of the midpoint, above the flat left half, but not yet aligned with the fixed left edge atx380. One continuous strip, two equal halves connected at the same rounded bend, no extra piece or cut. Move right hand left with the free edge; left hand still steadies fixed left edge. Preserve clean red paper, two natural hands/yellow sleeves, overhead pale-table scene, safe margins. No arrows, text, scissors or extra creases.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-a564aa6b-b4af-4767-b56f-b2f8a570590e.png",
+      "sha256": "c704e3b85f8c35ba01a8c27ee9dad5b05e1d0036e9c8c89113b164644d14bf18"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "f901b0be0bea47b49de26868818727681b20b5057666da316e0fa78bccc25576",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "c2195adb5f5d68c3aa3b538bbdb3dc98699ff33de08b82a7bd1000678e2c7ae5",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T10:35:45.180Z",
+    "note": "Directly inspected physical step: one continuous red strip curves back over its left half; right hand holds moving free end left of rounded bend, while left hand steadies fixed edge. Ends not yet aligned, no detached piece/cut/scissors. Two natural hands and all teaching contents inset."
+  }
+}

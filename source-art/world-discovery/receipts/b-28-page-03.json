@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-b-28",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:44:09.883Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-4cb2e9f5-e64e-4e96-80b8-d8da25c0f8c1.png",
+  "sourceSha256": "44e51c6e3f86b4ce7376bdeffb46840cb20b2050bc9b605d5003785e509dcc55",
+  "output": "public/guided-reading/world-discovery/b-28/page-03.webp",
+  "outputSha256": "9467d96e75ff0035e927f32ccec1ffe46ec6484acadd56ac4c77615555712e2b",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Close SIDE view of same giraffe head and upper neck beside the lower target branch shown in page 2. First reference gives head/neck identity and tree branch, second feeding cover shows tongue design. One dark flexible tongue extends naturally from mouth and curls around the leafy tip at LEFT END of target twig. Tiny paired green leaflets surround tongue; pale paired thorns remain on attached woody twig OUTSIDE mouth. Branch geometry unchanged, target leaves still mostly attached, not stripped yet. Whole muzzle, eyes, ears and TWO ossicones comfortably within central 75% frame; neck can continue naturally out lower-left. Avoid face against top border. Calm blue sky with distant woodland, natural animal eye/lips, no human grin or extra tongues. LANDSCAPE 3:2, 1536x1024. Crisp bold clean children's 2D illustration, smooth flat vector-like fills and restrained cel shadows, absolutely no grain/stipple/paint texture. No words, labels, letters, numerals, arrows, panels or watermarks. Essential subjects at least 12% inside all edges.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/b-28/page-02.webp",
+      "sha256": "747f9c8892da413f556728bf37b1e3e987bc47b55746f25d785bb1a4ce5975a8"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/b-28/cover.webp",
+      "sha256": "7adbff34cb020b0387c8e127ffb925707325e215e6e0d2f05de328c05be644ef"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "3b2da464191b00e55de10d772304d97a74700fcde5ac76ab45ab88f364075677",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T07:47:29.242120+00:00",
+    "sha256": "9467d96e75ff0035e927f32ccec1ffe46ec6484acadd56ac4c77615555712e2b",
+    "note": "Directly viewed native PNG and installed WebP. Single dark tongue curls among target leaflets, branch/thorns remain outside mouth, two ossicones/ears intact with generous margins, natural close-view continuity.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

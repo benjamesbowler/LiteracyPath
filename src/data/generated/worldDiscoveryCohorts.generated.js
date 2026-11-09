@@ -13,7 +13,15 @@ import c1d from "../../content/world-discovery/cohorts/11-20/level-d.json" with 
 import c1e from "../../content/world-discovery/cohorts/11-20/level-e.json" with { type: "json" };
 import c1reviews from "../../content/world-discovery/cohorts/11-20/reviews.json" with { type: "json" };
 import c1registration from "../../content/world-discovery/registrations/2026-11-09/11-20.json" with { type: "json" };
+import c2a from "../../content/world-discovery/cohorts/21-30/level-a.json" with { type: "json" };
+import c2b from "../../content/world-discovery/cohorts/21-30/level-b.json" with { type: "json" };
+import c2c from "../../content/world-discovery/cohorts/21-30/level-c.json" with { type: "json" };
+import c2d from "../../content/world-discovery/cohorts/21-30/level-d.json" with { type: "json" };
+import c2e from "../../content/world-discovery/cohorts/21-30/level-e.json" with { type: "json" };
+import c2reviews from "../../content/world-discovery/cohorts/21-30/reviews.json" with { type: "json" };
+import c2registration from "../../content/world-discovery/registrations/21-30.json" with { type: "json" };
 export const WORLD_DISCOVERY_REGISTERED_COHORTS = Object.freeze([
   { id: "01-10", books: [...c0a, ...c0b, ...c0c, ...c0d, ...c0e], reviews: c0reviews, registration: c0registration },
-  { id: "11-20", books: [...c1a, ...c1b, ...c1c, ...c1d, ...c1e], reviews: c1reviews, registration: c1registration }
+  { id: "11-20", books: [...c1a, ...c1b, ...c1c, ...c1d, ...c1e], reviews: c1reviews, registration: c1registration },
+  { id: "21-30", books: [...c2a, ...c2b, ...c2c, ...c2d, ...c2e], reviews: c2reviews, registration: c2registration }
 ]);

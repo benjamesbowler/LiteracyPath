@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-22",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T06:54:39.917Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-b0ec1f90-5323-449a-b863-412038768f40.png",
+  "sourceSha256": "90993e3ebe41f89343a3bd04c2e8526b1d8f95057689f3d10edbe6de277bee8e",
+  "output": "public/guided-reading/world-discovery/d-22/page-04.webp",
+  "outputSha256": "0ffdcb5268f7f959debd069f47e1ad62216e9d460612023720f6be54b001320e",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this classroom illustration to focus on Kit's pointing finger and the accurate map. Remove the globe and its stand entirely from the table, leaving a clear ordinary tabletop. Preserve Kit pointing just beside the narrow Central American LAND connection without covering it, Zoe leaning with two hands near her chin, and the full wall map with the exact two names North America and South America only. Keep every coastline and continent color. Pull the camera back so the entire map and both children's complete heads/hands/shoes are comfortably at least 10 percent inside every canvas edge. Extend the same wall/floor naturally with no page border. Retain character identities and equal standing scale. No other new objects, arrows, insets or text; crisp 2D cartoon flat color, no texture.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-3f30f0a2-b469-4fd5-8d42-ac188541257a.png",
+      "sha256": "ffae3b6d3b4bc52bb7b2ede97a72a8fef500b833b8fd7a6606a9f53e43f3368f"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "fb0bd240fdf5f14fbd4f0ae2e2b112472e599d3754b28e979aad8f5f59410003",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.502Z",
+    "sha256": "0ffdcb5268f7f959debd069f47e1ad62216e9d460612023720f6be54b001320e",
+    "note": "Direct inspection: complete child feet and map safely framed; Kit fingertip beside visible narrow Central American connection, only two America labels; optional globe removed, consistent room/cast and coherent hands.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

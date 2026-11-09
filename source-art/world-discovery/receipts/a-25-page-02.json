@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-25",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:40:38.613Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-e45a87ba-e6d3-4f41-b734-08ccffd3f88c.png",
+  "sourceSha256": "01bd656dec6147e7d5df3c002a1d6d32e75168818aa0951116ceebbaf6ea57bc",
+  "output": "public/guided-reading/world-discovery/a-25/page-02.webp",
+  "outputSha256": "199fbdd6c182201634c3049d8599e86bfa01aebbc283f31c32fd7d3bf5240ea1",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit ONLY framing. Pull ENTIRE scene back uniformly30%, extending same room/floor naturally. Kit hair top at least15%belowtop; FULL shoes and drum feet at least15%abovebottom; natural body proportions and relative figure/drum scale unchanged. Preserve connected magnified drumhead inset and its thin dashed taut-head outline with tiny up/down arrows. Keep entire round inset and leader at least12%inside RIGHT edge and top; no clipping or disconnected callout. Hands remain clear of drum. All subjects remain grounded on blue rug. Smooth clean flat colors, no texture, text or addedobjects. Landscape3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-6c3ef047-9d22-401a-ac8c-7ea7ad4531aa.png",
+      "sha256": "60019161daf9ddc2cafccaa18ae98e404529f88ddbcee45a35b5db471899a9e5"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "43250b481932e7fd088b4db9dca6c6655e0ffe81fdc9bbd2dd349daea8124cbd",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "199fbdd6c182201634c3049d8599e86bfa01aebbc283f31c32fd7d3bf5240ea1",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:40:38.614Z",
+    "note": "Directly inspected native framing repair: entire scene uniformly widened, hair~19–21%top, shoes/drum feet~18–21%bottom, natural cross-legged anatomy and grounded stand. Connected magnified inset fully visible with ~13%right margin; thin dashed head outline and up/down arrows preserved, hands clear."
+  }
+}

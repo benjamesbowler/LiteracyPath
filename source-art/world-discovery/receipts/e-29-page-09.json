@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-e-29",
+  "slot": "page-09",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:59:05.926Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-06724158-b42c-4ed3-90d5-8032eb03d597.png",
+  "sourceSha256": "9a14715e8caf872749ebe0321e43760db6b00fa22ccc30fa588f654c5ecf889a",
+  "output": "public/guided-reading/world-discovery/e-29/page-09.webp",
+  "outputSha256": "865db95a454c4a1c31c147bb983376260d2be68cfb9cd5b69bddc7b2b8b3ec80",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit first image: pull camera back about 15% and recenter adult-plus-hanging-shirt so adult hair and full shoes are inside y=15\u201385% with at least 12% bottom margin. Keep pose, two hands, two pegs, same damp yellow shirt square blue pocket, exact courtyard and clean flat style. Extend natural ground/sky around, no frame. Also fix tiny background washer through left doorway to match second reference: drawer left, ONE central circular dial, SIX tiny unlettered buttons arranged two rows of three at upper right, no rectangular digital display. Keep that washer far in background, closed door. No other changes.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-223b5fb9-dd8a-4afe-86e5-d55c9b447b4d.png",
+      "sha256": "5d97e5f81c7298dc0d48be26dc98c1f4f9c60b93dd35e641f76c96d59981a640"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/e-29/cover.webp",
+      "sha256": "2c70fe9e350a0cbc0aa90197eb36078c61b90a34719db70db7038d8ce0630c4b"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "7b5d49fa464ddfe3c488fb7295ea82cbaa37ae0e01b14b633c270d651f53cb42",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
+    "sha256": "865db95a454c4a1c31c147bb983376260d2be68cfb9cd5b69bddc7b2b8b3ec80",
+    "note": "Same courtyard, adult hangs damp shirt with two pegs; background washer matches controls; full figure safely framed.",
+    "limits": "Individual installed WebP only; independent sequence, reader, card and audio separate."
+  }
+}

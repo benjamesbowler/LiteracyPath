@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-27",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:28:09.157Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-36020d7f-a461-40c6-9e12-7e606b0fe231.png",
+  "sourceSha256": "18c0723c30618456138158d9cbdde745431546ef86f3118e8311ddb447d111ca",
+  "output": "public/guided-reading/world-discovery/d-27/page-08.webp",
+  "outputSha256": "8ea9d8453c898a63a5161a77e6d885b22b6f61eedd5ef819ab05bf2a7b3bf52d",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Make ONLY a framing edit to this exact packing scene. Pull back the camera and reduce all current subjects to80% of their present size, centered on the same landscape1536x1024canvas. Extend the existing pale wall and floor naturally to fill the outer area. Keep every human hair/hat tip, shoe, table leg and machine edge at least140pixels inside the frame. Preserve exactly two arms/hands, safe grips, dry rice flowing into the same blank cream bag, enclosed machine and hairnet. No new objects, no text, no style changes. Do not add a blank border; extend the real scene.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-70c0ec96-5787-427f-b610-dd98fe3226ac.png",
+      "sha256": "51b65973ffefe9cc6bcfc8a72b73d1493c91c77650d5d38da51b3495ba90d9c2"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "d7159e37a1a2ef16cf6332c998d1e18c7c5e1c835d8925d2049fd3bf922c1538",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.536Z",
+    "sha256": "8ea9d8453c898a63a5161a77e6d885b22b6f61eedd5ef819ab05bf2a7b3bf52d",
+    "note": "Direct native inspection: whole worker/enclosed packing machine/bag now widely framed; two natural hands clear of outlet, hairnet, dry white rice falling into unprinted bag, no exposed moving parts.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "bookId": "world-discovery-d-25",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T08:12:53.257Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-e6a11128-bfae-40c9-b0d0-d6b75d6472ef.png",
+  "sourceSha256": "d5ea6643cadf2eaf11fa2f8340f878d36ef63e930c2d68912d3f898025284d07",
+  "output": "public/guided-reading/world-discovery/d-25/page-03.webp",
+  "outputSha256": "110325faffc3c7ed88b15877946401ccce876de091531567cf9ca72b02bef6d7",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Continue the exact bridge experiment from FIRST reference, keeping its generous white margins and scene scale. Show ZOE in place of Kit; her canonical identity comes from SECOND reference: deep brown skin, two black hair puffs, yellow shirt, plum overalls, white shoes, same child height. Zoe lifts the SAME ONE wooden counter straight UP a short distance above the center of the paper using one natural hand grasp at its rim. Her other arm relaxed. Paper still sags gently but remains intact with both ends on the exact SAME TWO blue blocks at the same gap; no extra support, no fold or tear. Counter fully off paper with a clear small air gap; exactly one counter total, none beside setup. No Kit or other humans. Keep whole Zoe/table/setup within central70percent of canvas and at least140px top/bottom blank margins. Clean crisp dark outlines, flat colors, no texture/3D. No text/arrows/numerals.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-1099d7f5-f8df-4164-8ce1-c68231b03dd2.png",
+      "sha256": "a9b5cb4fb60e0065720ad1fcd18aaa75b0e9a982042e2b03f77c411602e4a2f7"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-bdbf7bfd-7ad1-451d-99fb-2a40d0d2791b.png",
+      "sha256": "b3450c1ad0501336a31a8691c404b07e788caed59d61bf78961311cfa0f4303a"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "8337d31fb142299fa5e714fdc1bffff0a8db8bc933c0eeb3ee2b649380ddbd8b",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.522Z",
+    "sha256": "110325faffc3c7ed88b15877946401ccce876de091531567cf9ca72b02bef6d7",
+    "note": "Direct inspection: Zoe lifts one counter above intact mildly sagging sheet, same fixed two blocks and gap, natural single grip, no extra load/support, ample margins.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

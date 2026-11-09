@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-28",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T08:13:53.816Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-115a8cfa-7f6f-4662-b0ab-814d12238709.png",
+  "sourceSha256": "90cacde430ed671e3f1332e0f6242734ac783f7272e1f599a8e53000e8e9760c",
+  "output": "public/guided-reading/world-discovery/a-28/cover.webp",
+  "outputSha256": "2c483cb9d98d82eaf46285a82d8fffd9d4082922f8012dfe7f55ce6cc24d0bec",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this correct six-legged-ant scene only for framing and clutter. Scale the main nest/three ants/central pebble/food leaf grouping to80% of current size, centered, naturally extending plain soil around it so the whole food leaf tip is at least12% inside the right edge and all ants/nest opening safely inset. Remove the FIVE small extra pale stones scattered in the background; preserve only the SINGLE large pale pebble in the center that the ants walk around. Remove tiny brown speckle dots. Preserve all three ants exactly: six legs each, two antennae, heads following the curve toward the right-hand leaf with one amber drop. No scent dots, no new items, no sky or horizon. Flat smooth colored ground and crisp clean linework.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-9ab2bd50-9e25-4d41-81b3-190c36c1c9c2.png",
+      "sha256": "1b437cc58e89045cdcba5dd8577b32ff5055123f796dc243764972627068738c"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "fbf293511c4adb19a75a183f30ea70ea6bdd6e4a759309a5079a91a68021dff0",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "2c483cb9d98d82eaf46285a82d8fffd9d4082922f8012dfe7f55ce6cc24d0bec",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T08:13:53.818Z",
+    "note": "Directly inspected revised scene: exactly three ants with six separate thoracic legs and two antennae each, following curve around one pale pebble toward one leaf/drop. No scent marks. Complete leaf, ants and nest opening safely inset; extra stones and speckles removed."
+  }
+}

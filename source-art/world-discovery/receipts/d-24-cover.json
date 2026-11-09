@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-24",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:53:29.571Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-e6cda942-0546-46f0-a6a5-969a30fc1e6f.png",
+  "sourceSha256": "8d8218c4aafaa1d2c208f73c0a6ea50fc79c7ea199f595e44a22e9cef159509c",
+  "output": "public/guided-reading/world-discovery/d-24/cover.webp",
+  "outputSha256": "8084c34e76e420f080b1650563393f2e2e99f984d8f39a0ed6a3336cb0a18139",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Create the entirely UNLETTERED cover illustration as an edit of this exact coastal scene. Preserve the same one orange cloth windsock, short gray pole, sunny sea LEFT, beach center and grassy land RIGHT, and all safe framing. Add exactly TWO simple restrained pale-blue/white-outline teaching arrows LOW in the AIR above the sea/beach, both pointing LEFT to RIGHT toward land and the windsock's broad open mouth. Arrows represent air, not sea waves: keep them clearly suspended above the water and ground. The orange windsock mouth still faces LEFT, tapered cloth tail stretches RIGHT. One sun only. No other arrows, no loop, particles, duplicate windsock, characters, animals, diagrams or text. Crisp dark outlines, flat clean colors, restrained cel shading, no texture/3D.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-5ce56858-8aa9-4a08-9508-190ab0fa3b68.png",
+      "sha256": "606d2aa89b07274d2dcd5532f3f22e6ed4ad683c4b6fef1235dfadcb4a2e0386"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "688f663f00d36542402967229cf6e98631f1d90b6bed074cce20a73f41dcd15c",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.514Z",
+    "sha256": "8084c34e76e420f080b1650563393f2e2e99f984d8f39a0ed6a3336cb0a18139",
+    "note": "Direct inspection: same exact sea-left/land-right coast and one windsock, two low left-to-right air arrows clearly above water into broad opening, entirely unlettered cover.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

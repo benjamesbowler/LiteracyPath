@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-e-30",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:39:23.767Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-1b2fef85-02f1-4f76-bcc9-d15461158753.png",
+  "sourceSha256": "99c9f5576e34589e91a2414caeb58f8725f2a340dae382e1ac8068a182a3877f",
+  "output": "public/guided-reading/world-discovery/e-30/page-08.webp",
+  "outputSha256": "2620096ddc8cb7a3bd96091e0d4e6695f371f4b2315ee6d965918c42b50f6384",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Create the next interior illustration in this exact flat 2D educational coral book style. A single enlarged coral polyp, centered with 15% clear margins, has very pale but continuous living tissue over the white cup skeleton. Its mouth and empty central cavity are the same anatomy as the references. Show only THREE tiny golden-brown round algae within its pale tissue walls. Show only ONE small orange hexagonal food symbol and ONE short arrow from one remaining round alga into the surrounding tissue, using the same round-alga versus hexagon-food code as reference one. No algae or food in the central cavity, no grass, no faces, no crossed-out feeding, no death symbol. Faint sunlight reaches the polyp on an uncluttered pale aqua background. This shows a reduced major food supply, not a claim that algae are coral's only food. No inset, no labels, no text or numbers. Landscape 3:2, bold clean outlines, restrained flat fills.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-0387ac8f-0010-4782-a006-4eda5f967d22.png",
+      "sha256": "48722afa4a8a73756cd4810a1cacab18abfa1b403083414dd6dc43ac3c683f1e"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-4cafaa0b-d28e-4232-b351-cd10cbcc1342.png",
+      "sha256": "80a2b6f237333d11a819a43a5985bede7055a521bacab10d2781bf21ed7a1529"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "eead7bd4e8d787dff3440b9ff337f914a50daa5a1c9dfe20a0688cac4e6a5f42",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T10:41:13.588904+00:00",
+    "sha256": "2620096ddc8cb7a3bd96091e0d4e6695f371f4b2315ee6d965918c42b50f6384",
+    "note": "Directly inspected installed WebP: Three remaining round algae within pale tissue, one orange hexagonal food symbol and short transfer arrow; reduced supply without death icon or exclusion of other food. All biological forms and sun safely framed.",
+    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  }
+}

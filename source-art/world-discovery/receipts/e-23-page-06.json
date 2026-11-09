@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-e-23",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:55:06.423Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-f219ff5a-f6c4-4c15-a603-4f66222af7b3.png",
+  "sourceSha256": "861f56e1b19c7e515ca73e7b70bc766be876a7447c61d2a2bfc74467dd816fb6",
+  "output": "public/guided-reading/world-discovery/e-23/page-06.webp",
+  "outputSha256": "898b9b0c228eeca2504b357896632a8c89060ff9bea799c97d6d411e43f57de9",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit exact illustration ONLY to fix the room floor. Keep the complete foreground including children, chairs, table, ball, muscle inset, leader and window at EXACT same size/positions. Move the horizontal creamwall/woodenfloor boundary UP from near y860 to y700, passing BEHIND table/chair legs. Fill all area below y700 with matching lightwoodfloor and restrained horizontal planklines, occluded by objects. Their feet and every chair/table leg must visibly rest ON the woodenfloor, not float overcreamwall. Do not move any foreground, change anatomicalinset, ballgap, colors or margins. No newobjects/letters.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-76888dc4-35fd-4aa2-aa89-24c18249f5da.png",
+      "sha256": "1886dfa0a9eda7cf71c7e0ceb1fe98f27bee0ec829db3bdc57de8e2f3a6453c6"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "1b0de6058b2611192f79942f4ecd03b97dc9da569d20816897fdbc11f5ab098a",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.559Z",
+    "sha256": "898b9b0c228eeca2504b357896632a8c89060ff9bea799c97d6d411e43f57de9",
+    "note": "Actual PNG and installed WebP directly inspected. Grounded whole scene, clear pre-contact ball gap, two opposed muscles attached across elbow, inset and whole figures safely framed.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-c-21",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:01:53.732Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-bcfee6b0-9d87-47ca-8139-6eeb31bc6eaa.png",
+  "sourceSha256": "cb8ebb1de7277bfac0be34d3d8cf26c1360a58a54f520bfc1682c5c9fecbf5af",
+  "output": "public/guided-reading/world-discovery/c-21/page-02.webp",
+  "outputSha256": "b375d7478a3c40fed1031b809bce1fcc141b58f44ead5c3590645bea45c4e6bc",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit ONLY the distant background airport scene of the FIRST reference image. The SECOND reference only locks the established cast and props; keep their original relative scale. Kit and Zoe are equal height when both appear. REMOVE the entire passenger jet bridge/boarding tunnel that falsely meets the plane tail, replacing that structure with matching clear apron/terminal background. Keep the white airplane itself, its teal tail and nose-left orientation unchanged. Keep every foreground person, face, hand, blue luggage with orange stripe, handle, white tag, conveyor and all other foreground details exactly unchanged. Do not add a new bridge or doorway. Full-bleed smooth flat colors/crisp lines/no grain, same3:2 landscape.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/c-21/page-02.webp",
+      "sha256": "54cdf3b5cb6bcd6de5e7d04b24ceb4031d55d600bf2c2ce919d1f494ed415c0c"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/c-21-reference.webp",
+      "sha256": "7b43aa2de357cf3abba0e67409cbcec8f0ad0a190ad2eac801aaa542875d9e54"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "adafabd724e58b7f6c3e03af760b56ae0cdebf5dbdc7ec8e6a3d11c2e19a0ce2",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T13:02:36.802073+00:00",
+    "sha256": "b375d7478a3c40fed1031b809bce1fcc141b58f44ead5c3590645bea45c4e6bc",
+    "note": "Native replacement and actual installed WebP directly viewed. Distant tail-connected jet bridge removed; intact aircraft now on clear apron. Bag stripe/wheels/tag, conveyor, operator and all essential margins retained; clean flat style.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

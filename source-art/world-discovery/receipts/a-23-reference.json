@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-23",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T04:51:50.961Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-49348435-df77-43f7-8b52-92b6e37abc40.png",
+  "sourceSha256": "6027d2bc002ce39c9f5433d40a5bba83c268f443f242eb1f47af9b7b1adffb0f",
+  "output": "source-art/world-discovery/a-23-reference.webp",
+  "outputSha256": "55162a51e1ce1d0372649ef3e0a2eb26a98030e7a1da81620b8c6cdc10de1997",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. PRODUCTION REFERENCE SHEET, landscape, not a finished book page. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. The ONLY named human protagonist is Zoe. Kit MUST NOT appear. Ignore every other child shown in reference sheets; unnamed adults may appear only when this scene explicitly requires them. Preserve exact reference identity and clothing.\nBook: My Chest Moves; World Discovery; nonfiction.\nSetting: Zoe stands upright on a plain rug in a bright room, shoulders relaxed. Simple side and front views show quiet normal breathing; optional integrated anatomy cutaway remains educational, modest and diagrammatic.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Zoe stays in her usual yellow shirt and plum overalls with both palms gently over her upper chest; Same paired pink-gray lung shapes and central windpipe in any cutaway; lungs never empty flat bags or detached floating organs; Expansion is small and natural; shoulders and body do not balloon, shirt never removed\n Create a clean separated reference board on white: show the principal recurring props/animals in front, side and three-quarter views, their relative scale beside any named human cast, and a single simple location key showing the persistent setting and daylight/palette. The human character model sheet is a supporting identity reference, not content to copy wholesale. Show only the subjects this book requires. Use initial object states: Quiet resting position; two hands on upper chest; no breath-holding pose.. For orientation, the opening location/action is: Front three-quarter view of Zoe with two palms resting flat on her clothed upper chest. Shoulders relaxed, lips closed. No cutaway or motion arrows yet.. Do not show a completed craft or later scene merely because the finished object is listed in design locks. No future story events, no captions.\nProduction finish: every surface must be perfectly flat, clean digital cel color with smooth crisp outlines. ZERO paper grain, speckling, stipple, dither, paint, canvas fibers, mottling, scuffs or noisy gradients anywhere, including skin, rug, walls, table, floor and shadows. Prefer solid flat fills; any small shadow is one smooth flat shape. This is polished vector-like raster art, never a textured watercolor print.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "9d1d4dd6d93c7ff9e1f38dd1d3858cfe95edf848dc9e464d8d8c183b2a6aee4a",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "55162a51e1ce1d0372649ef3e0a2eb26a98030e7a1da81620b8c6cdc10de1997",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T04:51:50.963Z",
+    "note": "Inspected regenerated reference board: Zoe has two puffs, yellow shirt, plum overalls and white shoes, two relaxed hands on clothed upper chest. Blue rug and simple room are stable; paired pink lung teaching shapes remain connected to central windpipe. Clean smooth fills. Cutaway poses are design only and must not enter cover or page 1."
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-e-25",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:54:22.733Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-577ecf3a-71e5-4763-80f9-adfaf709ee36.png",
+  "sourceSha256": "5ab4eba7fe4de1464efa98e06b6b875712fc89592c3019ab3219b93fc212cf9f",
+  "output": "public/guided-reading/world-discovery/e-25/page-07.webp",
+  "outputSha256": "063df402a33cddd1108103301b50991ac87fba6021a9f5f9e25124aba41b7f41",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Create one clean flat 2D explanatory diagram for the same nonfiction flight book, combining the same information without double-counting force. Pale blue background, one horizontal white black-outlined airfoil with rounded leading edge LEFT and pointed trailing edge RIGHT, central55% width. FOUR thin BLUE airflow curves pass LEFT to RIGHT around upper and lower surfaces, bending DOWN-RIGHT in the wake after the trailing edge, like reference 1. Add FOUR tiny DARK BLUE local pressure arrows touching the surface and pointing INWARD perpendicular to local surface: two above down, two below up, with lower arrows longer. Show exactly ONE GREEN upward NET LIFT arrow from the wing center; same green arrow style as reference2 but moderate size with top tip at y=22%. Do not add another lift or upward airflow arrow. Keep pressure arrows small and spaced away from streamlines so all are clear. Every arrow tip, tail and entire wing safely inside 12% margins. No letters, numbers, labels, panels, texture, border, paired air particles, or lines entering solid wing.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-559363b6-f403-42ee-8ac7-b6e34eba1d51.png",
+      "sha256": "bfc412c22cefb25c2f9e993eab5065c858f44a217d6f67d35df8ff7d4a6942d2"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-1fb6bdc2-0717-4c13-8ee2-caae4699b076.png",
+      "sha256": "a8d1e99a93a933de37ba31289cf8195d592ab1e8147c0773b8a73a0f1e7de823"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "6fa387a94832069dfd8f41a5c0089a80fb10f81c60c90df001e050c556eb4819",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T13:58:43.728403+00:00",
+    "sha256": "063df402a33cddd1108103301b50991ac87fba6021a9f5f9e25124aba41b7f41",
+    "note": "Downward wake, small local inward pressure arrows and exactly one green upward net lift appear on one wing; no duplicated net lift or equal-travel-time particles.",
+    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  }
+}

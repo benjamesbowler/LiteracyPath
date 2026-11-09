@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-28",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T08:17:41.775Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-68149000-889b-4fa1-8fee-867e3f74a3ea.png",
+  "sourceSha256": "2e080124eefcf9f3f7b1b9a08d15eaf49a115187b82caab44dd8620e4a8b5c54",
+  "output": "public/guided-reading/world-discovery/a-28/page-02.webp",
+  "outputSha256": "a0e5809b55bdd8464b6d02f71106e5ebaf6788a5380dce195c90a790db6d1553",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Zoom out this exact overhead ant-feeding picture: scale complete leaf, six-legged ant and liquid drop to78% of current size, centered; extend plain smooth brown soil around it. The entire leaf must have12% clear edge margin. Preserve exact SIX separate thoracic legs, two antennae, all feet on leaf and tiny mouthparts contacting liquid. Correct leaf orientation to keep its short stem on the RIGHT and pointed end on the LEFT, consistent with the route scene; adjust leaf contour beneath the same ant, do not rotate or change ant direction. Remove all decorative soil squiggles, leaving smooth untextured flat brown ground. Keep one ant/one leaf/one drop only, no scent marks or lettering.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-35ea0441-c20a-45c7-9639-c97962947213.png",
+      "sha256": "5122057f961ae4ec25d517572e6f064ee0e71dab1eb4be2f12ee7732b05d9b5b"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "fbf293511c4adb19a75a183f30ea70ea6bdd6e4a759309a5079a91a68021dff0",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "a0e5809b55bdd8464b6d02f71106e5ebaf6788a5380dce195c90a790db6d1553",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T08:17:41.777Z",
+    "note": "Directly inspected overhead feeding close-up: exactly six distinct legs arise in three pairs on thorax, every foot supported on the leaf, two elbowed antennae and tiny mouthparts touch amber liquid. One ant/leaf/drop, stem right, no trail marks or tongue. Whole leaf inset about18–20%."
+  }
+}

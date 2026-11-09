@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-23",
+  "slot": "page-10",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T08:00:02.569Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-0555af2c-8053-411f-8033-77bbcc82599f.png",
+  "sourceSha256": "fa3b99a6943ebe5402dcf6761f64bf9f11718272798114551262b205259e8bb4",
+  "output": "public/guided-reading/world-discovery/d-23/page-10.webp",
+  "outputSha256": "9f7e82ab72921d5be11d27e9b442107a4e846d26bb519889e0a7d5156206fa6f",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Make ONLY this small scientific-symbol edit to the supplied correct circulation schematic. Add EXACTLY THREE small pale-cream oxygen dots in the dark-burgundy UPPER-LEFT chamber (anatomical right atrium) and EXACTLY THREE in the dark-burgundy LOWER-LEFT chamber (anatomical right ventricle). Position them in open dark-red areas without covering the internal white arrow. The right-heart dots must be much fewer than the numerous dots in the bright-red chambers on viewer-right; returning blood still contains some oxygen. Preserve absolutely EVERYTHING ELSE: the exact four external arrows, their correct directions and endpoints, the white-overpass crossing, two internal downward arrows, heart shape, lungs, body, colors, framing and generous blank margins. No dots outside heart, no new arrows or labels. Clean flat 2D diagram.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-f1cbb7e4-da9e-41d5-8bc3-c292f55e43b7.png",
+      "sha256": "e703f24c0cc4e88c057597e4f030eac171f3e584e0770c4faab92058654aafc4"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "53f321fe6f6525dbc7142913453889b170e4387f03930954a85dc6f67239997e",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.513Z",
+    "sha256": "9f7e82ab72921d5be11d27e9b442107a4e846d26bb519889e0a7d5156206fa6f",
+    "note": "Direct inspection: a few pale oxygen dots now remain in both dark-red right chambers, fewer than oxygen-rich left; all four external routes, two internal arrows, crossing overpass and margins preserved.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "bookId": "world-discovery-e-24",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T14:16:03.837Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-2f5bc37e-22da-4f4e-80b2-2a2055a92560.png",
+  "sourceSha256": "714921dc761f9e06579a99ec1cb4334d36fc05f836e38aef41c4415e68e439c1",
+  "output": "public/guided-reading/world-discovery/e-24/page-02.webp",
+  "outputSha256": "18a109ed987e1676e5dc51b120caf5d8a05aa01cfdaa864355731974577304d0",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Landscape1536x1024 UNLETTERED early-reader science diagram, crisp bold continuous dark outlines, solid flat earth colors, restrained cel shadows, no texture/photo/3D rendering. Warmcream background, all essential geometry inside central75percent with generous margins. One simple curved SECTION OF EARTH'S OUTER SHELL and deeper SOLID ROCK. Show a shallow curved cap/wedge, outeredge arcs from(300,420) through(768,300) to(1230,420), broad solidbrown interior extendsdown toflatbasey800. Outermost tanrockshell is THIN, only25pixels thick compared with500pixels deeperrock. Three adjacent plate-sections make up this continuous curvedshell, divided bythin dark radialseams ONLYthroughshell, never floating/apart. Below isuniform solid brownrock, no liquid waves, moltenlake, lava, watery blue or convectionarrows. Two smallorange arrows tangenttooutercurve indicate adjacentplatesslowlymovealongit, no speednumbers. No continents or mapthatcouldbeconfusedwithplateborders; no wholeEarth/core, stars, people, houses or labels. Clearly schematicnear-surface section, solid materialallthrough, notto scale. Entirewedgewholeandfullyvisible within140pixelmargins.",
+  "references": [],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "17528444f6f2269814e9707fa662c0af729daea3afd65b636b1b1d274c6dcea2",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:17:34.589Z",
+    "sha256": "18a109ed987e1676e5dc51b120caf5d8a05aa01cfdaa864355731974577304d0",
+    "note": "Actual PNG and installed WebP directly inspected. Thin segmented outer shell over much deeper solid rock, plate seams confined to shell, tangential movement arrows; no molten ocean or continent/plate conflation, safe margins.",
+    "reviewer": "/root/gap_taxonomy",
+    "limits": "Individual installed image inspection; independent sequence, reader, cards and audio reviewed separately."
+  }
+}

@@ -1,0 +1,1378 @@
+[
+  {
+    "id": "world-discovery-a-21",
+    "number": 21,
+    "title": "The Bus Stop",
+    "topic": "transport",
+    "type": "nonfiction",
+    "appLevel": "A",
+    "level": "A",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "How does one bus carry people between stops?",
+      "progression": "One bus stops; riders leave before new riders board; doors close; the same bus carries its new riders to the next stop.",
+      "synthesis": "A bus links stops by picking people up and letting them off.",
+      "scienceSources": [
+        {
+          "title": "UK Department for Transport: accessible information on bus services",
+          "url": "https://www.gov.uk/government/publications/providing-accessible-information-onboard-local-bus-and-coach-services/providing-accessible-information-onboard-local-bus-and-coach-services",
+          "evidence": "Stops along a bus service allow passengers to board and alight; passenger doors open at stops. This book follows one illustrative route, not a rule that all buses stop at every stop."
+        }
+      ],
+      "factualScope": "One example passenger bus with right-side sliding doors, selected passenger counts and two stops. Do not generalize door design, driving side or request-stop rules to every place."
+    },
+    "setting": "One ordinary modern city bus at two curbside stops on a quiet street in daylight. First stop has a round blue bus-pictogram sign and square planter; second has the same pictogram and a plain bench. Right-side sliding passenger doorway; traffic keeps away from the curbside people. At each stop a continuous raised sidewalk runs along the full length of the bus, including directly beside its passenger doorway. The doorway opens onto the sidewalk, never into a driving lane. Street and pavement use perfectly smooth flat colors without stipple or grain.",
+    "props": [
+      "One long teal single-deck bus with dark navy lower stripe and four visible passenger windows; no brand, route text or numbers",
+      "Driver: adult woman with medium brown skin, short dark hair and plain navy shirt; always in the driver seat",
+      "Two initial passengers: older light-skinned woman with gray bob and plum coat; dark-skinned bearded man with green jacket",
+      "Three boarding adults: brown-skinned woman in yellow blouse with round glasses; light-skinned man with short red hair and gray top; tan-skinned woman with long dark braid and coral top",
+      "Only these six people including the driver; all riders seated while moving; no invented passengers"
+    ],
+    "coverBrief": "The teal bus stands safely at the first curbside stop with its door open. Three adults wait on the sidewalk; the older woman and bearded man are visible seated inside. Driver at the wheel. Clear bus silhouette, no lettering. The sidewalk extends continuously beneath the waiting adults and directly beside the open doorway along the full bus length; no road strip or lane markings separate doorway and sidewalk.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "The bus stops by the sign.",
+        "imageBrief": "Side view of the single teal bus stopped parallel to the first curb, door fully closed. The three specified waiting adults stand behind the curb. Two initial passengers are visible seated through windows. Continuous sidewalk spans the entire length of the bus including the front doorway; its curb is directly beside the bus.",
+        "imageAlt": "A teal bus stops beside a bus sign and three waiting adults.",
+        "pageDescription": "A teal bus stops beside a bus sign and three waiting adults.",
+        "state": "First stop; door closed; two passengers inside, three waiting outside, driver seated.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "The doors slide open.",
+        "imageBrief": "Closer side view of the stopped bus doorway as its two door leaves slide apart. The older woman STANDS upright in the clear aisle inside nearest the exit; the bearded man STANDS behind her. No seat is in the doorway or aisle. Nobody crosses the threshold yet. Three waiting adults stand on the continuous sidewalk, leaving a clear space directly outside the door. The sidewalk runs along the full bus length and directly meets the doorway, with no roadway between them.",
+        "imageAlt": "The bus doors open while the people outside leave room.",
+        "pageDescription": "The bus doors open while the people outside leave room.",
+        "state": "First stop; doorway open; both original riders standing inside in clear aisle; nobody has crossed the threshold; no seat blocks doorway.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Two people get off.",
+        "imageBrief": "The older woman and bearded man are both on the sidewalk just clear of the open doorway, walking away from it. Three waiting adults remain beside the planter. Driver remains seated; empty passenger seats behind her.",
+        "imageAlt": "Two adults step away from the bus while three others wait.",
+        "pageDescription": "Two adults step away from the bus while three others wait.",
+        "state": "Both original passengers have left; three boarding adults still outside; door open.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Three people get on.",
+        "imageBrief": "Show the boarding sequence at one moment: woman with glasses already seated inside, red-haired man moving along the aisle, braided woman stepping through the open doorway. The two former riders are out of frame.",
+        "imageAlt": "Three adults board the bus through its open doorway.",
+        "pageDescription": "Three adults board the bus through its open doorway.",
+        "state": "Exactly three new passengers now in the bus or crossing its threshold; no person remains in queue.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "The doors slide shut.",
+        "imageBrief": "Side view of the closed sliding doorway. All three new passengers are visibly seated; their hands and clothing remain natural. Driver faces forward; first-stop planter still beside the stationary bus.",
+        "imageAlt": "The three passengers sit inside as the bus doors close.",
+        "pageDescription": "The three passengers sit inside as the bus doors close.",
+        "state": "All three passengers seated; doors completely closed; first stop.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "The bus goes to another stop.",
+        "imageBrief": "The bus travels slowly along a clear road between the two stops. All three new passengers and driver remain seated. First-stop planter is behind; second-stop bench is ahead. No open door or standing passenger.",
+        "imageAlt": "The closed bus carries its passengers toward a stop with a bench.",
+        "pageDescription": "The closed bus carries its passengers toward a stop with a bench.",
+        "state": "In transit; door shut; same three passengers and driver; second stop ahead.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "More people get off here.",
+        "imageBrief": "The bus is fully stopped beside the bench with its door open. Woman with glasses and red-haired man stand on the sidewalk after leaving; braided woman remains seated inside. Driver stays seated.",
+        "imageAlt": "Two passengers leave the bus at the next stop.",
+        "pageDescription": "Two passengers leave the bus at the next stop.",
+        "state": "Second stop; two new passengers have left; one passenger remains inside.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "One bus takes people between stops.",
+        "imageBrief": "Wider view of this same bus at the second stop with the two departing adults safely on the sidewalk and braided rider inside. The road leads back toward the small distant first-stop planter. One coherent scene; no duplicated bus or route arrows.",
+        "imageAlt": "The road joins the first stop to the bus and passengers at the next stop.",
+        "pageDescription": "The road joins the first stop to the bus and passengers at the next stop.",
+        "state": "Second stop; one bus, driver and remaining passenger; two people have reached a different stop.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What does this bus do at its stops?",
+        "listenFor": "People get off and on. The bus takes riders from one stop to another."
+      },
+      "visual": {
+        "page": 4,
+        "prompt": "Who is already sitting and who is still getting on?",
+        "lookFor": "The woman with glasses is seated; the man is in the aisle and the braided woman is at the doorway."
+      }
+    },
+    "levelRationale": "Eight short present-tense clauses with one concrete inquiry: How does one bus carry people between stops? The sequence uses directly stated actions or observations, no dialogue or hidden motive. Public A remains a proposed assignment until independent full-text review.",
+    "languagePrep": [
+      {
+        "word": "stop",
+        "meaning": "A place where a bus lets people on or off."
+      },
+      {
+        "word": "between",
+        "meaning": "From one place to another."
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-a-22",
+    "number": 22,
+    "title": "Turn the Globe",
+    "topic": "geography",
+    "type": "nonfiction",
+    "appLevel": "A",
+    "level": "A",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-KIT"
+      ],
+      "topicQuestion": "How can turning a globe reveal the land hidden at its back?",
+      "progression": "A model globe has a visible and hidden side; turning reveals different land; completing one rotation brings the starting land back.",
+      "synthesis": "One globe represents the whole Earth, including the side we cannot see at once.",
+      "scienceSources": [
+        {
+          "title": "NASA JPL: Ocean World Earth Globe Toss Game",
+          "url": "https://www.jpl.nasa.gov/edu/resources/lesson-plan/ocean-world-earth-globe-toss-game/",
+          "evidence": "A globe represents Earth and locates land and water across its surface. Turning the physical model changes the hemisphere visible; this illustration sequence explains the model, not the cause of day and night."
+        }
+      ],
+      "factualScope": "The book concerns a globe as a model. It does not teach that turning a classroom globe causes day/night. Continent outlines and rotation order require direct geographic review; every map must be unmirrored."
+    },
+    "setting": "Bright classroom table with one freely rotating geography globe on a navy stand, axis tilted consistently. Kit stands beside it. Plain pale wall and no other models.",
+    "props": [
+      "One blue-ocean globe with accurately shaped continents in flat green and tan, white polar ice; no country borders, words, place names or longitude labels",
+      "One navy semicircular meridian support and round base; geographic North is consistently at top",
+      "Start view centered on the Americas; then rotate through Pacific, eastern Asia and Africa back to Americas without mirroring or changing coastlines"
+    ],
+    "coverBrief": "Kit gently turns the accurately mapped globe, Americas visible in three-quarter view, one hand on the globe and the other on its navy base. Clear flat-color map contours; no labels.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "This globe shows our Earth.",
+        "imageBrief": "Kit points to the one globe on the table; front view shows North and South America with their recognizable outline and the Atlantic to the right. No miniature towns or oversized mountains.",
+        "imageAlt": "Kit points to a small globe showing land and water.",
+        "pageDescription": "Kit points to a small globe showing land and water.",
+        "state": "Globe on stand; Americas face viewer; Kit points without rotating.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "We see land and blue water.",
+        "imageBrief": "Close view of the same Americas-centered globe. Kit points to green South America; large blue ocean is clearly separated by accurate coasts. His hand does not cover the whole map.",
+        "imageAlt": "Green land and blue ocean cover the front of the globe.",
+        "pageDescription": "Green land and blue ocean cover the front of the globe.",
+        "state": "Same orientation; land and ocean color convention explicit in the image.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Some land hides at the back.",
+        "imageBrief": "View from slightly above and to the side so the spherical shape and unseen curved rear are clear. Kit reaches around behind the globe, with hand on its far side. Keep Americas visible on front; do not use a transparent globe.",
+        "imageAlt": "Kit reaches around to the side of the globe hidden from the front.",
+        "pageDescription": "Kit reaches around to the side of the globe hidden from the front.",
+        "state": "Same globe orientation; far hemisphere occluded by the sphere.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Kit turns the globe slowly.",
+        "imageBrief": "Kit turns the globe in its stand with fingertips at its side, shifting the Americas toward the right edge and revealing more Pacific on the left. The stand and base stay still.",
+        "imageAlt": "Kit turns the globe while its stand stays on the table.",
+        "pageDescription": "Kit turns the globe while its stand stays on the table.",
+        "state": "Globe rotated a quarter-turn toward a Pacific-facing view; physical mount unchanged.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Now we see more land.",
+        "imageBrief": "The same globe is now centered on eastern Asia and Australia with the Pacific toward the right. Kit has stopped turning to look. Map shapes must be geographic, not invented islands or mirrored land.",
+        "imageAlt": "Asia and Australia appear on the turned globe.",
+        "pageDescription": "Asia and Australia appear on the turned globe.",
+        "state": "Opposite hemisphere now visible; Asian and Australian land revealed.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "Kit keeps turning the globe.",
+        "imageBrief": "Kit turns onward, bringing Africa and Europe to the center with Indian Ocean at right and Atlantic at left. Keep Africa correctly oriented and the same base location.",
+        "imageAlt": "Kit turns the globe again and a different stretch of land appears.",
+        "pageDescription": "Kit turns the globe again and a different stretch of land appears.",
+        "state": "Globe passes Africa-centered view on the same rotation.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "The first land comes back.",
+        "imageBrief": "The globe returns exactly to the original Americas-facing orientation from page one. Kit points to South America with recognition; all coast contours match the earlier view.",
+        "imageAlt": "The land seen at the start comes back to the front.",
+        "pageDescription": "The land seen at the start comes back to the front.",
+        "state": "One full rotation complete; original Americas view restored.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "One model shows the whole Earth.",
+        "imageBrief": "Kit holds the same globe on its stand at chest height with one hand supporting the base and one steadying the frame. Full round globe visible; no duplicate or sliced sphere.",
+        "imageAlt": "Kit holds the round model that can be turned to see Earth all around.",
+        "pageDescription": "Kit holds the round model that can be turned to see Earth all around.",
+        "state": "Whole model in view after the completed turn; continents unchanged.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why did Kit turn the globe?",
+        "listenFor": "To see land on the far side; the first land came back after he turned it all the way around."
+      },
+      "visual": {
+        "page": 7,
+        "prompt": "Where did you see this land before?",
+        "lookFor": "The outline matches the Americas-facing opening; the globe has turned back to its starting view."
+      }
+    },
+    "levelRationale": "Eight short present-tense clauses with one concrete inquiry: How can turning a globe reveal the land hidden at its back? The sequence uses directly stated actions or observations, no dialogue or hidden motive. Public A remains a proposed assignment until independent full-text review.",
+    "languagePrep": [
+      {
+        "word": "globe",
+        "meaning": "A round model that shows Earth."
+      },
+      {
+        "word": "model",
+        "meaning": "A smaller object that shows a real thing."
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-a-23",
+    "number": 23,
+    "title": "My Chest Moves",
+    "topic": "human body",
+    "type": "nonfiction",
+    "appLevel": "A",
+    "level": "A",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-ZOE"
+      ],
+      "topicQuestion": "How does a child’s chest change during a normal breath in and out?",
+      "progression": "Hands locate the chest; an inhale expands it and draws air in; an exhale reduces it and lets air out; the final view reconnects chest movement with breathing.",
+      "synthesis": "Chest movement and air moving in and out accompany each normal breath.",
+      "scienceSources": [
+        {
+          "title": "NIH NHLBI: What Breathing Does for the Body",
+          "url": "https://www.nhlbi.nih.gov/health/lungs/breathing-benefits",
+          "evidence": "During quiet inhalation the chest cavity expands and air enters the lungs; on exhalation its volume reduces and air leaves. This book observes the cycle without claiming lungs expand themselves."
+        }
+      ],
+      "factualScope": "One example of quiet nose breathing. Other normal breathing can use the mouth. No exercise, breath-holding, medical diagnosis or claim that lungs expand by their own muscles. Anatomy diagrams must show two lungs connected to one trachea."
+    },
+    "setting": "Zoe stands upright on a plain rug in a bright room, shoulders relaxed. Simple side and front views show quiet normal breathing; optional integrated anatomy cutaway remains educational, modest and diagrammatic.",
+    "props": [
+      "Zoe stays in her usual yellow shirt and plum overalls with both palms gently over her upper chest",
+      "Same paired pink-gray lung shapes and central windpipe in any cutaway; lungs never empty flat bags or detached floating organs",
+      "Expansion is small and natural; shoulders and body do not balloon, shirt never removed"
+    ],
+    "coverBrief": "Zoe with both hands gently resting on her clothed chest, relaxed face and ordinary posture. Plain room and rug; no anatomy cutaway, exposed skin, diagram or arrows on this cover.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "My hands rest on my chest.",
+        "imageBrief": "Front three-quarter view of Zoe with two palms resting flat on her clothed upper chest. Shoulders relaxed, lips closed. No cutaway or motion arrows yet.",
+        "imageAlt": "Zoe rests her hands on the front of her chest.",
+        "pageDescription": "Zoe rests her hands on the front of her chest.",
+        "state": "Quiet resting position; two hands on upper chest; no breath-holding pose.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "I breathe in through my nose.",
+        "imageBrief": "Side view of Zoe at the beginning of a quiet inhalation. One small blue arrow points toward her nostrils without entering her eye or mouth; hands remain on chest. This is a simple breathing diagram in the same room.",
+        "imageAlt": "A small arrow points toward Zoe’s nose as she breathes in.",
+        "pageDescription": "A small arrow points toward Zoe’s nose as she breathes in.",
+        "state": "Inhale begins; mouth relaxed and closed; arrow indicates inward air.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 3,
+        "text": "My chest gets a little bigger.",
+        "imageBrief": "Same side view, slightly expanded ribcage outline beneath clothing. A fine dashed outline marks the previous smaller chest position and two short outward arrows show only a small change. No swollen stomach or huge lungs.",
+        "imageAlt": "Zoe’s chest moves outward a little under her hands.",
+        "pageDescription": "Zoe’s chest moves outward a little under her hands.",
+        "state": "Inhalation; slight chest expansion relative to the previous outline.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 4,
+        "text": "Air goes into my lungs.",
+        "imageBrief": "Modest clothed torso with an integrated transparent window over the chest showing windpipe splitting to both lungs. A blue arrow follows nose to windpipe into each lung. No air going into the stomach.",
+        "imageAlt": "Arrows lead from Zoe’s nose down the windpipe into both lungs.",
+        "pageDescription": "Arrows lead from Zoe’s nose down the windpipe into both lungs.",
+        "state": "Inhalation continues; air pathway nose-windpipe-both lungs.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 5,
+        "text": "I breathe out through my nose.",
+        "imageBrief": "Return to matching side view. One small arrow now points away from Zoe’s nostrils. Her posture remains relaxed; no puffed cheeks or deliberate holding.",
+        "imageAlt": "An arrow points away from Zoe’s nose as she breathes out.",
+        "pageDescription": "An arrow points away from Zoe’s nose as she breathes out.",
+        "state": "Exhalation begins; airflow direction reversed.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 6,
+        "text": "My chest gets a little smaller.",
+        "imageBrief": "Same side view showing chest back to its natural smaller resting outline. Fine dashed former outer outline and small inward arrows indicate the small reduction; hands gently follow the movement.",
+        "imageAlt": "Zoe’s chest moves back inward a little.",
+        "pageDescription": "Zoe’s chest moves back inward a little.",
+        "state": "Exhalation; chest returns toward resting volume.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 7,
+        "text": "Air comes out of my lungs.",
+        "imageBrief": "Use the same integrated clothed-chest window as page four, now lungs slightly smaller but still expanded organs. Arrows lead from both lungs up the windpipe and out through the nose.",
+        "imageAlt": "Arrows lead from Zoe’s lungs up and out through her nose.",
+        "pageDescription": "Arrows lead from Zoe’s lungs up and out through her nose.",
+        "state": "Exhalation continues; lungs remain normal shaped; arrows outward only.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 8,
+        "text": "My chest moves with each breath.",
+        "imageBrief": "Front three-quarter view returns to Zoe on the rug with both hands on chest. Two restrained paired arrows beside the chest show the inward/outward cycle, no arrows on stomach and no duplicate child.",
+        "imageAlt": "Zoe feels her chest move under her hands while she breathes.",
+        "pageDescription": "Zoe feels her chest move under her hands while she breathes.",
+        "state": "Normal breathing cycle continues; ordinary relaxed posture.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What happens to Zoe’s chest as she breathes in and out?",
+        "listenFor": "It gets a little bigger on the breath in and a little smaller on the breath out; air moves into and out of the lungs."
+      },
+      "visual": {
+        "page": 7,
+        "prompt": "Follow the arrows. Is air going in or coming out?",
+        "lookFor": "Arrows go from the lungs up the windpipe and out through the nose."
+      }
+    },
+    "levelRationale": "Eight short present-tense clauses with one concrete inquiry: How does a child’s chest change during a normal breath in and out? The sequence uses directly stated actions or observations, no dialogue or hidden motive. Public A remains a proposed assignment until independent full-text review.",
+    "languagePrep": [
+      {
+        "word": "chest",
+        "meaning": "The front of your body above your belly."
+      },
+      {
+        "word": "lungs",
+        "meaning": "Two parts inside your chest that take in air."
+      },
+      {
+        "word": "breath",
+        "meaning": "One movement of air in or out."
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-a-24",
+    "number": 24,
+    "title": "Ice in a Dish",
+    "topic": "weather and earth",
+    "type": "nonfiction",
+    "appLevel": "A",
+    "level": "A",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-KIT"
+      ],
+      "topicQuestion": "Where does the water around a melting ice cube come from?",
+      "progression": "Observe one cube in a warm room; a wet edge grows as the cube shrinks; no solid ice remains; tilting shows the resulting liquid can flow.",
+      "synthesis": "The ice changes into the water left in the same dish.",
+      "scienceSources": [
+        {
+          "title": "American Chemical Society: Changing State—Melting",
+          "url": "https://www.acs.org/middleschoolchemistry/lessonplans/chapter2/lesson5.html",
+          "evidence": "Room-temperature air and the supporting surface transfer energy to an ice cube and melt it into liquid water. The manuscript observes that change, not evaporation or creation of new water."
+        }
+      ],
+      "factualScope": "One water-ice cube melting in a room above freezing. No rate comparison, exact elapsed time, claim that all solids melt at room temperature, or visible water vapor."
+    },
+    "setting": "A warm indoor room in daylight. One shallow white dish with a teal rim stays on a flat pale table. No added water, hot plate or heat source; the room and table warm the ice.",
+    "props": [
+      "One clear cubical ice piece initially about three centimeters wide",
+      "One shallow round white dish with teal rim and room around the cube",
+      "Kit in locked clothes observes; both hands visible only when setting or tilting the dish",
+      "The amount of remaining ice decreases as its meltwater grows; no new ice appears"
+    ],
+    "coverBrief": "Kit bends to look at one rounded partly melted ice cube sitting in a small puddle inside the teal-rimmed dish. Clear cube, wet rim and interested face; no extra cups or ice.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "The ice rests in a dish.",
+        "imageBrief": "Close three-quarter view of one intact clear cube in the dry center of the white dish. Kit’s two hands have just set the dish down and rest clear of the cube.",
+        "imageAlt": "One square ice cube sits in a shallow dish.",
+        "pageDescription": "One square ice cube sits in a shallow dish.",
+        "state": "One cube; dish initially dry; no poured water.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "This room is warm.",
+        "imageBrief": "Pull back to Kit beside the same dish on the table in a comfortable room. Daylight through a window, ordinary short-sleeved clothing; no fire, direct beam burning the ice or heater touching it.",
+        "imageAlt": "Kit watches the dish on a table in a bright indoor room.",
+        "pageDescription": "Kit watches the dish on a table in a bright indoor room.",
+        "state": "Cube still mostly square; warm indoor setting established.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Water forms around the ice.",
+        "imageBrief": "Close view of the same cube with a thin wet ring forming directly at its base. Corners slightly rounded. No cup, faucet, drops falling from above or condensation puddle elsewhere.",
+        "imageAlt": "A small wet ring appears at the base of the ice.",
+        "pageDescription": "A small wet ring appears at the base of the ice.",
+        "state": "First meltwater ring touches cube; cube mostly intact.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "The ice cube gets smaller.",
+        "imageBrief": "Match previous view but cube is now about half its former height, corners rounded; water spreads farther around it in the same dish. Do not increase dish scale.",
+        "imageAlt": "Less ice remains and more water surrounds it.",
+        "pageDescription": "Less ice remains and more water surrounds it.",
+        "state": "Smaller ice remnant and larger meltwater pool.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "More water spreads across the dish.",
+        "imageBrief": "Overhead close view of a low rounded ice remnant in the broadened shallow puddle. The teal rim remains dry and well above the modest water level; dish is not magically full.",
+        "imageAlt": "A shallow puddle spreads around a small piece of ice.",
+        "pageDescription": "A shallow puddle spreads around a small piece of ice.",
+        "state": "Most original cube melted; water shallow, central remnant small.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "The last ice melts away.",
+        "imageBrief": "Same dish and framing; only liquid now remains where the last remnant was, with no white solid fleck. Kit’s fingertip points beside the rim without touching the water.",
+        "imageAlt": "The dish holds water and no solid ice remains.",
+        "pageDescription": "The dish holds water and no solid ice remains.",
+        "state": "All original ice is now liquid; no extra water added.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "The water flows across the dish.",
+        "imageBrief": "Kit slightly raises one side of the dish using one hand on the near rim and one under the opposite base. Water pools toward the low side inside the dish without spilling.",
+        "imageAlt": "Kit tilts the dish a little and the water moves to its lower side.",
+        "pageDescription": "Kit tilts the dish a little and the water moves to its lower side.",
+        "state": "Dish gently tilted; liquid moves to low side; zero ice.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "The ice is water now.",
+        "imageBrief": "Dish flat on the table again; small clear puddle remains. Kit looks at the place the cube stood; no thought bubbles, duplicate earlier cube, empty dish or evaporation steam.",
+        "imageAlt": "Kit looks at the water left where the ice cube rested.",
+        "pageDescription": "Kit looks at the water left where the ice cube rested.",
+        "state": "Dish level; same meltwater stays in it; starting solid has changed.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Where did the water in the dish come from?",
+        "listenFor": "From the melting ice. Nobody poured water into the dish."
+      },
+      "visual": {
+        "page": 4,
+        "prompt": "What has changed since the first page?",
+        "lookFor": "The ice is smaller and liquid water surrounds it in the same dish."
+      }
+    },
+    "levelRationale": "Eight short present-tense clauses with one concrete inquiry: Where does the water around a melting ice cube come from? The sequence uses directly stated actions or observations, no dialogue or hidden motive. Public A remains a proposed assignment until independent full-text review.",
+    "languagePrep": [
+      {
+        "word": "ice",
+        "meaning": "Water that is frozen hard."
+      },
+      {
+        "word": "melts",
+        "meaning": "Changes from a solid into a liquid."
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-a-25",
+    "number": 25,
+    "title": "Stop the Drum",
+    "topic": "physics and engineering",
+    "type": "nonfiction",
+    "appLevel": "A",
+    "level": "A",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-KIT"
+      ],
+      "topicQuestion": "What happens to a drum’s sound when a hand stops its top moving?",
+      "progression": "A tap starts drumhead movement and sound; a resting palm damps the head; lifting and tapping again restores the sound.",
+      "synthesis": "The moving drumhead makes sound, and damping its movement stops that sound.",
+      "scienceSources": [
+        {
+          "title": "Yamaha Musical Instrument Guide: How sound is produced",
+          "url": "https://www.yamaha.com/en/musical_instrument_guide/drums/mechanism/mechanism003.html",
+          "evidence": "A struck drumhead vibrates and sets air vibrating; damping the head reduces its vibration and sound. The book presents a simple one-head drum, without claiming the surface alone is the complete sound-producing system."
+        }
+      ],
+      "factualScope": "Simple damping demonstration with one taut drumhead. Motion diagrams enlarge tiny fast movement for explanation; the head must not visibly stretch into a giant wave. It is not an assertion that all sound vanishes instantly everywhere."
+    },
+    "setting": "Kit sits beside a single small drum secured on a low stand in a quiet bright music corner. The drum is open at the bottom, with one taut synthetic pale drumhead.",
+    "props": [
+      "One plain red cylindrical drum, cream taut drumhead and navy rim, fixed securely on a low navy stand",
+      "Kit uses his right palm to tap or rest on the head; no stick, mallet, second drum or floating hand",
+      "Small curved motion marks represent quick movement; they are diagrams, never cracks or extra drum skins"
+    ],
+    "coverBrief": "Kit has just tapped the single red drum with his right palm; fingers naturally spread above the cream head. The steady low stand and one clear drum silhouette fill the scene. No written sound effect.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Kit taps the drum.",
+        "imageBrief": "Kit’s right palm is just above the center of the cream head after one gentle tap. Left hand rests on his own knee. Drum and stand stable. One short motion tick at the head; no mallet.",
+        "imageAlt": "Kit taps the top of a small red drum.",
+        "pageDescription": "Kit taps the top of a small red drum.",
+        "state": "First tap made; right hand lifting clear; one drum.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "The top moves up and down.",
+        "imageBrief": "Integrated close-up of the same drumhead, with a connected magnified edge showing a very small up/down movement as a thin dashed outline and two tiny arrows. The actual head remains taut, not a deep bowl or wave.",
+        "imageAlt": "A close-up diagram shows the drum top moving a little up and down.",
+        "pageDescription": "A close-up diagram shows the drum top moving a little up and down.",
+        "state": "Small rapid drumhead movement following the tap; no hand touching head.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 3,
+        "text": "The moving top makes a sound.",
+        "imageBrief": "Wider view of Kit listening beside the same vibrating drum. Short subtle arcs near the drum represent sound spreading into the nearby air; head motion small. No notes, letters or second instrument.",
+        "imageAlt": "Kit listens as sound comes from the moving drum top.",
+        "pageDescription": "Kit listens as sound comes from the moving drum top.",
+        "state": "Drum still sounding after tap; Kit listening, hands clear.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 4,
+        "text": "Kit rests his hand on top.",
+        "imageBrief": "Kit places his open right palm flat across the center of the head, fingers touching naturally and thumb apart; left hand on his knee. Do not press a deep dent into the taut surface.",
+        "imageAlt": "Kit lays one flat hand on the drum top.",
+        "pageDescription": "Kit lays one flat hand on the drum top.",
+        "state": "Right palm contacts head to damp it; no new tap.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "The top stops moving.",
+        "imageBrief": "Close-up of the same flat head beneath Kit’s resting palm. No motion marks, arrows, cracked skin or duplicated fingers. The rim and stand remain identical.",
+        "imageAlt": "The drum top is still beneath Kit’s resting hand.",
+        "pageDescription": "The drum top is still beneath Kit’s resting hand.",
+        "state": "Drumhead damped; right palm stationary on top.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "The sound stops too.",
+        "imageBrief": "Return to Kit’s face and drum; he listens with a small noticing expression, palm resting on head. Quiet background; no sound arcs or written hush symbol.",
+        "imageAlt": "Kit listens beside the quiet drum with his hand still on top.",
+        "pageDescription": "Kit listens beside the quiet drum with his hand still on top.",
+        "state": "Drum quiet; hand remains flat, no other source of sound.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Kit lifts his hand and taps.",
+        "imageBrief": "Kit has lifted his palm and taps once again, same right hand at head center, small motion tick only. Left hand remains on knee; do not show two simultaneous right hands.",
+        "imageAlt": "Kit lifts his hand and gives the drum another tap.",
+        "pageDescription": "Kit lifts his hand and gives the drum another tap.",
+        "state": "Second tap; hand shown at one moment just after contact.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "The drum makes a sound again.",
+        "imageBrief": "Kit’s right hand is now clear of the drum and he listens with a bright expression. Small restrained sound arcs return by the drum; no magically moving stand or written notes.",
+        "imageAlt": "The drum sounds again after Kit’s new tap.",
+        "pageDescription": "The drum sounds again after Kit’s new tap.",
+        "state": "Second tap produces renewed sound; first cause-effect cycle repeated.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "How did Kit stop the drum’s sound?",
+        "listenFor": "He rested his hand on the top and stopped its movement; another tap made it sound again."
+      },
+      "visual": {
+        "page": 5,
+        "prompt": "What is touching the top of the drum?",
+        "lookFor": "Kit’s flat right hand is resting on it; it is not shown tapping or lifting."
+      }
+    },
+    "levelRationale": "Eight short present-tense clauses with one concrete inquiry: What happens to a drum’s sound when a hand stops its top moving? The sequence uses directly stated actions or observations, no dialogue or hidden motive. Public A remains a proposed assignment until independent full-text review.",
+    "languagePrep": [
+      {
+        "word": "drum",
+        "meaning": "An instrument with a tight top you can tap."
+      },
+      {
+        "word": "sound",
+        "meaning": "Something you can hear."
+      },
+      {
+        "word": "rests",
+        "meaning": "Stays still on something."
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-a-26",
+    "number": 26,
+    "title": "The Doorbell",
+    "topic": "technology",
+    "type": "nonfiction",
+    "appLevel": "A",
+    "level": "A",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "topicQuestion": "How can a button outside make a sound inside a home?",
+      "progression": "Locate the outside button; one press sends a wireless signal; the indoor bell sounds, a listener responds, and the ending joins the two separated devices.",
+      "synthesis": "The outside button and indoor bell work together: a press at one place makes a sound at the other.",
+      "scienceSources": [
+        {
+          "title": "Resideo: Portable Wireless Doorbell Installation and Operation Guide",
+          "url": "https://customer.resideo.com/resources/Techlit/TechLitDocuments/33-00000s/33-00185EFS.pdf",
+          "evidence": "A paired pushbutton operates the indoor wireless doorbell; pressing the button tests the connection and produces a chime. The manuscript describes a working paired example and gives no installation instructions."
+        }
+      ],
+      "factualScope": "One functioning pre-paired wireless doorbell. The arrow is a diagram for an invisible signal, not a wire or visible beam. Children do not install, rewire or open electrical devices; an adult is with Zoe at the door."
+    },
+    "setting": "Kit stands outside one teal front door under a small porch. Zoe is inside the ordinary entry hall with an unnamed adult nearby. A white unbranded wireless bell speaker is fixed inside above a low shoe shelf; oval white pushbutton outside at child-reachable height.",
+    "props": [
+      "One teal door with brass lever handle and narrow clear sidelight, identical from both sides",
+      "One oval white exterior button and one rectangular white interior speaker with three horizontal grille slots",
+      "No wires, camera lens, display, app, printed logo or replacement devices",
+      "An unnamed adult woman, medium brown skin, short curly hair, rust-colored plain blouse and navy trousers, stays in the hall beside Zoe"
+    ],
+    "coverBrief": "Kit gently presses the white button beside the teal exterior door. Through the narrow sidelight Zoe and the adult can be seen in the hall. No cutaway, sound lettering or extra devices.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Kit stands outside the door.",
+        "imageBrief": "Exterior view of Kit waiting under the porch beside the closed teal door. Oval button fixed beside the handle-side jamb, within reach; hands at his sides. Zoe and adult only softly visible through narrow sidelight.",
+        "imageAlt": "Kit waits beside a closed front door.",
+        "pageDescription": "Kit waits beside a closed front door.",
+        "state": "Door closed; Kit outside; Zoe and adult inside; button not pressed.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Kit sees the small button.",
+        "imageBrief": "Closer exterior view shows the oval white button on the wall beside Kit. Kit looks at it with hands clear; no new bell hanging outside and no door opening.",
+        "imageAlt": "Kit looks at the small white button beside the door.",
+        "pageDescription": "Kit looks at the small white button beside the door.",
+        "state": "Button located; still unpressed; door closed.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Kit taps the button once.",
+        "imageBrief": "Kit presses the center of the oval button with one index fingertip; one correctly attached hand, other arm relaxed. Teal door still closed and standing posture natural.",
+        "imageAlt": "Kit touches the button with one finger.",
+        "pageDescription": "Kit touches the button with one finger.",
+        "state": "One press of paired wireless button; no open door.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "The button sends a signal.",
+        "imageBrief": "One integrated cutaway through the doorway wall connects the physical outside button to the indoor speaker. A thin dashed arrow crosses from button toward speaker, representing the invisible wireless message. Kit outside, Zoe and adult inside; one door/wall and no magical glow or visible wire.",
+        "imageAlt": "A diagram arrow links the outside button with the bell inside.",
+        "pageDescription": "A diagram arrow links the outside button with the bell inside.",
+        "state": "Signal represented diagrammatically from exterior button to indoor speaker.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 5,
+        "text": "The bell rings inside.",
+        "imageBrief": "Interior hall view: rectangular white speaker above shelf has two small sound arcs, no letters or musical notes. Zoe turns her head toward it; adult stands near her. Door remains closed.",
+        "imageAlt": "Zoe hears the indoor bell above the shoe shelf.",
+        "pageDescription": "Zoe hears the indoor bell above the shoe shelf.",
+        "state": "Indoor bell sounding after press; Zoe and adult both inside.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 6,
+        "text": "Zoe hears the sound.",
+        "imageBrief": "Closer view of Zoe looking from the speaker toward the teal door, adult beside her. The same speaker remains fixed on the wall. Kit not visible through wall.",
+        "imageAlt": "Zoe looks toward the door after hearing the bell.",
+        "pageDescription": "Zoe looks toward the door after hearing the bell.",
+        "state": "Zoe recognizes the bell; door not yet opened.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Zoe opens the door.",
+        "imageBrief": "Zoe opens the teal door inward using the brass lever with one hand; adult stands immediately beside her. Kit remains outside the threshold with both hands down. Hinge side and sidelight consistent.",
+        "imageAlt": "Zoe opens the door with an adult beside her and sees Kit.",
+        "pageDescription": "Zoe opens the door with an adult beside her and sees Kit.",
+        "state": "Door open; Zoe and supervising adult inside; Kit outside.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "The button makes the bell ring.",
+        "imageBrief": "One integrated cutaway of the same entrance with Kit’s fingertip near the outside button and Zoe pointing to the indoor speaker from inside; adult nearby. A thin arrow shows the button-to-bell connection. Door now open; this summarizes the mechanism without a second simultaneous press or duplicated children.",
+        "imageAlt": "The outside button and inside bell are linked in one cutaway view.",
+        "pageDescription": "The outside button and inside bell are linked in one cutaway view.",
+        "state": "Connection summarized after greeting; devices remain in original positions.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Where is the button and where does the sound come from?",
+        "listenFor": "The button is outside; the paired bell makes the sound inside."
+      },
+      "visual": {
+        "page": 4,
+        "prompt": "Which way does the arrow go?",
+        "lookFor": "From the outside button to the bell inside; it shows the message and is not a real visible wire."
+      }
+    },
+    "levelRationale": "Eight short present-tense clauses with one concrete inquiry: How can a button outside make a sound inside a home? The sequence uses directly stated actions or observations, no dialogue or hidden motive. Public A remains a proposed assignment until independent full-text review.",
+    "languagePrep": [
+      {
+        "word": "doorbell",
+        "meaning": "A bell that tells people someone is at the door."
+      },
+      {
+        "word": "signal",
+        "meaning": "A message sent from one thing to another."
+      },
+      {
+        "word": "inside",
+        "meaning": "On the other side of the door in the home."
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-a-27",
+    "number": 27,
+    "title": "Popcorn Pops",
+    "topic": "food and making",
+    "type": "nonfiction",
+    "appLevel": "A",
+    "level": "A",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "How does a small popcorn seed become a large puffy piece?",
+      "progression": "Observe one hard popcorn kernel before heating; follow heating, coat splitting and the inside expanding; compare the starting size with the popped result.",
+      "synthesis": "One small popcorn kernel can become one much larger puffy piece when heated.",
+      "scienceSources": [
+        {
+          "title": "American Chemical Society: The Secret Science of Popcorn",
+          "url": "https://www.acs.org/education/whatischemistry/adventures-in-chemistry/secret-science-stuff/popcorn.html",
+          "evidence": "Popcorn is a special corn type; not all corn pops. A popped kernel expands greatly. The book follows that observable transformation without an unsupported exact expansion ratio."
+        },
+        {
+          "title": "American Chemical Society: Popcorn science sheet",
+          "url": "https://www.acs.org/content/dam/acsorg/education/whatischemistry/adventuresinchemistry/secretscience/popcorn/secretscience-popcorn.pdf",
+          "evidence": "Heating a suitable kernel produces internal pressure, breaks its outer layer and expands softened starch into the familiar popped piece. The A manuscript describes the visible sequence rather than claiming a complete molecular explanation."
+        }
+      ],
+      "factualScope": "One successfully popped popcorn kernel, not all corn or every kernel. Adult operates the popper; no eating instruction or child handling hot food. Magnification and before/after diagrams must be clear; no specific unverified time or volume ratio."
+    },
+    "setting": "An adult-operated clear-lidded electric popcorn popper on a kitchen counter. Only the adult handles the hot machine. Magnified kernel views are declared teaching diagrams, not a giant real seed.",
+    "props": [
+      "One unbranded red electric popper with clear lid, short guarded chute and white receiving bowl",
+      "Adult operator: light-brown skin, short dark hair, plain teal top and navy trousers; no children near hot machine",
+      "One featured golden teardrop-shaped popcorn kernel among a small normal batch; its brown pointed base is the identifying teaching feature",
+      "Final popped piece has cream irregular lobes and small brown hull remains; no candy, eyes, mouth or miniature plant"
+    ],
+    "coverBrief": "A white bowl holds freshly popped plain popcorn beside the closed red popper. The adult stands back with hands clear. A few cream puffy pieces show small golden-brown hull remains. No diagram, steam cloud or lettering.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "This is a popcorn seed.",
+        "imageBrief": "One small golden popcorn kernel lies in the adult’s open palm beside the unheated popper. Its hard teardrop shape and brown point are clear; normal scale relative to the hand. Other batch kernels remain in a small cup behind.",
+        "imageAlt": "An adult shows one hard yellow popcorn seed.",
+        "pageDescription": "An adult shows one hard yellow popcorn seed.",
+        "state": "Unheated intact featured kernel; normal-scale comparison with adult hand.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "It has a hard coat.",
+        "imageBrief": "Magnified close-up of the featured intact kernel, smooth golden hull and small brown point clear. A small natural-scale kernel on the counter remains connected by a magnification leader, not another story event. No internal cutaway yet.",
+        "imageAlt": "A magnified view shows the hard outside of the popcorn seed.",
+        "pageDescription": "A magnified view shows the hard outside of the popcorn seed.",
+        "state": "Featured seed intact; magnification shows outer coat only.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 3,
+        "text": "An adult heats the seed.",
+        "imageBrief": "Adult has loaded the featured kernel with a small normal batch into the red electric popper and turns on its plain switch. Clear lid is secured; hands outside the machine; bowl below chute.",
+        "imageAlt": "An adult turns on the closed popcorn popper.",
+        "pageDescription": "An adult turns on the closed popcorn popper.",
+        "state": "Popper operating with closed lid; all kernels still unpopped.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "The seed gets hot inside.",
+        "imageBrief": "Integrated close-up of the featured kernel inside the guarded heating chamber. A restrained warm-color halo around the kernel indicates heating; no fire, lightning, numbers or visible liquid pool. Hull remains whole.",
+        "imageAlt": "The kernel warms inside the covered popper.",
+        "pageDescription": "The kernel warms inside the covered popper.",
+        "state": "Kernel heated, not yet burst; internal change not drawn as a miniature cooked meal.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 5,
+        "text": "The hard coat splits open.",
+        "imageBrief": "Magnified single kernel at the first split: one opening in the golden hull and a small amount of pale soft inside emerging. Brown point remains at the base; not fully popped yet.",
+        "imageAlt": "The hard outside of the heated seed begins to split.",
+        "pageDescription": "The hard outside of the heated seed begins to split.",
+        "state": "Hull first breaks; expansion begins at one split.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 6,
+        "text": "The soft inside puffs out.",
+        "imageBrief": "Same magnified kernel at a later point: cream irregular lobes expand out through the broken hull; small golden fragments stay attached near the brown base. One connected piece only.",
+        "imageAlt": "The pale inside expands out through the broken seed coat.",
+        "pageDescription": "The pale inside expands out through the broken seed coat.",
+        "state": "Starch expanded; hull fragments attached; single featured piece.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 7,
+        "text": "The puffy piece is much bigger.",
+        "imageBrief": "Featured popped piece now lies in the receiving bowl near other ordinary pieces, with a precise comparison inset showing its original small kernel silhouette beside it at the same scale. Only this authored before/after comparison; no written size ratio.",
+        "imageAlt": "A before-and-after comparison shows the popped piece is bigger than its seed.",
+        "pageDescription": "A before-and-after comparison shows the popped piece is bigger than its seed.",
+        "state": "Expanded result; scale comparison explicitly two stages of the featured seed.",
+        "embeddedImageText": "",
+        "imageLayout": "comparison-diagram"
+      },
+      {
+        "pageNumber": 8,
+        "text": "One small seed makes one piece.",
+        "imageBrief": "Clean two-stage comparison: original golden kernel at left and the single cream popped result at right, same scale and aligned brown base; one narrow arrow between. Adult and popper absent from this explanatory closing diagram.",
+        "imageAlt": "A small popcorn seed and its larger popped form are shown side by side.",
+        "pageDescription": "A small popcorn seed and its larger popped form are shown side by side.",
+        "state": "Two views of one seed before and after popping; no claim every kernel pops.",
+        "embeddedImageText": "",
+        "imageLayout": "comparison-diagram"
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What changes when this popcorn seed pops?",
+        "listenFor": "Its coat splits and the inside expands into a bigger puffy piece."
+      },
+      "visual": {
+        "page": 7,
+        "prompt": "Which shape shows the seed before it pops?",
+        "lookFor": "The small golden shape; the large cream shape is its popped result, both shown at the same scale."
+      }
+    },
+    "levelRationale": "Eight short present-tense clauses with one concrete inquiry: How does a small popcorn seed become a large puffy piece? The sequence uses directly stated actions or observations, no dialogue or hidden motive. Public A remains a proposed assignment until independent full-text review.",
+    "languagePrep": [
+      {
+        "word": "popcorn",
+        "meaning": "A kind of corn with seeds that can pop."
+      },
+      {
+        "word": "coat",
+        "meaning": "The hard outside of the seed."
+      },
+      {
+        "word": "puffs",
+        "meaning": "Gets bigger as it opens out."
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-a-28",
+    "number": 28,
+    "title": "The Ant Trail",
+    "topic": "animals and habitats",
+    "type": "nonfiction",
+    "appLevel": "A",
+    "level": "A",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "How can a scent trail help other ants reach food?",
+      "progression": "A garden ant finds sweet liquid and returns while laying scent; the text states that scent is invisible; a diagram shows how recruits follow the route and reach food.",
+      "synthesis": "A scent trail can guide these ants from their nest to a food source.",
+      "scienceSources": [
+        {
+          "title": "Czaczkes and colleagues: Ant foraging on complex trails, Journal of Experimental Biology",
+          "url": "https://journals.biologists.com/jeb/article-pdf/216/2/188/1912704/188.pdf",
+          "evidence": "Lasius niger uses both route memories and chemical trails during foraging. Scent deposited during return trips can guide nestmates to a food source; the book shows one successful trail-following example, not a claim of perfect navigation or exclusive scent use."
+        }
+      ],
+      "factualScope": "Lasius niger workers following a successful chemical food trail. Not all ant species use this strategy, and these ants also use memory. Colored dots only depict invisible scent; accurate six-leg and antenna attachment is mandatory."
+    },
+    "setting": "Macro view of black garden ants, Lasius niger, on a short natural route between a small soil nest entrance and a drop of sugary liquid on a fallen leaf. One pebble bends the route slightly. No child scatters food.",
+    "props": [
+      "Black garden ant workers with six legs attached to the middle body section, two elbowed antennae, narrow waist and rounded abdomen; no clothing or facial smiles",
+      "One pale green fallen leaf supporting one small clear amber sweet-liquid drop; drop decreases slightly during feeding",
+      "One round dark nest opening in soil at the left and leaf at the right, with one pale pebble between",
+      "A thin dotted amber route represents invisible scent only on declared diagram pages; it is not a visible painted track, web or glowing physical trail"
+    ],
+    "coverBrief": "A close view of three natural black garden ants following a curve around the small pebble toward the fallen leaf and its sweet drop. Six legs per ant, correct body segments, no diagram trail or lettering.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "One ant finds a sweet drop.",
+        "imageBrief": "Elevated three-quarter macro view of one black garden ant approaching the clear amber drop on the fallen leaf. Nest entrance lies far left and pebble between; no other ants or scent marks yet.",
+        "imageAlt": "One ant reaches a small sweet drop on a leaf.",
+        "pageDescription": "One ant reaches a small sweet drop on a leaf.",
+        "state": "First ant at food; drop whole; no shown scent trail.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "The ant drinks some food.",
+        "imageBrief": "Close view of the ant’s mouthparts at the edge of the sweet liquid drop, six feet supported on the leaf and two antennae forward. No tongue like a mammal, straw or food carried in hands.",
+        "imageAlt": "The ant feeds at the edge of the drop.",
+        "pageDescription": "The ant feeds at the edge of the drop.",
+        "state": "Ant feeding on liquid; drop slightly reduced.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "It walks back to the nest.",
+        "imageBrief": "The same ant walks leftward from leaf toward the nest around the fixed pebble. Abdomen and antennae correctly oriented; no carried crumb because food is liquid.",
+        "imageAlt": "The ant walks past the pebble toward its nest.",
+        "pageDescription": "The ant walks past the pebble toward its nest.",
+        "state": "Return journey; leaf right, nest left; ant halfway between.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "It leaves a scent trail.",
+        "imageBrief": "Integrated diagram of the ant nearing the nest, with a thin dotted amber route following its path back toward the leaf. One magnified leader points to abdomen close to ground; no dripping paint or smoke. Dots are diagram marks for invisible scent.",
+        "imageAlt": "A diagram marks the scent route left between the leaf and the nest.",
+        "pageDescription": "A diagram marks the scent route left between the leaf and the nest.",
+        "state": "Returning ant deposits scent along its traversed route; not a visible physical substance.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 5,
+        "text": "We cannot see the scent.",
+        "imageBrief": "Natural macro view of the fixed route between nest and leaf. The first ant is near the nest; three workers wait just inside its entrance. No dotted trail, colored marks, glow or scent cloud is visible anywhere. The same pebble and fallen leaf keep the route recognizable.",
+        "imageAlt": "The ground has no visible colored trail between the nest and leaf.",
+        "pageDescription": "The ground has no visible colored trail between the nest and leaf.",
+        "state": "Scent exists but is invisible; three recruits near nest, not yet at food.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "More ants follow the scent.",
+        "imageBrief": "Integrated teaching diagram: three workers leave the nest and walk rightward around the same pebble along a thin dotted amber route. The colored dots are a diagram of the invisible scent explained on page five. Original ant remains near nest. Six legs per ant and antennae forward.",
+        "imageAlt": "A diagram marks the route followed by ants moving toward the leaf.",
+        "pageDescription": "A diagram marks the route followed by ants moving toward the leaf.",
+        "state": "Three recruits travel toward food; dotted route is an explanatory overlay only.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 7,
+        "text": "They find the sweet drop.",
+        "imageBrief": "Natural macro scene of the three recruits arriving at the same fallen leaf. Their antennae and mouthparts face the clear amber sweet drop. No dotted route in this scene, no extra leaf and no ant hands or clothing.",
+        "imageAlt": "Three ants arrive at the sweet drop on the leaf.",
+        "pageDescription": "Three ants arrive at the sweet drop on the leaf.",
+        "state": "Three recruited ants reach food; natural scene without diagram dots.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "The trail leads ants to food.",
+        "imageBrief": "Wider integrated route diagram showing the nest at left, pebble and leaf at right. One ant travels outward and another returns on the same thin dotted scent path; no arrows suggesting all ants move only one way.",
+        "imageAlt": "The diagram connects the ants’ nest with the food on the leaf.",
+        "pageDescription": "The diagram connects the ants’ nest with the food on the leaf.",
+        "state": "Route links nest and food; both directions shown by ant orientation.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "How do the other ants find the sweet drop in this book?",
+        "listenFor": "They follow scent left on the route by another ant. These ants can also use other clues; this example focuses on scent."
+      },
+      "visual": {
+        "page": 6,
+        "prompt": "Where are these ants going?",
+        "lookFor": "Away from the nest toward the leaf; their antennae face toward the food end of the route. The colored dots show an invisible scent."
+      }
+    },
+    "levelRationale": "Eight short present-tense clauses with one concrete inquiry: How can a scent trail help other ants reach food? The sequence uses directly stated actions or observations, no dialogue or hidden motive. Public A remains a proposed assignment until independent full-text review.",
+    "languagePrep": [
+      {
+        "word": "scent",
+        "meaning": "A smell an ant can follow."
+      },
+      {
+        "word": "trail",
+        "meaning": "A path from one place to another."
+      },
+      {
+        "word": "nest",
+        "meaning": "The place where these ants live together."
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-a-29",
+    "number": 29,
+    "title": "Two Equal Pieces",
+    "topic": "everyday knowledge",
+    "type": "nonfiction",
+    "appLevel": "A",
+    "level": "A",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-ZOE"
+      ],
+      "topicQuestion": "How can folding and matching show that two pieces are halves of one strip?",
+      "progression": "One strip is folded with ends meeting, creased and cut on the fold by an adult; overlapping the two pieces checks their equal size.",
+      "synthesis": "Two equal pieces together make the original strip, and each is half.",
+      "scienceSources": [
+        {
+          "title": "University of Cambridge NRICH: Two Halves",
+          "url": "https://nrich.maths.org/eyfs-activities/two-halves",
+          "evidence": "Halving divides a whole into two equal parts; folding and matching are valid early ways to check equality. This book uses congruent rectangular halves, without claiming all equal-area halves must have the same shape."
+        }
+      ],
+      "factualScope": "This rectangular strip is split into two congruent halves. Equal-area halves need not always have matching shapes; no general claim beyond this example. Adult handles the scissors."
+    },
+    "setting": "Zoe at a pale classroom craft table with one plain red rectangular paper strip. An adult assists with scissors. Top-down close views retain fixed paper proportions.",
+    "props": [
+      "One plain red strip initially 24 units long by 6 units wide, no printed ruler or measurement labels",
+      "Folding across the midpoint makes exactly two congruent 12-by-6 rectangles; no third scrap",
+      "Adult helper: dark-brown skin, short cropped hair, plain blue long-sleeved top; only one pair of blunt craft scissors",
+      "One pair of scissors is operated by the adult only; Zoe keeps her hands clear of blades"
+    ],
+    "coverBrief": "Zoe holds two matching red paper rectangles side by side above the table, each half of the original long strip. Both pieces equal in width and length; no writing or extra paper scraps.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Zoe has one long paper strip.",
+        "imageBrief": "Overhead angled view of Zoe’s two hands resting beside one flat red 4:1 rectangular strip on the table. No scissors or extra paper pieces yet.",
+        "imageAlt": "One long red strip lies on the table in front of Zoe.",
+        "pageDescription": "One long red strip lies on the table in front of Zoe.",
+        "state": "One whole uncreased strip; long edges horizontal.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "She folds one end across.",
+        "imageBrief": "Zoe lifts the right half of the strip toward the left with two hands, beginning a fold at the exact midpoint. Show one continuous bent strip, no detached second piece.",
+        "imageAlt": "Zoe brings one end of the strip over toward the other.",
+        "pageDescription": "Zoe brings one end of the strip over toward the other.",
+        "state": "Whole strip bending at center; ends not yet fully aligned.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "The two short ends meet.",
+        "imageBrief": "Close top-down view with the right short edge aligned exactly over the left short edge. Both layers same size; fingers hold the corners lightly. Midpoint loop still rounded.",
+        "imageAlt": "The two ends line up exactly after Zoe folds the strip.",
+        "pageDescription": "The two ends line up exactly after Zoe folds the strip.",
+        "state": "Ends and corners aligned; folded edges coincide.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "She presses the fold flat.",
+        "imageBrief": "Zoe holds aligned layers with one hand and smooths the center fold with the other. Clear two-layer 2:1 folded rectangle, no extra marks or paper.",
+        "imageAlt": "Zoe presses the bend into a straight crease.",
+        "pageDescription": "Zoe presses the bend into a straight crease.",
+        "state": "Crease set at exact midpoint; ends still aligned.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "An adult cuts along the fold.",
+        "imageBrief": "Adult helper opens the strip flat and cuts along the visible center crease with one pair of blunt scissors. One hand operates handles, the other holds paper clear of blades; Zoe’s hands rest away. Show one moment near finishing the straight center cut.",
+        "imageAlt": "An adult cuts the strip along its middle crease.",
+        "pageDescription": "An adult cuts the strip along its middle crease.",
+        "state": "One original strip being divided exactly at midpoint; no third offcut.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "Zoe puts one piece on top.",
+        "imageBrief": "Two separate equal red rectangles: Zoe lowers one directly onto the other, aligning a corner. Slight vertical separation lets both layers be distinguished; no unequal trimming.",
+        "imageAlt": "Zoe places one red piece over the other to compare them.",
+        "pageDescription": "Zoe places one red piece over the other to compare them.",
+        "state": "Exactly two congruent halves; one stacked on the other.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "The edges match all around.",
+        "imageBrief": "Close view of two stacked red rectangles with every edge aligned. A tiny visible double-thickness edge confirms two sheets; no wider hidden bottom piece or offset corner. Zoe points beside the edge.",
+        "imageAlt": "The two paper pieces fit exactly on top of each other.",
+        "pageDescription": "The two paper pieces fit exactly on top of each other.",
+        "state": "Both pieces overlap exactly; equality demonstrated.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "Each piece is half the strip.",
+        "imageBrief": "Zoe places the two equal rectangles edge-to-edge to recreate the original long red rectangle. The straight meeting line remains visible at its center; one hand lightly points to each half.",
+        "imageAlt": "Two matching halves fit together into the original long strip.",
+        "pageDescription": "Two matching halves fit together into the original long strip.",
+        "state": "Two equal parts reconstruct the original whole with no gap or overlap.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "How does Zoe check that the two pieces are equal?",
+        "listenFor": "She places one over the other and their edges match. Each is half of the starting strip."
+      },
+      "visual": {
+        "page": 8,
+        "prompt": "How many equal pieces make the long strip?",
+        "lookFor": "Two equal rectangles meet along one edge to make the original strip."
+      }
+    },
+    "levelRationale": "Eight short present-tense clauses with one concrete inquiry: How can folding and matching show that two pieces are halves of one strip? The sequence uses directly stated actions or observations, no dialogue or hidden motive. Public A remains a proposed assignment until independent full-text review.",
+    "languagePrep": [
+      {
+        "word": "equal",
+        "meaning": "The same amount or size."
+      },
+      {
+        "word": "half",
+        "meaning": "One of two equal parts."
+      },
+      {
+        "word": "fold",
+        "meaning": "Bend paper over onto itself."
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-a-30",
+    "number": 30,
+    "title": "The Bag in the Wind",
+    "topic": "space and environment",
+    "type": "nonfiction",
+    "appLevel": "A",
+    "level": "A",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "How can a loose bag move from a street into a stream?",
+      "progression": "Follow one empty bag from a street, across grass, briefly onto a branch, then into a stream; wind and flowing water move it through different places.",
+      "synthesis": "Wind and moving water can carry loose litter away from the place it was left.",
+      "scienceSources": [
+        {
+          "title": "U.S. Environmental Protection Agency: Learn About Aquatic Trash",
+          "url": "https://www.epa.gov/trash-free-waters/learn-about-aquatic-trash",
+          "evidence": "Loose litter can be carried by wind and water from land into streams and rivers. This book follows one illustrative route, without claiming every item takes that route or reaches the ocean."
+        }
+      ],
+      "factualScope": "One possible litter journey in specific wind and stream conditions. Not all plastic floats forever or reaches the sea. No removal, harm or moral claim is added in place of the physical explanation."
+    },
+    "setting": "One ordinary street beside a grassy verge that slopes gently to a small open stream. Breezy dry daylight. A low bare branch reaches over the grass near the bank; no storm drain or sewer is implied.",
+    "props": [
+      "One empty pale yellow plastic shopping bag with two integral loop handles, a small triangular notch at its lower right corner and no logo",
+      "One continuous route from gray street at left across green verge to stream at right, flowing left to right in the final views",
+      "Same low thin branch with two forks catches one bag handle briefly; branch does not move between frames",
+      "No animal entangled in the bag, no littering child, no additional bags or transformation into an animal"
+    ],
+    "coverBrief": "The single pale yellow empty bag lifts over the grass on a gust, street behind and a small stream ahead. Clear two loop handles and tiny notch maintain identity; no added flying trash or written message.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "A bag lies by the street.",
+        "imageBrief": "Wide low view of the empty yellow bag lying on the verge beside the gray curb. Two loop handles, small corner notch and flattened bag body clear. Stream visible far right; no person discarding it.",
+        "imageAlt": "An empty yellow bag lies on the grass beside a street.",
+        "pageDescription": "An empty yellow bag lies on the grass beside a street.",
+        "state": "Bag flat near street; route and stream established; no movement yet.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "The wind lifts the empty bag.",
+        "imageBrief": "The bag rises a little above the grass, its empty sides opened by air. Grass blades lean in the same rightward breeze; no hand, string or invisible character holding it.",
+        "imageAlt": "A gust raises the empty bag from the ground.",
+        "pageDescription": "A gust raises the empty bag from the ground.",
+        "state": "Bag lifted by rightward gust; original street behind.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "The bag blows across the grass.",
+        "imageBrief": "The same bag travels rightward midway over the verge toward the low branch. Both handles trail left; the small notch remains on the same lower corner, not mirrored.",
+        "imageAlt": "The bag moves over the grass toward a low branch.",
+        "pageDescription": "The bag moves over the grass toward a low branch.",
+        "state": "Bag farther from street and closer to branch; still airborne.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "It catches on a low branch.",
+        "imageBrief": "Exactly one loop handle is caught around the end of the same low branch; bag body hangs on the stream side and billows slightly. Branch has two forks, no new thorn or hook.",
+        "imageAlt": "One bag handle catches on the end of the branch.",
+        "pageDescription": "One bag handle catches on the end of the branch.",
+        "state": "One handle caught; bag temporarily stationary above grass.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "The wind pulls the bag free.",
+        "imageBrief": "The loop has slipped off the smooth branch tip in a new gust; bag now just beyond the branch above the sloping bank. Show intact handle and no torn extra piece.",
+        "imageAlt": "The bag slips off the branch and moves toward the water.",
+        "pageDescription": "The bag slips off the branch and moves toward the water.",
+        "state": "Bag released; unchanged intact identity; near stream edge.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "It falls into the stream.",
+        "imageBrief": "Bag lands partly on the shallow flowing stream surface beside the bank. Body still holds some air, one edge touching water with tiny ripples; no creature beneath it or new deep ocean.",
+        "imageAlt": "The yellow bag lands in the stream.",
+        "pageDescription": "The yellow bag lands in the stream.",
+        "state": "Bag now in water; street and branch behind on bank.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "The stream carries the bag away.",
+        "imageBrief": "Wider downstream view shows the same partly floating bag moving rightward past two bank stones. Ripples and grass direction align; the catching branch is now farther behind.",
+        "imageAlt": "Flowing water carries the bag along the stream.",
+        "pageDescription": "Flowing water carries the bag along the stream.",
+        "state": "Bag transported downstream by flowing water; no change into sinking rock.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "Wind and water can move trash.",
+        "imageBrief": "One coherent wide landscape joins distant street at left, grass and branch in middle, stream with the single bag farther right. No repeated bags, montage or map. The final position visibly differs from the first.",
+        "imageAlt": "The street and branch lie behind the bag as it travels down the stream.",
+        "pageDescription": "The street and branch lie behind the bag as it travels down the stream.",
+        "state": "The original bag is now downstream; whole continuous route in view.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What moves the bag in different parts of this book?",
+        "listenFor": "Wind moves it across the grass; flowing water carries it along the stream."
+      },
+      "visual": {
+        "page": 8,
+        "prompt": "Where is the bag now compared with the first page?",
+        "lookFor": "The one bag has reached the stream, farther from the street where it began."
+      }
+    },
+    "levelRationale": "Eight short present-tense clauses with one concrete inquiry: How can a loose bag move from a street into a stream? The sequence uses directly stated actions or observations, no dialogue or hidden motive. Public A remains a proposed assignment until independent full-text review.",
+    "languagePrep": [
+      {
+        "word": "wind",
+        "meaning": "Moving air."
+      },
+      {
+        "word": "stream",
+        "meaning": "Water flowing along a small channel."
+      },
+      {
+        "word": "trash",
+        "meaning": "Things people throw away."
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-e-23",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:38:35.599Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-5e751549-ebb4-4815-8d1c-aca736612cd6.png",
+  "sourceSha256": "a162e0826c79be20708046bd1faa153249243c28e911322f4346381c4f522e79",
+  "output": "public/guided-reading/world-discovery/e-23/page-03.webp",
+  "outputSha256": "90b420e3b6b3702d7265a80814a0240a8416c0974c448de65d44066f48f28511",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit exact Zoe head scientific diagram with two precise corrections. Uniformly shrink ENTIRE head/shoulders/anatomy composition to80percent and recenter on warmcream canvas so topbun and bottomshirt bothatleast120pixels fromcanvas edges. Remove the stray ORANGEstripe through blackhair ABOVE the translucentbrainwindow: fill that strip with matchingblackhair, preserving cleanhairoutline. Keep the actual yellow eye-to-brain path INSIDEhead exactly unchanged, including its rightward/upward arrowheads andposterior endpoint; nervebeginsbackofeye. No newobjects/labels, no neckroute. Keepanatomy,colorsandtwo puffbuns.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-bb2eff1a-8a36-44e1-a024-4a51cb691959.png",
+      "sha256": "e417b830c4536bfb75736f739d01ffe518f67b4e9ceb26cb74c1eaaffca3b153"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "1b0de6058b2611192f79942f4ecd03b97dc9da569d20816897fdbc11f5ab098a",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.557Z",
+    "sha256": "90b420e3b6b3702d7265a80814a0240a8416c0974c448de65d44066f48f28511",
+    "note": "Actual PNG and WebP inspected: optic route begins behind eye and enters brain, posterior direction clear, no spinal detour, removed stray hair mark, wide margins.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

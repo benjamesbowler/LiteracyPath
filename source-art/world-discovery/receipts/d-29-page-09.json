@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-29",
+  "slot": "page-09",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:04:28.812Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-113b71a9-ed89-4fe9-a50d-d2c4addae02c.png",
+  "sourceSha256": "ebbef99f931a9ff493cb68c8ecfab6f111e327842b4ff1f62a1ed1f75f2752de",
+  "output": "public/guided-reading/world-discovery/d-29/page-09.webp",
+  "outputSha256": "8d7fc3e388dfe6f4ff2440c271abaeb7bbe8239e37b16d510fcac25a201b3dbc",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. Purchase complete in same1536x1024 classroom pretend shop, exact Kit left and Zoe right, equal height/canonicalclothing. Kit now holds the ONE orange ball with both natural hands against his torso on LEFT. On counter on ZOE'S RIGHT SIDE, she has received exactly SIX pale-green rectangular play notes, each with centered dark1, laid in TWO ROWS OF THREE so all six notes/numerals fully visible and not overlapping. Zoe's right hand rests beside row, left points at received notes. Empty clear jar on LEFT tabletop in front of Kit, visibly no money inside. No notes on Kit's side, no remaining shop ball, no extra coins/change/price tags. Table width and children scaled to central70%, all hair/feet/tablelegs at least150px fromcanvas edges. Exact reference character faces/colors, natural hands/twoarms each. Clean bold outlines flat2D, no textures; only lettering six1s.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-57770a94-41a5-4a33-b360-169aa9a9befa.png",
+      "sha256": "401d249ec64b34e8cccbcfbd81922cfd2ac03582456497f3eca2c4ca0452ae02"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "13c2a4841f0bfa3c412602a383f905ed05acc5de2a917f6491164caa74117013",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.548Z",
+    "sha256": "8d7fc3e388dfe6f4ff2440c271abaeb7bbe8239e37b16d510fcac25a201b3dbc",
+    "note": "Actual PNG and WebP directly inspected: All6notes received on Zoe side in2rows3, Kit holdsoneball, jarempty; naturalhands, correctcast and generousmargins.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

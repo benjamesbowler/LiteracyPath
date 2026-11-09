@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-b-28",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:24:40.500Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-bd38e05e-a089-47dc-9235-a9c9f534f98a.png",
+  "sourceSha256": "7cd7817646f8dc0bdaac047e4c9b0b3791f3fe1d03f213bdbdf09a5ae2c0055a",
+  "output": "public/guided-reading/world-discovery/b-28/page-08.webp",
+  "outputSha256": "0f5903b9af477c88d3865e7948f9ca5572f33c35a8871163c5b87608b68729f2",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Tiny foliage continuity repair to FIRST image ONLY. Keep exact middle-branch feeding tongue action, animal and tree. Restore the small green leaflet cluster at x1000\u20131100, y420\u2013480 immediately LEFT of the large paired thorns on the LOWER branch, matching SECOND image. This lower-branch cluster was untouched. All other lower foliage, bare left twig tip, thorns, mouth and upper feeding cluster stay unchanged. One small restoration only; no extra tongue or branch. LANDSCAPE 3:2 1536x1024. Clean flat colors and crisp shapes, no grain, paper texture or painted shading. No text, numerals, labels or arrows. Keep all essential objects inside central75%, with 150px side and 120px top/bottom margins.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-b2edcd84-3071-4f27-8ab6-07243ee9ed93.png",
+      "sha256": "0865d8769ed1849649c58e472ca02f698671b21a125541d21284f7f8a874b5fc"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/b-28/page-07.webp",
+      "sha256": "72629be84497b961acaec6a9b6cc0df9572d51c40f606c14e0f1998143ad2ff0"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "3b2da464191b00e55de10d772304d97a74700fcde5ac76ab45ab88f364075677",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T10:25:18.181441+00:00",
+    "sha256": "0f5903b9af477c88d3865e7948f9ca5572f33c35a8871163c5b87608b68729f2",
+    "note": "Directly viewed native PNG and installed WebP: tongue brings leaves from the same middle neighboring cluster to mouth; stripped lower tip remains bare, all untouched lower foliage and thorns retained, natural neck/head safely framed.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

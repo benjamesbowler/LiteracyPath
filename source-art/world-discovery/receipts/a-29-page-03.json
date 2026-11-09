@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-29",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:58:18.343Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-d72a0aee-4301-49af-b127-a5dcb54d9fe9.png",
+  "sourceSha256": "be143a8c895faa0eb119fd93c926314aa382a6ab4a157c18d7084129934c10c5",
+  "output": "public/guided-reading/world-discovery/a-29/page-03.webp",
+  "outputSha256": "e0e0faeb2f6e5a516c8ce4256edc5fe926afab9cfecd9901ef373400e1a531d7",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Precisely edit this supplied image: shorten the red paper's HORIZONTAL WIDTH by 10% (to 90% of current width), keeping its HEIGHT EXACTLY unchanged. Keep LEFT pinched edges fixed and move only RIGHT folded loop edge LEFT. Keep unpressed rounded fold and thin double layer. The paper's final width must be twice its height, not 2.2 times. Preserve all other poses, hands, sleeves, colors and camera. No text. Landscape 3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-45f3b29d-ac8e-4ba0-89be-7032369102ed.png",
+      "sha256": "b0e7a18412996a4a77a570199e0cadf697df7dde0d4d9a08894e3d224c585cc0"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "f901b0be0bea47b49de26868818727681b20b5057666da316e0fa78bccc25576",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "e0e0faeb2f6e5a516c8ce4256edc5fe926afab9cfecd9901ef373400e1a531d7",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T10:58:18.345Z",
+    "note": "Directly inspected native: aligned left free-edge corners held by two hands, unpressed rounded loop on right. Approximately 2:1 folded outline, both layers visible, no extra sheet; hands and paper well inset."
+  }
+}

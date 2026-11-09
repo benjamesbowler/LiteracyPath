@@ -1,0 +1,39 @@
+{
+  "bookId": "world-discovery-a-30",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:06:28.300Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-23cfea4f-6a05-4002-b7fa-026b78c05ec9.png",
+  "sourceSha256": "da60b0dc2c1a62785e6d1fd924da046ce11a3867df6639f7e67d85d4cfd56a02",
+  "output": "public/guided-reading/world-discovery/a-30/page-02.webp",
+  "outputSha256": "1349f57df200153095540d420cdfdd861fc25a3242c1df8ac3021996aba0572c",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Create next scene by editing supplied image, preserve exactly its background/camera/tree/branch/curb/stream. The SAME SINGLE pale yellow bag now rises a little above the same grassy verge in a rightward gust, body gently billowing open with air, TWO integral handles trailing LEFT, tiny triangular notch LOWER RIGHT unchanged. Bag centered just above former position, with a small detached soft shadow beneath to show it has lifted. Sparse grass tufts lean RIGHT consistently. No hand, string, person, invisible character, arrow, extra bag or text. All bag edges at least12% from canvas edges. Preserve clean flat cartoon fills, no texture. Landscape3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-2cb466e0-1ee8-441e-90d8-17b824fd9123.png",
+      "sha256": "ae00608d822468a441fc13c25189983efaea6463645331208d192bb3f9e5bd5b"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "24075755c621d72f43bb30fc00a77fb407d55e36e08d772f10f5aa04aed3efc1",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "1349f57df200153095540d420cdfdd861fc25a3242c1df8ac3021996aba0572c",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:06:28.301Z",
+    "note": "Directly inspected native: bag lifted above original verge with detached shadow, gently billowing body, two handles trail left and same lower-right notch; grass leans right, unchanged rooted branch and curb/stream geography. Essential bag/branch fully inset."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-a-30",
+    "path": "src/content/world-discovery/cohorts/21-30/level-a.json",
+    "sha256": "f9ec508c059ddf7bc839efb70dfb744ce32989e7c1fecee092e761c78496361a",
+    "evidence": "source-art/world-discovery/cohorts/21-30/a30-teaching-cue-revalidation.json"
+  }
+}

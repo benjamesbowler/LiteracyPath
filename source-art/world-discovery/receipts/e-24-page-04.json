@@ -1,0 +1,35 @@
+{
+  "bookId": "world-discovery-e-24",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T14:16:04.019Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-9d2e9923-6555-4419-9d05-9527da1b9359.png",
+  "sourceSha256": "5aae0f2fdaaf43ba68594c5fc5ae37feab687fca6eb78abca0884c82d20d6880",
+  "output": "public/guided-reading/world-discovery/e-24/page-04.webp",
+  "outputSha256": "8ebd75b416d326ff78be1f8ede35596b61be89c056f1a13dfac1fccc9d7e8d87",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Landscape1536x1024 UNLETTERED early-reader science diagram, crisp bold continuous dark outlines, solid flat earth colors, restrained cel shadows, no texture/photo/3D rendering. Warmcream background, all essential geometry inside central75percent with generous margins. Keep exact TOP-DOWN joinedrectangle andcolors fromreference; sameleftbrown/rightgraybrown, samecontinuoushorizontalblackmarkerstripe. Focus on contact: replace thin straight central verticalseam with a modest JAGGED line of matching smallinterlocking teeth, leftandrightrockfit snugly with NOwhitegap. Emphasize one centralcaught tooth with a subtleorangeoutline only, notafloatingobject. Preserve twooppositeorange arrows PARALLELtooverallverticalfault: leftarrowUPpage,rightarrowDOWNpage. Keepstripe stillALIGNEDcontinuousacrossthelockedcontact. No bentstripeyet, no displacedblock, no waves,lava, explodingchunks, perspectivefacesorletters. Allrectangleedgesatleast150pixelsinsidecanvas. This is a planview of roughrocksurfaces catching, not a mountain/cliff.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-b03b8320-8535-4254-a329-90bd212aa5e1.png",
+      "sha256": "5c257218de66f3a7cbcb4233b8789a3581634e9b8bd030b1e01da18121d8e7fb"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "17528444f6f2269814e9707fa662c0af729daea3afd65b636b1b1d274c6dcea2",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:17:34.590Z",
+    "sha256": "8ebd75b416d326ff78be1f8ede35596b61be89c056f1a13dfac1fccc9d7e8d87",
+    "note": "Actual PNG and installed WebP directly inspected. Rough matching contact remains closed and caught; stripe aligned, opposing motion arrows parallel to boundary, no gap or displaced chunks.",
+    "reviewer": "/root/gap_taxonomy",
+    "limits": "Individual installed image inspection; independent sequence, reader, cards and audio reviewed separately."
+  }
+}

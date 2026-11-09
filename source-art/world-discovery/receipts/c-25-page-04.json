@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-c-25",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:23:00.888Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-0961c34d-f636-4d8b-9be8-9e0680eacaa4.png",
+  "sourceSha256": "158dec7dfbcb2829014c40fdddcf2277d0b0caf60dce2be106da017f40502696",
+  "output": "public/guided-reading/world-discovery/c-25/page-04.webp",
+  "outputSha256": "c0712ea4641985f3b7cdcfef2a1f345bc54a2ee7b9333195c14fad49167d72d6",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit ONLY one missing teaching arrow in the FIRST reference. Add one short white arrow centered on the YELLOW wire between switch and yellow clip, pointing along the wire FROM the switch TOWARD the clip/bulb (down-right). Preserve existing red-wire arrow toward switch and black-wire arrow back toward battery. Exactly THREE white arrows total, one on each wire. Keep yellow clip clamped to left bulb terminal, CLOSED switch, glowing bulb, all wire routing and every other detail unchanged. Second reference locks props only. Same3:2 clean crisp smooth flat colors, no grain, no text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-789caccf-f941-4ac4-bbc4-7633bf4e56d3.png",
+      "sha256": "a53ecf1bbf53adc29a0c9b66cdc1ef8b39c430e2cb4befafb3df2942ec8acee7"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/c-25-reference.webp",
+      "sha256": "1895d1763d6be7d6723e07b2630d0a5b953e1d352b018d6cae6f7ec4b71ebce2"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "80a761f584aae85b11ebe49a406e8cb90888a1b11ff118888f7b7b3758e1246c",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T13:23:55.637818+00:00",
+    "sha256": "c0712ea4641985f3b7cdcfef2a1f345bc54a2ee7b9333195c14fad49167d72d6",
+    "note": "Native and actual WebP viewed after arrow correction: exact closed loop with yellow insulated clip at bulb; all three directional teaching arrows restored, one per wire, and glowing bulb.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

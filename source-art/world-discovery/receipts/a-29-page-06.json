@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-29",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:58:18.428Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-fdfb62cf-c73c-4894-8bc0-48e293e6bb7f.png",
+  "sourceSha256": "e54c3af9b6d388f69d589ed44c615f3e1a60ff06010b3bd069ff7857badea3ee",
+  "output": "public/guided-reading/world-discovery/a-29/page-06.webp",
+  "outputSha256": "8b712e7ead09f0c9dac3eb0e53970d77740ee073f4e9932acf3b23bde84ed279",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Precisely edit this supplied image: shorten the red paper's HORIZONTAL WIDTH by 10% (to 90% of current width), keeping its HEIGHT EXACTLY unchanged. Apply to BOTH separate rectangles equally and symmetrically, move gripping hands inward accordingly. Keep upper held above lower with same gap. The paper's final width must be twice its height, not 2.2 times. Preserve all other poses, hands, sleeves, colors and camera. No text. Landscape 3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-b8869c5c-9f0e-4ba0-860b-7a42120b3ece.png",
+      "sha256": "780ab2c049016cc39b73243310ed8aa29e042134f4a2a964b355ddc24ab43f3f"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "f901b0be0bea47b49de26868818727681b20b5057666da316e0fa78bccc25576",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "8b712e7ead09f0c9dac3eb0e53970d77740ee073f4e9932acf3b23bde84ed279",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T10:58:18.429Z",
+    "note": "Directly inspected native: two separate congruent 2:1 red rectangles, upper held above lower flat sheet with slight gap and shadow; left/right widths align in preparation for stacking. Two natural gripping hands, no extra paper, generous margins."
+  }
+}

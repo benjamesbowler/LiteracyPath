@@ -5,13 +5,11 @@ import { createHash } from "node:crypto";
 import { fileURLToPath } from "node:url";
 import { fingerprintBookReadingText } from "../src/utils/guidedReading/textMetrics.js";
 import { normalizeLedaAudioText } from "../src/data/normalizeLedaAudioText.js";
+import { WORLD_DISCOVERY_TOPIC_PROFILES, worldDiscoveryTopicProfile } from "../src/data/worldDiscoveryTopicProfiles.js";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const LEVELS = ["A", "B", "C", "D", "E"];
-export const WORLD_DISCOVERY_TOPICS = Object.freeze([
-  "identity", "relationships", "community", "fantasy", "geography",
-  "space", "animals", "life cycles", "classification", "caring for our world"
-]);
+export const WORLD_DISCOVERY_TOPICS = WORLD_DISCOVERY_TOPIC_PROFILES.original.topics;
 const TOPIC_ALIASES = new Map([
   ["my identity", "identity"], ["life-cycles", "life cycles"],
   ["classifications", "classification"], ["classifying", "classification"],
@@ -47,37 +45,65 @@ function checkSource(source, label, failures) {
 
 // Source-only checks deliberately do not import runtime books or require art.
 // They establish structure and language limits, not editorial quality or truth.
-function validateDraftSet(books, { requireComplete = true, firstNumber = 1, lastNumber = 10 } = {}) {
+function validateDistinctManuscripts(books) {
+  const failures = [], warnings = [], ids = new Set(), titles = new Set(), manuscripts = new Map(), repeatedPages = new Map();
+  for (const book of books) {
+    if (!book || typeof book !== "object") continue;
+    const label = book.id || "(missing id)", titleKey = canonicalText(book.title);
+    if (ids.has(book.id)) failures.push(`${label}: duplicate book ID`);
+    ids.add(book.id);
+    if (titles.has(titleKey)) failures.push(`${label}: duplicate title`);
+    titles.add(titleKey);
+    if (!Array.isArray(book.pages) || !book.pages.length) continue;
+    const manuscriptKey = book.pages.map(page => canonicalText(page?.text)).join("\n");
+    if (manuscripts.has(manuscriptKey)) failures.push(`${label}: duplicates the manuscript of ${manuscripts.get(manuscriptKey)}`);
+    manuscripts.set(manuscriptKey, label);
+    for (const [index, page] of book.pages.entries()) {
+      const key = canonicalText(page?.text);
+      if (!repeatedPages.has(key)) repeatedPages.set(key, []);
+      repeatedPages.get(key).push(`${label}:${index + 1}`);
+    }
+  }
+  // Short patterned lines may legitimately recur. Report rather than ban them.
+  for (const [line, locations] of repeatedPages) if (locations.length > 1) warnings.push(`Repeated page text (${locations.join(", ")}): ${line}`);
+  return { failures, warnings };
+}
+
+function validateDraftSet(books, { requireComplete = true, firstNumber = 1, lastNumber = 10, topicProfile } = {}) {
   const failures = [];
   const warnings = [];
   if (!Array.isArray(books)) return { failures: ["Expected an array of manuscripts"], warnings };
+  let profile;
+  try { profile = worldDiscoveryTopicProfile({ firstNumber, lastNumber, topicProfile }); }
+  catch (error) { return { failures: [error.message], warnings }; }
+  const distinct = validateDistinctManuscripts(books);
+  failures.push(...distinct.failures);
+  warnings.push(...distinct.warnings);
   const perLevel = lastNumber - firstNumber + 1;
   if (requireComplete && books.length !== perLevel * LEVELS.length) failures.push(`Expected ${perLevel * LEVELS.length} books; found ${books.length}`);
   const ids = new Set();
-  const titles = new Set();
-  const manuscripts = new Map();
-  const repeatedPages = new Map();
   for (const book of books) {
     const label = book?.id || "(missing id)";
     if (!book || typeof book !== "object") { failures.push(`${label}: invalid manuscript`); continue; }
     rejectLiteralFieldPaths(book, label, failures);
     if (ids.has(book.id)) failures.push(`${label}: duplicate book ID`);
     ids.add(book.id);
-    const titleKey = canonicalText(book.title);
-    if (titles.has(titleKey)) failures.push(`${label}: duplicate title`);
-    titles.add(titleKey);
     if (!LEVELS.includes(book.appLevel)) failures.push(`${label}: public appLevel must be A–E`);
     if (!Number.isInteger(book.number) || book.number < firstNumber || book.number > lastNumber) failures.push(`${label}: number must be ${firstNumber}–${lastNumber}`);
     const expectedId = `world-discovery-${String(book.appLevel || "").toLowerCase()}-${String(book.number).padStart(2, "0")}`;
     if (book.id !== expectedId) failures.push(`${label}: ID must be ${expectedId}`);
     const internal = book.appLevel === "A" ? "A" : book.appLevel === "B" ? "B" : "C";
     if (book.level !== internal) failures.push(`${label}: internal level must be ${internal}`);
-    const strand = (book.number - 1) % WORLD_DISCOVERY_TOPICS.length;
-    if (normalizedTopic(book.topic) !== WORLD_DISCOVERY_TOPICS[strand]) failures.push(`${label}: topic does not match strand ${strand + 1}`);
+    const strand = book.number - firstNumber;
+    const expectedTopic = profile.topics[strand];
+    if (normalizedTopic(book.topic) !== expectedTopic) failures.push(`${label}: topic does not match strand ${strand + 1} (${expectedTopic})`);
     if (!["fiction", "nonfiction"].includes(book.type)) failures.push(`${label}: type must be fiction or nonfiction`);
-    if (strand === 3 && book.type !== "fiction") failures.push(`${label}: fantasy must be fiction`);
+    const requiredType = profile.requiredType || profile.topicTypes[expectedTopic];
+    if (requiredType && book.type !== requiredType) failures.push(`${label}: ${profile.requiredType ? "topic profile requires every book to be" : expectedTopic + " must be"} ${requiredType}`);
     if (book.readingBandProfile !== "standard" || book.readingMode !== "predictable-levelled" || book.interestAge !== "4–8") failures.push(`${label}: reading profile/mode/interest age differs from the collection Bible`);
     for (const field of ["title", "setting", "coverBrief", "levelRationale"]) if (!text(book[field])) failures.push(`${label}: missing ${field}`);
+    if (book.coverImageLayout !== undefined && !["scene", "integrated-diagram", "comparison-diagram"].includes(book.coverImageLayout)) failures.push(`${label}: coverImageLayout must be scene, integrated-diagram or comparison-diagram`);
+    if (book.coverEmbeddedImageText !== undefined && book.coverEmbeddedImageText !== "") failures.push(`${label}: cover lettering is prohibited; labels belong on explicitly declared pages`);
     if (!Array.isArray(book.props) || !book.props.every(text)) failures.push(`${label}: props must be an array of descriptions`);
     if (!Array.isArray(book.languagePrep) || !book.languagePrep.length || book.languagePrep.some(row => !row
       || JSON.stringify(Object.keys(row).sort()) !== JSON.stringify(["meaning", "word"])
@@ -97,9 +123,6 @@ function validateDraftSet(books, { requireComplete = true, firstNumber = 1, last
     if (limit && (book.pages.length < limit.min || book.pages.length > limit.max)) failures.push(`${label}: page count outside governing ${book.level} band`);
     const expectedCount = ["A", "B", "C"].includes(book.appLevel) ? 8 : 10;
     if (book.pages.length !== expectedCount && !text(book.pageCountRationale)) failures.push(`${label}: nonstandard page count requires an editorial pageCountRationale`);
-    const manuscriptKey = book.pages.map(page => canonicalText(page?.text)).join("\n");
-    if (manuscripts.has(manuscriptKey)) failures.push(`${label}: duplicates the manuscript of ${manuscripts.get(manuscriptKey)}`);
-    manuscripts.set(manuscriptKey, label);
     const briefs = new Set();
     for (const [index, page] of book.pages.entries()) {
       const pageLabel = `${label}:${index + 1}`;
@@ -117,9 +140,6 @@ function validateDraftSet(books, { requireComplete = true, firstNumber = 1, last
       if (briefs.has(brief)) failures.push(`${pageLabel}: duplicate scene brief within book`);
       briefs.add(brief);
       if (brief === canonicalText(page.text)) failures.push(`${pageLabel}: image brief merely repeats prose`);
-      const pageKey = canonicalText(page.text);
-      if (!repeatedPages.has(pageKey)) repeatedPages.set(pageKey, []);
-      repeatedPages.get(pageKey).push(pageLabel);
     }
     if (book.level === "A") {
       const vocabulary = new Set(book.pages.flatMap(page => words(page?.text).map(word => word.toLowerCase())));
@@ -142,35 +162,32 @@ function validateDraftSet(books, { requireComplete = true, firstNumber = 1, last
       if (!ids.has(id)) failures.push(`Missing required manuscript ${id}`);
     }
   }
-  // Short patterned lines may legitimately recur. Report rather than ban them.
-  for (const [line, locations] of repeatedPages) if (locations.length > 1) warnings.push(`Repeated page text (${locations.join(", ")}): ${line}`);
   return { failures, warnings };
 }
 
-export function validateWorldDiscoveryDrafts(books, { requireComplete = true } = {}) {
-  return validateDraftSet(books, { requireComplete });
+export function validateWorldDiscoveryDrafts(books, { requireComplete = true, topicProfile } = {}) {
+  return validateDraftSet(books, { requireComplete, topicProfile });
 }
 
 // Explicit isolated production batches do not change the published fifty-book
 // contract. A complete ten-strand cycle is declared, never inferred from rows.
-export function validateWorldDiscoveryDraftBatch(books, { firstNumber, lastNumber, requireComplete = true } = {}) {
+export function validateWorldDiscoveryDraftBatch(books, { firstNumber, lastNumber, topicProfile, requireComplete = true } = {}) {
   if (!Number.isInteger(firstNumber) || !Number.isInteger(lastNumber)
     || firstNumber < 11 || firstNumber % 10 !== 1 || lastNumber !== firstNumber + 9 || lastNumber > 99) {
     return { failures: ["Draft batch requires an explicit ten-book range per level, starting at 11 or a later ten-strand cycle"], warnings: [] };
   }
-  return validateDraftSet(books, { firstNumber, lastNumber, requireComplete });
+  return validateDraftSet(books, { firstNumber, lastNumber, topicProfile, requireComplete });
 }
 
 export function validateWorldDiscoveryCohortDrafts(entries) {
   const books = entries.flatMap(entry => entry.books);
-  const lastNumber = Math.max(10, ...entries.map(entry => entry.cohort.lastNumber));
-  const result = validateDraftSet(books, { requireComplete: false, firstNumber: 1, lastNumber });
+  const result = validateDistinctManuscripts(books);
   for (const { cohort, books: cohortBooks } of entries) {
-    const checked = cohort.index ? validateWorldDiscoveryDraftBatch(cohortBooks, cohort) : validateWorldDiscoveryDrafts(cohortBooks);
+    const checked = cohort.index ? validateWorldDiscoveryDraftBatch(cohortBooks, cohort) : validateWorldDiscoveryDrafts(cohortBooks, cohort);
     result.failures.push(...checked.failures);
     if (cohortBooks.length !== cohort.expectedBooks || cohortBooks.reduce((total, book) => total + book.pages.length, 0) !== cohort.expectedPages) result.failures.push(`${cohort.id}: manuscript totals differ from declared expectations`);
   }
-  return result;
+  return { failures: [...new Set(result.failures)], warnings: result.warnings };
 }
 
 export function validateWorldDiscoveryReviews(books, reviews) {
@@ -275,7 +292,7 @@ export async function validateRelease(books, reviews, narrationReports) {
       || card.deliverySha256 !== cardDigest || imageReviews.get(card?.src)?.sha256 !== cardDigest) {
       failures.push(`${book.id}: current reviewed card cover is missing`);
     }
-    const speechPages = [...book.pages, { text: book.title, narrationNeedsRebuild: true }];
+    const speechPages = [...book.pages, { pageNumber: "title", text: book.title, narrationNeedsRebuild: true }];
     for (const page of speechPages) {
       const audioPath = getGuidedReadingPageAudioPath(page);
       expectNarration(audioPath, "page_or_title", page.text);
@@ -285,7 +302,8 @@ export async function validateRelease(books, reviews, narrationReports) {
         expectNarration(wordPath, "word", word);
         if (!checkedAudio.has(wordPath)) { publicAsset(wordPath, `${book.id}:word:${word}`); checkedAudio.add(wordPath); }
       }
-      if (!page.pageNumber) continue;
+      // Titles need the exact speech/word checks above, but have no page image or page clearance.
+      if (page.pageNumber === "title") continue;
       if (page.narrationNeedsRebuild) failures.push(`${book.id}:${page.pageNumber}: exact narration clearance remains open`);
       const review = pageReviews.get(`${book.id}:${page.pageNumber}`);
       if (!review || review.status !== "approved" || review.displayedText !== page.text || review.textSha256 !== sha256(page.text) || review.imagePath !== page.image || review.imageSha256 !== publicAsset(page.image, book.id)) failures.push(`${book.id}:${page.pageNumber}: canonical page visual alignment review missing or stale`);

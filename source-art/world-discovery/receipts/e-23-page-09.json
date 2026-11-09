@@ -1,0 +1,35 @@
+{
+  "bookId": "world-discovery-e-23",
+  "slot": "page-09",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T14:09:31.475Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-22a9ad1c-e6fb-4bf2-8e1d-765089bc58cb.png",
+  "sourceSha256": "6c9788791723e0be5c8c4339b8d163c0141fffc6acf08029326e514c13e959b2",
+  "output": "public/guided-reading/world-discovery/e-23/page-09.webp",
+  "outputSha256": "840831cf6733440ba5b43574924a0f3de19fb82193cfd9537bb5f290c40e10c7",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit exact THREE-neuron diagram only for framing. Uniformly shrink entire chain of allthree cells and axon/dendritebranches to75percent and recenter on samewarmcream canvas. Keep ALL three cellbodies/three nuclei, branching patterns and tiny visible cream gaps between terminalbranches andnextdendrites exactlyunchanged. Everybranchend must be at least180pixels insideleft/right1536x1024canvas. No arrows, extra cells, fusingbranches, labels or otherchanges.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-5168cc26-2aee-4670-a558-db6af27a5859.png",
+      "sha256": "648b0a7037457d4a6c1ef478b4e958de1cb5b176fc921e2ef6042bb93c38fa51"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "1b0de6058b2611192f79942f4ecd03b97dc9da569d20816897fdbc11f5ab098a",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:11:02.234Z",
+    "sha256": "840831cf6733440ba5b43574924a0f3de19fb82193cfd9537bb5f290c40e10c7",
+    "note": "Actual PNG and installed WebP inspected: exactly three neuron cell bodies/nuclei, branching dendrites and axon terminals with visible synaptic gaps, no literal wires or labels, broad margins.",
+    "reviewer": "/root/gap_taxonomy",
+    "limits": "Individual installed image inspection; independent sequence, reader, cards and audio reviewed separately."
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-25",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:44:08.225Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-bdbf7bfd-7ad1-451d-99fb-2a40d0d2791b.png",
+  "sourceSha256": "b3450c1ad0501336a31a8691c404b07e788caed59d61bf78961311cfa0f4303a",
+  "output": "source-art/world-discovery/d-25-reference.webp",
+  "outputSha256": "d88b12a85e64f187c8a3fe8a5856e56e92962cd13dd6f9276dc310983052b613",
+  "width": 1672,
+  "height": 941,
+  "prompt": "Create an entirely unlettered production reference board on a white landscape canvas for a clean flat 2D children's paper-bridge experiment. Use supplied cast reference to preserve Kit exactly (short black side-part, golden skin, teal T-shirt, mustard shorts, navy/white sneakers) and Zoe exactly (deep brown skin, two black puffs, yellow T-shirt, plum overalls, white shoes); same height, natural anatomy. Show ONE front three-quarter full-body view of Kit and ONE of Zoe, standing separately at left, no duplicate human views. At center show the recurring equipment once: exactly two identical small solid blue rectangular support blocks, exactly one long flat rectangular cream card-weight paper sheet, exactly one wide flat-bottom circular wooden counter. Initial paper state is FLAT, never folded yet. At right show ONE small location key of a plain light wooden classroom table with this same two-block setup: blocks face each other with a clear fixed gap about the width of three counters; single flat paper sheet spans left block to right block with equal ends resting on tops, the one counter waits beside setup. No hidden middle support. Paper's long axis runs along span left-to-right. No other tools, extra paper, glue, tape, counters, adult engineer, bridge models, final folded bridge or future states. No text, lettering, measurements, labels, numerals, logos or frames. Crisp dark continuous outlines, flat clean colors, restrained cel shading, no grain/paint/3D. Generous blank margins at least 10 percent around whole board.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "8337d31fb142299fa5e714fdc1bffff0a8db8bc933c0eeb3ee2b649380ddbd8b",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.526Z",
+    "sha256": "d88b12a85e64f187c8a3fe8a5856e56e92962cd13dd6f9276dc310983052b613",
+    "note": "Reference inspected: canonical Kit and Zoe same height and outfits; two identical blue blocks, one flat cream sheet and one wooden counter, separate single initial-state location key; no extra load/support/final state.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

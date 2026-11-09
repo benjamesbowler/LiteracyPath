@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-27",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:21:58.087Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-7dd6d94a-5a6e-4e9c-9765-1f15b6a7ba4c.png",
+  "sourceSha256": "23b396f6b4ca9adbe8307da8f10f72a0c59e2f7300eff9474335af43c7e26c16",
+  "output": "public/guided-reading/world-discovery/d-27/page-03.webp",
+  "outputSha256": "386e507cabc3b8d95c65faaafab717646e093732f34d53775f3d526a4f402926",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Make ONLY a framing change. Shrink the complete existing threshing diagram to80% of its current width and height and center it on the same pale cream1536x1024landscape canvas. Extend plain cream around it. Keep all input cut stems, grain tips, straw tips, output trays and arrows at least150pixels from every image edge. Preserve exactly one input arrow, two output arrows, enclosed green unit, cut panicles entering, bare straw above and husked golden grain below. No new items or text. Same clean flat outlined style.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-05768e90-fce5-48c7-805a-7f2ed631b3d5.png",
+      "sha256": "b83b8bb4727e05dce5955a1abcb88a532a35be54f0210e10e60d745115d2a4e7"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "d7159e37a1a2ef16cf6332c998d1e18c7c5e1c835d8925d2049fd3bf922c1538",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.534Z",
+    "sha256": "386e507cabc3b8d95c65faaafab717646e093732f34d53775f3d526a4f402926",
+    "note": "Direct native inspection: enclosed green threshing detail, one cut-stem input and separate bare-straw/husked-grain output arrows; all diagram subjects now widely framed.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

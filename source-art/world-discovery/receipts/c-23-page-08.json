@@ -1,0 +1,42 @@
+{
+  "bookId": "world-discovery-c-23",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:31:05.703Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-43c3903d-ec71-41e0-855e-fa4157d14238.png",
+  "sourceSha256": "419ce6b13450f78b95945b0c08f925240ec4f3c1265c625763ac11245251a37c",
+  "output": "public/guided-reading/world-discovery/c-23/page-08.webp",
+  "outputSha256": "61d6dd7e16d63b4b507dd580cedc4746836d60784b085a3252471536588fc81f",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "One clean 3:2 child-friendly classroom illustration. Exact Kit and seated classroom from first reference, teal shirt mustard shorts blue shoes. Kit now holds his right arm comfortably straight out in front of him almost horizontally toward RIGHT with relaxed empty hand, left hand rests on knee. Add subtle non-gory integrated transparent cutaway ONLY inside his real right arm using exact extended anatomy from second reference: upper arm humerus, separate radius and ulna, rear triceps short thick/front biceps longer thinner, correct pale tendons. No giant floating arm or extra diagram. Whole child, head, hands, feet and blue chair fully visible within central75 percent,12 percent margins. Clean crisp flat colors, no grain or texture, no writing.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/c-23/page-01.webp",
+      "sha256": "39e5e6b5ebd951cca203377c602137987db0123e258406ab353ec322a97a4757"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-dea1d406-401f-48a5-a951-4b2a27baa77e.png",
+      "sha256": "bf7b6661fcd61cbf1135e948d309037d8880b9bb43c7d2763a071becfa55af23"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/c-23-reference.webp",
+      "sha256": "9e63284304a7bc2ea1d63e577ca195c64e62e831d44be138511b7bbaf0ad49d5"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "25f742b6e36d6eb87de003ac9ecc80f9d512f2d1edf34f8713c6b0c4130e8702",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T12:33:23.335351+00:00",
+    "sha256": "61d6dd7e16d63b4b507dd580cedc4746836d60784b085a3252471536588fc81f",
+    "note": "Native and installed WebP directly viewed. Seated Kit straightens unloaded right arm approximately horizontally with integrated extension anatomy; other hand on knee, same classroom and clothes. Whole child safely inset.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

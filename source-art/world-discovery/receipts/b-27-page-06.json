@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-b-27",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T08:13:15.427Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-c04ef639-4da0-4605-aa5b-be85a7638348.png",
+  "sourceSha256": "f934f2d519d405399cb01608b09b16768ae45f283d2b6fc8428b58cacff17a85",
+  "output": "public/guided-reading/world-discovery/b-27/page-06.webp",
+  "outputSha256": "bdf13c68f76590cd062865f7c1ddb22b4bd627c74cc07fa465236825f96cf168",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Close fresh-cheese draining view in same blue kitchen. Only the supported cloth-lined metal strainer and clear glass bowl on cool blue counter. Strainer rests across bowl rim. Open white cheesecloth holds separate soft white curds above. Several pale-yellow whey DROPS visibly fall beneath the strainer into a shallow pale-yellow pool in the transparent bowl. Air space between strainer bottom and liquid surface makes falling drops clear. No hands/adult/pan/plate/cheese slices. Keep whole bowl and cloth including side drapes comfortably central; lower camera than reference so interior draining can be seen. LANDSCAPE 3:2 1536x1024. Clean smooth flat colored cartoon shapes, crisp dark outlines; no grain, stipple, paper texture or painterly shading. No words, letters or numbers. Keep all essential heads/hands/props inside central 75% of canvas, with at least 160px left/right and 120px top/bottom breathing room. One continuous scene, no inset or panels.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/b-27/cover.webp",
+      "sha256": "a1f0e797846f9b54cab4af59ad0106c35df1494694731df516e1a88f2f7661a5"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "14bdf1a9b4c155d155a7916b5fde211a1d4c1dddaf582d022d5985416f706b7c",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T08:14:43.540026+00:00",
+    "sha256": "bdf13c68f76590cd062865f7c1ddb22b4bd627c74cc07fa465236825f96cf168",
+    "note": "Directly viewed native PNG and installed WebP: supported cloth holds curds above, clearly visible drops of whey fall into transparent bowl pool below, intact setup and safe margins.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

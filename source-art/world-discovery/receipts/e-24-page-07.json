@@ -1,0 +1,35 @@
+{
+  "bookId": "world-discovery-e-24",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T14:26:24.025Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-4ee2abaa-f909-4b26-a59a-3b9f66a331bc.png",
+  "sourceSha256": "53ed664966b0d7b6b6e1763b3db89d79aea4cec7f58f7c9a8f71042669d14280",
+  "output": "public/guided-reading/world-discovery/e-24/page-07.webp",
+  "outputSha256": "2bed9d3ac4bc49fa7a7da82998c4ca207d784f027afe2f30c37fdf0cf5bcd07d",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Landscape1536x1024 UNLETTERED early-reader scientific illustration. Crisp dark outlines, solidflat brown/gray/green/orange colors, restrainedcelshadow, no realistictexture/photo/3D rendering. Warmcreambackground, one diagram, broad margins at least8percent. Keep same grassygroundcutaway andsolidrockcolors but use a clearer frontcutaway withsmalltopface. Wholeblockboundsx280..1260,y290..800. Greenlevelgroundalongtop, three smallgrassclumps. Leftwarmbrown/rightgraybrown joinclosedverticalfaultatx768. One smallorange sliporiginpoint onfault at(768,550). Exactly THREE thinorange CIRCULARwavefronts centeredonorigin radii70,140,220; their WHOLEcircles lieINSIDEsolidrock (topouterwave330,bottom770), no lineoutsideblock. Show waves spreadingOUTWARDtowardgroundabove andthroughrock, no arrowsrequired. Allrock remainsinplace, no holes, moltenlayer, waterwave, travelingrockchunks, verticalslip or building. Distinguishthin symbolicwavesfromstructuralblackfault. Simpleclearteachingdiagram, widemargins.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-d3947aa7-b31f-470c-9c6d-f0f34e2e33eb.png",
+      "sha256": "5a3176b8be24ec82f6bd0e1dcb17bf1e3b8c190d27fd7b6ad9be55f4c0158b1b"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "17528444f6f2269814e9707fa662c0af729daea3afd65b636b1b1d274c6dcea2",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:26:48.364Z",
+    "sha256": "2bed9d3ac4bc49fa7a7da82998c4ca207d784f027afe2f30c37fdf0cf5bcd07d",
+    "note": "Direct PNG and installed WebP inspection: three concentric orange wavefront circles surround one origin on the closed fault inside solid rock; level grassy surface and both rock blocks remain intact. No traveling rock, lava, chasm or lettering; wide margins.",
+    "reviewer": "/root/gap_taxonomy",
+    "limits": "Individual installed image inspection; independent sequence, reader, cards and audio reviewed separately."
+  }
+}

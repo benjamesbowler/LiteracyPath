@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-c-28",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:37:32.546Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-7e78acb8-5950-4ff1-866b-ebda65dd22ed.png",
+  "sourceSha256": "01706198f1e5df4100d0c8d78484001c0e46e1676317b835d034bbffd86e3f01",
+  "output": "public/guided-reading/world-discovery/c-28/page-05.webp",
+  "outputSha256": "32ecabf4bae6d6a663f712feb7f5bfde8ee785f88d3e2e3b494572b708ef08b0",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. EDIT THE FIRST SUPPLIED IMAGE ONLY. Second image is the approved smooth-ground design reference, not a composition to copy. Preserve first image exact composition, framing, every animal pose and count, prey, nest, cutaway status, season, branch geometry, all leaves/plants/stones, shadows and color palette. Change ONLY the diffuse mottled/stippled soil to one perfectly smooth flat earthy brown fill with restrained smooth cel shadows. REMOVE ALL tiny unoutlined soil dots, gritty patches, painted flecks, noise or grain. Retain deliberate discrete outlined stones, leaves, grass clumps and anatomical quill/spine pattern. Preserve feet and prey ground contact. Retain existing white frost patches in exactly the same places but simplify their grainy surface to smooth flat white/cool-blue shapes; no new snow and none on the hedgehog. Do not crop, zoom, redraw animals or change light/time/season. No text/letters. Opaque landscape3:2. This is only a surface-style correction.\nCanonical exact page instructions (all existing scene states remain):\nOne finished landscape3:2 full-bleed children nonfiction illustration, crisp flat2D cartoon with clean dark outlines, flat colors and restrained cel shading. No grain, painted texture,3D, words, logos, captions, border or frame. Full essential subjects within CENTRAL65 percent of canvas, broad naturally extended background margins. Edit camera framing ONLY. Uniform25 percent pullback of entire scene, extend same garden background and ground naturally edge-to-edge without adding border. Keep exact curled hedgehog and nest cutaway, thick protective roof/walls, branch right and frost outside. Whole nest roof at least15 percent below top and left wall15 percent fromleft. No new objects or anatomy.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/.artifacts/nonfiction-next-50/c28-edit-input/page-05.webp",
+      "sha256": "658145423b80af03cab99a0d9fe2bf4901d4e04c7d94513442f33e9e72f96240"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/c-28-reference.webp",
+      "sha256": "cbc7bcf1b015a1055cd8e29600f89c60343e4c6b3eee9a93f1bb59ced64ef2c9"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "f40ade2ce093f8630b07993486f43c74b2e43b93f146bfeab9275339bae07c05",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "32ecabf4bae6d6a663f712feb7f5bfde8ee785f88d3e2e3b494572b708ef08b0",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T13:37:32.547Z",
+    "note": "Native directly inspected: same quiet curled winter hedgehog and thick-leaf cutaway, no literal fat bag or new event. Forked branch and leaf-chamber state retained. Smooth brown ground with discrete frost patches, leaves and stones; no diffuse grain; generous framing."
+  }
+}

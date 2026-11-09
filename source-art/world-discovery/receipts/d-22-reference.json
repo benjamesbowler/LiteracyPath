@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-22",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T05:25:07.283Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-a1578888-6ac5-4446-a43f-dcc8d3a0d982.png",
+  "sourceSha256": "41fe9eab4ac5a699dfe11f7dfef5d872c3fd1f6aabc8854c017a501215a3bc41",
+  "output": "source-art/world-discovery/d-22-reference.webp",
+  "outputSha256": "2abb2bcb8cda36612634c16cafffc95895589fd16e97c34fa6302abc8e08a6bd",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Make ONE precise color consistency correction in this production reference board. In the right-hand globe, recolor both islands of New Zealand from pink to the same neutral pale gray used for New Zealand on the large wall map. In every map/globe view, New Zealand must be neutral pale gray, while mainland Australia and Tasmania remain pink. Recolor New Guinea to neutral pale gray in every view as well, to leave the book's simple seven-continent coding focused on the clearly identified mainland shapes. Do not alter any coastlines, child designs, clothing, poses, classroom, globe stands, other continent colors or layout. Preserve the Panama and Suez land connections and continuous Europe/Asia land. No animals or lettering. Clean flat outlined cartoon, landscape reference board.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-6b4f0b6b-cbea-4cb6-8242-092c46b6887e.png",
+      "sha256": "47133fb44a4900102ade77a4d532c953bd8df0d96dd3caf964c9b1e94ac2639b"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "fb0bd240fdf5f14fbd4f0ae2e2b112472e599d3754b28e979aad8f5f59410003",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.506Z",
+    "sha256": "2abb2bcb8cda36612634c16cafffc95895589fd16e97c34fa6302abc8e08a6bd",
+    "note": "Direct image inspection: unlettered board, canonical Kit/Zoe equal height, accurate recognizable continent/coast geometry, Panama and Suez connections, continuous Europe/Asia, consistent seven-color key; New Zealand/New Guinea neutral on map/globe, no invented animals.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

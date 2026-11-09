@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-24",
+  "slot": "page-09",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T08:12:53.058Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-c1c2d40a-2121-45ea-a7f7-b1c60bda7eee.png",
+  "sourceSha256": "f5d613e8e33bd3168799650afb109de788d7ac68e4984312f47956e7e58df739",
+  "output": "public/guided-reading/world-discovery/d-24/page-09.webp",
+  "outputSha256": "bc77f44207b8e5ebae6bd366572355c6509da9139e75f1a45e09f8a4ca27a661",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Only shrink and re-center the ONE large dark-blue arrow across the upper sky to 75 percent current width. Both arrowhead and tail must be at least 200px from left/right canvas edges. Keep its same leftward direction, curvature, color and white outline. Preserve exactly the small coast, sea-left/land-right, one orange windsock mouthleft/tailright, Sun, clouds and all background. No new elements or text. Clean flat2D.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-d9bbe283-df9b-4869-847a-7a0b4831767d.png",
+      "sha256": "8c2df76332d65af423edbed61a1f4bd3ec55f5e764d18438a5be40bffa05dda2"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "688f663f00d36542402967229cf6e98631f1d90b6bed074cce20a73f41dcd15c",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.519Z",
+    "sha256": "bc77f44207b8e5ebae6bd366572355c6509da9139e75f1a45e09f8a4ca27a661",
+    "note": "Direct inspection: one wider-weather arrow above small local coast, safely inset after shrinking, no duplicate windsock or storm; local wind direction remains clear.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

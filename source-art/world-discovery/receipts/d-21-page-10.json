@@ -1,0 +1,40 @@
+{
+  "bookId": "world-discovery-d-21",
+  "slot": "page-10",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T06:08:18.235Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-ae7b7e63-eddf-46b8-b21d-d5ece7e66c65.png",
+  "sourceSha256": "9f5df8bd45e28df25cabc10afb2ef8200eb25d495672c6f2cf8c19316c7c4f87",
+  "output": "public/guided-reading/world-discovery/d-21/page-10.webp",
+  "outputSha256": "9b562cff6f94286b1b599fb90b8cd19c4fbd613066b8e432da7b32512280e183",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit the FIRST image, the delivered-cartons warehouse ending. Use the SECOND image only as the exact truck design reference. Replace the small background vehicle with the SAME blue tractor cab attached to the SAME separate long blue skeletal semi-trailer with THREE rear trailer axles, plus the separate tractor rear axle and front steering axle. Do not turn it into a rigid box truck or a two-axle trailer. The single orange corrugated container stays on that trailer, with its rear doors open toward the warehouse and its interior empty; single blue square only on the left cargo door. Exactly one truck and one container, no duplicates. Preserve delivered brown cartons and plain blue notebooks INSIDE the warehouse, two adult workers in their same yellow hardhats/vests and navy clothing. Pull camera back enough that both workers' complete boots and every foreground carton/flap sit at least 10 percent of image height above the bottom edge and 9 percent inside left/right edges; leave a broad clean strip of warehouse floor below. Keep this coherent view from inside warehouse toward truck outside. Preserve bold clean 2D cartoon style, flat smooth colors, no grain, no lettering. Landscape 3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-b367b57d-e49c-4ca6-ba86-581102bf8868.png",
+      "sha256": "7af53c764b83b12869bb76f441c7afe03dc77124dec9fa96e722764d4e391cc4"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-52e83673-ee1f-408b-9454-722261a8fa39.png",
+      "sha256": "9d8df77146e3843b0ab45a93c4f0c89a1e949e0d6844dcd4b1ff5d72a990019f"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "4cd850616c2e31aecc557996032490d0fb984ea0f222fa11e0f2a878a417a9c7",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.498Z",
+    "sha256": "9b562cff6f94286b1b599fb90b8cd19c4fbd613066b8e432da7b32512280e183",
+    "note": "Direct inspection: background vehicle now separate blue tractor with front/rear axles plus three-axle skeletal trailer, single empty orange container with open marked rear doors; foreground notebooks/cartons and both workers' boots >10% above bottom edge. Ready for focused independent repair recheck.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

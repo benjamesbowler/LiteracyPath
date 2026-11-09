@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-24",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T08:00:02.785Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-23b81603-ab5f-4837-8636-25f2ae9281ce.png",
+  "sourceSha256": "9d4406348bcab27f207d0a5f29007e6bd73427309acef3284a112e77ef096e44",
+  "output": "public/guided-reading/world-discovery/d-24/page-02.webp",
+  "outputSha256": "a06ad8267df683959fc40da23a56cfe0ae739f47b341a9a7f5494bc5b4f3552a",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Remove ONLY the isolated seventh yellow arrow fragment under/left of the orange windsock. It currently emerges from behind the windsock's broad opening near the middle and points diagonally down-left to the beach. Erase that fragment completely and restore the blue sky/beach beneath it. Preserve the SIX intact Sun-to-surface rays: three go to sea on the LEFT, three go to land on the RIGHT. Preserve the Sun, exact small windsock, coast, colors, all other six rays and generous margins. Add nothing. No text or new arrows.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-7b2f7e62-1f2c-4935-afee-6d8d0b47f2a4.png",
+      "sha256": "dfe6db8face880ff5c5f6a3601e16243421466f8bd469457972fe335555574d9"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "688f663f00d36542402967229cf6e98631f1d90b6bed074cce20a73f41dcd15c",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.515Z",
+    "sha256": "a06ad8267df683959fc40da23a56cfe0ae739f47b341a9a7f5494bc5b4f3552a",
+    "note": "Direct inspection: one Sun with six complete rays, three sea and three land; no disconnected ray fragment, all endpoints safely framed; warmer-land/cooler-water tints restrained.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

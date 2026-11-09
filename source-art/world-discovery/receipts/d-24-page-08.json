@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-24",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T08:09:17.418Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-1971d997-00c0-4021-9209-2ae2c1121a06.png",
+  "sourceSha256": "21ed8e14d2266d461da306ce31e95aca594621bc7a8f73d304b1304df9e1d472",
+  "output": "public/guided-reading/world-discovery/d-24/page-08.webp",
+  "outputSha256": "e4dc522621652201b7e413e73fbf890f3841c21b941f7f6d48c2e424db5d0d69",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact correct sea-breeze diagram to complete the turning airflow loop. Preserve the three existing directions: low blue arrow LEFT-to-RIGHT toward land, warm right-side UP arrow, high return arrow RIGHT-to-LEFT toward sea. Add ONLY the missing FOURTH arrow: a blue DOWNWARD arrow over the sea at LEFT, connecting the high seaward route to the low inland route. It points DOWN, never up. Four arrows form one simple continuous circuit around open sky: bottomRIGHT, rightUP, topLEFT, leftDOWN. No extra branch/arrow. Preserve exact coast, small windsock with mouthLEFT/tailRIGHT, Sun and clouds, no labels/numbers/particles. Keep all arrows safely away from borders, at least140px, and the windsock fully visible outside/below loop. Clean flat outlined2D.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-212af987-20d7-46b3-b2f9-0947394c5fbe.png",
+      "sha256": "cb6e6917d0d6a75e35ea39fad993c49d7bca6d9583159318b594114b625c3757"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "688f663f00d36542402967229cf6e98631f1d90b6bed074cce20a73f41dcd15c",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.518Z",
+    "sha256": "e4dc522621652201b7e413e73fbf890f3841c21b941f7f6d48c2e424db5d0d69",
+    "note": "Direct inspection: complete loop low rightward, rising right, high leftward, sinking left; no extra arrows, wave confusion or labels; windsock stable and below schematic.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

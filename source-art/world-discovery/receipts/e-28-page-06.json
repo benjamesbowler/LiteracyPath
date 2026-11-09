@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-28",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:21:53.038Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-2836a145-05b1-4958-951e-df88711e5316.png",
+  "sourceSha256": "04460dfaa5c81b9ae18e7665a652d7a3b2889b87393dfd47621f9a39f5648010",
+  "output": "public/guided-reading/world-discovery/e-28/page-06.webp",
+  "outputSha256": "aa0814f79a42697da3b3fc93cb886fa960a2c58108a640b6698b704b49691296",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "One finished landscape 3:2 nonfiction picture-book illustration. Bold clean flat 2D cartoon, continuous dark outlines, smooth solid fills, restrained cel shadows. No text, numbers, logos, outer frames, extra panels, texture or 3D. No people. References lock requested designs only; do not add other reference-board objects. Keep essential bird/plant/tree-gap action within central 70 percent and at least 12 percent safe margin. Move the camera closer to the forest FLOOR of the first reference, retaining same forked buttressed tree base at left and the SAME young broadleaf sapling at its right. Sapling dark green, healthy and visible in dim shade; several SMALL irregular patches of sunlight touch ground nearby between leaves, most ground stays shaded. Many varied little green plants, no identical repeated carpet. The tree base may continue up beyond image, but the entire sapling and root base are comfortably framed. No bird, no fallen trunk yet, no big bright clearing, no teaching arrows or inset. One continuous living rainforest floor scene.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/e-28/page-01.webp",
+      "sha256": "1a93c8d05a1083e6584006b540336d95184821d1b2f1304aa980a1f559356595"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "df581f1e09d045c551bc8ca44241da96c6f37a19dcfc6731641f5fa8f7f955bf",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
+    "sha256": "aa0814f79a42697da3b3fc93cb886fa960a2c58108a640b6698b704b49691296",
+    "note": "Healthy shaded sapling and scattered sunflecks; same buttress base; focal plant and roots fully framed.",
+    "limits": "Installed WebP individually inspected. Independent sequence review, reader rendering, cards and audio checked separately."
+  }
+}

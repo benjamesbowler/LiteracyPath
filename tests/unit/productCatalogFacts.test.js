@@ -7,6 +7,7 @@ import { GUIDED_READING_BRIDGE_BOOKS } from "../../src/data/guidedReadingBridgeB
 import { guidedReadingBooks } from "../../src/data/guidedReadingBooks.js";
 import { GAME_LIST } from "../../src/data/learnGamesData.js";
 import { PRODUCT_CATALOG_FACTS } from "../../src/data/productCatalogFacts.js";
+import worldDiscoveryCohortManifest from "../../src/content/world-discovery/cohorts.json" with { type: "json" };
 
 test("public catalogue figures match the authoritative product datasets", () => {
   const numberedSkillCycles = elSkillsBlockCycles.filter(cycle => (
@@ -15,9 +16,18 @@ test("public catalogue figures match the authoritative product datasets", () => 
     && cycle.cycleNumber <= 27
   ));
   const liveLearningGames = GAME_LIST.filter(game => !game.hidden);
+  const cohort = worldDiscoveryCohortManifest.cohorts.find(row => row.id === "21-30");
+  assert.equal(cohort.expectedBooks, 50);
+  const additionIds = new Set("abcde".split("").flatMap(level => (
+    Array.from({ length: 10 }, (_, index) => `world-discovery-${level}-${21 + index}`)
+  )));
+  const additions = guidedReadingBooks.filter(book => additionIds.has(book.id));
+  assert.equal(guidedReadingBooks.filter(book => !additionIds.has(book.id)).length, 397);
+  assert.deepEqual(new Set(additions.map(book => book.id)), cohort.active ? additionIds : new Set());
+  assert.equal(additions.length, cohort.active ? 50 : 0);
 
   assert.equal(PRODUCT_CATALOG_FACTS.guidedReadingBooks, guidedReadingBooks.length);
-  assert.equal(PRODUCT_CATALOG_FACTS.guidedReadingBooks, 397);
+  assert.equal(PRODUCT_CATALOG_FACTS.guidedReadingBooks, 397 + (cohort.active ? 50 : 0));
   assert.equal(PRODUCT_CATALOG_FACTS.guidedReadingQuizzes, undefined);
   assert.equal(GUIDED_READING_BRIDGE_BOOKS.length, 20);
   assert.equal(

@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-27",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:18:42.893Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-5f8b074a-c54b-4300-acd9-cc3a94785148.png",
+  "sourceSha256": "f74274ffd1cf06c18ecfc37166f27378b6ce15c406b6802d58a2f83b9b6db090",
+  "output": "public/guided-reading/world-discovery/d-27/page-05.webp",
+  "outputSha256": "a975751edeb677776700887888a3ba381b5be905004d8d91cd9212fed8af7618",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Replace the split-pod shape with one accurate simple longitudinal rice-grain CROSS-SECTION. Remove the lifted long upper flap entirely. Draw ONE closed elongated oval grain, gently tapered at both ends, about FOUR times longer than wide, centered on the same cream landscape3:2 background. Overall specimen about800pixels long by200pixels wide on1536x1024canvas, broad margins over200pixels. The cross-section has three nested layers: a THIN straw-gold outer HUSK enclosing the entire grain, a separate very THIN BROWN bran layer around the kernel, and a large solid creamy WHITE inner endosperm. Make husk and bran clearly different thin layers; outer husk not thick like a nut shell. No opening, split, detached flap, extra grain or pod shape. No labels, arrows, text or numbers. Preserve bold clean outlines and flat solid colors, no texture.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-d7cfbc20-8506-4e30-a0a4-5e9910069b20.png",
+      "sha256": "b188466ed4d6f6763b78cdaffbb7457208f5ff74a53bd79225e483c28492152a"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "d7159e37a1a2ef16cf6332c998d1e18c7c5e1c835d8925d2049fd3bf922c1538",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.535Z",
+    "sha256": "a975751edeb677776700887888a3ba381b5be905004d8d91cd9212fed8af7618",
+    "note": "Direct native inspection: one closed longitudinal rice cross-section clearly separates thin gold husk, thin brown bran and white interior; no pod opening or thick shell; wide margins and no lettering.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

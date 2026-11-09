@@ -1,0 +1,824 @@
+{
+  "schemaVersion": 1,
+  "cohortId": "21-30",
+  "scope": "a30-local-teaching-cue-revalidation",
+  "status": "reviewed",
+  "reviewedAt": "2026-11-09T15:54:36.688Z",
+  "reviewer": "/root/gap_taxonomy",
+  "change": {
+    "reviewedAt": "2026-11-09T15:54:36.688Z",
+    "reviewer": "/root/gap_taxonomy",
+    "method": "targeted-cue-review-with-current-page-eight-inspection-and-unchanged-prior-full-sequence-evidence",
+    "path": "discussion.visual.lookFor",
+    "before": "It is in the stream away from the street where it began; it is the same single bag.",
+    "after": "The one bag has reached the stream, farther from the street where it began.",
+    "previousBookSha256": "26b8be100bbdf7d37f6377fb977e6582a41ba9a74fa6db24ae6627bb81cce3a9",
+    "currentBookSha256": "794eb3529ecff5cffa581066a244a6ba42e45509c3e2674baf353eece78d349c",
+    "previousBookArraySha256": "24075755c621d72f43bb30fc00a77fb407d55e36e08d772f10f5aa04aed3efc1",
+    "currentBookArraySha256": "f9ec508c059ddf7bc839efb70dfb744ce32989e7c1fecee092e761c78496361a",
+    "readingTextFingerprint": "fnv1a64:07630fd1233b9a02",
+    "observations": "Current page8 directly reopened: exactly one pale-yellow bag with two loop handles and the same small notch floats in the stream, farther from its street origin; street, grass and branch remain in one continuous landscape. Complete text, preparation and discussion reread. All ten reference/cover/page hashes match the previously completed review; only this teaching cue changes.",
+    "limits": "Targeted current page8 inspection and unchanged prior whole-sequence evidence; no new image generation, narration screening, browser, human listening or classroom observation."
+  },
+  "priorSourceBook": {
+    "id": "world-discovery-a-30",
+    "number": 30,
+    "title": "The Bag in the Wind",
+    "topic": "space and environment",
+    "type": "nonfiction",
+    "appLevel": "A",
+    "level": "A",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "How can a loose bag move from a street into a stream?",
+      "progression": "Follow one empty bag from a street, across grass, briefly onto a branch, then into a stream; wind and flowing water move it through different places.",
+      "synthesis": "Wind and moving water can carry loose litter away from the place it was left.",
+      "scienceSources": [
+        {
+          "title": "U.S. Environmental Protection Agency: Learn About Aquatic Trash",
+          "url": "https://www.epa.gov/trash-free-waters/learn-about-aquatic-trash",
+          "evidence": "Loose litter can be carried by wind and water from land into streams and rivers. This book follows one illustrative route, without claiming every item takes that route or reaches the ocean."
+        }
+      ],
+      "factualScope": "One possible litter journey in specific wind and stream conditions. Not all plastic floats forever or reaches the sea. No removal, harm or moral claim is added in place of the physical explanation."
+    },
+    "setting": "One ordinary street beside a grassy verge that slopes gently to a small open stream. Breezy dry daylight. A low bare branch reaches over the grass near the bank; no storm drain or sewer is implied.",
+    "props": [
+      "One empty pale yellow plastic shopping bag with two integral loop handles, a small triangular notch at its lower right corner and no logo",
+      "One continuous route from gray street at left across green verge to stream at right, flowing left to right in the final views",
+      "Same low thin branch with two forks catches one bag handle briefly; branch does not move between frames",
+      "No animal entangled in the bag, no littering child, no additional bags or transformation into an animal"
+    ],
+    "coverBrief": "The single pale yellow empty bag lifts over the grass on a gust, street behind and a small stream ahead. Clear two loop handles and tiny notch maintain identity; no added flying trash or written message.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "A bag lies by the street.",
+        "imageBrief": "Wide low view of the empty yellow bag lying on the verge beside the gray curb. Two loop handles, small corner notch and flattened bag body clear. Stream visible far right; no person discarding it.",
+        "imageAlt": "An empty yellow bag lies on the grass beside a street.",
+        "pageDescription": "An empty yellow bag lies on the grass beside a street.",
+        "state": "Bag flat near street; route and stream established; no movement yet.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "The wind lifts the empty bag.",
+        "imageBrief": "The bag rises a little above the grass, its empty sides opened by air. Grass blades lean in the same rightward breeze; no hand, string or invisible character holding it.",
+        "imageAlt": "A gust raises the empty bag from the ground.",
+        "pageDescription": "A gust raises the empty bag from the ground.",
+        "state": "Bag lifted by rightward gust; original street behind.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "The bag blows across the grass.",
+        "imageBrief": "The same bag travels rightward midway over the verge toward the low branch. Both handles trail left; the small notch remains on the same lower corner, not mirrored.",
+        "imageAlt": "The bag moves over the grass toward a low branch.",
+        "pageDescription": "The bag moves over the grass toward a low branch.",
+        "state": "Bag farther from street and closer to branch; still airborne.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "It catches on a low branch.",
+        "imageBrief": "Exactly one loop handle is caught around the end of the same low branch; bag body hangs on the stream side and billows slightly. Branch has two forks, no new thorn or hook.",
+        "imageAlt": "One bag handle catches on the end of the branch.",
+        "pageDescription": "One bag handle catches on the end of the branch.",
+        "state": "One handle caught; bag temporarily stationary above grass.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "The wind pulls the bag free.",
+        "imageBrief": "The loop has slipped off the smooth branch tip in a new gust; bag now just beyond the branch above the sloping bank. Show intact handle and no torn extra piece.",
+        "imageAlt": "The bag slips off the branch and moves toward the water.",
+        "pageDescription": "The bag slips off the branch and moves toward the water.",
+        "state": "Bag released; unchanged intact identity; near stream edge.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "It falls into the stream.",
+        "imageBrief": "Bag lands partly on the shallow flowing stream surface beside the bank. Body still holds some air, one edge touching water with tiny ripples; no creature beneath it or new deep ocean.",
+        "imageAlt": "The yellow bag lands in the stream.",
+        "pageDescription": "The yellow bag lands in the stream.",
+        "state": "Bag now in water; street and branch behind on bank.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "The stream carries the bag away.",
+        "imageBrief": "Wider downstream view shows the same partly floating bag moving rightward past two bank stones. Ripples and grass direction align; the catching branch is now farther behind.",
+        "imageAlt": "Flowing water carries the bag along the stream.",
+        "pageDescription": "Flowing water carries the bag along the stream.",
+        "state": "Bag transported downstream by flowing water; no change into sinking rock.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "Wind and water can move trash.",
+        "imageBrief": "One coherent wide landscape joins distant street at left, grass and branch in middle, stream with the single bag farther right. No repeated bags, montage or map. The final position visibly differs from the first.",
+        "imageAlt": "The street and branch lie behind the bag as it travels down the stream.",
+        "pageDescription": "The street and branch lie behind the bag as it travels down the stream.",
+        "state": "The original bag is now downstream; whole continuous route in view.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What moves the bag in different parts of this book?",
+        "listenFor": "Wind moves it across the grass; flowing water carries it along the stream."
+      },
+      "visual": {
+        "page": 8,
+        "prompt": "Where is the bag now compared with the first page?",
+        "lookFor": "It is in the stream away from the street where it began; it is the same single bag."
+      }
+    },
+    "levelRationale": "Eight short present-tense clauses with one concrete inquiry: How can a loose bag move from a street into a stream? The sequence uses directly stated actions or observations, no dialogue or hidden motive. Public A remains a proposed assignment until independent full-text review.",
+    "languagePrep": [
+      {
+        "word": "wind",
+        "meaning": "Moving air."
+      },
+      {
+        "word": "stream",
+        "meaning": "Water flowing along a small channel."
+      },
+      {
+        "word": "trash",
+        "meaning": "Things people throw away."
+      }
+    ]
+  },
+  "currentSourceBook": {
+    "id": "world-discovery-a-30",
+    "number": 30,
+    "title": "The Bag in the Wind",
+    "topic": "space and environment",
+    "type": "nonfiction",
+    "appLevel": "A",
+    "level": "A",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "How can a loose bag move from a street into a stream?",
+      "progression": "Follow one empty bag from a street, across grass, briefly onto a branch, then into a stream; wind and flowing water move it through different places.",
+      "synthesis": "Wind and moving water can carry loose litter away from the place it was left.",
+      "scienceSources": [
+        {
+          "title": "U.S. Environmental Protection Agency: Learn About Aquatic Trash",
+          "url": "https://www.epa.gov/trash-free-waters/learn-about-aquatic-trash",
+          "evidence": "Loose litter can be carried by wind and water from land into streams and rivers. This book follows one illustrative route, without claiming every item takes that route or reaches the ocean."
+        }
+      ],
+      "factualScope": "One possible litter journey in specific wind and stream conditions. Not all plastic floats forever or reaches the sea. No removal, harm or moral claim is added in place of the physical explanation."
+    },
+    "setting": "One ordinary street beside a grassy verge that slopes gently to a small open stream. Breezy dry daylight. A low bare branch reaches over the grass near the bank; no storm drain or sewer is implied.",
+    "props": [
+      "One empty pale yellow plastic shopping bag with two integral loop handles, a small triangular notch at its lower right corner and no logo",
+      "One continuous route from gray street at left across green verge to stream at right, flowing left to right in the final views",
+      "Same low thin branch with two forks catches one bag handle briefly; branch does not move between frames",
+      "No animal entangled in the bag, no littering child, no additional bags or transformation into an animal"
+    ],
+    "coverBrief": "The single pale yellow empty bag lifts over the grass on a gust, street behind and a small stream ahead. Clear two loop handles and tiny notch maintain identity; no added flying trash or written message.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "A bag lies by the street.",
+        "imageBrief": "Wide low view of the empty yellow bag lying on the verge beside the gray curb. Two loop handles, small corner notch and flattened bag body clear. Stream visible far right; no person discarding it.",
+        "imageAlt": "An empty yellow bag lies on the grass beside a street.",
+        "pageDescription": "An empty yellow bag lies on the grass beside a street.",
+        "state": "Bag flat near street; route and stream established; no movement yet.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "The wind lifts the empty bag.",
+        "imageBrief": "The bag rises a little above the grass, its empty sides opened by air. Grass blades lean in the same rightward breeze; no hand, string or invisible character holding it.",
+        "imageAlt": "A gust raises the empty bag from the ground.",
+        "pageDescription": "A gust raises the empty bag from the ground.",
+        "state": "Bag lifted by rightward gust; original street behind.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "The bag blows across the grass.",
+        "imageBrief": "The same bag travels rightward midway over the verge toward the low branch. Both handles trail left; the small notch remains on the same lower corner, not mirrored.",
+        "imageAlt": "The bag moves over the grass toward a low branch.",
+        "pageDescription": "The bag moves over the grass toward a low branch.",
+        "state": "Bag farther from street and closer to branch; still airborne.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "It catches on a low branch.",
+        "imageBrief": "Exactly one loop handle is caught around the end of the same low branch; bag body hangs on the stream side and billows slightly. Branch has two forks, no new thorn or hook.",
+        "imageAlt": "One bag handle catches on the end of the branch.",
+        "pageDescription": "One bag handle catches on the end of the branch.",
+        "state": "One handle caught; bag temporarily stationary above grass.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "The wind pulls the bag free.",
+        "imageBrief": "The loop has slipped off the smooth branch tip in a new gust; bag now just beyond the branch above the sloping bank. Show intact handle and no torn extra piece.",
+        "imageAlt": "The bag slips off the branch and moves toward the water.",
+        "pageDescription": "The bag slips off the branch and moves toward the water.",
+        "state": "Bag released; unchanged intact identity; near stream edge.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "It falls into the stream.",
+        "imageBrief": "Bag lands partly on the shallow flowing stream surface beside the bank. Body still holds some air, one edge touching water with tiny ripples; no creature beneath it or new deep ocean.",
+        "imageAlt": "The yellow bag lands in the stream.",
+        "pageDescription": "The yellow bag lands in the stream.",
+        "state": "Bag now in water; street and branch behind on bank.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "The stream carries the bag away.",
+        "imageBrief": "Wider downstream view shows the same partly floating bag moving rightward past two bank stones. Ripples and grass direction align; the catching branch is now farther behind.",
+        "imageAlt": "Flowing water carries the bag along the stream.",
+        "pageDescription": "Flowing water carries the bag along the stream.",
+        "state": "Bag transported downstream by flowing water; no change into sinking rock.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "Wind and water can move trash.",
+        "imageBrief": "One coherent wide landscape joins distant street at left, grass and branch in middle, stream with the single bag farther right. No repeated bags, montage or map. The final position visibly differs from the first.",
+        "imageAlt": "The street and branch lie behind the bag as it travels down the stream.",
+        "pageDescription": "The street and branch lie behind the bag as it travels down the stream.",
+        "state": "The original bag is now downstream; whole continuous route in view.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What moves the bag in different parts of this book?",
+        "listenFor": "Wind moves it across the grass; flowing water carries it along the stream."
+      },
+      "visual": {
+        "page": 8,
+        "prompt": "Where is the bag now compared with the first page?",
+        "lookFor": "The one bag has reached the stream, farther from the street where it began."
+      }
+    },
+    "levelRationale": "Eight short present-tense clauses with one concrete inquiry: How can a loose bag move from a street into a stream? The sequence uses directly stated actions or observations, no dialogue or hidden motive. Public A remains a proposed assignment until independent full-text review.",
+    "languagePrep": [
+      {
+        "word": "wind",
+        "meaning": "Moving air."
+      },
+      {
+        "word": "stream",
+        "meaning": "Water flowing along a small channel."
+      },
+      {
+        "word": "trash",
+        "meaning": "Things people throw away."
+      }
+    ]
+  },
+  "initialRegistration": {
+    "path": "src/content/world-discovery/registrations/21-30.json",
+    "sha256": "ff8dd4991cc7533dda4441c31c497dc2695df0226d55bf94c31d6a250e641e21"
+  },
+  "priorIndependentReport": {
+    "schemaVersion": 1,
+    "bookId": "world-discovery-a-30",
+    "reviewer": "/root/gap_taxonomy",
+    "reviewedAt": "2026-11-09T13:15:47.322Z",
+    "scope": "All nine installed final WebPs directly inspected against the canonical manuscript and illustration briefs; image-only independent review.",
+    "status": "passed-independent-image-sequence-review",
+    "reviewedManuscriptSha256": "26b8be100bbdf7d37f6377fb977e6582a41ba9a74fa6db24ae6627bb81cce3a9",
+    "manuscriptHashMethod": "SHA256(JSON.stringify(book))",
+    "blockingFindings": [],
+    "perAsset": [
+      {
+        "slot": "cover",
+        "file": "public/guided-reading/world-discovery/a-30/cover.webp",
+        "sha256": "15d68c8609935358e831de0fc79ebd8e7bc0e21a4d0cefed278598f5ce8b895c",
+        "status": "clear",
+        "observations": "One pale-yellow bag with two handles and a lower-right notch rises above the grass; street left and stream right. Essential subject, contact or teaching cue is fully visible with clear margins; no unwanted lettering."
+      },
+      {
+        "slot": "page-01",
+        "file": "public/guided-reading/world-discovery/a-30/page-01.webp",
+        "sha256": "8103ba9bae6d2e47f462abef943a6eb3bdf07274a349ce2754d7e8f66260e9dc",
+        "status": "clear",
+        "observations": "The same empty bag lies flat beside the curb; no littering person is shown. Essential subject, contact or teaching cue is fully visible with clear margins; no unwanted lettering."
+      },
+      {
+        "slot": "page-02",
+        "file": "public/guided-reading/world-discovery/a-30/page-02.webp",
+        "sha256": "1349f57df200153095540d420cdfdd861fc25a3242c1df8ac3021996aba0572c",
+        "status": "clear",
+        "observations": "Bag rises above its ground shadow; grass leans right and both handles remain intact. Essential subject, contact or teaching cue is fully visible with clear margins; no unwanted lettering."
+      },
+      {
+        "slot": "page-03",
+        "file": "public/guided-reading/world-discovery/a-30/page-03.webp",
+        "sha256": "68e60607db59eb4044107f9d936045915e23c82f4925503111ddb4c12a93d9ff",
+        "status": "clear",
+        "observations": "Same bag moves farther right toward the low forked branch; both handles trail left. Essential subject, contact or teaching cue is fully visible with clear margins; no unwanted lettering."
+      },
+      {
+        "slot": "page-04",
+        "file": "public/guided-reading/world-discovery/a-30/page-04.webp",
+        "sha256": "4d5872226b1942fabc3f7e76d3f60275a79f84c7efa834b2a9cb05b7b97f81b8",
+        "status": "clear",
+        "observations": "Exactly one handle loops around the branch tip; body billows toward the stream. Essential subject, contact or teaching cue is fully visible with clear margins; no unwanted lettering."
+      },
+      {
+        "slot": "page-05",
+        "file": "public/guided-reading/world-discovery/a-30/page-05.webp",
+        "sha256": "9fc0e5580f4e1fc44caf88ca55b202a440df34255a11ba16022b3a474cdd0eb9",
+        "status": "clear",
+        "observations": "Both handles are intact and the bag is free of the unchanged branch; no torn scrap. Essential subject, contact or teaching cue is fully visible with clear margins; no unwanted lettering."
+      },
+      {
+        "slot": "page-06",
+        "file": "public/guided-reading/world-discovery/a-30/page-06.webp",
+        "sha256": "c91d130ab97dbaee9c439e445e5418deca1b8b306d965570775ae1fdafc696e5",
+        "status": "clear",
+        "observations": "Bag reaches the stream surface, with small contact ripples and the branch behind. Essential subject, contact or teaching cue is fully visible with clear margins; no unwanted lettering."
+      },
+      {
+        "slot": "page-07",
+        "file": "public/guided-reading/world-discovery/a-30/page-07.webp",
+        "sha256": "c17a16c43a34becaae1550d7a2a35cc53adb5a9ec0c4219d2050a62808639377",
+        "status": "clear",
+        "observations": "Same bag floats rightward past exactly two bank stones; branch recedes behind. Essential subject, contact or teaching cue is fully visible with clear margins; no unwanted lettering."
+      },
+      {
+        "slot": "page-08",
+        "file": "public/guided-reading/world-discovery/a-30/page-08.webp",
+        "sha256": "a6a046b917ca537d8456d2a67217f010af3abf9bba6074ec1709176d96387288",
+        "status": "clear",
+        "observations": "One coherent wide route from street through grass and branch to the downstream bag; no duplicates or montage. Essential subject, contact or teaching cue is fully visible with clear margins; no unwanted lettering."
+      }
+    ],
+    "limits": [
+      "No browser reader review",
+      "No audio review",
+      "No canonical complete-book approval"
+    ]
+  },
+  "priorCompleteBookReview": {
+    "bookId": "world-discovery-a-30",
+    "title": "The Bag in the Wind",
+    "sourceBookSha256": "24075755c621d72f43bb30fc00a77fb407d55e36e08d772f10f5aa04aed3efc1",
+    "sourceBookHashMethod": "SHA256(JSON.stringify([book]))",
+    "textFingerprint": "fnv1a64:07630fd1233b9a02",
+    "reviewer": "/root/catalogue_audit",
+    "reviewedAt": "2026-11-09T13:17:28.876Z",
+    "fullTextPrepAndDiscussionReviewed": true,
+    "allReferencesCoversAndPagesReviewed": true,
+    "openFindings": [],
+    "editorialScorecard": {
+      "authority": "docs/content/STORY_BIBLE_PART_1_WRITING.md#9-editorial-scorecard",
+      "reviewedAt": "2026-11-09T13:17:28.876Z",
+      "scope": "complete-book",
+      "reviewedTextFingerprint": "fnv1a64:07630fd1233b9a02",
+      "categories": {
+        "character": {
+          "score": 4,
+          "evidence": "One empty bag travels from a particular street across grass, catches on a low branch and enters a nearby stream."
+        },
+        "goal": {
+          "score": 3,
+          "evidence": "The opening locates the litter. The inquiry about how it moves develops from the first gust rather than a stated question."
+        },
+        "causality": {
+          "score": 4,
+          "evidence": "Wind lifts and transports the bag, a branch briefly holds it, another gust frees it, and flowing water continues the journey."
+        },
+        "obstacle": {
+          "score": 4,
+          "evidence": "A temporary snag and a change from air to water reveal two physical agents without replacing explanation with a moral slogan."
+        },
+        "agency": {
+          "score": 4,
+          "evidence": "Each page changes position or force; the branch pause and release make the route worth following."
+        },
+        "ending": {
+          "score": 4,
+          "evidence": "Wind and water can move trash combines both observed parts of the route while preserving the possibility word can."
+        },
+        "language": {
+          "score": 4,
+          "evidence": "Short concrete clauses with wind/stream/trash preparation fit A. Pronoun it always refers to the same single bag."
+        },
+        "voice": {
+          "score": 3,
+          "evidence": "Lifts, blows, catches, pulls, falls and carries form a natural action sequence; the tone is observational."
+        },
+        "delight": {
+          "score": 3,
+          "evidence": "Following the same bag through a snag and a new moving medium creates mild suspense and a useful rereading route."
+        },
+        "canon": {
+          "score": 4,
+          "evidence": "Independent sequence confirms one pale-yellow two-handled bag with its identifying notch, continuous street/grass/branch/stream route, correct handle snag/release and downstream travel."
+        },
+        "illustration": {
+          "score": 4,
+          "evidence": "Airborne, caught, released and floating states stay distinct, with no invented drain, second bag or unexplained reversal. The final wide route contains only one bag downstream. Current independent sequence is clear."
+        },
+        "audio": {
+          "score": 3,
+          "evidence": "All 9 exact current title/page texts have hash-matching Leda clips in the automated narration report, with full decode/signal and independent-recognition dispositions. Shared word reuse is governed by the cohort inventory. Automated evidence supports a sound current recording set; reader playback remains separate, so fully verified score 4 is not assigned. No human-listening claim."
+        }
+      },
+      "manuscriptSubtotal": 33,
+      "releaseTotal": 44,
+      "thresholdMet": true,
+      "openManuscriptDefects": [],
+      "openMediaDefects": [],
+      "mediaReviewEvidence": {
+        "independentSequence": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-a-30/independentImageReview",
+        "independentSequenceSha256": "fcdb266dcc8207b5f6cf93d9148f4f699a86babf686543737ccc39b49f3987eb",
+        "automatedNarration": "source-art/world-discovery/cohorts/21-30/narration-review.json",
+        "automatedNarrationSha256": "1274b52ebb6ecdba0c730ecf5672b4ebfd4d1c8cfcd0824ab5de2413c8afa647",
+        "humanListeningObserved": false,
+        "completeBook": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-a-30"
+      }
+    },
+    "assets": [
+      {
+        "slot": "reference",
+        "path": "source-art/world-discovery/a-30-reference.webp",
+        "sha256": "8f7ebb59d5f61c0ed91e0aca7c469621a75ae433bb19598d73db4e6abeb3b574",
+        "inspection": {
+          "sha256": "8f7ebb59d5f61c0ed91e0aca7c469621a75ae433bb19598d73db4e6abeb3b574",
+          "method": "codex-direct-image-inspection",
+          "reviewedAt": "2026-11-09T05:00:35.344Z",
+          "note": "Inspected repaired board: only bag, rooted tree/branch and landscape; removed unrequested humans/animals. Bag has two integral handles and one lower-right notch, with consistent flattened design. Low two-fork branch visibly joins rooted trunk beside stream; street, verge and water form one coherent route. Smooth flat fills and no mottled road."
+        }
+      },
+      {
+        "slot": "cover",
+        "path": "public/guided-reading/world-discovery/a-30/cover.webp",
+        "sha256": "15d68c8609935358e831de0fc79ebd8e7bc0e21a4d0cefed278598f5ce8b895c",
+        "inspection": {
+          "sha256": "15d68c8609935358e831de0fc79ebd8e7bc0e21a4d0cefed278598f5ce8b895c",
+          "method": "codex-direct-image-inspection",
+          "reviewedAt": "2026-11-09T11:06:28.193Z",
+          "note": "Directly inspected native: single airborne pale yellow two-handle bag with lower-right notch, continuous street-left/verge/tree/stream-right landscape. All bag edges and fork tips comfortably inset after camera pullback; trunk grounded and continues naturally through top, no extra litter or text."
+        }
+      },
+      {
+        "slot": "page-01",
+        "path": "public/guided-reading/world-discovery/a-30/page-01.webp",
+        "sha256": "8103ba9bae6d2e47f462abef943a6eb3bdf07274a349ce2754d7e8f66260e9dc",
+        "inspection": {
+          "sha256": "8103ba9bae6d2e47f462abef943a6eb3bdf07274a349ce2754d7e8f66260e9dc",
+          "method": "codex-direct-image-inspection",
+          "reviewedAt": "2026-11-09T11:03:30.538Z",
+          "note": "Directly inspected native: single pale yellow bag flat beside curb on left, two integral handles and lower-right triangular notch; continuous verge to stream right, rooted tree with low two-fork branch, no motion/people/extra litter. Bag and branch tips inset comfortably; smooth clean fills."
+        }
+      },
+      {
+        "slot": "page-02",
+        "path": "public/guided-reading/world-discovery/a-30/page-02.webp",
+        "sha256": "1349f57df200153095540d420cdfdd861fc25a3242c1df8ac3021996aba0572c",
+        "inspection": {
+          "sha256": "1349f57df200153095540d420cdfdd861fc25a3242c1df8ac3021996aba0572c",
+          "method": "codex-direct-image-inspection",
+          "reviewedAt": "2026-11-09T11:06:28.301Z",
+          "note": "Directly inspected native: bag lifted above original verge with detached shadow, gently billowing body, two handles trail left and same lower-right notch; grass leans right, unchanged rooted branch and curb/stream geography. Essential bag/branch fully inset."
+        }
+      },
+      {
+        "slot": "page-03",
+        "path": "public/guided-reading/world-discovery/a-30/page-03.webp",
+        "sha256": "68e60607db59eb4044107f9d936045915e23c82f4925503111ddb4c12a93d9ff",
+        "inspection": {
+          "sha256": "68e60607db59eb4044107f9d936045915e23c82f4925503111ddb4c12a93d9ff",
+          "method": "codex-direct-image-inspection",
+          "reviewedAt": "2026-11-09T11:08:47.490Z",
+          "note": "Directly inspected native: same-size bag farther right/up above verge, two left-trailing handles and lower-right notch, clear gap below fixed branch. Shadow and right-leaning grass support movement; no contact yet."
+        }
+      },
+      {
+        "slot": "page-04",
+        "path": "public/guided-reading/world-discovery/a-30/page-04.webp",
+        "sha256": "4d5872226b1942fabc3f7e76d3f60275a79f84c7efa834b2a9cb05b7b97f81b8",
+        "inspection": {
+          "sha256": "4d5872226b1942fabc3f7e76d3f60275a79f84c7efa834b2a9cb05b7b97f81b8",
+          "method": "codex-direct-image-inspection",
+          "reviewedAt": "2026-11-09T11:08:47.599Z",
+          "note": "Directly inspected native: exactly one upper handle visibly encircles lowest smooth fork tip, second loop hangs free; intact bag billows to right, no body pierced or new thorn. Branch remains rooted, bag above grass, wide margins."
+        }
+      },
+      {
+        "slot": "page-05",
+        "path": "public/guided-reading/world-discovery/a-30/page-05.webp",
+        "sha256": "9fc0e5580f4e1fc44caf88ca55b202a440df34255a11ba16022b3a474cdd0eb9",
+        "inspection": {
+          "sha256": "9fc0e5580f4e1fc44caf88ca55b202a440df34255a11ba16022b3a474cdd0eb9",
+          "method": "codex-direct-image-inspection",
+          "reviewedAt": "2026-11-09T11:08:47.707Z",
+          "note": "Directly inspected native: both intact handles now clear of branch, same single bag farther right toward bank, small notch unchanged; branch remains in place, no torn scrap, bag above grass. Clear subject margins."
+        }
+      },
+      {
+        "slot": "page-06",
+        "path": "public/guided-reading/world-discovery/a-30/page-06.webp",
+        "sha256": "c91d130ab97dbaee9c439e445e5418deca1b8b306d965570775ae1fdafc696e5",
+        "inspection": {
+          "sha256": "c91d130ab97dbaee9c439e445e5418deca1b8b306d965570775ae1fdafc696e5",
+          "method": "codex-direct-image-inspection",
+          "reviewedAt": "2026-11-09T11:11:51.658Z",
+          "note": "Directly inspected native: one intact bag partly floating in stream with lower-right notch edge touching water and local ripples, two handles visible, no airborne shadow. Wider rightward view keeps street/tree/branch behind left and continuous stream to right; bag and branch tips have wide margins."
+        }
+      },
+      {
+        "slot": "page-07",
+        "path": "public/guided-reading/world-discovery/a-30/page-07.webp",
+        "sha256": "c17a16c43a34becaae1550d7a2a35cc53adb5a9ec0c4219d2050a62808639377",
+        "inspection": {
+          "sha256": "c17a16c43a34becaae1550d7a2a35cc53adb5a9ec0c4219d2050a62808639377",
+          "method": "codex-direct-image-inspection",
+          "reviewedAt": "2026-11-09T11:17:45.023Z",
+          "note": "Directly inspected native after tree repair: same bag farther downstream, two loop handles/notch and water-contact ripples preserved; two stones on near bank, tree/low fork behind left. Upper branches now continue naturally beyond frame with no artificial cut. Bag fully inset."
+        }
+      },
+      {
+        "slot": "page-08",
+        "path": "public/guided-reading/world-discovery/a-30/page-08.webp",
+        "sha256": "a6a046b917ca537d8456d2a67217f010af3abf9bba6074ec1709176d96387288",
+        "inspection": {
+          "sha256": "a6a046b917ca537d8456d2a67217f010af3abf9bba6074ec1709176d96387288",
+          "method": "codex-direct-image-inspection",
+          "reviewedAt": "2026-11-09T11:17:45.133Z",
+          "note": "Directly inspected native after stone-bank repair: one continuous street-left/verge/tree/stream-right landscape, exactly one bag farther downstream. Two stones now remain on near bank; lower-right notch and two handles preserved, whole canopy newly visible in wider view; no montage or repeated bag, safe subject margins."
+        }
+      }
+    ],
+    "independentImageReview": {
+      "schemaVersion": 1,
+      "bookId": "world-discovery-a-30",
+      "reviewer": "/root/gap_taxonomy",
+      "reviewedAt": "2026-11-09T13:15:47.322Z",
+      "scope": "All nine installed final WebPs directly inspected against the canonical manuscript and illustration briefs; image-only independent review.",
+      "status": "passed-independent-image-sequence-review",
+      "reviewedManuscriptSha256": "26b8be100bbdf7d37f6377fb977e6582a41ba9a74fa6db24ae6627bb81cce3a9",
+      "manuscriptHashMethod": "SHA256(JSON.stringify(book))",
+      "blockingFindings": [],
+      "perAsset": [
+        {
+          "slot": "cover",
+          "file": "public/guided-reading/world-discovery/a-30/cover.webp",
+          "sha256": "15d68c8609935358e831de0fc79ebd8e7bc0e21a4d0cefed278598f5ce8b895c",
+          "status": "clear",
+          "observations": "One pale-yellow bag with two handles and a lower-right notch rises above the grass; street left and stream right. Essential subject, contact or teaching cue is fully visible with clear margins; no unwanted lettering."
+        },
+        {
+          "slot": "page-01",
+          "file": "public/guided-reading/world-discovery/a-30/page-01.webp",
+          "sha256": "8103ba9bae6d2e47f462abef943a6eb3bdf07274a349ce2754d7e8f66260e9dc",
+          "status": "clear",
+          "observations": "The same empty bag lies flat beside the curb; no littering person is shown. Essential subject, contact or teaching cue is fully visible with clear margins; no unwanted lettering."
+        },
+        {
+          "slot": "page-02",
+          "file": "public/guided-reading/world-discovery/a-30/page-02.webp",
+          "sha256": "1349f57df200153095540d420cdfdd861fc25a3242c1df8ac3021996aba0572c",
+          "status": "clear",
+          "observations": "Bag rises above its ground shadow; grass leans right and both handles remain intact. Essential subject, contact or teaching cue is fully visible with clear margins; no unwanted lettering."
+        },
+        {
+          "slot": "page-03",
+          "file": "public/guided-reading/world-discovery/a-30/page-03.webp",
+          "sha256": "68e60607db59eb4044107f9d936045915e23c82f4925503111ddb4c12a93d9ff",
+          "status": "clear",
+          "observations": "Same bag moves farther right toward the low forked branch; both handles trail left. Essential subject, contact or teaching cue is fully visible with clear margins; no unwanted lettering."
+        },
+        {
+          "slot": "page-04",
+          "file": "public/guided-reading/world-discovery/a-30/page-04.webp",
+          "sha256": "4d5872226b1942fabc3f7e76d3f60275a79f84c7efa834b2a9cb05b7b97f81b8",
+          "status": "clear",
+          "observations": "Exactly one handle loops around the branch tip; body billows toward the stream. Essential subject, contact or teaching cue is fully visible with clear margins; no unwanted lettering."
+        },
+        {
+          "slot": "page-05",
+          "file": "public/guided-reading/world-discovery/a-30/page-05.webp",
+          "sha256": "9fc0e5580f4e1fc44caf88ca55b202a440df34255a11ba16022b3a474cdd0eb9",
+          "status": "clear",
+          "observations": "Both handles are intact and the bag is free of the unchanged branch; no torn scrap. Essential subject, contact or teaching cue is fully visible with clear margins; no unwanted lettering."
+        },
+        {
+          "slot": "page-06",
+          "file": "public/guided-reading/world-discovery/a-30/page-06.webp",
+          "sha256": "c91d130ab97dbaee9c439e445e5418deca1b8b306d965570775ae1fdafc696e5",
+          "status": "clear",
+          "observations": "Bag reaches the stream surface, with small contact ripples and the branch behind. Essential subject, contact or teaching cue is fully visible with clear margins; no unwanted lettering."
+        },
+        {
+          "slot": "page-07",
+          "file": "public/guided-reading/world-discovery/a-30/page-07.webp",
+          "sha256": "c17a16c43a34becaae1550d7a2a35cc53adb5a9ec0c4219d2050a62808639377",
+          "status": "clear",
+          "observations": "Same bag floats rightward past exactly two bank stones; branch recedes behind. Essential subject, contact or teaching cue is fully visible with clear margins; no unwanted lettering."
+        },
+        {
+          "slot": "page-08",
+          "file": "public/guided-reading/world-discovery/a-30/page-08.webp",
+          "sha256": "a6a046b917ca537d8456d2a67217f010af3abf9bba6074ec1709176d96387288",
+          "status": "clear",
+          "observations": "One coherent wide route from street through grass and branch to the downstream bag; no duplicates or montage. Essential subject, contact or teaching cue is fully visible with clear margins; no unwanted lettering."
+        }
+      ],
+      "limits": [
+        "No browser reader review",
+        "No audio review",
+        "No canonical complete-book approval"
+      ]
+    },
+    "independentReportSha256": "fcdb266dcc8207b5f6cf93d9148f4f699a86babf686543737ccc39b49f3987eb",
+    "titlePageNarration": [
+      {
+        "slot": "title",
+        "text": "The Bag in the Wind",
+        "audioPath": "/audio/production/en-US/guided_page/the-bag-in-the-wind-9c0067837e.mp3",
+        "sha256": "80101138d7a1db5f70bfca217fb01de122fd0a34484b24ad7669e077802e3b4d",
+        "decision": "independent-recognizer-match",
+        "durationSeconds": 1
+      },
+      {
+        "slot": "page-01",
+        "text": "A bag lies by the street.",
+        "audioPath": "/audio/production/en-US/guided_page/a-bag-lies-by-the-street-ec55dd4561.mp3",
+        "sha256": "d4fee02545d3ed6702acd52955777558b4fcf31f4314f54f31d8586413f3db1c",
+        "decision": "independent-recognizer-match",
+        "durationSeconds": 2.28
+      },
+      {
+        "slot": "page-02",
+        "text": "The wind lifts the empty bag.",
+        "audioPath": "/audio/production/en-US/guided_page/the-wind-lifts-the-empty-bag-69953c75b8.mp3",
+        "sha256": "a8f73854a58ad368fb257b2b662fa7cc51115bfd71780a2e8ad76ccfd289127f",
+        "decision": "independent-recognizer-match",
+        "durationSeconds": 1.64
+      },
+      {
+        "slot": "page-03",
+        "text": "The bag blows across the grass.",
+        "audioPath": "/audio/production/en-US/guided_page/the-bag-blows-across-the-grass-e259343492.mp3",
+        "sha256": "5394b81b22b613fb774529c84b8a74d9bd9302be79a36de6dd10c4af0ad3f728",
+        "decision": "independent-recognizer-match",
+        "durationSeconds": 1.96
+      },
+      {
+        "slot": "page-04",
+        "text": "It catches on a low branch.",
+        "audioPath": "/audio/production/en-US/guided_page/it-catches-on-a-low-branch-503f378b66.mp3",
+        "sha256": "b20dac908a059ac1575749d3e158c7bf3fac0f146f6646935c58bc58c75a0409",
+        "decision": "independent-recognizer-match",
+        "durationSeconds": 2.32
+      },
+      {
+        "slot": "page-05",
+        "text": "The wind pulls the bag free.",
+        "audioPath": "/audio/production/en-US/guided_page/the-wind-pulls-the-bag-free-600eee5f80.mp3",
+        "sha256": "62c9d9e0e395e7ef39ebecd7ed44ec5294f6366daf05ca5c7f463766f50eecb0",
+        "decision": "independent-recognizer-match",
+        "durationSeconds": 1.72
+      },
+      {
+        "slot": "page-06",
+        "text": "It falls into the stream.",
+        "audioPath": "/audio/production/en-US/guided_page/it-falls-into-the-stream-0df5809343.mp3",
+        "sha256": "bfc6a6d536aa8be1c46dbdb25aca82fdada7cf7a297a22a86da9e15020d471b9",
+        "decision": "independent-recognizer-match",
+        "durationSeconds": 1.56
+      },
+      {
+        "slot": "page-07",
+        "text": "The stream carries the bag away.",
+        "audioPath": "/audio/production/en-US/guided_page/the-stream-carries-the-bag-away-nf50-f9cec6235e.mp3",
+        "sha256": "f9cec6235ed43dc3140a6f3872b5abd3b7b1c6e54dc63aa257ddac818dc9cbd8",
+        "decision": "independent-recognizer-match",
+        "durationSeconds": 2.013333333333333
+      },
+      {
+        "slot": "page-08",
+        "text": "Wind and water can move trash.",
+        "audioPath": "/audio/production/en-US/guided_page/wind-and-water-can-move-trash-af81dc5fdd.mp3",
+        "sha256": "73b7e0cb05180008a675a7ec8078637cdf368f25330dc0433504d2a5346a683c",
+        "decision": "independent-recognizer-match",
+        "durationSeconds": 1.92
+      }
+    ],
+    "sourceReview": {
+      "checkedAt": "2026-11-09",
+      "method": "opened-primary-sources-and-compared-supported-manuscript-claims",
+      "urls": [
+        "https://www.epa.gov/trash-free-waters/learn-about-aquatic-trash"
+      ],
+      "assessment": "Opened EPA Learn About Aquatic Trash. It explicitly supports wind/rain moving loose land litter into streams and longer movement through waterways. The manuscript stays with one possible route and does not claim inevitable ocean arrival or universal buoyancy."
+    },
+    "limits": [
+      "No human listening claimed.",
+      "Reader, card delivery, release and live-environment checks recorded separately."
+    ]
+  },
+  "books": [
+    {
+      "bookId": "world-discovery-a-30",
+      "title": "The Bag in the Wind",
+      "sourceBookSha256": "f9ec508c059ddf7bc839efb70dfb744ce32989e7c1fecee092e761c78496361a",
+      "textFingerprint": "fnv1a64:07630fd1233b9a02",
+      "fullTextPrepAndDiscussionReviewed": true,
+      "allReferencesCoversAndPagesReviewed": true,
+      "reviewMethod": "targeted-cue-review-with-current-page-eight-inspection-and-unchanged-prior-full-sequence-evidence",
+      "reviewScope": "Current page8 directly reopened: exactly one pale-yellow bag with two loop handles and the same small notch floats in the stream, farther from its street origin; street, grass and branch remain in one continuous landscape. Complete text, preparation and discussion reread. All ten reference/cover/page hashes match the previously completed review; only this teaching cue changes.",
+      "openFindings": [],
+      "assets": [
+        {
+          "slot": "reference",
+          "path": "source-art/world-discovery/a-30-reference.webp",
+          "sha256": "8f7ebb59d5f61c0ed91e0aca7c469621a75ae433bb19598d73db4e6abeb3b574",
+          "priorReceiptContentSha256": "1b05bb12b39108d945039aa9889f5c42ed8276dc85ab1d30c9f4ff3377121425",
+          "priorGenerationManuscriptSha256": "24075755c621d72f43bb30fc00a77fb407d55e36e08d772f10f5aa04aed3efc1"
+        },
+        {
+          "slot": "cover",
+          "path": "public/guided-reading/world-discovery/a-30/cover.webp",
+          "sha256": "15d68c8609935358e831de0fc79ebd8e7bc0e21a4d0cefed278598f5ce8b895c",
+          "priorReceiptContentSha256": "8e3b1d17c7b327e6dae2b4e7d814aee48d3d8b676aefd202f4021244c498aa71",
+          "priorGenerationManuscriptSha256": "24075755c621d72f43bb30fc00a77fb407d55e36e08d772f10f5aa04aed3efc1"
+        },
+        {
+          "slot": "page-01",
+          "path": "public/guided-reading/world-discovery/a-30/page-01.webp",
+          "sha256": "8103ba9bae6d2e47f462abef943a6eb3bdf07274a349ce2754d7e8f66260e9dc",
+          "priorReceiptContentSha256": "d348321f3ed7602dd03532811638be3a308acb0fa78773d57121292a359509ee",
+          "priorGenerationManuscriptSha256": "24075755c621d72f43bb30fc00a77fb407d55e36e08d772f10f5aa04aed3efc1"
+        },
+        {
+          "slot": "page-02",
+          "path": "public/guided-reading/world-discovery/a-30/page-02.webp",
+          "sha256": "1349f57df200153095540d420cdfdd861fc25a3242c1df8ac3021996aba0572c",
+          "priorReceiptContentSha256": "f50920950383a41d844d1ca62e658046b97b474fae51f9ff1f734af7f5663e64",
+          "priorGenerationManuscriptSha256": "24075755c621d72f43bb30fc00a77fb407d55e36e08d772f10f5aa04aed3efc1"
+        },
+        {
+          "slot": "page-03",
+          "path": "public/guided-reading/world-discovery/a-30/page-03.webp",
+          "sha256": "68e60607db59eb4044107f9d936045915e23c82f4925503111ddb4c12a93d9ff",
+          "priorReceiptContentSha256": "de9565857347915c22ebebc778f5cc22acf74ac39c773bb6d4acec757d3f161f",
+          "priorGenerationManuscriptSha256": "24075755c621d72f43bb30fc00a77fb407d55e36e08d772f10f5aa04aed3efc1"
+        },
+        {
+          "slot": "page-04",
+          "path": "public/guided-reading/world-discovery/a-30/page-04.webp",
+          "sha256": "4d5872226b1942fabc3f7e76d3f60275a79f84c7efa834b2a9cb05b7b97f81b8",
+          "priorReceiptContentSha256": "15ff41ab57acb28e27caf5f95aafc823d7dffd866305e0304f6683043ead8476",
+          "priorGenerationManuscriptSha256": "24075755c621d72f43bb30fc00a77fb407d55e36e08d772f10f5aa04aed3efc1"
+        },
+        {
+          "slot": "page-05",
+          "path": "public/guided-reading/world-discovery/a-30/page-05.webp",
+          "sha256": "9fc0e5580f4e1fc44caf88ca55b202a440df34255a11ba16022b3a474cdd0eb9",
+          "priorReceiptContentSha256": "d9dc7afd623642c7d92684944f1ff9a1d47cdf514ab97c8c810dc43e96a6c69f",
+          "priorGenerationManuscriptSha256": "24075755c621d72f43bb30fc00a77fb407d55e36e08d772f10f5aa04aed3efc1"
+        },
+        {
+          "slot": "page-06",
+          "path": "public/guided-reading/world-discovery/a-30/page-06.webp",
+          "sha256": "c91d130ab97dbaee9c439e445e5418deca1b8b306d965570775ae1fdafc696e5",
+          "priorReceiptContentSha256": "f392f462fab9aa790249fe1ea39924d71969a22b9bd9a829aa787e866a0afc43",
+          "priorGenerationManuscriptSha256": "24075755c621d72f43bb30fc00a77fb407d55e36e08d772f10f5aa04aed3efc1"
+        },
+        {
+          "slot": "page-07",
+          "path": "public/guided-reading/world-discovery/a-30/page-07.webp",
+          "sha256": "c17a16c43a34becaae1550d7a2a35cc53adb5a9ec0c4219d2050a62808639377",
+          "priorReceiptContentSha256": "3c9c4459ce060d4345881d1df46c72abb60dac6581f384f095c9d77e198cc626",
+          "priorGenerationManuscriptSha256": "24075755c621d72f43bb30fc00a77fb407d55e36e08d772f10f5aa04aed3efc1"
+        },
+        {
+          "slot": "page-08",
+          "path": "public/guided-reading/world-discovery/a-30/page-08.webp",
+          "sha256": "a6a046b917ca537d8456d2a67217f010af3abf9bba6074ec1709176d96387288",
+          "priorReceiptContentSha256": "7d4af7cf698de6d793483f1f2e86ed434efe3d56a8b7b6204ec6b9bb08843641",
+          "priorGenerationManuscriptSha256": "24075755c621d72f43bb30fc00a77fb407d55e36e08d772f10f5aa04aed3efc1"
+        }
+      ]
+    }
+  ]
+}

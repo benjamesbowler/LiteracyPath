@@ -1,0 +1,39 @@
+{
+  "bookId": "world-discovery-a-30",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:17:45.132Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-1a579897-8b6a-4bdb-b26e-63e197110fe0.png",
+  "sourceSha256": "ebab57bc65e723b14cdaf982327b0578735e9c98d0306d392322d901a2aece88",
+  "output": "public/guided-reading/world-discovery/a-30/page-08.webp",
+  "outputSha256": "a6a046b917ca537d8456d2a67217f010af3abf9bba6074ec1709176d96387288",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit only location of the TWO gray bank stones. Remove both from far/top bank and put those SAME TWO stones on the NEAR/LEFT bank, on green grass between street and stream, behind the floating bag. Place larger oval at aboutx730,y800 and smallerround atx800,y825; both fully on grass, not water. Keep exactlytwo stones. Preserve ALL other details: same single yellow bag farther downstream, notch/handles, continuous route, tree, sky, street, banks, camera and clean colors. No text. Landscape3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-ca605a58-871b-43b7-a713-03ec0969469f.png",
+      "sha256": "c597fbf0f790f4a3619c5151f6481e09c8af535bf8f932ad0b2363a25c35f506"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "24075755c621d72f43bb30fc00a77fb407d55e36e08d772f10f5aa04aed3efc1",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "a6a046b917ca537d8456d2a67217f010af3abf9bba6074ec1709176d96387288",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:17:45.133Z",
+    "note": "Directly inspected native after stone-bank repair: one continuous street-left/verge/tree/stream-right landscape, exactly one bag farther downstream. Two stones now remain on near bank; lower-right notch and two handles preserved, whole canopy newly visible in wider view; no montage or repeated bag, safe subject margins."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-a-30",
+    "path": "src/content/world-discovery/cohorts/21-30/level-a.json",
+    "sha256": "f9ec508c059ddf7bc839efb70dfb744ce32989e7c1fecee092e761c78496361a",
+    "evidence": "source-art/world-discovery/cohorts/21-30/a30-teaching-cue-revalidation.json"
+  }
+}

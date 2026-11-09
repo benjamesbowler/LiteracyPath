@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-24",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:24:52.973Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-79e972b5-277d-4c74-bc1b-1a3b6d53e1cc.png",
+  "sourceSha256": "afdd3fc0fa13feeacb949dea07324926bb6484b0bf16bf933d0fabd8437a149e",
+  "output": "public/guided-reading/world-discovery/a-24/cover.webp",
+  "outputSha256": "4159368f0bf2e2e8be3909ad953d433d52b85157d378c27e31da85741936f212",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit ONLY camera framing: pull ENTIRE scene back uniformly35%, extending the same room and pale tabletop around it. Kit's hair top must be at least15%below top edge and complete dish bottom at least15%above bottom edge. Preserve head-to-body proportions, hands, leaning seated pose, smiling face, SAME single icecube in shallow water, exact teal-rim shallow white dish, all table/furniture/window relationships. Do not scale child or dish separately. Foreground tabletop may continue beyond bottom naturally. Smooth flat colors with crisp outlines, no texture, text or extraobjects. Landscape3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-293eea8c-e680-4ee9-8404-471ca79506fd.png",
+      "sha256": "e48014529f70dab7ddf1523a9b69021a2d058747dfa0a289881461abd62c9103"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "9c77e1f07a52338299286dd5ca1c02bdc85189d203f83376727f78ec56a237f5",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "4159368f0bf2e2e8be3909ad953d433d52b85157d378c27e31da85741936f212",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:24:52.973Z",
+    "note": "Directly inspected framing repair: whole child/dish/room pulled back uniformly; hair~21% from top, full dish~19% above bottom. Same single cube in shallow puddle, intact teal rim, leaning seated pose and two resting hands, smooth flat tabletop retained."
+  }
+}

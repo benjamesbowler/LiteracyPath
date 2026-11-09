@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-27",
+  "slot": "page-09",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T06:49:33.097Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-d280126c-5a75-49fb-a308-c6f86fc4f709.png",
+  "sourceSha256": "b7073fb471dd4b6886f5eb85a20823a89d2b3c177aef633c93e8607c139f51bd",
+  "output": "public/guided-reading/world-discovery/e-27/page-09.webp",
+  "outputSha256": "e98e1ccfd70acfec92ca51a19bcb300f6ae77753ab27a24981ddfc8381760b1c",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit only the camera framing of this 3:2 nonfiction illustration. ZOOM OUT 35 PERCENT so the complete existing subjects including every outermost part sit entirely within the CENTRAL 65 PERCENT of width AND height. Add more of the same existing background around every edge, at least 15 percent margin. Preserve every physical connection, all woven crossings, button counts, colors and object identities exactly. All factory supports remain grounded where present. Do not crop or erase any object; no new objects or changes to subject geometry. Keep full bleed background, no outer border or rounded frame. Bold flat 2D cartoon.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-a93e67a0-a86b-4cc4-b3b6-5d1f2bc880dd.png",
+      "sha256": "5ba9c74c0e493c9b617dbdabe26737e5702da4858dc2d20e2dcab3b0b4371a8c"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "cbf57ed0e204379362a97b760486f24b628e65ad467026e2a078e7ecc3b4b28e",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
+    "sha256": "e98e1ccfd70acfec92ca51a19bcb300f6ae77753ab27a24981ddfc8381760b1c",
+    "note": "Pale-blue short-sleeved pointed-collar shirt with exactly four white buttons and matching buttonholes, full garment safely framed.",
+    "limits": "Individual installed WebP directly inspected. Independent sequence, reader/card and audio approval separate."
+  }
+}

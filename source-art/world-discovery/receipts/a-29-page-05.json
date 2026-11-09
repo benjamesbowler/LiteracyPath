@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-29",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:00:49.990Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-81a3bdb6-e2b9-40b4-b6a2-dace84a2c8eb.png",
+  "sourceSha256": "af0d313856459ba50d99f5ccf7fd21def6bf997a8f5d999cee3e4a9047890205",
+  "output": "public/guided-reading/world-discovery/a-29/page-05.webp",
+  "outputSha256": "42b975f7c075e58b72be57b9f76af4f250dab9b69426005c7ea673643b3d9d2d",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Make one precise geometry correction to this supplied image. Preserve the scissors and their vertical cutting line exactly in place. Move the LEFT short edge of the red paper 30 pixels RIGHT and move the RIGHT short edge 10 pixels RIGHT, keeping top/bottom edges and height unchanged. The cut must be exactly midway between its two short ends, making two EQUAL 2:1 rectangular halves from a 4:1 original strip. Move adult's left holding hand slightly right to follow the left edge. Preserve all four hands, blue adult sleeves, child's yellow sleeves safely away, scissors near finishing the straight center crease. No third piece or offcut. Preserve overhead camera and pale tabletop. Landscape 3:2, no text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-b9e4742d-1326-4a5e-bae1-0abedbc25c9c.png",
+      "sha256": "5f5a4139abe84b459a10814bba2169b0e321160a2b2094e9ac3df71fd4f5d12c"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "f901b0be0bea47b49de26868818727681b20b5057666da316e0fa78bccc25576",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "42b975f7c075e58b72be57b9f76af4f250dab9b69426005c7ea673643b3d9d2d",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:00:49.992Z",
+    "note": "Directly inspected native: adult-only blue-sleeved hands operate blunt blue scissors at centre of original strip, cutting nearly through; half widths agree closely and original roughly 4:1. Child hands remain away below, no third scrap, four coherent hands."
+  }
+}

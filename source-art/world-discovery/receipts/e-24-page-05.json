@@ -1,0 +1,35 @@
+{
+  "bookId": "world-discovery-e-24",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T14:16:04.201Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-9b0ee125-21f5-4546-981d-bb5407cb61a7.png",
+  "sourceSha256": "2b26d8b713aaef351eba2b71a1d5bc46899e859c67ab2f5eede87792c4b82175",
+  "output": "public/guided-reading/world-discovery/e-24/page-05.webp",
+  "outputSha256": "9df5e36907e3ec0b8900757fa0120413a30933ace6f33e2d11b28bfc46e1fcbf",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Landscape1536x1024 UNLETTERED early-reader science diagram, crisp bold continuous dark outlines, solid flat earth colors, restrained cel shadows, no texture/photo/3D rendering. Warmcream background, all essential geometry inside central75percent with generous margins. Keep EXACT SAME TOP-DOWN rectangle, centralverticalfault, leftbrown/rightgraybrown, camera andarrowdirections asreference. Show strain BEFORE slip: thinBLACKmarkerstripe is ONECONTINUOUS LINE, smoothly BENT into an S across the locked center. FarLEFTstripe aty445 (shiftedUP relativeold510), slopes gently DOWN toward lockedcenterpoint(768,510); continues smoothlyDOWN to farRIGHTstripe aty575. Theline MUSTMEETwithNOgapandNOoffset atfaultx768; lockedcenterstillholds. Solidrockblocksremainadjoining, outerrectangleunchanged, notsoftflowingmelt. TwooppositeORANGE arrowsleftUPrightDOWNstayparalleltofault. Bending isexaggerateddiagramofstrain; no wavefronts, explosions, detachedblocks, openchasm, inkpaintdrips, labels or extra stripes. Widecreammargins.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-b03b8320-8535-4254-a329-90bd212aa5e1.png",
+      "sha256": "5c257218de66f3a7cbcb4233b8789a3581634e9b8bd030b1e01da18121d8e7fb"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "17528444f6f2269814e9707fa662c0af729daea3afd65b636b1b1d274c6dcea2",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:17:34.591Z",
+    "sha256": "9df5e36907e3ec0b8900757fa0120413a30933ace6f33e2d11b28bfc46e1fcbf",
+    "note": "Actual PNG and installed WebP directly inspected. Continuous stripe bends smoothly across still-joined fault without offset; left-up/right-down pushes remain coherent, solid blocks and fixed plan view, wide margins.",
+    "reviewer": "/root/gap_taxonomy",
+    "limits": "Individual installed image inspection; independent sequence, reader, cards and audio reviewed separately."
+  }
+}

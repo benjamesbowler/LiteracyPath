@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-26",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:37:47.794Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-b97a0b41-bd95-42b6-88a0-5e9f718d8708.png",
+  "sourceSha256": "3e2465b8ad6c8e0b8fff5dabf6eff3ff1ef6461f0d0d9dc8f81974c7574dd470",
+  "output": "public/guided-reading/world-discovery/d-26/cover.webp",
+  "outputSha256": "422e0eba51c9bf1cb54a9412f5165eaf63c207f4809eef0b38bae45380ac3c9a",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Recompose this exact cover onto a LANDSCAPE3:2 canvas,1536pixels wide by1024pixels high. Extend the ordinary classroom wall/floor naturally to ALL canvas edges, removing the current white border/vignette; keep all Kit/robot/block safely within generous140px subject margins. Preserve seated Kit identity/outfit and hands on knees, one gray mat, one blue robot stopped against one yellow block. Repair ONLY robot mechanism: the UPPER connection from gray sensor module to red bumper must be a plain straight WHITE horizontal PLUNGER, never a coiled spring. Keep the LOWER connection as the single visible compressed coil spring (other side spring hidden). Red bumper contacts yellow block, blue chassis stays separate; gray controller top and wire to front sensor unchanged. No other objects, arrows, text or labels. Clean flat outlined2D, no texture.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-8d730910-897c-475d-a67a-88eb6455aed1.png",
+      "sha256": "fe4eced9ca9b0ecc999843cb35767ed482c707f9806ed660a15f0dc04b5a68b1"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "975d5f5420efb1308d6c48d6cf7633e175e59f4e879e625913e4b4acfddfb28a",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.526Z",
+    "sha256": "422e0eba51c9bf1cb54a9412f5165eaf63c207f4809eef0b38bae45380ac3c9a",
+    "note": "Direct inspection: full-bleed 3:2 classroom cover, Kit seated hands clear; stopped robot bumper touches one yellow block with shorter compressed spring/plain plunger, same components, unlettered and safely framed.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

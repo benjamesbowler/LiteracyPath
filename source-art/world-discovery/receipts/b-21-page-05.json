@@ -1,0 +1,42 @@
+{
+  "bookId": "world-discovery-b-21",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T05:20:33.212Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-2731ab55-c17c-40df-aa6a-61dfc923e3ce.png",
+  "sourceSha256": "14fb2319398cea3cabe32776f5f9f04b4da48bd239d5721ad68948ca647f528d",
+  "output": "public/guided-reading/world-discovery/b-21/page-05.webp",
+  "outputSha256": "696f927c196b940f5fe60a778ada4803cde2b2eb0a0686d0cda8dd1cde2bd2d4",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit the FIRST image. Change ONLY the three boxcar doors to match the established CLOSED design: each car has two closed sliding door panels meeting at the vertical CENTER, with two small gray handles immediately beside that center seam, one on each panel. Match the supplied cover. Keep the existing excellent wide framing, driver, train geometry, background, colors and all other content unchanged. Do not add labels, borders, panels or texture.\n\nAuthoritative scene specification:\nUse case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Train for Heavy Loads; World Discovery; nonfiction.\nSetting: A short contemporary freight journey between two warehouses. No public access to tracks. Unbranded blue diesel-electric locomotive, followed by red, yellow and green enclosed boxcars in that fixed order. Adult railway workers have orange safety vests, blue trousers and hard hats.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One blue locomotive; Exactly three boxcars in red/yellow/green order; Gray steel couplers between all vehicles; Wooden crates secured inside the cars; One continuous pair of rails\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 5. Printed prose (NOT text to put in art): The engine pulls.\nThe linked cars move along the track.\nRequired illustration: Whole short train begins rolling away from warehouse; rails curve gently ahead and all wheelsets stay on them.\nExact current state: Blue/red/yellow/green sequence; no gaps at couplers.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nAll colors perfectly smooth and flat; no grain or speckling.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-b589ceb4-9e19-4aa5-a655-5498de8de9ee.png",
+      "sha256": "fafb497492e07bed05794938abae9de6329197bc7ec3ef57fffb79a1422e2e23"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/b-21-reference.webp",
+      "sha256": "7855ef43e8e33eeeed6375214c4aa318ef90c9ff4f2c415843cfbdb563694042"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/b-21/cover.webp",
+      "sha256": "1e34373e9d9b4ce9c001b630eed3af5ea92cd25c10a72526e4c7f5c2a41693d3"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "e2840abe2bce545cbddeb0319fa0aade90784202e01e047d8bcd74ba38ddbcbb",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T05:24:08.485Z",
+    "sha256": "696f927c196b940f5fe60a778ada4803cde2b2eb0a0686d0cda8dd1cde2bd2d4",
+    "note": "Directly viewed native source and installed WebP. Blue locomotive pulls exactly three closed red/yellow/green boxcars. Doors preserve paired central handles. Driver stays in the cab; wheels contact rails along the gentle bend.",
+    "limits": "Direct image inspection only; complete sequence and app display review follow separately."
+  }
+}

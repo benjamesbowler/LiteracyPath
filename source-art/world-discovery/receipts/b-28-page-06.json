@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-b-28",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T08:04:53.845Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-b8b2465f-01f2-40e4-a30c-7d72bd55b157.png",
+  "sourceSha256": "8ec0b1640cf746ae096a741a47216d86187044d047a689256166739104bca632",
+  "output": "public/guided-reading/world-discovery/b-28/page-06.webp",
+  "outputSha256": "6d395173c80832f07087699def028525d905d705d8728205100e67a8f721dc8d",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Repair ONE tiny continuity detail in first image. The stripped twig nearest giraffe mouth must have the exact long thin unbroken rounded LEFT tip from second reference; it is not cut or bitten off. Remove the first image's circular flat cut-end and extend its thin taper leftward to match second. Preserve first image's CHEWING state: closed mouth holding only two tiny leaf tips, tongue fully inside, head safely pulled back from twig. All thorns remain on branch. Do not alter giraffe, neighboring foliage, smooth flat cartoon style or LANDSCAPE 3:2 frame. No text or arrows.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-9c481294-2d6e-42b8-8c90-1cda7f52a9f7.png",
+      "sha256": "98a71c7e96f8cdeac2f737c2b0a83fb765fa3dafddf31b2c256404f242120490"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/b-28/page-05.webp",
+      "sha256": "18cd06e79a448ce14afca0ab921fcbf42d84babd61e939b71f7542b30d3f7a91"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "3b2da464191b00e55de10d772304d97a74700fcde5ac76ab45ab88f364075677",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T08:05:34.730347+00:00",
+    "sha256": "6d395173c80832f07087699def028525d905d705d8728205100e67a8f721dc8d",
+    "note": "Directly viewed native PNG and installed WebP: chewing with two small leaf tips, tongue withdrawn, intact bare twig has rounded unbroken tip and retained thorns. Head and feeding action safely framed.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

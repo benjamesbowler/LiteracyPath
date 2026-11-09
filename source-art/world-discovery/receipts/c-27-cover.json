@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-c-27",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:24:41.092Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-f9ad2e0b-988b-48e9-a74e-d21c760cfed1.png",
+  "sourceSha256": "029754f2828425799c0cd74b7e8db87e3e5595bc17c550c0c793a81ad918f5f4",
+  "output": "public/guided-reading/world-discovery/c-27/cover.webp",
+  "outputSha256": "dcedfa0dc8cf2f1c5a5a97f67c7c0a980acddfd119d8a02a008434324d62cfbc",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit the referenced finished landscape3:2 flat2D children nonfiction illustration. Crisp clean dark outlines and flat colors. Change ONLY both of Zoe's sneaker uppers from purple to WHITE. All sneaker panels, toes, straps and soles should be white with pale gray shading and existing dark outlines. Do not change purple overalls, skin, pose, objects, continuous pencil-core cutaway, paper, drawing, framing or anything else.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/c-27/cover.webp",
+      "sha256": "2c4def1308c531d29e508da839679ad3599e60dd89955e9646a14eb4cd402922"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "3a70fa1d14c972360847c319383d83f2ce0d2b4c35e4355bf29e90a292205a2e",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T13:26:30.895207+00:00",
+    "sha256": "dcedfa0dc8cf2f1c5a5a97f67c7c0a980acddfd119d8a02a008434324d62cfbc",
+    "note": "Independent canon finding resolved: Zoe has white sneakers; continuous dark core through enlarged pencil cone retained; gray drawing line and all margins clear.",
+    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  }
+}

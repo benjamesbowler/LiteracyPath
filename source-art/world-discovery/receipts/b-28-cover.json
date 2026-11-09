@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-b-28",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:16:26.078Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-cc2d654c-eeac-4593-8bae-fdc098b25fb6.png",
+  "sourceSha256": "e14900f6ecb916af45d432f7c43c0403e6b9f330c3f391cafe990c72a6bff0ae",
+  "output": "public/guided-reading/world-discovery/b-28/cover.webp",
+  "outputSha256": "7adbff34cb020b0387c8e127ffb925707325e215e6e0d2f05de328c05be644ef",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "One finished landscape 3:2 children's nonfiction cover illustration, unlettered. A natural Southern giraffe feeding from one thorny Vachellia tree in open African woodland. Match the supplied giraffe identity: tan coat with irregular brown patches, short mane, two ossicones, large ears, dark muzzle and natural eyes; no human expression. Show a coherent close three-quarter SIDE view of giraffe's head and upper neck reaching to a leafy twig. Its single long DARK tongue curls around small paired green leaflets, between clearly visible pale paired straight thorns. The attached woody thorn-bearing twig remains OUTSIDE the mouth; leafy tips are being selected. Keep neck natural length/proportions, tongue grows from mouth not nose, no teeth display. The main twig, mouth, tongue, both ears and two ossicones entirely at least 9% inside image edges. Quiet blue sky, a few distant trees and tawny ground; branch connects to tree on right, no detached twig or floating leaves. No people, captions, letters, numbers, symbols, diagrams or panels. Clean bold naturalistic 2D cartoon with crisp dark outlines and perfectly smooth flat color, no grain, stipple, fuzzy or painted texture.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/b-28-reference.webp",
+      "sha256": "bc06e7bde7f767912fca97ea540e5d427be516ed9a63f007603c2f4d7e37e2ff"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "3b2da464191b00e55de10d772304d97a74700fcde5ac76ab45ab88f364075677",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T07:16:47.662289+00:00",
+    "sha256": "7adbff34cb020b0387c8e127ffb925707325e215e6e0d2f05de328c05be644ef",
+    "note": "Directly viewed native PNG and installed WebP. Two ossicones, paired ears, single dark tongue with leaves beside pale paired thorns; woody branch remains outside mouth, natural upper-neck continuity, safe main feeding details, unlettered clean illustration.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

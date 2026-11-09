@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-29",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:03:30.391Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-c56a215a-30ec-49d6-9e73-c845ed7df16a.png",
+  "sourceSha256": "d693098966d6d06f4c4c25c2ab8ad51ec16bb60b8ec25d16136d3a6674b55939",
+  "output": "public/guided-reading/world-discovery/a-29/page-07.webp",
+  "outputSha256": "697f1e4680f6874453b6b4186a352c9a9b5a430e1135d994cd1a1ba05cdd20f8",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit ONLY the red paper: shorten its horizontal width to 93% of current width, keeping its height and right edge fixed. Move left short edge slightly RIGHT. Preserve stacked two congruent sheets exactly aligned, tiny double thickness at bottom. Final width exactly twice height. Preserve both hands, sleeves, colors, framing and camera completely. No text. Landscape 3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-6b5fd26b-8534-4fe7-abc8-4ff17cbbdc15.png",
+      "sha256": "a66aec8d1eef8a2a1124afae7a5b00d85747eacae13960c092eb689df5ca89aa"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "f901b0be0bea47b49de26868818727681b20b5057666da316e0fa78bccc25576",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "697f1e4680f6874453b6b4186a352c9a9b5a430e1135d994cd1a1ba05cdd20f8",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:03:30.393Z",
+    "note": "Directly inspected native: two red halves exactly coincide at all four edges/corners with a tiny lower double edge, approximately 2:1 outline; index points beside right short edge, other hand rests clear. No fold or extra sheet, wide paper/hand margins."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-c-27",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:24:41.281Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-285ce395-df29-4850-a113-deb951a44a86.png",
+  "sourceSha256": "9af4657bfd9af99e95c73d1c221fa2ccf3db85a9e977f6a58b68f27c8012d936",
+  "output": "public/guided-reading/world-discovery/c-27/page-08.webp",
+  "outputSha256": "bcdfef5cf7ee602f9e1216d14781a34fad8242f2d38c5300a872c8ad75e3aa53",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit the referenced finished landscape3:2 flat2D children nonfiction illustration. Crisp clean dark outlines and flat colors. Pull the ENTIRE scene back uniformly by15 percent and extend the same classroom background and floor naturally edge-to-edge, no border. Keep exact Zoe white sneakers, pencil point touching gray line, paper and sharpener. Whole shoes should be at least12 percent above bottom; puffs at least12 percent belowtop. No new objects or characters, no changes to drawing.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-30ae115f-48aa-4d0b-a5bf-46b3de30b381.png",
+      "sha256": "163475f60314408ba8ca65c6903e21a73cafd4fe9fb5cbd932fdbd360b650bb3"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "3a70fa1d14c972360847c319383d83f2ce0d2b4c35e4355bf29e90a292205a2e",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T13:26:30.895912+00:00",
+    "sha256": "bcdfef5cf7ee602f9e1216d14781a34fad8242f2d38c5300a872c8ad75e3aa53",
+    "note": "Zoe in canonical yellow/plum/white clothing draws gray line with graphite point on paper, blue enclosed sharpener aside. Whole puffs, hands and shoes have safe margins; single scene and no cutaway.",
+    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "bookId": "world-discovery-e-24",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T14:26:24.400Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-76b3e410-597e-406d-b3e4-6e266a87c39c.png",
+  "sourceSha256": "9add4058d7bb9fce00eaa960b7e54813c0991eb20d4abc9d0bcc0a857704ab81",
+  "output": "public/guided-reading/world-discovery/e-24/page-08.webp",
+  "outputSha256": "ba3923310f6a01c57dc5042a071b882273dfdcaa2bb58ac75eda8673cff7386a",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Landscape1536x1024 UNLETTERED early-reader scientific illustration. Crisp dark outlines, solidflat brown/gray/green/orange colors, restrainedcelshadow, no realistictexture/photo/3D rendering. Warmcreambackground, one diagram, broad margins at least8percent. Same calm grassygroundcutaway asreference, closedfaultandsolidrock, fixedlevelsurface. Keep restrainedORANGEwavefronts below ground. Highlight ONEsmall squarepatch ofrock justbelowthegrass nearx1000,y450 withathinTEALoutline, withoutcuttingitoutoraddinganotherblock. Directlyabovethatpatch, add ONEshort horizontal TEAL DOUBLE-HEADEDarrow (leftandrightheads), centeredoverpatch, showing small BACK-AND-FORTH localgroundmotion. No longone-way displacementarrow. Patchremainsinsideandattachedtosame rock; groundflat, noopencracks, no people,houses,lava, detachedpieces, labels or numbers. Ensureallarrowheadsandwholeblockwellinside10percentmargins. Theseareteachingmarks,notphysicalobjects.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-d3947aa7-b31f-470c-9c6d-f0f34e2e33eb.png",
+      "sha256": "5a3176b8be24ec82f6bd0e1dcb17bf1e3b8c190d27fd7b6ad9be55f4c0158b1b"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "17528444f6f2269814e9707fa662c0af729daea3afd65b636b1b1d274c6dcea2",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:26:48.366Z",
+    "sha256": "ba3923310f6a01c57dc5042a071b882273dfdcaa2bb58ac75eda8673cff7386a",
+    "note": "Direct PNG and installed WebP inspection: one small teal outlined rock patch remains part of the right block, with one short horizontal double-headed teal arrow above it. Orange wavefronts spread below; flat surface, closed fault and attached rock are preserved. Unlettered and safely framed.",
+    "reviewer": "/root/gap_taxonomy",
+    "limits": "Individual installed image inspection; independent sequence, reader, cards and audio reviewed separately."
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-26",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:53:13.064Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-aa210042-a6fa-45a9-9f83-302e5d0b8e7d.png",
+  "sourceSha256": "32e20c8e8bf379b73015575ac95da2270201a2de4d71b91eaece373a19c89dfd",
+  "output": "public/guided-reading/world-discovery/d-26/page-06.webp",
+  "outputSha256": "66629ea4c5f319564db49be4fe57b91fb6d5bcf5772b2ad183cc6d4d0fb0a041",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit the referenced scene to show the next action: the same robot BACKS AWAY to the LEFT from the yellow block. Preserve the block location, room and mat. Keep robot facing RIGHT toward the block; shift the robot enough LEFT to leave a clear gap of about half a robot length between red bumper and yellow block. The upper white plunger and lower coil spring extend back OUT, increasing bumper-to-chassis distance like the original unpressed state. Preserve gray top controller and black wire to sensor, one visible large drive wheel and small rear caster; opposite wheel hidden by side profile. Remove existing wire arrow. Add exactly ONE small clear blue LEFT-pointing motion arrow below the robot, indicating travel backward. Keep the entire arrow at least 140px from lower edge. No person, tablet, extra block or wheel spin marks. Clean dark-outlined flat 2D nonfiction art, restrained cel shading; no texture, photorealism or 3D. Landscape 3:2 1536x1024. All essential subjects at least 140px inside image edges. No words, letters, numbers, logos or watermark.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-8497cb9b-9213-45d3-bfb2-d6f9f1a02c41.png",
+      "sha256": "662c93129a8a24321cccf6df9822df0c479cad8eafcaf6a48e64a1a970a65168"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "975d5f5420efb1308d6c48d6cf7633e175e59f4e879e625913e4b4acfddfb28a",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.530Z",
+    "sha256": "66629ea4c5f319564db49be4fe57b91fb6d5bcf5772b2ad183cc6d4d0fb0a041",
+    "note": "Direct native inspection: robot still faces right while moving left as the single motion arrow shows; gap opens, straight plunger and spring extend; block location and room unchanged.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

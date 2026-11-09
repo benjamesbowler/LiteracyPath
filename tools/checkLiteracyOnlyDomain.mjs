@@ -14,6 +14,12 @@ const RETIRED_PATH = /(?:^|[/_.-])(?:maths?|mathematics|numeracy)(?:$|[/_.-])/i;
 const FIRST_PARTY_PATH = /^(?:src|public|docs|tools|tests|supabase\/migrations)\//;
 const WORLD_DISCOVERY_MANUSCRIPT = /^src\/content\/world-discovery\/(?:cohorts\/\d{2}-\d{2}\/)?level-[a-e]\.json$/;
 const CLASSIFICATION_SOURCE_URL = "https://nrich.maths.org/problems/carroll-diagrams";
+const DISCOVERY_REFERENCE_METADATA = [
+  { bookId: "world-discovery-a-29", url: "https://nrich.maths.org/eyfs-activities/two-halves", title: "University of Cambridge NRICH: Two Halves" },
+  { bookId: "world-discovery-b-29", url: "https://www.ncetm.org.uk/classroom-resources/ey-measures/", title: "National Centre for Excellence in the Teaching of Mathematics: Measures" },
+  { bookId: "world-discovery-c-29", url: "https://www.ncetm.org.uk/classroom-resources/cp-year-3-unit-11-time/", title: "National Centre for Excellence in the Teaching of Mathematics: Time" }
+];
+const HALVES_ENDING_REVIEW = "Each piece is half the strip follows the all-around edge match and restored whole, earning the mathematical word.";
 
 function trackedAndUntrackedFiles(root) {
   return execFileSync(
@@ -38,12 +44,35 @@ function withoutProgrammingPrimitives(content, relativePath = "") {
 }
 
 function withoutCanonicalScienceSourceUrl(content, relativePath) {
-  if (!WORLD_DISCOVERY_MANUSCRIPT.test(relativePath)) return content;
+  const isReview = relativePath === "src/content/world-discovery/cohorts/21-30/reviews.json";
+  if (!WORLD_DISCOVERY_MANUSCRIPT.test(relativePath) && !isReview) return content;
   let books;
   try {
     books = JSON.parse(content);
   } catch {
     return content;
+  }
+  if (isReview) {
+    if (!books || typeof books !== "object" || Array.isArray(books)) return content;
+    let changed = false;
+    for (const reference of DISCOVERY_REFERENCE_METADATA) {
+      const review = books[reference.bookId]?.sourceReview;
+      if (!Array.isArray(review?.urls)) continue;
+      review.urls = review.urls.map(url => {
+        if (url !== reference.url) return url;
+        changed = true;
+        return "";
+      });
+    }
+    // This fixed editorial observation classifies the word "half"; it is not
+    // child-facing copy or a retired product feature. No other review prose
+    // or occurrence of the same wording receives an exemption.
+    const ending = books["world-discovery-a-29"]?.editorialScorecard?.categories?.ending;
+    if (ending?.evidence === HALVES_ENDING_REVIEW) {
+      ending.evidence = "";
+      changed = true;
+    }
+    return changed ? JSON.stringify(books, null, 2) : content;
   }
   if (!Array.isArray(books)) return content;
   let changed = false;
@@ -56,6 +85,16 @@ function withoutCanonicalScienceSourceUrl(content, relativePath) {
       // only its URL in the scan copy; sibling prose and other URLs still fail.
       if (source?.url === CLASSIFICATION_SOURCE_URL) {
         source.url = "";
+        changed = true;
+      }
+      // These fixed nonfiction references name their original academic source.
+      // Only the exact citation fields are masked; book prose, claims, URLs
+      // elsewhere and other publications retain the complete domain scan.
+      const reference = DISCOVERY_REFERENCE_METADATA.find(row => row.bookId === book.id
+        && row.url === source?.url && row.title === source?.title);
+      if (reference) {
+        source.url = "";
+        source.title = "";
         changed = true;
       }
     }

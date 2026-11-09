@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-26",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:53:12.849Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-84231100-e99d-49e9-b796-7f9691063921.png",
+  "sourceSha256": "9922f57de12aa6fb9a18b963aa6e5790c52c229a488812d83e66f46548bb2aa5",
+  "output": "public/guided-reading/world-discovery/d-26/page-05.webp",
+  "outputSha256": "81cf4b76f847fa304dd319826be7e00ae35f8360973da06a1f1b38aa47d7e499",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Create a distinct closer side-profile view of the robot STOPPED against this same yellow foam block, matching reference identity and precise mechanical state. Pull the camera to the right slightly and lower to mat level, while keeping the complete blue robot and yellow block fully visible with generous margins. Front faces RIGHT; red bumper still touches block LEFT face, white upper straight plunger remains compressed, lower coil spring compressed. Controller gray on top, black wire to front sensor, one visible large drive wheel and small rear caster, opposite wheel hidden by the exact side profile. Both drive wheels rest on the floor. REMOVE the blue message arrow. No wheel spin lines, no motion arrows, no pushing distortion. Yellow foam block stays intact and unmoved. Background remains same calm classroom window and cubbies, no people or tablet. This is one quiet stationary scene. Clean dark-outlined flat 2D nonfiction art, restrained cel shading; no texture, photorealism or 3D. Landscape 3:2 1536x1024. All essential subjects at least 140px inside image edges. No words, letters, numbers, logos or watermark.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-8497cb9b-9213-45d3-bfb2-d6f9f1a02c41.png",
+      "sha256": "662c93129a8a24321cccf6df9822df0c479cad8eafcaf6a48e64a1a970a65168"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "975d5f5420efb1308d6c48d6cf7633e175e59f4e879e625913e4b4acfddfb28a",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.529Z",
+    "sha256": "81cf4b76f847fa304dd319826be7e00ae35f8360973da06a1f1b38aa47d7e499",
+    "note": "Direct native inspection: distinct lower side-profile view, stationary wheels and compressed bumper at same intact foam block; no arrows or motion marks; full subjects safely framed.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-b-28",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:44:10.174Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-735b0501-6faf-4a82-b55d-f9bdb91645fa.png",
+  "sourceSha256": "a66d017e424332f6e39dc10eaa8e92afdcda42ce4cc59a8d56157e9ef44950a3",
+  "output": "public/guided-reading/world-discovery/b-28/page-04.webp",
+  "outputSha256": "752144cf338f740320217fe77e9d9fe5a6134fbd613af5293eb1164fa5812e4d",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Next close natural side view of same giraffe feeding from same target twig, matching feeding cover head/branch. Its SINGLE dark tongue curls back toward the mouth carrying a small bundle of green leaflets. Its lips close around the leafy tips; woody brown thorn-bearing branch remains clearly OUTSIDE mouth with a visible small gap to lips. A few leaflets have been pulled from the very end but the branch itself is intact, still attached to tree, all pale thorns remain. No branch swallowed, no separate floating tongue. Same tan coat, irregular brown patches, two ossicones and large ears all fully safely inside frame; neck naturally continues lower-left. Minimal woodland/blue sky. Clear difference from previous reach: leaflets now at lips, first end of twig slightly reduced. LANDSCAPE 3:2, 1536x1024. Crisp bold clean children's 2D illustration, smooth flat vector-like fills and restrained cel shadows, absolutely no grain/stipple/paint texture. No words, labels, letters, numerals, arrows, panels or watermarks. Essential subjects at least 12% inside all edges.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/b-28/cover.webp",
+      "sha256": "7adbff34cb020b0387c8e127ffb925707325e215e6e0d2f05de328c05be644ef"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/b-28/page-02.webp",
+      "sha256": "747f9c8892da413f556728bf37b1e3e987bc47b55746f25d785bb1a4ce5975a8"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "3b2da464191b00e55de10d772304d97a74700fcde5ac76ab45ab88f364075677",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T07:47:29.243701+00:00",
+    "sha256": "752144cf338f740320217fe77e9d9fe5a6134fbd613af5293eb1164fa5812e4d",
+    "note": "Directly viewed native PNG and installed WebP. Leaflets now at lips and tongue, target twig end visibly reduced, woody branch and all thorns outside mouth; natural head/neck and safely inset feeding detail.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

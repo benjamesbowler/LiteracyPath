@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-28",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:39:41.159Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-949c5d8f-087f-4f9a-a96b-588ea55ffedb.png",
+  "sourceSha256": "3d118f043be6c5d4d2e6b8f4434af69d8161f35234af219e9ae3a8bbd0371570",
+  "output": "public/guided-reading/world-discovery/d-28/page-05.webp",
+  "outputSha256": "5cb54f4aa71ab3632b2d0abca7d2661ef417f0bd37df8c6abec3c2502ba66bfd",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. Create a distinct 1536x1024 landscape page, bold dark outlines and flat 2D clean color matching reference chickadee. One Carolina chickadee parent approaches a natural oval cavity in a gray-brown tree trunk, carrying ONE small intact green caterpillar crosswise in its short beak. Bird outside cavity at left, faces RIGHT toward hole; its two natural feet grasp rough lip below hole, wings folded. Same black cap/bib, white cheek, gray back/tail, cream underside; no white wing stripes. Exactly THREE small gray chickadee nestlings remain fully INSIDE the single dark cavity; three heads with subtle dark caps and pale cheeks, tiny yellow gape edges, only the nearest one has an open beak. The parent has not passed the caterpillar yet, clear short gap between beaks. Natural cavity, not a woven open nest, no extra holes or adult inside. Woodland oak foliage soft simple backdrop. All bird, tail, cavity opening and nestlings fully within central 75%, at least140px margins. No arrows, labels, letters, numbers, feather/bark texture, photorealism or human props.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-ba9c9ad3-39d9-4e46-9722-9d55d89666a4.png",
+      "sha256": "448180cc11a26e44d920f0036e27192b2e58acce80afa46ec9277e2eda0e9844"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "78c2904e582ff26b4d4ca84266e2154c9a1849a22caf6695aebc788bc09c7b58",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.540Z",
+    "sha256": "5cb54f4aa71ab3632b2d0abca7d2661ef417f0bd37df8c6abec3c2502ba66bfd",
+    "note": "Actual native PNG and installed WebP directly inspected: Parent outside one natural tree cavity holds one caterpillar across clear gap; exactly three young remain inside, one open gape; consistent markings and natural grasp.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

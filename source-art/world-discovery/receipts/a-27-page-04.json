@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-27",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:42:26.511Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-5aa1c93e-09d4-48ee-ac24-d0d96554998c.png",
+  "sourceSha256": "b1f1800e322ca2d9b45971c35bcdabc3da933294797a5842f8c28eabf7580a54",
+  "output": "public/guided-reading/world-discovery/a-27/page-04.webp",
+  "outputSha256": "fed371d0f00bb35f671aec95184ab3c17800198b55610ffb1a7719844b44310a",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Make this exact diagram 80% of its current size centered within the same landscape3:2 canvas, extending the plain white surrounding background. Keep the complete guarded chamber silhouette at least12% from all edges. Preserve the intact kernel, brown base and gentle orange warm halo exactly. No new object, text or detail. Smooth flat clean diagram. This is solely a slight zoom-out to give the chamber safe margins.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-64e4628f-ae45-4300-8246-8571ca7e710f.png",
+      "sha256": "0bcfe0c83806683ccd668a71594c7475ac37788e67783124ed736a969ea2ebf7"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "54df5f6be0ca6e59f447c22d2431c43d463a335ffaf26ebbf520c3a8450a76f2",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "fed371d0f00bb35f671aec95184ab3c17800198b55610ffb1a7719844b44310a",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T07:42:26.513Z",
+    "note": "Directly inspected: one intact kernel inside closed guarded heating-chamber close-up, restrained warm halo with no flames/steam/internal molecular scene. Chamber fully inset about12–15%; hull remains unbroken."
+  }
+}

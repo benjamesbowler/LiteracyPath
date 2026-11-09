@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-b-22",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T05:38:07.442Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-1d443640-bf25-4487-b9f8-c7446ab3c39c.png",
+  "sourceSha256": "089c0985e8022e96eaddaa20e548cdb3dee3d24507258be86af3cc3cba140c1d",
+  "output": "public/guided-reading/world-discovery/b-22/page-02.webp",
+  "outputSha256": "ab60f9e3f11b30293df15b1d526f6f71fee79e30704b90bf6703116def8b7550",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use image one as the authoritative geographic drawing: preserve its exact continent shapes, positions, projection, globe circle size, and orange route location. Convert this map reference into the clean bold 2D illustration style of image two, without changing geography. One globe sphere ONLY on pale cream, no stand, people, room, inset, extra globe, or other objects. Keep the circle exactly this size and position with generous margin. Make coastlines clean dark outlines. All land green including Antarctica, all water same blue. Smooth the small angles in the orange line without moving it across land. The route runs south and ends in open water before Antarctica. Add a small arrowhead at its southern end. The only text is Atlantic Ocean, set in a clear child-readable white sans-serif font entirely within the corresponding blue water, avoiding route and land. Final must remain a polished native illustration.\n\nUse case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one integrated explanatory diagram. Allow only the cutaways, insets, schematic elements or arrows explicitly authored in this page's illustration brief; keep them spatially connected to the subject they explain. No unrequested panels, insets, annotations or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, watermarks or page borders. The ONLY permitted written content is the exact authored embeddedImageText: \"Atlantic Ocean\". Preserve its spelling and case; place it only as the illustration brief specifies. No additional text, letters, numbers, captions, pseudo-writing, legends or written title. Printed prose below is context only, never extra lettering. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: One Ocean Around Earth; World Discovery; nonfiction.\nSetting: A classroom globe investigation with Kit and Zoe. Geographically accurate continent outlines on a plain globe and close map views; ocean regions stay the same blue. Route is a thin orange teaching overlay, never a real painted line on Earth.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Accurate blue-and-green Earth globe; Thin orange route overlay kept entirely in seawater; Plain gray globe stand\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and specific stages explicitly required below; the declared diagram permits no other scenes or story events.\nPage 2. Printed prose (NOT text to put in art): Start in the Atlantic Ocean.\nFollow its water south.\nRequired illustration: Accurate Atlantic-facing globe close-up with orange route from central Atlantic down past South America toward Antarctica.\nExact current state: Route begins in Atlantic and stays in water.\nDo not add events or stages beyond the authored diagram. Repeat a subject only when the authored comparison or cutaway requires it. No written title; the app renders live text.\nPerfectly smooth flat color, no surface texture or grain.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/.artifacts/nonfiction-next-50/geography-reference/atlantic.png",
+      "sha256": "14bebf345ca032d3345982a6c8876062e5d61538fb950826651a553a5362f257"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/b-22-reference.webp",
+      "sha256": "aa47f5df80f6895353841ac4a1735e87fe48a3bd239e8c73f19911c0b91ff237"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "20ecca19d99fe9f835680d66d0bb8b60c48e7bfbd2c48e9ed200c12d2524db14",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T05:39:50.402Z",
+    "sha256": "ab60f9e3f11b30293df15b1d526f6f71fee79e30704b90bf6703116def8b7550",
+    "note": "Directly viewed native PNG and installed WebP against the Natural Earth orthographic geography reference. Single globe, uniform blue connected ocean, correctly placed authored label, route stays in water with visible separation from land. Atlantic route runs south between South America and Africa toward Antarctic waters.",
+    "limits": "Direct image inspection; final independent sequence and app display review follow separately."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-27",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T06:49:32.589Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-1bcd9b0a-1a26-4364-ac6d-d8c6bab5522f.png",
+  "sourceSha256": "cfb9010ff702a59efc0602675d7cd28865769340fb35863e20b458ab05b78da6",
+  "output": "public/guided-reading/world-discovery/e-27/page-07.webp",
+  "outputSha256": "55fac8cbedca5cfd725a7282b8cca1c4ec07751887fb525f885e005453da8fef",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Repair this factory cutting scene. Zoom OUT 30 percent so woman, scissors, table and all five paper pattern shapes have minimum 15 percent safe margin all around. Keep exactly two mirrored front halves, one back panel and two sleeves. Change the huge coarse blue weave texture to smooth pale-blue cloth with only very subtle tiny weave detail, matching a normal shirt fabric. REMOVE the entire outside factory building illustration at upper right; replace it with the same continuous indoor windowed wall. One indoor scene only. Keep adult worker identical, left hand far from scissors, two normal hands, grounded table legs and shoes. No new objects/text/panels, flat clean 2D.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-5fb3c2a1-b1a2-421c-b816-62dc77f9e74e.png",
+      "sha256": "83c5673fa4f0110efaafac9a3c4e89d45b962358d9001395aa1f99b70de16fec"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "cbf57ed0e204379362a97b760486f24b628e65ad467026e2a078e7ecc3b4b28e",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
+    "sha256": "55fac8cbedca5cfd725a7282b8cca1c4ec07751887fb525f885e005453da8fef",
+    "note": "Adult safely cuts cloth with opposite hand away from blades, two mirrored fronts/back/two sleeves, subtle fabric weave, continuous indoor scene and wide frame.",
+    "limits": "Individual installed WebP directly inspected. Independent sequence, reader/card and audio approval separate."
+  }
+}

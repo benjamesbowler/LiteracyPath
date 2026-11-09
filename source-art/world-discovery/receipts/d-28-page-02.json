@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-28",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:42:26.831Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-6a9641f8-157c-4946-8726-757a67d6ae2d.png",
+  "sourceSha256": "5669cb92f0d0b8bfa544a96022727d09cc9ee130e09a95e43fbee8f2f99f0fb6",
+  "output": "public/guided-reading/world-discovery/d-28/page-02.webp",
+  "outputSha256": "8034109b31c394a30e9225fabd22c49e36018ab82568712e79f18814d12df90d",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. This is the NEXT MOMENT of the same factual leaf-feeding story. Keep this 1536x1024 composition, oak leaf vein pattern, stem, background and green brown-headed caterpillar unchanged. Enlarge ONLY the existing missing patch at lower-right edge: about twice the former local chewed area, with curved nibbled outline extending a little farther inward and right. The same caterpillar remains hanging below edge with small legs gripping UP toward leaf and head touching newly chewed edge. Tiny position adjustment follows the new edge; no new leaf, no replacement caterpillar, no sudden size increase. Keep all other veins and rounded lobes identical. Show the progression through increased LOCAL missing leaf, no loose floating bite pieces. Bold dark-outline flat 2D cartoon. No text, arrows, facial expression, extra animal or texture.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-6cfb5b26-2dd4-497b-b93e-07f60e08212a.png",
+      "sha256": "078515b9318bf93f91ed5538ccdc426b9ab1b5a8890dfd9c35268c19248d0899"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "78c2904e582ff26b4d4ca84266e2154c9a1849a22caf6695aebc788bc09c7b58",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.539Z",
+    "sha256": "8034109b31c394a30e9225fabd22c49e36018ab82568712e79f18814d12df90d",
+    "note": "Native PNG and installed WebP directly inspected: Same leaf veins and caterpillar; local missing patch increases, feet grip upward, no sudden transformation.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

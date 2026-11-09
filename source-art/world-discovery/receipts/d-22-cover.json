@@ -1,0 +1,40 @@
+{
+  "bookId": "world-discovery-d-22",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T06:47:15.613Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-7a2370ca-4bf8-436b-8bde-3a9a72ab603f.png",
+  "sourceSha256": "857af8fedd8a933b527c67bd0fe614cf37948776ebc1a6c37066463953d22764",
+  "output": "public/guided-reading/world-discovery/d-22/cover.webp",
+  "outputSha256": "b4991c6031e4185ecca6161df0e23d11bb0ff2fec8ffd2f08f55a5ce9075ab81",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this classroom cover in two precise ways. FIRST pull the camera back to show every child's complete head, hands and shoes and the entire wall map with at least 10 percent canvas-edge clearance; expand ordinary wall/floor as needed, no border. Keep Kit and Zoe equal standing height, existing identities/clothes, readable smiles and coherent hands on the globe/stand. SECOND replace only the globe's geographic coastline projection with the exact Atlantic-facing orthographic geometry of reference 2. Map the book colors onto these true land shapes: North America yellow, South America green, Europe purple, Africa orange, visible west Asia coral, Antarctica white, oceans blue. The northern physical axle meets the upper-right pole position and the southern axle the lower-left pole position of reference 2; delete helper dots. No far-side Australia/east Asia on this hemisphere. The wall map remains entirely unlettered, as does the globe. Clean flat 2D cartoon, bold continuous outlines, no grain, texture or photorealism. Do not add any teaching inset or extra object. Preserve original action.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-4e408618-ff47-4b36-80da-df8f49843401.png",
+      "sha256": "07a31839847bf319bb6868639a794fce089eafdc9a43e633fa89c7d7d17081dc"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/.artifacts/nonfiction-next-50/geography-reference/d22-atlantic.png",
+      "sha256": "444e2f50ad1bcc58bce4987bc58ea583e00ee2b98dedb3083e659b178fc2c610"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "fb0bd240fdf5f14fbd4f0ae2e2b112472e599d3754b28e979aad8f5f59410003",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.500Z",
+    "sha256": "b4991c6031e4185ecca6161df0e23d11bb0ff2fec8ffd2f08f55a5ce9075ab81",
+    "note": "Pulled back cover directly inspected: Kit/Zoe complete feet safely framed, entire unlettered map retained; Atlantic globe geometry and pole-aligned axle credible, no far-side land, color continuity and coherent hands.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

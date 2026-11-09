@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-26",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T06:12:04.102Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-bd0bb1ee-e7bc-4830-ad1f-2e270636bca5.png",
+  "sourceSha256": "f2989cf0cd31b0beda5562b187158fa7ec2a25a319195dffdc4504002a1caf67",
+  "output": "public/guided-reading/world-discovery/e-26/page-02.webp",
+  "outputSha256": "173263f91dc7f80f0627c3627085b78f9c71f413045ca263d4a6cf37cb9ed6ce",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit the attached finished nonfiction cartoon illustration. Preserve ALL depicted people, objects, graphic symbols, their order, colors, designs, contents and connections exactly. This edit is ONLY a framing correction: zoom out so every essential foreground subject lies at least 12 percent inside ALL outer canvas edges. Reduce the entire foreground composition to 75 percent its current size, centered on the same 3:2 landscape canvas, extending the existing plain background or coherent room/floor naturally to all edges. Do not add any border, inset, lettering, number, new object, duplicate, or new event. No cropping. Crisp clean flat 2D cartoon style. Preserve exact complete diagram connectivity and symbol content.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-cf739b0e-e134-41ef-8f9e-d5c41d420144.png",
+      "sha256": "8c2dec0b037a66fc18023c33a431cbda939da211192d284ee582828d52f64eba"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "a04b6d0950794fec64943013d30facc27daa8410774f7062963be893ca44e0a3",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
+    "sha256": "173263f91dc7f80f0627c3627085b78f9c71f413045ca263d4a6cf37cb9ed6ce",
+    "note": "Tablet image represented as four data tiles and a signal symbol; generous frame, no literal objects in a wire.",
+    "limits": "Individual installed WebP inspected. Independent whole-sequence, actual reader/card and audio approval are separate."
+  }
+}

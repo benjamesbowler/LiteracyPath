@@ -1,0 +1,1489 @@
+[
+  {
+    "id": "world-discovery-c-21",
+    "number": 21,
+    "title": "My Bag at the Airport",
+    "topic": "transport",
+    "type": "nonfiction",
+    "appLevel": "C",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-KIT"
+      ],
+      "topicQuestion": "How can a checked bag take a different route from its owner and still reach the same airport?",
+      "progression": "Follow one tagged suitcase from check-in through screening and sorting to the plane’s hold, flight, unloading and baggage claim beside the owner’s passenger journey.",
+      "synthesis": "The bag and passenger follow different airport paths but travel on the same aircraft and reunite at the destination.",
+      "scienceSources": [
+        {
+          "title": "European Union Aviation Safety Agency: The journey of a suitcase",
+          "url": "https://www.easa.europa.eu/en/light/topics/journey-suitcase",
+          "evidence": "Checked luggage is weighed, tagged, screened, sorted, loaded in the hold, transported and returned at baggage claim; handling routes vary by airport and aircraft.",
+          "checked": "2026-11-09"
+        },
+        {
+          "title": "Finavia: What happens to your bag between check-in and plane?",
+          "url": "https://www.finavia.fi/en/newsroom/2022/do-you-know-what-happens-your-bag-between-check-and-plane",
+          "evidence": "A barcode tag identifies the bag for routing to its aircraft. This book uses one typical direct-flight route and does not imply all bags use identical equipment.",
+          "checked": "2026-11-09"
+        }
+      ]
+    },
+    "setting": "One illustrative direct flight in a contemporary airport. Kit travels with an unnamed guardian: medium golden skin, short black hair, navy shirt and gray trousers. One blue suitcase with a broad orange diagonal stripe and black handles; white route tag secured to top handle. Unbranded white narrow-body plane with teal tail. No flags, airline logos, passport details or readable personal information.",
+    "props": [
+      "Blue suitcase with orange diagonal stripe",
+      "White baggage tag on top handle",
+      "Conveyor and security scanner",
+      "Gray baggage cart",
+      "White jet with teal tail",
+      "Baggage-claim belt"
+    ],
+    "coverBrief": "Kit and guardian stand safely behind a baggage-claim belt as the same blue striped suitcase arrives. Airplane visible through distant airport windows.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Kit checks a blue bag at the airport. A worker adds a tag. Will the bag travel with him?",
+        "imageBrief": "Check-in desk: worker secures white tag to top handle of blue orange-striped bag while Kit and guardian wait together.",
+        "imageAlt": "Check-in desk: worker secures white tag to top handle of blue orange-striped bag while Kit and guardian wait together.",
+        "pageDescription": "Check-in desk: worker secures white tag to top handle of blue orange-striped bag while Kit and guardian wait together.",
+        "state": "Same distinctive bag; tag attached before conveyor journey.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "The bag rides a moving belt through a scanner. Workers check bags before they can go onto the plane.",
+        "imageBrief": "Secure baggage area: striped bag enters a covered screening machine on conveyor; authorized adult worker monitors plain display.",
+        "imageAlt": "Secure baggage area: striped bag enters a covered screening machine on conveyor; authorized adult worker monitors plain display.",
+        "pageDescription": "Secure baggage area: striped bag enters a covered screening machine on conveyor; authorized adult worker monitors plain display.",
+        "state": "Kit absent from restricted area; tag remains attached.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "A scanner reads the bag’s tag. The airport system sends it toward the right flight with other bags.",
+        "imageBrief": "Striped bag passes tag reader before conveyor junction; its route leads toward teal-tail plane loading area.",
+        "imageAlt": "Striped bag passes tag reader before conveyor junction; its route leads toward teal-tail plane loading area.",
+        "pageDescription": "Striped bag passes tag reader before conveyor junction; its route leads toward teal-tail plane loading area.",
+        "state": "Correct tag route, no magical sorting or exposed private text.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "A cart carries the bags to the plane. Workers load them into a space beneath the passenger floor.",
+        "imageBrief": "Worker uses belt loader to move bag from gray cart into lower cargo door; upper passenger windows distinctly above.",
+        "imageAlt": "Worker uses belt loader to move bag from gray cart into lower cargo door; upper passenger windows distinctly above.",
+        "pageDescription": "Worker uses belt loader to move bag from gray cart into lower cargo door; upper passenger windows distinctly above.",
+        "state": "Bag enters hold below floor; aircraft parked.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Kit sits above. His bag rests below. Their different paths meet inside the same plane.",
+        "imageBrief": "Integrated aircraft cutaway in flight: Kit and guardian seated and belted in cabin, secured striped bag in separate lower hold.",
+        "imageAlt": "Integrated aircraft cutaway in flight: Kit and guardian seated and belted in cabin, secured striped bag in separate lower hold.",
+        "pageDescription": "Integrated aircraft cutaway in flight: Kit and guardian seated and belted in cabin, secured striped bag in separate lower hold.",
+        "state": "Physical floor separates baggage and passengers; no open external door in flight.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 6,
+        "text": "After landing, workers unload the bags. The blue bag takes another cart ride into the airport.",
+        "imageBrief": "At destination parked jet, worker transfers same striped bag from lower hold to cart.",
+        "imageAlt": "At destination parked jet, worker transfers same striped bag from lower hold to cart.",
+        "pageDescription": "At destination parked jet, worker transfers same striped bag from lower hold to cart.",
+        "state": "Flight complete; tag and stripe unchanged.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "A moving belt brings the bags into the arrival hall. Kit spots the orange stripe beside the black handle.",
+        "imageBrief": "Kit and guardian behind baggage-claim safety edge see striped suitcase approaching on moving carousel.",
+        "imageAlt": "Kit and guardian behind baggage-claim safety edge see striped suitcase approaching on moving carousel.",
+        "pageDescription": "Kit and guardian behind baggage-claim safety edge see striped suitcase approaching on moving carousel.",
+        "state": "One distinctive bag among plain other luggage; child not climbing belt.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "Kit collects his bag with his grown-up. The bag took another path, but it flew on their plane.",
+        "imageBrief": "Guardian lifts striped suitcase from belt while Kit holds its side handle safely; both on public hall floor.",
+        "imageAlt": "Guardian lifts striped suitcase from belt while Kit holds its side handle safely; both on public hall floor.",
+        "pageDescription": "Guardian lifts striped suitcase from belt while Kit holds its side handle safely; both on public hall floor.",
+        "state": "Owner and exact tagged bag reunited at destination.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why could the bag reach Kit even though he did not carry it onto the plane?",
+        "listenFor": "Its tag helped workers and the airport system route it onto the same flight; they collected it after landing."
+      },
+      "visual": {
+        "page": 5,
+        "prompt": "Where does the bag travel compared with Kit’s seat?",
+        "lookFor": "It is in a separate hold beneath the passenger floor."
+      }
+    },
+    "levelRationale": "Candidate C: linked parallel passenger/baggage routes require a modest supported inference, with a concrete identifying stripe and a complete journey. Independent band review pending.",
+    "languagePrep": [
+      {
+        "word": "tag",
+        "meaning": "a small label attached to something"
+      },
+      {
+        "word": "scanner",
+        "meaning": "a machine that reads or checks something"
+      },
+      {
+        "word": "hold",
+        "meaning": "the space in a plane used for bags or cargo"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-c-22",
+    "number": 22,
+    "title": "Which Way Is North?",
+    "topic": "geography",
+    "type": "nonfiction",
+    "appLevel": "C",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "topicQuestion": "How can a compass help someone keep track of direction while turning?",
+      "progression": "Observe the freely moving magnetic needle, align the compass ring, then turn the body and compare the needle with a fixed gate.",
+      "synthesis": "The user can face a different way while the settled needle still gives the same local magnetic-north reference.",
+      "scienceSources": [
+        {
+          "title": "US Geological Survey: What do the different north arrows on a topographic map mean?",
+          "url": "https://www.usgs.gov/faqs/what-do-different-north-arrows-a-usgs-topographic-map-mean",
+          "evidence": "Magnetic north is the direction a magnetic compass points; it need not match true or grid north. No claim that a needle points exactly to one geographic pole.",
+          "checked": "2026-11-09"
+        },
+        {
+          "title": "US Forest Service: Map and compass",
+          "url": "https://www.fs.usda.gov/pnw/pubs/pnw_mapandcompass.pdf",
+          "evidence": "Hold a compass level and align the compass housing with its freely moving needle. This is a supervised garden observation, not a wilderness-navigation instruction.",
+          "checked": "2026-11-09"
+        }
+      ]
+    },
+    "setting": "Kit and Zoe in an open school field away from metal structures and electrical equipment. Gray gate at the local magnetic-east side of the demonstration; green tree toward local magnetic north. No geographically fixed location is claimed. Round transparent compass held flat with red north-seeking half and white south-seeking half.",
+    "props": [
+      "One freely pivoting red/white compass needle",
+      "White compass ring marked N E S W",
+      "Gray gate to local magnetic east",
+      "Green tree to local magnetic north"
+    ],
+    "coverBrief": "Kit holds a compass level while Zoe points toward the fixed green tree; the compass red tip points toward the tree and the gate is visibly to the right. Cover compass uses only plain tick marks, with no letters or numbers. Lettered compass faces appear only on the declared interior pages.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Kit turns around in the field. Which way is north now? Zoe brings a compass to help him check.",
+        "imageBrief": "Kit turns in open field with tree and gate fixed behind; Zoe holds compass flat ready to show him.",
+        "imageAlt": "Kit turns in open field with tree and gate fixed behind; Zoe holds compass flat ready to show him.",
+        "pageDescription": "Kit turns in open field with tree and gate fixed behind; Zoe holds compass flat ready to show him.",
+        "state": "No needle close-up before stable holding.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Zoe holds the compass flat. Its needle can turn freely. One end of the needle is red.",
+        "imageBrief": "Top-oblique close-up of level compass resting in Zoe’s open palm, with single red/white needle free of fingers.",
+        "imageAlt": "Top-oblique close-up of level compass resting in Zoe’s open palm, with single red/white needle free of fingers.",
+        "pageDescription": "Top-oblique close-up of level compass resting in Zoe’s open palm, with single red/white needle free of fingers.",
+        "state": "Compass level; no extra pointer mistaken for needle.",
+        "embeddedImageText": "N E S W",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 3,
+        "text": "The needle is a small magnet. Earth’s magnetic field helps line it up. Kit waits for it to stop swinging.",
+        "imageBrief": "Compass needle settles with red end toward the fixed tree; no literal giant bar magnet or visible force ropes under Earth.",
+        "imageAlt": "Compass needle settles with red end toward the fixed tree; no literal giant bar magnet or visible force ropes under Earth.",
+        "pageDescription": "Compass needle settles with red end toward the fixed tree; no literal giant bar magnet or visible force ropes under Earth.",
+        "state": "Local field alignment shown through settled orientation.",
+        "embeddedImageText": "N E S W",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 4,
+        "text": "The red end points toward magnetic north. That direction may differ from the north marked on a map.",
+        "imageBrief": "One clear compass close-up with red tip toward tree; tiny map is omitted to avoid unsourced local declination geometry.",
+        "imageAlt": "One clear compass close-up with red tip toward tree; tiny map is omitted to avoid unsourced local declination geometry.",
+        "pageDescription": "One clear compass close-up with red tip toward tree; tiny map is omitted to avoid unsourced local declination geometry.",
+        "state": "Magnetic direction explicitly scoped; no exact-pole assertion.",
+        "embeddedImageText": "N E S W",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 5,
+        "text": "Kit turns the marked ring until N lines up with the red end. The other letters show directions around it.",
+        "imageBrief": "Kit turns only marked ring while level needle stays directed to tree; N aligned over red tip, E toward gate.",
+        "imageAlt": "Kit turns only marked ring while level needle stays directed to tree; N aligned over red tip, E toward gate.",
+        "pageDescription": "Kit turns only marked ring while level needle stays directed to tree; N aligned over red tip, E toward gate.",
+        "state": "Ring aligned; clockwise N E S W positions correct.",
+        "embeddedImageText": "N E S W",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 6,
+        "text": "The gate lies toward E on the compass. Kit faces the gate. The red needle now points to his left.",
+        "imageBrief": "Over-shoulder Kit faces east gate; compass red tip points left toward north tree; E ahead.",
+        "imageAlt": "Over-shoulder Kit faces east gate; compass red tip points left toward north tree; E ahead.",
+        "pageDescription": "Over-shoulder Kit faces east gate; compass red tip points left toward north tree; E ahead.",
+        "state": "World directions unchanged although viewer/body turned.",
+        "embeddedImageText": "N E S W",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 7,
+        "text": "He turns back toward the tree. The red needle points ahead again. The gate has not moved.",
+        "imageBrief": "Kit now faces tree north; gate to right; red needle ahead and aligned N on ring.",
+        "imageAlt": "Kit now faces tree north; gate to right; red needle ahead and aligned N on ring.",
+        "pageDescription": "Kit now faces tree north; gate to right; red needle ahead and aligned N on ring.",
+        "state": "Same field layout as opening.",
+        "embeddedImageText": "N E S W",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 8,
+        "text": "Kit changed the way he faced. The needle still points toward magnetic north, helping him keep track of direction.",
+        "imageBrief": "Wide final field scene shows Kit holding compass level, Zoe beside him, tree ahead and gate right.",
+        "imageAlt": "Wide final field scene shows Kit holding compass level, Zoe beside him, tree ahead and gate right.",
+        "pageDescription": "Wide final field scene shows Kit holding compass level, Zoe beside him, tree ahead and gate right.",
+        "state": "Different body orientations compared using same settled needle direction.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What stayed pointing the same way when Kit turned?",
+        "listenFor": "The settled red needle still pointed toward local magnetic north."
+      },
+      "visual": {
+        "page": 6,
+        "prompt": "Why does the red needle point left of Kit now?",
+        "lookFor": "Kit faces the east gate, so magnetic north is to his left in this example."
+      }
+    },
+    "levelRationale": "Candidate C: relative viewpoint changes and magnetic-versus-map north require supported connections; simple field landmarks prevent an abstract compass glossary.",
+    "languagePrep": [
+      {
+        "word": "compass",
+        "meaning": "a tool with a needle that helps show direction"
+      },
+      {
+        "word": "needle",
+        "meaning": "the thin turning pointer inside this compass"
+      },
+      {
+        "word": "magnetic north",
+        "meaning": "the north direction shown by a settled magnetic compass"
+      },
+      {
+        "word": "magnetic field",
+        "meaning": "the area where a magnet can pull or push another magnet"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-c-23",
+    "number": 23,
+    "title": "How Can a Bone Move?",
+    "topic": "human body",
+    "type": "nonfiction",
+    "appLevel": "C",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-KIT"
+      ],
+      "topicQuestion": "How can hard arm bones bend at an elbow without the bones themselves bending?",
+      "progression": "Start with a bending arm, reveal joint/bones/tendons, follow front muscle shortening, reverse with back muscle action, then return to the complete arm.",
+      "synthesis": "Muscles pull bones around a joint; different muscles pull in different directions.",
+      "scienceSources": [
+        {
+          "title": "Nemours Children’s Health: Bones, Muscles and Joints",
+          "url": "https://kidshealth.org/en/parents/bones-muscles-joints.html",
+          "evidence": "Bones provide structure; tendons connect muscle to bone; muscles contract and pull, with flexor/extensor groups enabling opposite joint actions. The book is a simplified elbow demonstration, not a complete account of every muscle acting during a loaded movement.",
+          "checked": "2026-11-09"
+        }
+      ]
+    },
+    "setting": "Kit demonstrates an unloaded elbow movement while seated. Teaching cutaways show a right arm in consistent side orientation: upper arm on left, forearm extending right; humerus plus radius/ulna, anatomically attached front and back muscle groups, tendons in pale cream. Non-gory diagram, no exposed wounds.",
+    "props": [
+      "One right-arm teaching cutaway",
+      "Cream humerus and paired forearm bones",
+      "Red front and rear muscle groups",
+      "Pale tendons attached to anatomically correct bone locations"
+    ],
+    "coverBrief": "Kit bends his right elbow, with a gentle integrated cutaway showing hard bones meeting at the joint and a shortening front muscle.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Kit bends his arm. His hand moves toward his shoulder. How can stiff bones let that happen?",
+        "imageBrief": "Kit raises unloaded right forearm toward shoulder; natural empty hand and one visible elbow.",
+        "imageAlt": "Kit raises unloaded right forearm toward shoulder; natural empty hand and one visible elbow.",
+        "pageDescription": "Kit raises unloaded right forearm toward shoulder; natural empty hand and one visible elbow.",
+        "state": "Starting visible bend, no cup or load to imply wrong lowering mechanics.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Bones meet at the elbow. The joint lets them change angle without bending the long bones themselves.",
+        "imageBrief": "Integrated side cutaway displays upper arm bone meeting radius/ulna at natural elbow, with accurate hard bone geometry.",
+        "imageAlt": "Integrated side cutaway displays upper arm bone meeting radius/ulna at natural elbow, with accurate hard bone geometry.",
+        "pageDescription": "Integrated side cutaway displays upper arm bone meeting radius/ulna at natural elbow, with accurate hard bone geometry.",
+        "state": "Joint bends; bone shafts remain rigid.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 3,
+        "text": "Strong bands called tendons join muscles to bones. A muscle can pull on a bone through these bands.",
+        "imageBrief": "Same arm cutaway highlights pale tendon attachment from front muscle across elbow to forearm; no tendon attaching to empty space.",
+        "imageAlt": "Same arm cutaway highlights pale tendon attachment from front muscle across elbow to forearm; no tendon attaching to empty space.",
+        "pageDescription": "Same arm cutaway highlights pale tendon attachment from front muscle across elbow to forearm; no tendon attaching to empty space.",
+        "state": "Continuous muscle-tendon-bone connection.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 4,
+        "text": "A muscle at the front of the upper arm shortens. It pulls the forearm closer to the shoulder.",
+        "imageBrief": "Front flexor group shorter and thicker, forearm lifted toward upper arm, rear group relatively lengthened.",
+        "imageAlt": "Front flexor group shorter and thicker, forearm lifted toward upper arm, rear group relatively lengthened.",
+        "pageDescription": "Front flexor group shorter and thicker, forearm lifted toward upper arm, rear group relatively lengthened.",
+        "state": "Shortening muscle and bent joint agree.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 5,
+        "text": "The elbow bends. The upper arm bone and forearm bones stay firm while their positions change.",
+        "imageBrief": "Close view of fully flexed but natural elbow; bones keep shape while angle between them becomes smaller.",
+        "imageAlt": "Close view of fully flexed but natural elbow; bones keep shape while angle between them becomes smaller.",
+        "pageDescription": "Close view of fully flexed but natural elbow; bones keep shape while angle between them becomes smaller.",
+        "state": "No rubbery bent long bones.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 6,
+        "text": "To straighten the elbow, muscles at the back of the upper arm pull. The front muscles relax.",
+        "imageBrief": "Arm held approximately horizontal and extending; rear triceps group shortens through tendon at elbow while front group lengthens.",
+        "imageAlt": "Arm held approximately horizontal and extending; rear triceps group shortens through tendon at elbow while front group lengthens.",
+        "pageDescription": "Arm held approximately horizontal and extending; rear triceps group shortens through tendon at elbow while front group lengthens.",
+        "state": "Active unloaded extension, not gravity-only lowering.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 7,
+        "text": "Muscles pull bones. They do not push bones back. Different muscles can pull the joint in different directions.",
+        "imageBrief": "Comparison diagram of two matched right-arm views: front group shorter in flexion and rear group shorter in extension.",
+        "imageAlt": "Comparison diagram of two matched right-arm views: front group shorter in flexion and rear group shorter in extension.",
+        "pageDescription": "Comparison diagram of two matched right-arm views: front group shorter in flexion and rear group shorter in extension.",
+        "state": "Identical bones and orientation in both views; changed muscle lengths.",
+        "embeddedImageText": "",
+        "imageLayout": "comparison-diagram"
+      },
+      {
+        "pageNumber": 8,
+        "text": "Kit bends, then straightens his arm. Pulling muscles move the bones around the elbow joint.",
+        "imageBrief": "Return to Kit with arm comfortably straightened, hand relaxed; a subtle integrated joint cutaway retains exact anatomy.",
+        "imageAlt": "Return to Kit with arm comfortably straightened, hand relaxed; a subtle integrated joint cutaway retains exact anatomy.",
+        "pageDescription": "Return to Kit with arm comfortably straightened, hand relaxed; a subtle integrated joint cutaway retains exact anatomy.",
+        "state": "Completed opposite actions explain the opening motion.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What moves the hard bones at the elbow?",
+        "listenFor": "Muscles pull them through tendons around the joint. Other muscles pull to straighten the arm."
+      },
+      "visual": {
+        "page": 4,
+        "prompt": "What changed about the front muscle as the elbow bent?",
+        "lookFor": "It became shorter and thicker as it pulled the forearm upward."
+      }
+    },
+    "levelRationale": "Candidate C: a familiar visible action is linked to hidden but explicitly pictured parts. One joint and opposing muscle actions give a causal spine without a disconnected body-part survey.",
+    "languagePrep": [
+      {
+        "word": "joint",
+        "meaning": "a place where bones meet"
+      },
+      {
+        "word": "tendon",
+        "meaning": "a strong band joining a muscle to a bone"
+      },
+      {
+        "word": "forearm",
+        "meaning": "the part of your arm between elbow and wrist"
+      }
+    ],
+    "coverImageLayout": "integrated-diagram"
+  },
+  {
+    "id": "world-discovery-c-24",
+    "number": 24,
+    "title": "How Does a Cloud Form?",
+    "topic": "weather and earth",
+    "type": "nonfiction",
+    "appLevel": "C",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "How can clear air become a visible cloud?",
+      "progression": "Follow water evaporating, invisible vapor in rising cooling air, condensation on tiny particles and many droplets becoming visible together.",
+      "synthesis": "The visible cloud is many tiny liquid droplets, formed after invisible vapor cools enough to condense.",
+      "scienceSources": [
+        {
+          "title": "NOAA JetStream: How Clouds Form",
+          "url": "https://www.noaa.gov/jetstream/clouds/how-clouds-form",
+          "evidence": "Rising air expands and cools; water vapor condenses on tiny particles when conditions reach saturation. This example is a warm liquid-droplet cloud, not a claim that every cloud contains only liquid.",
+          "checked": "2026-11-09"
+        },
+        {
+          "title": "National Weather Service: Cloud Development",
+          "url": "https://www.weather.gov/source/zhu/ZHU_Training_Page/clouds/cloud_development/clouds.htm",
+          "evidence": "Invisible water vapor condenses into visible cloud droplets or ice crystals. Book distinguishes vapor from visible liquid droplets and uses a condensation-nuclei close-up.",
+          "checked": "2026-11-09"
+        }
+      ]
+    },
+    "setting": "An observed fair-weather droplet cloud forming over a lake and meadow. Real sky views alternate with declared explanatory cutaways. Water vapor remains invisible in ordinary scenes; teaching arrows are sparse and never painted as visible vapor.",
+    "props": [
+      "One lake and adjacent meadow",
+      "Small developing white cloud above lake shore",
+      "Tiny dust/salt nuclei only in magnified explanatory views",
+      "Sparse arrows for air motion only"
+    ],
+    "coverBrief": "A small white cloud above a blue lake, with one integrated magnified view revealing tiny round water droplets around specks. No white vapor plume rising from lake.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "The sky looks clear above the lake. Later, a white cloud grows there. Where does the cloud come from?",
+        "imageBrief": "Wide lake and meadow with first small cloud overhead; calm normal scene without a rising white plume.",
+        "imageAlt": "Wide lake and meadow with first small cloud overhead; calm normal scene without a rising white plume.",
+        "pageDescription": "Wide lake and meadow with first small cloud overhead; calm normal scene without a rising white plume.",
+        "state": "One small cloud just beginning, not already a storm.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Some lake water changes into water vapor. This gas mixes with the air. We cannot see the vapor.",
+        "imageBrief": "Lake surface in sunshine with clear air above; one subtle teaching arrow indicates transfer but no drawn vapor droplets.",
+        "imageAlt": "Lake surface in sunshine with clear air above; one subtle teaching arrow indicates transfer but no drawn vapor droplets.",
+        "pageDescription": "Lake surface in sunshine with clear air above; one subtle teaching arrow indicates transfer but no drawn vapor droplets.",
+        "state": "Gas invisible; lake retains nearly same water level.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 3,
+        "text": "Air carrying water vapor rises. Higher up, the air spreads out and cools.",
+        "imageBrief": "Landscape cutaway shows one broad upward arrow and gently widening transparent outlined air parcel, explicitly teaching diagram.",
+        "imageAlt": "Landscape cutaway shows one broad upward arrow and gently widening transparent outlined air parcel, explicitly teaching diagram.",
+        "pageDescription": "Landscape cutaway shows one broad upward arrow and gently widening transparent outlined air parcel, explicitly teaching diagram.",
+        "state": "Rising air expands; no water-filled balloon container.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 4,
+        "text": "The air cools enough for some vapor to become liquid. Tiny drops form around small specks in the air.",
+        "imageBrief": "Magnified diagram shows small solid nuclei surrounded by liquid droplets, without representing invisible gas as white steam.",
+        "imageAlt": "Magnified diagram shows small solid nuclei surrounded by liquid droplets, without representing invisible gas as white steam.",
+        "pageDescription": "Magnified diagram shows small solid nuclei surrounded by liquid droplets, without representing invisible gas as white steam.",
+        "state": "Condensation begins; droplets centered around nuclei.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 5,
+        "text": "Each drop is very small. Many drops together scatter sunlight. Now we can see a white cloud.",
+        "imageBrief": "Integrated scale view joins a field of tiny droplets to the visible white cloud above the same lake.",
+        "imageAlt": "Integrated scale view joins a field of tiny droplets to the visible white cloud above the same lake.",
+        "pageDescription": "Integrated scale view joins a field of tiny droplets to the visible white cloud above the same lake.",
+        "state": "Visible whiteness comes from many droplets, not gas becoming intrinsically white.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 6,
+        "text": "This cloud holds tiny liquid drops. Other clouds can also hold ice crystals, especially in colder air.",
+        "imageBrief": "Main droplet cloud retained; one clearly separate small explanatory cold-cloud inset contains angular ice crystals.",
+        "imageAlt": "Main droplet cloud retained; one clearly separate small explanatory cold-cloud inset contains angular ice crystals.",
+        "pageDescription": "Main droplet cloud retained; one clearly separate small explanatory cold-cloud inset contains angular ice crystals.",
+        "state": "Example liquid cloud distinguished from possible ice-bearing clouds.",
+        "embeddedImageText": "",
+        "imageLayout": "comparison-diagram"
+      },
+      {
+        "pageNumber": 7,
+        "text": "More vapor changes into drops as the air keeps cooling. The small cloud grows above the lake.",
+        "imageBrief": "Return to wide same landscape; cloud larger but still fair-weather cumulus, no rain implied.",
+        "imageAlt": "Return to wide same landscape; cloud larger but still fair-weather cumulus, no rain implied.",
+        "pageDescription": "Return to wide same landscape; cloud larger but still fair-weather cumulus, no rain implied.",
+        "state": "Growth from continued condensation, not cloud inhaling lake.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "The clear air carried invisible vapor. Cooling changed some vapor into tiny drops, making the cloud visible.",
+        "imageBrief": "Final whole cloud with a small integrated droplet magnification recalls origin and visible result in one composition.",
+        "imageAlt": "Final whole cloud with a small integrated droplet magnification recalls origin and visible result in one composition.",
+        "pageDescription": "Final whole cloud with a small integrated droplet magnification recalls origin and visible result in one composition.",
+        "state": "Opening question answered through state change and scale.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Is the white cloud itself invisible water vapor?",
+        "listenFor": "No. This visible white cloud is many tiny liquid drops made from cooled vapor."
+      },
+      "visual": {
+        "page": 4,
+        "prompt": "Where are the small drops forming?",
+        "lookFor": "Around tiny specks in the air, shown in an enlarged teaching view."
+      }
+    },
+    "levelRationale": "Candidate C: one supported state-change sequence links ordinary observations to magnified evidence. Necessary terms are explained plainly; no abstract poetic ending or full water-cycle repeat.",
+    "languagePrep": [
+      {
+        "word": "water vapor",
+        "meaning": "water in its invisible gas form"
+      },
+      {
+        "word": "droplet",
+        "meaning": "a very small drop of liquid"
+      },
+      {
+        "word": "condense",
+        "meaning": "change from a gas into liquid drops"
+      }
+    ],
+    "coverImageLayout": "integrated-diagram"
+  },
+  {
+    "id": "world-discovery-c-25",
+    "number": 25,
+    "title": "A Complete Circuit",
+    "topic": "physics and engineering",
+    "type": "nonfiction",
+    "appLevel": "C",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "topicQuestion": "Why does a battery-powered bulb need an unbroken loop?",
+      "progression": "Trace an initially open battery-switch-bulb circuit, close it, reopen it, then create and repair a different break while other parts remain the same.",
+      "synthesis": "The working circuit needs a complete conducting loop through the bulb and back to the battery; a gap anywhere stops the current.",
+      "scienceSources": [
+        {
+          "title": "Exploratorium Teacher Institute: Circuit Workbench",
+          "url": "https://www.exploratorium.edu/snacks/circuit-workbench",
+          "evidence": "Battery, conducting connections and bulb form a circuit. Breaking a series connection prevents current; restoring the path permits light. Book uses an adult-prepared low-voltage kit rather than reproducing tool assembly.",
+          "checked": "2026-11-09"
+        },
+        {
+          "title": "Exploratorium Tinkering Studio: Circuit Boards",
+          "url": "https://www.exploratorium.edu/sites/default/files/tinkering/files/Instructions/circuit_boards.pdf",
+          "evidence": "Simple low-voltage battery/bulb/switch explorations; avoid direct short circuits and battery heating.",
+          "checked": "2026-11-09"
+        }
+      ]
+    },
+    "setting": "Adult-prepared classroom circuit board at a low table. One enclosed two-AA-cell holder, matched incandescent miniature bulb in insulated holder, one insulated lever switch and three insulated wires. No mains sockets, loose coin cells, tools or direct battery-terminal shorting. Kit and Zoe operate only safe insulated parts.",
+    "props": [
+      "Enclosed two-AA battery holder",
+      "One suitable small incandescent bulb in holder",
+      "One insulated on/off lever switch",
+      "Red wire battery positive to switch",
+      "Yellow wire switch to bulb terminal",
+      "Black wire bulb second terminal to battery negative"
+    ],
+    "coverBrief": "Kit closes an insulated switch on a clearly complete battery-switch-bulb loop and the bulb glows; every wire has two physically connected ends.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Kit’s bulb is dark. A battery and wires are in place, but the switch has a small open gap.",
+        "imageBrief": "Top-oblique full circuit with red/yellow/black wiring exactly as specified; switch contact visibly open and bulb dark.",
+        "imageAlt": "Top-oblique full circuit with red/yellow/black wiring exactly as specified; switch contact visibly open and bulb dark.",
+        "pageDescription": "Top-oblique full circuit with red/yellow/black wiring exactly as specified; switch contact visibly open and bulb dark.",
+        "state": "One break at open switch; no other loose connections.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Zoe follows the wires with her eyes. The path reaches one side of the switch, then stops at the gap.",
+        "imageBrief": "Close view of open switch with red wire entering one contact and yellow wire leaving the separate contact.",
+        "imageAlt": "Close view of open switch with red wire entering one contact and yellow wire leaving the separate contact.",
+        "pageDescription": "Close view of open switch with red wire entering one contact and yellow wire leaving the separate contact.",
+        "state": "Contacts separated; no current arrows crossing gap.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Kit closes the switch. Its metal parts touch, completing the path. The bulb lights at once.",
+        "imageBrief": "Insulated lever closed; contacts touch; bulb glowing in same complete loop.",
+        "imageAlt": "Insulated lever closed; contacts touch; bulb glowing in same complete loop.",
+        "pageDescription": "Insulated lever closed; contacts touch; bulb glowing in same complete loop.",
+        "state": "Circuit closed and bulb on.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "The wires make a loop through the bulb and back to the battery. Electric current can flow around this complete circuit.",
+        "imageBrief": "Clear integrated top-view diagram traces the actual complete loop through both distinct bulb terminals and both battery terminals.",
+        "imageAlt": "Clear integrated top-view diagram traces the actual complete loop through both distinct bulb terminals and both battery terminals.",
+        "pageDescription": "Clear integrated top-view diagram traces the actual complete loop through both distinct bulb terminals and both battery terminals.",
+        "state": "One series loop, no bypass around bulb or direct battery short.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 5,
+        "text": "Zoe opens the switch again. The gap breaks the loop, and the light goes out.",
+        "imageBrief": "Switch open again, all three wires otherwise attached, bulb dark.",
+        "imageAlt": "Switch open again, all three wires otherwise attached, bulb dark.",
+        "pageDescription": "Switch open again, all three wires otherwise attached, bulb dark.",
+        "state": "Only switch changed; battery not removed.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "She closes it. The bulb shines. Now Kit lifts one wire clip from its safe contact. The bulb goes dark again.",
+        "imageBrief": "Switch closed but yellow wire’s bulb-end clip lifted from insulated terminal board; bulb dark.",
+        "imageAlt": "Switch closed but yellow wire’s bulb-end clip lifted from insulated terminal board; bulb dark.",
+        "pageDescription": "Switch closed but yellow wire’s bulb-end clip lifted from insulated terminal board; bulb dark.",
+        "state": "Second kind of break at bulb terminal, not switch.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "The switch is closed, but the loose wire leaves another gap. A break anywhere stops current in this simple loop.",
+        "imageBrief": "Close full-board view makes closed switch and disconnected yellow clip visible together.",
+        "imageAlt": "Close full-board view makes closed switch and disconnected yellow clip visible together.",
+        "pageDescription": "Close full-board view makes closed switch and disconnected yellow clip visible together.",
+        "state": "One loose contact; other parts unchanged.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "Kit puts the clip back. The bulb shines again. The loop is complete from the battery, through the bulb, and back.",
+        "imageBrief": "Yellow clip restored to correct terminal with switch closed; bulb on; Kit’s fingers on insulated grip.",
+        "imageAlt": "Yellow clip restored to correct terminal with switch closed; bulb on; Kit’s fingers on insulated grip.",
+        "pageDescription": "Yellow clip restored to correct terminal with switch closed; bulb on; Kit’s fingers on insulated grip.",
+        "state": "Final fully closed working loop restores starting missing condition.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why did the light go out even when the switch was closed?",
+        "listenFor": "The loose wire made another break in the loop. The whole loop must be complete."
+      },
+      "visual": {
+        "page": 7,
+        "prompt": "Where is the break in this circuit?",
+        "lookFor": "At the yellow wire clip, which is lifted off the bulb connection."
+      }
+    },
+    "levelRationale": "Candidate C: controlled comparisons show two different causes of the same failure and one shared rule. Three stable wire colors support the hidden flow relationship.",
+    "languagePrep": [
+      {
+        "word": "circuit",
+        "meaning": "a connected path that electric current can follow"
+      },
+      {
+        "word": "current",
+        "meaning": "the movement of electric charge"
+      },
+      {
+        "word": "switch",
+        "meaning": "a part that opens or closes a circuit"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-c-26",
+    "number": 26,
+    "title": "The Stripes on the Box",
+    "topic": "technology",
+    "type": "nonfiction",
+    "appLevel": "C",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-KIT"
+      ],
+      "topicQuestion": "How does a barcode help a store find a product’s name and price?",
+      "progression": "Follow one ordinary product barcode from contrasting bars/spaces to scanner, decoded identifier and store record; show why a changed price need not change the code.",
+      "synthesis": "This barcode identifies a product; the store’s computer uses that identifier to look up its current price.",
+      "scienceSources": [
+        {
+          "title": "GS1: Are the description and price included in the barcode?",
+          "url": "https://support.gs1.org/support/solutions/articles/43000734158/",
+          "evidence": "Ordinary product barcodes encode an identifier; description and price are retrieved from a database. Variable-measure and coupon exceptions exist, so the book scopes its claim to this standard fixed-item example.",
+          "checked": "2026-11-09"
+        }
+      ]
+    },
+    "setting": "Contemporary unbranded grocery checkout with Kit and an unnamed adult shop worker: deep brown skin, short tightly curled hair, plain green shirt. One cream cereal box with a blue circle, no brand. Standard linear product-code demonstration, not a variable-weight label. Barcode pattern must be one consistent valid illustration asset, not independently regenerated random stripes each page.",
+    "props": [
+      "One cream cereal box with blue circle",
+      "One fixed illustrative standard product barcode",
+      "Checkout scanner",
+      "Plain computer screen",
+      "Two illustrated price records with only approved numerals if needed"
+    ],
+    "coverBrief": "Shop worker holds cream cereal box with barcode toward scanner while Kit watches a plain checkout screen; no readable brand or private data.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "The worker scans a cereal box. Its name and price appear on the screen. How did the stripes help?",
+        "imageBrief": "Checkout scene: barcode side of cereal box over scanner, worker facing screen, Kit safely beside counter. The only screen words and price are exactly 'Cereal $3'. Render them clearly; no other text.",
+        "imageAlt": "Checkout scene: barcode side of cereal box over scanner, worker facing screen, Kit safely beside counter. The only screen words and price are exactly 'Cereal $3'. Render them clearly; no other text.",
+        "pageDescription": "Checkout scene: barcode side of cereal box over scanner, worker facing screen, Kit safely beside counter. The only screen words and price are exactly 'Cereal $3'. Render them clearly; no other text.",
+        "state": "Same cream box with blue circle throughout; display generic no pseudo-text.",
+        "embeddedImageText": "Cereal $3"
+      },
+      {
+        "pageNumber": 2,
+        "text": "The black bars and white spaces form a code. Their different widths stand for a number that identifies this product.",
+        "imageBrief": "Integrated close-up of one consistent linear barcode pattern on the same box, bar/space widths clear.",
+        "imageAlt": "Integrated close-up of one consistent linear barcode pattern on the same box, bar/space widths clear.",
+        "pageDescription": "Integrated close-up of one consistent linear barcode pattern on the same box, bar/space widths clear.",
+        "state": "Identifier encoded by pattern; no claim bars themselves contain price.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 3,
+        "text": "The scanner shines light on the code. Dark bars and white spaces send back different amounts of light.",
+        "imageBrief": "Scanner window directed at barcode in one natural checkout action; subtle explanatory light arrows only in declared diagram.",
+        "imageAlt": "Scanner window directed at barcode in one natural checkout action; subtle explanatory light arrows only in declared diagram.",
+        "pageDescription": "Scanner window directed at barcode in one natural checkout action; subtle explanatory light arrows only in declared diagram.",
+        "state": "Reflection differs at bars and spaces; no laser aimed at eyes.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 4,
+        "text": "The scanner reads that pattern and sends the product number to the store’s computer.",
+        "imageBrief": "Single integrated diagram connects code/scanner/computer along a thin data-path arrow, with actual cereal box still present.",
+        "imageAlt": "Single integrated diagram connects code/scanner/computer along a thin data-path arrow, with actual cereal box still present.",
+        "pageDescription": "Single integrated diagram connects code/scanner/computer along a thin data-path arrow, with actual cereal box still present.",
+        "state": "Decoded identifier sent to computer; no magical knowledge inside light.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 5,
+        "text": "The computer matches the number to a saved record. That record gives the cereal’s name and the store’s price.",
+        "imageBrief": "Worker points to simple product record containing blue-circle box thumbnail and one price box, without invented words. The only screen words and price are exactly 'Cereal $3'. Render them clearly; no other text.",
+        "imageAlt": "Worker points to simple product record containing blue-circle box thumbnail and one price box, without invented words. The only screen words and price are exactly 'Cereal $3'. Render them clearly; no other text.",
+        "pageDescription": "Worker points to simple product record containing blue-circle box thumbnail and one price box, without invented words. The only screen words and price are exactly 'Cereal $3'. Render them clearly; no other text.",
+        "state": "Lookup record distinguished from printed barcode.",
+        "embeddedImageText": "Cereal $3",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 6,
+        "text": "The store changes the price later. A worker changes the saved record. The stripes on the box can stay the same.",
+        "imageBrief": "Same exact box and barcode beside updated computer record; one clear revised price symbol rather than fake text. The only screen words and price are exactly 'Cereal $4'. Render them clearly; no other text.",
+        "imageAlt": "Same exact box and barcode beside updated computer record; one clear revised price symbol rather than fake text. The only screen words and price are exactly 'Cereal $4'. Render them clearly; no other text.",
+        "pageDescription": "Same exact box and barcode beside updated computer record; one clear revised price symbol rather than fake text. The only screen words and price are exactly 'Cereal $4'. Render them clearly; no other text.",
+        "state": "Identifier unchanged; store record changed.",
+        "embeddedImageText": "Cereal $4"
+      },
+      {
+        "pageNumber": 7,
+        "text": "The worker scans another box of the same cereal. The computer finds the updated price using the same product number.",
+        "imageBrief": "Second identical product box scanned; both same package designs and same barcode pattern visible in controlled composition. The only screen words and price are exactly 'Cereal $4'. Render them clearly; no other text.",
+        "imageAlt": "Second identical product box scanned; both same package designs and same barcode pattern visible in controlled composition. The only screen words and price are exactly 'Cereal $4'. Render them clearly; no other text.",
+        "pageDescription": "Second identical product box scanned; both same package designs and same barcode pattern visible in controlled composition. The only screen words and price are exactly 'Cereal $4'. Render them clearly; no other text.",
+        "state": "Same product identifier, new current price record.",
+        "embeddedImageText": "Cereal $4"
+      },
+      {
+        "pageNumber": 8,
+        "text": "The stripes identify the product. The store’s computer uses that number to find its name and price.",
+        "imageBrief": "Return to whole checkout scene with cereal box, scanner and matching on-screen product thumbnail. The only screen words and price are exactly 'Cereal $4'. Render them clearly; no other text.",
+        "imageAlt": "Return to whole checkout scene with cereal box, scanner and matching on-screen product thumbnail. The only screen words and price are exactly 'Cereal $4'. Render them clearly; no other text.",
+        "pageDescription": "Return to whole checkout scene with cereal box, scanner and matching on-screen product thumbnail. The only screen words and price are exactly 'Cereal $4'. Render them clearly; no other text.",
+        "state": "Complete identification-to-lookup chain answers opening question.",
+        "embeddedImageText": "Cereal $4"
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Does this box need new stripes every time the store changes its price?",
+        "listenFor": "No. The store changes its saved price record; the code still identifies the same product."
+      },
+      "visual": {
+        "page": 5,
+        "prompt": "Where does the computer find the cereal’s price?",
+        "lookFor": "In the saved product record, not by reading a price printed in the stripes."
+      }
+    },
+    "levelRationale": "Candidate C: one visible scan is connected to a hidden lookup process, with a price-change comparison testing understanding. Literal numbered labels should only be added after exact visual-reference approval.",
+    "languagePrep": [
+      {
+        "word": "barcode",
+        "meaning": "a pattern that a scanner can read as a code"
+      },
+      {
+        "word": "identify",
+        "meaning": "show which thing something is"
+      },
+      {
+        "word": "record",
+        "meaning": "information kept so it can be found again"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-c-27",
+    "number": 27,
+    "title": "How a Pencil Is Made",
+    "topic": "food and making",
+    "type": "nonfiction",
+    "appLevel": "C",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-ZOE"
+      ],
+      "topicQuestion": "How does a dark writing core get inside a wooden pencil?",
+      "progression": "Move from the finished pencil to core manufacture, grooved boards, assembly, cutting and sharpening, then show how core and casing work together.",
+      "synthesis": "A writing core is enclosed between prepared wood pieces before the pencil is shaped; the dark mark comes from graphite, not the wood.",
+      "scienceSources": [
+        {
+          "title": "Faber-Castell: Pencil manufacturing through the ages",
+          "url": "https://www.faber-castell.com/corporate/history/production",
+          "evidence": "Graphite/clay cores are fired, glued into grooved wooden boards, covered by another board and cut into individual pencils. The documented basic construction continues in mechanized manufacturing.",
+          "checked": "2026-11-09"
+        },
+        {
+          "title": "Faber-Castell: Pens and Pencils FAQ",
+          "url": "https://www.faber-castell.com/service/frequently-asked-questions/faq-pens-and-pencils",
+          "evidence": "Graphite/clay core composition and bonding within wood casing. No assertion that a pencil contains metallic lead.",
+          "checked": "2026-11-09"
+        },
+        {
+          "title": "Faber-Castell: Pencil manufacturing through the ages (regional mirror)",
+          "url": "https://www.faber-castell.pt/corporate/history/production",
+          "evidence": "Search-indexed official regional copy confirms fired graphite/clay cores, grooved wood, glued sandwich and separation into pencils. Direct page requests present an access challenge; this source was checked through its indexed text.",
+          "checked": "2026-11-09"
+        }
+      ]
+    },
+    "setting": "Illustrative modern pencil factory followed by a classroom writing table. All cutting and heating equipment is enclosed and operated by adults. Plain red wooden graphite pencil, hexagonal body, no eraser, logo or printed grade. Factory diagrams use a five-core board sample for count continuity.",
+    "props": [
+      "Dark graphite and pale clay mixture",
+      "Five fired dark pencil cores",
+      "Two matching grooved wooden slats",
+      "Glue",
+      "Enclosed shaping machinery",
+      "Finished plain red pencil",
+      "White drawing paper"
+    ],
+    "coverBrief": "One red pencil has a clean explanatory cutaway showing dark core between two wood halves; Zoe draws a gray line with an intact matching pencil nearby.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Zoe sharpens a pencil. Dark material sits inside the wood. How did that thin writing part get there?",
+        "imageBrief": "Zoe uses a safe enclosed sharpener at table; sharpened red pencil shows dark tip surrounded by pale wood.",
+        "imageAlt": "Zoe uses a safe enclosed sharpener at table; sharpened red pencil shows dark tip surrounded by pale wood.",
+        "pageDescription": "Zoe uses a safe enclosed sharpener at table; sharpened red pencil shows dark tip surrounded by pale wood.",
+        "state": "Opening finished pencil; no loose knife.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "The dark core starts with graphite and clay. Workers shape the mixture into thin rods and heat them in a special oven.",
+        "imageBrief": "Factory teaching view shows raw ingredients and five thin formed cores on oven tray; adult outside guarded hot zone.",
+        "imageAlt": "Factory teaching view shows raw ingredients and five thin formed cores on oven tray; adult outside guarded hot zone.",
+        "pageDescription": "Factory teaching view shows raw ingredients and five thin formed cores on oven tray; adult outside guarded hot zone.",
+        "state": "Five cores formed and fired, not molten metallic lead.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Machines cut long grooves into wooden boards. Each groove makes a space for one dark core.",
+        "imageBrief": "One wood slat with exactly five parallel longitudinal grooves, viewed away from guarded cutting machine.",
+        "imageAlt": "One wood slat with exactly five parallel longitudinal grooves, viewed away from guarded cutting machine.",
+        "pageDescription": "One wood slat with exactly five parallel longitudinal grooves, viewed away from guarded cutting machine.",
+        "state": "Five empty grooves; no cores yet.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Workers add glue and place a core in each groove. The thin rods lie straight inside the wood.",
+        "imageBrief": "Five fired cores placed in five glued grooves, each fully supported, no bent or crossing cores.",
+        "imageAlt": "Five fired cores placed in five glued grooves, each fully supported, no bent or crossing cores.",
+        "pageDescription": "Five fired cores placed in five glued grooves, each fully supported, no bent or crossing cores.",
+        "state": "Exactly five cores occupy five grooves.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "A second grooved board goes on top. The two boards hold the dark cores between them.",
+        "imageBrief": "Matching upper slat settles aligned over lower slat, enclosing all five cores; integrated end view reveals proper sandwich construction.",
+        "imageAlt": "Matching upper slat settles aligned over lower slat, enclosing all five cores; integrated end view reveals proper sandwich construction.",
+        "pageDescription": "Matching upper slat settles aligned over lower slat, enclosing all five cores; integrated end view reveals proper sandwich construction.",
+        "state": "Two slats enclose five straight cores.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 6,
+        "text": "Machines shape and separate the long pencils. Each pencil now has its own wooden case around one core.",
+        "imageBrief": "Guarded factory machine has separated the block into exactly five hexagonal unpainted pencils.",
+        "imageAlt": "Guarded factory machine has separated the block into exactly five hexagonal unpainted pencils.",
+        "pageDescription": "Guarded factory machine has separated the block into exactly five hexagonal unpainted pencils.",
+        "state": "Five pencils result from five cores; one core per pencil.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "The pencils receive paint. Sharpening cuts away some wood and uncovers a point of the dark core.",
+        "imageBrief": "Five plain red pencils after painting; one shown sharpened with pale wood cone and dark point, remaining four blunt.",
+        "imageAlt": "Five plain red pencils after painting; one shown sharpened with pale wood cone and dark point, remaining four blunt.",
+        "pageDescription": "Five plain red pencils after painting; one shown sharpened with pale wood cone and dark point, remaining four blunt.",
+        "state": "Paint color consistent; sharpening reveals existing core.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "Zoe draws a gray line. Graphite from the core marks the paper, while the wood holds the core in her hand.",
+        "imageBrief": "Return to Zoe drawing one gray line with the same red pencil at classroom table.",
+        "imageAlt": "Return to Zoe drawing one gray line with the same red pencil at classroom table.",
+        "pageDescription": "Return to Zoe drawing one gray line with the same red pencil at classroom table.",
+        "state": "Graphite tip touches paper; red paint and wood do not create the gray line.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Was the dark core pushed through a finished wooden pencil?",
+        "listenFor": "No. It was placed in a groove and enclosed between wood pieces before shaping."
+      },
+      "visual": {
+        "page": 4,
+        "prompt": "How many cores fit into these five grooves?",
+        "lookFor": "Five cores, one straight core in each groove."
+      }
+    },
+    "levelRationale": "Candidate C: a familiar object is unpacked through ordered manufacturing steps and reconstructed, with a consistent five-core sample and concrete material roles.",
+    "languagePrep": [
+      {
+        "word": "graphite",
+        "meaning": "a dark material that can leave marks on paper"
+      },
+      {
+        "word": "core",
+        "meaning": "the part inside the middle"
+      },
+      {
+        "word": "groove",
+        "meaning": "a long narrow cut in a surface"
+      }
+    ],
+    "coverImageLayout": "integrated-diagram"
+  },
+  {
+    "id": "world-discovery-c-28",
+    "number": 28,
+    "title": "A Hedgehog in Winter",
+    "topic": "animals and habitats",
+    "type": "nonfiction",
+    "appLevel": "C",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "How can a European hedgehog use less energy when winter food is harder to find?",
+      "progression": "Follow one hedgehog’s fall feeding and nest building, slower winter body state, occasional awakening and renewed spring activity.",
+      "synthesis": "Stored fat and reduced body activity help this hedgehog through a cold season; hibernation is not unbroken ordinary sleep.",
+      "scienceSources": [
+        {
+          "title": "Hedgehog Street: Hedgehog hibernation",
+          "url": "https://www.hedgehogstreet.org/about-hedgehogs/hibernation/",
+          "evidence": "European hedgehogs lower body temperature and activity during hibernation, using stored fat; timing varies with conditions and nesting sites may change.",
+          "checked": "2026-11-09"
+        },
+        {
+          "title": "Hedgehog Street: Hibernation FAQs",
+          "url": "https://www.hedgehogstreet.org/hibernation-faqs/",
+          "evidence": "Hibernation is torpor rather than normal sleep; hedgehogs can awaken, including in milder periods. The book gives no handling, feeding or rescue instructions.",
+          "checked": "2026-11-09"
+        },
+        {
+          "title": "Natural History Museum: Where do animals go during winter?",
+          "url": "https://www.nhm.ac.uk/discover/where-do-animals-go-in-winter.html",
+          "evidence": "Hedgehogs build body reserves before cold weather and shelter in insulated nests; cold-season timing varies with weather.",
+          "checked": "2026-11-09"
+        }
+      ]
+    },
+    "setting": "One wild European hedgehog in a temperate British garden through fall, winter and spring. Natural brown-and-cream spines, brown face, dark eyes and nose, four short legs. Same sheltered nest under a hedge beside a fallen branch. No people disturbing or opening the actual nest; interior views are clearly teaching cutaways.",
+    "props": [
+      "One European hedgehog",
+      "Nest of dry leaves under hedge",
+      "Fallen branch landmark",
+      "Natural beetles and earthworms as prey",
+      "Changing seasonal ground vegetation"
+    ],
+    "coverBrief": "European hedgehog curled in a dry leaf nest beneath a hedge, shown through a gentle integrated teaching cutaway; cool garden beyond, no snow covering animal directly.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "A European hedgehog hunts in the fall. Cold weather is coming, and its small prey will become harder to find.",
+        "imageBrief": "Hedgehog at dusk finds a beetle near fallen leaves under same hedge; natural body proportions.",
+        "imageAlt": "Hedgehog at dusk finds a beetle near fallen leaves under same hedge; natural body proportions.",
+        "pageDescription": "Hedgehog at dusk finds a beetle near fallen leaves under same hedge; natural body proportions.",
+        "state": "Fall feeding before winter, no anthropomorphic worry.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "The hedgehog eats and builds fat inside its body. That stored fat can supply energy later.",
+        "imageBrief": "Same hedgehog feeding on an earthworm at night; body comfortably rounded, not obese caricature.",
+        "imageAlt": "Same hedgehog feeding on an earthworm at night; body comfortably rounded, not obese caricature.",
+        "pageDescription": "Same hedgehog feeding on an earthworm at night; body comfortably rounded, not obese caricature.",
+        "state": "Food supports stored reserves; no literal fat bag or fuel tank.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "It gathers dry leaves into a sheltered nest. The thick leaf walls help protect it from sudden changes in temperature.",
+        "imageBrief": "Hedgehog pulls dry leaves into nest under hedge beside fallen branch, entrance small and sheltered.",
+        "imageAlt": "Hedgehog pulls dry leaves into nest under hedge beside fallen branch, entrance small and sheltered.",
+        "pageDescription": "Hedgehog pulls dry leaves into nest under hedge beside fallen branch, entrance small and sheltered.",
+        "state": "Nest built from dry leaves, not exposed open bowl.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Inside, its body cools. Its heartbeat and breathing slow down. This low-activity state is called hibernation.",
+        "imageBrief": "Integrated nest cutaway shows curled hedgehog sheltered in intact leaf chamber, eyes closed; no comic sleep letters.",
+        "imageAlt": "Integrated nest cutaway shows curled hedgehog sheltered in intact leaf chamber, eyes closed; no comic sleep letters.",
+        "pageDescription": "Integrated nest cutaway shows curled hedgehog sheltered in intact leaf chamber, eyes closed; no comic sleep letters.",
+        "state": "Hibernating state, not death or frozen body.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 5,
+        "text": "Its body uses stored fat for energy. It needs much less energy than it uses while moving and hunting.",
+        "imageBrief": "Quiet cutaway of same curled animal, with subtle anatomical fat-store shading only if diagram needed, no fuel icons.",
+        "imageAlt": "Quiet cutaway of same curled animal, with subtle anatomical fat-store shading only if diagram needed, no fuel icons.",
+        "pageDescription": "Quiet cutaway of same curled animal, with subtle anatomical fat-store shading only if diagram needed, no fuel icons.",
+        "state": "Stored reserves support reduced activity.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 6,
+        "text": "It does not stay still all winter. Sometimes it warms up and leaves its nest, especially during mild weather.",
+        "imageBrief": "Mild winter night shows same hedgehog emerging beside fallen branch; no spring flowers yet.",
+        "imageAlt": "Mild winter night shows same hedgehog emerging beside fallen branch; no spring flowers yet.",
+        "pageDescription": "Mild winter night shows same hedgehog emerging beside fallen branch; no spring flowers yet.",
+        "state": "Temporary winter awakening, not final spring emergence.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Warmer spring days arrive. Small prey become easier to find. The hedgehog spends more time moving and feeding again.",
+        "imageBrief": "Spring dusk, fresh low leaves near familiar hedge; hedgehog actively searches for a beetle.",
+        "imageAlt": "Spring dusk, fresh low leaves near familiar hedge; hedgehog actively searches for a beetle.",
+        "pageDescription": "Spring dusk, fresh low leaves near familiar hedge; hedgehog actively searches for a beetle.",
+        "state": "Season has changed; same natural animal and nest location.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "The hedgehog used less energy during the cold months. Now it is warm and active, looking for food again.",
+        "imageBrief": "Hedgehog walks out along garden edge at spring dusk, nest behind and visible prey ahead.",
+        "imageAlt": "Hedgehog walks out along garden edge at spring dusk, nest behind and visible prey ahead.",
+        "pageDescription": "Hedgehog walks out along garden edge at spring dusk, nest behind and visible prey ahead.",
+        "state": "Final resumed activity contrasts with reduced winter state.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why is hibernation different from simply sleeping all winter?",
+        "listenFor": "The body cools and slows to save energy, and the hedgehog may wake at times."
+      },
+      "visual": {
+        "page": 3,
+        "prompt": "What helps shelter the hedgehog inside this nest?",
+        "lookFor": "The thick dry leaves and protected place under the hedge."
+      }
+    },
+    "levelRationale": "Candidate C: one animal and recurring nest link seasonal preparation, hidden body changes and resumed action. An explicit exception prevents an oversimplified unbroken-sleep account.",
+    "languagePrep": [
+      {
+        "word": "prey",
+        "meaning": "animals that another animal catches for food"
+      },
+      {
+        "word": "hibernation",
+        "meaning": "a state in which an animal’s body slows down during cold months"
+      },
+      {
+        "word": "energy",
+        "meaning": "what a body uses to move and keep working"
+      }
+    ],
+    "coverImageLayout": "integrated-diagram"
+  },
+  {
+    "id": "world-discovery-c-29",
+    "number": 29,
+    "title": "The Long Hand Goes Around",
+    "topic": "everyday knowledge",
+    "type": "nonfiction",
+    "appLevel": "C",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "topicQuestion": "Why can a clock’s long hand return to the same place while the time has changed?",
+      "progression": "Track one continuous hour from three to four in quarter-hour stages, keeping both hands’ correct positions, then compare the two matching minute-hand positions.",
+      "synthesis": "One full minute-hand turn is one hour; the hour hand’s new position distinguishes the later time.",
+      "scienceSources": [
+        {
+          "title": "National Centre for Excellence in the Teaching of Mathematics: Time",
+          "url": "https://www.ncetm.org.uk/classroom-resources/cp-year-3-unit-11-time/",
+          "evidence": "Analog clocks show the relationship between minute and hour hands; compare the hour hand’s progression with minutes past the hour. The book uses one exact 3:00–4:00 sequence.",
+          "checked": "2026-11-09"
+        }
+      ]
+    },
+    "setting": "Kit and Zoe observe one round classroom clock while working at a table over an hour. White face, black numerals 1–12, long blue minute hand and short red hour hand, no second hand. Real hand positions must be exact, including quarter/halfway hour-hand movement.",
+    "props": [
+      "One round white clock",
+      "Numerals 1–12 in correct clockwise positions",
+      "Long blue minute hand",
+      "Short red hour hand",
+      "Plain table with paper construction changing gradually"
+    ],
+    "coverBrief": "Large classroom clock with short red hand pointing to the fourth hour position and long blue hand pointing straight up. Exactly twelve plain hour tick marks, no numerals or lettering on this cover. Kit points to the short hand while Zoe notices the long one; clock color and hands match the numbered clock on interior pages.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "The long hand points to twelve. Later, it points there again. Is the time still the same?",
+        "imageBrief": "Clock at exactly 3:00 above Kit and Zoe beginning paper construction; only one time shown.",
+        "imageAlt": "Clock at exactly 3:00 above Kit and Zoe beginning paper construction; only one time shown.",
+        "pageDescription": "Clock at exactly 3:00 above Kit and Zoe beginning paper construction; only one time shown.",
+        "state": "Minute at 12; hour at 3.",
+        "embeddedImageText": "1 2 3 4 5 6 7 8 9 10 11 12",
+        "imageLayout": "scene"
+      },
+      {
+        "pageNumber": 2,
+        "text": "At three o’clock, the short hand points to three. The long hand is the minute hand. It starts at twelve.",
+        "imageBrief": "Close clock at 3:00 clearly distinguishes shorter red hour hand and longer blue minute hand.",
+        "imageAlt": "Close clock at 3:00 clearly distinguishes shorter red hour hand and longer blue minute hand.",
+        "pageDescription": "Close clock at 3:00 clearly distinguishes shorter red hour hand and longer blue minute hand.",
+        "state": "Same starting time; hands not equal length.",
+        "embeddedImageText": "1 2 3 4 5 6 7 8 9 10 11 12",
+        "imageLayout": "scene"
+      },
+      {
+        "pageNumber": 3,
+        "text": "Fifteen minutes pass. The long hand reaches three. The short hand has moved a little beyond three too.",
+        "imageBrief": "Clock at exactly 3:15; blue long hand right at 3, red short hand one-quarter way from 3 toward 4.",
+        "imageAlt": "Clock at exactly 3:15; blue long hand right at 3, red short hand one-quarter way from 3 toward 4.",
+        "pageDescription": "Clock at exactly 3:15; blue long hand right at 3, red short hand one-quarter way from 3 toward 4.",
+        "state": "Both hands move consistently.",
+        "embeddedImageText": "1 2 3 4 5 6 7 8 9 10 11 12",
+        "imageLayout": "scene"
+      },
+      {
+        "pageNumber": 4,
+        "text": "After thirty minutes, the long hand reaches six. The short hand sits halfway between three and four.",
+        "imageBrief": "Clock at exactly 3:30, long hand down at6, short halfway3–4. Paper project more complete below.",
+        "imageAlt": "Clock at exactly 3:30, long hand down at6, short halfway3–4. Paper project more complete below.",
+        "pageDescription": "Clock at exactly 3:30, long hand down at6, short halfway3–4. Paper project more complete below.",
+        "state": "Half of one hour elapsed.",
+        "embeddedImageText": "1 2 3 4 5 6 7 8 9 10 11 12",
+        "imageLayout": "scene"
+      },
+      {
+        "pageNumber": 5,
+        "text": "After forty-five minutes, the long hand reaches nine. The short hand is closer to four now.",
+        "imageBrief": "Clock at exactly3:45, blue long hand left at9, red short hand three-quarters3–4.",
+        "imageAlt": "Clock at exactly3:45, blue long hand left at9, red short hand three-quarters3–4.",
+        "pageDescription": "Clock at exactly3:45, blue long hand left at9, red short hand three-quarters3–4.",
+        "state": "Forty-five minutes elapsed; accurate relative hand angles.",
+        "embeddedImageText": "1 2 3 4 5 6 7 8 9 10 11 12",
+        "imageLayout": "scene"
+      },
+      {
+        "pageNumber": 6,
+        "text": "The long hand reaches twelve again. It has made one full turn. Sixty minutes have passed: one hour.",
+        "imageBrief": "Clock at exactly4:00, blue minute12, red hour4, paper project completed below.",
+        "imageAlt": "Clock at exactly4:00, blue minute12, red hour4, paper project completed below.",
+        "pageDescription": "Clock at exactly4:00, blue minute12, red hour4, paper project completed below.",
+        "state": "Full hour passed; no hand jumps or extra revolution.",
+        "embeddedImageText": "1 2 3 4 5 6 7 8 9 10 11 12",
+        "imageLayout": "scene"
+      },
+      {
+        "pageNumber": 7,
+        "text": "Look at the short hand. It points to four now. The long hand’s place matches the start, but the time does not.",
+        "imageBrief": "Declared comparison diagram places original3:00 and final4:00 clock faces side by side, equal size and identical styles.",
+        "imageAlt": "Declared comparison diagram places original3:00 and final4:00 clock faces side by side, equal size and identical styles.",
+        "pageDescription": "Declared comparison diagram places original3:00 and final4:00 clock faces side by side, equal size and identical styles.",
+        "state": "Minute hands same; hour hands differ3vs4.",
+        "embeddedImageText": "1 2 3 4 5 6 7 8 9 10 11 12",
+        "imageLayout": "comparison-diagram"
+      },
+      {
+        "pageNumber": 8,
+        "text": "The long hand returns to twelve after one hour. The short hand now points to four, showing the later time.",
+        "imageBrief": "Return to real single clock at4:00 with Kit and Zoe viewing completed paper project.",
+        "imageAlt": "Return to real single clock at4:00 with Kit and Zoe viewing completed paper project.",
+        "pageDescription": "Return to real single clock at4:00 with Kit and Zoe viewing completed paper project.",
+        "state": "Later time established by both hands together.",
+        "embeddedImageText": "1 2 3 4 5 6 7 8 9 10 11 12",
+        "imageLayout": "scene"
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What tells us the time changed even though the long hand is back at twelve?",
+        "listenFor": "The short hour hand moved from three to four. One whole turn of the minute hand took an hour."
+      },
+      "visual": {
+        "page": 4,
+        "prompt": "Where is the short hand after half an hour?",
+        "lookFor": "Halfway between three and four."
+      }
+    },
+    "levelRationale": "Candidate C: a repeating position must be interpreted through a second changing indicator, supported by exact staged clock diagrams. It teaches one relationship rather than every clock-reading convention.",
+    "languagePrep": [
+      {
+        "word": "minute",
+        "meaning": "a unit of time; sixty minutes make one hour"
+      },
+      {
+        "word": "hour",
+        "meaning": "a unit of time made of sixty minutes"
+      },
+      {
+        "word": "halfway",
+        "meaning": "in the middle between two places"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-c-30",
+    "number": 30,
+    "title": "A Rocket Pushes Up",
+    "topic": "space and environment",
+    "type": "nonfiction",
+    "appLevel": "C",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "What pushes a rocket forward when gas rushes out of its engine?",
+      "progression": "Start at liftoff, follow propellants to hot gas and nozzle, connect gas-down/rocket-up forces, then extend the same mechanism to near-vacuum space.",
+      "synthesis": "The rocket accelerates gas one way and receives a push the other way; it does not need ground or surrounding air to push against.",
+      "scienceSources": [
+        {
+          "title": "NASA Space Place: How Do We Launch Things Into Space?",
+          "url": "https://spaceplace.nasa.gov/launching-into-space/en/",
+          "evidence": "Exhaust leaves the engine and the rocket is pushed in the opposite direction; liftoff occurs when upward thrust exceeds gravity.",
+          "checked": "2026-11-09"
+        },
+        {
+          "title": "NASA Glenn Research Center: Solid Rocket Engine",
+          "url": "https://www.grc.nasa.gov/WWW/k-12/airplane/srockth.html",
+          "evidence": "Rocket thrust works without outside air because propellant includes the required oxidizer. Same reaction principle applies to liquid/solid rocket engines.",
+          "checked": "2026-11-09"
+        },
+        {
+          "title": "NASA: Basics of Space Flight, Gravity and Mechanics",
+          "url": "https://science.nasa.gov/learn/basics-of-space-flight/chapter3-2/",
+          "evidence": "A rocket expels mass and accelerates oppositely, carrying its own oxidizer. The illustrative liquid-fueled rocket has separate fuel and liquid-oxygen tanks.",
+          "checked": "2026-11-09"
+        }
+      ]
+    },
+    "setting": "Uncrewed illustrative liquid-fueled rocket with white cylindrical body, dark nose, two internal tanks and one engine nozzle. Neutral launch site and then upper atmosphere/space, no flags or logos. No child-operated rocket or fireworks. Force diagrams explicitly marked by sparse arrows and correct orientation.",
+    "props": [
+      "White uncrewed liquid-fueled rocket",
+      "One fuel tank and one liquid-oxygen tank inside",
+      "One engine chamber and nozzle",
+      "Distant launch pad",
+      "Earth horizon in later pages"
+    ],
+    "coverBrief": "White rocket climbing above its launch pad with hot exhaust directed downward; no oversized star backdrop at ground level, flags or logos.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "A rocket waits on the launch pad. Hot gas bursts from its engine. What can lift this heavy machine?",
+        "imageBrief": "White rocket upright at pad with initial exhaust flowing below nozzle; no people near rocket.",
+        "imageAlt": "White rocket upright at pad with initial exhaust flowing below nozzle; no people near rocket.",
+        "pageDescription": "White rocket upright at pad with initial exhaust flowing below nozzle; no people near rocket.",
+        "state": "Engine firing begins; rocket still near pad.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "This rocket carries fuel and liquid oxygen. Inside the engine, they react and make very hot gas.",
+        "imageBrief": "Integrated cutaway shows separate fuel/oxygen tanks feeding one chamber and nozzle, with no open flame inside fuel storage.",
+        "imageAlt": "Integrated cutaway shows separate fuel/oxygen tanks feeding one chamber and nozzle, with no open flame inside fuel storage.",
+        "pageDescription": "Integrated cutaway shows separate fuel/oxygen tanks feeding one chamber and nozzle, with no open flame inside fuel storage.",
+        "state": "Two feeds join only at engine chamber.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 3,
+        "text": "The engine pushes gas through a shaped opening called a nozzle. The gas rushes downward.",
+        "imageBrief": "Close nozzle cutaway with accelerating exhaust leaving downward and unobstructed path below.",
+        "imageAlt": "Close nozzle cutaway with accelerating exhaust leaving downward and unobstructed path below.",
+        "pageDescription": "Close nozzle cutaway with accelerating exhaust leaving downward and unobstructed path below.",
+        "state": "Gas exits rocket, not sucked from surrounding air.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 4,
+        "text": "As gas goes down, it pushes the rocket up. This upward push is called thrust.",
+        "imageBrief": "Single full rocket diagram with downward exhaust arrow and upward thrust arrow, applied to appropriate bodies.",
+        "imageAlt": "Single full rocket diagram with downward exhaust arrow and upward thrust arrow, applied to appropriate bodies.",
+        "pageDescription": "Single full rocket diagram with downward exhaust arrow and upward thrust arrow, applied to appropriate bodies.",
+        "state": "Opposite gas and rocket interaction, no ground-push arrow.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 5,
+        "text": "Earth’s gravity still pulls downward. When the upward push is strong enough, the rocket lifts away from the pad.",
+        "imageBrief": "Rocket has cleared pad; upward thrust arrow longer than downward gravity arrow in declared teaching diagram.",
+        "imageAlt": "Rocket has cleared pad; upward thrust arrow longer than downward gravity arrow in declared teaching diagram.",
+        "pageDescription": "Rocket has cleared pad; upward thrust arrow longer than downward gravity arrow in declared teaching diagram.",
+        "state": "Thrust exceeds weight at liftoff; gravity remains.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 6,
+        "text": "High above Earth, there is very little air. The rocket carries its own oxygen, so its engine can still work.",
+        "imageBrief": "Rocket above curved Earth horizon, nose now angled along climbing flight path; no atmosphere intake.",
+        "imageAlt": "Rocket above curved Earth horizon, nose now angled along climbing flight path; no atmosphere intake.",
+        "pageDescription": "Rocket above curved Earth horizon, nose now angled along climbing flight path; no atmosphere intake.",
+        "state": "Rocket in thin air, onboard oxidizer continues combustion.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Gas shoots backward from the engine. The rocket receives a push forward, even without ground or air behind it.",
+        "imageBrief": "Space view shows rocket pointing upper right, exhaust lower left; clearly opposite directions with no nearby surface.",
+        "imageAlt": "Space view shows rocket pointing upper right, exhaust lower left; clearly opposite directions with no nearby surface.",
+        "pageDescription": "Space view shows rocket pointing upper right, exhaust lower left; clearly opposite directions with no nearby surface.",
+        "state": "Engine does not push against a wall or ground.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 8,
+        "text": "The rocket moves one way as it sends gas the other way. The escaping gas makes the push.",
+        "imageBrief": "Final coherent view of same rocket advancing above Earth, gas directed oppositely; no disconnected boosters or sudden new design.",
+        "imageAlt": "Final coherent view of same rocket advancing above Earth, gas directed oppositely; no disconnected boosters or sudden new design.",
+        "pageDescription": "Final coherent view of same rocket advancing above Earth, gas directed oppositely; no disconnected boosters or sudden new design.",
+        "state": "Same reaction mechanism explains liftoff and continued thrust.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Does the rocket need to push its gas against the ground to keep moving?",
+        "listenFor": "No. Sending gas backward gives the rocket a push forward, including in space."
+      },
+      "visual": {
+        "page": 7,
+        "prompt": "Which way does the gas go compared with the rocket?",
+        "lookFor": "The gas goes backward while the rocket is pushed forward."
+      }
+    },
+    "levelRationale": "Candidate C: one physical cause-and-effect is transferred from familiar up/down launch to forward/back movement in space. Essential scientific terms are immediately explained and the ground-pushing misconception is resolved with visible geometry.",
+    "languagePrep": [
+      {
+        "word": "nozzle",
+        "meaning": "the shaped opening that gas flows out through"
+      },
+      {
+        "word": "thrust",
+        "meaning": "the push an engine gives a vehicle"
+      },
+      {
+        "word": "gravity",
+        "meaning": "the pull that brings things toward Earth"
+      }
+    ]
+  }
+]

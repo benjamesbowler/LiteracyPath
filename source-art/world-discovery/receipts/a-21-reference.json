@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-a-21",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T04:50:18.079Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-b658e0a6-fa97-436c-8bec-492aafc5f64b.png",
+  "sourceSha256": "b667a2ae305bfa9bdc0fb7b1804ba3fd80dc1790911fd124075bea506cc61b68",
+  "output": "source-art/world-discovery/a-21-reference.webp",
+  "outputSha256": "8d72f942c9c1cb7ba33713cf6615da87a37c71c2acefe77e20c0a7b8d373f76c",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit the attached production reference sheet. Preserve the six adult identities, exact clothes, teal/navy bus design and four right-side passenger windows. CORRECT TWO ISSUES throughout: (1) In the large top street view, replace the short sidewalk island with one continuous long raised sidewalk across the FULL image width on the camera side of the bus, immediately beside its passenger doorway. The adults stand on this sidewalk. The curb never ends beneath the middle of the bus; the passenger door must open directly onto sidewalk, never roadway. Bus wheels remain on road next to curb. No road lane marking lies between curb and bus. (2) Redraw every surface in perfectly clean flat vector-like color. Remove ALL asphalt speckle, paper grain, stippling and painted texture from every panel. Retain crisp clean dark outlines and restrained flat cel shadows. No noise. Keep top bus doors closed and two original riders seated. Preserve small views, all six character turnarounds, setting details and coherent bus proportions. No lettering.\n\nAuthoritative design specification:\nUse case: illustration-story. PRODUCTION REFERENCE SHEET, landscape, not a finished book page. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: The Bus Stop; World Discovery; nonfiction.\nSetting: One ordinary modern city bus at two curbside stops on a quiet street in daylight. First stop has a round blue bus-pictogram sign and square planter; second has the same pictogram and a plain bench. Right-side sliding passenger doorway; traffic keeps away from the curbside people. At each stop a continuous raised sidewalk runs along the full length of the bus, including directly beside its passenger doorway. The doorway opens onto the sidewalk, never into a driving lane. Street and pavement use perfectly smooth flat colors without stipple or grain.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One long teal single-deck bus with dark navy lower stripe and four visible passenger windows; no brand, route text or numbers; Driver: adult woman with medium brown skin, short dark hair and plain navy shirt; always in the driver seat; Two initial passengers: older light-skinned woman with gray bob and plum coat; dark-skinned bearded man with green jacket; Three boarding adults: brown-skinned woman in yellow blouse with round glasses; light-skinned man with short red hair and gray top; tan-skinned woman with long dark braid and coral top; Only these six people including the driver; all riders seated while moving; no invented passengers\n Create a clean separated reference board on white: show the principal recurring props/animals in front, side and three-quarter views, their relative scale beside any named human cast, and a single simple location key showing the persistent setting and daylight/palette. The human character model sheet is a supporting identity reference, not content to copy wholesale. Show only the subjects this book requires. Use initial object states: First stop; door closed; two passengers inside, three waiting outside, driver seated.. For orientation, the opening location/action is: Side view of the single teal bus stopped parallel to the first curb, door fully closed. The three specified waiting adults stand behind the curb. Two initial passengers are visible seated through windows. Continuous sidewalk spans the entire length of the bus including the front doorway; its curb is directly beside the bus.. Do not show a completed craft or later scene merely because the finished object is listed in design locks. No future story events, no captions.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-fbbf6fa7-7848-46b1-9f97-742b4eb841f5.png",
+      "sha256": "ca85d19be4b8e367bc5acaf2ba3d2299af3204ca00da76ea668a017e21116581"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "e95d0ca76ed02b4560385afd0b30bdaac19d03292f4cf363f1cfdeec0eeb1e0c",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
+    "sha256": "8d72f942c9c1cb7ba33713cf6615da87a37c71c2acefe77e20c0a7b8d373f76c",
+    "note": "Inspected native replacement reference at full composition. Continuous sidewalk now runs beside full bus and doorway; road speckle removed. Primary right-side bus has four passenger windows; same two original passengers, three boarding adults and driver retain distinct clothing and anatomy. Separate turnarounds and two-stop key are reference content only.",
+    "limits": "Reference design review only; final cover and each page still require direct text/state/continuity review."
+  }
+}

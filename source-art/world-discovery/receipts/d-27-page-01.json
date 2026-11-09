@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-27",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:10:55.918Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-4e2a4626-8d46-4669-8c9a-1cb8057b106a.png",
+  "sourceSha256": "254bf55d2d01aa6318d16bad7574792ab6ca7b41f959ebef4a1e1ec6b804d54e",
+  "output": "public/guided-reading/world-discovery/d-27/page-01.webp",
+  "outputSha256": "b3b432a603cc56469443c2a4c0c6cccb1291dfda4863a796c67d1bc769b4d6a4",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Create ONE finished ordinary rice-field scene. Use reference for rice botany and clean graphic style only; DO NOT copy the reference-board layout or magnified objects. Main subject is one complete mature rice clump in the foreground center, rooted at ground level, with long narrow leaves and several golden drooping OPEN BRANCHING PANICLES. Grains attach individually on short fine stalks along secondary branches, not a dense wheat spike. The whole plant from base to leaf tips fits comfortably inside image with at least 140px margins; show enough plant large enough to read grain attachment. Behind it, a simple golden rice field recedes to a low green bund, distant plain farm shed and blue sky with two small clouds. No people, machines, bowls, bags, arrows or inset diagrams. Keep distant rice simplified but botanically recognizable, not wheat heads. Clean bold dark outlines and flat natural colors, simple restrained cel shading; no fine texture, grain, painted effects, photorealism or 3D. Landscape 3:2, 1536x1024. All important subjects inside central 70% with wide margins at least 140px. No text, labels, numbers, logos, flags or symbols.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-83c82358-4cbe-4fca-8ab8-dc30499eea77.png",
+      "sha256": "4e52ddcddc31ffe6251f212955855e67419b72c76649e67ff1a004721b5379b5"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "d7159e37a1a2ef16cf6332c998d1e18c7c5e1c835d8925d2049fd3bf922c1538",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.533Z",
+    "sha256": "b3b432a603cc56469443c2a4c0c6cccb1291dfda4863a796c67d1bc769b4d6a4",
+    "note": "Direct native inspection: complete foreground rice clump with open drooping branching panicles and individual grain attachment, narrow leaves and field/shed; rooted base and leaf tips safely shown, no extra subjects.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

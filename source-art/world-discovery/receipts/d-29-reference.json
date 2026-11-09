@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-29",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:18:43.091Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-4e1310f4-80aa-434b-83fa-9269d75eeb84.png",
+  "sourceSha256": "a652d64208463461606cb3c97489d238cd6b2d4c5b287f9dd8378df240cff345",
+  "output": "source-art/world-discovery/d-29-reference.webp",
+  "outputSha256": "71651dda5e0b694a3c1f938cc80bdef6b93877dc47ea9628abcfb5da0fc63b7d",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Make ONLY a framing change to this exact unlettered reference board. Shrink the entire existing arrangement to70% of its current width and height and center it on same white landscape3:2 canvas,1536x1024. Extend plain white around it so every hair tip, shoe, note, jar, ball and location-key edge sits at least150pixels inside every image edge. Preserve Kit/Zoe equal height, exact faces/hair/clothes, empty jar, orange ball, exactly TWO plain green note backs and empty classroom counter key. No text, letters, numbers, symbols or new items. Keep current clean flat outlined2D style.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-19b3ab98-f614-4ea5-a99b-5cd927f7e8a4.png",
+      "sha256": "0e4c9f36e4935680f9f4e3f1030ab43eaef0cca7fefdb4979703704cf4417d57"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "13c2a4841f0bfa3c412602a383f905ed05acc5de2a917f6491164caa74117013",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.549Z",
+    "sha256": "71651dda5e0b694a3c1f938cc80bdef6b93877dc47ea9628abcfb5da0fc63b7d",
+    "note": "Reference directly inspected: equal-height Kit/Zoe correct cast, two blank green note backs, clear empty jar, orange ball, unlettered shop key; all subjects widely framed.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

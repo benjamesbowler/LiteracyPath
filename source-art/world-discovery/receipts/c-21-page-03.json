@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-c-21",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:20:00.969Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-76a79032-b020-4d0f-9529-f90dcecfdabc.png",
+  "sourceSha256": "cf5117f37b251dfeb5f63d683ba9cf67ba59874c39188833f22edd52cb0a2313",
+  "output": "public/guided-reading/world-discovery/c-21/page-03.webp",
+  "outputSha256": "2d10e8dbbb818cc2bdde76fde8dcabc88a7a69d953254d85a6024e73b494c584",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Preserve this exact tag-reader and connected conveyor-junction scene. Pull camera back by 12 percent with more neutral warehouse surroundings so the entire distant teal-tail plane is at least 8 percent inside the right edge. Keep only ONE orange-striped blue suitcase, other luggage plain. Reader, tag, junction geometry and route to the loading area unchanged. Preserve all correct content, exact identity, flat clean colors, crisp outlines, landscape3:2. No text, grain, texture or new props. Essential content stays within central75percent.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-f43a7b43-7329-469a-9e47-e27a1797fa8a.png",
+      "sha256": "51dd4be705391bd06f5f6892611895064f6d1debeeba340350057aa952390924"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "adafabd724e58b7f6c3e03af760b56ae0cdebf5dbdc7ec8e6a3d11c2e19a0ce2",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:20:57.438999+00:00",
+    "sha256": "2d10e8dbbb818cc2bdde76fde8dcabc88a7a69d953254d85a6024e73b494c584",
+    "note": "Native and final WebP directly viewed: tagged orange-striped bag passes reader before physical Y-conveyor junction, branch reaches aircraft loading area; plain secondary bags distinct; no children or invented labels.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

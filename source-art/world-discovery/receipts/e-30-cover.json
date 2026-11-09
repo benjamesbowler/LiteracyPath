@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-30",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T08:10:54.911Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-7b9efd8b-adf5-423d-8184-26b0d2504727.png",
+  "sourceSha256": "f89bed32f496a682b0930bdfc9d4b6801f5b8109069a5e6a656e7647ad3f9994",
+  "output": "public/guided-reading/world-discovery/e-30/cover.webp",
+  "outputSha256": "8272ae8318bf571818af97ce10d4aeffdb655c5eb95665531b2ef42f2f839977",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact illustration. Same clean flat 2D cartoon and unlettered content. Remove the entire thin black outer rectangular frame and white outer margin; extend underwater scene naturally edge to edge. Pull camera back around 18%, keeping colony and linked polyp diagram inside x=13\u201387%,y=12\u201386%. Preserve pale colony quarter, polyp algae count/color distinction, and all biology. Never add another frame.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-b5acf2ee-a31b-4400-86ef-530273bc0988.png",
+      "sha256": "7161966f6e80e19471a4711db2df264a1bcb03adaee78ac61e601e93ec2d2abb"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "eead7bd4e8d787dff3440b9ff337f914a50daa5a1c9dfe20a0688cac4e6a5f42",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
+    "sha256": "8272ae8318bf571818af97ce10d4aeffdb655c5eb95665531b2ef42f2f839977",
+    "note": "Frame removed; partly pale colony and linked translucent polyp with fewer algae on pale side. Diagram and colony safely framed.",
+    "limits": "Individual installed WebP only; independent sequence, reader, card and audio separate."
+  }
+}

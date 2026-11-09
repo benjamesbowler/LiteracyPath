@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-29",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:55:10.579Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-62de4960-904c-4791-9583-b4f79e375aca.png",
+  "sourceSha256": "aa36f291228a4975776d0437c7419d572f47f26f0f31873f735a522d87d72eca",
+  "output": "public/guided-reading/world-discovery/e-29/page-07.webp",
+  "outputSha256": "3bd975605133cae14c8f5160077b60db075cc2b4951532b73b394d763a2f6bcf",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "One finished landscape 3:2 nonfiction picture-book illustration, same clean flat 2D cartoon, smooth solid colors, continuous dark outlines, restrained cel shadows. No lettering, numbers, labels, logos or texture. All essential diagrams, arrows or people within central 75%, 12% safe margin. A single integrated teaching CUTAWAY of this SAME white front-loading washing machine, straight-on. All people absent. Door CLOSED and sealed, shown transparent so inside drum can be seen. Entire outer washer clear, same drawer left/dial center/six small buttons right, no writing. Inside steel cylindrical drum: one crumpled yellow shirt with blue square pocket being gently lifted by drum baffles and tumbling down. Shallow blue water pool only at BOTTOM QUARTER of drum, tiny modest suds. One restrained orange curved arrow follows circular drum rim to show rotation, avoids obscuring cloth. Clothes visibly inside enclosed drum, no open door/hands, no flooded machine, no fire/heat. Pale neutral room background, machine occupies central 55% width/70% height.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/e-29/page-06.webp",
+      "sha256": "be5af8abe2b7544fe0134405520c27d9a35472dae679cd53b37a47b3aac380f6"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "7b5d49fa464ddfe3c488fb7295ea82cbaa37ae0e01b14b633c270d651f53cb42",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
+    "sha256": "3bd975605133cae14c8f5160077b60db075cc2b4951532b73b394d763a2f6bcf",
+    "note": "Closed transparent door; low water and gentle suds; baffle lifts cloth with one clockwise drum arrow; no hands.",
+    "limits": "Individual installed WebP only; independent sequence, reader, card and audio separate."
+  }
+}

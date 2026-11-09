@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-27",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:48:15.705Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-344bbaec-246f-4370-a42e-e1dd6cbd1c9a.png",
+  "sourceSha256": "095cf628c9e709e55b3e6c386adeedd6a5a7293cf22a9dd2cf92a5b75c17ef71",
+  "output": "public/guided-reading/world-discovery/a-27/page-07.webp",
+  "outputSha256": "c60cf113e89c1820c06d30eb4da4d936931168f57bd67c66d675a5bd5b43788a",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Zoom out this exact illustration by scaling the entire bowl and connected comparison inset together to80% of current size, centered vertically, extending the same kitchen background and counter. Full blue circle starts around y130; bottom of bowl around y875 on1024-highcanvas. Preserve precisely one featured popped piece among ordinary pieces in bowl, one connected comparison showing its original intact seed and larger popped result, their relative sizes and the blue leader. No new objects or text. Clean smooth flat colors, no grain. Essential bowl and whole blue inset must have at least12% margin on every side.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-dd4881b1-ddbe-4013-844d-cb6367564090.png",
+      "sha256": "5b65ad02d0ff1b9046510251c88114d8875d4b22e3f3284065570d9c52a5a0cd"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "54df5f6be0ca6e59f447c22d2431c43d463a335ffaf26ebbf520c3a8450a76f2",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "c60cf113e89c1820c06d30eb4da4d936931168f57bd67c66d675a5bd5b43788a",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T07:48:15.707Z",
+    "note": "Directly inspected framing repair: white receiving bowl and connected comparison fully inset about17–19% vertically, featured popped piece at bowl front among ordinary pieces. One authored comparison shows original small kernel beside much larger single popped result. No person, machine or text."
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-23",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:25:41.739Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-99250227-fedd-4f93-b6db-e5696c27dc5e.png",
+  "sourceSha256": "6fc590fea6a95d671c9057db6d9c0cf597b45dc8cdf267f5e45516539f4a582a",
+  "output": "public/guided-reading/world-discovery/d-23/page-08.webp",
+  "outputSha256": "294644606618920c0e9ed59e633c104be94acf5bca00169d5eeef065c9a50187",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use this same capillary-and-four-muscle-cell teaching view for the NEXT stage: carbon dioxide moves FROM cells INTO returning blood. Preserve the same open cross-section end mouths, red vessel and red blood cells, and white blood-flow arrows pointing right. Replace the two downward transfer arrows with two restrained UPWARD arrows from the top two muscle cells toward the vessel's lower wall. Show SMALL GRAY DIAMONDS originating inside/near the muscle cells, crossing the intact vessel wall and appearing in the red blood. The gray diamond shape is the waste-gas teaching code, clearly different from pale round oxygen dots. Remove pale oxygen dots outside the vessel; keep only a few pale oxygen circles inside blood so it is never oxygen-free. Dark burgundy-red blood remains red, no blue. No blood cells outside the vessel, no holes or leakage. Keep all four muscle cells separate outside, no change to framing. No other organs, text or objects; clean flat 2D science diagram.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-04194cd9-b50a-43d0-8f40-c73e8c0308e0.png",
+      "sha256": "26585e96d7926ef5bec05edbc0cb38a7f7ea8894f00a448f506b9a6581d9f2b9"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "53f321fe6f6525dbc7142913453889b170e4387f03930954a85dc6f67239997e",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.512Z",
+    "sha256": "294644606618920c0e9ed59e633c104be94acf5bca00169d5eeef065c9a50187",
+    "note": "Direct inspection: distinct gray diamond carbon-dioxide symbols move from outside muscle cells upward across intact vessel wall into red returning blood; few oxygen circles remain inside, rightward flow and open cutaway ends coherent, no leaking blood cells.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

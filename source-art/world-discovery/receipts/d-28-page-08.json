@@ -1,0 +1,40 @@
+{
+  "bookId": "world-discovery-d-28",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:48:07.805Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-bc602753-1f71-4861-86fe-4c8fcbfdcbd2.png",
+  "sourceSha256": "2183ec32f0074fd1626347cb437f69c6b52def2c9c36a89541219606ca92a6ba",
+  "output": "public/guided-reading/world-discovery/d-28/page-08.webp",
+  "outputSha256": "54dee1a74901d231d8e6254aad3feb855fc12d4941ad6ebe34b1b0c9db86c68a",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Keep image1's entire 1536x1024 bird-searching scene, exact bird, six leaves, branches and background. Change ONLY the small caterpillar under the far-right leaf. Replace it with the same natural GREEN segmented larva with small plain BROWN head as image2, about HALF the current caterpillar size, partially sheltered under that far-right leaf. No large eye, expressive face, smile or anthropomorphic pose; tiny inconspicuous natural ocelli only. Small legs grip the leaf underside with belly toward leaf, not dangling. Preserve one caterpillar only, empty bird beak, all margins and exact flat bold-outline style. No text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-8a1e2244-60a5-4043-84db-66e3b866c896.png",
+      "sha256": "84d31fd462af5243a47c19b978a8bc79aea01f1710ae4ce031116970265a8f13"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-6cfb5b26-2dd4-497b-b93e-07f60e08212a.png",
+      "sha256": "078515b9318bf93f91ed5538ccdc426b9ab1b5a8890dfd9c35268c19248d0899"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "78c2904e582ff26b4d4ca84266e2154c9a1849a22caf6695aebc788bc09c7b58",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.542Z",
+    "sha256": "54dee1a74901d231d8e6254aad3feb855fc12d4941ad6ebe34b1b0c9db86c68a",
+    "note": "Native PNG and installed WebP directly inspected: Bird searches several leaves with empty beak; one small natural brown-headed larva under far leaf.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

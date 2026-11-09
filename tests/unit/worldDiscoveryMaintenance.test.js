@@ -48,16 +48,33 @@ test("later repairs cannot repin or relocate their registered historical audio b
   assert.doesNotThrow(() => requireWorldDiscoveryMaintenanceBaselinePreserved({ id: cohort.id }, cohort),
     "first maintenance still needs the separate historical-evidence validation");
 });
-test("the repair route rejects a repinned baseline before reading its proposed history", async t => {
-  const manifest = JSON.parse(fs.readFileSync(new URL("../../src/content/world-discovery/cohorts.json", import.meta.url)));
-  manifest.cohorts[0].maintenanceBaseline.sha256 = "0".repeat(64);
+test("the repair route rejects every repin before proposed history even with a pending cohort", async t => {
+  const manifestPath = fileURLToPath(new URL("../../src/content/world-discovery/cohorts.json", import.meta.url));
+  const current = JSON.parse(fs.readFileSync(manifestPath));
+  // Keep the regression independent of whether the production task has since
+  // activated its third cohort. Maintenance still cannot adopt pending books.
+  const pending = current.cohorts.find(cohort => cohort.id === "21-30");
+  assert.ok(pending);
+  pending.active = false;
+  delete pending.maintenanceBaseline;
+  let proposed = structuredClone(current);
   const proposedPath = fileURLToPath(new URL("../../.artifacts/test-repinned-maintenance.json", import.meta.url));
-  const read = fs.readFileSync;
-  t.mock.method(fs, "readFileSync", (file, options) => {
-    if (String(file) !== proposedPath) return read(file, options);
-    return JSON.stringify(manifest);
+  const evidenceReads = [];
+  t.mock.method(fs, "readFileSync", file => {
+    if (String(file) === manifestPath) return JSON.stringify(current);
+    if (String(file) === proposedPath) return JSON.stringify(proposed);
+    evidenceReads.push(String(file));
+    throw Error("Proposed history must not be read before immutable validation");
   });
-  await assert.rejects(repairWorldDiscoveryCohorts(proposedPath), /baseline path\/hash is immutable/);
+  for (const index of [0, 1]) {
+    proposed = structuredClone(current);
+    proposed.cohorts[index].maintenanceBaseline.sha256 = "0".repeat(64);
+    await assert.rejects(repairWorldDiscoveryCohorts(proposedPath), /baseline path\/hash is immutable/);
+    assert.deepEqual(evidenceReads, [], "all cohorts' pins must be checked before any history read");
+  }
+  proposed = structuredClone(current);
+  await assert.rejects(repairWorldDiscoveryCohorts(proposedPath), /already active cohort and pinned maintenance history/);
+  assert.deepEqual(evidenceReads, [], "unchanged pending membership does not gain repair eligibility");
 });
 test("unregistered, duplicate, wrong-role or incomplete bindings cannot establish reuse", () => {
   for (const change of [

@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-21",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:29:55.122Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-eb33b0a1-0b53-4667-ab61-e03b4aedeeac.png",
+  "sourceSha256": "9ab6d97d4b03c1c7f2c2df347b22630389f85a9ebf270e4473650634bba9735c",
+  "output": "public/guided-reading/world-discovery/e-21/page-01.webp",
+  "outputSha256": "097fbd43b38f6c57ecfa8aa8987e07aa761d7ec56755fad4c23bc1a1e129325d",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Pull the camera back on this exact coherent scene. Reduce the COMPLETE composition of all three people, table, entire map and table legs together to 75 percent of their present size, keep centered, and extend the same plain green park background around it. The adult hair must be at least 16 percent below top edge and the table-leg bottoms at least 16 percent above bottom edge. Preserve exact cast, poses, anatomy, map roads, river, bridges, ferry quays, start dot, museum and colors. No cropped parts, text or extra people. Maintain flat 2D bold-line illustration; do not add shading or textures.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-299d6ef9-5d63-4c94-a63d-cd349b213e7b.png",
+      "sha256": "5cc37e51d85d47af403320013f75f9bf4c5573bfb3b1d68f8dcdd0550c90189d"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "9421bb4bb1f97c822674b76871fc5ee9b7b4398f02e9bdb626223b2a8cf9283e",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T11:31:58.777676+00:00",
+    "sha256": "097fbd43b38f6c57ecfa8aa8987e07aa761d7ec56755fad4c23bc1a1e129325d",
+    "note": "Exact people at table; clear west start, east museum, upper road/lower footbridge and two quays. Pulled-back composition gives generous hair/feet/table margins.",
+    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-b-22",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T05:59:12.013Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-92b9fcd8-7e76-4d23-86c1-a527eac97404.png",
+  "sourceSha256": "9854245cd4bda5628ea5761a8a4682966e976fa1383efbd3d663c31c3dc485f0",
+  "output": "public/guided-reading/world-discovery/b-22/page-08.webp",
+  "outputSha256": "c46d22f6996511cf1ec2940b2952e52c477372b2999d6a5cfe80debc959b3b93",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Create the closing scene by editing image one while preserving its same classroom, seated cast, globe design and generous safe framing. Kit on the left now watches with BOTH hands resting on the table. Zoe on the right traces the water on the globe with one index fingertip while her other hand rests on the table. Add a THIN orange teaching route through blue Atlantic water from between North America and Europe south between South America and Africa, curving gently into open blue water north of Antarctica. Every part stays in blue water and ends BEFORE touching Antarctica. Zoe touches blue water next to the route. Coherent hands, same child identities, no labels or any other lettering. Image two is identity reference only.\n\nUse case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: One Ocean Around Earth; World Discovery; nonfiction.\nSetting: A classroom globe investigation with Kit and Zoe. Geographically accurate continent outlines on a plain globe and close map views; ocean regions stay the same blue. Route is a thin orange teaching overlay, never a real painted line on Earth.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Accurate blue-and-green Earth globe; Thin orange route overlay kept entirely in seawater; Plain gray globe stand\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 8. Printed prose (NOT text to put in art): Zoe traces the water again.\nEarth has one connected ocean.\nRequired illustration: Zoe traces the Atlantic-to-Southern part on the original globe while Kit watches; all water stays blue.\nExact current state: Return to same globe with the connection understood.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nFinish: smooth flat clean vectorlike color. No grain, stipple, texture or paint.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/b-22/page-01.webp",
+      "sha256": "4ffeb30969ccaa031335a17c11e4441a387c37d129a3edbc73fbdff5def2490a"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/b-22-reference.webp",
+      "sha256": "aa47f5df80f6895353841ac4a1735e87fe48a3bd239e8c73f19911c0b91ff237"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "20ecca19d99fe9f835680d66d0bb8b60c48e7bfbd2c48e9ed200c12d2524db14",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T06:00:35.539Z",
+    "sha256": "c46d22f6996511cf1ec2940b2952e52c477372b2999d6a5cfe80debc959b3b93",
+    "note": "Directly viewed native PNG and installed WebP. Return to the same classroom/globe. Zoe traces Atlantic water toward Southern water while Kit watches; a thin route remains in blue water before Antarctica, no letters. Cast and objects have safe framing.",
+    "limits": "Direct image inspection only; independent sequence and app review follow separately."
+  }
+}

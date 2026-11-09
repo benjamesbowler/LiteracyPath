@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-a-28",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:35:44.979Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-018bc5d1-e536-4f8f-805d-1fdbf9d9ece8.png",
+  "sourceSha256": "233d7e98936c8ab4e1a5d4b7d4e11e7f3a23e2bb83811a842f46c62e370b640f",
+  "output": "public/guided-reading/world-discovery/a-28/page-07.webp",
+  "outputSha256": "04af29acb501e72496fafafca7ac1cbe7173325cdef85e510e1e8e45f521c0c2",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Anatomy repair ONLY for the LOWEST ant in the first image. Replace that ant with the exact clear six-legged top-down anatomy of the ant in the second image, turned toward the amber food drop (head at upper-right of its body, abdomen lower-left). It MUST have SIX visible legs: three independently rooted legs along each side of the thorax, each ending in a separate grounded foot. The missing sixth is the far-side FRONT leg directly behind the head; draw it distinctly outward to the upper-left without joining an antenna. Preserve two antennae attached to head. Preserve upper and middle ants unchanged, leaf/drop/background/framing unchanged. Three ants total, no extra limb beyond six per ant.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-32098e97-b5ee-4eb5-895d-d79dbecd97d6.png",
+      "sha256": "234f9e14f3a878019e9ff81a217c364b442653d60e746e066f616006a06073f7"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-ec270765-ac0e-4a8e-b85a-540ee6a80995.png",
+      "sha256": "64b5d35cb20604c01aa7bfe47ccf01afd900fda882da825e21926f26f3b7dc78"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "fbf293511c4adb19a75a183f30ea70ea6bdd6e4a759309a5079a91a68021dff0",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "04af29acb501e72496fafafca7ac1cbe7173325cdef85e510e1e8e45f521c0c2",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T10:35:44.981Z",
+    "note": "Directly inspected corrected arrival: exactly three recruits facing one amber drop on one leaf. All three now have six individually visible thoracic legs and two antennae; missing lowest-ant foreleg repaired. Full group safely inset, no scent marks, no fourth ant or extra food."
+  }
+}

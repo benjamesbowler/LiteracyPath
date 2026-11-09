@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-25",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:43:28.381Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-99c973c2-5c52-4901-a98f-440ba4832dc4.png",
+  "sourceSha256": "cb22312f56189769f99f300b2ed1287d3a5cdb8197060b3360fa0823184590df",
+  "output": "public/guided-reading/world-discovery/e-25/cover.webp",
+  "outputSha256": "65e309c613e091c0093049a501dc3d23780aef9e56d7944317727846e18ec08c",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Native layout correction of this exact existing cover illustration. Preserve the white left-facing passenger plane with teal tail and single integrated lower wing-section inset, its three blue left-to-right airflow lines turning down-right, clear connector to the near wing, and the distant open land. Pull the entire plane plus diagram composition back by 25 percent, keeping the plane in the upper half, so the entire nose, tail, inset and arrow tips all sit at least 12 percent inside every canvas edge. Fill expanded surroundings with matching blue sky and distant open land. Keep the illustration as one integrated scene, no panels or outer border. Smooth flat 2D, no added text or extra wings.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-ed0571b4-8c2e-4570-85c3-fc048880c587.png",
+      "sha256": "e4c9d4b2f821a316a9a4c7cbcbbf8eb859053fdce90bb43a2181e12ea716d5ff"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "6fa387a94832069dfd8f41a5c0089a80fb10f81c60c90df001e050c556eb4819",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T13:58:43.728403+00:00",
+    "sha256": "65e309c613e091c0093049a501dc3d23780aef9e56d7944317727846e18ec08c",
+    "note": "Left-facing white plane with teal tail; single connected wing inset, blue airflow around both surfaces turns down-right; no text or extra forces, entire teaching content inset safely.",
+    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-c-24",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:27:06.018Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-70c23612-e59b-43c2-a6ff-f3e141f85814.png",
+  "sourceSha256": "56ada987bd84871cadc88940c42c25afaf890aaf7720c5a0db1e054620ce46c4",
+  "output": "public/guided-reading/world-discovery/c-24/page-05.webp",
+  "outputSha256": "cdbe719242e7dccd5e4fda52462352e61277bf65584ab2ceed07d0146f984b57",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "One 3:2 child-friendly educational illustration, smooth flat clean vectorlike fills and crisp outlines, no grain or texture. Same blue lake green hills meadow and left foreground tree as references. No people, animals, words, letters or numerals. Clear air stays transparent, never draw visible vapor plumes. All clouds and explanatory circles safely within central 75 percent with 12 percent margins. A single white cumulus cloud above the same lake, larger than first reference. One medium circular magnification linked by two fine lines to the white cloud contains a FIELD OF MANY TINY ROUND liquid water droplets, each with a tiny centered brown nucleus, roughly thirty small droplets dispersed in the circle. Three thin golden rays enter this circle from upper-left and scatter in different outward directions among droplets, a sparse declared teaching overlay. Drops remain tiny and round, not rain teardrops. Circle separated from cloud, no extra small circles or panels.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/c-24/cover.webp",
+      "sha256": "752cd6e3924c77daeeda3aabcd24592d98aa26177b09470a5102885bdc4550af"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/c-24/page-04.webp",
+      "sha256": "27e37a4a3fc952606bf9b0f5cd40d3b140be3a38aa597f7c5f02ae44c4340008"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "cbfc1a0f277ec5764a733f36e711277c72ce51d08853c5fd50b0372b7684550a",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T12:31:42.472573+00:00",
+    "sha256": "cdbe719242e7dccd5e4fda52462352e61277bf65584ab2ceed07d0146f984b57",
+    "note": "Native and final WebP directly viewed. Many small round cloud drops surround nuclei and three teaching light rays scatter in different directions; no white gas, same lake and safe core margins.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

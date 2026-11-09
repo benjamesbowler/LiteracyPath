@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-e-22",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:18:46.758Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-5d31d4b2-41da-4452-a257-8985f9a404ad.png",
+  "sourceSha256": "6c62e31255682bbb1218bb74b79d1ae26fbbade91a4cb61afc1200508a79e2d9",
+  "output": "public/guided-reading/world-discovery/e-22/page-07.webp",
+  "outputSha256": "9ec507f3f71521fb11c38e602a460757d33cc9fbc6ec011cc5417fc4ec006b84",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Keep these exact THREE labeled place picture cards, all content inside each and exact names Wells, Reading, Lacock. Scale the whole three-card group uniformly down25 percent, centered on same1536x1024 cream canvas. Outermost card edges need at least12 percent clear cream margin at left/right, plenty at top/bottom. Do not zoom or change individual pictures, change labels, rearrange cards or add anything. Preserve bold outlines and smooth flat color, no grain/paper texture.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-717a9767-5cb4-4232-bcb4-ab7df092d039.png",
+      "sha256": "1e18b2faac7ca3a70917b0bfe84727a521b4cc7f7952e582ffe396e2cc93b407"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "2aff8b9432244a41072eb7c7376c77e21594d83a655dfa83d99e44c528e86755",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "9ec507f3f71521fb11c38e602a460757d33cc9fbc6ec011cc5417fc4ec006b84",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T12:18:46.759Z",
+    "note": "Direct native inspection: three exact labeled cards Wells, Reading, Lacock with correctly associated ordinary places, Reading extensive/dense and Lacock modest village. Entire card group inset16% horizontally and30% top, no religious/status symbols or extra text."
+  }
+}

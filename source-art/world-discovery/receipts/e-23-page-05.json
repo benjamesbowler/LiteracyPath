@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-e-23",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:50:05.764Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-cb77953b-0b86-4163-8872-56a5b5c12708.png",
+  "sourceSha256": "dfb53c0ec813f41b3b12e3ca587ca3b69da6086c4786a2c060503e0d2814119e",
+  "output": "public/guided-reading/world-discovery/e-23/page-05.webp",
+  "outputSha256": "538d7278ea3975e6a803d00bdad5727f65fc8d23bbcedb56d8d47393af633513",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact anatomy diagram ONLY to correct outgoing direction arrows. All orange arrows must represent messages starting in BRAIN, travelling DOWN the spinal cord to lowerneck, then LEFT through shoulder and LEFT along the extended arm to hand. REMOVE the arrowhead currently pointing LEFT at the START inside brain; leave a plain rounded line start there. REVERSE the WRONG RIGHT-pointing orange arrow at SHOULDER (near x790,y565): it must point LEFT, away from spinal cord and toward elbow/hand. Keep the two downward neck arrowheads and existing leftward forearm/wrist arrowheads unchanged. Do not change any yellow nerve routes, spine, brain, anatomy, pose, size, margins, clothes or colors. No new arrows or labels.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-e8381cd2-4252-43af-b2f2-3c4575f03e7d.png",
+      "sha256": "a1c49a2908c5cf201aec87c5b65bab8611dbd9cf049258d24edcb60e886bc871"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "1b0de6058b2611192f79942f4ecd03b97dc9da569d20816897fdbc11f5ab098a",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.558Z",
+    "sha256": "538d7278ea3975e6a803d00bdad5727f65fc8d23bbcedb56d8d47393af633513",
+    "note": "Actual PNG and WebP inspected: every outgoing arrow travels brain down neck then left through cervical branch into arm and hand; protected spinal cord and continuous route, natural fingers, safe margins.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

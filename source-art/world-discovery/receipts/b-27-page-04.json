@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-b-27",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T08:04:53.577Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-c47b922b-ab5f-435e-a3f0-235332b6af0b.png",
+  "sourceSha256": "ca6b52c815b8572286b607f8e7359d68ac9705d06a1d2b63db1f8c248056d62d",
+  "output": "public/guided-reading/world-discovery/b-27/page-04.webp",
+  "outputSha256": "6ab33f75e8795d429955b15d30db20f5c594a9936cd2d2be065313307e84a7dd",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Keep this exact simple pan-of-curds image but pull camera back 15 percent, keeping LANDSCAPE 3:2 1536x1024. Entire pan including bottom curve and complete handle must fit within CENTRAL 75% of canvas, leaving at least 130px plain counter below the pan. Preserve white curds separate from pale-yellow whey, no other props. Smooth clean flat vectorlike illustration, no grain, no words.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-70994b12-e21f-415d-8daf-744b7a11c3c8.png",
+      "sha256": "b469cc5361f7c41627dbd38ea49fbc1787390d7e4d50f494acdde16186a714c5"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "14bdf1a9b4c155d155a7916b5fde211a1d4c1dddaf582d022d5985416f706b7c",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T08:05:34.729202+00:00",
+    "sha256": "6ab33f75e8795d429955b15d30db20f5c594a9936cd2d2be065313307e84a7dd",
+    "note": "Directly viewed native PNG and installed WebP: separate white curds and pale-yellow whey in same stainless pan; entire pan and handle comfortably within safe margins.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

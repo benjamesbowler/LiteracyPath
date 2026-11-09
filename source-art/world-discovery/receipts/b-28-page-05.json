@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-b-28",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T08:00:49.543Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-5b51d2d6-1079-4b68-b744-db2467c38a7f.png",
+  "sourceSha256": "7d0d7874236bc0cb1da7eb0c45dd12db1c43434e9a17c019a0162a49ad3bdb4e",
+  "output": "public/guided-reading/world-discovery/b-28/page-05.webp",
+  "outputSha256": "18cd06e79a448ce14afca0ab921fcbf42d84babd61e939b71f7542b30d3f7a91",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Continue exact giraffe feeding scene from reference. Move giraffe's head BACK LEFT a short distance from target twig, with a small bunch of green leaves held in natural closed lips, tongue mostly withdrawn. A clearly visible air gap now separates mouth from twig. The target twig's LEFTMOST leafy tip has lost most of its leaves; leave its woody brown tip and pale paired thorns INTACT and attached. Neighboring branch leaf clusters remain untouched. Same two ossicones, ears, eye, muzzle proportions and tan/brown coat. Head and feeding detail fully inside central 75% frame; neck continues naturally lower-left. LANDSCAPE 3:2 1536x1024. Smooth clean flat cartoon color, crisp outlines, no texture, no text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/b-28/page-04.webp",
+      "sha256": "752144cf338f740320217fe77e9d9fe5a6134fbd613af5293eb1164fa5812e4d"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "3b2da464191b00e55de10d772304d97a74700fcde5ac76ab45ab88f364075677",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T08:01:15.425439+00:00",
+    "sha256": "18cd06e79a448ce14afca0ab921fcbf42d84babd61e939b71f7542b30d3f7a91",
+    "note": "Directly viewed native PNG and installed WebP: leafy bunch held at closed lips, tongue withdrawn, head pulled clear of intact bare twig with thorns retained; neighboring leaves unchanged and head/mouth safely inset.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

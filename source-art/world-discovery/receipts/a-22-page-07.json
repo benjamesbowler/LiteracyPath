@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-22",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:25:34.184Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-822a4896-51c8-4303-99df-b5bbf93af714.png",
+  "sourceSha256": "c64576070bc5554fce3ac73cc487d124c7bdacdf711d4b4192fe7221dcf5179c",
+  "output": "public/guided-reading/world-discovery/a-22/page-07.webp",
+  "outputSha256": "c784f5620fac69ed31d76a3b636fe7713f3b40b5a4572a2b1ab982bb55c5abf9",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Make this same illustration slightly smaller on the same landscape3:2 canvas: scale the complete child, globe and table group to85% of its current size, centered vertically, extending only existing plain cream wall and blue-gray floor around it. Top of black hair around y130 and bottom of shoes around y890 on1024-highcanvas. Preserve all geography, continental colors, globe rotation and tilted axle, hand pose, clothing and table. No other new props, no frame, no text, no texture. Small zoom-out only.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-471009c7-0aad-441d-80d9-8bbe9fe120a5.png",
+      "sha256": "ea0619c3062f030cc9203a7a6e7d7a01876df3f3b346ead5f7ba0c1f53c4184b"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "7fb9d0dad2e1f226cbad13b27e944537df495d6a4ae001fea7e1424f5a78d89a",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "c784f5620fac69ed31d76a3b636fe7713f3b40b5a4572a2b1ab982bb55c5abf9",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T07:25:34.186Z",
+    "note": "Directly inspected native replacement: Kit's hair is about 13.5% below the top and shoes about 12% above the bottom; returning Americas globe orientation, diagonal axle, pointing pose and blue-gray classroom floor remain coherent."
+  }
+}

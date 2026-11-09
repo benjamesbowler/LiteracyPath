@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-c-28",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:28:29.883Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-71994cb8-29bc-4f7a-9d80-fd4209f135ef.png",
+  "sourceSha256": "d8dacba6cac4304c47b94f9421f3506b09fa08064fcfcc92c1d2c1f6649dc6a2",
+  "output": "public/guided-reading/world-discovery/c-28/cover.webp",
+  "outputSha256": "b7f37c3fc95b573a7383f62d2720f2345936afd0bc9052b87bd5686e0ab472c5",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. EDIT THE FIRST SUPPLIED IMAGE ONLY. Second image is the approved smooth-ground design reference, not a composition to copy. Preserve first image exact composition, framing, every animal pose and count, prey, nest, cutaway status, season, branch geometry, all leaves/plants/stones, shadows and color palette. Change ONLY the diffuse mottled/stippled soil to one perfectly smooth flat earthy brown fill with restrained smooth cel shadows. REMOVE ALL tiny unoutlined soil dots, gritty patches, painted flecks, noise or grain. Retain deliberate discrete outlined stones, leaves, grass clumps and anatomical quill/spine pattern. Preserve feet and prey ground contact. Do not crop, zoom, redraw animals or change light/time/season. No text/letters. Opaque landscape3:2. This is only a surface-style correction.\nCanonical exact page instructions (all existing scene states remain):\nEdit this existing finished illustration. Pull the ENTIRE composition back uniformly by25 percent on the same landscape canvas, filling the new area with continuation of the same background. Preserve all proportions, details, exact object counts and colors. The essential complete subjects must now be at least12 percent inside every edge, with extra clear space above and below. No new text, logos or objects. Keep crisp flat2D cartoon style. Preserve the single curled hedgehog in a teaching cutaway of a dry leaf nest, the leaf chamber roof and walls, and the fallen forked branch on its right. Show the whole leaf dome safely inset; preserve defined exposed cutaway leaf-layer edge rather than depicting a giant real entrance.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/.artifacts/nonfiction-next-50/c28-edit-input/cover.webp",
+      "sha256": "2f104a293b148ae888f99d91e94995e6ae90683c0e82c360d5827619a085b129"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/c-28-reference.webp",
+      "sha256": "cbc7bcf1b015a1055cd8e29600f89c60343e4c6b3eee9a93f1bb59ced64ef2c9"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "f40ade2ce093f8630b07993486f43c74b2e43b93f146bfeab9275339bae07c05",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "b7f37c3fc95b573a7383f62d2720f2345936afd0bc9052b87bd5686e0ab472c5",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T13:28:29.886Z",
+    "note": "Directly inspected native ground repair: smooth flat brown soil and restrained shadows replace mottling; discrete outlined stones/leaves/grass retained. One curled hedgehog remains sheltered in the same thick-leaf teaching cutaway beside forked branch. Wider composition retains state and gives ample margins; no text."
+  }
+}

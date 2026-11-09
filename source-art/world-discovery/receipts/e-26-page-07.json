@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-26",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T05:58:41.826Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-89fadebb-cb29-408f-a97d-6a4e25e73ed2.png",
+  "sourceSha256": "ef7942c7762019f0d71b1aca0f99333b66be5ada1d40bca4c761bc8a66b78ed4",
+  "output": "public/guided-reading/world-discovery/e-26/page-07.webp",
+  "outputSha256": "5fd83771a86246dca201bc0415cc59b7e897f917d0d1e985b53f496ec804dbe6",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Original landscape 3:2 finished nonfiction illustration for A Message Crosses the Internet. Clean bold 2D cartoon, crisp dark outlines, flat clean fills, at most restrained cel shadows. No gradients, texture, 3D, lettering, digits, logos or watermarks. Keep essential subjects in 10 percent safe margin. Attached references lock only the specific hardware/character designs named here, NOT their layouts or other content.\nExact scene: One simple integrated schematic on pale cream background. Four blue cylindrical routers form a DIAMOND network: left source router, upper-middle router, lower-middle router, right receiving router. Exactly four blue cable connections: left to upper; upper to right; left to lower; lower to right. All cable endpoints visibly meet their routers. Two packets take upper branch and two take lower branch. Packets are small cream teaching tiles with distinct teal/blue marks and the same purple-circle destination marker. Small blue arrows beside links point toward right receiver. At the right receiver the FOUR packet tiles are arranged in a single ordered horizontal row, visibly regrouped; no duplicate destination or broken links. No words, digits, people, tablet, laptop, red boat, homes or server. Teaching symbols only, never physical objects in wires. Match router housings and packet style to attached refs.\nMANDATORY TARGETED EDIT: Keep diagram content exactly but reduce whole connected diagram to 75 percent of its current size around image center. All four routers, packet tiles, cable links and arrows must remain exactly connected/ordered as shown. At least 12 percent blank margin from ALL edges around the complete diagram. Extend matching pale cream background, no frame.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-45f7043d-73ff-4023-8b64-3a4c039a0409.png",
+      "sha256": "b679900914f191e164f7a764a582c27e953f10ce162a406e5c0cfcfeb65053b1"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "a04b6d0950794fec64943013d30facc27daa8410774f7062963be893ca44e0a3",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
+    "sha256": "5fd83771a86246dca201bc0415cc59b7e897f917d0d1e985b53f496ec804dbe6",
+    "note": "Diamond has exactly four routers/four continuous links, directional branch arrows and four regrouped packets with identical destination mark; revised framing clear.",
+    "limits": "Final whole-sequence, actual reader/card and audio approval pending."
+  }
+}

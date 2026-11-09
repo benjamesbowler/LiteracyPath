@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-c-22",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:05:46.217Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-da443f51-8eca-4232-9c0e-3c75529220b7.png",
+  "sourceSha256": "dba906fe630a091b42d782eb0c47a1dc12d5013c911fffbbfc5e95fdcd5ba3b0",
+  "output": "public/guided-reading/world-discovery/c-22/page-03.webp",
+  "outputSha256": "e59245eb52057d81c79837853dc51f5db3e406ea00edd29e34f27e1ebab89134",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit ONLY the background of the FIRST reference: remove the gray gate entirely, replacing it with matching grass and distant hedge. Keep the green north tree exactly ahead of the compass red tip. Preserve every foreground detail, natural open palm, correct small compass, exact letters N top E right S bottom W left, red needle top and white bottom, both children and their clothing. Kit and Zoe are equal-height children. SECOND reference locks cast and props only. Do not add arrows, diagrams or extra objects. Same3:2 scene, crisp flat smooth fills, no grain.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/c-22/page-03.webp",
+      "sha256": "93e07f408f8012788dc33ce49bda30711bd164ca50c2d883341b9b91eceb45f1"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/c-22-reference.webp",
+      "sha256": "f7640bca6dc2c687a2f53c1956c4db9411d4faaa9c4331d71b6acdc1b6a98ef2"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "7ef8d8649d4bf890384d714a7be54ffe8301439e049fa826d123aaf98f10b5ea",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T13:06:34.401368+00:00",
+    "sha256": "e59245eb52057d81c79837853dc51f5db3e406ea00edd29e34f27e1ebab89134",
+    "note": "Native and actual replacement directly viewed: removed incidental east gate from north-focused close-up, retained north tree, settled red-tip orientation, correctly ordered N/E/S/W ring, exact children and natural supporting palm.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

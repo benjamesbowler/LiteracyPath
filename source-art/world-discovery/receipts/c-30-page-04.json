@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-c-30",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:46:35.892Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-1dc6fcf7-4509-4845-a60e-574019e1e756.png",
+  "sourceSha256": "8d4bf2101355112da86eeeb0d786df4cb2393ee371f524c01d74933eb4705bd9",
+  "output": "public/guided-reading/world-discovery/c-30/page-04.webp",
+  "outputSha256": "adf85357c980db8edf5a3dc85a985e9c13af591674d41f7cb05b6548761ce3f1",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "One finished landscape3:2 full-bleed children nonfiction illustration. Crisp flat2D cartoon, bold continuous dark outlines, clean colors, modest cel shading. No grain, paint texture,3D, lettering, logos, captions, border or frame. Essential objects fully inside central70 percent canvas. Page4 integrated scientific diagram: ONE full upright rocket, same white cylinder, dark navy pointed nose and three small navy fins, one bell nozzle. Plain light-blue surrounding sky, no ground or pad. Hot yellow-orange gas flows DOWN from nozzle. Exactly TWO simple arrows: one green UP arrow immediately beside rocket body, tail at middle body and head above nose to represent thrust on ROCKET; one orange DOWN arrow entirely below nozzle aligned beside exhaust, starting beside plume top and pointing toward plume end to represent gas motion. Arrows apply to different bodies, not two arrows both attached to rocket. Full rocket/plume/arrowheads inside central65 percent with15 percent top/bottom margins. No text, labels, tanks, insets or additional arrows.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/c-30-reference.webp",
+      "sha256": "13981429b48266a584720e9531ebc4977f560e140763f6d897f5cb3e72968bd5"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/c-30/cover.webp",
+      "sha256": "f8dd831745744722d98672e2d6a6f6d80278bb05c6cc9c9c7491fce9ef238248"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "7374f9182a4ceb61b8c6faae01ea35938c85f0fc4723dd1dfcd601ace996d189",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T12:47:48.394838+00:00",
+    "sha256": "adf85357c980db8edf5a3dc85a985e9c13af591674d41f7cb05b6548761ce3f1",
+    "note": "One rocket with green up arrow linked to its body and separate orange down arrow beside exhaust. No ground-push line. Full rocket/arrows safe; contextual vapor cloud at bottom.",
+    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  }
+}

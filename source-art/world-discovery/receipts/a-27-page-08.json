@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-a-27",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:44:44.650Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-d9f24870-bdf1-4b7e-a1a8-3cdd05924d55.png",
+  "sourceSha256": "b0e43ba508f629b21b26f0579889381e6daabdac9c310fbc487c74cd5d91d1ce",
+  "output": "public/guided-reading/world-discovery/a-27/page-08.webp",
+  "outputSha256": "02fbf5265cecf87ee12ad91523285280f24921093a20e134d7d7f80f0f668fda",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Clean two-stage teaching diagram on plain warm cream landscape3:2 canvas: exactly ONE original intact small golden popcorn seed at LEFT and exactly ONE fully popped cream piece at RIGHT, with ONE narrow rightward arrow between. Before and after views of the SAME seed. Draw both at the same scale: their identifying brown pointed bases are the SAME WIDTH and aligned to the SAME horizontal baseline. The intact seed is about one third the height and one fourth the width of the much larger connected puffy popped result. Original seed hull wholly intact; popped piece has irregular connected cream lobes and small attached golden hull fragments near the brown base. No person, kitchen, machine, bowl, circle, panel, extra seed or loose popcorn. Place all content within the central75% with at least15% above and below. Crisp dark outlines, smooth flat cel coloring, no grain, writing or numbers.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-6870d075-fb55-41fe-a123-469fa2fa41a1.png",
+      "sha256": "ae1bfb4c152995fdd2d0968dc1bd5fdfb05eb1206b86ff8a6f2b2ad92e4eb251"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-e6f8f06c-0557-4d7c-b217-de89e2f19885.png",
+      "sha256": "42a3cba9698c03ffd85c08d5af76131d34d21ca3f10277a000eca154f7eb5e97"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "54df5f6be0ca6e59f447c22d2431c43d463a335ffaf26ebbf520c3a8450a76f2",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "02fbf5265cecf87ee12ad91523285280f24921093a20e134d7d7f80f0f668fda",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T07:44:44.651Z",
+    "note": "Directly inspected: two states of one seed only, intact golden seed left and single larger connected cream result right, one rightward arrow. Brown bases align; scale comparison depicts clear physical expansion. No adult/appliance, all essential contents over10% inside edges."
+  }
+}

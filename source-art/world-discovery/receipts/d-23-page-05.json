@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-23",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:13:24.326Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-d8f7533a-b41b-4e8a-ac9e-dada3f2194f6.png",
+  "sourceSha256": "6fe9ce92c372225fa73af00e60e5270225327acb2440020a3ad4685bc73f31db",
+  "output": "public/guided-reading/world-discovery/d-23/page-05.webp",
+  "outputSha256": "1cca6970056c22d7fab998e2d0cda70c36ffcb1f8b66d680e3bf88c3aefdc77d",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "One finished landscape 3:2 close educational diagram of oxygen moving from ONE lung air sac into blood. Show a single rounded pale air-sac cavity in upper center, with a short separate gray airway opening at its top. Along the sac's lower curved edge is ONE thin intact shared gas-exchange boundary beside a red capillary vessel. The capillary enters from LEFT dark-burgundy red, curves along the sac, exits RIGHT brighter red; small arrows INSIDE the blood vessel point left-to-right. Several small red disc blood cells remain inside this vessel. Tiny pale icy-white oxygen DOTS are teaching symbols: many in the air-sac space and several crossing the thin boundary toward the blood with two restrained small direction arrows. Dots are tiny compared with a blood cell. The membrane stays unbroken, with no open hole and no pouring stream of air. Gray airway and red blood vessel are separate lumens. No whole lungs, heart, body, children, extra inset, labels, letters, numbers or gray waste-gas symbols yet. Keep the complete diagram within the central 70 percent of the canvas, generous cream margin all around. Friendly crisp 2D dark outlines, flat colors, no texture or gore. The supplied reference is organ-color/style context only, not the composition.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-ce9fd03b-d033-4a09-a961-4e6357448e9e.png",
+      "sha256": "41cf1f5e4c127f6ac7377f483be36c3a33467d4714b2fdd647fa6f54adb88ba2"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "53f321fe6f6525dbc7142913453889b170e4387f03930954a85dc6f67239997e",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.510Z",
+    "sha256": "1cca6970056c22d7fab998e2d0cda70c36ffcb1f8b66d680e3bf88c3aefdc77d",
+    "note": "Direct inspection: single air sac and adjoining capillary separated by intact thin boundary; tiny pale oxygen symbols cross toward blood, all red cells remain inside, blood arrows left-to-right and red oxygenation change, airway separate; no extra stage and safe margin.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

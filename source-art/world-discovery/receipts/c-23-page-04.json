@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-c-23",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:01:12.088Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-4ae3aaca-a99c-4d79-a57b-a1941029e2c4.png",
+  "sourceSha256": "ec087e89ede15213d8d3b6d14a91ea1d187d73986569579108ef7d6a83a3db4c",
+  "output": "public/guided-reading/world-discovery/c-23/page-04.webp",
+  "outputSha256": "71d91810306e3338e42dbca51f2d65cce279ca5e06dbcfaa0161d0180e45e25b",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Repair this anatomical right-arm teaching cutaway for exact bone and tendon attachment and framing. Two FOREARM bones must remain distinct: INNER forearm bone nearest biceps is the RADIUS, with a small circular radial head articulating near humerus at elbow; OUTER forearm bone along outside elbow is ULNA, with a hook-shaped olecranon cupping back of elbow hinge. Short thick FRONT BICEPS has a pale tendon crossing INSIDE elbow and attaching to a small bump on the INNER RADIUS just below its circular head, NOT to the outer ulna. Draw pale tendon visibly terminating on that inner radial bump with continuous contact. Long thin REAR TRICEPS pale tendon terminates on BACK of the OUTER ULNA olecranon. Preserve rigid humerus, two rigid forearm shafts, natural flexed arm and relaxed empty hand. Slightly distinguish the two forearm bones with a thin dark separation; no floating tendon, fused shafts or crossed attachment. Uniformly reduce whole diagram25percent and center, all of hand, elbow and shoulder within central75percent of canvas. Warm cream background full bleed. Simple clean child-friendly flat non-gory cutaway, no letters, labels, arrows, extra limbs or panels. 3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-7e8cdd9e-7c3f-43e1-ad6d-2116c29fb416.png",
+      "sha256": "5b437c4e680ded3ebccabdde2721cb8dd6a9ae2b38e02a32c24866290f34dda7"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "25f742b6e36d6eb87de003ac9ecc80f9d512f2d1edf34f8713c6b0c4130e8702",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T12:06:41.656343+00:00",
+    "sha256": "71d91810306e3338e42dbca51f2d65cce279ca5e06dbcfaa0161d0180e45e25b",
+    "note": "Native and installed WebP directly viewed. Flexion shows short thick front biceps and longer rear triceps; front tendon crosses inner elbow to proximal radius, rear tendon attaches outer olecranon; distinct paired bones and safe margins.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

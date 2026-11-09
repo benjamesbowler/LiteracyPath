@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-29",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:04:28.603Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-df261255-7e63-4ad3-a9ec-ed798f0a4f21.png",
+  "sourceSha256": "3163f14e93a793db86e03fdc87bd9bec9b6fdb1b1b4f5d61aef35e8d7abe60f0",
+  "output": "public/guided-reading/world-discovery/d-29/page-08.webp",
+  "outputSha256": "810f03cf59aeb37dea2035de5df56edd3ec2a4ed7cec7b5bf9b2f8499a0b1b96",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Next1536x1024 overhead savings table diagram in exact same room/style. Replace the previous four-solid/two-empty row with exactly SIX solid pale-green rectangular play notes, each having ONE centered dark1. Arrange as THREE obvious spaced GROUPS OF TWO: left pair two vertically stacked but NOT overlapping notes; middle pair likewise; right pair likewise. Larger horizontal gaps between three pairs, small vertical gap within each pair. No empty dashed slots remain. Six total:2left,2middle,2right. Same empty clear jar above left pair, single orange ball upper-right; no hands/children or money in jar. All six notes and other focal props comfortably inside central75%. Keep simple bold continuous outlines and flat colors. No othertext or numerals.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-1cfa8ef0-698c-41bd-9a63-acc43a2fe40a.png",
+      "sha256": "1a3cfbf32c399e392627f1dfed8ff59c29404fc92993b2018c591c36248430d4"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "13c2a4841f0bfa3c412602a383f905ed05acc5de2a917f6491164caa74117013",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.548Z",
+    "sha256": "810f03cf59aeb37dea2035de5df56edd3ec2a4ed7cec7b5bf9b2f8499a0b1b96",
+    "note": "Actual PNG and WebP directly inspected: Exactly6notes in3separate pairs, one1each; emptyjar and singleball; safe clearcount.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

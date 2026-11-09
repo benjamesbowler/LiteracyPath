@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-e-22",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:11:35.634Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-0aff59e6-2d7d-4eff-974a-aa8c14ab3b81.png",
+  "sourceSha256": "2a34f567aa02695c19d2737e27f9abd61aa06a6ec935b03f1728324a84574dcc",
+  "output": "public/guided-reading/world-discovery/e-22/page-03.webp",
+  "outputSha256": "9f88be7a899c87ef92f613347ed853c52ec22ef0d1abd232f94cdfe530675ac5",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape1536x1024 full-bleed flat children's nonfiction illustration. New camera viewpoint in the exact Lacock street design supplied. Show the SAME modest pale-stone groceries shop with muted terracotta roof, sage-green door RIGHT and shopfront trim, large plain window of bread, jars, apples, carrots and leafy vegetables. Widen to include connected ordinary stone homes and a black timber/cream cottage along a quiet road, showing shop among homes rather than isolated shop cutout. NO people needed for this page. Keep full shop door/window and main roof at least12 percent inside canvas; foreground pavement and quiet road continue naturally. No railway. No religious buildings or symbols, flags, logos, readable signs, letters/numbers or pseudo-writing. Smooth clean flat colors, continuous dark outlines, at most restrained cel shading, no grain or painterly texture. One coherent scene, not panels. This shows that this village has both homes and a shop.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-8428c5df-3186-4e08-bf73-5d7b2a5a1c3d.png",
+      "sha256": "9a9dcea23ff23e7c23b61f59d87b23308cef3395dd0e362726a37645a96196b8"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "2aff8b9432244a41072eb7c7376c77e21594d83a655dfa83d99e44c528e86755",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "9f88be7a899c87ef92f613347ed853c52ec22ef0d1abd232f94cdfe530675ac5",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T12:11:35.635Z",
+    "note": "Direct native inspection: sage-green grocery shop with food window is integrated among ordinary stone and timber homes on coherent village street; shop fully inset, no humans or lettering, no rail/religious buildings. Clean smooth cartoon and visible adjoining residential uses."
+  }
+}

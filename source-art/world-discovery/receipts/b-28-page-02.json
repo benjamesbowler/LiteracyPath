@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-b-28",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:32:21.135Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-f9fd4b66-ae16-4fbb-96fc-64611af3ae8c.png",
+  "sourceSha256": "f8b5384ea33e6d29c2e200ab6ac118631dcfcd7967d67bdbc7ca0b21ac55c5fa",
+  "output": "public/guided-reading/world-discovery/b-28/page-02.webp",
+  "outputSha256": "747f9c8892da413f556728bf37b1e3e987bc47b55746f25d785bb1a4ce5975a8",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Next moment after supplied opening scene. Same exact giraffe, same four hoof positions on ground, same tree and intact leaf cluster. Giraffe now raises its head gently by straightening/rotating the SAME length neck, bringing its closed mouth close to the target leaves at the end of the lower branch. Mouth near leaves, not touching yet; no tongue extended yet. Do not lengthen the neck, move feet, alter body proportions or change leaf/thorn arrangement. Whole giraffe remains comfortably inside central 80% frame with at least 140px ground below every hoof. Natural animal expression, two ears/two ossicones. Single continuous landscape 3:2 1536x1024 scene, smooth clean flat cartoon colors, crisp outlines, no texture or text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/b-28/page-01.webp",
+      "sha256": "bc39d7c456ff242bf6ddea13731fcf0c1a014a66f7680d512ff57122af9e00e0"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "3b2da464191b00e55de10d772304d97a74700fcde5ac76ab45ab88f364075677",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T07:35:24.509017+00:00",
+    "sha256": "747f9c8892da413f556728bf37b1e3e987bc47b55746f25d785bb1a4ce5975a8",
+    "note": "Directly viewed native PNG and installed WebP. Same grounded four legs/body/tree, head gently raised closer to intact leaf cluster with same neck length, no tongue yet, safe hooves and ears/ossicones.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

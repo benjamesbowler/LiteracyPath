@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-b-26",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:26:44.742Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-41a09181-8e25-46c4-a73e-dabb791a4cdf.png",
+  "sourceSha256": "1e98f07885cfd7d74fcbbed9d1d7f3936a4f44e0602185179edd026f25943b03",
+  "output": "public/guided-reading/world-discovery/b-26/page-06.webp",
+  "outputSha256": "58c98c6f0a370959cb6d434c792f5e0c1cd893f8e5d485b9fea4473172254387",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "One landscape 3:2 classroom scene with exact Kit left/Zoe right from cover. Actual tabletop objects: ONE BLUE rectangular block on LEFT and ONE RED cube directly to its RIGHT, side by side. Kit looks down and points beside the actual red cube with one finger, no touching/hiding it. Zoe holds gray camera at chest height with REAR screen angled toward Kit AND reader. Its saved photo remains RED cube ON TOP of BLUE block, with plain small triangle playback icon lower-left. Two round rear buttons. The two actual blocks and different saved stacked photo must both be clearly legible in one physically coherent scene. No extra real blocks, no duplicate camera, no arrows/labels/insets. Keep whole heads/hands/camera/blocks at least 12% inside all edges with generous blank room around. White table, bright window, crisp flat cartoon colors and outlines, no grain or texture.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/b-26/cover.webp",
+      "sha256": "f0446ba766caeef8f55ceaba7b860c191808c3c0ee4723889ac2bae6fea85a47"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/b-26/page-04.webp",
+      "sha256": "e010c0e66ace7cce5228fe44f6af13dd6656b24b5fbf532c9975e84a8607594d"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "92cd13a2772ca31a9f3db39eee27ddd9fb03eec7e4ce66785453ca94f8823761",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T07:27:52.155909+00:00",
+    "sha256": "58c98c6f0a370959cb6d434c792f5e0c1cd893f8e5d485b9fea4473172254387",
+    "note": "Directly viewed native PNG and installed WebP. Kit points beside exactly two side-by-side real blocks while Zoe presents saved red-on-blue photo with triangle icon; clear intentional difference, two-button camera, safe heads/hands/blocks.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

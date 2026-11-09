@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-c-30",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:19:18.813Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-2b1032f6-f30e-41b3-b38d-fde7c38604b9.png",
+  "sourceSha256": "054d52b476a16b6c1155718e3f83b6fb7c7f00c10bc55b7b247d684a5dde9810",
+  "output": "public/guided-reading/world-discovery/c-30/page-01.webp",
+  "outputSha256": "b12bf01612898044cab14a823585d33bc6540f1e2b65dee4e07937fa7de7ec88",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Rocket Pushes Up; World Discovery; nonfiction.\nSetting: Uncrewed illustrative liquid-fueled rocket with white cylindrical body, dark nose, two internal tanks and one engine nozzle. Neutral launch site and then upper atmosphere/space, no flags or logos. No child-operated rocket or fireworks. Force diagrams explicitly marked by sparse arrows and correct orientation.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): White uncrewed liquid-fueled rocket; One fuel tank and one liquid-oxygen tank inside; One engine chamber and nozzle; Distant launch pad; Earth horizon in later pages\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 1. Printed prose (NOT text to put in art): A rocket waits on the launch pad. Hot gas bursts from its engine. What can lift this heavy machine?\nRequired illustration: White rocket upright at pad with initial exhaust flowing below nozzle; no people near rocket.\nExact current state: Engine firing begins; rocket still near pad.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nONE neutral launch scene, same white/navy uncrewed liquid-fueled rocket upright on launch pad. Initial orange-yellow hot gas leaves ONE nozzle downward into low white cloud, but rocket has NOT risen yet: nozzle is just above pad surface and adjacent orange gantry matches full rocket height. No arrows, cutaway, text or people. Same three dark fins and pointed dark nose, no windows or side boosters. Wide view: complete rocket from nose to nozzle only55 percent of canvas height; nose at20 percent from top, pad at78 percent height. Plenty of sky/floor margin. Simple clean flat2D colors.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/c-30-reference.webp",
+      "sha256": "13981429b48266a584720e9531ebc4977f560e140763f6d897f5cb3e72968bd5"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "7374f9182a4ceb61b8c6faae01ea35938c85f0fc4723dd1dfcd601ace996d189",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T12:21:52.238304+00:00",
+    "sha256": "b12bf01612898044cab14a823585d33bc6540f1e2b65dee4e07937fa7de7ec88",
+    "note": "Single rocket begins firing beside gantry, still near pad; hot gas exits one nozzle downward. Complete rocket has clear margins, no extra engines/people.",
+    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  }
+}

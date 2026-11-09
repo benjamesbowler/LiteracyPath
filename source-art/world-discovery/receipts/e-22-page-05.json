@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-e-22",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:23:00.976Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-4834ff41-a68f-43c7-a752-efa2d7505dbe.png",
+  "sourceSha256": "e9c07fb93400fcb30c12ccac75daca45528cfb005a8ec2dbbabdfa155ee03400",
+  "output": "public/guided-reading/world-discovery/e-22/page-05.webp",
+  "outputSha256": "d35b5da49030d0490b48b67594eaa3a571a7bb915e2aa0de038f42bbbf5215c1",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One NEW finished landscape1536x1024 full-bleed flat children's nonfiction scene in the same Reading station location supplied. Camera now looks diagonally along the broad public paved walking path outside the railway fence. Foreground: TWO ordinary adult commuters in contemporary work clothes walking on the LIGHT PAVED PATH, with both complete feet visibly well INSIDE its edges, far from any roadway; one woman with tan shoulder bag and cream blouse, one man in blue jacket with briefcase. Middle distance: same teal/yellow-nose three-car passenger train arriving beside the low flat-roof glass station, entirely on straight steel rails and sleepers; all train wheels align with rails. Continuous dark-green fence between walkers and railway. Background same brick/glass offices and green trees. No bus necessary in this closer station-arrival view. No walkway crossing tracks, nobody in road or on rails. All people full bodies with heads/feet at least15 percent inside frame; complete train nose at least12 percent from edge. Do not duplicate a person. Preserve ordinary workplace architecture and palette; no literal landmark claim. Clean bold2D cartoon outlines, FLAT smooth colors, no texture/grain/3D. No readable signs, labels, numbers, logos, flags or religious buildings/symbols. One coherent moment, no panels.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-ce181d95-ed49-4d4d-8462-25804b8bac1f.png",
+      "sha256": "554df0a0f48a95fc403438f0012cc13226f0e1857cb4a71c643ed75963673e8b"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "2aff8b9432244a41072eb7c7376c77e21594d83a655dfa83d99e44c528e86755",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "d35b5da49030d0490b48b67594eaa3a571a7bb915e2aa0de038f42bbbf5215c1",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T12:23:00.979Z",
+    "note": "Direct native inspection: two adults walk with both feet clearly on broad public paved path, separated by continuous fence from rails. Same station/office designs and teal three-car train, coherent wheel-to-rail contact. Train nose about8.5% from right and feet11% above bottom, meeting8% minimum. No text or unsafe road/track walking."
+  }
+}

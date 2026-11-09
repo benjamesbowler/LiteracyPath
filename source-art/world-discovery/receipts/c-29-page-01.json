@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-c-29",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:27:16.165Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-22f6afb0-b954-49cd-9979-b577dbd0d33f.png",
+  "sourceSha256": "013c196b34072b434a68dfcdf0f63e1e11149167f87ebcf2fa45ba3fc79df0a6",
+  "output": "public/guided-reading/world-discovery/c-29/page-01.webp",
+  "outputSha256": "8fa79d56951aac28cc4b822b3a700fd558f1b2f5d56e60e15f8b60c31caa030c",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this finished illustration with a uniform22 percent camera pullback on the same landscape canvas. Extend the same room around it. Preserve all subject proportions, exact action, colors, hands and prop counts. Add generous clear wall above and table/floor below so all essential head/hair, hands and props sit at least12 percent inside every edge. No new text or objects. Crisp clean flat2D. Preserve clock at exactly3:00: twelve correctly placed numerals1\u201312, long blue hand straightup, short red hand straightright. Keep full Kit/Zoe shoes with floor below them, clock safely below top edge, loose unjoined paper strips and single glue stick. No paper chain yet.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-30e1f213-0fc3-48a6-831f-22ae9ba67a53.png",
+      "sha256": "295a31847430cb3f94ed1edd52cfecbba3d55133ab1985d505b25b368b44b763"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "7dacb274608cd92e9787048ea3b34f4e75fff582b4c227e3e6234a48171cbea7",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T12:32:10.618680+00:00",
+    "sha256": "8fa79d56951aac28cc4b822b3a700fd558f1b2f5d56e60e15f8b60c31caa030c",
+    "note": "Correct single3:00 clock, twelve numerals, blue minute12/red hour3, loose paper strips and seated same-height cast; complete clock and shoes safely inset.",
+    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-b-24",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T06:39:21.316Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-9325e1c5-b09a-48c3-a5e2-b8db2c98b121.png",
+  "sourceSha256": "d0f18f22e73b90f1dccfbe4c348c72629502516240dcd4a1148252de31afa2ba",
+  "output": "public/guided-reading/world-discovery/b-24/page-05.webp",
+  "outputSha256": "5cc0e8d74cdb24e4268a25e5c1444b04039040b03de04924ac6f01f542d113c9",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Wind changes direction and rotates the SAME windsock and ring around its fixed vertical gray pole. Show an OBLIQUE INTERMEDIATE angle: tube now projects diagonally toward the viewer and slightly LEFT, foreshortened, with its small open tail clearly visible near x560,y430; large mouth and freely swiveling support are behind it beside pole x660,y350. This is midway between pointing right and pointing fully left. One physical tube only; same actual cloth length and orange soft fabric. Blue bench still LEFT and green tree still RIGHT; entire background and framing unchanged. No extra windsock, motion trails, arrows, text or people. Landscape3:2 clean smooth flat illustration.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/b-24/cover.webp",
+      "sha256": "e38b1619d8cea773b314690016ac4dd3e57dab74961be53634657c30c79b27ec"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "256ab5090d5f31f1862a8c4796e0dd9302a80857dadb5beb8a5f75e7127629bd",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T06:40:00.668083+00:00",
+    "sha256": "5cc0e8d74cdb24e4268a25e5c1444b04039040b03de04924ac6f01f542d113c9",
+    "note": "Directly viewed native PNG and installed WebP. One windsock turns through an oblique intermediate angle toward viewer and left, foreshortened with its tail opening visible. Pole, bench-left and tree-right remain fixed, with no duplicated tube or wind ribbons.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

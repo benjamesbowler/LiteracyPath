@@ -1,0 +1,39 @@
+{
+  "bookId": "world-discovery-a-30",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:06:28.191Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-5f20495a-2762-4ff0-95a6-9c36434eda89.png",
+  "sourceSha256": "b6a737edcf7c768dacd024e8f76a92f23e6d22613a451e9090153ac5429a8d34",
+  "output": "public/guided-reading/world-discovery/a-30/cover.webp",
+  "outputSha256": "15d68c8609935358e831de0fc79ebd8e7bc0e21a4d0cefed278598f5ce8b895c",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit only camera framing: pull the ENTIRE scene back by 15%, maintaining every relative shape and position. Add natural continuous sky and grass around it. Every branch tip must be at least12% of canvas height below top edge; bag fully visible with generous margin. Tree trunk may continue naturally beyond top, but fork tips all inset. Preserve single pale yellow bag floating rightward, two handles, tiny lower-right notch, street left, rooted tree, stream right. Do not scale bag separately or change landscape geometry. Smooth flat untextured fills. No text. Landscape3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-091f07d4-8889-4c10-bc45-c0b0b7f8f353.png",
+      "sha256": "d684200712576b6447899f2a3addb5ae6b2edc67ccb8dae7e672e1dd0ff9ab2f"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "24075755c621d72f43bb30fc00a77fb407d55e36e08d772f10f5aa04aed3efc1",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "15d68c8609935358e831de0fc79ebd8e7bc0e21a4d0cefed278598f5ce8b895c",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:06:28.193Z",
+    "note": "Directly inspected native: single airborne pale yellow two-handle bag with lower-right notch, continuous street-left/verge/tree/stream-right landscape. All bag edges and fork tips comfortably inset after camera pullback; trunk grounded and continues naturally through top, no extra litter or text."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-a-30",
+    "path": "src/content/world-discovery/cohorts/21-30/level-a.json",
+    "sha256": "f9ec508c059ddf7bc839efb70dfb744ce32989e7c1fecee092e761c78496361a",
+    "evidence": "source-art/world-discovery/cohorts/21-30/a30-teaching-cue-revalidation.json"
+  }
+}

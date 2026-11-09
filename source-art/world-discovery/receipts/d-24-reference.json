@@ -1,0 +1,31 @@
+{
+  "bookId": "world-discovery-d-24",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:44:08.017Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-25a7b4e5-35f9-4b47-a563-b8480877b781.png",
+  "sourceSha256": "f03b2cc5f0569dd84782d14d6855ac519fe66fedf6374507b53e35597aed5c5b",
+  "output": "source-art/world-discovery/d-24-reference.webp",
+  "outputSha256": "94783d1b68c125ce5ed0f5d46f7e633efa806eede224674ef08691bceb99ba99",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Create an entirely unlettered production reference board for a clean flat 2D children's science book about a sea breeze. Landscape 1536x1024, white background, clean dark outlines, flat saturated colors, restrained smooth cel shading, no texture, no photorealism. Only TWO kinds of content are permitted: (1) one simple orange cone-shaped cloth windsock on a short gray pole, shown as three small separated front/side/three-quarter prop views; (2) ONE coastal location key, sunny blue sea on LEFT, sandy beach at center, grassy land on RIGHT. In the location key place the same one orange windsock: wide open mouth facing LEFT incoming sea air, tapered tail trailing RIGHT inland. Keep the entire location key and every prop view well inside generous white canvas margins. The windsock has a single orange cloth taper, broad circular mouth, narrow open tail, short plain gray pole with small round base. No people, children, adults, Kit, Zoe, animals, birds, crabs, faces, additional scenes, diagrams, molecules, arrows, labels, letters, numbers, pseudo-writing, logos, borders, palette dots or decorative elements. Show ONLY the specified prop views and ONE location key.",
+  "references": [],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "688f663f00d36542402967229cf6e98631f1d90b6bed074cce20a73f41dcd15c",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.520Z",
+    "sha256": "94783d1b68c125ce5ed0f5d46f7e633efa806eede224674ef08691bceb99ba99",
+    "note": "Reference inspected: only three unlettered views of one orange windsock model plus one sea-left/land-right location key; open mouth left and tapered tail right, no invented cast/animals, clean flat style.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

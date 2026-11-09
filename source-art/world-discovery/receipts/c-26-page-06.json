@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-c-26",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T15:21:12.012Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-a7883228-a45a-46bc-9c7f-c479daff082a.png",
+  "sourceSha256": "0ee25f79b4d749393c98fa26dd64ad3b47d8d5f03f692f6ce80fa72daa6f56e0",
+  "output": "public/guided-reading/world-discovery/c-26/page-06.webp",
+  "outputSha256": "ae374eee75b516239ec1484dc1fb8ed6017a7d9fc2ee3f3ff2c4605ff6f1f947",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Next page at this exact checkout, later price update. Preserve the entire existing composition, adult worker identity, same actual cream carton, exact barcode, blue circle, scanner, monitor, countertop and generous safe margins. Change the saved record price from Cereal $3 to exact Cereal $4. Keep the same thumbnail and outlined record. Change the worker's pointing arm: lower it to operate one small plain gray keyboard newly placed on the counter directly below the monitor. Other hand rests on counter left as before. Make hand/key contact coherent, two arms only. Keyboard keys must be plain blank blocks, NO tiny letters/numerals. The same actual box remains stationary on the counter, barcode entirely clear. Preserve barcode as immutable finished insert with exact bar/white-gap widths/order, guards and quiet margins, front-parallel, no redraw. No Kit, other people, arrows, new products or extra text. ONLY written content Cereal $4. Clean crisp flat2D cartoon, no grain/texture, landscape3:2, all essential props/head/hand within current safe margins.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/c-26/page-05.webp",
+      "sha256": "ce05374e2c26b1748bdf1253c0a6873006c65444025d6cb44b480ffadbfe7ea9"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "f5e9b37923e2ab34dcac374e68d093636a36b1ac72b9174419833b623d02c398",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T15:21:50.040305+00:00",
+    "sha256": "ae374eee75b516239ec1484dc1fb8ed6017a7d9fc2ee3f3ff2c4605ff6f1f947",
+    "note": "Actual installed WebP directly inspected: record price now exactly Cereal $4; same thumbnail and stationary box; worker operates blank-key keyboard, coherent two-arm anatomy with far arm occluded by box. Safe margins and unchanged barcode, auto decode EAN_13 9526064055028.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

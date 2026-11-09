@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-26",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:48:48.776Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-8497cb9b-9213-45d3-bfb2-d6f9f1a02c41.png",
+  "sourceSha256": "662c93129a8a24321cccf6df9822df0c479cad8eafcaf6a48e64a1a970a65168",
+  "output": "public/guided-reading/world-discovery/d-26/page-03.webp",
+  "outputSha256": "015161547d99acfd29ac6fffcc0a2cf2419fdb50c1d0ac9edeb340caf4a8959e",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact classroom illustration for the next moment. Preserve the mat, room, side-profile robot facing RIGHT, yellow foam block position, blue chassis, gray controller, black wire, visible large wheel and rear caster. Move the robot a little RIGHT until its red bumper touches the LEFT face of the yellow block. The body remains separate from the block. Compress the lower coil spring and shorten the exposed white straight plunger above it so the red bumper is closer to the chassis than before. Add ONE small bright blue arrow laid along the black sensor wire, pointing FROM the front sensor at right TOWARD the gray controller at left. This arrow represents a sensor message, never wheel movement. No spark or beam. No other arrows or new props; no people. All essential robot/block parts remain fully visible. Use clean dark-outlined flat 2D children’s nonfiction illustration with restrained cel shading, no grain, brush texture, photorealism or 3D render. Landscape 3:2, 1536 by 1024. Keep all instructional subjects inside central 70% with generous 140px margins. No words, letters, numbers, logos, captions or watermarks.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-3157ffda-195f-43cb-a589-668913a49522.png",
+      "sha256": "9c055eb68e3cd9c6667773ceaff29788164b39cea18e42154140ffec108f36e7"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "975d5f5420efb1308d6c48d6cf7633e175e59f4e879e625913e4b4acfddfb28a",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.528Z",
+    "sha256": "015161547d99acfd29ac6fffcc0a2cf2419fdb50c1d0ac9edeb340caf4a8959e",
+    "note": "Direct native image inspection: red bumper contacts unmoved yellow block, plunger and spring shorter than page 1; single blue wire arrow points from front sensor toward controller, no spark; geometry and margins clear.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

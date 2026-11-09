@@ -1,0 +1,42 @@
+{
+  "bookId": "world-discovery-b-29",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:42:05.626Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-fea513fc-a536-43b0-9c17-dcd6f107beb9.png",
+  "sourceSha256": "8a09e8fe003d6abafdf40500200d0e496ba1179da3b4808f29ca4f0597a1cd4a",
+  "output": "public/guided-reading/world-discovery/b-29/page-06.webp",
+  "outputSha256": "579102f05e828c476d6e35d5ab41c006421750c0814361496b48ec641397059c",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Kit adds last cube to measurement: EXACTLY SIX equal yellow cubes touching in one straight row across the blue book width. First reference exact endpoints/count: SIX 120-wide cubes span 720-wide book, both ends aligned. Kit's single tan hand enters from lower-left and reaches to lightly hold TOP of the far-right sixth cube as it settles into place. Do not obscure front cube faces or any joins; count all six clearly. There is NO spare cube anymore. Same real plain blue book/table and top-oblique view as second reference. Do not add labels. LANDSCAPE 3:2, 1536x1024. Clean smooth flat illustration, no grain or paper/paint texture. No text, numbers, labels or guide lines. All essential props and hands inside central75%, wrists may naturally continue out frame. White table and cream classroom consistent.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/.artifacts/nonfiction-next-50/b29-six-touch-reference.png",
+      "sha256": "3aeb1c6072dbfa7e6fa26960aea069cd0b177ce932422d23fd30b2d497f3af2e"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/b-29/page-02.webp",
+      "sha256": "ea3ca74df0db8f25e1a3a9b6331a89416f68d01e3ad12fd5c1713b77591fece0"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/b-29/cover.webp",
+      "sha256": "08567a9520d6b455442be8996af4a34f3fe525f17d167c8201fec3583020bf43"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "7c50af653f4ee559098243cdcd631837ff440776161b09c1d029dc86ea556fcc",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T10:43:44.541097+00:00",
+    "sha256": "579102f05e828c476d6e35d5ab41c006421750c0814361496b48ec641397059c",
+    "note": "Directly viewed native PNG and installed WebP: sixth identical cube added at right, six touching cubes align book ends, no spare; Kit hand and teal cuff natural.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

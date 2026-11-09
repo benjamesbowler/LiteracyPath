@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-27",
+  "slot": "page-09",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:28:09.381Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-8801c57d-dc1b-4466-90e1-378238055a56.png",
+  "sourceSha256": "f362273620a9916cbb31d7d7945841f15a3cedd9afca3b789c9b21b0d2d20564",
+  "output": "public/guided-reading/world-discovery/d-27/page-09.webp",
+  "outputSha256": "caab4465f7e233951e4c0c5bd9904cd255b4aba15355fc9d8fe26d0640c2fdb7",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Make ONLY a framing edit to this exact kitchen scene. Pull back the camera and reduce all current subjects to80% of their present size, centered on the same landscape1536x1024canvas. Extend the existing pale wall and worktop naturally to fill the outer area. Keep every human hair/hat tip, bowl edge, pan, trivet and serving spoon at least140pixels inside the frame. Preserve exactly two arms/hands, safe grips, soft cooked rice, one spoon, oven-mitt hand on inward pan handle, saucepan on trivet and teal bowl. No new objects, no text, no style changes. Do not add a blank border; extend the real scene.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-542531b2-6d13-478f-994b-60eab8b312b9.png",
+      "sha256": "d07426f29dc4e332adf28af617df68bbfd74f038e1ff42bf6d5c8df5b8d92020"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "d7159e37a1a2ef16cf6332c998d1e18c7c5e1c835d8925d2049fd3bf922c1538",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.536Z",
+    "sha256": "caab4465f7e233951e4c0c5bd9904cd255b4aba15355fc9d8fe26d0640c2fdb7",
+    "note": "Direct native inspection: adult head and serving tools widely framed, exactly two hands with spoon and oven mitt, gray pan firmly on trivet and handle inward, cooked rice served into teal bowl; no child.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

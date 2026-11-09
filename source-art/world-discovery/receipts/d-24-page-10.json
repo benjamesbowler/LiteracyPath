@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-24",
+  "slot": "page-10",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T08:09:17.622Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-5a827f88-5dc4-4237-a998-0465061635ca.png",
+  "sourceSha256": "1c12cfcefb2502afc7cc03dcb69755e8e377b4fb92531a96997008dd91d175b1",
+  "output": "public/guided-reading/world-discovery/d-24/page-10.webp",
+  "outputSha256": "0c2e8363672fbdde3bd7a76dd92efa722088bcb5bf0724b80497570a4916f0ab",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Return to the exact ordinary coastal scene supplied for the closing book page. Preserve the same coastline and setting, seaLEFT, sandcenter, greenlandRIGHT, same one orange cloth windsock and short gray pole, one sun and the two clouds. Make only a natural small moment change: the orange cloth tail gently lifts a little straighter and stretches horizontally inland RIGHT, while its wide open mouth still faces LEFT toward the sea. Keep recognizable model and scale, safe generous framing. No air arrows, diagram tints, particles, boxes, labels or numbers; this is the real observed scene. No humans/animals. Clean crisp outlined flat-color2D, no texture/3D.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-5ce56858-8aa9-4a08-9508-190ab0fa3b68.png",
+      "sha256": "606d2aa89b07274d2dcd5532f3f22e6ed4ad683c4b6fef1235dfadcb4a2e0386"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "688f663f00d36542402967229cf6e98631f1d90b6bed074cce20a73f41dcd15c",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.520Z",
+    "sha256": "0c2e8363672fbdde3bd7a76dd92efa722088bcb5bf0724b80497570a4916f0ab",
+    "note": "Direct inspection: same exact opening coast with cloth tail slightly straighter inland; no diagram dots/arrows/tints, one windsock and correct mouth direction, safe framing.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

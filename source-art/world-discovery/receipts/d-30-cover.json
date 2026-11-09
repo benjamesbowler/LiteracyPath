@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-30",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:51:00.414Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-452adff8-dac4-4350-9cc7-af210c498d35.png",
+  "sourceSha256": "60707e857feaf6bfb44ad4f46d36f2643a5a6f11d51fb2d8264b17b829a32fc5",
+  "output": "public/guided-reading/world-discovery/d-30/cover.webp",
+  "outputSha256": "823fe83df7b66fa4af11666deda61d835eacac72f0b3a589027ca266353fd630",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. Finished landscape 1536x1024 picture-book cover, one single space scene. A SINGLE gray box satellite in three-quarter view floats high ABOVE the blue curved horizon of Earth. Exactly TWO rectangular blue solar panels, one on each opposite side, each panel with exactly THREE columns and TWO rows of cells, attached by short gray hinges as in the reference. Full satellite silhouette occupies central 60 percent of canvas, no panel tip within 180 pixels of any edge. The satellite is above the horizon with a clear empty navy-space gap. Earth is only a broad curved OCEAN horizon across the lower quarter with two simple white cloud shapes, no invented continents. Dark navy space behind, perhaps three tiny unobtrusive stars. No other spacecraft, rocket stage, engine plume, flame, face, arms, orbital path, arrows, symbols or diagram inset. No title, letters, numbers, pseudo-writing, logos or borders. Bold crisp dark continuous outlines, flat clean 2D colors, restrained cel shadows only; no 3D rendering, texture, photorealism or painterly surface. Reference is design lock only: do NOT reproduce the board or alternate views.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-55769a3e-adbf-4318-9c95-d2a94aeacbc6.png",
+      "sha256": "748b22e1d454c0274a084171ace0dd3bd71747513c79eb10ffe767ce659f6db6"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "66c03f602e2ff45268c6d939a796addf9ba66a77cb551a19d2ddd57408b04e48",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.550Z",
+    "sha256": "823fe83df7b66fa4af11666deda61d835eacac72f0b3a589027ca266353fd630",
+    "note": "Actual PNG and WebP inspected: one gray box satellite, exactly two 3x2 blue panels, clear separation above ocean horizon, full silhouette safely inset, no flames/arrows/lettering.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

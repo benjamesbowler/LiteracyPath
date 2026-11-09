@@ -1,0 +1,29 @@
+{
+  "bookId": "world-discovery-b-21",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T04:57:17.339Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-227ebacc-4ac1-41e3-ae2e-e63d2d372a36.png",
+  "sourceSha256": "43e0070eb5f57df946bd49d16f7a4dd314508b9bc9e33f7d291169729bec2ec4",
+  "output": "source-art/world-discovery/b-21-reference.webp",
+  "outputSha256": "7855ef43e8e33eeeed6375214c4aa318ef90c9ff4f2c415843cfbdb563694042",
+  "width": 1672,
+  "height": 941,
+  "prompt": "Use case: illustration-story. PRODUCTION REFERENCE SHEET, landscape, not a finished book page. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Train for Heavy Loads; World Discovery; nonfiction.\nSetting: A short contemporary freight journey between two warehouses. No public access to tracks. Unbranded blue diesel-electric locomotive, followed by red, yellow and green enclosed boxcars in that fixed order. Adult railway workers have orange safety vests, blue trousers and hard hats.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One blue locomotive; Exactly three boxcars in red/yellow/green order; Gray steel couplers between all vehicles; Wooden crates secured inside the cars; One continuous pair of rails\n Create a clean separated reference board on white: show the principal recurring props/animals in front, side and three-quarter views, their relative scale beside any named human cast, and a single simple location key showing the persistent setting and daylight/palette. The human character model sheet is a supporting identity reference, not content to copy wholesale. Show only the subjects this book requires. Use initial object states: Three loaded cars; doors open; locomotive not moving.. For orientation, the opening location/action is: Warehouse loading bay. Three open boxcars contain securely stacked wooden crates; fixed red/yellow/green order. Blue locomotive waits ahead.. Do not show a completed craft or later scene merely because the finished object is listed in design locks. No future story events, no captions. Reference-sheet override: any lettering requested by the opening page brief belongs only in that finished page. Keep this production reference board entirely unlabelled; no letters, numbers or pseudo-writing.\nFinish requirement: all fills are perfectly smooth, clean, flat vector-like color. Absolutely no paper grain, stipple, speckles, mottled paint, fuzzy edges or surface noise anywhere, including backgrounds. Clear crisp outlines and only a few flat cel-shadow shapes. Do not imitate texture from any supporting reference.",
+  "references": [],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "e2840abe2bce545cbddeb0319fa0aade90784202e01e047d8bcd74ba38ddbcbb",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T04:57:52.643859+00:00",
+    "sha256": "7855ef43e8e33eeeed6375214c4aa318ef90c9ff4f2c415843cfbdb563694042",
+    "note": "Directly inspected native source and installed WebP. Blue diesel locomotive, red/yellow/green boxcars, open loaded starting state, connected couplers, steel wheelsets on rails and consistent worker clothing are clear. Clean outlined cartoon shapes, no labels or logos. Turnarounds are reference views only; final page coupler/brake-hose geometry and freight-door state still require exact scene review.",
+    "limits": "Reference design inspection; no final page, app layout, or human-listening claim."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-26",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T06:12:04.312Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-4ccaffcb-1b3b-473a-a792-5f13ca6b9906.png",
+  "sourceSha256": "e39f1f4cc384831bfaa270bb860253f86d1b4b3fa867ff83450213b285e69c3f",
+  "output": "public/guided-reading/world-discovery/e-26/page-05.webp",
+  "outputSha256": "aaa29dbb4af32a77e6ec516e9a048a22bda8045856549df041e9bc807db33699",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit the attached finished nonfiction cartoon illustration. Preserve ALL depicted people, objects, graphic symbols, their order, colors, designs, contents and connections exactly. This edit is ONLY a framing correction: zoom out so every essential foreground subject lies at least 12 percent inside ALL outer canvas edges. Reduce the entire foreground composition to 75 percent its current size, centered on the same 3:2 landscape canvas, extending the existing plain background or coherent room/floor naturally to all edges. Do not add any border, inset, lettering, number, new object, duplicate, or new event. No cropping. Crisp clean flat 2D cartoon style. Preserve exact complete diagram connectivity and symbol content.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-8c50e47c-9870-4602-89f8-b1b882cbeb1a.png",
+      "sha256": "04c735437cd1ad04d85fdcb4b229e81ae791d97e136626ebdd7eab7603384979"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "a04b6d0950794fec64943013d30facc27daa8410774f7062963be893ca44e0a3",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
+    "sha256": "aaa29dbb4af32a77e6ec516e9a048a22bda8045856549df041e9bc807db33699",
+    "note": "Home router connects to successive network routers; packet callouts are symbolic annotations above links, within margins.",
+    "limits": "Individual installed WebP inspected. Independent whole-sequence, actual reader/card and audio approval are separate."
+  }
+}

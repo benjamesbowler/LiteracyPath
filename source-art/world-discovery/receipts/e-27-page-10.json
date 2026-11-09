@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-27",
+  "slot": "page-10",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:06:47.985Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-7938635a-f65f-41f3-9f7a-c4d591d6f669.png",
+  "sourceSha256": "aea08cc7ea1de366bd9013be2c4f90d92169a28fb633e244fc276acb8e47b94d",
+  "output": "public/guided-reading/world-discovery/e-27/page-10.webp",
+  "outputSha256": "52809fea95e11aa5ff624b3baea302b5b98cd9927537485dbed9e067a2f0b5fa",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Precise single-color edit only. In the RIGHTMOST circular magnification, color ALL overlapping short cotton fiber strands the SAME PALE BLUE as the woven fabric in the MIDDLE circle, because these are magnified fibers of the already dyed shirt. Keep the tiny spaces between the strands cream background, keep dark outlines and all fiber ends. Change nothing else: no new geometry, no resizing, same exact shirt FOUR buttons, circles, leader lines, cream background, 3:2 framing and flat 2D style.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-81ff3de9-d840-4e62-8bdb-37d793f19721.png",
+      "sha256": "001bbc593d2910b70223c1d3cb04edbd1d24e5d8d2ea0118308623f4ee026c8b"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "cbf57ed0e204379362a97b760486f24b628e65ad467026e2a078e7ecc3b4b28e",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
+    "sha256": "52809fea95e11aa5ff624b3baea302b5b98cd9927537485dbed9e067a2f0b5fa",
+    "note": "Independent finding corrected: the magnified short cotton fibers are now pale blue like the dyed woven fabric and shirt, all geometry and four buttons preserved.",
+    "limits": "Individual installed WebP directly inspected. Whole-sequence, reader/card and audio checks separate."
+  }
+}

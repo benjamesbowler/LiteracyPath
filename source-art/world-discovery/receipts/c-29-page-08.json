@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-c-29",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:20:34.187Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-d6565101-8f4c-43f5-bf5f-779dca491284.png",
+  "sourceSha256": "1fa823c0cf6756927af83b9368eb0dd28d6e1ee2e8d9f35d110a17ba33024011",
+  "output": "public/guided-reading/world-discovery/c-29/page-08.webp",
+  "outputSha256": "03b350be6e26cd6621d843c1e5afd3df3dba429af5e655d334ba62e43e1cfa02",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "One finished landscape3:2 full-bleed children nonfiction illustration, crisp flat2D cartoon with continuous clean dark outlines, flat colors and restrained cel shading. No grain, paint texture,3D, words, logos, captions, border or frame. Essential subjects fully inside CENTRAL65 percent canvas, generous naturally extended scene margins. Finalpage returnto SAME real classroom with ONE clock, notcomparison. SameKit leftandZoe right now look upat wallclock withsmall pleasedsmiles, handsrest naturallyon table. CompletedEIGHT alternatingblue/yellow paperchain stillontable in sameorder/length, glueatright,no loosepaperstrips. Exact4:00 unchanged: longBLUE up12, shortRED diagonallydownright4, exactlytwohands andtwelveblack numeralsinorder. Samefurnitureandclothes, equalkidheight. New slightpose moment, allclock/head/hands/feet/chainatleast15percentinsideedges. Noextra clock,arrowsorcaptions.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/c-29-reference.webp",
+      "sha256": "0e4cc615adc85c760ca977456842c568796faa70ce5a3972164905339528f992"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/c-29/page-06.webp",
+      "sha256": "3cbd7a12f0f05909197afb49e75a1572f0ba0cc66895af0130a854afffd8c355"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "7dacb274608cd92e9787048ea3b34f4e75fff582b4c227e3e6234a48171cbea7",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T13:21:35.102227+00:00",
+    "sha256": "03b350be6e26cd6621d843c1e5afd3df3dba429af5e655d334ba62e43e1cfa02",
+    "note": "Same children now look up at one clock4:00; completed eight-ring alternating paper chain persists, no loose strips, correct twelve numerals and two hands. Safe margins.",
+    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  }
+}

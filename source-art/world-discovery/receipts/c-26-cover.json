@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-c-26",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T14:58:50.877Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-dfb6cf89-9c9a-4479-8067-0610c056559f.png",
+  "sourceSha256": "35ceb332482cb83fbd9ee4ffe0acfa83c9bb0a72965a8a969ebae27da49caa3f",
+  "output": "public/guided-reading/world-discovery/c-26/cover.webp",
+  "outputSha256": "1e149515b69f0b8ec360faeb952c8e719438963250960f655e71ea086304db94",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. A framing-only OUTPAINTING edit of the supplied successful cover. Keep the entire existing scene intact: the same Kit, green-shirt worker, cream blue-circle cereal carton, exact valid barcode, navy scanner, blank gray monitor, hand contact and eye directions. Pull the camera back so the entire original foreground group is about 75 percent of its present size, centered within the new 3:2 landscape canvas. Add only plain warm cream background around it and extend the same pale-gray counter naturally. Important measured framing: top of worker hair must be at least 12 percent below top edge; Kit's left hair and arm at least 12 percent from left edge; right monitor edge at least 12 percent from right edge. Retain the original barcode as an IMMUTABLE finished insert with every black bar and white gap width/order preserved, longer guards and clear white quiet margins. Perfectly front-parallel label, no rotation or perspective. No new objects, no missing props, no text or digits anywhere. Bold crisp flat 2D cartoon, no texture or grain. Do not enlarge the characters or move them toward edges. Only widen the view and preserve the actual product code.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-a7adf2b5-b566-4a65-82e1-15248bd8cf4b.png",
+      "sha256": "8246b7e955702c186e1f30297460a730c7eb34efe0fba2c299d77e8d61b871dc"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "f5e9b37923e2ab34dcac374e68d093636a36b1ac72b9174419833b623d02c398",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T14:59:50.805147+00:00",
+    "sha256": "1e149515b69f0b8ec360faeb952c8e719438963250960f655e71ea086304db94",
+    "note": "Actual PNG and WebP inspected after native margin pullback: worker hair top17%, Kit/monitor side16%+, complete barcode, coherent hand contact, unlettered blank monitor and correct cast. Installed WebP automatically decodes exact EAN_13 9526064055028.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

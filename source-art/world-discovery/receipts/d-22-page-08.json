@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-22",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:20:11.428Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-6e29f790-324e-46d1-981b-8870ab6468ec.png",
+  "sourceSha256": "06686f7dc526f0f898b0aef2efd21f39ccfb43c6d4d166026f93b3ca34e2c301",
+  "output": "public/guided-reading/world-discovery/d-22/page-08.webp",
+  "outputSha256": "e847ac32fd82c5fc76f3c6c7111952541d2c842822c76737592baca0f146ffdf",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "One precise island-color edit only. The long thin white curved island chain near the TOP-RIGHT of the globe is JAPAN and must be CORAL RED like the Asian mainland. On this 1536x1024 image it lies approximately x=845 to950, y=158 to198, immediately below the upper-right mainland coast. Recolor that existing entire white Japanese island chain coral red, including its connected visible island shapes. Do not change its outline, ocean gaps or location. Keep New Guinea (large gray island directly northeast of Australia) and New Zealand gray; keep Antarctica white, Australia pink and all already-coral Asian islands unchanged. Preserve both exact labels, sphere projection and safe margins. No other edits.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-625abbac-e61a-4cb4-8c4b-df65406d8564.png",
+      "sha256": "44d9704a109752c255e643a279141e1aedb01703b8eb3343c7d268df57e4da88"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "fb0bd240fdf5f14fbd4f0ae2e2b112472e599d3754b28e979aad8f5f59410003",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.504Z",
+    "sha256": "e847ac32fd82c5fc76f3c6c7111952541d2c842822c76737592baca0f146ffdf",
+    "note": "Direct inspection: all listed Asian islands including formerly white Japan now coral; New Guinea and New Zealand stay neutral, Australia pink/Antarctica white; precise globe geometry and two labels unchanged.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

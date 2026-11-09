@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-a-28",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:23:23.465Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-02eff548-9db4-4286-96c5-a1fe461458e6.png",
+  "sourceSha256": "9c053bbf081e43a8fe9f796000000b331fc1d111a161def4abf7513adf2caf4f",
+  "output": "public/guided-reading/world-discovery/a-28/page-05.webp",
+  "outputSha256": "94e092c7b7bc0f41f7796441e2250dfc7a4f421c1dec8fa4fecd398163949850",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "One natural landscape3:2 macro scene in the SAME overhead garden route: nest entranceLEFT, ONE pale pebbleCENTER, ONE pale green fallen leafRIGHT with amber food drop. The original ONE six-legged ant is just OUTSIDE near nest, returned from food and facing nest. Exactly THREE additional black worker ants wait JUST INSIDE the dark nest entrance, clearly three separate small bodies, naturally partly shaded by entrance. They have not left for food yet. Thus four ants total: one outside and three inside. Preserve correct ant anatomy using reference: six jointed thoracic legs, two elbowed antennae, thin waist, rounded abdomen, no cartoon smiles. Ground between nest and food is completely plain and unmarked: NO DOTS, no colored trail, glow, scent cloud, arrows or inset. The point is that scent CANNOT BE SEEN. All major props safely12% inside frame. Clean solid flat cel color, crisp outlines, no grain, no writing or panels.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-115a8cfa-7f6f-4662-b0ab-814d12238709.png",
+      "sha256": "90cacde430ed671e3f1332e0f6242734ac783f7272e1f599a8e53000e8e9760c"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-81a052d4-7348-412f-b44e-684c3230e3cd.png",
+      "sha256": "8f1970d7d62a9037e26787c9c8b433b701b75fca6e6e92007afb215522d8f0b2"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "fbf293511c4adb19a75a183f30ea70ea6bdd6e4a759309a5079a91a68021dff0",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "94e092c7b7bc0f41f7796441e2250dfc7a4f421c1dec8fa4fecd398163949850",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T10:23:23.465Z",
+    "note": "Directly inspected natural scene: original ant outside near nest and exactly three separate workers shaded just inside entrance, four ants total. Ground completely unmarked; no scent dots/glow. Single fixed pebble and leaf/drop, safe margins, six-legged outside ant."
+  }
+}

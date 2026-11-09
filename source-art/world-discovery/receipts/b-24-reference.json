@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-b-24",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T06:14:43.194Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-caa29fcc-7731-4766-a2f1-8b7dbf88784c.png",
+  "sourceSha256": "7abe97e5ae196d154b8efdb04cd12546b083a401ddc5ddf2f93a4aa066055ffe",
+  "output": "source-art/world-discovery/b-24-reference.webp",
+  "outputSha256": "346d9d0a23c2ec797fd7d29c93acd22664241577f4b66dbd97d498fd6d4e652a",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this reference sheet: remove EVERY human figure, including the row of adult turnarounds and the small person in the scale view. Leave clean white space there or use it for windsock cloth studies. Keep the orange windsock, gray swivel pole, blue bench and green tree designs. In all calm hanging poses the orange fabric must look soft and slightly creased/collapsed, not rigid plastic; keep the wide mouth supported by the ring and narrow tail open. Add one rightward inflated orange windsock study to show its functional shape in wind. Bench always left, tree always right in location views. No people, letters, numbers, aircraft or flags. Clean bold cartoon, flat grainless color.\nAll colors perfectly smooth and flat, no grain, stipple or surface noise. Keep the intended educational geometry exact.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-3e574879-9170-4eb4-91a7-bb5c2341840d.png",
+      "sha256": "242959501c25a4689682551f14467ada95c13bfef2990f3724ce69b34cad0661"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "256ab5090d5f31f1862a8c4796e0dd9302a80857dadb5beb8a5f75e7127629bd",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T06:17:33.049Z",
+    "sha256": "346d9d0a23c2ec797fd7d29c93acd22664241577f4b66dbd97d498fd6d4e652a",
+    "note": "Directly viewed native PNG and installed WebP. Soft orange tapered fabric is open at both ends, supported on gray swivel/ring; calm hanging and inflated rightward study are distinct. Blue bench remains left and green tree right; no humans or text.",
+    "limits": "Reference design inspection only. Final windsock direction/optical paths require individual page checks."
+  }
+}

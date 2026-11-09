@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-b-28",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:17:25.243Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-13166dc4-3bfa-48e5-8ce4-e7a372708116.png",
+  "sourceSha256": "1bc07dbe2fc9894e82e6e009676a142c665647cc107f33a54aedd7939c3c0551",
+  "output": "public/guided-reading/world-discovery/b-28/page-07.webp",
+  "outputSha256": "72629be84497b961acaec6a9b6cc0df9572d51c40f606c14e0f1998143ad2ff0",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Keep first image's giraffe pose reaching toward MIDDLE neighboring leafy twig, empty closed mouth, all framing. Restore ONLY two small untouched leaf clusters on the RIGHT HALF of the lower stripped branch to match second reference exactly: the left tip stays bare with three visible thorns, but foliage near branch fork/right trunk has not been eaten. Do not alter target middle leafy twig or giraffe. No other changes. LANDSCAPE 3:2, 1536x1024. Smooth flat cartoon colors, no grain or texture, no text. Essential heads, hands and entire foreground props comfortably inside central70%, with generous blank surroundings.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-3112c3a7-0ab3-453f-94f9-3a66448674fe.png",
+      "sha256": "f03dbf0061dfcb34d07c5c138628321b7e48b22a45ea5782179d5eb0c7e7a5ea"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/b-28/page-06.webp",
+      "sha256": "6d395173c80832f07087699def028525d905d705d8728205100e67a8f721dc8d"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "3b2da464191b00e55de10d772304d97a74700fcde5ac76ab45ab88f364075677",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T10:18:34.436628+00:00",
+    "sha256": "72629be84497b961acaec6a9b6cc0df9572d51c40f606c14e0f1998143ad2ff0",
+    "note": "Directly viewed native PNG and installed WebP: empty mouth reaches untouched middle neighboring cluster; first stripped lower tip stays bare with thorns, unaffected lower branch foliage retained.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

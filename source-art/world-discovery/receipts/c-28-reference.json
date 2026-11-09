@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-c-28",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:24:48.966Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-5ca9bdab-2a01-4c69-8af4-22a9e87876f2.png",
+  "sourceSha256": "1a9ca239964becce3df97335299cab43493f5299f7a1bbc2371cac9bf6e79c87",
+  "output": "source-art/world-discovery/c-28-reference.webp",
+  "outputSha256": "cbc7bcf1b015a1055cd8e29600f89c60343e4c6b3eee9a93f1bb59ced64ef2c9",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. EDIT the supplied existing production reference board only. Preserve its exact layout, white background, every European hedgehog view (including all quills and anatomical details), beetle and earthworm, and the garden location panel. Change ONLY the diffuse mottled/stippled soil texture inside the garden panel to one perfectly smooth flat earthy brown fill with restrained smooth cel shadows. Retain every discrete outlined stone, fallen leaf, grass clump, the forked branch, hedge and subject ground contacts. Remove all tiny unoutlined brown speckles, grain, paint noise and mottled soil flecks. The natural quill pattern and crisp leaf veins are intentional and must remain. Preserve every edge position, scale, palette, count and animal pose. No text or labels. Landscape3:2, opaque. This is a focused surface-style correction, not a new drawing.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/.artifacts/nonfiction-next-50/c28-edit-input/reference.webp",
+      "sha256": "58566c2896ee5bc121e94e93f91ff9a5c31d03999c8061a09918c12f6d40ee84"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "f40ade2ce093f8630b07993486f43c74b2e43b93f146bfeab9275339bae07c05",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "cbc7bcf1b015a1055cd8e29600f89c60343e4c6b3eee9a93f1bb59ced64ef2c9",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T13:24:48.968Z",
+    "note": "Directly inspected native reference repair: location soil is smooth brown with discrete outlined stones/leaves/grass; diffuse stipple removed. All three hedgehog poses, natural spines and four short legs in active poses, beetle/earthworm, forked branch, hedge and board arrangement preserved. No lettering."
+  }
+}

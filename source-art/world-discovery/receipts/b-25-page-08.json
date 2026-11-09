@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-b-25",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:06:05.030Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-bdaf6495-10ac-4fd9-ba51-c224cc5e4559.png",
+  "sourceSha256": "6a79859c2be62ff4514fe06e3442e208011efaade7b861d51083cb32039290a2",
+  "output": "public/guided-reading/world-discovery/b-25/page-08.webp",
+  "outputSha256": "db5ce2a2100eea1b38da64604f946cf304f398acd963d948fb96f2ce1ac133fa",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit first image with TWO exact continuity fixes. Move the flat blue card away from the right edge: place it flat on table near(1050,755), beneath Zoe and below all optical paths, with at least150pixel distance from every canvas edge. Preserve its single count. Restore flashlight's LARGE THICK BLACK LENS RIM and barrel proportions EXACTLY as second image; do not move its cradle or aim. All other objects, original mirror angle, central screen spot, children/hands and room stay unchanged. Landscape3:2, clean smooth flat illustration.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-aa2abb8a-852a-478b-8e5a-a65f13b797c6.png",
+      "sha256": "f530580b17ced71fc12d42f267eb74f7efb07ff2147705f838abc099c9c5ae2f"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/b-25/page-01.webp",
+      "sha256": "1ce2d007fb001c5f25884b8d4a8339d5c175b61d2919de61e9202ad121959391"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "e7608249f7559688257799a2fcfb8d87f204d853906b14b220ac4f2eddd1acf3",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T07:06:45.794786+00:00",
+    "sha256": "db5ce2a2100eea1b38da64604f946cf304f398acd963d948fb96f2ce1ac133fa",
+    "note": "Directly viewed native PNG and installed WebP. Both children observe the original mirror angle and original central screen spot with hands away. Flashlight retains thick black lens rim in unchanged cradle; blue card lies flat safely below the optical path and inside margins.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

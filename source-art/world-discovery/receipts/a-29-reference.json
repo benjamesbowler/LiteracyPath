@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-a-29",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T05:03:47.372Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-4134664d-08a3-4b77-a9f5-e10d4c01ba4c.png",
+  "sourceSha256": "8949973b264e1e284da15fd1988fd410b2ad295417eab6065956621dd973975b",
+  "output": "source-art/world-discovery/a-29-reference.webp",
+  "outputSha256": "dd53e01cc4dbd6668906dd98ed037211da671ad0949c0b206594d1fce3fa2828",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. PRODUCTION REFERENCE SHEET, landscape, not a finished book page. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. The ONLY named human protagonist is Zoe. Kit MUST NOT appear. Ignore every other child shown in reference sheets; unnamed adults may appear only when this scene explicitly requires them. Preserve exact reference identity and clothing.\nBook: Two Equal Pieces; World Discovery; nonfiction.\nSetting: Zoe at a pale classroom craft table with one plain red rectangular paper strip. An adult assists with scissors. Top-down close views retain fixed paper proportions.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One plain red strip initially 24 units long by 6 units wide, no printed ruler or measurement labels; Folding across the midpoint makes exactly two congruent 12-by-6 rectangles; no third scrap; Adult helper: dark-brown skin, short cropped hair, plain blue long-sleeved top; only one pair of blunt craft scissors; One pair of scissors is operated by the adult only; Zoe keeps her hands clear of blades\n Create a clean separated reference board on white: show the principal recurring props/animals in front, side and three-quarter views, their relative scale beside any named human cast, and a single simple location key showing the persistent setting and daylight/palette. The human character model sheet is a supporting identity reference, not content to copy wholesale. Show only the subjects this book requires. Use initial object states: One whole uncreased strip; long edges horizontal.. For orientation, the opening location/action is: Overhead angled view of Zoe’s two hands resting beside one flat red 4:1 rectangular strip on the table. No scissors or extra paper pieces yet.. Do not show a completed craft or later scene merely because the finished object is listed in design locks. No future story events, no captions.\nProduction finish: every surface must be perfectly flat, clean digital cel color with smooth crisp outlines. ZERO paper grain, speckling, stipple, dither, paint, canvas fibers, mottling, scuffs or noisy gradients anywhere, including skin, rug, walls, table, floor and shadows. Prefer solid flat fills; any small shadow is one smooth flat shape. This is polished vector-like raster art, never a textured watercolor print.\nCritical reference correction: the original uncut red paper strip MUST have exact 4:1 length-to-width proportions in its straight-on orthographic view (e.g. 400 pixels long by 100 pixels wide), not 5:1 or 6:1. Only this one whole uncreased strip is designed; do not illustrate future halves. Its angled table view must be the same 4:1 rectangle in perspective. Keep the scissors separate as a tool design, no cutting yet.\nEDIT THE ATTACHED REFERENCE BOARD. Correct ONLY the red paper geometry. The standalone face-on red rectangle must be EXACTLY four times as long as it is tall: keep its current approximate 400px width and INCREASE its height to 100px. No tapered or perspective edges in that orthographic swatch. The single tabletop strip must represent the same 4:1 rectangle in perspective. Preserve cast, adult, scissors, setting and other flat colors.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-b7700b9a-3513-446f-ab90-2eadecebf55a.png",
+      "sha256": "d89367550cfe1a998ef4046ec63c97b729189ea40cf5d9301f53ab2ea2d7444b"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "f901b0be0bea47b49de26868818727681b20b5057666da316e0fa78bccc25576",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "dd53e01cc4dbd6668906dd98ed037211da671ad0949c0b206594d1fce3fa2828",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T05:03:47.373Z",
+    "note": "Inspected targeted geometry repair: straight-on red strip is now approximately 4:1 with parallel horizontal/vertical edges and no crease; tabletop perspective depicts same whole strip. Zoe and blue-shirt adult are consistent, scissors are blunt and separate, no future halves/scraps. Clean flat colors and natural two-hand opening pose."
+  }
+}
