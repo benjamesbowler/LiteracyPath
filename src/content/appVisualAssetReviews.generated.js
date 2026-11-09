@@ -19814,9 +19814,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-20/page-007.webp",
-      "sha256": "47e8ac72cfc3ceae1147474efa461da50adbf4efb74e751461e944e98e0c1fee",
+      "sha256": "741f0d9a7a66a0bbda3393ffae8b700f7a1e660af318fbd2edf005cbcfd08e55",
       "status": "approved",
-      "reviewedAt": "2026-11-01"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-20/page-008.webp",

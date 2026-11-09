@@ -602,7 +602,7 @@ export const REPAIRED_IMAGE_REVISIONS = Object.freeze({
   "/guided-reading/series/moonwood-tales/book-20/page-004.webp": "92610d0dfa1a",
   "/guided-reading/series/moonwood-tales/book-20/page-005.webp": "8e3dee5af834",
   "/guided-reading/series/moonwood-tales/book-20/page-006.webp": "deae5cb1db3a",
-  "/guided-reading/series/moonwood-tales/book-20/page-007.webp": "47e8ac72cfc3",
+  "/guided-reading/series/moonwood-tales/book-20/page-007.webp": "741f0d9a7a66",
   "/guided-reading/series/moonwood-tales/book-20/page-008.webp": "87933325bf5c",
   "/guided-reading/series/moonwood-tales/book-20/page-009.webp": "e9fc126a6fe4",
   "/guided-reading/series/moonwood-tales/book-20/page-010.webp": "38f134f182d6",

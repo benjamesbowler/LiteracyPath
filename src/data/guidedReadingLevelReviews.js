@@ -2578,14 +2578,14 @@ export const GUIDED_READING_LEVEL_REVIEWS = Object.freeze({
   },
   "moonwood-tales-c-20": {
     "appReadingLevel": "F",
-    "rationale": "Patterns on the fallen fragments answer their constellations, and a blocked view explains why a higher ledge is needed. Luna states the deadline and rule, after which the group carries and aligns the pieces. The celestial vocabulary and spatial matching are substantial, but the key relations are explicitly given.",
+    "rationale": "Golden lines connect the patterns on the fallen fragments to matching constellations, and a blocked view explains why a higher ledge is needed. Luna states the deadline and rule, after which the group carries and aligns the pieces. The celestial vocabulary and spatial matching are substantial, but the key relations are explicitly given.",
     "reviewedAt": "2026-11-09",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:ce2440ea8b8adee3",
+    "reviewedTextFingerprint": "fnv1a64:a25b6a09a7ec6602",
     "levelSystem": "literacy-guide-a-h-v1",
     "dimensionObservations": {
       "syntax": "When, before and purpose clauses link changing light, visibility and timed collective action.",
-      "vocabulary": "Fragments, constellations, pulsed, ledge, beams and dawn introduce celestial and descriptive language.",
+      "vocabulary": "Fragments, constellations, ledge, beams and dawn introduce celestial and descriptive language.",
       "knowledge": "The fiction depends on matching star patterns and an unobstructed view rather than ordinary falling rocks.",
       "progression": "Observation and a failed low attempt lead to a stated rule and a shared higher-site solution.",
       "inference": "Retain matching patterns and the trees’ obstruction while the setting changes.",

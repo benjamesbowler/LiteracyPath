@@ -5,7 +5,7 @@
   "gateSemantics": {
     "mode": "fail-closed",
     "rule": "Every active page must have an exact displayed-text hash, image path, image-file hash and approved/replace decision. Any changed text, path or image bytes invalidate this audit record and require re-audit.",
-    "releaseFingerprintSha256": "04f6c52be05cd92292e37599299cd19f0daf4773533fcce17599e0f863b95b25"
+    "releaseFingerprintSha256": "76c7b675cde35eb306c01501697226118c13a48cdce3c7735e78230f992a2633"
   },
   "scope": {
     "activeBooksAudited": 396,
@@ -404,7 +404,8 @@
     "On 2026-11-09, App level E was re-audited against the current runtime text and every reviewed page image was hash-locked after full-book sequence, cover, character-continuity, anatomy, object-count, factual-safety, style and resolution checks.",
     "On 2026-11-09, App level F was re-audited against the current runtime text and every reviewed page image was hash-locked after full-book sequence, cover, character-continuity, anatomy, object-count, factual-safety, style and resolution checks.",
     "On 2026-11-09, App level G was re-audited against the current runtime text and every reviewed page image was hash-locked after full-book sequence, cover, character-continuity, anatomy, object-count, factual-safety, style and resolution checks.",
-    "On 2026-11-09, App level H was re-audited against the current runtime text and every reviewed page image was hash-locked after full-book sequence, cover, character-continuity, anatomy, object-count, factual-safety, style and resolution checks."
+    "On 2026-11-09, App level H was re-audited against the current runtime text and every reviewed page image was hash-locked after full-book sequence, cover, character-continuity, anatomy, object-count, factual-safety, style and resolution checks.",
+    "On 2026-11-09, moonwood-tales-c-20 was re-audited against the current runtime text and every reviewed page image was hash-locked after full-book sequence, cover, character-continuity, anatomy, object-count, factual-safety, style and resolution checks."
   ],
   "issueCodeCounts": {
     "animal_welfare": 2,
@@ -38975,21 +38976,21 @@
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "November 9 complete 397-book reread and ordered cover/page review; final replacement WebPs inspected natively and rechecked in whole-book sequences. Evidence: source-art/guided-reading-remediation/2026-11-09 and source-art/world-discovery/remediation/2026-11-09; character identity, physical continuity, concrete ESL scene support, anatomy, object counts and factual detail checked. This is agent visual review, not classroom or physical-device observation."
+      "regenerationBrief": "Final native twelve-page sequence review: .artifacts/guided-reading-remediation-20261109/late-moon20/final-sequence-review.json. Four literal ESL sentences and Wren hat repaired; exact text/image hashes checked in sequence."
     },
     {
       "bookId": "moonwood-tales-c-20",
       "title": "The Night the Stars Fell",
       "level": "F",
       "pageNumber": 2,
-      "displayedText": "The silent fragments pulsed with warm light and rolled between the mushrooms. Pip, Luna, and the others hurried outside to examine what had fallen.",
+      "displayedText": "The golden fragments glowed and rolled along the open ground. Pip, Luna, and the others hurried outside to see what had fallen.",
       "imagePath": "/guided-reading/series/moonwood-tales/book-20/page-002.webp",
-      "textSha256": "1c560c87df628bf611c15a24be2a99f9f96407109b66c520929323259c6c50f1",
+      "textSha256": "b5229b9a56e3b3b641ef618a53d49f1dc2935fe7d9699bc453aa624f46a6985d",
       "imageSha256": "87e1ff82772f37f86771db25492a12e0cfe433640af0f858c8451419566f38ae",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "November 9 complete 397-book reread and ordered cover/page review; final replacement WebPs inspected natively and rechecked in whole-book sequences. Evidence: source-art/guided-reading-remediation/2026-11-09 and source-art/world-discovery/remediation/2026-11-09; character identity, physical continuity, concrete ESL scene support, anatomy, object counts and factual detail checked. This is agent visual review, not classroom or physical-device observation."
+      "regenerationBrief": "Final native twelve-page sequence review: .artifacts/guided-reading-remediation-20261109/late-moon20/final-sequence-review.json. Four literal ESL sentences and Wren hat repaired; exact text/image hashes checked in sequence."
     },
     {
       "bookId": "moonwood-tales-c-20",
@@ -39003,7 +39004,7 @@
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "November 9 complete 397-book reread and ordered cover/page review; final replacement WebPs inspected natively and rechecked in whole-book sequences. Evidence: source-art/guided-reading-remediation/2026-11-09 and source-art/world-discovery/remediation/2026-11-09; character identity, physical continuity, concrete ESL scene support, anatomy, object counts and factual detail checked. This is agent visual review, not classroom or physical-device observation."
+      "regenerationBrief": "Final native twelve-page sequence review: .artifacts/guided-reading-remediation-20261109/late-moon20/final-sequence-review.json. Four literal ESL sentences and Wren hat repaired; exact text/image hashes checked in sequence."
     },
     {
       "bookId": "moonwood-tales-c-20",
@@ -39017,7 +39018,7 @@
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "November 9 complete 397-book reread and ordered cover/page review; final replacement WebPs inspected natively and rechecked in whole-book sequences. Evidence: source-art/guided-reading-remediation/2026-11-09 and source-art/world-discovery/remediation/2026-11-09; character identity, physical continuity, concrete ESL scene support, anatomy, object counts and factual detail checked. This is agent visual review, not classroom or physical-device observation.",
+      "regenerationBrief": "Final native twelve-page sequence review: .artifacts/guided-reading-remediation-20261109/late-moon20/final-sequence-review.json. Four literal ESL sentences and Wren hat repaired; exact text/image hashes checked in sequence.",
       "editorialReview20260922": {
         "reviewedAt": "2026-09-22",
         "reviewer": "Editorial repair team; agent visual review",
@@ -39051,7 +39052,7 @@
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "November 9 complete 397-book reread and ordered cover/page review; final replacement WebPs inspected natively and rechecked in whole-book sequences. Evidence: source-art/guided-reading-remediation/2026-11-09 and source-art/world-discovery/remediation/2026-11-09; character identity, physical continuity, concrete ESL scene support, anatomy, object counts and factual detail checked. This is agent visual review, not classroom or physical-device observation."
+      "regenerationBrief": "Final native twelve-page sequence review: .artifacts/guided-reading-remediation-20261109/late-moon20/final-sequence-review.json. Four literal ESL sentences and Wren hat repaired; exact text/image hashes checked in sequence."
     },
     {
       "bookId": "moonwood-tales-c-20",
@@ -39065,7 +39066,7 @@
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "November 9 complete 397-book reread and ordered cover/page review; final replacement WebPs inspected natively and rechecked in whole-book sequences. Evidence: source-art/guided-reading-remediation/2026-11-09 and source-art/world-discovery/remediation/2026-11-09; character identity, physical continuity, concrete ESL scene support, anatomy, object counts and factual detail checked. This is agent visual review, not classroom or physical-device observation."
+      "regenerationBrief": "Final native twelve-page sequence review: .artifacts/guided-reading-remediation-20261109/late-moon20/final-sequence-review.json. Four literal ESL sentences and Wren hat repaired; exact text/image hashes checked in sequence."
     },
     {
       "bookId": "moonwood-tales-c-20",
@@ -39075,11 +39076,11 @@
       "displayedText": "'The fragments need a clear view from Tumblerock's highest safe ledge,' Luna said. Flint quickly unfolded a map and led the whole group.",
       "imagePath": "/guided-reading/series/moonwood-tales/book-20/page-007.webp",
       "textSha256": "2f3d800d76a7438b7b98aea7f743469d0278d5244c1f720fbb58cecdc586b774",
-      "imageSha256": "47e8ac72cfc3ceae1147474efa461da50adbf4efb74e751461e944e98e0c1fee",
+      "imageSha256": "741f0d9a7a66a0bbda3393ffae8b700f7a1e660af318fbd2edf005cbcfd08e55",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "November 9 complete 397-book reread and ordered cover/page review; final replacement WebPs inspected natively and rechecked in whole-book sequences. Evidence: source-art/guided-reading-remediation/2026-11-09 and source-art/world-discovery/remediation/2026-11-09; character identity, physical continuity, concrete ESL scene support, anatomy, object counts and factual detail checked. This is agent visual review, not classroom or physical-device observation."
+      "regenerationBrief": "Final native twelve-page sequence review: .artifacts/guided-reading-remediation-20261109/late-moon20/final-sequence-review.json. Four literal ESL sentences and Wren hat repaired; exact text/image hashes checked in sequence."
     },
     {
       "bookId": "moonwood-tales-c-20",
@@ -39093,21 +39094,21 @@
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "November 9 complete 397-book reread and ordered cover/page review; final replacement WebPs inspected natively and rechecked in whole-book sequences. Evidence: source-art/guided-reading-remediation/2026-11-09 and source-art/world-discovery/remediation/2026-11-09; character identity, physical continuity, concrete ESL scene support, anatomy, object counts and factual detail checked. This is agent visual review, not classroom or physical-device observation."
+      "regenerationBrief": "Final native twelve-page sequence review: .artifacts/guided-reading-remediation-20261109/late-moon20/final-sequence-review.json. Four literal ESL sentences and Wren hat repaired; exact text/image hashes checked in sequence."
     },
     {
       "bookId": "moonwood-tales-c-20",
       "title": "The Night the Stars Fell",
       "level": "F",
       "pageNumber": 9,
-      "displayedText": "Above the trees, each fragment answered its constellation. Fine golden lines joined the little glowing patterns to the distant waiting stars overhead.",
+      "displayedText": "Above the trees, golden lines rose from each fragment. The lines joined the little glowing patterns to matching groups of stars overhead.",
       "imagePath": "/guided-reading/series/moonwood-tales/book-20/page-009.webp",
-      "textSha256": "c73064b09a016c6b291054ed5c4acbd3ba70d81d78cd89390bbd7cf9aceb65ff",
+      "textSha256": "587e276acc4a1db0c7e658bbd2237120ba64f9fd6e916f13bf29602374990b69",
       "imageSha256": "e9fc126a6fe4ba1ba9942ec586b3b6e73030ad6ead6906ebf845a5557de48522",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "November 9 complete 397-book reread and ordered cover/page review; final replacement WebPs inspected natively and rechecked in whole-book sequences. Evidence: source-art/guided-reading-remediation/2026-11-09 and source-art/world-discovery/remediation/2026-11-09; character identity, physical continuity, concrete ESL scene support, anatomy, object counts and factual detail checked. This is agent visual review, not classroom or physical-device observation."
+      "regenerationBrief": "Final native twelve-page sequence review: .artifacts/guided-reading-remediation-20261109/late-moon20/final-sequence-review.json. Four literal ESL sentences and Wren hat repaired; exact text/image hashes checked in sequence."
     },
     {
       "bookId": "moonwood-tales-c-20",
@@ -39121,35 +39122,35 @@
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "November 9 complete 397-book reread and ordered cover/page review; final replacement WebPs inspected natively and rechecked in whole-book sequences. Evidence: source-art/guided-reading-remediation/2026-11-09 and source-art/world-discovery/remediation/2026-11-09; character identity, physical continuity, concrete ESL scene support, anatomy, object counts and factual detail checked. This is agent visual review, not classroom or physical-device observation."
+      "regenerationBrief": "Final native twelve-page sequence review: .artifacts/guided-reading-remediation-20261109/late-moon20/final-sequence-review.json. Four literal ESL sentences and Wren hat repaired; exact text/image hashes checked in sequence."
     },
     {
       "bookId": "moonwood-tales-c-20",
       "title": "The Night the Stars Fell",
       "level": "F",
       "pageNumber": 11,
-      "displayedText": "One by one, the fragments became narrow beams of light. Each golden beam rose into its matching place among the waiting stars.",
+      "displayedText": "One by one, the fragments became narrow beams of light. Each golden beam rose into its matching place among the bright stars.",
       "imagePath": "/guided-reading/series/moonwood-tales/book-20/page-011.webp",
-      "textSha256": "77f009263550b6918533d88a5ec8a40f08fd1cdff93025c9f6bbbb364b728b35",
+      "textSha256": "5aa9e9fee10068d6ea252a55b8be3441a74c7bc2ec5c2c205b7c4d6463fd3cf0",
       "imageSha256": "ec32c5c0ac97790fca09fcd37a2197921e699ac995bd51564a6b7e42221d6a71",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "November 9 complete 397-book reread and ordered cover/page review; final replacement WebPs inspected natively and rechecked in whole-book sequences. Evidence: source-art/guided-reading-remediation/2026-11-09 and source-art/world-discovery/remediation/2026-11-09; character identity, physical continuity, concrete ESL scene support, anatomy, object counts and factual detail checked. This is agent visual review, not classroom or physical-device observation."
+      "regenerationBrief": "Final native twelve-page sequence review: .artifacts/guided-reading-remediation-20261109/late-moon20/final-sequence-review.json. Four literal ESL sentences and Wren hat repaired; exact text/image hashes checked in sequence."
     },
     {
       "bookId": "moonwood-tales-c-20",
       "title": "The Night the Stars Fell",
       "level": "F",
       "pageNumber": 12,
-      "displayedText": "The final fragment answered with one bright flash, then joined its constellation just before dawn. Stone watched the complete pattern shine overhead.",
+      "displayedText": "The final fragment flashed brightly, then rose to join its constellation just before dawn. Stone watched the complete pattern shine in the sky.",
       "imagePath": "/guided-reading/series/moonwood-tales/book-20/page-012.webp",
-      "textSha256": "f29b725eab0c5b110d0b38d9ec175c19b6f3638ec99278cf57d99b97c0947234",
+      "textSha256": "f971b0541044fc0e1b536ef70b64c3926c93f4c63768f2d543b339036118a6d3",
       "imageSha256": "f37cbe5d3efece62f7571d193305490d794ed55d9cb247d4ea35dacd178b3d89",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "November 9 complete 397-book reread and ordered cover/page review; final replacement WebPs inspected natively and rechecked in whole-book sequences. Evidence: source-art/guided-reading-remediation/2026-11-09 and source-art/world-discovery/remediation/2026-11-09; character identity, physical continuity, concrete ESL scene support, anatomy, object counts and factual detail checked. This is agent visual review, not classroom or physical-device observation."
+      "regenerationBrief": "Final native twelve-page sequence review: .artifacts/guided-reading-remediation-20261109/late-moon20/final-sequence-review.json. Four literal ESL sentences and Wren hat repaired; exact text/image hashes checked in sequence."
     },
     {
       "bookId": "moonwood-tales-c-21",

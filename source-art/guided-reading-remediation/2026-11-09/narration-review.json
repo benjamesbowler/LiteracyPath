@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "reviewedAt": "2026-11-09",
   "status": "automated-review-complete",
-  "scope": "All329 new currently consumed Guided Reading Leda MP3 files",
+  "scope": "333 new currently consumed Guided Reading Leda MP3 files: the original 329-file review plus four exact Moonwood 20 page replacements.",
   "method": "Full FFmpeg decode, 50ms speech-window signal, unprompted offline recognition and per-clip investigation; rejected/superseded takes excluded",
   "limitations": "Not human listening or physical-device acceptance. Browser interaction evidence is separate. Two rare-bird-name clips retain explicit IPA plus residual ASR ambiguity.",
   "sourceReports": {
@@ -23,7 +23,8 @@
     "world-discovery-screen-small.json": "cf2d6ed3ce93e6dee7003a577e9a0cf1a7952189eb3a723c8fcfbfdabc2ffbc3",
     "wd-d10-screen-tiny.json": "13b0512aaba9c5754ab124b1f11431ea0440079ac9994db6b4593c8eb894531f",
     "legacy-screen-small.json": "e06f4d4c83c96871e1b8b8c4c66c4b769bd5f49316c12aaa7628f30ad8bf9f9f",
-    "plays-v2-screen-small.json": "8242c2fa3be20f6588f64a7a4b835c051fb962a8bb1cb0c531b404e2b75782fd"
+    "plays-v2-screen-small.json": "8242c2fa3be20f6588f64a7a4b835c051fb962a8bb1cb0c531b404e2b75782fd",
+    ".artifacts/guided-reading-remediation-20261109/late-moon20/audio-screen-small.json": "2e53750ac233fe5952c16163c0a29c85324819d1cdd07569f3e59f180fe7d82f"
   },
   "results": [
     {
@@ -9690,11 +9691,145 @@
       "leadingSilenceSeconds": 0.2,
       "trailingSilenceSeconds": 0.17999999999999994,
       "longestInteriorSilenceSeconds": 0.30000000000000004
+    },
+    {
+      "kind": "page_or_title",
+      "text": "The golden fragments glowed and rolled along the open ground. Pip, Luna, and the others hurried outside to see what had fallen.",
+      "lookupText": "The golden fragments glowed and rolled along the open ground. Pip, Luna, and the others hurried outside to see what had fallen.",
+      "audioPath": "/audio/production/en-US/guided_page/the-golden-fragments-glowed-and-rolled-along-the-open-ground-pip-luna-and-the-others-hurried-outside-to-see-what-had-fallen-7d5e6981a4.mp3",
+      "audioSha256": "53019540fa68d91c8f58fe0e4fd5b908d5c9540a320ce11f6f42c71e401ea630",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "The complete finite decoded signal is unclipped; unprompted offline small-model recognition matches the exact printed words. Automated evidence; no new human listening claim.",
+      "recognizerOutputs": [
+        "The golden fragments glowed and rolled along the open ground. Pip, Luna, and the others hurried outside to see what had fallen."
+      ],
+      "sourceScreening": [
+        ".artifacts/guided-reading-remediation-20261109/late-moon20/audio-screen-small.json"
+      ],
+      "bindings": [
+        {
+          "bookId": "moonwood-tales-c-20",
+          "pageNumber": 2,
+          "text": "The golden fragments glowed and rolled along the open ground. Pip, Luna, and the others hurried outside to see what had fallen."
+        }
+      ],
+      "durationSeconds": 8.4,
+      "peakDbfs": -9.098226662869006,
+      "rmsDbfs": -24.318584065979003,
+      "leadingSilenceSeconds": 0.05,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.2
+    },
+    {
+      "kind": "page_or_title",
+      "text": "Above the trees, golden lines rose from each fragment. The lines joined the little glowing patterns to matching groups of stars overhead.",
+      "lookupText": "Above the trees, golden lines rose from each fragment. The lines joined the little glowing patterns to matching groups of stars overhead.",
+      "audioPath": "/audio/production/en-US/guided_page/above-the-trees-golden-lines-rose-from-each-fragment-the-lines-joined-the-little-glowing-patterns-to-matching-groups-of-stars-overhead-732749df80.mp3",
+      "audioSha256": "a06ac9ddbc48248ede9cb180340493ecc9723be11637a76ac64ccc2b056be41e",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "The complete finite decoded signal is unclipped; unprompted offline small-model recognition matches the exact printed words. Automated evidence; no new human listening claim.",
+      "recognizerOutputs": [
+        "Above the trees, golden lines rose from each fragment. The lines joined the little glowing patterns to matching groups of stars overhead."
+      ],
+      "sourceScreening": [
+        ".artifacts/guided-reading-remediation-20261109/late-moon20/audio-screen-small.json"
+      ],
+      "bindings": [
+        {
+          "bookId": "moonwood-tales-c-20",
+          "pageNumber": 9,
+          "text": "Above the trees, golden lines rose from each fragment. The lines joined the little glowing patterns to matching groups of stars overhead."
+        }
+      ],
+      "durationSeconds": 9.28,
+      "peakDbfs": -8.750451149297682,
+      "rmsDbfs": -24.556634351232223,
+      "leadingSilenceSeconds": 0.4,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.45
+    },
+    {
+      "kind": "page_or_title",
+      "text": "One by one, the fragments became narrow beams of light. Each golden beam rose into its matching place among the bright stars.",
+      "lookupText": "One by one, the fragments became narrow beams of light. Each golden beam rose into its matching place among the bright stars.",
+      "audioPath": "/audio/production/en-US/guided_page/one-by-one-the-fragments-became-narrow-beams-of-light-each-golden-beam-rose-into-its-matching-place-among-the-bright-stars-d57802a356.mp3",
+      "audioSha256": "fd50d138b0c6a746d2043786c29ab0457b2aa002decde54391d5fb4b440e35e0",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "The complete finite decoded signal is unclipped; unprompted offline small-model recognition matches the exact printed words. Automated evidence; no new human listening claim.",
+      "recognizerOutputs": [
+        "One by one, the fragments became narrow beams of light. Each golden beam rose into its matching place among the bright stars."
+      ],
+      "sourceScreening": [
+        ".artifacts/guided-reading-remediation-20261109/late-moon20/audio-screen-small.json"
+      ],
+      "bindings": [
+        {
+          "bookId": "moonwood-tales-c-20",
+          "pageNumber": 11,
+          "text": "One by one, the fragments became narrow beams of light. Each golden beam rose into its matching place among the bright stars."
+        }
+      ],
+      "durationSeconds": 8.6,
+      "peakDbfs": -6.086795500193338,
+      "rmsDbfs": -25.44880545318709,
+      "leadingSilenceSeconds": 0.05,
+      "trailingSilenceSeconds": 0.14999999999999858,
+      "longestInteriorSilenceSeconds": 0.30000000000000004
+    },
+    {
+      "kind": "page_or_title",
+      "text": "The final fragment flashed brightly, then rose to join its constellation just before dawn. Stone watched the complete pattern shine in the sky.",
+      "lookupText": "The final fragment flashed brightly, then rose to join its constellation just before dawn. Stone watched the complete pattern shine in the sky.",
+      "audioPath": "/audio/production/en-US/guided_page/the-final-fragment-flashed-brightly-then-rose-to-join-its-constellation-just-before-dawn-stone-watched-the-complete-pattern-shine-in-the-sky-535a2acdf8.mp3",
+      "audioSha256": "c1dfe5a3b3137bd87d1a6bd1b8a2bc2d09f721a77fc7a37be0c531686449ff66",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "The complete finite decoded signal is unclipped; unprompted offline small-model recognition matches the exact printed words. Automated evidence; no new human listening claim.",
+      "recognizerOutputs": [
+        "The final fragment flashed brightly, then rose to join its constellation just before dawn. Stone watched the complete pattern shine in the sky."
+      ],
+      "sourceScreening": [
+        ".artifacts/guided-reading-remediation-20261109/late-moon20/audio-screen-small.json"
+      ],
+      "bindings": [
+        {
+          "bookId": "moonwood-tales-c-20",
+          "pageNumber": 12,
+          "text": "The final fragment flashed brightly, then rose to join its constellation just before dawn. Stone watched the complete pattern shine in the sky."
+        }
+      ],
+      "durationSeconds": 10.52,
+      "peakDbfs": -7.386602180547316,
+      "rmsDbfs": -24.68941891272406,
+      "leadingSilenceSeconds": 0.55,
+      "trailingSilenceSeconds": 0.6199999999999992,
+      "longestInteriorSilenceSeconds": 0.25
     }
   ],
   "summary": {
-    "independent-recognizer-match": 300,
-    "reviewed-recognition-equivalent": 27,
-    "reviewed-exact-ipa-residual-asr-ambiguity": 2
+    "independent-recognizer-match": 304,
+    "reviewed-exact-ipa-residual-asr-ambiguity": 2,
+    "reviewed-recognition-equivalent": 27
+  },
+  "lateMoonwood20Revision": {
+    "reviewedAt": "2026-11-09T07:01:07.873874+00:00",
+    "bookId": "moonwood-tales-c-20",
+    "pages": [
+      2,
+      9,
+      11,
+      12
+    ],
+    "originalReceiptSha256": "e1d79ab0b9770dff27358fc8fc62861e2df1b7c5351e606478267f326a218847",
+    "originalReceiptGitCommit": "683a226c6b85980bc8ca99d43c1ce2bb2c1d7224",
+    "originalResultCount": 329,
+    "retainedOriginalResultsUnchanged": true,
+    "additionalResultCount": 4,
+    "screeningPath": ".artifacts/guided-reading-remediation-20261109/late-moon20/audio-screen-small.json",
+    "screeningSha256": "2e53750ac233fe5952c16163c0a29c85324819d1cdd07569f3e59f180fe7d82f",
+    "historicalMp3FilesRetained": true
   }
 }
