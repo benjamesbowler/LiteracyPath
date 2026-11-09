@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-c-22",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:30:53.813Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-6c705dc3-5a04-4f4a-b46d-025afc695d62.png",
+  "sourceSha256": "60da3217e9aac687b9603adcff9a28ee0d72bfef2e1cde7ea4ba0ef59b491546",
+  "output": "public/guided-reading/world-discovery/c-22/page-07.webp",
+  "outputSha256": "4d2e1466b3283e0fff57bca3c3c8bda4afb6501ab96990a3dd5262a9f20c4f8b",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit ONLY the small compass in FIRST image: it must lie HORIZONTALLY LEVEL on Kit's open palm, not upright toward viewer. Show the same palm-sized instrument as a shallow horizontal ellipse about1.7 times wider than high. Preserve clear letters N at upper/far edge, E right, S lower/near edge, W left. Single red needle points forward/up toward N and tree, white half back/down. Keep the SAME small physical diameter, no enlargement. Keep every other character, landmark, ground position, margin and color unchanged. Kit and Zoe equal-height. Second reference locks cast/props only.3:2 smooth flat clean colors, no texture, no extra words or diagrams.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/c-22/page-07.webp",
+      "sha256": "49b8674d2d46dc4ff23b7ba6417b9dba8028f4b6622d421e1e4ef1cc00a5aa41"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/c-22-reference.webp",
+      "sha256": "f7640bca6dc2c687a2f53c1956c4db9411d4faaa9c4331d71b6acdc1b6a98ef2"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "7ef8d8649d4bf890384d714a7be54ffe8301439e049fa826d123aaf98f10b5ea",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T13:30:54.106815+00:00",
+    "sha256": "4d2e1466b3283e0fff57bca3c3c8bda4afb6501ab96990a3dd5262a9f20c4f8b",
+    "note": "Native and actual WebP directly viewed: Kit turns back north, fixed tree ahead/gate directly east at ground depth; compass corrected to horizontal ellipse, small palm size, N up/E right/S down/W left and red ahead.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

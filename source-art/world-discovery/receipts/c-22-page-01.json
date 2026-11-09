@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-c-22",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:23:00.033Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-b2a285ea-40b0-415c-a81e-1b7aa2d762bf.png",
+  "sourceSha256": "a91a873fab8ee2bdc7dbe7c4759ca935fb29b24a80341c4872461afb6d663597",
+  "output": "public/guided-reading/world-discovery/c-22/page-01.webp",
+  "outputSha256": "6cbcb4de763aeb7d23fb5cbd62eccc69a54cb1e4e320d176773ced7bbd425d77",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Create a new page scene using FIRST reference's exact corrected field geography and camera. Same green field viewed obliquely from high above, no horizon; tree directly ahead/north, gray gate directly to RIGHT/east at the same ground depth as children's shoes. Keep landmarks fixed in place, same tree/gate designs and relative distances. Kit is turning his body around, one foot lifted slightly and looking back toward Zoe. Zoe holds the small compass level ready to show him. Compass seen edge-on with no letters. Kit and Zoe are equal height and keep exact locked clothes/hair/skin from second reference. Natural hands. Keep complete children and landmarks inside generous12% margins, full-bleed3:2 landscape. Smooth clean flat colors, crisp outlines, zero grain. Only these two children, compass, tree, gate and grass; no arrows, inset panels or extra props.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/c-22/cover.webp",
+      "sha256": "991cf0c456fd1c68bca7320cfb824d2e29c0d72321720a97164f0bfa6e560ba1"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/c-22-reference.webp",
+      "sha256": "f7640bca6dc2c687a2f53c1956c4db9411d4faaa9c4331d71b6acdc1b6a98ef2"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "7ef8d8649d4bf890384d714a7be54ffe8301439e049fa826d123aaf98f10b5ea",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T13:23:55.635026+00:00",
+    "sha256": "6cbcb4de763aeb7d23fb5cbd62eccc69a54cb1e4e320d176773ced7bbd425d77",
+    "note": "Native and actual WebP viewed: turning Kit and Zoe with edge-on level compass, fixed north tree/east gate ground relationship, same clean style and safe figure margins.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

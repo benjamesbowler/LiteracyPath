@@ -1,0 +1,40 @@
+{
+  "bookId": "world-discovery-e-23",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T14:00:59.445Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-17bc8998-14b0-47e7-8bc2-759ad227be13.png",
+  "sourceSha256": "5ff8af9d946a6ab50cfb649080eccc02584daccea0458ce72f426f8f7fdd0b94",
+  "output": "public/guided-reading/world-discovery/e-23/cover.webp",
+  "outputSha256": "63df8ce501c125ec316d70d1413393433df24e3f37b9e5f67cee0de0946cbc37",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Create a fully UNLETTERED1536x1024 bookcover by editing FIRST reference roomscene. Preserve exact seated KitLEFT/ZoeRIGHT, one approaching redball with gaptoZoe'shands, clothing/skin/hair, grounded chairs/table, creamwall/woodfloor, and wide framing. Replace ONLY the muscle diagram inside the rounded upper inset with a simplified brain-and-nerves diagram based on SECOND reference: smallleft-facing upperbody silhouette, pinkbraininsidehead, yellowcordinsidebackspine andone yellowbranch fromlowerneck throughshoulderintoarm. Removeorange arrows tokeepcover uncluttered. No muscle/bone-elbow inset remains. Thinleader canpointfromneuralinsettoZoe'sshoulder. Diagram brain mustbeinsideheadandcordatback, neverfrontthroat. Do not add any words,title,lettering,logos,extra ball or thirdrealperson. Crispflat2D boldoutlines, allessentialinset/figuresfarfromedges.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-f219ff5a-f6c4-4c15-a603-4f66222af7b3.png",
+      "sha256": "861f56e1b19c7e515ca73e7b70bc766be876a7447c61d2a2bfc74467dd816fb6"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-cb77953b-0b86-4163-8872-56a5b5c12708.png",
+      "sha256": "dfb53c0ec813f41b3b12e3ca587ca3b69da6086c4786a2c060503e0d2814119e"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "1b0de6058b2611192f79942f4ecd03b97dc9da569d20816897fdbc11f5ab098a",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.555Z",
+    "sha256": "63df8ce501c125ec316d70d1413393433df24e3f37b9e5f67cee0de0946cbc37",
+    "note": "Actual PNG and WebP inspected: unlettered cover scene plus correct small brain/cord/arm-nerve inset, one approaching ball, grounded cast and safe margins.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

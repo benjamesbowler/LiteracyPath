@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-24",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:50:12.639Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-5ce56858-8aa9-4a08-9508-190ab0fa3b68.png",
+  "sourceSha256": "606d2aa89b07274d2dcd5532f3f22e6ed4ad683c4b6fef1235dfadcb4a2e0386",
+  "output": "public/guided-reading/world-discovery/d-24/page-01.webp",
+  "outputSha256": "b3cbc5831c2cf9cd2627293d05319f640d8c9626b31292a9fd0f694ca7609736",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Clean 2D children's nonfiction illustration, crisp dark outlines, flat clean colors, restrained cel shading, no texture, painterly rendering, photorealism or 3D. Landscape 1536x1024. No text, letters, labels, numbers, logos, pseudo-writing, border or watermark. Essential subject and every complete teaching diagram at least 12 percent inside all four edges. ONE finished coherent coastal scene, not a reference sheet or panels. Use only the bottom location key of reference for continuity: blue sea LEFT, sandy beach center, gentle green grassy land RIGHT, clear sunny daytime. One plain orange cloth windsock on its short gray pole is the central subject, fully visible well inside safe margins. The broad round open mouth faces LEFT toward incoming sea air; the long tapered orange cloth tail stretches RIGHT inland, narrow tail open. Show a subtle fabric curve/fold so this is cloth rather than a rigid trumpet. Background simple coastline and small tufts of grass. Visibility whitelist: sea, sky, one sun, a few simple clouds, beach, land, ONE windsock and pole. No humans/animals, arrows, dots, heating colors, inset views or duplicate windsocks.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-25a7b4e5-35f9-4b47-a563-b8480877b781.png",
+      "sha256": "f03b2cc5f0569dd84782d14d6855ac519fe66fedf6374507b53e35597aed5c5b"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "688f663f00d36542402967229cf6e98631f1d90b6bed074cce20a73f41dcd15c",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.514Z",
+    "sha256": "b3cbc5831c2cf9cd2627293d05319f640d8c9626b31292a9fd0f694ca7609736",
+    "note": "Direct inspection: one orange cloth windsock mouth sea-left, tail inland-right; short pole, same coast, no arrows or particles, safe essential-subject margins.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

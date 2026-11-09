@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-25",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:25:09.250Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-67dfc3d2-4302-4399-8ec7-d62df6236a8b.png",
+  "sourceSha256": "0aade514dc3f534f52c33cc39112718ccab65e881f7ca05a91e51f0dd19deb43",
+  "output": "public/guided-reading/world-discovery/d-25/page-07.webp",
+  "outputSha256": "f04602a97c3737ce69d0770b0257379af45ef5496c7993da872cea10435b19d8",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact clean close tabletop scene. Preserve the TWO blue support blocks, their HEIGHT, size, shape and fixed positions/gap pixel-for-pixel, and preserve the table/camera. MOVE the SAME ONE wooden counter from tabletop beside the right block to the MIDDLE of the accordion-folded cream paper bridge. Counter rests level across several long ridge tops, and no counter remains beside setup. The one folded sheet now bends only slightly under that same load, MUCH LESS than the earlier flat paper. The long folds remain continuous LEFT-to-RIGHT along the whole span, same sheet thickness, no extra layers or middle support. Do NOT shorten either block, move supports, change gap or increase counter size. Do not add any person/hand/other object: this page's focus is the folded bridge carrying its load just after Kit placed it. All essential equipment comfortably within safe margins. No text/arrows/numbers, clean crisp outlined flat2D colors.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-c28c9018-06a8-450c-a705-ab5024038b2a.png",
+      "sha256": "df091e62121709877cabb6f2e094a943461241599eb3c6aa52b2d676b5a0d671"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "8337d31fb142299fa5e714fdc1bffff0a8db8bc933c0eeb3ee2b649380ddbd8b",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.524Z",
+    "sha256": "f04602a97c3737ce69d0770b0257379af45ef5496c7993da872cea10435b19d8",
+    "note": "Direct inspection: exact close tabletop support geometry retained from unloaded p6; same one wooden counter moved to centered ridges, tiny sag versus flat sheet, no shortened supports or added material, no extra load.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

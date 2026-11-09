@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-23",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:21:00.878Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-d8aa4ce5-8af8-40b9-a7a2-b283cb0054b8.png",
+  "sourceSha256": "bead34681d406cf1c44185a393ba77b965c4d1c7881b546bbbc77091abd9bd58",
+  "output": "public/guided-reading/world-discovery/a-23/page-06.webp",
+  "outputSha256": "0201d769871122075d85a32f46f7953518e60027d59353e8ff7574f0e612a163",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit ONLY framing. Pull ENTIRE scene back uniformly by30%, extending same room naturally. Full figure hair top aroundy150 and shoesbottomaroundy870 on1024canvas, >=12%margin abovehair and belowfeet; body proportions unchanged. Preserve side pose, hands on upper chest, two short purple arrows pointing INWARD LEFT toward chest and dashed outline just outside chest showing its former larger size. No new anatomy. All furniture/rug/room scales together; feet remain grounded. Smooth clean flat colors, no texture or words. Landscape3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-e8d46437-df27-420f-a34c-fcc0fc73af12.png",
+      "sha256": "bb47e6b6f071388e5906a54d21c3e18876c844bb88ee22b0f5db7c240dec188e"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "9d1d4dd6d93c7ff9e1f38dd1d3858cfe95edf848dc9e464d8d8c183b2a6aee4a",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "0201d769871122075d85a32f46f7953518e60027d59353e8ff7574f0e612a163",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:21:00.879Z",
+    "note": "Directly inspected native framing repair: whole scene uniformly pulled back with hair and shoes each at least15% inset, natural figure proportions and grounded feet. Side pose, two inward purple chest arrows and dashed larger prior outline preserved."
+  }
+}

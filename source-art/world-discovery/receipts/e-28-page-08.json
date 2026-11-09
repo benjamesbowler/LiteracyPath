@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-e-28",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:21:53.631Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-3094192c-8d31-48b1-87bf-a5f5413409db.png",
+  "sourceSha256": "de9b713bee11e9213df9fa1e62439cffd958ef03e8d1e8554f9061a9607afcf0",
+  "output": "public/guided-reading/world-discovery/e-28/page-08.webp",
+  "outputSha256": "b0dc7ebbd3cb6bab4cc240f7d9780c7f9853e53f9fee689ac6b778d612b2f214",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "One finished landscape 3:2 nonfiction picture-book illustration. Bold clean flat 2D cartoon, continuous dark outlines, smooth solid fills, restrained cel shadows. No text, numbers, logos, outer frames, extra panels, texture or 3D. No people. References lock requested designs only; do not add other reference-board objects. Keep essential bird/plant/tree-gap action within central 70 percent and at least 12 percent safe margin. Same exact forest location as first reference, forked buttressed anchor tree stays upright center-left with unchanged crown and roots. A DIFFERENT neighboring large tree to the RIGHT has naturally fallen: show its long brown trunk lying safely on ground BEHIND the familiar small sapling on right, snapped uneven end, bark attached. Its fall left a visible new broad OPENING in canopy directly above that fallen trunk and sapling; a warm shaft of sunlight reaches the newly brighter ground below this gap. No people, no active falling tree, no storm, no saw or logging. Remaining trees keep positions. Wide framing includes top gap and grounded fallen trunk; no cutaway/inset or arrows.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/e-28/page-01.webp",
+      "sha256": "1a93c8d05a1083e6584006b540336d95184821d1b2f1304aa980a1f559356595"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/e-28-reference.webp",
+      "sha256": "10733d122bd7d6a035e178f4420a6f7ef1a986e9542e980fbc5209c16f807978"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "df581f1e09d045c551bc8ca44241da96c6f37a19dcfc6731641f5fa8f7f955bf",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
+    "sha256": "b0dc7ebbd3cb6bab4cc240f7d9780c7f9853e53f9fee689ac6b778d612b2f214",
+    "note": "Other fallen trunk behind familiar sapling; anchor remains upright; sunlight falls directly below new canopy gap.",
+    "limits": "Installed WebP individually inspected. Independent sequence review, reader rendering, cards and audio checked separately."
+  }
+}

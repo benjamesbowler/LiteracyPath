@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-b-23",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:20:00.494Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-fea2920b-b72a-4b23-bccf-b02d6aa0b5e6.png",
+  "sourceSha256": "756c39153007ddf9e0426b131818484ecc0b57cb5818d15b7cac72a52fde0f47",
+  "output": "public/guided-reading/world-discovery/b-23/page-04.webp",
+  "outputSha256": "495e5acb14906918a59693bbdd66bf67716473f0d86b9165680e885a21fbc0ab",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact child lower-dental-arch illustration ONLY by shrinking the ENTIRE connected arch uniformly by 15 percent around the image center and extending the same plain pale background around it. Preserve EXACTLY TEN child teeth in identical order and shapes: FOUR flat front incisors, TWO pointed canines, FOUR broad rear molars (two per side). Preserve the same pink gums and all existing apple pieces if present, with their exact count and tooth placement. Do not add or remove ANY tooth or apple piece. All outer gums must be at least 12 percent inside left and right frame edges. Landscape3:2, crisp outlines, clean flat colors, no texture, text, symbols or extra objects.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/b-23/page-04.webp",
+      "sha256": "66c1203739e3e167c0d4b2543bea19e40d113040d6da404888b50a8ded220132"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "645b4a3a4d22eb876a75ddaa40ade656cc1ad18dd1be8213019b648b10ad63d3",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:20:57.436631+00:00",
+    "sha256": "495e5acb14906918a59693bbdd66bf67716473f0d86b9165680e885a21fbc0ab",
+    "note": "Native and final WebP directly viewed: complete gum arc now approximately 16% side margins and 21% vertical margins; ten child teeth preserved as four incisors, two canines and four molars; no lettering.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

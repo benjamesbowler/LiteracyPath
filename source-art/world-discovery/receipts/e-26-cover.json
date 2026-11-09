@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-26",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T05:49:46.300Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-77f12a88-539a-4db2-bb21-57200afac0de.png",
+  "sourceSha256": "d79ef3c7736712cc20ceb222cb772ffae440167c85cf6406c6b4a8f422e40621",
+  "output": "public/guided-reading/world-discovery/e-26/cover.webp",
+  "outputSha256": "00b5aa84b37630f35e0e0b81925c6c0f45b902379e690fd5fb8bc9f76fbdc0ea",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one integrated explanatory diagram. Allow only the cutaways, insets, schematic elements or arrows explicitly authored in this page's illustration brief; keep them spatially connected to the subject they explain. No unrequested panels, insets, annotations or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: A Message Crosses the Internet; World Discovery; nonfiction.\nSetting: An illustrative messaging-app route from Zoe\u2019s tablet at home to Kit\u2019s laptop in a different home, through a service server. Same picture of one red paper boat throughout. Actual data are coded signals, not tiny pictures, envelopes or beads inside wires. Schematic packet tiles are explicitly a model.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Zoe\u2019s plain yellow-cased tablet; Kit\u2019s plain gray laptop; Red paper boat picture; Two home routers, network routers, cable links and a service server\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and specific stages explicitly required below; the declared diagram permits no other scenes or story events.\nDedicated cover art: Zoe\u2019s tablet and Kit\u2019s laptop show the same red paper boat, joined by a simple network route.\nDo not add events or stages beyond the authored diagram. Repeat a subject only when the authored comparison or cutaway requires it. No written title; the app renders live text.\nMANDATORY RECOMPOSITION: Simplify to ONE integrated, unlabelled network diagram on clean pale-blue/cream background. Show exactly one large yellow tablet on the left and exactly one gray laptop on the right, both screens with the SAME red paper boat picture. Between these devices runs ONE continuous route: tablet, Wi-Fi arc gap, left home router, blue cable, blue network router, blue cable, central service server, blue cable, blue network router, blue cable, right home router, Wi-Fi arc gap, laptop. No cable may reach either personal device; Wi-Fi arcs bridge those final gaps. Keep every network component physically linked along the route and uncropped inside 8 percent safe margin. Remove the two children, rooms, second laptop, all packet/speech-bubble callouts, decorative extra routes and duplicate props. No data beads or pictures travelling down cables. The two large personal devices and network hardware are the complete cover scene. Flat clean cartoon fills only.\nFINAL FRAMING CORRECTION: Keep the diagram exactly, but shrink the entire connected diagram horizontally and slightly vertically so EVERY device has at least 10 percent canvas-width empty space from left and right edges. Center the network, preserve all seven components, their order, two local Wi-Fi gaps and continuous cable links. Do not add, remove or change any objects. No words, labels or people.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-0793e25a-4d06-41a2-8b26-0bbf0262ea35.png",
+      "sha256": "21037b02dc345415b6e9a3d2723f0119c90db03aacad49c417f96f2604548f7e"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "a04b6d0950794fec64943013d30facc27daa8410774f7062963be893ca44e0a3",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
+    "sha256": "00b5aa84b37630f35e0e0b81925c6c0f45b902379e690fd5fb8bc9f76fbdc0ea",
+    "note": "Clean route with exactly two personal devices, two local home routers, two network routers and one server; cable vs Wi-Fi links correct, generous device framing.",
+    "limits": "Final whole-sequence, actual reader/card and audio approval pending."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-b-30",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T08:13:15.619Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-3b143aec-d40c-435b-bad6-2bde3c0520fc.png",
+  "sourceSha256": "c895f99cc86fb889bbd366b406d0e981f21706ba5c3446c5f873a93902752c3f",
+  "output": "public/guided-reading/world-discovery/b-30/page-01.webp",
+  "outputSha256": "c03bf2c1c634c212c54bf7a5f1d1aeec15744eaa32f35a017a8c14153e3ec959",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Whole Saturn alone in dark blue space. Reuse reference planet's pale-gold bands and equatorial flat bright rings exactly, with near ring crossing front and far ring occluded by planet. REMOVE the magnified-particle circle and all zoom connectors: this page shows only the distant complete planet/rings, which look continuous. Center whole object safely with all rings inside central75%; sparse 3 tiny background stars, no moons or spacecraft. Smooth solid colors, not photorealistic. LANDSCAPE 3:2 1536x1024. Clean smooth flat colored cartoon shapes, crisp dark outlines; no grain, stipple, paper texture or painterly shading. No words, letters or numbers. Keep all essential heads/hands/props inside central 75% of canvas, with at least 160px left/right and 120px top/bottom breathing room. One continuous scene, no inset or panels.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/b-30/cover.webp",
+      "sha256": "04cb6fe50fba55a15b6521e582c39623ba9f5a4f75197beddbc0664e6809bf56"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "f280a32df1585bc29fde637e24c87b820bf93699a99cac7d7239db824c8b14f3",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T08:14:43.540509+00:00",
+    "sha256": "c03bf2c1c634c212c54bf7a5f1d1aeec15744eaa32f35a017a8c14153e3ec959",
+    "note": "Directly viewed native PNG and installed WebP: complete Saturn and equatorial rings, correct front/back occlusion and distant continuous appearance; no particle inset, safe margins.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

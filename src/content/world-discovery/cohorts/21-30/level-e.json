@@ -1,0 +1,1704 @@
+[
+  {
+    "id": "world-discovery-e-21",
+    "number": 21,
+    "title": "How Do We Choose a Ride?",
+    "topic": "transport",
+    "type": "nonfiction",
+    "appLevel": "E",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "topicQuestion": "How can comparing whole journeys help us choose a way to travel?",
+      "progression": "Compare walking, bus and ferry routes in an explicit practice example, including time spent waiting and walking.",
+      "synthesis": "The shortest ride is not necessarily the shortest whole journey; this example favors the ferry.",
+      "scienceSources": [
+        {
+          "title": "Transport for London: Plan a Journey",
+          "url": "https://tfl.gov.uk/plan-a-journey/",
+          "evidence": "Journey planning compares travel modes and departure choices; all manuscript routes and numbers are explicitly invented practice data."
+        },
+        {
+          "title": "Transport for London: Planning for Walking Toolkit",
+          "url": "https://content.tfl.gov.uk/the-planning-for-walking-toolkit.pdf",
+          "evidence": "Public-transport trips include walking stages; whole-journey comparisons must include access and onward walking."
+        }
+      ]
+    },
+    "setting": "An invented practice map and journey times, not a real timetable. Kit and Zoe plan with an adult: medium-brown skin, short black hair, plain teal shirt and navy pants. Start west bank, museum east bank; footbridge north; road bridge farther north; ferry crosses between nearby quays. White-and-blue enclosed ferry, yellow bus.",
+    "props": [
+      "Practice map with three consistent routes",
+      "Plain museum with a round window",
+      "Walking 25 minutes; bus 35 total; ferry 20 total"
+    ],
+    "coverBrief": "Kit and Zoe compare a route map beside a river with a ferry and distant bridge.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "On this practice map, the museum stands across a river. Kit and Zoe compare three ways to get there.",
+        "imageBrief": "Kit and Zoe study a simple map with their adult. Start on west bank; museum on east bank; footbridge north, road bridge farther north; two opposite ferry quays.",
+        "imageAlt": "Kit and Zoe study a simple map with their adult.",
+        "pageDescription": "Kit and Zoe study a simple map with their adult.",
+        "state": "Start on west bank; museum on east bank; footbridge north, road bridge farther north; two opposite ferry quays.",
+        "embeddedImageText": "5 10 15 20 25 35",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 2,
+        "text": "They could walk over the footbridge. The whole walk would take twenty-five minutes.",
+        "imageBrief": "A dotted walking route crosses the footbridge and reaches the museum. Route continuous from start to destination; use 25 beside a walking symbol; no crossing through the river.",
+        "imageAlt": "A dotted walking route crosses the footbridge and reaches the museum.",
+        "pageDescription": "A dotted walking route crosses the footbridge and reaches the museum.",
+        "state": "Route continuous from start to destination; use 25 beside a walking symbol; no crossing through the river.",
+        "embeddedImageText": "5 10 15 20 25 35",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 3,
+        "text": "The bus must use the road bridge. Its route goes farther upstream before crossing the river.",
+        "imageBrief": "A yellow bus route follows streets to the farther road bridge. Same map geometry; continuous road route returns along east bank to a stop by the museum.",
+        "imageAlt": "A yellow bus route follows streets to the farther road bridge.",
+        "pageDescription": "A yellow bus route follows streets to the farther road bridge.",
+        "state": "Same map geometry; continuous road route returns along east bank to a stop by the museum.",
+        "embeddedImageText": "5 10 15 20 25 35",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 4,
+        "text": "The bus ride takes fifteen minutes. That sounds quicker, but the ride is only part of the journey.",
+        "imageBrief": "A yellow bus travels over the road bridge. One vehicle on its correct road; show 15 beside a bus symbol, without treating it as the whole journey.",
+        "imageAlt": "A yellow bus travels over the road bridge.",
+        "pageDescription": "A yellow bus travels over the road bridge.",
+        "state": "One vehicle on its correct road; show 15 beside a bus symbol, without treating it as the whole journey.",
+        "embeddedImageText": "5 10 15 20 25 35"
+      },
+      {
+        "pageNumber": 5,
+        "text": "They must also walk for ten minutes altogether and wait ten minutes. The bus journey takes thirty-five minutes.",
+        "imageBrief": "Three time blocks show walking, waiting and riding. Exactly 10, 10 and 15 with walking, waiting and bus symbols; total 35. Walking includes both ends.",
+        "imageAlt": "Three time blocks show walking, waiting and riding.",
+        "pageDescription": "Three time blocks show walking, waiting and riding.",
+        "state": "Exactly 10, 10 and 15 with walking, waiting and bus symbols; total 35. Walking includes both ends.",
+        "embeddedImageText": "5 10 15 20 25 35",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 6,
+        "text": "The ferry has a shorter crossing. Its ride takes only five minutes, but they must check its waiting time too.",
+        "imageBrief": "The white-and-blue ferry crosses between the two quays. Same practice map and museum; no claim that every ferry is faster than a bus.",
+        "imageAlt": "The white-and-blue ferry crosses between the two quays.",
+        "pageDescription": "The white-and-blue ferry crosses between the two quays.",
+        "state": "Same practice map and museum; no claim that every ferry is faster than a bus.",
+        "embeddedImageText": "5 10 15 20 25 35"
+      },
+      {
+        "pageNumber": 7,
+        "text": "Here, walking takes five minutes altogether, waiting takes ten, and the ride takes five. The ferry journey takes twenty minutes.",
+        "imageBrief": "Three ferry journey time blocks show walking, waiting and riding. Exactly 5, 10 and 5 with matching symbols; total 20. Walking includes both ends.",
+        "imageAlt": "Three ferry journey time blocks show walking, waiting and riding.",
+        "pageDescription": "Three ferry journey time blocks show walking, waiting and riding.",
+        "state": "Exactly 5, 10 and 5 with matching symbols; total 20. Walking includes both ends.",
+        "embeddedImageText": "5 10 15 20 25 35",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 8,
+        "text": "Twenty minutes is less than twenty-five or thirty-five. For this trip, the ferry gives them the quickest whole journey.",
+        "imageBrief": "Kit compares three total-time cards on the map. Walk 25, bus 35 and ferry 20 with clear matching icons; same units, no different departure times.",
+        "imageAlt": "Kit compares three total-time cards on the map.",
+        "pageDescription": "Kit compares three total-time cards on the map.",
+        "state": "Walk 25, bus 35 and ferry 20 with clear matching icons; same units, no different departure times.",
+        "embeddedImageText": "5 10 15 20 25 35",
+        "imageLayout": "comparison-diagram"
+      },
+      {
+        "pageNumber": 9,
+        "text": "On another day, a longer wait could change their choice. They would need to check the times again.",
+        "imageBrief": "The adult checks a ferry departure display while the children wait beside the quay. Ferry moored; children behind railing; display is blank except a simple clock symbol, no invented live timetable.",
+        "imageAlt": "The adult checks a ferry departure display while the children wait beside the quay.",
+        "pageDescription": "The adult checks a ferry departure display while the children wait beside the quay.",
+        "state": "Ferry moored; children behind railing; display is blank except a simple clock symbol, no invented live timetable.",
+        "embeddedImageText": "5 10 15 20 25 35"
+      },
+      {
+        "pageNumber": 10,
+        "text": "They choose the ferry for this practice trip. They have compared the walking, waiting and riding before deciding.",
+        "imageBrief": "The children and adult sit safely inside the ferry near a window. Same white-and-blue ferry approaches east quay; museum round window visible beyond; calm ordinary journey.",
+        "imageAlt": "The children and adult sit safely inside the ferry near a window.",
+        "pageDescription": "The children and adult sit safely inside the ferry near a window.",
+        "state": "Same white-and-blue ferry approaches east quay; museum round window visible beyond; calm ordinary journey.",
+        "embeddedImageText": "5 10 15 20 25 35"
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why should they include waiting time?",
+        "listenFor": "Waiting is part of the whole journey, even when the ride is short."
+      },
+      "visual": {
+        "page": 8,
+        "prompt": "Which card has the smallest total?",
+        "lookFor": "The ferry card shows twenty minutes."
+      }
+    },
+    "levelRationale": "Candidate E: Compare walking, bus and ferry routes in an explicit practice example, including time spent waiting and walking. The connected explanation uses concrete clauses and supported topic words. Independent placement and media review remain pending.",
+    "languagePrep": [
+      {
+        "word": "route",
+        "meaning": "the way followed to get somewhere"
+      },
+      {
+        "word": "ferry",
+        "meaning": "a boat that carries people or vehicles across water"
+      },
+      {
+        "word": "compare",
+        "meaning": "look at things together to find differences"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-e-22",
+    "number": 22,
+    "title": "City, Town or Village?",
+    "topic": "geography",
+    "type": "nonfiction",
+    "appLevel": "E",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "Can a place name alone tell us how large a settlement is?",
+      "progression": "Compare three named English settlements and their everyday features, then separate city status from size.",
+      "synthesis": "Cities, towns and villages are places where people live, but their names do not provide one worldwide size rule.",
+      "scienceSources": [
+        {
+          "title": "Wells City Council: About",
+          "url": "https://www.wells.gov.uk/about",
+          "evidence": "Wells is a city; its parish population and local description establish a small settlement."
+        },
+        {
+          "title": "Reading Borough Council: Profile of Reading",
+          "url": "https://www.reading.gov.uk/about-reading/profile-of-reading/",
+          "evidence": "Reading is called a town, with a large population, workplaces and important road and rail connections."
+        },
+        {
+          "title": "Wiltshire Council: Lacock Community History",
+          "url": "https://apps.wiltshire.gov.uk/communityhistory/Community/Index/132",
+          "evidence": "Lacock is a lived-in village with old buildings and shops."
+        },
+        {
+          "title": "House of Commons Library: What Makes a City?",
+          "url": "https://commonslibrary.parliament.uk/research-briefings/cbp-11240/",
+          "evidence": "UK city status is distinct from a universal population threshold."
+        },
+        {
+          "title": "ONS: Towns and Cities, Characteristics of Built-up Areas",
+          "url": "https://www.ons.gov.uk/peoplepopulationandcommunity/housing/articles/townsandcitiescharacteristicsofbuiltupareasenglandandwales/census2021",
+          "evidence": "Statistical settlement categories depend on defined methods, not a single universal meaning of town or city."
+        },
+        {
+          "title": "UN-Habitat: Applying the Degree of Urbanisation",
+          "url": "https://unhabitat.org/applying-the-degree-of-urbanisation-a-methodological-manual-to-define-cities-towns-and-rural-areas",
+          "evidence": "International statistical methods classify settlements for comparison; this differs from local place names and formal UK city status."
+        }
+      ]
+    },
+    "setting": "Wells, Reading and Lacock in England. Views are explanatory illustrations of documented features, not records of a particular street. No religious buildings, flags, crests or ceremonial scenes. England location map must accurately place Wells southwest of Lacock, and Reading east of both.",
+    "props": [
+      "Accurate small England locator map",
+      "Ordinary stone houses, shops, roads and railway",
+      "Three cards labeled Wells, Reading, Lacock"
+    ],
+    "coverBrief": "Three simple unlettered place-picture cards show Wells, Reading and Lacock through authentic ordinary homes and street features. The cards contain pictures only, without place names, other lettering, flags or religious buildings and symbols.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Wells is a city. Reading is a town. Lacock is a village. These three places are all in England.",
+        "imageBrief": "An accurate England map marks Wells, Reading and Lacock. Three correctly located dots with exact names; Wells southwest of Lacock, Reading farther east; no invented borders or flags.",
+        "imageAlt": "An accurate England map marks Wells, Reading and Lacock.",
+        "pageDescription": "An accurate England map marks Wells, Reading and Lacock.",
+        "state": "Three correctly located dots with exact names; Wells southwest of Lacock, Reading farther east; no invented borders or flags.",
+        "embeddedImageText": "Wells Reading Lacock",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 2,
+        "text": "Start in Lacock. Houses stand beside its streets, and people live there today. Its old buildings are still in use.",
+        "imageBrief": "Ordinary stone and timber-framed houses line a Lacock village street. Modern residents in everyday clothes; no historical costumes, churches or suggestion that the village is an empty museum.",
+        "imageAlt": "Ordinary stone and timber-framed houses line a Lacock village street.",
+        "pageDescription": "Ordinary stone and timber-framed houses line a Lacock village street.",
+        "state": "Modern residents in everyday clothes; no historical costumes, churches or suggestion that the village is an empty museum.",
+        "embeddedImageText": "Wells Reading Lacock"
+      },
+      {
+        "pageNumber": 3,
+        "text": "Lacock also has shops. A village can have places to buy things as well as places to live.",
+        "imageBrief": "A small village shop stands among homes. Plain shop window and groceries, no readable brand signs; connected everyday street, no universal claim about every village.",
+        "imageAlt": "A small village shop stands among homes.",
+        "pageDescription": "A small village shop stands among homes.",
+        "state": "Plain shop window and groceries, no readable brand signs; connected everyday street, no universal claim about every village.",
+        "embeddedImageText": "Wells Reading Lacock"
+      },
+      {
+        "pageNumber": 4,
+        "text": "Now look at Reading. This town has many workplaces and busy routes for buses and trains.",
+        "imageBrief": "A Reading transport scene shows a train station beside buses and office buildings. Modern ordinary architecture; transport remains separate from pedestrians; explanatory view, not a fabricated landmark replica.",
+        "imageAlt": "A Reading transport scene shows a train station beside buses and office buildings.",
+        "pageDescription": "A Reading transport scene shows a train station beside buses and office buildings.",
+        "state": "Modern ordinary architecture; transport remains separate from pedestrians; explanatory view, not a fabricated landmark replica.",
+        "embeddedImageText": "Wells Reading Lacock"
+      },
+      {
+        "pageNumber": 5,
+        "text": "People travel into Reading to work. A town can be a busy place with many connections to other places.",
+        "imageBrief": "A train arrives beside the station while adults walk along a separate public path. Same station setting; no invented passenger counts or timetable details.",
+        "imageAlt": "A train arrives beside the station while adults walk along a separate public path.",
+        "pageDescription": "A train arrives beside the station while adults walk along a separate public path.",
+        "state": "Same station setting; no invented passenger counts or timetable details.",
+        "embeddedImageText": "Wells Reading Lacock"
+      },
+      {
+        "pageNumber": 6,
+        "text": "Wells has city status, although it is much smaller than Reading. The word city does not always mean the biggest place.",
+        "imageBrief": "Wells and Reading appear as two schematic settlement footprints. Same illustration scale; Wells footprint smaller; no numerical population claim or exact administrative boundary.",
+        "imageAlt": "Wells and Reading appear as two schematic settlement footprints.",
+        "pageDescription": "Wells and Reading appear as two schematic settlement footprints.",
+        "state": "Same illustration scale; Wells footprint smaller; no numerical population claim or exact administrative boundary.",
+        "embeddedImageText": "Wells Reading Lacock",
+        "imageLayout": "comparison-diagram"
+      },
+      {
+        "pageNumber": 7,
+        "text": "In the United Kingdom, city status is a special title. A place does not gain it just by growing larger.",
+        "imageBrief": "Three labeled place cards retain their names beside differently sized clusters of homes. Wells remains city and Reading town; no crowns, ceremonies or religious symbols; this is about naming rules.",
+        "imageAlt": "Three labeled place cards retain their names beside differently sized clusters of homes.",
+        "pageDescription": "Three labeled place cards retain their names beside differently sized clusters of homes.",
+        "state": "Wells remains city and Reading town; no crowns, ceremonies or religious symbols; this is about naming rules.",
+        "embeddedImageText": "Wells Reading Lacock",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 8,
+        "text": "Countries can use these names differently. A size chart may help compare places, but it does not explain every local name.",
+        "imageBrief": "Several varied unnamed settlements appear on plain comparison cards. No flags or stereotyped costumes; varied building density without assigning universal numerical thresholds.",
+        "imageAlt": "Several varied unnamed settlements appear on plain comparison cards.",
+        "pageDescription": "Several varied unnamed settlements appear on plain comparison cards.",
+        "state": "No flags or stereotyped costumes; varied building density without assigning universal numerical thresholds.",
+        "embeddedImageText": "Wells Reading Lacock",
+        "imageLayout": "comparison-diagram"
+      },
+      {
+        "pageNumber": 9,
+        "text": "These three places have homes and streets. Their buildings and transport can tell us more than the names alone.",
+        "imageBrief": "A shared comparison shows homes and streets in Wells, Reading and Lacock. Documented ordinary features only; do not add a railway station to Lacock or Wells.",
+        "imageAlt": "A shared comparison shows homes and streets in Wells, Reading and Lacock.",
+        "pageDescription": "A shared comparison shows homes and streets in Wells, Reading and Lacock.",
+        "state": "Documented ordinary features only; do not add a railway station to Lacock or Wells.",
+        "embeddedImageText": "Wells Reading Lacock",
+        "imageLayout": "comparison-diagram"
+      },
+      {
+        "pageNumber": 10,
+        "text": "When we visit a place, we can look closely. Where do people live, work, shop and travel?",
+        "imageBrief": "An adult and child examine the three place cards on a table. Return to the opening names and features; no quiz answers baked into art or invented fourth named place.",
+        "imageAlt": "An adult and child examine the three place cards on a table.",
+        "pageDescription": "An adult and child examine the three place cards on a table.",
+        "state": "Return to the opening names and features; no quiz answers baked into art or invented fourth named place.",
+        "embeddedImageText": "Wells Reading Lacock"
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why can we not guess a place’s size from city or town alone?",
+        "listenFor": "The names follow local rules; Wells is a city while the larger Reading is a town."
+      },
+      "visual": {
+        "page": 6,
+        "prompt": "Which example covers the larger area in this comparison?",
+        "lookFor": "Reading, even though it is called a town."
+      }
+    },
+    "levelRationale": "Candidate E: Compare three named English settlements and their everyday features, then separate city status from size. The connected explanation uses concrete clauses and supported topic words. Independent placement and media review remain pending.",
+    "languagePrep": [
+      {
+        "word": "village",
+        "meaning": "a usually small group of homes and other buildings"
+      },
+      {
+        "word": "status",
+        "meaning": "an officially recognized position or title"
+      },
+      {
+        "word": "settlement",
+        "meaning": "a place where people live together"
+      }
+    ],
+    "coverImageLayout": "comparison-diagram"
+  },
+  {
+    "id": "world-discovery-e-23",
+    "number": 23,
+    "title": "Messages Through My Body",
+    "topic": "human body",
+    "type": "nonfiction",
+    "appLevel": "E",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "topicQuestion": "How do nerves help us sense something and move in response?",
+      "progression": "Follow a deliberate ball-catching action through sight, brain processing, movement and touch feedback.",
+      "synthesis": "Sensing and movement depend on messages passing through connected parts of the nervous system.",
+      "scienceSources": [
+        {
+          "title": "NICHD: What Are the Parts of the Nervous System?",
+          "url": "https://www.nichd.nih.gov/health/topics/neuro/conditioninfo/parts",
+          "evidence": "Sensory and motor neurons carry information; brain, spinal cord and nerves coordinate perception and movement; neurons communicate across synapses."
+        },
+        {
+          "title": "NINDS: Brain Basics",
+          "url": "https://www.ninds.nih.gov/health-information/public-education/brain-basics",
+          "evidence": "The brain interprets the senses and initiates movement; the book follows a deliberate action, not a spinal reflex."
+        },
+        {
+          "title": "National Cancer Institute SEER Training: Introduction to the Muscular System",
+          "url": "https://www.training.seer.cancer.gov/anatomy/muscular/",
+          "evidence": "Muscle contraction produces movement; skeletal muscles attach to bones."
+        }
+      ]
+    },
+    "setting": "Zoe seated at a low table with Kit opposite and one large soft red ball. Accurate simplified diagrams: optic nerves connect eyes to brain; spinal cord inside spine; arm nerves branch from cord. No implication that every response requires a conscious decision or that all sensory nerves first enter the spinal cord.",
+    "props": [
+      "One large soft red ball",
+      "Low plain table",
+      "Accurate body and nerve diagrams with simple direction arrows"
+    ],
+    "coverBrief": "Zoe reaches toward a slowly rolling red ball, with a small accurate brain-and-nerves diagram beside the scene.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Kit rolls a ball toward Zoe. She sees it coming and reaches to stop it. What helps her do that?",
+        "imageBrief": "Kit rolls one red ball across a low table toward Zoe. Ball moves slowly from left to right; Zoe seated safely with hands ready; no flying second ball.",
+        "imageAlt": "Kit rolls one red ball across a low table toward Zoe.",
+        "pageDescription": "Kit rolls one red ball across a low table toward Zoe.",
+        "state": "Ball moves slowly from left to right; Zoe seated safely with hands ready; no flying second ball.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Light from the ball reaches Zoe's eyes. Cells inside her eyes respond to the light.",
+        "imageBrief": "A simple side diagram shows light entering Zoe's eye from the ball. Light arrow points ball to eye, never eye to ball; intact lens and retina, no glow emitted by the eye.",
+        "imageAlt": "A simple side diagram shows light entering Zoe's eye from the ball.",
+        "pageDescription": "A simple side diagram shows light entering Zoe's eye from the ball.",
+        "state": "Light arrow points ball to eye, never eye to ball; intact lens and retina, no glow emitted by the eye.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 3,
+        "text": "Messages travel from her eyes along nerves to her brain. These messages help her see where the ball is.",
+        "imageBrief": "Optic nerves connect the eyes to the brain. Accurate simplified pathway from back of eyes into brain; do not route vision down the spinal cord first.",
+        "imageAlt": "Optic nerves connect the eyes to the brain.",
+        "pageDescription": "Optic nerves connect the eyes to the brain.",
+        "state": "Accurate simplified pathway from back of eyes into brain; do not route vision down the spinal cord first.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 4,
+        "text": "Her brain uses this information as she decides to stop the ball. Then it sends messages toward her arm muscles.",
+        "imageBrief": "A body diagram begins an outgoing route from brain toward the spinal cord. Brain in head, cord inside spine; no tiny person, speech bubble or literal picture stored inside the brain.",
+        "imageAlt": "A body diagram begins an outgoing route from brain toward the spinal cord.",
+        "pageDescription": "A body diagram begins an outgoing route from brain toward the spinal cord.",
+        "state": "Brain in head, cord inside spine; no tiny person, speech bubble or literal picture stored inside the brain.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 5,
+        "text": "The messages pass down her spinal cord and along nerves into her arms. This route connects brain and muscles.",
+        "imageBrief": "Arrows run from brain down cord and outward into arm nerves. Continuous neural route; nerves separate from blood vessels; arrows are teaching marks, not visible electric sparks.",
+        "imageAlt": "Arrows run from brain down cord and outward into arm nerves.",
+        "pageDescription": "Arrows run from brain down cord and outward into arm nerves.",
+        "state": "Continuous neural route; nerves separate from blood vessels; arrows are teaching marks, not visible electric sparks.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 6,
+        "text": "Her muscles pull on bones to move her arms and hands. Zoe reaches in front of the rolling ball.",
+        "imageBrief": "Zoe extends her hands with a small arm-muscle diagram beside her. Ball still approaching; simple paired muscles attached across a joint; no claim muscles push bones.",
+        "imageAlt": "Zoe extends her hands with a small arm-muscle diagram beside her.",
+        "pageDescription": "Zoe extends her hands with a small arm-muscle diagram beside her.",
+        "state": "Ball still approaching; simple paired muscles attached across a joint; no claim muscles push bones.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 7,
+        "text": "The ball touches her fingers. Cells in her skin respond to the pressure and send more messages along nerves.",
+        "imageBrief": "Zoe's fingers touch the ball as a close view shows skin sensors. Intact skin, gentle contact, no puncture; incoming arrows begin at fingers and follow nerves.",
+        "imageAlt": "Zoe's fingers touch the ball as a close view shows skin sensors.",
+        "pageDescription": "Zoe's fingers touch the ball as a close view shows skin sensors.",
+        "state": "Intact skin, gentle contact, no puncture; incoming arrows begin at fingers and follow nerves.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 8,
+        "text": "Those messages help her brain know that her hands have reached the ball. She can adjust her grip.",
+        "imageBrief": "A return pathway runs from hand toward spinal cord and brain. Sensory arrows opposite the earlier movement route; same red ball now held lightly between hands.",
+        "imageAlt": "A return pathway runs from hand toward spinal cord and brain.",
+        "pageDescription": "A return pathway runs from hand toward spinal cord and brain.",
+        "state": "Sensory arrows opposite the earlier movement route; same red ball now held lightly between hands.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 9,
+        "text": "Nerve cells pass messages to other nerve cells. Many connections help the body keep sensing and moving.",
+        "imageBrief": "A restrained close diagram shows three connected nerve cells. Cells have branching ends with tiny gaps; no physical wires or envelopes; pathway stays within the teaching diagram.",
+        "imageAlt": "A restrained close diagram shows three connected nerve cells.",
+        "pageDescription": "A restrained close diagram shows three connected nerve cells.",
+        "state": "Cells have branching ends with tiny gaps; no physical wires or envelopes; pathway stays within the teaching diagram.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 10,
+        "text": "Zoe holds the ball still. Messages helped her see it, reach for it and feel it in her hands.",
+        "imageBrief": "Zoe holds the one red ball while Kit waits across the table. Opening action resolved; ordinary room with no anatomy overlays; no additional new claim.",
+        "imageAlt": "Zoe holds the one red ball while Kit waits across the table.",
+        "pageDescription": "Zoe holds the one red ball while Kit waits across the table.",
+        "state": "Opening action resolved; ordinary room with no anatomy overlays; no additional new claim.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why do messages come back after Zoe moves her hands?",
+        "listenFor": "Touch tells her that the ball has reached her fingers and helps her adjust."
+      },
+      "visual": {
+        "page": 3,
+        "prompt": "Where do the messages from her eyes go?",
+        "lookFor": "Along optic nerves to her brain."
+      }
+    },
+    "levelRationale": "Candidate E: Follow a deliberate ball-catching action through sight, brain processing, movement and touch feedback. The connected explanation uses concrete clauses and supported topic words. Independent placement and media review remain pending.",
+    "languagePrep": [
+      {
+        "word": "nerve",
+        "meaning": "a bundle of fibers that carries body messages"
+      },
+      {
+        "word": "spinal cord",
+        "meaning": "a thick bundle of nerves protected inside the spine"
+      },
+      {
+        "word": "muscle",
+        "meaning": "body tissue that tightens to make movement"
+      }
+    ],
+    "coverImageLayout": "integrated-diagram",
+    "coverEmbeddedImageText": ""
+  },
+  {
+    "id": "world-discovery-e-24",
+    "number": 24,
+    "title": "When the Ground Shakes",
+    "topic": "weather and earth",
+    "type": "nonfiction",
+    "appLevel": "E",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "How can a sudden slip deep in rock make the ground shake?",
+      "progression": "Use one sideways-slipping fault to connect slow motion, stuck rock, stored strain, sudden slip and spreading waves.",
+      "synthesis": "A sudden slip releases energy that travels through the ground as earthquake waves.",
+      "scienceSources": [
+        {
+          "title": "USGS: What Is an Earthquake and What Causes Them to Happen?",
+          "url": "https://www.usgs.gov/faqs/what-earthquake-and-what-causes-them-happen",
+          "evidence": "Slow plate motion, friction at faults, accumulated stress and sudden slip release energy as waves."
+        },
+        {
+          "title": "USGS Earthquake Hazards: Earthquake Processes",
+          "url": "https://earthquake.usgs.gov/research/eqproc/grdmotion.php",
+          "evidence": "Locked fault regions build strain; slip and ground motion are distinct parts of the earthquake process."
+        }
+      ]
+    },
+    "setting": "Accurate schematic strike-slip fault, not a particular historical earthquake. Two large solid rock blocks lie side by side; opposing horizontal motion. No molten layer immediately below, continents used as plates, swallowing cracks, injured people or damaged homes. Diagrams not to scale.",
+    "props": [
+      "Two adjoining brown-gray rock blocks",
+      "Offset thin dark rock stripe",
+      "Direction arrows and restrained wavefronts"
+    ],
+    "coverBrief": "A cutaway shows two solid rock blocks slipping beside one another as small wavefronts spread outward.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "During an earthquake, the ground shakes. The shaking can begin when rock suddenly slips along a break below the surface.",
+        "imageBrief": "A calm ground cutaway shows a fault beneath open land. Solid adjoining rock, no open chasm or exposed lava; subtle wave marks indicate shaking.",
+        "imageAlt": "A calm ground cutaway shows a fault beneath open land.",
+        "pageDescription": "A calm ground cutaway shows a fault beneath open land.",
+        "state": "Solid adjoining rock, no open chasm or exposed lava; subtle wave marks indicate shaking.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 2,
+        "text": "Earth's outer shell is divided into huge plates. These plates move very slowly, carrying rock with them.",
+        "imageBrief": "A simple Earth section shows solid outer plates above deeper rock. Shell thin relative to Earth; deeper material is not shown as a liquid ocean; continents are not plate outlines.",
+        "imageAlt": "A simple Earth section shows solid outer plates above deeper rock.",
+        "pageDescription": "A simple Earth section shows solid outer plates above deeper rock.",
+        "state": "Shell thin relative to Earth; deeper material is not shown as a liquid ocean; continents are not plate outlines.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 3,
+        "text": "Here, rock on opposite sides of a fault is moving in different directions. A fault is a break where rock can slip.",
+        "imageBrief": "Two adjoining rock blocks have opposite arrows parallel to their boundary. Same strike-slip example throughout; arrows point along the fault, not pulling the blocks apart.",
+        "imageAlt": "Two adjoining rock blocks have opposite arrows parallel to their boundary.",
+        "pageDescription": "Two adjoining rock blocks have opposite arrows parallel to their boundary.",
+        "state": "Same strike-slip example throughout; arrows point along the fault, not pulling the blocks apart.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 4,
+        "text": "Rough surfaces can catch against each other. Part of the fault stays stuck while the surrounding rock keeps being pushed.",
+        "imageBrief": "An enlarged fault contact shows rough matching surfaces caught together. Continuous contact and no wide empty gap; opposing arrows remain parallel to boundary.",
+        "imageAlt": "An enlarged fault contact shows rough matching surfaces caught together.",
+        "pageDescription": "An enlarged fault contact shows rough matching surfaces caught together.",
+        "state": "Continuous contact and no wide empty gap; opposing arrows remain parallel to boundary.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 5,
+        "text": "The rock slowly changes shape under that push. Energy builds up while the stuck part holds.",
+        "imageBrief": "A thin stripe across the joined blocks becomes bent near the stuck boundary. Same stripe and fixed viewpoint; deformation slightly exaggerated as a model, not soft flowing rock.",
+        "imageAlt": "A thin stripe across the joined blocks becomes bent near the stuck boundary.",
+        "pageDescription": "A thin stripe across the joined blocks becomes bent near the stuck boundary.",
+        "state": "Same stripe and fixed viewpoint; deformation slightly exaggerated as a model, not soft flowing rock.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 6,
+        "text": "When the push becomes strong enough, the stuck part slips. Rock on the two sides moves suddenly.",
+        "imageBrief": "The two blocks slip sideways along the fault. Stripe now offset across boundary; blocks remain adjacent, no vertical explosion or detached floating chunks.",
+        "imageAlt": "The two blocks slip sideways along the fault.",
+        "pageDescription": "The two blocks slip sideways along the fault.",
+        "state": "Stripe now offset across boundary; blocks remain adjacent, no vertical explosion or detached floating chunks.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 7,
+        "text": "Energy spreads outward as earthquake waves. The waves travel through rock and can reach the ground above.",
+        "imageBrief": "Small wavefronts spread from the slip region toward the surface. Wave marks are symbols; do not show liquid water or rocks traveling all the way with a wave.",
+        "imageAlt": "Small wavefronts spread from the slip region toward the surface.",
+        "pageDescription": "Small wavefronts spread from the slip region toward the surface.",
+        "state": "Wave marks are symbols; do not show liquid water or rocks traveling all the way with a wave.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 8,
+        "text": "As waves pass, the ground moves back and forth or up and down. That motion is the shaking people feel.",
+        "imageBrief": "A surface patch has short motion arrows while waves pass below. Small reversible ground movement in schematic view; no people in danger or giant open crack.",
+        "imageAlt": "A surface patch has short motion arrows while waves pass below.",
+        "pageDescription": "A surface patch has short motion arrows while waves pass below.",
+        "state": "Small reversible ground movement in schematic view; no people in danger or giant open crack.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 9,
+        "text": "A wave carries energy away from the slipping rock. The whole block does not travel along with each wave.",
+        "imageBrief": "One highlighted rock patch moves slightly as a wavefront passes onward. Patch stays near its original position; three ghosted wavefront positions show travel without duplicate rock blocks.",
+        "imageAlt": "One highlighted rock patch moves slightly as a wavefront passes onward.",
+        "pageDescription": "One highlighted rock patch moves slightly as a wavefront passes onward.",
+        "state": "Patch stays near its original position; three ghosted wavefront positions show travel without duplicate rock blocks.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 10,
+        "text": "Slow movement can build strain. A sudden slip releases it, sending waves through the ground. That is how this earthquake begins.",
+        "imageBrief": "Return to the fault cutaway with the stripe offset and waves spreading. Final state matches page six; one example, no claim all earthquakes share this exact fault type.",
+        "imageAlt": "Return to the fault cutaway with the stripe offset and waves spreading.",
+        "pageDescription": "Return to the fault cutaway with the stripe offset and waves spreading.",
+        "state": "Final state matches page six; one example, no claim all earthquakes share this exact fault type.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why can rock move slowly for a long time before an earthquake?",
+        "listenFor": "A fault can stay stuck while strain builds, then slip suddenly."
+      },
+      "visual": {
+        "page": 6,
+        "prompt": "What changed in the stripe across the rock?",
+        "lookFor": "Its two parts are offset after the blocks slipped."
+      }
+    },
+    "levelRationale": "Candidate E: Use one sideways-slipping fault to connect slow motion, stuck rock, stored strain, sudden slip and spreading waves. The connected explanation uses concrete clauses and supported topic words. Independent placement and media review remain pending.",
+    "languagePrep": [
+      {
+        "word": "fault",
+        "meaning": "a break in rock where the sides can move"
+      },
+      {
+        "word": "strain",
+        "meaning": "a change in shape caused by a push or pull"
+      },
+      {
+        "word": "wave",
+        "meaning": "a moving disturbance that carries energy"
+      }
+    ],
+    "coverImageLayout": "integrated-diagram",
+    "coverEmbeddedImageText": ""
+  },
+  {
+    "id": "world-discovery-e-25",
+    "number": 25,
+    "title": "How Wings Lift a Plane",
+    "topic": "physics and engineering",
+    "type": "nonfiction",
+    "appLevel": "E",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "How can moving air around wings help hold a plane up?",
+      "progression": "Connect relative airflow, turned air and pressure differences to lift, then compare lift and weight in steady level flight.",
+      "synthesis": "Air flowing around wings produces a force that can support a moving plane.",
+      "scienceSources": [
+        {
+          "title": "NASA Glenn: What Is Lift?",
+          "url": "https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/what-is-lift/",
+          "evidence": "Relative motion and both wing surfaces turn airflow; the resulting aerodynamic force has a lift component."
+        },
+        {
+          "title": "NASA Glenn: Aerodynamic Forces",
+          "url": "https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/aerodynamic-forces/",
+          "evidence": "Pressure acts across surfaces; its combined force includes lift. This is not an extra force added to the momentum explanation."
+        },
+        {
+          "title": "NASA Glenn: Factors That Affect Lift",
+          "url": "https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/factors-that-affect-lift/",
+          "evidence": "Shape, size, inclination and flow speed affect lift; no equal-transit-time claim is used."
+        }
+      ]
+    },
+    "setting": "One plain white passenger plane with teal tail, no logos. Side-view wing diagrams: rounded leading edge left, pointed trailing edge right; air flows left to right in wing-fixed views. Flying scene plane faces left so motion and relative airflow agree. No equal-transit-time story; pressure and turned airflow describe the same interaction, not two separate added lifts.",
+    "props": [
+      "White plane with teal tail",
+      "Accurate wing section with airflow arrows",
+      "Small pressure arrows and lift/weight arrows"
+    ],
+    "coverBrief": "The white plane flies above open land while a clean wing-section inset shows air turning downward.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "A plane is heavy, yet its wings help hold it in the air. What are the wings doing?",
+        "imageBrief": "A white plane with teal tail flies steadily over open land. Plane faces left, wings structurally correct, no flapping or rocket flames; no airline branding.",
+        "imageAlt": "A white plane with teal tail flies steadily over open land.",
+        "pageDescription": "A white plane with teal tail flies steadily over open land.",
+        "state": "Plane faces left, wings structurally correct, no flapping or rocket flames; no airline branding.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "As the plane moves forward, air flows around its wings. Both the upper and lower wing surfaces affect that moving air.",
+        "imageBrief": "Air flows around an accurate wing section. Leading edge left, trailing edge right; air arrows left to right above and below; no paired particles arriving together.",
+        "imageAlt": "Air flows around an accurate wing section.",
+        "pageDescription": "Air flows around an accurate wing section.",
+        "state": "Leading edge left, trailing edge right; air arrows left to right above and below; no paired particles arriving together.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 3,
+        "text": "The wings turn some of the flowing air downward. In return, the air pushes upward on the wings.",
+        "imageBrief": "Air leaving the wing curves downward behind it. Smooth streamlines above and below join a downward wake; upward force arrow on wing, no air jet from inside wing.",
+        "imageAlt": "Air leaving the wing curves downward behind it.",
+        "pageDescription": "Air leaving the wing curves downward behind it.",
+        "state": "Smooth streamlines above and below join a downward wake; upward force arrow on wing, no air jet from inside wing.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 4,
+        "text": "This upward part of the air's force is called lift. Most lift on this plane comes from its wings.",
+        "imageBrief": "The plane has a clear upward lift arrow near its wings. Steady level flight; arrow is a diagram mark, no rope or invisible platform holding plane.",
+        "imageAlt": "The plane has a clear upward lift arrow near its wings.",
+        "pageDescription": "The plane has a clear upward lift arrow near its wings.",
+        "state": "Steady level flight; arrow is a diagram mark, no rope or invisible platform holding plane.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 5,
+        "text": "Air pressure also helps us describe that force. Air pushes on every side of the wing, but not equally.",
+        "imageBrief": "Small pressure arrows point inward toward both wing surfaces. Arrows perpendicular to local surface; none point outward as if pressure pulls; pressure varies across the surface.",
+        "imageAlt": "Small pressure arrows point inward toward both wing surfaces.",
+        "pageDescription": "Small pressure arrows point inward toward both wing surfaces.",
+        "state": "Arrows perpendicular to local surface; none point outward as if pressure pulls; pressure varies across the surface.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 6,
+        "text": "For this lifting wing, the combined pressure pushes more upward than downward. That difference produces lift.",
+        "imageBrief": "A simplified pressure comparison sits beside the upward lift arrow. Lower-surface upward pushes and upper-surface downward pushes are combined conceptually; not all local arrows equal or uniformly sized.",
+        "imageAlt": "A simplified pressure comparison sits beside the upward lift arrow.",
+        "pageDescription": "A simplified pressure comparison sits beside the upward lift arrow.",
+        "state": "Lower-surface upward pushes and upper-surface downward pushes are combined conceptually; not all local arrows equal or uniformly sized.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 7,
+        "text": "Pressure differences and air turning happen together. They describe the same lift, not two separate forces to add.",
+        "imageBrief": "One wing diagram combines the downward airflow with the same single upward force arrow. Only one net lift arrow; no duplicated force, no equal travel-time particles or claim air must reunite.",
+        "imageAlt": "One wing diagram combines the downward airflow with the same single upward force arrow.",
+        "pageDescription": "One wing diagram combines the downward airflow with the same single upward force arrow.",
+        "state": "Only one net lift arrow; no duplicated force, no equal travel-time particles or claim air must reunite.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 8,
+        "text": "Gravity pulls the plane downward. In steady, level flight, lift balances the plane's weight.",
+        "imageBrief": "One upward lift arrow and one downward weight arrow have equal length. Plane horizontal and steady; arrows opposed, no upward acceleration implied.",
+        "imageAlt": "One upward lift arrow and one downward weight arrow have equal length.",
+        "pageDescription": "One upward lift arrow and one downward weight arrow have equal length.",
+        "state": "Plane horizontal and steady; arrows opposed, no upward acceleration implied.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 9,
+        "text": "Wing shape, speed and angle all affect lift. Pilots change how the plane flies as it takes off or lands.",
+        "imageBrief": "A second diagram compares the same wing at two small angles to incoming air. Moderate angles only; no claim that greater angle always increases lift; air direction unchanged.",
+        "imageAlt": "A second diagram compares the same wing at two small angles to incoming air.",
+        "pageDescription": "A second diagram compares the same wing at two small angles to incoming air.",
+        "state": "Moderate angles only; no claim that greater angle always increases lift; air direction unchanged.",
+        "embeddedImageText": "",
+        "imageLayout": "comparison-diagram"
+      },
+      {
+        "pageNumber": 10,
+        "text": "The plane keeps moving through air. Its wings change the airflow, and the air's force helps support the plane.",
+        "imageBrief": "Return to the white plane in steady flight with restrained downward wake marks. Same aircraft and direction; no force diagram clutter, no additional source of lift introduced.",
+        "imageAlt": "Return to the white plane in steady flight with restrained downward wake marks.",
+        "pageDescription": "Return to the white plane in steady flight with restrained downward wake marks.",
+        "state": "Same aircraft and direction; no force diagram clutter, no additional source of lift introduced.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Are pressure differences and turned air two separate lifts?",
+        "listenFor": "No. They describe the same interaction between air and wing."
+      },
+      "visual": {
+        "page": 8,
+        "prompt": "What do the matching arrows show?",
+        "lookFor": "Lift balances weight during steady level flight."
+      }
+    },
+    "levelRationale": "Candidate E: Connect relative airflow, turned air and pressure differences to lift, then compare lift and weight in steady level flight. The connected explanation uses concrete clauses and supported topic words. Independent placement and media review remain pending.",
+    "languagePrep": [
+      {
+        "word": "lift",
+        "meaning": "the force from airflow that helps hold a plane up"
+      },
+      {
+        "word": "pressure",
+        "meaning": "how strongly something pushes on an area"
+      },
+      {
+        "word": "balance",
+        "meaning": "match in size while acting in opposite directions"
+      }
+    ],
+    "coverImageLayout": "integrated-diagram",
+    "coverEmbeddedImageText": ""
+  },
+  {
+    "id": "world-discovery-e-26",
+    "number": 26,
+    "title": "A Message Crosses the Internet",
+    "topic": "technology",
+    "type": "nonfiction",
+    "appLevel": "E",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "topicQuestion": "How can a picture move from one device to another across the internet?",
+      "progression": "Follow one picture through data packets, local Wi-Fi, routers, a messaging server and the receiving device.",
+      "synthesis": "Connected equipment carries coded data; the receiving device uses that data to show the picture.",
+      "scienceSources": [
+        {
+          "title": "Cloudflare: How Does the Internet Work?",
+          "url": "https://www.cloudflare.com/learning/network-layer/how-does-the-internet-work/",
+          "evidence": "Internet communication uses packets, addresses, connected routers, cables and wireless signals; received data can be reassembled."
+        },
+        {
+          "title": "Cloudflare: What Is Routing?",
+          "url": "https://www.cloudflare.com/learning/network-layer/what-is-routing/",
+          "evidence": "Routers direct packets across interconnected networks; routes can differ. The messaging-service sequence is explicitly an example."
+        }
+      ]
+    },
+    "setting": "An illustrative messaging-app route from Zoe’s tablet at home to Kit’s laptop in a different home, through a service server. Same picture of one red paper boat throughout. Actual data are coded signals, not tiny pictures, envelopes or beads inside wires. Schematic packet tiles are explicitly a model.",
+    "props": [
+      "Zoe’s plain yellow-cased tablet",
+      "Kit’s plain gray laptop",
+      "Red paper boat picture",
+      "Two home routers, network routers, cable links and a service server"
+    ],
+    "coverBrief": "Zoe’s tablet and Kit’s laptop show the same red paper boat, joined by a simple network route.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Zoe sends Kit a picture of her paper boat. Their devices are in different homes. How does the picture reach his screen?",
+        "imageBrief": "Zoe selects one red paper boat picture on her tablet. One picture ready to send, no private messages or names shown; ordinary home setting.",
+        "imageAlt": "Zoe selects one red paper boat picture on her tablet.",
+        "pageDescription": "Zoe selects one red paper boat picture on her tablet.",
+        "state": "One picture ready to send, no private messages or names shown; ordinary home setting.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "The picture is stored as data. The device can turn that data into signals that other equipment can carry.",
+        "imageBrief": "The tablet image appears beside a simple patterned data model. Mark model through composition, not literal picture pieces; no readable binary code needed.",
+        "imageAlt": "The tablet image appears beside a simple patterned data model.",
+        "pageDescription": "The tablet image appears beside a simple patterned data model.",
+        "state": "Mark model through composition, not literal picture pieces; no readable binary code needed.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 3,
+        "text": "The data travels in small groups called packets. Each packet has information that helps it reach the right destination.",
+        "imageBrief": "Several abstract packet tiles carry small destination markers beside the tablet. Tiles are teaching symbols, not physical objects or miniature photographs; same marker repeated for this destination.",
+        "imageAlt": "Several abstract packet tiles carry small destination markers beside the tablet.",
+        "pageDescription": "Several abstract packet tiles carry small destination markers beside the tablet.",
+        "state": "Tiles are teaching symbols, not physical objects or miniature photographs; same marker repeated for this destination.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 4,
+        "text": "Zoe's tablet uses Wi-Fi to send signals to a nearby router. This first part of the route uses radio waves.",
+        "imageBrief": "Short radio-wave arcs connect the tablet to its home router. Arcs stay between these two devices; no signal jumps directly to distant Kit or a satellite.",
+        "imageAlt": "Short radio-wave arcs connect the tablet to its home router.",
+        "pageDescription": "Short radio-wave arcs connect the tablet to its home router.",
+        "state": "Arcs stay between these two devices; no signal jumps directly to distant Kit or a satellite.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 5,
+        "text": "The router connects to the internet provider's network. From there, other routers pass the packets onward through connected links.",
+        "imageBrief": "A simple route runs from home router to provider equipment and onward routers. Cables join equipment; router nodes visibly connected; no floating cloud presented as the destination.",
+        "imageAlt": "A simple route runs from home router to provider equipment and onward routers.",
+        "pageDescription": "A simple route runs from home router to provider equipment and onward routers.",
+        "state": "Cables join equipment; router nodes visibly connected; no floating cloud presented as the destination.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 6,
+        "text": "In this example, the packets reach a messaging service's server. This computer helps deliver the picture to Kit.",
+        "imageBrief": "The route reaches one server cabinet within a small equipment room. Physical server, no magical cloud; this is one app route, not a claim that all messages use one central server.",
+        "imageAlt": "The route reaches one server cabinet within a small equipment room.",
+        "pageDescription": "The route reaches one server cabinet within a small equipment room.",
+        "state": "Physical server, no magical cloud; this is one app route, not a claim that all messages use one central server.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 7,
+        "text": "Packets can follow different routes through a network. The receiving equipment uses their information to put the data together correctly.",
+        "imageBrief": "Two connected paths carry packet symbols toward the same destination route. No isolated links; reordered symbols join one sequence at the receiving side; paths are illustrative.",
+        "imageAlt": "Two connected paths carry packet symbols toward the same destination route.",
+        "pageDescription": "Two connected paths carry packet symbols toward the same destination route.",
+        "state": "No isolated links; reordered symbols join one sequence at the receiving side; paths are illustrative.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 8,
+        "text": "The data reaches Kit's home network. His router sends signals to his laptop over Wi-Fi.",
+        "imageBrief": "Cable route reaches Kit’s router, then radio arcs reach his laptop. Separate home from Zoe’s; same laptop and router design established in cover, no cable entering a person.",
+        "imageAlt": "Cable route reaches Kit’s router, then radio arcs reach his laptop.",
+        "pageDescription": "Cable route reaches Kit’s router, then radio arcs reach his laptop.",
+        "state": "Separate home from Zoe’s; same laptop and router design established in cover, no cable entering a person.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 9,
+        "text": "His laptop uses the received data to show the picture. The red boat appears on his screen.",
+        "imageBrief": "Kit looks at the matching red paper boat picture. Picture matches Zoe’s original exactly; no physical paper boat arrives through a wire.",
+        "imageAlt": "Kit looks at the matching red paper boat picture.",
+        "pageDescription": "Kit looks at the matching red paper boat picture.",
+        "state": "Picture matches Zoe’s original exactly; no physical paper boat arrives through a wire.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 10,
+        "text": "The picture crossed many connections as coded data. Screens, routers, cables and radio signals helped it reach Kit.",
+        "imageBrief": "A final simple route links the two devices through the server and routers. One coherent diagram with wired and local wireless sections clearly distinct; original picture visible at both ends.",
+        "imageAlt": "A final simple route links the two devices through the server and routers.",
+        "pageDescription": "A final simple route links the two devices through the server and routers.",
+        "state": "One coherent diagram with wired and local wireless sections clearly distinct; original picture visible at both ends.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Does a tiny paper boat travel inside the cable?",
+        "listenFor": "No. Coded data travels, and the receiving device uses it to display the picture."
+      },
+      "visual": {
+        "page": 8,
+        "prompt": "Which part of this final connection is wireless?",
+        "lookFor": "The connection between Kit’s router and laptop."
+      }
+    },
+    "levelRationale": "Candidate E: Follow one picture through data packets, local Wi-Fi, routers, a messaging server and the receiving device. The connected explanation uses concrete clauses and supported topic words. Independent placement and media review remain pending.",
+    "languagePrep": [
+      {
+        "word": "data",
+        "meaning": "information a computer can store and use"
+      },
+      {
+        "word": "packet",
+        "meaning": "a small group of data sent across a network"
+      },
+      {
+        "word": "router",
+        "meaning": "equipment that directs data toward its destination"
+      }
+    ],
+    "coverImageLayout": "integrated-diagram",
+    "coverEmbeddedImageText": ""
+  },
+  {
+    "id": "world-discovery-e-27",
+    "number": 27,
+    "title": "From Cotton to Shirt",
+    "topic": "food and making",
+    "type": "nonfiction",
+    "appLevel": "E",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "How do short cotton fibers become a woven shirt?",
+      "progression": "Track material through separating, aligning, twisting, weaving, finishing, cutting and sewing.",
+      "synthesis": "Many changes join short plant fibers into the fabric and shaped pieces of a shirt.",
+      "scienceSources": [
+        {
+          "title": "National Cotton Council: How Cotton Is Ginned and Marketed",
+          "url": "https://www.cotton.org/pubs/cottoncounts/story/gin-and-market.cfm",
+          "evidence": "Ginning separates fiber and seed; cleaned lint is pressed into bales for mills."
+        },
+        {
+          "title": "National Cotton Council: How Cotton Is Spun and Woven",
+          "url": "https://www.cotton.org/pubs/cottoncounts/story/spun-and-woven.cfm",
+          "evidence": "Carding aligns fibers; spinning twists them into yarn; looms interlace yarns and cloth is finished before garment manufacture."
+        },
+        {
+          "title": "Cotton Incorporated: A World of Ideas",
+          "url": "https://cottonworks.com/wp-content/uploads/2018/09/World-of-Ideas-2_9-17-2018.pdf",
+          "evidence": "Describes conventional apparel manufacture using cut-and-sew processes; the specific blue shirt is an illustrative example."
+        }
+      ]
+    },
+    "setting": "One illustrative woven cotton shirt: plain pale blue, short sleeves, pointed collar and four white front buttons. This is a woven garment, not a knitted T-shirt. Modern machinery guarded; adults operate it, no children on factory floor.",
+    "props": [
+      "Mature cotton bolls with fibers around seeds",
+      "Cotton fiber, yarn and plain-weave cloth",
+      "Same pale-blue short-sleeved button-front shirt"
+    ],
+    "coverBrief": "An open cotton boll sits beside a small swatch of woven pale-blue cloth and the finished shirt.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "This shirt began with cotton plants. Inside their ripe, open bolls, soft fibers grew around the seeds.",
+        "imageBrief": "An open cotton boll reveals white fibers around dark seeds. Recognizable dry boll segments; no wool, feathers or cloth growing from the plant.",
+        "imageAlt": "An open cotton boll reveals white fibers around dark seeds.",
+        "pageDescription": "An open cotton boll reveals white fibers around dark seeds.",
+        "state": "Recognizable dry boll segments; no wool, feathers or cloth growing from the plant.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "After harvest, a machine called a gin separates the fibers from the seeds. The fibers are pressed into large bales.",
+        "imageBrief": "A guarded gin has separate fiber and seed outputs beside a finished bale. Two distinct outputs, seeds not turned into yarn; no exposed sharp machinery or workers reaching inside.",
+        "imageAlt": "A guarded gin has separate fiber and seed outputs beside a finished bale.",
+        "pageDescription": "A guarded gin has separate fiber and seed outputs beside a finished bale.",
+        "state": "Two distinct outputs, seeds not turned into yarn; no exposed sharp machinery or workers reaching inside.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "At a mill, machines clean the fibers and line them up. They form a soft, loose strand.",
+        "imageBrief": "Cotton passes through a carding machine into a thick loose strand. Fibers now aligned but not tightly twisted; machine guards closed; no single endless natural cotton fiber.",
+        "imageAlt": "Cotton passes through a carding machine into a thick loose strand.",
+        "pageDescription": "Cotton passes through a carding machine into a thick loose strand.",
+        "state": "Fibers now aligned but not tightly twisted; machine guards closed; no single endless natural cotton fiber.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Spinning twists the fibers together into yarn. Many short fibers can now hold together as one much longer strand.",
+        "imageBrief": "A close teaching view shows overlapping fibers twisting into yarn. Short fibers overlap along the yarn; do not depict one cotton fiber stretching without limit.",
+        "imageAlt": "A close teaching view shows overlapping fibers twisting into yarn.",
+        "pageDescription": "A close teaching view shows overlapping fibers twisting into yarn.",
+        "state": "Short fibers overlap along the yarn; do not depict one cotton fiber stretching without limit.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 5,
+        "text": "A loom weaves yarn into fabric. One set of yarns crosses over and under another set.",
+        "imageBrief": "A small loom close-up shows plain weaving. Perpendicular yarn directions, alternating over-under sequence clearly correct; not knitting loops.",
+        "imageAlt": "A small loom close-up shows plain weaving.",
+        "pageDescription": "A small loom close-up shows plain weaving.",
+        "state": "Perpendicular yarn directions, alternating over-under sequence clearly correct; not knitting loops.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 6,
+        "text": "The woven cloth is treated and colored. This cloth becomes pale blue before workers cut the shirt pieces.",
+        "imageBrief": "A pale-blue cloth roll emerges at a finishing stage. Same plain weave; blue color consistent with final shirt; no untreated cotton bolls mixed into fabric.",
+        "imageAlt": "A pale-blue cloth roll emerges at a finishing stage.",
+        "pageDescription": "A pale-blue cloth roll emerges at a finishing stage.",
+        "state": "Same plain weave; blue color consistent with final shirt; no untreated cotton bolls mixed into fabric.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Workers cut pieces for the front, back and sleeves. Their shapes must fit together when the shirt is sewn.",
+        "imageBrief": "An adult cuts pale-blue fabric along a shirt pattern on a clear table. Matching front halves, back and two sleeves; safe cutting position, no child touching scissors.",
+        "imageAlt": "An adult cuts pale-blue fabric along a shirt pattern on a clear table.",
+        "pageDescription": "An adult cuts pale-blue fabric along a shirt pattern on a clear table.",
+        "state": "Matching front halves, back and two sleeves; safe cutting position, no child touching scissors.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "A sewing machine joins the pieces with thread. Seams hold the sleeves and body together.",
+        "imageBrief": "A trained adult guides a shirt seam through a guarded sewing machine area. Hands clear of needle, matching fabric sides; one shirt taking shape, not thread magically becoming cloth.",
+        "imageAlt": "A trained adult guides a shirt seam through a guarded sewing machine area.",
+        "pageDescription": "A trained adult guides a shirt seam through a guarded sewing machine area.",
+        "state": "Hands clear of needle, matching fabric sides; one shirt taking shape, not thread magically becoming cloth.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 9,
+        "text": "Workers add the collar and buttons. The flat pieces now make a shirt that someone can put on.",
+        "imageBrief": "The completed shirt lies flat with a collar and four white buttons. Short sleeves, pale-blue weave, buttons aligned with buttonholes; no extra fifth button or printed logo.",
+        "imageAlt": "The completed shirt lies flat with a collar and four white buttons.",
+        "pageDescription": "The completed shirt lies flat with a collar and four white buttons.",
+        "state": "Short sleeves, pale-blue weave, buttons aligned with buttonholes; no extra fifth button or printed logo.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 10,
+        "text": "Cotton fibers became yarn, yarn became cloth, and cut cloth became a shirt. Its fabric still contains those plant fibers.",
+        "imageBrief": "The same shirt hangs beside magnified woven fabric and overlapping cotton fibers. Three material scales linked simply; fiber model enlarged, not loose cotton spilling from seams.",
+        "imageAlt": "The same shirt hangs beside magnified woven fabric and overlapping cotton fibers.",
+        "pageDescription": "The same shirt hangs beside magnified woven fabric and overlapping cotton fibers.",
+        "state": "Three material scales linked simply; fiber model enlarged, not loose cotton spilling from seams.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why must cotton be spun before this cloth is woven?",
+        "listenFor": "Spinning joins short fibers into long yarn that the loom can interlace."
+      },
+      "visual": {
+        "page": 5,
+        "prompt": "Which way do the two sets of yarn cross?",
+        "lookFor": "One set runs across the other, alternating over and under."
+      }
+    },
+    "levelRationale": "Candidate E: Track material through separating, aligning, twisting, weaving, finishing, cutting and sewing. The connected explanation uses concrete clauses and supported topic words. Independent placement and media review remain pending.",
+    "languagePrep": [
+      {
+        "word": "fiber",
+        "meaning": "a thin strand of material"
+      },
+      {
+        "word": "yarn",
+        "meaning": "fibers joined into a long strand"
+      },
+      {
+        "word": "seam",
+        "meaning": "the line where pieces of cloth are sewn together"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-e-28",
+    "number": 28,
+    "title": "Light in the Rainforest",
+    "topic": "animals and habitats",
+    "type": "nonfiction",
+    "appLevel": "E",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "How does the amount of light change life from the treetops to the ground?",
+      "progression": "Follow sunlight through a tropical canopy, connect leaf food-making with animals, then show shade and a changing canopy gap.",
+      "synthesis": "Leaves intercept sunlight, creating different growing conditions at different heights and when gaps open.",
+      "scienceSources": [
+        {
+          "title": "Smithsonian Tropical Research Institute: Canopy",
+          "url": "https://striresearch.si.edu/rainforest/home/canopy/",
+          "evidence": "Canopy leaves intercept light; fruit supports canopy animals; Panama gap research shows new growth and later shade."
+        },
+        {
+          "title": "Arizona State University: Structure of the Rainforest",
+          "url": "https://askabiologist.asu.edu/anatomy-rainforest",
+          "evidence": "Light differs among forest layers; young trees can grow when canopy gaps provide more sunlight."
+        },
+        {
+          "title": "Arizona State University: Desert to Rainforest Teacher Guide",
+          "url": "https://askabiologist.asu.edu/sites/default/files/resources/articles/biomes/desert_to_rainforest_teacher_guide.pdf",
+          "evidence": "Connects rainforest light availability to photosynthesis and plant growth."
+        },
+        {
+          "title": "Cornell Lab Macaulay Library: Keel-billed Toucan Records in Panama",
+          "url": "https://media.ebird.org/catalog?birdOnly=true&mediaType=photo&regionCode=L6379447&taxonCode=kebtou1&view=list",
+          "evidence": "Direct observer record ML657035100 identifies a keel-billed toucan in Cocle, Panama on 9 May 2026; used only to confirm regional species selection."
+        }
+      ]
+    },
+    "setting": "An illustrative lowland tropical rainforest in Panama, informed by Smithsonian research. Broadleaf trees, a keel-billed toucan with black body, yellow throat and green-orange bill. No African or Asian animals mixed into the scene. A large buttressed tree with a forked trunk anchors the same location.",
+    "props": [
+      "Broadleaf canopy and shaded forest floor",
+      "Keel-billed toucan eating a small fruit",
+      "Young broadleaf tree beside a naturally fallen trunk"
+    ],
+    "coverBrief": "Sunlight reaches the leafy canopy while a shaded young tree grows below beside a small opening.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Sunlight reaches the top of this rainforest. Far below, the ground is much darker. What happens to the light on its way?",
+        "imageBrief": "A tall forest section connects sunlit canopy and shaded ground. Same forked buttressed tree anchors the view; still enough detail to see the forest floor; not total darkness.",
+        "imageAlt": "A tall forest section connects sunlit canopy and shaded ground.",
+        "pageDescription": "A tall forest section connects sunlit canopy and shaded ground.",
+        "state": "Same forked buttressed tree anchors the view; still enough detail to see the forest floor; not total darkness.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "The upper branches spread many leaves across the sky. Together, this leafy layer forms much of the canopy.",
+        "imageBrief": "Interlocking leafy crowns form a canopy with small spaces between them. Not a solid roof or one unbroken flat sheet; varied tree heights and natural gaps.",
+        "imageAlt": "Interlocking leafy crowns form a canopy with small spaces between them.",
+        "pageDescription": "Interlocking leafy crowns form a canopy with small spaces between them.",
+        "state": "Not a solid roof or one unbroken flat sheet; varied tree heights and natural gaps.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Leaves absorb some sunlight and reflect some away. Much less light passes through to the plants below.",
+        "imageBrief": "Restrained light rays meet leaves, with fewer rays continuing downward. Rays are teaching symbols; absorption ends at leaves, reflection changes direction; no claim all light is blocked.",
+        "imageAlt": "Restrained light rays meet leaves, with fewer rays continuing downward.",
+        "pageDescription": "Restrained light rays meet leaves, with fewer rays continuing downward.",
+        "state": "Rays are teaching symbols; absorption ends at leaves, reflection changes direction; no claim all light is blocked.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 4,
+        "text": "Green leaves use light to help make food from water and a gas in the air. This process supports the growing tree.",
+        "imageBrief": "A close leaf view connects sunlight, water and incoming carbon dioxide to plant food-making. Simple teaching symbols only; roots supply water, no soil chunks becoming food or leaves eating sunlight.",
+        "imageAlt": "A close leaf view connects sunlight, water and incoming carbon dioxide to plant food-making.",
+        "pageDescription": "A close leaf view connects sunlight, water and incoming carbon dioxide to plant food-making.",
+        "state": "Simple teaching symbols only; roots supply water, no soil chunks becoming food or leaves eating sunlight.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 5,
+        "text": "Some of the tree's food helps it grow fruit. A toucan can feed on that fruit high in the branches.",
+        "imageBrief": "A keel-billed toucan holds a small fruit in its bill. Correct black body, yellow throat and green-orange bill; fruiting broadleaf branch, no mixed-continent wildlife.",
+        "imageAlt": "A keel-billed toucan holds a small fruit in its bill.",
+        "pageDescription": "A keel-billed toucan holds a small fruit in its bill.",
+        "state": "Correct black body, yellow throat and green-orange bill; fruiting broadleaf branch, no mixed-continent wildlife.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "Below the canopy, scattered patches of sunlight reach the ground. Many young plants grow in the dimmer light between them.",
+        "imageBrief": "A young broadleaf tree stands among small sun patches. Same forked trunk nearby; shaded leaves visible, no complete darkness or carpet of identical plants.",
+        "imageAlt": "A young broadleaf tree stands among small sun patches.",
+        "pageDescription": "A young broadleaf tree stands among small sun patches.",
+        "state": "Same forked trunk nearby; shaded leaves visible, no complete darkness or carpet of identical plants.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Some plants can live with little light. Others need more light to grow well. The forest does not suit every plant equally.",
+        "imageBrief": "Two different young plants appear in shade and a brighter gap. Illustrative comparison, no unsourced species label or claim that every shaded plant is dying.",
+        "imageAlt": "Two different young plants appear in shade and a brighter gap.",
+        "pageDescription": "Two different young plants appear in shade and a brighter gap.",
+        "state": "Illustrative comparison, no unsourced species label or claim that every shaded plant is dying.",
+        "embeddedImageText": "",
+        "imageLayout": "comparison-diagram"
+      },
+      {
+        "pageNumber": 8,
+        "text": "When a large tree falls, it can leave a gap overhead. More sunlight reaches the ground through that opening.",
+        "imageBrief": "A naturally fallen trunk lies beside a new opening in the canopy. No people nearby, no storm danger; remaining trees keep their positions; bright patch directly below the gap.",
+        "imageAlt": "A naturally fallen trunk lies beside a new opening in the canopy.",
+        "pageDescription": "A naturally fallen trunk lies beside a new opening in the canopy.",
+        "state": "No people nearby, no storm danger; remaining trees keep their positions; bright patch directly below the gap.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 9,
+        "text": "Young trees in the gap may grow faster with more light. As branches fill the space, shade can return below.",
+        "imageBrief": "New young trees rise beside the same fallen trunk as the gap narrows. Time has passed; recognizable trunk now decaying slightly, not instant growth or all species responding equally.",
+        "imageAlt": "New young trees rise beside the same fallen trunk as the gap narrows.",
+        "pageDescription": "New young trees rise beside the same fallen trunk as the gap narrows.",
+        "state": "Time has passed; recognizable trunk now decaying slightly, not instant growth or all species responding equally.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 10,
+        "text": "The rainforest changes from bright treetops to shaded ground. Where light reaches leaves helps shape what can grow and feed there.",
+        "imageBrief": "Return to the full forest section with toucan above and young plants below. One connected habitat, same trees and species; gap partly filled, clear light difference without invented numerical percentages.",
+        "imageAlt": "Return to the full forest section with toucan above and young plants below.",
+        "pageDescription": "Return to the full forest section with toucan above and young plants below.",
+        "state": "One connected habitat, same trees and species; gap partly filled, clear light difference without invented numerical percentages.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What can change for a young tree when a tall tree falls nearby?",
+        "listenFor": "A gap can let more light reach it, which may help it grow."
+      },
+      "visual": {
+        "page": 8,
+        "prompt": "Why is this patch of ground brighter?",
+        "lookFor": "The fallen tree left an opening in the canopy."
+      }
+    },
+    "levelRationale": "Candidate E: Follow sunlight through a tropical canopy, connect leaf food-making with animals, then show shade and a changing canopy gap. The connected explanation uses concrete clauses and supported topic words. Independent placement and media review remain pending.",
+    "languagePrep": [
+      {
+        "word": "canopy",
+        "meaning": "the leafy layer formed by tree crowns"
+      },
+      {
+        "word": "absorb",
+        "meaning": "take in"
+      },
+      {
+        "word": "gap",
+        "meaning": "an opening between things"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-e-29",
+    "number": 29,
+    "title": "One Shirt, Two Washdays",
+    "topic": "everyday knowledge",
+    "type": "nonfiction",
+    "appLevel": "E",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "Which jobs stay the same when washing tools change?",
+      "progression": "Compare an illustrative washboard-and-hand-wringer demonstration with a later automatic wash of the same shirt.",
+      "synthesis": "Rubbing or tumbling cleans cloth, rinsing removes wash water, and wringing or spinning removes extra water.",
+      "scienceSources": [
+        {
+          "title": "Museum Wales: Washboard, F79.198",
+          "url": "https://museum.wales/collections/online/object/48a6505c-c618-3bf7-a926-6fb2233ae223/Washboard/",
+          "evidence": "Catalog describes a five-slat ribbed wooden board with two rubber wringer rollers, handle and tray. No manufacture date is asserted."
+        },
+        {
+          "title": "Museum Wales: Washday Virtual Workshop",
+          "url": "https://museum.wales/learn/activity/579/Washday-Virtual-Workshop/",
+          "evidence": "The museum teaches earlier washing through washtub, washboard and mangle use; the manuscript demonstration is original, not a reported museum event."
+        },
+        {
+          "title": "Science Museum Group: Duomatic Twin Tub Washing Machine",
+          "url": "https://collection.sciencemuseumgroup.org.uk/objects/co8414764/duomatic-twin-tub-washing-machine",
+          "evidence": "Historical context documents soaking, scrubbing and wringing, and later mechanical washing and spinning without a universal then/now claim."
+        },
+        {
+          "title": "Whirlpool: How Does a Washing Machine Work?",
+          "url": "https://www.whirlpool.com/blog/washers-and-dryers/how-does-a-washing-machine-work.html",
+          "evidence": "Automatic washers wash, rinse, drain and spin to remove remaining water. The book depicts an unbranded front loader, not the historical twin tub."
+        }
+      ]
+    },
+    "setting": "An original present-day demonstration informed by Museum Wales object F79.198 and its washday teaching collection; not a claim that a specific visitor demonstration happened. Board model: wooden frame with five ribbed horizontal slats, two rubber wringer rollers on top, hand crank and drainage tray. Adult wears plain teal shirt and navy pants, no period costume. Same plain yellow cotton shirt with one blue square pocket throughout; later day clearly stated. Children observe only, no hands near rollers or machine.",
+    "props": [
+      "Replica-style washboard and hand-cranked wringer based on Museum Wales F79.198",
+      "Wash and rinse tubs",
+      "Plain modern front-loading washer",
+      "Same yellow cotton shirt with blue pocket"
+    ],
+    "coverBrief": "The yellow shirt hangs between a washboard with a hand-cranked wringer and a modern front-loading washer.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "A museum washboard helps us explore an older way to wash. Its ridged board and hand-turned rollers each have a job.",
+        "imageBrief": "A washboard with its top wringer stands beside two tubs in a teaching space. Five horizontal ribbed slats, two rubber rollers and one crank, based on Museum Wales object F79.198; no invented date label.",
+        "imageAlt": "A washboard with its top wringer stands beside two tubs in a teaching space.",
+        "pageDescription": "A washboard with its top wringer stands beside two tubs in a teaching space.",
+        "state": "Five horizontal ribbed slats, two rubber rollers and one crank, based on Museum Wales object F79.198; no invented date label.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "In our demonstration, an adult washes a yellow shirt with water and soap. The cloth moves against the board's ridges.",
+        "imageBrief": "The adult rubs the yellow shirt gently against the washboard in a tub. One blue pocket identifies the shirt; adult in modern clothes, sleeves clear of water; no boiling water.",
+        "imageAlt": "The adult rubs the yellow shirt gently against the washboard in a tub.",
+        "pageDescription": "The adult rubs the yellow shirt gently against the washboard in a tub.",
+        "state": "One blue pocket identifies the shirt; adult in modern clothes, sleeves clear of water; no boiling water.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "The rubbing helps loosen dirt from the cloth. Clean rinse water then carries away soap and loosened dirt.",
+        "imageBrief": "The adult lifts the shirt into the separate rinse tub. Same shirt now cleaner; first tub remains separate, no claim one quick dip removes every trace of soap.",
+        "imageAlt": "The adult lifts the shirt into the separate rinse tub.",
+        "pageDescription": "The adult lifts the shirt into the separate rinse tub.",
+        "state": "Same shirt now cleaner; first tub remains separate, no claim one quick dip removes every trace of soap.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Next, the adult turns the wringer's handle. Its two rollers squeeze extra water from the wet shirt.",
+        "imageBrief": "The shirt feeds between two rollers as the adult turns the side crank. Hands stay away from roller nip; water drains into tray and tub; no child operates the wringer.",
+        "imageAlt": "The shirt feeds between two rollers as the adult turns the side crank.",
+        "pageDescription": "The shirt feeds between two rollers as the adult turns the side crank.",
+        "state": "Hands stay away from roller nip; water drains into tray and tub; no child operates the wringer.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "The shirt is still damp after wringing. It goes on a line to dry before someone wears it again.",
+        "imageBrief": "The clean yellow shirt hangs from two pegs on a line. Same blue pocket, damp fabric, no water stream; plain modern teaching courtyard.",
+        "imageAlt": "The clean yellow shirt hangs from two pegs on a line.",
+        "pageDescription": "The clean yellow shirt hangs from two pegs on a line.",
+        "state": "Same blue pocket, damp fabric, no water stream; plain modern teaching courtyard.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "On a later washday, the same shirt goes into an automatic washer. This time, a motor does much of the moving.",
+        "imageBrief": "The adult loads the now-dirty shirt into a front-loading washer. Door open only while stopped; same blue pocket; later day, no duplicate shirt or magical immediate redirtying.",
+        "imageAlt": "The adult loads the now-dirty shirt into a front-loading washer.",
+        "pageDescription": "The adult loads the now-dirty shirt into a front-loading washer.",
+        "state": "Door open only while stopped; same blue pocket; later day, no duplicate shirt or magical immediate redirtying.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Inside, the drum turns the clothes through water and detergent. This movement helps clean them without rubbing each piece by hand.",
+        "imageBrief": "A teaching cutaway shows the closed drum tumbling the yellow shirt. Low water level and gentle foam; door closed, no hands inside; no complete drum filled to the top.",
+        "imageAlt": "A teaching cutaway shows the closed drum tumbling the yellow shirt.",
+        "pageDescription": "A teaching cutaway shows the closed drum tumbling the yellow shirt.",
+        "state": "Low water level and gentle foam; door closed, no hands inside; no complete drum filled to the top.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 8,
+        "text": "The machine rinses the clothes and drains the water. Then a fast spin removes much of the water left in the cloth.",
+        "imageBrief": "The closed washer moves from a rinse diagram to a spinning drum diagram. Two simple stages; water exits through drainage, shirt remains inside; spin is not heated drying.",
+        "imageAlt": "The closed washer moves from a rinse diagram to a spinning drum diagram.",
+        "pageDescription": "The closed washer moves from a rinse diagram to a spinning drum diagram.",
+        "state": "Two simple stages; water exits through drainage, shirt remains inside; spin is not heated drying.",
+        "embeddedImageText": "",
+        "imageLayout": "comparison-diagram"
+      },
+      {
+        "pageNumber": 9,
+        "text": "The shirt still needs to dry. The tools have changed, but cleaning, rinsing and removing extra water remain part of washday.",
+        "imageBrief": "The adult hangs the same damp yellow shirt on the line again. Same two pegs and blue pocket, machine visible through doorway, no claim it came out fully dry.",
+        "imageAlt": "The adult hangs the same damp yellow shirt on the line again.",
+        "pageDescription": "The adult hangs the same damp yellow shirt on the line again.",
+        "state": "Same two pegs and blue pocket, machine visible through doorway, no claim it came out fully dry.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 10,
+        "text": "This is one comparison of two methods. People still wash in different ways, using the water, tools and power available to them.",
+        "imageBrief": "The washboard and washer stand beside the clean dry shirt in the teaching display. Modern neutral setting; no ranking of people or suggestion everyone once or now uses the same method.",
+        "imageAlt": "The washboard and washer stand beside the clean dry shirt in the teaching display.",
+        "pageDescription": "The washboard and washer stand beside the clean dry shirt in the teaching display.",
+        "state": "Modern neutral setting; no ranking of people or suggestion everyone once or now uses the same method.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Which jobs happen in both methods?",
+        "listenFor": "Cleaning, rinsing and removing extra water, followed by drying."
+      },
+      "visual": {
+        "page": 4,
+        "prompt": "What makes the rollers turn in this method?",
+        "lookFor": "The adult turns the handle by hand."
+      }
+    },
+    "levelRationale": "Candidate E: Compare an illustrative washboard-and-hand-wringer demonstration with a later automatic wash of the same shirt. The connected explanation uses concrete clauses and supported topic words. Independent placement and media review remain pending.",
+    "languagePrep": [
+      {
+        "word": "wringer",
+        "meaning": "two rollers that squeeze water from wet cloth"
+      },
+      {
+        "word": "rinse",
+        "meaning": "wash with clean water to carry soap away"
+      },
+      {
+        "word": "drum",
+        "meaning": "the round part inside a washer that holds the clothes"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-e-30",
+    "number": 30,
+    "title": "When a Reef Gets Too Warm",
+    "topic": "space and environment",
+    "type": "nonfiction",
+    "appLevel": "E",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "Why can warm water turn a living coral pale or white?",
+      "progression": "Connect coral animals and algae, heat stress, algae loss, visible white skeleton and conditional recovery.",
+      "synthesis": "Bleaching shows a stressed partnership; some coral can recover if conditions improve, while prolonged stress can kill it.",
+      "scienceSources": [
+        {
+          "title": "NOAA: What Is Coral Bleaching?",
+          "url": "https://oceanservice.noaa.gov/facts/coral_bleach.html",
+          "evidence": "Heat can cause algae loss, bleaching and increased risk of death; a bleached coral can still be alive and may recover."
+        },
+        {
+          "title": "NOAA Corals Tutorial: What Is Zooxanthellae?",
+          "url": "https://oceanservice.noaa.gov/education/tutorial_corals/coral02_zooxanthellae.html",
+          "evidence": "Coral animals host photosynthetic algae in tissue; algae share nutrients and give color; prolonged loss can cause starvation."
+        },
+        {
+          "title": "NOAA Coral Disease and Health Consortium: Discolored Tissue and Bleaching",
+          "url": "https://cdhc.noaa.gov/coral-disease/characterized-diseases/discolored-tissue-and-bleaching-2/",
+          "evidence": "White skeleton is visible through translucent tissue during bleaching; severity and recovery vary."
+        }
+      ]
+    },
+    "setting": "One shallow tropical reef and a single rounded tan reef-building coral colony. Simplified polyp diagram has translucent living tissue over a white calcium-carbonate skeleton, algae inside tissue cells. No implication that all corals have algae or all bleaching is heat-caused. Warmth shown as a restrained teaching tint, not boiling water.",
+    "props": [
+      "Same rounded tan coral colony",
+      "Magnified coral polyp and tiny golden-brown algae symbols",
+      "White coral skeleton beneath translucent tissue"
+    ],
+    "coverBrief": "A reef coral appears partly pale beside a magnified polyp showing the tiny algae within its tissue.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "This coral looks like a rocky mound, but tiny animals cover its surface. They are called coral polyps.",
+        "imageBrief": "A rounded tan coral colony sits in clear shallow seawater. Small polyp openings visible, firmly attached colony; no plant leaves, smiling faces or mammal features.",
+        "imageAlt": "A rounded tan coral colony sits in clear shallow seawater.",
+        "pageDescription": "A rounded tan coral colony sits in clear shallow seawater.",
+        "state": "Small polyp openings visible, firmly attached colony; no plant leaves, smiling faces or mammal features.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "The polyps make a hard skeleton beneath their living tissue. Tiny algae live inside that tissue in many reef-building corals.",
+        "imageBrief": "A magnified coral polyp shows tissue over a white skeleton. Algae symbols inside tissue cells, not loose grass on the outside; skeleton below, not replacing living tissue.",
+        "imageAlt": "A magnified coral polyp shows tissue over a white skeleton.",
+        "pageDescription": "A magnified coral polyp shows tissue over a white skeleton.",
+        "state": "Algae symbols inside tissue cells, not loose grass on the outside; skeleton below, not replacing living tissue.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 3,
+        "text": "The algae use sunlight to make food. They share some with the coral, which gives them a protected place to live.",
+        "imageBrief": "Light reaches algae inside the polyp and small food symbols pass to coral tissue. Mutual relationship, no large food chunks or literal mouths on algae; tissue remains intact.",
+        "imageAlt": "Light reaches algae inside the polyp and small food symbols pass to coral tissue.",
+        "pageDescription": "Light reaches algae inside the polyp and small food symbols pass to coral tissue.",
+        "state": "Mutual relationship, no large food chunks or literal mouths on algae; tissue remains intact.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 4,
+        "text": "These algae also give much of the coral its color. Food from the algae helps this coral grow.",
+        "imageBrief": "The tan colony appears beside the same close-up with many algae. Natural tan color, golden-brown microscopic symbols only in the enlarged inset; not fluorescent fantasy coral.",
+        "imageAlt": "The tan colony appears beside the same close-up with many algae.",
+        "pageDescription": "The tan colony appears beside the same close-up with many algae.",
+        "state": "Natural tan color, golden-brown microscopic symbols only in the enlarged inset; not fluorescent fantasy coral.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 5,
+        "text": "If the surrounding water stays too warm, the coral can become stressed. Then it may lose its algae.",
+        "imageBrief": "The same colony sits in water with a restrained warmth indicator. No invented temperature threshold, steam or boiling; intact colony begins to look slightly paler.",
+        "imageAlt": "The same colony sits in water with a restrained warmth indicator.",
+        "pageDescription": "The same colony sits in water with a restrained warmth indicator.",
+        "state": "No invented temperature threshold, steam or boiling; intact colony begins to look slightly paler.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "The coral loses many of its algae. With fewer algae inside, its living tissue becomes much less colorful.",
+        "imageBrief": "A magnified polyp contains fewer algae while some small symbols leave its tissue. Tissue still present and alive; algae loss is microscopic, not a cloud of large colored pellets.",
+        "imageAlt": "A magnified polyp contains fewer algae while some small symbols leave its tissue.",
+        "pageDescription": "A magnified polyp contains fewer algae while some small symbols leave its tissue.",
+        "state": "Tissue still present and alive; algae loss is microscopic, not a cloud of large colored pellets.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 7,
+        "text": "The white skeleton shows through the pale tissue. This change is called bleaching. A bleached coral is not necessarily dead.",
+        "imageBrief": "The same colony now appears white, with a close view of translucent tissue. White skeleton visible through living tissue; preserve colony shape, no bones emerging or tissue entirely absent.",
+        "imageAlt": "The same colony now appears white, with a close view of translucent tissue.",
+        "pageDescription": "The same colony now appears white, with a close view of translucent tissue.",
+        "state": "White skeleton visible through living tissue; preserve colony shape, no bones emerging or tissue entirely absent.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 8,
+        "text": "Without enough algae, the coral loses a major food supply. If the stress lasts too long, the coral can die.",
+        "imageBrief": "The pale polyp has very few food symbols arriving from remaining algae. No claim algae are coral’s only food; restrained non-graphic view, no guaranteed outcome from one pale patch.",
+        "imageAlt": "The pale polyp has very few food symbols arriving from remaining algae.",
+        "pageDescription": "The pale polyp has very few food symbols arriving from remaining algae.",
+        "state": "No claim algae are coral’s only food; restrained non-graphic view, no guaranteed outcome from one pale patch.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 9,
+        "text": "If conditions improve in time, algae can increase again. Some corals recover their color and continue growing.",
+        "imageBrief": "A comparison shows one possible recovery as algae and tan color return. Explicit possible outcome in composition; not a guaranteed timeline or instant full-reef recovery.",
+        "imageAlt": "A comparison shows one possible recovery as algae and tan color return.",
+        "pageDescription": "A comparison shows one possible recovery as algae and tan color return.",
+        "state": "Explicit possible outcome in composition; not a guaranteed timeline or instant full-reef recovery.",
+        "embeddedImageText": "",
+        "imageLayout": "comparison-diagram"
+      },
+      {
+        "pageNumber": 10,
+        "text": "Warm water can make this coral lose algae and turn white. If the heat eases, the living coral may recover.",
+        "imageBrief": "A researcher observes the same partly recovering colony without touching it. Plain dive equipment, no national flags; some pale tissue remains, no claim a single visit cures the reef.",
+        "imageAlt": "A researcher observes the same partly recovering colony without touching it.",
+        "pageDescription": "A researcher observes the same partly recovering colony without touching it.",
+        "state": "Plain dive equipment, no national flags; some pale tissue remains, no claim a single visit cures the reef.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why does bleaching not always mean that coral is dead?",
+        "listenFor": "Its tissue can still be alive, and some coral recovers if conditions improve."
+      },
+      "visual": {
+        "page": 7,
+        "prompt": "What makes the coral look white?",
+        "lookFor": "The white skeleton shows through pale living tissue."
+      }
+    },
+    "levelRationale": "Candidate E: Connect coral animals and algae, heat stress, algae loss, visible white skeleton and conditional recovery. The connected explanation uses concrete clauses and supported topic words. Independent placement and media review remain pending.",
+    "languagePrep": [
+      {
+        "word": "polyp",
+        "meaning": "one of the tiny animals that makes up a coral colony"
+      },
+      {
+        "word": "algae",
+        "meaning": "small living things that can use light to make food"
+      },
+      {
+        "word": "bleaching",
+        "meaning": "the paling of coral when its algae or their color are lost"
+      }
+    ],
+    "coverImageLayout": "integrated-diagram",
+    "coverEmbeddedImageText": ""
+  }
+]

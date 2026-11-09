@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-27",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:44:44.563Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-da6bd794-381d-4d34-9399-7e760974f59d.png",
+  "sourceSha256": "2aae6fdb8bdd514d7240c75cf32eb2049c0e5e197e0a6f30bb49f88e25af4a39",
+  "output": "public/guided-reading/world-discovery/a-27/page-06.webp",
+  "outputSha256": "aed2535232c852881a5f3bc9319c829944437e7fe9f597fa7b1512d064370f64",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Make this exact one connected popped popcorn piece 78% of its current size centered on the same landscape3:2 canvas, extending only the plain warm cream background. Its highest lobe starts near y170 and bottom brown point ends near y850 on1024-highcanvas. Preserve its joined cream lobes, attached golden hull fragments and brown pointed base precisely. No other object, arrow, diagram box or writing. Crisp smooth flat colors. A slight zoom-out only.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-6870d075-fb55-41fe-a123-469fa2fa41a1.png",
+      "sha256": "ae1bfb4c152995fdd2d0968dc1bd5fdfb05eb1206b86ff8a6f2b2ad92e4eb251"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "54df5f6be0ca6e59f447c22d2431c43d463a335ffaf26ebbf520c3a8450a76f2",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "aed2535232c852881a5f3bc9319c829944437e7fe9f597fa7b1512d064370f64",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T07:44:44.564Z",
+    "note": "Directly inspected: single connected cream expanded piece with irregular lobes, small golden hull fragments attached near brown base. No loose pieces/extra stage; whole silhouette inset about17–19% vertically."
+  }
+}

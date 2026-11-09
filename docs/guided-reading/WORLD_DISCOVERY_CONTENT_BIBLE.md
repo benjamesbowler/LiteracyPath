@@ -1,16 +1,24 @@
 # World Discovery
 
-Status: both fifty-book cohorts are registered, for 100 books. Current text and
+Status: all three fifty-book cohorts are registered and active in the local
+source catalogue, for 150 World Discovery books. Cohort `21-30` adds 50 nonfiction
+books; the complete local Guided Reading runtime now contains 447 books,
+including 217 nonfiction. These are local registration counts, not a claim of
+production deployment or completed release verification. Current text and
 media fingerprints are enforced by the release checks below. The original
 fifty-book source and media remain immutable. Registration and publication are
 separate: full app, release and live-deployment verification remain required. The
 [cohort registration contract](WORLD_DISCOVERY_COHORT_REGISTRATION.md) owns
 expansion paths, immutable-original checks and activation mechanics.
 
-The collection has 100 original books: twenty each at public App levels
-A, B, C, D and E. Each ten-book cohort contains identity, relationships, community, fantasy,
-geography, space, animals, life cycles, classification and caring for our world.
-Fantasy is explicitly fiction. Information books use connected inquiries and
+The locally registered collection has thirty books at each public App level
+A, B, C, D and E. The first 100 books, in cohorts `01-10` and `11-20`, retain the original ten strands:
+identity, relationships, community, fantasy, geography, space, animals, life cycles,
+classification and caring for our world. Fantasy is explicitly fiction.
+The fifty books in `21-30` are all nonfiction and add ten books at each A–E level. Their
+explicit `nonfiction-discovery` topic profile broadens coverage; it does not
+reclassify the original books or permit a repeated inquiry with a new title.
+Information books use connected inquiries and
 checked factual sources. These are predictable/levelled readers, not cumulative
 decodables; interest ages 4–8 are separate from text complexity.
 
@@ -30,8 +38,8 @@ cover and a distinct illustration for every page. Full sequences require visual
 review against their text before publication. Generated media is not approval.
 
 Original IDs are `world-discovery-a-01` through `world-discovery-e-10`.
-Expansion IDs run from 11 through 20 in each public band, forming one additional
-ten-strand cohort. The final digit cycle refers to the ten strands above;
+Expansion IDs run from 11 through 20 in the second cohort and 21 through 30 in the
+third. The number within each cohort selects its declared profile's strand;
 every book still needs a distinct original story or connected inquiry. Image paths are
 `/guided-reading/world-discovery/a-01/cover.webp` and `page-01.webp`, etc.
 
@@ -41,6 +49,44 @@ per page), B internal B (maximum 14), and C–E internal C standard (maximum 22)
 Higher public bands come from actual syntax, concept relationships, sustained
 meaning and inference, not inflated word counts or a copied requested letter.
 Full-text independent calibration must confirm each requested band.
+
+## Fifty additional nonfiction books: cohort 21–30
+
+`src/data/worldDiscoveryTopicProfiles.js` is the shared topic/type authority used
+by the cohort contract and all source validation. The `21-30` manifest row must
+declare `topicProfile: "nonfiction-discovery"`; no profile is inferred from a
+folder name or a book's own claimed topic. All fifty `type` and
+`storyBibleReview.kind` values must be `nonfiction`.
+
+| Number at each A–E level | Exact topic |
+| --- | --- |
+| 21 | transport |
+| 22 | geography |
+| 23 | human body |
+| 24 | weather and earth |
+| 25 | physics and engineering |
+| 26 | technology |
+| 27 | food and making |
+| 28 | animals and habitats |
+| 29 | everyday knowledge |
+| 30 | space and environment |
+
+Each book needs a distinct, concrete inquiry appropriate to its actual reading
+level, with checked primary factual sources and complete illustration/narration
+production. The original cast, neutral-setting restrictions, language limits,
+independent calibration, complete-book review and all release gates below remain
+unchanged. Broader human geography topics must respect those setting restrictions
+unless the user explicitly changes this authority. Existing subjects may supply
+background, but the main inquiry must fill a documented gap or add a materially
+new explanation. A transit overview, for example, must not be a renamed version
+of the existing bicycle-brake or canal-lock books.
+
+Canonical sources are in `src/content/world-discovery/cohorts/21-30/`, with five
+level JSON files and an independent `reviews.json`. The local registration in
+`src/content/world-discovery/registrations/21-30.json` binds their current source,
+review and media evidence, and the generated cohort module imports them.
+Registration does not establish production visibility; release and live checks
+remain separate requirements.
 
 ## Original cast and world lock
 
@@ -71,7 +117,7 @@ problem. Name the rule and persistent prop state in the manuscript metadata.
 ## Required per-book source fields
 
 Each JSON array entry contains `id`, `number` (1–10 for the original set;
-11–20 for the declared expansion cohort), `title`, `topic`, `type`
+11–20 or 21–30 for the declared expansion cohorts), `title`, `topic`, `type`
 (`fiction` or `nonfiction`), `appLevel`, `level`, `readingBandProfile`,
 `readingMode`, `interestAge`, `storyBibleReview`, `setting`, `props`,
 `coverBrief`, `pages`, `discussion`, `levelRationale`, and `languagePrep`.
@@ -89,7 +135,10 @@ they must not simply repeat prose. Optional `imageLayout` is `scene` (the defaul
 the explanatory cutaway, inset, views or stages explicitly specified in its
 brief; it never permits a contact sheet or unrequested panels. Only the exact
 nonempty `embeddedImageText` may appear as lettering; otherwise art contains no
-text. References and covers always contain no text. The production pipeline adds common style
+text. Optional `coverImageLayout` uses the same three layout values and permits
+only the explanatory elements explicitly described in `coverBrief`. References
+and covers always contain no text; cover diagrams do not relax that restriction.
+The production pipeline adds common style
 and cast references. Discussion has `oral: {prompt, listenFor}` and
 `visual: {page, prompt, lookFor}`. No scored quizzes. `languagePrep` contains a
 few `{word, meaning}` entries for oral support, never a decoding claim.
@@ -105,9 +154,9 @@ accurately; do not claim human listening, classroom or physical-device checks.
 
 ## Current implementation and evidence
 
-The 100 books contain 880 reading pages and 100 covers, with 100 separate
-library-card renditions. World Discovery is a named child-library collection;
-public App levels A–E each contain twenty of its books. Teacher browsing, preview,
+The 150 locally registered books contain 1,320 reading pages and 150 covers,
+with 150 separate library-card renditions. World Discovery is a named child-library
+collection; public App levels A–E each contain thirty of its books locally. Teacher browsing, preview,
 class reading, word help and oral/visual discussion use the existing reader.
 
 `source-art/world-discovery` retains the locked cast, per-book reference boards,
@@ -130,6 +179,15 @@ bindings. The isolated word `lends` retains a documented recognition ambiguity;
 the report preserves the failed negative acoustic control and makes no certified
 auditory-identity or human-listening claim. Reported defects remain blocking.
 
+The third cohort's canonical source and reviews are in
+`src/content/world-discovery/cohorts/21-30/`. Its local registration binds 50 books,
+440 reading pages, 490 final illustrations, 50 card renditions and 51 reference
+assets. Its 1,829 consumed audio files comprise 1,074 screened clips and 755 exact
+prior-evidence reuses. The source-art receipts retain direct image inspections
+and independent sequence reviews; narration screening is automated evidence,
+not human listening. This records cohort-local evidence, not completion of the
+remaining global, browser or deployment checks.
+
 Run `npm run check:world-discovery` for the exact currently registered release contract
 and `npm run test:world-discovery` for all pages, narration, word help,
 completion, library order, public-level filters, classroom controls and the
@@ -138,3 +196,7 @@ checks remain required. Task-specific rendered, regression and live-deployment
 evidence is retained under ignored `.artifacts/world-discovery/`.
 Expansion production and verification evidence belongs under
 `.artifacts/world-discovery-expansion/`; original evidence is retained unchanged.
+The nonfiction cohort's production, integration and topic-coverage evidence is
+under `.artifacts/nonfiction-next-50/`; its `topics/` audit distinguishes the 167
+baseline nonfiction books from the 50 additions and records 27 remaining subject
+areas with 108 specific inquiry opportunities.

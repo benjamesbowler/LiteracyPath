@@ -1,0 +1,28 @@
+{
+  "bookId": "world-discovery-e-22",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:03:19.179Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-a89e5383-d891-423f-b960-0c21ca14f690.png",
+  "sourceSha256": "fd5b1387b3a7ef914f5a59c7270eb764d0c6f60d6d3ab27b5f12b8a031f35b3a",
+  "output": "source-art/world-discovery/e-22-reference.webp",
+  "outputSha256": "172548db2bfe23621971ad50050336ebb46b8c078d160f10725fc069d806952a",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. Production reference board for World Discovery nonfiction book City, Town or Village? Landscape 1536x1024. Bold clean clear 2D children's cartoon, crisp continuous dark outlines, FLAT smooth clean colors with at most restrained cel shading; no painted, grainy or paper texture, no 3D. On white, three large separated UNLETTERED ordinary-place design panels, each comfortably inset. LEFT: Wells, a small English city represented by ordinary warm pale-stone two-storey homes with simple pitched roofs and a small shop on a quiet paved street. No railway. MIDDLE: Reading, a busy English town represented by modern red-brick and glass office blocks and a plain low contemporary station, a teal passenger train on straight separate railway tracks behind a fence and one blue bus on an adjacent ROAD. Distinct safe pavements; road and rail never merge. RIGHT: Lacock village, a quiet connected street of modest pale stone cottages and one black timber-framed cream cottage, muted terracotta pitched roofs and a simple shop window displaying groceries without signage. All are explanatory generic ordinary architecture, NOT claimed literal landmark or specific street replicas. Consistent palette across the three places. No humans needed in this reference. The panels establish design references for later pages only. Absolutely NO religious buildings, towers/steeples, crosses or other religious symbols; no flags, crests, crowns, ceremonial scenes, logos or branded items. Absolutely NO lettering, place names, labels, numbers, captions or pseudo-writing anywhere. No map in this reference board; the accurate locator is a separate supporting reference for final page1. Essential features at least 12 percent inside outer edges.",
+  "references": [],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "2aff8b9432244a41072eb7c7376c77e21594d83a655dfa83d99e44c528e86755",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "172548db2bfe23621971ad50050336ebb46b8c078d160f10725fc069d806952a",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T12:03:19.189Z",
+    "note": "Directly inspected native unlettered three-panel design reference. Ordinary Wells stone houses/shop, Reading office/station and separate bus-road/train-rail areas, Lacock stone and timber-framed homes/shop. No religious architecture, flags, cast or lettering. Final pages must compose new scenes and enforce safe margins; this is a design board only."
+  }
+}

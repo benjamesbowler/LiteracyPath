@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-c-21",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:04:03.497Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-19d39017-57c5-4333-998d-a83ef7d86ef0.png",
+  "sourceSha256": "4856a655774ed6ed707ddc5ede6f6eb7155e4d1902ebb4373e3464d7f2fff340",
+  "output": "public/guided-reading/world-discovery/c-21/cover.webp",
+  "outputSha256": "5dfec6cba9cfb1c4fda684e1ac86a6bbd53eaa0146f6e597c90502d9b2017740",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use attached reference only for identity: Kit, a six-year-old boy with light-medium golden skin, short side-parted black hair, teal tee, mustard shorts, navy sneakers; his adult guardian has short black hair, medium golden skin, navy shirt, gray trousers. One blue wheeled suitcase has ONE broad orange diagonal stripe from lower left to upper right, black top and side handles and a plain white route tag secured to the TOP handle. Unbranded white narrow-body jet with teal vertical tail. Airport baggage-claim hall. Kit and guardian stand safely on floor behind a silver/black baggage carousel, observing the striped bag on the approaching belt. A distant small white teal-tail plane is visible through broad rear windows. One bag only, no hands touching belt. Both people naturally relaxed and clear. Entirely unlettered cover. Landscape 3:2, clean children's cartoon with crisp dark outlines and pure flat vector-like colors. No grain, paint, stipple, speckles, gradient or fuzzy texture. Pull back enough that all essential people, hands, bag, mechanism and plane fit within central 75 percent; entire heads and shoes visible. No captions, numbers, logos, flags, badges, labels or writing. Single continuous scene, never a reference board or collage. Only the listed scene contents appear.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/c-21-reference.webp",
+      "sha256": "7b43aa2de357cf3abba0e67409cbcec8f0ad0a190ad2eac801aaa542875d9e54"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "adafabd724e58b7f6c3e03af760b56ae0cdebf5dbdc7ec8e6a3d11c2e19a0ce2",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:06:02.006069+00:00",
+    "sha256": "5dfec6cba9cfb1c4fda684e1ac86a6bbd53eaa0146f6e597c90502d9b2017740",
+    "note": "Native and installed WebP directly inspected: Kit/guardian safely on public floor, exact tagged striped bag on carousel, whole figures and bag well inset, distant unbranded teal-tail jet.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

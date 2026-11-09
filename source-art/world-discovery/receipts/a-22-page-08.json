@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-22",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:25:34.297Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-565a6d5d-9f29-44da-b683-f039f5dcda2d.png",
+  "sourceSha256": "4f2ce0ccd366cb2b1377107f3881e7703d3b79329395ddb8ad8b84597164b3a4",
+  "output": "public/guided-reading/world-discovery/a-22/page-08.webp",
+  "outputSha256": "273a1ed4f271ea425c9dbe5a34b6650ea910a4daee49c5fedc70e2510403888c",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Make this same illustration slightly smaller on the same landscape3:2 canvas: scale the complete child, globe and table group to85% of its current size, centered vertically, extending only existing plain cream wall and blue-gray floor around it. Top of black hair around y130 and bottom of shoes around y890 on1024-highcanvas. Preserve all geography, continental colors, globe rotation and tilted axle, hand pose, clothing and table. Remove the added bookshelf, plant and chalkboard: the wall should be plain cream, matching all other pages. No other new props, no frame, no text, no texture. Small zoom-out only.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-b6d58d13-8ebe-428c-9b23-a34d559e3c38.png",
+      "sha256": "3aedda4b74c30da1042f05533ffe8da7f8283d6ecea56fa9b0b4405c738b2424"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "7fb9d0dad2e1f226cbad13b27e944537df495d6a4ae001fea7e1424f5a78d89a",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "273a1ed4f271ea425c9dbe5a34b6650ea910a4daee49c5fedc70e2510403888c",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T07:25:34.297Z",
+    "note": "Directly inspected native replacement: hair about 13.5% below the top and shoes about 14% above the bottom; one globe held by its base and frame, returning Americas view, cream wall and blue-gray floor. Added background fixtures were removed."
+  }
+}

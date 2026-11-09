@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-27",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T06:07:02.263Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-c9f3476d-f757-4b94-b1b1-54ce61af4a86.png",
+  "sourceSha256": "fb98ea554c842c7eea7ac625be65f6301c51d96e04e03770fa8cef61748b9a75",
+  "output": "public/guided-reading/world-discovery/e-27/cover.webp",
+  "outputSha256": "ad654b24aa9866d48353753cef9a29d589474e854d0d51b03784c4f5d5552086",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "One finished landscape 3:2 full-bleed nonfiction picture-book illustration. Clean crisp bold 2D cartoon outlines, flat smooth color fills with restrained cel shadows. No paper texture, grain, paint, 3D, gradients, lettering, digits, logos, watermarks, borders or page panels.\nExact instruction: Framing edit ONLY: reduce entire still-life arrangement to 75 percent current size about canvas center. Preserve the open cotton boll, pale-blue woven cloth swatch and four-button short-sleeved pointed-collar shirt exactly. All three complete objects must have at least 12 percent empty pale cream margin to each outer canvas edge. Retain clean crisp outlines, no new objects, labels, arrows or border.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-994abcc7-3b4f-4162-bab4-86460ac18084.png",
+      "sha256": "d76d71bdbbd62f5e8d0f2a44a1fb06be69d6a0b922e71c5e91d8d1da46e643f4"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "cbf57ed0e204379362a97b760486f24b628e65ad467026e2a078e7ecc3b4b28e",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
+    "sha256": "ad654b24aa9866d48353753cef9a29d589474e854d0d51b03784c4f5d5552086",
+    "note": "Cotton boll, plain-weave swatch and pale-blue short-sleeved shirt with four white buttons; unlettered spacious composition.",
+    "limits": "Individual installed WebP inspected. Independent whole-sequence, actual reader/card and audio approval are separate."
+  }
+}

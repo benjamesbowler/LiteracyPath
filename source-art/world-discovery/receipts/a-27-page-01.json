@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-27",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:31:11.882Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-a3f0cae8-2770-495e-b28c-49b57b0ca6d1.png",
+  "sourceSha256": "de052de6c657a37c37d05fe1e2e19ba9789213fb384fd9364ae80cb75952c9b2",
+  "output": "public/guided-reading/world-discovery/a-27/page-01.webp",
+  "outputSha256": "fee27f6c90ccac9256aad5c61f11da0d6d8644e5e4b74753554106f2a07a7ba0",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this landscape illustration. Zoom out by making the adult and all tabletop teaching objects 80% of their present size together, naturally extending the same kitchen and counter. The adult's hair starts near y145 and the bottom of the white bowl near y870 on the 1024-high canvas. Preserve one normal small intact golden popcorn kernel with a brown pointed base in the adult's open palm, cup of other raw kernels behind, closed unheated red machine, empty white bowl. No popped popcorn. Replace the entire power switch by a solid unmarked BLACK rounded rectangle: no red inset, no white I, no stripe, no glyph. Keep every object at least 12% inside the edges. Smooth flat clean colors, crisp outlines, no grain or writing.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-1d881a3c-30c3-4e4c-ace5-850d900a53bd.png",
+      "sha256": "440ab6058d30381696e72272bc524a3bc92fdc101c52cbf6a38c9134e761ccf7"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "54df5f6be0ca6e59f447c22d2431c43d463a335ffaf26ebbf520c3a8450a76f2",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "fee27f6c90ccac9256aad5c61f11da0d6d8644e5e4b74753554106f2a07a7ba0",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T07:31:11.883Z",
+    "note": "Directly inspected: one intact small golden kernel with brown base in adult's open palm; normal batch cup behind, empty receiving bowl, closed unheated popper with unlabelled black switch. Adult and all teaching props comfortably inset; clean flat surfaces."
+  }
+}

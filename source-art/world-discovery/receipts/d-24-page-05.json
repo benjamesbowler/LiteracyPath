@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-24",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T08:03:52.988Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-cd7717b5-f54b-4e94-89e8-437b1ec7cb1e.png",
+  "sourceSha256": "1fb7c1b7c84435ffa417ddf1bcb16d6381f779fa775107826db4ba4279597a44",
+  "output": "public/guided-reading/world-discovery/d-24/page-05.webp",
+  "outputSha256": "8541d8fc3929321ed9a934684c2731db1f4ff20ae6dc2df5933172b8d3d9a5b2",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Create the next integrated sea-breeze teaching page by editing the exact broad coastal scene supplied: sea LEFT, beach CENTER, grassy land RIGHT, same one sun/clouds, orange windsock mouth LEFT tail RIGHT, subtle blue cool-air and orange warm-air overlays. Preserve full framing and all geography. Keep arrows in the AIR above surfaces, never inside seawater. No new objects, texts, numbers, particles, labels or borders. Clean crisp outlined flat-color2D. Add ONLY ONE broad warm-orange/red white-outline arrow rising vertically UP over the land on the RIGHT (roughly x1160,y620 to x1160,y350). This indicates rising warm air. Entire arrow must be clearly visible with ample space around it and no contact with Sun/clouds. No horizontal airflow arrows yet. All sky remains full of air, no vacuum, solid wall or empty hole.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-c3f8af16-269a-4198-b762-8a4b880f0f80.png",
+      "sha256": "9a41240f3fb7596826e54ee0bcfa56ab39300a86bcbafec8e533b0d9d9171851"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "688f663f00d36542402967229cf6e98631f1d90b6bed074cce20a73f41dcd15c",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.516Z",
+    "sha256": "8541d8fc3929321ed9a934684c2731db1f4ff20ae6dc2df5933172b8d3d9a5b2",
+    "note": "Direct inspection: single upward warm-air arrow above land, no vacuum or solid air wall, stable coast and windsock.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

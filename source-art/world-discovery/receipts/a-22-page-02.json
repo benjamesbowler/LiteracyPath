@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-22",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:14:56.088Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-8ce2c724-3011-4a24-b8bf-54bb4884cf0b.png",
+  "sourceSha256": "ff44048c649faa1c69e9ecc056909b8efe0c1cffa07ffda405e7f6bc2f226316",
+  "output": "public/guided-reading/world-discovery/a-22/page-02.webp",
+  "outputSha256": "b952cc13a6dfbe46402d5b49830d9fcdef3eac25f769a451d43688e7f40be2e2",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit ONLY the floor color in this image: replace the tan room floor below the cream wall with flat muted blue-gray. Preserve every pixel-level composition and shape, all exact margins and sizes, Kit, table, globe and geography exactly unchanged. Clean flat full-bleed2D illustration; no grain, no new objects, no text. Floor color only.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-4377034c-112c-4cfa-b064-c12b9c108c70.png",
+      "sha256": "8ee07cc5c7a158cde3dc48fd5003916af7298331c2de7d5225c5c0659d93d328"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "7fb9d0dad2e1f226cbad13b27e944537df495d6a4ae001fea7e1424f5a78d89a",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "b952cc13a6dfbe46402d5b49830d9fcdef3eac25f769a451d43688e7f40be2e2",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T07:14:56.089Z",
+    "note": "Directly viewed final framing repair: floor-color-only repair preserves original safe margins, South America pointing and map geometry; muted blue-gray floor now agrees with sequence. No added text, extra globe or map-state change."
+  }
+}

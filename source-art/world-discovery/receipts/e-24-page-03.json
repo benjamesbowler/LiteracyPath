@@ -1,0 +1,35 @@
+{
+  "bookId": "world-discovery-e-24",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T14:09:31.671Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-b03b8320-8535-4254-a329-90bd212aa5e1.png",
+  "sourceSha256": "5c257218de66f3a7cbcb4233b8789a3581634e9b8bd030b1e01da18121d8e7fb",
+  "output": "public/guided-reading/world-discovery/e-24/page-03.webp",
+  "outputSha256": "eadf6dcccf87fee6e8c75b871f5758623cfedaeac94ad6ab8c809b850a9a4916",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Create one landscape1536x1024 early-reader earth-science illustration, UNLETTERED. Crisp continuous dark outlines, solidflat brown/gray colors, restrained flatcelshadows, no realistic texture, photo or 3D rendering. Warmcream background. One coherent diagram, not a referenceboard. All teaching shapes/arrows fully within central75percent, at least140pixels from everyedge. Use only RIGHT-HAND topview model fromreference. Draw a single TOP-DOWN PLAN VIEW of two solidrock blocks lying side-by-side in the horizontalgroundplane: onejoinedrectanglex360..1170,y270..750, leftWARMbrown,rightGRAYbrown. Thin straightVERTICALfaultseamatx768, contactcontinuous,noemptygap. One thinBLACKhorizontalmarkerstripe across BOTHblocks aty510, straightandalignedacrossseam. TWOorange motion arrows on thesurface, PARALLELtofault: LEFTblock arrow atx600points UPthepage fromy600toy380; RIGHTblockarrow atx930points DOWNthepage fromy380toy600. These showopposed SIDEWAYSsurface motion viewedfromABOVE, not verticalrise/fall. No perspectivefaces, verticalsteps, separation, detachedchunks,waves, lava, labels or additionalarrows. Correctsinglejoinedrectangle andtwooppositesurfacearrows, generouscream margin.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-cac7b5e8-456c-4205-b216-bbf4e4e0601b.png",
+      "sha256": "8f51e86988345103aac8be1eb56a2d898dd353ca342859610f4a018d7e370139"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "17528444f6f2269814e9707fa662c0af729daea3afd65b636b1b1d274c6dcea2",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:11:02.234Z",
+    "sha256": "eadf6dcccf87fee6e8c75b871f5758623cfedaeac94ad6ab8c809b850a9a4916",
+    "note": "Actual PNG and installed WebP inspected: top-down adjacent rock blocks, continuous aligned stripe, opposing arrows parallel to closed fault, no separating gap or vertical step, safely inset.",
+    "reviewer": "/root/gap_taxonomy",
+    "limits": "Individual installed image inspection; independent sequence, reader, cards and audio reviewed separately."
+  }
+}

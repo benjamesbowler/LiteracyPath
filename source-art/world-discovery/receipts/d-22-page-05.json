@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-22",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T06:29:40.253Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-717c6b97-59c1-4c43-8f37-21bd0afb3504.png",
+  "sourceSha256": "ed856fc5418242e06e7a2db02c5b568430c77bbe2c5b6af1b83a0858f871c665",
+  "output": "public/guided-reading/world-discovery/d-22/page-05.webp",
+  "outputSha256": "9050073a0d8e65d0f40ed548bc2d2bddd62db32f246d3ce6faa0e33edc63fc4b",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Make a framing-only adjustment to this exact classroom map illustration. Pull the camera back enough that BOTH children's entire figures including complete shoes sit at least 10 percent of canvas height ABOVE the bottom edge. Keep the whole map inside the frame with its existing correct single Caspian Sea, Black Sea, Red Sea, North Africa and continuous Europe/Asia boundary. Preserve all map shapes, colors and exact Europe/Asia labels without alteration. Preserve the children's poses, identities, clothing and equal height, the round empty table and room. Extend only the ordinary floor/walls naturally; no new objects or diagrams. No writing changes. Landscape 3:2, crisp flat cartoon, no grain.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-9d27511e-e29f-4eb6-87ff-7a3c38e45cd6.png",
+      "sha256": "0ae942189f2155ca1978b05b2496efe45b9e424c448a150f7eaeccd1b920dbee"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "fb0bd240fdf5f14fbd4f0ae2e2b112472e599d3754b28e979aad8f5f59410003",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.503Z",
+    "sha256": "9050073a0d8e65d0f40ed548bc2d2bddd62db32f246d3ce6faa0e33edc63fc4b",
+    "note": "Direct inspection against Natural Earth regional guide: connected Europe/Asia, real North Africa and Mediterranean/Black/Caspian/Red Seas, one Caspian only, exact two labels; both children and complete shoes now generously within safe margins.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

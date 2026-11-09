@@ -24,9 +24,10 @@ export function buildWorldDiscoveryImagePrompt(book, slot) {
   if (!/^(reference|cover|page-\d{2})$/.test(slot)) throw Error("Invalid image slot");
   const page = slot.startsWith("page-") ? book.pages.find(row => row.pageNumber === Number(slot.slice(5))) : null;
   if (slot.startsWith("page-") && !page) throw Error("Unknown page");
-  const layout = page?.imageLayout ?? "scene";
+  const layout = (slot === "cover" ? book.coverImageLayout : page?.imageLayout) ?? "scene";
   if (!["scene", "integrated-diagram", "comparison-diagram"].includes(layout)) throw Error("Invalid imageLayout");
-  const labels = page?.embeddedImageText?.trim() ? page.embeddedImageText : null;
+  const declaredLabels = page?.embeddedImageText;
+  const labels = declaredLabels?.trim() ? declaredLabels : null;
   const pageStyle = labels ? style.replace("No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders.", `No logos, watermarks or page borders. The ONLY permitted written content is the exact authored embeddedImageText: ${JSON.stringify(labels)}. Preserve its spelling and case; place it only as the illustration brief specifies. No additional text, letters, numbers, captions, pseudo-writing, legends or written title. Printed prose below is context only, never extra lettering.`) : style;
   const identities = book.storyBibleReview.canonIds.map(id => cast[id]).join(" ");
   const exclusion = !book.storyBibleReview.canonIds.length ? "No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects." : book.storyBibleReview.canonIds.length === 1 ? `The ONLY named human protagonist is ${book.storyBibleReview.canonIds[0] === "WD-ZOE" ? "Zoe. Kit MUST NOT appear" : "Kit. Zoe MUST NOT appear"}. Ignore every other child shown in reference sheets; unnamed adults may appear only when this scene explicitly requires them.` : "Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose.";
@@ -42,6 +43,7 @@ export function buildWorldDiscoveryImagePrompt(book, slot) {
     const ending = layout === "scene" ? "Do not add later events, duplicate props or a separate inset." : "Do not add events or stages beyond the authored diagram. Repeat a subject only when the authored comparison or cutaway requires it.";
     prompt = `Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, ${composition} ${base} Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. ${stateRule}\n${page ? `Page ${page.pageNumber}. Printed prose (NOT text to put in art): ${page.text}\nRequired illustration: ${page.imageBrief}\nExact current state: ${page.state}` : `Dedicated cover art: ${book.coverBrief}`}\n${ending} No written title; the app renders live text.`;
   }
+  if (slot === "reference") prompt += " Reference-sheet override: any lettering requested by the opening page brief belongs only in that finished page. Keep this production reference board entirely unlabelled; no letters, numbers or pseudo-writing.";
   return prompt;
 }
 export function imageJob(id, slot, sourceOptions = {}) {
@@ -55,7 +57,7 @@ export function imageJob(id, slot, sourceOptions = {}) {
     refs.push(p.sourceReference);
   }
   return { bookId: id, slot, prompt, referenced_image_paths: refs, transparent_background: false, target: p.target, receipt: p.receipt,
-    manuscriptSource: { directory: source.directory, sha256: source.manuscriptSha256, isolated: source.isolated, firstNumber: source.firstNumber, lastNumber: source.lastNumber } };
+    manuscriptSource: { directory: source.directory, sha256: source.manuscriptSha256, isolated: source.isolated, firstNumber: source.firstNumber, lastNumber: source.lastNumber, topicProfile: source.topicProfile } };
 }
 export async function install(id, slot, source, promptPath, replace = false, sourceOptions = {}) {
   const manuscript = readWorldDiscoverySource({ ...sourceOptions, bookId: id });
@@ -66,6 +68,7 @@ export async function install(id, slot, source, promptPath, replace = false, sou
   const job = fs.existsSync(jobFile) ? JSON.parse(fs.readFileSync(jobFile)) : null;
   if (manuscript.isolated && (job?.bookId !== id || job?.slot !== slot
     || job?.manuscriptSource?.sha256 !== manuscript.manuscriptSha256
+    || (job?.manuscriptSource?.topicProfile ?? "original") !== manuscript.topicProfile
     || job?.prompt !== fs.readFileSync(promptPath, "utf8"))) throw Error("Isolated image job does not match the current manuscript, slot and exact prompt");
   const bytes = fs.readFileSync(source), metadata = await sharp(bytes).metadata();
   if (metadata.width < 1000 || metadata.height < 650) throw Error("Source resolution below book illustration requirement");
@@ -95,5 +98,5 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
     console.log(JSON.stringify({ ...job, promptFile }));
   }
   else if (action === "install" && positional.length === 5) console.log(JSON.stringify(await install(id, slot, source, promptPath, replace, options)));
-  else throw Error("Usage: worldDiscoveryImageJobs.mjs job ID SLOT | install ID SLOT SOURCE PROMPT_FILE [--source-dir DIR --first-number 11 --last-number 20]");
+  else throw Error("Usage: worldDiscoveryImageJobs.mjs job ID SLOT | install ID SLOT SOURCE PROMPT_FILE [--source-dir DIR --first-number N --last-number N --topic-profile PROFILE]");
 }

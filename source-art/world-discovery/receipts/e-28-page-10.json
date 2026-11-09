@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-e-28",
+  "slot": "page-10",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:27:21.313Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-646920fd-1c0a-4f06-827a-9cbf56f37f5c.png",
+  "sourceSha256": "409b6dd73e54d480827d04b956467094f40c6a82da1dd0bdd9d6de7af6b1698b",
+  "output": "public/guided-reading/world-discovery/e-28/page-10.webp",
+  "outputSha256": "c488b1db8472559807738e6002bccc815d58b08d53b165ecf976ebadcab68862",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit first image by adding ONE small keel-billed toucan to an existing high rightward branch of the forked tree at center-left. Bird design from second image: black body and tail, yellow throat, green/orange bill red tip, blue feet; exactly TWO visible forward curled toes per foot, backward toes hidden far side of perch. Nearby two small orange fruits on twig. Keep first image's camera, forked tree, crown, roots, all THREE young trees at right, their shapes and positions, decaying mossy fallen log, background, canopy gap and sunlight exactly unchanged. The bird is natural small scale, body including tail approximately 15% of image height, comfortably above central fork, not covering tree topology. No other changes, no new plants, no text or inset. Same clean flat 2D cartoon.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-28f9f3ce-e881-44f1-99f2-8a62570a1169.png",
+      "sha256": "be6dcde4217240947681d4b68b27244902a3da62272107ab46077abeaac0ff56"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-ab6a80d0-ca70-4af7-9ccb-a84e17937f2c.png",
+      "sha256": "66b5762874a7b08ef38bfeffbcdac945f0845f5f0af702c2678ea006896ab0cd"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "df581f1e09d045c551bc8ca44241da96c6f37a19dcfc6731641f5fa8f7f955bf",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
+    "sha256": "c488b1db8472559807738e6002bccc815d58b08d53b165ecf976ebadcab68862",
+    "note": "Exact p9 location retained, small anatomically coherent regional toucan above and same young plants and decaying log below; full crown and roots safely framed.",
+    "limits": "Installed WebP individually inspected. Independent sequence, reader, cards, audio separate."
+  }
+}

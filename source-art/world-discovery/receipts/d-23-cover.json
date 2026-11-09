@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-23",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T06:24:26.178Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-e646a487-8ef7-4d45-b385-2ec3c94f9914.png",
+  "sourceSha256": "c17aeb49aa5763826b0361565b699bded46cd892595c39648fe833bd44e05d23",
+  "output": "public/guided-reading/world-discovery/d-23/cover.webp",
+  "outputSha256": "6f6822f511eb81f908afbe5f7e85b74fef0082fd222a9308508d01bed4483ee3",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit ONLY Zoe's size/position in this cover: scale her entire figure down by about 10 percent, preserving all proportions, so the lowest point of her shoes sits no lower than 88 percent of canvas height. Keep her standing on the rug on the left with one hand on chest, other arm at side, exactly two arms/hands and full canonical identity/clothes. Keep both puffs and both complete shoes safely inside the image, with a broad floor/rug gap below. Preserve the single heart-and-two-lungs diagram unchanged in the right half, all red blood vessels, and the room. No extra diagrams, no writing, no other edits. Landscape 3:2 flat clean cartoon.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-a99681c5-5bb5-4d65-9137-8f3a7784f7f4.png",
+      "sha256": "5f16eb1eda99f84a95e471a3c980360a091ac76f3611b419f9938a60e96ca865"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "53f321fe6f6525dbc7142913453889b170e4387f03930954a85dc6f67239997e",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.507Z",
+    "sha256": "6f6822f511eb81f908afbe5f7e85b74fef0082fd222a9308508d01bed4483ee3",
+    "note": "Direct inspection: only Zoe plus authored combined heart/two-lung diagram, no whole-body/cell cutaways or lettering; two natural arms/hands, one on chest; heart between lungs toward anatomical left, blood vessels red; shoes now >10% above bottom edge.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

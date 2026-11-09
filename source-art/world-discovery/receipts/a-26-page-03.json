@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-26",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:55:23.393Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-d9253132-62e9-45d1-9306-d6b9c9eb84a4.png",
+  "sourceSha256": "81a8a65f16c33cc232832a4c68711044391b823a47494224f700cebd56f04e24",
+  "output": "public/guided-reading/world-discovery/a-26/page-03.webp",
+  "outputSha256": "6492188327703ead2789282bb90532b0c36df4b11721c999b1e692f2caacbe8e",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Edit this exact flat cartoon children's science-book illustration. Pull the ENTIRE scene back uniformly by 25 percent, expanding the existing environment naturally around it. All people, the door/button/speaker and every existing diagram arrow must reduce together; do not change individual proportions or placements. Essential content must have at least 12 percent clear inset from every canvas edge; feet at least 15 percent above bottom. Keep landscape 1536x1024. Preserve the exact action and mechanical arrangement: Kit stands RIGHT of closed teal door and presses oval wall button with one index finger; other arm hangs down. Fingertip stays in contact. Zoe and adult behind glass RIGHT of door. Brass handle RIGHT; button between glass and porch post. Crisp smooth flat color, solid clean outlines, no texture/grain, no labels/text. No extra people, props, arrows or actions. Extend grounds under all feet with natural contact shadows.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-54bf3154-09ae-41f7-b9d1-dc99eae17f45.png",
+      "sha256": "35aa33ff321a0493ce006030dac17cded4fef3741c37e45f9b8bfefce3e669d1"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "de8c9a9188fb06c5b2fcfe6cb817e2a178c34835d5f8b5bd10d4255d93ec1d12",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "6492188327703ead2789282bb90532b0c36df4b11721c999b1e692f2caacbe8e",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:55:23.394Z",
+    "note": "Direct native inspection: single index fingertip still contacts exterior button, other arm down, closed door/glass and indoor cast preserved; whole porch pulled back, Kit shoes 23% above bottom."
+  }
+}

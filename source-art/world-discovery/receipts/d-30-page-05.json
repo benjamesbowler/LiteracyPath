@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-30",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:24:31.098Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-0cf18959-5e06-4488-8a20-1d8ca0fc453e.png",
+  "sourceSha256": "ae0a55db50f9f9ba0ec550ee6cd86315aed8ae527ed4b0606b62375ed1609bde",
+  "output": "public/guided-reading/world-discovery/d-30/page-05.webp",
+  "outputSha256": "806e24e621de2ce799705599088ffbc22f81b3a62f29f6b964fe1fa25c63a01a",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact image ONLY to remove both white clouds currently floating in dark space. Replace those two cloud shapes with uninterrupted navy background. Keep all other geometry unchanged: satellite two six-cell panels, solid teal forward arrow RIGHT, solid orange gravity arrow DOWN, curved Earth surface and its coastlines. No cloud may float above the Earth horizon; simplest is NO CLOUDS anywhere. Unlettered flat clean outlined illustration; do not add objects.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-f3cf7114-d8ff-4c92-bf66-d253856b2dc0.png",
+      "sha256": "46f5ed7e1466522f79c969521c863f76a0efbf4cb9e513b6755c30250d270811"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "66c03f602e2ff45268c6d939a796addf9ba66a77cb551a19d2ddd57408b04e48",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.552Z",
+    "sha256": "806e24e621de2ce799705599088ffbc22f81b3a62f29f6b964fe1fa25c63a01a",
+    "note": "Actual PNG and installed WebP directly inspected. Cloud repair removes the misplaced space clouds; correct distinct forward tangent and inward gravity arrows remain, whole craft safely framed.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-c-27",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:05:19.898Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-33f2731a-4df6-457e-acaa-440e64bf274c.png",
+  "sourceSha256": "30158cfb899199e4db82c0ffa74de3e445f290f2b9956cbd91f5e1046731e3e6",
+  "output": "public/guided-reading/world-discovery/c-27/page-05.webp",
+  "outputSha256": "c9eb4f4ac9c6020c43e31dd2dfd7d24601637c9dfc67163d03057bde90b1c738",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "One finished landscape3:2 full-bleed children nonfiction illustration, crisp flat2D cartoon with clean dark outlines, flat colors and restrained cel shading. No grain, painted texture,3D, words, logos, captions, border or frame. Full essential subjects within CENTRAL65 percent of canvas, broad naturally extended background margins. Next manufacturing step, single integrated explanatory factory view. Same lower wooden slat with exactlyFIVE dark graphite rods in parallel long grooves. A SECOND matching grooved wood slat has been lowered over them, forming one closed WOOD SANDWICH. Show it at front-end oblique angle so SHORT FRONT END FACE clearly exposes exactlyFIVE circular dark core cross-sections in ONE horizontal row at the seam between upper/lower wood layers. FIVE cores run lengthwise back into board. Upper and lower wood layers touch tightly around each core; a thin horizontal join line across front face, not an airgap. Upper surface is plain solidwood, no cores on TOP. One block only; no detached inset, arrows, people or count labels. Small closed guarded factory machine behind. Boardcentral60 percent with generous margins.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/c-27/page-04.webp",
+      "sha256": "f90bfdf26b702123b3849dfd1dbee860409c0f4303c1f1f219f4adeb727baa55"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "3a70fa1d14c972360847c319383d83f2ce0d2b4c35e4355bf29e90a292205a2e",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T13:09:18.112993+00:00",
+    "sha256": "c9eb4f4ac9c6020c43e31dd2dfd7d24601637c9dfc67163d03057bde90b1c738",
+    "note": "Two wood slats meet in a single sandwich; exactly five dark core cross-sections at seam on exposed end, plain wood top. Single coherent factory view and safe margins.",
+    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  }
+}

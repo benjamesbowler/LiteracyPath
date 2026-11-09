@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-30",
+  "slot": "page-09",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:33:06.877Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-a85cccbd-79a7-4d62-aea6-d493fb3f874e.png",
+  "sourceSha256": "8ef7bd4c81f487190a63805b3fa82a74e0bac539e5ab189d2614ac4d208be309",
+  "output": "public/guided-reading/world-discovery/d-30/page-09.webp",
+  "outputSha256": "91e5c3252a85e1b3a6f02ce097862ebbd921c021262a9c78a750eaccf1175bd2",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit exact illustration for framing ONLY. Uniformly shrink the complete engineer+chair+desk+monitor+keyboard foreground group to85percent of its current size, recenter, and extend same creamwall/grayfloor. Keep all cast, hands, clothing, monitor orbitaldiagram and pose exactly unchanged. All foreground feet/tablelegs mustfinish ABOVE y880on1536x1024, all edges at least130pixels inset. Ceilinglight is contextual. No new objects/lettering.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-df6c6b19-f7b0-49f3-8ccd-2bf62bf67dac.png",
+      "sha256": "2cae87ef69c0cf2887350ad49bcb956826ca5686bde3bb75763004936e495794"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "66c03f602e2ff45268c6d939a796addf9ba66a77cb551a19d2ddd57408b04e48",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.554Z",
+    "sha256": "91e5c3252a85e1b3a6f02ce097862ebbd921c021262a9c78a750eaccf1175bd2",
+    "note": "Actual PNG and installed WebP directly inspected: all foreground body/furniture edges safely inset after shrink, correct orbit diagram only on monitor, natural hands, no pseudotext.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

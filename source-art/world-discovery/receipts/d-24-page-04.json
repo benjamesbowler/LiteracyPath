@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-24",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:53:29.361Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-1919bfc5-3b3f-412a-8bd5-3534e79abfda.png",
+  "sourceSha256": "2403213f996f2eccf818cadd3ca32227a80d9390ebca63a1560a5647a029c158",
+  "output": "public/guided-reading/world-discovery/d-24/page-04.webp",
+  "outputSha256": "30ea468b7e1d58883b7e6d2cb5cc2f92a3e00a0ea78eab0ff68d21256c804c55",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Framing correction only. Uniformly scale the ENTIRE two-box air diagram down to 75 percent of its current width and height, centered on the same landscape cream canvas. Keep the EXACT eight identical dark dots inside each box, two rows of four, sizes/colors/spacing relative to each box and left cool-blue smaller versus right warm-orange larger box unchanged. At least 180px blank cream space at left and right of ALL boxes; generous top/bottom. No new elements, text or arrows. Clean flat 2D illustration.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-deea2ab6-a5e1-4f74-9f7b-a88b29b9032b.png",
+      "sha256": "995568528b6ac07295ac72918af724d9eb6e8d06ca3bf6d4935de02b3c4c617b"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "688f663f00d36542402967229cf6e98631f1d90b6bed074cce20a73f41dcd15c",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.516Z",
+    "sha256": "30ea468b7e1d58883b7e6d2cb5cc2f92a3e00a0ea78eab0ff68d21256c804c55",
+    "note": "Direct inspection: exactly eight identical dots in each box, warm box larger and dots spread out, same material count, generous blank margins; no unintended labels.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-23",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:11:51.432Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-0cbd5490-766c-4a94-b1ad-088653acfdda.png",
+  "sourceSha256": "c53b956f06f1377dbc51f9a7c142c8c806d3a86706a1fd9410955ffffbec424d",
+  "output": "public/guided-reading/world-discovery/a-23/cover.webp",
+  "outputSha256": "5614405bbf164a2e690d398b838646196c5850c0d618b91aa23efa521834a1b9",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit ONLY framing of this exact illustration. Pull the ENTIRE scene back uniformly by 30%, extending the same plain room naturally around it. Zoe's FULL figure must occupy only about70% of image height, from hair top y150 to shoes bottom y870 on a1024px canvas. Keep at least12%clear margin above hair and below feet, and around all essential objects. Preserve exact natural body proportions, two hair puffs, facial expression, TWO hands on upper clothed chest, pose, rug/room/furniture/window scale relationships and all colors. Do not shrink head or body separately. Keep feet grounded on rug. Clean smooth flat colors; no grain, words, diagrams or arrows. Landscape3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-45d8f953-128d-4c02-8a41-68d7702b3911.png",
+      "sha256": "21ae9fcb4f649e24b511c61457289e3681d76412e298c378790813da374226f1"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "9d1d4dd6d93c7ff9e1f38dd1d3858cfe95edf848dc9e464d8d8c183b2a6aee4a",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "5614405bbf164a2e690d398b838646196c5850c0d618b91aa23efa521834a1b9",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:11:51.434Z",
+    "note": "Native framing repair directly inspected: entire scene pulled back uniformly; full Zoe figure hair ~18% below top, shoes ~16% above bottom, natural proportions and grounded feet. Hands remain on clothed chest, room and cast preserved, no arrows or extra elements."
+  }
+}

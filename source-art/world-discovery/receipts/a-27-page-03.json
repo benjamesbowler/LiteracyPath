@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-27",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:39:59.627Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-bbade47d-f7e8-4910-8987-8b9d0c3378b6.png",
+  "sourceSha256": "70e2a165340a8aff14f064e17317c9df1b4d070094ba958c5b505bb4338e368a",
+  "output": "public/guided-reading/world-discovery/a-27/page-03.webp",
+  "outputSha256": "92e4092cd2f72de9ac07a1c80b4668d4895ae0b1f9e734b310b28de3844fc862",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact illustration at the instant the adult TURNS ON the popper. Bring the adult's right arm forward naturally from the shoulder, across in front of his torso and down beside the bowl, with one extended fingertip visibly pressing the black switch on the front of the red machine. His hand stays entirely OUTSIDE the machine, below its guarded clear lid; no hand near chute or chamber. Keep the other arm behind his back. Preserve the wide framing, adult identity, kitchen and closed clear lid. All kernels inside remain RAW, small and golden, similar normal size; bowl remains EMPTY. This scene must clearly depict the fingertip operating the switch, not both hands behind his back. Crisp smooth flat color, no writing or texture. Move the adult closer to the appliance so his arm has ordinary human proportions and his bent elbow and hand can reach the front switch naturally. Do not stretch an arm across the entire scene; keep the adult to the left and slightly behind the popper.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-e31e1e52-80be-4140-b3cb-efba2f08c23d.png",
+      "sha256": "f2e76f0c5d8f91a2ead5b04ca1b47afe184cec5efc5f9668bd4d59c1a5ae9c70"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "54df5f6be0ca6e59f447c22d2431c43d463a335ffaf26ebbf520c3a8450a76f2",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "92e4092cd2f72de9ac07a1c80b4668d4895ae0b1f9e734b310b28de3844fc862",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T07:39:59.628Z",
+    "note": "Directly inspected corrected action: adult stands closer and presses the plain black front switch with one finger, keeping arm and hand outside the closed machine. Small raw golden kernels remain inside; receiving bowl empty. Wide framing has safe hair/object margins."
+  }
+}

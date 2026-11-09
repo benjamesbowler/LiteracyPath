@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-22",
+  "slot": "page-09",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:16:47.964Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-7df53f37-ff82-49a1-bbbd-318c23ec57e3.png",
+  "sourceSha256": "6cdade2e98a032b0cb3b23ede64b10d9d5c173a7b890e6f915095226a39edb82",
+  "output": "public/guided-reading/world-discovery/d-22/page-09.webp",
+  "outputSha256": "a7c8c3e0fe070fb4954ade5b292587d8902955ec158b328fc6c8da29fd9cf14f",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "One precise map-color correction only. On the LEFT flat world map, recolor ICELAND purple, matching Europe. Iceland is the small island in the North Atlantic southeast of Greenland and northwest of the British Isles. Change only that existing island's fill from yellow/light color to Europe purple; preserve its shape and position. Keep Greenland yellow. Preserve every other coastline, continent color, all seven exact labels, the natural-color unlabelled globe, table, stands and safe margins exactly. No other changes or new objects/text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-97c0f4b6-9d26-484c-97c4-d856127f95ab.png",
+      "sha256": "acd5a6725d6d723798c731fbabd06d2314b6505799abbd2d5cff6097dd291067"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "fb0bd240fdf5f14fbd4f0ae2e2b112472e599d3754b28e979aad8f5f59410003",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.505Z",
+    "sha256": "a7c8c3e0fe070fb4954ade5b292587d8902955ec158b328fc6c8da29fd9cf14f",
+    "note": "Independent-review repair directly inspected: Iceland is now Europe purple; Greenland remains yellow, other map labels/colors/coastlines and natural globe unchanged. Safe margins retained.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

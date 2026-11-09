@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-26",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T04:55:07.556Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-a206a333-90d4-46f3-8853-52d56b236554.png",
+  "sourceSha256": "bb2ad710b501c9d4b44290d06e06f553f01b6db839d3923fa6c002870e63c9d9",
+  "output": "source-art/world-discovery/a-26-reference.webp",
+  "outputSha256": "e7989bbc7e9ff1d99fe14b2a3e10b4d683f386316c17ac7ef589bf9f290c1b71",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. PRODUCTION REFERENCE SHEET, landscape, not a finished book page. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: The Doorbell; World Discovery; nonfiction.\nSetting: Kit stands outside one teal front door under a small porch. Zoe is inside the ordinary entry hall with an unnamed adult nearby. A white unbranded wireless bell speaker is fixed inside above a low shoe shelf; oval white pushbutton outside at child-reachable height.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One teal door with brass lever handle and narrow clear sidelight, identical from both sides; One oval white exterior button and one rectangular white interior speaker with three horizontal grille slots; No wires, camera lens, display, app, printed logo or replacement devices; An unnamed adult woman, medium brown skin, short curly hair, rust-colored plain blouse and navy trousers, stays in the hall beside Zoe\n Create a clean separated reference board on white: show the principal recurring props/animals in front, side and three-quarter views, their relative scale beside any named human cast, and a single simple location key showing the persistent setting and daylight/palette. The human character model sheet is a supporting identity reference, not content to copy wholesale. Show only the subjects this book requires. Use initial object states: Door closed; Kit outside; Zoe and adult inside; button not pressed.. For orientation, the opening location/action is: Exterior view of Kit waiting under the porch beside the closed teal door. Oval button fixed beside the handle-side jamb, within reach; hands at his sides. Zoe and adult only softly visible through narrow sidelight.. Do not show a completed craft or later scene merely because the finished object is listed in design locks. No future story events, no captions.\nProduction finish: every surface must be perfectly flat, clean digital cel color with smooth crisp outlines. ZERO paper grain, speckling, stipple, dither, paint, canvas fibers, mottling, scuffs or noisy gradients anywhere, including skin, rug, walls, table, floor and shadows. Prefer solid flat fills; any small shadow is one smooth flat shape. This is polished vector-like raster art, never a textured watercolor print.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "de8c9a9188fb06c5b2fcfe6cb817e2a178c34835d5f8b5bd10d4255d93ec1d12",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "e7989bbc7e9ff1d99fe14b2a3e10b4d683f386316c17ac7ef589bf9f290c1b71",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T04:55:07.559Z",
+    "note": "Inspected board: Kit/Zoe retain equal child height and canonical clothes; adult has rust blouse, navy trousers, short curly hair. Exterior handle/sidelight appear right and interior reverse appropriately; oval exterior button, three-slot rectangular indoor speaker and shoe shelf are distinct. Clean outlines and flat digital fills. Opening/diagram pages must preserve this physical layout."
+  }
+}

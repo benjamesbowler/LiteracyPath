@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-e-23",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:44:46.911Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-19e9a42c-3489-40b7-9754-393b6f1ef3e2.png",
+  "sourceSha256": "4bac837f28bf672e7cffa8adf348693fe9b1a5d51c049e662e942d152c0c7cb1",
+  "output": "public/guided-reading/world-discovery/e-23/page-04.webp",
+  "outputSha256": "c310975969042298f8c1b991f68f2e7b262e024ef331a6eafdeec7e02dc11277",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit exact Zoe anatomydiagram. Uniformly shrink wholehead/torso/anatomy to80percent and centerwithin1536x1024creamcanvas so topbun and bottomshirt at least120pixels inset. Keep brain, spinalcord INSIDEbackspine, face andcast unchanged. SHORTEN the orange downward message arrow: it mustfollowbrainstemdownspinalcord but END atBASEofNECK/SHOULDERheight, before ittravelsdownmidback. Remove the orange route BELOW that shoulderheight, leaving yellowcord andgrayvertebrae visible. This introduces a message going toward armnerves thatleave lowerneck. No extra nervebranch yet. No newlabels/objects.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-372d84eb-e53c-4e80-afe9-6c3d433aab9f.png",
+      "sha256": "ade1006883a3d72f9fedc5b89129fc425811f81f8292d952f6fd98e6c0897218"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "1b0de6058b2611192f79942f4ecd03b97dc9da569d20816897fdbc11f5ab098a",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.557Z",
+    "sha256": "c310975969042298f8c1b991f68f2e7b262e024ef331a6eafdeec7e02dc11277",
+    "note": "Actual PNG and WebP inspected: brain in cranial cavity, protected cord down back of neck/spine, outgoing arrow ends at lower neck, margins repaired.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

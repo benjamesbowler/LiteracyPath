@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-b-23",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T06:26:44.379Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-cdf21826-a0a3-4a57-9353-1b0214bb69cb.png",
+  "sourceSha256": "9a7dc1f71797dd630dd49f9b7f4a20f8f1604a35f719fe1cae35149d7eb3311f",
+  "output": "public/guided-reading/world-discovery/b-23/page-01.webp",
+  "outputSha256": "06e1eee5d9b4953ec19e1506c11e8ea3642486db4820e0e7361e00552330dd68",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit the first image by pulling the camera back 25 percent. Extend the same room above, to both sides and below. Preserve Zoe, her small bite with FRONT TEETH and one peeled apple slice, both hands and white plate exactly. TOP of hair must be at least 150 pixels from top, BOTTOM of plate at least 150 pixels above bottom in a 1536x1024 canvas. Only Zoe, table, plate, slice and established room; no model or other people.\nLandscape 3:2. All essential shapes within central 70 percent of canvas, with generous 15 percent margins. Crisp bold continuous black outlines, perfectly smooth flat vectorlike color, no grain, no stipple, no painted texture. No letters, numbers or labels.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-6d9b0ff5-0b5f-4d28-a893-6cbc2d13b64c.png",
+      "sha256": "dfb17a43be52dc597ad9eaf7d482336e974727425adaa119d5ad2ba4661e460e"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "645b4a3a4d22eb876a75ddaa40ade656cc1ad18dd1be8213019b648b10ad63d3",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T06:27:54.336192+00:00",
+    "sha256": "06e1eee5d9b4953ec19e1506c11e8ea3642486db4820e0e7361e00552330dd68",
+    "note": "Directly viewed native PNG and installed WebP. Zoe sits steadily and takes a small bite with front teeth from one thin peeled slice. Both hands, full head, apple and plate have generous margins; exact room and locked outfit retained.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

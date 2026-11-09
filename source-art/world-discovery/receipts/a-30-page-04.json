@@ -1,0 +1,39 @@
+{
+  "bookId": "world-discovery-a-30",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:08:47.599Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-b947b6ca-1cbd-468f-9202-18244375cfd6.png",
+  "sourceSha256": "ef401e4061f7a5aa1de28e0ae9e1f20644994770280f921b8688d41d08d3db92",
+  "output": "public/guided-reading/world-discovery/a-30/page-04.webp",
+  "outputSha256": "4d5872226b1942fabc3f7e76d3f60275a79f84c7efa834b2a9cb05b7b97f81b8",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit supplied scene to next moment, exact camera and landscape unchanged. Move SAME SINGLE bag up/right so exactly ONE loop handle is caught around the smooth LOWEST left-pointing branch tip (near x525,y345). The tip visibly passes through that upper handle opening; the other loop hangs free below. Bag body hangs and billows on the RIGHT/stream side of the caught handle, around x650–950,y370–580. Maintain recognizable pale yellow bag, lower-right triangular notch, intact TWO handles. No branch through body, no added thorn/hook, no branch movement, no detached tree. Airborne above grass, original street left and stream right. Only one bag, no symbols/text/arrows. Branch tips and bag comfortably inset, smooth flat cartoon fills. Landscape3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-23cfea4f-6a05-4002-b7fa-026b78c05ec9.png",
+      "sha256": "da60b0dc2c1a62785e6d1fd924da046ce11a3867df6639f7e67d85d4cfd56a02"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "24075755c621d72f43bb30fc00a77fb407d55e36e08d772f10f5aa04aed3efc1",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "4d5872226b1942fabc3f7e76d3f60275a79f84c7efa834b2a9cb05b7b97f81b8",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:08:47.599Z",
+    "note": "Directly inspected native: exactly one upper handle visibly encircles lowest smooth fork tip, second loop hangs free; intact bag billows to right, no body pierced or new thorn. Branch remains rooted, bag above grass, wide margins."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-a-30",
+    "path": "src/content/world-discovery/cohorts/21-30/level-a.json",
+    "sha256": "f9ec508c059ddf7bc839efb70dfb744ce32989e7c1fecee092e761c78496361a",
+    "evidence": "source-art/world-discovery/cohorts/21-30/a30-teaching-cue-revalidation.json"
+  }
+}

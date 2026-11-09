@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-c-24",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:27:06.534Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-9c197fb3-48d6-4390-a1c8-7b0f7cc62e55.png",
+  "sourceSha256": "3a9936c1cc504eed7bee7c3a2ff836f1b1443c57dc91fc9cf6b5d0481742d1e9",
+  "output": "public/guided-reading/world-discovery/c-24/page-08.webp",
+  "outputSha256": "07c6a6b301524c0cade27561e339e8371d446134e2535e8c4dbad048fe6e3171",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "One 3:2 child-friendly educational illustration, smooth flat clean vectorlike fills and crisp outlines, no grain or texture. Same blue lake green hills meadow and left foreground tree as references. No people, animals, words, letters or numerals. Clear air stays transparent, never draw visible vapor plumes. All clouds and explanatory circles safely within central 75 percent with 12 percent margins. Final whole scene of same lake with one LARGE white fair-weather cumulus cloud occupying central upper sky. Place one SMALL circular droplet magnification at upper-right linked by thin lines to that cloud; exactly six small ROUND liquid drops each centered around a tiny solid nucleus. Magnifier substantially smaller than cloud to emphasize whole result. No other diagrams, no arrows or sunlight rays, no rain. Calm clear air and same lake.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/c-24/cover.webp",
+      "sha256": "752cd6e3924c77daeeda3aabcd24592d98aa26177b09470a5102885bdc4550af"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/c-24/page-01.webp",
+      "sha256": "e786f48cda2523ae1aeb97471b97cec523132e03b128e0bd2efbde23e325eb4e"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "cbfc1a0f277ec5764a733f36e711277c72ce51d08853c5fd50b0372b7684550a",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T12:31:42.475279+00:00",
+    "sha256": "07c6a6b301524c0cade27561e339e8371d446134e2535e8c4dbad048fe6e3171",
+    "note": "Native and final WebP directly viewed. Large final cloud linked to small six-droplet magnification, each nucleus centered. Clear air, same landscape, all core diagram above eight-percent margin.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

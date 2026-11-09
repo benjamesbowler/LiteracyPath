@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-b-26",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:32:20.875Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-849a7abe-2ca6-4090-a761-4519f21d5e0e.png",
+  "sourceSha256": "adb0ef73d7b1fc0f143f23bb15e10970bec5f4eeb2ee03bf54d28f6064236863",
+  "output": "public/guided-reading/world-discovery/b-26/page-07.webp",
+  "outputSha256": "e5ee6b1ace0d078a96916e2be76dfc249c358013dff6f22b23c76d617b34688f",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "One finished LANDSCAPE 3:2 1536x1024 classroom illustration, exact over-Zoe's-shoulder composition from first reference. Update ONLY states to later comparison: on real white table in LEFT background, ONE blue rectangular block sits LEFT and ONE red cube sits directly RIGHT beside it, same baseline, NOT stacked. Zoe's gray camera remains held with rear LCD toward Zoe/reader in foreground RIGHT; its SAVED image stays red cube ON TOP of blue block. Add one small solid triangular playback icon lower-left of LCD. Preserve two rear buttons, proper hand grips and actual two-object count. Real pair and saved photo clearly separated and both wholly within safe central 80% width/height. Head/shoulder may naturally crop foreground but important camera/blocks cannot. No extra objects, labels, arrows or insets. Perfectly smooth flat cartoon fills, crisp dark outlines, no texture.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/b-26/page-02.webp",
+      "sha256": "223a4b3eb84c58530ab1e86e6ad6c0a77777ee691e011810ce7884dc45d639e1"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/b-26/page-06.webp",
+      "sha256": "58c98c6f0a370959cb6d434c792f5e0c1cd893f8e5d485b9fea4473172254387"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "92cd13a2772ca31a9f3db39eee27ddd9fb03eec7e4ce66785453ca94f8823761",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T07:35:24.508014+00:00",
+    "sha256": "e5ee6b1ace0d078a96916e2be76dfc249c358013dff6f22b23c76d617b34688f",
+    "note": "Directly viewed native PNG and installed WebP. Over-shoulder scene preserves changed actual blue-left/red-right pair while camera saved photo stays red-on-blue with triangle playback icon; exactly two real objects and safe key details.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

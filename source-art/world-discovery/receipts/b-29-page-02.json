@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-b-29",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:24:40.707Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-807b982b-ed57-41b6-b7bd-e90c657a7be4.png",
+  "sourceSha256": "846c79742bb035ba2fd86360a4dc959abb3ce18d02fa1f853744d9bd9ad94b4a",
+  "output": "public/guided-reading/world-discovery/b-29/page-02.webp",
+  "outputSha256": "ea3ca74df0db8f25e1a3a9b6331a89416f68d01e3ad12fd5c1713b77591fece0",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Close classroom tabletop measurement view, no people. FIRST reference is exact geometry to preserve: plain blue book width720, five equal cubes each120 wide in a row just below its horizontal bottom edge; FOUR equal gaps each30 wide, so row including gaps exactly spans book width. Sixth matching cube rests separately to upper-right. EXACTLY SIX cubes total, FIVE in spaced row plus ONE spare. Make the blue rectangle into the same real closed blue book from SECOND reference, with plain cover, subtle spine at left and thin cream page block. White tabletop, slight top-oblique view like cover. Preserve exact five-count, relative gaps and aligned endpoints. No mathematical labels or guide lines. LANDSCAPE 3:2 1536x1024. Clean flat colors and crisp shapes, no grain, paper texture or painted shading. No text, numerals, labels or arrows. Keep all essential objects inside central75%, with 150px side and 120px top/bottom margins.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/.artifacts/nonfiction-next-50/b29-gapped-reference.png",
+      "sha256": "abf239e856d476a2dc474862927cb441c87309e7238e15dfb51d9028ec2831e7"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/b-29/cover.webp",
+      "sha256": "08567a9520d6b455442be8996af4a34f3fe525f17d167c8201fec3583020bf43"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "7c50af653f4ee559098243cdcd631837ff440776161b09c1d029dc86ea556fcc",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T10:25:18.182576+00:00",
+    "sha256": "ea3ca74df0db8f25e1a3a9b6331a89416f68d01e3ad12fd5c1713b77591fece0",
+    "note": "Directly viewed native PNG and installed WebP: exactly five equal yellow cubes with four approximately quarter-unit gaps span fixed blue book width, sixth spare separate; all book/cubes safely inside frame.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

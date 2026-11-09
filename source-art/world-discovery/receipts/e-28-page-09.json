@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-28",
+  "slot": "page-09",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:25:54.068Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-28f9f3ce-e881-44f1-99f2-8a62570a1169.png",
+  "sourceSha256": "be6dcde4217240947681d4b68b27244902a3da62272107ab46077abeaac0ff56",
+  "output": "public/guided-reading/world-discovery/e-28/page-09.webp",
+  "outputSha256": "ed1ec0288ffea6f8f4ff0a8bed7299f511a1fd7ebc7975a398211d495ebc74bb",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "One finished landscape 3:2 nonfiction picture-book illustration in the exact clean flat 2D cartoon style of reference. Smooth solid fills, continuous bold outlines, restrained cel shadow, no texture or 3D. No text, labels, numbers, diagram arrows or insets. All focal anatomy and root bases comfortably framed with 12 percent margins. Show THIS SAME LOCATION several years later. Keep forked buttressed anchor tree upright center-left with recognizable trunk and branching. The familiar small broadleaf sapling at right has grown to a young tree about TWO THIRDS the height of anchor tree, and two other smaller young trees grow near it. Their upper leafy branches now partially occupy the former canopy gap to the right. More shade below; still small patches of light. Preserve recognizable fallen brown log behind young trees at right: now slightly decayed, rough broken end, some moss and missing bark, never vanished. Vary growth heights/species shapes; do not imply every plant grows equally. No people, no animals, no storms. One coherent forest scene, visibly elapsed time rather than duplicate panels.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/e-28/page-08.webp",
+      "sha256": "b0dc7ebbd3cb6bab4cc240f7d9780c7f9853e53f9fee689ac6b778d612b2f214"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "df581f1e09d045c551bc8ca44241da96c6f37a19dcfc6731641f5fa8f7f955bf",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
+    "sha256": "ed1ec0288ffea6f8f4ff0a8bed7299f511a1fd7ebc7975a398211d495ebc74bb",
+    "note": "Elapsed-time regrowth fills part of gap; original anchor retained and fallen log visibly decaying; varied growth heights.",
+    "limits": "Installed WebP individually inspected. Independent sequence, reader, cards, audio separate."
+  }
+}

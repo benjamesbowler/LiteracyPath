@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-27",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:15:40.415Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-a83e6672-aa21-4d5d-9f5a-c14bdd23e3fb.png",
+  "sourceSha256": "4986c8b6859a6f885b30574e3e6523b7b8401c084bcc444daabc9dc2e3b09a4c",
+  "output": "public/guided-reading/world-discovery/d-27/page-02.webp",
+  "outputSha256": "7c20925cb4f70309079ad411a8ad16218717766299bd61ab7a1b58e870cfb690",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "One finished scene of a modern rice harvest in the SAME golden rice field and plain distant shed shown in reference, in the same graphic style. Use a small unbranded GREEN tracked combine harvester in three-quarter side view, facing LEFT. Its low front cutting header has a protective outer green frame and a dark reel; it meets the standing rice at left. Short cut stems/stubble lie behind the machine to right, showing the path already harvested. Main threshing mechanism is entirely enclosed in green body panels; no exposed blades or gears. One ADULT operator with short dark hair, medium-brown skin and plain navy workshirt sits safely inside a CLOSED glazed cab with hands at controls. No other people and no children. Grain collected inside machine; no fountain of grains, no unloading truck or impossible whole plants inside storage tank. Keep tracks, entire header and cab fully visible; rice has open branching drooping panicles, not wheat spikes. Clean bold dark-outlined flat 2D early-reader illustration, restrained cel shading; no photorealism, 3D, grain or painterly texture. Landscape 3:2, 1536x1024. Keep all important subjects safely inside the central70% with at least140px margins; background extends to all edges. No lettering, numbers, captions, flags, logos or watermarks.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-4e2a4626-8d46-4669-8c9a-1cb8057b106a.png",
+      "sha256": "254bf55d2d01aa6318d16bad7574792ab6ca7b41f959ebef4a1e1ec6b804d54e"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "d7159e37a1a2ef16cf6332c998d1e18c7c5e1c835d8925d2049fd3bf922c1538",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.533Z",
+    "sha256": "7c20925cb4f70309079ad411a8ad16218717766299bd61ab7a1b58e870cfb690",
+    "note": "Direct native inspection: green tracked combine cuts standing branching rice with enclosed threshing body; one adult in closed cab, cut stubble behind, whole header/tracks/cab safely framed.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "bookId": "world-discovery-d-25",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:29:12.373Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-fab24d13-48a4-40f2-adc5-d87dde126873.png",
+  "sourceSha256": "adab0cbe8286df28c6ba98815eb40c0f849018f9986f43f40d4ff55cadcd4712",
+  "output": "public/guided-reading/world-discovery/d-25/cover.webp",
+  "outputSha256": "32404b46edf61d10fa85439eb27d10b3eb1c20363b3e695dd76009c58c93e3bc",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Create ONE entirely unlettered cover scene. FIRST reference locks the successful paper bridge: EXACTLY two identical blue blocks, same fixed gap relative to block sizes, ONE accordion-folded cream sheet with long ridges LEFT-to-RIGHT across open gap, ONE same wooden counter centered across ridge tops, tiny sag only, no hidden middle support. Preserve those geometry relationships precisely. Add canonical Kit and Zoe from SECOND reference standing together behind table examining bridge with calm interested smiles, equal childheight, correct outfits and natural hands resting on table edges WELL AWAY from bridge; no one supports paper. Use only their single scene poses, not reference-board views. Scale existing table/setup uniformly smaller and position lower-center to leave room above for both children's heads; do not separately resize/move supports/counter. Whole scene fits central70percent canvasheight with at least140px blankwhite margins above heads and belowfeet, no cropping. Clean dark outlines, flat clean colors, restrained cel shading, no texture/photorealism/3D. No text, labels, numbers, arrows or extra props.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-67dfc3d2-4302-4399-8ec7-d62df6236a8b.png",
+      "sha256": "0aade514dc3f534f52c33cc39112718ccab65e881f7ca05a91e51f0dd19deb43"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-bdbf7bfd-7ad1-451d-99fb-2a40d0d2791b.png",
+      "sha256": "b3450c1ad0501336a31a8691c404b07e788caed59d61bf78961311cfa0f4303a"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "8337d31fb142299fa5e714fdc1bffff0a8db8bc933c0eeb3ee2b649380ddbd8b",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.520Z",
+    "sha256": "32404b46edf61d10fa85439eb27d10b3eb1c20363b3e695dd76009c58c93e3bc",
+    "note": "Direct inspection: canonical equal-height Kit and Zoe observe same folded bridge with two fixed blue supports and one centered counter, tiny sag, no hand supporting paper; all essential subjects safely framed, entirely unlettered.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

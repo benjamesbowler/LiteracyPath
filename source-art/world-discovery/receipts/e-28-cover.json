@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-28",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:06:48.347Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-5387628f-6f61-4179-8419-9a70e9d42fa3.png",
+  "sourceSha256": "c2c980d8be298af89276b8d191b0c9075081810a6b8de7274b8c6cfde5b8d7fe",
+  "output": "public/guided-reading/world-discovery/e-28/cover.webp",
+  "outputSha256": "1a4c1e05b8e63e841acc4464e67dd3c230f1f3050d74a06b712a8d00400df016",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Zoom OUT 35 percent in this forest scene so the ENTIRE crown top of the main FORKED tree is now visible with BLUE SKY above it. Main tree crown highest tip and all buttress roots inside central 70 percent image height, minimum 15 percent margins top/bottom; preserve tree shape, sapling, small canopy opening and sunlight patch. Extend the surrounding forest and foreground naturally to edges, full bleed. Main tree must remain much taller than young sapling. No animals, no fallen log, no people, no new panel/lettering. Clean bold flat 2D cartoon.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-e4381493-a01a-45c7-8dec-6f03c586edf7.png",
+      "sha256": "923ef85708d8507e4f5c95285ab9ee89d5295db2dc950c5ab9c822d7ec0abb5a"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "df581f1e09d045c551bc8ca44241da96c6f37a19dcfc6731641f5fa8f7f955bf",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
+    "sha256": "1a4c1e05b8e63e841acc4464e67dd3c230f1f3050d74a06b712a8d00400df016",
+    "note": "Single full forked buttressed tree, sunlit crown and shaded floor with young sapling beside light gap; no wildlife/fallen trunk introduced.",
+    "limits": "Individual installed WebP directly inspected. Whole-sequence, reader/card and audio checks separate."
+  }
+}

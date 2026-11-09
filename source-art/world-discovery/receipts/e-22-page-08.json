@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-e-22",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:26:32.878Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-f66025dc-a70e-4307-a240-2d72e2c5b2e8.png",
+  "sourceSha256": "d8f9632060ff1dbf673bd2b72fce0893f9b329933d00e734deb6301a391bff6f",
+  "output": "public/guided-reading/world-discovery/e-22/page-08.webp",
+  "outputSha256": "b1220f160a1fc46d7938341151e321b1142594327e07a05c4e7324032c538de6",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Preserve these exact FOUR UNLETTERED settlement cards in their2-by-2 group. Scale the ENTIRE card group uniformly DOWN25 percent and center on the same1536x1024 cream canvas. All outermost card edges need at least12 percent clear cream margin from every canvas edge. Do not crop, zoom individual pictures, change architecture, rearrange cards, add text or alter labels. Extend only plain cream background. Smooth flat colors and clean outlines, no grain or texture.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-d00b19e2-c6c6-43ec-9ab7-76c568129c5a.png",
+      "sha256": "1ec1be6bd33db9a23899c4f0b4283b959a2a9644ca51ff5dfe555c6ed6ee2c24"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "2aff8b9432244a41072eb7c7376c77e21594d83a655dfa83d99e44c528e86755",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "b1220f160a1fc46d7938341151e321b1142594327e07a05c4e7324032c538de6",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T12:26:32.880Z",
+    "note": "Direct native inspection: exactly four varied unnamed settlement cards in2x2 group; no labels/thresholds or country stereotypes. Entire group inset about19% left/right and22% top/bottom, clean architectural variation and legible roads."
+  }
+}

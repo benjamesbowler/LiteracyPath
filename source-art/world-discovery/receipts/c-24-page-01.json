@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-c-24",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:01:12.344Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-ce641426-2d79-4cf4-a22d-d68fc2767a3b.png",
+  "sourceSha256": "237a4d99ec0b0c8dc2fb10b1b788925aa5f9eeec4be9e2d398c5e1e2467bfd53",
+  "output": "public/guided-reading/world-discovery/c-24/page-01.webp",
+  "outputSha256": "e786f48cda2523ae1aeb97471b97cec523132e03b128e0bd2efbde23e325eb4e",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Wide tranquil blue lake and grassy meadow, leafy tree left, distant green hills. One FIRST SMALL cumulus cloud above middle of lake, all other sky mostly clear. The cloud small relative landscape. No magnifier, droplets, arrows, ice, vapor plume or diagram. 3:2 landscape full-bleed. Crisp clean smooth flat children's vector-like illustration, solid fills, no grain, paper texture, painterly shading, captions, text or labels. All essential cloud/diagram parts comfortably inside central75percent; contextual trees/ground may extend to edges. No humans or animals. One coherent composition, no reference board.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/c-24-reference.webp",
+      "sha256": "493a51ef79ef1bc26db7cfb85d8c8c5f133eaaba45a0058938f3bec3c7c5bd3a"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "cbfc1a0f277ec5764a733f36e711277c72ce51d08853c5fd50b0372b7684550a",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T12:06:41.657096+00:00",
+    "sha256": "e786f48cda2523ae1aeb97471b97cec523132e03b128e0bd2efbde23e325eb4e",
+    "note": "Native and installed WebP directly viewed. Same lake landscape, small white cloud above water; ordinary surrounding air clear, no visible gas or human cast.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

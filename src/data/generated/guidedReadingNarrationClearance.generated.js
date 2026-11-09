@@ -11078,6 +11078,326 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "displayedText": "These crackers are for later.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
+  "world-discovery-a-21::1": {
+    "displayedText": "The bus stops by the sign.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-21::2": {
+    "displayedText": "The doors slide open.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-21::3": {
+    "displayedText": "Two people get off.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-21::4": {
+    "displayedText": "Three people get on.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-21::5": {
+    "displayedText": "The doors slide shut.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-21::6": {
+    "displayedText": "The bus goes to another stop.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-21::7": {
+    "displayedText": "More people get off here.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-21::8": {
+    "displayedText": "One bus takes people between stops.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-22::1": {
+    "displayedText": "This globe shows our Earth.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-22::2": {
+    "displayedText": "We see land and blue water.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-22::3": {
+    "displayedText": "Some land hides at the back.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-22::4": {
+    "displayedText": "Kit turns the globe slowly.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-22::5": {
+    "displayedText": "Now we see more land.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-22::6": {
+    "displayedText": "Kit keeps turning the globe.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-22::7": {
+    "displayedText": "The first land comes back.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-22::8": {
+    "displayedText": "One model shows the whole Earth.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-23::1": {
+    "displayedText": "My hands rest on my chest.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-23::2": {
+    "displayedText": "I breathe in through my nose.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-23::3": {
+    "displayedText": "My chest gets a little bigger.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-23::4": {
+    "displayedText": "Air goes into my lungs.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-23::5": {
+    "displayedText": "I breathe out through my nose.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-23::6": {
+    "displayedText": "My chest gets a little smaller.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-23::7": {
+    "displayedText": "Air comes out of my lungs.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-23::8": {
+    "displayedText": "My chest moves with each breath.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-24::1": {
+    "displayedText": "The ice rests in a dish.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-24::2": {
+    "displayedText": "This room is warm.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-24::3": {
+    "displayedText": "Water forms around the ice.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-24::4": {
+    "displayedText": "The ice cube gets smaller.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-24::5": {
+    "displayedText": "More water spreads across the dish.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-24::6": {
+    "displayedText": "The last ice melts away.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-24::7": {
+    "displayedText": "The water flows across the dish.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-24::8": {
+    "displayedText": "The ice is water now.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-25::1": {
+    "displayedText": "Kit taps the drum.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-25::2": {
+    "displayedText": "The top moves up and down.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-25::3": {
+    "displayedText": "The moving top makes a sound.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-25::4": {
+    "displayedText": "Kit rests his hand on top.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-25::5": {
+    "displayedText": "The top stops moving.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-25::6": {
+    "displayedText": "The sound stops too.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-25::7": {
+    "displayedText": "Kit lifts his hand and taps.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-25::8": {
+    "displayedText": "The drum makes a sound again.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-26::1": {
+    "displayedText": "Kit stands outside the door.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-26::2": {
+    "displayedText": "Kit sees the small button.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-26::3": {
+    "displayedText": "Kit taps the button once.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-26::4": {
+    "displayedText": "The button sends a signal.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-26::5": {
+    "displayedText": "The bell rings inside.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-26::6": {
+    "displayedText": "Zoe hears the sound.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-26::7": {
+    "displayedText": "Zoe opens the door.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-26::8": {
+    "displayedText": "The button makes the bell ring.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-27::1": {
+    "displayedText": "This is a popcorn seed.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-27::2": {
+    "displayedText": "It has a hard coat.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-27::3": {
+    "displayedText": "An adult heats the seed.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-27::4": {
+    "displayedText": "The seed gets hot inside.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-27::5": {
+    "displayedText": "The hard coat splits open.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-27::6": {
+    "displayedText": "The soft inside puffs out.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-27::7": {
+    "displayedText": "The puffy piece is much bigger.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-27::8": {
+    "displayedText": "One small seed makes one piece.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-28::1": {
+    "displayedText": "One ant finds a sweet drop.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-28::2": {
+    "displayedText": "The ant drinks some food.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-28::3": {
+    "displayedText": "It walks back to the nest.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-28::4": {
+    "displayedText": "It leaves a scent trail.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-28::5": {
+    "displayedText": "We cannot see the scent.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-28::6": {
+    "displayedText": "More ants follow the scent.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-28::7": {
+    "displayedText": "They find the sweet drop.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-28::8": {
+    "displayedText": "The trail leads ants to food.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-29::1": {
+    "displayedText": "Zoe has one long paper strip.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-29::2": {
+    "displayedText": "She folds one end across.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-29::3": {
+    "displayedText": "The two short ends meet.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-29::4": {
+    "displayedText": "She presses the fold flat.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-29::5": {
+    "displayedText": "An adult cuts along the fold.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-29::6": {
+    "displayedText": "Zoe puts one piece on top.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-29::7": {
+    "displayedText": "The edges match all around.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-29::8": {
+    "displayedText": "Each piece is half the strip.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-30::1": {
+    "displayedText": "A bag lies by the street.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-30::2": {
+    "displayedText": "The wind lifts the empty bag.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-30::3": {
+    "displayedText": "The bag blows across the grass.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-30::4": {
+    "displayedText": "It catches on a low branch.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-30::5": {
+    "displayedText": "The wind pulls the bag free.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-30::6": {
+    "displayedText": "It falls into the stream.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-30::7": {
+    "displayedText": "The stream carries the bag away.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-a-30::8": {
+    "displayedText": "Wind and water can move trash.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
   "world-discovery-b-01::1": {
     "displayedText": "I want to close my own bag.",
     "voice": "en-US-Chirp3-HD-Leda"
@@ -11718,6 +12038,326 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "displayedText": "Zoe uses the water in the cup to water a plant.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
+  "world-discovery-b-21::1": {
+    "displayedText": "These heavy boxes need a ride. They fill three train cars.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-21::2": {
+    "displayedText": "Each car has wheels. The wheels rest on two rails.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-21::3": {
+    "displayedText": "Strong metal links join the cars. These links are called couplers.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-21::4": {
+    "displayedText": "An engine joins the front car. It gives this train its power.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-21::5": {
+    "displayedText": "The engine pulls. The linked cars move along the track.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-21::6": {
+    "displayedText": "The cars follow the same rails. Their boxes travel together.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-21::7": {
+    "displayedText": "The train stops by another warehouse. Workers take the boxes out.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-21::8": {
+    "displayedText": "One engine pulls three linked cars. Many boxes make one trip.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-22::1": {
+    "displayedText": "Earth has five named oceans. Are their waters separate?",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-22::2": {
+    "displayedText": "Start in the Atlantic Ocean. Follow its water south.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-22::3": {
+    "displayedText": "The Southern Ocean circles Antarctica. Its water meets the Atlantic.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-22::4": {
+    "displayedText": "Go past Africa into the Indian Ocean. There is no wall.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-22::5": {
+    "displayedText": "Pass Australia into the Pacific Ocean. The blue water keeps going.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-22::6": {
+    "displayedText": "A narrow sea gap leads north. It joins the Arctic Ocean.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-22::7": {
+    "displayedText": "Five names mark different ocean regions. Water can move between them.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-22::8": {
+    "displayedText": "Zoe traces the water again. Earth has one connected ocean.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-23::1": {
+    "displayedText": "Zoe takes a bite of apple. Which teeth touch it first?",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-23::2": {
+    "displayedText": "Her front teeth have thin edges. They cut off a piece.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-23::3": {
+    "displayedText": "The piece moves inside her mouth. Her tongue moves it back.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-23::4": {
+    "displayedText": "Her back teeth have wide tops. These teeth are called molars.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-23::5": {
+    "displayedText": "The molars press the apple. The piece breaks into smaller bits.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-23::6": {
+    "displayedText": "Zoe keeps chewing. The bite becomes soft and small.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-23::7": {
+    "displayedText": "Thin edges bite. Wide tops crush and grind.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-23::8": {
+    "displayedText": "Zoe swallows the small soft mouthful. Both tooth shapes help.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-24::1": {
+    "displayedText": "The orange windsock hangs down. The air is still.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-24::2": {
+    "displayedText": "A breeze blows into its wide opening. The cloth begins to lift.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-24::3": {
+    "displayedText": "Air moves through the windsock. Its narrow tail points toward the tree.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-24::4": {
+    "displayedText": "The wind grows stronger. More of the windsock stretches out.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-24::5": {
+    "displayedText": "Now the wind changes direction. The windsock swings around the pole.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-24::6": {
+    "displayedText": "Its tail points toward the bench. The air now blows that way.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-24::7": {
+    "displayedText": "The wind stops. The cloth hangs beside the pole again.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-24::8": {
+    "displayedText": "We cannot see the air. The moving windsock shows its direction.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-25::1": {
+    "displayedText": "The flashlight shines at a small mirror. A bright spot reaches the screen.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-25::2": {
+    "displayedText": "Light hits the mirror. The mirror sends it another way.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-25::3": {
+    "displayedText": "Kit turns only the mirror. The flashlight stays in its stand.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-25::4": {
+    "displayedText": "The bright spot moves across the screen. Zoe follows it with her finger.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-25::5": {
+    "displayedText": "Zoe holds a card before the mirror. The bright spot disappears.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-25::6": {
+    "displayedText": "She lifts the card away. The bright spot returns.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-25::7": {
+    "displayedText": "Kit turns the mirror back. The spot returns to its first place.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-25::8": {
+    "displayedText": "The flashlight stays still. Turning the mirror changes the light's path.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-26::1": {
+    "displayedText": "A red cube rests on a blue block. Zoe points the camera.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-26::2": {
+    "displayedText": "Light enters the camera through its lens. Zoe can see the blocks.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-26::3": {
+    "displayedText": "Zoe presses the button. The camera saves a picture.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-26::4": {
+    "displayedText": "Now Kit moves the red cube. He sets it beside the blue block.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-26::5": {
+    "displayedText": "Zoe opens the saved picture. The red cube still sits on top.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-26::6": {
+    "displayedText": "Kit checks the real blocks. The red cube sits beside the blue block.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-26::7": {
+    "displayedText": "The red cube is beside the block. The saved picture stays the same.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-26::8": {
+    "displayedText": "The photo shows the earlier view. It keeps the red cube on top.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-27::1": {
+    "displayedText": "This soft cheese begins as milk. How does the liquid change?",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-27::2": {
+    "displayedText": "A grown-up heats pasteurized milk. The milk is hot now.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-27::3": {
+    "displayedText": "The grown-up adds lemon juice. White lumps begin to form.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-27::4": {
+    "displayedText": "These soft lumps are curds. Pale liquid stays around them.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-27::5": {
+    "displayedText": "The mixture goes into a clean cloth. A bowl waits below.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-27::6": {
+    "displayedText": "Liquid drains through the cloth. This liquid is called whey.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-27::7": {
+    "displayedText": "The curds stay in the cloth. They gather into soft fresh cheese.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-27::8": {
+    "displayedText": "The cloth holds the cheese. The bowl holds the drained whey.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-28::1": {
+    "displayedText": "Green leaves grow above the giraffe's head. Long thorns line the twig.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-28::2": {
+    "displayedText": "The giraffe lifts its head. Its long neck brings the leaves closer.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-28::3": {
+    "displayedText": "A dark tongue reaches out. It bends around the leafy twig.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-28::4": {
+    "displayedText": "The tongue pulls leaves toward the mouth. The lips help hold them.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-28::5": {
+    "displayedText": "The giraffe pulls its head back. Leaves come away from the twig.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-28::6": {
+    "displayedText": "Its teeth chew the leaves. The bare thorns stay on the tree.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-28::7": {
+    "displayedText": "Another leafy twig grows nearby. The giraffe reaches for it.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-28::8": {
+    "displayedText": "The neck brings its mouth close. The tongue brings the leaves inside.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-29::1": {
+    "displayedText": "How wide is this blue book? Kit lines up small cubes.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-29::2": {
+    "displayedText": "Five cubes reach across the book. But spaces lie between them.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-29::3": {
+    "displayedText": "Zoe points to the empty spaces. The cubes do not fill them.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-29::4": {
+    "displayedText": "Kit slides the cubes together. Their sides touch now.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-29::5": {
+    "displayedText": "The line stops before the book's edge. One space is left.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-29::6": {
+    "displayedText": "Kit adds the last cube. The line reaches the edge.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-29::7": {
+    "displayedText": "Six equal cubes touch in one row. There are no gaps.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-29::8": {
+    "displayedText": "The book is six cubes wide. Every part of the width is covered.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-30::1": {
+    "displayedText": "Wide rings circle Saturn. Do they make one solid sheet?",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-30::2": {
+    "displayedText": "From far away the rings look smooth. Let's picture a closer view.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-30::3": {
+    "displayedText": "Many separate pieces fill this view. Most are made of ice.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-30::4": {
+    "displayedText": "Some pieces are tiny. Others are much bigger.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-30::5": {
+    "displayedText": "Dark spaces lie between the pieces. The pieces are not glued together.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-30::6": {
+    "displayedText": "Each piece travels around Saturn. The rings keep moving.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-30::7": {
+    "displayedText": "Far away again the gaps look tiny. The pieces blend into bright rings.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-b-30::8": {
+    "displayedText": "The rings look smooth from far away. Up close they are separate icy pieces.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
   "world-discovery-c-01::1": {
     "displayedText": "Kit wants to put on a puppet show. He builds a little stage from blocks.",
     "voice": "en-US-Chirp3-HD-Leda"
@@ -12356,6 +12996,326 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
   },
   "world-discovery-c-20::8": {
     "displayedText": "The path is clear. The woodlice still have a cool, damp home under the log.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-21::1": {
+    "displayedText": "Kit checks a blue bag at the airport. A worker adds a tag. Will the bag travel with him?",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-21::2": {
+    "displayedText": "The bag rides a moving belt through a scanner. Workers check bags before they can go onto the plane.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-21::3": {
+    "displayedText": "A scanner reads the bag's tag. The airport system sends it toward the right flight with other bags.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-21::4": {
+    "displayedText": "A cart carries the bags to the plane. Workers load them into a space beneath the passenger floor.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-21::5": {
+    "displayedText": "Kit sits above. His bag rests below. Their different paths meet inside the same plane.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-21::6": {
+    "displayedText": "After landing, workers unload the bags. The blue bag takes another cart ride into the airport.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-21::7": {
+    "displayedText": "A moving belt brings the bags into the arrival hall. Kit spots the orange stripe beside the black handle.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-21::8": {
+    "displayedText": "Kit collects his bag with his grown-up. The bag took another path, but it flew on their plane.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-22::1": {
+    "displayedText": "Kit turns around in the field. Which way is north now? Zoe brings a compass to help him check.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-22::2": {
+    "displayedText": "Zoe holds the compass flat. Its needle can turn freely. One end of the needle is red.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-22::3": {
+    "displayedText": "The needle is a small magnet. Earth's magnetic field helps line it up. Kit waits for it to stop swinging.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-22::4": {
+    "displayedText": "The red end points toward magnetic north. That direction may differ from the north marked on a map.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-22::5": {
+    "displayedText": "Kit turns the marked ring until N lines up with the red end. The other letters show directions around it.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-22::6": {
+    "displayedText": "The gate lies toward E on the compass. Kit faces the gate. The red needle now points to his left.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-22::7": {
+    "displayedText": "He turns back toward the tree. The red needle points ahead again. The gate has not moved.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-22::8": {
+    "displayedText": "Kit changed the way he faced. The needle still points toward magnetic north, helping him keep track of direction.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-23::1": {
+    "displayedText": "Kit bends his arm. His hand moves toward his shoulder. How can stiff bones let that happen?",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-23::2": {
+    "displayedText": "Bones meet at the elbow. The joint lets them change angle without bending the long bones themselves.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-23::3": {
+    "displayedText": "Strong bands called tendons join muscles to bones. A muscle can pull on a bone through these bands.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-23::4": {
+    "displayedText": "A muscle at the front of the upper arm shortens. It pulls the forearm closer to the shoulder.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-23::5": {
+    "displayedText": "The elbow bends. The upper arm bone and forearm bones stay firm while their positions change.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-23::6": {
+    "displayedText": "To straighten the elbow, muscles at the back of the upper arm pull. The front muscles relax.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-23::7": {
+    "displayedText": "Muscles pull bones. They do not push bones back. Different muscles can pull the joint in different directions.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-23::8": {
+    "displayedText": "Kit bends, then straightens his arm. Pulling muscles move the bones around the elbow joint.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-24::1": {
+    "displayedText": "The sky looks clear above the lake. Later, a white cloud grows there. Where does the cloud come from?",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-24::2": {
+    "displayedText": "Some lake water changes into water vapor. This gas mixes with the air. We cannot see the vapor.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-24::3": {
+    "displayedText": "Air carrying water vapor rises. Higher up, the air spreads out and cools.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-24::4": {
+    "displayedText": "The air cools enough for some vapor to become liquid. Tiny drops form around small specks in the air.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-24::5": {
+    "displayedText": "Each drop is very small. Many drops together scatter sunlight. Now we can see a white cloud.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-24::6": {
+    "displayedText": "This cloud holds tiny liquid drops. Other clouds can also hold ice crystals, especially in colder air.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-24::7": {
+    "displayedText": "More vapor changes into drops as the air keeps cooling. The small cloud grows above the lake.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-24::8": {
+    "displayedText": "The clear air carried invisible vapor. Cooling changed some vapor into tiny drops, making the cloud visible.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-25::1": {
+    "displayedText": "Kit's bulb is dark. A battery and wires are in place, but the switch has a small open gap.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-25::2": {
+    "displayedText": "Zoe follows the wires with her eyes. The path reaches one side of the switch, then stops at the gap.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-25::3": {
+    "displayedText": "Kit closes the switch. Its metal parts touch, completing the path. The bulb lights at once.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-25::4": {
+    "displayedText": "The wires make a loop through the bulb and back to the battery. Electric current can flow around this complete circuit.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-25::5": {
+    "displayedText": "Zoe opens the switch again. The gap breaks the loop, and the light goes out.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-25::6": {
+    "displayedText": "She closes it. The bulb shines. Now Kit lifts one wire clip from its safe contact. The bulb goes dark again.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-25::7": {
+    "displayedText": "The switch is closed, but the loose wire leaves another gap. A break anywhere stops current in this simple loop.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-25::8": {
+    "displayedText": "Kit puts the clip back. The bulb shines again. The loop is complete from the battery, through the bulb, and back.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-26::1": {
+    "displayedText": "The worker scans a cereal box. Its name and price appear on the screen. How did the stripes help?",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-26::2": {
+    "displayedText": "The black bars and white spaces form a code. Their different widths stand for a number that identifies this product.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-26::3": {
+    "displayedText": "The scanner shines light on the code. Dark bars and white spaces send back different amounts of light.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-26::4": {
+    "displayedText": "The scanner reads that pattern and sends the product number to the store's computer.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-26::5": {
+    "displayedText": "The computer matches the number to a saved record. That record gives the cereal's name and the store's price.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-26::6": {
+    "displayedText": "The store changes the price later. A worker changes the saved record. The stripes on the box can stay the same.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-26::7": {
+    "displayedText": "The worker scans another box of the same cereal. The computer finds the updated price using the same product number.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-26::8": {
+    "displayedText": "The stripes identify the product. The store's computer uses that number to find its name and price.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-27::1": {
+    "displayedText": "Zoe sharpens a pencil. Dark material sits inside the wood. How did that thin writing part get there?",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-27::2": {
+    "displayedText": "The dark core starts with graphite and clay. Workers shape the mixture into thin rods and heat them in a special oven.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-27::3": {
+    "displayedText": "Machines cut long grooves into wooden boards. Each groove makes a space for one dark core.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-27::4": {
+    "displayedText": "Workers add glue and place a core in each groove. The thin rods lie straight inside the wood.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-27::5": {
+    "displayedText": "A second grooved board goes on top. The two boards hold the dark cores between them.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-27::6": {
+    "displayedText": "Machines shape and separate the long pencils. Each pencil now has its own wooden case around one core.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-27::7": {
+    "displayedText": "The pencils receive paint. Sharpening cuts away some wood and uncovers a point of the dark core.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-27::8": {
+    "displayedText": "Zoe draws a gray line. Graphite from the core marks the paper, while the wood holds the core in her hand.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-28::1": {
+    "displayedText": "A European hedgehog hunts in the fall. Cold weather is coming, and its small prey will become harder to find.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-28::2": {
+    "displayedText": "The hedgehog eats and builds fat inside its body. That stored fat can supply energy later.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-28::3": {
+    "displayedText": "It gathers dry leaves into a sheltered nest. The thick leaf walls help protect it from sudden changes in temperature.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-28::4": {
+    "displayedText": "Inside, its body cools. Its heartbeat and breathing slow down. This low-activity state is called hibernation.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-28::5": {
+    "displayedText": "Its body uses stored fat for energy. It needs much less energy than it uses while moving and hunting.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-28::6": {
+    "displayedText": "It does not stay still all winter. Sometimes it warms up and leaves its nest, especially during mild weather.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-28::7": {
+    "displayedText": "Warmer spring days arrive. Small prey become easier to find. The hedgehog spends more time moving and feeding again.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-28::8": {
+    "displayedText": "The hedgehog used less energy during the cold months. Now it is warm and active, looking for food again.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-29::1": {
+    "displayedText": "The long hand points to twelve. Later, it points there again. Is the time still the same?",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-29::2": {
+    "displayedText": "At three o'clock, the short hand points to three. The long hand is the minute hand. It starts at twelve.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-29::3": {
+    "displayedText": "Fifteen minutes pass. The long hand reaches three. The short hand has moved a little beyond three too.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-29::4": {
+    "displayedText": "After thirty minutes, the long hand reaches six. The short hand sits halfway between three and four.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-29::5": {
+    "displayedText": "After forty-five minutes, the long hand reaches nine. The short hand is closer to four now.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-29::6": {
+    "displayedText": "The long hand reaches twelve again. It has made one full turn. Sixty minutes have passed: one hour.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-29::7": {
+    "displayedText": "Look at the short hand. It points to four now. The long hand's place matches the start, but the time does not.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-29::8": {
+    "displayedText": "The long hand returns to twelve after one hour. The short hand now points to four, showing the later time.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-30::1": {
+    "displayedText": "A rocket waits on the launch pad. Hot gas bursts from its engine. What can lift this heavy machine?",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-30::2": {
+    "displayedText": "This rocket carries fuel and liquid oxygen. Inside the engine, they react and make very hot gas.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-30::3": {
+    "displayedText": "The engine pushes gas through a shaped opening called a nozzle. The gas rushes downward.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-30::4": {
+    "displayedText": "As gas goes down, it pushes the rocket up. This upward push is called thrust.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-30::5": {
+    "displayedText": "Earth's gravity still pulls downward. When the upward push is strong enough, the rocket lifts away from the pad.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-30::6": {
+    "displayedText": "High above Earth, there is very little air. The rocket carries its own oxygen, so its engine can still work.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-30::7": {
+    "displayedText": "Gas shoots backward from the engine. The rocket receives a push forward, even without ground or air behind it.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-c-30::8": {
+    "displayedText": "The rocket moves one way as it sends gas the other way. The escaping gas makes the push.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-d-01::1": {
@@ -13158,6 +14118,406 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "displayedText": "Later, when nobody needs the path, the timer turns the lamp off. The porch grows dark again.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
+  "world-discovery-d-21::1": {
+    "displayedText": "These notebooks must travel a long way. Workers pack their boxes inside one large container.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-21::10": {
+    "displayedText": "Ship, train, then truck: three kinds of transport carried one container. The notebooks stayed packed through every change.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-21::2": {
+    "displayedText": "The doors close. The container keeps the boxes together while different vehicles carry them.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-21::3": {
+    "displayedText": "At the port, a crane lifts the whole container onto a ship. The boxes stay inside.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-21::4": {
+    "displayedText": "The ship carries many containers across the sea. Our orange box travels among them.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-21::5": {
+    "displayedText": "At another port, a crane lifts the orange container from the ship. It still holds the same notebooks.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-21::6": {
+    "displayedText": "Workers place the container on a railcar. The train can carry it far from the coast.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-21::7": {
+    "displayedText": "The train follows its tracks to a freight yard. Here, the container changes vehicles again.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-21::8": {
+    "displayedText": "A crane lowers the container onto a truck trailer. The driver can now take roads to the warehouse.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-21::9": {
+    "displayedText": "At the warehouse, workers finally open the doors. They lift out the boxes of notebooks.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-22::1": {
+    "displayedText": "Earth has wide stretches of land and water. On a map, we can look at them together.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-22::10": {
+    "displayedText": "Some continents share land. Others have water between them. We can find all seven on this one Earth.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-22::2": {
+    "displayedText": "People divide much of the land into continents. This map uses seven continent names.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-22::3": {
+    "displayedText": "North America and South America meet along a narrow stretch of land. Water does not lie between all of their edges.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-22::4": {
+    "displayedText": "Their names are different, but their land connects. A continent does not always stand alone in the sea.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-22::5": {
+    "displayedText": "Europe and Asia share an even wider stretch of land. Together, that land is called Eurasia.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-22::6": {
+    "displayedText": "The line between those two continents is a boundary people use. It is not a strip of ocean.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-22::7": {
+    "displayedText": "South of Europe lies Africa. The sea between them helps us find their facing coasts.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-22::8": {
+    "displayedText": "Water surrounds Australia. Farther south, Antarctica lies around the South Pole, mostly covered by thick ice.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-22::9": {
+    "displayedText": "The map colors help us follow the names. Earth does not have colored lines drawn across its land.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-23::1": {
+    "displayedText": "Zoe feels a beat inside her chest. Her heart is a muscle that squeezes to push blood along.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-23::10": {
+    "displayedText": "Heart to lungs, back to heart, then around the body: blood keeps moving through these connected routes.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-23::2": {
+    "displayedText": "Blood travels through blood vessels. These branching tubes reach all around the body.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-23::3": {
+    "displayedText": "Blood returning from the body first reaches the right side of the heart. It needs more oxygen.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-23::4": {
+    "displayedText": "That side pumps blood toward the lungs. When we breathe in, fresh air enters the lungs too.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-23::5": {
+    "displayedText": "In the lungs, oxygen moves from the air into the blood. Blood carries this oxygen away.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-23::6": {
+    "displayedText": "The blood returns to the left side of the heart. Now the heart sends it out toward the body.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-23::7": {
+    "displayedText": "Tiny vessels bring blood close to body cells. Oxygen leaves the blood and helps those cells do their work.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-23::8": {
+    "displayedText": "Blood also carries carbon dioxide away from the cells. This waste gas will travel back to the lungs.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-23::9": {
+    "displayedText": "The blood returns to the heart, then reaches the lungs again. Carbon dioxide leaves the blood, and we breathe it out.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-24::1": {
+    "displayedText": "The windsock points inland. Air is moving from the sea toward the beach. Moving air is wind.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-24::10": {
+    "displayedText": "Here, uneven warming helped start a sea breeze. The windsock stretches inland as the cooler air passes.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-24::2": {
+    "displayedText": "Why is the air moving this way? On this sunny day, the land warms faster than the nearby sea.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-24::3": {
+    "displayedText": "The warm ground heats the air above it. The sea keeps the air near its surface cooler.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-24::4": {
+    "displayedText": "As air warms, it spreads out. The same amount of air takes up more room.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-24::5": {
+    "displayedText": "The warmer air is less dense than cooler air nearby. It can rise above that cooler air.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-24::6": {
+    "displayedText": "Cooler air near the sea moves inland. It pushes beneath the warmer air and helps lift it.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-24::7": {
+    "displayedText": "Higher above the coast, air moves back toward the sea. The air follows a larger turning route.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-24::8": {
+    "displayedText": "Farther over the water, cooler air sinks. This helps complete the moving-air loop.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-24::9": {
+    "displayedText": "Other weather can change this breeze. Wind does not always blow toward land whenever the Sun shines.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-25::1": {
+    "displayedText": "A flat sheet of paper lies across two blocks. Can this little bridge hold a wooden counter?",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-25::10": {
+    "displayedText": "One sheet, one counter, the same gap: folding helped this bridge carry its load with less bending.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-25::2": {
+    "displayedText": "Kit places the counter in the middle. The paper bends down between the blocks.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-25::3": {
+    "displayedText": "The paper is easy to bend this way. Zoe takes the counter off before the paper slips.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-25::4": {
+    "displayedText": "They could add more paper. Instead, they try changing the shape of this same sheet.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-25::5": {
+    "displayedText": "Zoe folds the paper back and forth. The crease lines run parallel to the long edges, making long ridges and grooves.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-25::6": {
+    "displayedText": "The folded sheet goes back across the same gap. Each long ridge reaches from one block to the other.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-25::7": {
+    "displayedText": "Kit adds the same counter in the middle. This time, the folded paper bends much less.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-25::8": {
+    "displayedText": "The folds make the paper harder to bend downward. The material stayed the same, but its shape changed.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-25::9": {
+    "displayedText": "Real bridges must hold much larger loads. Engineers test materials, shapes and supports before people use them.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-26::1": {
+    "displayedText": "A little robot rolls toward a foam block. It has no human eyes, but it has a touch sensor.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-26::10": {
+    "displayedText": "The sensor reports a push. The program gives the next steps. Together, they help this robot change its route.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-26::2": {
+    "displayedText": "The sensor sits behind the front bumper. When something presses the bumper, the sensor detects that push.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-26::3": {
+    "displayedText": "The robot reaches the block. Its bumper presses inward, and the sensor sends a message to the controller.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-26::4": {
+    "displayedText": "The controller runs a program. This program says what the robot should do when the bumper is pressed.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-26::5": {
+    "displayedText": "First, the program stops the wheels. The robot does not keep pushing against the block.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-26::6": {
+    "displayedText": "Next, the wheels turn backward. The robot moves away, and the bumper springs out again.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-26::7": {
+    "displayedText": "Then the robot turns and rolls along a clear path. Its sensor helped trigger these actions.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-26::8": {
+    "displayedText": "Zoe moves the block into the new path. This robot uses its bumper each time it meets an obstacle.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-26::9": {
+    "displayedText": "When its bumper touches again, the same program runs: stop, move back, then turn.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-27::1": {
+    "displayedText": "A bowl of rice begins with a plant. The grains grow in clusters near the tops of its stems.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-27::10": {
+    "displayedText": "Plant, grain, husk removed, then cooking: the rice in this bowl has changed at each step.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-27::2": {
+    "displayedText": "When this crop is ready, a machine cuts the stems and collects the grain.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-27::3": {
+    "displayedText": "The grain must be separated from the stems. This step is called threshing.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-27::4": {
+    "displayedText": "Fresh grain holds moisture. Drying removes some water so the grain can be stored with less risk of spoilage.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-27::5": {
+    "displayedText": "Each grain still has a tough outer husk. We do not cook and eat that covering.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-27::6": {
+    "displayedText": "At the mill, a machine removes the husk. The grain underneath is brown rice.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-27::7": {
+    "displayedText": "To make white rice, milling also removes much of the brown outer layer. The grain looks paler now.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-27::8": {
+    "displayedText": "Workers sort and pack the rice. A bag can now travel to a shop and then a kitchen.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-27::9": {
+    "displayedText": "An adult cooks the rice with water. The grains take in water and become softer.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-28::1": {
+    "displayedText": "Something has chewed the edge of an oak leaf. Look underneath: a small caterpillar is eating there.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-28::10": {
+    "displayedText": "Back at the oak, another caterpillar takes a bite. A chickadee searches the next branch.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-28::2": {
+    "displayedText": "The leaf is food for the caterpillar. As it eats and grows, more of the leaf disappears.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-28::3": {
+    "displayedText": "A Carolina chickadee searches the branches. It checks leaves and twigs for insects.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-28::4": {
+    "displayedText": "The bird finds the caterpillar. Now the animal eating the leaf becomes food for another animal.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-28::5": {
+    "displayedText": "The chickadee carries the caterpillar to a hole in a tree. Hungry young birds wait inside.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-28::6": {
+    "displayedText": "A young bird opens its beak. The parent passes in the caterpillar, then searches for more food.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-28::7": {
+    "displayedText": "The oak did not feed the chick directly. Its leaves fed the caterpillar that the chick ate.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-28::8": {
+    "displayedText": "If there are fewer caterpillars nearby, the parent may need to search longer to find enough food.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-28::9": {
+    "displayedText": "Chickadees eat other small creatures too. This leaf, caterpillar and bird show just one feeding connection in the woodland.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-29::1": {
+    "displayedText": "In our pretend shop, this ball costs six dollars. Kit has two dollars in play money.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-29::10": {
+    "displayedText": "Three groups of two dollars made six dollars. Kit saved enough to buy the ball.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-29::2": {
+    "displayedText": "Two dollars is not enough yet. Kit needs four more dollars before he can buy the ball.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-29::3": {
+    "displayedText": "On Monday, he puts his two dollars in a jar. He is saving them for the ball.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-29::4": {
+    "displayedText": "On Wednesday, Zoe gives him two more play dollars. Kit adds them to the jar.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-29::5": {
+    "displayedText": "Now he has four dollars. The price is still six dollars, so he needs two more.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-29::6": {
+    "displayedText": "Kit could spend some money on something else. Then he would have less saved for the ball.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-29::7": {
+    "displayedText": "He keeps the four dollars together. On Saturday, he adds two more play dollars.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-29::8": {
+    "displayedText": "Kit counts his savings: two, four, six. Now the saved amount matches the ball's price.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-29::9": {
+    "displayedText": "He gives Zoe the six dollars and takes the ball. The jar is empty now.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-30::1": {
+    "displayedText": "A satellite travels high above Earth. It keeps moving around our planet instead of dropping straight to the ground.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-30::10": {
+    "displayedText": "Forward motion and Earth's pull keep this satellite following a curved route. Around Earth it goes again.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-30::2": {
+    "displayedText": "Earth's gravity still pulls the satellite. Being in space does not make that pull disappear.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-30::3": {
+    "displayedText": "A rocket gave the satellite speed before letting it go. The satellite keeps moving forward after that.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-30::4": {
+    "displayedText": "Without Earth's pull, it would continue along a straight path. But gravity keeps changing the direction of its travel.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-30::5": {
+    "displayedText": "The satellite moves forward while falling toward Earth. Below it, Earth's surface curves away.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-30::6": {
+    "displayedText": "With the right speed and height, it keeps missing the ground. Its curved path goes around the planet.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-30::7": {
+    "displayedText": "That path is an orbit. The satellite is falling around Earth, not floating where gravity cannot reach it.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-30::8": {
+    "displayedText": "Different satellites use different orbits. Some travel close to Earth, while others travel much farther away.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-d-30::9": {
+    "displayedText": "Engineers choose a path for the satellite's job. They also plan ways to adjust it when needed.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
   "world-discovery-e-01::1": {
     "displayedText": "\"Kit can build our stage,\" Zoe says. Kit reaches for the cardboard, but his eyes stay on the orange fox puppet.",
     "voice": "en-US-Chirp3-HD-Leda"
@@ -13956,6 +15316,406 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
   },
   "world-discovery-e-20::9": {
     "displayedText": "The path still needs care, and the patch does too. The gardener checks what is growing before planning the next cut.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-21::1": {
+    "displayedText": "On this practice map, the museum stands across a river. Kit and Zoe compare three ways to get there.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-21::10": {
+    "displayedText": "They choose the ferry for this practice trip. They have compared the walking, waiting and riding before deciding.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-21::2": {
+    "displayedText": "They could walk over the footbridge. The whole walk would take twenty-five minutes.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-21::3": {
+    "displayedText": "The bus must use the road bridge. Its route goes farther upstream before crossing the river.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-21::4": {
+    "displayedText": "The bus ride takes fifteen minutes. That sounds quicker, but the ride is only part of the journey.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-21::5": {
+    "displayedText": "They must also walk for ten minutes altogether and wait ten minutes. The bus journey takes thirty-five minutes.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-21::6": {
+    "displayedText": "The ferry has a shorter crossing. Its ride takes only five minutes, but they must check its waiting time too.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-21::7": {
+    "displayedText": "Here, walking takes five minutes altogether, waiting takes ten, and the ride takes five. The ferry journey takes twenty minutes.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-21::8": {
+    "displayedText": "Twenty minutes is less than twenty-five or thirty-five. For this trip, the ferry gives them the quickest whole journey.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-21::9": {
+    "displayedText": "On another day, a longer wait could change their choice. They would need to check the times again.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-22::1": {
+    "displayedText": "Wells is a city. Reading is a town. Lacock is a village. These three places are all in England.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-22::10": {
+    "displayedText": "When we visit a place, we can look closely. Where do people live, work, shop and travel?",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-22::2": {
+    "displayedText": "Start in Lacock. Houses stand beside its streets, and people live there today. Its old buildings are still in use.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-22::3": {
+    "displayedText": "Lacock also has shops. A village can have places to buy things as well as places to live.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-22::4": {
+    "displayedText": "Now look at Reading. This town has many workplaces and busy routes for buses and trains.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-22::5": {
+    "displayedText": "People travel into Reading to work. A town can be a busy place with many connections to other places.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-22::6": {
+    "displayedText": "Wells has city status, although it is much smaller than Reading. The word city does not always mean the biggest place.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-22::7": {
+    "displayedText": "In the United Kingdom, city status is a special title. A place does not gain it just by growing larger.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-22::8": {
+    "displayedText": "Countries can use these names differently. A size chart may help compare places, but it does not explain every local name.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-22::9": {
+    "displayedText": "These three places have homes and streets. Their buildings and transport can tell us more than the names alone.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-23::1": {
+    "displayedText": "Kit rolls a ball toward Zoe. She sees it coming and reaches to stop it. What helps her do that?",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-23::10": {
+    "displayedText": "Zoe holds the ball still. Messages helped her see it, reach for it and feel it in her hands.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-23::2": {
+    "displayedText": "Light from the ball reaches Zoe's eyes. Cells inside her eyes respond to the light.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-23::3": {
+    "displayedText": "Messages travel from her eyes along nerves to her brain. These messages help her see where the ball is.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-23::4": {
+    "displayedText": "Her brain uses this information as she decides to stop the ball. Then it sends messages toward her arm muscles.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-23::5": {
+    "displayedText": "The messages pass down her spinal cord and along nerves into her arms. This route connects brain and muscles.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-23::6": {
+    "displayedText": "Her muscles pull on bones to move her arms and hands. Zoe reaches in front of the rolling ball.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-23::7": {
+    "displayedText": "The ball touches her fingers. Cells in her skin respond to the pressure and send more messages along nerves.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-23::8": {
+    "displayedText": "Those messages help her brain know that her hands have reached the ball. She can adjust her grip.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-23::9": {
+    "displayedText": "Nerve cells pass messages to other nerve cells. Many connections help the body keep sensing and moving.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-24::1": {
+    "displayedText": "During an earthquake, the ground shakes. The shaking can begin when rock suddenly slips along a break below the surface.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-24::10": {
+    "displayedText": "Slow movement can build strain. A sudden slip releases it, sending waves through the ground. That is how this earthquake begins.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-24::2": {
+    "displayedText": "Earth's outer shell is divided into huge plates. These plates move very slowly, carrying rock with them.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-24::3": {
+    "displayedText": "Here, rock on opposite sides of a fault is moving in different directions. A fault is a break where rock can slip.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-24::4": {
+    "displayedText": "Rough surfaces can catch against each other. Part of the fault stays stuck while the surrounding rock keeps being pushed.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-24::5": {
+    "displayedText": "The rock slowly changes shape under that push. Energy builds up while the stuck part holds.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-24::6": {
+    "displayedText": "When the push becomes strong enough, the stuck part slips. Rock on the two sides moves suddenly.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-24::7": {
+    "displayedText": "Energy spreads outward as earthquake waves. The waves travel through rock and can reach the ground above.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-24::8": {
+    "displayedText": "As waves pass, the ground moves back and forth or up and down. That motion is the shaking people feel.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-24::9": {
+    "displayedText": "A wave carries energy away from the slipping rock. The whole block does not travel along with each wave.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-25::1": {
+    "displayedText": "A plane is heavy, yet its wings help hold it in the air. What are the wings doing?",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-25::10": {
+    "displayedText": "The plane keeps moving through air. Its wings change the airflow, and the air's force helps support the plane.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-25::2": {
+    "displayedText": "As the plane moves forward, air flows around its wings. Both the upper and lower wing surfaces affect that moving air.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-25::3": {
+    "displayedText": "The wings turn some of the flowing air downward. In return, the air pushes upward on the wings.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-25::4": {
+    "displayedText": "This upward part of the air's force is called lift. Most lift on this plane comes from its wings.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-25::5": {
+    "displayedText": "Air pressure also helps us describe that force. Air pushes on every side of the wing, but not equally.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-25::6": {
+    "displayedText": "For this lifting wing, the combined pressure pushes more upward than downward. That difference produces lift.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-25::7": {
+    "displayedText": "Pressure differences and air turning happen together. They describe the same lift, not two separate forces to add.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-25::8": {
+    "displayedText": "Gravity pulls the plane downward. In steady, level flight, lift balances the plane's weight.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-25::9": {
+    "displayedText": "Wing shape, speed and angle all affect lift. Pilots change how the plane flies as it takes off or lands.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-26::1": {
+    "displayedText": "Zoe sends Kit a picture of her paper boat. Their devices are in different homes. How does the picture reach his screen?",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-26::10": {
+    "displayedText": "The picture crossed many connections as coded data. Screens, routers, cables and radio signals helped it reach Kit.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-26::2": {
+    "displayedText": "The picture is stored as data. The device can turn that data into signals that other equipment can carry.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-26::3": {
+    "displayedText": "The data travels in small groups called packets. Each packet has information that helps it reach the right destination.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-26::4": {
+    "displayedText": "Zoe's tablet uses Wi-Fi to send signals to a nearby router. This first part of the route uses radio waves.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-26::5": {
+    "displayedText": "The router connects to the internet provider's network. From there, other routers pass the packets onward through connected links.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-26::6": {
+    "displayedText": "In this example, the packets reach a messaging service's server. This computer helps deliver the picture to Kit.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-26::7": {
+    "displayedText": "Packets can follow different routes through a network. The receiving equipment uses their information to put the data together correctly.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-26::8": {
+    "displayedText": "The data reaches Kit's home network. His router sends signals to his laptop over Wi-Fi.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-26::9": {
+    "displayedText": "His laptop uses the received data to show the picture. The red boat appears on his screen.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-27::1": {
+    "displayedText": "This shirt began with cotton plants. Inside their ripe, open bolls, soft fibers grew around the seeds.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-27::10": {
+    "displayedText": "Cotton fibers became yarn, yarn became cloth, and cut cloth became a shirt. Its fabric still contains those plant fibers.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-27::2": {
+    "displayedText": "After harvest, a machine called a gin separates the fibers from the seeds. The fibers are pressed into large bales.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-27::3": {
+    "displayedText": "At a mill, machines clean the fibers and line them up. They form a soft, loose strand.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-27::4": {
+    "displayedText": "Spinning twists the fibers together into yarn. Many short fibers can now hold together as one much longer strand.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-27::5": {
+    "displayedText": "A loom weaves yarn into fabric. One set of yarns crosses over and under another set.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-27::6": {
+    "displayedText": "The woven cloth is treated and colored. This cloth becomes pale blue before workers cut the shirt pieces.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-27::7": {
+    "displayedText": "Workers cut pieces for the front, back and sleeves. Their shapes must fit together when the shirt is sewn.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-27::8": {
+    "displayedText": "A sewing machine joins the pieces with thread. Seams hold the sleeves and body together.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-27::9": {
+    "displayedText": "Workers add the collar and buttons. The flat pieces now make a shirt that someone can put on.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-28::1": {
+    "displayedText": "Sunlight reaches the top of this rainforest. Far below, the ground is much darker. What happens to the light on its way?",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-28::10": {
+    "displayedText": "The rainforest changes from bright treetops to shaded ground. Where light reaches leaves helps shape what can grow and feed there.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-28::2": {
+    "displayedText": "The upper branches spread many leaves across the sky. Together, this leafy layer forms much of the canopy.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-28::3": {
+    "displayedText": "Leaves absorb some sunlight and reflect some away. Much less light passes through to the plants below.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-28::4": {
+    "displayedText": "Green leaves use light to help make food from water and a gas in the air. This process supports the growing tree.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-28::5": {
+    "displayedText": "Some of the tree's food helps it grow fruit. A toucan can feed on that fruit high in the branches.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-28::6": {
+    "displayedText": "Below the canopy, scattered patches of sunlight reach the ground. Many young plants grow in the dimmer light between them.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-28::7": {
+    "displayedText": "Some plants can live with little light. Others need more light to grow well. The forest does not suit every plant equally.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-28::8": {
+    "displayedText": "When a large tree falls, it can leave a gap overhead. More sunlight reaches the ground through that opening.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-28::9": {
+    "displayedText": "Young trees in the gap may grow faster with more light. As branches fill the space, shade can return below.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-29::1": {
+    "displayedText": "A museum washboard helps us explore an older way to wash. Its ridged board and hand-turned rollers each have a job.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-29::10": {
+    "displayedText": "This is one comparison of two methods. People still wash in different ways, using the water, tools and power available to them.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-29::2": {
+    "displayedText": "In our demonstration, an adult washes a yellow shirt with water and soap. The cloth moves against the board's ridges.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-29::3": {
+    "displayedText": "The rubbing helps loosen dirt from the cloth. Clean rinse water then carries away soap and loosened dirt.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-29::4": {
+    "displayedText": "Next, the adult turns the wringer's handle. Its two rollers squeeze extra water from the wet shirt.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-29::5": {
+    "displayedText": "The shirt is still damp after wringing. It goes on a line to dry before someone wears it again.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-29::6": {
+    "displayedText": "On a later washday, the same shirt goes into an automatic washer. This time, a motor does much of the moving.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-29::7": {
+    "displayedText": "Inside, the drum turns the clothes through water and detergent. This movement helps clean them without rubbing each piece by hand.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-29::8": {
+    "displayedText": "The machine rinses the clothes and drains the water. Then a fast spin removes much of the water left in the cloth.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-29::9": {
+    "displayedText": "The shirt still needs to dry. The tools have changed, but cleaning, rinsing and removing extra water remain part of washday.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-30::1": {
+    "displayedText": "This coral looks like a rocky mound, but tiny animals cover its surface. They are called coral polyps.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-30::10": {
+    "displayedText": "Warm water can make this coral lose algae and turn white. If the heat eases, the living coral may recover.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-30::2": {
+    "displayedText": "The polyps make a hard skeleton beneath their living tissue. Tiny algae live inside that tissue in many reef-building corals.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-30::3": {
+    "displayedText": "The algae use sunlight to make food. They share some with the coral, which gives them a protected place to live.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-30::4": {
+    "displayedText": "These algae also give much of the coral its color. Food from the algae helps this coral grow.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-30::5": {
+    "displayedText": "If the surrounding water stays too warm, the coral can become stressed. Then it may lose its algae.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-30::6": {
+    "displayedText": "The coral loses many of its algae. With fewer algae inside, its living tissue becomes much less colorful.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-30::7": {
+    "displayedText": "The white skeleton shows through the pale tissue. This change is called bleaching. A bleached coral is not necessarily dead.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-30::8": {
+    "displayedText": "Without enough algae, the coral loses a major food supply. If the stress lasts too long, the coral can die.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "world-discovery-e-30::9": {
+    "displayedText": "If conditions improve in time, algae can increase again. Some corals recover their color and continue growing.",
     "voice": "en-US-Chirp3-HD-Leda"
   }
 });

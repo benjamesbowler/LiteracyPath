@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-21",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:29:55.278Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-86d64a9a-1039-4e6a-95a1-a0e61cee92c3.png",
+  "sourceSha256": "7b4512913f2e9e2f63beab67255669bf8250e4d2bc3a41ded89bb2f7735650c9",
+  "output": "public/guided-reading/world-discovery/e-21/page-03.webp",
+  "outputSha256": "f7c8eab2205e2b89ce40d49a2418050689e26b9526d746966c96eea6efe4a88c",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this illustration into ONE map-only diagram: REMOVE all three people and the large ferry outside the map on the left. Recenter the remaining COMPLETE map on the white 3:2 landscape canvas. Preserve the map geometry, museum, orange road-route dots, small bus on the upper road bridge, lower brown footbridge, tan paths, blue river and opposite quays exactly. Map outer boundary should occupy 74 percent of canvas width and 74 percent of canvas height, leaving 13 percent white margins all around. No added text, numbers, icons, people or vehicles. Flat 2D clean bold lines and solid colors.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-908bfc85-154f-480d-943e-0dc8b1fd25fd.png",
+      "sha256": "1e557ceb4fa279a55daa0bfede76bcbd67d038444f28bfd78a0dd344dbbbd156"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "9421bb4bb1f97c822674b76871fc5ee9b7b4398f02e9bdb626223b2a8cf9283e",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T11:31:58.778240+00:00",
+    "sha256": "f7c8eab2205e2b89ce40d49a2418050689e26b9526d746966c96eea6efe4a88c",
+    "note": "Orange bus route follows upper road bridge from start to museum. One bus on road, no extraneous reference-board panels. Geometry preserved; ample map margin.",
+    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  }
+}

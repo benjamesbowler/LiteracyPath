@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-c-30",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:05:19.696Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-38740bf3-0000-48c0-94c0-40cc9806711b.png",
+  "sourceSha256": "74e9e18a0660dc3ba42bc01ea77b4b19fd5ffc90ea6833871b155d5743ddd53a",
+  "output": "public/guided-reading/world-discovery/c-30/page-05.webp",
+  "outputSha256": "7ac151e46b826d4a47c1bac060a1e489c3690b6c68a8b683cbaadda8c42bd3cf",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "One finished landscape3:2 full-bleed children nonfiction illustration, crisp flat2D cartoon with clean dark outlines, flat colors and restrained cel shading. No grain, painted texture,3D, words, logos, captions, border or frame. Full essential subjects within CENTRAL65 percent of canvas, broad naturally extended background margins. Edit framing only: uniform15 percent pullback, extend same blue sky and distant pad ground edge-to-edge, no border. Green UP arrow tip at least12 percent belowtop; keep green longer than purple DOWN. Both arrows stay attached to rocket midpoint, NOT exhaust. Same rocket/one nozzle/exhaust and tiny gantry, no new arrows.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-40b2b4ad-9214-425c-83ee-8034930472a4.png",
+      "sha256": "083a7e455c8a2e62b84174e06cca91baf8cdfbc7ea6fd48b6b5c790e3f3b8b60"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "7374f9182a4ceb61b8c6faae01ea35938c85f0fc4723dd1dfcd601ace996d189",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T13:09:18.114672+00:00",
+    "sha256": "7ac151e46b826d4a47c1bac060a1e489c3690b6c68a8b683cbaadda8c42bd3cf",
+    "note": "Green longer up thrust and purple shorter down gravity both attached at rocket body midpoint; rocket clear of pad and still exhausts down, safe arrow/nose margins.",
+    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  }
+}

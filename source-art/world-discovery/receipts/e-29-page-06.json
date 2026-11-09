@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-e-29",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:45:34.468Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-52095b00-15af-4f56-b193-137f341b16d4.png",
+  "sourceSha256": "cc99292276f6100c1d266c5b41b041a342dc7786c13fa100b251535eeaa670f3",
+  "output": "public/guided-reading/world-discovery/e-29/page-06.webp",
+  "outputSha256": "be5af8abe2b7544fe0134405520c27d9a35472dae679cd53b37a47b3aac380f6",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "One landscape 3:2 nonfiction illustration in same clean flat 2D cartoon. Bold outlines, smooth solid colors, restrained cel shading, no texture, text, numbers, labels, insets or panels. WIDE pulled-back composition: all essential anatomy and objects within x=15\u201385%, y=13\u201385%, add natural context beyond. ONE yellow short-sleeve T-shirt with ONE exact square blue chest pocket throughout, no duplicate shirt. On a later day same adult kneels beside same modern white FRONT-LOADING washer from second image. Adult holds same yellow shirt with ONE square blue pocket and two small ordinary dirt marks and loads it into OPEN circular door. Door hinged on left, appliance STOPPED and drum still, no motion arrows or water. Exactly two hands, one holds upper cloth one supports lower cloth, safely inside stopped open drum. Plain button/dial control design from second reference, no writing. No washboard, tubs, other shirt or people. Same pale cream teaching room, window and wooden floor. Whole adult and washer inside generous safe margins; door hinge and glass geometry coherent.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/e-29/page-03.webp",
+      "sha256": "b29904543871b22adb9e93b0973b6f4158b30a6f66e5a354e2c3d932029fbaff"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-c9331d75-90b2-458e-8c6c-b964da85d8eb.png",
+      "sha256": "252f3d5154289561244932e62d62eb83b1bf98835cd05655ea8aefa7d1a4f5cf"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "7b5d49fa464ddfe3c488fb7295ea82cbaa37ae0e01b14b633c270d651f53cb42",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
+    "sha256": "be5af8abe2b7544fe0134405520c27d9a35472dae679cd53b37a47b3aac380f6",
+    "note": "Later-day dirt marks; same adult loads stopped open washer, two hands and left hinge coherent.",
+    "limits": "Individual installed WebP only; independent sequence, reader, card and audio separate."
+  }
+}

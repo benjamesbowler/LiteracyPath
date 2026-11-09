@@ -1,0 +1,39 @@
+{
+  "bookId": "world-discovery-e-24",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T14:30:48.293Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-be685495-8dc6-4013-ba8b-066b4e67694b.png",
+  "sourceSha256": "21357080f258facd9c99995bebc6483fe206463a33e2f68ee5d0fede8af10f4b",
+  "output": "public/guided-reading/world-discovery/e-24/cover.webp",
+  "outputSha256": "4b79bd7c21ecac6d752f490af1367a01fce14f700ae5cd048249bc450cf3fff4",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Landscape 1536x1024, completely UNLETTERED early-reader scientific illustration. Crisp dark outlines, flat clean colors with restrained cel shadow. Warm cream background. No photographic texture, painterly treatment or rendered plastic. One uncluttered teaching diagram; all essential parts at least 10% inset. A single oblique scientific cutaway of TWO adjacent SOLID rock blocks touching along a CLOSED central fault plane. Left block warm brown, right block gray-brown. Both top surfaces are at EXACTLY the SAME HEIGHT. A thin black marker stripe across the TOP surfaces is offset horizontally along the fault: left part shifted toward the BACK of the model, right part toward the FRONT, matching left-up/right-down motion in the first top-down reference. Two short orange arrows ON THE TOP surfaces point along the fault: left toward back, right toward front. On the exposed FRONT cut face, one small orange origin on the closed fault has three thin concentric orange wavefront circles spreading through solid rock. No white gap between blocks, no step or vertical lift, no floating piece, no molten material or frightening buildings. Show only this one model with large cream margins, no other views from the reference board, no title, numbers or letters. Make the two rock regions and sideways marker offset easy to read.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-e2baf0bb-77c5-401f-9462-bf670dcc1cdf.png",
+      "sha256": "c1625895c323a4f746caccf95689855e3305a92ec69974c0bbf53236d31e5711"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-cac7b5e8-456c-4205-b216-bbf4e4e0601b.png",
+      "sha256": "8f51e86988345103aac8be1eb56a2d898dd353ca342859610f4a018d7e370139"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "17528444f6f2269814e9707fa662c0af729daea3afd65b636b1b1d274c6dcea2",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:31:13.934Z",
+    "sha256": "4b79bd7c21ecac6d752f490af1367a01fce14f700ae5cd048249bc450cf3fff4",
+    "note": "Direct PNG and installed WebP inspection: one oblique solid-rock cutaway preserves joined warm-brown and gray blocks at equal surface height. Top-surface stripe is offset with left side displaced toward the back and right toward the front, with parallel opposed arrows. Three symbolic wavefront rings spread from fault on exposed front face. No gap, vertical step, lava or lettering; broad margins.",
+    "reviewer": "/root/gap_taxonomy",
+    "limits": "Individual installed image inspection; independent sequence, reader, cards and audio reviewed separately."
+  }
+}

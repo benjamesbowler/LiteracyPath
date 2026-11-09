@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-c-25",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:33:22.915Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-23af5224-1234-453e-a836-db6730feedaa.png",
+  "sourceSha256": "59c48c3485dd03b3e7087df28bbebe655bc7b29fe34f7606cbe45009150512e8",
+  "output": "public/guided-reading/world-discovery/c-25/page-07.webp",
+  "outputSha256": "bbd75ee119d3ed32f676a0ea9465012d7e235aa40b15bddbfe3f643ae558c793",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit only the LOOSE YELLOW WIRE END in first image. Replace its gray cylindrical socket with the exact YELLOW insulated alligator clip from second reference, at same loose location on table pointing right toward but NOT touching empty left bulb terminal. Yellow plastic grip surrounds back of clip; short silver jaws at tip, visible air gap to bulb terminal. Keep all other circuit parts/wires unchanged, switch CLOSED with blue knob, bulb DARK. Do not add people or other props. Same3:2, crisp clean flat color no grain.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-ca8052d4-0cd2-4d54-82a8-a7bbc136947f.png",
+      "sha256": "3a0d5ebcc7736b089e319753b7873548da8cb368ac8ccf7e3dcc602e2fd1d148"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-68563557-195c-4dbc-98fb-2212176284c4.png",
+      "sha256": "bc6858d6a250d37032806b2bdb18a0c7ea466eb60eec90e91d163f377fd68a98"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "80a761f584aae85b11ebe49a406e8cb90888a1b11ff118888f7b7b3758e1246c",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T12:34:06.185844+00:00",
+    "sha256": "bbd75ee119d3ed32f676a0ea9465012d7e235aa40b15bddbfe3f643ae558c793",
+    "note": "Native and installed WebP directly viewed. Same yellow insulated alligator clip loose on table beside empty left bulb contact; switch closed with blue knob, bulb dark, other two wires connected. Whole board makes both conditions explicit.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

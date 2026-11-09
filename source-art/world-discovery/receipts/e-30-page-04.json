@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-30",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:35:40.681Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-fc759ca0-42d0-4bd9-8e00-96bf20d5b8c3.png",
+  "sourceSha256": "0d2d3ed9735396e287d19d12e8cdd4393a61f8bb1f12d63000f11c8fdaa85d71",
+  "output": "public/guided-reading/world-discovery/e-30/page-04.webp",
+  "outputSha256": "ca5868f5703a42870a0baac3ab832ea2585d0371fc2f9ee980668746fe857f15",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact underwater illustration for the HEALTHY stage. Keep colony shape, rock, framed composition, linked polyp magnification and flat cartoon unchanged. Make ALL of the coral mound uniformly healthy TAN with no pale right patch. Inside enlarged polyp, make both sides' intact living tissue TAN and add many golden-brown round algae embedded in BOTH sides of tissue/tentacles, distributed similarly to original dense left side, never in central cavity. White cup skeleton remains beneath tissue. No extra insets, text, labels, food, sun symbols, thermometer or people. Cover composition margins retained.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/e-30/cover.webp",
+      "sha256": "8272ae8318bf571818af97ce10d4aeffdb655c5eb95665531b2ef42f2f839977"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "eead7bd4e8d787dff3440b9ff337f914a50daa5a1c9dfe20a0688cac4e6a5f42",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T10:36:00.125743+00:00",
+    "sha256": "ca5868f5703a42870a0baac3ab832ea2585d0371fc2f9ee980668746fe857f15",
+    "note": "Directly inspected installed WebP: same healthy tan colony and linked living polyp; many algae within tissue walls, empty cavity, intact skeleton; essential diagram safely framed.",
+    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-29",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:41:05.460Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-34d2b750-b65f-4ce5-8fd0-97c6ed687139.png",
+  "sourceSha256": "c3bb679fdd35439381fd2a752b4bca1155b26c04c1169414b3211cb189fcbf6c",
+  "output": "public/guided-reading/world-discovery/e-29/page-03.webp",
+  "outputSha256": "b29904543871b22adb9e93b0973b6f4158b30a6f66e5a354e2c3d932029fbaff",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact illustration. Pull camera back approximately 22% while keeping ALL action, object relationships, character identity, palette and clean flat cartoon style unchanged. Recenter focal group so entire adult from hair to shoes (if present), whole washboard, tubs and washer (only those already present) fit within x=15\u201385% and y=13\u201385% of canvas. Add natural room background around, never a plain rectangular border. No letters/numbers/new props. Keep board five ridged wood slats, two top rollers. Correct blue shirt pocket to an exact square with straight bottom. Remove stored gray tub on shelf so only two work tubs remain.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-adc95713-9481-467a-9974-6652541e71b7.png",
+      "sha256": "c8f47a6b00c9558f678b917be09636a8e85710a7fa9b777d607f74593b17e203"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "7b5d49fa464ddfe3c488fb7295ea82cbaa37ae0e01b14b633c270d651f53cb42",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
+    "sha256": "b29904543871b22adb9e93b0973b6f4158b30a6f66e5a354e2c3d932029fbaff",
+    "note": "Same shirt moves into separate clear rinse tub; two hands and square pocket; adult and both tubs fully framed.",
+    "limits": "Individual installed WebP only; independent sequence, reader, card and audio separate."
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-c-26",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T14:58:51.081Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-483f6a9b-f43b-4083-8bc7-3a57b8985914.png",
+  "sourceSha256": "584fd0f8db389f558488b60bba6364aeaa5bd40118ce65bb7abd5521904c5ceb",
+  "output": "public/guided-reading/world-discovery/c-26/page-02.webp",
+  "outputSha256": "43411ae6bfa4a6a1b5bfd15714dd1dcc09380b952a9b5fb71cf5e614135ce8a2",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. One FINISHED children's nonfiction illustration, landscape 3:2. Use native OUTPAINTING AROUND the FIRST reference carton as an immutable finished product prop. Preserve its exact black barcode bars, white spaces, order, relative widths, longer guards and white quiet margins. Keep the barcode label face perfectly parallel to the image plane: no rotation, no perspective distortion. The carton may be uniformly scaled, never independently redraw decorative stripes. Same cream carton and blue circle. The SECOND image is only a design reference for Kit, adult worker, navy handheld scanner, gray monitor and pale-gray checkout counter; do not reproduce its board layout. Kit: golden light-medium skin, short straight side-parted black hair, teal T-shirt, mustard shorts, navy sneakers. Worker: deep brown skin, short tightly curled black hair, green short-sleeved shirt and navy trousers. No Zoe. Crisp bold 2D cartoon, continuous dark outlines, strictly flat colors, no grain, texture or mottling. Warm cream plain shop background. Essential heads, hands, props and barcode all inset at least 10 percent from canvas edges. One coherent moment, no panels/insets unless explicitly requested. A single integrated CLOSE-UP of ONLY the same cream cereal carton front and its blue circle and large barcode. Keep complete carton inset 12 percent on all edges against plain warm cream background. White barcode label is the focal teaching subject: preserve exact variable black and white widths, all bars and longer guards from first reference. No people, hands, scanner, monitor, arrows, other objects or inset. Absolutely no lettering or numerals. Precision aid, NEVER PRINT: immutable barcode has 95 equal-width modules (1 black, 0 white): 10101100010011011000010100011010000101010001101010111001010011101001110111001011011001001000101. Preserve this exact identifier and white quiet margins as a finished insert. No human-readable code digits.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/.artifacts/nonfiction-next-50/barcode-reference/native-valid-carton-master.png",
+      "sha256": "01bca8b420ca95c3aee54d269dcd13bb778190cdf74c674c72572b07c456476b"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/c-26-reference.webp",
+      "sha256": "5078f83b78d167c008cd8f5edbdf4e61acfbc2a7b54ef17b21a62c39479e6e5d"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "f5e9b37923e2ab34dcac374e68d093636a36b1ac72b9174419833b623d02c398",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T14:59:50.805754+00:00",
+    "sha256": "43411ae6bfa4a6a1b5bfd15714dd1dcc09380b952a9b5fb71cf5e614135ce8a2",
+    "note": "Actual PNG and WebP inspected: single blue-circle carton close-up, unobstructed variable bars/spaces and guards, no text, safe10%+ top/bottom margins. Installed WebP automatically decodes exact EAN_13 9526064055028.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

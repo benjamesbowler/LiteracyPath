@@ -11,24 +11,59 @@ import { auditWorldDiscoveryCohort, buildWorldDiscoveryAudioPlan, collectWorldDi
 import { checkRegisteredWorldDiscoveryCohorts, worldDiscoveryCohortModule } from "../../tools/registerWorldDiscoveryCohorts.mjs";
 import { validateWorldDiscoveryCohortDrafts } from "../../tools/worldDiscoveryValidationLib.mjs";
 
-test("two explicit cohorts declare 100 unique IDs and preserve original order 1–50", () => {
+test("three explicit cohorts declare 150 unique IDs while the first 100 retain their order and registration", () => {
   assert.deepEqual(validateWorldDiscoveryCohortManifest(manifest), []);
-  assert.equal(manifest.targetBooks, 100);
-  assert.equal(manifest.cohorts.length, 2);
+  assert.equal(manifest.targetBooks, 150);
+  assert.equal(manifest.cohorts.length, 3);
   const ids = manifest.cohorts.flatMap(worldDiscoveryCohortIds);
-  assert.equal(ids.length, 100);
-  assert.equal(new Set(ids).size, 100);
+  assert.equal(ids.length, 150);
+  assert.equal(new Set(ids).size, 150);
   const orders = manifest.cohorts.flatMap(cohort => worldDiscoveryCohortIds(cohort).map(id => {
     const [, level, number] = id.match(/world-discovery-([a-e])-(\d+)/);
     return worldDiscoverySeriesOrder({ appLevel: level.toUpperCase(), number: Number(number) }, cohort);
   }));
-  assert.deepEqual(orders, Array.from({ length: 100 }, (_, index) => index + 1));
+  assert.deepEqual(orders, Array.from({ length: 150 }, (_, index) => index + 1));
   assert.equal(ids[49], "world-discovery-e-10");
   assert.equal(ids[50], "world-discovery-a-11");
-  assert.equal(ids.at(-1), "world-discovery-e-20");
+  assert.equal(ids[99], "world-discovery-e-20");
+  assert.equal(ids[100], "world-discovery-a-21");
+  assert.equal(ids.at(-1), "world-discovery-e-30");
+  assert.equal(manifest.cohorts[2].topicProfile, "nonfiction-discovery");
+  assert.deepEqual(manifest.cohorts.slice(0, 2).map(cohort => [cohort.id, cohort.active]), [["01-10", true], ["11-20", true]]);
+  const first100Ids = [1, 11].flatMap(firstNumber => [..."abcde"].flatMap(level =>
+    Array.from({ length: 10 }, (_, index) => `world-discovery-${level}-${String(firstNumber + index).padStart(2, "0")}`)));
+  assert.deepEqual(ids.slice(0, 100), first100Ids);
+  const active = manifest.cohorts.filter(cohort => cohort.active);
+  const registeredIds = registeredWorldDiscoveryCohorts(manifest, WORLD_DISCOVERY_REGISTERED_COHORTS)
+    .flatMap(entry => entry.books.map(book => book.id));
+  assert.deepEqual(registeredIds.slice(0, 100), first100Ids);
+  assert.deepEqual(registeredIds, active.flatMap(worldDiscoveryCohortIds));
+  assert.equal(registeredIds.length, active.reduce((sum, cohort) => sum + cohort.expectedBooks, 0));
+  assert.equal(worldDiscoveryCohortModule(manifest).includes("cohorts/21-30"), manifest.cohorts[2].active);
+});
+
+test("topic profiles cannot reinterpret published cohorts or silently select the new cohort's topics", () => {
+  for (const change of [
+    value => { value.cohorts[0].topicProfile = "nonfiction-discovery"; },
+    value => { value.cohorts[1].topicProfile = "nonfiction-discovery"; },
+    value => { delete value.cohorts[2].topicProfile; },
+    value => { value.cohorts[2].topicProfile = "original"; },
+    value => { value.cohorts[2].topicProfile = "unrecognized"; }
+  ]) {
+    const changed = structuredClone(manifest);
+    change(changed);
+    assert.ok(validateWorldDiscoveryCohortManifest(changed).length > 0);
+  }
 });
 
 test("inactive cohorts have no generated imports; an active flag or manuscript review cannot register a cohort", () => {
+  const firstTwo = structuredClone(manifest);
+  firstTwo.cohorts[2].active = false;
+  assert.equal(registeredWorldDiscoveryCohorts(firstTwo, WORLD_DISCOVERY_REGISTERED_COHORTS.slice(0, 2)).length, 2);
+  assert.doesNotMatch(worldDiscoveryCohortModule(firstTwo), /cohorts\/21-30/);
+  firstTwo.cohorts[2].active = true;
+  assert.match(worldDiscoveryCohortModule(firstTwo), /cohorts\/21-30/);
+  assert.throws(() => registeredWorldDiscoveryCohorts(firstTwo, WORLD_DISCOVERY_REGISTERED_COHORTS.slice(0, 2)), /Generated cohort imports differ/);
   const firstOnly = structuredClone(manifest);
   for (const cohort of firstOnly.cohorts) cohort.active = cohort.index === 0;
   assert.equal(registeredWorldDiscoveryCohorts(firstOnly, [WORLD_DISCOVERY_REGISTERED_COHORTS[0]]).length, 1);
@@ -104,7 +139,21 @@ test("registration rechecks actual files and rejects a changed evidence receipt 
   assert.equal(result.entries.length, manifest.cohorts.filter(cohort => cohort.active).length);
   const proof = result.entries[0].registration;
   assert.equal(proof.counts.illustrations, 490);
-  assert.deepEqual(result.entries.map(entry => [entry.registration.cohortId, entry.registration.counts.audioFiles]), [["01-10", 1720], ["11-20", 1671]]);
+  assert.deepEqual(result.entries.slice(0, 2).map(entry => [entry.registration.cohortId, entry.registration.counts.audioFiles]), [["01-10", 1720], ["11-20", 1671]]);
+  const expectedAudioFiles = { "01-10": 1720, "11-20": 1671, "21-30": 1829 };
+  assert.deepEqual(result.entries.map(entry => [entry.registration.cohortId, entry.registration.counts.audioFiles]),
+    manifest.cohorts.filter(cohort => cohort.active).map(cohort => [cohort.id, expectedAudioFiles[cohort.id]]));
+  const nonfiction = result.entries.find(entry => entry.cohort.id === "21-30");
+  if (manifest.cohorts[2].active) {
+    assert.ok(nonfiction);
+    assert.deepEqual(nonfiction.registration.counts, {
+      books: 50, pages: 440, illustrations: 490, cards: 50, references: 51, audioFiles: 1829, screenedClips: 1074
+    });
+    const inventory = JSON.parse(fs.readFileSync(new URL(`../../${nonfiction.cohort.narrationInventory}`, import.meta.url)));
+    assert.equal(inventory.required.length, 1074);
+    assert.equal(inventory.reused.length, 755);
+    assert.equal(new Set([...inventory.required, ...inventory.reused].map(row => row.audioPath)).size, 1829);
+  } else assert.equal(nonfiction, undefined);
   const changed = structuredClone(proof);
   changed.evidenceSha256 = "0".repeat(64);
   assert.match(validateWorldDiscoveryEvidenceReceipt(proof, changed).join("\n"), /actual media bytes are stale/);
@@ -112,7 +161,7 @@ test("registration rechecks actual files and rejects a changed evidence receipt 
   assert.equal(generated, worldDiscoveryCohortModule(manifest));
   const incomplete = structuredClone(manifest);
   for (const cohort of incomplete.cohorts) cohort.active = cohort.index === 0;
-  await assert.rejects(checkRegisteredWorldDiscoveryCohorts({ manifest: incomplete, complete: true, checkModule: false }), /all 100 declared books/);
+  await assert.rejects(checkRegisteredWorldDiscoveryCohorts({ manifest: incomplete, complete: true, checkModule: false }), /all 150 declared books/);
 });
 
 test("authorized repairs retain the byte-pinned historical registration counts", () => {

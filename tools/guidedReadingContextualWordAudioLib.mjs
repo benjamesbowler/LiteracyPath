@@ -6,7 +6,10 @@ import { GUIDED_READING_CONTEXTUAL_WORD_AUDIO } from "../src/data/guidedReadingC
 export function validateContextualWordAudioEntries(books, { entries = GUIDED_READING_CONTEXTUAL_WORD_AUDIO, root = process.cwd(), verifyFiles = true } = {}) {
   const failures = [], keys = new Set(), byId = new Map(books.map(book => [book.id, book]));
   for (const row of entries) {
-    const page = byId.get(row.bookId)?.pages.find(page => page.pageNumber === row.pageNumber);
+    const book = byId.get(row.bookId);
+    const page = row.pageNumber === "title" && book
+      ? { pageNumber: "title", text: book.title }
+      : book?.pages.find(page => page.pageNumber === row.pageNumber);
     const key = `${row.bookId}:${row.pageNumber}:${row.word}`;
     if (keys.has(key)) failures.push(`${key}: duplicate context`);
     keys.add(key);

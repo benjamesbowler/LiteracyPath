@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-a-21",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T04:58:53.016Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-f0c5abf9-b338-4e50-9e9b-1e1840dc73e0.png",
+  "sourceSha256": "43fb936ede126d2bbf987072145f6138e2d5b2cfe97f03a3db2de8b44d962449",
+  "output": "public/guided-reading/world-discovery/a-21/page-02.webp",
+  "outputSha256": "cebfee21d1674b84b18404bdf40b0dff9c6dfac847a2a55b51219227ea9a67c6",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: The Bus Stop; World Discovery; nonfiction.\nSetting: One ordinary modern city bus at two curbside stops on a quiet street in daylight. First stop has a round blue bus-pictogram sign and square planter; second has the same pictogram and a plain bench. Right-side sliding passenger doorway; traffic keeps away from the curbside people. At each stop a continuous raised sidewalk runs along the full length of the bus, including directly beside its passenger doorway. The doorway opens onto the sidewalk, never into a driving lane. Street and pavement use perfectly smooth flat colors without stipple or grain.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One long teal single-deck bus with dark navy lower stripe and four visible passenger windows; no brand, route text or numbers; Driver: adult woman with medium brown skin, short dark hair and plain navy shirt; always in the driver seat; Two initial passengers: older light-skinned woman with gray bob and plum coat; dark-skinned bearded man with green jacket; Three boarding adults: brown-skinned woman in yellow blouse with round glasses; light-skinned man with short red hair and gray top; tan-skinned woman with long dark braid and coral top; Only these six people including the driver; all riders seated while moving; no invented passengers\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 2. Printed prose (NOT text to put in art): The doors slide open.\nRequired illustration: Closer side view of the stopped bus doorway as its two door leaves slide apart. The older woman STANDS upright in the clear aisle inside nearest the exit; the bearded man STANDS behind her. No seat is in the doorway or aisle. Nobody crosses the threshold yet. Three waiting adults stand on the continuous sidewalk, leaving a clear space directly outside the door. The sidewalk runs along the full bus length and directly meets the doorway, with no roadway between them.\nExact current state: First stop; doorway open; both original riders standing inside in clear aisle; nobody has crossed the threshold; no seat blocks doorway.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text. Render flat vector-style surfaces with no grain, stippling or photographic texture. In this exact side view the bus is parked immediately beside a continuous sidewalk across the whole image width. No road or lane markings separate the doorway from the sidewalk. Keep exactly four passenger windows behind the doorway.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/a-21-reference.webp",
+      "sha256": "8d72f942c9c1cb7ba33713cf6615da87a37c71c2acefe77e20c0a7b8d373f76c"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "e95d0ca76ed02b4560385afd0b30bdaac19d03292f4cf363f1cfdeec0eeb1e0c",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
+    "sha256": "cebfee21d1674b84b18404bdf40b0dff9c6dfac847a2a55b51219227ea9a67c6",
+    "note": "Door leaves apart, older woman and bearded man standing in clear doorway aisle; no doorway seat. Three boarders leave exit space; no one crosses threshold. Six adults total with stable identities.",
+    "limits": "Initial full-image check; complete-book continuity and actual reader/cover rendition still pending. Check bus/sign edge framing in reader before final approval."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-30",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:35:40.889Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-155401d7-81f7-4ef7-8838-81b919cadee6.png",
+  "sourceSha256": "555644fa62b0c849254aad1966971c3b4fcb0f58130b332055f4b7f885b945f5",
+  "output": "public/guided-reading/world-discovery/e-30/page-07.webp",
+  "outputSha256": "f9b28103e70b16224d165582b7104b32e6d8eae2b8f79406b7dcc0eb89c4788c",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit exact scene to BLEACHED BUT STILL LIVING stage. Keep SAME coral mound shape, attached rock, many polyp mouth openings, surrounding reef, single linked polyp magnification circle and wide framing. Entire coral mound now creamy WHITE because white skeleton shows through intact colorless translucent living tissue. In magnified polyp, all living tentacles/body-wall tissue remains continuous, shown translucent pale cream with clear thin boundary; white cup skeleton still underneath. Leave only FOUR tiny golden-brown algae embedded in tissue cells total. Central digestive cavity empty, no detached exposed bones, skulls, missing tissue, plant leaves or dead debris. No thermometer, numbers or labels. Simple clean flat colors.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/e-30/cover.webp",
+      "sha256": "8272ae8318bf571818af97ce10d4aeffdb655c5eb95665531b2ef42f2f839977"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "eead7bd4e8d787dff3440b9ff337f914a50daa5a1c9dfe20a0688cac4e6a5f42",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T10:36:00.126359+00:00",
+    "sha256": "f9b28103e70b16224d165582b7104b32e6d8eae2b8f79406b7dcc0eb89c4788c",
+    "note": "Directly inspected installed WebP: same pale colony and continuous translucent living polyp tissue; white skeleton below, four residual algae, no exposed bones or absent tissue; safe margins.",
+    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  }
+}

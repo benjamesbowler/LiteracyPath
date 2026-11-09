@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-28",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:42:27.070Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-89221aac-5c59-4ee6-8859-4517ebae6c82.png",
+  "sourceSha256": "1014b0d30d530bf913225f87e8b954463ddd1aa220cc2504bc7c6093a1c0af57",
+  "output": "public/guided-reading/world-discovery/d-28/page-06.webp",
+  "outputSha256": "cd55f76a6881d2f8c8812c1b8af41dfcbe510f68364aaa9467dcddc974c6a610",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Create next moment after this exact 1536x1024 woodland tree-cavity scene. Preserve gray-brown trunk, single oval dark cavity, three gray chickadee nestlings inside in exact positions, and adult chickadee outside with two feet gripping same cavity lip. Parent leans its head right so its short beak reaches the nearest open-gaped chick. ONE intact small green caterpillar is being passed from parent beak into that nearest chick's open yellow-edged beak: the two beaks align naturally around opposite ends of the SAME caterpillar, not an extra object, no duplicated insect. Rear two nestlings remain behind. Adult body can tilt slightly forward to make feeding contact anatomically possible; no stretched neck, human hands or regurgitated blob. Keep black cap/bib, white cheek, gray wings/tail and cream belly. All meaningful bird parts/cavity safely inset. Same bold continuous outlines, clean flat 2D color, restrained simple shading, no text, arrows, realism or feather texture.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-949c5d8f-087f-4f9a-a96b-588ea55ffedb.png",
+      "sha256": "3d118f043be6c5d4d2e6b8f4434af69d8161f35234af219e9ae3a8bbd0371570"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "78c2904e582ff26b4d4ca84266e2154c9a1849a22caf6695aebc788bc09c7b58",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.541Z",
+    "sha256": "cd55f76a6881d2f8c8812c1b8af41dfcbe510f68364aaa9467dcddc974c6a610",
+    "note": "Native PNG and installed WebP directly inspected: Same parent, one cavity and three young; one intact caterpillar now bridges parent beak and nearest chick open gape; natural posture and clear feeding contact.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-b-29",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:17:25.662Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-353d069a-d432-437c-b391-f9453e943e23.png",
+  "sourceSha256": "62984ddd3354e5de298b8a1e4a50e3b12e90d19a8efe1fe664f09cdcbe18d6dc",
+  "output": "public/guided-reading/world-discovery/b-29/page-01.webp",
+  "outputSha256": "20428a2b6f38253fce3636b2f5a496784a4c61bf5ef37c36d09edac6a3c015fa",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Retain first image's EXACT opening arrangement and count: FIVE separated cubes on table plus ONE held in Kit's hand, blue book unchanged. Pull camera BACK 18 percent so both children's entire hair is at least140px below top. Add quiet cream classroom wall and window behind them matching the second image's setting, replacing blank white void; keep existing table/cast/props pose. No cubes in a row yet and no new cubes. Six total only. LANDSCAPE 3:2, 1536x1024. Smooth flat cartoon colors, no grain or texture, no text. Essential heads, hands and entire foreground props comfortably inside central70%, with generous blank surroundings.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-af011edc-b3ee-4ef5-a0d6-22be14f1f373.png",
+      "sha256": "eb468a9758e36f16f072184adb2401a6ed2a9ba44670a69c722af1fae700ce91"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-12b880e2-ce20-4a2f-b89d-ddd855cebd89.png",
+      "sha256": "47a44b1d4dded1dcee24d21bd50e587132731d201e21f865a0d632a22fcd739e"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "7c50af653f4ee559098243cdcd631837ff440776161b09c1d029dc86ea556fcc",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T10:18:34.437819+00:00",
+    "sha256": "20428a2b6f38253fce3636b2f5a496784a4c61bf5ef37c36d09edac6a3c015fa",
+    "note": "Directly viewed native PNG and installed WebP: exactly six loose cubes total, five on table plus one held by Kit, fixed blue book and matching classroom; safe heads/hands/props.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

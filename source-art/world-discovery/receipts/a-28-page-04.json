@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-a-28",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:23:23.335Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-10ab8036-1d3b-461f-9640-321dc65a5158.png",
+  "sourceSha256": "6f7960fc93d96cad3a9cc0cc697b37946a4b7b6d7248d9d6dfb594474628baf5",
+  "output": "public/guided-reading/world-discovery/a-28/page-04.webp",
+  "outputSha256": "34ae2b8b21d0915caff0342de836ec314c40a1ac420a3fae5aa0dc9be692cd8e",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Replace ONLY the MAIN ant in the FIRST image with the clearly six-legged OVERHEAD ant from the SECOND image, horizontally mirrored to face LEFT toward nest, abdomen rear atRIGHT connected to dotted route. Keep it the same small size and position as current main ant. Show all SIX legs, three above and three below the thorax, no hidden or merged legs, two antennae from head. Preserve the dotted amber route from its REAR to the leaf, preserve the magnified abdomen-tip-ground-contact inset and leader, nest, pebble, leaf, drop, safe margins and background. No other changes. Smooth flat illustration.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-8eda5361-f218-4d4b-9c04-b6f2c057ac21.png",
+      "sha256": "6a2b88350cabd6e2772e5267ea8729db74d894129d4222bcd46ee3e847a7df50"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-81a052d4-7348-412f-b44e-684c3230e3cd.png",
+      "sha256": "8f1970d7d62a9037e26787c9c8b433b701b75fca6e6e92007afb215522d8f0b2"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "fbf293511c4adb19a75a183f30ea70ea6bdd6e4a759309a5079a91a68021dff0",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "34ae2b8b21d0915caff0342de836ec314c40a1ac420a3fae5aa0dc9be692cd8e",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T10:23:23.338Z",
+    "note": "Directly inspected repaired diagram: one left-facing returning ant with six clear thoracic legs and two antennae. Amber explanatory dots start at rear abdomen tip and curve back to food around fixed pebble; magnified rear-tip contact inset connected by leader. No liquid paint/cloud or other ants."
+  }
+}

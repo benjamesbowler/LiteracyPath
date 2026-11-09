@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-23",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:24:52.758Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-ee03133c-638d-4591-9293-f68698131c0b.png",
+  "sourceSha256": "90759c6caad4b4920d2617be8df4ab61f6615e3ed46545aaca216097810963c8",
+  "output": "public/guided-reading/world-discovery/a-23/page-07.webp",
+  "outputSha256": "2c5c312e4b2c39b079ae5dcf114cc7f31c776614230ab8a4f8706e7ee9926c5f",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit framing AND one airflow-path defect. Pull ENTIRE scene back uniformly30%, full hair and shoes at least12%inside top/bottom, natural proportions and feet grounded. Preserve modest integrated paired pink lungs in upperchest, hands at chest. Repair blue outgoing airflow diagram: the two upward arrows from lungs join at central windpipe; one CONTINUOUS blue path rises up windpipe all the way to NOSTRILS, bends smoothly right at nose, then continues outward with arrowhead at FAR RIGHT END. REMOVE the separate arrowhead that ends at MOUTH HEIGHT. No gap between central rising path and nose-outward path; no arrow ending at mouth. All arrows indicate flow lungs→upwindpipe→nostrils→outside. Preserve other scene details, clean flat style, no text. Landscape3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-38591a58-4662-4fc7-976c-6281f9b6496e.png",
+      "sha256": "2e8d2825523906df80dd2db73010588e2aac3115339181577afbda18d3a13f6d"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "9d1d4dd6d93c7ff9e1f38dd1d3858cfe95edf848dc9e464d8d8c183b2a6aee4a",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "2c5c312e4b2c39b079ae5dcf114cc7f31c776614230ab8a4f8706e7ee9926c5f",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:24:52.759Z",
+    "note": "Directly inspected native repair: single continuous blue outgoing path joins both lungs through windpipe to nostrils then outward, no mouth-height arrowhead/gap. Full figure retains proportions, hair~10% and shoes~15% from edges, feet grounded; paired lungs remain chest-integrated."
+  }
+}

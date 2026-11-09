@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-c-23",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:01:11.884Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-5a914265-b09d-41e4-9435-5b2fb150b39d.png",
+  "sourceSha256": "b8f748cc01fce6109afc732847eea84814ccf4941b94a5a0d37348fd5202fb39",
+  "output": "public/guided-reading/world-discovery/c-23/page-01.webp",
+  "outputSha256": "39e5e6b5ebd951cca203377c602137987db0123e258406ab353ec322a97a4757",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this scene: REMOVE the anatomy cutaway entirely. Restore Kit's normal opaque teal short sleeve and natural golden skin on the ENTIRE raised right arm, no bones or muscles visible at all. Keep his empty hand moving toward shoulder, other hand on knee and curious expression. Uniformly scale child plus chair down25percent and center so hair and shoes have at least12percent margin; extend classroom walls/floor full bleed, no border. Preserve clothes, hair, chair and natural anatomy. Smooth flat children's illustration, no texture, labels or diagrams. 3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-79d22205-7a57-430a-a1e0-22e762ea440f.png",
+      "sha256": "8a4a2f278a1d094ff0c6b993e1fee1e3a823cad991d9c6f73a02ed9097d9e934"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "25f742b6e36d6eb87de003ac9ecc80f9d512f2d1edf34f8713c6b0c4130e8702",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T12:06:41.655847+00:00",
+    "sha256": "39e5e6b5ebd951cca203377c602137987db0123e258406ab353ec322a97a4757",
+    "note": "Native and installed WebP directly viewed. Natural unloaded right-arm flexion, other hand rests on knee; complete seated child and chair safely inset, no premature anatomical overlay.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

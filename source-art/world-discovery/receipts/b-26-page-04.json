@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-b-26",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:21:29.504Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-f52c9d76-820f-47b9-ae94-7f84c1e53dc1.png",
+  "sourceSha256": "1e061615dcd8965cb2154ad71c9f5fd2b2ab183c307e8913b3268a2a27043c47",
+  "output": "public/guided-reading/world-discovery/b-26/page-04.webp",
+  "outputSha256": "e010c0e66ace7cce5228fe44f6af13dd6656b24b5fbf532c9975e84a8607594d",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Next scene with exact children, gray camera and white table from supplied cover. Kit on LEFT has just placed the ONE RED CUBE directly to the RIGHT of the ONE BLUE rectangular block on the white tabletop. Red cube and blue block now SIDE BY SIDE, not stacked, no extra blocks. Kit's hand touches top/right edge of red cube in natural placing action, his other hand on tabletop. Zoe on RIGHT lowers her gray camera to chest level, lens pointed down, holding both hands naturally. Camera screen need not be visible. Both children look at moved red cube. Match colors, two-to-one blue/red widths and classroom. Only Kit, Zoe, one camera, one red cube, one blue block, white table and quiet window/walls. Close mid shot with all main details safe. Finished landscape 3:2 clean bold children's 2D cartoon, crisp dark outlines, perfectly smooth flat fills, restrained cel shading. No grain, stipple, painted texture, labels, words, letters, numbers, arrows, inset panels or watermark. Essential content at least 9% inside every edge.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/b-26/cover.webp",
+      "sha256": "f0446ba766caeef8f55ceaba7b860c191808c3c0ee4723889ac2bae6fea85a47"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/b-26-reference.webp",
+      "sha256": "6d3491be148c3447edd2a8ee38ae24ced75addc63886daeb1c214546fb9458df"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "92cd13a2772ca31a9f3db39eee27ddd9fb03eec7e4ce66785453ca94f8823761",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T07:22:46.854493+00:00",
+    "sha256": "e010c0e66ace7cce5228fe44f6af13dd6656b24b5fbf532c9975e84a8607594d",
+    "note": "Directly viewed native PNG and installed WebP. Kit places red cube directly right of blue block; exactly two real objects, Zoe lowers camera, appropriate hand contacts and clear safe composition.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

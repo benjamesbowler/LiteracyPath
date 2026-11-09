@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-23",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:21:00.772Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-14edac05-7aee-4314-b964-d50d4d8d09b7.png",
+  "sourceSha256": "7f06b29a2b1bd8d13d16ea6cba77800a28711a2ad72dd08c296ec3c1db41c1bd",
+  "output": "public/guided-reading/world-discovery/a-23/page-05.webp",
+  "outputSha256": "daaae9668b6f8cb92d09c1aee9462f18349cc0af1e66e36e705be6a8a89e27b9",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit ONLY framing. Pull ENTIRE scene back uniformly by30%, extending same room naturally. Full figure hair top aroundy150 and shoesbottomaroundy870 on1024canvas, >=12%margin abovehair and belowfeet; body proportions unchanged. Preserve side pose, two palms on upper chest, closed lips and single light-blue arrow pointing OUTWARD RIGHT from nostrils. No diagram or new arrows. All furniture/rug/room scales together; feet remain grounded. Smooth clean flat colors, no texture or words. Landscape3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-a73ef168-3766-40cd-94cf-b23d1b65c399.png",
+      "sha256": "1271e9f477b7338d22d349c60ca20213559e6fd55ffabd7371d6a6981a9c6856"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "9d1d4dd6d93c7ff9e1f38dd1d3858cfe95edf848dc9e464d8d8c183b2a6aee4a",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "daaae9668b6f8cb92d09c1aee9462f18349cc0af1e66e36e705be6a8a89e27b9",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:21:00.773Z",
+    "note": "Directly inspected native framing repair: whole scene uniformly pulled back with hair and shoes each at least15% inset, natural figure proportions and grounded feet. Side pose and light-blue arrow outward from nostrils preserved, two hands on chest and lips closed."
+  }
+}

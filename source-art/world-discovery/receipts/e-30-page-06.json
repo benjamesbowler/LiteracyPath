@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-30",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:39:23.612Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-ce60e1cd-2204-4386-b42f-06a1aece409b.png",
+  "sourceSha256": "5dcbe9177ffc5770f81cc65415c20e3fbf544863aad53ce163ca45ec9fa1daba",
+  "output": "public/guided-reading/world-discovery/e-30/page-06.webp",
+  "outputSha256": "f3e0d212f58b714b3806c562a36767480a30c1361bf98216e298a41aef542695",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit only the circular cell magnification on the right of this illustration. Keep the main pale living polyp exactly unchanged. Inside the circle show an upper aqua seawater strip and beneath it a continuous pale tissue layer subdivided into cells containing three tiny golden round algae. Two additional tiny golden algae have just left the cells into that aqua strip, with two short outward arrows from the tissue surface into the water. All five algae and both arrows must remain INSIDE the circular outline. No symbols or arrows outside the circle. Keep the white skeleton under the tissue. The circular border is a magnification boundary, not the tissue boundary. Preserve overall layout, scale, pale colors, bold flat 2D style and generous margins. No text, letters, numbers, labels or added frame.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-4cafaa0b-d28e-4232-b351-cd10cbcc1342.png",
+      "sha256": "80a2b6f237333d11a819a43a5985bede7055a521bacab10d2781bf21ed7a1529"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "eead7bd4e8d787dff3440b9ff337f914a50daa5a1c9dfe20a0688cac4e6a5f42",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T10:41:13.588717+00:00",
+    "sha256": "f3e0d212f58b714b3806c562a36767480a30c1361bf98216e298a41aef542695",
+    "note": "Directly inspected installed WebP: Pale living polyp and continuous tissue retained. Three algae remain in magnified tissue cells; two exit into aqua water within circular magnification boundary. Skeleton remains below; main cavity empty.",
+    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  }
+}

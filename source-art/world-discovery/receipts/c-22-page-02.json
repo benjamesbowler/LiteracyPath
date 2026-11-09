@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-c-22",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:20:02.069Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-972b2742-3d4e-4da5-889e-121474408353.png",
+  "sourceSha256": "c9ca1e66b27bfc4abeaf769f108ccd59ec2fb6c554204aa974153bbce09e850f",
+  "output": "public/guided-reading/world-discovery/c-22/page-02.webp",
+  "outputSha256": "b1bb2c48acb1cf97d09e45c3f4f18b810334169965dd879b6bb7665ab21cc3ca",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Preserve the EXACT compass, single red-white needle, N top/E right/S bottom/W left lettering and natural open brown supporting hand. Pull camera back by 20 percent so ALL fingertips have at least 12 percent green space above them and on each side; wrist/yellow sleeve may naturally enter from bottom. Do not rotate needle or ring. No extra letters, pointer or hand. All fills smooth and flat. Preserve all correct content, exact identity, flat clean colors, crisp outlines, landscape3:2. No text, grain, texture or new props. Essential content stays within central75percent.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-019ef020-a7c9-481c-bf11-d71c797a4a57.png",
+      "sha256": "98c1aa9b0a8c99ae0b7b84fa8bfb7531caf86aea020f28ab9f1b0a5d4e57aa9b"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "7ef8d8649d4bf890384d714a7be54ffe8301439e049fa826d123aaf98f10b5ea",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:20:57.442540+00:00",
+    "sha256": "b1bb2c48acb1cf97d09e45c3f4f18b810334169965dd879b6bb7665ab21cc3ca",
+    "note": "Native and final WebP directly viewed: one level compass on Zoe brown palm, exact N top E right S bottom W left, red half north and white south; natural five-digit hand with safe fingertip margins, wrist intentionally contextual crop.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

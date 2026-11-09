@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-b-25",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T06:14:43.486Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-3054d36d-fc59-4074-a8e7-0b62c9a39c49.png",
+  "sourceSha256": "23f8cc656650461cdec240a628212582cf45e1c496d5a11b7ca67a46aedf51b0",
+  "output": "source-art/world-discovery/b-25-reference.webp",
+  "outputSha256": "c2aa9b5f8086c03afdae199f71ac78cf946d57b924d145e9d6f49643cb4eceb2",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Repair only the optics scenes in reference sheet image one using the CORRECT top-view physical layout of image two. Preserve all character turnarounds, separate prop designs and palette. In EVERY tabletop demonstration, flashlight fixed in cradle at FRONT LEFT points diagonally toward mirror at BACK CENTER. Mirror reflective face faces the foreground. Reflected light returns diagonally toward white screen at FRONT RIGHT, not behind or through the mirror. Torch and screen are both on SAME FRONT SIDE of the mirror plane, forming the wide V shown by image two. Set the white screen upright with its front toward the mirror. In the room scene show one bright spot on screen and NO visible colored light cones in air. Replace bottom-right optical study with the accurate top-view arrangement from image two, only two thin yellow teaching arrows, incident then reflected. Never beam through the mirror. No words, titles or labels.\nAll colors perfectly smooth and flat, no grain, stipple or surface noise. Keep the intended educational geometry exact.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-5e07980c-9be3-402d-acba-7494dfd8fa5c.png",
+      "sha256": "18ea15b4e8f06e239c06a138b54228f2aaabe91f73b889b7a92007fd4887699d"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/.artifacts/nonfiction-next-50/mirror-reflection-geometry-reference.png",
+      "sha256": "5107f6024969a5a6b9decb3527d7b1eadbef73dac571a00116d807ae6bf19f1d"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "e7608249f7559688257799a2fcfb8d87f204d853906b14b220ac4f2eddd1acf3",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T06:17:33.050Z",
+    "sha256": "c2aa9b5f8086c03afdae199f71ac78cf946d57b924d145e9d6f49643cb4eceb2",
+    "note": "Directly viewed native PNG and installed WebP. Cast and prop designs match. Fixed torch and screen now lie on the same side of the mirror, with a V-shaped reflection layout and one screen spot. Room scene has no fictitious visible light cone. Geometry reference retained.",
+    "limits": "Reference design inspection only. Final windsock direction/optical paths require individual page checks."
+  }
+}

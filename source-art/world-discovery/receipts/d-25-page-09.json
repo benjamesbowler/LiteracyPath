@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-25",
+  "slot": "page-09",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:29:11.943Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-5643185c-b150-43a3-a128-837c07cf0137.png",
+  "sourceSha256": "092c65f29a24e864321395ee143905ebd8fd13aa2f6ac2d0dc62d5a310e37c19",
+  "output": "public/guided-reading/world-discovery/d-25/page-09.webp",
+  "outputSha256": "314b97bc98fd045dcb33d6c0f8679fcccb26653e6ace08642c88420b76652c51",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Framing correction only. Uniformly reduce the entire existing adult-engineer, workbench and bridge model composition to70percent current width/height and center on an extended plain neutral wall/floor background. Minimum150px empty margin above adult hair, below shoes/table feet and at left/right of ALL subjects. Preserve exact two gray end supports, one gray beam, three red test blocks, adult's natural pointing hand and all geometry/colors. No new objects/text, no change to model. Clean outlined flat2D.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-cd19ec22-0330-4344-962a-28909c998597.png",
+      "sha256": "9657db22e2f23c2c684ff52f5d36cafbf839fa1bcc5509993fce2c117a267d7c"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "8337d31fb142299fa5e714fdc1bffff0a8db8bc933c0eeb3ee2b649380ddbd8b",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.525Z",
+    "sha256": "314b97bc98fd045dcb33d6c0f8679fcccb26653e6ace08642c88420b76652c51",
+    "note": "Direct inspection: adult engineer and test beam model safely framed; exactly two end supports and three loads, natural pointing hand, no construction hazard or labels.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

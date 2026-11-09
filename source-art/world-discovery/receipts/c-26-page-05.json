@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-c-26",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T15:17:59.263Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-9797b9bc-7377-4fc2-8e1b-f83ed91555ac.png",
+  "sourceSha256": "db506b0a813cea1dfa1789d998bf7e963a650835007b3bfa9c2c1580e26eaca9",
+  "output": "public/guided-reading/world-discovery/c-26/page-05.webp",
+  "outputSha256": "ce05374e2c26b1748bdf1253c0a6873006c65444025d6cb44b480ffadbfe7ea9",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Make the next page at this exact checkout, preserving the same generously framed carton, actual barcode, scanner, monitor, counter and green-shirt worker. Change ONLY the needed action: remove Kit and leave plain cream background there. The carton now stands securely on the counter instead of being held. The worker points one index finger toward the monitor, with his forearm travelling ABOVE the carton; his other hand rests on the counter at left. Do not obscure the blue circle or barcode. Screen now shows a simple thumbnail of the same cream carton with blue circle and NO miniature barcode, next to clear exact text Cereal $3 within one simple outlined record area. No other lettering, numbers or icons. Preserve the REAL carton barcode as an IMMUTABLE finished insert, every bar/white-gap width/order and guard, front-parallel, unchanged from input. Same adult identity, proper two-arm anatomy and coherent pointing hand. No Kit, no other people, no arrows, no panel or extra object. All essential content stays12%inside edges. Flat crisp2D cartoon, no grain/texture. Landscape3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/c-26/page-01.webp",
+      "sha256": "d38d1a3e66bd9bdde68d9b352eba180e771ecf3fb9f8d73427daa36e14991902"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "f5e9b37923e2ab34dcac374e68d093636a36b1ac72b9174419833b623d02c398",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T15:18:48.240470+00:00",
+    "sha256": "ce05374e2c26b1748bdf1253c0a6873006c65444025d6cb44b480ffadbfe7ea9",
+    "note": "Actual installed WebP directly inspected: worker points above box toward separate saved record with blue-circle thumbnail and exact Cereal $3; two coherent arms, unchanged actual barcode and safe essential margins. Barcode auto decode confirms same EAN_13 9526064055028.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

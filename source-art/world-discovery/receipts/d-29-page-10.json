@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-29",
+  "slot": "page-10",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:38:59.712Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-84cd451f-1344-4275-86a1-d86c17ebc1dd.png",
+  "sourceSha256": "a5dc778928d5a68743ce34d9950c635147fb3741ab3883ddb6983be6d5bd8003",
+  "output": "public/guided-reading/world-discovery/d-29/page-10.webp",
+  "outputSha256": "c873756684f7affda2b4fada96fc738b6971e0e9313f8420cfc5c222819d7fc7",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Last moment of this same1536x1024 pretend-shop story. Keep exact two children/counter/classroom, clear emptyjar LEFT, and EXACT SIX green notes with one1each on ZOE'S side in two rows of3. Change only action: Kit places the SINGLE orange ball on tabletop immediately to RIGHT of emptyjar (left half of table), one natural hand rests lightly on top of ball, other relaxed on table. His torso no longer holds a second ball. Zoe sorts her received notes by gently touching top edge of one note with right index finger while left hand rests beside them; all SIX entire notes remain distinct,1s unobscured. No extra notes/coins/ball, no money in jar. Preserve generous safe margins and canonical clothes. Clean bold-outline flat2D, no texture or additional lettering.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-113b71a9-ed89-4fe9-a50d-d2c4addae02c.png",
+      "sha256": "ebbef99f931a9ff493cb68c8ecfab6f111e327842b4ff1f62a1ed1f75f2752de"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "13c2a4841f0bfa3c412602a383f905ed05acc5de2a917f6491164caa74117013",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.549Z",
+    "sha256": "c873756684f7affda2b4fada96fc738b6971e0e9313f8420cfc5c222819d7fc7",
+    "note": "Actual PNG and installed WebP directly inspected: exactly six 1 notes in three groups of two on Zoe's side, Kit rests hand on one orange ball beside empty jar, all essential figures and objects safely inset. Page 9 purchase state retained.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

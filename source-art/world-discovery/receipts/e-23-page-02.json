@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-e-23",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:38:35.401Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-f9e2a1f1-51a3-41a2-a1db-e1f9e58d5157.png",
+  "sourceSha256": "c400a86085fc79c0a6e5b6465002b62cbbd6098a8cc9b5e0cb6ef06274c51153",
+  "output": "public/guided-reading/world-discovery/e-23/page-02.webp",
+  "outputSha256": "3e00bfedb514c02bf98b9c92275b1b066d3ea386dd75ccb64f69ff584c2728ff",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit exact eye diagram for framing ONLY. Uniformly shrink ENTIRE ball+light arrows+eye+opticnerve composition to80percent and recenter on samewarmcream canvas. Keep all anatomy and rightward arrows EXACTLY unchanged, no new symbols/labels. Both ball leftedge and opticnerve rightedge at least160pixels inside1536x1024. Clear even cream margins. Do not move or resizepartsindividually.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-3036a5ae-8f02-4c46-8de3-b1a9033c9e67.png",
+      "sha256": "210c62a2519401c6fe99cbb4960d3ec56dbef528c2e92c0ec3d9df1c35c4eadd"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "1b0de6058b2611192f79942f4ecd03b97dc9da569d20816897fdbc11f5ab098a",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.556Z",
+    "sha256": "3e00bfedb514c02bf98b9c92275b1b066d3ea386dd75ccb64f69ff584c2728ff",
+    "note": "Actual PNG and WebP inspected: light points from red ball through cornea/pupil/lens toward retina, intact simplified anatomy and wide margins.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-23",
+  "slot": "page-09",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:41:55.509Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-e5b24b04-d4a7-452d-b085-7def688703a5.png",
+  "sourceSha256": "32f8e5655463515493a83b62e7422e915486532e50514cbce9ef6047c2dce870",
+  "output": "public/guided-reading/world-discovery/d-23/page-09.webp",
+  "outputSha256": "ba83beefcfddafa44a2b01dcd199d4ef9f008de47cf2ff4143c2632ef856e00f",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Only a framing correction: uniformly shrink the ENTIRE existing body-heart-lung-exhalation diagram to 75 percent of its current width and height, centered on the same cream 1536x1024 canvas. Provide large blank margins on ALL four sides, at least 12 percent from every organ, arrow and gray diamond to canvas edges. Preserve exactly the correct body → upper-left heart chamber → lower-left chamber → lungs route, internal downward arrow, intact lung air-sac membrane and gray waste-gas diamonds leaving up the gray airway. No change to geometry, colors, symbol shapes or arrow directions; no added text or objects.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-3eb0597e-c038-4644-9a4b-25823c3f8ace.png",
+      "sha256": "b1e0aa03b7e5ec7155e7e0992b09ff86172715823abb43bb40f10d3db183b7b7"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "53f321fe6f6525dbc7142913453889b170e4387f03930954a85dc6f67239997e",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.512Z",
+    "sha256": "ba83beefcfddafa44a2b01dcd199d4ef9f008de47cf2ff4143c2632ef856e00f",
+    "note": "Direct inspection: separately traceable body-to-right atrium, right ventricle-to-lungs route; intact lung air-sac membrane and gray waste-gas diamonds exiting up gray airway, all anatomy/arrows comfortably inside safe margins.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

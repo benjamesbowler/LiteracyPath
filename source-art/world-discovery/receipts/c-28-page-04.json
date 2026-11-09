@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-c-28",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:37:32.343Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-cef00f86-0f1a-4cda-98f5-e4629ec018e6.png",
+  "sourceSha256": "c7e037401b98d6c5af0bea022596d18995e5ac39555c49c0e71d65241658b6b5",
+  "output": "public/guided-reading/world-discovery/c-28/page-04.webp",
+  "outputSha256": "81959a0f9c5d528c40d6d6f7fb096bc210424ec108e19dad94d202e20f4abd15",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. EDIT THE FIRST SUPPLIED IMAGE ONLY. Second image is the approved smooth-ground design reference, not a composition to copy. Preserve first image exact composition, framing, every animal pose and count, prey, nest, cutaway status, season, branch geometry, all leaves/plants/stones, shadows and color palette. Change ONLY the diffuse mottled/stippled soil to one perfectly smooth flat earthy brown fill with restrained smooth cel shadows. REMOVE ALL tiny unoutlined soil dots, gritty patches, painted flecks, noise or grain. Retain deliberate discrete outlined stones, leaves, grass clumps and anatomical quill/spine pattern. Preserve feet and prey ground contact. Retain existing white frost patches in exactly the same places but simplify their grainy surface to smooth flat white/cool-blue shapes; no new snow and none on the hedgehog. Do not crop, zoom, redraw animals or change light/time/season. No text/letters. Opaque landscape3:2. This is only a surface-style correction.\nCanonical exact page instructions (all existing scene states remain):\nOne finished landscape3:2 full-bleed children nonfiction illustration. Crisp flat2D cartoon, continuous dark outlines, clean colors, gentle cel shading. No grain, paint texture,3D, lettering, logos, captions, border or frame. All essential subjects at least12 percent inside every edge. Edit reference with uniform20 percent camera pullback, extending the SAME background naturally edge-to-edge. This is NOT a picture inside a frame: no borders. Preserve all exact facts, objects, colors and geometry; do not add content. Entire nest dome, cutaway layered edge and forked branch should be safely inside central70 percent. Same curled hedgehog sheltered inside thick dry leaves, winter frost OUTSIDE chamber only, no new animals.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/.artifacts/nonfiction-next-50/c28-edit-input/page-04.webp",
+      "sha256": "5a72b0aaae98b4452296d3468a3261a2bfe2b6e5e2bde201a9b78f5a58b25b71"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/c-28-reference.webp",
+      "sha256": "cbc7bcf1b015a1055cd8e29600f89c60343e4c6b3eee9a93f1bb59ced64ef2c9"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "f40ade2ce093f8630b07993486f43c74b2e43b93f146bfeab9275339bae07c05",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "81959a0f9c5d528c40d6d6f7fb096bc210424ec108e19dad94d202e20f4abd15",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T13:37:32.346Z",
+    "note": "Native directly inspected: one curled closed-eye hedgehog in thick dry leaf teaching cutaway beside forked branch. Winter ground/frost and bare distant trees preserved; no snow on animal. Soil/frost surfaces now clean and smooth; ample essential margins."
+  }
+}

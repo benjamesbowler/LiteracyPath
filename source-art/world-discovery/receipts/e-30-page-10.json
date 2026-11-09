@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-30",
+  "slot": "page-10",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:41:13.582Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-02506a6a-97b6-41d9-abbd-01ee272f2fd4.png",
+  "sourceSha256": "20543be092e0d2ba03d9e1ba4b18a4cd1a7f8563651b31717b3552c695ef4bde",
+  "output": "public/guided-reading/world-discovery/e-30/page-10.webp",
+  "outputSha256": "4201e805ff20dd5aedf654eee921a21467a2f34d2768a9bf37810f41dc9d9ad0",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Make a narrow composition repair only: move the ENTIRE adult diver with fins, limbs, hands, mask, regulator, tank and hose together 150 pixels rightward. Keep diver scale, pose and anatomy unchanged and keep enough clear water between both hands and the coral. The leftmost fin must sit at least 13% of the full image width from the left canvas edge. Keep all coral, rocks, water and background unchanged, except soften the coral pale patch straight boundary into a gently irregular natural edge in the same place. No added objects, text or symbols. Same flat 2D clean outlines and landscape dimensions.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-8f9b4b87-b6b4-407d-9d0a-3e060483f420.png",
+      "sha256": "1623bbd2ff97a387d7254d34737440bde32d018cc836d5d7744eebd1cb36671c"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "eead7bd4e8d787dff3440b9ff337f914a50daa5a1c9dfe20a0688cac4e6a5f42",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T10:41:35.869093+00:00",
+    "sha256": "4201e805ff20dd5aedf654eee921a21467a2f34d2768a9bf37810f41dc9d9ad0",
+    "note": "Directly inspected installed WebP: Complete adult diver has two arms, two legs, fins, mask and connected regulator/tank; observing without touching. Left fin now13% inset; same partly pale coral with natural edge. Safe margins and continuous scene.",
+    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  }
+}

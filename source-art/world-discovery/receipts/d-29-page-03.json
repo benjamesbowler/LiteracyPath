@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-29",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:56:46.680Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-a2accebf-c289-4d79-916b-18b1967a7d93.png",
+  "sourceSha256": "459d50054dccb4cff5400537c53d127c753d6b0b2e336e2f50ae732dbb3f4f99",
+  "output": "public/guided-reading/world-discovery/d-29/page-03.webp",
+  "outputSha256": "4d0d8d11beb653eff284ea0251ac747ca48500c38f82f75dd400f584f51336dd",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. NEXT distinct page in same classroom with exact Kit/counter/jar/ball from reference. Kit places his TWO pale-green play notes into the same clear wide-neck glass jar. Exactly TWO notes TOTAL: one note already visible inside jar, ONE second note held by its top corner in Kit's right hand halfway through jar opening. Each note has single centered dark1 and no other design. Jar large enough for notes, opening wider than note's short edge. Kit's left hand steadies jar side naturally, fingers outside glass, only two hands. All table area otherwise money-free. Same single orange ball at right. Tealshirt/MUSTARDshorts/navyshoes. WIDE camera pulled back: fullchild/feet and counter entirely central70%, minimum150px margins. Plain creamwall lilacfloor. Bold clean dark outlines flat2D, no texture/realism. No othertext anywhere.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-03fcabd5-1e6a-4bcd-9066-3f851c06335b.png",
+      "sha256": "5a346f49c72723f805ff3ead254de62ca82ecf9ad2ca1e7bf7dc229ffb20fd05"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "13c2a4841f0bfa3c412602a383f905ed05acc5de2a917f6491164caa74117013",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.546Z",
+    "sha256": "4d0d8d11beb653eff284ea0251ac747ca48500c38f82f75dd400f584f51336dd",
+    "note": "Actual PNG and installed WebP directly inspected: Exactly2notes:one inside jar and one entering mouth in right hand, left hand steadies jar; clear1s, single ball, safe anatomy/framing.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

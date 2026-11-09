@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-c-24",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:27:06.276Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-c370ef02-064f-4dc5-b929-1edb28451cb1.png",
+  "sourceSha256": "9b07d922805cb599cf0a3f39cd52ab1a4378d2b0e9275601582d319b4e119c7e",
+  "output": "public/guided-reading/world-discovery/c-24/page-07.webp",
+  "outputSha256": "255cc83319693ca8e2e42de034ab24088ae22cd751f1ccffef65b8ac60eb620a",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "One 3:2 child-friendly educational illustration, smooth flat clean vectorlike fills and crisp outlines, no grain or texture. Same blue lake green hills meadow and left foreground tree as references. No people, animals, words, letters or numerals. Clear air stays transparent, never draw visible vapor plumes. All clouds and explanatory circles safely within central 75 percent with 12 percent margins. Return to ordinary whole landscape without diagrams. Same camera view and lake level as reference. The single fair-weather WHITE CUMULUS CLOUD is now visibly larger, about three times original cloud width, still safely centered above lake. Rounded distinct puffs, modest pale blue underside. No storm, no rain, no magnifier, no arrows, no other clouds. Full-bleed scene, foreground tree contextual.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/c-24/page-01.webp",
+      "sha256": "e786f48cda2523ae1aeb97471b97cec523132e03b128e0bd2efbde23e325eb4e"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "cbfc1a0f277ec5764a733f36e711277c72ce51d08853c5fd50b0372b7684550a",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T12:31:42.474217+00:00",
+    "sha256": "255cc83319693ca8e2e42de034ab24088ae22cd751f1ccffef65b8ac60eb620a",
+    "note": "Native and final WebP directly viewed. Single fair-weather cumulus clearly larger above same lake, no rain or extra diagrams, core cloud safely inset.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-c-23",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:01:11.641Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-4be4d8d6-db85-4c4d-be63-014b997cc7e7.png",
+  "sourceSha256": "a121ad98ddbac4e1a749d3911919aef3b04709245c99b82b4ca4847600e2b1dc",
+  "output": "source-art/world-discovery/c-23-reference.webp",
+  "outputSha256": "9e63284304a7bc2ea1d63e577ca195c64e62e831d44be138511b7bbaf0ad49d5",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this visual reference board only: keep all exact Kit character views, blue chairs, classroom and palette unchanged. Replace ONLY the upper-right anatomical arm study with the accurate anatomical arm from the SECOND reference. Preserve that second study's correct distinct radius (inner bone) and ulna (outer bone), biceps pale tendon attachment on proximal INNER RADIUS just below round radial head, triceps tendon on OUTER ULNA olecranon, rigid humerus, short front muscle and long rear muscle. Fit corrected study into upper-right space, unlettered. Do not alter or add any character, objects or text. Smooth flat clean children's illustration, no texture. 3:2 reference board.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/c-23-reference.webp",
+      "sha256": "17b0edadfd7a55c9f9af2522bad7ef05ff784ce2e51eccf4e0d98ffe21103ba8"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-4ae3aaca-a99c-4d79-a57b-a1941029e2c4.png",
+      "sha256": "ec087e89ede15213d8d3b6d14a91ea1d187d73986569579108ef7d6a83a3db4c"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "25f742b6e36d6eb87de003ac9ecc80f9d512f2d1edf34f8713c6b0c4130e8702",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T12:06:41.655305+00:00",
+    "sha256": "9e63284304a7bc2ea1d63e577ca195c64e62e831d44be138511b7bbaf0ad49d5",
+    "note": "Native and installed reference WebP directly viewed. Kit design retained, corrected two forearm bones and separate tendon insertions: front biceps to proximal radius, rear triceps to olecranon of ulna.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

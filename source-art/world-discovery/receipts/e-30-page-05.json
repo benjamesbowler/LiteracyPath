@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-30",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:39:23.448Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-8477f7a9-4281-4339-a969-97370f68b6df.png",
+  "sourceSha256": "f7ad4eed98d9e7ecc63e19649d63e1a321cca17ff87603c558e25c06b6b98731",
+  "output": "public/guided-reading/world-discovery/e-30/page-05.webp",
+  "outputSha256": "c2c27bd728d8c45dbfd429c3055316d385264e41bfa552f9a9b93e600c3cad8f",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit only the attached illustration: move the whole small thermometer teaching symbol 70 pixels to the right, with its left edge at least 12% of image width from the canvas edge, and remove the orange glow around that symbol. Preserve everything else exactly, including the single coral colony, openings, slight pale right patch, underwater setting, flat 2D outlines, colors, composition and dimensions. No text, numbers, letters or frame.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-c8cbe9d8-96b8-40dd-a62d-bffea1ddb64a.png",
+      "sha256": "7fee030f879bd2dcc94b7eeb1695da926545f3d6764342c66579e2e2e8dc739b"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "eead7bd4e8d787dff3440b9ff337f914a50daa5a1c9dfe20a0688cac4e6a5f42",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T10:41:13.587941+00:00",
+    "sha256": "c2c27bd728d8c45dbfd429c3055316d385264e41bfa552f9a9b93e600c3cad8f",
+    "note": "Directly inspected installed WebP: Same colony with slight pale right patch; restrained unnumbered thermometer now well inside safe margin; no boiling, steam or threshold.",
+    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  }
+}

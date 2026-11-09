@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-c-24",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:14:09.889Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-45e1302b-594b-43a7-815f-610933e86a3e.png",
+  "sourceSha256": "661f7940b01e5161f8f5611bed6fff0acc24b23195c65e5b0e089bb50e6be578",
+  "output": "public/guided-reading/world-discovery/c-24/page-03.webp",
+  "outputSha256": "1ca504436f394e1fa4e96c2042a6a1b5ca7d0d51408432a82b937e97fd94aa4a",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit only this exact lake teaching illustration: remove the small white cloud at the very top entirely and replace it with matching clear blue sky. Preserve the upward teaching arrow and transparent widening dashed outline showing rising expanding air, same lake meadow and tree. No other alterations, no white vapor plume, no lettering, no new objects. Smooth flat fills and crisp outlines, no grain. Same 3:2 landscape.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-4ff9660b-b930-4b6c-85cd-01d1fd95f6d2.png",
+      "sha256": "f8c5e392d01c4e0d19675ac8f06f25fa00979f07ec4f7c51c8bffe6631147900"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "cbfc1a0f277ec5764a733f36e711277c72ce51d08853c5fd50b0372b7684550a",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T12:15:01.419566+00:00",
+    "sha256": "1ca504436f394e1fa4e96c2042a6a1b5ca7d0d51408432a82b937e97fd94aa4a",
+    "note": "Native and final WebP directly viewed. One upward arrow in transparent widening dashed air parcel, clear sky without premature cloud; lake/tree continuity, safe diagram margins.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

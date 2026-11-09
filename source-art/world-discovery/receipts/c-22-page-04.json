@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-c-22",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:05:46.445Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-2e9afd8b-d803-408e-a2c7-4657b119295e.png",
+  "sourceSha256": "558fe7a094206c2e3ac9cbf19d2489977cb5b553c8b3098e941c9bd84d369ac0",
+  "output": "public/guided-reading/world-discovery/c-22/page-04.webp",
+  "outputSha256": "b4caa560f913851486ad87023e63d9e1252b17575ebb946747313f2aecf5004e",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit ONLY the background of the FIRST reference: remove the gray gate entirely, replacing it with matching grass and distant hedge. Keep the green north tree exactly ahead of the compass red tip. Preserve every foreground detail: natural five-digit open palm supporting same level compass, exact letters N top E right S bottom W left, red needle top and white bottom. SECOND reference locks props only. Do not add arrows, diagrams or extra objects. Same3:2 scene, crisp flat smooth fills, no grain.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/c-22/page-04.webp",
+      "sha256": "dba2aab636a3485b0d42f136920b210eeb64f5ff3f31ad9b91bbbd575548ac70"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/c-22-reference.webp",
+      "sha256": "f7640bca6dc2c687a2f53c1956c4db9411d4faaa9c4331d71b6acdc1b6a98ef2"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "7ef8d8649d4bf890384d714a7be54ffe8301439e049fa826d123aaf98f10b5ea",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T13:06:34.402849+00:00",
+    "sha256": "b4caa560f913851486ad87023e63d9e1252b17575ebb946747313f2aecf5004e",
+    "note": "Native and actual replacement directly viewed: removed incidental gate from north-focused palm close-up. Correct clockwise N/E/S/W, single red/white needle, natural five-digit supporting hand and north tree retained.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

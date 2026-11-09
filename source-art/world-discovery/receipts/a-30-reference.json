@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-a-30",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T05:00:35.341Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-4ffec8c7-2d9a-4eeb-ba39-db4f1c5cda37.png",
+  "sourceSha256": "041f570f430b2a022d8223cc93364f862dbdaaebe4161c05c278a84059414aae",
+  "output": "source-art/world-discovery/a-30-reference.webp",
+  "outputSha256": "8f7ebb59d5f61c0ed91e0aca7c469621a75ae433bb19598d73db4e6abeb3b574",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. PRODUCTION REFERENCE SHEET, landscape, not a finished book page. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: The Bag in the Wind; World Discovery; nonfiction.\nSetting: One ordinary street beside a grassy verge that slopes gently to a small open stream. Breezy dry daylight. A low bare branch reaches over the grass near the bank; no storm drain or sewer is implied.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One empty pale yellow plastic shopping bag with two integral loop handles, a small triangular notch at its lower right corner and no logo; One continuous route from gray street at left across green verge to stream at right, flowing left to right in the final views; Same low thin branch with two forks catches one bag handle briefly; branch does not move between frames; No animal entangled in the bag, no littering child, no additional bags or transformation into an animal\n Create a clean separated reference board on white: show the principal recurring props/animals in front, side and three-quarter views, their relative scale beside any named human cast, and a single simple location key showing the persistent setting and daylight/palette. The human character model sheet is a supporting identity reference, not content to copy wholesale. Show only the subjects this book requires. Use initial object states: Bag flat near street; route and stream established; no movement yet.. For orientation, the opening location/action is: Wide low view of the empty yellow bag lying on the verge beside the gray curb. Two loop handles, small corner notch and flattened bag body clear. Stream visible far right; no person discarding it.. Do not show a completed craft or later scene merely because the finished object is listed in design locks. No future story events, no captions.\nProduction finish: every surface must be perfectly flat, clean digital cel color with smooth crisp outlines. ZERO paper grain, speckling, stipple, dither, paint, canvas fibers, mottling, scuffs or noisy gradients anywhere, including skin, rug, walls, table, floor and shadows. Prefer solid flat fills; any small shadow is one smooth flat shape. This is polished vector-like raster art, never a textured watercolor print.\nCritical reference correction: ABSOLUTELY NO people, birds, squirrels, fish or other animals anywhere on this board. Show ONLY the yellow bag with two integral handles and tiny lower-right notch, two-fork branch, and continuous street/grass/stream setting. The branch in the setting MUST visibly grow from a rooted tree trunk at the stream bank; never a floating or detached branch. Keep the low branch over grass. Reference the same stationary tree and branch throughout. Street is uniformly flat gray, no mottled asphalt or irregular patches. Flat clean green grass and flat blue water, no stippled surfaces.",
+  "references": [],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "24075755c621d72f43bb30fc00a77fb407d55e36e08d772f10f5aa04aed3efc1",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "8f7ebb59d5f61c0ed91e0aca7c469621a75ae433bb19598d73db4e6abeb3b574",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T05:00:35.344Z",
+    "note": "Inspected repaired board: only bag, rooted tree/branch and landscape; removed unrequested humans/animals. Bag has two integral handles and one lower-right notch, with consistent flattened design. Low two-fork branch visibly joins rooted trunk beside stream; street, verge and water form one coherent route. Smooth flat fills and no mottled road."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-a-30",
+    "path": "src/content/world-discovery/cohorts/21-30/level-a.json",
+    "sha256": "f9ec508c059ddf7bc839efb70dfb744ce32989e7c1fecee092e761c78496361a",
+    "evidence": "source-art/world-discovery/cohorts/21-30/a30-teaching-cue-revalidation.json"
+  }
+}

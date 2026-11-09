@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-29",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:04:28.398Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-fa9f6dbd-5361-4b08-bd5d-dbab1acf6473.png",
+  "sourceSha256": "4317ee7573e0e1e49758ec6931c8983ee32d378560aa132676daa46fa59c85f3",
+  "output": "public/guided-reading/world-discovery/d-29/page-07.webp",
+  "outputSha256": "e30b657dd83f13a2c657b7d10e04a3048d22248a5895d9fade78013c4f2d0c71",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. Next1536x1024 page, same exact Kit/clothes/woodcounter/classroom as reference. Remove red toy car; it is no longer part of this scene. Kit adds exactly TWO new pale-green play notes next to the FOUR original notes already on table. Exactly SIX notes total, all visible each with one centered dark1: FOUR old notes form neat horizontal row center-left, TWO new notes beside them on right as a clearly separate pair; Kit's right index fingertip touches the top edge of one new note, left hand rests on table. No notes in jar, no notes in other hand. Empty clear jar far-left, single orange ball back-right. Do not add outlined empty slots, coins, duplication or price labels. Six notes same size, not stacked/hidden. Keep FULL Kit and counter within central70% and minimum150px floor below feet. Clean bold-outline flat2D, no grain or realism; only text exactly six1s.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-2c7c7c70-8f9b-4296-ba84-791541bd8d73.png",
+      "sha256": "6c026710186748c3696b23b0a016fc59b079df53572dcbe4d25be8ce594645a2"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "13c2a4841f0bfa3c412602a383f905ed05acc5de2a917f6491164caa74117013",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.547Z",
+    "sha256": "e30b657dd83f13a2c657b7d10e04a3048d22248a5895d9fade78013c4f2d0c71",
+    "note": "Actual PNG and WebP directly inspected: Six notes visible grouped4and2, Kit points new pair, empty jar, singleball, no othermoney.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

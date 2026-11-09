@@ -34,7 +34,7 @@ function digestFile(relative) {
 }
 
 export function readWorldDiscoveryCohort(cohort) {
-  const source = readWorldDiscoverySource({ sourceDir: cohort.sourceDir, requireReviews: true,
+  const source = readWorldDiscoverySource({ sourceDir: cohort.sourceDir, topicProfile: cohort.topicProfile, requireReviews: true,
     ...(cohort.index ? { firstNumber: cohort.firstNumber, lastNumber: cohort.lastNumber } : {}) });
   requireThat(stableWorldDiscoveryJson(source.books.map(book => book.id)) === stableWorldDiscoveryJson(worldDiscoveryCohortIds(cohort)), `${cohort.id}: source IDs/order differ from declaration`);
   requireThat(source.books.length === cohort.expectedBooks
@@ -51,7 +51,7 @@ export function collectWorldDiscoveryCohortAudio(books) {
     entry.texts.add(normalizeLedaAudioText(text));
     audio.set(audioPath, entry);
   }
-  for (const book of books) for (const page of [...book.pages, { text: book.title }]) {
+  for (const book of books) for (const page of [...book.pages, { pageNumber: "title", text: book.title }]) {
     record(getGuidedReadingPageAudioPath({ ...page, narrationNeedsRebuild: true }), "page_or_title", page.text);
     for (const word of words(page.text)) record(getGuidedReadingWordProductionAudioPath(word, { bookId: book.id, page }), "word", word);
   }

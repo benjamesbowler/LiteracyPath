@@ -1,0 +1,42 @@
+{
+  "bookId": "world-discovery-c-29",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:05:20.577Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-ea289804-ea2c-448d-96a3-5da743cfddad.png",
+  "sourceSha256": "760fb33f35d84babd4367c445fc84129d32e421924cb4fd7dcbbfb31519c791a",
+  "output": "public/guided-reading/world-discovery/c-29/page-06.webp",
+  "outputSha256": "3cbd7a12f0f05909197afb49e75a1572f0ba0cc66895af0130a854afffd8c355",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "One finished landscape3:2 full-bleed children nonfiction illustration, crisp flat2D cartoon with clean dark outlines, flat colors and restrained cel shading. No grain, painted texture,3D, words, logos, captions, border or frame. Full essential subjects within CENTRAL65 percent of canvas, broad naturally extended background margins. Page6 one classroom scene. Same Kit left and Zoe right, same clothes/equalheight/table/clock. Their paper chain is NOW COMPLETED, aboutEIGHT alternating blue/yellow joined rings gently draped on tabletop, no spare loose strips; one glue stick at side. They admire it. The ONE wallclock shows EXACTLY4:00: longBLUE minute straightUP at12, shortRED hour diagonallydownRIGHT exactly toward4,30degreesbelowhorizontal. Third image gives exact hand geometry, not extra inset. All twelve black numerals1\u201312 correct clockwise; exactlytwohands. Clock at least15percentbelowtop; whole shoes at least15percentabovebottom; all faces/chain safe. No captions or extra clock.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/c-29-reference.webp",
+      "sha256": "0e4cc615adc85c760ca977456842c568796faa70ce5a3972164905339528f992"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/c-29/page-04.webp",
+      "sha256": "933bf4c316fc2b7b0be97249bcbc7b5fd32e540dc95b7497b1a186b086ea4811"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/.artifacts/nonfiction-next-50/clock-reference/clock-4-00.png",
+      "sha256": "9785490428e555644c4f446474ddcd9a14b2964a901c8ba2075a2663e86df39e"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "7dacb274608cd92e9787048ea3b34f4e75fff582b4c227e3e6234a48171cbea7",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T13:09:18.114467+00:00",
+    "sha256": "3cbd7a12f0f05909197afb49e75a1572f0ba0cc66895af0130a854afffd8c355",
+    "note": "Clock4:00 blueup12/redtoward4; same twochildren with completed eight alternating blue/yellow rings, no loose strips. Safe frame and familiar table/room.",
+    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-c-30",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:06:43.682Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-c8667776-a9f9-4fe1-88e0-512598d0078e.png",
+  "sourceSha256": "e54c0e50872d0d9406791778398662a62a5a8e3ac4864fbfadaadef4810a04ba",
+  "output": "source-art/world-discovery/c-30-reference.webp",
+  "outputSha256": "13981429b48266a584720e9531ebc4977f560e140763f6d897f5cb3e72968bd5",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this production model reference sheet. Preserve the useful design, colors and bold crisp flat 2D cartoon style. Pull the ENTIRE composition back uniformly by 22 percent on the SAME landscape white canvas, adding blank white space all around, so every character, prop and inset sits at least 10 percent inside all four edges. Keep proportions and do not crop anything. No titles, letters, numbers, logos or watermark. Remove the human worker entirely. Remove the four tiny repeated rockets along bottom left and the small rocket beside the worker; fill their space with blank white. Preserve the main large exterior and internal rocket designs and launch location key. Critical tank correction: the upper BLUE oxygen tank and lower ORANGE fuel tank must be completely separate sealed tanks with a visible WHITE GAP between them; no neck or connector joining tanks. BLUE pipe goes from upper tank down the RIGHT side of lower tank and into the chamber; ORANGE pipe goes from lower tank to chamber on LEFT. They meet only inside combustion chamber. Keep one chamber and one nozzle. No flames inside tanks.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-8fb3fb7f-50c1-49d9-952a-f304f7b8558b.png",
+      "sha256": "60a3dc7d0f147d025fccbc4ef83de04fb3e6aa8d7eaa6f70fa163b545c40ff92"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "7374f9182a4ceb61b8c6faae01ea35938c85f0fc4723dd1dfcd601ace996d189",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T12:08:26.147408+00:00",
+    "sha256": "13981429b48266a584720e9531ebc4977f560e140763f6d897f5cb3e72968bd5",
+    "note": "White/navy single-engine rocket, separated sealed blue/orange tanks and separate side feeds joining only at one chamber; no worker, flags or logos. All main references inset.",
+    "limits": "Production reference inspection only; final pages reviewed separately."
+  }
+}

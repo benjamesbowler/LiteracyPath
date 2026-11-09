@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-c-27",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:20:34.007Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-844c4373-0bc6-4163-9dd8-2c15a61590b1.png",
+  "sourceSha256": "2734cf92075da23a85e2c8950c84393abf18bf420711a2eeda0474bf27b9884d",
+  "output": "public/guided-reading/world-discovery/c-27/page-07.webp",
+  "outputSha256": "e3b6cd83ee3e46b37243bb001dbf17e11883133301b1106a1a7dc790597caf28",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "One finished landscape3:2 full-bleed children nonfiction illustration, crisp flat2D cartoon with continuous clean dark outlines, flat colors and restrained cel shading. No grain, paint texture,3D, words, logos, captions, border or frame. Essential subjects fully inside CENTRAL65 percent canvas, generous naturally extended scene margins. Next factory step. Same cool-gray collection tray on workbench, same exactlyFIVE separate hexagonal pencils now painted plain RED with no logos or writing or erasers. Preserve five parallel horizontal spaced pencils from secondreference. TopFOUR remain BLUNT with pale wood end face and one dark core dot at right end. BOTTOM FIFTH pencil now SHARPENED at right end: pale wood cone tapers to a dark graphite tip, continuous internal core. Exactlyfivepencils, one sharpened/fourblunt. Closed machine in background; no people/shavings/knife. Whole tray/pencils withincentral65percent, at least15percentmargin.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/c-27-reference.webp",
+      "sha256": "9f87fb6e6383f406adf9f7bfb18a7a36a8dc92e88f08cd8697f4eaf1ac3cc5ab"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/c-27/page-06.webp",
+      "sha256": "37912684b2159a0188f7c8cb86e551c2ad29dee18dfc9a039312dc3833b37e72"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "3a70fa1d14c972360847c319383d83f2ce0d2b4c35e4355bf29e90a292205a2e",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T13:21:35.101438+00:00",
+    "sha256": "e3b6cd83ee3e46b37243bb001dbf17e11883133301b1106a1a7dc790597caf28",
+    "note": "Five red pencils, four blunt and only bottom fifth sharpened; one graphite core per pencil, no logos/erasers. Same enclosed factory and collection tray.",
+    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  }
+}

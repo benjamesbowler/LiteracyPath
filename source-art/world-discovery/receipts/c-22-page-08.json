@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-c-22",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:23:00.437Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-dc33ca7f-aed4-41f7-8591-830db7ba698b.png",
+  "sourceSha256": "0bc096773855df98bd3ca19d73582ad71592f04007b23027ee0cf9af53535c90",
+  "output": "public/guided-reading/world-discovery/c-22/page-08.webp",
+  "outputSha256": "9a8b65869a5c0fced1787cee33d57507473fb018fb5bd5c4bcd9d7ec364aecd5",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Create a new page scene using FIRST reference's exact corrected field geography and camera. Same green field viewed obliquely from high above, no horizon; tree directly ahead/north, gray gate directly to RIGHT/east at the same ground depth as children's shoes. Keep landmarks fixed in place, same tree/gate designs and relative distances. Kit holds the same small palm-sized compass level while looking between it and Zoe beside him. Settled red tip points forward/up toward the north tree. No lettering at this wide scene scale. Kit and Zoe are equal height and keep exact locked clothes/hair/skin from second reference. Natural hands. Keep complete children and landmarks inside generous12% margins, full-bleed3:2 landscape. Smooth clean flat colors, crisp outlines, zero grain. Only these two children, compass, tree, gate and grass; no arrows, inset panels or extra props.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/c-22/cover.webp",
+      "sha256": "991cf0c456fd1c68bca7320cfb824d2e29c0d72321720a97164f0bfa6e560ba1"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/c-22-reference.webp",
+      "sha256": "f7640bca6dc2c687a2f53c1956c4db9411d4faaa9c4331d71b6acdc1b6a98ef2"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "7ef8d8649d4bf890384d714a7be54ffe8301439e049fa826d123aaf98f10b5ea",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T13:23:55.636460+00:00",
+    "sha256": "9a8b65869a5c0fced1787cee33d57507473fb018fb5bd5c4bcd9d7ec364aecd5",
+    "note": "Native and actual WebP viewed: final Kit/Zoe inquiry with same north tree/east gate ground layout, unlettered small level compass and correct red direction; safe margins.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

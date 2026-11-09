@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-30",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:20:37.714Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-62cb96df-c591-4ff0-8be5-23007a515f59.png",
+  "sourceSha256": "9ba2aee25b6c15788401ec3f565b633f40759e7bc849e038e3055414e4a3f5bf",
+  "output": "public/guided-reading/world-discovery/d-30/page-04.webp",
+  "outputSha256": "3715be650123573afefde80571927e47ce1b0d17070bd0fb370be53c6cdaecb9",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Create a landscape1536x1024 early-reader science illustration. Match the reference's crisp bold continuous dark outlines and flat clean blue, green, gray colors; restrained flat cel shadows only, no painterly texture, realism or 3D rendering. Entire image UNLETTERED. All essential shapes inset at least8percent. Same ONE gray box satellite with TWO opposite blue solar panels, exactly3columns by2rows each. Dark navy space. Diagram relative sizes intentionally simplified, not to scale. Recompose this exact scientific diagram with Earth centered at (768,590), radius180pixels. Put craft at12o'clock centered at (768,260), width340pixels. Draw ONE thin WHITE perfect circular orbital guide centered EXACTLY on Earth's center, radius330pixels, behind craft: its top touches craft center, sides atx438and1098, bottom920. Do not draw an ellipse or off-center arc. Small clockwise arrow on circle's RIGHT side points DOWN. ONE solid orange gravity arrow from cube bottom points straight DOWN to Earth's exact CENTER. Add ONE straight palecream DASHED hypothetical tangent from the craft position horizontally RIGHT to x1280, aty260; start visible after rightpanel and finish small rightward arrowhead. This dashed straight possibility differs clearly from continuous WHITE circular actual route. Keep same recognizable Atlantic-facing geography. OnlyONEsatellite, Earth, thin circular route, straight dashed tangent, inward gravity arrow; no labels, second craft, rail, rocket, flame, outward force or legend. Whole circular guide within safe margins.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-f4969c0d-eeb2-4f5b-befe-c918b70b5c5b.png",
+      "sha256": "9e487d0bd5b37f9b21e86faee67a904cea446ca169695888e98388ecd0db959d"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "66c03f602e2ff45268c6d939a796addf9ba66a77cb551a19d2ddd57408b04e48",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.552Z",
+    "sha256": "3715be650123573afefde80571927e47ce1b0d17070bd0fb370be53c6cdaecb9",
+    "note": "Actual PNG and installed WebP inspected: one craft; straight dashed tangent clearly differs from thin surrounding orbital route; gravity arrow points toward Earth center; labels absent, margins clear.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

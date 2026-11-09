@@ -1,0 +1,39 @@
+{
+  "bookId": "world-discovery-a-30",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:08:47.488Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-c2f29c37-113b-4e7c-af47-bd67e7e38d31.png",
+  "sourceSha256": "70021f8c9aebb093e2867588fac70ad5a0920788b5cfdc11c20524d067b316b2",
+  "output": "public/guided-reading/world-discovery/a-30/page-03.webp",
+  "outputSha256": "68e60607db59eb4044107f9d936045915e23c82f4925503111ddb4c12a93d9ff",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this image into the next moment. Preserve the ENTIRE background, camera and bag SIZE. Move the single bag 160 pixels RIGHT and 100 pixels UP, so it is farther over grass toward branch but clearly BELOW it. Its outline should approximately span x410–895 and y420–640; keep at least50pixels clear blue/green gap between bag and branch. Preserve two left-trailing handles, same lower-right notch, billowing body and colors. Relocate small shadow below its new position. No bag touching branch yet, no extra bag or text. Preserve exact tree geometry and smooth flat style. Landscape3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-23cfea4f-6a05-4002-b7fa-026b78c05ec9.png",
+      "sha256": "da60b0dc2c1a62785e6d1fd924da046ce11a3867df6639f7e67d85d4cfd56a02"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "24075755c621d72f43bb30fc00a77fb407d55e36e08d772f10f5aa04aed3efc1",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "68e60607db59eb4044107f9d936045915e23c82f4925503111ddb4c12a93d9ff",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:08:47.490Z",
+    "note": "Directly inspected native: same-size bag farther right/up above verge, two left-trailing handles and lower-right notch, clear gap below fixed branch. Shadow and right-leaning grass support movement; no contact yet."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-a-30",
+    "path": "src/content/world-discovery/cohorts/21-30/level-a.json",
+    "sha256": "f9ec508c059ddf7bc839efb70dfb744ce32989e7c1fecee092e761c78496361a",
+    "evidence": "source-art/world-discovery/cohorts/21-30/a30-teaching-cue-revalidation.json"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-21",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:42:42.946Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-3cbf2f18-1caf-47fd-98f4-e0d49b240329.png",
+  "sourceSha256": "afde8af32a2abd3d2c9bc1ac8323c81ed7010f798d1fcc66e88ccdca51364d7f",
+  "output": "public/guided-reading/world-discovery/e-21/page-07.webp",
+  "outputSha256": "34ff2df056331113deab36d3375167a3d2aaab4aca6eb3f5811557fd127600a2",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Change ONLY the small ferry pictogram in the right pale-blue block: replace its three square passenger windows with EXACTLY FOUR small square windows in a horizontal row, followed by the separate slanted pilot window at right. Preserve all block boundaries and widths exactly, first5,middle10,last5,total20,all walking/clock icons,bracket,white margins and colors. No other changes. The four passenger windows can be slightly smaller to fit.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-11b5299a-9cf5-461c-9ac7-5c9e072fb503.png",
+      "sha256": "d2943fd642ad39dc307e81c9197895f4be92fb6de774fad0165218a32e180dd3"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "9421bb4bb1f97c822674b76871fc5ee9b7b4398f02e9bdb626223b2a8cf9283e",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T11:43:18.036391+00:00",
+    "sha256": "34ff2df056331113deab36d3375167a3d2aaab4aca6eb3f5811557fd127600a2",
+    "note": "5/10/5 blocks now equalouter/doublemiddle proportions with combined walking icons, waiting clock and four-window ferry. Bracket total20, all labels accurate and safe margins.",
+    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  }
+}

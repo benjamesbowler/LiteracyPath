@@ -1,0 +1,1420 @@
+[
+  {
+    "id": "world-discovery-b-21",
+    "number": 21,
+    "title": "A Train for Heavy Loads",
+    "topic": "transport",
+    "type": "nonfiction",
+    "appLevel": "B",
+    "level": "B",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "How can one engine move several loaded train cars?",
+      "progression": "Follow one illustrative short freight train from separate loaded cars, through their couplers and powered locomotive, along a track to unloading.",
+      "synthesis": "The engine provides power while connected cars carry the load together.",
+      "scienceSources": [
+        {
+          "title": "Association of American Railroads: Freight Rail Operations 101",
+          "url": "https://www.aar.org/operations-101/",
+          "evidence": "Steel wheelsets support railcars on rails; couplers are strong links joining cars. This example has one locomotive and three cars, not a claim that every train uses one engine.",
+          "checked": "2026-11-09"
+        },
+        {
+          "title": "Association of American Railroads: Freight Rail Facts",
+          "url": "https://www.aar.org/faqs/",
+          "evidence": "A locomotive powers a train and freight cars carry goods.",
+          "checked": "2026-11-09"
+        }
+      ]
+    },
+    "setting": "A short contemporary freight journey between two warehouses. No public access to tracks. Unbranded blue diesel-electric locomotive, followed by red, yellow and green enclosed boxcars in that fixed order. Adult railway workers have orange safety vests, blue trousers and hard hats.",
+    "props": [
+      "One blue locomotive",
+      "Exactly three boxcars in red/yellow/green order",
+      "Gray steel couplers between all vehicles",
+      "Wooden crates secured inside the cars",
+      "One continuous pair of rails"
+    ],
+    "coverBrief": "Side view of the blue locomotive pulling its three connected freight cars past a warehouse; true wheels on rails, visibly closed couplers, no letters or logos.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "These heavy boxes need a ride.\nThey fill three train cars.",
+        "imageBrief": "Warehouse loading bay. Three open boxcars contain securely stacked wooden crates; fixed red/yellow/green order. Blue locomotive waits ahead.",
+        "imageAlt": "Warehouse loading bay. Three open boxcars contain securely stacked wooden crates; fixed red/yellow/green order. Blue locomotive waits ahead.",
+        "pageDescription": "Warehouse loading bay. Three open boxcars contain securely stacked wooden crates; fixed red/yellow/green order. Blue locomotive waits ahead.",
+        "state": "Three loaded cars; doors open; locomotive not moving.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Each car has wheels.\nThe wheels rest on two rails.",
+        "imageBrief": "Low close view of a red boxcar bogie; paired steel wheels sit correctly on two parallel rails, with crate-filled car above.",
+        "imageAlt": "Low close view of a red boxcar bogie; paired steel wheels sit correctly on two parallel rails, with crate-filled car above.",
+        "pageDescription": "Low close view of a red boxcar bogie; paired steel wheels sit correctly on two parallel rails, with crate-filled car above.",
+        "state": "Same red car; steel wheels and track geometry clear.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Strong metal links join the cars.\nThese links are called couplers.",
+        "imageBrief": "Close view between red and yellow boxcars shows one correctly joined knuckle-coupler pair and separate brake hose.",
+        "imageAlt": "Close view between red and yellow boxcars shows one correctly joined knuckle-coupler pair and separate brake hose.",
+        "pageDescription": "Close view between red and yellow boxcars shows one correctly joined knuckle-coupler pair and separate brake hose.",
+        "state": "One actual coupling, no human hand near it.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "An engine joins the front car.\nIt gives this train its power.",
+        "imageBrief": "Blue locomotive is coupled to the red first car; yellow and green follow. All freight doors are now shut.",
+        "imageAlt": "Blue locomotive is coupled to the red first car; yellow and green follow. All freight doors are now shut.",
+        "pageDescription": "Blue locomotive is coupled to the red first car; yellow and green follow. All freight doors are now shut.",
+        "state": "All four vehicles connected in fixed order; loading complete.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "The engine pulls.\nThe linked cars move along the track.",
+        "imageBrief": "Whole short train begins rolling away from warehouse; rails curve gently ahead and all wheelsets stay on them.",
+        "imageAlt": "Whole short train begins rolling away from warehouse; rails curve gently ahead and all wheelsets stay on them.",
+        "pageDescription": "Whole short train begins rolling away from warehouse; rails curve gently ahead and all wheelsets stay on them.",
+        "state": "Blue/red/yellow/green sequence; no gaps at couplers.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "The cars follow the same rails.\nTheir boxes travel together.",
+        "imageBrief": "Elevated three-quarter view of the complete train following one gentle bend; car bodies pivot naturally above bogies.",
+        "imageAlt": "Elevated three-quarter view of the complete train following one gentle bend; car bodies pivot naturally above bogies.",
+        "pageDescription": "Elevated three-quarter view of the complete train following one gentle bend; car bodies pivot naturally above bogies.",
+        "state": "Same three loaded closed cars; no unexplained extra vehicle.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "The train stops by another warehouse.\nWorkers take the boxes out.",
+        "imageBrief": "At second warehouse the stopped cars have open side doors; an adult unloads a crate with appropriate pallet equipment.",
+        "imageAlt": "At second warehouse the stopped cars have open side doors; an adult unloads a crate with appropriate pallet equipment.",
+        "pageDescription": "At second warehouse the stopped cars have open side doors; an adult unloads a crate with appropriate pallet equipment.",
+        "state": "All cars stationary; crates decrease only through unloading.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "One engine pulls three linked cars.\nMany boxes make one trip.",
+        "imageBrief": "Final broad view shows blue locomotive with the three stationary cars and delivered crates neatly beside second warehouse.",
+        "imageAlt": "Final broad view shows blue locomotive with the three stationary cars and delivered crates neatly beside second warehouse.",
+        "pageDescription": "Final broad view shows blue locomotive with the three stationary cars and delivered crates neatly beside second warehouse.",
+        "state": "The three-car load has arrived; couplers remain connected.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "How did one engine move all three cars?",
+        "listenFor": "The couplers joined the cars, so the engine could pull them together."
+      },
+      "visual": {
+        "page": 3,
+        "prompt": "What joins these two cars?",
+        "lookFor": "The connected gray metal couplers between the car ends."
+      }
+    },
+    "levelRationale": "Candidate public B: a single visible part-to-whole mechanism and ordered journey, short present-tense sentences and repeated concrete referents. Independent calibration remains pending.",
+    "languagePrep": [
+      {
+        "word": "engine",
+        "meaning": "the powered part of this train"
+      },
+      {
+        "word": "coupler",
+        "meaning": "a strong link joining two train cars"
+      },
+      {
+        "word": "rail",
+        "meaning": "one of the long metal strips under train wheels"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-b-22",
+    "number": 22,
+    "title": "One Ocean Around Earth",
+    "topic": "geography",
+    "type": "nonfiction",
+    "appLevel": "B",
+    "level": "B",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "topicQuestion": "Do the named oceans have walls between their waters?",
+      "progression": "Trace an uninterrupted water route on a globe from the Atlantic around the Southern Ocean into the Indian and Pacific, then toward the Arctic; return to the global view.",
+      "synthesis": "Five names identify connected regions of one global ocean, not five separate pools.",
+      "scienceSources": [
+        {
+          "title": "NOAA National Ocean Service: How many oceans are there?",
+          "url": "https://oceanservice.noaa.gov/facts/howmanyoceans.html",
+          "evidence": "One global ocean has commonly recognized Atlantic, Pacific, Indian, Southern and Arctic regions. Boundaries are named conventions, not physical walls. The book follows the commonly used five-ocean convention.",
+          "checked": "2026-11-09"
+        }
+      ]
+    },
+    "setting": "A classroom globe investigation with Kit and Zoe. Geographically accurate continent outlines on a plain globe and close map views; ocean regions stay the same blue. Route is a thin orange teaching overlay, never a real painted line on Earth.",
+    "props": [
+      "Accurate blue-and-green Earth globe",
+      "Thin orange route overlay kept entirely in seawater",
+      "Plain gray globe stand"
+    ],
+    "coverBrief": "Kit traces blue water on an accurate globe while Zoe points to a second connected ocean region. No labels or political boundaries.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Earth has five named oceans.\nAre their waters separate?",
+        "imageBrief": "Kit and Zoe look at the globe, Atlantic-facing. Ocean regions are uniformly blue without boundary walls.",
+        "imageAlt": "Kit and Zoe look at the globe, Atlantic-facing. Ocean regions are uniformly blue without boundary walls.",
+        "pageDescription": "Kit and Zoe look at the globe, Atlantic-facing. Ocean regions are uniformly blue without boundary walls.",
+        "state": "Whole globe; no route yet.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Start in the Atlantic Ocean.\nFollow its water south.",
+        "imageBrief": "Accurate Atlantic-facing globe close-up with orange route from central Atlantic down past South America toward Antarctica.",
+        "imageAlt": "Accurate Atlantic-facing globe close-up with orange route from central Atlantic down past South America toward Antarctica.",
+        "pageDescription": "Accurate Atlantic-facing globe close-up with orange route from central Atlantic down past South America toward Antarctica.",
+        "state": "Route begins in Atlantic and stays in water.",
+        "embeddedImageText": "Atlantic Ocean",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 3,
+        "text": "The Southern Ocean circles Antarctica.\nIts water meets the Atlantic.",
+        "imageBrief": "Polar-oblique globe view follows route through Southern Ocean around Antarctica, showing southern tip of South America behind.",
+        "imageAlt": "Polar-oblique globe view follows route through Southern Ocean around Antarctica, showing southern tip of South America behind.",
+        "pageDescription": "Polar-oblique globe view follows route through Southern Ocean around Antarctica, showing southern tip of South America behind.",
+        "state": "Atlantic route joins Southern Ocean; Antarctica stays solid land.",
+        "embeddedImageText": "Southern Ocean",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 4,
+        "text": "Go past Africa into the Indian Ocean.\nThere is no wall.",
+        "imageBrief": "Route arcs through water south of Africa and northward into Indian Ocean; Africa left, India above, Australia right.",
+        "imageAlt": "Route arcs through water south of Africa and northward into Indian Ocean; Africa left, India above, Australia right.",
+        "pageDescription": "Route arcs through water south of Africa and northward into Indian Ocean; Africa left, India above, Australia right.",
+        "state": "Continuous route has not crossed land.",
+        "embeddedImageText": "Indian Ocean",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 5,
+        "text": "Pass Australia into the Pacific Ocean.\nThe blue water keeps going.",
+        "imageBrief": "Route follows open water south of Australia into Pacific, not across Australia or through islands.",
+        "imageAlt": "Route follows open water south of Australia into Pacific, not across Australia or through islands.",
+        "pageDescription": "Route follows open water south of Australia into Pacific, not across Australia or through islands.",
+        "state": "The orange line continues from Indian to Pacific water.",
+        "embeddedImageText": "Pacific Ocean",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 6,
+        "text": "A narrow sea gap leads north.\nIt joins the Arctic Ocean.",
+        "imageBrief": "Accurate northern Pacific/Bering Strait/Arctic close map with unobstructed narrow water passage between Alaska and northeast Asia.",
+        "imageAlt": "Accurate northern Pacific/Bering Strait/Arctic close map with unobstructed narrow water passage between Alaska and northeast Asia.",
+        "pageDescription": "Accurate northern Pacific/Bering Strait/Arctic close map with unobstructed narrow water passage between Alaska and northeast Asia.",
+        "state": "Route through Bering Strait; mainland shapes and islands accurate.",
+        "embeddedImageText": "Arctic Ocean",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 7,
+        "text": "Five names mark different ocean regions.\nWater can move between them.",
+        "imageBrief": "Single accurate world map integrates the completed route across named ocean regions, with no separating colored barriers.",
+        "imageAlt": "Single accurate world map integrates the completed route across named ocean regions, with no separating colored barriers.",
+        "pageDescription": "Single accurate world map integrates the completed route across named ocean regions, with no separating colored barriers.",
+        "state": "All five regions shown as connected blue water.",
+        "embeddedImageText": "Atlantic Ocean; Southern Ocean; Indian Ocean; Pacific Ocean; Arctic Ocean",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 8,
+        "text": "Zoe traces the water again.\nEarth has one connected ocean.",
+        "imageBrief": "Zoe traces the Atlantic-to-Southern part on the original globe while Kit watches; all water stays blue.",
+        "imageAlt": "Zoe traces the Atlantic-to-Southern part on the original globe while Kit watches; all water stays blue.",
+        "pageDescription": "Zoe traces the Atlantic-to-Southern part on the original globe while Kit watches; all water stays blue.",
+        "state": "Return to same globe with the connection understood.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why do five ocean names not mean five separate pools?",
+        "listenFor": "Their waters connect; the names identify different regions."
+      },
+      "visual": {
+        "page": 4,
+        "prompt": "Can the orange route reach this ocean without crossing land?",
+        "lookFor": "Yes. The route goes through water around southern Africa."
+      }
+    },
+    "levelRationale": "Candidate B: a connected spatial tracing sequence supports named vocabulary. Each page adds one adjacent region rather than unrelated ocean facts. Geographic names receive oral preparation; independent level review required.",
+    "languagePrep": [
+      {
+        "word": "ocean",
+        "meaning": "the huge area of salty water on Earth"
+      },
+      {
+        "word": "region",
+        "meaning": "one part of a larger place"
+      },
+      {
+        "word": "globe",
+        "meaning": "a round model of Earth"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-b-23",
+    "number": 23,
+    "title": "Teeth Have Different Jobs",
+    "topic": "human body",
+    "type": "nonfiction",
+    "appLevel": "B",
+    "level": "B",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-ZOE"
+      ],
+      "topicQuestion": "How do front and back teeth help change one piece of food?",
+      "progression": "Follow one bite of soft apple from front-tooth cutting to back-tooth grinding, then compare the tooth shapes.",
+      "synthesis": "Different tooth shapes perform different parts of biting and chewing.",
+      "scienceSources": [
+        {
+          "title": "American Dental Association: Watch Your Mouth presentation",
+          "url": "https://www.ada.org/-/media/project/ada-organization/ada/mouthhealthy/files/smile-smarts/ada_watchyourmouth_presentation.pdf",
+          "evidence": "Incisors cut food; molars have broad chewing surfaces for crushing and grinding. Illustrations use an age-appropriate primary/mixed dentition model, without adult premolars added to a young child.",
+          "checked": "2026-11-09"
+        },
+        {
+          "title": "NIDCR: Oral Health in America",
+          "url": "https://www.nidcr.nih.gov/sites/default/files/2017-10/hck1ocv.%40www.surgeon.fullrpt.pdf",
+          "evidence": "Teeth reduce food into smaller pieces; tongue and cheeks help move food for chewing and swallowing. No claim that teeth alone digest food.",
+          "checked": "2026-11-09"
+        }
+      ]
+    },
+    "setting": "Zoe sits at a meal table with a safe thin apple slice. Scientific close-up diagrams show the relevant teeth and tongue without grotesque anatomy. No child eats while standing or running.",
+    "props": [
+      "One thin peeled apple slice",
+      "White plate",
+      "Accurate child jaw teaching diagram with front incisors and rear molars"
+    ],
+    "coverBrief": "Zoe holds a small apple slice at the table; a clearly separate teaching model of teeth rests beside her, not inside her face.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Zoe takes a bite of apple.\nWhich teeth touch it first?",
+        "imageBrief": "Zoe at meal table gently biting a thin apple slice using front teeth; plate beneath.",
+        "imageAlt": "Zoe at meal table gently biting a thin apple slice using front teeth; plate beneath.",
+        "pageDescription": "Zoe at meal table gently biting a thin apple slice using front teeth; plate beneath.",
+        "state": "One slice, one small bite, stable seated posture.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Her front teeth have thin edges.\nThey cut off a piece.",
+        "imageBrief": "Non-gory integrated close-up of front incisors closing through a small piece of apple.",
+        "imageAlt": "Non-gory integrated close-up of front incisors closing through a small piece of apple.",
+        "pageDescription": "Non-gory integrated close-up of front incisors closing through a small piece of apple.",
+        "state": "Front teeth cut a bite; remaining slice stays outside.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 3,
+        "text": "The piece moves inside her mouth.\nHer tongue moves it back.",
+        "imageBrief": "Simple jaw teaching cutaway shows tongue positioning the small bite toward one side near molars; no choking or open throat imagery.",
+        "imageAlt": "Simple jaw teaching cutaway shows tongue positioning the small bite toward one side near molars; no choking or open throat imagery.",
+        "pageDescription": "Simple jaw teaching cutaway shows tongue positioning the small bite toward one side near molars; no choking or open throat imagery.",
+        "state": "Same bite moved toward rear chewing teeth.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 4,
+        "text": "Her back teeth have wide tops.\nThese teeth are called molars.",
+        "imageBrief": "Close-up teaching view of child molar chewing surfaces, naturally ridged rather than perfectly flat.",
+        "imageAlt": "Close-up teaching view of child molar chewing surfaces, naturally ridged rather than perfectly flat.",
+        "pageDescription": "Close-up teaching view of child molar chewing surfaces, naturally ridged rather than perfectly flat.",
+        "state": "Front-to-back position clear; no adult premolars.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 5,
+        "text": "The molars press the apple.\nThe piece breaks into smaller bits.",
+        "imageBrief": "Upper and lower molars meet around the softened bite with smaller pieces visible in the simplified model.",
+        "imageAlt": "Upper and lower molars meet around the softened bite with smaller pieces visible in the simplified model.",
+        "pageDescription": "Upper and lower molars meet around the softened bite with smaller pieces visible in the simplified model.",
+        "state": "Food becomes smaller; teeth anatomically aligned.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 6,
+        "text": "Zoe keeps chewing.\nThe bite becomes soft and small.",
+        "imageBrief": "Zoe with closed mouth chewing while the remaining apple slice rests on plate; calm natural meal scene.",
+        "imageAlt": "Zoe with closed mouth chewing while the remaining apple slice rests on plate; calm natural meal scene.",
+        "pageDescription": "Zoe with closed mouth chewing while the remaining apple slice rests on plate; calm natural meal scene.",
+        "state": "Bite still being chewed; no oversized mouth display.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Thin edges bite.\nWide tops crush and grind.",
+        "imageBrief": "One clear child-jaw diagram emphasizes incisors at front and molars behind with their matching small apple pieces.",
+        "imageAlt": "One clear child-jaw diagram emphasizes incisors at front and molars behind with their matching small apple pieces.",
+        "pageDescription": "One clear child-jaw diagram emphasizes incisors at front and molars behind with their matching small apple pieces.",
+        "state": "Single anatomical model compares two tooth functions.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 8,
+        "text": "Zoe swallows the small soft mouthful.\nBoth tooth shapes help.",
+        "imageBrief": "Zoe after swallowing, hands resting by plate with the remaining apple slice; same meal setting.",
+        "imageAlt": "Zoe after swallowing, hands resting by plate with the remaining apple slice; same meal setting.",
+        "pageDescription": "Zoe after swallowing, hands resting by plate with the remaining apple slice; same meal setting.",
+        "state": "First mouthful finished; remaining slice still has one missing bite.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What did the front teeth do before the back teeth worked?",
+        "listenFor": "They cut off a bite; the back teeth crushed and ground it smaller."
+      },
+      "visual": {
+        "page": 4,
+        "prompt": "How are these back teeth different from thin front teeth?",
+        "lookFor": "The molars have wider chewing tops."
+      }
+    },
+    "levelRationale": "Candidate B: one familiar bite gives an ordered sequence, with two contrasting shapes and functions. Anatomy nouns are pictured and explained; no advice or generalized digestion survey.",
+    "languagePrep": [
+      {
+        "word": "molar",
+        "meaning": "a wide tooth near the back of your mouth"
+      },
+      {
+        "word": "chew",
+        "meaning": "use your teeth to break food into smaller pieces"
+      },
+      {
+        "word": "edge",
+        "meaning": "the thin outside part of something"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-b-24",
+    "number": 24,
+    "title": "The Windsock Turns",
+    "topic": "weather and earth",
+    "type": "nonfiction",
+    "appLevel": "B",
+    "level": "B",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "What can a windsock show when the wind changes?",
+      "progression": "Observe the same windsock in calm, a steady breeze, a stronger breeze and a changed direction, then calm again.",
+      "synthesis": "The windsock moves with air; its tail direction and extension give clues to the wind.",
+      "scienceSources": [
+        {
+          "title": "Federal Aviation Administration: Specification for Wind Cone Assemblies",
+          "url": "https://www.faa.gov/documentLibrary/media/Advisory_Circular/150_5345_27e.pdf",
+          "evidence": "A wind cone responds to direction and wind speed; the larger opening faces incoming air and the smaller tail extends downwind. No exact speed is inferred from this illustrative windsock.",
+          "checked": "2026-11-09"
+        }
+      ]
+    },
+    "setting": "A school weather corner in an open field, not an active runway. Orange tapered fabric windsock on a freely swiveling ring atop a gray pole; blue bench permanently left of pole and green tree right.",
+    "props": [
+      "Orange windsock open at both ends",
+      "Gray pole and swivel ring",
+      "Blue bench to the left",
+      "Green tree to the right"
+    ],
+    "coverBrief": "Orange windsock extends rightward from its pole in an open school field; blue bench left and tree right remain visible.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "The orange windsock hangs down.\nThe air is still.",
+        "imageBrief": "Same orange cone hangs limply below ring beside gray pole; blue bench left and tree right.",
+        "imageAlt": "Same orange cone hangs limply below ring beside gray pole; blue bench left and tree right.",
+        "pageDescription": "Same orange cone hangs limply below ring beside gray pole; blue bench left and tree right.",
+        "state": "Calm air; no moving leaves.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "A breeze blows into its wide opening.\nThe cloth begins to lift.",
+        "imageBrief": "Air from left inflates wide opening slightly; fabric lifts toward right while tail still droops.",
+        "imageAlt": "Air from left inflates wide opening slightly; fabric lifts toward right while tail still droops.",
+        "pageDescription": "Air from left inflates wide opening slightly; fabric lifts toward right while tail still droops.",
+        "state": "Same wide opening faces left; tail lifts right.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Air moves through the windsock.\nIts narrow tail points toward the tree.",
+        "imageBrief": "Cone extends toward right-hand tree with both openings physically present.",
+        "imageAlt": "Cone extends toward right-hand tree with both openings physically present.",
+        "pageDescription": "Cone extends toward right-hand tree with both openings physically present.",
+        "state": "Left-to-right air; no reversed airflow.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "The wind grows stronger.\nMore of the windsock stretches out.",
+        "imageBrief": "Same cone more nearly horizontal to right; green tree leaves lean slightly right.",
+        "imageAlt": "Same cone more nearly horizontal to right; green tree leaves lean slightly right.",
+        "pageDescription": "Same cone more nearly horizontal to right; green tree leaves lean slightly right.",
+        "state": "Stronger breeze, same direction; no numerical speed claim.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Now the wind changes direction.\nThe windsock swings around the pole.",
+        "imageBrief": "Cone has swung through a clear oblique intermediate angle on free ring; pole stationary.",
+        "imageAlt": "Cone has swung through a clear oblique intermediate angle on free ring; pole stationary.",
+        "pageDescription": "Cone has swung through a clear oblique intermediate angle on free ring; pole stationary.",
+        "state": "Transition from rightward to leftward flow.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "Its tail points toward the bench.\nThe air now blows that way.",
+        "imageBrief": "Cone fully extends left toward blue bench; wide opening on right faces incoming air.",
+        "imageAlt": "Cone fully extends left toward blue bench; wide opening on right faces incoming air.",
+        "pageDescription": "Cone fully extends left toward blue bench; wide opening on right faces incoming air.",
+        "state": "Right-to-left air; tree and bench have not swapped places.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "The wind stops.\nThe cloth hangs beside the pole again.",
+        "imageBrief": "Cone droops limply beside same pole; background leaves still.",
+        "imageAlt": "Cone droops limply beside same pole; background leaves still.",
+        "pageDescription": "Cone droops limply beside same pole; background leaves still.",
+        "state": "Return to calm after changed-direction breeze.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "We cannot see the air.\nThe moving windsock shows its direction.",
+        "imageBrief": "A new gentle left-to-right breeze lifts cone partly toward tree; show no fantasy visible wind ribbons.",
+        "imageAlt": "A new gentle left-to-right breeze lifts cone partly toward tree; show no fantasy visible wind ribbons.",
+        "pageDescription": "A new gentle left-to-right breeze lifts cone partly toward tree; show no fantasy visible wind ribbons.",
+        "state": "Observed cloth movement is evidence of unseen air movement.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What made the tail point toward a different place?",
+        "listenFor": "The wind changed direction and turned the windsock."
+      },
+      "visual": {
+        "page": 6,
+        "prompt": "Which place is the air moving toward now?",
+        "lookFor": "Toward the blue bench, in the same direction as the narrow tail."
+      }
+    },
+    "levelRationale": "Candidate B: repeated visible state changes around two fixed landmarks support one observational relationship. No compass points, knots or abstract weather systems are required.",
+    "languagePrep": [
+      {
+        "word": "windsock",
+        "meaning": "a cloth tube that moves with the wind"
+      },
+      {
+        "word": "breeze",
+        "meaning": "a light wind"
+      },
+      {
+        "word": "direction",
+        "meaning": "the way something moves or points"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-b-25",
+    "number": 25,
+    "title": "A Mirror Moves the Light",
+    "topic": "physics and engineering",
+    "type": "nonfiction",
+    "appLevel": "B",
+    "level": "B",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "topicQuestion": "Can turning a mirror move a bright spot without moving the flashlight?",
+      "progression": "Establish a fixed flashlight, mirror and reflected spot; rotate only the mirror, compare moved spot, block the light and restore it.",
+      "synthesis": "A mirror reflects light in a different direction; changing the mirror changes where the light lands.",
+      "scienceSources": [
+        {
+          "title": "University of Waikato Science Learning Hub: Reflection of light",
+          "url": "https://www.sciencelearn.org.nz/resources/48-reflection-of-light",
+          "evidence": "Light reflects from a smooth surface, with reflection angle determined by the surface angle. The flashlight remains fixed; the mirror is moved, not the source. Ordinary clear air does not show a solid beam.",
+          "checked": "2026-11-09"
+        }
+      ]
+    },
+    "setting": "Dim classroom demonstration on a low table. Low-power flashlight fixed in a wooden cradle, small shatterproof plane mirror in a turning stand, white vertical screen on the right. No lasers, sunlight or light aimed into eyes.",
+    "props": [
+      "One yellow flashlight held stationary in cradle",
+      "One plane mirror in gray stand",
+      "One white screen",
+      "One opaque blue card"
+    ],
+    "coverBrief": "Kit gently turns the small mirror and Zoe points to a bright spot on the white screen. Flashlight sits untouched in its cradle.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "The flashlight shines at a small mirror.\nA bright spot reaches the screen.",
+        "imageBrief": "Establish fixed flashlight aiming diagonally onto mirror; mirror reflects toward white screen with one bright spot.",
+        "imageAlt": "Establish fixed flashlight aiming diagonally onto mirror; mirror reflects toward white screen with one bright spot.",
+        "pageDescription": "Establish fixed flashlight aiming diagonally onto mirror; mirror reflects toward white screen with one bright spot.",
+        "state": "Flashlight and screen fixed; mirror at starting angle.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Light hits the mirror.\nThe mirror sends it another way.",
+        "imageBrief": "One integrated top-view diagram shows only two thin yellow teaching arrows: source to mirror, mirror to screen.",
+        "imageAlt": "One integrated top-view diagram shows only two thin yellow teaching arrows: source to mirror, mirror to screen.",
+        "pageDescription": "One integrated top-view diagram shows only two thin yellow teaching arrows: source to mirror, mirror to screen.",
+        "state": "Equal incidence/reflection geometry, no extra beam.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 3,
+        "text": "Kit turns only the mirror.\nThe flashlight stays in its stand.",
+        "imageBrief": "Kit holds mirror stand safely and changes its angle; both flashlight and screen remain fixed.",
+        "imageAlt": "Kit holds mirror stand safely and changes its angle; both flashlight and screen remain fixed.",
+        "pageDescription": "Kit holds mirror stand safely and changes its angle; both flashlight and screen remain fixed.",
+        "state": "Mirror angle changed; other props unmoved.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "The bright spot moves across the screen.\nZoe follows it with her finger.",
+        "imageBrief": "New spot lies farther right on same screen; Zoe points below it without touching or blocking mirror.",
+        "imageAlt": "New spot lies farther right on same screen; Zoe points below it without touching or blocking mirror.",
+        "pageDescription": "New spot lies farther right on same screen; Zoe points below it without touching or blocking mirror.",
+        "state": "New mirror angle and spot location agree.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Zoe holds a card before the mirror.\nThe bright spot disappears.",
+        "imageBrief": "Opaque blue card intercepts flashlight light before mirror; flashlight spot now on card and screen dark.",
+        "imageAlt": "Opaque blue card intercepts flashlight light before mirror; flashlight spot now on card and screen dark.",
+        "pageDescription": "Opaque blue card intercepts flashlight light before mirror; flashlight spot now on card and screen dark.",
+        "state": "Light blocked before mirror; source still on.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "She lifts the card away.\nThe bright spot returns.",
+        "imageBrief": "Card raised clear of optical path; reflected spot returns to page4 screen position.",
+        "imageAlt": "Card raised clear of optical path; reflected spot returns to page4 screen position.",
+        "pageDescription": "Card raised clear of optical path; reflected spot returns to page4 screen position.",
+        "state": "Same angle and returned light path.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Kit turns the mirror back.\nThe spot returns to its first place.",
+        "imageBrief": "Mirror restored to original orientation; spot in original page1 position.",
+        "imageAlt": "Mirror restored to original orientation; spot in original page1 position.",
+        "pageDescription": "Mirror restored to original orientation; spot in original page1 position.",
+        "state": "Controlled reversal with source and screen unchanged.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "The flashlight stays still.\nTurning the mirror changes the light’s path.",
+        "imageBrief": "Final single scene includes fixed flashlight, original mirror angle and screen spot; children observe the route.",
+        "imageAlt": "Final single scene includes fixed flashlight, original mirror angle and screen spot; children observe the route.",
+        "pageDescription": "Final single scene includes fixed flashlight, original mirror angle and screen spot; children observe the route.",
+        "state": "Inquiry closed by changed reflector with fixed source.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What moved the bright spot while the flashlight stayed still?",
+        "listenFor": "Turning the mirror changed the direction of reflected light."
+      },
+      "visual": {
+        "page": 5,
+        "prompt": "Why is the white screen dark here?",
+        "lookFor": "The blue card stops the flashlight’s light before it reaches the mirror."
+      }
+    },
+    "levelRationale": "Candidate B: a controlled visible change, short sentences and repeated props support cause and comparison. Diagram arrows are declared teaching marks, not visible light ropes.",
+    "languagePrep": [
+      {
+        "word": "mirror",
+        "meaning": "a smooth surface that sends back light"
+      },
+      {
+        "word": "reflect",
+        "meaning": "send light back from a surface"
+      },
+      {
+        "word": "path",
+        "meaning": "the route something follows"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-b-26",
+    "number": 26,
+    "title": "The Camera Keeps a Picture",
+    "topic": "technology",
+    "type": "nonfiction",
+    "appLevel": "B",
+    "level": "B",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "topicQuestion": "What stays in a photograph after the real scene changes?",
+      "progression": "Frame one red block on a blue block, record the view, rearrange the blocks and compare the unchanged saved photograph with the new scene.",
+      "synthesis": "A saved photograph records the earlier view rather than changing with the objects.",
+      "scienceSources": [
+        {
+          "title": "National Science and Media Museum: Waterdrop Photography",
+          "url": "https://www.scienceandmediamuseum.org.uk/sites/default/files/2017-03/Waterdrop%20Photography.pdf",
+          "evidence": "A camera records light entering through its lens at a particular moment. This book distinguishes a saved photograph from a live preview.",
+          "checked": "2026-11-09"
+        },
+        {
+          "title": "Canon: RAW Image Fundamentals",
+          "url": "https://www.usa.canon.com/learning/training-articles/training-articles-list/raw-image-fundamentals",
+          "evidence": "Sensor signals are processed into an image that can be written to camera memory; recorded images retain captured scene information.",
+          "checked": "2026-11-09"
+        }
+      ]
+    },
+    "setting": "Kit and Zoe at a plain table using a simple unbranded digital camera. A red cube rests on one blue rectangular block. Camera playback always has a plain triangular playback icon, with no unreadable menus.",
+    "props": [
+      "One red cube",
+      "One blue rectangular block",
+      "Small gray digital camera with screen",
+      "Plain white tabletop"
+    ],
+    "coverBrief": "Zoe holds a camera showing the red cube on the blue block; on the real table the red cube now sits beside the blue block. Exact intentional difference is clear.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "A red cube rests on a blue block.\nZoe points the camera.",
+        "imageBrief": "Real red cube centered atop blue block; Zoe aims camera lens at them, Kit watches.",
+        "imageAlt": "Real red cube centered atop blue block; Zoe aims camera lens at them, Kit watches.",
+        "pageDescription": "Real red cube centered atop blue block; Zoe aims camera lens at them, Kit watches.",
+        "state": "Original stacked arrangement, no saved image shown yet.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Light enters the camera through its lens.\nZoe can see the blocks.",
+        "imageBrief": "Over-shoulder camera view shows live preview matching stacked blocks exactly.",
+        "imageAlt": "Over-shoulder camera view shows live preview matching stacked blocks exactly.",
+        "pageDescription": "Over-shoulder camera view shows live preview matching stacked blocks exactly.",
+        "state": "Lens faces real blocks; preview same orientation.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Zoe presses the button.\nThe camera saves a picture.",
+        "imageBrief": "Finger presses top shutter button with correct grip; actual blocks untouched.",
+        "imageAlt": "Finger presses top shutter button with correct grip; actual blocks untouched.",
+        "pageDescription": "Finger presses top shutter button with correct grip; actual blocks untouched.",
+        "state": "Photograph captured with red cube atop blue block.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Now Kit moves the red cube.\nHe sets it beside the blue block.",
+        "imageBrief": "Kit places red cube directly right of blue block; Zoe lowers camera.",
+        "imageAlt": "Kit places red cube directly right of blue block; Zoe lowers camera.",
+        "pageDescription": "Kit places red cube directly right of blue block; Zoe lowers camera.",
+        "state": "Real blocks side by side; saved photograph remains stacked.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Zoe opens the saved picture.\nThe red cube still sits on top.",
+        "imageBrief": "Close camera playback display with triangular icon shows original stacked arrangement.",
+        "imageAlt": "Close camera playback display with triangular icon shows original stacked arrangement.",
+        "pageDescription": "Close camera playback display with triangular icon shows original stacked arrangement.",
+        "state": "Display explicitly saved playback, not live preview.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "Kit checks the real blocks.\nThe red cube sits beside the blue block.",
+        "imageBrief": "Kit compares real red cube right of the single blue block with saved stacked image held by Zoe.",
+        "imageAlt": "Kit compares real red cube right of the single blue block with saved stacked image held by Zoe.",
+        "pageDescription": "Kit compares real red cube right of the single blue block with saved stacked image held by Zoe.",
+        "state": "Exactly two real objects; plural blocks refers to arrangement, no extra props.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "The red cube is beside the block.\nThe saved picture stays the same.",
+        "imageBrief": "Same real side-by-side objects and saved stacked display in one coherent over-shoulder scene.",
+        "imageAlt": "Same real side-by-side objects and saved stacked display in one coherent over-shoulder scene.",
+        "pageDescription": "Same real side-by-side objects and saved stacked display in one coherent over-shoulder scene.",
+        "state": "Intentional before/current comparison retained.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "The photo shows the earlier view.\nIt keeps the red cube on top.",
+        "imageBrief": "Final close-up of saved stacked photograph beside actual side-by-side blocks, both readable without labels.",
+        "imageAlt": "Final close-up of saved stacked photograph beside actual side-by-side blocks, both readable without labels.",
+        "pageDescription": "Final close-up of saved stacked photograph beside actual side-by-side blocks, both readable without labels.",
+        "state": "Saved visual record answers question.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why is the red cube on top in the photo but beside the block now?",
+        "listenFor": "The camera saved the picture before Kit moved the cube."
+      },
+      "visual": {
+        "page": 5,
+        "prompt": "Where is the red cube in the saved picture?",
+        "lookFor": "On top of the blue block."
+      }
+    },
+    "levelRationale": "Candidate B: a concrete two-object state change supports the distinction between present view and recorded view. One short past-time relationship is carried by visible comparison; independent public-level review needed.",
+    "languagePrep": [
+      {
+        "word": "lens",
+        "meaning": "the clear part that lets light into a camera"
+      },
+      {
+        "word": "photo",
+        "meaning": "a picture recorded with a camera"
+      },
+      {
+        "word": "save",
+        "meaning": "keep something so you can use it later"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-b-27",
+    "number": 27,
+    "title": "Milk into Cheese",
+    "topic": "food and making",
+    "type": "nonfiction",
+    "appLevel": "B",
+    "level": "B",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "How can liquid milk become this soft fresh cheese?",
+      "progression": "Observe an adult making one acid-set fresh cheese: heat pasteurized milk, add lemon juice, form curds, drain whey and collect the soft curds.",
+      "synthesis": "The solid curds stay in the cloth while liquid whey drains away, producing this fresh cheese.",
+      "scienceSources": [
+        {
+          "title": "Oregon State University Extension: Cheeses of the World",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/8836/fcd0901revisedcheesesoftheworldleaderguide_0.pdf",
+          "evidence": "Describes heated milk plus lemon juice forming curds, with liquid whey separated by draining. This is one acid-set fresh cheese, not the method for all cheeses.",
+          "checked": "2026-11-09"
+        },
+        {
+          "title": "Oregon State University Extension: The basics of cheesemaking",
+          "url": "https://extension.oregonstate.edu/catalog/basics-cheesemaking",
+          "evidence": "Start with pasteurized milk and sanitized equipment. Book is an observed process, not an unsupervised recipe or food-storage instruction.",
+          "checked": "2026-11-09"
+        }
+      ]
+    },
+    "setting": "A clean teaching kitchen with one unnamed adult cook: medium brown skin, short dark hair, pale blue shirt and white apron. Children watch from a separate cool counter. All heating and pouring are performed by the adult.",
+    "props": [
+      "Stainless-steel saucepan",
+      "Pasteurized milk in plain white jug",
+      "Small glass bowl of lemon juice",
+      "Clean fine cheesecloth over strainer",
+      "Large glass bowl beneath strainer",
+      "White plate"
+    ],
+    "coverBrief": "A mound of white fresh cheese rests in cloth above a bowl of pale yellow whey. Adult cook stands beside the cool draining setup; no child near heat.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "This soft cheese begins as milk.\nHow does the liquid change?",
+        "imageBrief": "On cool counter show white jug of milk beside finished soft fresh cheese as an opening comparison.",
+        "imageAlt": "On cool counter show white jug of milk beside finished soft fresh cheese as an opening comparison.",
+        "pageDescription": "On cool counter show white jug of milk beside finished soft fresh cheese as an opening comparison.",
+        "state": "Opening whole comparison; no claim they are separate ingredients.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "A grown-up heats pasteurized milk.\nThe milk is hot now.",
+        "imageBrief": "Adult cook heats saucepan on back burner; handles turned inward, children distant.",
+        "imageAlt": "Adult cook heats saucepan on back burner; handles turned inward, children distant.",
+        "pageDescription": "Adult cook heats saucepan on back burner; handles turned inward, children distant.",
+        "state": "Milk heated by adult; no child touching pan.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "The grown-up adds lemon juice.\nWhite lumps begin to form.",
+        "imageBrief": "Adult stirs small bowl of juice into hot milk with long spoon; first distinct curds appear.",
+        "imageAlt": "Adult stirs small bowl of juice into hot milk with long spoon; first distinct curds appear.",
+        "pageDescription": "Adult stirs small bowl of juice into hot milk with long spoon; first distinct curds appear.",
+        "state": "Acid added; curds just forming.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "These soft lumps are curds.\nPale liquid stays around them.",
+        "imageBrief": "Clear integrated close view of pan contents shows solid white curds in pale yellowish whey.",
+        "imageAlt": "Clear integrated close view of pan contents shows solid white curds in pale yellowish whey.",
+        "pageDescription": "Clear integrated close view of pan contents shows solid white curds in pale yellowish whey.",
+        "state": "Curds and whey physically separate but still together in pan.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 5,
+        "text": "The mixture goes into a clean cloth.\nA bowl waits below.",
+        "imageBrief": "Adult carefully pours cooled-enough mixture into cheesecloth-lined strainer held securely over glass bowl.",
+        "imageAlt": "Adult carefully pours cooled-enough mixture into cheesecloth-lined strainer held securely over glass bowl.",
+        "pageDescription": "Adult carefully pours cooled-enough mixture into cheesecloth-lined strainer held securely over glass bowl.",
+        "state": "Adult pouring; cloth and strainer supported.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "Liquid drains through the cloth.\nThis liquid is called whey.",
+        "imageBrief": "Close view of pale whey dripping from supported cloth into glass bowl.",
+        "imageAlt": "Close view of pale whey dripping from supported cloth into glass bowl.",
+        "pageDescription": "Close view of pale whey dripping from supported cloth into glass bowl.",
+        "state": "Curds remain above; whey accumulates below.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "The curds stay in the cloth.\nThey gather into soft fresh cheese.",
+        "imageBrief": "Drained white curds form a soft mound inside open cloth; substantial whey remains in bowl.",
+        "imageAlt": "Drained white curds form a soft mound inside open cloth; substantial whey remains in bowl.",
+        "pageDescription": "Drained white curds form a soft mound inside open cloth; substantial whey remains in bowl.",
+        "state": "No hard aged cheese or yellow slices substituted.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "The cloth holds the cheese.\nThe bowl holds the drained whey.",
+        "imageBrief": "Final intact draining setup displays the two outcomes, white curds above and pale liquid below.",
+        "imageAlt": "Final intact draining setup displays the two outcomes, white curds above and pale liquid below.",
+        "pageDescription": "Final intact draining setup displays the two outcomes, white curds above and pale liquid below.",
+        "state": "Final separation answers opening liquid-to-cheese question.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Which part stayed in the cloth?",
+        "listenFor": "The curds stayed; liquid whey passed through into the bowl."
+      },
+      "visual": {
+        "page": 6,
+        "prompt": "Where is the liquid going?",
+        "lookFor": "Through the cloth and strainer into the bowl below."
+      }
+    },
+    "levelRationale": "Candidate B: one observed, ordered process with two contrasting material outcomes. Required topic words have concrete visual referents and plain oral definitions.",
+    "languagePrep": [
+      {
+        "word": "curds",
+        "meaning": "soft solid lumps that form in milk"
+      },
+      {
+        "word": "whey",
+        "meaning": "the liquid left around the curds"
+      },
+      {
+        "word": "pasteurized",
+        "meaning": "heated in a special way to kill harmful germs"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-b-28",
+    "number": 28,
+    "title": "A Giraffe Reaches Up",
+    "topic": "animals and habitats",
+    "type": "nonfiction",
+    "appLevel": "B",
+    "level": "B",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "How does this giraffe get leaves from a thorny tree?",
+      "progression": "Follow one feeding reach from locating leaves to reaching, wrapping the tongue, pulling leaves and chewing while thorns remain on the twig.",
+      "synthesis": "Height brings the mouth near the leaves; a long flexible tongue helps collect them between thorns.",
+      "scienceSources": [
+        {
+          "title": "Giraffe Conservation Foundation: What do giraffe eat?",
+          "url": "https://giraffeconservation.org/facts-about-giraffe/what-do-giraffe-eat/",
+          "evidence": "Giraffes browse leaves/shoots; long muscular tongues help select leaves among thorns. This book follows one natural example rather than claiming all food is high or all thorns are avoided.",
+          "checked": "2026-11-09"
+        },
+        {
+          "title": "Giraffe Conservation Foundation: How long is a giraffe’s tongue?",
+          "url": "https://giraffeconservation.org/facts-about-giraffe/how-long-is-a-giraffes-tongue-what-color-is-it/",
+          "evidence": "A flexible prehensile tongue works with lips to grasp foliage. Dark tongue coloration and anatomically plausible reach should be retained.",
+          "checked": "2026-11-09"
+        }
+      ]
+    },
+    "setting": "One wild southern giraffe browsing a Vachellia tree in open African woodland. Natural anatomy, four legs, two ossicones, short mane, dark tongue, consistent tan coat and irregular brown patches. No named or speaking animals.",
+    "props": [
+      "One adult southern giraffe",
+      "One Vachellia tree with paired pale thorns and small green leaflets",
+      "One target leafy branch within natural reach"
+    ],
+    "coverBrief": "Giraffe reaches toward a leafy thorn branch; long dark tongue curls around foliage while distinct thorns remain on the twig.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Green leaves grow above the giraffe’s head.\nLong thorns line the twig.",
+        "imageBrief": "Full giraffe beside target tree; leafy twig slightly above head, thorns visible in clean simplified shapes.",
+        "imageAlt": "Full giraffe beside target tree; leafy twig slightly above head, thorns visible in clean simplified shapes.",
+        "pageDescription": "Full giraffe beside target tree; leafy twig slightly above head, thorns visible in clean simplified shapes.",
+        "state": "Target leaf cluster attached; giraffe mouth below it.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "The giraffe lifts its head.\nIts long neck brings the leaves closer.",
+        "imageBrief": "Same giraffe raises neck toward target branch without unnatural stretching.",
+        "imageAlt": "Same giraffe raises neck toward target branch without unnatural stretching.",
+        "pageDescription": "Same giraffe raises neck toward target branch without unnatural stretching.",
+        "state": "Mouth now near cluster; legs remain grounded.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "A dark tongue reaches out.\nIt bends around the leafy twig.",
+        "imageBrief": "Close profile of accurate muzzle and dark flexible tongue curling among leaflets.",
+        "imageAlt": "Close profile of accurate muzzle and dark flexible tongue curling among leaflets.",
+        "pageDescription": "Close profile of accurate muzzle and dark flexible tongue curling among leaflets.",
+        "state": "Tongue extended naturally; no extra tongue or human lips.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "The tongue pulls leaves toward the mouth.\nThe lips help hold them.",
+        "imageBrief": "Tongue and lips grasp leaflets while woody thorn-bearing twig stays outside.",
+        "imageAlt": "Tongue and lips grasp leaflets while woody thorn-bearing twig stays outside.",
+        "pageDescription": "Tongue and lips grasp leaflets while woody thorn-bearing twig stays outside.",
+        "state": "Leaflets detach through pulling; thorns remain on branch.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "The giraffe pulls its head back.\nLeaves come away from the twig.",
+        "imageBrief": "Profile head draws back carrying a small bunch of leaves; target cluster visibly reduced.",
+        "imageAlt": "Profile head draws back carrying a small bunch of leaves; target cluster visibly reduced.",
+        "pageDescription": "Profile head draws back carrying a small bunch of leaves; target cluster visibly reduced.",
+        "state": "Same branch now missing some leaves.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "Its teeth chew the leaves.\nThe bare thorns stay on the tree.",
+        "imageBrief": "Natural giraffe chewing with small leafy tips at mouth; thorny target twig behind.",
+        "imageAlt": "Natural giraffe chewing with small leafy tips at mouth; thorny target twig behind.",
+        "pageDescription": "Natural giraffe chewing with small leafy tips at mouth; thorny target twig behind.",
+        "state": "No claim tongue is entirely puncture-proof; thorns shown on twig.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Another leafy twig grows nearby.\nThe giraffe reaches for it.",
+        "imageBrief": "Giraffe turns slightly toward neighboring leaf cluster, first stripped twig still visible.",
+        "imageAlt": "Giraffe turns slightly toward neighboring leaf cluster, first stripped twig still visible.",
+        "pageDescription": "Giraffe turns slightly toward neighboring leaf cluster, first stripped twig still visible.",
+        "state": "First cluster reduced; second untouched until reach.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "The neck brings its mouth close.\nThe tongue brings the leaves inside.",
+        "imageBrief": "Final close feeding reach combines neck height and grasping tongue in one coherent scene.",
+        "imageAlt": "Final close feeding reach combines neck height and grasping tongue in one coherent scene.",
+        "pageDescription": "Final close feeding reach combines neck height and grasping tongue in one coherent scene.",
+        "state": "Mechanism summarized by same natural feeding action.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "What helped the giraffe after its head reached the twig?",
+        "listenFor": "Its flexible tongue and lips grasped the leaves."
+      },
+      "visual": {
+        "page": 5,
+        "prompt": "What changed on the twig after the giraffe pulled back?",
+        "lookFor": "Some leaves came off; the thorns stayed on the twig."
+      }
+    },
+    "levelRationale": "Candidate B: one feeding sequence and two observable body-part functions, with ordinary verbs and controlled specialist vocabulary.",
+    "languagePrep": [
+      {
+        "word": "twig",
+        "meaning": "a thin small branch"
+      },
+      {
+        "word": "thorn",
+        "meaning": "a sharp point on a plant"
+      },
+      {
+        "word": "bend",
+        "meaning": "change from straight to curved"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-b-29",
+    "number": 29,
+    "title": "No Gaps in the Line",
+    "topic": "everyday knowledge",
+    "type": "nonfiction",
+    "appLevel": "B",
+    "level": "B",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [
+        "WD-KIT",
+        "WD-ZOE"
+      ],
+      "topicQuestion": "Why must equal cubes touch when we measure a book’s width?",
+      "progression": "Compare a gapped line of five equal cubes with an end-to-end line, fill the exposed space with a sixth cube and read the corrected width.",
+      "synthesis": "Equal units must cover the whole length with no gaps or overlaps; this model book is six cubes wide.",
+      "scienceSources": [
+        {
+          "title": "National Centre for Excellence in the Teaching of Mathematics: Measures",
+          "url": "https://www.ncetm.org.uk/classroom-resources/ey-measures/",
+          "evidence": "Repeated equal-size units measure length accurately only with complete coverage, no gaps or overlaps. The six-cube width is an explicit illustrative model, not a universal book dimension.",
+          "checked": "2026-11-09"
+        }
+      ]
+    },
+    "setting": "Kit and Zoe measure a plain blue book on a white table. Book width exactly six unit cubes. Six identical yellow cubes; no numerals on cubes. View remains top-oblique with book bottom edge horizontal.",
+    "props": [
+      "Plain blue book exactly six cubes wide",
+      "Exactly six equal yellow unit cubes",
+      "White table"
+    ],
+    "coverBrief": "Six equal yellow cubes form a touching row exactly across a blue book’s width; Kit points at the aligned start and Zoe at the aligned end.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "How wide is this blue book?\nKit lines up small cubes.",
+        "imageBrief": "Book centered on table with six identical yellow cubes loosely beside it; Kit begins arranging them.",
+        "imageAlt": "Book centered on table with six identical yellow cubes loosely beside it; Kit begins arranging them.",
+        "pageDescription": "Book centered on table with six identical yellow cubes loosely beside it; Kit begins arranging them.",
+        "state": "Six cubes available; width fixed at six units.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "Five cubes reach across the book.\nBut spaces lie between them.",
+        "imageBrief": "Five yellow cubes spaced across exact six-unit width with four equal quarter-cube gaps; sixth cube separate.",
+        "imageAlt": "Five yellow cubes spaced across exact six-unit width with four equal quarter-cube gaps; sixth cube separate.",
+        "pageDescription": "Five yellow cubes spaced across exact six-unit width with four equal quarter-cube gaps; sixth cube separate.",
+        "state": "Five cubes plus total one-unit gaps cover six-unit width.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Zoe points to the empty spaces.\nThe cubes do not fill them.",
+        "imageBrief": "Close view highlights the four real spaces between the five cubes without adding labels or arrows.",
+        "imageAlt": "Close view highlights the four real spaces between the five cubes without adding labels or arrows.",
+        "pageDescription": "Close view highlights the four real spaces between the five cubes without adding labels or arrows.",
+        "state": "Same five gapped cubes and one spare.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Kit slides the cubes together.\nTheir sides touch now.",
+        "imageBrief": "Five cubes now touch in a straight row from left book edge; remaining one-unit width visible right.",
+        "imageAlt": "Five cubes now touch in a straight row from left book edge; remaining one-unit width visible right.",
+        "pageDescription": "Five cubes now touch in a straight row from left book edge; remaining one-unit width visible right.",
+        "state": "Five touching units cover only five of six units.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "The line stops before the book’s edge.\nOne space is left.",
+        "imageBrief": "Top view clearly shows exact one-cube-wide empty portion from row end to book right edge.",
+        "imageAlt": "Top view clearly shows exact one-cube-wide empty portion from row end to book right edge.",
+        "pageDescription": "Top view clearly shows exact one-cube-wide empty portion from row end to book right edge.",
+        "state": "Five touching cubes plus one-unit shortfall.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "Kit adds the last cube.\nThe line reaches the edge.",
+        "imageBrief": "Kit inserts sixth equal cube at right, making touching row exactly match book width.",
+        "imageAlt": "Kit inserts sixth equal cube at right, making touching row exactly match book width.",
+        "pageDescription": "Kit inserts sixth equal cube at right, making touching row exactly match book width.",
+        "state": "All six cubes used; edges aligned.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Six equal cubes touch in one row.\nThere are no gaps.",
+        "imageBrief": "Straight top view of completed six-cube row with no overlaps or spaces and both ends at book edges.",
+        "imageAlt": "Straight top view of completed six-cube row with no overlaps or spaces and both ends at book edges.",
+        "pageDescription": "Straight top view of completed six-cube row with no overlaps or spaces and both ends at book edges.",
+        "state": "Exactly six same-size units.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "The book is six cubes wide.\nEvery part of the width is covered.",
+        "imageBrief": "Kit and Zoe look at completed measurement; same book, six touching cubes, aligned ends.",
+        "imageAlt": "Kit and Zoe look at completed measurement; same book, six touching cubes, aligned ends.",
+        "pageDescription": "Kit and Zoe look at completed measurement; same book, six touching cubes, aligned ends.",
+        "state": "Corrected coverage rather than original gapped count.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why was five the wrong count for this book’s width?",
+        "listenFor": "The spaces were part of the width but were not covered by cubes. Six touching cubes cover it."
+      },
+      "visual": {
+        "page": 5,
+        "prompt": "How much space is left after the cubes touch?",
+        "lookFor": "One cube’s width."
+      }
+    },
+    "levelRationale": "Candidate B: a visible correction to one six-unit measurement supports the concept. Exact counts and unchanged width must be carried by both words and pictures.",
+    "languagePrep": [
+      {
+        "word": "width",
+        "meaning": "how far something goes from one side to the other"
+      },
+      {
+        "word": "equal",
+        "meaning": "the same amount or size"
+      },
+      {
+        "word": "gap",
+        "meaning": "an empty space between things"
+      }
+    ]
+  },
+  {
+    "id": "world-discovery-b-30",
+    "number": 30,
+    "title": "Saturn’s Rings Are Pieces",
+    "topic": "space and environment",
+    "type": "nonfiction",
+    "appLevel": "B",
+    "level": "B",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "nonfiction",
+      "canonIds": [],
+      "topicQuestion": "Are Saturn’s rings one solid sheet?",
+      "progression": "Move from a whole-planet ring view to a clearly declared imagined close view of separate particles, observe gaps and circling motion, then return to the distant view.",
+      "synthesis": "Countless separate mostly icy pieces look like smooth rings from far away.",
+      "scienceSources": [
+        {
+          "title": "NASA Cassini: FAQ",
+          "url": "https://science.nasa.gov/mission/cassini/faq/",
+          "evidence": "Rings are separate water-ice particles mixed with dust and rock fragments, with each particle orbiting Saturn. No astronauts or direct child visit are implied.",
+          "checked": "2026-11-09"
+        },
+        {
+          "title": "NASA Cassini: Rings",
+          "url": "https://science.nasa.gov/mission/cassini/science/rings/",
+          "evidence": "The rings consist predominantly of many ice pieces of different sizes. Illustrations distinguish a distant view from an explanatory close view, not actual telescope resolution.",
+          "checked": "2026-11-09"
+        }
+      ]
+    },
+    "setting": "Scientific illustration journey around Saturn. No children or spacecraft visiting. Pale gold gas planet with restrained flat bands; rings in its equatorial plane. Close particle views are explicitly illustrations, not photographs.",
+    "props": [
+      "Saturn with accurately oriented flat equatorial rings",
+      "Many separate irregular pale icy particles",
+      "Smaller dark dust/rock particles",
+      "Space background without dense decorative stars"
+    ],
+    "coverBrief": "Saturn and flat rings in three-quarter view, with a small integrated magnified area showing separate icy pieces. No labels or fantasy ring road.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Wide rings circle Saturn.\nDo they make one solid sheet?",
+        "imageBrief": "Whole Saturn with flat bright rings crossing in front and hidden behind the planet correctly.",
+        "imageAlt": "Whole Saturn with flat bright rings crossing in front and hidden behind the planet correctly.",
+        "pageDescription": "Whole Saturn with flat bright rings crossing in front and hidden behind the planet correctly.",
+        "state": "Distant view makes rings appear continuous.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "From far away the rings look smooth.\nLet’s picture a closer view.",
+        "imageBrief": "Move viewpoint toward one near ring section; preserve overall planet/ring geometry and make transition illustrative.",
+        "imageAlt": "Move viewpoint toward one near ring section; preserve overall planet/ring geometry and make transition illustrative.",
+        "pageDescription": "Move viewpoint toward one near ring section; preserve overall planet/ring geometry and make transition illustrative.",
+        "state": "Explanatory zoom begins, not a spacecraft claim.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "Many separate pieces fill this view.\nMost are made of ice.",
+        "imageBrief": "Integrated close scientific view of many irregular pale icy particles separated by black space, not joined tiles.",
+        "imageAlt": "Integrated close scientific view of many irregular pale icy particles separated by black space, not joined tiles.",
+        "pageDescription": "Integrated close scientific view of many irregular pale icy particles separated by black space, not joined tiles.",
+        "state": "Imagined microscopic-scale relative view; no solid sheet.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 4,
+        "text": "Some pieces are tiny.\nOthers are much bigger.",
+        "imageBrief": "Same particle field includes varied sizes, with scattered small dust and a few larger ice chunks.",
+        "imageAlt": "Same particle field includes varied sizes, with scattered small dust and a few larger ice chunks.",
+        "pageDescription": "Same particle field includes varied sizes, with scattered small dust and a few larger ice chunks.",
+        "state": "Relative sizes vary; no unsupported exact scale.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 5,
+        "text": "Dark spaces lie between the pieces.\nThe pieces are not glued together.",
+        "imageBrief": "Closer clear view emphasizes gaps between separate irregular ice particles.",
+        "imageAlt": "Closer clear view emphasizes gaps between separate irregular ice particles.",
+        "pageDescription": "Closer clear view emphasizes gaps between separate irregular ice particles.",
+        "state": "Particles separate; no glue, chains or supporting ring rail.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 6,
+        "text": "Each piece travels around Saturn.\nThe rings keep moving.",
+        "imageBrief": "Wider ring-section diagram shows three small consistent curved direction arrows tangent to particle orbits, planet interior to curves.",
+        "imageAlt": "Wider ring-section diagram shows three small consistent curved direction arrows tangent to particle orbits, planet interior to curves.",
+        "pageDescription": "Wider ring-section diagram shows three small consistent curved direction arrows tangent to particle orbits, planet interior to curves.",
+        "state": "All main-ring particles move around Saturn rather than one spinning sheet.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 7,
+        "text": "Far away again the gaps look tiny.\nThe pieces blend into bright rings.",
+        "imageBrief": "Return outward to complete planet and rings; individual chunks no longer resolvable.",
+        "imageAlt": "Return outward to complete planet and rings; individual chunks no longer resolvable.",
+        "pageDescription": "Return outward to complete planet and rings; individual chunks no longer resolvable.",
+        "state": "Visual blending from distance, not physical fusion.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "The rings look smooth from far away.\nUp close they are separate icy pieces.",
+        "imageBrief": "One integrated comparison illustration connects wide Saturn view to magnified particle area with a clear zoom connector.",
+        "imageAlt": "One integrated comparison illustration connects wide Saturn view to magnified particle area with a clear zoom connector.",
+        "pageDescription": "One integrated comparison illustration connects wide Saturn view to magnified particle area with a clear zoom connector.",
+        "state": "Same ring shown at two viewing scales.",
+        "embeddedImageText": "",
+        "imageLayout": "comparison-diagram"
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why can the rings look smooth even though they are made of pieces?",
+        "listenFor": "The individual pieces and gaps are too small to see from far away."
+      },
+      "visual": {
+        "page": 3,
+        "prompt": "What can you see between the ice pieces?",
+        "lookFor": "Dark open spaces; the pieces are not joined into one sheet."
+      }
+    },
+    "levelRationale": "Candidate B: a whole-to-close comparison with concrete short descriptions supports one misconception correction; scale is explicit and scientific mechanism is limited to separate orbiting particles.",
+    "languagePrep": [
+      {
+        "word": "ring",
+        "meaning": "a shape that goes around a middle space"
+      },
+      {
+        "word": "separate",
+        "meaning": "not joined together"
+      },
+      {
+        "word": "ice",
+        "meaning": "water that has frozen solid"
+      }
+    ],
+    "coverImageLayout": "integrated-diagram"
+  }
+]

@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-c-23",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:18:37.995Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-9f64cdc0-d930-468e-8566-1b2fa08dfe93.png",
+  "sourceSha256": "d52b7172a4adc7abe8465bc870b6a68706cec1fc0bed069aefffef5a0501a208",
+  "output": "public/guided-reading/world-discovery/c-23/page-02.webp",
+  "outputSha256": "36d2efe21488061c4cb5a7c28d6dff3707883efbe1a262cff67fcc90f88b21c5",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Create one child-friendly non-gory educational illustration, 3:2 landscape, clean smooth flat color and crisp outlines, no grain or paper texture. No text, labels, arrows, extra limbs or floating accessory diagrams. Preserve exact right-arm bone identity from anatomical reference: humerus upper-left, two separate forearm bones to right; inner radius has round head near elbow and receives pale front biceps tendon on proximal radius just below head. Outer ulna has hook-shaped olecranon at elbow and receives rear triceps tendon. Tendons remain continuous muscle-to-bone; rigid bone shafts never bend. Place all essential anatomy within central 75 percent, minimum 12 percent margins. Only one enlarged right-arm cutaway on pale cream background. Relative to first reference, elbow is less tightly bent, about 110 degrees between upper arm and forearm, with shoulder upper-left and hand upper-right. Forearm bones rotate rigidly together at natural elbow joint; keep individual radius head and outer ulna hook distinct. Give cream bones visual prominence with subdued red muscle groups still attached. No human face or torso. This page teaches the joint changes angle while shafts stay rigid.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/c-23/page-04.webp",
+      "sha256": "71d91810306e3338e42dbca51f2d65cce279ca5e06dbcfaa0161d0180e45e25b"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/c-23-reference.webp",
+      "sha256": "9e63284304a7bc2ea1d63e577ca195c64e62e831d44be138511b7bbaf0ad49d5"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "25f742b6e36d6eb87de003ac9ecc80f9d512f2d1edf34f8713c6b0c4130e8702",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T12:27:07.321589+00:00",
+    "sha256": "36d2efe21488061c4cb5a7c28d6dff3707883efbe1a262cff67fcc90f88b21c5",
+    "note": "Native and installed WebP directly viewed. Less flexed joint retains rigid humerus and two distinct forearm shafts, separate proximal radius and ulna hook; correctly continuous front/rear tendons. Whole anatomy safely inset.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

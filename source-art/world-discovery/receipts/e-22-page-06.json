@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-e-22",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:18:46.632Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-65c6676b-ab4e-4b70-b8fe-92d986d3bcfe.png",
+  "sourceSha256": "9eaa3c5f160e91a67dd84f2029e12d291b3de4aac04844fc7ca76af8d7f33e74",
+  "output": "public/guided-reading/world-discovery/e-22/page-06.webp",
+  "outputSha256": "13b928ce54bae85b2653e34f31a6f07198f6d83d392f3ce30b42adc512cf9d0d",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Keep this EXACT schematic comparison including every building, the Wells/Reading relative footprint sizes, same house scales, streets, colors and exact labels. Scale the ENTIRE artwork group including BOTH clusters and BOTH words down uniformly25 percent and center it on the same1536x1024 cream canvas. All complete clusters and labels must be at least12 percent inside every edge. Do not change individual building scale relative to each other, layout, proportions, text spelling or comparison. Extend only the plain cream background. No additional objects or text. Smooth flat colors with crisp outlines, no paper/grain texture.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-2d82b80d-4580-47e8-93e0-2514c7ffec9b.png",
+      "sha256": "36f0ea5457f818337a3ed7a4bc7b2218a09348261614e401e1491b704c4b267b"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "2aff8b9432244a41072eb7c7376c77e21594d83a655dfa83d99e44c528e86755",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "13b928ce54bae85b2653e34f31a6f07198f6d83d392f3ce30b42adc512cf9d0d",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T12:18:46.633Z",
+    "note": "Direct native inspection: two schematic clusters use comparable house and road scales; Reading visibly spans much larger footprint than Wells, exact correct labels. Both entire clusters now around14%+ outer margins and text19% above bottom. No exact boundary/population or universal threshold implied."
+  }
+}

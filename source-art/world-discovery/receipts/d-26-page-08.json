@@ -1,0 +1,40 @@
+{
+  "bookId": "world-discovery-d-26",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:58:22.382Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-a020d774-3239-4451-85e2-e74b056166b7.png",
+  "sourceSha256": "413a60366dcbca3f49f760941ac58c2675dbb096b39a162b6cf5d5fb4d004313",
+  "output": "public/guided-reading/world-discovery/d-26/page-08.webp",
+  "outputSha256": "7aa5f67843cf84bbd17e14cadb884ac140b7a36cc59add2807786b12f23b4909",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Create the next scene. First reference is exact robot/room identity; second is character identity ONLY for Zoe, the girl with dark brown skin, black two puff buns, yellow T-shirt, plum overalls and white shoes. Do NOT copy any other cast figures. Pull back composition enough to show Zoe, robot and mat safely inside 140px margins on landscape 1536x1024. Robot waits motionless LEFT of center, maintaining the diagonal DOWN-RIGHT heading from first reference, red bumper EXTENDED, two driven wheels, rear caster, white central straight plunger between two side springs, gray controller and wire. Zoe kneels at the RIGHT side of mat and has moved the SINGLE yellow foam block from its old right-side position into the robot’s new diagonal path, lower-center/right, leaving a clear gap. She places it with exactly two natural hands on its top/side, while the robot is visibly stopped and separated from her hands. No second yellow block, no motion arrow, no Kit or tablet. Keep the robot aimed directly at the block’s near face, with clear separation for setup. Flat clean dark-outlined 2D, restrained cel shading, no grain or painted texture, no photorealism. No words, letters, numbers or logos.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-67b89d73-55d3-4bb2-870d-ede163e573c7.png",
+      "sha256": "979b7fcff9be206af566f648f2015fdc2ec391e61692ad347ed9335b3e1cdf34"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "975d5f5420efb1308d6c48d6cf7633e175e59f4e879e625913e4b4acfddfb28a",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.531Z",
+    "sha256": "7aa5f67843cf84bbd17e14cadb884ac140b7a36cc59add2807786b12f23b4909",
+    "note": "Direct native inspection: Zoe correct identity/outfit, two natural hands safely place single block ahead while robot waits; same diagonal heading, extended bumper, preserved two wheels/rear caster/plunger/springs; safe margins.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

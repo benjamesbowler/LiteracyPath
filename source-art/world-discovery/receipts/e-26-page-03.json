@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-26",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T06:49:31.622Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-7456d3b7-2ee9-4b5f-a6ab-2b7d482469aa.png",
+  "sourceSha256": "569181537aa39c259431b923f73eb8c2bec0616f8b72f4215b2a04b2289ff43b",
+  "output": "public/guided-reading/world-discovery/e-26/page-03.webp",
+  "outputSha256": "52b72f50e1d1b53b23c012dbd2f0f3fefaeb4e2050d7cf2e6db1cf766cd75f7f",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit only framing of this exact picture. Zoom OUT 30 percent so all essential subjects, top of hair, devices and any diagram tiles sit within the central 65 percent width AND height. Add generous existing room/background on all sides, minimum 15 percent safe space. Preserve exact cast, every device, wire/radio arcs, screen state, colors, counts and connections unchanged. No new humans or objects. If more furniture/legs are revealed, show complete natural supports on the floor or crop naturally at image edge, never floating cutoffs. Full bleed 3:2 clean flat 2D cartoon, no border, no lettering.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/.artifacts/nonfiction-next-50/reference-inputs/e-26-page-03-34894b7387de.webp",
+      "sha256": "34894b7387dec7146fcf5c5fe56dfaf7ac402769bd7aaf4caf2129d176d2b2c5"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "a04b6d0950794fec64943013d30facc27daa8410774f7062963be893ca44e0a3",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
+    "sha256": "52b72f50e1d1b53b23c012dbd2f0f3fefaeb4e2050d7cf2e6db1cf766cd75f7f",
+    "note": "Wide framed four packet models with common destination circle and distinct patterns beside same boat tablet; no text or physical packets in a wire.",
+    "limits": "Individual installed WebP directly inspected. Independent sequence, reader/card and audio approval separate."
+  }
+}

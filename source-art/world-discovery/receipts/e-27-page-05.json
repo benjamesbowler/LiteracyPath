@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-27",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T06:49:32.101Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-b634813d-571b-42ac-8024-3f9ce1f9e4f3.png",
+  "sourceSha256": "5a89fcd314e239fbedb5469b5a27f41641a27ce5ca05bf3b6945cb71f7296102",
+  "output": "public/guided-reading/world-discovery/e-27/page-05.webp",
+  "outputSha256": "63d6b7506d64d48fc85c1674088f15f1777df75215d5df9976aaa6b4b619cc78",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit only the camera framing of this 3:2 nonfiction illustration. ZOOM OUT 35 PERCENT so the complete existing subjects including every outermost part sit entirely within the CENTRAL 65 PERCENT of width AND height. Add more of the same existing background around every edge, at least 15 percent margin. Preserve every physical connection, all woven crossings, button counts, colors and object identities exactly. All factory supports remain grounded where present. Do not crop or erase any object; no new objects or changes to subject geometry. Keep full bleed background, no outer border or rounded frame. Bold flat 2D cartoon.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-7bb8ba11-ea81-41c5-97f4-f08c5627b691.png",
+      "sha256": "a5f161490888a97a0141920d12a88d8c41a5663560e6976e1c144af7076187b1"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "cbf57ed0e204379362a97b760486f24b628e65ad467026e2a078e7ecc3b4b28e",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
+    "sha256": "63d6b7506d64d48fc85c1674088f15f1777df75215d5df9976aaa6b4b619cc78",
+    "note": "Whole small loom, shuttle and correctly alternating perpendicular over-under yarn crossings are clear, wide safe margins.",
+    "limits": "Individual installed WebP directly inspected. Independent sequence, reader/card and audio approval separate."
+  }
+}

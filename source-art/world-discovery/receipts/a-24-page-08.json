@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-a-24",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:36:09.282Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-fcbc7c33-37b9-49b9-b9d3-d0c07d55ffdb.png",
+  "sourceSha256": "9d69302a8a51f47842bf8bf4c44b340f633e1cfa802d7002a50ef148a9058699",
+  "output": "public/guided-reading/world-discovery/a-24/page-08.webp",
+  "outputSha256": "3d25e99095a5c0d2d84279ca674595b286379f5ba46ab4ee960c621303baded4",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit FIRST image, use SECOND image only as water-amount reference. Pull ENTIRE FIRST scene back uniformly35%, hair top at least15%belowtop and complete dish bottom at least15%abovebottom. Keep first image's two resting hands, seatedpose, flat dish and room. CORRECT water: enlarge the small central puddle so broad shallow blue water covers MOST of the flat dish base, same relative footprint and amount as SECOND image. No ice remains, no water loss or disappearance; same dish now rests flat after gentle tilt. Water remains shallow, NOT full to rim; broad oval thin layer with two subtle highlights. Preserve all other details, smooth flat colors, no text. Landscape3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-491a1071-bacc-4e77-abbe-810ad8c36db2.png",
+      "sha256": "ea2bfdfeda76e9c4f61b882078759fcdd26088d920c6e2d1aa5b6d2f88ee5c3a"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-41dd03bc-f10a-47b0-8e78-6142133e86e8.png",
+      "sha256": "ef30e27a9f9a54b521cd666107c19b93935311d5b8c6df4803e772e5804cc82a"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "9c77e1f07a52338299286dd5ca1c02bdc85189d203f83376727f78ec56a237f5",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "3d25e99095a5c0d2d84279ca674595b286379f5ba46ab4ee960c621303baded4",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:36:09.283Z",
+    "note": "Directly inspected native repair: broad shallow water footprint now matches p6 relative to dish base, no ice or implicit loss after tilt. Same flat teal-rim dish, both hands resting, hair~24%top and dish~19%bottom, clean table/room."
+  }
+}

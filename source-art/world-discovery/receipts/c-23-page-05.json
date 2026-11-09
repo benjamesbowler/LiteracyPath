@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-c-23",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:31:05.275Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-551fda21-485a-465c-acaa-611e335726c9.png",
+  "sourceSha256": "604a3fd45b583b9895d40257a9c38d1e046402f38c6faa7247e458238ecce454",
+  "output": "public/guided-reading/world-discovery/c-23/page-05.webp",
+  "outputSha256": "7cd05a36b28251d1131b0744f8717429f43ee34cb04febe7fc27aa4823083e64",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact arm anatomy illustration only by uniformly scaling the entire intact arm, every bone, muscle, tendon, hand and shoulder together to 80 percent of its present size, centered on the same 3:2 canvas. Expand the same plain cream background around it. At least 12 percent empty margin on EVERY side, no crops or frame. Preserve every existing tendon attachment and distinct bone exactly, all muscle states and pose unchanged. Do not redraw, add, remove or change anatomy. Keep crisp smooth flat colors with no grain or texture. No lettering.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-370447df-fe12-40a2-b486-0c3d091cf256.png",
+      "sha256": "d7b60af12d18c0cff333f6dc4c8aee45812249d18814b684927579b6e7142c0a"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "25f742b6e36d6eb87de003ac9ecc80f9d512f2d1edf34f8713c6b0c4130e8702",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T12:33:23.334130+00:00",
+    "sha256": "7cd05a36b28251d1131b0744f8717429f43ee34cb04febe7fc27aa4823083e64",
+    "note": "Native and installed WebP directly viewed. Greater flexion reduces joint angle without bending shafts; short front/long rear muscle and correct distinct tendon insertions maintained. Whole anatomy safely inset.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

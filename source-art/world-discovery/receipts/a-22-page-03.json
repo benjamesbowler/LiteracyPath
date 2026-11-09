@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-22",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:08:13.874Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-10e04171-eaa6-4f66-983a-99be1b283842.png",
+  "sourceSha256": "1931ffc0d6c6f60b6dde7d304b277e8268c8da8e84d4985b75a76dbb085242a7",
+  "output": "public/guided-reading/world-discovery/a-22/page-03.webp",
+  "outputSha256": "d68c3621904b549edab8ea65c730162a8b0a91d810935703d82858b7011cbb9a",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Make this same illustration slightly smaller on the same landscape 3:2 canvas: scale the complete child, globe and table group to 85% of its current size, centered vertically, extending only the existing plain cream wall and blue-gray floor around it. Target exact composition: top of black hair around pixel y130, bottom of shoes around y890 in a1024px high canvas. Do not change anything within the illustration: preserve all map geometry and colors, globe axle tilt, hand poses, clothing and table. No new props, no frame, no text, no texture. This is a small zoom-out only, not a distant wide shot.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-54bdc0ec-edaa-4491-bf83-2da6107838a8.png",
+      "sha256": "b51f9cacd8475ece2c9fdcb284d069f44c01ca96616f7b428e45ae794bc7efda"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "7fb9d0dad2e1f226cbad13b27e944537df495d6a4ae001fea7e1424f5a78d89a",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "d68c3621904b549edab8ea65c730162a8b0a91d810935703d82858b7011cbb9a",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T07:08:13.875Z",
+    "note": "Viewed balanced framing replacement: hair~12% top and shoes~14% bottom; normal arm remains occluded behind sphere, table-bracing hand preserved. Consistent blue-gray classroom floor, no new object or text; fixed globe axle/coastline/colors remain coherent."
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-25",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:40:38.719Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-ba09b095-f48e-491b-b4c4-d7bd35d50b9c.png",
+  "sourceSha256": "46162eeefa34e03b56a637f0e4f64320ff97073164480000eb68219bbae12418",
+  "output": "public/guided-reading/world-discovery/a-25/page-03.webp",
+  "outputSha256": "c504144e39cd57cbd8a699be9989542a40a1e45c68fc5c3f6bff609f69f4e276",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit ONLY framing. Pull ENTIRE scene back uniformly30%, extending same room/floor naturally. Kit hair top at least15%belowtop; FULL shoes and drum feet at least15%abovebottom; natural body proportions and relative figure/drum scale unchanged. Preserve Kit listening with one palm beside ear, other hand on lap, both clear of head. Preserve subtle sound arcs beside drum; no new notes or arrows. All subjects remain grounded on blue rug. Smooth clean flat colors, no texture, text or addedobjects. Landscape3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-d8cc1d61-4dd9-43ec-9c14-98467e2813d5.png",
+      "sha256": "33bd9775a82f81390fff4f3b1338c4beb12ed4590c4ea05f132ad8435cf4fdcc"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "43250b481932e7fd088b4db9dca6c6655e0ffe81fdc9bbd2dd349daea8124cbd",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "c504144e39cd57cbd8a699be9989542a40a1e45c68fc5c3f6bff609f69f4e276",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:40:38.720Z",
+    "note": "Directly inspected native framing repair: entire scene uniformly widened, hair~19–21%top, shoes/drum feet~18–21%bottom, natural cross-legged anatomy and grounded stand. Listening hand beside ear and other on lap, both clear of drum; subtle sound arcs preserve sounding state."
+  }
+}

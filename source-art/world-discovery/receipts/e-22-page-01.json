@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-e-22",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:07:33.803Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-2f3babe9-b405-43ac-9e42-14e9b1c02234.png",
+  "sourceSha256": "23b6a11b4316b3fec5180d31adcb19ba27fa794c9515cc230315a08398f45b20",
+  "output": "public/guided-reading/world-discovery/e-22/page-01.webp",
+  "outputSha256": "aadeed92255e4c6ff1c2e6646d879a3895df633d999ecab93f54427430cbc657",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. This supplied verified map is the exact geography base for a finished children's nonfiction page. Keep its entire coastline geometry, England green area and boundaries, gray neighboring land, light blue sea, scale, orientation and ALL THREE dot center positions EXACTLY unchanged. Keep canvas1536x1024 and existing map placement. Add ONLY the exact three place names in large clean dark sans-serif lettering with thin noncrossing leaders: orange southwest dot = Wells; purple dot just northeast = Lacock; teal eastern dot = Reading. Put Wells in the pale-blue clear area southwest of its orange dot with short leader, Lacock comfortably above its purple dot with short leader, Reading to the right of its teal dot on available green space with short leader. Leaders must terminate at the correct dot, not another place; keep names legible and well separated. Wells W-e-l-l-s; Lacock L-a-c-o-c-k; Reading R-e-a-d-i-n-g. Keep names/dots at least12 percent inside canvas. Do not add any city illustration, roads, other dots, invented borders, flags, symbols, legend, title or other lettering. Preserve exact geography instead of stylizing the shape. Clean flat colors and crisp edges, no texture or shading. No other changes.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/.artifacts/nonfiction-next-50/geography-reference/e22-locator.png",
+      "sha256": "a1326d92bd95e96db95b33c5285683ea7f465c271a1c040c0da0e66c822ae7ea"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "2aff8b9432244a41072eb7c7376c77e21594d83a655dfa83d99e44c528e86755",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "aadeed92255e4c6ff1c2e6646d879a3895df633d999ecab93f54427430cbc657",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T12:07:33.805Z",
+    "note": "Direct native inspection against verified locator: England outline and gray neighboring land preserved, all three colored dots remain at supplied positions; Wells label leader to orange southwest dot, Lacock to purple northeast dot, Reading to teal eastern dot. Exact names legible, noncrossing leaders and safe outer margins. No invented border or extra location."
+  }
+}

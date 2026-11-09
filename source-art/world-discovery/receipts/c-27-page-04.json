@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-c-27",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:53:50.616Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-c56365b6-5cea-4f1d-9f13-17b84284318e.png",
+  "sourceSha256": "97bbccab95e891399f2a32f9c7ed20f236189156f06f5e7d3f24e6548340975d",
+  "output": "public/guided-reading/world-discovery/c-27/page-04.webp",
+  "outputSha256": "f90bfdf26b702123b3849dfd1dbee860409c0f4303c1f1f219f4adeb727baa55",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "One finished landscape3:2 full-bleed children nonfiction illustration. Crisp flat2D cartoon, continuous dark outlines, clean colors, gentle cel shading. No grain, paint texture,3D, lettering, logos, captions, border or frame. All essential subjects at least12 percent inside every edge. Next step in pencil manufacture. Same single pale wooden slat on same cool factory worktop, same five parallel longitudinal grooves. NOW exactly FIVE straight DARK GRAPHITE RODS lie neatly INSIDE those five grooves, one rod per groove, fully supported along length. Thin pale glue bead visible beside each rod. All five rods equally long straight horizontal parallel and separate. No bent or crossed rods, no sixth groove, no second board, no people, no finished pencils. Same closed guarded machine small in background. Entire wood slat within central70 percent, generous margins. Do not copy empty grooves; all five now visibly contain dark rods.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/c-27/page-03.webp",
+      "sha256": "b82c3e5bfeaa26864cdaf527a428423e965989f30d52f55f9d2a1e8a5dc0b716"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "3a70fa1d14c972360847c319383d83f2ce0d2b4c35e4355bf29e90a292205a2e",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T12:55:12.867005+00:00",
+    "sha256": "f90bfdf26b702123b3849dfd1dbee860409c0f4303c1f1f219f4adeb727baa55",
+    "note": "Exactly five dark straight cores supported in five wood grooves with pale glue beside each; same workbench and guarded machine. No premature upper slat.",
+    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  }
+}

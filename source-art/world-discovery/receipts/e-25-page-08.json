@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-e-25",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:54:22.917Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-a53011bb-3c3c-47bc-9f30-fccdd63e14a3.png",
+  "sourceSha256": "61262d8194084a5f70194d428d350688e6eeb5dd1cbb0ec07675c65ae9bada91",
+  "output": "public/guided-reading/world-discovery/e-25/page-08.webp",
+  "outputSha256": "005ffc8fa4e4fcc948b764878a59b178c86851574c839ecbc88d65f97322faba",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Create the force-balance page of this educational nonfiction book by using reference1 for the exact plane and scene and reference2 for the exact FORCE ARROW GEOMETRY. Draw the plain white left-facing passenger plane with teal tail, one near wing and one near engine, level flight over farmland. Scale plane to65 percent width, centered around y50 percent. Place the mirror-symmetric pair of force arrows from reference2 over the plane centered at x50%,y50%. The GREEN UP and PURPLE DOWN arrows must have equal full lengths and equal shaft lengths, being precise vertical reflections: UP tip y25%, common origin y50%, DOWN tip y75%. Do not use a longer green arrow. Use the continuous no-gap shape, common black center dot, equal heads and identical shaft widths from reference2. Main priority is geometrically equal arrows, showing lift exactly balances weight. Keep every object and tip within safe margins. Crisp flat2D illustration and black outlines, no added labels,text,insets,grain,flames or extra arrows.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-0600bd03-8707-4c99-84a6-1d457e22aacf.png",
+      "sha256": "8362420f42705e657ee7c67ad6c5b4602aa6850c9892efce0e63aaab5812c2b7"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/.artifacts/nonfiction-next-50/flight-reference/equal-forces.png",
+      "sha256": "63350245e56865496d77bfd7787393f86227b07cebb593f8295058b5cd084ce4"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "6fa387a94832069dfd8f41a5c0089a80fb10f81c60c90df001e050c556eb4819",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T13:58:43.728403+00:00",
+    "sha256": "005ffc8fa4e4fcc948b764878a59b178c86851574c839ecbc88d65f97322faba",
+    "note": "Native corrected force geometry: green up and purple down share center, equal apparent full lengths and matching heads/width; plane level and left facing. Analytical reference was guidance only, not an overlay.",
+    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  }
+}

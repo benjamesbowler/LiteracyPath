@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-25",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:43:28.687Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-559363b6-f403-42ee-8ac7-b6e34eba1d51.png",
+  "sourceSha256": "bfc412c22cefb25c2f9e993eab5065c858f44a217d6f67d35df8ff7d4a6942d2",
+  "output": "public/guided-reading/world-discovery/e-25/page-03.webp",
+  "outputSha256": "b7f6eb521b57a42fafe356ff8c0f99b31a2791a10a1ed4d9cc46df87918b2e1f",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Native illustration edit for the LiteracyPath nonfiction book How Wings Lift a Plane. Keep this exact crisp flat 2D children's educational illustration style, white wing section, black outlines, clean pale blue background. No paper grain, no text, no words or labels, no outer border. All essential diagram content including complete arrow shafts and tips must be inside the central 76% of the image, at least 12% margin on every side. Create the next page from this same accurate wing section, leading edge LEFT, trailing edge RIGHT, horizontally centered but scaled down 20 percent. Blue air streamlines flowing LEFT to RIGHT pass above and below the white wing and then bend smoothly DOWN-RIGHT just behind the trailing edge; all exits have clear down-right arrowheads. Show ONE single green force arrow pointing vertically UP from the center of the wing. Airflow lines originate outside wing at left, never from inside the solid wing. Only one lift arrow. No paired particles or equal-transit-time message. Complete all tails, arrowheads and wing within 12 percent margins.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-351197be-638b-4a11-8d51-5b5c2563c0ce.png",
+      "sha256": "05c857980199d756125183e400437d8bc0d9e25160661dc14696695cabfa6e78"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "6fa387a94832069dfd8f41a5c0089a80fb10f81c60c90df001e050c556eb4819",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T13:58:43.728403+00:00",
+    "sha256": "b7f6eb521b57a42fafe356ff8c0f99b31a2791a10a1ed4d9cc46df87918b2e1f",
+    "note": "Four streamlines turn down-right after trailing edge; one green upward net force on wing, no jet from inside wing; safe margins.",
+    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  }
+}

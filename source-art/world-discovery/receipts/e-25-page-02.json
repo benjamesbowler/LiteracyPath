@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-25",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:43:28.535Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-ed071171-7219-44f9-9205-a024b14a9f5f.png",
+  "sourceSha256": "d07a0c03654f0801ac23e4cef95c7a25825266b9e9da861aba71d478912217df",
+  "output": "public/guided-reading/world-discovery/e-25/page-02.webp",
+  "outputSha256": "095be5a190eefc829fcce3d33f1b7cb109e124aaed1e072108fb528e6a37542a",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Native illustration edit for the LiteracyPath nonfiction book How Wings Lift a Plane. Keep this exact crisp flat 2D children's educational illustration style, white wing section, black outlines, clean pale blue background. No paper grain, no text, no words or labels, no outer border. All essential diagram content including complete arrow shafts and tips must be inside the central 76% of the image, at least 12% margin on every side. Recreate this same four-streamline airflow diagram scaled down by 25 percent and centered. Keep rounded leading edge LEFT and thin pointed trailing edge RIGHT. All FOUR blue streamlines start and end well inside margins, flow LEFT to RIGHT, two passing above and two below the solid white wing. Preserve full black wing outline; no line enters the solid wing, no paired particles, no green force arrow. Make the last blue arrowheads smaller and place them around x=80% rather than close to the right edge.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-351197be-638b-4a11-8d51-5b5c2563c0ce.png",
+      "sha256": "05c857980199d756125183e400437d8bc0d9e25160661dc14696695cabfa6e78"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "6fa387a94832069dfd8f41a5c0089a80fb10f81c60c90df001e050c556eb4819",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T13:58:43.728403+00:00",
+    "sha256": "095be5a190eefc829fcce3d33f1b7cb109e124aaed1e072108fb528e6a37542a",
+    "note": "Rounded left leading edge, pointed right trailing edge; four left-to-right streamlines pass above/below outside solid wing; no paired particles or equal-transit claim; safe margins after pullback.",
+    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  }
+}

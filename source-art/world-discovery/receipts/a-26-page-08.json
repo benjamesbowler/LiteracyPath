@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-26",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:41:39.896Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-5a8fe76c-c819-4125-a98c-56b4abdedee0.png",
+  "sourceSha256": "fa9a3acac1c7188f7ce265f5802486786ca56ab4b90c379086e88f31a5bb4e3c",
+  "output": "public/guided-reading/world-discovery/a-26/page-08.webp",
+  "outputSha256": "337cbd95645687a72cccbd47ef3a1b4f5e5177e9cdb027c6e88e8eaf01e38c1a",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Fix ONLY the open teal door geometry in this exact interior-facing architectural cutaway. Door opening is in the BACK PLANE of the depicted FRONT WALL, immediately RIGHT of the single narrow glass sidelight and LEFT of the adult. Show a clear tall rectangular doorway opening with outside daylight visible through it. Interior hinges are on the doorway's RIGHT jamb. The ONE teal leaf is open inward90 degrees, seen nearly EDGE-ON as a narrow teal slab extending toward viewer from that right jamb. Its hinge line must remain physically attached to the right jamb in wall plane; no hinges floating on protruding free edge. Free edge extends toward the room, avoid the adult or Zoe. This is an open door, not a second closed leaf. Keep everything else exactly: receiver/shelf on SAME interior wall to doorRIGHT, Kit outsideLEFT cutaway with finger hovering off exteriorbutton, adult and Zoe pointing inside, one dashed arrow, all cast/props/margins/colors. Preserve flat clean smooth2D cartoon, no grain or text,1536x1024.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-7c6561b5-a37d-44fb-871f-aeb8288d2d3a.png",
+      "sha256": "f04eda7be4357437678d0c2969972b5252ef8bd5179976ec1c2c72ceb25216dd"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "de8c9a9188fb06c5b2fcfe6cb817e2a178c34835d5f8b5bd10d4255d93ec1d12",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "337cbd95645687a72cccbd47ef3a1b4f5e5177e9cdb027c6e88e8eaf01e38c1a",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T12:41:39.897Z",
+    "note": "Direct native inspection: interior-facing integrated cutaway keeps receiver/shelf on same interior front wall RIGHT of door, matching p5/6 hinge side; one sidelight LEFT. Edge-on teal leaf opens inward from right jamb without intersecting cast. Kit outside cutaway LEFT hovers off button; Zoe points to receiver and adult nearby. Dashed connection arrow and all figures have safe margins. Focused independent geometry recheck requested."
+  }
+}

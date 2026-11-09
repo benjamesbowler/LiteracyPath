@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-c-30",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:12:26.853Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-496c511f-14d6-4ec4-acc2-b1418da93d6f.png",
+  "sourceSha256": "1b8f7b9f0abb32d5c3e1417e895eb100d55221f13145fd2d38fbfc81e44ac9ba",
+  "output": "public/guided-reading/world-discovery/c-30/cover.webp",
+  "outputSha256": "f8dd831745744722d98672e2d6a6f6d80278bb05c6cc9c9c7491fce9ef238248",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Rocket Pushes Up; World Discovery; nonfiction.\nSetting: Uncrewed illustrative liquid-fueled rocket with white cylindrical body, dark nose, two internal tanks and one engine nozzle. Neutral launch site and then upper atmosphere/space, no flags or logos. No child-operated rocket or fireworks. Force diagrams explicitly marked by sparse arrows and correct orientation.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): White uncrewed liquid-fueled rocket; One fuel tank and one liquid-oxygen tank inside; One engine chamber and nozzle; Distant launch pad; Earth horizon in later pages\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nDedicated cover art: White rocket climbing above its launch pad with hot exhaust directed downward; no oversized star backdrop at ground level, flags or logos.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nONE landscape launch scene, not sheet, no insets, no arrows. The exact single white/navy rocket is ascending upright, visibly clear above the neutral launch pad and orange gantry. One nozzle emits hot yellow/orange exhaust straight down into a broad low cloud. Complete rocket including nose, fins and nozzle occupies only central 60 percent height; nose at least 15 percent below top. Gantry/pad contextual in lower quarter. No humans, flags, logos, writing, windows, second rocket, boosters, moon or giant stars; blue daytime sky. Entire essential rocket and visible plume inset 12\u201315 percent. Bold flat 2D clean outlines.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/c-30-reference.webp",
+      "sha256": "13981429b48266a584720e9531ebc4977f560e140763f6d897f5cb3e72968bd5"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "7374f9182a4ceb61b8c6faae01ea35938c85f0fc4723dd1dfcd601ace996d189",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T12:13:29.846869+00:00",
+    "sha256": "f8dd831745744722d98672e2d6a6f6d80278bb05c6cc9c9c7491fce9ef238248",
+    "note": "Whole single-engine rocket ascends clear of pad; downward exhaust from one nozzle, no people or flags, nose safely inset. Neutral launch site matches reference.",
+    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  }
+}

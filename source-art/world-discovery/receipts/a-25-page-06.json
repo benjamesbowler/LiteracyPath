@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-25",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:45:12.083Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-0b9c2d40-0cbd-4528-8eeb-5a943539946c.png",
+  "sourceSha256": "67f54d0ed6ab9b1cb03f260db8d79ac57034128b90737681d055b826a9021a0b",
+  "output": "public/guided-reading/world-discovery/a-25/page-06.webp",
+  "outputSha256": "f79154e64f4627894030fef63aa0257cbb49ce1ddbeffa231d5285b968983734",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit ONLY framing. Pull ENTIRE scene back uniformly30%, extend same room/floor. Kit hair top at least15%belowtop, full shoes and drum feet at least15%abovebottom. Preserve natural bodyproportions, exact cross-leggedpose, relative Kit/drum scale, right arm and handcontact. Preserve RIGHT palm resting flat on drumhead, LEFT hand on knee, small surprised listening expression and NO motion/sound arcs. Red cylinder, navy rim/feet, cream taut head unchanged; all grounded on rug. Clean flat smooth colors, no texture/text. Landscape3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-e523fdc7-d4c0-447c-a0b5-ec01aa332954.png",
+      "sha256": "7de2d45349ed9bcb99041b2d0815e63a4f89a53ccac2c868b155a9488da4ef32"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "43250b481932e7fd088b4db9dca6c6655e0ffe81fdc9bbd2dd349daea8124cbd",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "f79154e64f4627894030fef63aa0257cbb49ce1ddbeffa231d5285b968983734",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:45:12.083Z",
+    "note": "Directly inspected native framing repair: whole scene uniformly pulled back with hair~19–21%top and shoes/drum feet~19–22%bottom, natural cross-legged anatomy and grounded stand. Right palm stays flat damping head, left on knee, noticing expression; no sound/motion arcs."
+  }
+}

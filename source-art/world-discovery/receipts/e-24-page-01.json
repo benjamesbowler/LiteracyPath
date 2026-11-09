@@ -1,0 +1,35 @@
+{
+  "bookId": "world-discovery-e-24",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T14:09:31.276Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-d3947aa7-b31f-470c-9c6d-f0f34e2e33eb.png",
+  "sourceSha256": "5a3176b8be24ec82f6bd0e1dcb17bf1e3b8c190d27fd7b6ad9be55f4c0158b1b",
+  "output": "public/guided-reading/world-discovery/e-24/page-01.webp",
+  "outputSha256": "b9a800e27bebf0bc79894b5524a5d5fd16d232bb9f32a8572814076cb7340d51",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Create one landscape1536x1024 early-reader earth-science illustration, UNLETTERED. Crisp continuous dark outlines, solidflat brown/gray colors, restrained flatcelshadows, no realistic texture, photo or 3D rendering. Warmcream background. One coherent diagram, not a referenceboard. All teaching shapes/arrows fully within central75percent, at least140pixels from everyedge. Use reference only for two adjoining solidrock colors andstraightfault. A calm CUTAWAY ofground underopenland: one broadrectangular rocksection shown slightlyfromabove, LEFT halfwarmbrown, RIGHT halfgraybrown, touchingalongthinverticalfaultplane. Top land surface flatandlevel onbothsides, witha THINgreen grassy surface andthreetiny grassclumps, nopeople/houses. Rockbeneathsolid, no liquid oropenchasm. A tiny orange sourcepoint midway down centralfault has three restrained thinorange curvedwavefronts spreadingthroughrock aroundit, including towardgroundsurface. Wavefronts are clearly diagrammarks, not physicalgaps or water. NO up/down block-motion arrows, no falling/floatingrock, no lava, no layersslidingvertically, nostorm. Entire isolatedgroundcutaway with all outeredges fullyvisible inside broadcreammargins, approximateboundsx300..1230,y300..800. No labels.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-cac7b5e8-456c-4205-b216-bbf4e4e0601b.png",
+      "sha256": "8f51e86988345103aac8be1eb56a2d898dd353ca342859610f4a018d7e370139"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "17528444f6f2269814e9707fa662c0af729daea3afd65b636b1b1d274c6dcea2",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:11:02.233Z",
+    "sha256": "b9a800e27bebf0bc79894b5524a5d5fd16d232bb9f32a8572814076cb7340d51",
+    "note": "Actual PNG and installed WebP inspected: closed adjoining solid-rock fault beneath calm level grassy land, three symbolic wavefronts from the source toward surface, no lava/chasm or vertical-block displacement, safe margins.",
+    "reviewer": "/root/gap_taxonomy",
+    "limits": "Individual installed image inspection; independent sequence, reader, cards and audio reviewed separately."
+  }
+}

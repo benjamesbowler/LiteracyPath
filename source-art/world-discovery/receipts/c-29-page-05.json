@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-c-29",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:05:19.532Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-c852c044-b5b9-4d6b-b772-575caba21eb9.png",
+  "sourceSha256": "c61a867c0fb3418cd888bd43bdb56831f3d0a8e9f375ae5051a17a392fe9e218",
+  "output": "public/guided-reading/world-discovery/c-29/page-05.webp",
+  "outputSha256": "804dc15910ef1d87ba11f1d24805345af0cf7b012399d723028d6f4a10a906ea",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Precise geometry edit to first clock image. Keep all first-image style/colors/shape/numbers/blue hand unchanged. Rotate ONLY short red hour hand slightly clockwise so its axis is EXACTLY22.5 degrees below horizontal right, matching SECOND analytic guide. Current red points about19degrees down, too close to3; increase downward angle by3.5degrees. From hub at768,512 to red tip about948,587, not955,578. Blue long hand stays horizontal LEFT at9. Twelve correct numerals and exactly two hands. No extra mark or explanatory guide appears in final. Existing entire clock stays safe inside9percent margins. Crisp flat2D.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-0c0a06d2-1693-4549-ad17-42d89db2fb97.png",
+      "sha256": "6482a61d0845f7c76e61a853eca480f3c3af58d8d1c290e59a1e921776e860e6"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/.artifacts/nonfiction-next-50/clock-reference/clock-3-45.png",
+      "sha256": "0baf802e5a2b4e3aa831a95fa77e2b5f51718ce207276377d0e3685282243dc8"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "7dacb274608cd92e9787048ea3b34f4e75fff582b4c227e3e6234a48171cbea7",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T13:09:18.114275+00:00",
+    "sha256": "804dc15910ef1d87ba11f1d24805345af0cf7b012399d723028d6f4a10a906ea",
+    "note": "One clock at3:45, blue long hand left9, shortred nearer4 than3; red-axis diagnostic about22degrees vs nominal22.5, correct instructional position. Twelve numerals, twohands, safe margins.",
+    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  }
+}

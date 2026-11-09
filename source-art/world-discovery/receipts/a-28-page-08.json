@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-a-28",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:35:45.093Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-9da31614-8d8d-4d26-a68a-338f06767acd.png",
+  "sourceSha256": "4c3d91c16ee511d2af1a9825e46565aa89a1cd64755260e16c2acb5d3f34a7d7",
+  "output": "public/guided-reading/world-discovery/a-28/page-08.webp",
+  "outputSha256": "0502ed8d68baff901c21d3036a00fc505441bb6456798c7056cecfcb4441e184",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Replace ONLY both ants in the first route diagram with the exact TOP-DOWN six-legged anatomy of the clear ant in second image. RIGHT ant copies its LEFT-facing orientation; LEFT ant is mirrored to faceRIGHT. Each has exactly THREE legs above its thorax and THREE below in this overhead view, six visible separated feet, plus TWO antennae on head. Do not retain old side-view legs. Keep their small sizes and positions, the dotted amber route, nestLEFT pebbleCENTER leafRIGHT, one food drop, background and framing unchanged. Exactly two ants, one each direction, no arrows or extra objects.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-bf09cc15-1214-4721-9a62-788a791aa320.png",
+      "sha256": "f9ff72b901a9dacd20e07dbd74f12d98e288bf8cf9ef1c248ca575dea012c89f"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-ec270765-ac0e-4a8e-b85a-540ee6a80995.png",
+      "sha256": "64b5d35cb20604c01aa7bfe47ccf01afd900fda882da825e21926f26f3b7dc78"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "fbf293511c4adb19a75a183f30ea70ea6bdd6e4a759309a5079a91a68021dff0",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "0502ed8d68baff901c21d3036a00fc505441bb6456798c7056cecfcb4441e184",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T10:35:45.094Z",
+    "note": "Directly inspected final diagram: two ants only, left one outward/right-facing and right one returning/left-facing, both six-legged overhead poses with two antennae. Same dotted shared scent path around pebble links nest to food; no one-way arrows or extra stages."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-b-25",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T06:58:10.944Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-9ecc10f0-b813-4a2b-ac39-4fc2d772207d.png",
+  "sourceSha256": "ed04b219b1531986cbafedc9ce6def8d5d03c86fdbe7081da47fc8a53d43f9ea",
+  "output": "public/guided-reading/world-discovery/b-25/page-06.webp",
+  "outputSha256": "c28bdf445b4c732b1698c1b320631b95c97ea69c57f28c279d776a6aaf6d7ede",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Continue exact CHANGED mirror angle and fixed optical setup shown. Zoe at right holds the ONE BLUE CARD raised safely ABOVE the mirror top and completely clear of optical path, with one hand grasping its bottom edge. Card must not cover Zoe face or any light path. No yellow spot on card. Exactly ONE pale-yellow bright spot returns to SAME right-shifted location on white screen as reference. Kit watches with hands away from props. Flashlight, wood cradle, mirror center/angle and screen all unchanged. No visible light beam/arrows in clear air. Keep raised card entirely inside frame with at least100px top margin. Landscape3:2 same clean outlined smooth flat classroom style, no grain/text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/b-25/page-03.webp",
+      "sha256": "e8478f1febeb198a99e7e92a56336209132c9445722fdd248c25b4aaeb35995e"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "e7608249f7559688257799a2fcfb8d87f204d853906b14b220ac4f2eddd1acf3",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T06:59:19.711422+00:00",
+    "sha256": "c28bdf445b4c732b1698c1b320631b95c97ea69c57f28c279d776a6aaf6d7ede",
+    "note": "Directly viewed native PNG and installed WebP. Zoe lifts blue card above the path with generous top margin; no light spot remains on card. Right-shifted screen spot returns at unchanged mirror angle and fixed flashlight/screen positions.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

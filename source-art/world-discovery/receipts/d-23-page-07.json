@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-23",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:20:12.045Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-04194cd9-b50a-43d0-8f40-c73e8c0308e0.png",
+  "sourceSha256": "26585e96d7926ef5bec05edbc0cb38a7f7ea8894f00a448f506b9a6581d9f2b9",
+  "output": "public/guided-reading/world-discovery/d-23/page-07.webp",
+  "outputSha256": "0db1a8014336f6734cd55e66b4aace26587f985fc5705a222584d44b455c17e7",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Correct this capillary teaching diagram so it is clearly a through-going blood vessel, not a sealed capsule. Replace the rounded closed LEFT and RIGHT end caps with open elliptical cross-section tube mouths, maintaining the thin pink vessel wall and continuous red interior. The illustration is a clean cutaway model: all red blood cells remain inside; none spill out. Preserve the existing right-pointing internal flow arrows, tiny pale oxygen circles passing downward across the intact lower wall, all four pink muscle cells outside the vessel, composition, safe margins and colors. Add no other symbols, text, organs or objects. Keep clean flat 2D style.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-2caba4c7-00ce-43a9-b135-21b2bc0ac514.png",
+      "sha256": "f8a0a198091ce0a523f0ffa32d0b65eb4846ff5327969eb3ac3cc47fb9070d1c"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "53f321fe6f6525dbc7142913453889b170e4387f03930954a85dc6f67239997e",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.511Z",
+    "sha256": "0db1a8014336f6734cd55e66b4aace26587f985fc5705a222584d44b455c17e7",
+    "note": "Direct inspection: continuous through-vessel now has open cutaway end mouths, red cells remain inside; oxygen symbols leave across intact wall to four outside muscle cells, correct flow arrows and no bleed/leaking cells.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

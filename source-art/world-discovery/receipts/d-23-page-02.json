@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-23",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:06:41.478Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-0b16cae2-e54a-479c-933e-79597eb5e011.png",
+  "sourceSha256": "cfc956b7901c3abb9e0f571b45e6a8296c87f929da750584d83090491d1f7313",
+  "output": "public/guided-reading/world-discovery/d-23/page-02.webp",
+  "outputSha256": "a3e4ec150b15134d42f812ee19ca3b11c00907161ccba42ae8b9b7d5c15e7198",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Resize the COMPLETE existing body diagram uniformly to 70 percent of the canvas height and center it both horizontally and vertically. It currently almost touches the top and bottom; the new diagram must have large blank cream margins, approximately 150 pixels above the head and 150 pixels below the feet on this 1024-pixel-high image. Preserve exactly its heart position, every branch of the red vessels, body outline, hand/foot anatomy and colors. Add nothing; no text, arrows, symbols or extra diagrams. Crisp flat 2D illustration, same plain cream background.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-0e71e458-26d2-4011-96df-d07d117f8b39.png",
+      "sha256": "b29af53b5aa570680ea8a0744391f6fe0d9e93c61994a7f765c666cf5028f6f0"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "53f321fe6f6525dbc7142913453889b170e4387f03930954a85dc6f67239997e",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.508Z",
+    "sha256": "a3e4ec150b15134d42f812ee19ca3b11c00907161ccba42ae8b9b7d5c15e7198",
+    "note": "Direct inspection: body silhouette safely centered with generous margin; all-red branching vessels remain inside and continuously connected, heart slightly viewer-right, no anatomy exposure or extra diagrams.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

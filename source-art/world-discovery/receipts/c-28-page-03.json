@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-c-28",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:34:13.201Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-f352f5f5-461b-4b95-8c38-23bde47ed625.png",
+  "sourceSha256": "a769a7967047dd24aa6f8d60e9cb060f1f8df9690698fa0be0e9b75c2863a3b4",
+  "output": "public/guided-reading/world-discovery/c-28/page-03.webp",
+  "outputSha256": "e78592bab9ab7550908aa41ca2c4d792eff4a3ac8c87165256007241c193d2a7",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. EDIT THE FIRST SUPPLIED IMAGE ONLY. Second image is the approved smooth-ground design reference, not a composition to copy. Preserve first image exact composition, framing, every animal pose and count, prey, nest, cutaway status, season, branch geometry, all leaves/plants/stones, shadows and color palette. Change ONLY the diffuse mottled/stippled soil to one perfectly smooth flat earthy brown fill with restrained smooth cel shadows. REMOVE ALL tiny unoutlined soil dots, gritty patches, painted flecks, noise or grain. Retain deliberate discrete outlined stones, leaves, grass clumps and anatomical quill/spine pattern. Preserve feet and prey ground contact. Do not crop, zoom, redraw animals or change light/time/season. No text/letters. Opaque landscape3:2. This is only a surface-style correction.\nCanonical exact page instructions (all existing scene states remain):\nUse case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Hedgehog in Winter; World Discovery; nonfiction.\nSetting: One wild European hedgehog in a temperate British garden through fall, winter and spring. Natural brown-and-cream spines, brown face, dark eyes and nose, four short legs. Same sheltered nest under a hedge beside a fallen branch. No people disturbing or opening the actual nest; interior views are clearly teaching cutaways.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One European hedgehog; Nest of dry leaves under hedge; Fallen branch landmark; Natural beetles and earthworms as prey; Changing seasonal ground vegetation\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 3. Printed prose (NOT text to put in art): It gathers dry leaves into a sheltered nest. The thick leaf walls help protect it from sudden changes in temperature.\nRequired illustration: Hedgehog pulls dry leaves into nest under hedge beside fallen branch, entrance small and sheltered.\nExact current state: Nest built from dry leaves, not exposed open bowl.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nONE external garden scene at fall dusk. Same single hedgehog carries ONE dry brown oak leaf in its MOUTH toward the small entrance of a thick dry-leaf nest under hedge, immediately LEFT of the same forked fallen branch. No hands holding leaves. The nest is a compact largely ENCLOSED DOME of dry leaves with only a SMALL low entrance just wide enough for hedgehog; do NOT show the broad exposed interior of the teaching cutaway cover. Show several loose dry leaves gathered nearby as construction supplies. Same autumn foliage/hedge, no flowers/snow/people. Entire animal, nest dome and mouth-held leaf within central65 percent of canvas, large margins and enough plain ground around.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/.artifacts/nonfiction-next-50/c28-edit-input/page-03.webp",
+      "sha256": "07516ea9e1821cf91a502aa45071af20709fbbe1361c513c6271d26cac76a6a4"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/c-28-reference.webp",
+      "sha256": "cbc7bcf1b015a1055cd8e29600f89c60343e4c6b3eee9a93f1bb59ced64ef2c9"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "f40ade2ce093f8630b07993486f43c74b2e43b93f146bfeab9275339bae07c05",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "e78592bab9ab7550908aa41ca2c4d792eff4a3ac8c87165256007241c193d2a7",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T13:34:13.202Z",
+    "note": "Direct native inspection: hedgehog carries one dry leaf toward same sheltered nest entrance beside forked branch. Four short legs grounded, dusk fall setting and exact nest state preserved. Smooth brown soil with deliberate stones/leaves and no mottling."
+  }
+}

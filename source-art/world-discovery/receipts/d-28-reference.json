@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-28",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:10:56.341Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-07b4b21e-40d4-483c-a6f7-8f79c66f5668.png",
+  "sourceSha256": "47b60e8fba3781b55632924222de2fc18d97348b577bcabaafdbddf3255a54c5",
+  "output": "source-art/world-discovery/d-28-reference.webp",
+  "outputSha256": "626087af86fbf83cb2261dfd2f8945d7211a22767c8f64440dc991405560077d",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Restyle this exact unlettered reference board as a SIMPLE BOLD FLAT OUTLINED CARTOON. Preserve scientifically correct Carolina chickadee markings, caterpillar leg groups, rounded-lobed oak leaf and natural tree cavity. Remove ALL fine feather texture, realistic feather hatching, detailed bark texture, realistic shaded eyes, mottled grass and painted background. Use broad clean solid color areas and strong continuous black outlines. Bird wings have only a few simple gray feather shapes; small neat black bib, no broad white wingbars. Bird feet show exactly THREE forward toes curled over each branch and ONE rear toe behind; no four-forward-toe claws. Shrink and center the entire board arrangement to central70% of image, leaving at least150px white margin around ALL subjects on 1536x1024canvas. Location key uses only a few broad outlined green foliage shapes and simple gray-brown trunk with cavity; no extra birds or flowers. No letters, numbers, arrows or logos.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-2541276c-4863-4fd9-9dd6-f75a5fcb7254.png",
+      "sha256": "6e1053380817dbc00207a3179cbca74aa993e67250aa0e6b4c8b5bbe60698876"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "78c2904e582ff26b4d4ca84266e2154c9a1849a22caf6695aebc788bc09c7b58",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.544Z",
+    "sha256": "626087af86fbf83cb2261dfd2f8945d7211a22767c8f64440dc991405560077d",
+    "note": "Reference directly inspected: clean flat Carolina chickadee cap/bib/cheeks/gray wing/pale underside, natural perching toes; green caterpillar three thoracic legs plus four abdominal prolegs and rear anal proleg visible side; rounded oak leaf and cavity, no lettering, safe margins.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-c-26",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T15:17:59.479Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-931c5988-5b9e-4eb0-9653-adce5c13b3c9.png",
+  "sourceSha256": "0104288b2485f8a37809c5adecee3e75caa14fa17143a00badfac2c8b4786c43",
+  "output": "public/guided-reading/world-discovery/c-26/page-07.webp",
+  "outputSha256": "8214c63adb55a8a895aa78de487901de85494d521b86fdd3a03a55c882de3533",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. One finished landscape3:2 picture-book checkout scene, a new moment at the FIRST reference checkout with same adult worker, scanner, monitor and counter. Exactly TWO identical cream blue-circle cereal cartons with exactly the SAME barcode from the SECOND reference, both labels perfectly front-parallel, not slanted. Treat the exact valid barcode artwork as an immutable insert used twice: preserve every bar and white-gap width/order and guard, never invent new stripes. Each carton is about20%of canvas width. First carton stands at center-left of counter; worker holds second carton at center-right by its upper side edges, labels entirely clear. Scanner on stand in front points toward the held second box's barcode. Monitor to right displays only exact Cereal $4 on two clear lines. Worker behind boxes has deep brown skin, short tightly curled black hair and green shirt; proper two hands holding second carton. Kit is ABSENT. Complete visibility whitelist: one worker, exactly two actual cartons, one scanner, one monitor, pale gray counter, plain cream backdrop. No other people, products, thumbnails, arrows, writing or inset. All hair, hands, boxes, scanner and monitor must be12%inside edges; generous background border. Uniform flat clean colors, crisp2D cartoon outlines, no grain or texture. Barcode95modules, NEVER PRINT:10101100010011011000010100011010000101010001101010111001010011101001110111001011011001001000101.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/c-26/page-01.webp",
+      "sha256": "d38d1a3e66bd9bdde68d9b352eba180e771ecf3fb9f8d73427daa36e14991902"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/c-26/page-02.webp",
+      "sha256": "43411ae6bfa4a6a1b5bfd15714dd1dcc09380b952a9b5fb71cf5e614135ce8a2"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "f5e9b37923e2ab34dcac374e68d093636a36b1ac72b9174419833b623d02c398",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T15:18:48.241220+00:00",
+    "sha256": "8214c63adb55a8a895aa78de487901de85494d521b86fdd3a03a55c882de3533",
+    "note": "Actual installed WebP directly inspected: exactly two matching cream blue-circle cartons, both clear barcode faces; worker holds second by upper edges, scanner faces it, monitor exact Cereal $4. Safe heads/props margins. Both separate barcode quadrilaterals decode EAN_13 9526064055028 on actual WebP.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

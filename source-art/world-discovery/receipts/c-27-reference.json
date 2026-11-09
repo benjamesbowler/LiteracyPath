@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-c-27",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:12:26.684Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-20155df7-f4d0-455c-9877-7308977c8a9c.png",
+  "sourceSha256": "fe7da4d5d4b2cf62500e9979864e44af3ec40d0836cb464998571cbfdfd40dd4",
+  "output": "source-art/world-discovery/c-27-reference.webp",
+  "outputSha256": "9f87fb6e6383f406adf9f7bfb18a7a36a8dc92e88f08cd8697f4eaf1ac3cc5ab",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this production reference sheet. Preserve all character poses, red pencil and its core cutaway/cross-section, blue enclosed sharpener views, factory location key at lower left and classroom location key lower right exactly. Remove ONLY the entire isolated lower-center manufacturing collection (three bowls, five rods, glue bottle, and two boards). Replace that collection with blank white background. These manufacturing states will be specified separately in the page illustrations. Do not rearrange or enlarge the remaining artwork. Keep generous white outer margins. Crisp clean flat 2D cartoon, no writing or new objects.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-bf26bb80-ddb6-4ddd-9b0f-85761791f078.png",
+      "sha256": "7c024c91c677c02d0b6cc4b80f153aad63ae565e6ae803a6d713960501755a0a"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "3a70fa1d14c972360847c319383d83f2ce0d2b4c35e4355bf29e90a292205a2e",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T12:13:29.846004+00:00",
+    "sha256": "9f87fb6e6383f406adf9f7bfb18a7a36a8dc92e88f08cd8697f4eaf1ac3cc5ab",
+    "note": "Zoe, enclosed sharpener, red hexagonal pencil and explanatory graphite-core section preserve identity and construction; complete inset models, no labels. Manufacturing states are reserved for final scene-specific diagrams.",
+    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "bookId": "world-discovery-a-30",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:17:45.022Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-d109d841-a9b2-4f02-8e92-7178708439b0.png",
+  "sourceSha256": "eae811ca743c7747b9626aadf60ca2521e8ab7c1cac081750a30cfab85cb774e",
+  "output": "public/guided-reading/world-discovery/a-30/page-07.webp",
+  "outputSha256": "c17a16c43a34becaae1550d7a2a35cc53adb5a9ec0c4219d2050a62808639377",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Repair only the TREE TOP in this image. The upper trunk and branches currently stop abruptly at a horizontal cut line below the sky. Extend those exact upper branches naturally UP until they continue beyond the TOP CANVAS EDGE, so there is NO straight cut or detached stump visible in the sky. Preserve the rooted trunk, low two-fork catching branch, all landscape, TWO near-bank stones, single floating bag, water, camera, colors and every other detail. No new tree or foliage needed. Smooth flat cartoon style, no text. Landscape3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-1fb9a582-d194-4d92-ae40-c46eb604e272.png",
+      "sha256": "f8a5a74879adfe10e127b0421edcac708b97e34d087de1b29f95a2efbf8fb0e7"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "24075755c621d72f43bb30fc00a77fb407d55e36e08d772f10f5aa04aed3efc1",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "c17a16c43a34becaae1550d7a2a35cc53adb5a9ec0c4219d2050a62808639377",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:17:45.023Z",
+    "note": "Directly inspected native after tree repair: same bag farther downstream, two loop handles/notch and water-contact ripples preserved; two stones on near bank, tree/low fork behind left. Upper branches now continue naturally beyond frame with no artificial cut. Bag fully inset."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-a-30",
+    "path": "src/content/world-discovery/cohorts/21-30/level-a.json",
+    "sha256": "f9ec508c059ddf7bc839efb70dfb744ce32989e7c1fecee092e761c78496361a",
+    "evidence": "source-art/world-discovery/cohorts/21-30/a30-teaching-cue-revalidation.json"
+  }
+}

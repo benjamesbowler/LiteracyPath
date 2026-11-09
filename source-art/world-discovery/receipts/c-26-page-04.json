@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-c-26",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T15:12:08.076Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-0a3f8f5e-786d-4cf6-a7c7-8195e5deada5.png",
+  "sourceSha256": "42be09fbcf8e294791f362f026d69efc034be37dfb44fccd3f6d52a8df1dd392",
+  "output": "public/guided-reading/world-discovery/c-26/page-04.webp",
+  "outputSha256": "6b94b6c3c2f332bd23560f1cbeb4905f3c6bf05dd29c90598c714cde5bb0b356",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Preserve the supplied successful illustration and its exact valid barcode as an immutable finished insert. A framing-only outpainting edit: uniformly reduce the entire existing foreground group to75% of present size, center it within a3:2 landscape canvas, and add only plain warm cream background around it. All heads, feet, scanner, carton, arrows and monitor where present must be at least12% from every canvas edge. Retain actual same carton, blue circle, hands, cast, scanner, monitor, barcode bar/white-space widths and guards, and current diagram arrows. Do not independently reinterpret the stripes, rotate or perspective-distort the label. Clean crisp flat2D cartoon without grain. No text or numerals, no new objects.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-af4c2c89-7448-4e32-9c59-f6d35d373ede.png",
+      "sha256": "1d206317920a9f611d8704a92a6f021f611682678f959d89db166d4c0b7f0a59"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "f5e9b37923e2ab34dcac374e68d093636a36b1ac72b9174419833b623d02c398",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T15:13:58.746635+00:00",
+    "sha256": "6b94b6c3c2f332bd23560f1cbeb4905f3c6bf05dd29c90598c714cde5bb0b356",
+    "note": "Actual installed WebP inspected after pullback: full cast/feet and essential props safely framed; single orange data arrow from scanner toward blank computer; no price encoded in art. Actual barcode explicitly bounded read-only decode confirms EAN_13 9526064055028; whole-frame localization alone missed small code.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

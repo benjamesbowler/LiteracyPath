@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-c-25",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:32:38.968Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-5d6fb9e6-2025-479a-a00c-299b319d8b90.png",
+  "sourceSha256": "fa56d04cceb9ff6b355eadb8e19bf9f91c0cfe27369c795c03236f2e8022a48b",
+  "output": "source-art/world-discovery/c-25-reference.webp",
+  "outputSha256": "1895d1763d6be7d6723e07b2630d0a5b953e1d352b018d6cae6f7ec4b71ebce2",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Precisely repair this children's circuit reference board. Keep Kit and Zoe character views and classroom reference unchanged. Correct ALL battery holders to have CLOSED opaque gray lids, enclosing the two AA cells; never show exposed cells. Correct ALL lever switches to exactly TWO electrical contacts: LEFT metal pivot terminal connects directly to red wire, metal blade hinged on that LEFT terminal extends toward the RIGHT terminal connected to yellow wire. Delete any third middle pivot or extra contact. Open state blade raised diagonally above right terminal with BLUE insulated knob, visible air gap only at right. On main board keep exactly THREE continuous insulated wires: red from left battery terminal to LEFT pivot of switch; yellow from right switch contact to left bulb terminal; black from second right bulb terminal to right battery terminal. One series path, no bypass. Main bulb dark while switch open. All wires visibly attached at both ends. Keep miniature incandescent filament bulb in white holder with two distinct metal posts. Large main board safely inset. Crisp smooth flat vector-like illustration, no text, numbers, logos, grain, extra wires or extra objects. Reference board 3:2 landscape.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-9d9fcfa2-4cf5-4265-81e2-44d1979a2699.png",
+      "sha256": "d8e2684f28bccca4b17a7f781eb9bb1bd876ad63222d5806a5ab084ff4e0fb45"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "80a761f584aae85b11ebe49a406e8cb90888a1b11ff118888f7b7b3758e1246c",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:33:30.234117+00:00",
+    "sha256": "1895d1763d6be7d6723e07b2630d0a5b953e1d352b018d6cae6f7ec4b71ebce2",
+    "note": "Native and final WebP directly viewed: enclosed opaque battery holder; exactly three red/yellow/black wires connect battery to left switch pivot, right switch contact to first bulb terminal, second bulb terminal back to battery. Open lever pivots on wired left contact, visible right-side gap and dark incandescent bulb. Kit/Zoe and classroom reference retained.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

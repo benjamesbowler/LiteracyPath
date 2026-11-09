@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-26",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:55:23.252Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-e5ae0ed4-c4ba-4cc4-80f6-1f8ace5e5280.png",
+  "sourceSha256": "96e5978ab7549b112c92d0e842939f4766e1be44614ac4588492df93c51fa11b",
+  "output": "public/guided-reading/world-discovery/a-26/page-02.webp",
+  "outputSha256": "0edb9b47a18298e597b27d034104bf335f442c40ecdc15224529b5469f0b8fad",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Edit this exact flat cartoon children's science-book illustration. Pull the ENTIRE scene back uniformly by 25 percent, expanding the existing environment naturally around it. All people, the door/button/speaker and every existing diagram arrow must reduce together; do not change individual proportions or placements. Essential content must have at least 12 percent clear inset from every canvas edge; feet at least 15 percent above bottom. Keep landscape 1536x1024. Preserve the exact action and mechanical arrangement: Kit stands to the RIGHT of closed teal door, looking at the small oval button with BOTH hands down. Zoe and adult behind narrow glass to door RIGHT. Brass handle on door RIGHT. Button between glass and right porch post. Crisp smooth flat color, solid clean outlines, no texture/grain, no labels/text. No extra people, props, arrows or actions. Extend grounds under all feet with natural contact shadows.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-896210a7-b607-4091-9f23-3bf163ca93b1.png",
+      "sha256": "33c6f68ba6a68d5522f91a4f5f974bf09c81f29c4610d0ce62c32a69087f5f3f"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "de8c9a9188fb06c5b2fcfe6cb817e2a178c34835d5f8b5bd10d4255d93ec1d12",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "0edb9b47a18298e597b27d034104bf335f442c40ecdc15224529b5469f0b8fad",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:55:23.255Z",
+    "note": "Direct native inspection: waiting Kit still right of button, both hands down, closed teal door and indoor cast unchanged; full figure shoes 22% above bottom, head and all essential props inset."
+  }
+}

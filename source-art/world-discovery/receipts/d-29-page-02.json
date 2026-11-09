@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-29",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:52:53.466Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-251c5ae0-4258-414a-8c2c-d307b724272c.png",
+  "sourceSha256": "9f9ab33bb714c205345ba89e1ee5d9ca7626fe4bba3fcf4d90ef68ded28a4e15",
+  "output": "public/guided-reading/world-discovery/d-29/page-02.webp",
+  "outputSha256": "69288eea7fe0252c5bf31012a50f81a0443d255239b5d262c9624d36733b8e65",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: scientific-educational. Simple overhead diagram on a pale light-wood table showing six equal horizontal rectangular spaces in ONE ROW, generously spaced. Exactly the LEFT TWO spaces contain actual pale-green one-dollar play notes, each with ONE centered dark numeral \"1\". The RIGHT FOUR spaces are EMPTY pale-gray dashed-outline rectangles, with table visible through them, no fill and absolutely NO numerals. All six equal places easy to count, two solid notes plus four clearly empty places. At upper-right well separated, one small smooth orange ball; no children, hands, jar contents or extra money. No words, plus signs, labels or other numbers. Only text is the two1s on realnotes. Use reference green-note and orange-ball designs. Landscape1536x1024, bold continuous dark outlines, flat clean 2D color, small restrained cel shadows. No texture, realism, painting, branding. All essential hands/props/feet inside central75% with at least140px margins; ordinary room background fills edges.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-4e1310f4-80aa-434b-83fa-9269d75eeb84.png",
+      "sha256": "a652d64208463461606cb3c97489d238cd6b2d4c5b287f9dd8378df240cff345"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "13c2a4841f0bfa3c412602a383f905ed05acc5de2a917f6491164caa74117013",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.545Z",
+    "sha256": "69288eea7fe0252c5bf31012a50f81a0443d255239b5d262c9624d36733b8e65",
+    "note": "Actual PNG and installed WebP directly inspected: Exactly6places:2solidnotes marked1 and4empty dashed places; no extra real money; safe focal row.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-c-26",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T15:21:12.224Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-f8ab14e7-b4a5-4d05-a63c-29fb05df096a.png",
+  "sourceSha256": "5245c6541e5a12025f563000861ad82571896bbf4da834e1245de158c4b75819",
+  "output": "public/guided-reading/world-discovery/c-26/page-08.webp",
+  "outputSha256": "7e9f3abb80f0d7f368883ef34d37f59f7a386eaa3546631e9ddcaaa9cc5f7de0",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Final page returns to this exact whole checkout scene. Preserve its safe generous framing, Kit, worker, same single cream blue-circle carton held by upper edges, actual immutable barcode, scanner, monitor and gray counter. Change only the screen record to show the matching cream blue-circle carton thumbnail without miniature barcode beside exact text Cereal $4. Use a simple outlined saved-record area like an ordinary checkout display. Kit now smiles with closed mouth while looking from box toward display; worker smiles toward the screen. Barcode must remain EXACTLY intact: all bar/white-gap widths/order, longer guards and white margins, same front-parallel face and scale. No new products, no second actual box, no arrows, no other people or extra wording. ONLY lettering Cereal $4. Uniform flat clean2D cartoon, crisp lines, no grain or texture. Landscape3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/c-26/page-01.webp",
+      "sha256": "d38d1a3e66bd9bdde68d9b352eba180e771ecf3fb9f8d73427daa36e14991902"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "f5e9b37923e2ab34dcac374e68d093636a36b1ac72b9174419833b623d02c398",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T15:21:50.041046+00:00",
+    "sha256": "7e9f3abb80f0d7f368883ef34d37f59f7a386eaa3546631e9ddcaaa9cc5f7de0",
+    "note": "Actual installed WebP directly inspected: Kit and worker return to same checkout, one actual carton with unobscured barcode, matching on-screen blue-circle thumbnail and exact Cereal $4. Safe framing, no extra text or arrow. Auto decode EAN_13 9526064055028.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-26",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:58:32.256Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-97fe049a-db78-4fab-aa80-7f87124a6058.png",
+  "sourceSha256": "c8922daa215369edd326bd494d083bfb8049051f3f4f50c109fb0669400b0c33",
+  "output": "public/guided-reading/world-discovery/a-26/page-05.webp",
+  "outputSha256": "73e784d8a638b07c3470e68c2101b5c19199e6f4942f50f2851f00d87eadc3e7",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Edit the exact supplied flat children's book illustration. Pull the ENTIRE composition back by 25 percent; keep each person, furniture and architecture at the same relative scale to each other. Extend existing room/porch naturally. All essential content at least 12 percent from every image edge, shoes at least 18 percent above bottom. Landscape 1536x1024, smooth flat fills and clean bold outlines, no grain or texture. Interior view. Preserve Zoe and adult looking up toward white wall speaker with exactly TWO yellow sound arcs. Closed teal door, LEFT handle and LEFT narrow glass, speaker fixed RIGHT above shoe shelf. Do not change poses or mechanism. No extra people, items, lettering or symbols.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-bd5d9807-918f-4064-a81d-918aa3ce424b.png",
+      "sha256": "7cc0c94725152795b45036ef6af8e8c4159806e5145adf17e4ce9348852da98b"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "de8c9a9188fb06c5b2fcfe6cb817e2a178c34835d5f8b5bd10d4255d93ec1d12",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "73e784d8a638b07c3470e68c2101b5c19199e6f4942f50f2851f00d87eadc3e7",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:58:32.257Z",
+    "note": "Direct native inspection: full room pulled back, adult hair 17% from top and shoes 19% from bottom; Zoe/adult look to same speaker with exactly two sound arcs. Closed door, left handle and glass and right shoe shelf preserved."
+  }
+}

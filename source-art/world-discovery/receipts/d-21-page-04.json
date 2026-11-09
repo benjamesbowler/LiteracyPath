@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-21",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T05:07:47.620Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-f44e4006-c259-4a94-9c77-a1ff9bf3071f.png",
+  "sourceSha256": "3cd4d0701659fa5e657701d19f29b0df72f9a4182c098b5f1f3175ec1ee6b557",
+  "output": "public/guided-reading/world-discovery/d-21/page-04.webp",
+  "outputSha256": "86d7c327c4dbc6d39b581cd15b4a5fa57bfea1fc343efc9082c66a85193c6968",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Container's Journey; World Discovery; nonfiction.\nSetting: An illustrative modern freight journey, not a record of a real shipment. One orange corrugated container with a plain blue square on its left door. No brands or flags. Workers wear ordinary safety equipment; children never enter operating areas.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One orange container with two end doors and blue square marker; Ship, spreader crane, railcar, tractor and container trailer; Brown cartons of plain notebooks\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 4. Printed prose (NOT text to put in art): The ship carries many containers across the sea. Our orange box travels among them.\nRequired illustration: The ship crosses open water with the orange container secured on deck. Same container visible at outer edge of an orderly stack; containers properly fastened, no crane at sea.\nExact current state: Same container visible at outer edge of an orderly stack; containers properly fastened, no crane at sea.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/d-21-reference.webp",
+      "sha256": "c9f245ba0f568a1ae3182927ff1961cd43a353bd7122c7ed6b03a2883edb26e6"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "4cd850616c2e31aecc557996032490d0fb984ea0f222fa11e0f2a878a417a9c7",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.495Z",
+    "sha256": "86d7c327c4dbc6d39b581cd15b4a5fa57bfea1fc343efc9082c66a85193c6968",
+    "note": "Direct image inspection: marked orange container is closed and secured among aligned container stacks on the same blue/red-hull cargo ship at sea; single blue marker remains on left cargo door; no crane at sea, no exposed cargo or extraneous text.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-28",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:06:48.689Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-af5dc60e-b2df-4291-afbf-d57fb7d11b81.png",
+  "sourceSha256": "78024ac806be9d8490d2de272c8a99085cbece24c49163a8b97480aa4c2d22a4",
+  "output": "public/guided-reading/world-discovery/e-28/page-01.webp",
+  "outputSha256": "1a93c8d05a1083e6584006b540336d95184821d1b2f1304aa980a1f559356595",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Zoom OUT 30 percent so the ENTIRE main forked tree from topmost leaf crown to buttress roots is fully visible at central 70 percent of image height, with at least 15 percent BLUE SKY above the highest leaf and forest floor below roots. Preserve same tree and small sapling positions and shapes. Shade the young sapling's leaves darker green like the forest floor instead of glowing yellow, because this opening page shows it beneath canopy shade. Keep top crowns brightly lit, ground much darker but visible. Surrounding forest extends naturally to edges. No animals, fallen log, people, diagram arrows, inset or text. Clean bold flat 2D.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-a476dc84-97b5-40b8-a4b4-27c8ccb99d4f.png",
+      "sha256": "35f033d4d8004221f7a5b0e3da91fcce1bef81e8b55d2bb91c3b81d51d737bb3"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "df581f1e09d045c551bc8ca44241da96c6f37a19dcfc6731641f5fa8f7f955bf",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
+    "sha256": "1a93c8d05a1083e6584006b540336d95184821d1b2f1304aa980a1f559356595",
+    "note": "Full crown-to-roots forest section now safely framed; bright upper leaves contrast with darker visible floor and shaded sapling.",
+    "limits": "Individual installed WebP directly inspected. Whole-sequence, reader/card and audio checks separate."
+  }
+}

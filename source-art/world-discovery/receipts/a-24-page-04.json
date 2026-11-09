@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-24",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:31:12.373Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-7e61103e-6500-4c01-b0dc-3b7a952dca3b.png",
+  "sourceSha256": "0e57b97f910bca57f88c1be19803cacaef7b1eb8654b719f990639ed08d6669f",
+  "output": "public/guided-reading/world-discovery/a-24/page-04.webp",
+  "outputSha256": "6ef53733dc3135d1d3782d1faa4202c95583acdece1e1a1aaac8dc06632ffc9a",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit ONLY camera framing. Pull ENTIRE scene back uniformly35%, extending room/table naturally. Kit hair at least15%belowtop and complete dish bottom at least15%abovebottom. Preserve head/body proportions, exact hand poses, seated child, ALL dish/puddle/ice relative dimensions and roomrelationships. Preserve SMALL low rectangular remaining iceblock in a BROAD shallow blue puddle covering most of flat dish base; do not restore full cube. Same shallow white teal-rim dish on flat pale table. Do not scale objects separately, no water loss/addition or deep bowl. Smooth clean flat colors, no texture/text. Landscape3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-c35038b4-6590-41a8-ac77-09c6477119e4.png",
+      "sha256": "9314e21b71fb14b961088b0439d0d138ebdd6b98c06f9a664758c30ad916ca46"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "9c77e1f07a52338299286dd5ca1c02bdc85189d203f83376727f78ec56a237f5",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "6ef53733dc3135d1d3782d1faa4202c95583acdece1e1a1aaac8dc06632ffc9a",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:31:12.376Z",
+    "note": "Directly inspected native framing repair: child, dish and room uniformly widened; hair~18–20%top and full dish~16–18%bottom margin. Small low rectangular iceblock and broad shallow water retained; both hands rest beside dish."
+  }
+}

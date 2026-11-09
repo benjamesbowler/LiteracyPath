@@ -1,0 +1,39 @@
+{
+  "bookId": "world-discovery-a-30",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:03:30.537Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-2cb466e0-1ee8-441e-90d8-17b824fd9123.png",
+  "sourceSha256": "ae00608d822468a441fc13c25189983efaea6463645331208d192bb3f9e5bd5b",
+  "output": "public/guided-reading/world-discovery/a-30/page-01.webp",
+  "outputSha256": "8103ba9bae6d2e47f462abef943a6eb3bdf07274a349ce2754d7e8f66260e9dc",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Create ONE landscape 3:2 children's nonfiction illustration, no text, using supplied design reference. Wide low view: EXACTLY ONE pale yellow empty plastic bag lies FLAT and STILL on grass beside gray curb and street on LEFT. Two integral oval loop handles trail left; small triangular notch in lower RIGHT corner. Bag aboutquartercanvaswidth and all edges comfortably inset12%. Continuous green verge slopes toward small blue stream at farRIGHT. Rooted tree near bank at right has same low thin bare branch with TWO forks extending LEFT. All grounded. No wind action yet, no person discarding bag, no animal, extra bag, extra trash, motion arrows or lettering. Clean crisp black outlines and flat saturated cartoon fills, smooth solid untextured ground and water, very sparse grass tufts. Simple daylight, one coherent landscape, no panel layout or border.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/a-30-reference.webp",
+      "sha256": "8f7ebb59d5f61c0ed91e0aca7c469621a75ae433bb19598d73db4e6abeb3b574"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "24075755c621d72f43bb30fc00a77fb407d55e36e08d772f10f5aa04aed3efc1",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "8103ba9bae6d2e47f462abef943a6eb3bdf07274a349ce2754d7e8f66260e9dc",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:03:30.538Z",
+    "note": "Directly inspected native: single pale yellow bag flat beside curb on left, two integral handles and lower-right triangular notch; continuous verge to stream right, rooted tree with low two-fork branch, no motion/people/extra litter. Bag and branch tips inset comfortably; smooth clean fills."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-a-30",
+    "path": "src/content/world-discovery/cohorts/21-30/level-a.json",
+    "sha256": "f9ec508c059ddf7bc839efb70dfb744ce32989e7c1fecee092e761c78496361a",
+    "evidence": "source-art/world-discovery/cohorts/21-30/a30-teaching-cue-revalidation.json"
+  }
+}

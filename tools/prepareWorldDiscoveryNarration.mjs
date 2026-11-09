@@ -37,11 +37,11 @@ export function prepareWorldDiscoveryNarration({ outputDir, ...sourceOptions } =
   fs.mkdirSync(dir, { recursive: true });
   fs.writeFileSync(file, bytes);
   fs.writeFileSync(file.replace(/\.json$/, ".sha256"), sha256 + "\n");
-  return { books: books.length, pages: books.reduce((count, book) => count + book.pages.length, 0), titleClips: books.length, file: path.relative(root, file), sha256, voice: "en-US-Chirp3-HD-Leda", bookPrefix: "world-discovery-unpublished-", sourceDir: source.directory, firstNumber: source.firstNumber, lastNumber: source.lastNumber };
+  return { books: books.length, pages: books.reduce((count, book) => count + book.pages.length, 0), titleClips: books.length, file: path.relative(root, file), sha256, voice: "en-US-Chirp3-HD-Leda", bookPrefix: "world-discovery-unpublished-", sourceDir: source.directory, firstNumber: source.firstNumber, lastNumber: source.lastNumber, topicProfile: source.topicProfile };
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const { options, remaining } = parseWorldDiscoverySourceArgs(process.argv.slice(2), { allowOutputDir: true });
-  if (remaining.length) throw Error("Usage: prepareWorldDiscoveryNarration.mjs [--source-dir DIR --first-number 11 --last-number 20 --output-dir DIR]");
+  if (remaining.length) throw Error("Usage: prepareWorldDiscoveryNarration.mjs [--source-dir DIR --first-number N --last-number N --topic-profile PROFILE --output-dir DIR]");
   console.log(JSON.stringify(prepareWorldDiscoveryNarration(options)));
 }

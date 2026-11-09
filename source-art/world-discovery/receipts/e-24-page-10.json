@@ -1,0 +1,35 @@
+{
+  "bookId": "world-discovery-e-24",
+  "slot": "page-10",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T14:30:48.489Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-99b8c078-6729-4c7d-bd38-ec87535f7826.png",
+  "sourceSha256": "eddaa620b93cd09ec07cfebffbac8c8440b3fae162faa53a9058155a60853e59",
+  "output": "public/guided-reading/world-discovery/e-24/page-10.webp",
+  "outputSha256": "e22e11557fc8a104678433955bf7a211e90522322f8253ac148468588e2528c4",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Landscape 1536x1024, completely UNLETTERED early-reader scientific illustration. Crisp dark outlines, flat clean colors with restrained cel shadow. Warm cream background. No photographic texture, painterly treatment or rendered plastic. One uncluttered teaching diagram; all essential parts at least 10% inset. Keep EXACT same TOP-DOWN exposed solid rock diagram as reference: one joined rectangular region, left warm brown, right gray-brown, closed vertical central fault, left orange arrow UP the page and right orange arrow DOWN the page parallel to fault. These are horizontal sideways ground motions viewed from above. Keep black marker stripe in two STRAIGHT horizontal halves: left stripe higher on page at y505 and right stripe lower at y615, meeting fault at different positions. No vertical connector, no remaining S-curve, no open gap. Add ONE small orange origin dot ON fault between stripe ends, and EXACTLY THREE thin orange concentric wavefront circles centered on this origin, radii about55,110,165, all inside the rock rectangle. Rings should be thin and visually behind the large existing slip arrows and black marker stripe, not replace them. Whole model bounds around x245..1290,y285..740, broad cream margins. Final synthesis of sideways slip and waves spreading through solid ground. No separate panels, grass, cut-out pieces, writing or extra objects.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-e2baf0bb-77c5-401f-9462-bf670dcc1cdf.png",
+      "sha256": "c1625895c323a4f746caccf95689855e3305a92ec69974c0bbf53236d31e5711"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "17528444f6f2269814e9707fa662c0af729daea3afd65b636b1b1d274c6dcea2",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:31:13.935Z",
+    "sha256": "e22e11557fc8a104678433955bf7a211e90522322f8253ac148468588e2528c4",
+    "note": "Direct PNG and installed WebP inspection: final top-down view retains page-six adjoining blocks, closed fault, left-up/right-down parallel arrows and straight offset black stripe halves. Three thin concentric wavefront rings spread from one point on fault through solid rock, behind the stripe. No added gap, vertical motion, duplicate panel or text; wide safe margins.",
+    "reviewer": "/root/gap_taxonomy",
+    "limits": "Individual installed image inspection; independent sequence, reader, cards and audio reviewed separately."
+  }
+}

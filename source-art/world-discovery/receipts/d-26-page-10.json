@@ -1,0 +1,40 @@
+{
+  "bookId": "world-discovery-d-26",
+  "slot": "page-10",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:01:04.641Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-32673836-ebc3-4aca-a7b1-04ce94e14cdc.png",
+  "sourceSha256": "879f84103695c7636bea6ca94eac516d771684184d581b0d12de4b9548430b15",
+  "output": "public/guided-reading/world-discovery/d-26/page-10.webp",
+  "outputSha256": "01f1917b3014d73c7ea6e674109cf1eb8acdf74de626afd77606192d0598057c",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Create the concluding classroom scene after the robot has backed away from this relocated block and turned again. References establish exact blue robot mechanics, gray mat, room and single yellow block. No people. Use a slightly higher wider view showing a newly clear stretch of mat. Keep the block on the RIGHT side. Robot is left of center on the clear stretch, now heading diagonally DOWN-LEFT, its RED bumper on the LOWER-LEFT end, rear caster at the UPPER-RIGHT end. Its two large driven wheels lie on opposite sides of blue chassis. Preserve gray controller, black wire to front gray sensor, ONE straight white central plunger BETWEEN TWO extended side springs and same red bumper. The robot now has a clear route ahead toward lower-left, with enough mat visible ahead and all subjects safely inside 140px margins. No faces, eyes, smiles, thought bubbles, arrows, duplicate robot or block. This is one coherent final moment, no diagram panels. Clean dark-outlined flat 2D nonfiction art, restrained cel shading, no grain or painted texture, no photorealism or 3D render. Landscape 3:2 1536x1024. Keep all important subjects within central 70% with 140px margins. No words, letters, numbers, logos or watermark.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-a020d774-3239-4451-85e2-e74b056166b7.png",
+      "sha256": "413a60366dcbca3f49f760941ac58c2675dbb096b39a162b6cf5d5fb4d004313"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-67b89d73-55d3-4bb2-870d-ede163e573c7.png",
+      "sha256": "979b7fcff9be206af566f648f2015fdc2ec391e61692ad347ed9335b3e1cdf34"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "975d5f5420efb1308d6c48d6cf7633e175e59f4e879e625913e4b4acfddfb28a",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.531Z",
+    "sha256": "01f1917b3014d73c7ea6e674109cf1eb8acdf74de626afd77606192d0598057c",
+    "note": "Direct native inspection: robot has changed heading to down-left toward a clear stretch, extended central white plunger/two side springs; two opposite drive wheels and rear caster remain correct, same room/one block, no human features or text.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

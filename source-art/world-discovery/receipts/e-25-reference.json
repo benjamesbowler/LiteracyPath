@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-e-25",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:04:36.683Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-3115cf34-721a-4777-80b1-fba8c9247a8e.png",
+  "sourceSha256": "f935bcd7ede84ae21f1c40fd2c0b52ecca91707188e63831cd12a906bf0ae104",
+  "output": "source-art/world-discovery/e-25-reference.webp",
+  "outputSha256": "3460089089f21b004238f6d8996c9d2cb702fa09baafa527f0d593acb206d7d8",
+  "width": 1752,
+  "height": 897,
+  "prompt": "Use case: illustration-story. Correct this PRODUCTION REFERENCE board only. White background, clean dark outlines, flat2Dcel style, entirely unlettered. Replace the two aircraft views with ONE LARGE PERFECTLY SIDE-ON elevation of the same ordinary white passenger plane facing LEFT, centered across upper half with generous margins. SINGLE teal vertical tail fin at right. One near main wing projects backward in side profile from lower fuselage, and ONE near engine nacelle hangs correctly under its forward portion. The far main wing and its engine are completely occluded by fuselage and near wing in this exact side view; do NOT draw two engines side-by-side under the visible wing. One near horizontal tailplane at rear; far one occluded. Same row of dark windows and cockpit at left nose, no logos. REMOVE the smaller three-quarter airplane entirely. Retain ONE valid large airfoil cross-section centered in lower half, rounded LEFT leading edge, pointed RIGHT trailing edge, gently convex upper surface/almost-flat lower surface. Retain small blue sky/white cloud palette at lower right if space. Only one airplane, one wing-section diagram and palette. No arrows, labels, detached wings, malformed dorsal fin, extra wing, landing gear, smoke or flames. Keep all visible designs at least10percent inside canvas.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-0f9cac29-bb9b-4522-881b-a58709334ec6.png",
+      "sha256": "84393a74fe86ae0fd9efc7b950420243b85e5f4ed483421648c5ae38bf64df9a"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "6fa387a94832069dfd8f41a5c0089a80fb10f81c60c90df001e050c556eb4819",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.562Z",
+    "sha256": "3460089089f21b004238f6d8996c9d2cb702fa09baafa527f0d593acb206d7d8",
+    "note": "Actual PNG and WebP directly inspected: corrected single left-facing side profile with one visible near main wing and attached engine; far wing/engine occluded, one teal fin and near horizontal tail, correct rounded-left/pointed-right airfoil; entirely unlettered reference only.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

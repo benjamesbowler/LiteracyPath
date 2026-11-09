@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-30",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T08:10:55.305Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-24c64920-c86d-488e-ba31-88e787c82d56.png",
+  "sourceSha256": "23b7d37cd552abd16912ff9dcc480f3f34a2c0719a8e30d81dc75bce22ed4491",
+  "output": "public/guided-reading/world-discovery/e-30/page-02.webp",
+  "outputSha256": "74b278ed59f89e646b674217ae30a728e6d37e3e7eb4b7d59ef51f6e920b6c96",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact illustration. Same clean flat 2D cartoon and unlettered content. Uniformly reduce entire polyp-plus-connected-cell-inset group by about 20% and recenter, with full tentacles, base and circular inset inside x=13\u201387%,y=13\u201387%. Extend same pale aqua background. Keep every biological relationship unchanged: algae inside cells, empty digestive cavity, white cup skeleton beneath intact living tissue. No new elements.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-37c72b49-1e50-4a4b-9df7-add920b51505.png",
+      "sha256": "df3cab8811b7aeaf29fb4d6dab217278ce53cd72e452fb34cc863bb400a791cc"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "eead7bd4e8d787dff3440b9ff337f914a50daa5a1c9dfe20a0688cac4e6a5f42",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
+    "sha256": "74b278ed59f89e646b674217ae30a728e6d37e3e7eb4b7d59ef51f6e920b6c96",
+    "note": "Living tissue over white skeletal cup, algae inside tissue cells; enlarged cell inset and all tentacles safely framed.",
+    "limits": "Individual installed WebP only; independent sequence, reader, card and audio separate."
+  }
+}

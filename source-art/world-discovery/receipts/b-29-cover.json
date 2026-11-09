@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-b-29",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:17:25.452Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-f8705e03-4620-41d1-9dd2-519dfcbf3dcd.png",
+  "sourceSha256": "233e36d1f57a5ba1f3f8295aceddced4b53fca1af864ec8212f9987f15dfe2a4",
+  "output": "public/guided-reading/world-discovery/b-29/cover.webp",
+  "outputSha256": "08567a9520d6b455442be8996af4a34f3fe525f17d167c8201fec3583020bf43",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Preserve this EXACT six-cube measurement scene and all count/geometry, but pull viewpoint BACK 25 percent. Both children's entire heads and shoes must be comfortably within central75% of canvas; at least140px plain floor below shoes and 180px space right of Zoe's outer hair. Keep exactly SIX touching equal cubes, blue book matching row width, two pointing hands at aligned row ends, existing classroom background. No added cubes or words. LANDSCAPE 3:2, 1536x1024. Smooth flat cartoon colors, no grain or texture, no text. Essential heads, hands and entire foreground props comfortably inside central70%, with generous blank surroundings.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-12b880e2-ce20-4a2f-b89d-ddd855cebd89.png",
+      "sha256": "47a44b1d4dded1dcee24d21bd50e587132731d201e21f865a0d632a22fcd739e"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "7c50af653f4ee559098243cdcd631837ff440776161b09c1d029dc86ea556fcc",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T10:18:34.437205+00:00",
+    "sha256": "08567a9520d6b455442be8996af4a34f3fe525f17d167c8201fec3583020bf43",
+    "note": "Directly viewed native PNG and installed WebP: exactly six equal touching yellow cubes span blue book width, Kit/Zoe point at aligned ends; entire children safely inset, no letters.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

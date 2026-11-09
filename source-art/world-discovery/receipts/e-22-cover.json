@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-e-22",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:11:35.426Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-878ea14c-7f61-453e-b702-9100f88ff819.png",
+  "sourceSha256": "fc7a9dac07af2364f2395d4e0a0d643f92b8b80c32ee4f2bef32f18a2aec82f2",
+  "output": "public/guided-reading/world-discovery/e-22/cover.webp",
+  "outputSha256": "ce1fd77c1cd16197d954e563d16fcaa126a716df3a9290551837c91eb31ff0d8",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Preserve these exact THREE unlettered place picture cards, all details inside them, and their side-by-side order. Scale the entire three-card group uniformly DOWN by 28 percent, centered on the same warm cream1536x1024 canvas. Give the outermost card edges at least12 percent clear cream margin from both LEFT and RIGHT edges, and comfortable top/bottom breathing room. All three cards remain equal size and clearly separated. Do not zoom individual pictures, crop cards, change buildings/transport, rearrange cards or add anything. Smooth flat colors and crisp outlines, no paper/grain texture, no labels/text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-f759a2ed-880e-466b-aa17-25e358f5cf0e.png",
+      "sha256": "ce0980a4a655308044ec9b8e6becfc8f158b01982f711fb4a2455d6ca54b5ead"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "2aff8b9432244a41072eb7c7376c77e21594d83a655dfa83d99e44c528e86755",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "ce1fd77c1cd16197d954e563d16fcaa126a716df3a9290551837c91eb31ff0d8",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T12:11:35.428Z",
+    "note": "Direct native inspection: exactly three unlettered cards now inset about12% from left/right and28% top, Wells/Reading/Lacock order. Ordinary houses/shops and Reading train+bus only; no religious symbols, text or logos. Group uniformly reduced to clear framing."
+  }
+}

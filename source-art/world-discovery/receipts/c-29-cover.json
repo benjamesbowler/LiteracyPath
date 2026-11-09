@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-c-29",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:19:19.278Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-9b130d94-59de-4c24-9432-e62fb1f46ccd.png",
+  "sourceSha256": "94c9ede783bbc53c8232ad05910a93ba8ca1101ca19a4fcde1e968cfa0c7ac6f",
+  "output": "public/guided-reading/world-discovery/c-29/cover.webp",
+  "outputSha256": "dafd2925b7e5b0c6c341b65eac8f446d3ba5672c2d0881e9858e42a668d95540",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this existing finished illustration. Pull the ENTIRE composition back uniformly by25 percent on the same landscape canvas, filling the new area with continuation of the same background. Preserve all proportions, details, exact object counts and colors. The essential complete subjects must now be at least12 percent inside every edge, with extra clear space above and below. No new text, logos or objects. Keep crisp flat2D cartoon style. Preserve EXACTLY twelve black hour tick marks with no numerals, long BLUE hand straight UP and short RED hand down-right exactly30 degrees below horizontal right. Preserve Kit and Zoe models, pointing fingers, table, paper and glue. Show the ENTIRE clock with clear wall above its rim and complete shoes with floor beneath. No third clock hand.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-7b2e7186-3680-4d85-a40f-986f9f412606.png",
+      "sha256": "b751f6c12737bf27c50778d8e8cac182665f8b9b3aecbce83806e4c21cf8e663"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "7dacb274608cd92e9787048ea3b34f4e75fff582b4c227e3e6234a48171cbea7",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T12:21:52.238717+00:00",
+    "sha256": "dafd2925b7e5b0c6c341b65eac8f446d3ba5672c2d0881e9858e42a668d95540",
+    "note": "Twelve plain hour ticks, exactly two hands: long blue12 and short red4. Whole clock and children have generous margins; no labels or duplicated parts.",
+    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-23",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:06:42.116Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-ce9fd03b-d033-4a09-a961-4e6357448e9e.png",
+  "sourceSha256": "41cf1f5e4c127f6ac7377f483be36c3a33467d4714b2fdd647fa6f54adb88ba2",
+  "output": "public/guided-reading/world-discovery/d-23/page-04.webp",
+  "outputSha256": "1fa0fdf245200fed1a3edf4daedd81cbe75811a95587747afc37bc1d741f9529",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "A finished landscape 3:2 non-graphic teaching diagram of blood traveling from the RIGHT HEART to the LUNGS, alongside a separate inhaled-air route. One integrated diagram ONLY: two pink lungs with a small anatomically shaped red heart between them, slightly toward viewer right. A DARK BURGUNDY pulmonary artery leaves the heart's anatomical right ventricle (viewer LEFT lower chamber), rises and splits into two distinct branches feeding blood vessels in both lungs. Small white arrowheads INSIDE these burgundy vessels point AWAY from the heart and INTO each lung. Completely SEPARATE from these blood tubes, one pale-gray trachea descends from above the lungs and divides into two pale-gray bronchi that carry AIR into both lungs; teal arrows inside these GRAY airways point downward and outward into the lungs. At crossings, airway and artery remain visibly separate solid tubes with no joining openings. Blood never enters the trachea, and no blue blood. Do not depict any body silhouette, skin, child, gas-exchange inset, standalone vessel enlargement or extra organs. No labels, letters, numbers, decorative icons or other teaching stage. Entire lung-heart-airway diagram should occupy only 70 percent of canvas height, centered with large plain cream margins above and below and on both sides. Bold clean dark outlines, flat colors, restrained smooth shading, friendly scientific illustration, no texture or gore.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/d-23-reference.webp",
+      "sha256": "63b17f6a43b272fc14e12ccf98c3bd9b111c3536428550ac5eaa96127949ac95"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "53f321fe6f6525dbc7142913453889b170e4387f03930954a85dc6f67239997e",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.509Z",
+    "sha256": "1fa0fdf245200fed1a3edf4daedd81cbe75811a95587747afc37bc1d741f9529",
+    "note": "Direct inspection: pulmonary artery branches from viewer-left right-heart region and arrows carry dark-red blood outward into both lungs. Gray trachea/bronchi with teal inhalation arrows are separate, visibly overpass blood vessels without merging. Complete diagram safe margins.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

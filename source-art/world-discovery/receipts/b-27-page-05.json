@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-b-27",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:17:24.533Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-16d2bf06-d109-4612-b538-4e7eb9b1f711.png",
+  "sourceSha256": "3600050ced72fdef551e2778b3dc5432e476b1ea288c4dc65b656ed3c1b1f0c0",
+  "output": "public/guided-reading/world-discovery/b-27/page-05.webp",
+  "outputSha256": "a37d0f4138fa435bdb0bc4b4ac5927e59e4d4424dbf96b4dee8b0a73eb3d761b",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Retain this correct cool-curds pouring action exactly, but pull camera BACK 22 percent. Entire adult hair must be below y140 and entire glass bowl above y870, leaving at least140px breathing room top and bottom. Keep adult two hands securely supporting pan, same short stream of white curds/pale whey into cloth-lined strainer resting on bowl rim. Preserve all anatomy, stream, supports and kitchen. No steam. LANDSCAPE 3:2, 1536x1024. Smooth flat cartoon colors, no grain or texture, no text. Essential heads, hands and entire foreground props comfortably inside central70%, with generous blank surroundings.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-62ab8c48-299c-44ff-9526-2e2aa5831d3b.png",
+      "sha256": "034788fa5a04262f9e64b6cf9f18e687b5f0203a4892001e684264934cc51e79"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "14bdf1a9b4c155d155a7916b5fde211a1d4c1dddaf582d022d5985416f706b7c",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T10:18:34.433980+00:00",
+    "sha256": "a37d0f4138fa435bdb0bc4b4ac5927e59e4d4424dbf96b4dee8b0a73eb3d761b",
+    "note": "Directly viewed native PNG and installed WebP: adult supports cooled saucepan with both hands while pouring curds/whey into cloth-lined strainer resting securely on bowl; complete hair, hands and bowl well inset.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

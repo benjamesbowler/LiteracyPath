@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-c-23",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:31:05.075Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-3ff158ea-ec54-4f02-a044-0d518da58bd0.png",
+  "sourceSha256": "c2be1dfb0d175f73cbc4315a74ad70f2120e57afac22601ffdee869ec2be2d2e",
+  "output": "public/guided-reading/world-discovery/c-23/page-03.webp",
+  "outputSha256": "4481c1214f429d9bd27178b525b3470c31a15082328ebcb09e7c744cb0341f1f",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact arm anatomy illustration only by uniformly scaling the entire intact arm, every bone, muscle, tendon, hand and shoulder together to 80 percent of its present size, centered on the same 3:2 canvas. Expand the same plain cream background around it. At least 12 percent empty margin on EVERY side, no crops or frame. Preserve every existing tendon attachment and distinct bone exactly, all muscle states and pose unchanged. Do not redraw, add, remove or change anatomy. Keep crisp smooth flat colors with no grain or texture. No lettering.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-56c3e509-9c8a-4225-b64c-15a7de47c9c3.png",
+      "sha256": "57068c1a6130f0489a41508e2fac8e47ad1b0645c8c5a4967393027a2a73ed4f"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "25f742b6e36d6eb87de003ac9ecc80f9d512f2d1edf34f8713c6b0c4130e8702",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T12:33:23.332853+00:00",
+    "sha256": "4481c1214f429d9bd27178b525b3470c31a15082328ebcb09e7c744cb0341f1f",
+    "note": "Native and installed WebP directly viewed. Pale tendon continuously links biceps to proximal radius, rear tendon to outer olecranon, distinct rigid forearm bones. Generous margins after whole-arm pullback.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

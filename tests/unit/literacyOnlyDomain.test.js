@@ -85,3 +85,47 @@ test("canonical World Discovery classification citations do not exempt product c
   const otherRoot = fixture({ [otherFile]: JSON.stringify([book]) });
   assert.ok(validateLiteracyOnlyDomain({ root: otherRoot, files: [otherFile] }).some(issue => /retired domain term/.test(issue)));
 });
+
+test("next-cohort academic citations are scoped to exact books and provenance fields", () => {
+  const references = [
+    { id: "world-discovery-a-29", level: "a", url: "https://nrich.maths.org/eyfs-activities/two-halves", title: "University of Cambridge NRICH: Two Halves" },
+    { id: "world-discovery-b-29", level: "b", url: "https://www.ncetm.org.uk/classroom-resources/ey-measures/", title: "National Centre for Excellence in the Teaching of Mathematics: Measures" },
+    { id: "world-discovery-c-29", level: "c", url: "https://www.ncetm.org.uk/classroom-resources/cp-year-3-unit-11-time/", title: "National Centre for Excellence in the Teaching of Mathematics: Time" }
+  ];
+  for (const { id, level, url, title } of references) {
+    const file = `src/content/world-discovery/cohorts/21-30/level-${level}.json`;
+    const book = { id, storyBibleReview: { scienceSources: [{ url, title, evidence: "Supports the observed example." }] }, pages: [{ text: "Look at the whole strip." }] };
+    const root = fixture({ [file]: JSON.stringify([book]) });
+    const writeBook = value => fs.writeFileSync(path.join(root, file), JSON.stringify([value]));
+    assert.deepEqual(validateLiteracyOnlyDomain({ root, files: [file] }), []);
+    assert.deepEqual(JSON.parse(fs.readFileSync(path.join(root, file), "utf8")), [book]);
+    for (const invalid of [
+      { ...book, id: "world-discovery-a-28" },
+      { ...book, pages: [{ text: "A mathematics lesson." }] },
+      { ...book, storyBibleReview: { scienceSources: [{ url, title, evidence: "A maths lesson." }] } },
+      { ...book, storyBibleReview: { scienceSources: [{ url: `${url}other`, title }] } },
+      { ...book, storyBibleReview: { scienceSources: [{ url, title: `${title}: Mathematics lesson` }] } }
+    ]) {
+      writeBook(invalid);
+      assert.ok(validateLiteracyOnlyDomain({ root, files: [file] }).length, `${id}: changed identity or surrounding copy must fail`);
+    }
+  }
+  const file = "src/content/world-discovery/cohorts/21-30/reviews.json";
+  const url = references[0].url;
+  const review = { "world-discovery-a-29": { sourceReview: { urls: [url], assessment: "The reference supports equal halves." } } };
+  const endingEvidence = "Each piece is half the strip follows the all-around edge match and restored whole, earning the mathematical word.";
+  review["world-discovery-a-29"].editorialScorecard = { categories: { ending: { score: 4, evidence: endingEvidence } } };
+  const root = fixture({ [file]: JSON.stringify(review) });
+  assert.deepEqual(validateLiteracyOnlyDomain({ root, files: [file] }), []);
+  for (const invalid of [
+    { "world-discovery-a-28": review["world-discovery-a-29"] },
+    { "world-discovery-a-29": { sourceReview: { urls: [url], assessment: "A maths lesson." } } },
+    { "world-discovery-a-29": { sourceReview: { urls: [`${url}/maths`] } } },
+    { "world-discovery-a-29": { sourceReview: { urls: [url] }, other: url } },
+    { "world-discovery-a-29": { other: endingEvidence } },
+    { "world-discovery-a-29": { editorialScorecard: { categories: { ending: { evidence: `${endingEvidence} A maths lesson.` } } } } }
+  ]) {
+    fs.writeFileSync(path.join(root, file), JSON.stringify(invalid));
+    assert.ok(validateLiteracyOnlyDomain({ root, files: [file] }).length);
+  }
+});

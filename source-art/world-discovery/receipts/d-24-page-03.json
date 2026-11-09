@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-24",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:56:45.819Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-c3f8af16-269a-4198-b762-8a4b880f0f80.png",
+  "sourceSha256": "9a41240f3fb7596826e54ee0bcfa56ab39300a86bcbafec8e533b0d9d9171851",
+  "output": "public/guided-reading/world-discovery/d-24/page-03.webp",
+  "outputSha256": "370efbd9a0655045673695a109f553130d0f62bac76cd28f5d3aae393b685d9f",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Create the next integrated science diagram using this exact broad coastal section, blue sea LEFT, sandy beach CENTER, grassy land RIGHT, same small orange windsock on short pole. REMOVE all yellow sunlight ray arrows; keep one Sun and natural colors. Show relative air warmth using only two light transparent teaching tints without outlines: a faint pale-blue zone just ABOVE sea, and a faint pale-orange zone just ABOVE land/beach, with natural sky showing through both. These are subtle diagram overlays representing cooler/warmer air, not visible smoke, solid walls or fire. Keep the entire sky full of ordinary air, no vacuum or blank hole. No air-movement arrows yet, no particles or boxes, no rays, words or numbers. Mouth of windsock still faces LEFT and cloth tail trails RIGHT. Clean dark outlines, flat colors, no texture/3D. Keep sun and windsock wholly within at least 100px safe margins.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-b5bbc9d3-ecf8-42cb-a6e9-050dce877f89.png",
+      "sha256": "2834b2c8a067b1312004793d2a42a0385e73eba3600b8bd6b8cea1599df4426b"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "688f663f00d36542402967229cf6e98631f1d90b6bed074cce20a73f41dcd15c",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.515Z",
+    "sha256": "370efbd9a0655045673695a109f553130d0f62bac76cd28f5d3aae393b685d9f",
+    "note": "Direct inspection: identical broad coast and windsock; transparent blue cool-air and orange warm-air teaching tints above correct surfaces, no solid wall/vacuum/steam, no premature flow arrows, safe subject margins.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

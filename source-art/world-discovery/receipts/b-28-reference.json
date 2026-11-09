@@ -1,0 +1,29 @@
+{
+  "bookId": "world-discovery-b-28",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:06:05.537Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-92ceabcb-980c-4b19-8d6a-7bc1e23319cf.png",
+  "sourceSha256": "c6ca42e633cf94d91353f1d1694bf6540730398f21c4aa3e2f87a32ece072c6b",
+  "output": "source-art/world-discovery/b-28-reference.webp",
+  "outputSha256": "bc06e7bde7f767912fca97ea540e5d427be516ed9a63f007603c2f4d7e37e2ff",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. PRODUCTION REFERENCE SHEET, landscape, not a finished book page. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Giraffe Reaches Up; World Discovery; nonfiction.\nSetting: One wild southern giraffe browsing a Vachellia tree in open African woodland. Natural anatomy, four legs, two ossicones, short mane, dark tongue, consistent tan coat and irregular brown patches. No named or speaking animals.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One adult southern giraffe; One Vachellia tree with paired pale thorns and small green leaflets; One target leafy branch within natural reach\n Create a clean separated reference board on white: show the principal recurring props/animals in front, side and three-quarter views, their relative scale beside any named human cast, and a single simple location key showing the persistent setting and daylight/palette. The human character model sheet is a supporting identity reference, not content to copy wholesale. Show only the subjects this book requires. Use initial object states: Target leaf cluster attached; giraffe mouth below it.. For orientation, the opening location/action is: Full giraffe beside target tree; leafy twig slightly above head, thorns visible in clean simplified shapes.. Do not show a completed craft or later scene merely because the finished object is listed in design locks. No future story events, no captions. Reference-sheet override: any lettering requested by the opening page brief belongs only in that finished page. Keep this production reference board entirely unlabelled; no letters, numbers or pseudo-writing.\nFinish requirement: all fills are perfectly smooth, clean, flat vector-like color. Absolutely no paper grain, stipple, speckles, mottled paint, fuzzy edges or surface noise anywhere, including backgrounds. Clear crisp outlines and only a few flat cel-shadow shapes. Do not imitate texture from any supporting reference.\nAnatomy focus: only giraffe and Vachellia, no people. Full standing views show four long legs, cloven hooves, a tufted tail, short mane, two furry ossicones and large side ears. Natural elongated muzzle, not human smiling lips. Tree has small paired leaflets and distinct paired pale straight thorns. Keep a repeatable patch pattern with a large three-lobed brown patch near lower neck. Clean palette, no fur texture.",
+  "references": [],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "3b2da464191b00e55de10d772304d97a74700fcde5ac76ab45ab88f364075677",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T07:06:45.797298+00:00",
+    "sha256": "bc06e7bde7f767912fca97ea540e5d427be516ed9a63f007603c2f4d7e37e2ff",
+    "note": "Directly viewed native PNG and installed WebP. Natural giraffe shows four legs, two ossicones, ears, short mane, tufted tail and cloven-hoof detail. Tan/brown coat includes repeatable large three-lobed neck patch. Vachellia branch studies show small paired leaflets and paired pale thorns. No people or text; final feeding/tongue and branch-reduction states need individual inspection.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

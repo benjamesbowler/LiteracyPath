@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-27",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:07:13.228Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-83c82358-4cbe-4fca-8ab8-dc30499eea77.png",
+  "sourceSha256": "4e52ddcddc31ffe6251f212955855e67419b72c76649e67ff1a004721b5379b5",
+  "output": "source-art/world-discovery/d-27-reference.webp",
+  "outputSha256": "3f496e2dc17d87e27afc6e0052b285acd1e179f7911ffc0b93a991a3541deed4",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Make ONLY a framing change to this exact unlettered production reference board. Shrink the entire existing arrangement to 70% of its current width and height and center it on the same white landscape 3:2 canvas. Extend plain white around it. Every leaf, panicle tip, grain, soil and landscape-key edge must sit at least 150 pixels inward from every image edge on a 1536x1024 canvas. Preserve all botanical branching, every subject and the clean bold flat outlined style exactly. No new subjects or lettering.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-0e566347-3948-4f54-8ac4-5498aae7b189.png",
+      "sha256": "34c3d72e92bf1e6c1b7d6eaf7e388733d18a34e7f8cad4f332d9e5548e31a61e"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "d7159e37a1a2ef16cf6332c998d1e18c7c5e1c835d8925d2049fd3bf922c1538",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.538Z",
+    "sha256": "3f496e2dc17d87e27afc6e0052b285acd1e179f7911ffc0b93a991a3541deed4",
+    "note": "Reference directly inspected: open branching rice panicles with individually attached grains, narrow leaves, husked longitudinal grain views; flat outlined style, wide margins, no lettering or later processing states.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

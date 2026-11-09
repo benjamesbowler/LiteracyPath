@@ -1,0 +1,39 @@
+{
+  "bookId": "world-discovery-a-30",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:08:47.706Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-067af075-0f33-4da2-aef1-6a9b7e2b98e5.png",
+  "sourceSha256": "d3aef6a76e921d3acc06b8887063c5ab3765f63ecfe670ffd6149a4f2e5b3f59",
+  "output": "public/guided-reading/world-discovery/a-30/page-05.webp",
+  "outputSha256": "9fc0e5580f4e1fc44caf88ca55b202a440df34255a11ba16022b3a474cdd0eb9",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit supplied landscape into later moment. Preserve exact tree, forked branch, street, stream and camera. SAME SINGLE pale yellow bag has slipped FREE of the lowest smooth branch tip: position it just beyond and BELOW the branch, farther RIGHT toward stream, about x800–1190,y410–620, above sloping bank. Both intact loop handles trail left and are visibly CLEAR of every branch, body billows right, same small triangular notch at lower right. No tearing, no scrap, no new branch, no bag wrapped around tree. Keep bag in foreground in front of tree if overlapping but clearly airborne with small shadow below. Grass leans right. No words, arrows, characters or extra bag. Smooth clean flat cartoon style, generous bag margins. Landscape3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-23cfea4f-6a05-4002-b7fa-026b78c05ec9.png",
+      "sha256": "da60b0dc2c1a62785e6d1fd924da046ce11a3867df6639f7e67d85d4cfd56a02"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "24075755c621d72f43bb30fc00a77fb407d55e36e08d772f10f5aa04aed3efc1",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "9fc0e5580f4e1fc44caf88ca55b202a440df34255a11ba16022b3a474cdd0eb9",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:08:47.707Z",
+    "note": "Directly inspected native: both intact handles now clear of branch, same single bag farther right toward bank, small notch unchanged; branch remains in place, no torn scrap, bag above grass. Clear subject margins."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-a-30",
+    "path": "src/content/world-discovery/cohorts/21-30/level-a.json",
+    "sha256": "f9ec508c059ddf7bc839efb70dfb744ce32989e7c1fecee092e761c78496361a",
+    "evidence": "source-art/world-discovery/cohorts/21-30/a30-teaching-cue-revalidation.json"
+  }
+}

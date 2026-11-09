@@ -1,0 +1,42 @@
+{
+  "bookId": "world-discovery-b-22",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T05:33:25.221Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-c4860b02-0140-41e8-a3de-7bd5ae45e293.png",
+  "sourceSha256": "a9f8bf5c1304601ed76485283ed95fcc775ab30e2753742cbc8596f4dfaf3d20",
+  "output": "public/guided-reading/world-discovery/b-22/cover.webp",
+  "outputSha256": "d4e3c18835f7acb0edb1167b74b9e082bbd26eaa500ed2a3a59572763f4e83b6",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit image one: pull the camera back so BOTH entire children, including hair and shoes, and the whole globe are inside the central 75 percent of the canvas, with generous floor below shoes. Remove the orange line completely; both children simply trace separate connected blue water areas with their fingertips. Preserve accurate Atlantic-facing globe coastline shapes, matched child designs, same gray stand and classroom. No lettering.\n\nAuthoritative specification:\nUse case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: One Ocean Around Earth; World Discovery; nonfiction.\nSetting: A classroom globe investigation with Kit and Zoe. Geographically accurate continent outlines on a plain globe and close map views; ocean regions stay the same blue. Route is a thin orange teaching overlay, never a real painted line on Earth.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Accurate blue-and-green Earth globe; Thin orange route overlay kept entirely in seawater; Plain gray globe stand\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nDedicated cover art: Kit traces blue water on an accurate globe while Zoe points to a second connected ocean region. No labels or political boundaries.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nFinish: perfectly smooth clean flat vector-like fills, no grain, no stippling, no surface texture.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-3f20092d-076e-4144-843f-f6e1abb2f7f5.png",
+      "sha256": "73684170c1bd11f4d467764401ffd222789aa030bcc3206d3c92bc6fc8bbcbb3"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/b-22-reference.webp",
+      "sha256": "aa47f5df80f6895353841ac4a1735e87fe48a3bd239e8c73f19911c0b91ff237"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "20ecca19d99fe9f835680d66d0bb8b60c48e7bfbd2c48e9ed200c12d2524db14",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T05:35:36.127Z",
+    "sha256": "d4e3c18835f7acb0edb1167b74b9e082bbd26eaa500ed2a3a59572763f4e83b6",
+    "note": "Directly viewed native PNG and installed WebP. Kit and Zoe match the cast, with coherent hands and safe framing. Single Atlantic-facing globe shows recognizable connected continent shapes and uniform blue water, no geographic barriers or lettering. Full figures stand with their shoes safely inside the image; each points to water.",
+    "limits": "Direct image inspection only; independent sequence and app display review follow separately."
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-28",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:27:25.315Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-ec270765-ac0e-4a8e-b85a-540ee6a80995.png",
+  "sourceSha256": "64b5d35cb20604c01aa7bfe47ccf01afd900fda882da825e21926f26f3b7dc78",
+  "output": "public/guided-reading/world-discovery/a-28/page-03.webp",
+  "outputSha256": "b7123a14225817dee95df1eedcab7a556c6bd6d211b744b1a73f6bf7bd1911b4",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Tiny anatomy cleanup only: at the LEFT-facing ant's mouth, REMOVE the stray thin diagonal whisker/twig-like line between its two long elbowed antennae. Mouth has only tiny close black natural mouthparts, carrying NOTHING. Preserve exactly TWO long elbowed antennae attached to head, SIX legs attached to thorax, body position and all background. No other change, no added line or object.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-eb234dc6-1d59-4ccd-be17-38af28d1e678.png",
+      "sha256": "39c0cbe75b874bc5c038540e8b323de64ec2ab4106c35acf34fba2a83cf40d45"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "fbf293511c4adb19a75a183f30ea70ea6bdd6e4a759309a5079a91a68021dff0",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "b7123a14225817dee95df1eedcab7a556c6bd6d211b744b1a73f6bf7bd1911b4",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T10:27:25.317Z",
+    "note": "Directly inspected repaired return pose: one left-facing ant below fixed pebble with exactly six thoracic legs, two elbowed antennae and empty mouth. Stray mouth line removed. Same nest-left/leaf-right geography, no scent marks."
+  }
+}

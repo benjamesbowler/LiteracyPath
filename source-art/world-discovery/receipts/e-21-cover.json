@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-21",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:29:54.954Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-e747a502-605d-4e3a-bd8b-c15bf73afcaa.png",
+  "sourceSha256": "dcd7d4a07ec2c6824a9b961808a19fecc8d4e1d2483a1fa354530a453592f67a",
+  "output": "public/guided-reading/world-discovery/e-21/cover.webp",
+  "outputSha256": "aa1fe9d712e3a5be1ae751454a4c7ae80703190d56787aa7c795c702c2eb9563",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Correct only the distant bridge order in this illustration. The brown pedestrian footbridge must be the NEARER crossing, toward the viewer; the gray road bridge must be FARTHER AWAY UPSTREAM, behind the brown footbridge. The same river passes beneath both. Keep every other foreground detail and all three people, ferry, museum, safety railing and map unchanged. No text. Flat 2D solid fills and clean bold lines. Keep all essential subjects at least 10 percent inside edges.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-2c52290c-f111-447c-9e05-9a4c39244395.png",
+      "sha256": "cb0f2f15e99e15da1382526e3f025a4940e901ad5b4af7c33849dfe85f35b04c"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "9421bb4bb1f97c822674b76871fc5ee9b7b4398f02e9bdb626223b2a8cf9283e",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T11:31:58.777066+00:00",
+    "sha256": "aa1fe9d712e3a5be1ae751454a4c7ae80703190d56787aa7c795c702c2eb9563",
+    "note": "Three consistent people safely behind rail compare map. Four-window ferry, museum round window, farther gray road bridge and nearer brown footbridge agree with map ordering. Unlettered, full figures within safe margins.",
+    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  }
+}

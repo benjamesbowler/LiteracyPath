@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-b-26",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:32:20.198Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-6d80417a-4cc9-416d-bb19-3e072989a3c6.png",
+  "sourceSha256": "828e1f737bb5f3d3a851779751b2ab719cac0644058c051bf8e2523053af3a03",
+  "output": "public/guided-reading/world-discovery/b-26/page-05.webp",
+  "outputSha256": "e681df74b9ae1cc1214158fb4946d8f4189824ad7af45a193c7cf95da4388b6a",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Keep this exact camera playback close-up but make the camera and hands 15 percent smaller within the SAME LANDSCAPE 3:2 composition. Leave at least 130px plain background ABOVE the highest top shutter button, and ample background beside hands. Preserve saved RED-on-BLUE photograph, triangular playback icon lower-left, gray camera rear with two round buttons, both anatomically coherent hands. Wrists continue out bottom naturally. No change to screen contents, no new objects/text. Entire camera safely inside central 75% width/height. 1536x1024 landscape 3:2, clean smooth flat fills and crisp lines, no grain.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-4263a4d6-81d3-416a-a8fc-7a25635b318b.png",
+      "sha256": "88c678d2d6b55ee36c72207c3663c79b5f7bf5e13606c89a1d3d3ff5e500703b"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "92cd13a2772ca31a9f3db39eee27ddd9fb03eec7e4ce66785453ca94f8823761",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T07:35:24.505983+00:00",
+    "sha256": "e681df74b9ae1cc1214158fb4946d8f4189824ad7af45a193c7cf95da4388b6a",
+    "note": "Directly viewed repaired native PNG and installed WebP. Whole two-button camera safely inset including shutter; saved red-on-blue photo and plain triangle playback icon clear, coherent supporting hands and no actual blocks in close-up.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

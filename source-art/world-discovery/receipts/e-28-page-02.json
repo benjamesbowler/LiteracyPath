@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-28",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:06:49.022Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-b2bdcc92-2af0-4ac8-8eb6-8a30e42796b6.png",
+  "sourceSha256": "54c411a8247ee714840bc8c431b14b35ef981198376c23fe994199038ae4f714",
+  "output": "public/guided-reading/world-discovery/e-28/page-02.webp",
+  "outputSha256": "36787cc415d9451c5b921a14089c14e97777a2a023baaeefabc051f0b4930c08",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Create one finished landscape 3:2 picture-book illustration. Clean flat 2D cartoon with crisp bold dark outlines, solid color shapes, restrained cel shadow, no grain, paint, photorealism, 3D, lettering, numbers, logos, panels or outer border. No people. The reference locks tree and plant designs ONLY, never copy its reference-board layout or add animals/props not explicitly requested. A high close view of neighboring rainforest CROWNS: many broadleaf branches at VARIED HEIGHTS spread interlocking clusters of separate leaves. Small irregular patches of blue sky remain between clusters. Clearly living tree crowns with branch structures, not a flat continuous roof, not one sheet, not straight rows of identical trees. The familiar forked brown tree's upper branches enter near center among neighbors. No ground or roots, no people, no toucan, no fruit, no fallen log, no arrows or infographic panels. Focal central cluster and its sky gaps comfortably inside image; surrounding leaf context may naturally extend off edges.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/e-28-reference.webp",
+      "sha256": "10733d122bd7d6a035e178f4420a6f7ef1a986e9542e980fbc5209c16f807978"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "df581f1e09d045c551bc8ca44241da96c6f37a19dcfc6731641f5fa8f7f955bf",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
+    "sha256": "36787cc415d9451c5b921a14089c14e97777a2a023baaeefabc051f0b4930c08",
+    "note": "Interlocking broadleaf crowns at varied heights with natural blue-sky gaps, coherent close canopy view; peripheral foliage intentionally extends off edges.",
+    "limits": "Individual installed WebP directly inspected. Whole-sequence, reader/card and audio checks separate."
+  }
+}

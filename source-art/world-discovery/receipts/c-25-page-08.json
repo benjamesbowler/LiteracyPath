@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-c-25",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:33:23.143Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-8376929c-dce8-43df-b84d-6b8b189021f0.png",
+  "sourceSha256": "db8823ea915fc2c313842f82755237279dfd2022935b30ed1d2b76cda8ba4f17",
+  "output": "public/guided-reading/world-discovery/c-25/page-08.webp",
+  "outputSha256": "32de188303a7fbcba4ec233017f2c91e0c1f105ff488aaaf148f2c9b3654d4a2",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit ONLY the switch in first classroom illustration. Replace erroneous double silver bars/extra elevated post with exactly the switch in second reference: one blue base, TWO terminal posts (left red wire, right yellow wire), ONE CLOSED silver blade bridging those two contacts, one blue insulated knob on right free end. No extra posts or upper floating blade. Preserve Kit restoring YELLOW insulated clip onto left bulb contact, glowing bulb, all three wire routes and rest scene. No lettering, clean smooth flat colors no grain, same3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-2c8356cd-f813-495b-8062-586117a3eabc.png",
+      "sha256": "f6faf507a54a271e848d5b0f1f83eae5b1c5543b48a9b55bbe89de03e0958ead"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/c-25/cover.webp",
+      "sha256": "a6ad311e13edac9773a764b4655c664fb9fc779671fa14561ff999368e935c2b"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "80a761f584aae85b11ebe49a406e8cb90888a1b11ff118888f7b7b3758e1246c",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T12:34:06.186420+00:00",
+    "sha256": "32de188303a7fbcba4ec233017f2c91e0c1f105ff488aaaf148f2c9b3654d4a2",
+    "note": "Native and installed WebP directly viewed. Single two-terminal switch blade closed with blue knob, Kit restores yellow insulated clip to left bulb terminal, bulb glowing. No duplicate switch post/blade; child and circuit continuity clear.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

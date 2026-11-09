@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-e-26",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T05:54:51.982Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-1aa4a198-c907-4ac1-849f-eea399994d9b.png",
+  "sourceSha256": "5e11c3071a7bf61286fd8c63256835f01375085c20ec5a33c1d614309c0221f5",
+  "output": "public/guided-reading/world-discovery/e-26/page-06.webp",
+  "outputSha256": "259188f949671932b246720d61e1572ec4735b9159a5aacc0ba1a2d043dd1d7a",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Original landscape 3:2 finished nonfiction illustration for A Message Crosses the Internet. Clean bold 2D cartoon, crisp dark outlines, flat clean fills, at most restrained cel shadows. No gradients, texture, 3D, lettering, digits, logos or watermarks. Keep essential subjects in 10 percent safe margin. Attached references lock only the specific hardware/character designs named here, NOT their layouts or other content.\nExact scene: One coherent small equipment-room scene. Exactly one dark-gray server cabinet with four simple rack bays and green status lights at center-right, connected to a single blue cylindrical network router at left by one continuous blue cable that visibly plugs into both. A short chain of three abstract cream packet tiles, teal/blue markings and same purple destination circle, floats above the cable as teaching symbols pointing toward server. Server is physical hardware resting on the floor; router on shelf. No other computers, no humans, no laptop/tablet, no red boat outside a screen, no magical cloud or extra network schematic. Unlettered simple walls and equipment. Match hardware design from attached cover.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/e-26/cover.webp",
+      "sha256": "00b5aa84b37630f35e0e0b81925c6c0f45b902379e690fd5fb8bc9f76fbdc0ea"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/e-26/page-03.webp",
+      "sha256": "34894b7387dec7146fcf5c5fe56dfaf7ac402769bd7aaf4caf2129d176d2b2c5"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "a04b6d0950794fec64943013d30facc27daa8410774f7062963be893ca44e0a3",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
+    "sha256": "259188f949671932b246720d61e1572ec4735b9159a5aacc0ba1a2d043dd1d7a",
+    "note": "Physical four-bay server and one connected router in equipment room, abstract packet model above clear connecting cable; no magical cloud.",
+    "limits": "Final whole-sequence, actual reader/card and audio approval pending."
+  }
+}

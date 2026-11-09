@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-e-22",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:07:34.019Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-8428c5df-3186-4e08-bf73-5d7b2a5a1c3d.png",
+  "sourceSha256": "9a9dcea23ff23e7c23b61f59d87b23308cef3395dd0e362726a37645a96196b8",
+  "output": "public/guided-reading/world-discovery/e-22/page-02.webp",
+  "outputSha256": "43e49ffb51e87bec0e2e798081f22c6d0294ad6fd27ba23aa99c8643449e6729",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. One finished landscape1536x1024 full-bleed children's nonfiction illustration, a single coherent modern day scene in Lacock village. Use BOTTOM panel of reference only as architecture/palette design: connected pale stone cottages, muted terracotta pitched roofs, one black timber/cream cottage, ordinary narrow road and clear raised pavements. Show two modern residents in everyday clothes walking separately on the pavement, one adult in rust-orange coat and navy trousers carrying a grocery tote, another adult in blue jacket and dark trousers near a blue house door. Houses are lived in today with a few flowerpots; no historical costume or empty museum feel. Camera pulled well back: ALL people including hair/feet and main whole houses at least12 percent from edges, feet18 percent above bottom. Natural anatomy and grounded feet, road safely separate. Bold clean2D cartoon, crisp continuous dark outlines, flat smooth clean colors, restrained cel shading, no paper/paint/grain texture. No flags, crests, religious buildings or symbols, trains or rail station. No logos, letters, numbers, signs, pseudo-writing or labels anywhere. Reference is designs only; no panels or card frames in final scene.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/e-22-reference.webp",
+      "sha256": "172548db2bfe23621971ad50050336ebb46b8c078d160f10725fc069d806952a"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "2aff8b9432244a41072eb7c7376c77e21594d83a655dfa83d99e44c528e86755",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "43e49ffb51e87bec0e2e798081f22c6d0294ad6fd27ba23aa99c8643449e6729",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T12:07:34.020Z",
+    "note": "Direct native inspection: coherent Lacock ordinary stone and timber street with two modern adults, both grounded on separated pavements; left resident about13% from left and feet24% above bottom. Lived-in houses and groceries shop, no religious landmarks, historical costumes, lettering or rail. Background street continues naturally beyond framing."
+  }
+}

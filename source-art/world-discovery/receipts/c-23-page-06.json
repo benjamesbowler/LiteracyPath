@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-c-23",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:31:05.483Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-1882342f-ac24-4417-a39e-abc6fdac5e71.png",
+  "sourceSha256": "807a75741ad85c729595f8790d058b66f90ef8792661293de77676f1bba02f29",
+  "output": "public/guided-reading/world-discovery/c-23/page-06.webp",
+  "outputSha256": "189950619d31a52c9cc58a8aea6e756d447a1aaef8516951d057d7bd441ccd56",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact arm anatomy illustration only by uniformly scaling the entire intact arm, every bone, muscle, tendon, hand and shoulder together to 74 percent of its present size, centered on the same 3:2 canvas. Expand the same plain cream background around it. At least 12 percent empty margin on EVERY side, no crops or frame. Preserve every existing tendon attachment and distinct bone exactly, all muscle states and pose unchanged. Do not redraw, add, remove or change anatomy. Keep crisp smooth flat colors with no grain or texture. No lettering.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-dea1d406-401f-48a5-a951-4b2a27baa77e.png",
+      "sha256": "bf7b6661fcd61cbf1135e948d309037d8880b9bb43c7d2763a071becfa55af23"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "25f742b6e36d6eb87de003ac9ecc80f9d512f2d1edf34f8713c6b0c4130e8702",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T12:33:23.334751+00:00",
+    "sha256": "189950619d31a52c9cc58a8aea6e756d447a1aaef8516951d057d7bd441ccd56",
+    "note": "Native and installed WebP directly viewed. Nearly horizontal active extension, rear triceps shorter/thicker and front biceps longer/thinner, correct distinct bones/tendon insertions. Generous margins.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

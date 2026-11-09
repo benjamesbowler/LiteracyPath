@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-c-21",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:01:53.993Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-f840df2f-fe48-4fa8-b00d-80a839ea57c8.png",
+  "sourceSha256": "daac11edf5b174c49f09c2e29585c3dd9e09e724aa696eda94253a247cd7405a",
+  "output": "public/guided-reading/world-discovery/c-21/page-08.webp",
+  "outputSha256": "096b555197bf9bf907e4ae5352e578b2a230db71c3ce503b8ef31bb28d2200b1",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit ONLY the distant background airport scene of the FIRST reference image. The SECOND reference only locks the established cast and props; keep their original relative scale. Kit and Zoe are equal height when both appear. REMOVE the entire passenger jet bridge/boarding tunnel that falsely meets the plane tail, replacing that structure with matching clear apron/terminal background. Keep the white airplane itself, its teal tail and nose-left orientation unchanged. Keep every foreground person, face, hand, blue luggage with orange stripe, handle, white tag, conveyor and all other foreground details exactly unchanged. Do not add a new bridge or doorway. Full-bleed smooth flat colors/crisp lines/no grain, same3:2 landscape.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/c-21/page-08.webp",
+      "sha256": "95c6aeecc144cf32d4294dba3f1d387d1c083f534a3d184e7dd3c78d958dd0ad"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/c-21-reference.webp",
+      "sha256": "7b43aa2de357cf3abba0e67409cbcec8f0ad0a190ad2eac801aaa542875d9e54"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "adafabd724e58b7f6c3e03af760b56ae0cdebf5dbdc7ec8e6a3d11c2e19a0ce2",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T13:02:36.803779+00:00",
+    "sha256": "096b555197bf9bf907e4ae5352e578b2a230db71c3ce503b8ef31bb28d2200b1",
+    "note": "Native replacement and actual installed WebP directly viewed. Distant tail-connected jet bridge removed; clear aircraft and apron. Kit grips side handle, adult grips top handle of same tagged blue bag with orange stripe; natural hands and safe margins retained.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

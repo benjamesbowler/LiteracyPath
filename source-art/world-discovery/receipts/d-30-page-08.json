@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-30",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:24:31.292Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-ccbdaca9-ec07-4685-8ec0-cfcdc588aca8.png",
+  "sourceSha256": "7bc80f44c4d47c57257b60da1c16e3907d9db31d6b332cf03d8ceab97dc4d5bf",
+  "output": "public/guided-reading/world-discovery/d-30/page-08.webp",
+  "outputSha256": "05c412f959e0e9a917feafe83a2855f0c99bea0c0abb5fef2581df14a532c734",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Create a landscape1536x1024 early-reader science illustration, matching reference crisp continuous dark outlines and flatclean colors, restrained cel shadows, no texture/photo/3D. Entirely unlettered. Dark navy space, accurate same Atlantic-facing simplified Earth. Essential objects and arrows at least8percent inset. Same gray box satellite with TWO blue rectangular panels, each3columns by2rows. Relative diagram sizes simplified, not to scale. A comparison of TWO orbital heights in ONE diagram. Earth centered(768,512),radius125. Exactly TWO thin WHITE concentric circular guides centered on Earth: inner radius260 and outer radius370. Exactly TWO gray satellites, ONE on each path. OUTER craft centered at12o'clock(768,142), totalwidth250,height85, panels horizontal; INNER craft centered at9o'clock(508,512),totalwidth190,height65, panels horizontal. Keep both craft well separated from Earth and from each other. Each craft has exactly two BLUEpanels with3x2cells. No other satellites, ghostcraft, dots indicating craft, arrows, tangent, forces, flames, lines linking craft or captions. Both whole paths clear and thin, both entirely in frame:outerbottom882, top142 behind craft. Earth recognizable samecoastline. This only compares near/far, no size or period numbers.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-cd968b2f-898b-476c-99d0-bb8449f4d7eb.png",
+      "sha256": "2d681d841f052964d79bee4fc07ac4576ea078811471bb44a2fae1c0f95b4a4f"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "66c03f602e2ff45268c6d939a796addf9ba66a77cb551a19d2ddd57408b04e48",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.553Z",
+    "sha256": "05c412f959e0e9a917feafe83a2855f0c99bea0c0abb5fef2581df14a532c734",
+    "note": "Actual PNG and installed WebP directly inspected. Exactly two concentric height examples and one craft on each, panels each six cells, no period/scale labels, whole paths and craft safely inset.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

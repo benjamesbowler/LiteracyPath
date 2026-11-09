@@ -1,0 +1,35 @@
+{
+  "bookId": "world-discovery-e-24",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T14:26:24.213Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-e2baf0bb-77c5-401f-9462-bf670dcc1cdf.png",
+  "sourceSha256": "c1625895c323a4f746caccf95689855e3305a92ec69974c0bbf53236d31e5711",
+  "output": "public/guided-reading/world-discovery/e-24/page-06.webp",
+  "outputSha256": "dafa9b2da70b36900a2ce28bdcc9c2b84815a75661f73badc903c9282588e9d4",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Landscape1536x1024 UNLETTERED early-reader scientific illustration. Crisp dark outlines, solidflat brown/gray/green/orange colors, restrainedcelshadow, no realistictexture/photo/3D rendering. Warmcreambackground, one diagram, broad margins at least8percent. Edit same TOP-DOWN solidrock model after suddenSIDEWAYSslip. Exact samejoinedouterrectangle, leftwarmbrown/rightgraybrown, thinclosedverticalfault, fixedcamera. TheBLACKstripe is now STRAIGHTwithin eachblock but OFFSET whereitmeetsthefault: LEFT half horizontalaty480 fromleftedgeTOcentralfault; RIGHThalf horizontalaty615 fromcentralfaultTOrightedge. Thetwo stripe ends touchfault at DIFFERENTpositions with135pixel offset. NO blackconnectinglinealongfault, NO continuousS-curve remains. Preserveopposedorange arrows: LEFTpointsUPpage,RIGHTpointsDOWNpage, bothPARALLELtofault, indicatinghorizontalgroundmotion viewedfromabove. Blocks stayincontact, no whitegap, verticalexplosion, detachedpiece, wavefront or labels. Wholemodelinsidegeneroussame margins.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-9b0ee125-21f5-4546-981d-bb5407cb61a7.png",
+      "sha256": "2b26d8b713aaef351eba2b71a1d5bc46899e859c67ab2f5eede87792c4b82175"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "17528444f6f2269814e9707fa662c0af729daea3afd65b636b1b1d274c6dcea2",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:26:48.366Z",
+    "sha256": "dafa9b2da70b36900a2ce28bdcc9c2b84815a75661f73badc903c9282588e9d4",
+    "note": "Direct PNG and installed WebP inspection: top-down joined blocks retain left-up/right-down arrows parallel to the closed fault. The formerly bent stripe is now straight within each half and visibly offset across the fault. No gap or vertical step; all geometry and arrows safely inset.",
+    "reviewer": "/root/gap_taxonomy",
+    "limits": "Individual installed image inspection; independent sequence, reader, cards and audio reviewed separately."
+  }
+}

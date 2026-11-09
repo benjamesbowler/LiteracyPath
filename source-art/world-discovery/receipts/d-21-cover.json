@@ -1,0 +1,40 @@
+{
+  "bookId": "world-discovery-d-21",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T05:10:44.613Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-4ac7f4a1-f783-4ccf-ae7f-ba3092347591.png",
+  "sourceSha256": "13fceff8ee6d5375c0890ee37dd6ab6cdb663df90ec212e1ae259e2d665afb51",
+  "output": "public/guided-reading/world-discovery/d-21/cover.webp",
+  "outputSha256": "e849be4c5fec53024c3149b7db1d178757dbb8f887de93a7aecbe8228153a1c9",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Correct the first image's crane and container geometry only. The front cargo-door end spans from the leftmost top corner to the central top corner directly over the vertical line where the two-door end meets the long corrugated side. The near left lifting foot MUST sit exactly on that central corner, NOT over a point in the middle of the top edge of a cargo door. Move that foot and that end of the long near yellow rail rightward to the central top corner. Show the orange roof clearly as a narrow perspective parallelogram. Its four corners have four metal corner castings; make a rectangular yellow spreader directly over that same four-corner parallelogram, with one short vertical connector into each corner. The near rail spans the full corrugated long side between its two upper corners; the far rail is behind it, offset left in perspective by the width of the cargo-door end. The second image shows a physically clearer four-corner spreader for guidance. Preserve the port, moored ship, completely empty quay, single orange container hanging level with closed doors and one blue square on the LEFT cargo door, and clean outlined flat cartoon style. No people, lettering, extra markers, chains or changes to other objects. Do not repeat the erroneous middle-of-door attachment from the first image. One finished landscape 3:2 cover.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-8cd7e30f-2bb8-40e4-9d52-8293ddbe15c2.png",
+      "sha256": "4fadd86c9e6ad07329d2dcca022bbb70751bc0db4a66ba5ed2fc9bcbc11b0528"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-54cf0ecf-5828-4905-8a12-499200c482f2.png",
+      "sha256": "abdd92b6a52228fe5d32b594a36aceeac9ec107aa6cb6f384b791505d62627d2"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "4cd850616c2e31aecc557996032490d0fb984ea0f222fa11e0f2a878a417a9c7",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.492Z",
+    "sha256": "e849be4c5fec53024c3149b7db1d178757dbb8f887de93a7aecbe8228153a1c9",
+    "note": "Direct image inspection: corrected rectangular spreader now meets four roof corners, near foot at door/side junction; closed level container and single left-door blue marker preserved; empty quay beneath load, moored ship, no people or text.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

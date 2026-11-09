@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-28",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:19:19.641Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-81a052d4-7348-412f-b44e-684c3230e3cd.png",
+  "sourceSha256": "8f1970d7d62a9037e26787c9c8b433b701b75fca6e6e92007afb215522d8f0b2",
+  "output": "public/guided-reading/world-discovery/a-28/page-01.webp",
+  "outputSha256": "58a6f49ac8b629c53214ebcc7f3c71df0bf236b89cacec25e842d1aa17d9ec81",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Correct the ant-to-leaf size continuity only: make the ONE ant55% of its present size, preserving exactly six legs, two antennae, head pointing RIGHT and its complete anatomy. Keep its head near its current position so it is still approaching the leaf, and all six feet remain on soil. Its body length excluding legs/antennae should be about HALF the leaf length, as in the other scenes. Preserve the nest, pebble, leaf, amber drop, camera and clean background exactly. No other change, no extra ant, no dots or writing.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-4dfd3416-0556-41fe-b284-b1d7f51f2443.png",
+      "sha256": "f1829507315bcd758c03d8f7a400d020e91685d35492ca6426d1abc526c5ea1d"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "fbf293511c4adb19a75a183f30ea70ea6bdd6e4a759309a5079a91a68021dff0",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "58a6f49ac8b629c53214ebcc7f3c71df0bf236b89cacec25e842d1aa17d9ec81",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T10:19:19.643Z",
+    "note": "Directly inspected repaired opening: one ant approaches food with six distinct thoracic legs, two antennae and normal head. Ant body now about half leaf length, matching cover/feeding scale. Nest left, single pebble between, leaf/drop right; no trail marks and safe complete margins."
+  }
+}

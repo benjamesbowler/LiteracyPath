@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-27",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T06:29:58.941Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-f9c436fb-8322-4ecd-a885-c9fe234843c6.png",
+  "sourceSha256": "86521961e43aeab3d38dae1e1a1064e037d42206590cbe2bcd0da227c4e2613e",
+  "output": "public/guided-reading/world-discovery/e-27/page-02.webp",
+  "outputSha256": "63a82f208c17de89f7caafb6ff8fecf7e109eed7dbffb2f94d1efdbafc49d467",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this cotton gin factory illustration: zoom the camera OUT 25 percent to show generous full-bleed room and floor on every side. Keep the whole gin, both separate output bins and the cotton bale at least 12 percent away from every image edge. Preserve exact grounded connections, closed guarded machine, white fibers left and dark seeds right, neatly bound white bale, no people. Keep machine and bins grounded on visible factory floor with continuous shadow/contact. Clean flat bold 2D cartoon. No new objects, captions, lettering, white border, inset, gradients, 3D or texture. Landscape 3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-468f34cf-a951-4279-900e-453ecd16dac1.png",
+      "sha256": "16230f6bf3640c814fe7aae10f6fafab8d1dfc07a712e1d5c962a9e49b469260"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "cbf57ed0e204379362a97b760486f24b628e65ad467026e2a078e7ecc3b4b28e",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
+    "sha256": "63a82f208c17de89f7caafb6ff8fecf7e109eed7dbffb2f94d1efdbafc49d467",
+    "note": "Guarded gin with distinct fiber and seed outputs and bound bale; all main objects have safe margin and grounded supports.",
+    "limits": "Individual installed WebP inspected. Independent whole-sequence, actual reader/card and audio approval are separate."
+  }
+}

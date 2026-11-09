@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-28",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:21:53.333Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-055dfc41-ec1b-4c59-97b6-10e93b21adfa.png",
+  "sourceSha256": "9eeaa051724b0676d8fbbda175f25c26fb58c1847fe4142c240051f378fcbcab",
+  "output": "public/guided-reading/world-discovery/e-28/page-07.webp",
+  "outputSha256": "c248486087f0cfc4766f3d55193edbcd0417bd7718a16836adfb314c61e3df8a",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "One finished landscape 3:2 nonfiction picture-book illustration. Bold clean flat 2D cartoon, continuous dark outlines, smooth solid fills, restrained cel shadows. No text, numbers, logos, outer frames, extra panels, texture or 3D. No people. References lock requested designs only; do not add other reference-board objects. Keep essential bird/plant/tree-gap action within central 70 percent and at least 12 percent safe margin. One continuous forest floor comparison, no split panel. Under the familiar buttressed trunk on left, one healthy broad-leaved low young plant thrives in darker shade. Several feet to the right a DIFFERENT small upright tree with narrower leaves stands in a modest brighter sun patch through a small natural gap. Make both healthy, distinct species shapes without names; no dying yellow plant or simplistic healthy-vs-dead comparison. No log yet, no animals, no extra people or legend. Both complete plants from roots to top leaf comfortably within central two-thirds, with shaded forest context beyond.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/e-28/page-01.webp",
+      "sha256": "1a93c8d05a1083e6584006b540336d95184821d1b2f1304aa980a1f559356595"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "df581f1e09d045c551bc8ca44241da96c6f37a19dcfc6731641f5fa8f7f955bf",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
+    "sha256": "c248486087f0cfc4766f3d55193edbcd0417bd7718a16836adfb314c61e3df8a",
+    "note": "Distinct healthy plant shapes in shade and sun; no false dying-versus-healthy comparison.",
+    "limits": "Installed WebP individually inspected. Independent sequence review, reader rendering, cards and audio checked separately."
+  }
+}

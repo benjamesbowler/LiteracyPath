@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-b-23",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T06:23:09.084Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-ddf74364-9ca6-4e7c-b350-9f8ee05a1c97.png",
+  "sourceSha256": "7a17102ff6bcf3479a41c4700a5e5e64c0121b84a79aa0d807c9e351febaa98f",
+  "output": "public/guided-reading/world-discovery/b-23/cover.webp",
+  "outputSha256": "6568a807795cf036f49932f97953e8902a44b29f8a3142866dfb61caa20a39dc",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit image one: pull back the camera20percent and extend the same classroom around the subject. Place the TOP of Zoe\u2019s hair at least120pixels below the top edge and the BOTTOM of the plate at least120pixels above the bottom edge on a1536x1024canvas. Keep all existing identities, hand/peeled-apple contact, separate child-jaw teaching model, table, chair, window and plant intact. Preserve her closed-mouth natural smile. This is a wide room view with generous breathing room, not a face close-up. No text.\nClean bold continuous dark outlines, perfectly smooth flat vectorlike colors, no texture, grain, stipple or painted finish.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-75c9eb7f-4e70-49ea-a61b-c05973e53b67.png",
+      "sha256": "33e9d4d51a0120903c386907ccf0e9c179ef3f34e9e5fd2e833c0fbedeba39c9"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "645b4a3a4d22eb876a75ddaa40ade656cc1ad18dd1be8213019b648b10ad63d3",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T06:23:39.177765+00:00",
+    "sha256": "6568a807795cf036f49932f97953e8902a44b29f8a3142866dfb61caa20a39dc",
+    "note": "Directly viewed native PNG and installed WebP. Zoe holds one thin peeled apple slice beside a separate child-jaw teaching model. Her whole head, both hands, plate and model have generous margins. Closed-mouth smile, locked clothes, clear smooth outlined shapes and no lettering.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-22",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T06:50:46.814Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-6af6f440-aadb-4c58-9962-d6ec7dd38c05.png",
+  "sourceSha256": "d6cdc039ca77e4ed2f80e14ebafb87df17c6d809ca67c104d986c555bea04894",
+  "output": "public/guided-reading/world-discovery/d-22/page-01.webp",
+  "outputSha256": "8465b8ffdba37d3bd33f051a00f80658122787df2c87cff02150968f48da8fef",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Make two precise corrections to this exact map illustration. Shrink the entire rectangular map uniformly to 80 percent of canvas width, centered horizontally, preserving its aspect ratio and all seven labels. This gives at least 10 percent pale cream background margin on both left and right. Keep the map safely inside top/bottom too. Add the missing island of Madagascar in its correct location just EAST of southeast Africa, separated from the mainland by the Mozambique Channel, orange like Africa; its long axis is northeast-southwest and length about one-quarter of Africa's north-south extent. Preserve every other coastline, continent color, exact label and flat clean 2D treatment. Do not add any other word, diagram or object.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-a3ac28d0-2151-4f0f-b402-db5ec7406fcb.png",
+      "sha256": "92ba3716b1466e5889a39ece25a496c6892226415b6694f7ec5d87c5ac309181"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "fb0bd240fdf5f14fbd4f0ae2e2b112472e599d3754b28e979aad8f5f59410003",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.500Z",
+    "sha256": "8465b8ffdba37d3bd33f051a00f80658122787df2c87cff02150968f48da8fef",
+    "note": "Direct inspection: full-world map safely inset by ten percent; exact seven labels correct, same colors, Madagascar restored orange east of Africa across sea, Antarctica and real major coastlines visible, no additional objects.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

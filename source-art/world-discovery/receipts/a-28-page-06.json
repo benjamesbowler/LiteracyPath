@@ -1,0 +1,37 @@
+{
+  "bookId": "world-discovery-a-28",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:27:25.435Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-5684eea2-9203-4b19-9770-77f5522620b5.png",
+  "sourceSha256": "4201c8d4f493121ffc38a622d326a07a945403b47de14a38318a5240e7e08034",
+  "output": "public/guided-reading/world-discovery/a-28/page-06.webp",
+  "outputSha256": "5e14b8b39863a213ee461c149f1613cdb1825ccdfa683c6785e7661aa7c39387",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Integrated nonfiction teaching diagram of this same overhead garden route. Exactly THREE recruited ants now walk RIGHTWARD in a loose line around the bottom of the ONE pale central pebble toward the green leaf/drop atRIGHT, like the three ants in first reference. A FOURTH original ant stays just outside the nest atLEFT, facing the nest and separate from travelling line. Total FOUR ants only. Every ant has exactly SIX distinct thoracic legs and TWO elbowed antennae, thin waist, rounded abdomen. A thin DOTTED AMBER route from nest around pebble to food represents the INVISIBLE scent explained on preceding page; travelling ants follow it with heads toward food. No solid track, glow, cloud, extra inset or arrows. Preserve same small ant scale, complete leaf and nest opening safely inset12%, clean smooth warm-brown ground. Crisp flat2D cel colors, no texture or writing.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-115a8cfa-7f6f-4662-b0ab-814d12238709.png",
+      "sha256": "90cacde430ed671e3f1332e0f6242734ac783f7272e1f599a8e53000e8e9760c"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-02eff548-9db4-4286-96c5-a1fe461458e6.png",
+      "sha256": "9c053bbf081e43a8fe9f796000000b331fc1d111a161def4abf7513adf2caf4f"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "fbf293511c4adb19a75a183f30ea70ea6bdd6e4a759309a5079a91a68021dff0",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "5e14b8b39863a213ee461c149f1613cdb1825ccdfa683c6785e7661aa7c39387",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T10:27:25.437Z",
+    "note": "Directly inspected recruitment diagram: exactly three ants travel right along dotted amber explanatory route around the pebble; fourth original ant stays by nest facing left. Heads toward food on travelling ants; six thoracic legs and two antennae, no arrow/paint/cloud, safe scene margins."
+  }
+}

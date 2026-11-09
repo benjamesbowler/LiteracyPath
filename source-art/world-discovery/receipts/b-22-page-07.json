@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-b-22",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T05:59:11.296Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-d2ee7c7a-4d58-4e56-8cff-52c6b8c7e585.png",
+  "sourceSha256": "0f54c11e99dcb11953ef9178d1ba1f1e47cf3ef57846d9533bd52a147f0567ed",
+  "output": "public/guided-reading/world-discovery/b-22/page-07.webp",
+  "outputSha256": "324f995c18bf9d223ccb2548abf494e9817153a5c6d0dc8bb0025d7e497f67fe",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Create a finished 3:2 clean flat bold outlined children’s educational illustration of this EXACT FLAT RECTANGULAR WORLD MAP. Keep its rectangular projection, coastlines and water-route geometry. Do NOT place the flat map on a globe: no sphere, circular outline, globe stand, room, people, extra inset or borders. Use smooth green land and uniform vivid blue water, crisp black coast outlines and one thin orange teaching route kept entirely in water. Keep the route line very thin near the Bering Strait so it does not touch Alaska or Asia. The route wraps across left/right map edges at the same southern latitude. Add exactly these five white sans-serif labels in correct blue water regions: Atlantic Ocean between Americas and Europe/Africa; Southern Ocean north of Antarctica; Indian Ocean between Africa India Australia; Pacific Ocean west of the Americas; Arctic Ocean north of Europe and Asia. All labels fit comfortably within the map; no extra lettering. Smooth the route corners without changing its course. Leave the pale cream margin around the rectangular map.\nFinish: smooth flat clean vectorlike color. No grain, stipple, texture or paint.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/.artifacts/nonfiction-next-50/geography-reference/world.png",
+      "sha256": "c7493cfc2a2a551cceab0731cd508576f9f7d1e5a2ddcd7cb9edf9f9bd4a314d"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "20ecca19d99fe9f835680d66d0bb8b60c48e7bfbd2c48e9ed200c12d2524db14",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T06:00:35.538Z",
+    "sha256": "324f995c18bf9d223ccb2548abf494e9817153a5c6d0dc8bb0025d7e497f67fe",
+    "note": "Directly viewed native PNG and installed WebP. Single flat rectangular world map preserves broad coastline geometry, all five exact ocean labels in correct water regions, and an uninterrupted water route wrapping across corresponding map edges. Bering connection remains in water.",
+    "limits": "Direct image inspection only; independent sequence and app review follow separately."
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-e-23",
+  "slot": "page-10",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T14:00:59.669Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-59c39388-71ad-4f66-bd19-de360680ee2b.png",
+  "sourceSha256": "e3417ce83bca50da7d078baae0abe1b44b58c15f8b87068ea5ffbff5d8f2d40e",
+  "output": "public/guided-reading/world-discovery/e-23/page-10.webp",
+  "outputSha256": "60a3a1ae301913ef3a686d8e00b629ee12f3045ac189754b2b0214c6c703fd15",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit exact roomscene to show the completed ballcatch. Preserve allfigurepositions, equalcastheight, clothing/colors/hair, sameleftwindow, groundedbluechairs andwoodtable, and existinggenerousmargins. Move the ONE same largeredball RIGHT toZoe, stillrestingontable. Zoe gently holdsballstillwithbothnaturalhands touchingit. Kit's raisedpushinghand isnowloweredrestingontablebesidehisotherhand; hewatchesZoe. REMOVE ALL blackmotionlines, no rolling/flyingmotion. No other ball, ghostball, anatomyoverlay/inset, arrow, writing or extraobject. Flatclean2Dcartoon identicalreference. Allhair,feet,tablelegsandballentirelyinside8percentframe.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-faf1d7fd-61be-4ea7-8740-ce67da6a2541.png",
+      "sha256": "ebd0ead70e24ce0ebb1781dca6fc17631729b533b4f2e8b7695445faa340e2b2"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "1b0de6058b2611192f79942f4ecd03b97dc9da569d20816897fdbc11f5ab098a",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.561Z",
+    "sha256": "60a3a1ae301913ef3a686d8e00b629ee12f3045ac189754b2b0214c6c703fd15",
+    "note": "Actual PNG and WebP inspected: same large ball stopped and held by Zoe, Kit hands now rest, no motion marks or overlays, room and cast continuity and margins clear.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-28",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:39:40.700Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-6cfb5b26-2dd4-497b-b93e-07f60e08212a.png",
+  "sourceSha256": "078515b9318bf93f91ed5538ccdc426b9ab1b5a8890dfd9c35268c19248d0899",
+  "output": "public/guided-reading/world-discovery/d-28/page-01.webp",
+  "outputSha256": "86505f10f6c725cba307140d2775459a64b224549aa5cf129cc62d36d7d61fd5",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Keep the existing 1536x1024 flat illustrated oak leaf, vein pattern, small lower-right chewed notch, background, caterpillar scale and placement. Repair only caterpillar leg anatomy and gripping orientation: it hangs below the leaf edge with its belly toward the leaf. Its small visible legs MUST curl UP toward the leaf and touch/grasp the edge, rather than dangling down away from the leaf. At the brown head near the notch show three small jointed thoracic legs; behind them four fleshy abdominal prolegs and one rear anal proleg, with far-side pairs naturally hidden. Mouth touches the notch. Segment row may rotate slightly so feet reach upward. No expressive face, human teeth, added animal, text, arrows, grain or realism. Bold dark outlines, flat 2D fills. Preserve entire leaf within generous margins.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-2ad81622-2c1c-4174-ac37-16eb9894f29e.png",
+      "sha256": "32987ce94e172785cdea92612b5cf56ea341ae748309c441f1a8c9419bba7fa4"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "78c2904e582ff26b4d4ca84266e2154c9a1849a22caf6695aebc788bc09c7b58",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.539Z",
+    "sha256": "86505f10f6c725cba307140d2775459a64b224549aa5cf129cc62d36d7d61fd5",
+    "note": "Actual native PNG and installed WebP directly inspected: Repaired caterpillar hangs under same oak leaf edge, feet now grip upward toward leaf; mouth at local bite notch, no expressive anatomy, safe framing.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

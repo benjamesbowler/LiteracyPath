@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-a-21",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T05:07:31.251Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-7b37b084-2e46-483c-ad41-71aa30e55905.png",
+  "sourceSha256": "d97c63d7e4d2bb99bc64ee49d7842e0b0beac925e19547670d0d32f77de03212",
+  "output": "public/guided-reading/world-discovery/a-21/page-05.webp",
+  "outputSha256": "43521192072dbe79cd124bfa39466dfa5a050a8f7dffb76609acdda3525f51df",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Repair the attached exact book-page illustration: the old passengers have already left. REMOVE the gray-haired older woman in plum and the bearded man in green entirely. There must be exactly THREE passengers seated inside plus the navy-shirt driver: yellow-blouse glasses woman in first passenger window, gray-top red-haired man in second, coral-top braided woman in third, empty seat in fourth window. Keep exactly four passenger windows. All three seated, door fully CLOSED, bus stationary beside same first-stop blue sign and planter. Preserve bus design, smooth flat colors, sidewalk, buildings, proportions and driver. No other people anywhere.\n\nAuthoritative page specification:\nUse case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: The Bus Stop; World Discovery; nonfiction.\nSetting: One ordinary modern city bus at two curbside stops on a quiet street in daylight. First stop has a round blue bus-pictogram sign and square planter; second has the same pictogram and a plain bench. Right-side sliding passenger doorway; traffic keeps away from the curbside people. At each stop a continuous raised sidewalk runs along the full length of the bus, including directly beside its passenger doorway. The doorway opens onto the sidewalk, never into a driving lane. Street and pavement use perfectly smooth flat colors without stipple or grain.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One long teal single-deck bus with dark navy lower stripe and four visible passenger windows; no brand, route text or numbers; Driver: adult woman with medium brown skin, short dark hair and plain navy shirt; always in the driver seat; Two initial passengers: older light-skinned woman with gray bob and plum coat; dark-skinned bearded man with green jacket; Three boarding adults: brown-skinned woman in yellow blouse with round glasses; light-skinned man with short red hair and gray top; tan-skinned woman with long dark braid and coral top; Only these six people including the driver; all riders seated while moving; no invented passengers\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 5. Printed prose (NOT text to put in art): The doors slide shut.\nRequired illustration: Side view of the closed sliding doorway. All three new passengers are visibly seated; their hands and clothing remain natural. Driver faces forward; first-stop planter still beside the stationary bus.\nExact current state: All three passengers seated; doors completely closed; first stop.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text. Flat vector-like color fills, no texture. Keep exactly four passenger windows behind the passenger doorway. Physical sidewalk continues across full bus length. All relevant bus parts and human bodies fit comfortably within the picture with generous space around them. Preserve the exact passenger identities and counts in the required state; only the required individuals are visible, no duplicates or bystanders.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-b826be0c-5b66-40eb-9f15-5e15e23498b8.png",
+      "sha256": "39d003d6753fd73342adcd7846219c686caee105c32fac4b31c3e3852a403198"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "e95d0ca76ed02b4560385afd0b30bdaac19d03292f4cf363f1cfdeec0eeb1e0c",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
+    "sha256": "43521192072dbe79cd124bfa39466dfa5a050a8f7dffb76609acdda3525f51df",
+    "note": "Repaired image removes both departed original riders. Three new riders seated in first/second/third passenger windows with fourth empty, door closed, driver seated at first stop. Counts and identities now agree.",
+    "limits": "Initial image/state review; full sequence and actual reader framing pending."
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-c-29",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:40:26.509Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-29ac1ba5-968d-4679-b4ec-deaf22f98fe2.png",
+  "sourceSha256": "f121e60f7882fbbc050056e763a834213452e83d5824bb3ee117f2dbe78288ff",
+  "output": "public/guided-reading/world-discovery/c-29/page-03.webp",
+  "outputSha256": "2ae38888ec5cfd5f8cdd748c7078545f4d781b6210def7679889724d4d0450fc",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Generate page3 of a factual children\u2019s clock book as a single straight-on clock illustration. Use first image for the existing blue-rim clock style and cream wall, use SECOND image as exact hand-angle/number geometry for3:15. It is an analytic reference, not extra content to add. Preserve exactly ONE clock, twelve correct black numerals1\u201312, long BLUE minute hand straight RIGHT at3, short RED hour hand only7.5 degrees BELOW horizontal right (one-quarter of the way from3 toward4). Blue hand is longer, red tip stays clearly ABOVE4 numeral direction. Exactly two hands, one central hub, no arrows, captions, extra diagrams or third hand. Red hand starts from same hub and ends slightly below the blue line, matching second reference exactly. Entire clock safely inset at least9 percent top/bottom. Crisp continuous dark outlines, flat clean colors and no grain/paint texture.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/c-29/page-02.webp",
+      "sha256": "92e9b5b6bcfd420db7494c92c068ed85b3360bb1aa45e625215e7cca3fb44525"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/.artifacts/nonfiction-next-50/clock-reference/clock-3-15.png",
+      "sha256": "1cc8d99bbc3bf2d84c1f565afa0f4e1e9267568239203c9f3aa693944c5e3848"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "7dacb274608cd92e9787048ea3b34f4e75fff582b4c227e3e6234a48171cbea7",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T12:41:26.919560+00:00",
+    "sha256": "2ae38888ec5cfd5f8cdd748c7078545f4d781b6210def7679889724d4d0450fc",
+    "note": "Clock has twelve correct numerals and exactly two hands, long blue right at3 and short red slightly below, one-quarter toward4. Whole clock safely framed.",
+    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  }
+}

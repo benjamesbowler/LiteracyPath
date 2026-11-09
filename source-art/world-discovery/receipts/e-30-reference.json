@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-30",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T05:39:04.229Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-fab7dc52-cc2d-46c4-807b-f9a8fc4d1d60.png",
+  "sourceSha256": "b7aeaa74dbbb56d5b935fb32dde0142af516a0266df6de187d0866709d9b36f5",
+  "output": "source-art/world-discovery/e-30-reference.webp",
+  "outputSha256": "f65d2d57e453078a67411e41208d17ef9a7a5fd7012bd0018ca1db669cd67997",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. PRODUCTION REFERENCE SHEET, landscape, not a finished book page. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: When a Reef Gets Too Warm; World Discovery; nonfiction.\nSetting: One shallow tropical reef and a single rounded tan reef-building coral colony. Simplified polyp diagram has translucent living tissue over a white calcium-carbonate skeleton, algae inside tissue cells. No implication that all corals have algae or all bleaching is heat-caused. Warmth shown as a restrained teaching tint, not boiling water.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Same rounded tan coral colony; Magnified coral polyp and tiny golden-brown algae symbols; White coral skeleton beneath translucent tissue\n Create a clean separated reference board on white: show the principal recurring props/animals in front, side and three-quarter views, their relative scale beside any named human cast, and a single simple location key showing the persistent setting and daylight/palette. The human character model sheet is a supporting identity reference, not content to copy wholesale. Show only the subjects this book requires. Use initial object states: Small polyp openings visible, firmly attached colony; no plant leaves, smiling faces or mammal features.. For orientation, the opening location/action is: A rounded tan coral colony sits in clear shallow seawater. Small polyp openings visible, firmly attached colony; no plant leaves, smiling faces or mammal features.. Do not show a completed craft or later scene merely because the finished object is listed in design locks. No future story events, no captions. Reference-sheet override: any lettering requested by the opening page brief belongs only in that finished page. Keep this production reference board entirely unlabelled; no letters, numbers or pseudo-writing. Perfectly clean flat vector-like fills, no grain, speckle or painted textures. Do not add unspecified species or people; no scale-comparison person unless expressly required. No lettering. The rounded massive stony coral colony is tan, not a plant or sponge. Its enlarged living polyp is an unlabelled scientific cutaway: small mouth at center of oral disk surrounded by a ring of simple tentacles; soft tissue forms an intact body wall above and along a white stony cup-shaped skeleton. Golden-brown microscopic algae symbols sit INSIDE the living tissue layer/cells, not loose inside the central mouth/gastric cavity and not growing as grass outside. No invented tubes or organs. Reference state is healthy tan colony and algae-rich tissue. No fish, snorkeler or human unless the book explicitly requests one in a later final page; no extra people on this reference board.\nMANDATORY TARGETED EDIT TO THE ATTACHED CANDIDATE: Retain this reference layout, identity of massive coral colony and accurate algae within tissue cells. Re-render the entire board as FLAT 2D vector-like cartoon shapes: no gradients, airbrush shading, relief/embossing, realistic volume or painterly highlights. Each polyp must be a simple outlined circle/opening, with one flat tan tissue fill. At most one crisp-edged flat darker shadow shape. Cutaway white skeleton must be a hollow supportive stony cup with visible sidewalls and base around the polyp, not a solid white plug replacing its body cavity. Central gastric cavity remains clear and has no algae. Algae remain small golden circular symbols in living tissue cells lining the walls. Keep unlettered.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-ab9a8a70-6a13-4a7b-b7b7-9e0db5e5aee1.png",
+      "sha256": "d8bf047e4e661e57091c746fb4f3dedb2f7b8d0070a9a276502e6e793ba8f05a"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "eead7bd4e8d787dff3440b9ff337f914a50daa5a1c9dfe20a0688cac4e6a5f42",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
+    "sha256": "f65d2d57e453078a67411e41208d17ef9a7a5fd7012bd0018ca1db669cd67997",
+    "note": "Installed WebP inspected: simplified tan massive coral with polyp openings, mouth/tentacle-ring design, clear central cavity, white supportive cup and golden algae symbols in living tissue cells. Heavy relief shading removed.",
+    "limits": "Full sequence, reader/card and audio review remain pending."
+  }
+}

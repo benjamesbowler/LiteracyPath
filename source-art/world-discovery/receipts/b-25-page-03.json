@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-b-25",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T06:48:13.201Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-b54e5352-4477-497e-a242-56711e237d85.png",
+  "sourceSha256": "9064365677699532f93c8bcc9d46c6db66a417f1042d2374621cd95850fb76bb",
+  "output": "public/guided-reading/world-discovery/b-25/page-03.webp",
+  "outputSha256": "e8478f1febeb198a99e7e92a56336209132c9445722fdd248c25b4aaeb35995e",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Continue exact scene and prop POSITIONS. Kit at LEFT uses one hand on gray mirror BASE to gently rotate the mirror stand slightly around a VERTICAL axis (turn left/right on table, not tilt up/down). Show mirror face now slightly more oblique than reference so its reflection sends the spot farther RIGHT on the SAME white screen. Mirror CENTER and base stay in same place. Yellow flashlight and wood cradle at frontLEFT, and white screen frontRIGHT remain COMPLETELY fixed. Black lens still aims at mirror center. Zoe watches with hands beside table. Screen has exactly ONE bright spot shifted toward its RIGHT edge but fully on white screen, around 75percent across. No extra mirror, duplicate/old spot, blue card, arrows or visible beam in clear air. Whole heads/hands/props inside safe margins. Landscape3:2 smooth clean flat illustrated style; no texture/text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/b-25/cover.webp",
+      "sha256": "86557632f62f8bc8a3979f780191b60d9432e5a6302f29b9c5080c8a35c3c74c"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "e7608249f7559688257799a2fcfb8d87f204d853906b14b220ac4f2eddd1acf3",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T06:49:20.689206+00:00",
+    "sha256": "e8478f1febeb198a99e7e92a56336209132c9445722fdd248c25b4aaeb35995e",
+    "note": "Directly viewed native PNG and installed WebP. Kit turns the mirror base slightly while flashlight/cradle and screen remain in original positions. Mirror face becomes oblique and the single spot shifts right on the screen. Zoe watches; no visible beam or extra spot.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

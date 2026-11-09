@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-c-22",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:33:06.282Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-29d64840-b77f-4bb1-aad1-859f50c64019.png",
+  "sourceSha256": "3f7f459d52b7b587b03728c93888c8a03473895b3afd15c91e34e42903096b05",
+  "output": "public/guided-reading/world-discovery/c-22/page-05.webp",
+  "outputSha256": "0279ee0d8fd2d92beac58c164288a343d9cc2ff553a8805567302825bc3699fe",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Repair the hand anatomy of the FIRST scene and simplify it to Kit alone. REMOVE Zoe completely, filling her space with matching grass. Kit must have exactly TWO clearly connected arms: one upper arm from his near shoulder bends to a forearm with an open palm beneath the compass; his other upper arm from his far shoulder bends at a visible elbow below/right of the compass, and its forearm rises to the hand that turns ONLY the outer ring. No floating or disconnected hand, no extra arm. Keep natural child fingers, all joined visibly to Kit. The compass stays horizontally LEVEL on his palm, same small size and exact letters N top E right S bottom W left; red needle points ahead/N toward tree, white back. Keep tree ahead and gray gate at exact current directly-right ground position, all safe margins and clean flat style. Second reference locks Kit identity and clothes only. No new figures, arrows, text or panels.3:2 landscape.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-30385274-74ff-4a30-bed1-2ed30fafe8e2.png",
+      "sha256": "4b37b4d4638410846c3c948820f1ad8b13287055f4ba412c7ea0cc3e7f3c1927"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/c-22-reference.webp",
+      "sha256": "f7640bca6dc2c687a2f53c1956c4db9411d4faaa9c4331d71b6acdc1b6a98ef2"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "7ef8d8649d4bf890384d714a7be54ffe8301439e049fa826d123aaf98f10b5ea",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T13:33:06.447907+00:00",
+    "sha256": "0279ee0d8fd2d92beac58c164288a343d9cc2ff553a8805567302825bc3699fe",
+    "note": "Native final and actual WebP directly viewed: Kit alone turns only the marked ring, both arms and natural hands visibly connected; level compass N/red ahead, E right, S down, W left. Tree north and gate directly east at observer ground depth; complete safe margins. Zoe was incidental to this brief and omitted to keep the hand action clear.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

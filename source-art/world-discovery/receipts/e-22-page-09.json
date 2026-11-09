@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-e-22",
+  "slot": "page-09",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:26:32.999Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-a1b1025f-1d86-400c-834f-0e140363b39d.png",
+  "sourceSha256": "326fc986828ec58d7f7a3e8911a36843796c0e1d7370e5d72ec503bdc2a62715",
+  "output": "public/guided-reading/world-discovery/e-22/page-09.webp",
+  "outputSha256": "e534979d59d481e12e48758b29d30d31bafb19330a775af325a2f61af8d56ece",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Preserve these exact THREE labeled place cards in side-by-side order, including exact words Wells, Reading, Lacock. Scale the ENTIRE card group uniformly DOWN25 percent and center on the same1536x1024 cream canvas. All outermost card edges need at least12 percent clear cream margin from every canvas edge. Do not crop, zoom individual pictures, change architecture, rearrange cards, add text or alter labels. Extend only plain cream background. Smooth flat colors and clean outlines, no grain or texture.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-d0e99e99-870a-4e9f-8a80-60b20cdea7fc.png",
+      "sha256": "d7cc0916e54704b817c79fdc7dbed0e9befc532861209d458a1172d5ce9fe34d"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "2aff8b9432244a41072eb7c7376c77e21594d83a655dfa83d99e44c528e86755",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "e534979d59d481e12e48758b29d30d31bafb19330a775af325a2f61af8d56ece",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T12:26:33.000Z",
+    "note": "Direct native inspection: exact three named cards Wells/Reading/Lacock, homes and streets in each, only Reading contains rail/station and bus. Wells bicycle and modest shop, Lacock timber/stone homes and shop. Full group inset17%+ horizontally and27% vertically; lettering clear."
+  }
+}

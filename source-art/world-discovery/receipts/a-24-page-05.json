@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-24",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:31:12.492Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-05707f3f-b0d7-47b9-ab0a-7714967407a3.png",
+  "sourceSha256": "d7ebfe4002e69fb77ae2857c8089921415e50e72b52010ba247b612a765a6c01",
+  "output": "public/guided-reading/world-discovery/a-24/page-05.webp",
+  "outputSha256": "a6047c5e7e02bf7c4fd962948b39b65b5476abbfd38e73fbeefc92776d00c25b",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit ONLY camera framing. Pull ENTIRE scene back uniformly35%, extending room/table naturally. Kit hair at least15%belowtop and complete dish bottom at least15%abovebottom. Preserve head/body proportions, exact hand poses, seated child, ALL dish/puddle/ice relative dimensions and roomrelationships. Preserve tiny rounded LOW ice remnant centered in broad shallow water, no large cube; keep same current elevated frontal camera angle. Same shallow white teal-rim dish on flat pale table. Do not scale objects separately, no water loss/addition or deep bowl. Smooth clean flat colors, no texture/text. Landscape3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-281e9ff7-7544-423d-ac54-46095675034f.png",
+      "sha256": "616466e54a78962c89888d59307ce1633eda7f81d0152fc8f5c28924f0afdb64"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "9c77e1f07a52338299286dd5ca1c02bdc85189d203f83376727f78ec56a237f5",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "a6047c5e7e02bf7c4fd962948b39b65b5476abbfd38e73fbeefc92776d00c25b",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:31:12.493Z",
+    "note": "Directly inspected native framing repair: child, dish and room uniformly widened; hair~18–20%top and full dish~16–18%bottom margin. Tiny rounded low ice remnant in broad shallow puddle retained; both hands rest clear, elevated frontal view unchanged."
+  }
+}

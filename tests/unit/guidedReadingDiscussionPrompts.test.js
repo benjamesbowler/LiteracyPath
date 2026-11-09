@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 import test from "node:test";
 
 import { guidedReadingBooks } from "../../src/data/guidedReadingBooks.js";
+import worldDiscoveryCohortManifest from "../../src/content/world-discovery/cohorts.json" with { type: "json" };
 import {
   GUIDED_READING_DISCUSSION_PROMPTS,
   getGuidedReadingDiscussion
@@ -23,7 +24,16 @@ function collectKeys(value, keys = []) {
 }
 
 test("every current runtime book has one frozen oral move and one valid visual move", () => {
-  assert.equal(guidedReadingBooks.length, 397);
+  const cohort = worldDiscoveryCohortManifest.cohorts.find(row => row.id === "21-30");
+  assert.equal(cohort.expectedBooks, 50);
+  const additionIds = new Set("abcde".split("").flatMap(level => (
+    Array.from({ length: 10 }, (_, index) => `world-discovery-${level}-${21 + index}`)
+  )));
+  const additions = guidedReadingBooks.filter(book => additionIds.has(book.id));
+  assert.equal(guidedReadingBooks.filter(book => !additionIds.has(book.id)).length, 397);
+  assert.deepEqual(new Set(additions.map(book => book.id)), cohort.active ? additionIds : new Set());
+  assert.equal(additions.length, cohort.active ? 50 : 0);
+  assert.equal(guidedReadingBooks.length, 397 + (cohort.active ? 50 : 0));
   assert.deepEqual(
     new Set(Object.keys(GUIDED_READING_DISCUSSION_PROMPTS)),
     new Set(guidedReadingBooks.map(book => book.id))

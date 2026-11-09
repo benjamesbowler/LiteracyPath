@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-29",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T08:17:41.862Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-389cb9c6-cfe7-461f-b7b3-a77f9f84ff54.png",
+  "sourceSha256": "da167c0f135d537782b3c0bdb1b209ced37ba190bb86b565879736528fc02ffc",
+  "output": "public/guided-reading/world-discovery/a-29/page-01.webp",
+  "outputSha256": "001920564539a97e383d06d0525d037bd159d612abc70e1a53ddf382c262aa30",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Very small geometric correction ONLY: widen the red paper rectangle horizontally by5%, preserving its current height and center. Keep its top and bottom horizontal, short sides vertical. Final width about4timesheight. Preserve both hands and arms, pale tabletop, colors and all other pixels/composition. No added details or writing.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-28e19d75-0bf9-4c98-b725-f23346d06023.png",
+      "sha256": "42803e6474ce1c52e28d2a2a8ce32d34a19b0e45938b033b5bd89336f4becbb0"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "f901b0be0bea47b49de26868818727681b20b5057666da316e0fa78bccc25576",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "001920564539a97e383d06d0525d037bd159d612abc70e1a53ddf382c262aa30",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T08:17:41.862Z",
+    "note": "Directly inspected geometric correction: one whole flat uncreased red strip now visually4:1 (about690wide by173high), long edges horizontal. Two natural five-digit hands rest separately beside ends; no scissors or extra paper. Finger tips fully inside edge safe area."
+  }
+}

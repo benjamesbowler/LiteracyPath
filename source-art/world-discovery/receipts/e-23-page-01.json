@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-e-23",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:29:10.924Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-faf1d7fd-61be-4ea7-8740-ce67da6a2541.png",
+  "sourceSha256": "ebd0ead70e24ce0ebb1781dca6fc17631729b533b4f2e8b7695445faa340e2b2",
+  "output": "public/guided-reading/world-discovery/e-23/page-01.webp",
+  "outputSha256": "4ab4e1b7416585b8144ce7d21b3a8da87cc12033d379b2cb7924b3f4cdb199cd",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Create one landscape1536x1024 early-reader illustration in clean flat2Dcartoon style: crisp continuous dark outlines, solid colors, restrained celshadows, no painterly texture/photo/3D. Entirely UNLETTERED, no caption/logo/numbers/pseudowriting. All essential objects and entire people including shoes at least10percent inset, roomy framing. Use the reference ONLY for exact cast and furniture continuity, make a SINGLE roomscene, no referenceboard/montage. Kit sits LEFT of one low rectangular woodtable on bluechair. Zoe sits RIGHT on matching bluechair facinghim. Kit: shortblacksidepart, goldenlightmediumskin, tealshirt, MUSTARDshorts, navywhiteshoes. Zoe: deepbrownskin, TWO puffbuns, yellowshirt, plumoveralls, whiteshoes. Sameequalheight. Creamwall with smallwindowupperleft, simplewoodfloor. One LARGEsoftREDball rolls slowly LEFT-to-RIGHT across tabletop: ballcenter aboutx800 with Kit's pushing hand justbehind onleft and Zoe's twoopen hands readyonright with clear gap BEFOREcontact. Both kids watchball. Whole bodies, bothchairs, alltablelegs and entiretable inside central80percent; bottom shoes finish above y880. No anatomyoverlay, arrows, ghostball, extraball, labels or toys. Clear natural hands, seatedsafe.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-31bc4dbd-541d-4e51-8d38-fa63c6dcb130.png",
+      "sha256": "ec77d0d06c7fad1df07f1c9218570ec7028e42586fa34518432acd40411d3b75"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "1b0de6058b2611192f79942f4ecd03b97dc9da569d20816897fdbc11f5ab098a",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.555Z",
+    "sha256": "4ab4e1b7416585b8144ce7d21b3a8da87cc12033d379b2cb7924b3f4cdb199cd",
+    "note": "Actual PNG and WebP inspected: Kit left pushes one large red ball rightward toward seated Zoe, hands visibly not touching yet, exactcast and furnishings, safely framed whole bodies/feet, no anatomy overlay.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

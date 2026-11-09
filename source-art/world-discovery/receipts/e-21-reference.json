@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-21",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:15:14.478Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-f19cf581-712d-4140-8a59-22d724c3c433.png",
+  "sourceSha256": "36c01933e6404087d4ae36493a91a089b9728237a85f267e6070eab50f9a75c7",
+  "output": "source-art/world-discovery/e-21-reference.webp",
+  "outputSha256": "4059256255b7df532a325d4ecf53b48aef27f697a65cd42543cefaed7003eaa2",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Correct this production reference board while preserving every person and vehicle design. FIRST reduce the complete collection of people, vehicles and map together to80% of the present size and center it on the same white landscape canvas so Kit's leftmost hand and the map's right edge are at least12% from the edges. SECOND repair only the gray road geometry in the map: the road on the WEST/LEFT bank must extend DOWN along the left margin all the way to the orange start dot; the road on the EAST/RIGHT bank must extend DOWN along the right margin to the cream museum building. These two vertical gray roads connect across the existing upper gray road bridge. They must not run off the map top. Keep a separate tan walking path from start up across the lower brown footbridge and down to museum. Keep the two ferry quays below the footbridge and add short tan access paths from start to west quay and from east quay to museum. River stays vertical and blue, all crossings only on bridges or ferry. No additional crossing, road on water, text, numbers, labels or signs. Preserve flat2D clean bold outlines and the exact equal-height children, adult, four-window white-blue ferry and yellow bus.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-6c5572b0-5620-4325-9932-754c3e1ceb51.png",
+      "sha256": "3676fc80f316cb166465c4404a9b93b39f591c16a99a126448570bb217d04b28"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "9421bb4bb1f97c822674b76871fc5ee9b7b4398f02e9bdb626223b2a8cf9283e",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T11:20:57.746876+00:00",
+    "sha256": "4059256255b7df532a325d4ecf53b48aef27f697a65cd42543cefaed7003eaa2",
+    "note": "Inspected installed reference. Equal-height consistent Kit and Zoe with adult, yellow bus, four-window ferry. North-up practice map has connected upper road bridge, separate lower footbridge and opposite ferry quays linked to start/museum. All subjects safely inset. No text.",
+    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  }
+}

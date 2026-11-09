@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-c-23",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:33:22.225Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-9bf85e31-14c0-47b0-ad6f-0b0fab0fa213.png",
+  "sourceSha256": "2b5c30f1999907ce0afb0cf284f458dd21c34e43f811d41272b8af6843514ba5",
+  "output": "public/guided-reading/world-discovery/c-23/page-07.webp",
+  "outputSha256": "39697ffdd7d7ddffc4129fb20014efff9ff14e63ea5aa862be96b2aafa57b0cc",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit only framing of this exact two-arm educational comparison. Scale BOTH complete arm diagrams together as one group to 78 percent of present size, centered on same plain cream 3:2 canvas. This creates generous 12 percent or greater top/bottom/side margins. Keep both exact anatomy views, relative scale, all tendon insertions, bones and muscle states unchanged. No new elements. Smooth flat color, no texture, no lettering.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-69af98a8-21e9-4522-8725-61d2853f8c71.png",
+      "sha256": "69e1a85cfa2095385bbfd8dca0b2996ab32e8f8bff99a049aa94ab0067fb270d"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "25f742b6e36d6eb87de003ac9ecc80f9d512f2d1edf34f8713c6b0c4130e8702",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T12:34:06.183270+00:00",
+    "sha256": "39697ffdd7d7ddffc4129fb20014efff9ff14e63ea5aa862be96b2aafa57b0cc",
+    "note": "Native and installed WebP directly viewed. Two separated matched right-arm diagrams compare flexion versus near-horizontal extension; front/rear muscle states reverse and tendon-bone identities remain correct. Generous safe margins.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

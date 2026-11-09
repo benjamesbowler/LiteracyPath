@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-b-22",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T05:38:07.882Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-469525ce-4998-4fbd-9504-9795dfdec3a1.png",
+  "sourceSha256": "bd10692e64fad2d62b3b5dd31c663383fd84aa8a277f718f610362cd9cb1042c",
+  "output": "public/guided-reading/world-discovery/b-22/page-03.webp",
+  "outputSha256": "b1254b86c3e23a932c6e131aff842922e867097e84368371802a368e5a512fe3",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use image one as the authoritative geographic drawing: preserve its exact continent shapes, positions, projection, globe circle size, and orange route location. Convert this map reference into the clean bold 2D illustration style of image two, without changing geography. One globe sphere ONLY on pale cream, no stand, people, room, inset, extra globe, or other objects. Keep the circle exactly this size and position with generous margin. Make coastlines clean dark outlines. All land green including Antarctica, all water same blue. Smooth the small angles in the orange line without moving it across land. Preserve South America upper left, southern Africa upper right, Antarctica lower center, and only the edge of Australia far lower right. The route comes from Atlantic water and passes through water north of Antarctica. Add a small arrowhead at its right end. The only text is Southern Ocean, set in a clear child-readable white sans-serif font entirely within the corresponding blue water, avoiding route and land. Final must remain a polished native illustration.\n\nUse case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one integrated explanatory diagram. Allow only the cutaways, insets, schematic elements or arrows explicitly authored in this page's illustration brief; keep them spatially connected to the subject they explain. No unrequested panels, insets, annotations or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, watermarks or page borders. The ONLY permitted written content is the exact authored embeddedImageText: \"Southern Ocean\". Preserve its spelling and case; place it only as the illustration brief specifies. No additional text, letters, numbers, captions, pseudo-writing, legends or written title. Printed prose below is context only, never extra lettering. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: One Ocean Around Earth; World Discovery; nonfiction.\nSetting: A classroom globe investigation with Kit and Zoe. Geographically accurate continent outlines on a plain globe and close map views; ocean regions stay the same blue. Route is a thin orange teaching overlay, never a real painted line on Earth.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Accurate blue-and-green Earth globe; Thin orange route overlay kept entirely in seawater; Plain gray globe stand\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and specific stages explicitly required below; the declared diagram permits no other scenes or story events.\nPage 3. Printed prose (NOT text to put in art): The Southern Ocean circles Antarctica.\nIts water meets the Atlantic.\nRequired illustration: Polar-oblique globe view follows route through Southern Ocean around Antarctica, showing southern tip of South America behind.\nExact current state: Atlantic route joins Southern Ocean; Antarctica stays solid land.\nDo not add events or stages beyond the authored diagram. Repeat a subject only when the authored comparison or cutaway requires it. No written title; the app renders live text.\nPerfectly smooth flat color, no surface texture or grain.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/.artifacts/nonfiction-next-50/geography-reference/southern.png",
+      "sha256": "778219606faebe3252ca6221cc28f31b5d96a83c7da257d53b4660b40c27af7e"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/b-22-reference.webp",
+      "sha256": "aa47f5df80f6895353841ac4a1735e87fe48a3bd239e8c73f19911c0b91ff237"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "20ecca19d99fe9f835680d66d0bb8b60c48e7bfbd2c48e9ed200c12d2524db14",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T05:39:50.404Z",
+    "sha256": "b1254b86c3e23a932c6e131aff842922e867097e84368371802a368e5a512fe3",
+    "note": "Directly viewed native PNG and installed WebP against the Natural Earth orthographic geography reference. Single globe, uniform blue connected ocean, correctly placed authored label, route stays in water with visible separation from land. South-polar view shows Antarctica below, South America left and southern Africa right; the route connects Atlantic water to the Southern Ocean.",
+    "limits": "Direct image inspection; final independent sequence and app display review follow separately."
+  }
+}

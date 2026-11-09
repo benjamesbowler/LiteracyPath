@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-b-29",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:42:05.832Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-223be650-238a-4fcc-a5bc-9e58f8b154a6.png",
+  "sourceSha256": "e6b103f04780847c4069213d96e6081c4053b170cfcaa2856e8b08432079ed5c",
+  "output": "public/guided-reading/world-discovery/b-29/page-08.webp",
+  "outputSha256": "10881889a6841b54fd90c270ff0ddf22ac379d6497ae30e7110fdaae20a7ceaf",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Final classroom measurement scene: same Kit LEFT and Zoe RIGHT and blue book as first reference. Exactly SIX identical yellow cubes TOUCH in one straight row across book width, with both endpoints aligned. Keep reference book/cube geometry. Both children now simply LOOK at completed row with satisfied natural expressions, hands resting at table sides rather than pointing. No extra cubes or marks. Pull viewpoint back enough to show full heads and shoes with at least150px breathing room. Same quiet classroom window and white table. LANDSCAPE 3:2, 1536x1024. Clean smooth flat illustration, no grain or paper/paint texture. No text, numbers, labels or guide lines. All essential props and hands inside central75%, wrists may naturally continue out frame. White table and cream classroom consistent.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/b-29/cover.webp",
+      "sha256": "08567a9520d6b455442be8996af4a34f3fe525f17d167c8201fec3583020bf43"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "7c50af653f4ee559098243cdcd631837ff440776161b09c1d029dc86ea556fcc",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T10:43:44.541732+00:00",
+    "sha256": "10881889a6841b54fd90c270ff0ddf22ac379d6497ae30e7110fdaae20a7ceaf",
+    "note": "Directly viewed native PNG and installed WebP: Kit and Zoe observe completed six-cube touching row with book endpoints aligned, same props and ample whole-body margins.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

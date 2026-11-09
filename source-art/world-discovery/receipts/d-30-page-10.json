@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-30",
+  "slot": "page-10",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:29:11.119Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-dcabe416-aad9-463d-9295-72e3650d8783.png",
+  "sourceSha256": "60092ff55a97bf4dfa8b0075462edae552135dd8c1ca66b7b9bd031f0ecdec86",
+  "output": "public/guided-reading/world-discovery/d-30/page-10.webp",
+  "outputSha256": "f07a83b4e07c15f4c281f6aaaac42d8463752674087e4823e4390fa88cbc7ce2",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Create one landscape1536x1024 early-reader illustration in clean flat2Dcartoon style: crisp continuous dark outlines, solid colors, restrained celshadows, no painterly texture/photo/3D. Entirely UNLETTERED, no caption/logo/numbers/pseudowriting. All essential objects and entire people including shoes at least10percent inset, roomy framing. Return to this single same graycube satellite above Earth's curved BLUEOCEAN horizon. Move the craft toward upperRIGHT, centered(950,350), totalwidth520pixels. TWObluepanels each3columns by2rows, extended horizontally, samehinges/perspective. Earth's curvedhorizon in lowerthird with two small whitecloud shapes ON the BLUEsurface, never floatingindarkspace. Navyspacebackground, three tinystars. No othercraft, forcearrow, orbitline, flame, rocketstage, continent, labels or speedtrail. Keep craft entirebounds x690..1210,y250..440 so broad margins. Neworbitalposition indicated composition change only. Oceanandclouds contextual.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-524f6c88-aae5-4b25-adac-0c59698d8e0e.png",
+      "sha256": "1238ee3906de08f16045b18d6fc61d32083cc0f1985b592ac3a42dfcb1927200"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "66c03f602e2ff45268c6d939a796addf9ba66a77cb551a19d2ddd57408b04e48",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.554Z",
+    "sha256": "f07a83b4e07c15f4c281f6aaaac42d8463752674087e4823e4390fa88cbc7ce2",
+    "note": "Actual PNG and WebP inspected: original two-six-cell-panel satellite advanced to right above ocean horizon, no flame/extra craft/arrows, safe essential subject margin.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-b-26",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T06:58:11.218Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-f73afb1f-77a0-4bc4-b06d-63f46d9b1838.png",
+  "sourceSha256": "baed90f085fc6142829cc65b4175354522d8f80cda38be2592b542af3f2be5b8",
+  "output": "source-art/world-discovery/b-26-reference.webp",
+  "outputSha256": "6d3491be148c3447edd2a8ee38ae24ced75addc63886daeb1c214546fb9458df",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. PRODUCTION REFERENCE SHEET, landscape, not a finished book page. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nWD-KIT / Kit: six-year-old human boy, golden light-medium skin, short straight black side-parted hair, teal T-shirt, mustard shorts, navy sneakers. WD-ZOE / Zoe: six-year-old human girl, deep brown skin, black hair in two puffs, yellow T-shirt, plum overalls, white sneakers. Kit and Zoe have equal standing height. Include only characters needed by this exact scene, not every reference pose. Preserve exact reference identity and clothing.\nBook: The Camera Keeps a Picture; World Discovery; nonfiction.\nSetting: Kit and Zoe at a plain table using a simple unbranded digital camera. A red cube rests on one blue rectangular block. Camera playback always has a plain triangular playback icon, with no unreadable menus.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One red cube; One blue rectangular block; Small gray digital camera with screen; Plain white tabletop\n Create a clean separated reference board on white: show the principal recurring props/animals in front, side and three-quarter views, their relative scale beside any named human cast, and a single simple location key showing the persistent setting and daylight/palette. The human character model sheet is a supporting identity reference, not content to copy wholesale. Show only the subjects this book requires. Use initial object states: Original stacked arrangement, no saved image shown yet.. For orientation, the opening location/action is: Real red cube centered atop blue block; Zoe aims camera lens at them, Kit watches.. Do not show a completed craft or later scene merely because the finished object is listed in design locks. No future story events, no captions. Reference-sheet override: any lettering requested by the opening page brief belongs only in that finished page. Keep this production reference board entirely unlabelled; no letters, numbers or pseudo-writing.\nFinish requirement: all fills are perfectly smooth, clean, flat vector-like color. Absolutely no paper grain, stipple, speckles, mottled paint, fuzzy edges or surface noise anywhere, including backgrounds. Clear crisp outlines and only a few flat cel-shadow shapes. Do not imitate texture from any supporting reference.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "92cd13a2772ca31a9f3db39eee27ddd9fb03eec7e4ce66785453ca94f8823761",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T06:59:19.712351+00:00",
+    "sha256": "6d3491be148c3447edd2a8ee38ae24ced75addc63886daeb1c214546fb9458df",
+    "note": "Directly viewed native PNG and installed WebP. Locked Kit and Zoe identities/outfits, equal standing height, gray unbranded camera front/back/side studies, red cube and longer blue block plus plain white table are clear. Saved-view triangle is a simple icon; no lettering. Reference locks designs only: exact lens aiming, screen content and before/current arrangement require each final page review.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

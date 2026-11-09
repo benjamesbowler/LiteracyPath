@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-21",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:29:55.755Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-43dfb86e-853c-4f59-8191-fe05b6a22292.png",
+  "sourceSha256": "5a902ceb62b127cc1694a64a3a7898c99a3ee64f819599bb3f81fc7d1ece1f86",
+  "output": "public/guided-reading/world-discovery/e-21/page-06.webp",
+  "outputSha256": "6f3b304ec3a2ef6dca76e2246d88a7c1f49e711645cb613fee63de7ff2e69b7f",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact overhead practice map to explain the ferry crossing. Keep every bank, road, bridge, museum, start dot, path and quay unchanged. Remove all purple walking dots and completely remove the lower-left walking/25 badge. Add ONE small white-and-blue enclosed ferry in the water between the TWO LOWER GRAY QUAYS. Ferry has exactly four small square cabin windows in a row, blue roofline and white top/blue lower hull, right-facing pilot cabin. Bow points RIGHT toward the east quay and museum. A short dotted blue route extends horizontally from west quay to boat and from boat to east quay; dots remain in water, not on land. No route dots on roads, footbridge or paths. Do not add a people/vehicle reference-board panel. Entire map is centered on white canvas with at least 10 percent margins. No labels, letters, digits, extra numbers or logos anywhere. Flat 2D clean bold-line style.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-bdd496df-3570-4cb4-9fb2-9f836c8cfd8d.png",
+      "sha256": "3eaaec3997d322c51437c58c9fb125b3536dde96156c5cde6c0119acfb1e240b"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "9421bb4bb1f97c822674b76871fc5ee9b7b4398f02e9bdb626223b2a8cf9283e",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T11:31:58.778789+00:00",
+    "sha256": "6f3b304ec3a2ef6dca76e2246d88a7c1f49e711645cb613fee63de7ff2e69b7f",
+    "note": "Same map with ferry crossing horizontally between opposite lower quays. Four-window white-blue boat points toward museum. Only ferry route dotted; map comfortably inset.",
+    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  }
+}

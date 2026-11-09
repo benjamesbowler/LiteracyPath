@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-21",
+  "slot": "page-09",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:42:43.353Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-fb110660-30bf-4c36-b341-41aeb72fad2c.png",
+  "sourceSha256": "47cd11bc3f7d7c163b8784a8075650a53b19a2754f6ddc9ba507da40e3620a31",
+  "output": "public/guided-reading/world-discovery/e-21/page-09.webp",
+  "outputSha256": "a50f79942b74a64788a105f49b7e36c28aae1e48e08200b7a02338d2dd59f256",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Pull the camera back on this exact entire scene by15percent, retaining the same3:2landscape frame and extending existing sky,river,quayside paving and background vegetation. The entire ferry at right including its rightmost bow must now be at least15percent inside the right image edge, and all3people/clockdisplay likewise at least15percent inside all edges. Preserve their positions relative to each other,closed safetyrail,mooringrope attached boat-to-quay,four ferry windows,museum and bridges. Do not add,remove or change any essential object. No words/numerals/labels. Flat2D cleanboldlines and solidcolors.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-5d3916ed-9d84-4a39-9678-1634065b0723.png",
+      "sha256": "ffbec2bf1a5b9b05ac1b34ec17d5ab51f1dcccaad0d05393706803077d93df22"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "9421bb4bb1f97c822674b76871fc5ee9b7b4398f02e9bdb626223b2a8cf9283e",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T11:43:18.037346+00:00",
+    "sha256": "a50f79942b74a64788a105f49b7e36c28aae1e48e08200b7a02338d2dd59f256",
+    "note": "Pulled-back scene shows adult examining clock-only blank display, two children safely behind rail and four-window ferry moored by rope. Same museum/bridge geography, all essential subjects safely inset.",
+    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  }
+}

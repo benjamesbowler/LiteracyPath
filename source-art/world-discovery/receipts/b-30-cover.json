@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-b-30",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T08:04:54.037Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-70bf062a-abbb-4b0d-94a0-87270ac7afed.png",
+  "sourceSha256": "7e6182248c2a0ec0bc53f7902195179bd17661d9ff5f2298b453db8434f2225a",
+  "output": "public/guided-reading/world-discovery/b-30/cover.webp",
+  "outputSha256": "04cb6fe50fba55a15b6521e582c39623ba9f5a4f75197beddbc0664e6809bf56",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Keep this exact scientifically coherent unlettered Saturn-and-ice-magnifier composition, but shrink the entire connected composition by 23 percent centered within the SAME LANDSCAPE 3:2 1536x1024 frame. All rings, planet, callout circle and ice pieces must be within central 75% with wide dark-blue empty space on every side. Preserve equatorial ring orientation, correct front/behind occlusion, small-ring sample circle and clear connector to large ice-particle view. Smooth flat solid fills, clean outlines, no speckles/grain or painted texture. No letters, numbers or words.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-36c1fb3a-d910-43ea-9de8-44dbd2e0aab8.png",
+      "sha256": "7080f284ea164c97380d23240411f1fd64954d3b6108878d97c83d735a663051"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "f280a32df1585bc29fde637e24c87b820bf93699a99cac7d7239db824c8b14f3",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T08:05:34.730841+00:00",
+    "sha256": "04cb6fe50fba55a15b6521e582c39623ba9f5a4f75197beddbc0664e6809bf56",
+    "note": "Directly viewed native PNG and installed WebP: unlettered Saturn with equatorial rings correctly occluded, connected enlarged separate ice pieces. Entire connected composition safely inset with ample background.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

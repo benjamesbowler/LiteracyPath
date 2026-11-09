@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-27",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:21:58.479Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-a5d99f81-db72-4c3d-b314-08cfc5000a3f.png",
+  "sourceSha256": "3784ce629cb01673a1f48f379cdc1a8816a107082541b7341802549eccf1fceb",
+  "output": "public/guided-reading/world-discovery/d-27/page-07.webp",
+  "outputSha256": "f12c46e26d1095e5b569898c318d696b29045aea0c79ad2b4dc55c58aa68fdb4",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "One simple side-by-side comparison of BROWN rice before further milling and WHITE rice afterward. On LEFT a shallow pale-gray dish contains FOUR elongated light-brown rice kernels with bran still covering them. On RIGHT an identical dish contains FOUR creamy-white rice kernels of the SAME grain type, SAME size and SAME arrangement, now without brown bran. Each grain roughly four times longer than wide, gently tapered. One small orange arrow points from left dish to right dish. Between dishes and slightly BELOW the arrow, show a small separate pile of fine TAN BRAN flakes/powder removed in milling, not whole husks. Tiny downward branch from transition arrow can lead to bran pile. Only two dishes, their four grains each, one bran pile and explanatory arrows. No machine, liquid, bleach, paint, husk shells, cooked bowl, people or extra samples. Preserve thin-layer distinction established by reference; no cross-sections needed here. Clean bold dark-outlined flat2D educational art, no grain, texture, paint or3D. Landscape1536x1024, pale cream backdrop. All diagram subjects and arrows within central70%, at least150px margins. No words, labels, letters, numbers, logos or extra panels.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-5f8b074a-c54b-4300-acd9-cc3a94785148.png",
+      "sha256": "f74274ffd1cf06c18ecfc37166f27378b6ce15c406b6802d58a2f83b9b6db090"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "d7159e37a1a2ef16cf6332c998d1e18c7c5e1c835d8925d2049fd3bf922c1538",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.536Z",
+    "sha256": "f12c46e26d1095e5b569898c318d696b29045aea0c79ad2b4dc55c58aa68fdb4",
+    "note": "Direct native inspection: four brown and four white rice grains of matched size/arrangement, rightward milling arrow and separate downward bran-powder result; no liquid or husks; wide margins.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

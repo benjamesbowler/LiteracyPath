@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-25",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:40:38.499Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-48e91ad1-20b7-4546-a760-2605810a81b1.png",
+  "sourceSha256": "ad739cb9d695e7b93ca797cecbd69540775a639716c59e9178bd874aae4c4dd2",
+  "output": "public/guided-reading/world-discovery/a-25/page-01.webp",
+  "outputSha256": "65dc558656a62600e4b557889ed26c60b870176905bdab00ae368146b2986c3f",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit ONLY framing. Pull ENTIRE scene back uniformly30%, extending same room/floor naturally. Kit hair top at least15%belowtop; FULL shoes and drum feet at least15%abovebottom; natural body proportions and relative figure/drum scale unchanged. Preserve Kit's RIGHT palm hovering just above cream drumhead after tap, LEFT hand on own knee, subtle motion tick, stable red/navy drum and grounded stand. All subjects remain grounded on blue rug. Smooth clean flat colors, no texture, text or addedobjects. Landscape3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-40eab2d3-0d79-4cab-ac5e-5b7f780ec559.png",
+      "sha256": "aee382cbaf4d0c05a27b2dc9ac8ac4df4c6b9f167080b7645d82f9ed50f70f71"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "43250b481932e7fd088b4db9dca6c6655e0ffe81fdc9bbd2dd349daea8124cbd",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "65dc558656a62600e4b557889ed26c60b870176905bdab00ae368146b2986c3f",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:40:38.501Z",
+    "note": "Directly inspected native framing repair: entire scene uniformly widened, hair~19–21%top, shoes/drum feet~18–21%bottom, natural cross-legged anatomy and grounded stand. Right hand remains lifted clear after tap and left on knee; taut cream head, two small motion ticks, stable stand."
+  }
+}

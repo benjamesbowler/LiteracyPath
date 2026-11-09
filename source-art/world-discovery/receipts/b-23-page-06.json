@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-b-23",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T06:33:13.009Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-e7e34be4-f73c-4576-beed-8747778eecbc.png",
+  "sourceSha256": "0011f314810b8b7ea5e069af32bfb4fba2504006bc430100ba47764d55067076",
+  "output": "public/guided-reading/world-discovery/b-23/page-06.webp",
+  "outputSha256": "a0437aa89a1d8d167fd88e1b03134bae204eff1706cc02c82b54de057a3d636a",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this image with ONE precise change: remove ALL red apple skin/peel from every food piece. Every apple piece is PEELED; make every red peel stripe the same pale cream-yellow color as the apple flesh, retaining the thin dark outside contour. Preserve the exact apple silhouettes, one missing bite, number of pieces, characters, teeth, room, margins, camera and all other elements. Do not add objects or text. Keep clean flat smooth vectorlike illustration, no texture. Landscape 3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-669ca7c9-79dc-455f-aec6-bef73c669160.png",
+      "sha256": "93e4fc5b375aa0c30315cde7afe21b5870b5e6b884925097fa1ddb18cdf5168a"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "645b4a3a4d22eb876a75ddaa40ade656cc1ad18dd1be8213019b648b10ad63d3",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T06:34:02.089136+00:00",
+    "sha256": "a0437aa89a1d8d167fd88e1b03134bae204eff1706cc02c82b54de057a3d636a",
+    "note": "Directly viewed native PNG and installed WebP. Zoe chews with closed mouth and natural cheeks, hands beside plate. One remaining peeled apple slice has one bite missing. Outfit, room, seated posture and safe framing remain consistent.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

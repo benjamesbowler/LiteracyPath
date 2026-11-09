@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-b-26",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:06:05.258Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-00abdbc9-f0ee-4c0b-b8bb-54b0ccb590f0.png",
+  "sourceSha256": "dd50b8786b301fd8c8185877f441ff4923ae5113e8dc09c81ac7e9603202ce51",
+  "output": "public/guided-reading/world-discovery/b-26/cover.webp",
+  "outputSha256": "f0446ba766caeef8f55ceaba7b860c191808c3c0ee4723889ac2bae6fea85a47",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "One finished landscape3:2 classroom scene, Kit LEFT and Zoe RIGHT at plain WHITE table. REAL objects on table: exactly ONE BLUE rectangular block and ONE RED cube to its RIGHT, separated by a small gap. Nothing on top of real blue block. Zoe holds small GRAY DIGITAL CAMERA with its REAR SCREEN angled toward viewer and Kit. On that screen is saved PHOTO showing RED CUBE centered ON TOP of BLUE BLOCK, clearly different from real side-by-side arrangement. Small plain white triangular PLAYBACK icon in one screen corner; no letters/numbers/menus. Camera screen only on BACK; lens is opposite side and invisible. Kit looks between real blocks and saved picture. No duplicate physical blocks, no diagram or inset. Locked identities/clothes from reference. Bright simple room with window, bare tabletop, no extra props. All heads/hands/camera/blocks inside central70percent with wide15percent margins. Smooth flat clean outlined cartoon, no texture/grain, no cover lettering.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/b-26-reference.webp",
+      "sha256": "6d3491be148c3447edd2a8ee38ae24ced75addc63886daeb1c214546fb9458df"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "92cd13a2772ca31a9f3db39eee27ddd9fb03eec7e4ce66785453ca94f8823761",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T07:06:45.796216+00:00",
+    "sha256": "f0446ba766caeef8f55ceaba7b860c191808c3c0ee4723889ac2bae6fea85a47",
+    "note": "Directly viewed native PNG and installed WebP. Exactly one real red cube sits right of one blue rectangular block; camera rear screen clearly shows saved red-on-blue stack with plain triangular playback icon. Zoe grips camera coherently, Kit watches, safe margins and no lettering.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

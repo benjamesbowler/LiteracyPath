@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-b-21",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T06:23:08.844Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-876d570f-eaaa-4f30-bd3a-96fd07ece65c.png",
+  "sourceSha256": "6b4715ec536405062b603dfc2aa4f6e1afeda436f4ab3fc4912a3d9cf9f70866",
+  "output": "public/guided-reading/world-discovery/b-21/page-02.webp",
+  "outputSha256": "c40ec406dba52dc4795054e46c71c4e72e7efaa162155fbc2b6ff1bbf2cd05fe",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Outpaint this wide image VERTICALLY into a finished LANDSCAPE3:2 canvas. Add equal extra height above and below while preserving the existing illustration EXACTLY in its center, including all four wheels, both axles and contacts on the two rails. Above: continue the same cropped red freight-car body and partial wooden load; no roof or complete car ends. Below: extend gravel, sleepers and foreground ground naturally. Do not alter, resize or redraw existing wheel/rail geometry; this is only canvas extension. Keep the current generous horizontal margin around the one bogie. No couplers, people, captions or borders. Final aspect ratio MUST be3:2, not2:1.\nClean bold continuous dark outlines, perfectly smooth flat vectorlike colors, no texture, grain, stipple or painted finish.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-cb13d979-1188-4283-a5c6-e264ca8c260c.png",
+      "sha256": "4510fe5b760649b9a40fb9d2fc80691941178f1b2e91184fadfca8dfb81ab2d0"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "e2840abe2bce545cbddeb0319fa0aade90784202e01e047d8bcd74ba38ddbcbb",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T06:23:39.176356+00:00",
+    "sha256": "c40ec406dba52dc4795054e46c71c4e72e7efaa162155fbc2b6ff1bbf2cd05fe",
+    "note": "Directly viewed native PNG and installed WebP. True close-up crops the red car body beyond both side edges; no car ends or couplers are visible. One bogie has two transverse axles and four steel wheels contacting their respective near and far rails. Essential wheel mechanism is inside safe margins. Repairs the independent whole-car/one-bogie finding.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

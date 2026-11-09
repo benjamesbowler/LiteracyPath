@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-27",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:10:56.135Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-5d132b36-2947-4235-a3ab-9fdf3b5a5104.png",
+  "sourceSha256": "a523b5119024774b5aa05041b4069df106826efca9e8b78dbd9574462b6f87c5",
+  "output": "public/guided-reading/world-discovery/d-27/cover.webp",
+  "outputSha256": "f0d7b4208cf9d729ad190155a9210d61a90bc35912eff7c169de4d008d87c01e",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Create ONE finished unlettered cover scene on an ordinary light-wood kitchen table. At center foreground sits a simple pale teal ceramic bowl filled with cooked WHITE RICE: soft distinct elongated plump grains, no chopsticks, utensils or food toppings. Beside the bowl lies ONE small dry rice panicle, botanically based on reference upper-right panicle: open branching stalks with individual golden husked grains. Behind the bowl is ONE plain unbranded cream paper rice bag with a folded closed top and no printing. Quiet pale kitchen wall background, no people or extra objects. Only bowl, dry panicle and bag on one physical table; no diagrams or panels. Accurate small panicle relative to bowl and bag; all fully visible with broad safe margins. Preserve the bold flat outlined cartoon style; rice grains are simple shapes, no realistic fine texture. Clean bold dark outlines and flat natural colors, simple restrained cel shading; no fine texture, grain, painted effects, photorealism or 3D. Landscape 3:2, 1536x1024. All important subjects inside central 70% with wide margins at least 140px. No text, labels, numbers, logos, flags or symbols.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-83c82358-4cbe-4fca-8ab8-dc30499eea77.png",
+      "sha256": "4e52ddcddc31ffe6251f212955855e67419b72c76649e67ff1a004721b5379b5"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "d7159e37a1a2ef16cf6332c998d1e18c7c5e1c835d8925d2049fd3bf922c1538",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.532Z",
+    "sha256": "f0d7b4208cf9d729ad190155a9210d61a90bc35912eff7c169de4d008d87c01e",
+    "note": "Direct native inspection: one teal bowl of plump cooked white grains, one cream unprinted bag and one small dry branching panicle on same table; no text/extra objects; broad margins.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

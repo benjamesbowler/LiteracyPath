@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-25",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:52:39.093Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-57e1abce-1d07-44c3-bb33-e827e7aba679.png",
+  "sourceSha256": "0b83a9d0a77442c9bbceae6f1c42de9bb6c549218f9c82a05f2b5e6d6e954f9f",
+  "output": "public/guided-reading/world-discovery/a-25/page-08.webp",
+  "outputSha256": "3ec3bfc5a2ab74ac6880edec324a3800f4773618bab4bc96ef9fed2e01762438",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit ONLY framing. Pull ENTIRE scene back uniformly30%, extend same room/floor. Kit hair top at least15%belowtop, full shoes AND drumfeet at least15%abovebottom. Preserve natural cross-leggedpose, exact current two hands both CLEAR of drum (near-side right hand on lap, far-side left hand raised), bright listeningexpression, soundarcs, taut creamhead and red/navy drum. Do not swap arms or add tap. All grounded on rug, clean flat smooth colors, no text. Landscape3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-7358b07b-be96-439f-a1c5-f7e4bb1d6ed2.png",
+      "sha256": "f843c21bc0107e29918cbf32e4a85b4b5c4cd7b3eb66750a55f0dd460a8e723c"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "43250b481932e7fd088b4db9dca6c6655e0ffe81fdc9bbd2dd349daea8124cbd",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "3ec3bfc5a2ab74ac6880edec324a3800f4773618bab4bc96ef9fed2e01762438",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:52:39.096Z",
+    "note": "Directly inspected widened native image: Kit hair and shoes/drum feet inset about 20%; right near hand clear on lap and left hand raised clear; renewed sound arcs at taut drum without depicting another tap. Whole scene scale and grounded rug retained."
+  }
+}

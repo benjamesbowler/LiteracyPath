@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-28",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T08:06:41.659Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-eea60c5f-b778-4a15-b66f-0eff185267ef.png",
+  "sourceSha256": "753c9b9ef8e34bacedbe20cab7d65ffbc905c465f084f235d4f44850f776b83a",
+  "output": "source-art/world-discovery/a-28-reference.webp",
+  "outputSha256": "3aedc01ba3843c9e6a6b9bf302c4efb503ebdf2a8a78b9d7aec5ca388c2e0f31",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Correct this production reference board. REMOVE the small oblique ant at the UPPER RIGHT completely and leave clean white space there. Keep ONLY the large accurate TOP-DOWN ant at upper left, with its EXACT SIX legs and TWO separate elbowed antennae. Move this complete top-down ant down and slightly right so every foot and antenna tip is at least8% inside the canvas. Preserve its body proportions and all six thoracic leg attachments, no new ant views. Preserve the leaf with amber drop, pale pebble, nest opening and lower route key exactly. No text, no labels, no new items. Smooth clean flat color, no grain.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-85824d39-0e79-4b51-a339-ba3124036bd1.png",
+      "sha256": "3e93aa021af5ea5f77c96c20665df43bb705022bf0dadb038b017dc1ab914d7e"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "fbf293511c4adb19a75a183f30ea70ea6bdd6e4a759309a5079a91a68021dff0",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "3aedc01ba3843c9e6a6b9bf302c4efb503ebdf2a8a78b9d7aec5ca388c2e0f31",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T08:06:41.661Z",
+    "note": "Directly inspected replacement anatomy authority: one large top-down garden ant has exactly three jointed thoracic legs on each side, two distinct elbowed antennae, narrow waist and rounded abdomen. Ambiguous low-angle ant removed. Leaf/drop, pebble, nest and route-location key preserved; unlabelled production reference only."
+  }
+}

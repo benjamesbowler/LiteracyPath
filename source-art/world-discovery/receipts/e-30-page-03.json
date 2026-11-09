@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-30",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T08:10:55.474Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-0387ac8f-0010-4782-a006-4eda5f967d22.png",
+  "sourceSha256": "48722afa4a8a73756cd4810a1cacab18abfa1b403083414dd6dc43ac3c683f1e",
+  "output": "public/guided-reading/world-discovery/e-30/page-03.webp",
+  "outputSha256": "90d2d1e75871b950d7b5e0e6253207245f11ae37cd3a5f51e239a7ebee02a05f",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact illustration. Same clean flat 2D cartoon and unlettered content. Uniformly reduce WHOLE sun-plus-polyp-plus-ray diagram by about 22% and recenter, with all sun rays, tentacle tips and white cup base inside x=13\u201387%,y=13\u201387%. Extend same pale aqua background. Preserve arrow directions exactly: light ends at round algae, tiny orange hexagon food stays in living wall tissue. No new elements.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-4d1cd341-d55f-426e-8354-fea1816e45f4.png",
+      "sha256": "e56ba372d6e50ae8b3862ecc5ca2f9f19cc1436125c1f37fe640f949e087c78e"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "eead7bd4e8d787dff3440b9ff337f914a50daa5a1c9dfe20a0688cac4e6a5f42",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
+    "sha256": "90d2d1e75871b950d7b5e0e6253207245f11ae37cd3a5f51e239a7ebee02a05f",
+    "note": "Sun rays terminate at round algae in living wall; food hexagons transfer locally into tissue, never central cavity; full diagram safely framed.",
+    "limits": "Individual installed WebP only; independent sequence, reader, card and audio separate."
+  }
+}

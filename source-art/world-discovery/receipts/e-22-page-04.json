@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-e-22",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:18:46.497Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-ce181d95-ed49-4d4d-8462-25804b8bac1f.png",
+  "sourceSha256": "554df0a0f48a95fc403438f0012cc13226f0e1857cb4a71c643ed75963673e8b",
+  "output": "public/guided-reading/world-discovery/e-22/page-04.webp",
+  "outputSha256": "f20edafcaf2e7cffcca0f27ce1c9aae6e1f0bd0930501b4db4b460a7e0170e11",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Keep exact supplied cartoon composition and every station, train, bus, fence, road and building unchanged. REMOVE ONLY the two smaller rear pedestrians at the LEFT (purple-jacket woman and dark-suit briefcase man), filling their positions with the existing road/pavement continuously. KEEP the single foreground woman with tan bag, safely walking on light paved sidewalk. Do not move her or add anyone. Preserve all vehicles, ground geometry, clean outlines, smooth flat colors and1536x1024 landscape. No texture, labels or lettering.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-9de706c2-46d9-402c-858f-bb434aa26177.png",
+      "sha256": "74c2b3b82fc8fb410265ce9e7ffeba50e77e52bd450e1f07a719066437e0b378"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "2aff8b9432244a41072eb7c7376c77e21594d83a655dfa83d99e44c528e86755",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "f20edafcaf2e7cffcca0f27ce1c9aae6e1f0bd0930501b4db4b460a7e0170e11",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T12:18:46.499Z",
+    "note": "Direct native inspection: full teal train and blue bus grounded on separate rail/road routes, fence separation clear; single foreground commuter fully on light paved sidewalk. Two ambiguous curb-edge rear people removed. Train front and commuter safely inset; modern workplace/station architecture retained."
+  }
+}

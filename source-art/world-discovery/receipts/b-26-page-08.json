@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-b-26",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T08:00:49.267Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-671ad4d9-296a-4b69-a7b1-d8a231ba374f.png",
+  "sourceSha256": "92bd1f53a63fee0a076a7b6aa8d5dcdc456135af81c69611f740b2c0d1937b63",
+  "output": "public/guided-reading/world-discovery/b-26/page-08.webp",
+  "outputSha256": "c10e481e895b01f0ab4a67868d235ffadbf0b8ea121edabbc76224027e3ed3bb",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Same exact final comparison image, but pull the viewpoint back 18 percent within LANDSCAPE 3:2 1536x1024. Keep actual blue-left/red-right blocks on left and camera saved red-on-blue photo with triangle icon on right. Ensure the ENTIRE camera AND BOTH WHOLE HANDS (including outer right palm) are at least 160px from left/right edges; wrists may naturally continue out bottom edge. Preserve screen/real arrangement differences, camera controls and no extra objects. Show more plain room/table around them. No text, smooth clean flat cartoon fills, no grain.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-39fe1071-47e4-45f9-b148-d67ff84e7ba4.png",
+      "sha256": "9a13d65e045b91458a94e0d91964140aa6965ddcc3384396e4d12c9cb2b1bdec"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "92cd13a2772ca31a9f3db39eee27ddd9fb03eec7e4ce66785453ca94f8823761",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T08:01:15.424460+00:00",
+    "sha256": "c10e481e895b01f0ab4a67868d235ffadbf0b8ea121edabbc76224027e3ed3bb",
+    "note": "Directly viewed native PNG and installed WebP: actual blue-left/red-right pair contrasts with saved red-on-blue picture plus playback icon; complete camera and hands safely framed, matching controls and no added text.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

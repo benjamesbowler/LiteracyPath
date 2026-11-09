@@ -25,14 +25,21 @@ export async function repairWorldDiscoveryCohorts(manifestFile, { write = false,
   const current = read(manifestPath), proposed = read(manifestFile);
   const errors = validateWorldDiscoveryCohortManifest(proposed);
   requireThat(!errors.length, errors.join("\n"));
-  validateWorldDiscoveryMaintenancePaths(proposed.cohorts);
   requireThat(current.targetBooks === proposed.targetBooks && current.cohorts.length === proposed.cohorts.length, "Repair cannot change declared catalogue membership");
+  // Check every existing trust anchor before inspecting proposed evidence.
+  // A later pending cohort must not mask a repin, nor may an earlier cohort's
+  // history be read before a later cohort's immutable fields are checked.
   for (const [index, cohort] of proposed.cohorts.entries()) {
     const before = current.cohorts[index];
     for (const key of ["id", "index", "firstNumber", "lastNumber", "expectedBooks", "expectedPages", "active", "sourceDir", "cardReview"])
       requireThat(cohort[key] === before[key], `Repair cannot change ${cohort.id}:${key}`);
     requireWorldDiscoveryMaintenanceBaselinePreserved(before, cohort);
+  }
+  for (const cohort of proposed.cohorts) {
     requireThat(cohort.active && cohort.maintenanceBaseline, "Repair requires an already active cohort and pinned maintenance history");
+  }
+  validateWorldDiscoveryMaintenancePaths(proposed.cohorts);
+  for (const cohort of proposed.cohorts) {
     readWorldDiscoveryMaintenanceAudio(cohort);
     requireThat(/^src\/content\/world-discovery\/registrations\/\d{4}-\d{2}-\d{2}\//.test(cohort.registration)
       && /^source-art\/world-discovery\/remediation\/\d{4}-\d{2}-\d{2}\//.test(cohort.narrationReview)

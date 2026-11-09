@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-25",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T08:17:19.435Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-c28c9018-06a8-450c-a705-ab5024038b2a.png",
+  "sourceSha256": "df091e62121709877cabb6f2e094a943461241599eb3c6aa52b2d676b5a0d671",
+  "output": "public/guided-reading/world-discovery/d-25/page-06.webp",
+  "outputSha256": "7de43cc603f69b040e6824d8b5c18f6cc4c368b6a9fb008fcfbdeba441a40905",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit the exact FIRST-PAGE close tabletop setup in this reference. Preserve the TWO blue blocks, their exact original gap, same table, and ONE wooden counter waiting on tabletop beside right block. Change ONLY the shape of the ONE cream paper sheet spanning the gap: it is now accordion-folded with several LONG straight parallel ridges and valleys running LEFT-to-RIGHT, from left block all the way to right block along full span. The folds run parallel to the sheet's long edges; NEVER perpendicular to the span. Zigzag accordion cross-section appears at the SHORT left/right ends resting on blue supports; each ridge is continuous across the unsupported gap. Same paper length/thickness, narrower overall width after folding, no added material. Unloaded folded bridge nearly straight and horizontal, open air below, no hidden center support. Counter still beside setup, not yet on bridge. No people, hands, extra counter/paper, text, arrows or numbers. Clean flat outlined2D, restrained cel shading. Keep essential setup well inside safe margins.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-a6cd0625-cb3b-41ff-ba0f-e2f112827eb5.png",
+      "sha256": "6f610b50132d793aba4efa143364709c6f344c11d142146246e33c640c9ea1cb"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "8337d31fb142299fa5e714fdc1bffff0a8db8bc933c0eeb3ee2b649380ddbd8b",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.524Z",
+    "sha256": "7de43cc603f69b040e6824d8b5c18f6cc4c368b6a9fb008fcfbdeba441a40905",
+    "note": "Direct inspection: same two fixed supports and unloaded one-sheet accordion bridge; every long ridge/valley runs along the span, zigzag short edges, no middle support or added material; counter still beside.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-c-24",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:33:22.454Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-c8266dbb-bb50-4fcd-be7e-054b307a7d33.png",
+  "sourceSha256": "e59b25f33d992160f23c3e28dc8e1682837db7a2fd54d477f0bea4ea56932c43",
+  "output": "public/guided-reading/world-discovery/c-24/page-06.webp",
+  "outputSha256": "2ac3fe4388e68e36a80cf306f2bc00e9828708705bde417b8403382ef379559d",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit only framing of this exact liquid-cloud versus ice-cloud comparison image. Uniformly scale the ENTIRE two-panel composition to 80 percent of current size around canvas centre, extending the same plain white surrounding area. Keep both panels, connectors, six round droplets and three SIX-armed ice crystals exactly intact. Essential right inset and its full magnifier rim must be at least12 percent from right edge. No other change, no lettering, clean crisp flat color no texture. Same3:2 canvas.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-7e73599c-8742-4f63-b02d-8a0661f4e024.png",
+      "sha256": "562e5408b61c93f92dc7675cbecdf03d1e814782f428a5578c86aace9803bb1b"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "cbfc1a0f277ec5764a733f36e711277c72ce51d08853c5fd50b0372b7684550a",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T12:34:06.184653+00:00",
+    "sha256": "2ac3fe4388e68e36a80cf306f2bc00e9828708705bde417b8403382ef379559d",
+    "note": "Native and installed WebP directly viewed. Main liquid cloud with six round-drop magnification separate from different wispy cold-cloud inset with three six-fold ice crystals. Entire composition safely inset; no implication all clouds are liquid.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

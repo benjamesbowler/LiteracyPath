@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-26",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:39:03.684Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-bfaaf60d-49cb-45d6-97bd-b45daabcc660.png",
+  "sourceSha256": "b877751fcd26b48a87045f9354f2a8aceb953567698374ab280b1d365a951d53",
+  "output": "public/guided-reading/world-discovery/a-26/page-07.webp",
+  "outputSha256": "678057817e29091234b617b459a872824e0bd8d5e1dd40386229f8042a5581c0",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Change ONLY the background visible through the open doorway in this exact cartoon. REMOVE the white rectangular bell receiver from the BACK wall and REMOVE the shoe shelf, plant and shoes visible behind Zoe. Fill their regions with the same plain peach interior wall and wooden floor. The actual receiver/shelf are on the inside FRONT wall at the hinge side and should be HIDDEN in this exterior viewpoint, not moved to back wall. Keep EVERYTHING else exactly: entire scene framing and safe margins, inward-open teal door with exterior hinges LEFT, Zoe holding brass lever from inside, adult beside her, Kit waiting outside both hands down, narrow glassRIGHT, outside buttonRIGHT ofglass, porch and all grounded feet. Do not add another receiver/shelf, door, window or child. Clean smooth flat colors and crisp outlines, no text or texture. Landscape1536x1024.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-72ce15bb-6c68-490e-a23b-f5ced9af9d4d.png",
+      "sha256": "958ad5f9e7bdc7abcb477c92d9850a4285e335ba57b2cf7a21b63889b7581745"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "de8c9a9188fb06c5b2fcfe6cb817e2a178c34835d5f8b5bd10d4255d93ec1d12",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "678057817e29091234b617b459a872824e0bd8d5e1dd40386229f8042a5581c0",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T12:39:03.685Z",
+    "note": "Direct native inspection: removed incorrectly visible back-wall receiver, plant and shoe shelf; background now plain interior wall/floor. Preserved exact open left-hinged exterior door, Zoe lever contact/adult position and Kit outside hands down. Same wide margins, safe foot grounding; devices are hidden on front wall in this view."
+  }
+}

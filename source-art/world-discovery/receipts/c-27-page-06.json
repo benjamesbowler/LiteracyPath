@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-c-27",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:05:20.401Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-d605dd77-91c6-42da-8c84-c79e3bb41f08.png",
+  "sourceSha256": "450efe68cc7f16578335a3f0a535b92cba7d2c747e205ba2f73c6b3e34bbec5b",
+  "output": "public/guided-reading/world-discovery/c-27/page-06.webp",
+  "outputSha256": "37912684b2159a0188f7c8cb86e551c2ad29dee18dfc9a039312dc3833b37e72",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "One finished landscape3:2 full-bleed children nonfiction illustration, crisp flat2D cartoon with clean dark outlines, flat colors and restrained cel shading. No grain, painted texture,3D, words, logos, captions, border or frame. Full essential subjects within CENTRAL65 percent of canvas, broad naturally extended background margins. Next pencil factory step. A closed gray guarded shaping machine sits in background; foreground cool-gray collection tray holds EXACTLY FIVE separate UNPAINTED pale cedar HEXAGONAL PENCILS in a neat parallel row, spaced apart so each can be counted. Each is a long hexagonal wood cylinder with BLUNT flat end, and each visible near END shows exactly ONE small dark graphite dot at center. Allfive same length; NO sharpening cones yet, NO red paint, NO sixthpencil. Machine blade enclosed, no people, no writing. Use same factory palette and machine design; all five pencils completely inside central65percent with15percentclear margins.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/c-27-reference.webp",
+      "sha256": "9f87fb6e6383f406adf9f7bfb18a7a36a8dc92e88f08cd8697f4eaf1ac3cc5ab"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/c-27/page-03.webp",
+      "sha256": "b82c3e5bfeaa26864cdaf527a428423e965989f30d52f55f9d2a1e8a5dc0b716"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "3a70fa1d14c972360847c319383d83f2ce0d2b4c35e4355bf29e90a292205a2e",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T13:09:18.113739+00:00",
+    "sha256": "37912684b2159a0188f7c8cb86e551c2ad29dee18dfc9a039312dc3833b37e72",
+    "note": "Exactly five separate unpainted blunt hexagonal pencils, each one central dark core on visible end, enclosed machine behind. All pencils inside safe frame.",
+    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-b-29",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:48:37.412Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-582ffc04-7cc8-4119-8ccc-cb6bbab49092.png",
+  "sourceSha256": "35014c19793018b6e047ec41ffafdc98aaba0900219c29a48c305b2eab632cbc",
+  "output": "public/guided-reading/world-discovery/b-29/page-03.webp",
+  "outputSha256": "4d1546029cb2674a53c448576741f7bd6569e1f5720321eed20e8ae42bbfaf76",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact illustration with a SINGLE addition: a small deep-brown child's hand with a yellow sleeve comes UP from the BOTTOM edge and points UP at the FOURTH empty gap, the gap BETWEEN the fourth and fifth yellow cubes. The index fingertip stops below the cube row, around x938 y795, leaving the full gap and all cubes completely unobscured. It points towards the empty white space, not at a yellow cube. Preserve the book, all SIX yellow cubes (five spaced in the row, one spare upper right), the FOUR equal empty gaps, their sizes and positions, and the entire table/background exactly. No moving objects. No extra hand. Landscape 3:2. Children's nonfiction illustration, crisp black outlines, pure flat vector-like fills, no texture, grain, speckles, gradients, lettering, captions, numbers or border. Keep all educational objects within central 75 percent with generous margins.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/b-29/page-02.webp",
+      "sha256": "ea3ca74df0db8f25e1a3a9b6331a89416f68d01e3ad12fd5c1713b77591fece0"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "7c50af653f4ee559098243cdcd631837ff440776161b09c1d029dc86ea556fcc",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T10:50:39.357350+00:00",
+    "sha256": "4d1546029cb2674a53c448576741f7bd6569e1f5720321eed20e8ae42bbfaf76",
+    "note": "Native and installed WebP directly viewed: exact five spaced cubes plus sixth spare preserved; Zoe's natural brown pointing hand indicates fourth empty gap from below without obscuring any cube.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

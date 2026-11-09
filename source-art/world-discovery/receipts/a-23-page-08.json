@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-23",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:24:52.870Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-9e745e26-0ad8-441a-9cb4-24d262898dcf.png",
+  "sourceSha256": "1608bf04202972705076b8f62724453fed5d1521d4bd119de48b1fef734fa4a4",
+  "output": "public/guided-reading/world-discovery/a-23/page-08.webp",
+  "outputSha256": "1afe337d574e43a02d585f20a4aacd20de8fa2c34590f114281ae99ae52e3e8a",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit framing and teaching arrows. Pull ENTIRE scene back uniformly30%, full figure hair and shoes at least12%inside top/bottom, preserve body proportions, exact two palms resting on clothed chest, grounded feet and room. REMOVE ALL four large curved arrows beside SHOULDERS. Replace them with SHORT HORIZONTAL inward/outward arrow pairs BESIDE LOWER RIBCAGE / CHEST, well BELOW shoulders and above waist. On each side: one short pink arrow points outward away from ribcage, one short blue arrow points inward toward ribcage. Arrows sit at chest level beside elbow height, to show ribcage expansion/contraction, never shoulder shrug or arm movement. Keep arrows small, clear and separated from arms; no lung cutaway. Clean flat colors, no text. Landscape3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-fe404a96-f955-46e8-bc80-a0dcea3d72c0.png",
+      "sha256": "61b8f8352bc7f15e8fc212e4a7070f4b8c852e1c21a34186c892686bcefb9683"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "9d1d4dd6d93c7ff9e1f38dd1d3858cfe95edf848dc9e464d8d8c183b2a6aee4a",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "1afe337d574e43a02d585f20a4aacd20de8fa2c34590f114281ae99ae52e3e8a",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:24:52.871Z",
+    "note": "Directly inspected native repair: old curved shoulder arrows removed; short opposing horizontal pink-out/blue-in pairs now at lower chest/ribcage height beside elbows. Hands still on upperchest, relaxed shoulders, no cutaway; hair~14% and feet~15% margins after uniform scene pullback."
+  }
+}

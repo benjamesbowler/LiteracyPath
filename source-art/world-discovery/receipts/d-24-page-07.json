@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-24",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T08:03:53.387Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-212af987-20d7-46b3-b2f9-0947394c5fbe.png",
+  "sourceSha256": "cb6e6917d0d6a75e35ea39fad993c49d7bca6d9583159318b594114b625c3757",
+  "output": "public/guided-reading/world-discovery/d-24/page-07.webp",
+  "outputSha256": "d22274f6d4e041feb81370a006d7536d8bcb76bfe16e8291f68d61693352b81f",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Create the next integrated sea-breeze teaching page by editing the exact broad coastal scene supplied: sea LEFT, beach CENTER, grassy land RIGHT, same one sun/clouds, orange windsock mouth LEFT tail RIGHT, subtle blue cool-air and orange warm-air overlays. Preserve full framing and all geography. Keep arrows in the AIR above surfaces, never inside seawater. No new objects, texts, numbers, particles, labels or borders. Clean crisp outlined flat-color2D. Add exactly THREE broad white-outlined teaching arrows tracing three sides of a turning air route: (1) low cool-blue LEFT-TO-RIGHT arrow from sea to land around y550, above windsock with clear gap; (2) warm-orange UP arrow over land near x1180 from y550 to y350; (3) upper orange-to-blue RIGHT-TO-LEFT arrow from x1180 to x250 around y330. Upper return arrow is clearly ABOVE the low inland arrow with ample vertical separation; it points SEAWARD LEFT. Do not cross the Sun (centerhigh) or clouds. No downward arrow over sea yet, that is next page. No extra arrows. Keep all arrowheads at least 140px inside edges.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-c3f8af16-269a-4198-b762-8a4b880f0f80.png",
+      "sha256": "9a41240f3fb7596826e54ee0bcfa56ab39300a86bcbafec8e533b0d9d9171851"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "688f663f00d36542402967229cf6e98631f1d90b6bed074cce20a73f41dcd15c",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.518Z",
+    "sha256": "d22274f6d4e041feb81370a006d7536d8bcb76bfe16e8291f68d61693352b81f",
+    "note": "Direct inspection: lower air rightward, rising over land, upper return leftward; enough vertical separation and correct three-side route, no downward sea arrow yet.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

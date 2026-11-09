@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-28",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:06:49.567Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-d68c51a0-692e-4833-8dc1-57c091574d65.png",
+  "sourceSha256": "797f388bb87fb508dfd1e86d70d080199d9d5462a30503a767514e3c683cb6e2",
+  "output": "public/guided-reading/world-discovery/e-28/page-04.webp",
+  "outputSha256": "4580a0e3239b0764152dfc51ece6001d24e0e5f699f6464289b54df54c09fc3a",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit ONLY camera framing: zoom OUT 30 percent to put the COMPLETE sun rays, molecule, plant leaves, all arrows and all soil/roots inside the CENTRAL 65 percent of width AND height. Keep exact diagram connections and colors: blue water up roots/stem to leaf, sun yellow arrow into leaf, three-circle gas into leaf, gold food moving toward stem. Do not change or add subjects, symbols, text or labels. Wide cream background all around, no border/inset. Flat clean 2D cartoon 3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-d57fe3c5-d6f8-4d25-9f69-15eb77e6ffb0.png",
+      "sha256": "684e82fee994686ad0d38ae1e602b01aa5879e19f17c59f6b32006df5ddedfb3"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "df581f1e09d045c551bc8ca44241da96c6f37a19dcfc6731641f5fa8f7f955bf",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
+    "sha256": "4580a0e3239b0764152dfc51ece6001d24e0e5f699f6464289b54df54c09fc3a",
+    "note": "Wide integrated leaf diagram: sunlight/gas enter leaf, root water rises through stem, food symbols pass toward stem; all symbols visible in safe margins.",
+    "limits": "Individual installed WebP directly inspected. Whole-sequence, reader/card and audio checks separate."
+  }
+}

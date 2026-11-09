@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-b-23",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T06:33:13.773Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-e6590659-3d16-4601-ae40-37cc16984a2c.png",
+  "sourceSha256": "aa97c8105426fb0fb42d5fbba6bbfbea6b87a10d82820d917b6b84cc427b1193",
+  "output": "public/guided-reading/world-discovery/b-23/page-08.webp",
+  "outputSha256": "494ff46cf20969487d355bb01a7ccf37f86f34707e572e9fa68b9a51dfd5993a",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this image with ONE precise change: remove ALL red apple skin/peel from every food piece. Every apple piece is PEELED; make every red peel stripe the same pale cream-yellow color as the apple flesh, retaining the thin dark outside contour. Preserve the exact apple silhouettes, one missing bite, number of pieces, characters, teeth, room, margins, camera and all other elements. Do not add objects or text. Keep clean flat smooth vectorlike illustration, no texture. Landscape 3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-0e14ac52-49d6-4ea9-816c-7ea35f645c80.png",
+      "sha256": "fd81383589f40590913f541113c977db562a166c1e700df9ecf8588a90030b31"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "645b4a3a4d22eb876a75ddaa40ade656cc1ad18dd1be8213019b648b10ad63d3",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T06:34:02.090473+00:00",
+    "sha256": "494ff46cf20969487d355bb01a7ccf37f86f34707e572e9fa68b9a51dfd5993a",
+    "note": "Directly viewed native PNG and installed WebP. Zoe is calm after swallowing with closed-mouth smile, both hands resting beside plate and one remaining peeled slice with one bite missing. Scene matches earlier room and character with generous margins.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

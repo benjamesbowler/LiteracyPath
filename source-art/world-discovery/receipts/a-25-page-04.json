@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-25",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:45:11.973Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-61e9f3de-c062-4fd6-9a3e-b05caaab743e.png",
+  "sourceSha256": "657fe10d23304ecd92706e26c4a2a5bba51df473a11260c7ed314d5f06549c59",
+  "output": "public/guided-reading/world-discovery/a-25/page-04.webp",
+  "outputSha256": "c70845bd8ef7558ecb5d325ba4a069d7d13c166def780fcfdfe560f7629a3d4d",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit ONLY framing. Pull ENTIRE scene back uniformly30%, extend same room/floor. Kit hair top at least15%belowtop, full shoes and drum feet at least15%abovebottom. Preserve natural bodyproportions, exact cross-leggedpose, relative Kit/drum scale, right arm and handcontact. Preserve RIGHT palm resting flat on cream drumhead centre and LEFT hand on knee, no deep dent, no motion/sound marks. Red cylinder, navy rim/feet, cream taut head unchanged; all grounded on rug. Clean flat smooth colors, no texture/text. Landscape3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-feb65ccb-d8eb-433b-8e0a-209cba6ab25b.png",
+      "sha256": "51004c985a65b5224b37c1dacb628fbfba7f45c635835b60222d6d4d8b388b01"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "43250b481932e7fd088b4db9dca6c6655e0ffe81fdc9bbd2dd349daea8124cbd",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "c70845bd8ef7558ecb5d325ba4a069d7d13c166def780fcfdfe560f7629a3d4d",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:45:11.974Z",
+    "note": "Directly inspected native framing repair: whole scene uniformly pulled back with hair~19–21%top and shoes/drum feet~19–22%bottom, natural cross-legged anatomy and grounded stand. Right palm lies flat at taut membrane centre, left hand on knee, no vibration marks."
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-27",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:31:11.991Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-e6f8f06c-0557-4d7c-b217-de89e2f19885.png",
+  "sourceSha256": "42a3cba9698c03ffd85c08d5af76131d34d21ca3f10277a000eca154f7eb5e97",
+  "output": "public/guided-reading/world-discovery/a-27/page-02.webp",
+  "outputSha256": "ff9d09529438c50874e20ea612ae1d74e5a15e72b026b5d091051dc63c02b7f1",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Create a clean explanatory picture in the same flat illustration style. One small normal-size intact golden popcorn kernel rests ON THE LIGHT WOODEN COUNTER, with a thin blue magnification leader connecting it to one large circular magnified view of the SAME INTACT seed. In the magnified view show only its smooth hard golden hull with a small BROWN POINTED BASE; no crack, no exposed white inside. The small real seed is below-left of the large circle, both well inside the central 75% of the image. NO PERSON, no hand, no popper, no bowl, no cup, no other kernel. Plain softly colored kitchen background and counter, with only the one small real kernel and its connected larger teaching view. One integrated magnification diagram, not panels. No text, letters or numbers; crisp dark outlines, solid clean flat colors, zero grain. Landscape 3:2 full bleed, essential contents at least 12% inside all edges.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-1290ad5b-4178-46b4-b6c6-c8283e25a92d.png",
+      "sha256": "5efa4a34573d594f85d5a296a28d24e08c8d9cfef0f3c6217db6c75d5622d7c1"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "54df5f6be0ca6e59f447c22d2431c43d463a335ffaf26ebbf520c3a8450a76f2",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "ff9d09529438c50874e20ea612ae1d74e5a15e72b026b5d091051dc63c02b7f1",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T07:31:11.992Z",
+    "note": "Directly inspected repair: natural-scale intact kernel now rests on counter, connected by blue magnification leader to enlarged intact smooth hard hull with brown pointed base. No adult, internal cutaway or premature popped state. Kernel/diagram have safe margins."
+  }
+}

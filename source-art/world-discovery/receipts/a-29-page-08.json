@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-29",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:00:50.076Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-51f4f910-dc61-4085-ae33-676b55c1cdb7.png",
+  "sourceSha256": "8ec56f014530ec858dd07672af18171634ad5df63bbf425d8562b017ecea226f",
+  "output": "public/guided-reading/world-discovery/a-29/page-08.webp",
+  "outputSha256": "4df23fa276e59306c3ca8e6885e0ab468dc7be65d49df641340054aade2094b2",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Create the next page by editing this overhead image. Preserve the exact flat red paper outline, dimensions and orientation, about 4:1 width:height. The paper now consists of TWO identical rectangular halves placed exactly EDGE-TO-EDGE with a single thin vertical seam precisely through the midpoint. Together they make the exact original 4:1 strip, no gap, overlap, extra piece or fold. Change Zoe's two hands so one index finger points gently to each respective half, without obscuring the center seam or corners. Preserve yellow sleeves, skin tone, camera and pale untextured tabletop, all fingers and paper comfortably inset. No adult or scissors, no text or numbers. Landscape 3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-389cb9c6-cfe7-461f-b7b3-a77f9f84ff54.png",
+      "sha256": "da167c0f135d537782b3c0bdb1b209ced37ba190bb86b565879736528fc02ffc"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "f901b0be0bea47b49de26868818727681b20b5057666da316e0fa78bccc25576",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "4df23fa276e59306c3ca8e6885e0ab468dc7be65d49df641340054aade2094b2",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:00:50.077Z",
+    "note": "Directly inspected native: exactly two congruent approximately 2:1 red halves meet edge-to-edge at precise central seam, reconstructing original 4:1 outline. One index points to each half, seam/corners visible, no gap/overlap or extra sheet, generous paper/hand margins."
+  }
+}

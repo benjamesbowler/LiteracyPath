@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-30",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:15:47.798Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-d35219f8-e2d5-46fe-97f7-1d673b264ccc.png",
+  "sourceSha256": "c1d1cc07f8e7bc892c570c52e87416918394e4529202d35069e3c77e4a86c56a",
+  "output": "public/guided-reading/world-discovery/d-30/page-03.webp",
+  "outputSha256": "c0362537a5cd3b4e006171dce7866ca01617a42cd5a206cd611b3af3092c6444",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. Finished landscape1536x1024, bold clean2Dchildren's cartoon, continuous dark outlines, flatcolors, restrainedcelshadows only, no3Drendering/texture/photorealism. Entirely unlettered: noletters/numbers/pseudo-writing/logos/borders. One space scene of a rocket's UPPER STAGE having just released ONE compact satellite. ExactlyTWOobjects: plain white horizontal cylindrical upper stage on LEFT, black nozzle points LEFT, open gray adapter ring faces RIGHT; same gray cube satellite on RIGHT, with TWO blue solar panels folded FLAT against opposite sidewalls as in the folded reference view. The satellite has fully separated with a clear empty gap between stage adapter and satellite. Both bodies share horizontal travel direction toRIGHT. The satellite panels are folded, NOT extended. No human, full rocket nose/fins, launch tower, payload fairing debris, arrows, letters, flames or extra craft. The broad blue Earth OCEAN horizon at bottom quarter with one restrained whitecloud is contextual background; navy space above. Entire spacecraft group occupies central65percent of canvas with generous180pixel side/top margins. No diagramboard, alternativeview, gravityarrow or orbitaltrack. Reference locks the foldedcube and upperstage shapes only.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-55769a3e-adbf-4318-9c95-d2a94aeacbc6.png",
+      "sha256": "748b22e1d454c0274a084171ace0dd3bd71747513c79eb10ffe767ce659f6db6"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "66c03f602e2ff45268c6d939a796addf9ba66a77cb551a19d2ddd57408b04e48",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.551Z",
+    "sha256": "c0362537a5cd3b4e006171dce7866ca01617a42cd5a206cd611b3af3092c6444",
+    "note": "Actual PNG and installed WebP inspected: one separated white upper stage with nozzle left and one gray satellite with two folded panels, gap clear, no flame or debris, all safely framed.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

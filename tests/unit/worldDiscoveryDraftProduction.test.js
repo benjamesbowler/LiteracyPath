@@ -10,6 +10,8 @@ import { readWorldDiscoverySource, parseWorldDiscoverySourceArgs } from "../../t
 import { prepareWorldDiscoveryNarration } from "../../tools/prepareWorldDiscoveryNarration.mjs";
 import { buildWorldDiscoveryImagePrompt, imageJob, install } from "../../tools/worldDiscoveryImageJobs.mjs";
 import { parseUnpublishedAudioManuscript } from "../../tools/guidedReadingUnpublishedAudioLib.mjs";
+import { WORLD_DISCOVERY_TOPIC_PROFILES } from "../../src/data/worldDiscoveryTopicProfiles.js";
+import { validateWorldDiscoveryCohortDrafts } from "../../tools/worldDiscoveryValidationLib.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const original = readWorldDiscoverySource().books;
@@ -33,6 +35,67 @@ function sourceDirectory(t) {
   save();
   return { dir, books, save, options: { sourceDir: dir, firstNumber: 11, lastNumber: 20 } };
 }
+
+function nonfictionDraftBooks() {
+  return [..."ABCDE"].flatMap(level => Array.from({ length: 10 }, (_, index) => {
+    const book = structuredClone(original.find(row => row.appLevel === level && row.type === "nonfiction"));
+    book.number = index + 21;
+    book.id = `world-discovery-${level.toLowerCase()}-${book.number}`;
+    book.title = `Synthetic ${level} ${book.number}`;
+    book.topic = WORLD_DISCOVERY_TOPIC_PROFILES["nonfiction-discovery"].topics[index];
+    // Structural test fixture, never authored or approved production content.
+    book.pages[0].text = `Page ${book.number} in ${level}.`;
+    return book;
+  }));
+}
+
+test("the explicit next cohort requires nonfiction and exact new strands without weakening legacy or factual gates", () => {
+  const books = nonfictionDraftBooks();
+  const options = { firstNumber: 21, lastNumber: 30, topicProfile: "nonfiction-discovery" };
+  assert.deepEqual(validateWorldDiscoveryDraftBatch(books, options).failures, []);
+  assert.match(validateWorldDiscoveryDraftBatch(books, { firstNumber: 21, lastNumber: 30 }).failures.join("\n"), /requires explicit topicProfile/);
+  assert.match(validateWorldDiscoveryDraftBatch(draftBooks(), { firstNumber: 11, lastNumber: 20, topicProfile: "nonfiction-discovery" }).failures.join("\n"), /must retain the original/);
+  assert.match(validateWorldDiscoveryDrafts(original, { topicProfile: "nonfiction-discovery" }).failures.join("\n"), /must retain the original/);
+  for (const [edit, error] of [
+    [rows => { rows[0].type = "fiction"; }, /every book to be nonfiction/],
+    [rows => { rows[0].topic = "identity"; }, /topic does not match strand/],
+    [rows => { rows[0].storyBibleReview.scienceSources = []; }, /nonfiction requires factual evidence/],
+    [rows => { rows[0].pages[0].text = "This new page contains far too many words."; }, /exceeds A limit/]
+  ]) {
+    const changed = structuredClone(books);
+    edit(changed);
+    assert.match(validateWorldDiscoveryDraftBatch(changed, options).failures.join("\n"), error);
+  }
+  const entries = [
+    { cohort: { index: 0, expectedBooks: 50, expectedPages: 440 }, books: original },
+    { cohort: { index: 2, expectedBooks: 50, expectedPages: 440, ...options }, books }
+  ];
+  assert.deepEqual(validateWorldDiscoveryCohortDrafts(entries).failures, []);
+  books[0].pages = structuredClone(original.find(row => row.appLevel === "A" && row.type === "nonfiction").pages);
+  assert.match(validateWorldDiscoveryCohortDrafts(entries).failures.join("\n"), /duplicates the manuscript/);
+});
+
+test("new-profile source selection propagates through image and reviewed narration jobs", t => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "world-discovery-nonfiction-test-"));
+  t.after(() => fs.rmSync(dir, { recursive: true, force: true }));
+  const books = nonfictionDraftBooks();
+  for (const level of "abcde") fs.writeFileSync(path.join(dir, `level-${level}.json`), JSON.stringify(books.filter(book => book.appLevel.toLowerCase() === level)));
+  fs.writeFileSync(path.join(dir, "reviews.json"), JSON.stringify(Object.fromEntries(books.map(book => [book.id, {
+    appReadingLevel: book.appLevel, rationale: "Synthetic test review; never production approval.", reviewedAt: "2026-11-09",
+    reviewMethod: "codex-full-manuscript-editorial-review", reviewedTextFingerprint: fingerprintBookReadingText(book)
+  }]))));
+  const options = { sourceDir: dir, firstNumber: 21, lastNumber: 30, topicProfile: "nonfiction-discovery" };
+  assert.deepEqual(parseWorldDiscoverySourceArgs(["--topic-profile", "nonfiction-discovery"]).options, { topicProfile: "nonfiction-discovery" });
+  assert.equal(readWorldDiscoverySource(options).books.length, 50);
+  const job = imageJob("world-discovery-a-21", "reference", options);
+  assert.equal(job.manuscriptSource.topicProfile, "nonfiction-discovery");
+  assert.ok(job.target.endsWith("source-art/world-discovery/a-21-reference.webp"));
+  const prepared = prepareWorldDiscoveryNarration({ ...options, outputDir: path.join(dir, "audio") });
+  assert.equal(prepared.topicProfile, "nonfiction-discovery");
+  assert.equal(prepared.books, 50);
+  assert.equal(prepared.pages, 440);
+  assert.equal(prepared.titleClips, 50);
+});
 
 test("explicit draft ranges preserve the default fifty-book contract and reject omissions, duplicate IDs and wrong ranges", () => {
   const books = draftBooks(), range = { firstNumber: 11, lastNumber: 20 };
@@ -110,6 +173,30 @@ test("isolated image jobs select draft content without runtime activation or wri
   batch.books[0] = structuredClone(original[0]);
   batch.save();
   assert.throws(() => imageJob(original[0].id, "reference", batch.options), /collides with the published first fifty/);
+});
+
+test("cover diagrams require explicit declarations while covers and references remain unlettered", () => {
+  const book = structuredClone(original[0]);
+  const ordinary = buildWorldDiscoveryImagePrompt(book, "cover");
+  assert.match(ordinary, /one coherent scene and moment, no panels/);
+  assert.match(ordinary, /No logos, text, letters, numbers/);
+  book.coverImageLayout = "integrated-diagram";
+  book.coverBrief = "An unlettered compass diagram with its red needle pointing toward the tree.";
+  const diagram = buildWorldDiscoveryImagePrompt(book, "cover");
+  assert.match(diagram, /one integrated explanatory diagram/);
+  assert.match(diagram, /No logos, text, letters, numbers/);
+  assert.doesNotMatch(diagram, /or a separate inset/);
+  const reference = buildWorldDiscoveryImagePrompt(book, "reference");
+  assert.match(reference, /Reference-sheet override/);
+  assert.doesNotMatch(reference, /ONLY permitted written content/);
+  assert.deepEqual(validateWorldDiscoveryDrafts([book], { requireComplete: false }).failures, []);
+  book.coverImageLayout = "contact-sheet";
+  assert.throws(() => buildWorldDiscoveryImagePrompt(book, "cover"), /Invalid imageLayout/);
+  assert.match(validateWorldDiscoveryDrafts([book], { requireComplete: false }).failures.join("\n"), /coverImageLayout must be/);
+  book.coverImageLayout = "scene";
+  book.coverEmbeddedImageText = "N";
+  assert.match(validateWorldDiscoveryDrafts([book], { requireComplete: false }).failures.join("\n"), /cover lettering is prohibited/);
+  assert.doesNotMatch(buildWorldDiscoveryImagePrompt(book, "cover"), /ONLY permitted written content/);
 });
 
 test("isolated image installation refuses stale manuscript or prompt evidence before touching output", async t => {

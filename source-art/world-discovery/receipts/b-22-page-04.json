@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-b-22",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T05:53:00.264Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-115586ff-2227-4df8-875a-e8a7fa7ac088.png",
+  "sourceSha256": "c8acbccb515e228ca1f909a888bc8896a9820f2840ddb80faf86158ab037dc92",
+  "output": "public/guided-reading/world-discovery/b-22/page-04.webp",
+  "outputSha256": "6673d440d77070f0a90d307eabf80d8dc16da1b31fd8ae4e596479a4c773a933",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit image one: remove BOTH children completely. Fill their places with the same plain cream background. Preserve the existing globe, its size, all continental coastlines, the orange route and arrow, and exact Indian Ocean lettering. Nothing else changes.\n\nUse case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one integrated explanatory diagram. Allow only the cutaways, insets, schematic elements or arrows explicitly authored in this page's illustration brief; keep them spatially connected to the subject they explain. No unrequested panels, insets, annotations or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, watermarks or page borders. The ONLY permitted written content is the exact authored embeddedImageText: \"Indian Ocean\". Preserve its spelling and case; place it only as the illustration brief specifies. No additional text, letters, numbers, captions, pseudo-writing, legends or written title. Printed prose below is context only, never extra lettering. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\nBook: One Ocean Around Earth; World Discovery; nonfiction.\nSetting: A single accurate geographic diagram on a pale cream background. No people or classroom.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Accurate blue-and-green Earth globe; Thin orange route overlay kept entirely in seawater; Plain gray globe stand\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and specific stages explicitly required below; the declared diagram permits no other scenes or story events.\nPage 4. Printed prose (NOT text to put in art): Go past Africa into the Indian Ocean.\nThere is no wall.\nRequired illustration: Route arcs through water south of Africa and northward into Indian Ocean; Africa left, India above, Australia right.\nExact current state: Continuous route has not crossed land.\nDo not add events or stages beyond the authored diagram. Repeat a subject only when the authored comparison or cutaway requires it. No written title; the app renders live text.\nThis exact page shows no people. Perfectly smooth flat color, no grain, texture or paint. Do not insert cast characters from another scene.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-3562d607-7d38-49c6-8e73-378c2925e2ac.png",
+      "sha256": "afb3599435572e7b667fd747f9851326a6c1a54dbac8f8e467ccccbfa32f8610"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "20ecca19d99fe9f835680d66d0bb8b60c48e7bfbd2c48e9ed200c12d2524db14",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T05:54:44.636Z",
+    "sha256": "6673d440d77070f0a90d307eabf80d8dc16da1b31fd8ae4e596479a4c773a933",
+    "note": "Directly viewed native PNG and installed WebP. Single globe with correct authored label and no extraneous people/stand/inset. Geographic outlines match the Natural Earth projection reference. Route passes through open water south of Africa then north into Indian Ocean east of Madagascar, without touching land.",
+    "limits": "Direct inspection only; independent sequence and reader review follow separately."
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-25",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T08:00:02.984Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-1099d7f5-f8df-4164-8ce1-c68231b03dd2.png",
+  "sourceSha256": "a9b5cb4fb60e0065720ad1fcd18aaa75b0e9a982042e2b03f77c411602e4a2f7",
+  "output": "public/guided-reading/world-discovery/d-25/page-02.webp",
+  "outputSha256": "4296c6cf57c3e507cac6bf9c541f8087a07d66406b5f2395c60f74f72e211e6c",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Framing correction only. Uniformly shrink the ENTIRE scene—Kit, table, both blue blocks, bent cream paper, and ONE centered wooden counter—to 75 percent current height and width, centered on the same plain white landscape1536x1024 canvas. Leave at least140px blank white above Kit's hair and below his shoes/table feet; all sides similarly generous. Preserve exact geometry, identity, natural hand touching the counter, two fixed blocks, smooth paper sag with air beneath, same counter and all colors. No added/removed objects, no text, no changed scientific state. Clean flat outlined 2D.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-e5f1b9fd-a511-4423-b3ac-fb1865589882.png",
+      "sha256": "20eb74006abc11a20d3ff1cfc9628458774cffd563fc36f7164f4b5633660f20"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "8337d31fb142299fa5e714fdc1bffff0a8db8bc933c0eeb3ee2b649380ddbd8b",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.522Z",
+    "sha256": "4296c6cf57c3e507cac6bf9c541f8087a07d66406b5f2395c60f74f72e211e6c",
+    "note": "Direct inspection: same correct Kit/counter/sagging sheet/two supports now wholly inside generous margins; no extra load or support, safe full-body framing.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

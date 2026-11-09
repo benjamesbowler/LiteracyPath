@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-26",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:48:48.547Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-ce46e2c3-06f3-4d0e-9159-22fdc9ab1539.png",
+  "sourceSha256": "451fc15fe6f21e53dfa68a28d8dc8a542cdd0b62d6354ff23c80f9647c171e3a",
+  "output": "public/guided-reading/world-discovery/d-26/page-02.webp",
+  "outputSha256": "0f66c282bccca3a37dbdd25002d953ecc91e288a83ed9024a7d2dd2106f16d38",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Scientific educational illustration. Reference image establishes the exact blue classroom robot and front mechanism. Produce ONE enlarged side-profile close view of only its front mechanism on a pale cream backdrop. Robot front faces RIGHT. At right is the same vertical red bumper. A straight WHITE horizontal plunger connects the bumper to the gray touch-sensor module at left. Directly below that plunger is the same visible horizontal coil spring. Show a small clean cutaway window in the gray sensor housing so the inner end of this same plunger meets a simple pushbutton contact. The bumper is extended and unpressed. A black wire runs from the sensor toward the gray controller partially visible at upper left atop the cropped blue chassis. Keep the plunger physically continuous from red bumper into sensor, not a separate rod or a second sensor. Visibility whitelist: cropped blue chassis, gray controller, wire, gray sensor cutaway, white horizontal plunger, one visible lower spring, red bumper. No wheel needed, no foam block, no people, no circuit symbols, arrows or faces. Do not invent measured pressure or complex circuits. Use clean dark-outlined flat 2D children’s nonfiction illustration with restrained cel shading, no grain, brush texture, photorealism or 3D render. Landscape 3:2, 1536 by 1024. Keep all instructional subjects inside central 70% with generous 140px margins. No words, letters, numbers, logos, captions or watermarks.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-3157ffda-195f-43cb-a589-668913a49522.png",
+      "sha256": "9c055eb68e3cd9c6667773ceaff29788164b39cea18e42154140ffec108f36e7"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "975d5f5420efb1308d6c48d6cf7633e175e59f4e879e625913e4b4acfddfb28a",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.528Z",
+    "sha256": "0f66c282bccca3a37dbdd25002d953ecc91e288a83ed9024a7d2dd2106f16d38",
+    "note": "Direct native image inspection: side-profile cutaway shows continuous white plunger meeting one pushbutton contact inside gray sensor, lower spring and wire to controller; no extra components or text; margins clear.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

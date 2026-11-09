@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-23",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T05:29:22.756Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-42fd1359-06ac-4ba3-bf2d-9d483f142d8f.png",
+  "sourceSha256": "33003391383eed69d31b3e2dc18d2bc392ec80b231ffd96431256dfe5c6242a4",
+  "output": "source-art/world-discovery/d-23-reference.webp",
+  "outputSha256": "63b17f6a43b272fc14e12ccf98c3bd9b111c3536428550ac5eaa96127949ac95",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Make a precise scientific color correction to this reference board. In EVERY heart/lung diagram and every simplified body circulation diagram, replace ALL BLUE blood vessels and their blue outlines/fills with dark burgundy-red. Keep oxygen-rich vessels bright red and oxygen-poor vessels dark burgundy-red: blood is NEVER blue. Preserve vessel paths, heart between the two lungs slightly toward anatomical left (viewer right), pale lung tissue, red blood cells and arrow directions. Do not recolor the blue carpet or ordinary room objects; this correction applies only to anatomical vascular structures. The paired blood-vessel cutaways must consistently show bright-red oxygen-rich blood with pale white oxygen-code dots, and darker burgundy-red oxygen-poor blood with gray carbon-dioxide-code dots. These dots are small teaching symbols, never actual bubbles. Preserve canonical Zoe identity and clothing, ordinary-room style, unlettered reference-board layout and clean flat 2D outlines. No labels, no Kit, no new people or organs.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-f606fd28-fe39-4283-bde9-f65709ce68e7.png",
+      "sha256": "f00b329839b7d41fe5debfc4e667c45c36b82347b78c75748a36b821a5a80e60"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "53f321fe6f6525dbc7142913453889b170e4387f03930954a85dc6f67239997e",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.513Z",
+    "sha256": "63b17f6a43b272fc14e12ccf98c3bd9b111c3536428550ac5eaa96127949ac95",
+    "note": "Direct image inspection: Zoe only, correct clothing/identity; heart between lungs toward anatomical left; all vascular structures now bright or dark red, no blue blood; diagram arrows stay inside vessels, neutral room and no lettering. Final diagram route accuracy still requires per-page checks.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

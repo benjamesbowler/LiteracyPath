@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-c-21",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:20:01.202Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-663ea86e-8e09-4fc4-aff0-a1f750114e2c.png",
+  "sourceSha256": "4ebd699edaf06b5d94d7113bc285537030b5cfa175b68516c9712a6e20abc5be",
+  "output": "public/guided-reading/world-discovery/c-21/page-06.webp",
+  "outputSha256": "046dea1542f873b886cce9f0ebbecaca327156270b663f0c843d14dc9f13c2a1",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Pull the camera back by 25 percent on this otherwise correct baggage-unloading scene. Entire nose, wing, tail, gray cart including tow hook, worker head and both shoes must be at least 10 percent inside all frame edges. Preserve the same worker lifting the exact tagged blue orange-striped bag onto the gray cart, lower-hold door and connected loader, parked landing gear and airport background. No extra people or objects. Preserve all correct content, exact identity, flat clean colors, crisp outlines, landscape3:2. No text, grain, texture or new props. Essential content stays within central75percent.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-1805538a-ffbe-4923-9956-14f38a63824b.png",
+      "sha256": "014a25c759d5911a39c93cd1ae29e4d9c5a601c9bc58e443cd88b178f8db4ef4"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "adafabd724e58b7f6c3e03af760b56ae0cdebf5dbdc7ec8e6a3d11c2e19a0ce2",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:20:57.440250+00:00",
+    "sha256": "046dea1542f873b886cce9f0ebbecaca327156270b663f0c843d14dc9f13c2a1",
+    "note": "Native and final WebP directly viewed: destination worker transfers same tagged blue-orange bag to cart after lower-hold unloading; upper cabin windows remain above cargo opening; whole worker, cart, loader and plane safely inset.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

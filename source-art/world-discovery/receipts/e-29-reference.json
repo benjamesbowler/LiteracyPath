@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-29",
+  "slot": "reference",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T05:39:03.721Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-d3db84aa-d718-4967-87b2-779e6326d7b0.png",
+  "sourceSha256": "66c8e7f9363e85dae0b13bb0bda0134ec03c0faf8f04648e286ce4a542523e08",
+  "output": "source-art/world-discovery/e-29-reference.webp",
+  "outputSha256": "a47d0b1fd66a388b98592ce74465886601a97912d00f8c1fee4b631efc456b18",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. PRODUCTION REFERENCE SHEET, landscape, not a finished book page. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: One Shirt, Two Washdays; World Discovery; nonfiction.\nSetting: An original present-day demonstration informed by Museum Wales object F79.198 and its washday teaching collection; not a claim that a specific visitor demonstration happened. Board model: wooden frame with five ribbed horizontal slats, two rubber wringer rollers on top, hand crank and drainage tray. Adult wears plain teal shirt and navy pants, no period costume. Same plain yellow cotton shirt with one blue square pocket throughout; later day clearly stated. Children observe only, no hands near rollers or machine.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Replica-style washboard and hand-cranked wringer based on Museum Wales F79.198; Wash and rinse tubs; Plain modern front-loading washer; Same yellow cotton shirt with blue pocket\n Create a clean separated reference board on white: show the principal recurring props/animals in front, side and three-quarter views, their relative scale beside any named human cast, and a single simple location key showing the persistent setting and daylight/palette. The human character model sheet is a supporting identity reference, not content to copy wholesale. Show only the subjects this book requires. Use initial object states: Five horizontal ribbed slats, two rubber rollers and one crank, based on Museum Wales object F79.198; no invented date label.. For orientation, the opening location/action is: A washboard with its top wringer stands beside two tubs in a teaching space. Five horizontal ribbed slats, two rubber rollers and one crank, based on Museum Wales object F79.198; no invented date label.. Do not show a completed craft or later scene merely because the finished object is listed in design locks. No future story events, no captions. Reference-sheet override: any lettering requested by the opening page brief belongs only in that finished page. Keep this production reference board entirely unlabelled; no letters, numbers or pseudo-writing. Perfectly clean flat vector-like fills, no grain, speckle or painted textures. Do not add unspecified species or people; no scale-comparison person unless expressly required. No lettering. The principal historic device is a compact wooden washboard, about 605mm high and 350mm wide: rectangular wooden frame around exactly FIVE broad horizontal ribbed wooden slats. A pair of two rubber wringer rollers is mounted across its top bar; a steel crank with wooden handgrip drives them. A galvanized drainage tray hinges below the rollers. It is one physically assembled appliance, not a freestanding modern factory mangle. Keep the yellow shirt short-sleeved with exactly one square blue chest pocket. The adult is a real adult with teal shirt and navy pants, never a child.\nMANDATORY TARGETED EDIT TO THE ATTACHED CANDIDATE: Retain every object, exact five horizontal washboard slats, two rollers, physically connected crank and hinged tray, person and shirt unchanged. Remove ALL mottled/speckled/grain textures from metal tubs, drainage tray, wood and every surface. Replace with perfectly solid flat color shapes and at most one crisp-edged cel shadow. No gradients or photographic textures. Maintain smooth bold cartoon linework.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-28513a5e-e8a5-4162-a8f6-600cf2d1f186.png",
+      "sha256": "792dade8cd46deb02fa891477a9b2311c4683f75404b1f4441edb84b110a3633"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "7b5d49fa464ddfe3c488fb7295ea82cbaa37ae0e01b14b633c270d651f53cb42",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
+    "sha256": "a47d0b1fd66a388b98592ce74465886601a97912d00f8c1fee4b631efc456b18",
+    "note": "Installed WebP inspected: five broad wooden washboard slats, two rubber rollers, integrated crank/tray and unlettered modern adult, tubs, washer and yellow shirt with one blue pocket. Metallic speckle removed.",
+    "limits": "Full sequence, reader/card and audio review remain pending."
+  }
+}

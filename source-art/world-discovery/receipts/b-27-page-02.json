@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-b-27",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T08:13:15.199Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-c91e6628-2a30-4ae5-80c1-5cbe71f11c28.png",
+  "sourceSha256": "069be876318fd8c46f58db68725b0b6e7ded127d635b0f3dd20058afc04654a3",
+  "output": "public/guided-reading/world-discovery/b-27/page-02.webp",
+  "outputSha256": "03632d35c283f6eac7cb10221c14524683fe6c780a6d6f6b64a786c370a03883",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Change ONLY the left children's placement in this otherwise correct image. Move both children together 100 pixels RIGHT behind their existing separate cool counter. The left boy's hair must begin at x220 rather than x120. Preserve wide separation from adult's stove on right. Keep same four-burner stove, pan back-left, inward handle, hot white milk, adult and whole kitchen. No other changes. LANDSCAPE 3:2 1536x1024. Clean smooth flat colored cartoon shapes, crisp dark outlines; no grain, stipple, paper texture or painterly shading. No words, letters or numbers. Keep all essential heads/hands/props inside central 75% of canvas, with at least 160px left/right and 120px top/bottom breathing room. One continuous scene, no inset or panels.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-8ea30f60-9fb3-4d26-817a-93a1bd2e1326.png",
+      "sha256": "ef474ee3fd6f1aa6854fdbd61c1deaceeaca49492d1683906c912e31be1bb578"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "14bdf1a9b4c155d155a7916b5fde211a1d4c1dddaf582d022d5985416f706b7c",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T08:14:43.539046+00:00",
+    "sha256": "03632d35c283f6eac7cb10221c14524683fe6c780a6d6f6b64a786c370a03883",
+    "note": "Directly viewed native PNG and installed WebP: adult heats white milk on back-left burner of four-burner stove, handle inward, children well separated at cool counter with safe head margins.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

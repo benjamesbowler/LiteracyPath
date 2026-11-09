@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-28",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:35:54.472Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-2b1901e2-8980-41ad-8303-c726a7b7ed0f.png",
+  "sourceSha256": "0007645e56f0c5e47759b92489630e3c278ba26d4a4276307385845b0ffb40e1",
+  "output": "public/guided-reading/world-discovery/d-28/page-03.webp",
+  "outputSha256": "bb83c099a37f219cfeb482ad0a1881e1de02c83b69de4e898730045359275c1a",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "One finished woodland scene: ONE Carolina chickadee searches a leafy oak branch for insects. Use reference exact markings and flat graphic style. Bird perched naturally in SIDE view facing RIGHT, leaning its head toward the UNDERSIDE of a rounded-lobed green oak leaf. Its short dark beak is EMPTY, its tiny natural eye watches the leaf. Black cap and small neat black bib, white cheek, gray wings/back and pale cream underside; no broad white wingbar. Two feet each naturally wrap the twig with three forward toes and one rear toe. Gray tail fully visible pointing left. Branch carries several rounded-lobed oak leaves; one has a small missing edge. Keep all focal parts safely framed against simple green woodland shapes and a gray-brown trunk, no nest cavity visible yet. No prey in beak, no chick, no arrows, inset or additional bird. Clean bold dark-outlined flat 2D nonfiction cartoon matching reference, with simple restrained cel shading. No fine feather/bark texture, grain, painting, photorealism or 3D. Landscape 3:2, 1536x1024. Main animal, beak, tail, feet and focal leaf safely inside central70% with at least140px margins; natural background fills edges. No text, labels, letters, numbers, logos, flags or human props.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-07b4b21e-40d4-483c-a6f7-8f79c66f5668.png",
+      "sha256": "47b60e8fba3781b55632924222de2fc18d97348b577bcabaafdbddf3255a54c5"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "78c2904e582ff26b4d4ca84266e2154c9a1849a22caf6695aebc788bc09c7b58",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.540Z",
+    "sha256": "bb83c099a37f219cfeb482ad0a1881e1de02c83b69de4e898730045359275c1a",
+    "note": "Actual native PNG and installed WebP directly inspected: Same chickadee searches branch with empty beak; species markings, two gripping feet and leafy woodland clear.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

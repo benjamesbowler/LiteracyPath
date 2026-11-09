@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-21",
+  "slot": "page-04",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:29:55.440Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-85e45f0b-86c2-484f-b685-ce2ac215ed20.png",
+  "sourceSha256": "d3daabc4e3b7d83fd53e5ab87308ee9932ac761a50cd2f729609b6a01713981d",
+  "output": "public/guided-reading/world-discovery/e-21/page-04.webp",
+  "outputSha256": "d006fccedc95a81a5ce568472c7739526754b62ca3fc8b1b6ef799ebbc51cd6d",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Make one finished 3:2 landscape children's nonfiction illustration in the exact flat 2D clean bold-outline style of the attached reference. Solid cheerful colors, no texture, gradients, 3D, collage, decorative frame or printed narration. Preserve exact Kit (teal shirt/yellow shorts), Zoe (yellow shirt/purple overalls/two hair puffs), adult (teal polo/navy trousers), yellow bus and white-blue enclosed ferry designs wherever shown. All essential subjects and diagram boundaries must sit at least 12 percent inside ALL four image edges; backgrounds may extend. A single wide side-view scene of ONE yellow bus driving right on the level deck of a gray road bridge over the turquoise river. Match the yellow bus design from reference: four square passenger windows, right-side front doorway and right-facing windscreen. Bridge deck continuously connects broad banks, with guardrails behind/below bus, bridge piers rise from water; bus tires visibly rest on road surface. Bus and bridge are framed widely with essential bus and bridge ends at least 15 percent inset. On upper left above the river place one small white round time badge containing ONLY a black simple bus pictogram and numeral 15. This badge denotes ride time only. No other text or number, no people, no extra vehicles, no reference-board map, no extra floating museum. Simple green banks and pale blue sky.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-f19cf581-712d-4140-8a59-22d724c3c433.png",
+      "sha256": "36c01933e6404087d4ae36493a91a089b9728237a85f267e6070eab50f9a75c7"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "9421bb4bb1f97c822674b76871fc5ee9b7b4398f02e9bdb626223b2a8cf9283e",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T11:31:58.778467+00:00",
+    "sha256": "d006fccedc95a81a5ce568472c7739526754b62ca3fc8b1b6ef799ebbc51cd6d",
+    "note": "One right-facing yellow bus has tires on gray road bridge. Bus and15 pictogram badge safely inset. Supporting bridge piers and river are contextual scenery; no misleading whole-journey total.",
+    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  }
+}

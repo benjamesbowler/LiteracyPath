@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-27",
+  "slot": "page-10",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:28:09.605Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-ff3ceb5f-7e7e-4ccb-9642-9d9c9434723b.png",
+  "sourceSha256": "76a6f085d9f1608aa9d19bf4988c2284967671388e45b6ffa1e3b002e2b14cc7",
+  "output": "public/guided-reading/world-discovery/d-27/page-10.webp",
+  "outputSha256": "ae3294aa8deeb207fc89bef056fdd2694dcfd1e9b41d34b00eb31d23c0f3fc1f",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Make one precise edit to this exact teaching display: REDUCE the individual samples inside all THREE front dishes to HALF their present length and width. Preserve exactly three empty golden husk halves in left dish, three brown raw rice kernels in middle dish, four white raw rice kernels in right dish; center each small group in its unchanged dish. The raw grain kernels must now be clearly SMALLER and slimmer than the plump cooked grains in the teal bowl behind, because cooking swells rice. Keep dishes, bowl, cooked rice, branching panicle, table, wall, colors, margins and all other details exactly unchanged. No added items, arrows or text. Clean flat outlined2D, landscape1536x1024.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-630b7409-3b7f-490e-a727-8be6cacbad44.png",
+      "sha256": "77e96423f51914d5bf72dc69b2837d013e12f81a721c62f336d526caca052b75"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "d7159e37a1a2ef16cf6332c998d1e18c7c5e1c835d8925d2049fd3bf922c1538",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.537Z",
+    "sha256": "ae3294aa8deeb207fc89bef056fdd2694dcfd1e9b41d34b00eb31d23c0f3fc1f",
+    "note": "Direct native inspection: three distinct dishes contain empty gold husks, brown raw grains and white raw grains; raw grains now smaller/slimmer than cooked grains; same teal bowl/panicle/table, no diagram collage or labels.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

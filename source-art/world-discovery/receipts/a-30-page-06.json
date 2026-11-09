@@ -1,0 +1,39 @@
+{
+  "bookId": "world-discovery-a-30",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:11:51.657Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-1e5990cb-504a-40e7-92a5-b922a2f6d837.png",
+  "sourceSha256": "00a6edb9ec5ae0b7a2c3dd088a804f9c904a3cb68ac476aa3e467c83e637d685",
+  "output": "public/guided-reading/world-discovery/a-30/page-06.webp",
+  "outputSha256": "c91d130ab97dbaee9c439e445e5418deca1b8b306d965570775ae1fdafc696e5",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Create next scene of SAME location, camera pulls BACK and pans RIGHT to reveal more stream. The SAME single pale yellow bag now has fallen into shallow blue stream beside bank. It lies partly floating with air still in body, its lower-right edge touches water with tiny ripples; TWO intact loop handles trail left and triangular lower-right notch visible. No airborne shadow in water. Place bag central-right, fully inset at least12% from ALL edges; body roughlyquartercanvaswidth. Street recedes on farLEFT, same rooted tree and two-fork catching branch behind LEFT of bag on grassy bank. Stream curves from background then flows to RIGHT in foreground. No ocean, animals, people, extra bags, text, arrows or panels. Crisp black outlines, clean flat saturated fills and smooth solid grass/water, no grain. Landscape3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-067af075-0f33-4da2-aef1-6a9b7e2b98e5.png",
+      "sha256": "d3aef6a76e921d3acc06b8887063c5ab3765f63ecfe670ffd6149a4f2e5b3f59"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "24075755c621d72f43bb30fc00a77fb407d55e36e08d772f10f5aa04aed3efc1",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "c91d130ab97dbaee9c439e445e5418deca1b8b306d965570775ae1fdafc696e5",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:11:51.658Z",
+    "note": "Directly inspected native: one intact bag partly floating in stream with lower-right notch edge touching water and local ripples, two handles visible, no airborne shadow. Wider rightward view keeps street/tree/branch behind left and continuous stream to right; bag and branch tips have wide margins."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-a-30",
+    "path": "src/content/world-discovery/cohorts/21-30/level-a.json",
+    "sha256": "f9ec508c059ddf7bc839efb70dfb744ce32989e7c1fecee092e761c78496361a",
+    "evidence": "source-art/world-discovery/cohorts/21-30/a30-teaching-cue-revalidation.json"
+  }
+}

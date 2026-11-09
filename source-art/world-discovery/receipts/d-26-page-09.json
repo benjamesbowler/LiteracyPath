@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-26",
+  "slot": "page-09",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:01:04.444Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-8f217f76-415a-4ab4-bae1-501f6afca333.png",
+  "sourceSha256": "32982d5968ec5a4c3d0527a3257840fa5dd0cd19cc1745b9b359a31e243eb71d",
+  "output": "public/guided-reading/world-discovery/d-26/page-09.webp",
+  "outputSha256": "2a678707f08733cfce95a22b07fba5c7779211be0cb8a4625f8f280e4f9a31f4",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact scene for the next robot contact. REMOVE Zoe completely; no hands or people remain. Preserve the SINGLE yellow block in its relocated lower-right position, same room and mat. Move the same blue robot slightly forward along its diagonal DOWN-RIGHT heading until its red bumper touches the block’s LEFT face. Keep contact physically coherent along the robot heading. Red bumper moves closer to blue chassis as the white central plunger and the two side coil springs compress; robot body does not penetrate or push the block. Two large driven wheels, small rear caster, gray top controller and black wire unchanged. Pull back view slightly if necessary to preserve at least 140px space around all robot/block components. No arrows, sparks, extra robots or duplicate blocks. Clean dark-outlined flat 2D nonfiction art, restrained cel shading, no grain or painted texture, no photorealism or 3D render. Landscape 3:2 1536x1024. Keep all important subjects within central 70% with 140px margins. No words, letters, numbers, logos or watermark.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-a020d774-3239-4451-85e2-e74b056166b7.png",
+      "sha256": "413a60366dcbca3f49f760941ac58c2675dbb096b39a162b6cf5d5fb4d004313"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "975d5f5420efb1308d6c48d6cf7633e175e59f4e879e625913e4b4acfddfb28a",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.531Z",
+    "sha256": "2a678707f08733cfce95a22b07fba5c7779211be0cb8a4625f8f280e4f9a31f4",
+    "note": "Direct native inspection: Zoe removed; robot reaches relocated block, bumper contacts its left corner/face with shorter plunger and compressed springs; no body penetration, same two-wheel/rear-caster mechanism, safe margins.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

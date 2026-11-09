@@ -33,16 +33,25 @@ test("stale page text, unreviewed context and duplicate selectors cannot silentl
   assert.match(validateContextualWordAudioEntries(books, { entries: [{ ...contexts[0], pageText: "Wrong text." }], verifyFiles: false }).join("\n"), /exact source page/);
 });
 
+test("title-word evidence uses an exact title context and cannot attach to a changed title or page", () => {
+  const title = { ...contexts[0], bookId: "title-context-test", pageNumber: "title", pageText: "The Bow", word: "bow" };
+  const book = { id: title.bookId, title: title.pageText, pages: [{ pageNumber: 1, text: "A bow is here." }] };
+  assert.deepEqual(validateContextualWordAudioEntries([book], { entries: [title], verifyFiles: false }), []);
+  assert.equal(getContextualGuidedReadingWordAudioPath("bow", context(title), [title]), title.audioPath);
+  assert.equal(getContextualGuidedReadingWordAudioPath("bow", { bookId: book.id, page: book.pages[0] }, [title]), undefined);
+  assert.match(validateContextualWordAudioEntries([{ ...book, title: "A Different Bow" }], { entries: [title], verifyFiles: false }).join("\n"), /exact source page/);
+});
+
 test("current context clips bind real source pages and bytes and share resolution with preload and release inventory", () => {
-  const books = [..."abcde"].flatMap(level => JSON.parse(fs.readFileSync(new URL(`../../src/content/world-discovery/cohorts/11-20/level-${level}.json`, import.meta.url))));
+  const books = ["11-20", "21-30"].flatMap(cohort => [..."abcde"].flatMap(level => JSON.parse(fs.readFileSync(new URL(`../../src/content/world-discovery/cohorts/${cohort}/level-${level}.json`, import.meta.url)))));
   assert.deepEqual(validateContextualWordAudioEntries(books), []);
   const inventory = collectWorldDiscoveryCohortAudio(books);
   for (const row of GUIDED_READING_CONTEXTUAL_WORD_AUDIO) {
     const book = books.find(book => book.id === row.bookId);
-    const page = book.pages.find(page => page.pageNumber === row.pageNumber);
+    const page = row.pageNumber === "title" ? { pageNumber: "title", text: book.title } : book.pages.find(page => page.pageNumber === row.pageNumber);
     assert.equal(getGuidedReadingWordProductionAudioPath(row.word, { bookId: book.id, page }), row.audioPath);
     assert.equal(inventory.get(row.audioPath)?.audioSha256, row.audioSha256);
-    assert.ok(readingSessionMediaUrls({ ...book, pages: [{ ...page, words: [{ text: row.word }] }] }, [page.pageNumber]).includes(row.audioPath));
+    if (row.pageNumber !== "title") assert.ok(readingSessionMediaUrls({ ...book, pages: [{ ...page, words: [{ text: row.word }] }] }, [page.pageNumber]).includes(row.audioPath));
   }
   const bow = GUIDED_READING_CONTEXTUAL_WORD_AUDIO.filter(row => row.word === "bow");
   assert.deepEqual(bow, [], "repaired ribbon/body-bow pages no longer consume either contextual selector");

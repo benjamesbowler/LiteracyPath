@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-c-24",
+  "slot": "page-02",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:01:12.600Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-6cc3b83f-0715-4bbd-9b9d-6ac080fccbdb.png",
+  "sourceSha256": "85fe8c576c0180633e88ad47e9b2e5af7440a90594190de83914f34c3210960d",
+  "output": "public/guided-reading/world-discovery/c-24/page-02.webp",
+  "outputSha256": "12ee3fd2ff3c0765705bfc2036e283ba91ed30e7d92a38ca7ba276ea4eac2819",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Closer lake-surface view, sunlit blue water with bank and meadow. Air above is visually clear blue sky. ONE subtle blue teaching arrow curves upward from water into clear air to represent transfer of invisible gas. No visible vapor plume, no droplets suspended above water, no cloud, no magnifier, no other arrow. 3:2 landscape full-bleed. Crisp clean smooth flat children's vector-like illustration, solid fills, no grain, paper texture, painterly shading, captions, text or labels. All essential cloud/diagram parts comfortably inside central75percent; contextual trees/ground may extend to edges. No humans or animals. One coherent composition, no reference board.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/c-24-reference.webp",
+      "sha256": "493a51ef79ef1bc26db7cfb85d8c8c5f133eaaba45a0058938f3bec3c7c5bd3a"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "cbfc1a0f277ec5764a733f36e711277c72ce51d08853c5fd50b0372b7684550a",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T12:06:41.657839+00:00",
+    "sha256": "12ee3fd2ff3c0765705bfc2036e283ba91ed30e7d92a38ca7ba276ea4eac2819",
+    "note": "Native and installed WebP directly viewed. Same lake, one upward teaching arrow through clear invisible air, no vapor drawn as mist or drops; core arrow safely inset.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

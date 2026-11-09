@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-28",
+  "slot": "page-09",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:48:08.451Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-f5c6de4f-b72e-444d-8966-ab73cc0a1bf7.png",
+  "sourceSha256": "70679aa9eed4962d87ba8ddb79457b46671fcc7babb54309724a3c30d7fd9d3a",
+  "output": "public/guided-reading/world-discovery/d-28/page-09.webp",
+  "outputSha256": "5d62dcf7a4f6482cf94866f8f79705089f35b9ede9313df9d17b9a252fc2f557",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. Create a different 1536x1024 woodland close scene matching exact flat dark-outlined Carolina chickadee from reference. Bird perches on a thin oak twig at center-left, faces RIGHT and looks toward ONE small brown spider on a neighboring twig at center-right. EMPTY beak, neither touching nor holding spider yet. Spider has exactly TWO body regions, rounded abdomen and smaller cephalothorax, and exactly EIGHT thin jointed legs attached to cephalothorax, four on each side, visibly separated against pale green background; natural scale, spider total spread about one eighth bird body length. No antennae, wings, expressive face, humans or web needed. Bird exact black cap/neat bib/white cheeks/gray wingstail/cream belly; two anatomically natural feet grasp branch. Several rounded-lobed oak leaves; no caterpillar, nest or chick in this page. All focal animals/tail/feet well inside central75% with wide margins. Whole image clean flat 2D cartoon, no texture/realism. No text, labels, arrows or numbering.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-2b1901e2-8980-41ad-8303-c726a7b7ed0f.png",
+      "sha256": "0007645e56f0c5e47759b92489630e3c278ba26d4a4276307385845b0ffb40e1"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "78c2904e582ff26b4d4ca84266e2154c9a1849a22caf6695aebc788bc09c7b58",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.543Z",
+    "sha256": "5d62dcf7a4f6482cf94866f8f79705089f35b9ede9313df9d17b9a252fc2f557",
+    "note": "Native PNG and installed WebP directly inspected: Bird investigates one two-region eight-leg spider, empty beak.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

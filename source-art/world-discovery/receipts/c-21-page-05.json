@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-c-21",
+  "slot": "page-05",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:32:38.439Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-700fa242-618e-482c-aee9-5a705d2ba6c8.png",
+  "sourceSha256": "5f6978e6ef23c3db711273f1ec3ef69cf99bbf1fb16efb51b96b94cedf858a06",
+  "output": "public/guided-reading/world-discovery/c-21/page-05.webp",
+  "outputSha256": "64d3f1127a104aff1649bd49604ea7fd9f45525521e51ec51af09e8d36d368c7",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this inflight cutaway illustration only. Uniformly reduce the entire plane and its cutaway contents by a further 15 percent, centered, extending the blue sky and sparse white clouds full-bleed. Whole plane including nose, tail, wings must now sit inside the central 75 percent of image width with generous sky on both sides. Preserve all exact plane and compartment geometry: upper passenger floor, separate lower baggage hold, same tagged blue bag orange diagonal, net securing baggage, closed exterior doors. Seats face LEFT toward nose. Keep Kit teal shirt mustard shorts and adult guardian navy shirt gray trousers, clearly secured by simple lap belts with small buckles across their hips. Keep unchanged two subjects and their seats. No labels or text. Smooth flat vector-like fills, crisp lines, no grain. 3:2 landscape.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-ad9b4531-20d2-47b9-8bee-ddcf4f271da9.png",
+      "sha256": "ea31ba77fb6ecdce8dd47fed4fc4e7f98f2e20b64ef82b3c9d61d0c12dde4c70"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "adafabd724e58b7f6c3e03af760b56ae0cdebf5dbdc7ec8e6a3d11c2e19a0ce2",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:33:30.231651+00:00",
+    "sha256": "64d3f1127a104aff1649bd49604ea7fd9f45525521e51ec51af09e8d36d368c7",
+    "note": "Native and final WebP directly viewed: whole inflight plane now generously inset; Kit and guardian in forward-facing seats with visible lap belts above separate floor, tagged orange-striped bag secured by net below; exterior doors closed.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

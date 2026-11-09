@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-b-26",
+  "slot": "page-03",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:21:29.260Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-c11988c1-11c3-4562-af51-61568f67f28d.png",
+  "sourceSha256": "43d47b45a5e25668d6ba0f22be389efad9779701eeff479890efa7ac803e5eb7",
+  "output": "public/guided-reading/world-discovery/b-26/page-03.webp",
+  "outputSha256": "5516c58d39f40a78bbcb80373af9191187a7657f7cc0761ab616e97202465d2a",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Continue the supplied over-Zoe's-shoulder camera scene as the very next moment. Keep exact scene layout, camera rear facing Zoe and reader, actual RED cube on BLUE rectangular block in left background and matching red-on-blue image centered on LCD. Change Zoe's RIGHT hand so its index finger rests pressing the TOP SHUTTER BUTTON; her remaining fingers securely grip right camera edge and left hand supports left/bottom edge. Show the whole shutter-button contact clearly and anatomically correctly, no extra fingers or duplicated hands. The blocks have not moved. No playback triangle yet, no flash rays. Preserve camera's two round rear buttons and identity. Keep same foreground shoulder crop; whole camera and both block views safely framed. Single physical scene. Finished landscape 3:2 clean bold children's 2D cartoon, crisp dark outlines, perfectly smooth flat fills, restrained cel shading. No grain, stipple, painted texture, labels, words, letters, numbers, arrows, inset panels or watermark. Essential content at least 9% inside every edge.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/b-26/page-02.webp",
+      "sha256": "223a4b3eb84c58530ab1e86e6ad6c0a77777ee691e011810ce7884dc45d639e1"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "92cd13a2772ca31a9f3db39eee27ddd9fb03eec7e4ce66785453ca94f8823761",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T07:22:46.852991+00:00",
+    "sha256": "5516c58d39f40a78bbcb80373af9191187a7657f7cc0761ab616e97202465d2a",
+    "note": "Directly viewed native PNG and installed WebP. Shutter press visible with supporting left hand and right hand at top/side; unchanged actual and camera red-on-blue stack, no playback icon, camera and blocks safely framed.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

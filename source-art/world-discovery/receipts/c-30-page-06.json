@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-c-30",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:05:20.739Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-8e4e120e-aa73-4199-a275-8b8777d169f9.png",
+  "sourceSha256": "8fcd3f577963215b509667bf3e8c70ea1d4d32a8c39c31385c8fe09c3d8931d1",
+  "output": "public/guided-reading/world-discovery/c-30/page-06.webp",
+  "outputSha256": "bb8c740d87d12a5295e7285b36da57c90d4591385c36511bbfb7ec61370cd512",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "One finished landscape3:2 full-bleed children nonfiction illustration, crisp flat2D cartoon with clean dark outlines, flat colors and restrained cel shading. No grain, painted texture,3D, words, logos, captions, border or frame. Full essential subjects within CENTRAL65 percent of canvas, broad naturally extended background margins. Page6: same white uncrewed single-engine rocket with navy pointednose/three smallfins, now highabove CURVED EARTH HORIZON. Rocket axis diagonally from lowerleft to upperright, nose upperright; one nozzle lowerleft sends hot paleorange/yellow gas lowerleft opposite direction. Thin blue atmosphere hugs Earth curved rim well below rocket; dark blue space overhead, few subduedstars. No intake, externalairpipe, flags, extra engines, boosters, arrows or diagrams. Earth lands are generic mutedgreen oceanblue, no national outlines. Full rocket and exhaust withincentral60percent, nose/plume at least15percentfromedges. No ground/pad nearby.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/c-30-reference.webp",
+      "sha256": "13981429b48266a584720e9531ebc4977f560e140763f6d897f5cb3e72968bd5"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/c-30/cover.webp",
+      "sha256": "f8dd831745744722d98672e2d6a6f6d80278bb05c6cc9c9c7491fce9ef238248"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "7374f9182a4ceb61b8c6faae01ea35938c85f0fc4723dd1dfcd601ace996d189",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T13:09:18.115303+00:00",
+    "sha256": "bb8c740d87d12a5295e7285b36da57c90d4591385c36511bbfb7ec61370cd512",
+    "note": "Same rocket points upperright above curved Earth/thin atmosphere, one nozzle exhausts lowerleft, no intake or booster. Full rocket and plume safely framed.",
+    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  }
+}

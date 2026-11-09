@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-b-24",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T06:48:12.730Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-f2135928-ec47-4505-8256-5d6d75477ace.png",
+  "sourceSha256": "d977087acbb842a43ce3bfdcbf1aaec52a484fb76b9c488b224bed82a25d40a1",
+  "output": "public/guided-reading/world-discovery/b-24/page-07.webp",
+  "outputSha256": "63059d82e8d16000cd2ced3d533ccd326091d0fdb00676b02da6ff56c6d49bf8",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Make just ONE precise hardware correction. The lower of the TWO horizontal gray support bars is currently at the BOTTOM of the mouth ring. Move that one bar UP to the HEIGHT OF THE RING CENTER, exactly like reference two. Do NOT add a third bar. Preserve the top support. Keep the orange cloth hanging limply down on LEFT side of gray pole, same vertical mouth facesRIGHT, narrow tail, all landmarks and framing unchanged. Reference one is target; reference two supplies exact correct TWO support positions only. Landscape3:2 clean flat smooth image, no text.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-72f2131b-608e-40bb-bd10-a7a083197f74.png",
+      "sha256": "969df5dbb5b5f088d9fe8da1aba89d1b7a872b0e187216db5be102f5f3b0886d"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/b-24/page-06.webp",
+      "sha256": "5d2ffdf0a3d6afa804827467ebea3e328f5233c4dd7e2e60542256de37b6dd2e"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "256ab5090d5f31f1862a8c4796e0dd9302a80857dadb5beb8a5f75e7127629bd",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T06:49:20.687153+00:00",
+    "sha256": "63059d82e8d16000cd2ced3d533ccd326091d0fdb00676b02da6ff56c6d49bf8",
+    "note": "Directly viewed native PNG and installed WebP. Cloth hangs in limp folds on left of pole after reversed wind. Vertical mouth faces right, two supports retained, small tail open. Bench-left/tree-right stay fixed and leaves are still.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "bookId": "world-discovery-c-23",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:18:37.785Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-5340f11c-b6b2-499e-b6a9-d066f68b12ba.png",
+  "sourceSha256": "b75266c4e76ad07bf3cf4beea233c2367ad93bdefea75c4b3dde12a9aefcd39d",
+  "output": "public/guided-reading/world-discovery/c-23/cover.webp",
+  "outputSha256": "cefead9f71099713470a5b4b5153b01a6d7e034e3df65dd2265469340da5b0ab",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Create one child-friendly non-gory educational illustration, 3:2 landscape, clean smooth flat color and crisp outlines, no grain or paper texture. No text, labels, arrows, extra limbs or floating accessory diagrams. Preserve exact right-arm bone identity from anatomical reference: humerus upper-left, two separate forearm bones to right; inner radius has round head near elbow and receives pale front biceps tendon on proximal radius just below head. Outer ulna has hook-shaped olecranon at elbow and receives rear triceps tendon. Tendons remain continuous muscle-to-bone; rigid bone shafts never bend. Place all essential anatomy within central 75 percent, minimum 12 percent margins. Use first reference as the exact scene: the whole same Kit seated on blue chair, teal shirt mustard shorts, bending his right elbow toward shoulder, left hand on knee. Add a gentle integrated transparent cutaway ONLY WITHIN his actual right arm, showing exact bones/muscles of second reference, short thick front biceps and lengthened rear triceps. Keep his natural arm outline, hand, whole head and feet. No separate giant arm. Cover entirely unlettered.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/c-23/page-01.webp",
+      "sha256": "39e5e6b5ebd951cca203377c602137987db0123e258406ab353ec322a97a4757"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/c-23/page-04.webp",
+      "sha256": "71d91810306e3338e42dbca51f2d65cce279ca5e06dbcfaa0161d0180e45e25b"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/c-23-reference.webp",
+      "sha256": "9e63284304a7bc2ea1d63e577ca195c64e62e831d44be138511b7bbaf0ad49d5"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "25f742b6e36d6eb87de003ac9ecc80f9d512f2d1edf34f8713c6b0c4130e8702",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T12:27:07.320379+00:00",
+    "sha256": "cefead9f71099713470a5b4b5153b01a6d7e034e3df65dd2265469340da5b0ab",
+    "note": "Native and installed WebP directly viewed. Complete seated Kit flexes right elbow with subtle integrated correct bones/muscle cutaway; whole child and chair above eight-percent minimum. Cover unlettered.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-e-22",
+  "slot": "page-10",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:31:43.224Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-ded25734-4ead-465d-b902-e597b08d1ff5.png",
+  "sourceSha256": "6fe1bbcbd26268b0a78949658c8bfd17f79f53551cbf24beff2c5fea4738af7a",
+  "output": "public/guided-reading/world-discovery/e-22/page-10.webp",
+  "outputSha256": "49b68b711141840570f9b3a74c327e024db4e8bc4a12fd4574e9e08ab02ae971",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: precise-object-edit. Change ONLY framing. Uniformly scale this ENTIRE scene—both people, table, cards, chairs and their legs—DOWN by18 percent, centered on same1536x1024 canvas. Extend the existing flat wall and floor around it. Both people's shoes and ALL table/chair feet must now be at least12 percent ABOVE the bottom edge; complete hair at least15 percent below top. Preserve every pose, body proportion, five-finger hand, card picture, exact labels Wells Reading Lacock, physical grounding and all spatial relationships. Do not reveal extra objects or reshape bodies. Same clean smooth flat color and crisp outlines, no woodgrain/grain/paper texture. No new text or elements.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-0ebf8be7-2133-44f7-a9cc-84446bceaedd.png",
+      "sha256": "e09c8c5ae28be948a685c0b05d04d4de369e0a22e00a3b8e4687140ec1da95ee"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "2aff8b9432244a41072eb7c7376c77e21594d83a655dfa83d99e44c528e86755",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "49b68b711141840570f9b3a74c327e024db4e8bc4a12fd4574e9e08ab02ae971",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T12:31:43.229Z",
+    "note": "Direct native inspection after framing/texture corrections: one unnamed adult and child seated at table, full heads17%+ top margin and shoes/table feet16% above bottom. Adult points to Wells house with coherent finger contact, child hands clear, three exact labels unobscured. Clean flat cloth/table/floor, no grain or extra named place."
+  }
+}

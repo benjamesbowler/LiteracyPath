@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-c-22",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:14:16.165Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-ddd7823a-0e52-4c33-acf3-670c6b959154.png",
+  "sourceSha256": "13c8fbf08065a82e18885594bd39f33f7eda42e00700e3b4c2345b7675ca2273",
+  "output": "public/guided-reading/world-discovery/c-22/cover.webp",
+  "outputSha256": "991cf0c456fd1c68bca7320cfb824d2e29c0d72321720a97164f0bfa6e560ba1",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Make two precise corrections to the FIRST scene, preserving its good high-oblique geography and exact characters. 1. Pull the whole scene back uniformly to fit the entire tree canopy, both complete children and the gate inside a generous 13% margin on ALL sides. Keep the full canvas grass with no border. 2. Move the gate straight downward on the grass so its BASE is horizontally level with the children's SHOES. The gate is directly EAST at the children's same ground depth, not ahead/northeast. The tree stays straight ahead/north of the compass. No change to pointing action, small compass or equal child height. Second reference is only locked cast/props. Entirely unlettered. Crisp clean smooth flat fills and outlines, no grain, 3:2 landscape.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-ecd1ed60-839e-40ab-bf59-227bc2da8b5c.png",
+      "sha256": "57be56a64766db83819e27385ba15cbd3b9e7c5e0fa5609e25e1790d811de91a"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/c-22-reference.webp",
+      "sha256": "f7640bca6dc2c687a2f53c1956c4db9411d4faaa9c4331d71b6acdc1b6a98ef2"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "7ef8d8649d4bf890384d714a7be54ffe8301439e049fa826d123aaf98f10b5ea",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T13:14:16.455044+00:00",
+    "sha256": "991cf0c456fd1c68bca7320cfb824d2e29c0d72321720a97164f0bfa6e560ba1",
+    "note": "Native corrected cover and actual WebP directly viewed. High ground view establishes tree ahead/north and gate directly right at observer depth; unlettered palm-size compass, equal-height cast and safe essential margins. Independent reviewer also viewed native layout before propagation.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

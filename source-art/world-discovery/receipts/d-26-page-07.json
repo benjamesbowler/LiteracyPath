@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-26",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:53:13.275Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-67b89d73-55d3-4bb2-870d-ede163e573c7.png",
+  "sourceSha256": "979b7fcff9be206af566f648f2015fdc2ec391e61692ad347ed9335b3e1cdf34",
+  "output": "public/guided-reading/world-discovery/d-26/page-07.webp",
+  "outputSha256": "825c4c1ef4af31de742f294b563fdba80e6358ec088e32b17f2822845b422fc0",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Next classroom action, using the reference only for exact robot, room, yellow block and mat identity. View from a slightly higher angle so the turn is clear. Yellow block stays on the RIGHT side of the gray mat. Robot has already backed to the LEFT of that block and is now turning toward the FOREGROUND, with its RED front bumper pointing diagonally DOWN-RIGHT into a clear lane IN FRONT OF the block, still on the LEFT side of the obstacle, not teleported beyond it. Leave enough clearance for the entire robot width around the block. Show two large driven wheels on opposite chassis sides, small caster at REAR, gray controller box on blue chassis, wire to front gray touch sensor, straight WHITE plunger, and red bumper extended on its springs. Exactly ONE curved blue motion arrow on the mat curves from the prior rightward heading toward the new down-right heading. No duplicate robot or prior-state ghosts, no sensor-wire arrow, no people or tablet. One coherent scene. Clean dark-outlined flat 2D nonfiction art, restrained cel shading; no texture, photorealism or 3D. Landscape 3:2 1536x1024. All essential subjects at least 140px inside image edges. No words, letters, numbers, logos or watermark.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-8497cb9b-9213-45d3-bfb2-d6f9f1a02c41.png",
+      "sha256": "662c93129a8a24321cccf6df9822df0c479cad8eafcaf6a48e64a1a970a65168"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "975d5f5420efb1308d6c48d6cf7633e175e59f4e879e625913e4b4acfddfb28a",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.530Z",
+    "sha256": "825c4c1ef4af31de742f294b563fdba80e6358ec088e32b17f2822845b422fc0",
+    "note": "Direct native inspection: robot turns clockwise toward foreground while still left of block; two opposite drive wheels and rear caster, central straight plunger and two side springs; single curved arrow and clear route, no teleport.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

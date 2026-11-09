@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-d-25",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T07:50:12.834Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-a6cd0625-cb3b-41ff-ba0f-e2f112827eb5.png",
+  "sourceSha256": "6f610b50132d793aba4efa143364709c6f344c11d142146246e33c640c9ea1cb",
+  "output": "public/guided-reading/world-discovery/d-25/page-01.webp",
+  "outputSha256": "e9b6d857a5d23097d79db74bcf76a191ceade771d3bf1b780788be7bc282bf29",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Clean 2D children's nonfiction illustration, crisp dark outlines, flat clean colors, restrained cel shading, no texture, painterly rendering, photorealism or 3D. Landscape 1536x1024. No text, letters, labels, numbers, logos, pseudo-writing, border or watermark. Essential subject and every complete teaching diagram at least 12 percent inside all four edges. ONE close tabletop scene establishing the initial flat-paper bridge. Preserve the equipment and plain light wooden table in the supplied reference. View the tabletop at a mild front three-quarter angle with whole experiment comfortably framed at center. Exactly TWO identical solid blue rectangular support blocks, one LEFT and one RIGHT, equal height, fixed open gap between them approximately three wooden-counter diameters. Exactly ONE long rectangular cream sheet lies FLAT across them left-to-right: long edges parallel to the span; left and right ends rest equally on their block tops. The unsupported center spans clear empty air, no middle support. Exactly ONE broad flat-bottom round wooden counter waits on tabletop beside the right block, completely separate from paper. No person, hand, duplicate props, creases, folded paper, glue, tape, rulers, numbers, arrows or other objects. The sheet is intact and unbent before loading. Make the two-block geometry and clear gap obvious; no table leg positioned beneath center of gap that could be misread as extra support.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-bdbf7bfd-7ad1-451d-99fb-2a40d0d2791b.png",
+      "sha256": "b3450c1ad0501336a31a8691c404b07e788caed59d61bf78961311cfa0f4303a"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "8337d31fb142299fa5e714fdc1bffff0a8db8bc933c0eeb3ee2b649380ddbd8b",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.521Z",
+    "sha256": "e9b6d857a5d23097d79db74bcf76a191ceade771d3bf1b780788be7bc282bf29",
+    "note": "Direct inspection: exactly two equal blue blocks, one intact flat sheet with equally resting ends over a clear gap, one separate wooden counter; no center support, no folds or extra props, clear safe composition.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

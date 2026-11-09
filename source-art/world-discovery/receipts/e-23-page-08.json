@@ -1,0 +1,36 @@
+{
+  "bookId": "world-discovery-e-23",
+  "slot": "page-08",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T13:55:06.198Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-fc940621-1623-4391-afbd-44d69df2f0ca.png",
+  "sourceSha256": "666e1a073b7958494196689afed1a35b8cb7037a0c14331352ad09c2542f2683",
+  "output": "public/guided-reading/world-discovery/e-23/page-08.webp",
+  "outputSha256": "27e04ab3c9609586fb3774ba935b6d3905868ecb6a22d94f0cf76cf90df3c01c",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Create one1536x1024 unlettered flat2D anatomicaldiagram matching this reference exactly in Zoe, yellow neuralroute andprotectedspinalcord. Change to INCOMING touch messages. Zoe stillfacesLEFT; her extendedneararm and a natural fartherhand now gently hold ONE REDball atleft, with clear fingertipcontact. Keepwholehead/waist/hands/ballinsidecentral75percent, widecreammargins. The YELLOWnerve connects fromtouchingfingers alongforearm andupperarm throughshoulder toCERVICALcord atbaseofneck, andup tobrain. REMOVE EVERY ORANGE ARROW. Use BLUE arrowheads ONLY in incomingdirection: allarmarrowheads pointRIGHTfromhandtowardshoulder, neckarrowheads pointUPalongcordtowardbrain, finalbrainarrowheadfollowscurvedpathLEFTtoendpointINSIDEbrain. No bluearrowpointsbacktowardhand orDOWNneck. Continuouscorrectneuralpath, no gap; braininsidehead, spineatbackofneck/torso, notthroat. Oneball lightlyheld, naturalfive-fingerhands, same deepbrownskin,two blackpuffbuns,yellowshirt,plumoveralls. No table,room,eye-path,electricity,bloodvessels or labels. Broadmargins identicalreference.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-cb77953b-0b86-4163-8872-56a5b5c12708.png",
+      "sha256": "dfb53c0ec813f41b3b12e3ca587ca3b69da6086c4786a2c060503e0d2814119e"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "1b0de6058b2611192f79942f4ecd03b97dc9da569d20816897fdbc11f5ab098a",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "date": "2026-11-09T14:07:15.560Z",
+    "sha256": "27e04ab3c9609586fb3774ba935b6d3905868ecb6a22d94f0cf76cf90df3c01c",
+    "note": "Actual PNG and installed WebP directly inspected. One red ball lightly held, sensory arrows all run rightward along arm and upward along spinal cord into brain, opposite prior outgoing flow; no orange arrows remain.",
+    "reviewer": "/root/gap_taxonomy",
+    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
+    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  }
+}

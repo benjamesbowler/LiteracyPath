@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-b-27",
+  "slot": "page-07",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T10:17:24.760Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-cf16d550-020b-4280-a957-4f777670b452.png",
+  "sourceSha256": "e107b60bdcda3398b3fb9757487ba4e530192471ff2c6a378151667706e1f3c8",
+  "output": "public/guided-reading/world-discovery/b-27/page-07.webp",
+  "outputSha256": "cabee3c43b2acda881090504c03bbc07a197510a50a99226fd376fdd8c77a42e",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Later state of the SAME cloth-lined strainer resting securely on the SAME clear glass bowl. White curds now gather into a soft uneven mound in open white cloth. Bowl beneath contains more pale-yellow whey than reference, still BELOW strainer bottom. Draining has slowed to one small drop, no tall stream. View a little higher to show mound. No hands, pan, plate, yellow solid cheese or new props. Show entire setup centered on cool blue counter with wide safe margins. LANDSCAPE 3:2, 1536x1024. Smooth flat cartoon colors, no grain or texture, no text. Essential heads, hands and entire foreground props comfortably inside central70%, with generous blank surroundings.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/b-27/page-06.webp",
+      "sha256": "bdf13c68f76590cd062865f7c1ddb22b4bd627c74cc07fa465236825f96cf168"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "14bdf1a9b4c155d155a7916b5fde211a1d4c1dddaf582d022d5985416f706b7c",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T10:18:34.435120+00:00",
+    "sha256": "cabee3c43b2acda881090504c03bbc07a197510a50a99226fd376fdd8c77a42e",
+    "note": "Directly viewed native PNG and installed WebP: soft curd mound in cloth above substantial pale whey, single remaining drop, supported setup and safe margins.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}

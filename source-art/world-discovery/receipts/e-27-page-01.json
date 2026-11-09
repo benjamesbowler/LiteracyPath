@@ -1,0 +1,34 @@
+{
+  "bookId": "world-discovery-e-27",
+  "slot": "page-01",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T06:07:02.625Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-2af4f207-48da-497b-ab5c-6ae30f14b548.png",
+  "sourceSha256": "d2e768ce03bbe03a87140335e2abb4c7be51ea80d9f749618594a5610600a677",
+  "output": "public/guided-reading/world-discovery/e-27/page-01.webp",
+  "outputSha256": "0106a3fe8a908d75267504570529cb869beb07dd3d75c26e33f7fd526e78d8e6",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "One finished landscape 3:2 full-bleed nonfiction picture-book illustration. Clean crisp bold 2D cartoon outlines, flat smooth color fills with restrained cel shadows. No paper texture, grain, paint, 3D, gradients, lettering, digits, logos, watermarks, borders or page panels.\nExact instruction: Botanical correction only: replace every visible mature cotton leaf with a broad GREEN PALMATELY LOBED leaf with THREE or FIVE distinct pointed lobes and radiating veins. This is mature upland cotton, not a seedling: no unlobed heart-shaped/oval mature leaves. Preserve attached brown dry bolls, large central open boll with white cotton fibers around partly visible dark seeds, branching stems and cultivated field. Keep central teaching boll fully inside generous margins; background branches/leaves may continue beyond frame. Clean flat cartoon only, no painterly texture.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-2d5f8964-1297-471b-bdb9-572484a17419.png",
+      "sha256": "d0ef8120a42982041fe4ef0cf029c8e9f87a2a9f2004e7dfe83f0f915529cf0c"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "cbf57ed0e204379362a97b760486f24b628e65ad467026e2a078e7ecc3b4b28e",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
+    "sha256": "0106a3fe8a908d75267504570529cb869beb07dd3d75c26e33f7fd526e78d8e6",
+    "note": "Open dry cotton boll with fibers around seeds and corrected palmate lobed mature leaves. Central teaching boll comfortably framed; peripheral plant context may crop naturally.",
+    "limits": "Individual installed WebP inspected. Independent whole-sequence, actual reader/card and audio approval are separate."
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "bookId": "world-discovery-a-25",
+  "slot": "cover",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T11:36:09.388Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-a269647c-58fe-4532-913a-f4d278ae3701.png",
+  "sourceSha256": "78d6d6b35d24f44027ed80082c97b517cb36f164548b0f8cc5070d6232c6eed4",
+  "output": "public/guided-reading/world-discovery/a-25/cover.webp",
+  "outputSha256": "462f327ee0b0a1d6d7c671df5d1e542982ff1ca6520ca5edeb5bf023c33fbe3e",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit ONLY framing: pull ENTIRE scene back uniformly30%, extend same room/floor naturally. Kit's hair top at least15%belowtop and full shoes AND drum feet at least15%abovebottom. Preserve exact seated cross-legged pose and natural proportions, RIGHT hand contacting drumhead and LEFT hand on lap, red cylindrical drum with cream membrane/navy rim and supporting feet, existing short motion strokes. Keep relative figure/drum size and floor contact identical. No new hands, grains, objects or diagrams. Smooth clean flat colors, no texture or text. Landscape3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-63980235-e188-40f6-8c84-bdb17242fe29.png",
+      "sha256": "05c3947cef4d065ae7366b1cd5750c71902da57e334b8d9c93321b8ffbfeef99"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "43250b481932e7fd088b4db9dca6c6655e0ffe81fdc9bbd2dd349daea8124cbd",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "sha256": "462f327ee0b0a1d6d7c671df5d1e542982ff1ca6520ca5edeb5bf023c33fbe3e",
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T11:36:09.389Z",
+    "note": "Directly inspected native framing repair: whole seated figure/drum/room scaled uniformly, hair~18%top, full shoes/drum feet~18%bottom. Right hand on membrane and left on lap, cross-legged anatomy, cream/red/navy drum and contact strokes preserved, both grounded."
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "bookId": "world-discovery-c-25",
+  "slot": "page-06",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-11-09T12:33:22.686Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-2070fefa-d8cf-4e35-9a9f-34f2935d14c5.png",
+  "sourceSha256": "56f54c238e66f9d67bf94e51e62cb661961fc8ae122c8018a3bb11ad26bd8f6c",
+  "output": "public/guided-reading/world-discovery/c-25/page-06.webp",
+  "outputSha256": "9000b56e9d7ca1ca2bfd25d2ba6d9731ccb200d10a1409aee1e7b05bf0f42bb1",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Edit this exact first classroom image with ONE small prop continuity correction: restore the round BLUE insulated operating knob onto the RIGHT/free end of the CLOSED silver switch blade, matching second reference. Keep single closed blade bridging left red terminal and right yellow terminal. Do not add third terminal or second blade. Keep Kit lifting YELLOW insulated alligator clip near empty left bulb contact, bulb DARK, all wires and every other pixel/scene unchanged. No words, smooth clean flat colors no texture,3:2.",
+  "references": [
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-68563557-195c-4dbc-98fb-2212176284c4.png",
+      "sha256": "bc6858d6a250d37032806b2bdb18a0c7ea466eb60eec90e91d163f377fd68a98"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/c-25/cover.webp",
+      "sha256": "a6ad311e13edac9773a764b4655c664fb9fc779671fa14561ff999368e935c2b"
+    }
+  ],
+  "manuscriptSource": {
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
+    "sha256": "80a761f584aae85b11ebe49a406e8cb90888a1b11ff118888f7b7b3758e1246c",
+    "isolated": true,
+    "firstNumber": 21,
+    "lastNumber": 30,
+    "topicProfile": "nonfiction-discovery"
+  },
+  "visualReview": {
+    "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09T12:34:06.185303+00:00",
+    "sha256": "9000b56e9d7ca1ca2bfd25d2ba6d9731ccb200d10a1409aee1e7b05bf0f42bb1",
+    "note": "Native and installed WebP directly viewed. Kit lifts yellow insulated alligator clip from left bulb terminal, distinct air gap, bulb dark; switch remains closed with blue knob restored, red and black continuous. Safe hands and margins.",
+    "limits": "Independent sequence and reader review follow separately."
+  }
+}
