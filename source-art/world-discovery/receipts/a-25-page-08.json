@@ -29,5 +29,11 @@
     "method": "codex-direct-image-inspection",
     "reviewedAt": "2026-11-09T11:52:39.096Z",
     "note": "Directly inspected widened native image: Kit hair and shoes/drum feet inset about 20%; right near hand clear on lap and left hand raised clear; renewed sound arcs at taut drum without depicting another tap. Whole scene scale and grounded rug retained."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-a-25",
+    "path": "src/content/world-discovery/cohorts/21-30/level-a.json",
+    "sha256": "43250b481932e7fd088b4db9dca6c6655e0ffe81fdc9bbd2dd349daea8124cbd",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

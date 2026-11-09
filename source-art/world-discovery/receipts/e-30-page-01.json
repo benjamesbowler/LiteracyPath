@@ -30,5 +30,11 @@
     "sha256": "1adb3200ca0131a795a855cf15739ff274b0130d13570c308b655b23da287f54",
     "note": "Flat tan colony firmly attached to rock, polyp openings; embossed texture removed; full colony visible.",
     "limits": "Individual installed WebP only; independent sequence, reader, card and audio separate."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-e-30",
+    "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
+    "sha256": "eead7bd4e8d787dff3440b9ff337f914a50daa5a1c9dfe20a0688cac4e6a5f42",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

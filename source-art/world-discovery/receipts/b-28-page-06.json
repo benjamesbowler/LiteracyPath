@@ -34,5 +34,11 @@
     "sha256": "6d395173c80832f07087699def028525d905d705d8728205100e67a8f721dc8d",
     "note": "Directly viewed native PNG and installed WebP: chewing with two small leaf tips, tongue withdrawn, intact bare twig has rounded unbroken tip and retained thorns. Head and feeding action safely framed.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-28",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "196df0e9094941d10a0198793392a9023e77526803a29764a558a8ef457f7432",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

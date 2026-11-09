@@ -30,5 +30,11 @@
     "sha256": "7cd05a36b28251d1131b0744f8717429f43ee34cb04febe7fc27aa4823083e64",
     "note": "Native and installed WebP directly viewed. Greater flexion reduces joint angle without bending shafts; short front/long rear muscle and correct distinct tendon insertions maintained. Whole anatomy safely inset.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-23",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "a69cbfc6921edf6fa0940d4d9dd11e0245a3058f577ce1cf8504915963b81106",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

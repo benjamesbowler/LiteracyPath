@@ -30,5 +30,11 @@
     "sha256": "c40ec406dba52dc4795054e46c71c4e72e7efaa162155fbc2b6ff1bbf2cd05fe",
     "note": "Directly viewed native PNG and installed WebP. True close-up crops the red car body beyond both side edges; no car ends or couplers are visible. One bogie has two transverse axles and four steel wheels contacting their respective near and far rails. Essential wheel mechanism is inside safe margins. Repairs the independent whole-car/one-bogie finding.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-21",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "6d40120e98f2ff48a5cf89a9eb34eb073cdc2b64b8c7787eb0d4ca5f64455114",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

@@ -33,5 +33,11 @@
     "method": "codex-direct-image-inspection",
     "reviewedAt": "2026-11-09T10:35:44.981Z",
     "note": "Directly inspected corrected arrival: exactly three recruits facing one amber drop on one leaf. All three now have six individually visible thoracic legs and two antennae; missing lowest-ant foreleg repaired. Full group safely inset, no scent marks, no fourth ant or extra food."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-a-28",
+    "path": "src/content/world-discovery/cohorts/21-30/level-a.json",
+    "sha256": "fbf293511c4adb19a75a183f30ea70ea6bdd6e4a759309a5079a91a68021dff0",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

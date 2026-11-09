@@ -32,5 +32,11 @@
     "reviewer": "/root/gap_taxonomy",
     "evidence": ".artifacts/nonfiction-next-50/media-de.json",
     "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-d-27",
+    "path": "src/content/world-discovery/cohorts/21-30/level-d.json",
+    "sha256": "9010008de47d65ad0ac3e80882604741af45e373937f638251678b7bb5e6c137",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

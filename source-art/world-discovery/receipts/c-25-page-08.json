@@ -34,5 +34,11 @@
     "sha256": "32de188303a7fbcba4ec233017f2c91e0c1f105ff488aaaf148f2c9b3654d4a2",
     "note": "Native and installed WebP directly viewed. Single two-terminal switch blade closed with blue knob, Kit restores yellow insulated clip to left bulb terminal, bulb glowing. No duplicate switch post/blade; child and circuit continuity clear.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-25",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "60927b2d5048ae20d08714be01091613ee1764a5c15daf2525d06777525a68af",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

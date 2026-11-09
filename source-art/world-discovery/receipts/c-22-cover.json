@@ -34,5 +34,11 @@
     "sha256": "991cf0c456fd1c68bca7320cfb824d2e29c0d72321720a97164f0bfa6e560ba1",
     "note": "Native corrected cover and actual WebP directly viewed. High ground view establishes tree ahead/north and gate directly right at observer depth; unlettered palm-size compass, equal-height cast and safe essential margins. Independent reviewer also viewed native layout before propagation.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-22",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "153395b670d107fe7ad363df2671c1da91566aa120d8f83378a2eeda75481a28",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

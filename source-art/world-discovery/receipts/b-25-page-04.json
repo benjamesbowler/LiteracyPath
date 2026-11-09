@@ -30,5 +30,11 @@
     "sha256": "23ecd6e94efdda21eb681e0d0ddc050faf84275e7c6668afb0bc7b319392d833",
     "note": "Directly viewed native PNG and installed WebP. Zoe points below the right-shifted screen spot while Kit releases the mirror. Changed mirror angle and fixed flashlight/screen positions match previous page. One bright spot, no card or beam.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-25",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "02a11cb2d48a5186bd7e0a8f99de75cad39c2a86cb01f3a71a120775d033f96c",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

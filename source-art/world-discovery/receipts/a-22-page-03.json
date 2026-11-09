@@ -29,5 +29,11 @@
     "method": "codex-direct-image-inspection",
     "reviewedAt": "2026-11-09T07:08:13.875Z",
     "note": "Viewed balanced framing replacement: hair~12% top and shoes~14% bottom; normal arm remains occluded behind sphere, table-bracing hand preserved. Consistent blue-gray classroom floor, no new object or text; fixed globe axle/coastline/colors remain coherent."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-a-22",
+    "path": "src/content/world-discovery/cohorts/21-30/level-a.json",
+    "sha256": "7fb9d0dad2e1f226cbad13b27e944537df495d6a4ae001fea7e1424f5a78d89a",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

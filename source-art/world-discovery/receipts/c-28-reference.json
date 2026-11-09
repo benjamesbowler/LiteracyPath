@@ -29,5 +29,11 @@
     "method": "codex-direct-image-inspection",
     "reviewedAt": "2026-11-09T13:24:48.968Z",
     "note": "Directly inspected native reference repair: location soil is smooth brown with discrete outlined stones/leaves/grass; diffuse stipple removed. All three hedgehog poses, natural spines and four short legs in active poses, beetle/earthworm, forked branch, hedge and board arrangement preserved. No lettering."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-28",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "e855a4632329b94652df219218ab2944fb016f9cee5e2b5b255f01eaa0470928",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

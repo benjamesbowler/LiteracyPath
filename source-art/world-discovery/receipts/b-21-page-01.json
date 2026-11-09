@@ -34,5 +34,11 @@
     "sha256": "e985d79aa9c1289681d4d47fc444af6a7b642e8af41a39ce584a88e6d2065218",
     "note": "Directly viewed repaired native source and installed WebP. Exactly three open red/yellow/green loaded boxcars are connected; the blue locomotive is visibly separate before the later joining step. Four visible crates per car, clear train count and safe margins. No people on tracks or premature closed-door state.",
     "limits": "Direct image inspection only; complete sequence and app display review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-21",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "6d40120e98f2ff48a5cf89a9eb34eb073cdc2b64b8c7787eb0d4ca5f64455114",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

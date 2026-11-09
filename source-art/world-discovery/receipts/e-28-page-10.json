@@ -34,5 +34,11 @@
     "sha256": "c488b1db8472559807738e6002bccc815d58b08d53b165ecf976ebadcab68862",
     "note": "Exact p9 location retained, small anatomically coherent regional toucan above and same young plants and decaying log below; full crown and roots safely framed.",
     "limits": "Installed WebP individually inspected. Independent sequence, reader, cards, audio separate."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-e-28",
+    "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
+    "sha256": "1bdfddb56de5d25ee07f80c6153aa9d32657fdd8a7b341db340d5c0094afb0c3",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

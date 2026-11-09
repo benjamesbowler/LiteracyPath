@@ -34,5 +34,11 @@
     "sha256": "9968888e3aa1cd3c2a781d603fe4837389bfa5c6a3c017dba50b4f3a1e13faf7",
     "note": "Directly viewed native source and installed WebP. Stationary blue locomotive joins the red first car, followed by yellow and green. All three freight doors are closed; no people between vehicles. Complete train stays within safe framing.",
     "limits": "Direct image inspection only; complete sequence and app display review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-21",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "6d40120e98f2ff48a5cf89a9eb34eb073cdc2b64b8c7787eb0d4ca5f64455114",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

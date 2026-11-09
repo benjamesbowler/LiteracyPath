@@ -30,5 +30,11 @@
     "sha256": "097fbd43b38f6c57ecfa8aa8987e07aa761d7ec56755fad4c23bc1a1e129325d",
     "note": "Exact people at table; clear west start, east museum, upper road/lower footbridge and two quays. Pulled-back composition gives generous hair/feet/table margins.",
     "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-e-21",
+    "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
+    "sha256": "9421bb4bb1f97c822674b76871fc5ee9b7b4398f02e9bdb626223b2a8cf9283e",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

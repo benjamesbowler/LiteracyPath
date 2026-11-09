@@ -14526,7 +14526,7 @@
     ],
     "graph": {
       "count": 1552,
-      "sha256": "fa64e871738f91ab19c8e34cf25e55d23e86aa6125952d6012da52ea234a1f81",
+      "sha256": "dfc9787c3a027c3614060733a6cb576cbb79310bb82213d8bfc48b6bcead857b",
       "modules": [
         "demos/sound-seekers/assets/audio/brook-complete.mp3",
         "demos/sound-seekers/assets/audio/brook.mp3",
@@ -15272,7 +15272,7 @@
         "src/content/world-discovery/level-e.json",
         "src/content/world-discovery/registrations/2026-11-09/01-10-r2.json",
         "src/content/world-discovery/registrations/2026-11-09/11-20.json",
-        "src/content/world-discovery/registrations/21-30.json",
+        "src/content/world-discovery/registrations/2026-11-10/21-30-accessibility.json",
         "src/content/world-discovery/reviews.json",
         "src/copy/benchmarkRunnerCopy.js",
         "src/copy/childCopy.js",
@@ -16083,7 +16083,7 @@
       ],
       "edges": {
         "count": 3666,
-        "sha256": "9a8fe540cd0805aad7f726d180574e111421b3610ee0678ad10c6476b4f561d6"
+        "sha256": "0b7825b7149e6ede6558fefdeda02fdf735718eb12715afa306e09386312b658"
       },
       "issues": [],
       "dynamic": []
@@ -16632,8 +16632,8 @@
       }
     },
     "runtimeSources": {
-      "count": 1737,
-      "sha256": "0b1865b9f1c453229169def2e59edda22d415051135122fcfd5bc79ed4557864",
+      "count": 1738,
+      "sha256": "95226cf8875124b2988037ce61d505aa7c9eadc995cf4a5d42d50e0cd4379182",
       "files": [
         {
           "path": "demos/sound-seekers/chapter.config.mjs",
@@ -19269,7 +19269,7 @@
         },
         {
           "path": "src/content/world-discovery/cohorts.json",
-          "sha256": "09c259bd7117db98a28ef9a791a62717ecf2c3b13dcdce1c1fee54a407c8057a"
+          "sha256": "66190566715b42e69f549bd8f91983b6dc0f0a54de692273c191597b490de36c"
         },
         {
           "path": "src/content/world-discovery/cohorts/11-20/level-a.json",
@@ -19301,19 +19301,19 @@
         },
         {
           "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
-          "sha256": "ac396fdde7b0b12b8b630c2c41efe9d2f6edce1f288456055252437f5b61053b"
+          "sha256": "179166bec186b5244344cccdf6f052bbc40998f1932c1bca6c0a0c2fd0b0d092"
         },
         {
           "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
-          "sha256": "4d5223497377f4a5b204a3f7c4e6234082cf9a693aa80f51b77964dcea4c6080"
+          "sha256": "faf10f9691ab55217b6ca0957f204103c710ac1ca29095de9148c7ca6c3fb4e3"
         },
         {
           "path": "src/content/world-discovery/cohorts/21-30/level-d.json",
-          "sha256": "efdb906601b7da3af1d972311ceeeeb98553c29ce0a382e07efb6b37249862f1"
+          "sha256": "8707b3e88c1262da4d27fe5a0eb9692387a4afb97ab53de9fb69872c36a7fe69"
         },
         {
           "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
-          "sha256": "708578991bf99c96fa9aeb44e14175eb2901ebac6f775f1c33263f72926da70d"
+          "sha256": "9263ba780b944fe563e7ed6d8fd04a4b0eaea279f1dd88f700f78bd357977e98"
         },
         {
           "path": "src/content/world-discovery/cohorts/21-30/reviews.json",
@@ -19358,6 +19358,10 @@
         {
           "path": "src/content/world-discovery/registrations/2026-11-09/11-20.json",
           "sha256": "19aa3749a04b205bd05ae85c89199c024b5f4e408562d60d86d5aa56b492340e"
+        },
+        {
+          "path": "src/content/world-discovery/registrations/2026-11-10/21-30-accessibility.json",
+          "sha256": "a4bb017fd4e6664bee71620cac2475dc086f73da7d3bae10dded2c0dc184db81"
         },
         {
           "path": "src/content/world-discovery/registrations/21-30.json",
@@ -19901,7 +19905,7 @@
         },
         {
           "path": "src/data/generated/worldDiscoveryCohorts.generated.js",
-          "sha256": "2447d16ce300b240522998c3bb23908cc09d307eb184ccb9f902044876b152f1"
+          "sha256": "1f74adfacb9c88ff69c62cf6ecbff0804adf21e0d35acdff4730e8df22a965ef"
         },
         {
           "path": "src/data/guardianPortalApi.js",

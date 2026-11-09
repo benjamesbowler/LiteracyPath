@@ -9,7 +9,7 @@
   "outputSha256": "2ae38888ec5cfd5f8cdd748c7078545f4d781b6210def7679889724d4d0450fc",
   "width": 1536,
   "height": 1024,
-  "prompt": "Generate page3 of a factual children\u2019s clock book as a single straight-on clock illustration. Use first image for the existing blue-rim clock style and cream wall, use SECOND image as exact hand-angle/number geometry for3:15. It is an analytic reference, not extra content to add. Preserve exactly ONE clock, twelve correct black numerals1\u201312, long BLUE minute hand straight RIGHT at3, short RED hour hand only7.5 degrees BELOW horizontal right (one-quarter of the way from3 toward4). Blue hand is longer, red tip stays clearly ABOVE4 numeral direction. Exactly two hands, one central hub, no arrows, captions, extra diagrams or third hand. Red hand starts from same hub and ends slightly below the blue line, matching second reference exactly. Entire clock safely inset at least9 percent top/bottom. Crisp continuous dark outlines, flat clean colors and no grain/paint texture.",
+  "prompt": "Generate page3 of a factual children’s clock book as a single straight-on clock illustration. Use first image for the existing blue-rim clock style and cream wall, use SECOND image as exact hand-angle/number geometry for3:15. It is an analytic reference, not extra content to add. Preserve exactly ONE clock, twelve correct black numerals1–12, long BLUE minute hand straight RIGHT at3, short RED hour hand only7.5 degrees BELOW horizontal right (one-quarter of the way from3 toward4). Blue hand is longer, red tip stays clearly ABOVE4 numeral direction. Exactly two hands, one central hub, no arrows, captions, extra diagrams or third hand. Red hand starts from same hub and ends slightly below the blue line, matching second reference exactly. Entire clock safely inset at least9 percent top/bottom. Crisp continuous dark outlines, flat clean colors and no grain/paint texture.",
   "references": [
     {
       "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/c-29/page-02.webp",
@@ -34,5 +34,11 @@
     "sha256": "2ae38888ec5cfd5f8cdd748c7078545f4d781b6210def7679889724d4d0450fc",
     "note": "Clock has twelve correct numerals and exactly two hands, long blue right at3 and short red slightly below, one-quarter toward4. Whole clock safely framed.",
     "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-29",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "3460752faa6a0a3274ac588cafaa9f1a2ce0724561d85910d4dfd548edcf09d7",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

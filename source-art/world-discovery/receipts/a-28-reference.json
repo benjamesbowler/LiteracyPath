@@ -29,5 +29,11 @@
     "method": "codex-direct-image-inspection",
     "reviewedAt": "2026-11-09T08:06:41.661Z",
     "note": "Directly inspected replacement anatomy authority: one large top-down garden ant has exactly three jointed thoracic legs on each side, two distinct elbowed antennae, narrow waist and rounded abdomen. Ambiguous low-angle ant removed. Leaf/drop, pebble, nest and route-location key preserved; unlabelled production reference only."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-a-28",
+    "path": "src/content/world-discovery/cohorts/21-30/level-a.json",
+    "sha256": "fbf293511c4adb19a75a183f30ea70ea6bdd6e4a759309a5079a91a68021dff0",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

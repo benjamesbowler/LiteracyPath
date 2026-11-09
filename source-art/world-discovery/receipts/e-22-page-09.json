@@ -29,5 +29,11 @@
     "method": "codex-direct-image-inspection",
     "reviewedAt": "2026-11-09T12:26:33.000Z",
     "note": "Direct native inspection: exact three named cards Wells/Reading/Lacock, homes and streets in each, only Reading contains rail/station and bus. Wells bicycle and modest shop, Lacock timber/stone homes and shop. Full group inset17%+ horizontally and27% vertically; lettering clear."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-e-22",
+    "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
+    "sha256": "2aff8b9432244a41072eb7c7376c77e21594d83a655dfa83d99e44c528e86755",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

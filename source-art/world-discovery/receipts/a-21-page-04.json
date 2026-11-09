@@ -30,5 +30,11 @@
     "sha256": "687457460bcae8de0293fcc64e5a9247ab4f3ab155ee4ed4b5260db2144cb777",
     "note": "Repaired image: extra second stop removed; red-haired man faces rear while walking along aisle; woman with glasses seated; braided woman steps onboard. Exactly three new riders plus driver.",
     "limits": "Initial image/state review; full sequence and actual reader framing pending."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-a-21",
+    "path": "src/content/world-discovery/cohorts/21-30/level-a.json",
+    "sha256": "e95d0ca76ed02b4560385afd0b30bdaac19d03292f4cf363f1cfdeec0eeb1e0c",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

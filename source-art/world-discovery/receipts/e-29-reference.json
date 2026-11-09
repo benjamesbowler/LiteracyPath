@@ -30,5 +30,11 @@
     "sha256": "a47d0b1fd66a388b98592ce74465886601a97912d00f8c1fee4b631efc456b18",
     "note": "Installed WebP inspected: five broad wooden washboard slats, two rubber rollers, integrated crank/tray and unlettered modern adult, tubs, washer and yellow shirt with one blue pocket. Metallic speckle removed.",
     "limits": "Full sequence, reader/card and audio review remain pending."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-e-29",
+    "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
+    "sha256": "7b5d49fa464ddfe3c488fb7295ea82cbaa37ae0e01b14b633c270d651f53cb42",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

@@ -30,5 +30,11 @@
     "sha256": "26740be2a541aafd626ebec7792ba3803cf853816e781d90621eb58d9c3cf39c",
     "note": "Native and final WebP directly viewed: airport background restored full bleed without accidental border; adult worker operates belt loader into lower hold below cabin windows, same tagged bag and cart; no family in restricted zone. Complete plane has approximately 8% narrowest side margin, worker and cart over 12%.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-21",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "d35c2646e023daa2322256d158452fa66e0c07c88e5e0aee3f35253a6d6154d0",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

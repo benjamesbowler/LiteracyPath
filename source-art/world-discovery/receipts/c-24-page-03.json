@@ -30,5 +30,11 @@
     "sha256": "1ca504436f394e1fa4e96c2042a6a1b5ca7d0d51408432a82b937e97fd94aa4a",
     "note": "Native and final WebP directly viewed. One upward arrow in transparent widening dashed air parcel, clear sky without premature cloud; lake/tree continuity, safe diagram margins.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-24",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "6cd280a9d02dea1e6c9089cb16a616bf16aa70d331309534ccb043504bcb3c09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

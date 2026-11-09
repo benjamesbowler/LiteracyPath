@@ -34,5 +34,11 @@
     "sha256": "db5ce2a2100eea1b38da64604f946cf304f398acd963d948fb96f2ce1ac133fa",
     "note": "Directly viewed native PNG and installed WebP. Both children observe the original mirror angle and original central screen spot with hands away. Flashlight retains thick black lens rim in unchanged cradle; blue card lies flat safely below the optical path and inside margins.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-25",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "02a11cb2d48a5186bd7e0a8f99de75cad39c2a86cb01f3a71a120775d033f96c",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

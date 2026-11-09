@@ -29,5 +29,11 @@
     "method": "codex-direct-image-inspection",
     "reviewedAt": "2026-11-09T11:11:51.543Z",
     "note": "Native framing repair directly inspected: full Zoe body/room uniformly scaled back, hair ~18% and shoes ~14% margins. Two palms rest on upper chest, lips closed, relaxed shoulders; natural body proportions and feet grounded on rug, no diagrams or arrows."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-a-23",
+    "path": "src/content/world-discovery/cohorts/21-30/level-a.json",
+    "sha256": "9d1d4dd6d93c7ff9e1f38dd1d3858cfe95edf848dc9e464d8d8c183b2a6aee4a",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

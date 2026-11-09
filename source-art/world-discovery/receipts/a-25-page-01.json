@@ -29,5 +29,11 @@
     "method": "codex-direct-image-inspection",
     "reviewedAt": "2026-11-09T11:40:38.501Z",
     "note": "Directly inspected native framing repair: entire scene uniformly widened, hair~19–21%top, shoes/drum feet~18–21%bottom, natural cross-legged anatomy and grounded stand. Right hand remains lifted clear after tap and left on knee; taut cream head, two small motion ticks, stable stand."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-a-25",
+    "path": "src/content/world-discovery/cohorts/21-30/level-a.json",
+    "sha256": "43250b481932e7fd088b4db9dca6c6655e0ffe81fdc9bbd2dd349daea8124cbd",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

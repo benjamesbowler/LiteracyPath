@@ -30,5 +30,11 @@
     "sha256": "a50f79942b74a64788a105f49b7e36c28aae1e48e08200b7a02338d2dd59f256",
     "note": "Pulled-back scene shows adult examining clock-only blank display, two children safely behind rail and four-window ferry moored by rope. Same museum/bridge geography, all essential subjects safely inset.",
     "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-e-21",
+    "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
+    "sha256": "9421bb4bb1f97c822674b76871fc5ee9b7b4398f02e9bdb626223b2a8cf9283e",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

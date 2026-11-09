@@ -33,5 +33,11 @@
     "method": "codex-direct-image-inspection",
     "reviewedAt": "2026-11-09T13:28:29.886Z",
     "note": "Directly inspected native ground repair: smooth flat brown soil and restrained shadows replace mottling; discrete outlined stones/leaves/grass retained. One curled hedgehog remains sheltered in the same thick-leaf teaching cutaway beside forked branch. Wider composition retains state and gives ample margins; no text."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-28",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "e855a4632329b94652df219218ab2944fb016f9cee5e2b5b255f01eaa0470928",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

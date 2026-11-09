@@ -9,7 +9,7 @@
   "outputSha256": "8272ae8318bf571818af97ce10d4aeffdb655c5eb95665531b2ef42f2f839977",
   "width": 1536,
   "height": 1024,
-  "prompt": "Edit this exact illustration. Same clean flat 2D cartoon and unlettered content. Remove the entire thin black outer rectangular frame and white outer margin; extend underwater scene naturally edge to edge. Pull camera back around 18%, keeping colony and linked polyp diagram inside x=13\u201387%,y=12\u201386%. Preserve pale colony quarter, polyp algae count/color distinction, and all biology. Never add another frame.",
+  "prompt": "Edit this exact illustration. Same clean flat 2D cartoon and unlettered content. Remove the entire thin black outer rectangular frame and white outer margin; extend underwater scene naturally edge to edge. Pull camera back around 18%, keeping colony and linked polyp diagram inside x=13–87%,y=12–86%. Preserve pale colony quarter, polyp algae count/color distinction, and all biology. Never add another frame.",
   "references": [
     {
       "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-b5acf2ee-a31b-4400-86ef-530273bc0988.png",
@@ -30,5 +30,11 @@
     "sha256": "8272ae8318bf571818af97ce10d4aeffdb655c5eb95665531b2ef42f2f839977",
     "note": "Frame removed; partly pale colony and linked translucent polyp with fewer algae on pale side. Diagram and colony safely framed.",
     "limits": "Individual installed WebP only; independent sequence, reader, card and audio separate."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-e-30",
+    "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
+    "sha256": "eead7bd4e8d787dff3440b9ff337f914a50daa5a1c9dfe20a0688cac4e6a5f42",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

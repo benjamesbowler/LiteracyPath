@@ -30,5 +30,11 @@
     "sha256": "aa0814f79a42697da3b3fc93cb886fa960a2c58108a640b6698b704b49691296",
     "note": "Healthy shaded sapling and scattered sunflecks; same buttress base; focal plant and roots fully framed.",
     "limits": "Installed WebP individually inspected. Independent sequence review, reader rendering, cards and audio checked separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-e-28",
+    "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
+    "sha256": "1bdfddb56de5d25ee07f80c6153aa9d32657fdd8a7b341db340d5c0094afb0c3",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

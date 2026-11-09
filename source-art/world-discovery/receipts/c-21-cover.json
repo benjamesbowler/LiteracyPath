@@ -30,5 +30,11 @@
     "sha256": "5dfec6cba9cfb1c4fda684e1ac86a6bbd53eaa0146f6e597c90502d9b2017740",
     "note": "Native and installed WebP directly inspected: Kit/guardian safely on public floor, exact tagged striped bag on carousel, whole figures and bag well inset, distant unbranded teal-tail jet.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-21",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "d35c2646e023daa2322256d158452fa66e0c07c88e5e0aee3f35253a6d6154d0",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

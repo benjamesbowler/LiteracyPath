@@ -30,5 +30,11 @@
     "sha256": "2c70fe9e350a0cbc0aa90197eb36078c61b90a34719db70db7038d8ce0630c4b",
     "note": "Unlettered display, five slats and two rollers, same yellow/blue-pocket shirt and closed washer; core objects comfortably framed.",
     "limits": "Individual installed WebP only; independent sequence, reader, card and audio separate."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-e-29",
+    "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
+    "sha256": "7b5d49fa464ddfe3c488fb7295ea82cbaa37ae0e01b14b633c270d651f53cb42",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

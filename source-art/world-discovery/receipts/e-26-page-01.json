@@ -30,5 +30,11 @@
     "sha256": "7a3eae4bcdc25ad2bfa105257a8c9df10e6bb96668dfba3f5d7d1a3a071d76cb",
     "note": "Repaired wide room framing keeps Zoe hair and tablet far within safe area; red boat/send symbol, no network signal yet. Furniture grounded.",
     "limits": "Individual installed WebP directly inspected. Independent sequence, reader/card and audio approval separate."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-e-26",
+    "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
+    "sha256": "a04b6d0950794fec64943013d30facc27daa8410774f7062963be893ca44e0a3",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

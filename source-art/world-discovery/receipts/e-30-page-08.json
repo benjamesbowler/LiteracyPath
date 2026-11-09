@@ -34,5 +34,11 @@
     "sha256": "2620096ddc8cb7a3bd96091e0d4e6695f371f4b2315ee6d965918c42b50f6384",
     "note": "Directly inspected installed WebP: Three remaining round algae within pale tissue, one orange hexagonal food symbol and short transfer arrow; reduced supply without death icon or exclusion of other food. All biological forms and sun safely framed.",
     "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-e-30",
+    "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
+    "sha256": "eead7bd4e8d787dff3440b9ff337f914a50daa5a1c9dfe20a0688cac4e6a5f42",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

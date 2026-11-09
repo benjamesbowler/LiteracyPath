@@ -29,5 +29,11 @@
     "method": "codex-direct-image-inspection",
     "reviewedAt": "2026-11-09T11:31:12.597Z",
     "note": "Directly inspected native framing repair: child, dish and room uniformly widened; hair~18–20%top and full dish~16–18%bottom margin. No solid ice remains, broad shallow water covers most flat base; one hand rests and other points toward water, no added depth or loss."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-a-24",
+    "path": "src/content/world-discovery/cohorts/21-30/level-a.json",
+    "sha256": "9c77e1f07a52338299286dd5ca1c02bdc85189d203f83376727f78ec56a237f5",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

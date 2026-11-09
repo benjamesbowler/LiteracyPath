@@ -30,5 +30,11 @@
     "sha256": "d56eecadeb3f7142949c7355f9b56c348be8b77e1cb8995155c7b23a144c7593",
     "note": "Actual installed WebP inspected: front-parallel intact barcode; scanner reading window faces code; two pale arrows reach actual barcode edge and point oppositely for outgoing/return light, with no amount measurement claimed. Generous margins. Actual code automatically decodes EAN_13 9526064055028.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-26",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "d59cea23360058526ea901a2e29037254b3ebeb4c6414bf72ec9466263b3fda1",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

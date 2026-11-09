@@ -30,5 +30,11 @@
     "sha256": "0e4cc615adc85c760ca977456842c568796faa70ce5a3972164905339528f992",
     "note": "Matching Kit/Zoe models, blue-rim clock with twelve ticks and correct long blue up/short red right 3:00 hands, classroom and blank paper-strip props; all safely inset.",
     "limits": "Production reference inspection only; final pages reviewed separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-29",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "3460752faa6a0a3274ac588cafaa9f1a2ce0724561d85910d4dfd548edcf09d7",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

@@ -29,5 +29,11 @@
     "method": "codex-direct-image-inspection",
     "reviewedAt": "2026-11-09T12:23:00.979Z",
     "note": "Direct native inspection: two adults walk with both feet clearly on broad public paved path, separated by continuous fence from rails. Same station/office designs and teal three-car train, coherent wheel-to-rail contact. Train nose about8.5% from right and feet11% above bottom, meeting8% minimum. No text or unsafe road/track walking."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-e-22",
+    "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
+    "sha256": "2aff8b9432244a41072eb7c7376c77e21594d83a655dfa83d99e44c528e86755",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

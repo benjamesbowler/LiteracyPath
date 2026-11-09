@@ -9,7 +9,7 @@
   "outputSha256": "2a2f6c0f919066af1abde44e678f790c0a48e92aace561e91b02cbb3deae07c8",
   "width": 1536,
   "height": 1024,
-  "prompt": "One landscape 3:2 nonfiction illustration in same clean flat 2D cartoon. Bold outlines, smooth solid colors, restrained cel shading, no texture, text, numbers, labels, insets or panels. WIDE pulled-back composition: all essential anatomy and objects within x=15\u201385%, y=13\u201385%, add natural context beyond. ONE yellow short-sleeve T-shirt with ONE exact square blue chest pocket throughout, no duplicate shirt. Only the same clean yellow shirt with square blue pocket hangs from exactly TWO wooden clothes pegs at shoulders on horizontal clothesline in simple present-day teaching courtyard. Slightly darker lower fabric suggests dampness, no dripping stream. A cream building wall, plain doorway and small shrubs form calm background. NO people, tubs, board, washer, other clothes or extra pegs. Whole shirt centered at medium scale, about 45% image height, generous background around. Line can extend off edges, shirt and both pegs fully inset. Sunlit flat colors without claiming instant dry.",
+  "prompt": "One landscape 3:2 nonfiction illustration in same clean flat 2D cartoon. Bold outlines, smooth solid colors, restrained cel shading, no texture, text, numbers, labels, insets or panels. WIDE pulled-back composition: all essential anatomy and objects within x=15–85%, y=13–85%, add natural context beyond. ONE yellow short-sleeve T-shirt with ONE exact square blue chest pocket throughout, no duplicate shirt. Only the same clean yellow shirt with square blue pocket hangs from exactly TWO wooden clothes pegs at shoulders on horizontal clothesline in simple present-day teaching courtyard. Slightly darker lower fabric suggests dampness, no dripping stream. A cream building wall, plain doorway and small shrubs form calm background. NO people, tubs, board, washer, other clothes or extra pegs. Whole shirt centered at medium scale, about 45% image height, generous background around. Line can extend off edges, shirt and both pegs fully inset. Sunlit flat colors without claiming instant dry.",
   "references": [
     {
       "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/e-29/page-03.webp",
@@ -30,5 +30,11 @@
     "sha256": "2a2f6c0f919066af1abde44e678f790c0a48e92aace561e91b02cbb3deae07c8",
     "note": "Single damp shirt hangs from two pegs in courtyard, no water stream; same blue pocket and natural fabric.",
     "limits": "Individual installed WebP only; independent sequence, reader, card and audio separate."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-e-29",
+    "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
+    "sha256": "7b5d49fa464ddfe3c488fb7295ea82cbaa37ae0e01b14b633c270d651f53cb42",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

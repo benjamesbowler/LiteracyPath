@@ -30,5 +30,11 @@
     "sha256": "8d72f942c9c1cb7ba33713cf6615da87a37c71c2acefe77e20c0a7b8d373f76c",
     "note": "Inspected native replacement reference at full composition. Continuous sidewalk now runs beside full bus and doorway; road speckle removed. Primary right-side bus has four passenger windows; same two original passengers, three boarding adults and driver retain distinct clothing and anatomy. Separate turnarounds and two-stop key are reference content only.",
     "limits": "Reference design review only; final cover and each page still require direct text/state/continuity review."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-a-21",
+    "path": "src/content/world-discovery/cohorts/21-30/level-a.json",
+    "sha256": "e95d0ca76ed02b4560385afd0b30bdaac19d03292f4cf363f1cfdeec0eeb1e0c",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

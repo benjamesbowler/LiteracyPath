@@ -30,5 +30,11 @@
     "sha256": "e03a6ad66713ef6ba186c0574b2e8e843ffa135ec66494fb05a0dfcd7d352114",
     "note": "Exactly five fired graphite/clay rods inside closed guarded oven, adult outside, two raw ingredient bowls and mixture on cool counter. Full-bleed factory, safely framed.",
     "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-27",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "0a0ac3b1ba535502efe40a5c6efda391dc81175f1b316a119c2caa6ba2d5af52",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

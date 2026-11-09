@@ -652,8 +652,8 @@
         "pageNumber": 10,
         "text": "Slow movement can build strain. A sudden slip releases it, sending waves through the ground. That is how this earthquake begins.",
         "imageBrief": "Return to the fault cutaway with the stripe offset and waves spreading. Final state matches page six; one example, no claim all earthquakes share this exact fault type.",
-        "imageAlt": "Return to the fault cutaway with the stripe offset and waves spreading.",
-        "pageDescription": "Return to the fault cutaway with the stripe offset and waves spreading.",
+        "imageAlt": "Two rock blocks have an offset stripe across their boundary. Opposite arrows show their movement as rings mark spreading waves.",
+        "pageDescription": "Two rock blocks have an offset stripe across their boundary. Opposite arrows show their movement as rings mark spreading waves.",
         "state": "Final state matches page six; one example, no claim all earthquakes share this exact fault type.",
         "embeddedImageText": "",
         "imageLayout": "integrated-diagram"
@@ -824,8 +824,8 @@
         "pageNumber": 10,
         "text": "The plane keeps moving through air. Its wings change the airflow, and the air's force helps support the plane.",
         "imageBrief": "Return to the white plane in steady flight with restrained downward wake marks. Same aircraft and direction; no force diagram clutter, no additional source of lift introduced.",
-        "imageAlt": "Return to the white plane in steady flight with restrained downward wake marks.",
-        "pageDescription": "Return to the white plane in steady flight with restrained downward wake marks.",
+        "imageAlt": "A white plane flies above fields, with curved blue lines showing air moving downward behind its wing.",
+        "pageDescription": "A white plane flies above fields, with curved blue lines showing air moving downward behind its wing.",
         "state": "Same aircraft and direction; no force diagram clutter, no additional source of lift introduced.",
         "embeddedImageText": ""
       }
@@ -1329,8 +1329,8 @@
         "pageNumber": 10,
         "text": "The rainforest changes from bright treetops to shaded ground. Where light reaches leaves helps shape what can grow and feed there.",
         "imageBrief": "Return to the full forest section with toucan above and young plants below. One connected habitat, same trees and species; gap partly filled, clear light difference without invented numerical percentages.",
-        "imageAlt": "Return to the full forest section with toucan above and young plants below.",
-        "pageDescription": "Return to the full forest section with toucan above and young plants below.",
+        "imageAlt": "A toucan perches high in a rainforest tree while young trees grow beside a fallen log in a patch of sunlight.",
+        "pageDescription": "A toucan perches high in a rainforest tree while young trees grow beside a fallen log in a patch of sunlight.",
         "state": "One connected habitat, same trees and species; gap partly filled, clear light difference without invented numerical percentages.",
         "embeddedImageText": ""
       }

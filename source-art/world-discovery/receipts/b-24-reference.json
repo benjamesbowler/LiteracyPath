@@ -30,5 +30,11 @@
     "sha256": "346d9d0a23c2ec797fd7d29c93acd22664241577f4b66dbd97d498fd6d4e652a",
     "note": "Directly viewed native PNG and installed WebP. Soft orange tapered fabric is open at both ends, supported on gray swivel/ring; calm hanging and inflated rightward study are distinct. Blue bench remains left and green tree right; no humans or text.",
     "limits": "Reference design inspection only. Final windsock direction/optical paths require individual page checks."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-24",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "a7d4700114dd184758408d85e9d80d32ffe61e9f2d611a6430b36ce36d7a765e",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

@@ -34,5 +34,11 @@
     "sha256": "e59245eb52057d81c79837853dc51f5db3e406ea00edd29e34f27e1ebab89134",
     "note": "Native and actual replacement directly viewed: removed incidental east gate from north-focused close-up, retained north tree, settled red-tip orientation, correctly ordered N/E/S/W ring, exact children and natural supporting palm.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-22",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "153395b670d107fe7ad363df2671c1da91566aa120d8f83378a2eeda75481a28",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

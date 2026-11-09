@@ -30,5 +30,11 @@
     "sha256": "f7640bca6dc2c687a2f53c1956c4db9411d4faaa9c4331d71b6acdc1b6a98ef2",
     "note": "Native and installed WebP directly viewed: consistent Kit/Zoe, one red-white pivoted compass needle, unlettered dial reference, fixed green tree and gray gate school-field key.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-22",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "153395b670d107fe7ad363df2671c1da91566aa120d8f83378a2eeda75481a28",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

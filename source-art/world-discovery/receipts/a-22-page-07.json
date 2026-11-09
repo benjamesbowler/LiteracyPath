@@ -29,5 +29,11 @@
     "method": "codex-direct-image-inspection",
     "reviewedAt": "2026-11-09T07:25:34.186Z",
     "note": "Directly inspected native replacement: Kit's hair is about 13.5% below the top and shoes about 12% above the bottom; returning Americas globe orientation, diagonal axle, pointing pose and blue-gray classroom floor remain coherent."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-a-22",
+    "path": "src/content/world-discovery/cohorts/21-30/level-a.json",
+    "sha256": "7fb9d0dad2e1f226cbad13b27e944537df495d6a4ae001fea7e1424f5a78d89a",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

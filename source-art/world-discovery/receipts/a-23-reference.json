@@ -29,5 +29,11 @@
     "method": "codex-direct-image-inspection",
     "reviewedAt": "2026-11-09T04:51:50.963Z",
     "note": "Inspected regenerated reference board: Zoe has two puffs, yellow shirt, plum overalls and white shoes, two relaxed hands on clothed upper chest. Blue rug and simple room are stable; paired pink lung teaching shapes remain connected to central windpipe. Clean smooth fills. Cutaway poses are design only and must not enter cover or page 1."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-a-23",
+    "path": "src/content/world-discovery/cohorts/21-30/level-a.json",
+    "sha256": "9d1d4dd6d93c7ff9e1f38dd1d3858cfe95edf848dc9e464d8d8c183b2a6aee4a",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

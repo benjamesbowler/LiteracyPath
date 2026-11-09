@@ -30,5 +30,11 @@
     "sha256": "6d3491be148c3447edd2a8ee38ae24ced75addc63886daeb1c214546fb9458df",
     "note": "Directly viewed native PNG and installed WebP. Locked Kit and Zoe identities/outfits, equal standing height, gray unbranded camera front/back/side studies, red cube and longer blue block plus plain white table are clear. Saved-view triangle is a simple icon; no lettering. Reference locks designs only: exact lens aiming, screen content and before/current arrangement require each final page review.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-26",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "525a24b588c1767c16569b25157918b5900b354e74e227d5bf34b61c7443df81",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

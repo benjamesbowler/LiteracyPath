@@ -30,5 +30,11 @@
     "sha256": "52809fea95e11aa5ff624b3baea302b5b98cd9927537485dbed9e067a2f0b5fa",
     "note": "Independent finding corrected: the magnified short cotton fibers are now pale blue like the dyed woven fabric and shirt, all geometry and four buttons preserved.",
     "limits": "Individual installed WebP directly inspected. Whole-sequence, reader/card and audio checks separate."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-e-27",
+    "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
+    "sha256": "cbf57ed0e204379362a97b760486f24b628e65ad467026e2a078e7ecc3b4b28e",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

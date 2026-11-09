@@ -9,7 +9,7 @@
   "outputSha256": "3cbd7a12f0f05909197afb49e75a1572f0ba0cc66895af0130a854afffd8c355",
   "width": 1536,
   "height": 1024,
-  "prompt": "One finished landscape3:2 full-bleed children nonfiction illustration, crisp flat2D cartoon with clean dark outlines, flat colors and restrained cel shading. No grain, painted texture,3D, words, logos, captions, border or frame. Full essential subjects within CENTRAL65 percent of canvas, broad naturally extended background margins. Page6 one classroom scene. Same Kit left and Zoe right, same clothes/equalheight/table/clock. Their paper chain is NOW COMPLETED, aboutEIGHT alternating blue/yellow joined rings gently draped on tabletop, no spare loose strips; one glue stick at side. They admire it. The ONE wallclock shows EXACTLY4:00: longBLUE minute straightUP at12, shortRED hour diagonallydownRIGHT exactly toward4,30degreesbelowhorizontal. Third image gives exact hand geometry, not extra inset. All twelve black numerals1\u201312 correct clockwise; exactlytwohands. Clock at least15percentbelowtop; whole shoes at least15percentabovebottom; all faces/chain safe. No captions or extra clock.",
+  "prompt": "One finished landscape3:2 full-bleed children nonfiction illustration, crisp flat2D cartoon with clean dark outlines, flat colors and restrained cel shading. No grain, painted texture,3D, words, logos, captions, border or frame. Full essential subjects within CENTRAL65 percent of canvas, broad naturally extended background margins. Page6 one classroom scene. Same Kit left and Zoe right, same clothes/equalheight/table/clock. Their paper chain is NOW COMPLETED, aboutEIGHT alternating blue/yellow joined rings gently draped on tabletop, no spare loose strips; one glue stick at side. They admire it. The ONE wallclock shows EXACTLY4:00: longBLUE minute straightUP at12, shortRED hour diagonallydownRIGHT exactly toward4,30degreesbelowhorizontal. Third image gives exact hand geometry, not extra inset. All twelve black numerals1–12 correct clockwise; exactlytwohands. Clock at least15percentbelowtop; whole shoes at least15percentabovebottom; all faces/chain safe. No captions or extra clock.",
   "references": [
     {
       "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/c-29-reference.webp",
@@ -38,5 +38,11 @@
     "sha256": "3cbd7a12f0f05909197afb49e75a1572f0ba0cc66895af0130a854afffd8c355",
     "note": "Clock4:00 blueup12/redtoward4; same twochildren with completed eight alternating blue/yellow rings, no loose strips. Safe frame and familiar table/room.",
     "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-29",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "3460752faa6a0a3274ac588cafaa9f1a2ce0724561d85910d4dfd548edcf09d7",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

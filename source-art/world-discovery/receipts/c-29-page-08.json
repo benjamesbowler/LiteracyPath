@@ -34,5 +34,11 @@
     "sha256": "03b350be6e26cd6621d843c1e5afd3df3dba429af5e655d334ba62e43e1cfa02",
     "note": "Same children now look up at one clock4:00; completed eight-ring alternating paper chain persists, no loose strips, correct twelve numerals and two hands. Safe margins.",
     "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-29",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "3460752faa6a0a3274ac588cafaa9f1a2ce0724561d85910d4dfd548edcf09d7",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

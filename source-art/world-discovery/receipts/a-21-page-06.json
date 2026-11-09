@@ -34,5 +34,11 @@
     "sha256": "971089b98d9a8b2f9d5a8f1cbc1b3a7bcf6445856fa58589c6e5ff1e746e62da",
     "note": "In-transit bus has closed door, driver and exactly the same three new passengers seated in windows 1/2/3; fourth empty. First-stop planter behind and second-stop bench ahead.",
     "limits": "All native final pictures inspected against text and sequence; actual reader/card rendition remains pending."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-a-21",
+    "path": "src/content/world-discovery/cohorts/21-30/level-a.json",
+    "sha256": "e95d0ca76ed02b4560385afd0b30bdaac19d03292f4cf363f1cfdeec0eeb1e0c",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

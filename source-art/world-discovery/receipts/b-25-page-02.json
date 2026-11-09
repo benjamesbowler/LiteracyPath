@@ -30,5 +30,11 @@
     "sha256": "aacd26ecaaa148b449c1037cca6e19f0cbc385955f8b19b0de3390ad504adc77",
     "note": "Directly viewed native PNG and installed WebP. Overhead diagram has exactly two thin gold arrows, source-to-mirror and mirror-to-screen, meeting at the same front reflective contact. Both rays lie on same side of mirror and have approximately equal angles. Screen spot is at second arrow endpoint. Smooth flat table finish, no extra ray or visible-air cone.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-25",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "02a11cb2d48a5186bd7e0a8f99de75cad39c2a86cb01f3a71a120775d033f96c",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

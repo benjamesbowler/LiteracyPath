@@ -30,5 +30,11 @@
     "sha256": "e8478f1febeb198a99e7e92a56336209132c9445722fdd248c25b4aaeb35995e",
     "note": "Directly viewed native PNG and installed WebP. Kit turns the mirror base slightly while flashlight/cradle and screen remain in original positions. Mirror face becomes oblique and the single spot shifts right on the screen. Zoe watches; no visible beam or extra spot.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-25",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "02a11cb2d48a5186bd7e0a8f99de75cad39c2a86cb01f3a71a120775d033f96c",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

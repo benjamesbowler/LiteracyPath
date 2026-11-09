@@ -30,5 +30,11 @@
     "sha256": "a37d0f4138fa435bdb0bc4b4ac5927e59e4d4424dbf96b4dee8b0a73eb3d761b",
     "note": "Directly viewed native PNG and installed WebP: adult supports cooled saucepan with both hands while pouring curds/whey into cloth-lined strainer resting securely on bowl; complete hair, hands and bowl well inset.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-27",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "8603efd41970464a9a88e20ce81a56bbb4b368d24f32537f720301e45b04ef19",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

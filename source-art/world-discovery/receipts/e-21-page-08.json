@@ -30,5 +30,11 @@
     "sha256": "78df6acff864680115461f754db6d09b3b498132014228380197d8f5dd8ce810",
     "note": "Kit compares exactly three equal cards: walking25,bus35,ferry20. Correct four-window ferry icon. All map elements and full Kit visible with safe margins; no leftover route badge.",
     "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-e-21",
+    "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
+    "sha256": "9421bb4bb1f97c822674b76871fc5ee9b7b4398f02e9bdb626223b2a8cf9283e",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

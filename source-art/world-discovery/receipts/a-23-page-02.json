@@ -29,5 +29,11 @@
     "method": "codex-direct-image-inspection",
     "reviewedAt": "2026-11-09T11:15:06.461Z",
     "note": "Directly inspected framing repair: full side-view figure now has ~17%top and19%bottom margins, relaxed hands/chest pose and body proportions preserved, blue arrow still points into closed-lip nostril area. Entire room/rug scaled together, feet grounded."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-a-23",
+    "path": "src/content/world-discovery/cohorts/21-30/level-a.json",
+    "sha256": "9d1d4dd6d93c7ff9e1f38dd1d3858cfe95edf848dc9e464d8d8c183b2a6aee4a",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

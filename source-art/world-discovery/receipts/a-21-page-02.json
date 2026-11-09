@@ -30,5 +30,11 @@
     "sha256": "cebfee21d1674b84b18404bdf40b0dff9c6dfac847a2a55b51219227ea9a67c6",
     "note": "Door leaves apart, older woman and bearded man standing in clear doorway aisle; no doorway seat. Three boarders leave exit space; no one crosses threshold. Six adults total with stable identities.",
     "limits": "Initial full-image check; complete-book continuity and actual reader/cover rendition still pending. Check bus/sign edge framing in reader before final approval."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-a-21",
+    "path": "src/content/world-discovery/cohorts/21-30/level-a.json",
+    "sha256": "e95d0ca76ed02b4560385afd0b30bdaac19d03292f4cf363f1cfdeec0eeb1e0c",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

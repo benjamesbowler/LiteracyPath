@@ -29,5 +29,11 @@
     "method": "codex-direct-image-inspection",
     "reviewedAt": "2026-11-09T11:45:12.188Z",
     "note": "Directly inspected native framing repair: whole scene uniformly pulled back with hair~19–21%top and shoes/drum feet~19–22%bottom, natural cross-legged anatomy and grounded stand. Right hand at membrane after second tap, left on knee, only short renewed motion tick."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-a-25",
+    "path": "src/content/world-discovery/cohorts/21-30/level-a.json",
+    "sha256": "43250b481932e7fd088b4db9dca6c6655e0ffe81fdc9bbd2dd349daea8124cbd",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

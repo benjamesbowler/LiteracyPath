@@ -30,5 +30,11 @@
     "sha256": "e38b1619d8cea773b314690016ac4dd3e57dab74961be53634657c30c79b27ec",
     "note": "Directly viewed native PNG and installed WebP. One soft orange tapered windsock extends right from gray pole with wide opening left and small open tail right. Blue bench stays left, green tree right; entire pole and both landmarks have generous margins. No lettering, people or visible wind ribbons.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-24",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "a7d4700114dd184758408d85e9d80d32ffe61e9f2d611a6430b36ce36d7a765e",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

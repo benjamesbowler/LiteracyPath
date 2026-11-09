@@ -34,5 +34,11 @@
     "sha256": "b4caa560f913851486ad87023e63d9e1252b17575ebb946747313f2aecf5004e",
     "note": "Native and actual replacement directly viewed: removed incidental gate from north-focused palm close-up. Correct clockwise N/E/S/W, single red/white needle, natural five-digit supporting hand and north tree retained.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-22",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "153395b670d107fe7ad363df2671c1da91566aa120d8f83378a2eeda75481a28",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

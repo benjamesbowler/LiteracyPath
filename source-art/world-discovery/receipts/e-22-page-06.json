@@ -29,5 +29,11 @@
     "method": "codex-direct-image-inspection",
     "reviewedAt": "2026-11-09T12:18:46.633Z",
     "note": "Direct native inspection: two schematic clusters use comparable house and road scales; Reading visibly spans much larger footprint than Wells, exact correct labels. Both entire clusters now around14%+ outer margins and text19% above bottom. No exact boundary/population or universal threshold implied."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-e-22",
+    "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
+    "sha256": "2aff8b9432244a41072eb7c7376c77e21594d83a655dfa83d99e44c528e86755",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

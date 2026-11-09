@@ -30,5 +30,11 @@
     "sha256": "43521192072dbe79cd124bfa39466dfa5a050a8f7dffb76609acdda3525f51df",
     "note": "Repaired image removes both departed original riders. Three new riders seated in first/second/third passenger windows with fourth empty, door closed, driver seated at first stop. Counts and identities now agree.",
     "limits": "Initial image/state review; full sequence and actual reader framing pending."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-a-21",
+    "path": "src/content/world-discovery/cohorts/21-30/level-a.json",
+    "sha256": "e95d0ca76ed02b4560385afd0b30bdaac19d03292f4cf363f1cfdeec0eeb1e0c",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

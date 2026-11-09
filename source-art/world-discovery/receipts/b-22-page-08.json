@@ -34,5 +34,11 @@
     "sha256": "c46d22f6996511cf1ec2940b2952e52c477372b2999d6a5cfe80debc959b3b93",
     "note": "Directly viewed native PNG and installed WebP. Return to the same classroom/globe. Zoe traces Atlantic water toward Southern water while Kit watches; a thin route remains in blue water before Antarctica, no letters. Cast and objects have safe framing.",
     "limits": "Direct image inspection only; independent sequence and app review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-22",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "d346fe8dc7353560509b50ee1dca945aaecea359fe39c62fa55e24ba80dcea80",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

@@ -38,5 +38,11 @@
     "sha256": "f43d4d0ef8e06b7e9c78e5ffaa84799b2c1e32e4e0d7d991446c09c4b774aa22",
     "note": "Native and actual WebP viewed: yellow insulated clip remains connected to bulb left terminal as Zoe opens switch; bulb dark, natural hand/knob grip and exact routing retained.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-25",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "60927b2d5048ae20d08714be01091613ee1764a5c15daf2525d06777525a68af",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

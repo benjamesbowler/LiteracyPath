@@ -34,5 +34,11 @@
     "sha256": "20428a2b6f38253fce3636b2f5a496784a4c61bf5ef37c36d09edac6a3c015fa",
     "note": "Directly viewed native PNG and installed WebP: exactly six loose cubes total, five on table plus one held by Kit, fixed blue book and matching classroom; safe heads/hands/props.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-29",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "9796169576ba8580a5f1963d4f2884d31c334ef8d957a5a57193756c8fa9653c",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

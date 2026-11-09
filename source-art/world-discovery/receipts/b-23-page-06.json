@@ -30,5 +30,11 @@
     "sha256": "a0437aa89a1d8d167fd88e1b03134bae204eff1706cc02c82b54de057a3d636a",
     "note": "Directly viewed native PNG and installed WebP. Zoe chews with closed mouth and natural cheeks, hands beside plate. One remaining peeled apple slice has one bite missing. Outfit, room, seated posture and safe framing remain consistent.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-23",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "9c6c4cbae80de1689bfdb7292cdc914a3dada053184290c61d30a1f5b85bbc93",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

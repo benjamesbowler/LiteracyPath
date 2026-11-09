@@ -34,5 +34,11 @@
     "sha256": "cdbe719242e7dccd5e4fda52462352e61277bf65584ab2ceed07d0146f984b57",
     "note": "Native and final WebP directly viewed. Many small round cloud drops surround nuclei and three teaching light rays scatter in different directions; no white gas, same lake and safe core margins.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-24",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "6cd280a9d02dea1e6c9089cb16a616bf16aa70d331309534ccb043504bcb3c09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

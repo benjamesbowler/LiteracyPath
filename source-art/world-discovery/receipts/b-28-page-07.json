@@ -34,5 +34,11 @@
     "sha256": "72629be84497b961acaec6a9b6cc0df9572d51c40f606c14e0f1998143ad2ff0",
     "note": "Directly viewed native PNG and installed WebP: empty mouth reaches untouched middle neighboring cluster; first stripped lower tip stays bare with thorns, unaffected lower branch foliage retained.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-28",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "196df0e9094941d10a0198793392a9023e77526803a29764a558a8ef457f7432",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

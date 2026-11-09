@@ -9,7 +9,7 @@
   "outputSha256": "b29904543871b22adb9e93b0973b6f4158b30a6f66e5a354e2c3d932029fbaff",
   "width": 1536,
   "height": 1024,
-  "prompt": "Edit this exact illustration. Pull camera back approximately 22% while keeping ALL action, object relationships, character identity, palette and clean flat cartoon style unchanged. Recenter focal group so entire adult from hair to shoes (if present), whole washboard, tubs and washer (only those already present) fit within x=15\u201385% and y=13\u201385% of canvas. Add natural room background around, never a plain rectangular border. No letters/numbers/new props. Keep board five ridged wood slats, two top rollers. Correct blue shirt pocket to an exact square with straight bottom. Remove stored gray tub on shelf so only two work tubs remain.",
+  "prompt": "Edit this exact illustration. Pull camera back approximately 22% while keeping ALL action, object relationships, character identity, palette and clean flat cartoon style unchanged. Recenter focal group so entire adult from hair to shoes (if present), whole washboard, tubs and washer (only those already present) fit within x=15–85% and y=13–85% of canvas. Add natural room background around, never a plain rectangular border. No letters/numbers/new props. Keep board five ridged wood slats, two top rollers. Correct blue shirt pocket to an exact square with straight bottom. Remove stored gray tub on shelf so only two work tubs remain.",
   "references": [
     {
       "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-adc95713-9481-467a-9974-6652541e71b7.png",
@@ -30,5 +30,11 @@
     "sha256": "b29904543871b22adb9e93b0973b6f4158b30a6f66e5a354e2c3d932029fbaff",
     "note": "Same shirt moves into separate clear rinse tub; two hands and square pocket; adult and both tubs fully framed.",
     "limits": "Individual installed WebP only; independent sequence, reader, card and audio separate."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-e-29",
+    "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
+    "sha256": "7b5d49fa464ddfe3c488fb7295ea82cbaa37ae0e01b14b633c270d651f53cb42",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

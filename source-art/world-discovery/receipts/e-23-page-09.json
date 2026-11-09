@@ -31,5 +31,11 @@
     "note": "Actual PNG and installed WebP inspected: exactly three neuron cell bodies/nuclei, branching dendrites and axon terminals with visible synaptic gaps, no literal wires or labels, broad margins.",
     "reviewer": "/root/gap_taxonomy",
     "limits": "Individual installed image inspection; independent sequence, reader, cards and audio reviewed separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-e-23",
+    "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
+    "sha256": "1b0de6058b2611192f79942f4ecd03b97dc9da569d20816897fdbc11f5ab098a",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

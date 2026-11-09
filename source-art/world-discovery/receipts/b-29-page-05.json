@@ -30,5 +30,11 @@
     "sha256": "2615461e8acffe32d836e7b1689db7774183cf7af13243e2323b9c8bd45f8ea4",
     "note": "Directly viewed current native PNG and installed WebP: true overhead book width six units, five touching equal square tops start at left and stop one unit short at right; sixth spare moved safely inset, no extra cube or perspective sides.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-29",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "9796169576ba8580a5f1963d4f2884d31c334ef8d957a5a57193756c8fa9653c",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

@@ -29,5 +29,11 @@
     "method": "codex-direct-image-inspection",
     "reviewedAt": "2026-11-09T08:13:53.818Z",
     "note": "Directly inspected revised scene: exactly three ants with six separate thoracic legs and two antennae each, following curve around one pale pebble toward one leaf/drop. No scent marks. Complete leaf, ants and nest opening safely inset; extra stones and speckles removed."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-a-28",
+    "path": "src/content/world-discovery/cohorts/21-30/level-a.json",
+    "sha256": "fbf293511c4adb19a75a183f30ea70ea6bdd6e4a759309a5079a91a68021dff0",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

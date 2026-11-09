@@ -30,5 +30,11 @@
     "sha256": "1bae37fbbec2a607782166a760de8e4abb3345cdf5066e8459fe560283652ec4",
     "note": "Four variable-length pressure arrows on each side point inward, approximately normal to local surface; upper arrows down/slightly toward local normal, lower upward; no suction arrows.",
     "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-e-25",
+    "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
+    "sha256": "9e7e22440df17e84ee4395145c3c74d88467da9213d93f64baf2258d28376d45",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

@@ -30,5 +30,11 @@
     "sha256": "8f5cbeac962e56e2c1ace298de2dafab0bcc61778f26b311e631b6680897724f",
     "note": "Directly viewed native PNG and installed WebP. Tube is now straightened nearly horizontally right while retaining its established length. Wide left mouth and small right tail remain open; a few tree leaves lean right, with fixed trunk and landmarks.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-24",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "a7d4700114dd184758408d85e9d80d32ffe61e9f2d611a6430b36ce36d7a765e",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

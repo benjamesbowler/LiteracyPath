@@ -34,5 +34,11 @@
     "sha256": "5078f83b78d167c008cd8f5edbdf4e61acfbc2a7b54ef17b21a62c39479e6e5d",
     "note": "Actual native PNG and installed WebP directly inspected: correct Kit and adult worker, cream blue-circle carton, scanner and blank screen; no lettering. Barcode label stays front-parallel and installed WebP automatically decodes EAN_13 9526064055028, matching analytical and native master. Production board uses enlarged prop and separate location key.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-26",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "d59cea23360058526ea901a2e29037254b3ebeb4c6414bf72ec9466263b3fda1",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

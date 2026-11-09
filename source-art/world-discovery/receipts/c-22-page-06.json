@@ -34,5 +34,11 @@
     "sha256": "ae6fa97483678e592b83de51e737d2eed7fbfd8fa0e9f7a496b5f102121df7d5",
     "note": "Native and actual WebP directly viewed: east-facing observer now sees gate ahead, north tree directly left at same ground depth, small horizontal compass E ahead/N left/red left. Complete safe margins and clean cast maintained.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-22",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "153395b670d107fe7ad363df2671c1da91566aa120d8f83378a2eeda75481a28",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

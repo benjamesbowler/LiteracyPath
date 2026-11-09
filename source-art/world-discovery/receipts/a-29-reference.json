@@ -33,5 +33,11 @@
     "method": "codex-direct-image-inspection",
     "reviewedAt": "2026-11-09T05:03:47.373Z",
     "note": "Inspected targeted geometry repair: straight-on red strip is now approximately 4:1 with parallel horizontal/vertical edges and no crease; tabletop perspective depicts same whole strip. Zoe and blue-shirt adult are consistent, scissors are blunt and separate, no future halves/scraps. Clean flat colors and natural two-hand opening pose."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-a-29",
+    "path": "src/content/world-discovery/cohorts/21-30/level-a.json",
+    "sha256": "f901b0be0bea47b49de26868818727681b20b5057666da316e0fa78bccc25576",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

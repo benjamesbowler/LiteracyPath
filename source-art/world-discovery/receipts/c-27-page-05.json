@@ -30,5 +30,11 @@
     "sha256": "c9eb4f4ac9c6020c43e31dd2dfd7d24601637c9dfc67163d03057bde90b1c738",
     "note": "Two wood slats meet in a single sandwich; exactly five dark core cross-sections at seam on exposed end, plain wood top. Single coherent factory view and safe margins.",
     "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-27",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "0a0ac3b1ba535502efe40a5c6efda391dc81175f1b316a119c2caa6ba2d5af52",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

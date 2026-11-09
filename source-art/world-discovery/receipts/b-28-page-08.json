@@ -9,7 +9,7 @@
   "outputSha256": "0f5903b9af477c88d3865e7948f9ca5572f33c35a8871163c5b87608b68729f2",
   "width": 1536,
   "height": 1024,
-  "prompt": "Tiny foliage continuity repair to FIRST image ONLY. Keep exact middle-branch feeding tongue action, animal and tree. Restore the small green leaflet cluster at x1000\u20131100, y420\u2013480 immediately LEFT of the large paired thorns on the LOWER branch, matching SECOND image. This lower-branch cluster was untouched. All other lower foliage, bare left twig tip, thorns, mouth and upper feeding cluster stay unchanged. One small restoration only; no extra tongue or branch. LANDSCAPE 3:2 1536x1024. Clean flat colors and crisp shapes, no grain, paper texture or painted shading. No text, numerals, labels or arrows. Keep all essential objects inside central75%, with 150px side and 120px top/bottom margins.",
+  "prompt": "Tiny foliage continuity repair to FIRST image ONLY. Keep exact middle-branch feeding tongue action, animal and tree. Restore the small green leaflet cluster at x1000–1100, y420–480 immediately LEFT of the large paired thorns on the LOWER branch, matching SECOND image. This lower-branch cluster was untouched. All other lower foliage, bare left twig tip, thorns, mouth and upper feeding cluster stay unchanged. One small restoration only; no extra tongue or branch. LANDSCAPE 3:2 1536x1024. Clean flat colors and crisp shapes, no grain, paper texture or painted shading. No text, numerals, labels or arrows. Keep all essential objects inside central75%, with 150px side and 120px top/bottom margins.",
   "references": [
     {
       "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-b2edcd84-3071-4f27-8ab6-07243ee9ed93.png",
@@ -34,5 +34,11 @@
     "sha256": "0f5903b9af477c88d3865e7948f9ca5572f33c35a8871163c5b87608b68729f2",
     "note": "Directly viewed native PNG and installed WebP: tongue brings leaves from the same middle neighboring cluster to mouth; stripped lower tip remains bare, all untouched lower foliage and thorns retained, natural neck/head safely framed.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-28",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "196df0e9094941d10a0198793392a9023e77526803a29764a558a8ef457f7432",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

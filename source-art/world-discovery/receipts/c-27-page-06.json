@@ -34,5 +34,11 @@
     "sha256": "37912684b2159a0188f7c8cb86e551c2ad29dee18dfc9a039312dc3833b37e72",
     "note": "Exactly five separate unpainted blunt hexagonal pencils, each one central dark core on visible end, enclosed machine behind. All pencils inside safe frame.",
     "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-27",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "0a0ac3b1ba535502efe40a5c6efda391dc81175f1b316a119c2caa6ba2d5af52",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

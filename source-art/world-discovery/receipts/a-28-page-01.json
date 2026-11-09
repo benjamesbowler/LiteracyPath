@@ -29,5 +29,11 @@
     "method": "codex-direct-image-inspection",
     "reviewedAt": "2026-11-09T10:19:19.643Z",
     "note": "Directly inspected repaired opening: one ant approaches food with six distinct thoracic legs, two antennae and normal head. Ant body now about half leaf length, matching cover/feeding scale. Nest left, single pebble between, leaf/drop right; no trail marks and safe complete margins."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-a-28",
+    "path": "src/content/world-discovery/cohorts/21-30/level-a.json",
+    "sha256": "fbf293511c4adb19a75a183f30ea70ea6bdd6e4a759309a5079a91a68021dff0",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

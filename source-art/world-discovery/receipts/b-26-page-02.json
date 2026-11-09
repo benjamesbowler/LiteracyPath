@@ -34,5 +34,11 @@
     "sha256": "223a4b3eb84c58530ab1e86e6ad6c0a77777ee691e011810ce7884dc45d639e1",
     "note": "Directly viewed native PNG and installed WebP. Coherent over-shoulder view with rear screen facing Zoe, matching red cube on twice-width blue block in actual scene and live preview; two rear buttons, no playback icon or extra blocks, clear safe camera and block margins.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-26",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "525a24b588c1767c16569b25157918b5900b354e74e227d5bf34b61c7443df81",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

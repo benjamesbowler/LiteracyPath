@@ -30,5 +30,11 @@
     "sha256": "71d91810306e3338e42dbca51f2d65cce279ca5e06dbcfaa0161d0180e45e25b",
     "note": "Native and installed WebP directly viewed. Flexion shows short thick front biceps and longer rear triceps; front tendon crosses inner elbow to proximal radius, rear tendon attaches outer olecranon; distinct paired bones and safe margins.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-23",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "a69cbfc6921edf6fa0940d4d9dd11e0245a3058f577ce1cf8504915963b81106",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

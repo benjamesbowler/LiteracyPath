@@ -29,5 +29,11 @@
     "method": "codex-direct-image-inspection",
     "reviewedAt": "2026-11-09T12:07:33.805Z",
     "note": "Direct native inspection against verified locator: England outline and gray neighboring land preserved, all three colored dots remain at supplied positions; Wells label leader to orange southwest dot, Lacock to purple northeast dot, Reading to teal eastern dot. Exact names legible, noncrossing leaders and safe outer margins. No invented border or extra location."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-e-22",
+    "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
+    "sha256": "2aff8b9432244a41072eb7c7376c77e21594d83a655dfa83d99e44c528e86755",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

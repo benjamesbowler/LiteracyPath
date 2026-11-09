@@ -30,5 +30,11 @@
     "sha256": "b82c3e5bfeaa26864cdaf527a428423e965989f30d52f55f9d2a1e8a5dc0b716",
     "note": "Exactly five visibly hollow empty wood grooves on one slat; no people or premature cores. Closed machine behind, board15 percent safe margins.",
     "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-27",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "0a0ac3b1ba535502efe40a5c6efda391dc81175f1b316a119c2caa6ba2d5af52",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

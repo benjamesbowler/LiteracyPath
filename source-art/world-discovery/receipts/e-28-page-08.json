@@ -34,5 +34,11 @@
     "sha256": "b0dc7ebbd3cb6bab4cc240f7d9780c7f9853e53f9fee689ac6b778d612b2f214",
     "note": "Other fallen trunk behind familiar sapling; anchor remains upright; sunlight falls directly below new canopy gap.",
     "limits": "Installed WebP individually inspected. Independent sequence review, reader rendering, cards and audio checked separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-e-28",
+    "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
+    "sha256": "1bdfddb56de5d25ee07f80c6153aa9d32657fdd8a7b341db340d5c0094afb0c3",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

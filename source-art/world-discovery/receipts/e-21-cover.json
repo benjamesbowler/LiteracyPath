@@ -30,5 +30,11 @@
     "sha256": "aa1fe9d712e3a5be1ae751454a4c7ae80703190d56787aa7c795c702c2eb9563",
     "note": "Three consistent people safely behind rail compare map. Four-window ferry, museum round window, farther gray road bridge and nearer brown footbridge agree with map ordering. Unlettered, full figures within safe margins.",
     "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-e-21",
+    "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
+    "sha256": "9421bb4bb1f97c822674b76871fc5ee9b7b4398f02e9bdb626223b2a8cf9283e",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

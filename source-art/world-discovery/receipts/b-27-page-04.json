@@ -30,5 +30,11 @@
     "sha256": "6ab33f75e8795d429955b15d30db20f5c594a9936cd2d2be065313307e84a7dd",
     "note": "Directly viewed native PNG and installed WebP: separate white curds and pale-yellow whey in same stainless pan; entire pan and handle comfortably within safe margins.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-27",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "8603efd41970464a9a88e20ce81a56bbb4b368d24f32537f720301e45b04ef19",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

@@ -34,5 +34,11 @@
     "sha256": "9000b56e9d7ca1ca2bfd25d2ba6d9731ccb200d10a1409aee1e7b05bf0f42bb1",
     "note": "Native and installed WebP directly viewed. Kit lifts yellow insulated alligator clip from left bulb terminal, distinct air gap, bulb dark; switch remains closed with blue knob restored, red and black continuous. Safe hands and margins.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-25",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "60927b2d5048ae20d08714be01091613ee1764a5c15daf2525d06777525a68af",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

@@ -30,5 +30,11 @@
     "sha256": "0a3c3cbf6419732b20c1287a0dcbf81cb4aae96b1fdceedb9ea7e6e9254a4c30",
     "note": "Native and installed WebP directly viewed: true overhead rectangular book and six identical square cube tops, touching and aligned exactly with both book ends; no hands or spare.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-29",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "9796169576ba8580a5f1963d4f2884d31c334ef8d957a5a57193756c8fa9653c",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

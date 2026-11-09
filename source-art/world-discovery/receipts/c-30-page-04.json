@@ -34,5 +34,11 @@
     "sha256": "adf85357c980db8edf5a3dc85a985e9c13af591674d41f7cb05b6548761ce3f1",
     "note": "One rocket with green up arrow linked to its body and separate orange down arrow beside exhaust. No ground-push line. Full rocket/arrows safe; contextual vapor cloud at bottom.",
     "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-30",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "deb810aed4d1888ea05744f3a2bb497c0bc416fa149e4fb77952d244e890e843",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

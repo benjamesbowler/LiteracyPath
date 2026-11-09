@@ -34,5 +34,11 @@
     "sha256": "096b555197bf9bf907e4ae5352e578b2a230db71c3ce503b8ef31bb28d2200b1",
     "note": "Native replacement and actual installed WebP directly viewed. Distant tail-connected jet bridge removed; clear aircraft and apron. Kit grips side handle, adult grips top handle of same tagged blue bag with orange stripe; natural hands and safe margins retained.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-21",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "d35c2646e023daa2322256d158452fa66e0c07c88e5e0aee3f35253a6d6154d0",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

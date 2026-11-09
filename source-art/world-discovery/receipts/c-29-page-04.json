@@ -30,5 +30,11 @@
     "sha256": "933bf4c316fc2b7b0be97249bcbc7b5fd32e540dc95b7497b1a186b086ea4811",
     "note": "Same children making partly completed blue/yellow chain; one clock long blue at6 and short red visually halfway3to4, all twelve numerals and two hands. Heads/clock/feet safely framed.",
     "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-c-29",
+    "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
+    "sha256": "3460752faa6a0a3274ac588cafaa9f1a2ce0724561d85910d4dfd548edcf09d7",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }

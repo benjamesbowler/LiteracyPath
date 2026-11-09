@@ -30,5 +30,11 @@
     "sha256": "4d1546029cb2674a53c448576741f7bd6569e1f5720321eed20e8ae42bbfaf76",
     "note": "Native and installed WebP directly viewed: exact five spaced cubes plus sixth spare preserved; Zoe's natural brown pointing hand indicates fourth empty gap from below without obscuring any cube.",
     "limits": "Independent sequence and reader review follow separately."
+  },
+  "reviewedManuscriptSource": {
+    "bookId": "world-discovery-b-29",
+    "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
+    "sha256": "9796169576ba8580a5f1963d4f2884d31c334ef8d957a5a57193756c8fa9653c",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
   }
 }
