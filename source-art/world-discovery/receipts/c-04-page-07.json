@@ -26,9 +26,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "c9ae769ce66897a503758a56ad5352881e5813295827459fe134d61a646bc431",
     "note": "Zoe lifts one shortened empty bridge away; truck waits outside beside closed garage on far bank. Doorway is unblocked, no second bridge remains across cloth.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-c.json",
+    "bookId": "world-discovery-c-04",
+    "sha256": "a8a8e9f00f4c47aec7369fe76755119fd5e5528ea5b9ebccf486d5ba5fb77583",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review-r2.json"
   }
 }

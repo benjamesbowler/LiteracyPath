@@ -13,9 +13,17 @@
   "references": [],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "c9f16d790f98a64d19459ee166f443e0b34fa89ef785b3bd5ca0e2455f06ea09",
     "note": "Repaired extra Kit; solo Zoe draws a bare round face outline with one brown crayon, three others resting.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-a.json",
+    "bookId": "world-discovery-a-01",
+    "sha256": "9e9ff09db5187f2f80b7770185b588536652642960ff2311ea2490066724d6f6",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

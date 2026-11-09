@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "c75c9b4d50bf4d623dffd16b8af42deb65e94fcfdea862e152a4d6d1879438b5",
     "note": "Dedicated cover: both children stand on the floor beside exactly two completed clipped red pictures; small red crayon on table; no text.",
-    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-a.json",
+    "bookId": "world-discovery-a-02",
+    "sha256": "90227228cf648d5840836fd6bd3b38955ea1abbde0fc52706dda9933c9024ceb",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

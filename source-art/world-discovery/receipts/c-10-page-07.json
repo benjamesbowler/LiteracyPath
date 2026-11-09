@@ -22,9 +22,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "d0f2c3930e38ec90b888b69cc570c8a54066caad0f72c3135514801a3d565814",
     "note": "Direct inspection: Kit blue trowel/Zoe plum trowel mix small amounts of dark compost into ordinary brown bed soil around one young tomato; gray bucket, covered roots, adult observes; no food scraps.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-c.json",
+    "bookId": "world-discovery-c-10",
+    "sha256": "abc3172845cd8a873b3f79b54c2fef72490decbc19a54a367d9faa52687fde03",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

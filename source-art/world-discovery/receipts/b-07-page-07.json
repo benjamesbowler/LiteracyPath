@@ -18,8 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T04:52:31.181Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "594bc1463beee2c4558f599a4e4d3c372d8ad9183b3037d907ead30d12745ac5",
-    "note": "Duck climbs low muddy bank with one webbed foot on land and the other still in water; one animal and two legs."
+    "note": "Duck climbs low muddy bank with one webbed foot on land and the other still in water; one animal and two legs.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-b.json",
+    "bookId": "world-discovery-b-07",
+    "sha256": "89efce04f21896b692ab9b206853ee9136376a7a3d337e86cc7e564c945cecf6",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

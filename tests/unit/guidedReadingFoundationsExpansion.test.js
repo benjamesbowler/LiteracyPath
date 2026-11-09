@@ -14,16 +14,17 @@ const countBy = (rows, key) => rows.reduce((counts, row) => {
   return counts;
 }, {});
 
-test('all fifty titles and ordered manuscripts match the independently frozen review', () => {
+test('all fifty titles and ordered manuscripts match the current independently frozen review', () => {
   assert.equal(next.length, 30);
   assert.equal(bright.length, 20);
   assert.equal(new Set(books.map(book => book.id)).size, 50);
   assert.equal(next.reduce((sum, book) => sum + book.pages.length, 0), 220);
   assert.equal(bright.reduce((sum, book) => sum + book.pages.length, 0), 220);
   const readingText = books.map(book => ({id: book.id, title: book.title, pages: book.pages.map(page => page.text)}));
-  // Full-manuscript review on 2026-11-05 revised only Next Steps 20, 23 and 26
-  // for natural everyday phrasing; the other 47 title/page sequences are unchanged.
-  assert.equal(createHash('sha256').update(JSON.stringify(readingText)).digest('hex'), '5fa5607d1903cebd7fedf8e2a5465591f6a0724db5a5a9d10f365fbcb15c0fd1');
+  // The complete ESL review on 2026-11-09 revised Bright Ideas 08, 12, 15,
+  // 17, 18 and 20. All fifty current manuscripts are independently recorded in
+  // source-art/guided-reading-remediation/2026-11-09/complete-book-review.json.
+  assert.equal(createHash('sha256').update(JSON.stringify(readingText)).digest('hex'), '232bc30aba8d9ea85647a386d7f1cd604253f7746530c2de24aa23268fcb2e81');
   for (const book of books) {
     assert.equal(fingerprintBookReadingText(book), book.reviewedTextFingerprint, book.id);
     assert.equal(createHash('sha256').update(JSON.stringify(book.pages.map(page => page.text))).digest('hex'), book.reviewedManuscriptSha256, book.id);

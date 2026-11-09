@@ -26,9 +26,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "c2d6d089262840a9b54249ec46b859c8a202b1977cace8e7733706ea5b2a0f0c",
     "note": "Direct inspection: Zoe presses single red dot onto plain ball, coherent fingertip contact; Kit's flashlight off with no beam, no day/night split yet.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-c.json",
+    "bookId": "world-discovery-c-06",
+    "sha256": "5b614e84d6a55340905c2ed5c83e6aeb5494bc5c35d9cba991d8ed9a5ba91a07",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

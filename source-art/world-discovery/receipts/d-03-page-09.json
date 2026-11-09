@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "61f17d171fc8f4c58f40f5bae13fe3039541a9885c7e9e2101cd1146a4335c83",
     "note": "Direct inspection after worker/roof repair: three natural fish underwater with rooted bank reeds, distant gray-roof wastewater outfall above habitat, no humans or implication of drinking raw river water.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-d.json",
+    "bookId": "world-discovery-d-03",
+    "sha256": "59a51f506f22d7bc9a1242c8f596509f3743d800937a7a17269afcb8a6bfccba",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

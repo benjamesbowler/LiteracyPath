@@ -29,9 +29,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T18:27:58.837Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "d82f947ad1c2321c2f352c0f1f0c1af5f989d3ee412e9a78beb55a36215e7384",
     "note": "Generated native and installed full WebP directly inspected. One living olive-blue crab and one pale hollow discarded covering beside stone, wide safe framing. Distinct rear opening and dull empty eyecaps make the covering different from a second animal.",
-    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-d.json",
+    "bookId": "world-discovery-d-18",
+    "sha256": "e40556e795d8d5cb1a25055b6b09980860f9e7df75804397a1f996e2c9ba378b",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

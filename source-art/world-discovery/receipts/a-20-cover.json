@@ -27,8 +27,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T16:07:03.047Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "f495fc99d2e717d5e99ed70ba56bf6b9096075a5dd12a4db12e0e6ec9f9b01eb",
-    "note": "Both native replacement and final WebP directly inspected: ordinary front table legs now physically joined to tabletop and continue naturally beyond bottom crop, eliminating floating tabletop/short stubs. Natural seated upper-body composition retained; hands, tin/lid and exact snack count unchanged. Two plate crackers and eight in tin."
+    "note": "Both native replacement and final WebP directly inspected: ordinary front table legs now physically joined to tabletop and continue naturally beyond bottom crop, eliminating floating tabletop/short stubs. Natural seated upper-body composition retained; hands, tin/lid and exact snack count unchanged. Two plate crackers and eight in tin.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-a.json",
+    "bookId": "world-discovery-a-20",
+    "sha256": "22c7b02f2a8500e829c1797bbf1a19f661fc5c4cb1e6c53836ac1459ce58082f",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

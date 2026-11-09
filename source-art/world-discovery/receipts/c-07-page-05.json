@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "d42a5035978e584cac1eeec627ea03354b7ceda69a4138a2f6a518babd2034f9",
     "note": "Direct inspection after background correction: one beaver swims through submerged lodge opening into upward tunnel, air-filled straw chamber above horizontal waterline. Removed misleading upstream background waterfall.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-c.json",
+    "bookId": "world-discovery-c-07",
+    "sha256": "3128c54f7d967814daec68f8fc5299bbcce8da53689d8a302b45ffb5f4f254a8",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

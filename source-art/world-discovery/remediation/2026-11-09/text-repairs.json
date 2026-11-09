@@ -1,0 +1,1408 @@
+{
+  "authorization": "2026-11-09 user: do all replacement images, fix problematic text and new Leda voice, fix all then re-audit entire Guided Reading",
+  "changes": [
+    {
+      "bookId": "world-discovery-a-05",
+      "field": "pages[6].text",
+      "original": "The path winds down again.",
+      "proposed": "The path goes down again.",
+      "finding": "A-05-01"
+    },
+    {
+      "bookId": "world-discovery-a-06",
+      "field": "pages[6].text",
+      "original": "The Moon shows again.",
+      "proposed": "Zoe sees the Moon again.",
+      "finding": "A-06-01"
+    },
+    {
+      "bookId": "world-discovery-a-11",
+      "field": "pages[4].text",
+      "original": "Zoe wants a soft bite.",
+      "proposed": "Zoe wants something soft.",
+      "finding": "A-11-01"
+    },
+    {
+      "bookId": "world-discovery-a-12",
+      "field": "pages[0].text",
+      "original": "Kit and Zoe walk to play.",
+      "proposed": "Kit and Zoe walk together.",
+      "finding": "A-12-01"
+    },
+    {
+      "bookId": "world-discovery-a-13",
+      "field": "pages[0].text",
+      "original": "Two sidewalks line our street.",
+      "proposed": "Our street has two sidewalks.",
+      "finding": "A-13-01"
+    },
+    {
+      "bookId": "world-discovery-a-13",
+      "field": "pages[1].text",
+      "original": "Our crossing joins the sidewalks.",
+      "proposed": "Here is a crossing.",
+      "finding": "A-13-01"
+    },
+    {
+      "bookId": "world-discovery-a-13",
+      "field": "pages[2].text",
+      "original": "The bright hand says wait.",
+      "proposed": "The hand sign means wait.",
+      "finding": "A-13-01"
+    },
+    {
+      "bookId": "world-discovery-a-14",
+      "field": "pages[2].text",
+      "original": "His folded drawing becomes real.",
+      "proposed": "His folded paper becomes a wheel.",
+      "finding": "A-14-01"
+    },
+    {
+      "bookId": "world-discovery-a-17",
+      "field": "languagePrep.0.meaning",
+      "original": "a crab that shelters its soft abdomen in an empty snail shell",
+      "proposed": "a crab that lives in an empty snail shell",
+      "finding": "A-17-01"
+    },
+    {
+      "bookId": "world-discovery-a-19",
+      "field": "pages[6].text",
+      "original": "Different shapes share a group.",
+      "proposed": "These two things feel smooth.",
+      "finding": "A-19-01"
+    },
+    {
+      "bookId": "world-discovery-a-20",
+      "field": "title",
+      "original": "A Little First",
+      "proposed": "Crackers for Later",
+      "finding": "A-20-01"
+    },
+    {
+      "bookId": "world-discovery-a-20",
+      "field": "pages[7].text",
+      "original": "The crackers wait for snack time.",
+      "proposed": "These crackers are for later.",
+      "finding": "A-20-01"
+    },
+    {
+      "bookId": "world-discovery-b-02",
+      "field": "pages[7].text",
+      "original": "Kit stops. He nods. Zoe taps an answer.",
+      "proposed": "Kit stops. He nods.\nNow Zoe plays her drum again.",
+      "finding": "B-F07"
+    },
+    {
+      "bookId": "world-discovery-b-02",
+      "field": "languagePrep.answer",
+      "original": {
+        "word": "answer",
+        "meaning": "a reply; here another drum pattern"
+      },
+      "proposed": null,
+      "finding": "B-F07"
+    },
+    {
+      "bookId": "world-discovery-b-05",
+      "field": "pages[7].text",
+      "original": "From hill to river to sea.\nOne connected path.",
+      "proposed": "The water flows down the hill.\nIt follows the river to the sea.",
+      "finding": "B-F06"
+    },
+    {
+      "bookId": "world-discovery-b-05",
+      "field": "pages[1].text",
+      "original": "Its water slips around the rocks.",
+      "proposed": "Its water flows around the rocks.",
+      "finding": "B-O02"
+    },
+    {
+      "bookId": "world-discovery-b-05",
+      "field": "discussion.visual.prompt",
+      "original": "Trace the water’s whole route.",
+      "proposed": "Use your finger to follow the water to the sea.",
+      "finding": "B-O02"
+    },
+    {
+      "bookId": "world-discovery-b-05",
+      "field": "languagePrep.add",
+      "original": null,
+      "proposed": {
+        "word": "fresh water",
+        "meaning": "water that is not salty"
+      },
+      "finding": "B-O02"
+    },
+    {
+      "bookId": "world-discovery-b-08",
+      "field": "pages[4].text",
+      "original": "It stays still. Its body changes inside.",
+      "proposed": "Now it is a pupa.\nIts body changes inside.",
+      "finding": "B-O03"
+    },
+    {
+      "bookId": "world-discovery-b-08",
+      "field": "languagePrep.larva",
+      "original": {
+        "word": "larva",
+        "meaning": "the young feeding stage after the egg"
+      },
+      "proposed": {
+        "word": "larva",
+        "meaning": "a young ladybug with a long body and six legs"
+      },
+      "finding": "B-O03"
+    },
+    {
+      "bookId": "world-discovery-b-08",
+      "field": "languagePrep.pupa",
+      "original": {
+        "word": "pupa",
+        "meaning": "the stage between larva and adult"
+      },
+      "proposed": {
+        "word": "pupa",
+        "meaning": "a ladybug that stays still while its body changes"
+      },
+      "finding": "B-O03"
+    },
+    {
+      "bookId": "world-discovery-b-12",
+      "field": "pages[2].text",
+      "original": "Zoe comes back.\n“My cheese has no cracker now.”",
+      "proposed": "Zoe comes back.\n“My cracker is gone!”",
+      "finding": "B-F03"
+    },
+    {
+      "bookId": "world-discovery-b-12",
+      "field": "pages[7].text",
+      "original": "Zoe puts the cheese on top.\nThis bite has a cracker.",
+      "proposed": "Zoe puts the cheese on the cracker.\nShe takes a bite.",
+      "finding": "B-F03"
+    },
+    {
+      "bookId": "world-discovery-b-13",
+      "field": "pages[7].text",
+      "original": "Zoe opens it.\nKit’s small picture has come a long way.",
+      "proposed": "Zoe opens the envelope.\nShe finds Kit’s picture inside.",
+      "finding": "B-F08"
+    },
+    {
+      "bookId": "world-discovery-b-14",
+      "field": "pages[1].text",
+      "original": "Kit clips both. His cart turns red.\nHer cup turns blue.",
+      "proposed": "Kit clips his cart and Zoe’s cup.\nThe colors swap.",
+      "finding": "B-F09"
+    },
+    {
+      "bookId": "world-discovery-b-14",
+      "field": "discussion.visual.prompt",
+      "original": "Which three objects now have different or unchanged colors?",
+      "proposed": "Point to the cart, cup, and paper. What color is each one?",
+      "finding": "B-F10"
+    },
+    {
+      "bookId": "world-discovery-b-15",
+      "field": "pages[1].text",
+      "original": "Slowly, the sea falls.\nThe rock begins to show.",
+      "proposed": "Slowly, the water gets lower.\nWe can see more rock.",
+      "finding": "B-F04"
+    },
+    {
+      "bookId": "world-discovery-b-15",
+      "field": "pages[4].text",
+      "original": "Rock holds the water around the sides.",
+      "proposed": "The pool has rock around its sides.\nThe water stays inside.",
+      "finding": "B-F04"
+    },
+    {
+      "bookId": "world-discovery-b-15",
+      "field": "pages[7].text",
+      "original": "Sea in, sea out.\nThe rock dip keeps a pool.",
+      "proposed": "The sea covers the rocks again.\nThe pool fills with more water.",
+      "finding": "B-F04"
+    },
+    {
+      "bookId": "world-discovery-b-16",
+      "field": "pages[3].text",
+      "original": "The wheel supports bend at their joints.",
+      "proposed": "The wheel supports move at their joints.",
+      "finding": "B-O05"
+    },
+    {
+      "bookId": "world-discovery-b-17",
+      "field": "pages[4].text",
+      "original": "Still legs are hard to spot among twigs.",
+      "proposed": "The insect does not move.\nIt is hard to see among twigs.",
+      "finding": "B-O06"
+    },
+    {
+      "bookId": "world-discovery-b-18",
+      "field": "pages[5].text",
+      "original": "After the last shed,\nlong wings open and become firm.",
+      "proposed": "It sheds its skin one last time.\nIts wings open and harden.",
+      "finding": "B-F05"
+    },
+    {
+      "bookId": "world-discovery-b-18",
+      "field": "pages[7].text",
+      "original": "The little hopper grows wings in stages.\nNow it can hop and fly.",
+      "proposed": "Now this grasshopper has long wings.\nIt can hop and fly.",
+      "finding": "B-F05"
+    },
+    {
+      "bookId": "world-discovery-b-18",
+      "field": "discussion.visual.prompt",
+      "original": "Can these small wing pads do the job of the final wings?",
+      "proposed": "Look at these wing pads. Are they long or short?",
+      "finding": "B-F12"
+    },
+    {
+      "bookId": "world-discovery-b-18",
+      "field": "discussion.visual.lookFor",
+      "original": "They are short developing pads; the long flying wings appear after the last shed.",
+      "proposed": "They are short. Compare them with the long wings on page 6.",
+      "finding": "B-F12"
+    },
+    {
+      "bookId": "world-discovery-b-18",
+      "field": "languagePrep.nymph",
+      "original": {
+        "word": "nymph",
+        "meaning": "a young insect with the adult’s basic shape"
+      },
+      "proposed": {
+        "word": "nymph",
+        "meaning": "a young grasshopper before it has long wings"
+      },
+      "finding": "B-O07"
+    },
+    {
+      "bookId": "world-discovery-b-18",
+      "field": "languagePrep.wing pads",
+      "original": {
+        "word": "wing pads",
+        "meaning": "small parts that will develop into wings"
+      },
+      "proposed": {
+        "word": "wing pads",
+        "meaning": "short growing wings on a young grasshopper"
+      },
+      "finding": "B-O07"
+    },
+    {
+      "bookId": "world-discovery-b-19",
+      "field": "pages[1].text",
+      "original": "Kit shines a flashlight through clear plastic.\nThe wall stays bright.",
+      "proposed": "Kit shines a flashlight through clear plastic.\nThe screen stays bright.",
+      "finding": "B-F02"
+    },
+    {
+      "bookId": "world-discovery-b-19",
+      "field": "pages[3].text",
+      "original": "Now she holds thick card.\nA dark patch covers the wall.",
+      "proposed": "Now she holds thick card.\nA dark patch shows on the screen.",
+      "finding": "B-F02"
+    },
+    {
+      "bookId": "world-discovery-b-19",
+      "field": "languagePrep.add",
+      "original": null,
+      "proposed": {
+        "word": "screen",
+        "meaning": "the white board where the light shines"
+      },
+      "finding": "B-F02"
+    },
+    {
+      "bookId": "world-discovery-b-19",
+      "field": "discussion.oral.prompt",
+      "original": "Why did Kit and Zoe split the two light-passing sheets into separate groups?",
+      "proposed": "Why did they put the plastic and wax paper in different groups?",
+      "finding": "B-F11"
+    },
+    {
+      "bookId": "world-discovery-b-19",
+      "field": "pages[6].text",
+      "original": "Kit looks through both.\nOne gives a clear view. One blurs it.",
+      "proposed": "Kit sees clearly through the plastic.\nThe wax paper makes things look blurry.",
+      "finding": "B-O08"
+    },
+    {
+      "bookId": "world-discovery-b-20",
+      "field": "pages[7].text",
+      "original": "Zoe waters a plant with the saved water.\nThe cup stays empty.",
+      "proposed": "Zoe uses the water in the cup\nto water a plant.",
+      "finding": "B-O09"
+    },
+    {
+      "bookId": "world-discovery-c-01",
+      "field": "pages[7].text",
+      "original": "“Woof!” The paper dog takes a bow. Kit laughs, and Zoe barks again.",
+      "proposed": "“Woof!” Kit tips the paper dog forward. He laughs, and Zoe barks again.",
+      "finding": "C01-01"
+    },
+    {
+      "bookId": "world-discovery-c-02",
+      "field": "pages[1].text",
+      "original": "Zoe’s ball lands inside. Kit’s ball drops short of the hoop.",
+      "proposed": "Zoe’s ball lands inside. Kit’s ball does not reach the hoop.",
+      "finding": "C02-01"
+    },
+    {
+      "bookId": "world-discovery-c-02",
+      "field": "pages[6].text",
+      "original": "His first roll goes wide. Kit fetches his ball and tries from a little closer.",
+      "proposed": "His ball rolls past the side of the hoop. Kit gets it and tries again from closer to the hoop.",
+      "finding": "C02-01"
+    },
+    {
+      "bookId": "world-discovery-c-03",
+      "field": "pages[7].text",
+      "original": "The cart cannot roll up the tall step. The gentle ramp gives it a rolling route.",
+      "proposed": "The cart cannot roll up the step. With the long ramp, Kit can push it to the door.",
+      "finding": "C03-01"
+    },
+    {
+      "bookId": "world-discovery-c-04",
+      "field": "languagePrep[additional]",
+      "proposed": "bank: land beside a river",
+      "finding": "C04-01"
+    },
+    {
+      "bookId": "world-discovery-c-05",
+      "field": "pages[6].text",
+      "original": "The pond comes into view. Its curved edge matches the blue shape on the map.",
+      "proposed": "Kit reaches the pond. He checks the blue shape on his map and smiles.",
+      "finding": "C05-01"
+    },
+    {
+      "bookId": "world-discovery-c-05",
+      "field": "languagePrep[2].meaning",
+      "original": "represents or shows something else",
+      "proposed": "shows something else; the blue shape shows the pond",
+      "finding": "C05-02"
+    },
+    {
+      "bookId": "world-discovery-c-07",
+      "field": "pages[7].text",
+      "original": "The dam holds back water. The lodge shelters the beaver. The two structures have different jobs.",
+      "proposed": "The dam holds back water. The beaver sleeps in the dry room inside its lodge.",
+      "finding": "C07-01"
+    },
+    {
+      "bookId": "world-discovery-c-08",
+      "field": "languagePrep[0].meaning",
+      "original": "a young insect stage; this one lives in water",
+      "proposed": "a young insect; this young dragonfly lives in water",
+      "finding": "C08-01"
+    },
+    {
+      "bookId": "world-discovery-c-10",
+      "field": "title",
+      "original": "The Apple Core Comes Back",
+      "proposed": "From Apple Core to Compost",
+      "finding": "C10-01"
+    },
+    {
+      "bookId": "world-discovery-c-10",
+      "field": "languagePrep[2].meaning",
+      "original": "things living things need to grow",
+      "proposed": "things a plant needs to grow",
+      "finding": "C10-02"
+    },
+    {
+      "bookId": "world-discovery-c-11",
+      "field": "pages[1].text",
+      "original": "Zoe draws the three things. Kit studies her picture, leaves it on the table, and goes inside.",
+      "proposed": "Zoe draws what they need. Kit looks at her picture, leaves it on the table, and walks to the shelf.",
+      "finding": "C11-01"
+    },
+    {
+      "bookId": "world-discovery-c-11",
+      "field": "pages[3].text",
+      "original": "Kit shuts his eyes to picture the card. He opens them again. “I keep losing one bit.”",
+      "proposed": "Kit closes his eyes and tries to remember the picture. “I cannot remember all the things,” he says.",
+      "finding": "C11-02"
+    },
+    {
+      "bookId": "world-discovery-c-11",
+      "field": "languagePrep[0].word",
+      "original": "remind",
+      "proposed": "remember",
+      "finding": "C11-03"
+    },
+    {
+      "bookId": "world-discovery-c-11",
+      "field": "languagePrep[0].meaning",
+      "original": "help someone bring a thought back",
+      "proposed": "think of something you saw or learned before",
+      "finding": "C11-03"
+    },
+    {
+      "bookId": "world-discovery-c-11",
+      "field": "discussion.visual.prompt",
+      "original": "What is present, and what is still missing?",
+      "proposed": "Which picnic things are outside? Which thing is still inside?",
+      "finding": "C11-04"
+    },
+    {
+      "bookId": "world-discovery-c-12",
+      "field": "pages[6].text",
+      "original": "His hand closes around the red ribbon. He carries it to Zoe, keeping the long end off the floor.",
+      "proposed": "Kit picks up the red ribbon and takes it to Zoe. He keeps the long end off the floor.",
+      "finding": "C12-01"
+    },
+    {
+      "bookId": "world-discovery-c-12",
+      "field": "pages[7].text",
+      "original": "Zoe holds the knot while Kit pulls the bow. Their parcel stays shut, with two red loops on top.",
+      "proposed": "Zoe holds the knot while Kit pulls the loops tight. The red ribbon keeps their parcel closed.",
+      "finding": "C12-02"
+    },
+    {
+      "bookId": "world-discovery-c-13",
+      "field": "pages[7].text",
+      "original": "The table was empty before the growers came. Growing, carrying, and setting out the food made this market ready.",
+      "proposed": "Farmers grew these carrots, brought them here, and put them on the table. Now people can buy them.",
+      "finding": "C13-01"
+    },
+    {
+      "bookId": "world-discovery-c-14",
+      "field": "pages[4].text",
+      "original": "“Let’s follow the points,” Zoe says. Kit traces the arrows. One point sends his finger the wrong way.",
+      "proposed": "“Let’s follow the arrows,” Zoe says. Kit moves his finger along them. One arrow points away from the book.",
+      "finding": "C14-02"
+    },
+    {
+      "bookId": "world-discovery-c-14",
+      "field": "pages[5].text",
+      "original": "He rubs out that arrow and draws it toward the book. The paper now gives one clear route.",
+      "proposed": "Kit rubs out the wrong arrow and draws a new one. Now all the arrows point toward the book.",
+      "finding": "C14-02"
+    },
+    {
+      "bookId": "world-discovery-c-14",
+      "field": "pages[6].text",
+      "original": "The bookmark slides past the repaired place and onto Kit’s page. This time, it does not come back.",
+      "proposed": "The bookmark slides over the new arrow and onto Kit’s page. This time, it stops on the page.",
+      "finding": "C14-02"
+    },
+    {
+      "bookId": "world-discovery-c-14",
+      "field": "pages[7].text",
+      "original": "Zoe pulls the arrow strip away. Kit closes the book. A red tip waits exactly where his reading stopped.",
+      "proposed": "Zoe takes away the paper strip. Kit closes the book. The red bookmark sticks out, marking his page.",
+      "finding": "C14-02"
+    },
+    {
+      "bookId": "world-discovery-c-15",
+      "field": "pages[4].text",
+      "original": "Here, the crust cracks. Bright lava shows through the gap. A dark top does not mean a cool inside.",
+      "proposed": "It is still very hot under the dark crust.",
+      "finding": "C15-01"
+    },
+    {
+      "bookId": "world-discovery-c-15",
+      "field": "pages[5].text",
+      "original": "As more heat escapes, the solid layer grows thicker. The hot middle cools more slowly.",
+      "proposed": "As the lava cools, more of it becomes hard rock. The hot middle takes longer to cool.",
+      "finding": "C15-01"
+    },
+    {
+      "bookId": "world-discovery-c-16",
+      "field": "pages[0].text",
+      "original": "A comet has a long pale tail. Is that tail part of a solid body?",
+      "proposed": "A comet has a long, pale tail. Is its tail a long piece of ice?",
+      "finding": "C16-01"
+    },
+    {
+      "bookId": "world-discovery-c-16",
+      "field": "pages[1].text",
+      "original": "Far from the Sun, the comet is a small frozen body with dust trapped in its ice.",
+      "proposed": "Far from the Sun, the comet is a small lump of ice and dust. It has no long, bright tail.",
+      "finding": "C16-01"
+    },
+    {
+      "bookId": "world-discovery-c-16",
+      "field": "languagePrep[0].meaning",
+      "original": "an icy body that travels around the Sun",
+      "proposed": "a lump of ice and dust that travels around the Sun",
+      "finding": "C16-02"
+    },
+    {
+      "bookId": "world-discovery-c-17",
+      "field": "pages[7].text",
+      "original": "The stone stays outside the otter’s body, but it helps the otter get food. The stone is a tool.",
+      "proposed": "The otter uses the stone to break the shell and reach its food. The stone is a tool.",
+      "finding": "C17-01"
+    },
+    {
+      "bookId": "world-discovery-c-17",
+      "field": "discussion.oral.prompt",
+      "original": "What made the stone a tool in this sequence?",
+      "proposed": "How did the stone help the otter get food?",
+      "finding": "C17-02"
+    },
+    {
+      "bookId": "world-discovery-c-18",
+      "field": "pages[6].text",
+      "original": "When this snail is grown and has mated, it can lay eggs in another soil hole.",
+      "proposed": "Later, the grown snail lays eggs in another hole in the soil.",
+      "finding": "C18-01"
+    },
+    {
+      "bookId": "world-discovery-c-18",
+      "field": "pages[7].text",
+      "original": "A new snail begins in an egg with its own shell. One body and its shell grow together.",
+      "proposed": "A baby snail comes out of an egg with its own shell. Its shell grows as the snail grows.",
+      "finding": "C18-01"
+    },
+    {
+      "bookId": "world-discovery-c-18",
+      "field": "discussion.oral.prompt",
+      "original": "How is a snail’s shell different from an empty shell an animal might move into?",
+      "proposed": "Does the snail need to find a bigger shell as it grows? How do you know?",
+      "finding": "C18-02"
+    },
+    {
+      "bookId": "world-discovery-c-18",
+      "field": "languagePrep[1].word",
+      "original": "clutch",
+      "proposed": "shell",
+      "finding": "C18-03"
+    },
+    {
+      "bookId": "world-discovery-c-18",
+      "field": "languagePrep[1].meaning",
+      "original": "a group of eggs laid together",
+      "proposed": "the hard part on the snail’s back",
+      "finding": "C18-03"
+    },
+    {
+      "bookId": "world-discovery-c-18",
+      "field": "languagePrep[2].word",
+      "original": "mature",
+      "proposed": "grown",
+      "finding": "C18-03"
+    },
+    {
+      "bookId": "world-discovery-c-18",
+      "field": "languagePrep[2].meaning",
+      "original": "fully grown and able to reproduce",
+      "proposed": "no longer a baby or young animal",
+      "finding": "C18-03"
+    },
+    {
+      "bookId": "world-discovery-c-19",
+      "field": "pages[7].text",
+      "original": "Both began as grains. The water test puts them in different groups: dissolves and does not dissolve.",
+      "proposed": "Salt dissolves in water. Sand does not. We can sort them into two groups.",
+      "finding": "C19-01"
+    },
+    {
+      "bookId": "world-discovery-c-19",
+      "field": "languagePrep[2].meaning",
+      "original": "a solid piece with an ordered form",
+      "proposed": "a small piece of salt with flat sides",
+      "finding": "C19-02"
+    },
+    {
+      "bookId": "world-discovery-c-20",
+      "field": "pages[4].text",
+      "original": "Zoe points to the busy patch. Moving the log would take away its cover.",
+      "proposed": "Zoe points to the woodlice. The log keeps their home cool and damp.",
+      "finding": "C20-02"
+    },
+    {
+      "bookId": "world-discovery-c-20",
+      "field": "pages[6].text",
+      "original": "They move a discarded wrapper from the path instead. The log stays beside the fern.",
+      "proposed": "They put the wrapper from the path into a bag. The log stays beside the fern.",
+      "finding": "C20-02"
+    },
+    {
+      "bookId": "world-discovery-c-20",
+      "field": "pages[7].text",
+      "original": "The path is clear. Beneath the log, shade and damp shelter remain for the small animals living there.",
+      "proposed": "The path is clear. The woodlice still have a cool, damp home under the log.",
+      "finding": "C20-02"
+    },
+    {
+      "bookId": "world-discovery-c-20",
+      "field": "languagePrep[2].word",
+      "original": "decay",
+      "proposed": "woodlouse",
+      "finding": "C20-03"
+    },
+    {
+      "bookId": "world-discovery-c-20",
+      "field": "languagePrep[2].meaning",
+      "original": "break down gradually after living material dies",
+      "proposed": "a small animal that lives in damp places; more than one are called woodlice",
+      "finding": "C20-03"
+    },
+    {
+      "bookId": "world-discovery-d-01",
+      "field": "pages[9].text",
+      "original": "The train goes back on Kit’s shelf. In the box, there is room for the things he wants to say.",
+      "proposed": "Kit puts the train on his shelf. His box now holds the sock, the kite, and his drawing.",
+      "finding": "WD-D-001"
+    },
+    {
+      "bookId": "world-discovery-d-02",
+      "field": "pages[9].text",
+      "original": "Kit comes with empty hands. Zoe moves her picture between them. “This branch was your loud bit,” she says.",
+      "proposed": "Kit comes with empty hands. Zoe points to her picture. “Look! I made that long line into a branch.”",
+      "finding": "WD-D-002"
+    },
+    {
+      "bookId": "world-discovery-d-02",
+      "field": "pages[4].text",
+      "original": "Zoe carries her picture to the far table. Kit stays by the blocks. “Did you not want me here?”",
+      "proposed": "Zoe carries her picture to the far table. Kit stays by the blocks. “Didn’t you want me here?”",
+      "finding": "WD-D-032"
+    },
+    {
+      "bookId": "world-discovery-d-02",
+      "field": "discussion.oral.prompt",
+      "original": "What did Kit misunderstand, and what did he change?",
+      "proposed": "Why did Zoe move away? What did Kit do next?",
+      "finding": "WD-D-033"
+    },
+    {
+      "bookId": "world-discovery-d-03",
+      "field": "pages[8].text",
+      "original": "The river does not belong to the sink. Fish and plants need that water, too, so cleaning it matters.",
+      "proposed": "Fish and plants live in the river. Cleaning the used water helps keep their river home safe.",
+      "finding": "WD-D-004"
+    },
+    {
+      "bookId": "world-discovery-d-03",
+      "field": "languagePrep.add",
+      "original": null,
+      "proposed": {
+        "word": "treatment plant",
+        "meaning": "a place where workers clean water"
+      },
+      "finding": "WD-D-005"
+    },
+    {
+      "bookId": "world-discovery-d-04",
+      "field": "title",
+      "original": "The Pocket of Wind",
+      "proposed": "The Bag of Wind",
+      "finding": "WD-D-006"
+    },
+    {
+      "bookId": "world-discovery-d-04",
+      "field": "pages[0].text",
+      "original": "Zoe has a magic pocket. Open it into the breeze, zip it shut, and the wind stays inside.",
+      "proposed": "Zoe has a magic bag. Open it into the breeze, zip it shut, and the wind stays inside.",
+      "finding": "WD-D-006"
+    },
+    {
+      "bookId": "world-discovery-d-04",
+      "field": "pages[1].text",
+      "original": "When Zoe opens the pocket again, the saved wind rushes out. Kit’s loose kite lifts from the grass.",
+      "proposed": "When Zoe opens the bag again, the saved wind rushes out. Kit’s loose kite lifts from the grass.",
+      "finding": "WD-D-006"
+    },
+    {
+      "bookId": "world-discovery-d-04",
+      "field": "pages[3].text",
+      "original": "Zoe catches another gust in her pocket. “I will blow it out,” she says, standing beneath the kite.",
+      "proposed": "Zoe catches another gust in her bag. “I will blow it out,” she says, standing beneath the kite.",
+      "finding": "WD-D-006"
+    },
+    {
+      "bookId": "world-discovery-d-04",
+      "field": "pages[4].text",
+      "original": "She opens the pocket wide. Whoosh! The kite jumps higher and sticks deeper in the fork.",
+      "proposed": "She opens the bag wide. Whoosh! The kite jumps higher and sticks deeper in the fork.",
+      "finding": "WD-D-006"
+    },
+    {
+      "bookId": "world-discovery-d-04",
+      "field": "pages[6].text",
+      "original": "She fills the pocket once more and points it through the gap. This time she opens only a tiny corner.",
+      "proposed": "She fills the bag once more and points it through the gap. This time she opens only a tiny corner.",
+      "finding": "WD-D-006"
+    },
+    {
+      "bookId": "world-discovery-d-04",
+      "field": "pages[8].text",
+      "original": "The kite slides out into Kit’s hands. Its paper is bent, but there is no hole. Zoe shuts the pocket.",
+      "proposed": "The kite slides out into Kit’s hands. Its paper is bent, but there is no hole. Zoe shuts the bag.",
+      "finding": "WD-D-006"
+    },
+    {
+      "bookId": "world-discovery-d-04",
+      "field": "pages[9].text",
+      "original": "Kit smooths the bent corner. “Save some wind for flying,” he says. Zoe gives the zipped pocket a small pat.",
+      "proposed": "Kit smooths the bent corner. “Save some wind for flying,” he says. Zoe gives the zipped bag a small pat.",
+      "finding": "WD-D-006"
+    },
+    {
+      "bookId": "world-discovery-d-05",
+      "field": "pages[7].text",
+      "original": "Real islands can sit in lakes, rivers, or oceans. Their size does not change the water all around them.",
+      "proposed": "Islands can be in lakes, rivers, or oceans. They can be big or small, with water all around them.",
+      "finding": "WD-D-034"
+    },
+    {
+      "bookId": "world-discovery-d-06",
+      "field": "pages[8].text",
+      "original": "That broken edge is a clue. The large crater was already there when the smaller one struck its rim.",
+      "proposed": "The broken edge is a clue. A rock hit the old crater’s rim and made the smaller crater later.",
+      "finding": "WD-D-007"
+    },
+    {
+      "bookId": "world-discovery-d-06",
+      "field": "pages[9].text",
+      "original": "The Moon’s hollows are more than spots. They hold clues about crashes that changed the surface, one impact after another.",
+      "proposed": "Rocks hit the Moon at different times. Their craters help us work out which crashes happened first.",
+      "finding": "WD-D-008"
+    },
+    {
+      "bookId": "world-discovery-d-06",
+      "field": "languagePrep.impact",
+      "original": "a strong collision",
+      "proposed": "when one thing hits another hard",
+      "finding": "WD-D-009"
+    },
+    {
+      "bookId": "world-discovery-d-08",
+      "field": "languagePrep.add",
+      "original": null,
+      "proposed": {
+        "word": "pollinated",
+        "meaning": "Pollen is fine powder made by flowers. A flower is pollinated when pollen reaches the part that helps it make seeds."
+      },
+      "finding": "WD-D-010"
+    },
+    {
+      "bookId": "world-discovery-d-08",
+      "field": "pages[9].text",
+      "original": "One of those beans goes into warm, damp soil. A new root begins the journey again.",
+      "proposed": "One of those beans goes into warm, damp soil. A new root grows from it. Another bean plant begins to grow.",
+      "finding": "WD-D-011"
+    },
+    {
+      "bookId": "world-discovery-d-08",
+      "field": "discussion.oral.prompt",
+      "original": "Why does a bean in the final pod matter to the next plant?",
+      "proposed": "How can one of these beans grow into a new plant?",
+      "finding": "WD-D-012"
+    },
+    {
+      "bookId": "world-discovery-d-09",
+      "field": "pages[9].text",
+      "original": "The key lifts. Into the clip tray it goes. These groups tell what the magnet did, not what looked shiny.",
+      "proposed": "The magnet lifts the key. Kit puts it with the clip. The foil stays in the other tray.",
+      "finding": "WD-D-013"
+    },
+    {
+      "bookId": "world-discovery-d-09",
+      "field": "discussion.oral.prompt",
+      "original": "Why was “shiny things” a poor rule for this sorting task?",
+      "proposed": "The clip and foil are both shiny. Why are they in different trays?",
+      "finding": "WD-D-014"
+    },
+    {
+      "bookId": "world-discovery-d-10",
+      "field": "pages[9].text",
+      "original": "Daytime light, stored energy, nighttime lamp: the battery connects two parts of the day. The garden path is bright enough to see.",
+      "proposed": "The battery stores energy during the day. At night, that energy powers the lamp and lights the garden path.",
+      "finding": "WD-D-015"
+    },
+    {
+      "bookId": "world-discovery-d-10",
+      "field": "languagePrep.electricity",
+      "original": "energy carried through an electrical circuit",
+      "proposed": "energy that can flow through wires to power a light",
+      "finding": "WD-D-016"
+    },
+    {
+      "bookId": "world-discovery-d-10",
+      "field": "pages[8].text",
+      "original": "The light uses energy from the Sun, but its parts still need materials and care. Using less light saves energy, too.",
+      "proposed": "People make the lamp and battery from materials such as metal and plastic. Switching the lamp off saves stored energy.",
+      "finding": "WD-D-035"
+    },
+    {
+      "bookId": "world-discovery-d-11",
+      "field": "pages[3].text",
+      "original": "The picture is bright now, but Zoe frowns. Without the rain, her puddle seems like the wrong part of the day.",
+      "proposed": "Zoe frowns at the paper sun. “But it rained that day,” she says. “That rain made my big puddle!”",
+      "finding": "WD-D-017"
+    },
+    {
+      "bookId": "world-discovery-d-11",
+      "field": "pages[7].text",
+      "original": "She draws blue rain below the cloud. Now the boots, the splashes, and the sky belong in the same picture.",
+      "proposed": "She draws blue rain below the cloud. Now her picture shows the rainy day she remembers.",
+      "finding": "WD-D-036"
+    },
+    {
+      "bookId": "world-discovery-d-13",
+      "field": "pages[7].text",
+      "original": "The light, sound, and movement give the walk message in different ways. They do not move the traffic themselves.",
+      "proposed": "The light, sound, and moving arrow tell people when they may cross. They must still check the traffic.",
+      "finding": "WD-D-018"
+    },
+    {
+      "bookId": "world-discovery-d-13",
+      "field": "pages[9].text",
+      "original": "On the far sidewalk, Kit looks back. That little box had more than one way to say the same thing.",
+      "proposed": "Kit saw the walking light. The adult heard the ticking sound and felt the arrow move.",
+      "finding": "WD-D-037"
+    },
+    {
+      "bookId": "world-discovery-d-14",
+      "field": "pages[9].text",
+      "original": "Zoe waves back with both hands. Kit bows, and a giant bow carries the shadow fan almost to the floor.",
+      "proposed": "Zoe waves both hands. Kit bends forward, and his giant shadow bends too. The fan’s shadow moves down the wall.",
+      "finding": "WD-D-019"
+    },
+    {
+      "bookId": "world-discovery-d-14",
+      "field": "pages[5].text",
+      "original": "He tries again, more slowly. The fan stays still. “Your hand is flat,” Zoe tells the shadow.",
+      "proposed": "He tries again, more slowly. The fan stays still. “That is only a shadow,” Zoe says. “It cannot pick things up.”",
+      "finding": "WD-D-038"
+    },
+    {
+      "bookId": "world-discovery-d-15",
+      "field": "pages[8].text",
+      "original": "The rock did not walk, and the dune did not jump. Thousands of small movements changed the hill's position.",
+      "proposed": "The rock stayed in the same place. Wind moved many grains of sand, so the dune slowly moved past it.",
+      "finding": "WD-D-020"
+    },
+    {
+      "bookId": "world-discovery-d-15",
+      "field": "discussion.oral.prompt",
+      "original": "How does the dune change places if the whole hill does not jump?",
+      "proposed": "How does wind make the dune move?",
+      "finding": "WD-D-021"
+    },
+    {
+      "bookId": "world-discovery-d-15",
+      "field": "pages[9].text",
+      "original": "A hill can travel one grain at a time. Here, the wind keeps moving sand toward the dune's steep side.",
+      "proposed": "Wind moves the sand one grain at a time. Over many windy days, the dune moves across the ground.",
+      "finding": "WD-D-039"
+    },
+    {
+      "bookId": "world-discovery-d-16",
+      "field": "pages[9].text",
+      "original": "Nothing took a bite out of the Moon. Earth briefly stood in the way of its sunlight.",
+      "proposed": "Earth blocked sunlight from reaching the Moon. The Moon looked bright again when it moved out of Earth’s shadow.",
+      "finding": "WD-D-022"
+    },
+    {
+      "bookId": "world-discovery-d-17",
+      "field": "pages[6].text",
+      "original": "The patch looks pale instead of green. The wing has not turned into a flower; we are seeing what lies behind it.",
+      "proposed": "The patch looks pale now. We can see the pale flower through the clear wing, just as we saw the green leaf.",
+      "finding": "WD-D-023"
+    },
+    {
+      "bookId": "world-discovery-d-17",
+      "field": "pages[9].text",
+      "original": "Look back at the leaf. What seemed missing was there all along: a wing that lets much of the light through.",
+      "proposed": "Look at the leaf through the clear wing. The wing is still there, even when we can see through it.",
+      "finding": "WD-D-040"
+    },
+    {
+      "bookId": "world-discovery-d-18",
+      "field": "pages[7].text",
+      "original": "Its new covering hardens. The soft stage does not last for the rest of the crab's life.",
+      "proposed": "Its new covering hardens. The crab has a hard shell again.",
+      "finding": "WD-D-024"
+    },
+    {
+      "bookId": "world-discovery-d-18",
+      "field": "pages[9].text",
+      "original": "The empty shape cannot follow. A crab did not become two crabs; one crab left its old covering behind.",
+      "proposed": "The crab crawls away. Its old, empty shell stays by the stone.",
+      "finding": "WD-D-025"
+    },
+    {
+      "bookId": "world-discovery-d-19",
+      "field": "pages[7].text",
+      "original": "The tomato has seeds too, but they are smaller and surrounded by soft flesh. Fruits need not look alike.",
+      "proposed": "The tomato has smaller seeds in soft flesh. A tomato and a pea pod are fruits, but they look different.",
+      "finding": "WD-D-026"
+    },
+    {
+      "bookId": "world-discovery-d-20",
+      "field": "pages[5].text",
+      "original": "More of the useful light falls onto the path. The hedge and window no longer catch the same bright spill.",
+      "proposed": "The path is brighter now. Less light reaches the hedge and the upstairs window.",
+      "finding": "WD-D-027"
+    },
+    {
+      "bookId": "world-discovery-d-20",
+      "field": "pages[9].text",
+      "original": "The lamp is ready for the next visitor. For now, the path, hedge, and window share the night.",
+      "proposed": "The porch lamp is off. A light shines inside the upstairs room. The path stays dark.",
+      "finding": "WD-D-028"
+    },
+    {
+      "bookId": "world-discovery-e-01",
+      "field": "pages[7].text",
+      "original": "They begin again. Kit forgets one line, so Zoe taps the little den on the scenery. He finds the words.",
+      "proposed": "They begin again. Kit forgets what to say. Zoe points to the den on the scenery, and he remembers.",
+      "finding": "E-01-01"
+    },
+    {
+      "bookId": "world-discovery-e-01",
+      "field": "pages[9].text",
+      "original": "Zoe’s rabbit raises one muddy paw. Behind the curtain, Kit nearly laughs. The stage holds up, and so does his fox voice.",
+      "proposed": "Zoe’s rabbit raises one muddy paw. Kit nearly laughs. He lifts his fox puppet higher and keeps talking.",
+      "finding": "E-01-01"
+    },
+    {
+      "bookId": "world-discovery-e-02",
+      "field": "pages[6].text",
+      "original": "“I wanted one last laugh,” Kit says. He holds his page beside hers. Zoe points at the round ball under the dog.",
+      "proposed": "“I wanted a funny ending,” Kit says. He puts his page beside hers. Zoe points to the ball under the dog.",
+      "finding": "E-02-01"
+    },
+    {
+      "bookId": "world-discovery-e-02",
+      "field": "pages[9].text",
+      "original": "Kit turns the last page slowly. Zoe nudges him when the dog jumps. They keep both the laugh and the rest.",
+      "proposed": "Kit laughs at the jumping dog. Zoe turns the page. Now the dog can sleep beside its ball.",
+      "finding": "E-02-01"
+    },
+    {
+      "bookId": "world-discovery-e-03",
+      "field": "pages[7].text",
+      "original": "During very heavy rain, extra water can leave through that overflow route. A rain garden cannot hold every storm.",
+      "proposed": "During heavy rain, extra water leaves through that route. The garden cannot hold all the rainwater.",
+      "finding": "E-03-01"
+    },
+    {
+      "bookId": "world-discovery-e-03",
+      "field": "pages[9].text",
+      "original": "The garden changes the journey of the rain: pause, spread, soak. A patch of planted ground becomes part of the town’s drainage.",
+      "proposed": "Rainwater from the roof flows into the garden. Some soaks into the soil. Extra water flows out through the stone outlet.",
+      "finding": "E-03-01"
+    },
+    {
+      "bookId": "world-discovery-e-03",
+      "field": "discussion.oral.prompt",
+      "original": "Why does the garden need both soil that accepts water and an overflow route?",
+      "proposed": "Why does some rainwater soak into the soil while some flows out of the garden?",
+      "finding": "E-03-01"
+    },
+    {
+      "bookId": "world-discovery-e-05",
+      "field": "pages[4].text",
+      "original": "Where the current slows, it cannot keep carrying the same load. Some sediment settles onto the riverbed.",
+      "proposed": "When the water slows down, some sediment falls to the riverbed.",
+      "finding": "E-05-01"
+    },
+    {
+      "bookId": "world-discovery-e-06",
+      "field": "pages[7].text",
+      "original": "Near full moon, Earth faces almost all of the sunlit half. The bright disk looks round again.",
+      "proposed": "Near full moon, we can see almost all of the sunlit half from Earth. The bright circle looks round.",
+      "finding": "E-06-01"
+    },
+    {
+      "bookId": "world-discovery-e-07",
+      "field": "pages[6].text",
+      "original": "After pollination and other changes inside the flower, a fruit may develop. Its seeds will hold the next generation of saguaros.",
+      "proposed": "After pollination, a fruit may grow. New saguaro plants can grow from the seeds inside it.",
+      "finding": "E-07-01"
+    },
+    {
+      "bookId": "world-discovery-e-07",
+      "field": "pages[8].text",
+      "original": "Birds and insects can pollinate saguaro flowers, too. The bat is one visitor in a larger web of living things.",
+      "proposed": "Birds and insects visit saguaro flowers too. They can also carry pollen from one flower to another.",
+      "finding": "E-07-01"
+    },
+    {
+      "bookId": "world-discovery-e-07",
+      "field": "pages[9].text",
+      "original": "Return to the night flower. Nectar feeds the bat; carried pollen helps the cactus make seeds. One meal connects two lives.",
+      "proposed": "The bat drinks nectar from another flower. Pollen on its face rubs onto the flower and can help it make seeds.",
+      "finding": "E-07-01"
+    },
+    {
+      "bookId": "world-discovery-e-08",
+      "field": "pages[6].text",
+      "original": "Now the froglet could climb onto a damp bank. Its new legs, lungs, and changing body helped it use another place.",
+      "proposed": "Now the froglet could climb onto a damp bank. Its legs and lungs helped it move and breathe out of water.",
+      "finding": "E-08-01"
+    },
+    {
+      "bookId": "world-discovery-e-08",
+      "field": "languagePrep.2.meaning",
+      "original": "a new group of offspring in a life cycle",
+      "proposed": "the young of the older frogs; these young frogs will grow up too",
+      "finding": "E-08-01"
+    },
+    {
+      "bookId": "world-discovery-e-09",
+      "field": "pages[1].text",
+      "original": "Living in the same place does not make animals the same kind. Their bodies and life histories give us more clues.",
+      "proposed": "Animals can live in the same place and be different kinds. We can look at their bodies and their young.",
+      "finding": "E-09-01"
+    },
+    {
+      "bookId": "world-discovery-e-09",
+      "field": "pages[3].text",
+      "original": "The fish stay below. Their gills take oxygen from water passing over them. They do not need the whale’s surface-breathing routine.",
+      "proposed": "These fish stay underwater. Their gills take oxygen from water. They do not need to come up for air.",
+      "finding": "E-09-01"
+    },
+    {
+      "bookId": "world-discovery-e-09",
+      "field": "pages[7].text",
+      "original": "Scientists use several clues, including body features and how animals are related. Whales belong with mammals despite their fishlike outline.",
+      "proposed": "Whales look like fish, but they are mammals. Scientists study their bodies and how they are related to other animals.",
+      "finding": "E-09-01"
+    },
+    {
+      "bookId": "world-discovery-e-09",
+      "field": "pages[9].text",
+      "original": "The ocean tells us where these animals live. Their connected features tell us more about the groups they belong to.",
+      "proposed": "Whales and dolphins breathe air and feed their babies milk. They are mammals. The fish beside them have gills.",
+      "finding": "E-09-01"
+    },
+    {
+      "bookId": "world-discovery-e-10",
+      "field": "pages[9].text",
+      "original": "Leaves stand above the covering of straw. The children have saved water by keeping it useful, without leaving the plants thirsty.",
+      "proposed": "Under the straw, the soil stays damp. The plants have water, so the children leave the watering can by the gate.",
+      "finding": "E-10-01"
+    },
+    {
+      "bookId": "world-discovery-e-11",
+      "field": "pages[4].text",
+      "original": "“Maybe I should keep it all,” she says. She lowers the sheet, though her finger still rests on the bubbles.",
+      "proposed": "“Maybe I won’t show this picture,” Zoe says. She lowers the sheet, but her finger still points to the bubbles.",
+      "finding": "E-11-01"
+    },
+    {
+      "bookId": "world-discovery-e-13",
+      "field": "pages[9].text",
+      "original": "Their plan has room for sitting and room for passing through. It works at the time the class needs it.",
+      "proposed": "At lunchtime, Kit and Zoe sit in the shade. The caretaker walks past their bench to the doorway.",
+      "finding": "E-13-01"
+    },
+    {
+      "bookId": "world-discovery-e-14",
+      "field": "pages[9].text",
+      "original": "When the tray is clean too, Kit sets the boat inside. “My surprise took a little finding,” he says.",
+      "proposed": "Kit sets the clean boat inside the tray. “There it is!” he says. “I can see my boat again!”",
+      "finding": "E-14-01"
+    },
+    {
+      "bookId": "world-discovery-e-15",
+      "field": "pages[9].text",
+      "original": "The river still changes the valley, but it did not make this wide space alone. The missing ice left its work behind.",
+      "proposed": "The river runs through the wide valley. The glacier is gone, but its long scratches are still in the rock.",
+      "finding": "E-15-01"
+    },
+    {
+      "bookId": "world-discovery-e-16",
+      "field": "pages[5].text",
+      "original": "Kit joins her. The same three stars look much farther apart. They were never fixed to one flat picture.",
+      "proposed": "Kit joins Zoe beside the table. Now he can see the spaces between the three model stars.",
+      "finding": "E-16-01"
+    },
+    {
+      "bookId": "world-discovery-e-16",
+      "field": "pages[6].text",
+      "original": "Real stars are vastly farther away than these cards. Walking across our yard does not give us this side view of them.",
+      "proposed": "Real stars are much farther away than these cards. A walk across our yard cannot show their distances like this.",
+      "finding": "E-16-01"
+    },
+    {
+      "bookId": "world-discovery-e-16",
+      "field": "pages[9].text",
+      "original": "The stars can share a pattern without sharing one small place. What looks close depends on where we are looking from.",
+      "proposed": "Stars can look close together from Earth even when they are far apart in space.",
+      "finding": "E-16-01"
+    },
+    {
+      "bookId": "world-discovery-e-17",
+      "field": "pages[7].text",
+      "original": "But these are not two fixed menus. A plover can pull out a worm, and a dowitcher can pick up surface food.",
+      "proposed": "Both birds can eat different foods. A plover can pull out a worm, and a dowitcher can pick food off the mud.",
+      "finding": "E-17-01"
+    },
+    {
+      "bookId": "world-discovery-e-17",
+      "field": "pages[9].text",
+      "original": "A long bill is useful for reaching in. A sharp look can help at the surface. This muddy place holds both opportunities.",
+      "proposed": "The plover watches for food on the mud. Beside it, the dowitcher pushes its long bill into the mud.",
+      "finding": "E-17-01"
+    },
+    {
+      "bookId": "world-discovery-e-17",
+      "field": "discussion.oral.prompt",
+      "original": "Why does the book say the birds do not have two fixed menus?",
+      "proposed": "Can both birds find food on top of the mud and under it? How do you know?",
+      "finding": "E-17-01"
+    },
+    {
+      "bookId": "world-discovery-e-18",
+      "field": "title",
+      "original": "The Butterfly Relay",
+      "proposed": "The Monarchs’ Long Journey",
+      "finding": "E-18-01"
+    },
+    {
+      "bookId": "world-discovery-e-18",
+      "field": "pages[8].text",
+      "original": "They gather in Mexico as the earlier travelers did. The route has come around again, but the butterflies have changed.",
+      "proposed": "Butterflies gather in Mexico again. These are younger butterflies, born after the ones that left the forest in spring.",
+      "finding": "E-18-01"
+    },
+    {
+      "bookId": "world-discovery-e-18",
+      "field": "pages[9].text",
+      "original": "No single butterfly made the whole yearly journey. Like a relay, the journey continued while one generation gave way to the next.",
+      "proposed": "No butterfly made this whole yearly trip. Older butterflies laid eggs. Their young grew up and continued traveling.",
+      "finding": "E-18-01"
+    },
+    {
+      "bookId": "world-discovery-e-18",
+      "field": "discussion.oral.prompt",
+      "original": "Why is this journey compared with a relay?",
+      "proposed": "Did the same butterflies make the whole trip north and south? Tell me what happened.",
+      "finding": "E-18-01"
+    },
+    {
+      "bookId": "world-discovery-e-18",
+      "field": "languagePrep.2",
+      "original": {
+        "word": "relay",
+        "meaning": "a race in which different runners take turns continuing the race"
+      },
+      "proposed": {
+        "word": "milkweed",
+        "meaning": "the plant monarch caterpillars eat"
+      },
+      "finding": "E-18-01"
+    },
+    {
+      "bookId": "world-discovery-e-19",
+      "field": "pages[3].text",
+      "original": "Can one board show both things? They draw four spaces, with red above not red and round beside not round.",
+      "proposed": "They draw four spaces. For each shape, they ask, “Is it red?” and “Is it round?”",
+      "finding": "E-19-01"
+    },
+    {
+      "bookId": "world-discovery-e-19",
+      "field": "pages[9].text",
+      "original": "Sharing a space does not mean every piece is the same. It means they give the same answers to these two questions.",
+      "proposed": "The red square and triangle sit together. Both are red. Neither is round, so they belong in the same space.",
+      "finding": "E-19-01"
+    },
+    {
+      "bookId": "world-discovery-e-20",
+      "field": "pages[9].text",
+      "original": "One place can hold a clear way through and a patch left to grow. Keeping both takes more than cutting everything alike.",
+      "proposed": "Kit and Zoe walk along the clear path. Beside them, the tall stems still have seeds to drop.",
+      "finding": "E-20-01"
+    },
+    {
+      "bookId": "world-discovery-d-04",
+      "field": "storyBibleReview.storySpine",
+      "original": "Zoe wants to bring a red kite out of a low tree using a pocket that stores wind, but her first gust wedges it farther in.",
+      "proposed": "Zoe wants to bring a red kite out of a low tree using a bag that stores wind, but her first gust wedges it farther in.",
+      "finding": "WD-D-006-production-state"
+    },
+    {
+      "bookId": "world-discovery-a-01",
+      "field": "languagePrep[0].meaning",
+      "original": "a surface that shows your reflection",
+      "proposed": "something you look into to see yourself",
+      "finding": "final-sequence-esl-gloss"
+    },
+    {
+      "bookId": "world-discovery-a-08",
+      "field": "languagePrep[1].meaning",
+      "original": "soft down covering a chick",
+      "proposed": "soft feathers on a chick",
+      "finding": "final-sequence-esl-gloss"
+    },
+    {
+      "bookId": "world-discovery-a-10",
+      "field": "languagePrep[0].meaning",
+      "original": "puts the cloth snugly around",
+      "proposed": "pulls the cloth around the bear",
+      "finding": "final-sequence-esl-gloss"
+    },
+    {
+      "bookId": "world-discovery-b-05",
+      "field": "languagePrep[2].meaning",
+      "original": "a large body of salty water",
+      "proposed": "a large area of salty water",
+      "finding": "final-sequence-esl-gloss"
+    },
+    {
+      "bookId": "world-discovery-b-08",
+      "field": "discussion.oral.listenFor",
+      "original": "It stays still while its body changes, then comes out as the grown ladybug. The teacher can supply pupa as an oral stage name.",
+      "proposed": "It becomes a pupa and stays still while its body changes. Then the adult ladybug comes out.",
+      "finding": "matching-teacher-guidance"
+    },
+    {
+      "bookId": "world-discovery-b-08",
+      "field": "levelRationale",
+      "original": "B presents one explicitly ordered life cycle in short clauses. The only printed specialist stage name, larva, is introduced as a young ladybug and repeated; pupa and aphids remain oral enrichment. Visible feeding, shedding and color changes connect each step without an unseen biological explanation.",
+      "proposed": "B presents an ordered life cycle in short clauses. Larva and pupa name the two visible young stages and are explained in simple language. Feeding, shedding and color changes connect the steps.",
+      "finding": "matching-teacher-guidance"
+    },
+    {
+      "bookId": "world-discovery-e-18",
+      "field": "discussion.oral.listenFor",
+      "original": "It continues across generations. The later southward butterflies are descendants rather than the original winter butterflies making one yearly loop.",
+      "proposed": "Different butterflies make different parts of the yearly journey. Eggs hatch, young butterflies grow up, and later butterflies keep traveling.",
+      "finding": "matching-teacher-guidance"
+    },
+    {
+      "bookId": "world-discovery-e-17",
+      "field": "discussion.oral.listenFor",
+      "original": "They often search differently, but methods and foods overlap: either can take food reached by the other's common method.",
+      "proposed": "Both birds can find some food on the surface and below it; a long bill helps the dowitcher reach deeper.",
+      "finding": "matching-teacher-guidance"
+    },
+    {
+      "bookId": "world-discovery-d-10",
+      "field": "pages[6].text",
+      "original": "But the battery cannot store an endless supply. If little sunlight reaches the panel, the light may not last as long.",
+      "proposed": "The battery stores only some energy. If little sunlight reaches the panel, the lamp may shine for a shorter time.",
+      "finding": "final-sequence-partition-3"
+    },
+    {
+      "bookId": "world-discovery-d-09",
+      "field": "discussion.visual.prompt",
+      "original": "Which shiny object belongs in the other tray?",
+      "proposed": "Which shiny object did the magnet not pull?",
+      "finding": "final-sequence-partition-3"
+    },
+    {
+      "bookId": "world-discovery-c-14",
+      "field": "setting",
+      "original": "Classroom table. Explicit single magic rule: one plain red bookmark follows the direction of each pencil arrow beneath it and stops on blank paper. Adjacent arrows touch so it can pass directly from one to the next. Arrows four and five initially point toward one another, making a short back-and-forth. It has no face, limbs or speech and cannot jump a blank gap. Ordinary erasing changes the route.",
+      "proposed": "Classroom table. Explicit single magic rule: one plain red bookmark follows the direction of each pencil arrow beneath it and stops on blank paper. Six separate arrowheads share one continuous pencil shaft, with no blank gaps or overlapping heads. Arrows four and five initially point toward one another, making a short back-and-forth. It has no face, limbs or speech and cannot jump a blank gap. Ordinary erasing changes the route.",
+      "finding": "final-arrow-route-reference-continuity"
+    },
+    {
+      "bookId": "world-discovery-c-14",
+      "field": "props[4]",
+      "original": "Six adjacent touching pencil arrows on a continuous strip; fifth initially points back toward fourth; the last arrow reaches the blank open-book page",
+      "proposed": "Six clearly separated arrowheads on one continuous pencil shaft; fifth initially points left toward the fourth; the last arrow reaches the blank open-book page",
+      "finding": "final-arrow-route-reference-continuity"
+    },
+    {
+      "bookId": "world-discovery-c-14",
+      "field": "pages[1].imageBrief",
+      "original": "Kit lays a continuous paper strip into the open book at right and draws six touching arrows. The fourth points right and the fifth points back left toward it; all remaining arrows point onward to the book. Continuity: No blank gaps between active arrows; fourth/fifth make the local trap; the final arrow leads directly to blank book paper.",
+      "proposed": "Kit lays a continuous paper strip into the open book at right and draws six separated arrowheads along one continuous pencil shaft. The fourth points right and the fifth points back left toward it; all remaining arrows point onward to the book. Continuity: No blank gaps between active arrows; fourth/fifth make the local trap; the final arrow leads directly to blank book paper.",
+      "finding": "final-arrow-route-reference-continuity"
+    }
+  ],
+  "changedBooks": [
+    "world-discovery-a-05",
+    "world-discovery-a-06",
+    "world-discovery-a-11",
+    "world-discovery-a-12",
+    "world-discovery-a-13",
+    "world-discovery-a-14",
+    "world-discovery-a-17",
+    "world-discovery-a-19",
+    "world-discovery-a-20",
+    "world-discovery-b-02",
+    "world-discovery-b-05",
+    "world-discovery-b-08",
+    "world-discovery-b-12",
+    "world-discovery-b-13",
+    "world-discovery-b-14",
+    "world-discovery-b-15",
+    "world-discovery-b-16",
+    "world-discovery-b-17",
+    "world-discovery-b-18",
+    "world-discovery-b-19",
+    "world-discovery-b-20",
+    "world-discovery-c-01",
+    "world-discovery-c-02",
+    "world-discovery-c-03",
+    "world-discovery-c-04",
+    "world-discovery-c-05",
+    "world-discovery-c-07",
+    "world-discovery-c-08",
+    "world-discovery-c-10",
+    "world-discovery-c-11",
+    "world-discovery-c-12",
+    "world-discovery-c-13",
+    "world-discovery-c-14",
+    "world-discovery-c-15",
+    "world-discovery-c-16",
+    "world-discovery-c-17",
+    "world-discovery-c-18",
+    "world-discovery-c-19",
+    "world-discovery-c-20",
+    "world-discovery-d-01",
+    "world-discovery-d-02",
+    "world-discovery-d-03",
+    "world-discovery-d-04",
+    "world-discovery-d-05",
+    "world-discovery-d-06",
+    "world-discovery-d-08",
+    "world-discovery-d-09",
+    "world-discovery-d-10",
+    "world-discovery-d-11",
+    "world-discovery-d-13",
+    "world-discovery-d-14",
+    "world-discovery-d-15",
+    "world-discovery-d-16",
+    "world-discovery-d-17",
+    "world-discovery-d-18",
+    "world-discovery-d-19",
+    "world-discovery-d-20",
+    "world-discovery-e-01",
+    "world-discovery-e-02",
+    "world-discovery-e-03",
+    "world-discovery-e-05",
+    "world-discovery-e-06",
+    "world-discovery-e-07",
+    "world-discovery-e-08",
+    "world-discovery-e-09",
+    "world-discovery-e-10",
+    "world-discovery-e-11",
+    "world-discovery-e-13",
+    "world-discovery-e-14",
+    "world-discovery-e-15",
+    "world-discovery-e-16",
+    "world-discovery-e-17",
+    "world-discovery-e-18",
+    "world-discovery-e-19",
+    "world-discovery-e-20",
+    "world-discovery-a-01",
+    "world-discovery-a-08",
+    "world-discovery-a-10"
+  ],
+  "sourceHashes": {
+    "src/content/world-discovery/level-a.json": "4c230a8e8932aa399ab55e0a10a7aaa112f0bb773eb391101f06e3e5bf024b22",
+    "src/content/world-discovery/level-b.json": "0c434726938e62f0cd3adb550c3ea9929e06996dd4fa3d54dea5eb6dfe422146",
+    "src/content/world-discovery/level-c.json": "ebf55cd224eba3cba7b9b2391c7ecb8951aecd7ce9346941a3f4b799e385bf25",
+    "src/content/world-discovery/level-d.json": "049fbbf575db07f500fb266f8c646bcf41997b4d16f445526fc1eed22deeaf26",
+    "src/content/world-discovery/level-e.json": "f931673c0359d2226f84fc44cd0194d56187d5f7a018150471a39fb9ee3cd344",
+    "src/content/world-discovery/cohorts/11-20/level-a.json": "7647a05130985ac8d29a46b93bd348d21aca4de2deb0d583c1fa4062b347ff35",
+    "src/content/world-discovery/cohorts/11-20/level-b.json": "6cbd10d0f9e17e4d455e56ecdc88e3c29bffbbfa3d2cee84378ced568ea84a97",
+    "src/content/world-discovery/cohorts/11-20/level-c.json": "9c7e9fe56d9f7daa8ceead07861921ba8f06964f3a1b3efa00db47dc065c7a10",
+    "src/content/world-discovery/cohorts/11-20/level-d.json": "a95a1e42ea64e6689e83b666ad83c6de00d33e990225faf62840a70dd64227ca",
+    "src/content/world-discovery/cohorts/11-20/level-e.json": "5620c62c9b5094274cf3084a7c9a06d1d03a032476929f34728f84cad63f2678"
+  }
+}

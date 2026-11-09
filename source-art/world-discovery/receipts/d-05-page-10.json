@@ -18,8 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T05:44:43.466741+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "0e06df1a2b29826c1b80627cadf5f8f800c5db6e6de4fab684e84e0cf19c0501",
-    "note": "Direct inspection: Zoe's near-side hand presses restored dry neck; left mainland joins right lobe again, toy remains mainland, stick outside and no spare clay. Sequence returns correctly from real examples to same model."
+    "note": "Direct inspection: Zoe's near-side hand presses restored dry neck; left mainland joins right lobe again, toy remains mainland, stick outside and no spare clay. Sequence returns correctly from real examples to same model.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-d.json",
+    "bookId": "world-discovery-d-05",
+    "sha256": "1b7aa1cf65d384e02c9eb2a232041ee2a5bbba15295e1d9b95721ff24239fc36",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

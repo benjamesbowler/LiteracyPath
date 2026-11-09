@@ -22,9 +22,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T03:59:19.955Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "850f4274a4f33618e5537e77d6314e8f5b1b8a21b70d16b73b26e91866a403f3",
     "note": "Exactly three audience children now present; fox appears alone in stage opening; actors hidden. Wider composition slightly shifts floor/rug palette; story state remains clear.",
-    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-e.json",
+    "bookId": "world-discovery-e-01",
+    "sha256": "dc3533df3dc31db1a524cf56cacd91d7525f93bfc9606e449be42aece897aebb",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

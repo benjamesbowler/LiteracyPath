@@ -18,8 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T04:39:55.493Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "0b2708b2fc3cc4c7dfa788f1e3c8dd22c804523190eed1f5189bcbc58eb27860",
-    "note": "Kit and Zoe, taller adult in green sweater, torn cream bag, separate blue patch, three original blocks and adult needle detail inspected; empty classroom location key."
+    "note": "Kit and Zoe, taller adult in green sweater, torn cream bag, separate blue patch, three original blocks and adult needle detail inspected; empty classroom location key.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-b.json",
+    "bookId": "world-discovery-b-10",
+    "sha256": "115aa91cd38527fd409ab657bf70dca6c609ad7a3434fd301113da5a468ac91e",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

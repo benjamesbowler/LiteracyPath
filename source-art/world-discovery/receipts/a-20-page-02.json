@@ -27,8 +27,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T16:07:03.048Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "a30df3d62aca1d34e2fb749ab0ac9da999fc65060ff8183ab4d9f60d1fb8aa02",
-    "note": "Both native replacement and final WebP directly inspected: ordinary front table legs now physically joined to tabletop and continue naturally beyond bottom crop, eliminating floating tabletop/short stubs. Natural seated upper-body composition retained; hands, tin/lid and exact snack count unchanged. One bitten cracker held, eight in tin, crumb-only plate."
+    "note": "Both native replacement and final WebP directly inspected: ordinary front table legs now physically joined to tabletop and continue naturally beyond bottom crop, eliminating floating tabletop/short stubs. Natural seated upper-body composition retained; hands, tin/lid and exact snack count unchanged. One bitten cracker held, eight in tin, crumb-only plate.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-a.json",
+    "bookId": "world-discovery-a-20",
+    "sha256": "22c7b02f2a8500e829c1797bbf1a19f661fc5c4cb1e6c53836ac1459ce58082f",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

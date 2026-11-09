@@ -26,9 +26,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T04:11:46.227Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "f912a594e3e6e08f24689a3a3478971b50bad36b0bac259de9dd7191fa886421",
     "note": "Corrected two SINGLE loose endings sidebyside, not extra books; redball underdogrear and rest besideball; Zoe points.",
-    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-e.json",
+    "bookId": "world-discovery-e-02",
+    "sha256": "7aed325643489d02762b9c2b354f93e9789f946a6e7b9bddbc508cd607eb86d4",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

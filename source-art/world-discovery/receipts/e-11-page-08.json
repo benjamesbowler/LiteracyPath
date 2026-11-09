@@ -33,9 +33,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T17:18:08.955842+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "108b1c918f27427751f5a4a952a56d8400bd5f39ff1d5bcb9f9b8d8591ce6bc8",
     "note": "Generated source and installed WebP inspected. Only public smiling swimmer on uncreased new sheet; brown crayon in hand, blue in tray, original concealed face down.",
-    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-e.json",
+    "bookId": "world-discovery-e-11",
+    "sha256": "4408a56cb14307858530077cfd778003dbeb95184a6c41c9c28c32a67d8d7763",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

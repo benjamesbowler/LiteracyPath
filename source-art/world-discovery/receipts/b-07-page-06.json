@@ -18,8 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T04:52:31.181Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "e258d2befc71e421e8cf0431c99397b16d2ed6e58f7c46d059f8407cf0bef079",
-    "note": "Duck advances toward low bank with wings folded and two paddling feet, broad backward stroke and natural plumage."
+    "note": "Duck advances toward low bank with wings folded and two paddling feet, broad backward stroke and natural plumage.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-b.json",
+    "bookId": "world-discovery-b-07",
+    "sha256": "89efce04f21896b692ab9b206853ee9136376a7a3d337e86cc7e564c945cecf6",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

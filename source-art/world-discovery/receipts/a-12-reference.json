@@ -25,8 +25,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T10:58:15.653828+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "96aa5a358c31f2cfaf97e5c6123cd1f23dbab74394cc6aaff1b6d729cee98e70",
-    "note": "Directly inspected native and installed WebP. Locked Kit and Zoe identities and equal scale; blue gate, single curved path, low bench midway and two yellow empty swings have useful separated design views plus coherent fenced daylight location. Reference design views are not duplicate objects for finished scenes; no later story beat appears."
+    "note": "Directly inspected native and installed WebP. Locked Kit and Zoe identities and equal scale; blue gate, single curved path, low bench midway and two yellow empty swings have useful separated design views plus coherent fenced daylight location. Reference design views are not duplicate objects for finished scenes; no later story beat appears.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-a.json",
+    "bookId": "world-discovery-a-12",
+    "sha256": "7d583e054a04388d5f4169b3c8c08f4ef605ad683e40a823c844e2d81e58ba62",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

@@ -33,7 +33,11 @@ export function validateWorldDiscoveryCohortManifest(manifest) {
       || !Number.isInteger(cohort.expectedPages) || cohort.expectedPages < 1 || typeof cohort.active !== "boolean") failures.push(`Invalid declared cohort ${cohort.id || index}`);
     if (!cohort.active) sawInactive = true;
     else if (sawInactive) failures.push(`${cohort.id}: cohorts must register in declared order`);
-    for (const key of ["sourceDir", "cardReview", "narrationReview", "registration", ...(index ? ["narrationInventory"] : [])]) {
+    if (cohort.maintenanceBaseline && (!cohort.narrationInventory
+      || !/^source-art\/world-discovery\/remediation\//.test(cohort.maintenanceBaseline.path || "")
+      || cohort.maintenanceBaseline.path.split("/").includes("..")
+      || !/^[a-f0-9]{64}$/.test(cohort.maintenanceBaseline.sha256 || ""))) failures.push(`${cohort.id}: invalid maintenance baseline`);
+    for (const key of ["sourceDir", "cardReview", "narrationReview", "registration", ...(index || cohort.narrationInventory ? ["narrationInventory"] : [])]) {
       const file = cohort[key];
       if (typeof file !== "string" || !/^(src\/content\/world-discovery|source-art\/world-discovery)\//.test(file + (key === "sourceDir" ? "/" : ""))
         || file.split("/").includes("..") || paths.has(file)) failures.push(`${cohort.id}: invalid or reused ${key}`);

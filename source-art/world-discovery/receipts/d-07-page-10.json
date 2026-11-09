@@ -24,9 +24,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T06:26:13.718409+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "2a012698c0a05ac49610ce838958184e383173d8ceca5112a0a4afdd00059939",
     "note": "Eight eyes in two rows of four; eight legs and two body regions. Right outer frame is now continuous and anchored to stem; a small internal break remains in one spiral turn just above the single attached wrapped prey. Central waiting pose/dusk retained.",
-    "limits": "Repair author directly reviewed native output and complete installed image in sequence; independent reviewer maintains separate evidence. No classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-d.json",
+    "bookId": "world-discovery-d-07",
+    "sha256": "d27435e0f12cb471d6c271d3b7e6df5d68f2cdd378295d4e0705ee47de1a5665",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

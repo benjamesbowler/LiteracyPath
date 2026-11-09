@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T05:42:51.374Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "5d7d7939d85301fdf7c6651d2a49030851b68d74c30d4228d50c1eea7f797794",
     "note": "Zoe lifts straw over damp soil, Kit holds can upright without pouring; corrected Kit to kneel outside planted bed; adult nearby.",
-    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-e.json",
+    "bookId": "world-discovery-e-10",
+    "sha256": "44f60e2326c204184b270b264bf65bff135a2beb2716790ba3af36b82d91abad",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

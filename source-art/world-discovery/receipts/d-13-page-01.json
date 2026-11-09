@@ -33,9 +33,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T18:05:07.030Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "ddebbda21cfa376fc8800849d9a23aba2be0549aa599516ff29bae8e76413ff8",
     "note": "Native and installed WebP inspected. Blue car is now behind the crosswalk, stopped short with clear gap. Both people wait fully behind near curb, white cane has ground contact, orange hand and integral right-pointing button arrow retained. Natural street and human scale; entire focal subjects comfortably inset.",
-    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-d.json",
+    "bookId": "world-discovery-d-13",
+    "sha256": "e97f16950c27023f38ced30023a8980685e1e71dc5b0e26524253b59a24b3e3f",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

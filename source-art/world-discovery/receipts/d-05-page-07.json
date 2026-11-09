@@ -18,8 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T05:44:42.313295+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "5bfb9df9a59821a8bb1d9a77bfc40790c8c885b4e29c36f9eb2cac60393635c6",
-    "note": "Direct inspection: Zoe's one hand from near side moves only yellow toy to left mainland. Island empty and water gap continuous; removed neck and single stick remain outside."
+    "note": "Direct inspection: Zoe's one hand from near side moves only yellow toy to left mainland. Island empty and water gap continuous; removed neck and single stick remain outside.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-d.json",
+    "bookId": "world-discovery-d-05",
+    "sha256": "1b7aa1cf65d384e02c9eb2a232041ee2a5bbba15295e1d9b95721ff24239fc36",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

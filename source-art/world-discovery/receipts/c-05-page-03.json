@@ -22,9 +22,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "c3c455ab48c7884d1ddeab7705e9cb4f12f8480c9dbf40ac24c696152a12cac7",
     "note": "Directly inspected: Kit holds map aligned with entrance and path ahead; symbol and real landmark left/right sequence agree; same cast and map.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-c.json",
+    "bookId": "world-discovery-c-05",
+    "sha256": "82042aa026d7c61c15e92b344417a2a8a47d6faa1613d44970635301753cb799",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

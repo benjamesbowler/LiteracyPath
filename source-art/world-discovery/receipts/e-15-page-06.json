@@ -25,9 +25,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T16:50:28.745418+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "818901340925d48c9986a073df08b97cac0ec498c8661ce6d62a4c865431da33",
     "note": "Generated source and installed WebP inspected. Glacier front has shortened uphill; wet exposed bedrock and connected meltwater appear below it. Single ice body and coherent topography.",
-    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-e.json",
+    "bookId": "world-discovery-e-15",
+    "sha256": "a57d2e19830e6922434e13fa17fa20597f9031c568ccce469773f4251f93f3fb",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

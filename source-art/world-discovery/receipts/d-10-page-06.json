@@ -18,8 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T04:31:11.334617+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "d1492f28fbf3dd48f334d13050f33410c268ed3c4a2f77690c241827149b6682",
-    "note": "Night cutaway shows paired leads from green battery to lit LED and paired panel leads; night scene and unlit panel distinguish stored energy from sunlight."
+    "note": "Night cutaway shows paired leads from green battery to lit LED and paired panel leads; night scene and unlit panel distinguish stored energy from sunlight.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-d.json",
+    "bookId": "world-discovery-d-10",
+    "sha256": "ca01455632d2ab41b0d96149fc43ef59a70841e5fb409f384c603d9dc77bd850",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

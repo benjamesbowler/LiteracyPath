@@ -18,8 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T04:47:01.817032+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "920ed3b6b0a1dbcb55666e7e5aaeaaf79d880f56dc7f8bc15c89124d71b9575f",
-    "note": "One female mallard at waterline with two attached orange webbed feet paddling below, natural brown plumage and blue wing patch."
+    "note": "One female mallard at waterline with two attached orange webbed feet paddling below, natural brown plumage and blue wing patch.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-b.json",
+    "bookId": "world-discovery-b-07",
+    "sha256": "89efce04f21896b692ab9b206853ee9136376a7a3d337e86cc7e564c945cecf6",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

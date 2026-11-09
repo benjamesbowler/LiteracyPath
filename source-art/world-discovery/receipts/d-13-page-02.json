@@ -33,9 +33,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T18:23:40.863Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "8cbe503a8228c4da21231369121931a49b6ba09f836c0b47cee880bf22474b09",
     "note": "Generated native and installed full WebP directly inspected. Adult locates speaker with hand; restrained sound arcs originate at housing, orange hand remains opposite and both people stay behind curb.",
-    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-d.json",
+    "bookId": "world-discovery-d-13",
+    "sha256": "e97f16950c27023f38ced30023a8980685e1e71dc5b0e26524253b59a24b3e3f",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

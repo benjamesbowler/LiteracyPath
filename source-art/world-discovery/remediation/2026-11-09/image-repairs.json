@@ -1,0 +1,406 @@
+{
+  "authorization": "2026-11-09 user: do all replacement images, fix problematic text and new Leda voice, fix all then re-audit entire Guided Reading",
+  "repairs": [
+    {
+      "referenced_image_paths": [
+        "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/c-20/page-02.webp",
+        "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/c-20-reference.webp"
+      ],
+      "transparent_background": false,
+      "prompt": "Use case: illustration-story. Edit only the first image; the second image is object-design reference, not a layout to copy. One finished landscape 3:2 full-bleed young-child picture-book illustration. Preserve exactly three gray woodlice under the raised fallen log, each with segmented oval back, two antennae and seven pairs of small jointed legs. Keep damp droplets below the log and brown fallen oak leaves. No child figures. ESSENTIAL STYLE REPAIR: turn the entire scene into crisp bold outlined flat-color 2D cartoon. Replace the photoreal soil speckles, bark fibres and leaf veins/texturing with a few large flat outlined brown and orange shapes and a small number of smooth cel-shadow patches. Keep wood recognizably decayed using a few clearly outlined broken lobes, not thousands of fibrous marks. Plain clean soil with a few small outlined stones, no granular noise. Keep moisture obvious using the existing large outlined water drops. No grain, mottling, brushwork, gradients, fuzzy focus, 3D or photographic rendering anywhere. Preserve the exact positions, action and scale of the three animals and the log. Simplify without removing the ecological teaching clues. No letters, text, numbers, labels, borders, panel divisions or arrows.",
+      "id": "c20p2",
+      "generatedSource": "/Users/benjaminbowler/.codex/generated_images/01a10981-fcf4-7523-bda5-790b073481a6/exec-2bbc466f-bf4f-4edc-90e6-f643d79b4b14.png",
+      "stagedPath": ".artifacts/guided-reading-remediation-20261109/images/c20p2.webp",
+      "sourceSha256": "8f21dae11e1d61ee3676627fd3b4a9c0d963cf200a53b5efef54712f340eebf4",
+      "outputSha256": "93631749b667a99b1720bf55dfc3419a18874b8123cff15c0535ba9d4688f39d",
+      "target": "public/guided-reading/world-discovery/c-20/page-02.webp",
+      "beforeSha256": "ca3a0d76e68179a48e81e12ebcb3d47dccee8cb8d2a8d2c3999ae8f0d1458ce2",
+      "references": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/c-20/page-02.webp",
+          "sha256": "ca3a0d76e68179a48e81e12ebcb3d47dccee8cb8d2a8d2c3999ae8f0d1458ce2"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/c-20-reference.webp",
+          "sha256": "494f3a5abe1e805bbee2bcaf8fa4c74cc212d509552450e4ca59cca1f1dde599"
+        }
+      ],
+      "status": "installed after complete sequence review",
+      "installedAt": "2026-11-09T03:25:18.412Z"
+    },
+    {
+      "referenced_image_paths": [
+        "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/d-03/page-01.webp",
+        "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-03-reference.webp"
+      ],
+      "transparent_background": false,
+      "prompt": "Use case: illustration-story. Edit only the FIRST attached illustration. Other attached image locks identity and object design, not composition. One finished landscape 3:2 full-bleed illustration. Repair the unsupported floating tilted blue cup. Add ONE adult's brown right hand and forearm entering naturally from the right edge, wearing a plain teal sleeve, with the thumb braced on top of the blue handle and four fingers naturally curled through/around it, firmly holding the cup while it tips left under the faucet. A physical grip, correct natural finger anatomy. Preserve the one blue cup, single faucet, water flowing into the cup and from its lowered lip down into the drain. No second cup, extra hand, visible person or new object. Entire image uses bold clean clear 2D cartoon with crisp continuous dark outlines, flat colors and minimal smooth cel-shaded shapes. No grain, painterly texture, mottling, blur, photographic or 3D surfaces. No new text, letters, numbers, logos, labels, panels or borders. Preserve all other content.",
+      "id": "d03p1",
+      "generatedSource": "/Users/benjaminbowler/.codex/generated_images/01a10981-fcf4-7523-bda5-790b073481a6/exec-dfab1995-3a59-4738-a76e-87d04f66ac47.png",
+      "stagedPath": ".artifacts/guided-reading-remediation-20261109/images/d03p1.webp",
+      "sourceSha256": "b6b6a578845cc56e70361153a486340e42831b4f066c3826756c834c39e0f0b2",
+      "outputSha256": "8cfd3b538e671959d462b995f6a78e5a8eeb12a83372634a34d8449da0359659",
+      "target": "public/guided-reading/world-discovery/d-03/page-01.webp",
+      "beforeSha256": "99aa5d3326c9a4ba15779fec3a64b13a5157187f5df34fafc869dfd379ee654a",
+      "references": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/d-03/page-01.webp",
+          "sha256": "99aa5d3326c9a4ba15779fec3a64b13a5157187f5df34fafc869dfd379ee654a"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-03-reference.webp",
+          "sha256": "4114d53b76b8de4d3b1e2c3c8dbab353616a2244e80defbb9336bc9d0e54d7ec"
+        }
+      ],
+      "status": "installed after complete sequence review",
+      "installedAt": "2026-11-09T03:25:18.415Z"
+    },
+    {
+      "referenced_image_paths": [
+        "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/d-11/page-10.webp",
+        "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png"
+      ],
+      "transparent_background": false,
+      "prompt": "Use case: illustration-story. Edit only the FIRST attached illustration. Other attached image locks identity and object design, not composition. One finished landscape 3:2 full-bleed illustration. Preserve all subjects, proportions, expressions and exact composition. Keep Kit and Zoe, the two separate clipped children's drawings (sun/ball/grass at left; cloud/rain/purple boots/blue puddle at right), Zoe's pointing finger, the cut-out yellow sun and two crayons on the table. Repair only surface finish: make walls and floor completely clean solid-color shapes with crisp flat window-shadow polygons; remove cloudy grain/mottling. Make tabletop clean flat warm tan with no wood grain. Do not repaint or add marks to the children's pictures. Entire image uses bold clean clear 2D cartoon with crisp continuous dark outlines, flat colors and minimal smooth cel-shaded shapes. No grain, painterly texture, mottling, blur, photographic or 3D surfaces. No new text, letters, numbers, logos, labels, panels or borders. Preserve all other content.",
+      "id": "d11p10",
+      "generatedSource": "/Users/benjaminbowler/.codex/generated_images/01a10981-fcf4-7523-bda5-790b073481a6/exec-830f6513-faba-44ee-9f1c-8a55910af2d0.png",
+      "stagedPath": ".artifacts/guided-reading-remediation-20261109/images/d11p10.webp",
+      "sourceSha256": "730039ce52f4c2ae7308f9615dfe611c1584f9006e84be402a87095e0142452c",
+      "outputSha256": "4662610e5988a92e246f7356bc1323f43013339151662e81a4689e51568daa6c",
+      "target": "public/guided-reading/world-discovery/d-11/page-10.webp",
+      "beforeSha256": "36bd2f9847aff83ac7d58b2204e60376762f48306a0e5704b4af8e51f8aadb6e",
+      "references": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/d-11/page-10.webp",
+          "sha256": "36bd2f9847aff83ac7d58b2204e60376762f48306a0e5704b4af8e51f8aadb6e"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+          "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+        }
+      ],
+      "status": "installed after complete sequence review",
+      "installedAt": "2026-11-09T03:25:18.415Z"
+    },
+    {
+      "referenced_image_paths": [
+        "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/d-12/page-04.webp",
+        "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png"
+      ],
+      "transparent_background": false,
+      "prompt": "Use case: illustration-story. Edit only the FIRST attached illustration. Other attached image locks identity and object design, not composition. One finished landscape 3:2 full-bleed illustration. Preserve all subjects, expressions, positions and exact scene: Kit holds up the torn cardboard roof edge, Zoe looks surprised; cardboard house has visible rectangular opening, red miniature chair inside and blue door below. Keep torn jagged lower roof edge, exactly the existing two small paper tape strips on the roof, tape dispenser and two loose cardboard strips on table. Repair only surface finish: flat clean peach wall, flat lavender floor, flat warm tan tabletop without cloudy texture or wood grain. Do not close/repair the roof tear, do not change the hand/roof contact or add items. Entire image uses bold clean clear 2D cartoon with crisp continuous dark outlines, flat colors and minimal smooth cel-shaded shapes. No grain, painterly texture, mottling, blur, photographic or 3D surfaces. No new text, letters, numbers, logos, labels, panels or borders. Preserve all other content.",
+      "id": "d12p4",
+      "generatedSource": "/Users/benjaminbowler/.codex/generated_images/01a10981-fcf4-7523-bda5-790b073481a6/exec-002bfdfb-c4a4-453b-ad7b-87e024ca1a73.png",
+      "stagedPath": ".artifacts/guided-reading-remediation-20261109/images/d12p4.webp",
+      "sourceSha256": "b032cc470c520b60a62d644a77f51cf63650b8ff45e821669af6842798f292a3",
+      "outputSha256": "5730fdf14c04ebdd6e47e005e6b986ebca3e7279a7b8b8cfddf7c6f1c369e5fa",
+      "target": "public/guided-reading/world-discovery/d-12/page-04.webp",
+      "beforeSha256": "3e08e1ce6a0fa3bca8eae482e103e0d701c926e6208ea065446b1880a59ac0eb",
+      "references": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/d-12/page-04.webp",
+          "sha256": "3e08e1ce6a0fa3bca8eae482e103e0d701c926e6208ea065446b1880a59ac0eb"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+          "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+        }
+      ],
+      "status": "installed after complete sequence review",
+      "installedAt": "2026-11-09T03:25:18.415Z"
+    },
+    {
+      "referenced_image_paths": [
+        "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/d-14/page-03.webp",
+        "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png"
+      ],
+      "transparent_background": false,
+      "prompt": "Use case: illustration-story. Edit only the FIRST attached illustration. Other attached image locks identity and object design, not composition. One finished landscape 3:2 full-bleed illustration. Preserve exact fantasy scene and poses: Kit inside the white floor circle raising one clearly five-fingered open hand, his single large matching shadow raising its five-fingered hand on the wall, Zoe at left, red folded fan on blue chair at right. Shadow has exactly the same hand pose as Kit. Repair only cloudy wall and floor finish into uniform clean peach wall and flat mauve floor, retaining crisp geometry, outlines, setting and sunset window. No grain or blotchy paint. Preserve five fingers on the raised hand and shadow. Entire image uses bold clean clear 2D cartoon with crisp continuous dark outlines, flat colors and minimal smooth cel-shaded shapes. No grain, painterly texture, mottling, blur, photographic or 3D surfaces. No new text, letters, numbers, logos, labels, panels or borders. Preserve all other content.",
+      "id": "d14p3",
+      "generatedSource": "/Users/benjaminbowler/.codex/generated_images/01a10981-fcf4-7523-bda5-790b073481a6/exec-2315ca33-d93d-4759-a9a6-3ccefbde94ec.png",
+      "stagedPath": ".artifacts/guided-reading-remediation-20261109/images/d14p3.webp",
+      "sourceSha256": "4c0b2db0db565b691a81e45bf1158c27fe0b53f89665869b41714a060e0e097f",
+      "outputSha256": "204053c9b489c936d1c744457964ab800628903edcd9502ec25f94205ae99d39",
+      "target": "public/guided-reading/world-discovery/d-14/page-03.webp",
+      "beforeSha256": "87659efabb6cf01c00ce5447ae581a2a7811f9672a71326c02226ff7206bee0f",
+      "references": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/d-14/page-03.webp",
+          "sha256": "87659efabb6cf01c00ce5447ae581a2a7811f9672a71326c02226ff7206bee0f"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+          "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+        }
+      ],
+      "status": "installed after complete sequence review",
+      "installedAt": "2026-11-09T03:25:18.415Z"
+    },
+    {
+      "referenced_image_paths": [
+        "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/b-11/page-06.webp",
+        "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/b-11/page-08.webp",
+        "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png"
+      ],
+      "transparent_background": false,
+      "prompt": "Use case: illustration-story. Repair the first picture only. Second picture shows the final completed toy road for continuity; third locks Kit and Zoe identity. Produce one finished 3:2 landscape picture-book illustration. Keep Kit sitting back and resting on the chair, and Zoe kneeling beside the red toy truck. The eighth unused loose block lies below and away from the road. ESSENTIAL EXACT COUNT AND GAP: there are exactly EIGHT equal-size tan rectangular wooden blocks in the whole picture. Seven blocks are already arranged as the same road seen in reference two, except ONE straight road block immediately BEFORE the far-right turning block is missing, leaving a clear gap exactly one block long. Specifically: SIX straight blocks touch end-to-end from left to right; then ONE empty block-sized space; then the SEVENTH placed block turned ninety degrees to form the far-right corner. This far-right corner is already on the same road, clearly aligned with the row across the single gap, not another loose block. The EIGHTH block is the single unused loose one below the road. The final picture's completed road thus needs only this one block inserted. Make the gap and count unmistakable. Keep the red truck at the left start, green rug, window, shelf and plain wooden chair. Preserve character identities, clothing and poses appropriate to this page. Bold clean dark outlines, flat warm colors, smooth small cel-shadows, no texture or grain. No labels, digits, text, arrows, extra blocks or objects, borders or panels.",
+      "id": "b11p6",
+      "generatedSource": "/Users/benjaminbowler/.codex/generated_images/01a10981-fcf4-7523-bda5-790b073481a6/exec-9157019f-30a0-4a08-9a7c-5de61dcefd04.png",
+      "stagedPath": ".artifacts/guided-reading-remediation-20261109/images/b11p6.webp",
+      "sourceSha256": "9fdf4c4b42625190bc881fd2ef7421d5b3b1503da3b47dad0280399d5c99acde",
+      "outputSha256": "268ccfd916ca74a845af8598d916a07d7eb7f3b814b8e08f9cfbcaf8e035180c",
+      "target": "public/guided-reading/world-discovery/b-11/page-06.webp",
+      "beforeSha256": "98beae15a185668befcc01013135bd0b6e31c3923a98f41f3f23fd1b59074176",
+      "references": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/b-11/page-06.webp",
+          "sha256": "98beae15a185668befcc01013135bd0b6e31c3923a98f41f3f23fd1b59074176"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/b-11/page-08.webp",
+          "sha256": "313372bada5aec0ad328d56340b48253459d4c80ae8581430e5ae5fdf753aefc"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+          "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+        }
+      ],
+      "status": "installed after complete sequence review",
+      "installedAt": "2026-11-09T03:25:18.415Z"
+    },
+    {
+      "referenced_image_paths": [
+        "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/b-11/page-07.webp",
+        "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/b-11/page-08.webp",
+        "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png"
+      ],
+      "transparent_background": false,
+      "prompt": "Use case: illustration-story. Repair the first picture only. Second picture shows the final completed toy road for continuity; third locks Kit and Zoe identity. Produce one finished 3:2 landscape picture-book illustration. Keep Kit off his chair and bending down to pick up the single eighth unused loose block below the road. Zoe watches him, kneeling. His hand touches only that loose block; he has not placed it into the road yet. ESSENTIAL EXACT COUNT AND GAP: there are exactly EIGHT equal-size tan rectangular wooden blocks in the whole picture. Seven blocks are already arranged as the same road seen in reference two, except ONE straight road block immediately BEFORE the far-right turning block is missing, leaving a clear gap exactly one block long. Specifically: SIX straight blocks touch end-to-end from left to right; then ONE empty block-sized space; then the SEVENTH placed block turned ninety degrees to form the far-right corner. This far-right corner is already on the same road, clearly aligned with the row across the single gap, not another loose block. The EIGHTH block is the single unused loose one below the road. The final picture's completed road thus needs only this one block inserted. Make the gap and count unmistakable. Keep the red truck at the left start, green rug, window, shelf and plain wooden chair. Preserve character identities, clothing and poses appropriate to this page. Bold clean dark outlines, flat warm colors, smooth small cel-shadows, no texture or grain. No labels, digits, text, arrows, extra blocks or objects, borders or panels.",
+      "id": "b11p7",
+      "generatedSource": "/Users/benjaminbowler/.codex/generated_images/01a10981-fcf4-7523-bda5-790b073481a6/exec-e6828271-a056-4625-984a-29334f38910a.png",
+      "stagedPath": ".artifacts/guided-reading-remediation-20261109/images/b11p7.webp",
+      "sourceSha256": "232decab7eea58bb9f7771e0a1a203e66afcc0b1aed49935fa5ea6019312c7e2",
+      "outputSha256": "a2dba059e2e303b4be3b7ed244e5b9280c43943e1414f9f020b8ea54a8f45a92",
+      "target": "public/guided-reading/world-discovery/b-11/page-07.webp",
+      "beforeSha256": "a1cd2eb346217e6abaeb9f805ff38d226306cbe96cad868eed208ef9c674ae0b",
+      "references": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/b-11/page-07.webp",
+          "sha256": "a1cd2eb346217e6abaeb9f805ff38d226306cbe96cad868eed208ef9c674ae0b"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/b-11/page-08.webp",
+          "sha256": "313372bada5aec0ad328d56340b48253459d4c80ae8581430e5ae5fdf753aefc"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+          "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+        }
+      ],
+      "status": "installed after complete sequence review",
+      "installedAt": "2026-11-09T03:25:18.415Z"
+    },
+    {
+      "referenced_image_paths": [
+        "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/e-19/page-05.webp",
+        "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png"
+      ],
+      "transparent_background": false,
+      "prompt": "Use case: illustration-story. Edit FIRST attached image ONLY. Second locks the children's skin/clothing colors; do NOT add faces or whole bodies. Essential edit: replace ALL the fine repeated wood-grain texture on the tabletop with ONE completely uniform flat pale warm-tan color. No grain, thin lines, fibres, mottling, pattern, gradient or photographic texture. Preserve EVERYTHING else exactly: overhead composition, white four-space chart with separate headings, every hand and finger pose, every colored shape's exact count, size and position, yellow tray. Keep the only visible text spelled exactly as in original: column headings \"round\" and \"not round\"; row headings \"red\" and \"not red\". No additional text. Crisp bold black outlines and clean flat colored shapes. Kit's hand places the large red circle in the top-left cell; remaining three cells empty. Red square, blue circle, blue square below board. Small red circle and red triangle on yellow tray. Finished 3:2 landscape picture-book illustration, no border or extra panel. Keep accurate teaching layout and natural hand anatomy; only simplify the background surface.",
+      "id": "e19p5",
+      "generatedSource": "/Users/benjaminbowler/.codex/generated_images/01a10981-fcf4-7523-bda5-790b073481a6/exec-16c6245c-770f-4ff3-87dd-0523b241e868.png",
+      "stagedPath": ".artifacts/guided-reading-remediation-20261109/images/e19p5.webp",
+      "sourceSha256": "a262100c285cab90007b99117dbfa3c699b478001c5a4d2baaed7fc92f2491a1",
+      "outputSha256": "12aeef9020b36a43bd94c3c8c742730e5178760d55fb79f38fab59c0d5b96004",
+      "target": "public/guided-reading/world-discovery/e-19/page-05.webp",
+      "beforeSha256": "34f948f1236533786bfbd725b86a1c0ab4d005aaac990f3f6cd2a82625365b9e",
+      "references": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/e-19/page-05.webp",
+          "sha256": "34f948f1236533786bfbd725b86a1c0ab4d005aaac990f3f6cd2a82625365b9e"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+          "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+        }
+      ],
+      "status": "installed after complete sequence review",
+      "installedAt": "2026-11-09T03:25:18.415Z"
+    },
+    {
+      "referenced_image_paths": [
+        "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/e-19/page-06.webp",
+        "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png"
+      ],
+      "transparent_background": false,
+      "prompt": "Use case: illustration-story. Edit FIRST attached image ONLY. Second locks the children's skin/clothing colors; do NOT add faces or whole bodies. Essential edit: replace ALL the fine repeated wood-grain texture on the tabletop with ONE completely uniform flat pale warm-tan color. No grain, thin lines, fibres, mottling, pattern, gradient or photographic texture. Preserve EVERYTHING else exactly: overhead composition, white four-space chart with separate headings, every hand and finger pose, every colored shape's exact count, size and position, yellow tray. Keep the only visible text spelled exactly as in original: column headings \"round\" and \"not round\"; row headings \"red\" and \"not red\". No additional text. Crisp bold black outlines and clean flat colored shapes. Large red circle already in top-left cell, Zoe's brown hand places red square in top-right cell. Bottom two cells empty. Blue circle and blue square below board. Small red circle and red triangle remain on yellow tray. Finished 3:2 landscape picture-book illustration, no border or extra panel. Keep accurate teaching layout and natural hand anatomy; only simplify the background surface.",
+      "id": "e19p6",
+      "generatedSource": "/Users/benjaminbowler/.codex/generated_images/01a10981-fcf4-7523-bda5-790b073481a6/exec-978baf7c-de7c-4f02-956a-fed4c2bce7fe.png",
+      "stagedPath": ".artifacts/guided-reading-remediation-20261109/images/e19p6.webp",
+      "sourceSha256": "ddbe7cb14c31038a3680721959bef6c6b67f0a815515fce81b13701ed4034c9e",
+      "outputSha256": "827d32b6cc9acb4065f0d463597e40a91ece34f0d10fd10b50a84729dca45702",
+      "target": "public/guided-reading/world-discovery/e-19/page-06.webp",
+      "beforeSha256": "83c29575faad9516a7b8e54c8addf3b1660d1b145c9147e9617a40363fff9a71",
+      "references": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/e-19/page-06.webp",
+          "sha256": "83c29575faad9516a7b8e54c8addf3b1660d1b145c9147e9617a40363fff9a71"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+          "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+        }
+      ],
+      "status": "installed after complete sequence review",
+      "installedAt": "2026-11-09T03:25:18.415Z"
+    },
+    {
+      "referenced_image_paths": [
+        "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/e-19/page-07.webp",
+        "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png"
+      ],
+      "transparent_background": false,
+      "prompt": "Use case: illustration-story. Edit FIRST attached image ONLY. Second locks the children's skin/clothing colors; do NOT add faces or whole bodies. Essential edit: replace ALL the fine repeated wood-grain texture on the tabletop with ONE completely uniform flat pale warm-tan color. No grain, thin lines, fibres, mottling, pattern, gradient or photographic texture. Preserve EVERYTHING else exactly: overhead composition, white four-space chart with separate headings, every hand and finger pose, every colored shape's exact count, size and position, yellow tray. Keep the only visible text spelled exactly as in original: column headings \"round\" and \"not round\"; row headings \"red\" and \"not red\". No additional text. Crisp bold black outlines and clean flat colored shapes. Chart has large red circle top-left, red square top-right, blue circle bottom-left, blue square bottom-right. Small red circle and red triangle remain on yellow tray. Four resting hands visible, two light-golden at left and two brown at right. Finished 3:2 landscape picture-book illustration, no border or extra panel. Keep accurate teaching layout and natural hand anatomy; only simplify the background surface.",
+      "id": "e19p7",
+      "generatedSource": "/Users/benjaminbowler/.codex/generated_images/01a10981-fcf4-7523-bda5-790b073481a6/exec-2242ea95-ba87-4d6f-b9c4-a762f3ec9501.png",
+      "stagedPath": ".artifacts/guided-reading-remediation-20261109/images/e19p7.webp",
+      "sourceSha256": "18239aecf380d3bc75558b4e8383106e278f53acd3607f594fcc53c9c4915946",
+      "outputSha256": "a2ea81a88efbd75dc051beed6931ee5ef9b64e82b1cb61ea067a110a510b4830",
+      "target": "public/guided-reading/world-discovery/e-19/page-07.webp",
+      "beforeSha256": "b50a7efb8954be9deb3ccc6fcef8d5736979077cc29c8414b8420be3eb3b3a11",
+      "references": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/e-19/page-07.webp",
+          "sha256": "b50a7efb8954be9deb3ccc6fcef8d5736979077cc29c8414b8420be3eb3b3a11"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+          "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+        }
+      ],
+      "status": "installed after complete sequence review",
+      "installedAt": "2026-11-09T03:25:18.415Z"
+    },
+    {
+      "id": "a08p2",
+      "generatedSource": "/Users/benjaminbowler/.codex/generated_images/01a10981-fcf4-7523-bda5-790b073481a6/exec-3071fefa-1e6c-4931-9392-aaf2d0fa6743.png",
+      "referenced_image_paths": [
+        "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/a-08/page-02.webp",
+        "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/a-08-reference.webp"
+      ],
+      "transparent_background": false,
+      "prompt": "Use case: illustration-story. Edit ONLY the first image into one finished landscape 3:2 full-bleed kindergarten picture-book illustration. Keep exactly the same educational cutaway: a single intact cream egg outline, broad rounded top and narrower bottom, one curled late-stage yellow chick entirely inside with closed eye, tucked head and small folded wing, folded feet and pale air cell at the broad top. Keep correct shell/membrane/air-cell arrangement and the barn, fence and nest setting. The second image is a palette and clean cartoon design reference only, do not add its hen or other eggs. ESSENTIAL REPAIR: replace the chick's hundreds of hairlike feather strands with simple flat yellow body shapes, a few rounded short-down contour tufts, crisp dark outline and at most two smooth cel-shadow shapes. Simplify straw into a modest number of clearly outlined flat ochre ribbons. Remove ALL fur striations, paper grain, painted gradients and simulated texture throughout background as well as focal bird. Keep biological meaning and exact single curled chick, no adult feathers, no extra limbs, no exposed yolk, no blood. Broad clean bold outlined 2D cartoon, no 3D, watercolor or photorealism. No text, letters, numbers, arrows, inset panels, borders or labels.",
+      "stagedPath": ".artifacts/guided-reading-remediation-20261109/images/a08p2.webp",
+      "sourceSha256": "a1f20a9c79b1ea65422a7b945c651bc5e9db70abbd4e53cf93b8d99c2e140918",
+      "outputSha256": "fe0d80b4d62efc5885ae5c7045b581ee284da14c9593471ade44d98b32f5ed02",
+      "target": "public/guided-reading/world-discovery/a-08/page-02.webp",
+      "beforeSha256": "1b5ed4fb477e26bb262b7c7d8d4024bd3cb42b39bc36e95bfa29384eb4b47870",
+      "references": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/a-08/page-02.webp",
+          "sha256": "1b5ed4fb477e26bb262b7c7d8d4024bd3cb42b39bc36e95bfa29384eb4b47870"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/a-08-reference.webp",
+          "sha256": "5c7cf8efa9e87d44976d269d359b524d9cca5832ba6b9f15434dffa6b5848ebe"
+        }
+      ],
+      "status": "installed after complete sequence review",
+      "installedAt": "2026-11-09T03:25:18.415Z"
+    },
+    {
+      "id": "wd-c14p2-revision",
+      "target": "public/guided-reading/world-discovery/c-14/page-02.webp",
+      "references": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/guided-reading-remediation-20261109/images/c14p2.webp",
+          "sha256": "33fe3d2cc553c77e855859c6c2a6820884537c8ae8e1bc5c0bcbd9db37c4cc87"
+        },
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/guided-reading-remediation-20261109/images/c14p5.webp",
+          "sha256": "846221ec3e2d346ff0f035a0e44a427723a4e6b2521ced8912198b1a7d9a1048"
+        }
+      ],
+      "prompt": "Use case: precise-object-edit. Edit only the first attached image. Finished landscape 3:2 full-bleed kindergarten picture-book illustration, crisp continuous bold outlines and flat clean colors with smooth cel shading. Preserve Kit, Zoe, room, poses, hands, table, paper strip endpoints, red bookmark position and blue book. ESSENTIAL: turn the six disconnected arrows into ONE continuous horizontal graphite pencil shaft from left to right, with SIX clearly separated arrowheads at six evenly spaced positions. Heads 1, 2, 3, 4 and 6 point RIGHT toward the book; head 5 points LEFT. Do not create crossing arrowheads, X shapes or overlapping heads. Connect all shafts so there are no white gaps anywhere between the six arrows. Preserve six-arrow order and spacing. The second attached picture is reference ONLY for the book illustration: change the target book right page to the SAME standing golden lion on green ground and pale blue sky shown in image 2. The left page remains blank. Do not copy image 2 layout or pose. Keep everything else from image 1. No additional text, letters, labels, numbers, symbols, panels, frames, texture, grain or painterly marks.",
+      "supersedesStage": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/guided-reading-remediation-20261109/images/c14p2.webp",
+      "generatedSource": "/Users/benjaminbowler/.codex/generated_images/01a1bd84-e6ed-7133-9f3f-b7c5ee069573/exec-56285221-5933-4d2a-91bf-f4b3e9e7cdfb.png",
+      "stagedPath": ".artifacts/guided-reading-remediation-20261109/images/final-wd-c14p2-revision.webp",
+      "outputSha256": "95151dd514fb474ac3cc981ec204b82db1bd212c2614e3c9aed0efd32905c336",
+      "beforeSha256": "9129a8bcf494a8c9a9fd61859dd49e479e378e28f5fbc99071c969d3165edd61",
+      "supersedesStageSha256": "33fe3d2cc553c77e855859c6c2a6820884537c8ae8e1bc5c0bcbd9db37c4cc87",
+      "status": "installed after complete sequence review",
+      "reviewedPng": ".artifacts/guided-reading-remediation-20261109/partition-2/replacements/wd-c14p2-revision.png",
+      "reviewedPngSha256": "b865b3e5e6794ed7d20881f185733b7123a6f13374c34fdc214ccb7a5c9b17a2",
+      "rootNativeReview": "Six separated arrowheads with continuous shaft and unchanged standing lion, or seven near-side walking legs per foreground woodlouse; corrected defect resolved.",
+      "installedAt": "2026-11-09T03:25:18.415Z"
+    },
+    {
+      "id": "wd-c14p5-revision",
+      "target": "public/guided-reading/world-discovery/c-14/page-05.webp",
+      "references": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/guided-reading-remediation-20261109/images/c14p5.webp",
+          "sha256": "846221ec3e2d346ff0f035a0e44a427723a4e6b2521ced8912198b1a7d9a1048"
+        }
+      ],
+      "prompt": "Use case: precise-object-edit. Edit only the first attached image. Finished landscape 3:2 full-bleed kindergarten picture-book illustration, crisp continuous bold outlines and flat clean colors with smooth cel shading. Preserve Kit, Zoe, room, poses, hands, table, paper strip endpoints, red bookmark position and blue book. ESSENTIAL: turn the six disconnected arrows into ONE continuous horizontal graphite pencil shaft from left to right, with SIX clearly separated arrowheads at six evenly spaced positions. Heads 1, 2, 3, 4 and 6 point RIGHT toward the book; head 5 points LEFT. Do not create crossing arrowheads, X shapes or overlapping heads. Connect all shafts so there are no white gaps anywhere between the six arrows. Preserve six-arrow order and spacing. Keep the standing lion on green ground on the book right page exactly as shown; keep blank left page and Kit pointing at the left arrow. No additional text, letters, labels, numbers, symbols, panels, frames, texture, grain or painterly marks.",
+      "supersedesStage": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/guided-reading-remediation-20261109/images/c14p5.webp",
+      "generatedSource": "/Users/benjaminbowler/.codex/generated_images/01a1bd84-e6ed-7133-9f3f-b7c5ee069573/exec-fc253350-69a3-4a4c-8192-f6a82fa8f536.png",
+      "stagedPath": ".artifacts/guided-reading-remediation-20261109/images/final-wd-c14p5-revision.webp",
+      "outputSha256": "1f3f233cc97051d3a2ec9180cf350668924caec3f182876832773b8a7610d46a",
+      "beforeSha256": "a33be5c51dab8160f3d3dabcbb3dd3ef75e6341b9f3816a970950b310d00d2d0",
+      "supersedesStageSha256": "846221ec3e2d346ff0f035a0e44a427723a4e6b2521ced8912198b1a7d9a1048",
+      "status": "installed after complete sequence review",
+      "reviewedPng": ".artifacts/guided-reading-remediation-20261109/partition-2/replacements/wd-c14p5-revision.png",
+      "reviewedPngSha256": "3629a79c1d211a2590d89c12460830e827964ab051dae7b8f2a833b9d170fa2d",
+      "rootNativeReview": "Six separated arrowheads with continuous shaft and unchanged standing lion, or seven near-side walking legs per foreground woodlouse; corrected defect resolved.",
+      "installedAt": "2026-11-09T03:25:18.415Z"
+    },
+    {
+      "id": "wd-c20p4-revision",
+      "target": "public/guided-reading/world-discovery/c-20/page-04.webp",
+      "references": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/guided-reading-remediation-20261109/images/c20p4.webp",
+          "sha256": "35651c29ca05707cedf182424d90e7bff5f6dd8d1e4208a31879e6259634241c"
+        }
+      ],
+      "supersedesStage": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/guided-reading-remediation-20261109/images/c20p4.webp",
+      "prompt": "Use case: precise-object-edit. Edit the supplied landscape 3:2 cartoon extremely precisely. Correct ONLY the LEFT FOREGROUND woodlouse nibbling rotten wood: it must have exactly SEVEN clearly countable jointed walking legs on its visible near side, with one leg per main body segment. Currently there are only six. Add the missing seventh walking leg between the front of its body and first existing leg, adjusting spacing gently so all seven are clearly separate and naturally attached. Do not count or replace the small white mouthparts beneath its head; keep its two antennae and eating contact with the wood. Keep both other woodlice unchanged; right foreground already has seven near-side walking legs, back animal partly occluded. Preserve exact framing, poses, damp droplets, leaves, wood, stones, gray body colors, tails and clean flat cel-shaded bold outlined cartoon style. No added text, numbers, labels, arrows, grain, painterly texture or extra anatomy. This is an educational anatomy correction.",
+      "generatedSource": "/Users/benjaminbowler/.codex/generated_images/01a1bd84-e6ed-7133-9f3f-b7c5ee069573/exec-3dcfc3b9-e6ab-43b4-abd0-b002b415a893.png",
+      "stagedPath": ".artifacts/guided-reading-remediation-20261109/images/final-wd-c20p4-revision.webp",
+      "outputSha256": "5b29b05f503713d6abd798ce0f0d5cde111cb1ecc65db09a7733a26f8476a3cb",
+      "beforeSha256": "893608d953c845861f802377dbe9182400bf8e10a8bb3e2dea0ba8bebee4a85b",
+      "supersedesStageSha256": "35651c29ca05707cedf182424d90e7bff5f6dd8d1e4208a31879e6259634241c",
+      "status": "installed after complete sequence review",
+      "reviewedPng": ".artifacts/guided-reading-remediation-20261109/partition-2/replacements/wd-c20p4-revision.png",
+      "reviewedPngSha256": "a099b9da9cbffc8aab9350cec0644894bb6dd58fd57b8f8cc637c4780f86ce16",
+      "rootNativeReview": "Six separated arrowheads with continuous shaft and unchanged standing lion, or seven near-side walking legs per foreground woodlouse; corrected defect resolved.",
+      "installedAt": "2026-11-09T03:25:18.415Z"
+    },
+    {
+      "id": "wd-c14-reference-revision",
+      "target": "source-art/world-discovery/c-14-reference.webp",
+      "references": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/c-14-reference.webp",
+          "sha256": "3eaf0876222f1b3ea03b8c243ffaee3c6cfc89cb3e09beeb499021d4a7c6832b"
+        }
+      ],
+      "prompt": "Use case: precise reference-sheet prop repair. Edit ONLY the arrow marks on BOTH paper strips in this exact character/prop reference sheet: (1) the white strip on the desk in the bottom-left classroom scene; (2) the white isolated strip along the bottom near the center-right. Keep the entire reference-sheet layout, every character turnaround, all character anatomy/clothing/colors, all books, red bookmark shapes, pencil/eraser, furniture, room, color swatches, and white background unchanged. On EACH strip draw ONE uninterrupted continuous horizontal gray pencil shaft with EXACTLY SIX clearly separated arrowheads centered at six evenly spaced positions along it. From left to right the heads must point RIGHT, RIGHT, RIGHT, RIGHT, LEFT, RIGHT. There must be a generous clear shaft segment between the fourth right-pointing head and fifth left-pointing head: they must NEVER touch, overlap, cross or form an X. All six heads should be small enough for even spacing. Keep the shaft continuous across the whole paper route: no separate arrows with gaps. The red bookmark on the desk strip stays at the far-left start as currently. Keep both strips' existing endpoints and dimensions. No labels, numbers or extra arrows. Preserve clean crisp dark outlined cartoon art and the exact reference content elsewhere.",
+      "generatedSource": "/Users/benjaminbowler/.codex/generated_images/01a1bd84-e6ed-7133-9f3f-b7c5ee069573/exec-b16b6166-9934-47d1-9182-633253907cec.png",
+      "stagedPath": ".artifacts/guided-reading-remediation-20261109/images/final-wd-c14-reference.webp",
+      "outputSha256": "6cea36923145a30d17980ac97f426889b3ef9bbb5771b461975751b87e2fadc9",
+      "beforeSha256": "3eaf0876222f1b3ea03b8c243ffaee3c6cfc89cb3e09beeb499021d4a7c6832b",
+      "status": "installed after complete sequence review",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reviewedPng": ".artifacts/guided-reading-remediation-20261109/partition-2/replacements/wd-c14-reference-revision.png",
+      "reviewedPngSha256": "941fbd1e5e66f3519019fb8eace9a6c89fa10afa821833dc318bd6543f8df234",
+      "rootNativeReview": "Both reference strips have six separated arrowheads on a continuous shaft, fifth left; cast and props preserved.",
+      "installedAt": "2026-11-09T03:25:18.415Z"
+    }
+  ]
+}

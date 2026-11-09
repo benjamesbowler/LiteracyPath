@@ -13,8 +13,17 @@
   "references": [],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T03:55:11.811571+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "b025bdffb8926422123fc03ffed8526adc1df1b98bfb771338f4eff721fcb879",
-    "note": "Inspected replacement board retains correct isolated eight-legged spider models and removes the misleading six-legged spider in the scene key. Location now empty; crisp edges. Counted four long walking legs on each side of frontal model, with separate short pedipalps."
+    "note": "Inspected replacement board retains correct isolated eight-legged spider models and removes the misleading six-legged spider in the scene key. Location now empty; crisp edges. Counted four long walking legs on each side of frontal model, with separate short pedipalps.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-d.json",
+    "bookId": "world-discovery-d-07",
+    "sha256": "d27435e0f12cb471d6c271d3b7e6df5d68f2cdd378295d4e0705ee47de1a5665",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T04:55:31.159Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "3e8f9223eac8600526a6d4dfa5580742333cae4c638f1799ba0a454aea3f9f98",
     "note": "Corrected daytime background and fully-lit Earth. Space diagram has off-alignment Moon between Sun direction and Earth, both left halves lit; no eclipse.",
-    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-e.json",
+    "bookId": "world-discovery-e-06",
+    "sha256": "ee7fbae5a543f22990a78929d424b7b0ae5208b2cf696db2cdbabd8ab4bee424",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

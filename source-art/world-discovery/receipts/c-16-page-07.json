@@ -25,8 +25,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T16:40:01.355085+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "3646b4b4861f05da2e1cc0255254ebff10746d4069e9593e63aee1c1d29b2279",
-    "note": "Native and final WebP directly inspected. Same two-lobed nucleus; Sun left and dust tail away to right, coherent near/far solar size and fading versus summary state; entire Sun and tail safely framed. No invented orbit strings or props."
+    "note": "Native and final WebP directly inspected. Same two-lobed nucleus; Sun left and dust tail away to right, coherent near/far solar size and fading versus summary state; entire Sun and tail safely framed. No invented orbit strings or props.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-c.json",
+    "bookId": "world-discovery-c-16",
+    "sha256": "ae39bc803d37457cee0e57fa8d64d625ba184a1125dc315697ce54396b01322f",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

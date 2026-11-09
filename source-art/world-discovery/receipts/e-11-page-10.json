@@ -33,9 +33,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T17:54:25.674Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "91c55190f73cb301ed4a6d208592d2c2ecd954f968e3d98bbe9c132fb693d8fe",
     "note": "Native and installed WebP inspected: continuous window and wall artwork replace former horizontal cut; one silver clip visibly overlaps/grips cabinet ledge, with single swimming drawing hanging down against cabinet front. Zoe points, Kit looks, closed folder and exactly two crayons preserved. Natural seated scale, chair/table support and hands remain coherent.",
-    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-e.json",
+    "bookId": "world-discovery-e-11",
+    "sha256": "4408a56cb14307858530077cfd778003dbeb95184a6c41c9c28c32a67d8d7763",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

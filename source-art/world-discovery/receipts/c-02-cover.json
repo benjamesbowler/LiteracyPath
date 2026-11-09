@@ -22,9 +22,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "25115ebfadebe653980a3eb261cae25e85a052ca145c1291b77ce8ce7dc021a5",
     "note": "Dedicated cover: Kit and Zoe kneel beside one yellow hoop with exactly one red and one blue ball together inside. Correct outfits, outdoor lawn, hands and playful shared attention.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-c.json",
+    "bookId": "world-discovery-c-02",
+    "sha256": "0729161220ddb0531232e3b0178f42757c10d8d6600bfa893176f0be568d3d51",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

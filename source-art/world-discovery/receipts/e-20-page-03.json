@@ -24,8 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "sha256": "47bfada1e057bc389f2cd3047203ee7db9395a02d3f8d410ace77ab151d23455",
     "method": "codex-direct-image-inspection",
-    "note": "Adult alone operates reel mower along route outside intact bud patch; children remain distant. Natural hand grip, feet/wheels ground contact, broad margins."
+    "reviewedAt": "2026-11-09",
+    "sha256": "47bfada1e057bc389f2cd3047203ee7db9395a02d3f8d410ace77ab151d23455",
+    "note": "Adult alone operates reel mower along route outside intact bud patch; children remain distant. Natural hand grip, feet/wheels ground contact, broad margins.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-e.json",
+    "bookId": "world-discovery-e-20",
+    "sha256": "fac02292fb99181c3cdf95a864e5c86a9e22d1df1677d6d1143abbaca2559e90",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

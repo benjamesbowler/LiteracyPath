@@ -24,8 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "sha256": "652b2238143e99de05b5c9972f364e8c804eced50736befdbcb101ba673347c2",
     "method": "codex-direct-image-inspection",
-    "note": "Kit alone finishes purple tray at front-left rim with purple bristle tips. Entire boat and tray wet-purple, no premature disappearance or yellow paint applied."
+    "reviewedAt": "2026-11-09",
+    "sha256": "652b2238143e99de05b5c9972f364e8c804eced50736befdbcb101ba673347c2",
+    "note": "Kit alone finishes purple tray at front-left rim with purple bristle tips. Entire boat and tray wet-purple, no premature disappearance or yellow paint applied.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-e.json",
+    "bookId": "world-discovery-e-14",
+    "sha256": "8862e7d954663c477026be2179ef1b58df7d13ea4674a8b68017c6834eef1904",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

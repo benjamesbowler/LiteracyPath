@@ -18,8 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T04:47:01.816617+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "23a1af10873cabe7514db6cec9f8ef8c124dece719ff3383598bba52a11e607f",
-    "note": "Wider persistent trail repaired to visible staggered alternating footprints; astronaut has left scene."
+    "note": "Wider persistent trail repaired to visible staggered alternating footprints; astronaut has left scene.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-b.json",
+    "bookId": "world-discovery-b-06",
+    "sha256": "95c162744226d000ed4c2dbd0905f56e99b5b6cbfb7cd9a17396f67a70d1fda7",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

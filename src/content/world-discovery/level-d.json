@@ -114,7 +114,7 @@
       },
       {
         "pageNumber": 10,
-        "text": "The train goes back on Kit’s shelf. In the box, there is room for the things he wants to say.",
+        "text": "Kit puts the train on his shelf. His box now holds the sock, the kite, and his drawing.",
         "imageBrief": "Kit places the blue train on the low shelf while carrying the closed orange box in his other hand. Exact continuity: Zoe at table; train stays part of Kit’s room rather than being discarded.",
         "imageAlt": "Kit places the blue train on the low shelf while carrying the closed orange box in his other hand.",
         "pageDescription": "Kit places the blue train on the low shelf while carrying the closed orange box in his other hand.",
@@ -217,7 +217,7 @@
       },
       {
         "pageNumber": 5,
-        "text": "Zoe carries her picture to the far table. Kit stays by the blocks. “Did you not want me here?”",
+        "text": "Zoe carries her picture to the far table. Kit stays by the blocks. “Didn’t you want me here?”",
         "imageBrief": "Zoe carries paper and pencil to the far table; Kit kneels beside the scattered blocks and looks toward her. Exact continuity: Blue chair remains at original table; Zoe takes only paper and pencil.",
         "imageAlt": "Zoe carries paper and pencil to the far table; Kit kneels beside the scattered blocks and looks toward her.",
         "pageDescription": "Zoe carries paper and pencil to the far table; Kit kneels beside the scattered blocks and looks toward her.",
@@ -262,7 +262,7 @@
       },
       {
         "pageNumber": 10,
-        "text": "Kit comes with empty hands. Zoe moves her picture between them. “This branch was your loud bit,” she says.",
+        "text": "Kit comes with empty hands. Zoe points to her picture. “Look! I made that long line into a branch.”",
         "imageBrief": "Kit sits beside Zoe at the far table, both looking at the finished branching tree drawing. Exact continuity: Blocks remain on rug; quiet shared viewing; unintended line now a leafy branch.",
         "imageAlt": "Kit sits beside Zoe at the far table, both looking at the finished branching tree drawing.",
         "pageDescription": "Kit sits beside Zoe at the far table, both looking at the finished branching tree drawing.",
@@ -272,7 +272,7 @@
     ],
     "discussion": {
       "oral": {
-        "prompt": "What did Kit misunderstand, and what did he change?",
+        "prompt": "Why did Zoe move away? What did Kit do next?",
         "listenFor": "He thought Zoe needed the game nearer; she needed quiet to finish. He asked, moved blocks and waited."
       },
       "visual": {
@@ -413,7 +413,7 @@
       },
       {
         "pageNumber": 9,
-        "text": "The river does not belong to the sink. Fish and plants need that water, too, so cleaning it matters.",
+        "text": "Fish and plants live in the river. Cleaning the used water helps keep their river home safe.",
         "imageBrief": "Downstream river scene shows fish below the surface and reeds at the bank, with the distant treatment outlet upstream. Exact continuity: Natural fish and plant anatomy; no implication water is ready to drink directly.",
         "imageAlt": "Downstream river scene shows fish below the surface and reeds at the bank, with the distant treatment outlet upstream.",
         "pageDescription": "Downstream river scene shows fish below the surface and reeds at the bank, with the distant treatment outlet upstream.",
@@ -454,13 +454,17 @@
       {
         "word": "drain",
         "meaning": "the opening and pipe that let used water leave"
+      },
+      {
+        "word": "treatment plant",
+        "meaning": "a place where workers clean water"
       }
     ]
   },
   {
     "id": "world-discovery-d-04",
     "number": 4,
-    "title": "The Pocket of Wind",
+    "title": "The Bag of Wind",
     "topic": "fantasy",
     "type": "fiction",
     "appLevel": "D",
@@ -474,7 +478,7 @@
         "WD-ZOE",
         "WD-KIT"
       ],
-      "storySpine": "Zoe wants to bring a red kite out of a low tree using a pocket that stores wind, but her first gust wedges it farther in.",
+      "storySpine": "Zoe wants to bring a red kite out of a low tree using a bag that stores wind, but her first gust wedges it farther in.",
       "failedAttempt": "She releases a strong gust from below the kite; the wind drives the kite deeper into the branch fork.",
       "resolution": "Zoe moves to the other side and releases a small stored puff through a narrow opening, lifting the kite toward Kit’s waiting hands.",
       "magicRule": "The separate blue zip pouch stores wind caught from a real breeze while open and sealed by its zipper. Reopening releases the stored wind in the aimed direction; a small opening gives a small puff and closing preserves what remains. It creates no new wind, and no other object is enchanted."
@@ -490,7 +494,7 @@
     "pages": [
       {
         "pageNumber": 1,
-        "text": "Zoe has a magic pocket. Open it into the breeze, zip it shut, and the wind stays inside.",
+        "text": "Zoe has a magic bag. Open it into the breeze, zip it shut, and the wind stays inside.",
         "imageBrief": "Zoe holds the mouth of a blue pouch into a garden breeze; Kit watches beside the low apple tree. Exact continuity: Pouch separate from clothing; this is explicit fantasy; kite lies on grass.",
         "imageAlt": "Zoe holds the mouth of a blue pouch into a garden breeze; Kit watches beside the low apple tree.",
         "pageDescription": "Zoe holds the mouth of a blue pouch into a garden breeze; Kit watches beside the low apple tree.",
@@ -499,7 +503,7 @@
       },
       {
         "pageNumber": 2,
-        "text": "When Zoe opens the pocket again, the saved wind rushes out. Kit’s loose kite lifts from the grass.",
+        "text": "When Zoe opens the bag again, the saved wind rushes out. Kit’s loose kite lifts from the grass.",
         "imageBrief": "A gust from the open pouch lifts the red kite a short distance while its spool rests on grass. Exact continuity: First demonstration empties pouch; kite has one short white tail and attached string.",
         "imageAlt": "A gust from the open pouch lifts the red kite a short distance while its spool rests on grass.",
         "pageDescription": "A gust from the open pouch lifts the red kite a short distance while its spool rests on grass.",
@@ -517,7 +521,7 @@
       },
       {
         "pageNumber": 4,
-        "text": "Zoe catches another gust in her pocket. “I will blow it out,” she says, standing beneath the kite.",
+        "text": "Zoe catches another gust in her bag. “I will blow it out,” she says, standing beneath the kite.",
         "imageBrief": "Zoe stands beneath the trapped kite, holding the refilled blue pouch with its zipper now closed. Kit still holds the kite string taut from the ground. Exact continuity: Second stored gust; zipper closed after refilling; Kit has not yet stopped pulling; one moment after the catch.",
         "imageAlt": "Zoe stands beneath the trapped kite, holding the refilled blue pouch with its zipper now closed. Kit still holds the kite string taut from the ground.",
         "pageDescription": "Zoe stands beneath the trapped kite, holding the refilled blue pouch with its zipper now closed. Kit still holds the kite string taut from the ground.",
@@ -526,7 +530,7 @@
       },
       {
         "pageNumber": 5,
-        "text": "She opens the pocket wide. Whoosh! The kite jumps higher and sticks deeper in the fork.",
+        "text": "She opens the bag wide. Whoosh! The kite jumps higher and sticks deeper in the fork.",
         "imageBrief": "An upward gust pushes the red kite farther into the same fork while Zoe holds the pouch below. Exact continuity: Failed attempt worsens wedge; kite still low enough to reach from opposite ground position.",
         "imageAlt": "An upward gust pushes the red kite farther into the same fork while Zoe holds the pouch below.",
         "pageDescription": "An upward gust pushes the red kite farther into the same fork while Zoe holds the pouch below.",
@@ -544,7 +548,7 @@
       },
       {
         "pageNumber": 7,
-        "text": "She fills the pocket once more and points it through the gap. This time she opens only a tiny corner.",
+        "text": "She fills the bag once more and points it through the gap. This time she opens only a tiny corner.",
         "imageBrief": "Zoe aims the recharged pouch through the back of the fork, zipper open only a little. Exact continuity: Third gust stored; small opening releases part of it; pouch aimed outward through gap.",
         "imageAlt": "Zoe aims the recharged pouch through the back of the fork, zipper open only a little.",
         "pageDescription": "Zoe aims the recharged pouch through the back of the fork, zipper open only a little.",
@@ -562,7 +566,7 @@
       },
       {
         "pageNumber": 9,
-        "text": "The kite slides out into Kit’s hands. Its paper is bent, but there is no hole. Zoe shuts the pocket.",
+        "text": "The kite slides out into Kit’s hands. Its paper is bent, but there is no hole. Zoe shuts the bag.",
         "imageBrief": "Kit catches the freed red kite with both hands while Zoe closes the zipper. Exact continuity: Kite intact but bent along one corner; string remains attached; remaining wind kept inside.",
         "imageAlt": "Kit catches the freed red kite with both hands while Zoe closes the zipper.",
         "pageDescription": "Kit catches the freed red kite with both hands while Zoe closes the zipper.",
@@ -571,7 +575,7 @@
       },
       {
         "pageNumber": 10,
-        "text": "Kit smooths the bent corner. “Save some wind for flying,” he says. Zoe gives the zipped pocket a small pat.",
+        "text": "Kit smooths the bent corner. “Save some wind for flying,” he says. Zoe gives the zipped bag a small pat.",
         "imageBrief": "Kit smooths the red kite on the grass while Zoe pats her closed blue pouch beside him. Exact continuity: Resolved kite retrieval; bent corner being smoothed; stored puff retained, not a new power.",
         "imageAlt": "Kit smooths the red kite on the grass while Zoe pats her closed blue pouch beside him.",
         "pageDescription": "Kit smooths the red kite on the grass while Zoe pats her closed blue pouch beside him.",
@@ -716,7 +720,7 @@
       },
       {
         "pageNumber": 8,
-        "text": "Real islands can sit in lakes, rivers, or oceans. Their size does not change the water all around them.",
+        "text": "Islands can be in lakes, rivers, or oceans. They can be big or small, with water all around them.",
         "imageBrief": "A single wide lake landscape shows a small wooded island fully surrounded by water, seen from an elevated shore. Exact continuity: Explicit move from model to real lake; no people crossing water; island boundary visible.",
         "imageAlt": "A single wide lake landscape shows a small wooded island fully surrounded by water, seen from an elevated shore.",
         "pageDescription": "A single wide lake landscape shows a small wooded island fully surrounded by water, seen from an elevated shore.",
@@ -896,7 +900,7 @@
       },
       {
         "pageNumber": 9,
-        "text": "That broken edge is a clue. The large crater was already there when the smaller one struck its rim.",
+        "text": "The broken edge is a clue. A rock hit the old crater’s rim and made the smaller crater later.",
         "imageBrief": "Closer oblique angle emphasizes intact small-crater rim and the interrupted larger-crater rim on both sides. Exact continuity: Same overlapping pair; no arbitrary date labels or extra impacts.",
         "imageAlt": "Closer oblique angle emphasizes intact small-crater rim and the interrupted larger-crater rim on both sides.",
         "pageDescription": "Closer oblique angle emphasizes intact small-crater rim and the interrupted larger-crater rim on both sides.",
@@ -905,7 +909,7 @@
       },
       {
         "pageNumber": 10,
-        "text": "The Moon’s hollows are more than spots. They hold clues about crashes that changed the surface, one impact after another.",
+        "text": "Rocks hit the Moon at different times. Their craters help us work out which crashes happened first.",
         "imageBrief": "Pull back to the Moon with the overlapping pair still foregrounded among many craters. Exact continuity: Full concept return; no faces, labels or unsupported ages.",
         "imageAlt": "Pull back to the Moon with the overlapping pair still foregrounded among many craters.",
         "pageDescription": "Pull back to the Moon with the overlapping pair still foregrounded among many craters.",
@@ -928,7 +932,7 @@
     "languagePrep": [
       {
         "word": "impact",
-        "meaning": "a strong collision"
+        "meaning": "when one thing hits another hard"
       },
       {
         "word": "crater",
@@ -1248,7 +1252,7 @@
       },
       {
         "pageNumber": 10,
-        "text": "One of those beans goes into warm, damp soil. A new root begins the journey again.",
+        "text": "One of those beans goes into warm, damp soil. A new root grows from it. Another bean plant begins to grow.",
         "imageBrief": "A new cream seed with an emerging root sits in soil, with the opened dry pod resting above ground nearby. Exact continuity: This is a new seed generation; original plant not magically shrinking back.",
         "imageAlt": "A new cream seed with an emerging root sits in soil, with the opened dry pod resting above ground nearby.",
         "pageDescription": "A new cream seed with an emerging root sits in soil, with the opened dry pod resting above ground nearby.",
@@ -1258,7 +1262,7 @@
     ],
     "discussion": {
       "oral": {
-        "prompt": "Why does a bean in the final pod matter to the next plant?",
+        "prompt": "How can one of these beans grow into a new plant?",
         "listenFor": "It is a new seed; in suitable warm, damp conditions it can germinate and repeat the cycle."
       },
       "visual": {
@@ -1280,6 +1284,10 @@
       {
         "word": "pod",
         "meaning": "the fruit that holds these bean seeds"
+      },
+      {
+        "word": "pollinated",
+        "meaning": "Pollen is fine powder made by flowers. A flower is pollinated when pollen reaches the part that helps it make seeds."
       }
     ]
   },
@@ -1408,7 +1416,7 @@
       },
       {
         "pageNumber": 10,
-        "text": "The key lifts. Into the clip tray it goes. These groups tell what the magnet did, not what looked shiny.",
+        "text": "The magnet lifts the key. Kit puts it with the clip. The foil stays in the other tray.",
         "imageBrief": "Key hangs from magnet over left tray containing washer and clip; right holds foil, block and spoon. Exact continuity: Final tested grouping; no unexplained extra objects or altered materials.",
         "imageAlt": "Key hangs from magnet over left tray containing washer and clip; right holds foil, block and spoon.",
         "pageDescription": "Key hangs from magnet over left tray containing washer and clip; right holds foil, block and spoon.",
@@ -1418,12 +1426,12 @@
     ],
     "discussion": {
       "oral": {
-        "prompt": "Why was “shiny things” a poor rule for this sorting task?",
+        "prompt": "The clip and foil are both shiny. Why are they in different trays?",
         "listenFor": "Both foil and steel looked shiny, but only the steel objects were attracted by the magnet."
       },
       "visual": {
         "page": 10,
-        "prompt": "Which shiny object belongs in the other tray?",
+        "prompt": "Which shiny object did the magnet not pull?",
         "lookFor": "The aluminum foil stays with the objects that were not pulled."
       }
     },
@@ -1541,7 +1549,7 @@
       },
       {
         "pageNumber": 7,
-        "text": "But the battery cannot store an endless supply. If little sunlight reaches the panel, the light may not last as long.",
+        "text": "The battery stores only some energy. If little sunlight reaches the panel, the lamp may shine for a shorter time.",
         "imageBrief": "A daylight view of the same garden light shows the shrub’s shadow covering most of its top panel while the surrounding path is sunlit. Exact continuity: One daytime cause of weak charging; lamp off in daylight; no nighttime shadow falsely shown as blocked sunlight.",
         "imageAlt": "A daylight view of the same garden light shows the shrub’s shadow covering most of its top panel while the surrounding path is sunlit.",
         "pageDescription": "A daylight view of the same garden light shows the shrub’s shadow covering most of its top panel while the surrounding path is sunlit.",
@@ -1559,7 +1567,7 @@
       },
       {
         "pageNumber": 9,
-        "text": "The light uses energy from the Sun, but its parts still need materials and care. Using less light saves energy, too.",
+        "text": "People make the lamp and battery from materials such as metal and plastic. Switching the lamp off saves stored energy.",
         "imageBrief": "Same intact solar lamp illuminates only the stepping stone and path edge while the rest of the garden remains dark. Exact continuity: No claim zero environmental impact; light directed downward, not into sky.",
         "imageAlt": "Same intact solar lamp illuminates only the stepping stone and path edge while the rest of the garden remains dark.",
         "pageDescription": "Same intact solar lamp illuminates only the stepping stone and path edge while the rest of the garden remains dark.",
@@ -1568,7 +1576,7 @@
       },
       {
         "pageNumber": 10,
-        "text": "Daytime light, stored energy, nighttime lamp: the battery connects two parts of the day. The garden path is bright enough to see.",
+        "text": "The battery stores energy during the day. At night, that energy powers the lamp and lights the garden path.",
         "imageBrief": "Final evening view shows the same lamp lighting the next stepping stone, with clear path and quiet garden beyond. Exact continuity: Same device, no additional lamps; endpoint resolves opening nighttime glow.",
         "imageAlt": "Final evening view shows the same lamp lighting the next stepping stone, with clear path and quiet garden beyond.",
         "pageDescription": "Final evening view shows the same lamp lighting the next stepping stone, with clear path and quiet garden beyond.",
@@ -1599,7 +1607,7 @@
       },
       {
         "word": "electricity",
-        "meaning": "energy carried through an electrical circuit"
+        "meaning": "energy that can flow through wires to power a light"
       }
     ]
   }

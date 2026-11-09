@@ -22,8 +22,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T05:19:58.191019+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "8ad8e18afba281fd388e874afb7ecd2086d0e2b2d8348fc35a55f7eb15f29427",
-    "note": "Direct inspection of repaired image: Kit folds bag lower corner inward; one red cube slips below fold, other contents remain concealed by opaque cloth. Tear no longer becomes an implausible giant opening. Same children, no patch or adult."
+    "note": "Direct inspection of repaired image: Kit folds bag lower corner inward; one red cube slips below fold, other contents remain concealed by opaque cloth. Tear no longer becomes an implausible giant opening. Same children, no patch or adult.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-b.json",
+    "bookId": "world-discovery-b-10",
+    "sha256": "115aa91cd38527fd409ab657bf70dca6c609ad7a3434fd301113da5a468ac91e",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

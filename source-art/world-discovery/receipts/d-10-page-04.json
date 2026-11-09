@@ -18,8 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T04:31:11.334226+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "8cc10aa2f0494894393f94ad8f165f6df4c2a8d7b1c970929653ee0a7e08e261",
-    "note": "Intact lamp remains off in afternoon sunlight; shrub shadow leaves panel illuminated."
+    "note": "Intact lamp remains off in afternoon sunlight; shrub shadow leaves panel illuminated.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-d.json",
+    "bookId": "world-discovery-d-10",
+    "sha256": "ca01455632d2ab41b0d96149fc43ef59a70841e5fb409f384c603d9dc77bd850",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

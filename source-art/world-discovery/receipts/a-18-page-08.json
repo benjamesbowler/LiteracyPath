@@ -25,8 +25,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T12:06:23.101706+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "3f789c8717c30a94285d294503931dab85c11cfb41c2ecad01d0af4f5ae190ae",
-    "note": "Flight toward whole coneflower with four wings, two antennae, naturally extended proboscis and thoracic legs; empty case retained. Native generation and installed WebP directly inspected."
+    "note": "Flight toward whole coneflower with four wings, two antennae, naturally extended proboscis and thoracic legs; empty case retained. Native generation and installed WebP directly inspected.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-a.json",
+    "bookId": "world-discovery-a-18",
+    "sha256": "9624c179f0364c94c1c2dd7468615ae3a63bd6ee32442d0b2838e8f214194c8c",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

@@ -25,8 +25,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T17:17:37.172Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "2e534d82aee07d169ea3f83d6f0a0ff0408a45eb12f9846f7ab33191fc872a0e",
-    "note": "Directly inspected generated native and installed full-size WebP. Natural supported table scene or intentional continuous-forearm tabletop close view; exact classification stage, piece counts and functional labels preserved; complete focal objects have safe framing."
+    "note": "Directly inspected generated native and installed full-size WebP. Natural supported table scene or intentional continuous-forearm tabletop close view; exact classification stage, piece counts and functional labels preserved; complete focal objects have safe framing.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-e.json",
+    "bookId": "world-discovery-e-19",
+    "sha256": "0448cc7a72de4817f959ae9e7b5dde6d50158b7626bb8f96e57b7272e8d4b6e0",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

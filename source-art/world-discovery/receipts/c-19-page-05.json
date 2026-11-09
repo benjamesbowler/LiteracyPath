@@ -25,8 +25,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T16:40:01.359460+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "43f0edbd859c102efdcd1d84f0f638d3e3bbb67653aeee5d078946f8ca6bc8f9",
-    "note": "Native and final WebP directly inspected. Ordinary supported table and grounded standing figures, coherent hand contact; two cups, two empty scoops, two spoons. Cover scoops truly empty; p5 sand cup rests on green mat on table while Zoe pours other cup at sill; p7 held cup one-third full and dish small scattering of crystals."
+    "note": "Native and final WebP directly inspected. Ordinary supported table and grounded standing figures, coherent hand contact; two cups, two empty scoops, two spoons. Cover scoops truly empty; p5 sand cup rests on green mat on table while Zoe pours other cup at sill; p7 held cup one-third full and dish small scattering of crystals.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-c.json",
+    "bookId": "world-discovery-c-19",
+    "sha256": "ff3ec94e757aec70e6f8814a436539208441b8bb1dbde8cfb1e9716b59bfcbf9",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

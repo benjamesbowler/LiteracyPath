@@ -33,9 +33,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T12:02:07.911565+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "63e695d1024b850d567948a776ac5720878b1db4050974cd3b0c314845efff40",
     "note": "Generated source and installed WebP inspected. Zoe lays one loose paper sun over cloud; opaque disk covers small cloud completely. Two boots and raised right-side splash retained; no rain; exactly gray and blue crayons in tray. Hair, hands, sheets, sun and tray are safely inset.",
-    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-d.json",
+    "bookId": "world-discovery-d-11",
+    "sha256": "e70828bde1a48b334200ec948fbd85b7b7f1570579a972536fcb424ddd436b94",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

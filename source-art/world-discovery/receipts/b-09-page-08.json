@@ -22,8 +22,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T05:14:49.661213+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "90d578a0aba8fc709c118e5e966fb02b4e4a19cf381765852aae18982c677673",
-    "note": "Direct inspection: final size groups show three large left (one red/two blue), three small right (two red/one blue), all six four-hole buttons retained and mat empty. Clear elevated composition differs from colour groups."
+    "note": "Direct inspection: final size groups show three large left (one red/two blue), three small right (two red/one blue), all six four-hole buttons retained and mat empty. Clear elevated composition differs from colour groups.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-b.json",
+    "bookId": "world-discovery-b-09",
+    "sha256": "b587adb07a59c582086fccca29f0e836828a7fd4d0271753dd1828446ff82410",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

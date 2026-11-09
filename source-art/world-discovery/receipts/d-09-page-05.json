@@ -22,8 +22,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T04:25:52.337Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "d7df14cd0d093c572ffe05896bfa8edfbc9f77365acf352ddb5a721f89bb36ad",
-    "note": "Kit places wooden block with foil in right tray; left tray contains only paper clip."
+    "note": "Kit places wooden block with foil in right tray; left tray contains only paper clip.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-d.json",
+    "bookId": "world-discovery-d-09",
+    "sha256": "1a4773aeb1bdc62e90e431087c7a886aacbe1bbbdc4c5ba7101b59d4965bbd59",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

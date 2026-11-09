@@ -25,8 +25,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T16:27:31.553291+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "f08a2a808b8ae17801927f1291492a9d148a0fd67d69a72089e9cb506dfd5799",
-    "note": "Native source and final WebP directly viewed. Nearer Sun warms nucleus, released gas/dust and diffuse rightward tail visible."
+    "note": "Native source and final WebP directly viewed. Nearer Sun warms nucleus, released gas/dust and diffuse rightward tail visible.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-c.json",
+    "bookId": "world-discovery-c-16",
+    "sha256": "ae39bc803d37457cee0e57fa8d64d625ba184a1125dc315697ce54396b01322f",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

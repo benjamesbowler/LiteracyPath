@@ -22,9 +22,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T03:59:19.951Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "33e02e02f23d52d92f8bf0a263e1cd35b1127b9ba4b5f39c3e5a7f6263faf02c",
     "note": "Opening cardboard unbuilt; unused puppets laid out; over-shoulder Kit orientation toward fox while reaching cardboard.",
-    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-e.json",
+    "bookId": "world-discovery-e-01",
+    "sha256": "dc3533df3dc31db1a524cf56cacd91d7525f93bfc9606e449be42aece897aebb",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

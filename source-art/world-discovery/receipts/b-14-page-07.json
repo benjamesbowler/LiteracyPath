@@ -24,13 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "status": "reviewed",
-    "reviewer": "author_b_c",
-    "reviewedAt": "2026-11-07T18:48:42.067025+00:00",
     "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
     "sha256": "4daaf537f3c30bc51bf6a70461d42d121f745840313b48ed64c554c9eadc159c",
-    "outputSha256": "4daaf537f3c30bc51bf6a70461d42d121f745840313b48ed64c554c9eadc159c",
     "note": "Cart red and paper blue linked by two clips/one cord; separate cup stays red. Kit hand contacts cart clip; normal complete seated bodies and child-height furniture with generous margins.",
-    "scope": "Production-author direct native and actual installed WebP inspection against exact manuscript/state and full sequence. Independent QA pending."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-b.json",
+    "bookId": "world-discovery-b-14",
+    "sha256": "5dbf82b5197909174489d09da89bff6bbf25830375bf64500beb4df71bcf0707",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

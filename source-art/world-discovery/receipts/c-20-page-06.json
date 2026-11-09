@@ -24,8 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "sha256": "fb591cfed437f018e19ad4277a10f3f5edf1ea79b9c92c86ca7dfcc8392d6d3c",
     "method": "codex-direct-image-inspection",
-    "note": "Direct whole-scene review: moss-up log now fully restored on damp soil with animals hidden under opaque cover. Kit fingers remain at outer end, both children complete and grounded; one wrapper remains separate on path; no premature cleanup."
+    "reviewedAt": "2026-11-09",
+    "sha256": "fb591cfed437f018e19ad4277a10f3f5edf1ea79b9c92c86ca7dfcc8392d6d3c",
+    "note": "Direct whole-scene review: moss-up log now fully restored on damp soil with animals hidden under opaque cover. Kit fingers remain at outer end, both children complete and grounded; one wrapper remains separate on path; no premature cleanup.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-c.json",
+    "bookId": "world-discovery-c-20",
+    "sha256": "f498b6535d667e31b92f89778e6ca31d176ffa9daef170660e625f36f8e75986",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

@@ -25,8 +25,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T16:27:31.560590+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "70480cb514f933c160effa0f229786028dd48807c0306dab59c912ce7b3cbf4f",
-    "note": "Native source and final WebP directly viewed. Dry dish shows scattered salt crystals, blue cup has reduced remainder, green cup retains sediment; ordinary supported table."
+    "note": "Native source and final WebP directly viewed. Dry dish shows scattered salt crystals, blue cup has reduced remainder, green cup retains sediment; ordinary supported table.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-c.json",
+    "bookId": "world-discovery-c-19",
+    "sha256": "ff3ec94e757aec70e6f8814a436539208441b8bb1dbde8cfb1e9716b59bfcbf9",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

@@ -24,8 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "sha256": "8ac189aeefd8853b7a0210fa084c194873b57148de2d438839af10ccc56a24f3",
     "method": "codex-direct-image-inspection",
-    "note": "Kit withdraws hand; Zoe points naturally to the damp cloth beside cup. Empty table region remains consistent with invisible objects."
+    "reviewedAt": "2026-11-09",
+    "sha256": "8ac189aeefd8853b7a0210fa084c194873b57148de2d438839af10ccc56a24f3",
+    "note": "Kit withdraws hand; Zoe points naturally to the damp cloth beside cup. Empty table region remains consistent with invisible objects.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-e.json",
+    "bookId": "world-discovery-e-14",
+    "sha256": "8862e7d954663c477026be2179ef1b58df7d13ea4674a8b68017c6834eef1904",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

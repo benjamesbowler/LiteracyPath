@@ -24,8 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "sha256": "ec91e3fa9fa70ae123f677e6a04cca285ce8835b7de80fcc2de610e7d607e84f",
     "method": "codex-direct-image-inspection",
-    "note": "Exactly three authored seasonal comparison ovals and two arrows, clear winter/summer/new-winter sequence. Complete central butterfly wings and all panels safely framed."
+    "reviewedAt": "2026-11-09",
+    "sha256": "ec91e3fa9fa70ae123f677e6a04cca285ce8835b7de80fcc2de610e7d607e84f",
+    "note": "Exactly three authored seasonal comparison ovals and two arrows, clear winter/summer/new-winter sequence. Complete central butterfly wings and all panels safely framed.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-e.json",
+    "bookId": "world-discovery-e-18",
+    "sha256": "586b6b4be22233348ef2f620a5d1c74588bac0eac3e1e1e3fcb63a72638fd863",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

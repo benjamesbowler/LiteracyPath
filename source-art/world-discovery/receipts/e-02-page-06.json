@@ -26,9 +26,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T04:11:46.227Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "c4267566007b87092f013ca5795a79f753649eb1af8c22afb99e4699194928e0",
     "note": "Zoe points curled sleepy dog; corrected redball beside nose, Kit attends to her intendedrest.",
-    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-e.json",
+    "bookId": "world-discovery-e-02",
+    "sha256": "7aed325643489d02762b9c2b354f93e9789f946a6e7b9bddbc508cd607eb86d4",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

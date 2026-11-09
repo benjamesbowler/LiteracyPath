@@ -25,9 +25,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T12:28:49.096Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "2d4d9470887dd23b2b06856a8af8cc0c6520fdb39f121ec7f0bfb03825fe3e22",
     "note": "Generated source and installed WebP inspected. Broad patch lies in tray; Zoe slides first narrow strip beneath near-left roof tear while Kit steadies house; one unused strip remains.",
-    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-d.json",
+    "bookId": "world-discovery-d-12",
+    "sha256": "50af3f290ad84fa9841a41698c0d7d05032492bd97f356ff26d34397d56cd037",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

@@ -1,6 +1,6 @@
 # World Discovery cohort registration
 
-The published first fifty books remain immutable. The confirmed expansion is 50
+Expansion must preserve the published first fifty books. The confirmed expansion is 50
 additional books, ten at each public App level A–E, for 100 World Discovery
 books in total. `src/content/world-discovery/cohorts.json` declares two ordered
 cohorts. Both `01-10` and `11-20` are registered and active in the source catalogue.
@@ -16,8 +16,8 @@ page-count exception requires updating the reviewed declaration explicitly.
 
 ## Sources and preservation
 
-The original five level JSON files, `reviews.json`, cast, references, receipts,
-illustrations, card copies and consumed audio stay unchanged. New final sources
+During expansion, the original five level JSON files, `reviews.json`, cast,
+references, receipts, illustrations, card copies and consumed audio stay unchanged. New final sources
 belong in `src/content/world-discovery/cohorts/11-20/`, with the same five
 `level-{a,b,c,d,e}.json` files and a separate `reviews.json`. Drafts may remain
 under `.artifacts/world-discovery-expansion/manuscripts/first-50/` while authored.
@@ -28,6 +28,13 @@ pins the production merge `8c6079d9dfa623a6820f5bef32a320867980883d`.
 Its test reads actual original media bytes, including shared vocabulary clips;
 626 newly generated clips were only part of the 1,742 consumed audio files.
 Do not refresh this fixture to accept an expansion side effect.
+
+The owner's 9 November 2026 instruction separately authorizes repairs across the
+entire Guided Reading catalogue. That maintenance follows the versioned repair
+route below. The original fixture, original registration receipts and original
+narration reports remain historical evidence; a separate reviewed maintenance
+snapshot protects the repaired catalogue. This exception does not authorize an
+expansion to rewrite earlier books.
 
 The original series orders remain 1–50. Later orders use
 `cohort.index * 50 + levelIndex * 10 + number - cohort.firstNumber + 1`, yielding
@@ -189,3 +196,48 @@ LP_WORLD_DISCOVERY_EVIDENCE_DIR=.artifacts/world-discovery-expansion npm run tes
 ```
 
 This changes only the evidence directory; it still exercises all 100 books.
+
+## Authorized catalogue repairs
+
+Use `tools/repairWorldDiscoveryCohorts.mjs` for an explicitly authorized repair
+of already active books. Additive registration retains its preservation rules.
+The repair manifest must keep cohort membership, IDs, ordering, declared counts,
+source directories and active status unchanged. It names new dated registration,
+narration-review and narration-inventory files, plus a hash-pinned historical
+audio baseline. Existing dated evidence may be reused only when identical;
+changed evidence requires a new revision path.
+
+```sh
+node tools/repairWorldDiscoveryCohorts.mjs --plan-audio REVIEWED_MANIFEST.json
+node tools/repairWorldDiscoveryCohorts.mjs --audit REVIEWED_MANIFEST.json
+node tools/repairWorldDiscoveryCohorts.mjs --register REVIEWED_MANIFEST.json
+```
+
+Every repaired cohort still requires complete manuscript and ordered image
+review, current cover/card/reference receipts and exact narration evidence.
+Historical audio reuse requires the same word, role, path and byte hash; current
+pages and titles require screening evidence. A previously screened unchanged
+page may reuse its exact evidence. Changed narration gets a new file; historical
+published MP3 bytes remain intact.
+
+Keep an image receipt's original generation input distinct from its later
+`reviewedManuscriptSource`. The latter binds the exact current manuscript and a
+complete-book review containing the installed image hash. Replacing art records
+the former generation separately, together with the new prompt, references and
+source image. Do not describe a text-only revision as a new image generation.
+
+If an earlier reviewed word retirement refers to text that is now repaired,
+preserve its historical entry. Explicit `contextWithdrawals` and
+`contextAdditions` may record exact removed or added uses, with current manuscript
+and registration hashes. Withdrawals require the word and contextual override to
+be absent; additions require the same reviewed meaning, pronunciation and default
+audio. Unlisted uses, stale source text, changed bytes or invented historical
+contexts fail validation. This maintains retirement proof without freezing
+otherwise authorized editorial work.
+
+The November repair provenance is under
+`source-art/world-discovery/remediation/2026-11-09/`; broader Guided Reading
+narration evidence is under `source-art/guided-reading-remediation/2026-11-09/`.
+Registration remains a local integrity check. Global content/media checks,
+actual reader interaction, required PR checks and deployed verification still
+follow before release is reported complete.

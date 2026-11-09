@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "7d2f89db8e59d17a3d0be2f0e5b69a5372f53a6d6a8f265c5877e260159eeab8",
     "note": "Direct inspection: swallow and bat share dusk sky without chase/contact; their feather and membrane wings and different body coverings clearly visible.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-c.json",
+    "bookId": "world-discovery-c-09",
+    "sha256": "547724e0d3b9bf1f872360c6d00472dbc9c9795e76d758413329a5a9aae31f81",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

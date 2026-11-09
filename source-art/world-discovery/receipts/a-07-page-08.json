@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "3dc61d064b4eef47622b76454dbaafaf44d50f0514fb5280bd64e37eb89e187f",
     "note": "All soft parts inside shell under same leaf shade; aperture natural, no door or detached shell.",
-    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-a.json",
+    "bookId": "world-discovery-a-07",
+    "sha256": "06d998767a69c5208523b12c5eceaa73fdd9167ad9b945952646c64af507da9a",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

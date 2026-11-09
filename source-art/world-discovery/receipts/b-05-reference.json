@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "44fd45fb1c2c7c77820028eddc1a89759f64c769011e8c5a59c8667cbfbcc48f",
     "note": "Directly viewed corrected watershed design: narrow pale-hill stream joins larger river, single bridge below confluence on merged channel, widening mouth and sea. Separate bridge/rock views are design models, not additional landscape landmarks.",
-    "limits": "Direct agent image and sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-b.json",
+    "bookId": "world-discovery-b-05",
+    "sha256": "cf1501b9e77fb5336915f03c544f736f57c701689c1d5acfd0ac3051dd63b1a2",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

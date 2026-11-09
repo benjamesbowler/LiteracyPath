@@ -2,14 +2,14 @@
   "bookId": "world-discovery-c-20",
   "slot": "page-04",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-07T16:41:52.481Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-75ea8afc-51b5-4b9c-a220-cfe5ad1d9a2e.png",
-  "sourceSha256": "3c8958d9f10994c93f2c33108f09754aa605dd59a03e9b4bb78305491df6be40",
+  "generatedAt": "2026-11-09",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1bd84-e6ed-7133-9f3f-b7c5ee069573/exec-3dcfc3b9-e6ab-43b4-abd0-b002b415a893.png",
+  "sourceSha256": "a099b9da9cbffc8aab9350cec0644894bb6dd58fd57b8f8cc637c4780f86ce16",
   "output": "public/guided-reading/world-discovery/c-20/page-04.webp",
-  "outputSha256": "893608d953c845861f802377dbe9182400bf8e10a8bb3e2dea0ba8bebee4a85b",
+  "outputSha256": "5b29b05f503713d6abd798ce0f0d5cde111cb1ecc65db09a7733a26f8476a3cb",
   "width": 1536,
   "height": 1024,
-  "prompt": "Use case: precise-object-edit. Edit this exact scene. Scientific scale and anatomy correction: make EACH of all THREE woodlice HALF its present length and height, so exposed animals body aboutONE QUARTER large deadleaf length. Move first smaller animal to maintain mouth contact with left softwood, second smaller animal to maintain mouth contact with deadleaf edge, third remains partlyhidden under bark. Each of the two exposed animals must have exactlySEVEN clearly separate near-side thin jointed WALKING LEGS in a row below the seven large leg-bearing body plates, plus naturally occluded far-side seven; two antennae; small mouthparts distinct from walking legs; no human teeth. Restore soil behind reduced animal bodies. Preserve macroenvironment and exactfeedingactions. Keep every animal includingantennae at least10percent fromleft/right/bottom. No text. Bold clean flat 2D cartoon with coherent physical perspective. Preserve every unrelated detail, full3:2landscape1536x1024, no crop and no text.",
+  "prompt": "Use case: precise-object-edit. Edit the supplied landscape 3:2 cartoon extremely precisely. Correct ONLY the LEFT FOREGROUND woodlouse nibbling rotten wood: it must have exactly SEVEN clearly countable jointed walking legs on its visible near side, with one leg per main body segment. Currently there are only six. Add the missing seventh walking leg between the front of its body and first existing leg, adjusting spacing gently so all seven are clearly separate and naturally attached. Do not count or replace the small white mouthparts beneath its head; keep its two antennae and eating contact with the wood. Keep both other woodlice unchanged; right foreground already has seven near-side walking legs, back animal partly occluded. Preserve exact framing, poses, damp droplets, leaves, wood, stones, gray body colors, tails and clean flat cel-shaded bold outlined cartoon style. No added text, numbers, labels, arrows, grain, painterly texture or extra anatomy. This is an educational anatomy correction.",
   "references": [
     {
       "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-dbdd9f25-475c-4ee9-8389-853677078cc9.png",
@@ -24,8 +24,31 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "sha256": "893608d953c845861f802377dbe9182400bf8e10a8bb3e2dea0ba8bebee4a85b",
     "method": "codex-direct-image-inspection",
-    "note": "Direct macro feeding review: first animal contacts soft dead wood, second contacts brown dead leaf, third partly concealed by bark. Two exposed animals each show seven separate near walking legs, two antennae and mouthparts, without human teeth; animal scale relative to leaf corrected."
+    "reviewedAt": "2026-11-09",
+    "sha256": "5b29b05f503713d6abd798ce0f0d5cde111cb1ecc65db09a7733a26f8476a3cb",
+    "note": "Six separated arrowheads with continuous shaft and unchanged standing lion, or seven near-side walking legs per foreground woodlouse; corrected defect resolved.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "priorGeneration": {
+    "outputSha256": "893608d953c845861f802377dbe9182400bf8e10a8bb3e2dea0ba8bebee4a85b",
+    "sourceSha256": "3c8958d9f10994c93f2c33108f09754aa605dd59a03e9b4bb78305491df6be40",
+    "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-f5b9-7b03-966a-ff7c1f25f300/exec-75ea8afc-51b5-4b9c-a220-cfe5ad1d9a2e.png",
+    "generatedAt": "2026-11-07T16:41:52.481Z"
+  },
+  "inputReferences": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/guided-reading-remediation-20261109/images/c20p4.webp",
+      "sha256": "35651c29ca05707cedf182424d90e7bff5f6dd8d1e4208a31879e6259634241c"
+    }
+  ],
+  "remediationEvidence": "source-art/world-discovery/remediation/2026-11-09/image-repairs.json",
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-c.json",
+    "bookId": "world-discovery-c-20",
+    "sha256": "f498b6535d667e31b92f89778e6ca31d176ffa9daef170660e625f36f8e75986",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

@@ -24,14 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "status": "reviewed",
-    "reviewer": "author_b_c",
-    "reviewedAt": "2026-11-07T16:42:48.193270+00:00",
-    "outputSha256": "b2942e1b4e4856e4c1e20c80b7b9903d2aedcdaef1c03c94bf05eb616528c584",
-    "scope": "Production-author direct native and final installed WebP inspection with complete ordered prose/state, physical-scene and framing review; independent QA pending.",
-    "notes": "Tap reassembled; Kit tests normal stream while adult opens separate thin supply-line brass valve. Gray P-trap distinct from supply. Half-full caught cup aside; correct under-sink pipe relationships and natural crouch.",
     "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
     "sha256": "b2942e1b4e4856e4c1e20c80b7b9903d2aedcdaef1c03c94bf05eb616528c584",
-    "note": "Tap reassembled; Kit tests normal stream while adult opens separate thin supply-line brass valve. Gray P-trap distinct from supply. Half-full caught cup aside; correct under-sink pipe relationships and natural crouch."
+    "note": "Tap reassembled; Kit tests normal stream while adult opens separate thin supply-line brass valve. Gray P-trap distinct from supply. Half-full caught cup aside; correct under-sink pipe relationships and natural crouch.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-b.json",
+    "bookId": "world-discovery-b-20",
+    "sha256": "92eaaf25eedbef9efc455f395f0cccab7e5bc8efc5bed9a0f560345c93381a12",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

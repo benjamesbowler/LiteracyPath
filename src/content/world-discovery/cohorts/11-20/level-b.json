@@ -176,7 +176,7 @@
       },
       {
         "pageNumber": 3,
-        "text": "Zoe comes back.\n“My cheese has no cracker now.”",
+        "text": "Zoe comes back.\n“My cracker is gone!”",
         "imageBrief": "Zoe sets down her cup and looks at the cheese on the otherwise empty plate. Kit looks from the crumbs to her plate. Continuity: Only cheese and crumbs remain on Zoe’s plate; impact is visible.",
         "imageAlt": "Zoe sets down her cup and looks at the cheese on the otherwise empty plate. Kit looks from the crumbs to her plate.",
         "pageDescription": "Zoe sets down her cup and looks at the cheese on the otherwise empty plate. Kit looks from the crumbs to her plate.",
@@ -221,7 +221,7 @@
       },
       {
         "pageNumber": 8,
-        "text": "Zoe puts the cheese on top.\nThis bite has a cracker.",
+        "text": "Zoe puts the cheese on the cracker.\nShe takes a bite.",
         "imageBrief": "Zoe lifts the cracker topped with cheese for her snack. Kit sits beside the empty yellow box; the cup is on Zoe’s side. Continuity: The missing base is restored; the cheese fits on the whole cracker; no forced celebration or stated moral.",
         "imageAlt": "Zoe lifts the cracker topped with cheese for her snack. Kit sits beside the empty yellow box; the cup is on Zoe’s side.",
         "pageDescription": "Zoe lifts the cracker topped with cheese for her snack. Kit sits beside the empty yellow box; the cup is on Zoe’s side.",
@@ -364,7 +364,7 @@
       },
       {
         "pageNumber": 8,
-        "text": "Zoe opens it.\nKit’s small picture has come a long way.",
+        "text": "Zoe opens the envelope.\nShe finds Kit’s picture inside.",
         "imageBrief": "Inside the blue door, Zoe unfolds the red-truck picture; the opened cream envelope with green stamp rests beside her. Continuity: Picture from page 1 is revealed intact; postage and envelope remain separate from the picture.",
         "imageAlt": "Inside the blue door, Zoe unfolds the red-truck picture; the opened cream envelope with green stamp rests beside her.",
         "pageDescription": "Inside the blue door, Zoe unfolds the red-truck picture; the opened cream envelope with green stamp rests beside her.",
@@ -440,7 +440,7 @@
       },
       {
         "pageNumber": 2,
-        "text": "Kit clips both. His cart turns red.\nHer cup turns blue.",
+        "text": "Kit clips his cart and Zoe’s cup.\nThe colors swap.",
         "imageBrief": "The clipped cup is now solid blue and the clipped cart solid red; Kit leans toward his cart. The same red sheet remains untouched. Continuity: First swap complete; object shapes unchanged. No extra cups or carts.",
         "imageAlt": "The clipped cup is now solid blue and the clipped cart solid red; Kit leans toward his cart. The same red sheet remains untouched.",
         "pageDescription": "The clipped cup is now solid blue and the clipped cart solid red; Kit leans toward his cart. The same red sheet remains untouched.",
@@ -509,7 +509,7 @@
       },
       "visual": {
         "page": 8,
-        "prompt": "Which three objects now have different or unchanged colors?",
+        "prompt": "Point to the cart, cup, and paper. What color is each one?",
         "lookFor": "Cart red, paper blue, cup red; silver clips and green cord never changed."
       }
     },
@@ -571,7 +571,7 @@
       },
       {
         "pageNumber": 2,
-        "text": "Slowly, the sea falls.\nThe rock begins to show.",
+        "text": "Slowly, the water gets lower.\nWe can see more rock.",
         "imageBrief": "Water level has lowered enough to uncover the high parts of the rim. The lower side still connects the hollow to the surrounding sea. Continuity: Falling tide over time, not one receding wave; boulder unchanged.",
         "imageAlt": "Water level has lowered enough to uncover the high parts of the rim. The lower side still connects the hollow to the surrounding sea.",
         "pageDescription": "Water level has lowered enough to uncover the high parts of the rim. The lower side still connects the hollow to the surrounding sea.",
@@ -598,7 +598,7 @@
       },
       {
         "pageNumber": 5,
-        "text": "Rock holds the water around the sides.",
+        "text": "The pool has rock around its sides.\nThe water stays inside.",
         "imageBrief": "Close side angle shows the pool surface below a continuous enclosing rock rim. Its lower seaward lip is clearly above the distant sea. Continuity: No invisible drain or opening through rim; hollow itself holds this water.",
         "imageAlt": "Close side angle shows the pool surface below a continuous enclosing rock rim. Its lower seaward lip is clearly above the distant sea.",
         "pageDescription": "Close side angle shows the pool surface below a continuous enclosing rock rim. Its lower seaward lip is clearly above the distant sea.",
@@ -625,7 +625,7 @@
       },
       {
         "pageNumber": 8,
-        "text": "Sea in, sea out.\nThe rock dip keeps a pool.",
+        "text": "The sea covers the rocks again.\nThe pool fills with more water.",
         "imageBrief": "A final close view centers the recognizable bowl-shaped hollow beneath shallow connected seawater, with its shape clearly visible and the exposed top of the boulder behind. Continuity: Return to covered state clarifies why the hollow will retain water at a later low tide; no diagram duplicating several times in one image.",
         "imageAlt": "A final close view centers the recognizable bowl-shaped hollow beneath shallow connected seawater, with its shape clearly visible and the exposed top of the boulder behind.",
         "pageDescription": "A final close view centers the recognizable bowl-shaped hollow beneath shallow connected seawater, with its shape clearly visible and the exposed top of the boulder behind.",
@@ -724,7 +724,7 @@
       },
       {
         "pageNumber": 4,
-        "text": "The wheel supports bend at their joints.",
+        "text": "The wheel supports move at their joints.",
         "imageBrief": "Closer view centers the rocker and bogie pivot geometry connecting all three near wheels; wheel height changes without rubbery metal bending. Continuity: Supports rotate at joints, not bend as soft rods; same front-wheel-on-rock moment continued.",
         "imageAlt": "Closer view centers the rocker and bogie pivot geometry connecting all three near wheels; wheel height changes without rubbery metal bending.",
         "pageDescription": "Closer view centers the rocker and bogie pivot geometry connecting all three near wheels; wheel height changes without rubbery metal bending.",
@@ -867,7 +867,7 @@
       },
       {
         "pageNumber": 5,
-        "text": "Still legs are hard to spot among twigs.",
+        "text": "The insect does not move.\nIt is hard to see among twigs.",
         "imageBrief": "Wider view again places the motionless insect among several similar slim twigs, with the intact target leaf at its head end. Continuity: Same resting position; concealment is difficult spotting, not literal invisibility.",
         "imageAlt": "Wider view again places the motionless insect among several similar slim twigs, with the intact target leaf at its head end.",
         "pageDescription": "Wider view again places the motionless insect among several similar slim twigs, with the intact target leaf at its head end.",
@@ -1017,7 +1017,7 @@
       },
       {
         "pageNumber": 6,
-        "text": "After the last shed,\nlong wings open and become firm.",
+        "text": "It sheds its skin one last time.\nIts wings open and harden.",
         "imageBrief": "New adult clings to a stem with lengthening soft wings settling behind it; the last empty skin hangs separately below. Continuity: Final molt; wings not yet flying; maintain two wing pairs arranged naturally.",
         "imageAlt": "New adult clings to a stem with lengthening soft wings settling behind it; the last empty skin hangs separately below.",
         "pageDescription": "New adult clings to a stem with lengthening soft wings settling behind it; the last empty skin hangs separately below.",
@@ -1035,7 +1035,7 @@
       },
       {
         "pageNumber": 8,
-        "text": "The little hopper grows wings in stages.\nNow it can hop and fly.",
+        "text": "Now this grasshopper has long wings.\nIt can hop and fly.",
         "imageBrief": "The same adult rests with long wings folded along its striped body on the opening grass blade; an old small feeding notch remains nearby. Continuity: Ending identifies the winged adult as the result of the earlier egg and nymph stages; no claim every grasshopper species is winged.",
         "imageAlt": "The same adult rests with long wings folded along its striped body on the opening grass blade; an old small feeding notch remains nearby.",
         "pageDescription": "The same adult rests with long wings folded along its striped body on the opening grass blade; an old small feeding notch remains nearby.",
@@ -1050,8 +1050,8 @@
       },
       "visual": {
         "page": 5,
-        "prompt": "Can these small wing pads do the job of the final wings?",
-        "lookFor": "They are short developing pads; the long flying wings appear after the last shed."
+        "prompt": "Look at these wing pads. Are they long or short?",
+        "lookFor": "They are short. Compare them with the long wings on page 6."
       }
     },
     "levelRationale": "Candidate B: One visible change answers the initial inability to fly. Short main clauses avoid a technical definition chain; nymph is oral preparation, while printed wing pads are pictured in context.",
@@ -1062,11 +1062,11 @@
       },
       {
         "word": "wing pads",
-        "meaning": "small parts that will develop into wings"
+        "meaning": "short growing wings on a young grasshopper"
       },
       {
         "word": "nymph",
-        "meaning": "a young insect with the adult’s basic shape"
+        "meaning": "a young grasshopper before it has long wings"
       }
     ]
   },
@@ -1127,7 +1127,7 @@
       },
       {
         "pageNumber": 2,
-        "text": "Kit shines a flashlight through clear plastic.\nThe wall stays bright.",
+        "text": "Kit shines a flashlight through clear plastic.\nThe screen stays bright.",
         "imageBrief": "Kit holds clear plastic in the fixed light path between the flashlight and screen. A bright patch remains visible on the screen through it. Continuity: Plastic transmits most light; faint edge effects allowed; no claim perfectly invisible or shadowless.",
         "imageAlt": "Kit holds clear plastic in the fixed light path between the flashlight and screen. A bright patch remains visible on the screen through it.",
         "pageDescription": "Kit holds clear plastic in the fixed light path between the flashlight and screen. A bright patch remains visible on the screen through it.",
@@ -1145,7 +1145,7 @@
       },
       {
         "pageNumber": 4,
-        "text": "Now she holds thick card.\nA dark patch covers the wall.",
+        "text": "Now she holds thick card.\nA dark patch shows on the screen.",
         "imageBrief": "The thick card occupies the light path and blocks its center, producing a defined dark patch on the white screen. Continuity: Opaque card blocks visible light; room remains lit enough to see children and equipment.",
         "imageAlt": "The thick card occupies the light path and blocks its center, producing a defined dark patch on the white screen.",
         "pageDescription": "The thick card occupies the light path and blocks its center, producing a defined dark patch on the white screen.",
@@ -1172,7 +1172,7 @@
       },
       {
         "pageNumber": 7,
-        "text": "Kit looks through both.\nOne gives a clear view. One blurs it.",
+        "text": "Kit sees clearly through the plastic.\nThe wax paper makes things look blurry.",
         "imageBrief": "Kit views the red toy car through wax paper held upright; the car is indistinct behind it. The clear plastic stands beside it, showing its portion of the same car sharply. Continuity: Both transmitting sheets compared without a flashlight shining toward eyes; one real car only.",
         "imageAlt": "Kit views the red toy car through wax paper held upright; the car is indistinct behind it. The clear plastic stands beside it, showing its portion of the same car sharply.",
         "pageDescription": "Kit views the red toy car through wax paper held upright; the car is indistinct behind it. The clear plastic stands beside it, showing its portion of the same car sharply.",
@@ -1191,7 +1191,7 @@
     ],
     "discussion": {
       "oral": {
-        "prompt": "Why did Kit and Zoe split the two light-passing sheets into separate groups?",
+        "prompt": "Why did they put the plastic and wax paper in different groups?",
         "listenFor": "Both let light through, but clear plastic gave a clear view and wax paper blurred it."
       },
       "visual": {
@@ -1213,6 +1213,10 @@
       {
         "word": "block",
         "meaning": "stop something from passing through"
+      },
+      {
+        "word": "screen",
+        "meaning": "the white board where the light shines"
       }
     ]
   },
@@ -1320,7 +1324,7 @@
       },
       {
         "pageNumber": 8,
-        "text": "Zoe waters a plant with the saved water.\nThe cup stays empty.",
+        "text": "Zoe uses the water in the cup\nto water a plant.",
         "imageBrief": "Zoe holds the now empty yellow cup beside the potted plant, whose soil has just been watered. The closed faucet is visible behind her without a drop. Continuity: Caught water has been used on the plant; cup empty; no new drips refill it; no plant flooding.",
         "imageAlt": "Zoe holds the now empty yellow cup beside the potted plant, whose soil has just been watered. The closed faucet is visible behind her without a drop.",
         "pageDescription": "Zoe holds the now empty yellow cup beside the potted plant, whose soil has just been watered. The closed faucet is visible behind her without a drop.",

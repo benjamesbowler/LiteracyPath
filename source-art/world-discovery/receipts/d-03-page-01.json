@@ -2,14 +2,14 @@
   "bookId": "world-discovery-d-03",
   "slot": "page-01",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-07T06:09:58.220Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-3cc7c9ed-465c-447e-8139-fa563b8072fe.png",
-  "sourceSha256": "b3c3a18398bfd23126be0ce63ed6dca35e3b427460642de9a146e2448c9e2f27",
+  "generatedAt": "2026-11-09",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a10981-fcf4-7523-bda5-790b073481a6/exec-dfab1995-3a59-4738-a76e-87d04f66ac47.png",
+  "sourceSha256": "b6b6a578845cc56e70361153a486340e42831b4f066c3826756c834c39e0f0b2",
   "output": "public/guided-reading/world-discovery/d-03/page-01.webp",
-  "outputSha256": "99aa5d3326c9a4ba15779fec3a64b13a5157187f5df34fafc869dfd379ee654a",
+  "outputSha256": "8cfd3b538e671959d462b995f6a78e5a8eeb12a83372634a34d8449da0359659",
   "width": 1536,
   "height": 1024,
-  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Two Pipes Under the Sink; World Discovery; nonfiction.\nSetting: One diagrammatic town beside a river, with a drinking-water works upriver, ordinary homes, and a separate wastewater works downstream. No named people. The drinking-water worker on page 4 is a woman with deep brown skin, silver hair in one braid, teal work overalls and plain closed shoes. The separate wastewater worker on page 8 is a man with medium brown skin, short black hair, navy work shirt, gray trousers and plain closed shoes. Both are unnamed adults.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One white kitchen sink; Narrow blue supply pipe; Wider gray drain pipe; Drinking-water treatment works; Separate wastewater treatment works\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 1. Printed prose (NOT text to put in art): Water pours from a tap. After washing a cup, the used water slips down the drain. Where does it go?\nRequired illustration: A clear stream rinses one blue cup in a white sink, with water flowing toward the open drain. Exact continuity: One cup; tap open; no food or trash in sink.\nExact current state: One cup; tap open; no food or trash in sink.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text. CRITICAL EDUCATIONAL ACCURACY: incoming supply and outgoing drain are distinct pipes that NEVER touch, join, cross-connect or form a closed loop. A blue supply must connect directly to BASE OF METAL FAUCET above the counter, never to basin bottom. A gray drain must connect directly to drain hole at center of BASIN BOTTOM, never to faucet. No faces on water or pipes. No writing, words, labels, numbers or control-screen text. Use only one coherent view. Tight view inside kitchen sink only; no workers, people, plants or underground pipes. One blue cup rests tilted against basin side beneath running clear stream, small water trail leads into visible drain. No hands needed.",
+  "prompt": "Use case: illustration-story. Edit only the FIRST attached illustration. Other attached image locks identity and object design, not composition. One finished landscape 3:2 full-bleed illustration. Repair the unsupported floating tilted blue cup. Add ONE adult's brown right hand and forearm entering naturally from the right edge, wearing a plain teal sleeve, with the thumb braced on top of the blue handle and four fingers naturally curled through/around it, firmly holding the cup while it tips left under the faucet. A physical grip, correct natural finger anatomy. Preserve the one blue cup, single faucet, water flowing into the cup and from its lowered lip down into the drain. No second cup, extra hand, visible person or new object. Entire image uses bold clean clear 2D cartoon with crisp continuous dark outlines, flat colors and minimal smooth cel-shaded shapes. No grain, painterly texture, mottling, blur, photographic or 3D surfaces. No new text, letters, numbers, logos, labels, panels or borders. Preserve all other content.",
   "references": [
     {
       "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-03-reference.webp",
@@ -18,9 +18,34 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
-    "sha256": "99aa5d3326c9a4ba15779fec3a64b13a5157187f5df34fafc869dfd379ee654a",
+    "reviewedAt": "2026-11-09",
+    "sha256": "8cfd3b538e671959d462b995f6a78e5a8eeb12a83372634a34d8449da0359659",
     "note": "Direct inspection: one blue cup tilted inside white sink, clear stream rinses cup and used water runs to visible drain; no trash, extra cup or people.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "priorGeneration": {
+    "outputSha256": "99aa5d3326c9a4ba15779fec3a64b13a5157187f5df34fafc869dfd379ee654a",
+    "sourceSha256": "b3c3a18398bfd23126be0ce63ed6dca35e3b427460642de9a146e2448c9e2f27",
+    "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-3cc7c9ed-465c-447e-8139-fa563b8072fe.png",
+    "generatedAt": "2026-11-07T06:09:58.220Z"
+  },
+  "inputReferences": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/d-03/page-01.webp",
+      "sha256": "99aa5d3326c9a4ba15779fec3a64b13a5157187f5df34fafc869dfd379ee654a"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-03-reference.webp",
+      "sha256": "4114d53b76b8de4d3b1e2c3c8dbab353616a2244e80defbb9336bc9d0e54d7ec"
+    }
+  ],
+  "remediationEvidence": "source-art/world-discovery/remediation/2026-11-09/image-repairs.json",
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-d.json",
+    "bookId": "world-discovery-d-03",
+    "sha256": "59a51f506f22d7bc9a1242c8f596509f3743d800937a7a17269afcb8a6bfccba",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

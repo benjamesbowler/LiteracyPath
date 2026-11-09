@@ -22,9 +22,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T03:59:19.953Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "e700a3cb08492433a1ab0729ff9f91edc34e026d0b71fb7321ba411c8baf9a94",
     "note": "Kit pauses with fox lowered; Zoe waits with rabbit, reflective expression without anger.",
-    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-e.json",
+    "bookId": "world-discovery-e-01",
+    "sha256": "dc3533df3dc31db1a524cf56cacd91d7525f93bfc9606e449be42aece897aebb",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

@@ -45,6 +45,24 @@ test("source preflight works before production media and reviews exist", () => {
   assert.match(validateWorldDiscoveryReviews([book], {}).join("\n"), /review missing/);
 });
 
+test("editorial field paths must update real nested data rather than create ignored properties", () => {
+  for (const edit of [
+    book => { book["languagePrep[additional]"] = "bank: land beside a river"; },
+    book => { book["discussion.oral.prompt"] = "What holds the hat?"; },
+    book => { book.languagePrep[0]["meaning.replacement"] = "a small tool"; }
+  ]) {
+    const book = manuscript(); edit(book);
+    assert.match(validateWorldDiscoveryDrafts([book], { requireComplete: false }).failures.join("\n"), /literal field-path key/);
+  }
+  const book = manuscript();
+  book.languagePrep.push({ word: "bank", meaning: "land beside a river" });
+  assert.deepEqual(validateWorldDiscoveryDrafts([book], { requireComplete: false }).failures, []);
+  for (const row of [null, "bank: land beside a river", { word: "bank", definition: "land beside a river" }]) {
+    const changed = manuscript(); changed.languagePrep.push(row);
+    assert.match(validateWorldDiscoveryDrafts([changed], { requireComplete: false }).failures.join("\n"), /languagePrep needs exact word\/meaning pairs/);
+  }
+});
+
 test("changing a title, page text or page order invalidates a separately authored review", () => {
   const book = manuscript();
   const reviews = { [book.id]: review(book) };

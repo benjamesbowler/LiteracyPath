@@ -25,9 +25,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T16:50:28.744427+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "c1f7eea7bcbed7a7dcf16d4b905daa22dd9a6370c0526094505bad800ec094a8",
     "note": "Generated source and installed WebP inspected. Single integrated U-shaped cross-section shows thick ice contacting rounded floor and lower walls; no extra inset. Same left ridge notch remains.",
-    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-e.json",
+    "bookId": "world-discovery-e-15",
+    "sha256": "a57d2e19830e6922434e13fa17fa20597f9031c568ccce469773f4251f93f3fb",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

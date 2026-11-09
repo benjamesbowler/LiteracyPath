@@ -24,8 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "sha256": "c726dd6fb09fdb6772d41f853b4ebd50efd385fe03da7e99e9ab74181f20e7b8",
     "method": "codex-direct-image-inspection",
-    "note": "Widened overwintering monarch cluster; complete focal wings/antennae, natural resting branch attachment and safe margins."
+    "reviewedAt": "2026-11-09",
+    "sha256": "c726dd6fb09fdb6772d41f853b4ebd50efd385fe03da7e99e9ab74181f20e7b8",
+    "note": "Widened overwintering monarch cluster; complete focal wings/antennae, natural resting branch attachment and safe margins.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-e.json",
+    "bookId": "world-discovery-e-18",
+    "sha256": "586b6b4be22233348ef2f620a5d1c74588bac0eac3e1e1e3fcb63a72638fd863",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

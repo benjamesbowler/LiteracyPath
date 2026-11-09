@@ -18,8 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T04:47:01.816810+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "cf7b3d2251d0a80007fefd16ae5d3861187bc7841d40f0d84d41a8cd4eed1620",
-    "note": "Final original-type ribbed print and staggered trail remain on dry gray ground with astronaut absent."
+    "note": "Final original-type ribbed print and staggered trail remain on dry gray ground with astronaut absent.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-b.json",
+    "bookId": "world-discovery-b-06",
+    "sha256": "95c162744226d000ed4c2dbd0905f56e99b5b6cbfb7cd9a17396f67a70d1fda7",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

@@ -24,14 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "status": "reviewed",
-    "reviewer": "author_b_c",
-    "reviewedAt": "2026-11-07T16:11:10.576901+00:00",
-    "outputSha256": "cf28923d9fa085841a8b7220d3a28aa0f6087ae46a726a3928b7beb21da47928",
-    "scope": "Direct current final WebP inspection and ordered complete sequence; production-author review, not independent approval",
-    "notes": "Three separated equal upright samples on small holders; one continuous car sharp behind clear, blurred behind wax and hidden behind brown card. Natural child poses; room scale and broad margins retained. Independent QA pending.",
     "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
     "sha256": "cf28923d9fa085841a8b7220d3a28aa0f6087ae46a726a3928b7beb21da47928",
-    "note": "Three separated equal upright samples on small holders; one continuous car sharp behind clear, blurred behind wax and hidden behind brown card. Natural child poses; room scale and broad margins retained. Independent QA pending."
+    "note": "Three separated equal upright samples on small holders; one continuous car sharp behind clear, blurred behind wax and hidden behind brown card. Natural child poses; room scale and broad margins retained. Independent QA pending.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-b.json",
+    "bookId": "world-discovery-b-19",
+    "sha256": "7dd89cf131c734afd0d2e036abbc3fbc93949fee06e26bc1700a9044fad6647d",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

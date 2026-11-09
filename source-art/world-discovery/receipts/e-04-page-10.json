@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T04:38:41.479Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "83e79fd065ecf5f3c3c6aeaed18e822a5f03d32b0f3e3297b33625b1abe921a5",
     "note": "Bothchildrenreturnedsafely beforeerasure; solidwallinsidebrokenoutline; moonhangs overloweredbluepuppetcurtain inadjacentroom, no duplicateprop.",
-    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-e.json",
+    "bookId": "world-discovery-e-04",
+    "sha256": "f91ed039f94d4dba12d2512833f9b6891bb09feeaa1d3548d72a416e1609d640",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

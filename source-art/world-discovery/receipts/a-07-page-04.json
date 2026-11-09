@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "996fe7d46bb9a74719ff8ab4a7e3ce05a6eab8b56df68d3d879700bf49c546a4",
     "note": "Snail slides right on continuous foot with small mucus trace behind. Corrected two black eye dots at upper tentacle tips; no legs.",
-    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-a.json",
+    "bookId": "world-discovery-a-07",
+    "sha256": "06d998767a69c5208523b12c5eceaa73fdd9167ad9b945952646c64af507da9a",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

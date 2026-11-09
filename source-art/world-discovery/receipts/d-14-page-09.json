@@ -33,9 +33,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T18:23:40.871Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "282714899d05f643df5ea07c14011d2e13197488bab7e208af5db8d661e93bd8",
     "note": "Generated native and installed full WebP directly inspected. Kit waves one fan, matching wall shadow holds fan; Zoe watches from outside circle and chair stays empty. Complete coherent room.",
-    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-d.json",
+    "bookId": "world-discovery-d-14",
+    "sha256": "f556073033b05fe367daba68ebe1f88da06adad7fc5fb9c6bbf48f6d9c900cc9",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

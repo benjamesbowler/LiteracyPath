@@ -22,9 +22,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "6a7a428208beeb7b2b1c03855107fc1aef390e56bbbaada51bc3c3514db6d8a3",
     "note": "Dedicated library cover: Kit returns the single green fox book across desk while Zoe holds her borrowing card; consistent adult worker.",
-    "limits": "Direct agent image and sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-b.json",
+    "bookId": "world-discovery-b-03",
+    "sha256": "44e523347a0acfa4305fb74a21bb48a57a4b0eeac39b1c309fb745d1947790cf",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

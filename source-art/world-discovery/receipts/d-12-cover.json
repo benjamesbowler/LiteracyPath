@@ -25,9 +25,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T14:24:03.883334+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "7dc435eb4817639bcd6bfb2e6b408a433e33090a2980bf602fbcce4551c49000",
     "note": "Generated source and installed WebP inspected. Near-left roof-edge repair matches page sequence; large center opening stays clear and red bed remains accessible. Detached patch is in yellow tray, one unused tan strip beside it. Natural standing bodies, four hands contacting the model and full plum trousers.",
-    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-d.json",
+    "bookId": "world-discovery-d-12",
+    "sha256": "50af3f290ad84fa9841a41698c0d7d05032492bd97f356ff26d34397d56cd037",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

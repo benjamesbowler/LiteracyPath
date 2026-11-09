@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T05:42:51.375Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "fce29b7a083683ab4ae567408bccd81374f6e3c5f62f72b4931787d307012173",
     "note": "Kit waters gently at soil, no runoff on dry path; corrected patchy straw rings to continuous thin mulch with small clear stem spaces.",
-    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-e.json",
+    "bookId": "world-discovery-e-10",
+    "sha256": "44f60e2326c204184b270b264bf65bff135a2beb2716790ba3af36b82d91abad",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

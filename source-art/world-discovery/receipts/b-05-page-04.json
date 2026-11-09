@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "b706ae966766f948a2949eaf1e41cb900b3b0d6ca35b46ce96c391a94c3f8b35",
     "note": "Inspected correction removes extra foreground tributary; one hillside stream joins main river, merged channel winds through continuous grassy valley.",
-    "limits": "Direct agent image and sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-b.json",
+    "bookId": "world-discovery-b-05",
+    "sha256": "cf1501b9e77fb5336915f03c544f736f57c701689c1d5acfd0ac3051dd63b1a2",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

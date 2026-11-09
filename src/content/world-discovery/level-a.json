@@ -116,7 +116,7 @@
     "languagePrep": [
       {
         "word": "mirror",
-        "meaning": "a surface that shows your reflection"
+        "meaning": "something you look into to see yourself"
       },
       {
         "word": "puffs",
@@ -594,7 +594,7 @@
       },
       {
         "pageNumber": 7,
-        "text": "The path winds down again.",
+        "text": "The path goes down again.",
         "imageBrief": "Wide side view of Kit walking along the return half of the same continuous tan loop, descending toward the pond.",
         "imageAlt": "Kit follows the path down the hill.",
         "pageDescription": "Kit follows the path down the hill.",
@@ -739,7 +739,7 @@
       },
       {
         "pageNumber": 7,
-        "text": "The Moon shows again.",
+        "text": "Zoe sees the Moon again.",
         "imageBrief": "The same right-lit half-Moon is fully visible again; cloud lies to its right, Zoe lowers pointing hand while watching.",
         "imageAlt": "Zoe sees the Moon again.",
         "pageDescription": "Zoe sees the Moon again.",
@@ -1060,7 +1060,7 @@
       },
       {
         "word": "fluff",
-        "meaning": "soft down covering a chick"
+        "meaning": "soft feathers on a chick"
       }
     ]
   },
@@ -1321,7 +1321,7 @@
     "languagePrep": [
       {
         "word": "tucks",
-        "meaning": "puts the cloth snugly around"
+        "meaning": "pulls the cloth around the bear"
       },
       {
         "word": "use",

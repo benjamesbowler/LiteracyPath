@@ -22,9 +22,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "84d15f448ec2f23946bb88c8123cfa3c8530d77ef77e5fa2eef6997adc78b178",
     "note": "Single two-tree scenery sheet remains propped against six-block stage; Kit clearly grips the stick supporting one red-collared dog; Zoe makes the bark from the side. No duplicated scenery.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-c.json",
+    "bookId": "world-discovery-c-01",
+    "sha256": "aab5ad7bb3a3aa170a426df576112da8fb04fed8a936c8e7606643076451794d",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

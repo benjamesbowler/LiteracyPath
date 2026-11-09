@@ -26,9 +26,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "df7abf214f2570a8e6bed9091ea4dc11a9cbcce3129150c2942afeecea865c33",
     "note": "Same loaded cart rests midway on long gentle flat ramp; Kit guides it with relaxed fingertips, Zoe observes. The reference arrangement, fixed platform, unused short board and child scale persist.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-c.json",
+    "bookId": "world-discovery-c-03",
+    "sha256": "9cd36e379fccd545f12d58a55028c595b0b1af575999c9de53dea74f83c155df",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

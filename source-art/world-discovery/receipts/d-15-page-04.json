@@ -29,9 +29,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T18:05:07.029Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "75e36b91522b5fcfb27908f63f60d4ba980c8fbcc5d8a2c689689188c9f52747",
     "note": "Generated native and installed full WebP directly inspected. Sparse grain paths ascend gentle left slope only; no reversed sheltered-face transport. Whole scene is coherent, core explanatory content complete and clear.",
-    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-d.json",
+    "bookId": "world-discovery-d-15",
+    "sha256": "9df95d59bcc955ca81ffa48f431e823ab1dddbe7ed4c1c7cb8fff1c9e9a386b1",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

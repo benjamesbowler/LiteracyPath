@@ -24,8 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "sha256": "f9bc832981e37f65e3818572d712c33bc07c0deccc6711214ba414cc1c860168",
     "method": "codex-direct-image-inspection",
-    "note": "Actual corrected no-bee scene: mature fading heads retained, gardener examines without cutting, mower parked away. Full natural bodies and patch markers inside safe margins."
+    "reviewedAt": "2026-11-09",
+    "sha256": "f9bc832981e37f65e3818572d712c33bc07c0deccc6711214ba414cc1c860168",
+    "note": "Actual corrected no-bee scene: mature fading heads retained, gardener examines without cutting, mower parked away. Full natural bodies and patch markers inside safe margins.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-e.json",
+    "bookId": "world-discovery-e-20",
+    "sha256": "fac02292fb99181c3cdf95a864e5c86a9e22d1df1677d6d1143abbaca2559e90",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

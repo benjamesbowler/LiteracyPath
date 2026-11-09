@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T04:21:34.041Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "cd1fab22b279fe52109bed075bf80484c1bed4371b26f367c77d5bd779e201c2",
     "note": "Heavy rain, shallow fullgarden overflow to separate stone swale; path/building remain apart.",
-    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-e.json",
+    "bookId": "world-discovery-e-03",
+    "sha256": "dfca7c29bf091d81cd5add3259ecb264806a48f37dac4a9aa9a8bcb5f486795d",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

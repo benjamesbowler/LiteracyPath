@@ -25,9 +25,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T14:49:27.672Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "b9dd2e50177152edf0dd0df418c00497db4dafcba36094398b96602c2ab43588",
     "note": "Generated source and installed WebP inspected. Leaf remains physically behind the membrane and visible through it while opaque veins interrupt the view. Four developed legs and two antennae; natural perch and complete inset butterfly.",
-    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-d.json",
+    "bookId": "world-discovery-d-17",
+    "sha256": "2826cf3312807d6cc892fa1bd9f74d486889fe4d6d27642c1648712c0bc83bb8",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

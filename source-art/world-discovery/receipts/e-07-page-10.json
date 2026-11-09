@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T05:04:48.467Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "f5385ab049648b38e4eeb8e681837baa52ee9432d8f42cab82573ce6b4f4c8fa",
     "note": "Conceptual return to nighttime feeding: one bat, white flower, pollen on muzzle; no false reverse-growth sequence.",
-    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-e.json",
+    "bookId": "world-discovery-e-07",
+    "sha256": "b3a3b5ef9be651c9a4107522a6f0a200b7b5460e23c1c7cab702b1270d07050c",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

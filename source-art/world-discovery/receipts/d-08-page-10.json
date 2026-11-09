@@ -13,8 +13,17 @@
   "references": [],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T04:08:45.971358+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "804314e447f226864c4a5e575977000ecd2b12a92795e65485112062c734bc66",
-    "note": "New cream seed sprouts a downward root in soil; opened dry pod above holds the remaining two seeds. Extraneous mature plant removed to focus new generation, no magically shrinking parent."
+    "note": "New cream seed sprouts a downward root in soil; opened dry pod above holds the remaining two seeds. Extraneous mature plant removed to focus new generation, no magically shrinking parent.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-d.json",
+    "bookId": "world-discovery-d-08",
+    "sha256": "3a25b145cd58db709fdda3e16fd040625c66d2bdf4e3ff3064d53907a957aa0f",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

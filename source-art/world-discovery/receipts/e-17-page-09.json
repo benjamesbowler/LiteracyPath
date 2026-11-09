@@ -24,8 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "sha256": "f472d196637a7ddc2b7851fddaf35ac996437f01e4273bcec4dd2d0911b8c0bc",
     "method": "codex-direct-image-inspection",
-    "note": "Directly viewed completed margin-edit native in full: all focal tails, bills, feet and current prey safely inside >10% outer margins; p6 complete authored cutaway also inset safely. Natural plover/dowitcher anatomy, exact feeding/probing/no-prey state and wet-ground contact preserved; no new animals or props."
+    "reviewedAt": "2026-11-09",
+    "sha256": "f472d196637a7ddc2b7851fddaf35ac996437f01e4273bcec4dd2d0911b8c0bc",
+    "note": "Directly viewed completed margin-edit native in full: all focal tails, bills, feet and current prey safely inside >10% outer margins; p6 complete authored cutaway also inset safely. Natural plover/dowitcher anatomy, exact feeding/probing/no-prey state and wet-ground contact preserved; no new animals or props.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-e.json",
+    "bookId": "world-discovery-e-17",
+    "sha256": "1c6ae32b0b6d09bf82d204ea741915ea38e4f54ff74a62197bd00ef8f493ddb8",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

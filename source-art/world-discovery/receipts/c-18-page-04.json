@@ -25,8 +25,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T16:24:52.775178+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "56e8809245403a0789a15b3a488352d2c2adeb90c3a10c89d3289b2fb44d8160",
-    "note": "Native source and actual final WebP directly viewed. Juvenile feeds at leaf edge with tiny notch; attached growing shell and four tentacles coherent. Focal subjects safely inset; no obvious malformed geometry."
+    "note": "Native source and actual final WebP directly viewed. Juvenile feeds at leaf edge with tiny notch; attached growing shell and four tentacles coherent. Focal subjects safely inset; no obvious malformed geometry.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-c.json",
+    "bookId": "world-discovery-c-18",
+    "sha256": "5122829b18eeec4e9b9a029ff7859227597ee2144b5d9284a88e4cdf4b5607b6",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

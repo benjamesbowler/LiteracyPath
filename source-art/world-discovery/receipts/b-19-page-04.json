@@ -24,14 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "status": "reviewed",
-    "reviewer": "author_b_c",
-    "reviewedAt": "2026-11-07T16:11:10.574682+00:00",
-    "outputSha256": "8edc87c76715b3d3bb3b9161d5eda66861c11bcbaf6cce3e84ee46794f3d42af",
-    "scope": "Direct current final WebP inspection and ordered complete sequence; production-author review, not independent approval",
-    "notes": "Opaque brown card casts dark patch on surrounding lit screen; unused clear/wax aside; physical ray direction coherent. Independent QA pending.",
     "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
     "sha256": "8edc87c76715b3d3bb3b9161d5eda66861c11bcbaf6cce3e84ee46794f3d42af",
-    "note": "Opaque brown card casts dark patch on surrounding lit screen; unused clear/wax aside; physical ray direction coherent. Independent QA pending."
+    "note": "Opaque brown card casts dark patch on surrounding lit screen; unused clear/wax aside; physical ray direction coherent. Independent QA pending.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-b.json",
+    "bookId": "world-discovery-b-19",
+    "sha256": "7dd89cf131c734afd0d2e036abbc3fbc93949fee06e26bc1700a9044fad6647d",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

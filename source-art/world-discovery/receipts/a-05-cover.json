@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "6cb48f1e99e3d7ddd0f596176b75a4a7dffb85c67cb71b08d588c72772b818b6",
     "note": "Kit at foreground hilltop views pond below; two route halves meet near reeds, no second hill or pond ring after correction.",
-    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-a.json",
+    "bookId": "world-discovery-a-05",
+    "sha256": "e6a8048af51d5fbaa628ba04f330083ca5b6f9700517da49d0ef924a2eb79a3f",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

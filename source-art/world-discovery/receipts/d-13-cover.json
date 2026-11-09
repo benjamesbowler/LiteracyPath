@@ -33,9 +33,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T18:23:40.861Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "056af5fe900d75272ad252120dba2aeb0c763c4708c06598c6b37e3af4cd4f98",
     "note": "Generated native and installed full WebP directly inspected. Adult fingertip meets integral black arrow button; Kit stands beside the white cane, white walking figure across the marked crossing. Full car and natural people/corner scale; arrow follows crossing.",
-    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-d.json",
+    "bookId": "world-discovery-d-13",
+    "sha256": "e97f16950c27023f38ced30023a8980685e1e71dc5b0e26524253b59a24b3e3f",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

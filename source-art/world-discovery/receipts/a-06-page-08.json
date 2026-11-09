@@ -9,7 +9,7 @@
   "outputSha256": "6648ff57dddffa7fb1240f7221a650b8361f953773d0784634d013e50a10aa62",
   "width": 1536,
   "height": 1024,
-  "prompt": "Use case: precise-object-edit. Move the ONE broad cloud from LEFT of the Moon to RIGHT of the Moon (it has already drifted past), leaving clear blue sky in the old cloud position. Shrink the Moon to HALF its current height, about 30\u201335 pixels tall, keeping same sky position and right-lit half phase. Cloud should be fully separated, on far RIGHT without covering Moon. No second cloud. Preserve Zoe seated on bench, daylit park and all else.",
+  "prompt": "Use case: precise-object-edit. Move the ONE broad cloud from LEFT of the Moon to RIGHT of the Moon (it has already drifted past), leaving clear blue sky in the old cloud position. Shrink the Moon to HALF its current height, about 30–35 pixels tall, keeping same sky position and right-lit half phase. Cloud should be fully separated, on far RIGHT without covering Moon. No second cloud. Preserve Zoe seated on bench, daylit park and all else.",
   "references": [
     {
       "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-410371b5-209b-4e53-a926-545399d39476.png",
@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "6648ff57dddffa7fb1240f7221a650b8361f953773d0784634d013e50a10aa62",
     "note": "Closing daytime bench view; small right-lit half-Moon clear and one cloud departing right after direction correction.",
-    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-a.json",
+    "bookId": "world-discovery-a-06",
+    "sha256": "8f76b4fe70bff497c20945ef276fc9dc2075132e87a60f62134e4610987f4ac6",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

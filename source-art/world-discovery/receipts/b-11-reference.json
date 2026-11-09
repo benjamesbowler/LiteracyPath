@@ -24,14 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "status": "reviewed",
-    "reviewer": "author_b_c",
-    "reviewedAt": "2026-11-07T10:39:34.847Z",
-    "outputSha256": "14e3efaa2e7d2197a97542fbeaf7beafc4558d1a485de34bfeb6580a23ab4087",
-    "scope": "direct reference-board inspection",
-    "notes": "Directly viewed edited native reference. Opening vignette now has four connected blocks, three loose on rug and one held by Kit, total eight. Wooden seat now has a backrest in every design view, matching later resting action. Cast identities/equal height, red pickup truck, green rug and classroom palette remain consistent. No finished road state.",
     "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
     "sha256": "14e3efaa2e7d2197a97542fbeaf7beafc4558d1a485de34bfeb6580a23ab4087",
-    "note": "Directly viewed edited native reference. Opening vignette now has four connected blocks, three loose on rug and one held by Kit, total eight. Wooden seat now has a backrest in every design view, matching later resting action. Cast identities/equal height, red pickup truck, green rug and classroom palette remain consistent. No finished road state."
+    "note": "Directly viewed edited native reference. Opening vignette now has four connected blocks, three loose on rug and one held by Kit, total eight. Wooden seat now has a backrest in every design view, matching later resting action. Cast identities/equal height, red pickup truck, green rug and classroom palette remain consistent. No finished road state.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-b.json",
+    "bookId": "world-discovery-b-11",
+    "sha256": "8337686b7d69f43090784df480919175220625123fd601a897d6276b2dfcaa93",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

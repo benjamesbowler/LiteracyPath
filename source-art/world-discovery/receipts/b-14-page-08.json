@@ -24,14 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "status": "reviewed",
-    "reviewer": "author_b_c",
-    "reviewedAt": "2026-11-07T11:54:51.674Z",
-    "outputSha256": "fe3a9d71e01826cdcf736edc389a756232836a9d2941741ea039d8ed6a933434",
-    "scope": "Direct final WebP inspection of replacement and full ordered sequence; production-author review, not independent approval",
-    "notes": "Wider framing verified: all essential heads, hands, wheels, clips, sheet corners and visible shoes comfortably inside required8% margin. Kit rolls red cart, Zoe drinks red mug; blue paper, free clips, shoes fully visible with generous bottom margin. Current full sequence color/contact/count ledger preserved. Independent recheck pending.",
     "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
     "sha256": "fe3a9d71e01826cdcf736edc389a756232836a9d2941741ea039d8ed6a933434",
-    "note": "Wider framing verified: all essential heads, hands, wheels, clips, sheet corners and visible shoes comfortably inside required8% margin. Kit rolls red cart, Zoe drinks red mug; blue paper, free clips, shoes fully visible with generous bottom margin. Current full sequence color/contact/count ledger preserved. Independent recheck pending."
+    "note": "Wider framing verified: all essential heads, hands, wheels, clips, sheet corners and visible shoes comfortably inside required8% margin. Kit rolls red cart, Zoe drinks red mug; blue paper, free clips, shoes fully visible with generous bottom margin. Current full sequence color/contact/count ledger preserved. Independent recheck pending.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-b.json",
+    "bookId": "world-discovery-b-14",
+    "sha256": "5dbf82b5197909174489d09da89bff6bbf25830375bf64500beb4df71bcf0707",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

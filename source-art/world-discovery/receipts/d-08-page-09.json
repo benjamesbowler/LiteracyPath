@@ -18,8 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T04:08:45.971149+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "1e14288734eeda560a7f75a3b334c7800794cb6aba05f88ed55dbf137c811ffe",
-    "note": "Featured dry tan pod opened on plant reveals three cream mature seeds; same bean variety and no eating claim."
+    "note": "Featured dry tan pod opened on plant reveals three cream mature seeds; same bean variety and no eating claim.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-d.json",
+    "bookId": "world-discovery-d-08",
+    "sha256": "3a25b145cd58db709fdda3e16fd040625c66d2bdf4e3ff3064d53907a957aa0f",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

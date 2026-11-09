@@ -25,8 +25,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T11:00:59.871293+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "3a203dd5ddfc9160b1776ee1e7b37b8da3dca1c37d005cb380d5090b8064c3d8",
-    "note": "Root directly inspected the native result and final installed WebP in full reading sequence. Zoe holds one short newly broken tasting piece; the single longer remainder lies on her plate with exposed crumb end. Kit keeps his own stick; basket bread side empty and pears both untouched. Locked cast, clean outlines, readable food and hand contact checked."
+    "note": "Root directly inspected the native result and final installed WebP in full reading sequence. Zoe holds one short newly broken tasting piece; the single longer remainder lies on her plate with exposed crumb end. Kit keeps his own stick; basket bread side empty and pears both untouched. Locked cast, clean outlines, readable food and hand contact checked.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-a.json",
+    "bookId": "world-discovery-a-11",
+    "sha256": "39dcd311f7e5c478fe89dd2870a0dd687b0f3050ad776015e9675a9886d2e8d5",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

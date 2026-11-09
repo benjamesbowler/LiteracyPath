@@ -22,9 +22,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "6cb10127710d318631b9c6489e6222641a2bf9d844da5e2bd96dcae60a9bce9f",
     "note": "Directly inspected: Kit beside northeast pond, map repeats gate/bench/fork/left flowers/right tree then pond; cropped real setting does not relocate pond near entrance. One map, two hands, matching cast.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-c.json",
+    "bookId": "world-discovery-c-05",
+    "sha256": "82042aa026d7c61c15e92b344417a2a8a47d6faa1613d44970635301753cb799",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

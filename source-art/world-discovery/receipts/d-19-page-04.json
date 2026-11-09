@@ -29,9 +29,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T16:19:26.983707+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "cb8162f912a6210b5b4b4ce796df6786a1c458ee61a6c0f7d269dc23a0b642e0",
     "note": "Generated source and installed WebP inspected. Two tomato halves and exactly six peas in opened pod, no loose pea yet. Full dishes and objects remain safely inset.",
-    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-d.json",
+    "bookId": "world-discovery-d-19",
+    "sha256": "ac8434eb87c7ed38d402f824acd8b7188efe9acbdbc2651ec49b779188a64cca",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

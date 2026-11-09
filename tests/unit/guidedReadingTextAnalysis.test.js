@@ -52,10 +52,10 @@ test("phonics eligibility, supported-reading mode and teacher level overrides do
 
 test("short specialist nonfiction is distinguished from longer but simpler narrative", () => {
   const cave = getBookTextAnalysis(books.find(book => book.id === "level-c-nonfiction-09-caves"));
-  const space = getBookTextAnalysis(books.find(book => book.id === "james-and-anna-01-space"));
-  assert.ok(cave.metrics.wordCount < space.metrics.wordCount);
+  const shopping = getBookTextAnalysis(books.find(book => book.id === "james-and-anna-03-shopping"));
+  assert.ok(cave.metrics.wordCount < shopping.metrics.wordCount);
   assert.equal(cave.appReadingLevel, "F");
-  assert.equal(space.appReadingLevel, "D");
+  assert.equal(shopping.appReadingLevel, "D");
   assert.match(cave.rationale, /stalactites/);
 });
 

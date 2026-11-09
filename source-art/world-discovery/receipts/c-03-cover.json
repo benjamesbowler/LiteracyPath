@@ -22,9 +22,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "84e100bfc0c67cf543aa4bdf09a30d14a255b69e3fbc357763a1a0695ff8dd50",
     "note": "Corrected Kit to normal child behind tabletop. One loaded red cart is supported on long gentle flat ramp reaching fixed platform; unused short board lies flat. Toy scale, continuous rolling path and hand contact checked.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-c.json",
+    "bookId": "world-discovery-c-03",
+    "sha256": "9cd36e379fccd545f12d58a55028c595b0b1af575999c9de53dea74f83c155df",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

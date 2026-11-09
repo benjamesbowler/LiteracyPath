@@ -22,9 +22,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "a1a5cae8cd58f1b013e022ad147b11945cd749d708173bdd81e7261888da5cca",
     "note": "Dedicated cover: Kit crouches with hands apart beside open box containing one red gold-dot boot; matching lid lies beside it.",
-    "limits": "Direct agent image and sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-b.json",
+    "bookId": "world-discovery-b-04",
+    "sha256": "5e800201c36e42d5a4ff1444d37ed6c87637d28b97c5a3f31cda6a08b42d4b2c",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

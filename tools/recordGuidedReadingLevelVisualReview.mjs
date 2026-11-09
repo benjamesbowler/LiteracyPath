@@ -7,6 +7,7 @@ import { fileURLToPath } from "node:url";
 
 import { getRuntimeGuidedReadingBooks } from "../src/utils/guidedReading/runtimeBooks.js";
 import { APP_READING_LEVELS, getPublicBookMetadata } from "../src/utils/guidedReading/bookLevelMetadata.js";
+import { MISSING_SANDWICH_BOOK_ID } from "../src/data/meadowPalsScienceIdentity.js";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const auditPath = path.join(
@@ -55,7 +56,13 @@ function publicFile(publicPath = "") {
 
 const audit = JSON.parse(fs.readFileSync(auditPath, "utf8"));
 const runtimeBooks = getRuntimeGuidedReadingBooks();
-const reviewedBooks = runtimeBooks.filter(book => bookId ? book.id === bookId : getPublicBookMetadata(book).appReadingLevel === level);
+if (bookId === MISSING_SANDWICH_BOOK_ID) {
+  throw new Error("Missing Sandwich uses its dedicated science visual manifest; do not create a second approval in the general page audit.");
+}
+// The checker merges the dedicated science manifest with this general audit.
+// A level-wide review must preserve that single authority, including at H.
+const reviewedBooks = runtimeBooks.filter(book => book.id !== MISSING_SANDWICH_BOOK_ID
+  && (bookId ? book.id === bookId : getPublicBookMetadata(book).appReadingLevel === level));
 const reviewedBookIds = new Set(reviewedBooks.map(book => book.id));
 const previousPages = new Map((audit.pages || []).map(record => [`${record.bookId}:${record.pageNumber}`, record]));
 

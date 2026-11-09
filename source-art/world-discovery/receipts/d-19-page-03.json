@@ -29,9 +29,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T15:50:08.813943+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "6e9c26112033f221e93158c913d138486c8f2027d127af150efe6fec074b440b",
     "note": "Generated source and installed WebP inspected. Single tomato branch with serrated leaves, separate yellow flower and developing green fruit connected by coherent stems; no mixed pea plant or dishes.",
-    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-d.json",
+    "bookId": "world-discovery-d-19",
+    "sha256": "ac8434eb87c7ed38d402f824acd8b7188efe9acbdbc2651ec49b779188a64cca",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

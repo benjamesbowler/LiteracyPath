@@ -22,9 +22,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "3d6a96f49eb80b9721da0b8eb8f1efa0206aa8134a6d737a342d31d80020a3a2",
     "note": "Inspected original cast and revised reference: six tan blocks in two rows, collar absent on initial dog puppet, single flexible scenery sheet with two trees, gray pencil/red crayon, matching Kit/Zoe outfits and equal height; ordinary bright classroom key.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-c.json",
+    "bookId": "world-discovery-c-01",
+    "sha256": "aab5ad7bb3a3aa170a426df576112da8fb04fed8a936c8e7606643076451794d",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

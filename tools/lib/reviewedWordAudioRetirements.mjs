@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { createHash } from "node:crypto";
 import { execFileSync } from "node:child_process";
+import { stableWorldDiscoveryJson, validateWorldDiscoveryCohortManifest, validateWorldDiscoveryRegistration } from "../../src/data/worldDiscoveryCohortContract.js";
 
 const hash = bytes => createHash("sha256").update(bytes).digest("hex");
 const sha = value => /^[a-f0-9]{64}$/.test(value || "");
@@ -10,6 +11,101 @@ const same = (left, right) => JSON.stringify(left) === JSON.stringify(right);
 const requireThat = (condition, message) => { if (!condition) throw Error(message); };
 const tokens = text => String(text || "").toLowerCase().replaceAll("’", "'").match(/[a-z0-9]+(?:['-][a-z0-9]+)*/g) || [];
 const contextKey = row => `${row.bookId}:${row.pageNumber}:${row.pageText}`;
+const withdrawalKey = (audioPath, context) => `${audioPath}:${contextKey(context)}`;
+
+function currentRegisteredContextVerifier({ read, books }) {
+  const manifest = JSON.parse(read("src/content/world-discovery/cohorts.json"));
+  const manifestErrors = validateWorldDiscoveryCohortManifest(manifest);
+  requireThat(!manifestErrors.length, `Invalid current context cohort manifest: ${manifestErrors.join("; ")}`);
+  const sources = new Map();
+  return (row, pageText) => {
+    const id = /^world-discovery-([a-e])-(\d{2})$/.exec(row.context.bookId);
+    const cohort = id && manifest.cohorts.find(c => c.active && Number(id[2]) >= c.firstNumber && Number(id[2]) <= c.lastNumber);
+    requireThat(cohort && cohort.maintenanceBaseline
+      && row.manuscript?.path === `${cohort.sourceDir}/level-${id[1]}.json` && sha(row.manuscript.sha256)
+      && row.registration?.path === cohort.registration && sha(row.registration.sha256)
+      && /^src\/content\/world-discovery\/registrations\/\d{4}-\d{2}-\d{2}\/[a-zA-Z0-9_/-]+\.json$/.test(row.registration.path)
+      && !row.registration.path.split("/").includes(".."), "Context revision must pin the current canonical manuscript and versioned registration");
+    const manuscriptBytes = read(row.manuscript.path), registrationBytes = read(row.registration.path);
+    requireThat(hash(manuscriptBytes) === row.manuscript.sha256 && hash(registrationBytes) === row.registration.sha256, "Context manuscript/registration bytes changed");
+    if (!sources.has(cohort.id)) {
+      const sourceBooks = [..."abcde"].flatMap(level => JSON.parse(read(`${cohort.sourceDir}/level-${level}.json`)));
+      const reviews = JSON.parse(read(`${cohort.sourceDir}/reviews.json`));
+      sources.set(cohort.id, { books: sourceBooks, reviews });
+    }
+    const source = sources.get(cohort.id), registration = JSON.parse(registrationBytes);
+    const registrationErrors = validateWorldDiscoveryRegistration(cohort, { ...source, id: cohort.id, registration });
+    requireThat(!registrationErrors.length && registration.inputSha256 === hash(stableWorldDiscoveryJson(source)),
+      `Context registration does not bind current source/reviews: ${registrationErrors.join("; ")}`);
+    const sourcePages = source.books.filter(b => b.id === row.context.bookId).flatMap(b => b.pages.filter(p => p.pageNumber === row.context.pageNumber));
+    const runtimePages = books.filter(b => b.id === row.context.bookId).flatMap(b => b.pages.filter(p => p.pageNumber === row.context.pageNumber));
+    requireThat(sourcePages.length === 1 && runtimePages.length === 1
+      && sourcePages[0].text === pageText && runtimePages[0].text === pageText, "Context exact source/runtime page differs");
+    return runtimePages[0];
+  };
+}
+
+// A withdrawal retires only a former page binding, never its accepted MP3,
+// generator alias or historical rejection/recovery evidence. The current
+// canonical source and active, versioned registration must prove its removal.
+export function verifyReviewedWordAudioContextWithdrawals(scope, { read, readHistorical, books, contextualEntries }) {
+  const withdrawals = scope.contextWithdrawals ?? [];
+  requireThat(Array.isArray(withdrawals), "Invalid context withdrawal ledger");
+  const verified = new Map();
+  if (!withdrawals.length) return verified;
+  requireThat(typeof read === "function" && typeof readHistorical === "function"
+    && Array.isArray(books) && Array.isArray(contextualEntries), "Missing context withdrawal evidence");
+  const verifyCurrent = currentRegisteredContextVerifier({ read, books });
+  for (const row of withdrawals) {
+    const retirement = scope.entries.find(r => r.oldAudioPath === row.oldAudioPath && r.word === row.word);
+    requireThat(retirement && retirement.contexts.some(context => same(context, row.context))
+      && tokens(row.context.pageText).includes(row.word), "Withdrawal is not an exact listed historical context");
+    const key = withdrawalKey(row.oldAudioPath, row.context);
+    requireThat(!verified.has(key) && typeof row.authorization === "string" && row.authorization.trim(), "Missing authorization or duplicate context withdrawal");
+    requireThat(typeof row.replacementPageText === "string" && row.replacementPageText.trim()
+      && row.replacementPageText !== row.context.pageText && !tokens(row.replacementPageText).includes(row.word), "Withdrawal page still contains the word or has no exact replacement text");
+    verifyCurrent(row, row.replacementPageText);
+    const historicalBooks = JSON.parse(readHistorical(row.manuscript.path));
+    const historicalPages = historicalBooks.filter(b => b.id === row.context.bookId).flatMap(b => b.pages.filter(p => p.pageNumber === row.context.pageNumber));
+    requireThat(historicalPages.length === 1 && historicalPages[0].text === row.context.pageText,
+      "Withdrawal original binding differs from pinned historical source");
+    requireThat(!contextualEntries.some(c => c.bookId === row.context.bookId && c.pageNumber === row.context.pageNumber
+      && String(c.word).toLowerCase() === row.word), "Withdrawn contextual pronunciation entry remains active");
+    verified.set(key, row);
+  }
+  return verified;
+}
+
+// Explicit same-meaning additions extend only a reviewed default's allowed
+// occurrence set. They cannot create a new pronunciation or contextual alias.
+export function verifyReviewedWordAudioContextAdditions(scope, { read, books, contextualEntries, resolve }) {
+  const additions = scope.contextAdditions ?? [];
+  requireThat(Array.isArray(additions), "Invalid context addition ledger");
+  const verified = new Map();
+  if (!additions.length) return verified;
+  requireThat(typeof read === "function" && typeof resolve === "function"
+    && Array.isArray(books) && Array.isArray(contextualEntries), "Missing context addition evidence");
+  const verifyCurrent = currentRegisteredContextVerifier({ read, books });
+  for (const row of additions) {
+    const retirement = scope.entries.find(r => r.oldAudioPath === row.oldAudioPath && r.word === row.word);
+    requireThat(retirement?.mode === "default" && row.meaning === retirement.meaning
+      && row.pronunciation === retirement.pronunciation && row.audioPath === retirement.newAudioPath
+      && row.audioSha256 === retirement.newSha256, "Addition changes the reviewed default meaning/pronunciation/audio");
+    requireThat(row.context && Number.isInteger(row.context.pageNumber) && row.context.pageNumber > 0
+      && typeof row.context.pageText === "string" && tokens(row.context.pageText).includes(row.word)
+      && !retirement.contexts.some(context => same(context, row.context)), "Addition is missing the word or repeats an original context");
+    const key = withdrawalKey(row.oldAudioPath, row.context);
+    requireThat(!verified.has(key) && typeof row.authorization === "string" && row.authorization.trim(), "Missing authorization or duplicate context addition");
+    const page = verifyCurrent(row, row.context.pageText);
+    requireThat(!contextualEntries.some(c => c.bookId === row.context.bookId && c.pageNumber === row.context.pageNumber
+      && String(c.word).toLowerCase() === row.word), "Added default context has a contextual override");
+    requireThat(resolve(row.word) === retirement.newAudioPath
+      && resolve(row.word, { bookId: row.context.bookId, page }) === retirement.newAudioPath
+      && hash(read(`public${retirement.newAudioPath}`)) === retirement.newSha256, "Added context/default does not resolve the accepted audio bytes");
+    verified.set(key, row);
+  }
+  return verified;
+}
 
 // Evidence is gathered independently below; this predicate has no filesystem or
 // Git fallback that could turn an unreadable source into proof of absence.
@@ -35,6 +131,14 @@ export function validateReviewedWordAudioRetirement(r, e) {
     && e.contexts?.length === r.contexts.length, "Missing/duplicate exact contexts");
   for (const [index, expected] of r.contexts.entries()) {
     const actual = e.contexts[index];
+    if (actual.withdrawal) {
+      const withdrawal = actual.withdrawal;
+      requireThat(actual.withdrawalVerified === true && same(actual.binding, expected) && same(withdrawal.context, expected)
+        && withdrawal.oldAudioPath === r.oldAudioPath && withdrawal.word === r.word
+        && actual.pageText === withdrawal.replacementPageText && !tokens(actual.pageText).includes(r.word)
+        && actual.contextualEntryCount === 0 && actual.approval === null, "Unverified withdrawn word context");
+      continue;
+    }
     requireThat(same(actual.binding, expected) && actual.pageText === expected.pageText
       && tokens(expected.pageText).includes(r.word) && actual.resolvedPath === r.newAudioPath, "Source page/context resolution differs");
     const approved = actual.approval;
@@ -53,8 +157,21 @@ export function validateReviewedWordAudioRetirement(r, e) {
       && repair.audioSha256 === r.newSha256 && repair.reviewEvidence === review.reviewNote
       && repair.pronunciations?.some(p => p.phrase === r.word && p.pronunciation === r.pronunciation
         && p.phoneticEncoding === "PHONETIC_ENCODING_IPA"), "Durable reviewed generator alias differs");
-    requireThat(same([...e.currentOccurrences].sort(), r.contexts.map(contextKey).sort()), "Word now has an unreviewed meaning/context");
+    const retainedContexts = r.contexts.filter((_, index) => !e.contexts[index].withdrawal);
+    const additions = e.contextAdditions ?? [];
+    requireThat(Array.isArray(additions) && new Set(additions.map(a => contextKey(a.binding))).size === additions.length,
+      "Missing/duplicate approved context additions");
+    for (const addition of additions) {
+      const row = addition.row;
+      requireThat(addition.verified === true && row?.oldAudioPath === r.oldAudioPath && row.word === r.word
+        && row.meaning === r.meaning && row.pronunciation === r.pronunciation
+        && row.audioPath === r.newAudioPath && row.audioSha256 === r.newSha256
+        && same(addition.binding, row.context) && tokens(row.context.pageText).includes(r.word)
+        && !r.contexts.some(context => same(context, row.context)), "Unverified added word context");
+    }
+    requireThat(same([...e.currentOccurrences].sort(), [...retainedContexts, ...additions.map(a => a.binding)].map(contextKey).sort()), "Word now has an unreviewed meaning/context");
   } else {
+    requireThat(!e.contextAdditions?.length, "Contextual retirement cannot gain default contexts");
     // The duplicate rejected ribbon take must never change the shared bow
     // dictionary or substitute the bodily-bow context.
     requireThat(r.word === "bow" && r.pronunciation === "boʊ" && r.contexts.length === 1
@@ -109,6 +226,10 @@ export async function verifyReviewedWordAudioRetirements(root, changedEntries, b
     const { resolveReviewedGuidedReadingAudioRepair } = await import("../guidedReadingAudioRepairLib.mjs");
     const { GUIDED_READING_LEDA_GAPS: currentMap } = await import("../../src/data/generated/guidedReadingLedaGaps.generated.js");
     const books = getRuntimeGuidedReadingBooks();
+    const withdrawals = verifyReviewedWordAudioContextWithdrawals(scope, {
+      read: safeRead, readHistorical: relative => git(["show", `${scope.sourceRevision}:${relative}`]), books, contextualEntries: contexts
+    });
+    const additions = verifyReviewedWordAudioContextAdditions(scope, { read: safeRead, books, contextualEntries: contexts, resolve });
     for (const r of wanted) {
       try {
         requireThat(wordPath(r.oldAudioPath), "Invalid old isolated-word path");
@@ -142,8 +263,13 @@ export async function verifyReviewedWordAudioRetirements(root, changedEntries, b
           contexts: r.contexts.map(binding => {
             const page = books.find(b => b.id === binding.bookId)?.pages.find(p => p.pageNumber === binding.pageNumber);
             const matches = contexts.filter(c => c.bookId === binding.bookId && c.pageNumber === binding.pageNumber && c.word === r.word);
-            return { binding, pageText: page?.text, resolvedPath: resolve(r.word, { bookId: binding.bookId, page }), approval: matches.length === 1 ? matches[0] : null };
+            const withdrawal = withdrawals.get(withdrawalKey(r.oldAudioPath, binding));
+            return { binding, pageText: page?.text, resolvedPath: withdrawal ? null : resolve(r.word, { bookId: binding.bookId, page }),
+              approval: matches.length === 1 ? matches[0] : null, contextualEntryCount: matches.length,
+              ...(withdrawal ? { withdrawal, withdrawalVerified: true } : {}) };
           }),
+          contextAdditions: [...additions.values()].filter(row => row.oldAudioPath === r.oldAudioPath)
+            .map(row => ({ row, binding: row.context, verified: true })),
           historicalWordMapping: priorMap.isolated_word?.[r.word], currentWordMapping: currentMap.isolated_word?.[r.word],
           defaultResolvedPath: resolve(r.word), repair: repairs[`isolated_word:${r.word}`],
           generatorResolvedPath: r.mode === "default" ? resolveReviewedGuidedReadingAudioRepair({ role: "isolated_word", lookupText: r.word, spokenText: r.word }, r.voiceName, root) : null,

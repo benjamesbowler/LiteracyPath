@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "2da7e76967dad9ee69cb2a8f5f0106ad6ada6fa2502c3836d9d4cddaefd14062",
     "note": "Inspected repair opens one green book face-up on low round table, with fox drawing on white interior page. Zoe holds edges; Kit sits beside, hands clear.",
-    "limits": "Direct agent image and sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-b.json",
+    "bookId": "world-discovery-b-03",
+    "sha256": "44e523347a0acfa4305fb74a21bb48a57a4b0eeac39b1c309fb745d1947790cf",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

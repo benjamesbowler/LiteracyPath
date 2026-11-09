@@ -19,7 +19,7 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_CORE = Object.freeze({
     }),
     visual: Object.freeze({
       page: 6,
-      prompt: "How are living things sharing the Sun’s light and warmth here?",
+      prompt: "Which plants and animals can you see in the sunlight?",
       lookFor: "The child, rabbit, plants and birds share the sunlit outdoor space."
     })
   }),
@@ -30,8 +30,8 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_CORE = Object.freeze({
     }),
     visual: Object.freeze({
       page: 6,
-      prompt: "Trace the colors you can see across the rainbow.",
-      lookFor: "Several distinct color bands curving from one side of the sky to the other."
+      prompt: "Point to something red, blue, green, yellow, and white.",
+      lookFor: "Red apple, blue sky, green leaves or grass, yellow Sun or flowers, and white cloud or flowers."
     })
   }),
   "gr-a-29": Object.freeze({
@@ -41,8 +41,8 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_CORE = Object.freeze({
     }),
     visual: Object.freeze({
       page: 5,
-      prompt: "What are the open hands ready to help this child do?",
-      lookFor: "Two spread hands with fingers ready to hold, touch, or make something."
+      prompt: "How are the child’s hands helping build the tower?",
+      lookFor: "One hand places the red block; the other steadies the tower."
     })
   }),
   "gr-b-31": Object.freeze({
@@ -207,7 +207,7 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_CORE = Object.freeze({
     visual: Object.freeze({
       page: 2,
       prompt: "Which objects are moving toward the magnet, and what are they made from?",
-      lookFor: "Metal paper clips and nails gather at the magnet while other materials stay away."
+      lookFor: "Metal paper clips and washers gather at the magnet. Wooden sticks and plastic buttons stay on the table."
     })
   }),
   "gr-e-49": Object.freeze({
@@ -234,7 +234,7 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_CORE = Object.freeze({
   }),
   "first-facts-level-a-01-colors": Object.freeze({
     oral: Object.freeze({
-      prompt: "What do the object pairs teach us about naming colors?",
+      prompt: "Find two things with the same color. What color are they?",
       listenFor: "Different things can share one color, such as a red ball and hat."
     }),
     visual: Object.freeze({
@@ -250,13 +250,13 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_CORE = Object.freeze({
     }),
     visual: Object.freeze({
       page: 5,
-      prompt: "Which features help you recognize the animal that says quack?",
+      prompt: "What shape are the duck’s bill and feet?",
       lookFor: "The duck's broad bill, feathered body, and webbed feet."
     })
   }),
   "first-facts-level-a-03-big-and-little": Object.freeze({
     oral: Object.freeze({
-      prompt: "Why can something look big in one pairing and little in another?",
+      prompt: "Is the dog big next to the bug? Would it look big next to an elephant?",
       listenFor: "Size words depend on which two things are being compared."
     }),
     visual: Object.freeze({
@@ -273,7 +273,7 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_CORE = Object.freeze({
     visual: Object.freeze({
       page: 6,
       prompt: "Where is the frog headed as it makes its jump?",
-      lookFor: "Its body points from the bank toward the water below."
+      lookFor: "One frog is in the air above the water, near the lily pads."
     })
   }),
   "first-facts-level-a-05-the-sky": Object.freeze({
@@ -317,7 +317,7 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_CORE = Object.freeze({
     visual: Object.freeze({
       page: 7,
       prompt: "What shows that the dog is ready for a game?",
-      lookFor: "The dog carries a ball toward the child outdoors."
+      lookFor: "The child holds the ball. The dog bends its front legs and looks ready to chase it."
     })
   }),
   "first-facts-level-a-09-hot-and-cold": Object.freeze({
@@ -355,7 +355,7 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_CORE = Object.freeze({
   }),
   "first-facts-level-a-12-in-the-sea": Object.freeze({
     oral: Object.freeze({
-      prompt: "How does sea movement change from the shark to the turtle?",
+      prompt: "Which animal in the book swims fast? Which swims slowly?",
       listenFor: "The shark moves very fast, while the turtle swims slowly."
     }),
     visual: Object.freeze({
@@ -371,8 +371,8 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_CORE = Object.freeze({
     }),
     visual: Object.freeze({
       page: 5,
-      prompt: "How does the grape's outline show its small, round form?",
-      lookFor: "The curved skin makes a compact circle or oval around the fruit."
+      prompt: "What shape is the grape?",
+      lookFor: "The grape is round."
     })
   }),
   "first-facts-level-a-14-the-tree": Object.freeze({
@@ -388,7 +388,7 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_CORE = Object.freeze({
   }),
   "first-facts-level-a-15-baby-animals": Object.freeze({
     oral: Object.freeze({
-      prompt: "What may stay recognizable as a baby animal grows bigger?",
+      prompt: "What looks the same on a baby animal and its parent?",
       listenFor: "Features such as fur, wool, feathers, paws, or hooves still show its animal kind."
     }),
     visual: Object.freeze({
@@ -399,7 +399,7 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_CORE = Object.freeze({
   }),
   "first-facts-level-a-16-fast-and-slow": Object.freeze({
     oral: Object.freeze({
-      prompt: "What groups the car, bus, and jet apart from the snail, worm, and turtle?",
+      prompt: "Which things move fast? Which animals move slowly?",
       listenFor: "The vehicles belong to the fast group, while the three animals move slowly."
     }),
     visual: Object.freeze({
@@ -415,7 +415,7 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_CORE = Object.freeze({
     }),
     visual: Object.freeze({
       page: 4,
-      prompt: "How can you tell the new shoot is growing upward?",
+      prompt: "Which way is the new shoot growing?",
       lookFor: "A green tip rises from the seed and pushes above the soil."
     })
   }),
@@ -432,7 +432,7 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_CORE = Object.freeze({
   }),
   "first-facts-level-a-19-day-and-night": Object.freeze({
     oral: Object.freeze({
-      prompt: "What changes in the sky as day gives way to night?",
+      prompt: "What changes in the sky when day ends and night begins?",
       listenFor: "The Sun sets, darkness arrives, and the Moon and stars become visible."
     }),
     visual: Object.freeze({
@@ -443,12 +443,12 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_CORE = Object.freeze({
   }),
   "first-facts-level-a-20-space": Object.freeze({
     oral: Object.freeze({
-      prompt: "How are the Sun, Moon, Earth, Mars, and Saturn unlike one another?",
-      listenFor: "The Sun is a star; the Moon travels with Earth; planets have different surfaces or rings."
+      prompt: "How are these objects in space different?",
+      listenFor: "The Sun is a hot star. We live on Earth. Mars is rocky, and Saturn has rings."
     }),
     visual: Object.freeze({
       page: 5,
-      prompt: "Which feature makes Saturn easy to recognize here?",
+      prompt: "What can you see around Saturn?",
       lookFor: "Wide, bright rings form bands around the planet."
     })
   }),
@@ -487,7 +487,7 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_CORE = Object.freeze({
   }),
   "first-facts-a-04-what-is-weather": Object.freeze({
     oral: Object.freeze({
-      prompt: "Which kinds of weather change what we can see, hear, or feel?",
+      prompt: "How can you tell the wind is blowing?",
       listenFor: "Wind bends plants, thunder booms, lightning flashes, and Sun or snow changes temperature."
     }),
     visual: Object.freeze({
@@ -498,12 +498,12 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_CORE = Object.freeze({
   }),
   "first-facts-a-05-flowers-and-trees": Object.freeze({
     oral: Object.freeze({
-      prompt: "How do leafy trees respond differently when the cold months arrive?",
+      prompt: "What happens to these trees in winter?",
       listenFor: "Some trees lose their leaves, while pines stay green through the cold."
     }),
     visual: Object.freeze({
       page: 4,
-      prompt: "Which details distinguish the rose flower from its stem?",
+      prompt: "Point to the petals. Point to the stem and its thorns.",
       lookFor: "Colored petals cluster at the top while pointed thorns line the green stem."
     })
   }),
@@ -564,7 +564,7 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_CORE = Object.freeze({
   }),
   "first-facts-a-11-pets-we-love": Object.freeze({
     oral: Object.freeze({
-      prompt: "Why would one care plan not suit every pet in this book?",
+      prompt: "Do fish and rabbits need the same food and space? Explain.",
       listenFor: "Each animal needs its own food, space, shelter, exercise, and social care."
     }),
     visual: Object.freeze({
@@ -586,7 +586,7 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_CORE = Object.freeze({
   }),
   "first-facts-a-13-big-and-small": Object.freeze({
     oral: Object.freeze({
-      prompt: "Why do the pairings matter when we call something big or small?",
+      prompt: "What could you put beside the mouse to make it look big?",
       listenFor: "The same object can seem larger or smaller depending on its neighbor."
     }),
     visual: Object.freeze({
@@ -597,7 +597,7 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_CORE = Object.freeze({
   }),
   "first-facts-a-14-hot-and-cold": Object.freeze({
     oral: Object.freeze({
-      prompt: "How can temperature clues help us make a safer choice?",
+      prompt: "How can you stay safe near things that are hot or cold?",
       listenFor: "Stay back from fire, let hot food cool, and ask an adult before touching extremes."
     }),
     visual: Object.freeze({
@@ -668,7 +668,7 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_CORE = Object.freeze({
     }),
     visual: Object.freeze({
       page: 2,
-      prompt: "Which colors and shapes are the child's eyes able to gather here?",
+      prompt: "What colors and shapes can the child see?",
       lookFor: "The child looks toward clearly different colored forms in the scene."
     })
   }),
@@ -685,18 +685,18 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_CORE = Object.freeze({
   }),
   "first-facts-a-22-staying-healthy": Object.freeze({
     oral: Object.freeze({
-      prompt: "Why do healthy habits work better as a group than as one single action?",
+      prompt: "What do you do each day to help your body stay healthy?",
       listenFor: "Food, water, movement, hygiene, tooth care, and sleep support different body needs."
     }),
     visual: Object.freeze({
       page: 3,
-      prompt: "Which body movements show that the play is active?",
-      lookFor: "Bent arms or legs and an energetic pose show muscles at work."
+      prompt: "Is the child running or jumping?",
+      lookFor: "Both feet are off the ground as the child jumps with the rope."
     })
   }),
   "first-facts-a-23-my-body": Object.freeze({
     oral: Object.freeze({
-      prompt: "What can the child do to protect the body used for play?",
+      prompt: "How can the child protect her skin and head?",
       listenFor: "Put sunscreen on skin and wear a helmet to protect the head."
     }),
     visual: Object.freeze({
@@ -712,7 +712,7 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_CORE = Object.freeze({
     }),
     visual: Object.freeze({
       page: 5,
-      prompt: "What shape from a living thing is preserved here?",
+      prompt: "What animal shape can you see in the rock?",
       lookFor: "A ridged shell shape is preserved in the rock."
     })
   }),
@@ -773,13 +773,13 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_CORE = Object.freeze({
   }),
   "level-c-nonfiction-05-how-seeds-grow": Object.freeze({
     oral: Object.freeze({
-      prompt: "How does pollination help a flowering plant begin another generation?",
-      listenFor: "Pollen moves between flowers, allowing new seeds to form inside pods and later disperse."
+      prompt: "How do bees and butterflies help this plant make new seeds?",
+      listenFor: "They carry pollen between flowers. New seeds can then grow inside the pods."
     }),
     visual: Object.freeze({
       page: 7,
-      prompt: "Where are the next generation of plants developing here?",
-      lookFor: "New seeds sit enclosed inside pods attached to the parent plant."
+      prompt: "Where are the new seeds growing?",
+      lookFor: "The new seeds are inside the green pods."
     })
   }),
   "level-c-nonfiction-06-spiders": Object.freeze({
@@ -833,7 +833,7 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_CORE = Object.freeze({
     }),
     visual: Object.freeze({
       page: 4,
-      prompt: "Which body changes show the tadpole moving toward froglet form?",
+      prompt: "What new body parts can you see on this tadpole?",
       lookFor: "Back legs are larger, front legs are appearing, and the long tail is shrinking."
     })
   })

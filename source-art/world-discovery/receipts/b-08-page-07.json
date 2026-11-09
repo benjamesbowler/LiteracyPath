@@ -22,8 +22,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T05:09:04.560194+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "521e763e6d4731345f897b48328864c19238f8e4d0d35e4edb0baa1dd29795b0",
-    "note": "Mature adult has exactly seven dark spots, six legs and two antennae; opened empty pupal case remains nearby."
+    "note": "Mature adult has exactly seven dark spots, six legs and two antennae; opened empty pupal case remains nearby.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-b.json",
+    "bookId": "world-discovery-b-08",
+    "sha256": "f8a7db5b751295bf896f73c32a89c4e82ae83bccfdc22d76dc9ac019d8578abb",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

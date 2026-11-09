@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T04:55:31.159Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "2e1d0bad378ac48d95ba1d2d5f808c17fe9b8df8d7448cff00ba8d8594050f7d",
     "note": "Final off-alignment space diagram retains whole Moon and left-lit hemisphere with Earth also left-lit; no Earth shadow falling over Moon.",
-    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-e.json",
+    "bookId": "world-discovery-e-06",
+    "sha256": "ee7fbae5a543f22990a78929d424b7b0ae5208b2cf696db2cdbabd8ab4bee424",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

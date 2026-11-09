@@ -22,8 +22,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T05:34:31.213421+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "a7ee73f3d98c8054e3a4203e7e1158311e96c5740cb9161ade4af4abc6d15383",
-    "note": "Direct inspection: Zoe hand from near side moves one yellow toy along dry neck; Kit hand at far edge; continuous peninsula and no water gap, stick outside."
+    "note": "Direct inspection: Zoe hand from near side moves one yellow toy along dry neck; Kit hand at far edge; continuous peninsula and no water gap, stick outside.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-d.json",
+    "bookId": "world-discovery-d-05",
+    "sha256": "1b7aa1cf65d384e02c9eb2a232041ee2a5bbba15295e1d9b95721ff24239fc36",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

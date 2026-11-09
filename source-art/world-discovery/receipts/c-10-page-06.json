@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "81fce70a005e3056f87eee29a905396bb159b19398886647c789839d4367656d",
     "note": "Direct inspection after depth/tool repairs: mature dark crumbly compost sunk below upper bin walls with no recognizable scraps; adult borrows sole blue trowel to gray bucket, Kit empty-handed and Zoe holds sole plum trowel; no tomato yet.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-c.json",
+    "bookId": "world-discovery-c-10",
+    "sha256": "abc3172845cd8a873b3f79b54c2fef72490decbc19a54a367d9faa52687fde03",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "27bc7ebc47007ef7d911a4a1681097c1b225e4b9ecd64ca1fb19e41efc17df5c",
     "note": "Direct inspection after posture repair: bat hangs head-down by two hind feet, folded membranes frame visible fur; separate upright swallow shows feathered body, comparison clear.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-c.json",
+    "bookId": "world-discovery-c-09",
+    "sha256": "547724e0d3b9bf1f872360c6d00472dbc9c9795e76d758413329a5a9aae31f81",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

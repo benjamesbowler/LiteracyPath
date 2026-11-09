@@ -13,8 +13,17 @@
   "references": [],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T03:55:11.813238+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "32a9a2ed6d14596c6faf16759450244dd1093b42d903489dd01469efc2d9468e",
-    "note": "Isolated enlarged seed cutaway on plain pale blue clearly reads as a scientific diagram, with two thick cotyledons and embryo rather than a giant seed in a garden."
+    "note": "Isolated enlarged seed cutaway on plain pale blue clearly reads as a scientific diagram, with two thick cotyledons and embryo rather than a giant seed in a garden.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-d.json",
+    "bookId": "world-discovery-d-08",
+    "sha256": "3a25b145cd58db709fdda3e16fd040625c66d2bdf4e3ff3064d53907a957aa0f",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

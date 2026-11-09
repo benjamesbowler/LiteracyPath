@@ -22,9 +22,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "f7b4f0d6aa6205aa0f5075f14761969c532e6983f1df4767a2ade49c16e24c90",
     "note": "Zoe turns one interior page of the same open book while Kit watches beside her; single copy, consistent round table and blue chairs.",
-    "limits": "Direct agent image and sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-b.json",
+    "bookId": "world-discovery-b-03",
+    "sha256": "44e523347a0acfa4305fb74a21bb48a57a4b0eeac39b1c309fb745d1947790cf",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

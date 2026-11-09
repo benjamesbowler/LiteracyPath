@@ -13,9 +13,17 @@
   "references": [],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T04:55:31.158Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "411a8bb0981665d4c2e130cdd5e59b4fe7338e7dbd8ca31bf2d7627d68cc88b6",
     "note": "Inspected clean reference board: whole gray Moon, Earth, Sun direction, simplified phase silhouettes; final diagrams separately constrain half illumination.",
-    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-e.json",
+    "bookId": "world-discovery-e-06",
+    "sha256": "ee7fbae5a543f22990a78929d424b7b0ae5208b2cf696db2cdbabd8ab4bee424",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

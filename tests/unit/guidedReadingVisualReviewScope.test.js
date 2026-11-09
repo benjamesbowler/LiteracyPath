@@ -53,6 +53,13 @@ test("a book-only visual receipt updates that book and preserves every unrelated
     assert.equal(selected.length, 7);
     assert.deepEqual(selected.find(row => row.fixtureReviewProvenance)?.fixtureReviewProvenance, { receipt: "retain the earlier source evidence" });
     assert.ok(selected.every(row => row.level === "A" && row.regenerationBrief === "Scoped fixture review"));
+    const h = spawnSync(process.execPath, [path.join(fixture, "tools/recordGuidedReadingLevelVisualReview.mjs"), "--level", "H", "--note", "Scoped H fixture review"], { encoding: "utf8" });
+    assert.equal(h.status, 0, h.stderr);
+    const hAudit = JSON.parse(fs.readFileSync(path.join(fixture, auditRelative)));
+    assert.equal(hAudit.pages.filter(row => row.bookId === "bright-ideas-20").length, 12);
+    assert.equal(hAudit.pages.filter(row => row.bookId === "meadow-pals-science-01-missing-sandwich").length, 0,
+      "the dedicated science manifest must remain the sole approval authority");
+    assert.deepEqual(hAudit.pages.filter(row => row.bookId !== "bright-ideas-20"), after.pages.filter(row => row.bookId !== "bright-ideas-20"));
   } finally {
     fs.rmSync(fixture, { recursive: true, force: true });
   }
@@ -63,7 +70,8 @@ test("an ambiguous or empty book selection cannot approve a whole level", () => 
     ["--book", "", "--note", "test"],
     ["--level", "A", "--book", "", "--note", "test"],
     ["--level", "A", "--book", "first-facts-level-a-02-farm-animals", "--note", "test"],
-    ["--level", "I", "--note", "test"]
+    ["--level", "I", "--note", "test"],
+    ["--book", "meadow-pals-science-01-missing-sandwich", "--note", "test"]
   ]) {
     assert.notEqual(run("tools/recordGuidedReadingLevelVisualReview.mjs", args).status, 0);
   }

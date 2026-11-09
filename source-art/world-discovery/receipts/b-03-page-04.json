@@ -22,9 +22,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "2479eb5fcb6cb100b34c4a404d3a07c6ab8685eaec3c65295dd9f11dff0ac8e9",
     "note": "Kit sets the front-up fox book on returns desk; adult worker receives it and Zoe waits with empty hands.",
-    "limits": "Direct agent image and sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-b.json",
+    "bookId": "world-discovery-b-03",
+    "sha256": "44e523347a0acfa4305fb74a21bb48a57a4b0eeac39b1c309fb745d1947790cf",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

@@ -3643,93 +3643,93 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/bright-ideas/book-18/cover.webp",
-      "sha256": "cd24e8a4a0ab904e04985565557ecab8f56c6bc6c5f310e23121355c5d2c355c",
+      "sha256": "3d79c089cebac0ce393a06fb92922933286350f538d54aec36f14013287efda9",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/bright-ideas/book-18/page-01.webp",
-      "sha256": "11212d3cad09ef839246639a480e54cfe588d6e64375cd93d6bdf8eccb8a92b9",
+      "sha256": "d2d27f57f42464c63b675e03285579c0ef0816ac3846c0acf9bbd121e2f695fe",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/bright-ideas/book-18/page-02.webp",
-      "sha256": "bb4380d7394c5c43321717eadc040e1590c272b091ff869df0fc8efa5e831641",
+      "sha256": "de71a2fa83b4dc81e22dbf845ff748587fed97c4aeded98cd87f13fa508e4f1c",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/bright-ideas/book-18/page-03.webp",
-      "sha256": "9109a44bfd63d8c98950cd7123cf07f499bda1f5a50e0c47e7e1182b0a7abd34",
+      "sha256": "61faada07151efe66f1ba9196183b4bac25a1caf830ceed1e91d13c172522949",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/bright-ideas/book-18/page-04.webp",
-      "sha256": "4ad1576d18ad571c5be21392a5b3cf9ac3f5a44962929d040fe0f04c5ff34d2d",
+      "sha256": "b2afd7eaf8f82370bfafe141b2439cadeb651cc7b79625d307e6d8b97a664af9",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/bright-ideas/book-18/page-05.webp",
-      "sha256": "e974e262ccf20ecd9efd9d04e0bfe69d61721cc6c3a8623b6c73973d1b06fc2d",
+      "sha256": "73492c0eb8a0e5a4b5d87983291bf173d01b69e5e94cc90d185f296afefff9c2",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/bright-ideas/book-18/page-06.webp",
-      "sha256": "b1020e1431ef14b9ce792cea1d2a3d14cc2581d8f2b1c8f4e360752cd37f8425",
+      "sha256": "9f24ae8633d755adc95b140d07142b49769842e77967bef47b66b3f970cbfdbe",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/bright-ideas/book-18/page-07.webp",
-      "sha256": "9947c5f64548642b2f152dfe082d604931b2722405827b39bc192be57da195d2",
+      "sha256": "32e7b2b2e0534f7ce8a0276c108177f138b7a59f7315e6dad086c8fcd4b768eb",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/bright-ideas/book-18/page-08.webp",
-      "sha256": "b815251ea0cec89ad2bb2f6e346faaad3f0f2cad646452d61ec00cb0cd4cc035",
+      "sha256": "c89bae798a2aabcf4a83d72fe247f1b9ebd17b2a1c42b264191516354094298e",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/bright-ideas/book-18/page-09.webp",
-      "sha256": "4f89190a349664fef2ed86fbfcb3e95be21b05572fca4e35613c57324364fb23",
+      "sha256": "9a3afc0e2b339762fddd63666cc4a6fc2487bd890491f6f43337c9cf8d50e92b",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/bright-ideas/book-18/page-10.webp",
-      "sha256": "e7fa1a7f41c6c9b5ef2ecc8c7991ba19ca06f7e0c0798bd8fe8383fb3d0e9430",
+      "sha256": "079ee5a6c849329ab3568268a48eaf56f889e8c874afec9f920e1b0efd84d006",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/bright-ideas/book-18/page-11.webp",
-      "sha256": "9c7059ac0242698e52f76a7550ab44d3bb148333e2f9f7177337f4239964b248",
+      "sha256": "5d6c5e208b9f5d479c2b26e5acb5bf068a6ce0e0486d7beeed376a6689c8d123",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/bright-ideas/book-18/page-12.webp",
-      "sha256": "ce412ea1ca82d97a07b3fb5d5fe3365312eaa14cc9e0469ef89be7f86a7882bb",
+      "sha256": "6d73ad1efcb0c80b4053d884969b347ea3b13a38e26cc02adb220ad6ac35c99c",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/bright-ideas/book-18/page-13.webp",
-      "sha256": "bfad8ddf5f750bfcc2f0cfddc913bbf1ca3e2003bd320b462ba4090ac643e49e",
+      "sha256": "eb1dba5d98345993d18d5b44c862a8d657f6006c104a284b6f1f3b05b347e7b2",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/bright-ideas/book-18/page-14.webp",
-      "sha256": "60d09b72eaed60782282b4481e1df4af6ffe8cc6f9b6eb33d1ccbac97ac1df95",
+      "sha256": "f7c21d5444d77d7637bddcffa77a29d26419650f95dd3c9e2df0f7abadce6f03",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/bright-ideas/book-19/cover.webp",
@@ -3942,22 +3942,10 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-10-29"
     },
     {
-      "path": "/guided-reading/card-covers/049114c01a8d507424c66d7c.webp",
-      "sha256": "049114c01a8d507424c66d7c6beb95bf68b68d690721ce46f81cb1613c56c962",
-      "status": "approved",
-      "reviewedAt": "2026-10-28"
-    },
-    {
       "path": "/guided-reading/card-covers/050a5e342232803e5fabb48a.webp",
       "sha256": "050a5e342232803e5fabb48ae4c9d0e5fc46cb284a4bbc36054aad49368f8a60",
       "status": "approved",
       "reviewedAt": "2026-11-01"
-    },
-    {
-      "path": "/guided-reading/card-covers/059d403f332cb57aca685669.webp",
-      "sha256": "059d403f332cb57aca68566905052c61f211cc093c611fe14c41986c8c12c5af",
-      "status": "approved",
-      "reviewedAt": "2026-10-29"
     },
     {
       "path": "/guided-reading/card-covers/06befa35cf86aabc9f0b56dc.webp",
@@ -4284,6 +4272,12 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-11-01"
     },
     {
+      "path": "/guided-reading/card-covers/2de2773cacb407b04aa4afd7.webp",
+      "sha256": "2de2773cacb407b04aa4afd7d3ac1665880b1ec19007b1a105c9ae52e6942825",
+      "status": "approved",
+      "reviewedAt": "2026-11-09"
+    },
+    {
       "path": "/guided-reading/card-covers/2e7c6bd50b8fc4f3f1006ca8.webp",
       "sha256": "2e7c6bd50b8fc4f3f1006ca842cb62efb4f795944ddc28adee77d7d238bc6cbe",
       "status": "approved",
@@ -4548,6 +4542,12 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-10-28"
     },
     {
+      "path": "/guided-reading/card-covers/477b5f4c0ae6d52934fcaff3.webp",
+      "sha256": "477b5f4c0ae6d52934fcaff347d3fd6d447b647e75bcf9ed63235017e17056e9",
+      "status": "approved",
+      "reviewedAt": "2026-11-09"
+    },
+    {
       "path": "/guided-reading/card-covers/4859efa0728daf15f730d6de.webp",
       "sha256": "4859efa0728daf15f730d6de5f3db842d785d6dacea72182cbfa3beb1da467e5",
       "status": "approved",
@@ -4610,12 +4610,6 @@ export const appVisualAssetReview = {
     {
       "path": "/guided-reading/card-covers/4fbdd0c191d8afe864058065.webp",
       "sha256": "4fbdd0c191d8afe864058065de6ec7a1a2e83c7342ed02e71d18a0bcd0e01a7f",
-      "status": "approved",
-      "reviewedAt": "2026-11-01"
-    },
-    {
-      "path": "/guided-reading/card-covers/51137804dc350d24827cc8eb.webp",
-      "sha256": "51137804dc350d24827cc8eb5c757d5be78a056fe5a24cc2b4bc2398693ce7bb",
       "status": "approved",
       "reviewedAt": "2026-11-01"
     },
@@ -4708,12 +4702,6 @@ export const appVisualAssetReview = {
       "sha256": "605d1cf496f4dcae9d7467d1bb2d02b6b8b3873fca57cefc8575a08b433dd69a",
       "status": "approved",
       "reviewedAt": "2026-10-28"
-    },
-    {
-      "path": "/guided-reading/card-covers/60798c5f304a7b0dab7dfe9b.webp",
-      "sha256": "60798c5f304a7b0dab7dfe9b95f439a293c26ff1aca2992dd0f46c29cc7572d2",
-      "status": "approved",
-      "reviewedAt": "2026-10-29"
     },
     {
       "path": "/guided-reading/card-covers/62173dda78b50174edf565fe.webp",
@@ -4816,12 +4804,6 @@ export const appVisualAssetReview = {
       "sha256": "72475025e7de459acf015c3fedc2bbdf9610fd26e3aa5842ad766aa20c5a5179",
       "status": "approved",
       "reviewedAt": "2026-10-28"
-    },
-    {
-      "path": "/guided-reading/card-covers/7373157730e2bddabbdcbd73.webp",
-      "sha256": "7373157730e2bddabbdcbd73906b50db433fc4ecc15fab8d62b4fb418c0a0415",
-      "status": "approved",
-      "reviewedAt": "2026-11-02"
     },
     {
       "path": "/guided-reading/card-covers/7386b612638e255dd8061f62.webp",
@@ -4938,6 +4920,12 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-10-30"
     },
     {
+      "path": "/guided-reading/card-covers/82c6e9388fdb287d394dc5f0.webp",
+      "sha256": "82c6e9388fdb287d394dc5f00f28cc99eab74fddcf97284fc46d88f060f03881",
+      "status": "approved",
+      "reviewedAt": "2026-11-09"
+    },
+    {
       "path": "/guided-reading/card-covers/82dd616b1d19385bb5ac576c.webp",
       "sha256": "82dd616b1d19385bb5ac576c59b095531c994b8294b19ddeb71d2d8bcff7ea23",
       "status": "approved",
@@ -5038,6 +5026,12 @@ export const appVisualAssetReview = {
       "sha256": "8b3988094fb68fa19e802e1d8f3044c181d9023b040b224e977fb2420ce5ec98",
       "status": "approved",
       "reviewedAt": "2026-10-29"
+    },
+    {
+      "path": "/guided-reading/card-covers/8b8b8445057e4968d6b723f0.webp",
+      "sha256": "8b8b8445057e4968d6b723f0ec9607438a2c017d1e8c6b81ce9c513ab0e1cf88",
+      "status": "approved",
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/card-covers/8be873b2f0e5960c971ed3e1.webp",
@@ -5382,6 +5376,12 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-11-07"
     },
     {
+      "path": "/guided-reading/card-covers/ace7c1d5a347c37c1964a835.webp",
+      "sha256": "ace7c1d5a347c37c1964a8352eb1b498755678a340c86d77713b469cd2a2df87",
+      "status": "approved",
+      "reviewedAt": "2026-11-09"
+    },
+    {
       "path": "/guided-reading/card-covers/aec70f48b181ebdbeae0720a.webp",
       "sha256": "aec70f48b181ebdbeae0720ae209fb703b442984e0b348e3b696dd73ebfc410c",
       "status": "approved",
@@ -5410,6 +5410,12 @@ export const appVisualAssetReview = {
       "sha256": "b017038815c8af33e8219f9fe5f3cf0c45ba50dd721aad94fed0b77e9f4e9f89",
       "status": "approved",
       "reviewedAt": "2026-10-29"
+    },
+    {
+      "path": "/guided-reading/card-covers/b0ad25f534a76e1529a769c7.webp",
+      "sha256": "b0ad25f534a76e1529a769c7f6efb4c043fedcde39648a927e39fadb36e6fa78",
+      "status": "approved",
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/card-covers/b0f34c623e266dbe36cc9e31.webp",
@@ -5484,12 +5490,6 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-11-07"
     },
     {
-      "path": "/guided-reading/card-covers/b822dc6a8e46898548224c52.webp",
-      "sha256": "b822dc6a8e46898548224c524811ef0e162bc1b88e1bee49214026d011716e7c",
-      "status": "approved",
-      "reviewedAt": "2026-10-29"
-    },
-    {
       "path": "/guided-reading/card-covers/b877b17dba26bfc4b0c03c86.webp",
       "sha256": "b877b17dba26bfc4b0c03c862c95fdc16fe22293d6229e58af893cb24d38d96b",
       "status": "approved",
@@ -5550,6 +5550,12 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-11-07"
     },
     {
+      "path": "/guided-reading/card-covers/be5a0baf6e5a678e7bf340c4.webp",
+      "sha256": "be5a0baf6e5a678e7bf340c4c8c37a8360adec227680a526c0505744d18324b2",
+      "status": "approved",
+      "reviewedAt": "2026-11-09"
+    },
+    {
       "path": "/guided-reading/card-covers/bead6b0151868122bcfae98a.webp",
       "sha256": "bead6b0151868122bcfae98a15f50dcf512ce12db67bc28dc1d5e22d4d0e3ed1",
       "status": "approved",
@@ -5566,12 +5572,6 @@ export const appVisualAssetReview = {
       "sha256": "becdaf7ccad79f3e7f5882c0e127e88f872e5a673abaf18de26b1550226a59eb",
       "status": "approved",
       "reviewedAt": "2026-11-01"
-    },
-    {
-      "path": "/guided-reading/card-covers/bf58d5e7915d658f8a9b64d3.webp",
-      "sha256": "bf58d5e7915d658f8a9b64d32842ada359c51d44e73c01927d8456cabd2f47a0",
-      "status": "approved",
-      "reviewedAt": "2026-10-29"
     },
     {
       "path": "/guided-reading/card-covers/c01cb097c344713d782a1ea2.webp",
@@ -8480,9 +8480,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-12/cover.webp",
-      "sha256": "646e35c2f3219a47b3fa25d4ebd8c5ed13840c48c70380394c769ec226a70e2b",
+      "sha256": "89b3c3bbaaa74a9478e10c951e1644143b088eed56350db5c2eda01a33f40905",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-12/page-001.webp",
@@ -9443,15 +9443,15 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-11/page-006.webp",
-      "sha256": "ee81d3ee3d93730e450294ea057a5ba936ff0413985028ccba5aedb72f70f194",
+      "sha256": "e364c455785adde3c123d5dd6f0b693d5ad5789e2522c0ee7f132ed7836b44b6",
       "status": "approved",
-      "reviewedAt": "2026-10-30"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-11/page-007.webp",
-      "sha256": "cc8c6da7e93c011355ba24f1339f9a2e434fdd2c9a0e5ee037d90fdf5a5c1322",
+      "sha256": "9441d87f4c2a7ca1523465e5cb2605b014a5538d94287b473600f5d719994b58",
       "status": "approved",
-      "reviewedAt": "2026-10-30"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-12/cover.webp",
@@ -10353,8 +10353,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-05/page-009.webp",
-      "sha256": "269e7e3ec7ca45aaeddb0b86af008a1f646a691c914e29aa494b833fe3fedb05",
-      "status": "approved"
+      "sha256": "2385930c905e11fa141b2490b6bea0fc4fb5fe559417484cb1fbaa08a73aadaf",
+      "status": "approved",
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-06/cover.webp",
@@ -11991,9 +11992,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/regen/pages/gr-c-39-page-05.webp",
-      "sha256": "1d9bdfc7f303be6ae06358e9cd549da9614c4c9ff10baf8740a0568afebc41d9",
+      "sha256": "c4a0b70c945fb6aeb1e29277402628c106fd8ab8f44ba600467455607055222b",
       "status": "approved",
-      "reviewedAt": "2026-10-30"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/regen/pages/gr-c-39-page-06.webp",
@@ -13273,8 +13274,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-02/page-005.webp",
-      "sha256": "74bd19c963c1b0f2063f3effabd9d8b163075438b17c555cf63e680384944970",
-      "status": "approved"
+      "sha256": "59c10c0a29d2d42e2f679b8a09e03ade13dfc003e4a7d2d54c6c2935a03565e9",
+      "status": "approved",
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-02/page-006.webp",
@@ -14378,9 +14380,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/dino-pals/book-13/page-003.webp",
-      "sha256": "1ed296dbf25a0db462f4fd8a51ee35345d91832c97cd08a2fea2dc165acc3e84",
+      "sha256": "ab8472ebf87c8196699c1317dc4a782d20286697f9d13a18bb8f52a50d150563",
       "status": "approved",
-      "reviewedAt": "2026-10-30"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-13/page-004.webp",
@@ -14420,9 +14422,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/dino-pals/book-13/page-010.webp",
-      "sha256": "744ef06d6d623883596e60104a2d50977fec50c1024a8ff5e94aff0aaa2db14e",
+      "sha256": "1a5805a26ff4b776f9230fe3f9b571250b645e17926417d470bb47fe00be9a44",
       "status": "approved",
-      "reviewedAt": "2026-10-30"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-13/page-011.webp",
@@ -15032,9 +15034,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/dino-pals/book-21/page-008.webp",
-      "sha256": "ee0c536b743392ce31de8481c84f037901732b67cd09623f21f31af6ec0a49a0",
+      "sha256": "ab482cbd8f0345e867e5718f614df773aa477d135c8450c70ef791a31e865119",
       "status": "approved",
-      "reviewedAt": "2026-10-30"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-22/cover.webp",
@@ -15599,8 +15601,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-01/page-014.webp",
-      "sha256": "93bc41b7495b8e83593c516aeffb2266dcfaf810444476cdae1f6b0d7ead0eb8",
-      "status": "approved"
+      "sha256": "20f23a34e3f09f001eb732ab356c18d43c9b23d0623f660bd789d4ac9bf8d919",
+      "status": "approved",
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-02/cover.webp",
@@ -15739,8 +15742,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-03/page-012.webp",
-      "sha256": "d23036a457b22f919217785595a58855e85694e717b15d3d84068ab523073907",
-      "status": "approved"
+      "sha256": "1bc539e40ff327a049804565e3c8baf84ba78e10e27796bb0f28af40c3db0473",
+      "status": "approved",
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-03/page-013.webp",
@@ -16004,9 +16008,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-07/page-007.webp",
-      "sha256": "b416a7797af092df6cb2e5690a2c239dc83599f72f1e9d5954e619dd50e2c05e",
+      "sha256": "9a239d312ef7832ccd30781c6425c4f05f44ef8fd858d61ff179d14e9b3a8d29",
       "status": "approved",
-      "reviewedAt": "2026-11-01"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-07/page-008.webp",
@@ -16256,9 +16260,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-10/page-012.webp",
-      "sha256": "259e36b38032c63462df53c5871d0488ef74f21fbd863d81b654eee72dfe5520",
+      "sha256": "21dc5190f8f06687306c9f790987e8b3f49d3661918068bb12348c12c91b9612",
       "status": "approved",
-      "reviewedAt": "2026-10-30"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-10/page-013.webp",
@@ -16375,8 +16379,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-02/page-009.webp",
-      "sha256": "ed0021d52b010cb677108e9702b9154bdb6f692365af21297279921d321d8b68",
-      "status": "approved"
+      "sha256": "ae130887550007ce3e91d4620a719fcb835d6860ced6a2b5a7b2d315ce6dfde0",
+      "status": "approved",
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-03/cover.webp",
@@ -16385,8 +16390,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-03/page-001.webp",
-      "sha256": "8ad852fc960c189bcb07abc4cfa94ea905389c1772946486999594b2da58a6a4",
-      "status": "approved"
+      "sha256": "192d187243d6dc2794334a63b052f85a8f1d60debf1a8e911823476cd77ae283",
+      "status": "approved",
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-03/page-002.webp",
@@ -16395,13 +16401,15 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-03/page-003.webp",
-      "sha256": "147c2960281f1db6dbd058b89e9fc09687058b721825309f9b2b0ac018246517",
-      "status": "approved"
+      "sha256": "7435a7e999ea6caa9b1c1ecbafa54a9153e08d1468ea79a7cfdb7aea69cab54c",
+      "status": "approved",
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-03/page-004.webp",
-      "sha256": "817bd333a4b8389defcf73dc1112431134e2a2557c2976f9845da5f381f6bd34",
-      "status": "approved"
+      "sha256": "cf4667aa9261d52cb2ea0f84e26f1e68318304eecd5bf61e04f6b72c5e3fed55",
+      "status": "approved",
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-03/page-005.webp",
@@ -16537,8 +16545,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-06/page-002.webp",
-      "sha256": "fd838254650ae2ee74f215c6d20f5aeee518eaa4aaa5f6b8699d33c44e8ae851",
-      "status": "approved"
+      "sha256": "f31badca15f3cd4e4dc50b5f36fe972fce432e848431103788ceacf035970636",
+      "status": "approved",
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-06/page-003.webp",
@@ -16560,8 +16569,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-06/page-006.webp",
-      "sha256": "f9a973113f6bc4ff252185656005d69ec8f4d37ad395fdc9818afdf86beb1989",
-      "status": "approved"
+      "sha256": "5a4c5c4612a0b2bc43c15c5d63feb43a30a79b239e95a795691a94914b5f0951",
+      "status": "approved",
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-06/page-007.webp",
@@ -16638,43 +16648,51 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-08/cover.webp",
-      "sha256": "98984ddeb035539fa68a44c12230cae406a9782938cd4237cdb354612e5f033d",
-      "status": "approved"
+      "sha256": "ca8f7edd0c550571c75780a0a55716977c4e1e9b3a619a26e16c468bf463e5c5",
+      "status": "approved",
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-08/page-001.webp",
-      "sha256": "2864b1d109cd8180f45d14b8c7be36fddd5230bbc7b2e0ae4d42f20b72dd1e86",
-      "status": "approved"
+      "sha256": "22e32b01135811f669aeab98ee17d746b3caaea8853cf6807507709f8fbc19af",
+      "status": "approved",
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-08/page-002.webp",
-      "sha256": "cfc53f4a2f866797939a5d0d54848995aeef5e5cd56049d22cb8e437a9eced10",
-      "status": "approved"
+      "sha256": "2b03bf6e1f04b4dcd9d0846d14c90f092b852d72e4be4573082d37f9f6b7f908",
+      "status": "approved",
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-08/page-003.webp",
-      "sha256": "3b204746520cb29019b0eeb97f5a4e0333609be11e80d5f74968cd232f1b40dd",
-      "status": "approved"
+      "sha256": "b81f18db91ca2b4743dac0a3be2fb7c0b8e8641b57fcd4cd3748575aa026ffab",
+      "status": "approved",
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-08/page-004.webp",
-      "sha256": "45c2c5ff676e6ec418f17e0aaf607da796c5e5f9692ef5e60ded81547e0c361a",
-      "status": "approved"
+      "sha256": "49d27771bdf3300d57735544bf17fb41db37ea08a37a73e983b2a44348348dc8",
+      "status": "approved",
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-08/page-005.webp",
-      "sha256": "0de8cabfc4aa44cc20be569b2b4020d8cca98926abd5b6b3d7a20d3c662ffa8a",
-      "status": "approved"
+      "sha256": "699e793d9bafc1ad4371820952a41a152a841ec859586cc400794b739e8d0edf",
+      "status": "approved",
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-08/page-006.webp",
-      "sha256": "d5c8310f5a79742e548b4c2b71732364fe61c47f0064dff8f0b99c9458d1b499",
-      "status": "approved"
+      "sha256": "6b39aabfd55950a37aa68a8b22b2d11704764ce4cbfd0d0dc0110f3804ae713c",
+      "status": "approved",
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-08/page-007.webp",
-      "sha256": "4fa387a7224cc322680893ddedea31fbfb0fa2b5fa0a98f032254f628a0e54de",
-      "status": "approved"
+      "sha256": "e828f66fbbaa0957131405831b1461ad36b4587cefea2ff1bc2c79a60a357475",
+      "status": "approved",
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-08/page-008.webp",
@@ -16684,8 +16702,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-08/page-009.webp",
-      "sha256": "5f37129a3ad68cd815a794fea6ea3bf64111070278f2d878a0e14cd95f0a6314",
-      "status": "approved"
+      "sha256": "828cd8dfaa717ce5b964415c293040769fe8edbedb7b99f6ff5cef60a1ee2f12",
+      "status": "approved",
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-09/cover.webp",
@@ -16840,8 +16859,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-11/page-008.webp",
-      "sha256": "151bd1a204003b78917b5b1376873bceb0a35f1f2540097dc83d21e9544f8769",
-      "status": "approved"
+      "sha256": "ea0257bd8447fe04f1ffb3aaff277da8bfc5d2f576386b90b57bdd16bfe9fc17",
+      "status": "approved",
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-11/page-009.webp",
@@ -17374,57 +17394,57 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-21/cover.webp",
-      "sha256": "197bf57ec0fcb72d28c0d16283449b69c8d02cee6ced56afd62cfcb189824793",
+      "sha256": "dd5d50a8970df92d9b6937c52cb2c1d1301ae75ddecf1c46491df759a33fffb9",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-21/page-001.webp",
-      "sha256": "38faa77c65869be40971649b4fc21c82d1519a818f4aac14310413175111ef2b",
+      "sha256": "96b3433f339b7e5c491d7ddad9c9b76015c6d229180db21d42cadedb5e4740db",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-21/page-002.webp",
-      "sha256": "f7777610377b06e889116ff7d3390764687bb975fb22c208195024bd1b7cbb33",
+      "sha256": "5e74f247e92360f567abad2fb514b523a67caf341eb9e5a5c2c3e4d3e228ba2e",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-21/page-003.webp",
-      "sha256": "0fcf19844ac0c6709f13e7ea4d04cc21302f1d2b118fc002bdc1b8240930ae85",
+      "sha256": "0534f3c86392849f886b4c910a790cf1e1cc237738b10a001a9321b008016d3a",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-21/page-004.webp",
-      "sha256": "dbeaed1fbe09269ebf827891e39b2dc03e3f1e9cc7ad4613ec0896d796267631",
+      "sha256": "ef7f56e517cc41a537599e08c62e77443114c7e5c983f93b1a73f166136d9215",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-21/page-005.webp",
-      "sha256": "312b36020814f3069932126e9605454dbff37d3d97038f3cb1015177021cd36e",
+      "sha256": "5c0a10ae062aaf263fa55ac1c2f54a82fda32dd27c7a57d10944910b4bbb14fa",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-21/page-006.webp",
-      "sha256": "e1443e1bdc47aa7253a66eaad61ad67aeb01d9c29dee94904881482903f344b6",
+      "sha256": "691f9bf65ab904a6b00bde17cfed97c32be0414886758bf1ac44f41f9a0e3724",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-21/page-007.webp",
-      "sha256": "04afdabfae9290d5b1d8974820859ace778d160a43f6b2ec01cd836b38f104ff",
+      "sha256": "097db4ef92e603828a60bb7d1e81e106992a06829824884057e2ee338e81c9f7",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-21/page-008.webp",
-      "sha256": "82e0a36928b053d0235a4a310eb0b6d90fb233e4a90c69cefddd05ef438d4cb3",
+      "sha256": "efc80a01cc2b9656302b7d499bc545d1e8bce14947d244fe592e30495a71ab9c",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-21/page-009.webp",
@@ -18594,21 +18614,21 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-05/page-007.webp",
-      "sha256": "7d9288a41daf936d38d579ceda2a45baee5087e2bb955d721e3c45a6adfbc05d",
+      "sha256": "9bee55531b5d7d2ab4789c57c72a1d2276f9bb7ae35dfcb97639f3056e7bbce7",
       "status": "approved",
-      "reviewedAt": "2026-11-01"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-05/page-008.webp",
-      "sha256": "f213fa80b3c6ca8671b32cf55fd569123b2ae0cb0f28ffe3f345a6a734a4e477",
+      "sha256": "22e96e74da396f831354967ba655866175da141acba469d214455cb43df925ef",
       "status": "approved",
-      "reviewedAt": "2026-11-01"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-05/page-009.webp",
-      "sha256": "6300855037c000af788a81997bb3931f4c72bc3fd8d22dfae5a0138b82419656",
+      "sha256": "9121deb458b84d705d04b428fe7ad2743a392a1635340990b7f94e7613981e84",
       "status": "approved",
-      "reviewedAt": "2026-11-01"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-05/page-010.webp",
@@ -19362,9 +19382,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-15/cover.webp",
-      "sha256": "73866c8e5b6a98af787fc70f2a5eb8fe998c1b8436b4b527c4d331eb3da457d9",
+      "sha256": "3623bfa908dbf2ee1445147d26c54804bb3cfc2a2a2d0bf690c9e221e77ebd28",
       "status": "approved",
-      "reviewedAt": "2026-11-01"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-15/page-001.webp",
@@ -19392,51 +19412,51 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-15/page-005.webp",
-      "sha256": "deef8dde4b3ef2996e2c7c0e542b691addd83d9cf49bc710a7a2c4e68420acb1",
+      "sha256": "1b79ea92b69546261cc784cf205f614b1d5d3efbbc3686cdf3303f931fed33c2",
       "status": "approved",
-      "reviewedAt": "2026-11-01"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-15/page-006.webp",
-      "sha256": "22b2777eb34b22fb7826f01a65c0041b43238b85bf9aad78621605a9cf2e814b",
+      "sha256": "3ca10a1f01fd03e76d70edea274e5d1b38f191a6247e2588926a21c3f060f79c",
       "status": "approved",
-      "reviewedAt": "2026-11-01"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-15/page-007.webp",
-      "sha256": "c79fddbe15d9d876f472539aad83ad5a3c5d0c1e10a99134608d535e05c6d267",
+      "sha256": "f8dbaa9fd07f2440a0de53cfe63e84ac5c7d2797dddb46fc91f7fdfd6e17b3bc",
       "status": "approved",
-      "reviewedAt": "2026-11-01"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-15/page-008.webp",
-      "sha256": "cef18ae12331e00fec22099e86e62e9e151de7e97401b3c17a0004038e169d43",
+      "sha256": "cdf1e26eb58641afb63209e12593450fe31b014a74d07c5d5103395807b8a638",
       "status": "approved",
-      "reviewedAt": "2026-11-01"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-15/page-009.webp",
-      "sha256": "08dcaafe20bfe7452d3dab6bb518b63581142e7b6b78399ef6b5b854dd7d0913",
+      "sha256": "3ac880154dc8fc3f2e69696d2870f3d1c77ce3fd7f6846d938a0319648874fe6",
       "status": "approved",
-      "reviewedAt": "2026-11-01"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-15/page-010.webp",
-      "sha256": "2db90bd6399f5fb862ff4b07c2d1a280e367612f7ba4635636de76dc3b093e52",
+      "sha256": "71d9c41013c0ae32094240daf70dea8edf525888ebea214c8127f31ce02effcc",
       "status": "approved",
-      "reviewedAt": "2026-11-01"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-15/page-011.webp",
-      "sha256": "7118c77118b14e67bf22d5e3af5a4007a2f3941c28cad537e7d678006caa4b20",
+      "sha256": "cc8d83a963b1e6af30b86a981348d26d6f000192395de33927f973c335e2c5d0",
       "status": "approved",
-      "reviewedAt": "2026-11-01"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-15/page-012.webp",
-      "sha256": "d663c4ab9c88d280e1cd506b68c0b4d3230ac9924b79a5a22fd6665cfed30bd6",
+      "sha256": "903500bb1cf5c2749874041e07ac26f7156687cb75398d184eb45d259d04bc5f",
       "status": "approved",
-      "reviewedAt": "2026-11-01"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-16/cover.webp",
@@ -19764,9 +19784,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-20/page-002.webp",
-      "sha256": "cce79e6a016527fc088f38dd10b8f41cbf08f7e7d6e6a0c34e80460681229b2d",
+      "sha256": "87e1ff82772f37f86771db25492a12e0cfe433640af0f858c8451419566f38ae",
       "status": "approved",
-      "reviewedAt": "2026-11-01"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-20/page-003.webp",
@@ -19776,15 +19796,15 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-20/page-004.webp",
-      "sha256": "ad469a6376f8df00eb16d917cba57f074cb6b07c7d28350277e4278b375feffe",
+      "sha256": "92610d0dfa1abb5f01ed93c3def4204168643700892e0e3afeae0aab0821d8db",
       "status": "approved",
-      "reviewedAt": "2026-11-01"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-20/page-005.webp",
-      "sha256": "21a3836abfe250fbd6065a6ce8c31dfbb01cf4c5c08efe11258d6c2fd54ce02e",
+      "sha256": "8e3dee5af83498a1c4a75b22fa06813d2e9a4bc9fcdf6e6a15d936b2d1856356",
       "status": "approved",
-      "reviewedAt": "2026-11-01"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-20/page-006.webp",
@@ -19800,27 +19820,27 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-20/page-008.webp",
-      "sha256": "cb66155a8c1e9ad01f4955e83323d2c63baf9ce5db13606a005c4a1020b31fd8",
+      "sha256": "87933325bf5c76341b02a137400a552e9b28dbdfcdd38f42d09b4492d8bae266",
       "status": "approved",
-      "reviewedAt": "2026-11-01"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-20/page-009.webp",
-      "sha256": "d8da9c1674b39eec7057bd76fcbca612f632613265ba55e340c6aed8659003cd",
+      "sha256": "e9fc126a6fe4ba1ba9942ec586b3b6e73030ad6ead6906ebf845a5557de48522",
       "status": "approved",
-      "reviewedAt": "2026-11-01"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-20/page-010.webp",
-      "sha256": "a48c2e0008eeb12c7bf586a70e4e78476dc1aa0603c29caa5a356708caaf1bbf",
+      "sha256": "38f134f182d67a2abe434303753a0d14da5969d1432d5c8cc894f1308045881a",
       "status": "approved",
-      "reviewedAt": "2026-11-01"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-20/page-011.webp",
-      "sha256": "fd2698735b50cda07f869aa7099ef5129a437fc6362893d662d4c74dbd21f3f4",
+      "sha256": "ec32c5c0ac97790fca09fcd37a2197921e699ac995bd51564a6b7e42221d6a71",
       "status": "approved",
-      "reviewedAt": "2026-11-01"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-20/page-012.webp",
@@ -19848,9 +19868,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-21/page-003.webp",
-      "sha256": "b223cc8dcafac1babc83009831e77029f9fd6b96e2c4f732fd4471b270bda8c3",
+      "sha256": "22b782a62bbeb05acb0703d65550de4d85f6973db46f1b9f9bae94b83ae934bd",
       "status": "approved",
-      "reviewedAt": "2026-11-02"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-21/page-004.webp",
@@ -19902,9 +19922,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-21/page-012.webp",
-      "sha256": "f67d8f54d099d8588d0c6cf50c387f2385570251af4cb682aae0302e7673a0fd",
+      "sha256": "6d6e37e3de2c2b294648b9b8b3d71a33a7d0377185eb505315e87b74eddf93e4",
       "status": "approved",
-      "reviewedAt": "2026-11-02"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-22/cover.webp",
@@ -20064,21 +20084,21 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-24/cover.webp",
-      "sha256": "f40af7ff0bfb30cd96eb8a946e2c65701510dd16bb350f1ca93ef1083ba0b874",
+      "sha256": "f5ee9fa3a4f8e68f0585c28680df7eb9bf75cf42bbd3ae024bbb4e5eec268613",
       "status": "approved",
-      "reviewedAt": "2026-11-02"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-24/page-001.webp",
-      "sha256": "8d11f9415dfab57440551923aa8d0d146a92c3478e7f4ce1e22f70b4948c219e",
+      "sha256": "4824af3b4e3b52b0dfb2b025f1f1723011ad4871a7b358afa23d049883be513d",
       "status": "approved",
-      "reviewedAt": "2026-11-02"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-24/page-002.webp",
-      "sha256": "ed0023483fae65834a32a4da9eefa7d8ea19cb9e4b6026adaf08864548d913f1",
+      "sha256": "733d46bbdba3c2104d1f1379b0699351b5b9fd9eb9b85e90343d8d3c99c45820",
       "status": "approved",
-      "reviewedAt": "2026-11-02"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-24/page-003.webp",
@@ -20088,9 +20108,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-24/page-004.webp",
-      "sha256": "832ea4767b1ab5dede4d1729cdba77938f8f389d9c602b1b39b690abe78bd921",
+      "sha256": "38a8363379758e523bec3f02fc236c0cb6bcffd116d735454dcfaa273b26085e",
       "status": "approved",
-      "reviewedAt": "2026-11-02"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-24/page-005.webp",
@@ -20100,15 +20120,15 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-24/page-006.webp",
-      "sha256": "f8b815a952f2f0fba126afbc5a51d8c533901fd855bd3370ecd2c7615cbf235a",
+      "sha256": "e161326fbae78823d9b28722eb6fd721e19c794db830889eb0eba4f0fc76be69",
       "status": "approved",
-      "reviewedAt": "2026-11-02"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-24/page-007.webp",
-      "sha256": "f2f71e085a454cd1b5e6f9262214bb66fef962de791b189c5bbd0303cadb197a",
+      "sha256": "26a76aea420ad1d52e43532e15b1b257e79ebc9c0238693dc678d0668c2f8ff9",
       "status": "approved",
-      "reviewedAt": "2026-11-02"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-24/page-008.webp",
@@ -20124,21 +20144,21 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-24/page-010.webp",
-      "sha256": "0299691a340dea4faca0a5f18e1371aa023671cf99d63db66def956b403695ac",
+      "sha256": "af5a0f50510b7fc610aadb12b2486b6d602e74f879d95f3b78ee5c74fc2a3e54",
       "status": "approved",
-      "reviewedAt": "2026-11-02"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-24/page-011.webp",
-      "sha256": "502c51028bcf92b5eb13884610e292328089a7639355d1774e6deb393203788d",
+      "sha256": "532ba69e5f24feab24f0771baeeef5e8515b9ccf145a32bbba0efb8b98e88289",
       "status": "approved",
-      "reviewedAt": "2026-11-02"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-24/page-012.webp",
-      "sha256": "530fab288b2ab3981d0a01eb62e37cc1588d64ce44d9cf5ffbca98f7ccee9b68",
+      "sha256": "6b022e8642fe01c2a25dfc9f255f80426ab25302575a5bdc831c80190caf7a33",
       "status": "approved",
-      "reviewedAt": "2026-11-02"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-25/cover.webp",
@@ -20867,9 +20887,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-35/page-009.webp",
-      "sha256": "6ed3ae3ef29d90981b97cf726539d5f07c4ad84800d4ba9e2a24098ae669079a",
+      "sha256": "025587ae04a3dd744e24d723a1deacd84293bce873f5285364cb587cab74235a",
       "status": "approved",
-      "reviewedAt": "2026-11-05"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-35/page-010.webp",
@@ -21845,15 +21865,15 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/small-steps/book-20/cover.webp",
-      "sha256": "7b36f47fd4d006b397157df1032a321674ccc5a3e268cdc3d8d4ea58fd66a45f",
+      "sha256": "e0019616966e7cce2f31b08e31cf8d63a8e22ccd86586c7b3ece98f0f5f87748",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/small-steps/book-20/page-01.webp",
-      "sha256": "796b348a365651a465a65727f439f0017ac8ca2347b987ebee69bb6f02961dae",
+      "sha256": "6a7df4ae5285c2922ff08cfd845ffaeabb1f0849f8abef94c454a975a6a6fb47",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/small-steps/book-20/page-02.webp",
@@ -22787,21 +22807,21 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/willow-street/the-puddle-plan/page-01.webp",
-      "sha256": "814ed26d4082781fb70ff41771099a5fe57158b468d6591569e21acee3b9274f",
+      "sha256": "a614a1cabdcc4ef6a76c6aba05c7c70f10470aea0b91133cb6f93d500027339c",
       "status": "approved",
-      "reviewedAt": "2026-10-30"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/willow-street/the-puddle-plan/page-02.webp",
-      "sha256": "9997cac04af0c310e2fdb0437c3f5abf4960d00e5f18b3ec1218d03f7888296f",
+      "sha256": "4475965540eac691d8dd43cca7d9d11e610674b59e773b978fb6045bc56b9a66",
       "status": "approved",
-      "reviewedAt": "2026-10-30"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/willow-street/the-puddle-plan/page-03.webp",
-      "sha256": "34024125d08d36a232e91ddeab3061272795f856c4ec55fd80a65399f86f78ae",
+      "sha256": "3ff82dfce86690e0c719f1c267465003466fa6ae60479e394794f6b7334e2329",
       "status": "approved",
-      "reviewedAt": "2026-10-30"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/willow-street/the-puddle-plan/page-04.webp",
@@ -23387,9 +23407,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/world-discovery/a-08/page-02.webp",
-      "sha256": "1b5ed4fb477e26bb262b7c7d8d4024bd3cb42b39bc36e95bfa29384eb4b47870",
+      "sha256": "fe0d80b4d62efc5885ae5c7045b581ee284da14c9593471ade44d98b32f5ed02",
       "status": "approved",
-      "reviewedAt": "2026-11-07"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/world-discovery/a-08/page-03.webp",
@@ -24653,15 +24673,15 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/world-discovery/b-11/page-06.webp",
-      "sha256": "98beae15a185668befcc01013135bd0b6e31c3923a98f41f3f23fd1b59074176",
+      "sha256": "268ccfd916ca74a845af8598d916a07d7eb7f3b814b8e08f9cfbcaf8e035180c",
       "status": "approved",
-      "reviewedAt": "2026-11-07"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/world-discovery/b-11/page-07.webp",
-      "sha256": "a1cd2eb346217e6abaeb9f805ff38d226306cbe96cad868eed208ef9c674ae0b",
+      "sha256": "a2dba059e2e303b4be3b7ed244e5b9280c43943e1414f9f020b8ea54a8f45a92",
       "status": "approved",
-      "reviewedAt": "2026-11-07"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/world-discovery/b-11/page-08.webp",
@@ -25871,9 +25891,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/world-discovery/c-14/page-02.webp",
-      "sha256": "9129a8bcf494a8c9a9fd61859dd49e479e378e28f5fbc99071c969d3165edd61",
+      "sha256": "95151dd514fb474ac3cc981ec204b82db1bd212c2614e3c9aed0efd32905c336",
       "status": "approved",
-      "reviewedAt": "2026-11-07"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/world-discovery/c-14/page-03.webp",
@@ -25889,9 +25909,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/world-discovery/c-14/page-05.webp",
-      "sha256": "a33be5c51dab8160f3d3dabcbb3dd3ef75e6341b9f3816a970950b310d00d2d0",
+      "sha256": "1f3f233cc97051d3a2ec9180cf350668924caec3f182876832773b8a7610d46a",
       "status": "approved",
-      "reviewedAt": "2026-11-07"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/world-discovery/c-14/page-06.webp",
@@ -26195,9 +26215,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/world-discovery/c-20/page-02.webp",
-      "sha256": "ca3a0d76e68179a48e81e12ebcb3d47dccee8cb8d2a8d2c3999ae8f0d1458ce2",
+      "sha256": "93631749b667a99b1720bf55dfc3419a18874b8123cff15c0535ba9d4688f39d",
       "status": "approved",
-      "reviewedAt": "2026-11-07"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/world-discovery/c-20/page-03.webp",
@@ -26207,9 +26227,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/world-discovery/c-20/page-04.webp",
-      "sha256": "893608d953c845861f802377dbe9182400bf8e10a8bb3e2dea0ba8bebee4a85b",
+      "sha256": "5b29b05f503713d6abd798ce0f0d5cde111cb1ecc65db09a7733a26f8476a3cb",
       "status": "approved",
-      "reviewedAt": "2026-11-07"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/world-discovery/c-20/page-05.webp",
@@ -26375,9 +26395,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/world-discovery/d-03/page-01.webp",
-      "sha256": "99aa5d3326c9a4ba15779fec3a64b13a5157187f5df34fafc869dfd379ee654a",
+      "sha256": "8cfd3b538e671959d462b995f6a78e5a8eeb12a83372634a34d8449da0359659",
       "status": "approved",
-      "reviewedAt": "2026-11-07"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/world-discovery/d-03/page-02.webp",
@@ -26957,9 +26977,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/world-discovery/d-11/page-10.webp",
-      "sha256": "36bd2f9847aff83ac7d58b2204e60376762f48306a0e5704b4af8e51f8aadb6e",
+      "sha256": "4662610e5988a92e246f7356bc1323f43013339151662e81a4689e51568daa6c",
       "status": "approved",
-      "reviewedAt": "2026-11-07"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/world-discovery/d-12/cover.webp",
@@ -26987,9 +27007,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/world-discovery/d-12/page-04.webp",
-      "sha256": "3e08e1ce6a0fa3bca8eae482e103e0d701c926e6208ea065446b1880a59ac0eb",
+      "sha256": "5730fdf14c04ebdd6e47e005e6b986ebca3e7279a7b8b8cfddf7c6f1c369e5fa",
       "status": "approved",
-      "reviewedAt": "2026-11-07"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/world-discovery/d-12/page-05.webp",
@@ -27113,9 +27133,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/world-discovery/d-14/page-03.webp",
-      "sha256": "87659efabb6cf01c00ce5447ae581a2a7811f9672a71326c02226ff7206bee0f",
+      "sha256": "204053c9b489c936d1c744457964ab800628903edcd9502ec25f94205ae99d39",
       "status": "approved",
-      "reviewedAt": "2026-11-07"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/world-discovery/d-14/page-04.webp",
@@ -28775,21 +28795,21 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/world-discovery/e-19/page-05.webp",
-      "sha256": "34f948f1236533786bfbd725b86a1c0ab4d005aaac990f3f6cd2a82625365b9e",
+      "sha256": "12aeef9020b36a43bd94c3c8c742730e5178760d55fb79f38fab59c0d5b96004",
       "status": "approved",
-      "reviewedAt": "2026-11-07"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/world-discovery/e-19/page-06.webp",
-      "sha256": "83c29575faad9516a7b8e54c8addf3b1660d1b145c9147e9617a40363fff9a71",
+      "sha256": "827d32b6cc9acb4065f0d463597e40a91ece34f0d10fd10b50a84729dca45702",
       "status": "approved",
-      "reviewedAt": "2026-11-07"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/world-discovery/e-19/page-07.webp",
-      "sha256": "b50a7efb8954be9deb3ccc6fcef8d5736979077cc29c8414b8420be3eb3b3a11",
+      "sha256": "a2ea81a88efbd75dc051beed6931ee5ef9b64e82b1cb61ea067a110a510b4830",
       "status": "approved",
-      "reviewedAt": "2026-11-07"
+      "reviewedAt": "2026-11-09"
     },
     {
       "path": "/guided-reading/world-discovery/e-19/page-08.webp",

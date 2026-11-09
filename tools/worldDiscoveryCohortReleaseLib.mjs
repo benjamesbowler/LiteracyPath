@@ -11,6 +11,7 @@ import { fingerprintBookReadingText } from "../src/utils/guidedReading/textMetri
 import { stableWorldDiscoveryJson, worldDiscoveryCohortIds, worldDiscoveryInputFingerprint } from "../src/data/worldDiscoveryCohortContract.js";
 import { GUIDED_READING_CONTEXTUAL_WORD_AUDIO } from "../src/data/guidedReadingContextualWordAudio.js";
 import { validateContextualWordAudioEntries } from "./guidedReadingContextualWordAudioLib.mjs";
+import { readWorldDiscoveryMaintenanceAudio } from "./worldDiscoveryMaintenanceLib.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const sha256 = value => createHash("sha256").update(value).digest("hex");
@@ -58,9 +59,10 @@ export function collectWorldDiscoveryCohortAudio(books) {
 }
 
 export function buildWorldDiscoveryAudioPlan(cohort, source, priorAudio = new Map()) {
+  const approvedAudio = new Map([...readWorldDiscoveryMaintenanceAudio(cohort).audio, ...priorAudio]);
   const required = [], reused = [];
   for (const row of collectWorldDiscoveryCohortAudio(source.books).values()) {
-    const prior = priorAudio.get(row.audioPath);
+    const prior = approvedAudio.get(row.audioPath);
     const reusable = prior?.audioSha256 === row.audioSha256 && prior.kind === row.kind
       && [...row.texts].every(text => prior.texts.has(text));
     (reusable ? reused : required).push({ ...row, texts: [...row.texts].sort() });
@@ -90,6 +92,7 @@ export async function auditWorldDiscoveryCohort(cohort, priorAudio = new Map()) 
     return files.get(relative);
   }
   function readJson(relative) { fileHash(relative); return JSON.parse(fs.readFileSync(diskPath(relative), "utf8")); }
+  for (const row of readWorldDiscoveryMaintenanceAudio(cohort).evidence) fileHash(row.path);
   const ids = new Set(source.books.map(book => book.id));
   const contextual = GUIDED_READING_CONTEXTUAL_WORD_AUDIO.filter(row => ids.has(row.bookId));
   const contextualErrors = validateContextualWordAudioEntries(source.books, { entries: contextual, root });
@@ -121,7 +124,25 @@ export async function auditWorldDiscoveryCohort(cohort, priorAudio = new Map()) 
       requireThat(receipt.bookId === book.id && receipt.slot === slot && receipt.outputSha256 === digest
         && receipt.visualReview?.sha256 === digest && receipt.visualReview?.method === "codex-direct-image-inspection"
         && hasText(receipt.visualReview?.note), `${book.id}:${slot}: direct inspection evidence is missing or stale`);
-      if (cohort.index) requireThat(receipt.manuscriptSource?.sha256 === sourceFingerprint, `${book.id}:${slot}: receipt belongs to different manuscript/state`);
+      if (receipt.reviewedManuscriptSource) {
+        // Keep the original generation input intact. A later authorized text or
+        // illustration repair must bind its new complete-book review separately.
+        const reviewed = receipt.reviewedManuscriptSource;
+        requireThat(reviewed.bookId === book.id && reviewed.sha256 === sourceFingerprint
+          && reviewed.path === `${cohort.sourceDir}/level-${book.appLevel.toLowerCase()}.json`,
+        `${book.id}:${slot}: reviewed manuscript/state is stale`);
+        const complete = readJson(reviewed.evidence).books?.filter(row => row.bookId === book.id);
+        requireThat(complete?.length === 1 && complete[0].sourceBookSha256 === sourceFingerprint
+          && complete[0].textFingerprint === fingerprintBookReadingText(book)
+          && complete[0].fullTextPrepAndDiscussionReviewed === true
+          && complete[0].allReferencesCoversAndPagesReviewed === true
+          && complete[0].openFindings?.length === 0
+          && complete[0].assets?.filter(row => row.slot === slot && row.path === relative && row.sha256 === digest).length === 1,
+        `${book.id}:${slot}: complete-book inspection does not bind current text and image`);
+      } else {
+        requireThat(!cohort.maintenanceBaseline, `${book.id}:${slot}: maintenance requires a current complete-book review`);
+        if (cohort.index) requireThat(receipt.manuscriptSource?.sha256 === sourceFingerprint, `${book.id}:${slot}: receipt belongs to different manuscript/state`);
+      }
       const metadata = await sharp(diskPath(relative)).metadata();
       requireThat(metadata.width >= 1000 && metadata.height >= 650, `${book.id}:${slot}: image resolution is too small`);
       if (slot === "reference") references += 1;
@@ -144,7 +165,7 @@ export async function auditWorldDiscoveryCohort(cohort, priorAudio = new Map()) 
   const expectedAudio = new Map([...audio].map(([key, row]) => [key, { kind: row.kind, texts: row.texts }]));
   let required = [...audio.values()].filter(row => row.kind === "page_or_title").map(row => row.audioPath);
   let expectedCount = 626; // Immutable first-release screening report, not all consumed vocabulary.
-  if (cohort.index) {
+  if (cohort.narrationInventory) {
     const plan = readJson(cohort.narrationInventory), expectedPlan = buildWorldDiscoveryAudioPlan(cohort, source, priorAudio);
     const errors = validateWorldDiscoveryAudioPlan(plan, expectedPlan);
     requireThat(!errors.length, `${cohort.id}: ${errors.join("; ")}`);

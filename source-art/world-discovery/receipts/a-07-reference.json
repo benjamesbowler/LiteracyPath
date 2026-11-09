@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "277c2c6417f6f49712b863ada674e6b8641151debfc86de948e9f5e6b64b1c0f",
     "note": "Directly viewed corrected natural snail design: brown spiral shell with lower aperture, gray-tan legless foot, two upper eye tentacles and two short lower feelers. Leaf and wet-stone setting; no invented human cast.",
-    "limits": "Direct agent image and sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-a.json",
+    "bookId": "world-discovery-a-07",
+    "sha256": "06d998767a69c5208523b12c5eceaa73fdd9167ad9b945952646c64af507da9a",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

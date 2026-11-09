@@ -24,14 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "status": "reviewed",
-    "reviewer": "author_b_c",
-    "reviewedAt": "2026-11-07T16:42:48.193951+00:00",
-    "outputSha256": "1ac0adf0cb225199b9ae6cab1ef9876f70dce08379affb73cc98db74fe1234a3",
-    "scope": "Production-author direct native and final installed WebP inspection with complete ordered prose/state, physical-scene and framing review; independent QA pending.",
-    "notes": "Closed tap dry with no droplet; all three watch hands away. Half-full caught cup aside; cabinet closed and no stray tools. Normal furniture/body geometry.",
     "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
     "sha256": "1ac0adf0cb225199b9ae6cab1ef9876f70dce08379affb73cc98db74fe1234a3",
-    "note": "Closed tap dry with no droplet; all three watch hands away. Half-full caught cup aside; cabinet closed and no stray tools. Normal furniture/body geometry."
+    "note": "Closed tap dry with no droplet; all three watch hands away. Half-full caught cup aside; cabinet closed and no stray tools. Normal furniture/body geometry.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-b.json",
+    "bookId": "world-discovery-b-20",
+    "sha256": "92eaaf25eedbef9efc455f395f0cccab7e5bc8efc5bed9a0f560345c93381a12",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

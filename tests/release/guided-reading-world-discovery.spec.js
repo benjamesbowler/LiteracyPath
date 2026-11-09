@@ -118,6 +118,65 @@ for (const viewport of STUDENT_DEVICE_PROFILES.filter(profile => profile.id !== 
   }
 }
 
+// This short page exposed a clipped final word in the small-phone word-target
+// layout. The longest-book matrix alone does not exercise every wrapping shape.
+for (const viewport of STUDENT_DEVICE_PROFILES.filter(profile => profile.family === 'small-phone')) {
+  for (const reducedMotion of ['no-preference', 'reduce']) {
+    test(`B19 page 7 word help and replay at ${viewport.id}, motion ${reducedMotion}`, async ({ page }, info) => {
+      const book = books.find(row => row.id === 'world-discovery-b-19');
+      const index = 6, readingPage = book.pages[index];
+      const errors = [];
+      page.on('pageerror', error => errors.push(error.message));
+      await page.setViewportSize({ width: viewport.width, height: viewport.height });
+      await page.emulateMedia({ reducedMotion });
+      await page.addInitScript(observeRealAudio);
+      await page.goto(`/preview/guided-reading-preview.html?book=${book.id}`);
+      const reader = page.getByRole('region', { name: `${book.title} full-screen reader` });
+      await expect(reader).toBeVisible();
+      for (let current = 0; current < index; current += 1) {
+        await reader.getByRole('button', { name: 'Next page', exact: true }).click();
+        await expect(reader.getByRole('status', { name: 'Reading progress' }))
+          .toHaveText(`Page ${current + 2} of ${book.pages.length}`);
+      }
+      await expectPage(reader, book, index);
+      await expect(reader.locator('.guided-page-text .guided-word')).toHaveCount(words(readingPage.text).length);
+
+      const word = words(readingPage.text).at(-1);
+      await page.evaluate(() => { window.__worldDiscoveryAudio = []; });
+      await reader.getByRole('button', { name: `Get reading help for ${word}`, exact: true }).click();
+      await expectAudioStarted(page, getGuidedReadingWordProductionAudioPath(word, { bookId: book.id, page: readingPage }));
+      await expect(reader.locator('.guided-decoding-support')).toBeVisible();
+      await expectPrintedWordsVisible(reader);
+      await page.screenshot({ path: info.outputPath('page-7-word-help.png') });
+      for (const step of [2, 3]) {
+        await reader.getByRole('button', { name: `Get reading help for ${word}`, exact: true }).click();
+        await expect(reader.locator('.guided-decoding-support')).toContainText(`Reading help ${step} of 3`);
+        await expectPrintedWordsVisible(reader);
+        await page.screenshot({ path: info.outputPath(`page-7-help-step-${step}.png`) });
+      }
+
+      // Start, stop and replay actual page audio while checking the resulting
+      // text layout; no mocked audio success or forced clicks are used.
+      for (let play = 0; play < 2; play += 1) {
+        await page.evaluate(() => { window.__worldDiscoveryAudio = []; });
+        await reader.getByRole('button', { name: 'Hear this page', exact: true }).click();
+        await expectAudioStarted(page, getGuidedReadingPageAudioPath(readingPage));
+        await expectPrintedWordsVisible(reader);
+        await reader.getByRole('button', { name: 'Stop page audio', exact: true }).click();
+        await expect(reader.getByRole('button', { name: 'Hear this page', exact: true })).toBeVisible();
+      }
+      await expectPage(reader, book, index);
+      await page.screenshot({ path: info.outputPath('page-7-replayed.png') });
+      await reader.getByRole('button', { name: 'Next page', exact: true }).click();
+      await expectPage(reader, book, index + 1);
+      await reader.getByRole('button', { name: 'Previous page', exact: true }).click();
+      await expectPage(reader, book, index);
+      await page.screenshot({ path: info.outputPath('page-7-returned.png') });
+      expect(errors).toEqual([]);
+    });
+  }
+}
+
 test('World Discovery child library has every declared ordered cover and public shelf', async ({ page }, info) => {
   await page.setViewportSize({ width: portrait.width, height: portrait.height });
   await page.goto('/preview/child-surfaces.html?surface=reading-library');

@@ -22,9 +22,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T05:28:01.000Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "37e0dd1ea68f202b74c07d9cb9d735e8249ae8bcb9d7dd237d50041b5c4aa1ce",
     "note": "Calf against mother's rear underside in nonexplicit nursing position; no bottle/udder/milk cloud; corrected calf and mother horizontal flukes.",
-    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-e.json",
+    "bookId": "world-discovery-e-09",
+    "sha256": "43eb926cbe0a07dc0d1b058be1105196bed2baedce48a013f47f33f5ea5b6077",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

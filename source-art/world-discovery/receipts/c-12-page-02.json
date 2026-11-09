@@ -24,14 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "status": "reviewed",
-    "reviewer": "author_b_c",
-    "reviewedAt": "2026-11-07T18:08:45.087717+00:00",
-    "outputSha256": "6ab350097abb5613c596780e6af93cfcf5ae9281112b2087ba852b7897dc9050",
-    "scope": "Production-author direct native and final installed WebP inspection; full ordered prose/state and whole-scene review. Independent final QA pending.",
-    "notes": "Kit tips watering can by its handle at wrong blue pot; plant remains supported; ribbon still beside yellow pot.",
     "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
     "sha256": "6ab350097abb5613c596780e6af93cfcf5ae9281112b2087ba852b7897dc9050",
-    "note": "Kit tips watering can by its handle at wrong blue pot; plant remains supported; ribbon still beside yellow pot."
+    "note": "Kit tips watering can by its handle at wrong blue pot; plant remains supported; ribbon still beside yellow pot.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-c.json",
+    "bookId": "world-discovery-c-12",
+    "sha256": "bc4a12f0c141e3b123355150a9fa4c6a5216b1349b243b1524bd93266c29f154",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

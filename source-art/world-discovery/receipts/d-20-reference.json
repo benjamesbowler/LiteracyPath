@@ -25,9 +25,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T14:31:24.283299+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "9895001ca03bbc6c44908603ae2ebc92a8d08819a1e9dad0440c77515ec33bbb",
     "note": "Generated source and installed WebP inspected. Uncovered front stoop allows bare lamp light to reach upstairs exterior frame without roof obstruction. Window glass is dark; ordinary adult/Zoe lineup and closed top-and-side shield with open lower face. Later pages must preserve this new house geometry.",
-    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-d.json",
+    "bookId": "world-discovery-d-20",
+    "sha256": "1c0c1ebe4d302e72bc6925286eb5e4c635c0846331744f327d3c261dc1200d7d",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

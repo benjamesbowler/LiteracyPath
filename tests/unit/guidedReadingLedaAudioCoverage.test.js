@@ -1,9 +1,11 @@
 import assert from "node:assert/strict";
-import { access, readFile } from "node:fs/promises";
+import { access, readFile, stat } from "node:fs/promises";
 import path from "node:path";
 import test from "node:test";
 
 import { guidedReadingBooks } from "../../src/data/guidedReadingBooks.js";
+import { AUDIO_GUIDED_READING_PATHS } from "../../src/data/generated/audioGuidedReadingPaths.generated.js";
+import { getRuntimeGuidedReadingBooks } from "../../src/utils/guidedReading/runtimeBooks.js";
 import {
   getGuidedReadingBookAudioPath,
   getGuidedReadingPageAudioPath,
@@ -14,6 +16,15 @@ const repositoryRoot = process.cwd();
 
 function publicFile(audioPath) {
   return path.join(repositoryRoot, "public", audioPath);
+}
+
+const checkedWordFiles = new Map();
+function nonemptyWordAudioFile(audioPath) {
+  if (!checkedWordFiles.has(audioPath)) {
+    checkedWordFiles.set(audioPath, stat(publicFile(audioPath))
+      .then(file => file.isFile() && file.size > 0, () => false));
+  }
+  return checkedWordFiles.get(audioPath);
 }
 
 test("every live Guided Reading page has current approved narration", async () => {
@@ -36,9 +47,9 @@ test("every live Guided Reading page has current approved narration", async () =
   assert.deepEqual(missing, []);
 });
 
-test("every readable Guided Reading word token has current Leda audio", async () => {
+test("every runtime page word resolves to a nonempty Leda file present in the reader availability manifest", async () => {
   const missing = new Set();
-  for (const book of guidedReadingBooks) {
+  for (const book of getRuntimeGuidedReadingBooks()) {
     for (const page of book.pages || []) {
       if (page.active === false) continue;
       const pageText = Array.isArray(page.text) ? page.text.join(" ") : String(page.text || "");
@@ -53,9 +64,12 @@ test("every readable Guided Reading word token has current Leda audio", async ()
           missing.add(`${token}:mapping`);
           continue;
         }
-        try {
-          await access(publicFile(audioPath));
-        } catch {
+        // The real reader refuses a resolver hit absent from this index, even
+        // when its MP3 exists. A synthesis-only check misses a stale manifest.
+        if (!AUDIO_GUIDED_READING_PATHS.has(audioPath)) {
+          missing.add(`${book.id}:page-${page.pageNumber}:${token}:reader-availability`);
+        }
+        if (!(await nonemptyWordAudioFile(audioPath))) {
           missing.add(`${token}:file`);
         }
       }
@@ -64,9 +78,9 @@ test("every readable Guided Reading word token has current Leda audio", async ()
   assert.deepEqual([...missing], []);
 });
 
-test("runtime Guided Reading word buttons split dash-separated words and all resolve to Leda audio", async () => {
+test("runtime word objects split dash-separated words and resolve through the same reader availability gate", async () => {
   const failures = [];
-  for (const book of guidedReadingBooks) {
+  for (const book of getRuntimeGuidedReadingBooks()) {
     for (const page of book.pages || []) {
       if (page.active === false) continue;
       for (const [wordIndex, word] of (page.words || []).entries()) {
@@ -81,9 +95,10 @@ test("runtime Guided Reading word buttons split dash-separated words and all res
           failures.push([...location, "mapping", token].join(":"));
           continue;
         }
-        try {
-          await access(publicFile(audioPath));
-        } catch {
+        if (!AUDIO_GUIDED_READING_PATHS.has(audioPath)) {
+          failures.push([...location, "reader-availability", token].join(":"));
+        }
+        if (!(await nonemptyWordAudioFile(audioPath))) {
           failures.push([...location, "file", token].join(":"));
         }
       }

@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "a9e270e4076b7c69c6050a932caa7f97e4221c409b6a34dda1ed0f2c7c1744bd",
     "note": "Direct inspection: single wingless brown mature nymph grips reed entirely above pond water; three near legs visible with far legs occluded by stem, wing pads only, no premature adult.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-c.json",
+    "bookId": "world-discovery-c-08",
+    "sha256": "c5d5cb8270ca81d7b055ab2f2c494395f136188f4707ae29653f8f410342970b",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

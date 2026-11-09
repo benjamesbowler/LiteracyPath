@@ -26,9 +26,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "86fbe446aaa8f481d20d3496a3f736ff9c9c610ea4e97a464a5d40d54f147c6d",
     "note": "Direct inspection: yellow flashlight fixed left lights left half of sphere, red dot on lit side; right half dark, no beam behind ball.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-c.json",
+    "bookId": "world-discovery-c-06",
+    "sha256": "5b614e84d6a55340905c2ed5c83e6aeb5494bc5c35d9cba991d8ed9a5ba91a07",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

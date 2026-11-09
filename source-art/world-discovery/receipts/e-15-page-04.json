@@ -29,9 +29,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T16:50:28.743465+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "f842aef65483f0b4ed0ed31e7bfdb02ff815f6ae4bd44d97fa3d9f31abafc23a",
     "note": "Generated source and installed WebP inspected. Exactly three stones embedded at ice base contact bedrock. Rightward ice arrow and parallel scratches show abrasion; no loose floating fragments.",
-    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-e.json",
+    "bookId": "world-discovery-e-15",
+    "sha256": "a57d2e19830e6922434e13fa17fa20597f9031c568ccce469773f4251f93f3fb",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

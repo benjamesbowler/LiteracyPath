@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "fa1d84730ecf5f31cd0e86fdf4f762f4076b5bf80e5669fe328ece974c83369e",
     "note": "Direct inspection: complete swallow upright on left branch and bat head-down by two hind feet on separate right branch; folded wings, fur versus feathers readable without flight.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-c.json",
+    "bookId": "world-discovery-c-09",
+    "sha256": "547724e0d3b9bf1f872360c6d00472dbc9c9795e76d758413329a5a9aae31f81",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

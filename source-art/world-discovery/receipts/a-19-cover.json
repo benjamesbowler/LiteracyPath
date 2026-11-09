@@ -25,9 +25,11 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T16:06:31.970Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "6aca1718bfd4930eede88b23d03332e9558c4e731641f6b45aa9dfe5f406bae9",
-    "note": "Full standing body, coherent supported table, completed rough brick/bark on teal and smooth spoon/pebble on yellow; natural hand contact and wide safe framing."
+    "note": "Full standing body, coherent supported table, completed rough brick/bark on teal and smooth spoon/pebble on yellow; natural hand contact and wide safe framing.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
   },
   "generationManuscriptSource": {
     "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
@@ -46,5 +48,12 @@
       ],
       "reason": "Nonspoken teacher discussion wording aligned to directly viewed page evidence. Printed title/pages, illustration briefs, state and image bytes are unchanged; independent reviewers author_d_e and integration_preflight accepted exact wording."
     }
-  ]
+  ],
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-a.json",
+    "bookId": "world-discovery-a-19",
+    "sha256": "5246a5f968b43765dc0900374908a7a3fc1af170b42f5aac6d3e1888e73fe45b",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
+  }
 }

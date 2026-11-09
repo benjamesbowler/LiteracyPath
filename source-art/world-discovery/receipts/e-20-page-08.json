@@ -24,8 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "sha256": "858806f75e0c66fc80ec32aa56db2b08b1949ca5fa5ff8de5e9fd05676106885",
     "method": "codex-direct-image-inspection",
-    "note": "Low close view shows a few small dark achenes falling below dry head into soil gaps. Complete head safely below top edge, stems naturally rooted, no instant flowers or seed explosion."
+    "reviewedAt": "2026-11-09",
+    "sha256": "858806f75e0c66fc80ec32aa56db2b08b1949ca5fa5ff8de5e9fd05676106885",
+    "note": "Low close view shows a few small dark achenes falling below dry head into soil gaps. Complete head safely below top edge, stems naturally rooted, no instant flowers or seed explosion.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-e.json",
+    "bookId": "world-discovery-e-20",
+    "sha256": "fac02292fb99181c3cdf95a864e5c86a9e22d1df1677d6d1143abbaca2559e90",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

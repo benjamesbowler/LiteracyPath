@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T04:55:31.159Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "43da17305b99c27e5c56f8da18f1186f547de6367bf505bc06e780b448b39589",
     "note": "First-quarter right half bright, left half dark; whole circular disk. Sky series keeps fixed diameter and crater design.",
-    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-e.json",
+    "bookId": "world-discovery-e-06",
+    "sha256": "ee7fbae5a543f22990a78929d424b7b0ae5208b2cf696db2cdbabd8ab4bee424",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

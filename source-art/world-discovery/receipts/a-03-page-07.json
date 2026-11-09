@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "2f2748cc5bbe84b9eb48d481a10e9ac8a2bb72cb67df83dad56da0b5ec9efdb8",
     "note": "Arrived classroom: each child has exactly one designated book; purple lifted last, cart empty; no duplicate featured books.",
-    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-a.json",
+    "bookId": "world-discovery-a-03",
+    "sha256": "560cbf862dec125da4796b9c95c391cd1cfc09961271cf944ea5e2241eb2c7d8",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

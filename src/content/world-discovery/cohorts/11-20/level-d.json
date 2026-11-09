@@ -58,7 +58,7 @@
       },
       {
         "pageNumber": 4,
-        "text": "The picture is bright now, but Zoe frowns. Without the rain, her puddle seems like the wrong part of the day.",
+        "text": "Zoe frowns at the paper sun. “But it rained that day,” she says. “That rain made my big puddle!”",
         "imageBrief": "Zoe studies the paper sun above the existing blue puddle, with one finger near the drawn boots.",
         "imageAlt": "Zoe studies the paper sun above the existing blue puddle, with one finger near the drawn boots.",
         "pageDescription": "Zoe studies the paper sun above the existing blue puddle, with one finger near the drawn boots.",
@@ -94,7 +94,7 @@
       },
       {
         "pageNumber": 8,
-        "text": "She draws blue rain below the cloud. Now the boots, the splashes, and the sky belong in the same picture.",
+        "text": "She draws blue rain below the cloud. Now her picture shows the rainy day she remembers.",
         "imageBrief": "Zoe draws distinct short blue rain strokes beneath the gray cloud, keeping the boots and puddle visible.",
         "imageAlt": "Zoe draws distinct short blue rain strokes beneath the gray cloud, keeping the boots and puddle visible.",
         "pageDescription": "Zoe draws distinct short blue rain strokes beneath the gray cloud, keeping the boots and puddle visible.",
@@ -401,7 +401,7 @@
       },
       {
         "pageNumber": 8,
-        "text": "The light, sound, and movement give the walk message in different ways. They do not move the traffic themselves.",
+        "text": "The light, sound, and moving arrow tell people when they may cross. They must still check the traffic.",
         "imageBrief": "Both people remain at curb, adult listening and turning toward traffic while Kit looks across.",
         "imageAlt": "Both people remain at curb, adult listening and turning toward traffic while Kit looks across.",
         "pageDescription": "Both people remain at curb, adult listening and turning toward traffic while Kit looks across.",
@@ -419,7 +419,7 @@
       },
       {
         "pageNumber": 10,
-        "text": "On the far sidewalk, Kit looks back. That little box had more than one way to say the same thing.",
+        "text": "Kit saw the walking light. The adult heard the ticking sound and felt the arrow move.",
         "imageBrief": "Both have reached far sidewalk and look toward the accessible button on the near corner.",
         "imageAlt": "Both have reached far sidewalk and look toward the accessible button on the near corner.",
         "pageDescription": "Both have reached far sidewalk and look toward the accessible button on the near corner.",
@@ -532,7 +532,7 @@
       },
       {
         "pageNumber": 6,
-        "text": "He tries again, more slowly. The fan stays still. “Your hand is flat,” Zoe tells the shadow.",
+        "text": "He tries again, more slowly. The fan stays still. “That is only a shadow,” Zoe says. “It cannot pick things up.”",
         "imageBrief": "Zoe crouches beside untouched fan as Kit's shadow hand closes again on wall.",
         "imageAlt": "Zoe crouches beside untouched fan as Kit's shadow hand closes again on wall.",
         "pageDescription": "Zoe crouches beside untouched fan as Kit's shadow hand closes again on wall.",
@@ -568,7 +568,7 @@
       },
       {
         "pageNumber": 10,
-        "text": "Zoe waves back with both hands. Kit bows, and a giant bow carries the shadow fan almost to the floor.",
+        "text": "Zoe waves both hands. Kit bends forward, and his giant shadow bends too. The fan’s shadow moves down the wall.",
         "imageBrief": "Kit bows inside circle holding fan; giant silhouette bends identically while Zoe waves.",
         "imageAlt": "Kit bows inside circle holding fan; giant silhouette bends identically while Zoe waves.",
         "pageDescription": "Kit bows inside circle holding fan; giant silhouette bends identically while Zoe waves.",
@@ -720,7 +720,7 @@
       },
       {
         "pageNumber": 9,
-        "text": "The rock did not walk, and the dune did not jump. Thousands of small movements changed the hill's position.",
+        "text": "The rock stayed in the same place. Wind moved many grains of sand, so the dune slowly moved past it.",
         "imageBrief": "Close view returns to grains on the dune with fixed notched rock visible at left.",
         "imageAlt": "Close view returns to grains on the dune with fixed notched rock visible at left.",
         "pageDescription": "Close view returns to grains on the dune with fixed notched rock visible at left.",
@@ -729,7 +729,7 @@
       },
       {
         "pageNumber": 10,
-        "text": "A hill can travel one grain at a time. Here, the wind keeps moving sand toward the dune's steep side.",
+        "text": "Wind moves the sand one grain at a time. Over many windy days, the dune moves across the ground.",
         "imageBrief": "Final broad view of the shifted dune and fixed foreground rock; sparse left-to-right grain flow continues.",
         "imageAlt": "Final broad view of the shifted dune and fixed foreground rock; sparse left-to-right grain flow continues.",
         "pageDescription": "Final broad view of the shifted dune and fixed foreground rock; sparse left-to-right grain flow continues.",
@@ -739,7 +739,7 @@
     ],
     "discussion": {
       "oral": {
-        "prompt": "How does the dune change places if the whole hill does not jump?",
+        "prompt": "How does wind make the dune move?",
         "listenFor": "Wind carries grains up one side; grains slide and settle on the other, so repeated transfers move the dune."
       },
       "visual": {
@@ -890,7 +890,7 @@
       },
       {
         "pageNumber": 10,
-        "text": "Nothing took a bite out of the Moon. Earth briefly stood in the way of its sunlight.",
+        "text": "Earth blocked sunlight from reaching the Moon. The Moon looked bright again when it moved out of Earth’s shadow.",
         "imageBrief": "Return to opening rooftop view with intact bright full Moon and faint explanatory Earth-shadow diagram inset.",
         "imageAlt": "Return to opening rooftop view with intact bright full Moon and faint explanatory Earth-shadow diagram inset.",
         "pageDescription": "Return to opening rooftop view with intact bright full Moon and faint explanatory Earth-shadow diagram inset.",
@@ -1026,7 +1026,7 @@
       },
       {
         "pageNumber": 7,
-        "text": "The patch looks pale instead of green. The wing has not turned into a flower; we are seeing what lies behind it.",
+        "text": "The patch looks pale now. We can see the pale flower through the clear wing, just as we saw the green leaf.",
         "imageBrief": "Close side view repeats previous wing position with pale petal visible through clear area.",
         "imageAlt": "Close side view repeats previous wing position with pale petal visible through clear area.",
         "pageDescription": "Close side view repeats previous wing position with pale petal visible through clear area.",
@@ -1053,7 +1053,7 @@
       },
       {
         "pageNumber": 10,
-        "text": "Look back at the leaf. What seemed missing was there all along: a wing that lets much of the light through.",
+        "text": "Look at the leaf through the clear wing. The wing is still there, even when we can see through it.",
         "imageBrief": "Return to leaf-backed wing composition, real membrane subtly catches one edge highlight without obscuring transparency.",
         "imageAlt": "Return to leaf-backed wing composition, real membrane subtly catches one edge highlight without obscuring transparency.",
         "pageDescription": "Return to leaf-backed wing composition, real membrane subtly catches one edge highlight without obscuring transparency.",
@@ -1197,7 +1197,7 @@
       },
       {
         "pageNumber": 8,
-        "text": "Its new covering hardens. The soft stage does not last for the rest of the crab's life.",
+        "text": "Its new covering hardens. The crab has a hard shell again.",
         "imageBrief": "Same sheltered crab later, shell appears firmer and characteristic olive-blue; grass landmarks fixed.",
         "imageAlt": "Same sheltered crab later, shell appears firmer and characteristic olive-blue; grass landmarks fixed.",
         "pageDescription": "Same sheltered crab later, shell appears firmer and characteristic olive-blue; grass landmarks fixed.",
@@ -1215,7 +1215,7 @@
       },
       {
         "pageNumber": 10,
-        "text": "The empty shape cannot follow. A crab did not become two crabs; one crab left its old covering behind.",
+        "text": "The crab crawls away. Its old, empty shell stays by the stone.",
         "imageBrief": "Living crab farther right while abandoned molt lies open beside fixed stone in left foreground.",
         "imageAlt": "Living crab farther right while abandoned molt lies open beside fixed stone in left foreground.",
         "pageDescription": "Living crab farther right while abandoned molt lies open beside fixed stone in left foreground.",
@@ -1360,7 +1360,7 @@
       },
       {
         "pageNumber": 8,
-        "text": "The tomato has seeds too, but they are smaller and surrounded by soft flesh. Fruits need not look alike.",
+        "text": "The tomato has smaller seeds in soft flesh. A tomato and a pea pod are fruits, but they look different.",
         "imageBrief": "Side-by-side tomato half and opened pea pod; one loose pea stays on right dish.",
         "imageAlt": "Side-by-side tomato half and opened pea pod; one loose pea stays on right dish.",
         "pageDescription": "Side-by-side tomato half and opened pea pod; one loose pea stays on right dish.",
@@ -1501,7 +1501,7 @@
       },
       {
         "pageNumber": 6,
-        "text": "More of the useful light falls onto the path. The hedge and window no longer catch the same bright spill.",
+        "text": "The path is brighter now. Less light reaches the hedge and the upstairs window.",
         "imageBrief": "Repeat opening viewpoint with path clearly lit, hedge/window darkened and shield visible.",
         "imageAlt": "Repeat opening viewpoint with path clearly lit, hedge/window darkened and shield visible.",
         "pageDescription": "Repeat opening viewpoint with path clearly lit, hedge/window darkened and shield visible.",
@@ -1537,7 +1537,7 @@
       },
       {
         "pageNumber": 10,
-        "text": "The lamp is ready for the next visitor. For now, the path, hedge, and window share the night.",
+        "text": "The porch lamp is off. A light shines inside the upstairs room. The path stays dark.",
         "imageBrief": "Final quiet exterior: lamp off, dark hedge and path, softly lit closed house window interior.",
         "imageAlt": "Final quiet exterior: lamp off, dark hedge and path, softly lit closed house window interior.",
         "pageDescription": "Final quiet exterior: lamp off, dark hedge and path, softly lit closed house window interior.",

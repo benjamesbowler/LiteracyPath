@@ -209,12 +209,12 @@ export const moonwoodTalesBooks = [
       "fern": "MOON-FERN — tall fern/plant sprite with leaf-green skin, curling fern-frond hair, broad leaf-shaped wings, amber eyes, and a fixed moss-and-leaf silhouette.",
       "stone": "MOON-STONE — very large stone giant, always two to three times Pip's height, with smooth pale gray skin, a round bald head, broad hands, soft eyes, and a tan sleeveless tunic; slow, literal and gentle.",
       "glimmer": "Young dragon with purple-blue scales, gold highlights, small wings, teal eyes, and cinnamon-warm breath.",
-      "wren": "Witch apprentice with wild dark hair, oversized dark blue robe, large hat, and battered green spell book.",
+      "wren": "MOON-WREN — small child witch with curly brown hair and green eyes; plain navy pointed hat with one brown band and plain dark navy robe with sewn taupe patches. No gold stars, gold trim or gem clasp. A battered green spell book appears only when the story calls for it.",
       "flint": "Explorer elf with copper-red hair, amber eyes, practical clothes, satchel, and many maps.",
       "dewdrop": "Water sprite with translucent blue-green shimmer, flowing blue-white hair, and clear blue eyes.",
       "burrow": "Old mole with dark brown fur, gold glasses, large digging paws, and brown waistcoat.",
       "spark": "Junior wizard with bright red hair, freckles, red and gold robe, oversized wand, and floating gold sparkles.",
-      "luna": "MOON-LUNA — ancient owl with deep gray feathers, a cream facial disc, amber eyes, tiny gold-framed glasses, two feathered wings and two taloned feet; no human hands."
+      "luna": "MOON-LUNA — ancient owl with deep slate/navy-gray feathers, a cream facial disc and chest, golden eyes, two natural feathered wings and two yellow taloned feet; no eyeglasses or human hands."
     },
     "settingReference": "Moonwood is an ancient enchanted forest with glowing mushrooms, Hollow Oak, Crystal Stream, Fog Marsh, Tumblerock Cliffs, Whispering Meadow, and gently unreliable magic.",
     "expectedStoryPageCount": 12,
@@ -598,12 +598,12 @@ export const moonwoodTalesBooks = [
       "fern": "MOON-FERN — tall fern/plant sprite with leaf-green skin, curling fern-frond hair, broad leaf-shaped wings, amber eyes, and a fixed moss-and-leaf silhouette.",
       "stone": "MOON-STONE — very large stone giant, always two to three times Pip's height, with smooth pale gray skin, a round bald head, broad hands, soft eyes, and a tan sleeveless tunic; slow, literal and gentle.",
       "glimmer": "Young dragon with purple-blue scales, gold highlights, small wings, teal eyes, and cinnamon-warm breath.",
-      "wren": "Witch apprentice with wild dark hair, oversized dark blue robe, large hat, and battered green spell book.",
+      "wren": "MOON-WREN — small child witch with curly brown hair and green eyes; plain navy pointed hat with one brown band and plain dark navy robe with sewn taupe patches. No gold stars, gold trim or gem clasp. A battered green spell book appears only when the story calls for it.",
       "flint": "Explorer elf with copper-red hair, amber eyes, practical clothes, satchel, and many maps.",
       "dewdrop": "Water sprite with translucent blue-green shimmer, flowing blue-white hair, and clear blue eyes.",
       "burrow": "Old mole with dark brown fur, gold glasses, large digging paws, and brown waistcoat.",
       "spark": "Junior wizard with bright red hair, freckles, red and gold robe, oversized wand, and floating gold sparkles.",
-      "luna": "MOON-LUNA — ancient owl with deep gray feathers, a cream facial disc, amber eyes, tiny gold-framed glasses, two feathered wings and two taloned feet; no human hands."
+      "luna": "MOON-LUNA — ancient owl with deep slate/navy-gray feathers, a cream facial disc and chest, golden eyes, two natural feathered wings and two yellow taloned feet; no eyeglasses or human hands."
     },
     "settingReference": "Moonwood is an ancient enchanted forest with glowing mushrooms, Hollow Oak, Crystal Stream, Fog Marsh, Tumblerock Cliffs, Whispering Meadow, and gently unreliable magic.",
     "expectedStoryPageCount": 12,
@@ -763,12 +763,12 @@ export const moonwoodTalesBooks = [
       "fern": "MOON-FERN — tall fern/plant sprite with leaf-green skin, curling fern-frond hair, broad leaf-shaped wings, amber eyes, and a fixed moss-and-leaf silhouette.",
       "stone": "MOON-STONE — very large stone giant, always two to three times Pip's height, with smooth pale gray skin, a round bald head, broad hands, soft eyes, and a tan sleeveless tunic; slow, literal and gentle.",
       "glimmer": "Young dragon with purple-blue scales, gold highlights, small wings, teal eyes, and cinnamon-warm breath.",
-      "wren": "Witch apprentice with wild dark hair, oversized dark blue robe, large hat, and battered green spell book.",
+      "wren": "MOON-WREN — small child witch with curly brown hair and green eyes; plain navy pointed hat with one brown band and plain dark navy robe with sewn taupe patches. No gold stars, gold trim or gem clasp. A battered green spell book appears only when the story calls for it.",
       "flint": "Explorer elf with copper-red hair, amber eyes, practical clothes, satchel, and many maps.",
       "dewdrop": "Water sprite with translucent blue-green shimmer, flowing blue-white hair, and clear blue eyes.",
       "burrow": "Old mole with dark brown fur, gold glasses, large digging paws, and brown waistcoat.",
       "spark": "Junior wizard with bright red hair, freckles, red and gold robe, oversized wand, and floating gold sparkles.",
-      "luna": "MOON-LUNA — ancient owl with deep gray feathers, a cream facial disc, amber eyes, tiny gold-framed glasses, two feathered wings and two taloned feet; no human hands."
+      "luna": "MOON-LUNA — ancient owl with deep slate/navy-gray feathers, a cream facial disc and chest, golden eyes, two natural feathered wings and two yellow taloned feet; no eyeglasses or human hands."
     },
     "settingReference": "Moonwood is an ancient enchanted forest with glowing mushrooms, Hollow Oak, Crystal Stream, Fog Marsh, Tumblerock Cliffs, Whispering Meadow, and gently unreliable magic.",
     "expectedStoryPageCount": 12,
@@ -928,12 +928,12 @@ export const moonwoodTalesBooks = [
       "fern": "MOON-FERN — tall fern/plant sprite with leaf-green skin, curling fern-frond hair, broad leaf-shaped wings, amber eyes, and a fixed moss-and-leaf silhouette.",
       "stone": "MOON-STONE — very large stone giant, always two to three times Pip's height, with smooth pale gray skin, a round bald head, broad hands, soft eyes, and a tan sleeveless tunic; slow, literal and gentle.",
       "glimmer": "Young dragon with purple-blue scales, gold highlights, small wings, teal eyes, and cinnamon-warm breath.",
-      "wren": "Witch apprentice with wild dark hair, oversized dark blue robe, large hat, and battered green spell book.",
+      "wren": "MOON-WREN — small child witch with curly brown hair and green eyes; plain navy pointed hat with one brown band and plain dark navy robe with sewn taupe patches. No gold stars, gold trim or gem clasp. A battered green spell book appears only when the story calls for it.",
       "flint": "Explorer elf with copper-red hair, amber eyes, practical clothes, satchel, and many maps.",
       "dewdrop": "Water sprite with translucent blue-green shimmer, flowing blue-white hair, and clear blue eyes.",
       "burrow": "Old mole with dark brown fur, gold glasses, large digging paws, and brown waistcoat.",
       "spark": "Junior wizard with bright red hair, freckles, red and gold robe, oversized wand, and floating gold sparkles.",
-      "luna": "MOON-LUNA — ancient owl with deep gray feathers, a cream facial disc, amber eyes, tiny gold-framed glasses, two feathered wings and two taloned feet; no human hands."
+      "luna": "MOON-LUNA — ancient owl with deep slate/navy-gray feathers, a cream facial disc and chest, golden eyes, two natural feathered wings and two yellow taloned feet; no eyeglasses or human hands."
     },
     "settingReference": "Moonwood is an ancient enchanted forest with glowing mushrooms, Hollow Oak, Crystal Stream, Fog Marsh, Tumblerock Cliffs, Whispering Meadow, and gently unreliable magic.",
     "expectedStoryPageCount": 12,
@@ -1093,12 +1093,12 @@ export const moonwoodTalesBooks = [
       "fern": "MOON-FERN — tall fern/plant sprite with leaf-green skin, curling fern-frond hair, broad leaf-shaped wings, amber eyes, and a fixed moss-and-leaf silhouette.",
       "stone": "MOON-STONE — very large stone giant, always two to three times Pip's height, with smooth pale gray skin, a round bald head, broad hands, soft eyes, and a tan sleeveless tunic; slow, literal and gentle.",
       "glimmer": "Young dragon with purple-blue scales, gold highlights, small wings, teal eyes, and cinnamon-warm breath.",
-      "wren": "Witch apprentice with wild dark hair, oversized dark blue robe, large hat, and battered green spell book.",
+      "wren": "MOON-WREN — small child witch with curly brown hair and green eyes; plain navy pointed hat with one brown band and plain dark navy robe with sewn taupe patches. No gold stars, gold trim or gem clasp. A battered green spell book appears only when the story calls for it.",
       "flint": "Explorer elf with copper-red hair, amber eyes, practical clothes, satchel, and many maps.",
       "dewdrop": "Water sprite with translucent blue-green shimmer, flowing blue-white hair, and clear blue eyes.",
       "burrow": "Old mole with dark brown fur, gold glasses, large digging paws, and brown waistcoat.",
       "spark": "Junior wizard with bright red hair, freckles, red and gold robe, oversized wand, and floating gold sparkles.",
-      "luna": "MOON-LUNA — ancient owl with deep gray feathers, a cream facial disc, amber eyes, tiny gold-framed glasses, two feathered wings and two taloned feet; no human hands."
+      "luna": "MOON-LUNA — ancient owl with deep slate/navy-gray feathers, a cream facial disc and chest, golden eyes, two natural feathered wings and two yellow taloned feet; no eyeglasses or human hands."
     },
     "settingReference": "Moonwood is an ancient enchanted forest with glowing mushrooms, Hollow Oak, Crystal Stream, Fog Marsh, Tumblerock Cliffs, Whispering Meadow, and gently unreliable magic.",
     "expectedStoryPageCount": 12,
@@ -1258,12 +1258,12 @@ export const moonwoodTalesBooks = [
       "fern": "MOON-FERN — tall fern/plant sprite with leaf-green skin, curling fern-frond hair, broad leaf-shaped wings, amber eyes, and a fixed moss-and-leaf silhouette.",
       "stone": "MOON-STONE — very large stone giant, always two to three times Pip's height, with smooth pale gray skin, a round bald head, broad hands, soft eyes, and a tan sleeveless tunic; slow, literal and gentle.",
       "glimmer": "Young dragon with purple-blue scales, gold highlights, small wings, teal eyes, and cinnamon-warm breath.",
-      "wren": "Witch apprentice with wild dark hair, oversized dark blue robe, large hat, and battered green spell book.",
+      "wren": "MOON-WREN — small child witch with curly brown hair and green eyes; plain navy pointed hat with one brown band and plain dark navy robe with sewn taupe patches. No gold stars, gold trim or gem clasp. A battered green spell book appears only when the story calls for it.",
       "flint": "Explorer elf with copper-red hair, amber eyes, practical clothes, satchel, and many maps.",
       "dewdrop": "Water sprite with translucent blue-green shimmer, flowing blue-white hair, and clear blue eyes.",
       "burrow": "Old mole with dark brown fur, gold glasses, large digging paws, and brown waistcoat.",
       "spark": "Junior wizard with bright red hair, freckles, red and gold robe, oversized wand, and floating gold sparkles.",
-      "luna": "MOON-LUNA — ancient owl with deep gray feathers, a cream facial disc, amber eyes, tiny gold-framed glasses, two feathered wings and two taloned feet; no human hands."
+      "luna": "MOON-LUNA — ancient owl with deep slate/navy-gray feathers, a cream facial disc and chest, golden eyes, two natural feathered wings and two yellow taloned feet; no eyeglasses or human hands."
     },
     "settingReference": "Moonwood is an ancient enchanted forest with glowing mushrooms, Hollow Oak, Crystal Stream, Fog Marsh, Tumblerock Cliffs, Whispering Meadow, and gently unreliable magic.",
     "expectedStoryPageCount": 12,
@@ -1423,12 +1423,12 @@ export const moonwoodTalesBooks = [
       "fern": "MOON-FERN — tall fern/plant sprite with leaf-green skin, curling fern-frond hair, broad leaf-shaped wings, amber eyes, and a fixed moss-and-leaf silhouette.",
       "stone": "MOON-STONE — very large stone giant, always two to three times Pip's height, with smooth pale gray skin, a round bald head, broad hands, soft eyes, and a tan sleeveless tunic; slow, literal and gentle.",
       "glimmer": "Young dragon with purple-blue scales, gold highlights, small wings, teal eyes, and cinnamon-warm breath.",
-      "wren": "Witch apprentice with wild dark hair, oversized dark blue robe, large hat, and battered green spell book.",
+      "wren": "MOON-WREN — small child witch with curly brown hair and green eyes; plain navy pointed hat with one brown band and plain dark navy robe with sewn taupe patches. No gold stars, gold trim or gem clasp. A battered green spell book appears only when the story calls for it.",
       "flint": "Explorer elf with copper-red hair, amber eyes, practical clothes, satchel, and many maps.",
       "dewdrop": "Water sprite with translucent blue-green shimmer, flowing blue-white hair, and clear blue eyes.",
       "burrow": "Old mole with dark brown fur, gold glasses, large digging paws, and brown waistcoat.",
       "spark": "Junior wizard with bright red hair, freckles, red and gold robe, oversized wand, and floating gold sparkles.",
-      "luna": "MOON-LUNA — ancient owl with deep gray feathers, a cream facial disc, amber eyes, tiny gold-framed glasses, two feathered wings and two taloned feet; no human hands."
+      "luna": "MOON-LUNA — ancient owl with deep slate/navy-gray feathers, a cream facial disc and chest, golden eyes, two natural feathered wings and two yellow taloned feet; no eyeglasses or human hands."
     },
     "settingReference": "Moonwood is an ancient enchanted forest with glowing mushrooms, Hollow Oak, Crystal Stream, Fog Marsh, Tumblerock Cliffs, Whispering Meadow, and gently unreliable magic.",
     "expectedStoryPageCount": 12,
@@ -1588,12 +1588,12 @@ export const moonwoodTalesBooks = [
       "fern": "MOON-FERN — tall fern/plant sprite with leaf-green skin, curling fern-frond hair, broad leaf-shaped wings, amber eyes, and a fixed moss-and-leaf silhouette.",
       "stone": "MOON-STONE — very large stone giant, always two to three times Pip's height, with smooth pale gray skin, a round bald head, broad hands, soft eyes, and a tan sleeveless tunic; slow, literal and gentle.",
       "glimmer": "Young dragon with purple-blue scales, gold highlights, small wings, teal eyes, and cinnamon-warm breath.",
-      "wren": "Witch apprentice with wild dark hair, oversized dark blue robe, large hat, and battered green spell book.",
+      "wren": "MOON-WREN — small child witch with curly brown hair and green eyes; plain navy pointed hat with one brown band and plain dark navy robe with sewn taupe patches. No gold stars, gold trim or gem clasp. A battered green spell book appears only when the story calls for it.",
       "flint": "Explorer elf with copper-red hair, amber eyes, practical clothes, satchel, and many maps.",
       "dewdrop": "Water sprite with translucent blue-green shimmer, flowing blue-white hair, and clear blue eyes.",
       "burrow": "Old mole with dark brown fur, gold glasses, large digging paws, and brown waistcoat.",
       "spark": "Junior wizard with bright red hair, freckles, red and gold robe, oversized wand, and floating gold sparkles.",
-      "luna": "MOON-LUNA — ancient owl with deep gray feathers, a cream facial disc, amber eyes, tiny gold-framed glasses, two feathered wings and two taloned feet; no human hands."
+      "luna": "MOON-LUNA — ancient owl with deep slate/navy-gray feathers, a cream facial disc and chest, golden eyes, two natural feathered wings and two yellow taloned feet; no eyeglasses or human hands."
     },
     "settingReference": "Moonwood is an ancient enchanted forest with glowing mushrooms, Hollow Oak, Crystal Stream, Fog Marsh, Tumblerock Cliffs, Whispering Meadow, and gently unreliable magic.",
     "expectedStoryPageCount": 13,
@@ -1761,12 +1761,12 @@ export const moonwoodTalesBooks = [
       "fern": "MOON-FERN — tall fern/plant sprite with leaf-green skin, curling fern-frond hair, broad leaf-shaped wings, amber eyes, and a fixed moss-and-leaf silhouette.",
       "stone": "MOON-STONE — very large stone giant, always two to three times Pip's height, with smooth pale gray skin, a round bald head, broad hands, soft eyes, and a tan sleeveless tunic; slow, literal and gentle.",
       "glimmer": "Young dragon with purple-blue scales, gold highlights, small wings, teal eyes, and cinnamon-warm breath.",
-      "wren": "Witch apprentice with wild dark hair, oversized dark blue robe, large hat, and battered green spell book.",
+      "wren": "MOON-WREN — small child witch with curly brown hair and green eyes; plain navy pointed hat with one brown band and plain dark navy robe with sewn taupe patches. No gold stars, gold trim or gem clasp. A battered green spell book appears only when the story calls for it.",
       "flint": "Explorer elf with copper-red hair, amber eyes, practical clothes, satchel, and many maps.",
       "dewdrop": "Water sprite with translucent blue-green shimmer, flowing blue-white hair, and clear blue eyes.",
       "burrow": "Old mole with dark brown fur, gold glasses, large digging paws, and brown waistcoat.",
       "spark": "Junior wizard with bright red hair, freckles, red and gold robe, oversized wand, and floating gold sparkles.",
-      "luna": "MOON-LUNA — ancient owl with deep gray feathers, a cream facial disc, amber eyes, tiny gold-framed glasses, two feathered wings and two taloned feet; no human hands."
+      "luna": "MOON-LUNA — ancient owl with deep slate/navy-gray feathers, a cream facial disc and chest, golden eyes, two natural feathered wings and two yellow taloned feet; no eyeglasses or human hands."
     },
     "settingReference": "Moonwood is an ancient enchanted forest with glowing mushrooms, Hollow Oak, Crystal Stream, Fog Marsh, Tumblerock Cliffs, Whispering Meadow, and gently unreliable magic.",
     "expectedStoryPageCount": 14,
@@ -1942,12 +1942,12 @@ export const moonwoodTalesBooks = [
       "fern": "MOON-FERN — tall fern/plant sprite with leaf-green skin, curling fern-frond hair, broad leaf-shaped wings, amber eyes, and a fixed moss-and-leaf silhouette.",
       "stone": "MOON-STONE — very large stone giant, always two to three times Pip's height, with smooth pale gray skin, a round bald head, broad hands, soft eyes, and a tan sleeveless tunic; slow, literal and gentle.",
       "glimmer": "Young dragon with purple-blue scales, gold highlights, small wings, teal eyes, and cinnamon-warm breath.",
-      "wren": "Witch apprentice with wild dark hair, oversized dark blue robe, large hat, and battered green spell book.",
+      "wren": "MOON-WREN — small child witch with curly brown hair and green eyes; plain navy pointed hat with one brown band and plain dark navy robe with sewn taupe patches. No gold stars, gold trim or gem clasp. A battered green spell book appears only when the story calls for it.",
       "flint": "Explorer elf with copper-red hair, amber eyes, practical clothes, satchel, and many maps.",
       "dewdrop": "Water sprite with translucent blue-green shimmer, flowing blue-white hair, and clear blue eyes.",
       "burrow": "Old mole with dark brown fur, gold glasses, large digging paws, and brown waistcoat.",
       "spark": "Junior wizard with bright red hair, freckles, red and gold robe, oversized wand, and floating gold sparkles.",
-      "luna": "MOON-LUNA — ancient owl with deep gray feathers, a cream facial disc, amber eyes, tiny gold-framed glasses, two feathered wings and two taloned feet; no human hands."
+      "luna": "MOON-LUNA — ancient owl with deep slate/navy-gray feathers, a cream facial disc and chest, golden eyes, two natural feathered wings and two yellow taloned feet; no eyeglasses or human hands."
     },
     "settingReference": "Moonwood is an ancient enchanted forest with glowing mushrooms, Hollow Oak, Crystal Stream, Fog Marsh, Tumblerock Cliffs, Whispering Meadow, and gently unreliable magic.",
     "expectedStoryPageCount": 14,
@@ -2126,12 +2126,12 @@ export const moonwoodTalesBooks = [
           "fern": "MOON-FERN — tall fern/plant sprite with leaf-green skin, curling fern-frond hair, broad leaf-shaped wings, amber eyes, and a fixed moss-and-leaf silhouette.",
           "stone": "MOON-STONE — very large stone giant, always two to three times Pip's height, with smooth pale gray skin, a round bald head, broad hands, soft eyes, and a tan sleeveless tunic; slow, literal and gentle.",
           "glimmer": "Young dragon with purple-blue scales, gold highlights, small wings, teal eyes, and cinnamon-warm breath.",
-          "wren": "Witch apprentice with wild dark hair, oversized dark blue robe, large hat, and battered green spell book.",
+          "wren": "MOON-WREN — small child witch with curly brown hair and green eyes; plain navy pointed hat with one brown band and plain dark navy robe with sewn taupe patches. No gold stars, gold trim or gem clasp. A battered green spell book appears only when the story calls for it.",
           "flint": "Explorer elf with copper-red hair, amber eyes, practical clothes, satchel, and many maps.",
           "dewdrop": "Water sprite with translucent blue-green shimmer, flowing blue-white hair, and clear blue eyes.",
           "burrow": "Old mole with dark brown fur, gold glasses, large digging paws, and brown waistcoat.",
           "spark": "Junior wizard with bright red hair, freckles, red and gold robe, oversized wand, and floating gold sparkles.",
-          "luna": "MOON-LUNA — ancient owl with deep gray feathers, a cream facial disc, amber eyes, tiny gold-framed glasses, two feathered wings and two taloned feet; no human hands."
+          "luna": "MOON-LUNA — ancient owl with deep slate/navy-gray feathers, a cream facial disc and chest, golden eyes, two natural feathered wings and two yellow taloned feet; no eyeglasses or human hands."
       },
       "settingReference": "Moonwood is an ancient enchanted forest with glowing mushrooms, Hollow Oak, Crystal Stream, Fog Marsh, Tumblerock Cliffs, Whispering Meadow, and gently unreliable magic.",
       "expectedStoryPageCount": 12,
@@ -2306,12 +2306,12 @@ export const moonwoodTalesBooks = [
           "fern": "MOON-FERN — tall fern/plant sprite with leaf-green skin, curling fern-frond hair, broad leaf-shaped wings, amber eyes, and a fixed moss-and-leaf silhouette.",
           "stone": "MOON-STONE — very large stone giant, always two to three times Pip's height, with smooth pale gray skin, a round bald head, broad hands, soft eyes, and a tan sleeveless tunic; slow, literal and gentle.",
           "glimmer": "Young dragon with purple-blue scales, gold highlights, small wings, teal eyes, and cinnamon-warm breath.",
-          "wren": "Witch apprentice with wild dark hair, oversized dark blue robe, large hat, and battered green spell book.",
+          "wren": "MOON-WREN — small child witch with curly brown hair and green eyes; plain navy pointed hat with one brown band and plain dark navy robe with sewn taupe patches. No gold stars, gold trim or gem clasp. A battered green spell book appears only when the story calls for it.",
           "flint": "Explorer elf with copper-red hair, amber eyes, practical clothes, satchel, and many maps.",
           "dewdrop": "Water sprite with translucent blue-green shimmer, flowing blue-white hair, and clear blue eyes.",
           "burrow": "Old mole with dark brown fur, gold glasses, large digging paws, and brown waistcoat.",
           "spark": "Junior wizard with bright red hair, freckles, red and gold robe, oversized wand, and floating gold sparkles.",
-          "luna": "MOON-LUNA — ancient owl with deep gray feathers, a cream facial disc, amber eyes, tiny gold-framed glasses, two feathered wings and two taloned feet; no human hands."
+          "luna": "MOON-LUNA — ancient owl with deep slate/navy-gray feathers, a cream facial disc and chest, golden eyes, two natural feathered wings and two yellow taloned feet; no eyeglasses or human hands."
       },
       "settingReference": "Moonwood is an ancient enchanted forest with glowing mushrooms, Hollow Oak, Crystal Stream, Fog Marsh, Tumblerock Cliffs, Whispering Meadow, and gently unreliable magic.",
       "expectedStoryPageCount": 12,
@@ -2486,12 +2486,12 @@ export const moonwoodTalesBooks = [
           "fern": "MOON-FERN — tall fern/plant sprite with leaf-green skin, curling fern-frond hair, broad leaf-shaped wings, amber eyes, and a fixed moss-and-leaf silhouette.",
           "stone": "MOON-STONE — very large stone giant, always two to three times Pip's height, with smooth pale gray skin, a round bald head, broad hands, soft eyes, and a tan sleeveless tunic; slow, literal and gentle.",
           "glimmer": "Young dragon with purple-blue scales, gold highlights, small wings, teal eyes, and cinnamon-warm breath.",
-          "wren": "Witch apprentice with wild dark hair, oversized dark blue robe, large hat, and battered green spell book.",
+          "wren": "MOON-WREN — small child witch with curly brown hair and green eyes; plain navy pointed hat with one brown band and plain dark navy robe with sewn taupe patches. No gold stars, gold trim or gem clasp. A battered green spell book appears only when the story calls for it.",
           "flint": "Explorer elf with copper-red hair, amber eyes, practical clothes, satchel, and many maps.",
           "dewdrop": "Water sprite with translucent blue-green shimmer, flowing blue-white hair, and clear blue eyes.",
           "burrow": "Old mole with dark brown fur, gold glasses, large digging paws, and brown waistcoat.",
           "spark": "Junior wizard with bright red hair, freckles, red and gold robe, oversized wand, and floating gold sparkles.",
-          "luna": "MOON-LUNA — ancient owl with deep gray feathers, a cream facial disc, amber eyes, tiny gold-framed glasses, two feathered wings and two taloned feet; no human hands."
+          "luna": "MOON-LUNA — ancient owl with deep slate/navy-gray feathers, a cream facial disc and chest, golden eyes, two natural feathered wings and two yellow taloned feet; no eyeglasses or human hands."
       },
       "settingReference": "Moonwood is an ancient enchanted forest with glowing mushrooms, Hollow Oak, Crystal Stream, Fog Marsh, Tumblerock Cliffs, Whispering Meadow, and gently unreliable magic.",
       "expectedStoryPageCount": 12,
@@ -2666,12 +2666,12 @@ export const moonwoodTalesBooks = [
           "fern": "MOON-FERN — tall fern/plant sprite with leaf-green skin, curling fern-frond hair, broad leaf-shaped wings, amber eyes, and a fixed moss-and-leaf silhouette.",
           "stone": "MOON-STONE — very large stone giant, always two to three times Pip's height, with smooth pale gray skin, a round bald head, broad hands, soft eyes, and a tan sleeveless tunic; slow, literal and gentle.",
           "glimmer": "Young dragon with purple-blue scales, gold highlights, small wings, teal eyes, and cinnamon-warm breath.",
-          "wren": "Witch apprentice with wild dark hair, oversized dark blue robe, large hat, and battered green spell book.",
+          "wren": "MOON-WREN — small child witch with curly brown hair and green eyes; plain navy pointed hat with one brown band and plain dark navy robe with sewn taupe patches. No gold stars, gold trim or gem clasp. A battered green spell book appears only when the story calls for it.",
           "flint": "Explorer elf with copper-red hair, amber eyes, practical clothes, satchel, and many maps.",
           "dewdrop": "Water sprite with translucent blue-green shimmer, flowing blue-white hair, and clear blue eyes.",
           "burrow": "Old mole with dark brown fur, gold glasses, large digging paws, and brown waistcoat.",
           "spark": "Junior wizard with bright red hair, freckles, red and gold robe, oversized wand, and floating gold sparkles.",
-          "luna": "MOON-LUNA — ancient owl with deep gray feathers, a cream facial disc, amber eyes, tiny gold-framed glasses, two feathered wings and two taloned feet; no human hands."
+          "luna": "MOON-LUNA — ancient owl with deep slate/navy-gray feathers, a cream facial disc and chest, golden eyes, two natural feathered wings and two yellow taloned feet; no eyeglasses or human hands."
       },
       "settingReference": "Moonwood is an ancient enchanted forest with glowing mushrooms, Hollow Oak, Crystal Stream, Fog Marsh, Tumblerock Cliffs, Whispering Meadow, and gently unreliable magic.",
       "expectedStoryPageCount": 12,
@@ -2846,12 +2846,12 @@ export const moonwoodTalesBooks = [
           "fern": "MOON-FERN — tall fern/plant sprite with leaf-green skin, curling fern-frond hair, broad leaf-shaped wings, amber eyes, and a fixed moss-and-leaf silhouette.",
           "stone": "MOON-STONE — very large stone giant, always two to three times Pip's height, with smooth pale gray skin, a round bald head, broad hands, soft eyes, and a tan sleeveless tunic; slow, literal and gentle.",
           "glimmer": "Young dragon with purple-blue scales, gold highlights, small wings, teal eyes, and cinnamon-warm breath.",
-          "wren": "Witch apprentice with wild dark hair, oversized dark blue robe, large hat, and battered green spell book.",
+          "wren": "MOON-WREN — small child witch with curly brown hair and green eyes; plain navy pointed hat with one brown band and plain dark navy robe with sewn taupe patches. No gold stars, gold trim or gem clasp. A battered green spell book appears only when the story calls for it.",
           "flint": "Explorer elf with copper-red hair, amber eyes, practical clothes, satchel, and many maps.",
           "dewdrop": "Water sprite with translucent blue-green shimmer, flowing blue-white hair, and clear blue eyes.",
           "burrow": "Old mole with dark brown fur, gold glasses, large digging paws, and brown waistcoat.",
           "spark": "Junior wizard with bright red hair, freckles, red and gold robe, oversized wand, and floating gold sparkles.",
-          "luna": "MOON-LUNA — ancient owl with deep gray feathers, a cream facial disc, amber eyes, tiny gold-framed glasses, two feathered wings and two taloned feet; no human hands."
+          "luna": "MOON-LUNA — ancient owl with deep slate/navy-gray feathers, a cream facial disc and chest, golden eyes, two natural feathered wings and two yellow taloned feet; no eyeglasses or human hands."
       },
       "settingReference": "Moonwood is an ancient enchanted forest with glowing mushrooms, Hollow Oak, Crystal Stream, Fog Marsh, Tumblerock Cliffs, Whispering Meadow, and gently unreliable magic.",
       "expectedStoryPageCount": 12,
@@ -3026,12 +3026,12 @@ export const moonwoodTalesBooks = [
           "fern": "MOON-FERN — tall fern/plant sprite with leaf-green skin, curling fern-frond hair, broad leaf-shaped wings, amber eyes, and a fixed moss-and-leaf silhouette.",
           "stone": "MOON-STONE — very large stone giant, always two to three times Pip's height, with smooth pale gray skin, a round bald head, broad hands, soft eyes, and a tan sleeveless tunic; slow, literal and gentle.",
           "glimmer": "Young dragon with purple-blue scales, gold highlights, small wings, teal eyes, and cinnamon-warm breath.",
-          "wren": "Witch apprentice with wild dark hair, oversized dark blue robe, large hat, and battered green spell book.",
+          "wren": "MOON-WREN — small child witch with curly brown hair and green eyes; plain navy pointed hat with one brown band and plain dark navy robe with sewn taupe patches. No gold stars, gold trim or gem clasp. A battered green spell book appears only when the story calls for it.",
           "flint": "Explorer elf with copper-red hair, amber eyes, practical clothes, satchel, and many maps.",
           "dewdrop": "Water sprite with translucent blue-green shimmer, flowing blue-white hair, and clear blue eyes.",
           "burrow": "Old mole with dark brown fur, gold glasses, large digging paws, and brown waistcoat.",
           "spark": "Junior wizard with bright red hair, freckles, red and gold robe, oversized wand, and floating gold sparkles.",
-          "luna": "MOON-LUNA — ancient owl with deep gray feathers, a cream facial disc, amber eyes, tiny gold-framed glasses, two feathered wings and two taloned feet; no human hands."
+          "luna": "MOON-LUNA — ancient owl with deep slate/navy-gray feathers, a cream facial disc and chest, golden eyes, two natural feathered wings and two yellow taloned feet; no eyeglasses or human hands."
       },
       "settingReference": "Moonwood is an ancient enchanted forest with glowing mushrooms, Hollow Oak, Crystal Stream, Fog Marsh, Tumblerock Cliffs, Whispering Meadow, and gently unreliable magic.",
       "expectedStoryPageCount": 12,
@@ -3206,12 +3206,12 @@ export const moonwoodTalesBooks = [
           "fern": "MOON-FERN — tall fern/plant sprite with leaf-green skin, curling fern-frond hair, broad leaf-shaped wings, amber eyes, and a fixed moss-and-leaf silhouette.",
           "stone": "MOON-STONE — very large stone giant, always two to three times Pip's height, with smooth pale gray skin, a round bald head, broad hands, soft eyes, and a tan sleeveless tunic; slow, literal and gentle.",
           "glimmer": "Young dragon with purple-blue scales, gold highlights, small wings, teal eyes, and cinnamon-warm breath.",
-          "wren": "Witch apprentice with wild dark hair, oversized dark blue robe, large hat, and battered green spell book.",
+          "wren": "MOON-WREN — small child witch with curly brown hair and green eyes; plain navy pointed hat with one brown band and plain dark navy robe with sewn taupe patches. No gold stars, gold trim or gem clasp. A battered green spell book appears only when the story calls for it.",
           "flint": "Explorer elf with copper-red hair, amber eyes, practical clothes, satchel, and many maps.",
           "dewdrop": "Water sprite with translucent blue-green shimmer, flowing blue-white hair, and clear blue eyes.",
           "burrow": "Old mole with dark brown fur, gold glasses, large digging paws, and brown waistcoat.",
           "spark": "Junior wizard with bright red hair, freckles, red and gold robe, oversized wand, and floating gold sparkles.",
-          "luna": "MOON-LUNA — ancient owl with deep gray feathers, a cream facial disc, amber eyes, tiny gold-framed glasses, two feathered wings and two taloned feet; no human hands."
+          "luna": "MOON-LUNA — ancient owl with deep slate/navy-gray feathers, a cream facial disc and chest, golden eyes, two natural feathered wings and two yellow taloned feet; no eyeglasses or human hands."
       },
       "settingReference": "Moonwood is an ancient enchanted forest with glowing mushrooms, Hollow Oak, Crystal Stream, Fog Marsh, Tumblerock Cliffs, Whispering Meadow, and gently unreliable magic.",
       "expectedStoryPageCount": 12,
@@ -3386,12 +3386,12 @@ export const moonwoodTalesBooks = [
           "fern": "MOON-FERN — tall fern/plant sprite with leaf-green skin, curling fern-frond hair, broad leaf-shaped wings, amber eyes, and a fixed moss-and-leaf silhouette.",
           "stone": "MOON-STONE — very large stone giant, always two to three times Pip's height, with smooth pale gray skin, a round bald head, broad hands, soft eyes, and a tan sleeveless tunic; slow, literal and gentle.",
           "glimmer": "Young dragon with purple-blue scales, gold highlights, small wings, teal eyes, and cinnamon-warm breath.",
-          "wren": "Witch apprentice with wild dark hair, oversized dark blue robe, large hat, and battered green spell book.",
+          "wren": "MOON-WREN — small child witch with curly brown hair and green eyes; plain navy pointed hat with one brown band and plain dark navy robe with sewn taupe patches. No gold stars, gold trim or gem clasp. A battered green spell book appears only when the story calls for it.",
           "flint": "Explorer elf with copper-red hair, amber eyes, practical clothes, satchel, and many maps.",
           "dewdrop": "Water sprite with translucent blue-green shimmer, flowing blue-white hair, and clear blue eyes.",
           "burrow": "Old mole with dark brown fur, gold glasses, large digging paws, and brown waistcoat.",
           "spark": "Junior wizard with bright red hair, freckles, red and gold robe, oversized wand, and floating gold sparkles.",
-          "luna": "MOON-LUNA — ancient owl with deep gray feathers, a cream facial disc, amber eyes, tiny gold-framed glasses, two feathered wings and two taloned feet; no human hands."
+          "luna": "MOON-LUNA — ancient owl with deep slate/navy-gray feathers, a cream facial disc and chest, golden eyes, two natural feathered wings and two yellow taloned feet; no eyeglasses or human hands."
       },
       "settingReference": "Moonwood is an ancient enchanted forest with glowing mushrooms, Hollow Oak, Crystal Stream, Fog Marsh, Tumblerock Cliffs, Whispering Meadow, and gently unreliable magic.",
       "expectedStoryPageCount": 12,
@@ -3566,12 +3566,12 @@ export const moonwoodTalesBooks = [
           "fern": "MOON-FERN — tall fern/plant sprite with leaf-green skin, curling fern-frond hair, broad leaf-shaped wings, amber eyes, and a fixed moss-and-leaf silhouette.",
           "stone": "MOON-STONE — very large stone giant, always two to three times Pip's height, with smooth pale gray skin, a round bald head, broad hands, soft eyes, and a tan sleeveless tunic; slow, literal and gentle.",
           "glimmer": "Young dragon with purple-blue scales, gold highlights, small wings, teal eyes, and cinnamon-warm breath.",
-          "wren": "Witch apprentice with wild dark hair, oversized dark blue robe, large hat, and battered green spell book.",
+          "wren": "MOON-WREN — small child witch with curly brown hair and green eyes; plain navy pointed hat with one brown band and plain dark navy robe with sewn taupe patches. No gold stars, gold trim or gem clasp. A battered green spell book appears only when the story calls for it.",
           "flint": "Explorer elf with copper-red hair, amber eyes, practical clothes, satchel, and many maps.",
           "dewdrop": "Water sprite with translucent blue-green shimmer, flowing blue-white hair, and clear blue eyes.",
           "burrow": "Old mole with dark brown fur, gold glasses, large digging paws, and brown waistcoat.",
           "spark": "Junior wizard with bright red hair, freckles, red and gold robe, oversized wand, and floating gold sparkles.",
-          "luna": "MOON-LUNA — ancient owl with deep gray feathers, a cream facial disc, amber eyes, tiny gold-framed glasses, two feathered wings and two taloned feet; no human hands."
+          "luna": "MOON-LUNA — ancient owl with deep slate/navy-gray feathers, a cream facial disc and chest, golden eyes, two natural feathered wings and two yellow taloned feet; no eyeglasses or human hands."
       },
       "settingReference": "Moonwood is an ancient enchanted forest with glowing mushrooms, Hollow Oak, Crystal Stream, Fog Marsh, Tumblerock Cliffs, Whispering Meadow, and gently unreliable magic.",
       "expectedStoryPageCount": 12,
@@ -3746,12 +3746,12 @@ export const moonwoodTalesBooks = [
           "fern": "MOON-FERN — tall fern/plant sprite with leaf-green skin, curling fern-frond hair, broad leaf-shaped wings, amber eyes, and a fixed moss-and-leaf silhouette.",
           "stone": "MOON-STONE — very large stone giant, always two to three times Pip's height, with smooth pale gray skin, a round bald head, broad hands, soft eyes, and a tan sleeveless tunic; slow, literal and gentle.",
           "glimmer": "Young dragon with purple-blue scales, gold highlights, small wings, teal eyes, and cinnamon-warm breath.",
-          "wren": "Witch apprentice with wild dark hair, oversized dark blue robe, large hat, and battered green spell book.",
+          "wren": "MOON-WREN — small child witch with curly brown hair and green eyes; plain navy pointed hat with one brown band and plain dark navy robe with sewn taupe patches. No gold stars, gold trim or gem clasp. A battered green spell book appears only when the story calls for it.",
           "flint": "Explorer elf with copper-red hair, amber eyes, practical clothes, satchel, and many maps.",
           "dewdrop": "Water sprite with translucent blue-green shimmer, flowing blue-white hair, and clear blue eyes.",
           "burrow": "Old mole with dark brown fur, gold glasses, large digging paws, and brown waistcoat.",
           "spark": "Junior wizard with bright red hair, freckles, red and gold robe, oversized wand, and floating gold sparkles.",
-          "luna": "MOON-LUNA — ancient owl with deep gray feathers, a cream facial disc, amber eyes, tiny gold-framed glasses, two feathered wings and two taloned feet; no human hands."
+          "luna": "MOON-LUNA — ancient owl with deep slate/navy-gray feathers, a cream facial disc and chest, golden eyes, two natural feathered wings and two yellow taloned feet; no eyeglasses or human hands."
       },
       "settingReference": "Moonwood is an ancient enchanted forest with glowing mushrooms, Hollow Oak, Crystal Stream, Fog Marsh, Tumblerock Cliffs, Whispering Meadow, and gently unreliable magic.",
       "expectedStoryPageCount": 12,
@@ -3926,12 +3926,12 @@ export const moonwoodTalesBooks = [
           "fern": "MOON-FERN — tall fern/plant sprite with leaf-green skin, curling fern-frond hair, broad leaf-shaped wings, amber eyes, and a fixed moss-and-leaf silhouette.",
           "stone": "MOON-STONE — very large stone giant, always two to three times Pip's height, with smooth pale gray skin, a round bald head, broad hands, soft eyes, and a tan sleeveless tunic; slow, literal and gentle.",
           "glimmer": "Young dragon with purple-blue scales, gold highlights, small wings, teal eyes, and cinnamon-warm breath.",
-          "wren": "Witch apprentice with wild dark hair, oversized dark blue robe, large hat, and battered green spell book.",
+          "wren": "MOON-WREN — small child witch with curly brown hair and green eyes; plain navy pointed hat with one brown band and plain dark navy robe with sewn taupe patches. No gold stars, gold trim or gem clasp. A battered green spell book appears only when the story calls for it.",
           "flint": "Explorer elf with copper-red hair, amber eyes, practical clothes, satchel, and many maps.",
           "dewdrop": "Water sprite with translucent blue-green shimmer, flowing blue-white hair, and clear blue eyes.",
           "burrow": "Old mole with dark brown fur, gold glasses, large digging paws, and brown waistcoat.",
           "spark": "Junior wizard with bright red hair, freckles, red and gold robe, oversized wand, and floating gold sparkles.",
-          "luna": "MOON-LUNA — ancient owl with deep gray feathers, a cream facial disc, amber eyes, tiny gold-framed glasses, two feathered wings and two taloned feet; no human hands."
+          "luna": "MOON-LUNA — ancient owl with deep slate/navy-gray feathers, a cream facial disc and chest, golden eyes, two natural feathered wings and two yellow taloned feet; no eyeglasses or human hands."
       },
       "settingReference": "Moonwood is an ancient enchanted forest with glowing mushrooms, Hollow Oak, Crystal Stream, Fog Marsh, Tumblerock Cliffs, Whispering Meadow, and gently unreliable magic.",
       "expectedStoryPageCount": 12,
@@ -4106,12 +4106,12 @@ export const moonwoodTalesBooks = [
           "fern": "MOON-FERN — tall fern/plant sprite with leaf-green skin, curling fern-frond hair, broad leaf-shaped wings, amber eyes, and a fixed moss-and-leaf silhouette.",
           "stone": "MOON-STONE — very large stone giant, always two to three times Pip's height, with smooth pale gray skin, a round bald head, broad hands, soft eyes, and a tan sleeveless tunic; slow, literal and gentle.",
           "glimmer": "Young dragon with purple-blue scales, gold highlights, small wings, teal eyes, and cinnamon-warm breath.",
-          "wren": "Witch apprentice with wild dark hair, oversized dark blue robe, large hat, and battered green spell book.",
+          "wren": "MOON-WREN — small child witch with curly brown hair and green eyes; plain navy pointed hat with one brown band and plain dark navy robe with sewn taupe patches. No gold stars, gold trim or gem clasp. A battered green spell book appears only when the story calls for it.",
           "flint": "Explorer elf with copper-red hair, amber eyes, practical clothes, satchel, and many maps.",
           "dewdrop": "Water sprite with translucent blue-green shimmer, flowing blue-white hair, and clear blue eyes.",
           "burrow": "Old mole with dark brown fur, gold glasses, large digging paws, and brown waistcoat.",
           "spark": "Junior wizard with bright red hair, freckles, red and gold robe, oversized wand, and floating gold sparkles.",
-          "luna": "MOON-LUNA — ancient owl with deep gray feathers, a cream facial disc, amber eyes, tiny gold-framed glasses, two feathered wings and two taloned feet; no human hands."
+          "luna": "MOON-LUNA — ancient owl with deep slate/navy-gray feathers, a cream facial disc and chest, golden eyes, two natural feathered wings and two yellow taloned feet; no eyeglasses or human hands."
       },
       "settingReference": "Moonwood is an ancient enchanted forest with glowing mushrooms, Hollow Oak, Crystal Stream, Fog Marsh, Tumblerock Cliffs, Whispering Meadow, and gently unreliable magic.",
       "expectedStoryPageCount": 12,
@@ -4286,12 +4286,12 @@ export const moonwoodTalesBooks = [
           "fern": "MOON-FERN — tall fern/plant sprite with leaf-green skin, curling fern-frond hair, broad leaf-shaped wings, amber eyes, and a fixed moss-and-leaf silhouette.",
           "stone": "MOON-STONE — very large stone giant, always two to three times Pip's height, with smooth pale gray skin, a round bald head, broad hands, soft eyes, and a tan sleeveless tunic; slow, literal and gentle.",
           "glimmer": "Young dragon with purple-blue scales, gold highlights, small wings, teal eyes, and cinnamon-warm breath.",
-          "wren": "Witch apprentice with wild dark hair, oversized dark blue robe, large hat, and battered green spell book.",
+          "wren": "MOON-WREN — small child witch with curly brown hair and green eyes; plain navy pointed hat with one brown band and plain dark navy robe with sewn taupe patches. No gold stars, gold trim or gem clasp. A battered green spell book appears only when the story calls for it.",
           "flint": "Explorer elf with copper-red hair, amber eyes, practical clothes, satchel, and many maps.",
           "dewdrop": "Water sprite with translucent blue-green shimmer, flowing blue-white hair, and clear blue eyes.",
           "burrow": "Old mole with dark brown fur, gold glasses, large digging paws, and brown waistcoat.",
           "spark": "Junior wizard with bright red hair, freckles, red and gold robe, oversized wand, and floating gold sparkles.",
-          "luna": "MOON-LUNA — ancient owl with deep gray feathers, a cream facial disc, amber eyes, tiny gold-framed glasses, two feathered wings and two taloned feet; no human hands."
+          "luna": "MOON-LUNA — ancient owl with deep slate/navy-gray feathers, a cream facial disc and chest, golden eyes, two natural feathered wings and two yellow taloned feet; no eyeglasses or human hands."
       },
       "settingReference": "Moonwood is an ancient enchanted forest with glowing mushrooms, Hollow Oak, Crystal Stream, Fog Marsh, Tumblerock Cliffs, Whispering Meadow, and gently unreliable magic.",
       "expectedStoryPageCount": 12,
@@ -4571,12 +4571,12 @@ export const moonwoodTalesBooks = [
           "fern": "MOON-FERN — tall fern/plant sprite with leaf-green skin, curling fern-frond hair, broad leaf-shaped wings, amber eyes, and a fixed moss-and-leaf silhouette.",
           "stone": "MOON-STONE — very large stone giant, always two to three times Pip's height, with smooth pale gray skin, a round bald head, broad hands, soft eyes, and a tan sleeveless tunic; slow, literal and gentle.",
           "glimmer": "Young dragon with purple-blue scales, gold highlights, small wings, teal eyes, and cinnamon-warm breath.",
-          "wren": "Witch apprentice with wild dark hair, oversized dark blue robe, large hat, and battered green spell book.",
+          "wren": "MOON-WREN — small child witch with curly brown hair and green eyes; plain navy pointed hat with one brown band and plain dark navy robe with sewn taupe patches. No gold stars, gold trim or gem clasp. A battered green spell book appears only when the story calls for it.",
           "flint": "Explorer elf with copper-red hair, amber eyes, practical clothes, satchel, and many maps.",
           "dewdrop": "Water sprite with translucent blue-green shimmer, flowing blue-white hair, and clear blue eyes.",
           "burrow": "Old mole with dark brown fur, gold glasses, large digging paws, and brown waistcoat.",
           "spark": "Junior wizard with bright red hair, freckles, red and gold robe, oversized wand, and floating gold sparkles.",
-          "luna": "MOON-LUNA — ancient owl with deep gray feathers, a cream facial disc, amber eyes, tiny gold-framed glasses, two feathered wings and two taloned feet; no human hands."
+          "luna": "MOON-LUNA — ancient owl with deep slate/navy-gray feathers, a cream facial disc and chest, golden eyes, two natural feathered wings and two yellow taloned feet; no eyeglasses or human hands."
       },
       "settingReference": "Moonwood is an ancient enchanted forest with glowing mushrooms, Hollow Oak, Crystal Stream, Fog Marsh, Tumblerock Cliffs, Whispering Meadow, and gently unreliable magic.",
       "expectedStoryPageCount": 12,
@@ -5599,12 +5599,12 @@ export const moonwoodTalesBooks = [
           "fern": "MOON-FERN — tall fern/plant sprite with leaf-green skin, curling fern-frond hair, broad leaf-shaped wings, amber eyes, and a fixed moss-and-leaf silhouette.",
           "stone": "MOON-STONE — very large stone giant, always two to three times Pip's height, with smooth pale gray skin, a round bald head, broad hands, soft eyes, and a tan sleeveless tunic; slow, literal and gentle.",
           "glimmer": "Young dragon with purple-blue scales, gold highlights, small wings, teal eyes, and cinnamon-warm breath.",
-          "wren": "Witch apprentice with wild dark hair, oversized dark blue robe, large hat, and battered green spell book.",
+          "wren": "MOON-WREN — small child witch with curly brown hair and green eyes; plain navy pointed hat with one brown band and plain dark navy robe with sewn taupe patches. No gold stars, gold trim or gem clasp. A battered green spell book appears only when the story calls for it.",
           "flint": "Explorer elf with copper-red hair, amber eyes, practical clothes, satchel, and many maps.",
           "dewdrop": "Water sprite with translucent blue-green shimmer, flowing blue-white hair, and clear blue eyes.",
           "burrow": "Old mole with dark brown fur, gold glasses, large digging paws, and brown waistcoat.",
           "spark": "Junior wizard with bright red hair, freckles, red and gold robe, oversized wand, and floating gold sparkles.",
-          "luna": "MOON-LUNA — ancient owl with deep gray feathers, a cream facial disc, amber eyes, tiny gold-framed glasses, two feathered wings and two taloned feet; no human hands."
+          "luna": "MOON-LUNA — ancient owl with deep slate/navy-gray feathers, a cream facial disc and chest, golden eyes, two natural feathered wings and two yellow taloned feet; no eyeglasses or human hands."
       },
       "settingReference": "Moonwood is an ancient enchanted forest with glowing mushrooms, Hollow Oak, Crystal Stream, Fog Marsh, Tumblerock Cliffs, Whispering Meadow, and gently unreliable magic.",
       "expectedStoryPageCount": 12,

@@ -24,8 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "sha256": "0a353bd2f5592ff076a271b61e4a65655b20be4ccc5705c6217e59c827489197",
     "method": "codex-direct-image-inspection",
-    "note": "Sun left, Earth middle, dim Moon right inside continuous narrowing Earth shadow. Centered simplified diagram has generous margins."
+    "reviewedAt": "2026-11-09",
+    "sha256": "0a353bd2f5592ff076a271b61e4a65655b20be4ccc5705c6217e59c827489197",
+    "note": "Sun left, Earth middle, dim Moon right inside continuous narrowing Earth shadow. Centered simplified diagram has generous margins.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-d.json",
+    "bookId": "world-discovery-d-16",
+    "sha256": "b152118c0c292da9c859317a8f2467fd54493abc204f671bd9a2b3bd84286244",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

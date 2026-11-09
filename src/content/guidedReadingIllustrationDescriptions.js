@@ -1,5 +1,7 @@
 // Captions from direct illustration review; stable source page numbers survive manuscript reordering.
 export const GUIDED_READING_ILLUSTRATION_DESCRIPTIONS = Object.freeze({
+  "first-facts-level-a-02-farm-animals::5": "A yellow duck stands beside a pond with its broad orange bill open and two flat webbed feet on the grass.",
+  "first-facts-a-22-staying-healthy::3": "A child jumps with a rope in the garden. Both feet are off the ground while an adult watches nearby.",
   "level-c-nonfiction-08-butterflies::9": "A female monarch rests on a milkweed leaf with her abdomen touching a small egg attached directly to the leaf.",
   "bob-and-nan-07-birthday::7": "Bob swings his new bat on the garden lawn while Nan moves to get the ball.",
   "ja-b-08::10": "James holds Bella’s lead while Anna props up the bent flowers beside Chips.",

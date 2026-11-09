@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "7410e44fb1af3d9bd21df3d822622a13f3d74c61f6480b10f2bb25b7e905595e",
     "note": "Direct inspection after wheel-count repair: four circles on flat train drawing, sock and red kite fit in open box; real four-wheel train on shelf, canonical crouching children.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-d.json",
+    "bookId": "world-discovery-d-01",
+    "sha256": "c03f9e9b25bc79bb3b748737fc3a295ac49f4e2f9a11173bda07c088f669dc3c",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

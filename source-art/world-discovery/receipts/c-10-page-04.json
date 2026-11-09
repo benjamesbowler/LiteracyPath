@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "b4a09fff441deb5b92a66579622dc8bb5f53a95ee14eca4f5ea70141808870df",
     "note": "Direct inspection after state correction: adult turns moist mixed scraps/leaves with fork, Kit holds can without pouring, Zoe stays outside tool path; background bed and tray empty, no duplicate core.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-c.json",
+    "bookId": "world-discovery-c-10",
+    "sha256": "abc3172845cd8a873b3f79b54c2fef72490decbc19a54a367d9faa52687fde03",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T05:04:48.467Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "78784757ebfaf40ae45068ce518fdd6c73d45eb12420fc761a7c2cc234e7007b",
     "note": "Bat at another cactus, prior cactus distinct in background; pollen-bearing muzzle contacts central receptive flower part.",
-    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-e.json",
+    "bookId": "world-discovery-e-07",
+    "sha256": "b3a3b5ef9be651c9a4107522a6f0a200b7b5460e23c1c7cab702b1270d07050c",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

@@ -12,9 +12,13 @@
       "active": true,
       "sourceDir": "src/content/world-discovery",
       "cardReview": "source-art/world-discovery/card-cover-review.json",
-      "narrationReview": "source-art/world-discovery/narration-review.json",
-      "narrationInventory": null,
-      "registration": "src/content/world-discovery/registrations/01-10.json"
+      "narrationReview": "source-art/world-discovery/remediation/2026-11-09/01-10-narration-review.json",
+      "narrationInventory": "source-art/world-discovery/remediation/2026-11-09/01-10-narration-inventory-r2.json",
+      "registration": "src/content/world-discovery/registrations/2026-11-09/01-10-r2.json",
+      "maintenanceBaseline": {
+        "path": "source-art/world-discovery/remediation/2026-11-09/registered-audio-before.json",
+        "sha256": "2b32bf8bc8f17c70b3ba730b2647ac443d9052e3895a9267dcdc2f2e3ded7352"
+      }
     },
     {
       "id": "11-20",
@@ -26,9 +30,13 @@
       "active": true,
       "sourceDir": "src/content/world-discovery/cohorts/11-20",
       "cardReview": "source-art/world-discovery/cohorts/11-20/card-cover-review.json",
-      "narrationReview": "source-art/world-discovery/cohorts/11-20/narration-review.json",
-      "narrationInventory": "source-art/world-discovery/cohorts/11-20/narration-inventory.json",
-      "registration": "src/content/world-discovery/registrations/11-20.json"
+      "narrationReview": "source-art/world-discovery/remediation/2026-11-09/11-20-narration-review.json",
+      "narrationInventory": "source-art/world-discovery/remediation/2026-11-09/11-20-narration-inventory.json",
+      "registration": "src/content/world-discovery/registrations/2026-11-09/11-20.json",
+      "maintenanceBaseline": {
+        "path": "source-art/world-discovery/remediation/2026-11-09/registered-audio-before.json",
+        "sha256": "2b32bf8bc8f17c70b3ba730b2647ac443d9052e3895a9267dcdc2f2e3ded7352"
+      }
     }
   ]
 }

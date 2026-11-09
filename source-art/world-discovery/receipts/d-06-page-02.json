@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T06:02:38.293Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "fe6b23ee0e14296616633b2af296bb5e64816a051327745fda90f83eae450aa1",
     "note": "Independent sequence correction: incoming upper-left rock now approaches uncratered foreground; only distant pre-existing craters remain. Clear before-impact state.",
-    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-d.json",
+    "bookId": "world-discovery-d-06",
+    "sha256": "e6a0407b219a005833d54e0a93f7dfb04ac4bed11a08b76f4aab6ec8004531a3",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

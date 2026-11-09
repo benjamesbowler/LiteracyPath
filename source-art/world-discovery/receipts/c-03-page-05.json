@@ -22,9 +22,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "258b05ce3e779cb6349f3070d2c4f2deb8c4991a6b982532fba3ebfd2a988dd8",
     "note": "Longer flat board reaches unchanged platform from farther across table with visibly gentler slope; short board lies unused. Same red cart and blue book wait below. No wedge or gap; children at correct scale.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-c.json",
+    "bookId": "world-discovery-c-03",
+    "sha256": "9cd36e379fccd545f12d58a55028c595b0b1af575999c9de53dea74f83c155df",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

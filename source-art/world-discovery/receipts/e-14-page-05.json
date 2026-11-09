@@ -24,8 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "sha256": "2eb96e4d040a7f1e2818bb2a17e45e3a845f5ac9473d9e3e7e9b13327c546c7c",
     "method": "codex-direct-image-inspection",
-    "note": "Kit pauses after blind contact; Zoe concerned. Boat and tray remain wholly invisible, no changed props or explosive disappearance."
+    "reviewedAt": "2026-11-09",
+    "sha256": "2eb96e4d040a7f1e2818bb2a17e45e3a845f5ac9473d9e3e7e9b13327c546c7c",
+    "note": "Kit pauses after blind contact; Zoe concerned. Boat and tray remain wholly invisible, no changed props or explosive disappearance.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-e.json",
+    "bookId": "world-discovery-e-14",
+    "sha256": "8862e7d954663c477026be2179ef1b58df7d13ea4674a8b68017c6834eef1904",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

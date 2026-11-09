@@ -97,7 +97,7 @@
       },
       {
         "pageNumber": 8,
-        "text": "“Woof!” The paper dog takes a bow. Kit laughs, and Zoe barks again.",
+        "text": "“Woof!” Kit tips the paper dog forward. He laughs, and Zoe barks again.",
         "imageBrief": "World Discovery classroom play table on a bright afternoon; Kit and Zoe wear their locked everyday outfits. Kit tilts the stick so the paper dog bends forward above the stage; Zoe leans toward it with a playful expression. Exact state: Joint show working; deliberate puppet movement and two different contributions visible.",
         "imageAlt": "Kit tilts the stick so the paper dog bends forward above the stage; Zoe leans toward it with a playful expression.",
         "pageDescription": "Kit tilts the stick so the paper dog bends forward above the stage; Zoe leans toward it with a playful expression.",
@@ -172,7 +172,7 @@
       },
       {
         "pageNumber": 2,
-        "text": "Zoe’s ball lands inside. Kit’s ball drops short of the hoop.",
+        "text": "Zoe’s ball lands inside. Kit’s ball does not reach the hoop.",
         "imageBrief": "World Discovery school lawn in dry afternoon light; a smooth short-grass area away from roads. Red ball rests inside the hoop; blue ball lies between Kit’s feet and the near edge of the hoop. Exact state: First attempt: Kit misses short; both balls remain visible.",
         "imageAlt": "Red ball rests inside the hoop; blue ball lies between Kit’s feet and the near edge of the hoop.",
         "pageDescription": "Red ball rests inside the hoop; blue ball lies between Kit’s feet and the near edge of the hoop.",
@@ -217,7 +217,7 @@
       },
       {
         "pageNumber": 7,
-        "text": "His first roll goes wide. Kit fetches his ball and tries from a little closer.",
+        "text": "His ball rolls past the side of the hoop. Kit gets it and tries again from closer to the hoop.",
         "imageBrief": "World Discovery school lawn in dry afternoon light; a smooth short-grass area away from roads. Kit kneels at a closer starting point with the recovered blue ball, aimed toward the hoop. Exact state: Wide miss has been retrieved; one blue ball only; red stays inside.",
         "imageAlt": "Kit kneels at a closer starting point with the recovered blue ball, aimed toward the hoop.",
         "pageDescription": "Kit kneels at a closer starting point with the recovered blue ball, aimed toward the hoop.",
@@ -370,7 +370,7 @@
       },
       {
         "pageNumber": 8,
-        "text": "The cart cannot roll up the tall step. The gentle ramp gives it a rolling route.",
+        "text": "The cart cannot roll up the step. With the long ramp, Kit can push it to the door.",
         "imageBrief": "World Discovery classroom table with a model public library, same afternoon. The library is a plain cream block building on a 4-centimeter platform; no written signs. Kit and Zoe remain beside the model. Low side view compares the unchanged vertical step beside the installed gentle ramp, with the cart above at the library door. Exact state: Opening barrier and successful route appear together; unused short ramp remains on table.",
         "imageAlt": "Low side view compares the unchanged vertical step beside the installed gentle ramp, with the cart above at the library door.",
         "pageDescription": "Low side view compares the unchanged vertical step beside the installed gentle ramp, with the cart above at the library door.",
@@ -533,6 +533,10 @@
       {
         "word": "shrinks",
         "meaning": "becomes smaller"
+      },
+      {
+        "word": "bank",
+        "meaning": "land beside a river"
       }
     ]
   },
@@ -636,7 +640,7 @@
       },
       {
         "pageNumber": 7,
-        "text": "The pond comes into view. Its curved edge matches the blue shape on the map.",
+        "text": "Kit reaches the pond. He checks the blue shape on his map and smiles.",
         "imageBrief": "World Discovery small enclosed park in daylight. Fixed plan: entrance gate at south/bottom; a straight path reaches one bench at a central fork; right branch passes one tall tree and reaches a kidney-shaped pond at northeast/top-right; left branch ends at a flowerbed. No roads. Kit reaches the pond edge from the tree-side path and holds the map so the real and drawn curved shapes are visible. Exact state: Destination matches; safe path set back from water.",
         "imageAlt": "Kit reaches the pond edge from the tree-side path and holds the map so the real and drawn curved shapes are visible.",
         "pageDescription": "Kit reaches the pond edge from the tree-side path and holds the map so the real and drawn curved shapes are visible.",
@@ -676,7 +680,7 @@
       },
       {
         "word": "stands for",
-        "meaning": "represents or shows something else"
+        "meaning": "shows something else; the blue shape shows the pond"
       }
     ]
   },
@@ -925,7 +929,7 @@
       },
       {
         "pageNumber": 8,
-        "text": "The dam holds back water. The lodge shelters the beaver. The two structures have different jobs.",
+        "text": "The dam holds back water. The beaver sleeps in the dry room inside its lodge.",
         "imageBrief": "One North American beaver’s stream and pond in daylight. Natural brown beaver with broad flat scaly tail, small ears, orange incisors and four limbs; no clothes or human tools. Dam crosses the stream below the pond; domed stick lodge sits separately within the pond. Final wide cutaway composition shows the separate dam slowing water and beaver resting in its lodge’s dry chamber. Exact state: One coherent pond cross-section; both functions visible without labels or arrows.",
         "imageAlt": "Final wide cutaway composition shows the separate dam slowing water and beaver resting in its lodge’s dry chamber.",
         "pageDescription": "Final wide cutaway composition shows the separate dam slowing water and beaver resting in its lodge’s dry chamber.",
@@ -1103,7 +1107,7 @@
     "languagePrep": [
       {
         "word": "nymph",
-        "meaning": "a young insect stage; this one lives in water"
+        "meaning": "a young insect; this young dragonfly lives in water"
       },
       {
         "word": "sheds",
@@ -1272,7 +1276,7 @@
   {
     "id": "world-discovery-c-10",
     "number": 10,
-    "title": "The Apple Core Comes Back",
+    "title": "From Apple Core to Compost",
     "topic": "caring for our world",
     "type": "nonfiction",
     "appLevel": "C",
@@ -1416,7 +1420,7 @@
       },
       {
         "word": "nutrients",
-        "meaning": "things living things need to grow"
+        "meaning": "things a plant needs to grow"
       }
     ]
   }

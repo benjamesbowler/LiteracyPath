@@ -1,86 +1,102 @@
-# World Discovery ESL and image audit — 9 November 2026
+# Guided Reading ESL and image audit — 9 November 2026
 
-This is a remediation handoff, not a new publication approval. The
-[writing Bible](../content/STORY_BIBLE_PART_1_WRITING.md#78-natural-voice-edit),
-[collection Bible](WORLD_DISCOVERY_CONTENT_BIBLE.md),
-[cohort contract](WORLD_DISCOVERY_COHORT_REGISTRATION.md) and
-[illustration standard](../design/ILLUSTRATION_STYLE_STANDARD.md) remain the
-authorities. The product owner reaffirmed that every book must serve ESL
-children, avoiding abstract or outdated language at every reading level.
+The full audit and content repairs cover **397 books, 3,501 reading pages and
+397 covers**: 297 existing books and both 50-book World Discovery cohorts.
+Every manuscript, title, vocabulary preparation and discussion was read. Every
+cover and page image was inspected in complete story order, including plot,
+character, object and cause-and-effect continuity. All 100 World Discovery
+reference sheets were also reviewed. No confirmed manuscript or artwork finding
+remains open in this audit.
 
-## Scope and evidence
+The [writing Bible](../content/STORY_BIBLE_PART_1_WRITING.md#78-natural-voice-edit),
+[story canon](../content/STORY_BIBLE_PART_2_CANON.md),
+[illustration standard](../design/ILLUSTRATION_STYLE_STANDARD.md), relevant
+collection Bibles and [reading-level standard](READING_LEVELS_AND_TEXT_MEASURES.md)
+remain authoritative. The audit applies concrete ESL language at every level,
+including questions and word explanations. It preserves useful taught vocabulary,
+phonics constraints, scientific meaning and intended story mechanisms.
 
-The audit covered both November cohorts, World Discovery 01–10 and 11–20 at
-levels A–E: 100 books, 880 reading pages and 100 covers. All page text, titles,
-discussion prompts and oral vocabulary preparation were read. All 980 images
-received visual review in page-order sheets with text; 55 unique images also
-received native-resolution follow-up. This does not claim a new deployed-reader,
-listening, physical-device or comprehensive scientific acceptance.
+## Repairs and retained decisions
 
-Result: 84 required revision finding families across 59 books, including 14
-confirmed image repairs across nine books. Another 42 findings are optional
-polish. Counts refer to grouped editorial findings, not bad pages or a quality
-percentage. Most imagery is coherent; the recurring weakness is abstract
-endings and unnecessarily difficult surrounding language, especially in D/E.
+The repair record contains 427 grouped findings and follow-ups: 415 resolved by
+verified text or artwork changes, 10 retained optional observations and two
+suspicions retracted after native inspection. These are finding groups, not a
+count of faulty pages or a quality percentage. The text/support trace includes
+472 entries across 459 distinct fields; later refinements of the same field are
+explicitly linked rather than counted as separate final changes.
+Source and review metadata alignments are recorded separately, including six
+refreshed Bright Ideas manuscript hashes and Willow's repeated topic word “words”.
 
-Detailed before/after proposals, all-book coverage, exact source hashes,
-980 image hashes and retained visual evidence are local ignored QA artifacts:
+Changes replace vague or figurative explanations with visible actions, align
+questions with the actual pictures, and correct inconsistent props, anatomy and
+character designs. Examples include the continuous six-arrow route in *The Arrow
+Bookmark*, Tiny's small entrance and deep key, a hamster habitat with real digging
+space, and Luna's natural eyes without unsupported spectacles. The river meaning
+of “bank” is now an actual vocabulary entry in World Discovery C04; its corrected
+receipt is the r2 revision.
 
-- `.artifacts/world-discovery-esl-audit-20261109/REPORT.md`
-- `.artifacts/world-discovery-esl-audit-20261109/REVIEW.html`
-- `.artifacts/world-discovery-esl-audit-20261109/audit.json`
-- `.artifacts/world-discovery-esl-audit-20261109/book-coverage.csv`
-- per-level reviewer reports and sequence sheets in that directory.
+**89 legacy images across 26 books** were replaced, plus **14 World Discovery
+pages and one reference sheet**. Every accepted replacement was inspected as an
+output and as the encoded WebP, then checked within its complete book. Exact
+installed hashes match the accepted delivery receipts. Review attribution is
+retained; a second agent's receipt is not presented as a duplicate independent
+review.
 
-The consolidated report is the reconciled audit result. It downgrades B13's
-literal postal-distance phrase to optional polish, clears suspected E12 bench
-geometry and E16 model geometry errors, and retains E17 species markings and
-E20 crisp plant detail rather than calling visual density alone an art defect.
+Valid older naturalistic nonfiction pictures were retained where no firm science,
+geometry, anatomy or teaching defect was established. New and replacement
+illustrations follow the current clean outlined-cartoon standard. Restrained
+species markings and crisp plant detail were not mislabeled as painterly defects.
+The two retractions are Meadow Pals 21 page 9 (the released ending already frees
+the ears and horns) and Small Steps 05 page 8 (Dad already touches the hen).
 
-## Repair priorities
+## Durable evidence
 
-| Book | Location | Required correction |
-| --- | --- | --- |
-| B11, A Break for Kit | pp6–7 | Restore seven road blocks, one loose eighth block and the visible final gap. The current visual question lacks its expected evidence. |
-| C14, The Arrow Bookmark | pp2, 5 | Separate the opposing arrowheads; the assessed backward arrow currently merges into an X. |
-| D06, Marks on the Moon | p9 | A rock hits a rim and makes a crater. The current wording incorrectly makes the smaller crater the thing that strikes. |
-| B19, Can Light Get Through? | pp2, 4 | Name the pictured freestanding screen, rather than a wall. |
-| C11, A Way to Remember | p2 | Kit is already indoors; describe walking to the shelf. |
-| D04, The Pocket of Wind | title and repeated object name | The pictured prop is a detached zip bag; use the matching concrete object name. |
-| D03, Two Pipes Under the Sink | p1 | Give the tilted pouring cup a connected holding hand or stable support. |
-| A08, A Chick Grows | p2 | Replace dense simulated feather/straw texture with the prescribed clean cartoon finish. |
-| C20, The Log Stays | pp2, 4 | Replace hyper-textured bark/soil and focus blur while retaining the ecological clues. |
-| D11, D12, D14 | p10, p4, p3 respectively | Simplify mottled wall/floor finishes. These are subtler style defects, not anatomy failures; recheck sequence consistency during repair. |
-| E19, One Group Is Not Enough | pp5–7 | Simplify continuous simulated tabletop fibres; preserve the correct chart, labels, shape placement and hands. |
+- [Complete 397-book ledger](../../source-art/guided-reading-remediation/2026-11-09/complete-book-review.json): all-book text/support fingerprints, every installed cover/page hash, finding dispositions, exact final field values and source evidence.
+- [89-image legacy repair receipts](../../source-art/guided-reading-remediation/2026-11-09/image-repairs.json): accepted prompts, actual input-reference hashes, native output hashes, encoded delivery hashes and whole-book review provenance.
+- [World Discovery complete-book review, r2](../../source-art/world-discovery/remediation/2026-11-09/complete-book-review-r2.json), [text repairs](../../source-art/world-discovery/remediation/2026-11-09/text-repairs.json) and [15 image/reference repairs](../../source-art/world-discovery/remediation/2026-11-09/image-repairs.json): cohort-specific evidence. Earlier dated receipts remain historical; the current registration selects the applicable revision.
+- [Local verification](../../source-art/guided-reading-remediation/2026-11-09/local-verification.json): exact coverage, full-suite failures and successful reruns, build/media delivery and evidence hashes.
+- [Narration screening](../../source-art/guided-reading-remediation/2026-11-09/narration-review.json): 329 currently consumed new Leda files received automated decode, signal and recognition checks. Two rare-bird-name clips retain explicit IPA and recorded residual recognition ambiguity.
 
-The D06 causal correction was checked against
-[NASA's impact-crater explanation](https://spaceplace.nasa.gov/impact-crater/en/).
-The E06 viewer-language proposal was checked against
-[NASA's explanation of Moon phases](https://science.nasa.gov/moon/top-moon-questions/).
-These targeted checks do not replace each nonfiction book's scientific review.
+The original full audits, source snapshots, labeled sequence sheets, native
+follow-ups and installation guards remain required QA evidence in ignored
+`.artifacts/world-discovery-esl-audit-20261109/` and
+`.artifacts/guided-reading-remediation-20261109/`. The durable ledger preserves
+their substantive findings and closure trace without requiring a transcript.
 
-Writing revisions should replace phrases such as “your loud bit,” “the battery
-connects two parts of the day,” “one meal connects two lives” and “the path,
-hedge, and window share the night” with named objects and visible actions.
-Keep useful science terms, accurate mechanisms and the intended thinking task;
-make their explanations easier than the target word. Edit teacher questions
-and vocabulary support alongside the manuscript.
+## Verification and cleanup
 
-## State and next implementation boundary
+All 3,898 cover/page images received sequence review; this does
+not mean every retained image was separately opened at native size. Suspect
+originals and all replacements received native follow-up. Automated audio
+screening is distinct from human listening and physical-device observation.
 
-Only the canonical writing requirement and this handoff changed in the audit.
-No manuscript, image, narration, exact-text review hash, runtime registration or
-hosted publication state changed. The 119 proposed full-page replacements
-(required and optional combined) were checked against the source snapshots and
-page limits: A ≤6 words, B ≤14, C–E ≤22.
+Local browser verification covers every page of all 100 World Discovery books,
+all 26 books containing replaced legacy artwork, their seven new cover cards,
+and phone/device variants. Legacy verification passed 39 cases and 386 page
+checks with real page and word audio. The final World Discovery confirmation
+passed 31 cases after fixing stale word-help availability for “outlet” and
+“blurry”. A further nine cases passed with the final landscape CSS. Six permanent
+long-page regressions pass with normal and reduced motion. Word help now shares
+the picture column on small landscape phones, preserving the full text height;
+all three help stages were exercised. These are browser/emulator observations,
+not physical-device observations. Catalogue A–H assignments were preserved.
 
-Implement the required revisions as a deliberate content/media remediation:
-update matching narration and exact-text level/content reviews with the source;
-update art provenance and applicable image integrity records with replacements;
-then inspect the actual reader, images and playback. Preserve the pinned original
-cohort during unrelated expansion work. Do not weaken its non-interference fixture
-or reuse old approvals to make changed text or pixels pass.
+The child-surface suite passed 13 browser cases. The 115-case device matrix
+passed with two reviewed shelf-snapshot updates confirmed separately: the title
+repair from “A Little First” to “Crackers for Later” changes alphabetical order.
+The full production compile and shared-media postbuild passed. All 110 changed
+public images/cards and 329 new MP3s survived pruning with exact expected hashes.
+Final code was compiled again without duplicating public media. The full unit
+run exercised 6,972 tests: 6,961 passed, eight content/cache failures were repaired,
+and three localhost tests needed sandbox permission. All affected suites were
+rerun successfully: 615 passed, zero failed. The 31 overlapping offline image
+revisions now match the reader, with current-byte and offline-cache regression
+coverage. Hosted publication and production observations are recorded separately.
 
-The audit artifacts are retained as required review evidence. Temporary report
-builders are disposable after validation. Source media, protected animation,
-other projects and broad disk cleanup are outside this task.
+Cleanup is limited to disposable task-created builders and superseded local
+scratch after their results are preserved. Removed 31 unused new MP3s, 14 unused
+audio-map entries, seven superseded Git-recoverable card renditions, resolved
+browser trace archives and the reproducible build output. Accepted production media, active
+generation references, required review evidence and dated registration history
+remain. Protected animation, other projects and broad disk cleanup are outside
+this task.

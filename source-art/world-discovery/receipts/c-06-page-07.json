@@ -26,9 +26,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "6bea3f661f1b37a5e85a1fbafd90bec9e6d7a9e7c9e5a7f9123f12dc7ef36e5e",
     "note": "Direct inspection: sole dot returned to lit left surface with Zoe's rotating hand and Kit's stationary left flashlight; model identity preserved.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-c.json",
+    "bookId": "world-discovery-c-06",
+    "sha256": "5b614e84d6a55340905c2ed5c83e6aeb5494bc5c35d9cba991d8ed9a5ba91a07",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

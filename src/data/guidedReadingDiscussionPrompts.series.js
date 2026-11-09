@@ -41,7 +41,7 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_SERIES = Object.freeze({
     }),
     visual: Object.freeze({
       page: 7,
-      prompt: "How can you tell the new fort is away from the waves?",
+      prompt: "Why does the new fort stay dry here?",
       lookFor: "The fort stands on dry sand with the water farther away."
     })
   }),
@@ -129,8 +129,8 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_SERIES = Object.freeze({
     }),
     visual: Object.freeze({
       page: 10,
-      prompt: "What is Chips thinking about when he looks from the empty bowl to James's jumper?",
-      lookFor: "Tracks Chips's gaze between the finished food and the jumper he is about to chew."
+      prompt: "What might Chips do to James’s sweater next?",
+      lookFor: "Chips is looking at the sweater after eating the food. He may try to chew it."
     })
   }),
   "james-and-anna-03-shopping": Object.freeze({
@@ -151,14 +151,14 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_SERIES = Object.freeze({
     }),
     visual: Object.freeze({
       page: 9,
-      prompt: "How has James's body language changed when he returns from the dentist's room?",
+      prompt: "How does James look after his checkup?",
       lookFor: "Contrasts his excited, relieved expression with Anna still waiting for her turn."
     })
   }),
   "james-and-anna-05-tree-house": Object.freeze({
     oral: Object.freeze({
-      prompt: "What nearly holds up the tree house, and how do they fix it?",
-      listenFor: "Chips steals the paint lid. They retrieve it and move the paint out of his reach before finishing."
+      prompt: "What problem does Chips cause? How do they fix it?",
+      listenFor: "Chips takes the paint lid. They take it back and put the paint where Chips cannot reach it."
     }),
     visual: Object.freeze({
       page: 11,
@@ -179,12 +179,12 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_SERIES = Object.freeze({
   }),
   "ja-b-07": Object.freeze({
     oral: Object.freeze({
-      prompt: "How does Anna help James recover when he forgets his first line onstage?",
+      prompt: "How does Anna help James when he forgets what to say?",
       listenFor: "Explains how her steady thumbs-up prompts a deep breath and the roar he practised."
     }),
     visual: Object.freeze({
       page: 9,
-      prompt: "What do James and Anna communicate to each other across the stage?",
+      prompt: "What does Anna do to help James?",
       lookFor: "Uses James's frozen expression and Anna's calm eye contact and raised thumb."
     })
   }),
@@ -261,8 +261,8 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_SERIES = Object.freeze({
     }),
     visual: Object.freeze({
       page: 5,
-      prompt: "Which details reveal Socks's interest in shiny objects and his confident personality?",
-      lookFor: "Sees Aiden's watch held by its strap beneath one black paw on Socks's blanket."
+      prompt: "What has Socks taken? Where has he put it?",
+      lookFor: "Socks has Aiden’s watch under one paw on his blanket."
     })
   }),
   "ab-c-05": Object.freeze({
@@ -349,7 +349,7 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_SERIES = Object.freeze({
     }),
     visual: Object.freeze({
       page: 6,
-      prompt: "How can we see the Pals becoming willing to join Sunny in the rain?",
+      prompt: "Who steps into the puddle with Sunny?",
       lookFor: "Follows the dinosaurs entering the puddles one by one around Sunny."
     })
   }),
@@ -410,12 +410,12 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_SERIES = Object.freeze({
   }),
   "dino-pals-08-zippy-slows-down": Object.freeze({
     oral: Object.freeze({
-      prompt: "What becomes possible for Zippy only after he stops running?",
+      prompt: "How does slowing down help Zippy find the way home?",
       listenFor: "Explains how recognizing the blue flowers and walking slowly lead Zippy back to the bent tree and the route home."
     }),
     visual: Object.freeze({
       page: 5,
-      prompt: "What quiet things can Zippy notice in the unfamiliar valley?",
+      prompt: "Which flowers does Zippy remember seeing before?",
       lookFor: "Finds the small flowers beneath the wide blue sky while Zippy stands still."
     })
   }),
@@ -426,8 +426,8 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_SERIES = Object.freeze({
     }),
     visual: Object.freeze({
       page: 7,
-      prompt: "How does Honky use his whole body to send the safe-cave message far away?",
-      lookFor: "Observes Honky calling toward scattered friends as rain and dark clouds close in."
+      prompt: "What are the friends carrying into the cave? Why?",
+      lookFor: "They carry bowls of fruit into the cave to keep the food out of the rain."
     })
   }),
   "dino-pals-10-cheekys-prank-goes-wrong": Object.freeze({
@@ -437,19 +437,19 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_SERIES = Object.freeze({
     }),
     visual: Object.freeze({
       page: 3,
-      prompt: "What tells us that Wiggly does not share Cheeky's amusement at the leaf hat?",
+      prompt: "How can you tell that Wiggly does not like the hat over his eyes?",
       lookFor: "Contrasts Cheeky's laugh with Wiggly's covered eyes and unhappy reaction."
     })
   }),
   "dino-pals-11-shys-secret-gift": Object.freeze({
     oral: Object.freeze({
-      prompt: "How do the Pals return Shy's quiet kindness once they discover the secret?",
+      prompt: "What do the Pals do after they find out who left the gifts?",
       listenFor: "Connects the secret presents with a gift from every Pal waiting for Shy the next morning."
     }),
     visual: Object.freeze({
       page: 9,
       prompt: "Which clues let Sunny know who has been leaving gifts on the rock?",
-      lookFor: "Spots two small pink feet and a grass bracelet appearing from behind the rock."
+      lookFor: "Spots two small mint-green feet and a grass bracelet appearing from behind the rock."
     })
   }),
   "dino-pals-12-fancys-bad-day": Object.freeze({
@@ -542,12 +542,12 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_SERIES = Object.freeze({
   }),
   "dino-pals-20-the-big-storm": Object.freeze({
     oral: Object.freeze({
-      prompt: "How do the Pals' different abilities combine to keep everyone safe in the storm?",
+      prompt: "How does each Pal help the others get ready for the storm?",
       listenFor: "Connects Clumsy's view, Sneezy's warning, Honky's call, Wiggly's sweep, Zippy's speed, Bouncy's reach, and Shy's route."
     }),
     visual: Object.freeze({
       page: 11,
-      prompt: "Which contrasts make Cozy Cave feel safe while the storm arrives outside?",
+      prompt: "What stays dry inside the cave while rain falls outside?",
       lookFor: "Contrasts the rain outside with the sheltered Pals and Dozy's dry blue pillow."
     })
   }),
@@ -580,7 +580,7 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_SERIES = Object.freeze({
     }),
     visual: Object.freeze({
       page: 3,
-      prompt: "What does the crosswind do to Flappy and the open fern?",
+      prompt: "What does the wind do to Flappy and the wide fern?",
       lookFor: "Notices the broad fern catching the wind and carrying Flappy around with it."
     })
   }),
@@ -608,12 +608,12 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_SERIES = Object.freeze({
   }),
   "dino-pals-26-sunnys-two-part-picnic": Object.freeze({
     oral: Object.freeze({
-      prompt: "How does Sunny arrange one picnic place for two opposite temperature needs?",
+      prompt: "How does Sunny keep Grumpy cool and Chompy's berries warm?",
       listenFor: "Uses the clear boundary on Big Flat Rock to give Grumpy cool shade and Chompy sun-warmed berries."
     }),
     visual: Object.freeze({
       page: 5,
-      prompt: "What useful pattern does Sunny notice across Big Flat Rock?",
+      prompt: "Where is the sunny part of the rock? Where is the shade?",
       lookFor: "Identifies the sharp line separating the bright sunny surface from the fern's cool shadow."
     })
   }),
@@ -647,7 +647,7 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_SERIES = Object.freeze({
     visual: Object.freeze({
       page: 7,
       prompt: "How do three Pals combine their shapes into one pretend dinosaur?",
-      lookFor: "Separates Cheeky's body, Fancy's plate-like ears, and Wiggly's long tail within the silhouette."
+      lookFor: "Finds Cheeky holding the branch ears, Fancy adding back plates, and Wiggly adding a long tail."
     })
   }),
   "dino-pals-30-dozy-stops-the-melon": Object.freeze({

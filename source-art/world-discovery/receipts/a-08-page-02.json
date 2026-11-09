@@ -2,14 +2,14 @@
   "bookId": "world-discovery-a-08",
   "slot": "page-02",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-07T04:43:39.706Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-7a984dbd-b402-4156-9a21-71e8d7e5b9e7.png",
-  "sourceSha256": "f8971697e335f595ea268d90ed296e9bf4ac359eaa61f519f256264d463e2cc3",
+  "generatedAt": "2026-11-09",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a10981-fcf4-7523-bda5-790b073481a6/exec-3071fefa-1e6c-4931-9392-aaf2d0fa6743.png",
+  "sourceSha256": "a1f20a9c79b1ea65422a7b945c651bc5e9db70abbd4e53cf93b8d99c2e140918",
   "output": "public/guided-reading/world-discovery/a-08/page-02.webp",
-  "outputSha256": "1b5ed4fb477e26bb262b7c7d8d4024bd3cb42b39bc36e95bfa29384eb4b47870",
+  "outputSha256": "fe0d80b4d62efc5885ae5c7045b581ee284da14c9593471ade44d98b32f5ed02",
   "width": 1536,
   "height": 1024,
-  "prompt": "Edit this educational egg cross-section for biological clarity. Keep one intact outer egg outline with a curled late-stage chick wholly INSIDE, no text or labels. Make the TOP end of egg unmistakably BROAD and ROUND and the BOTTOM end gently narrower/tapered. Keep a pale AIR CELL at that broad rounded TOP between the shell membranes and curled chick's head/beak. The chick has compact soft damp down, not a mass of long adult flight feathers: simplify its wing into a small folded developing wing tucked against its curled body, with short delicate down. Keep its head tucked, feet folded, closed eye, beak near upper air cell. Preserve cream shell, warm golden chick, clean 2D cartoon outlines, straw nest background and composition. No additional eggs, birds, panels or cracks.",
+  "prompt": "Use case: illustration-story. Edit ONLY the first image into one finished landscape 3:2 full-bleed kindergarten picture-book illustration. Keep exactly the same educational cutaway: a single intact cream egg outline, broad rounded top and narrower bottom, one curled late-stage yellow chick entirely inside with closed eye, tucked head and small folded wing, folded feet and pale air cell at the broad top. Keep correct shell/membrane/air-cell arrangement and the barn, fence and nest setting. The second image is a palette and clean cartoon design reference only, do not add its hen or other eggs. ESSENTIAL REPAIR: replace the chick's hundreds of hairlike feather strands with simple flat yellow body shapes, a few rounded short-down contour tufts, crisp dark outline and at most two smooth cel-shadow shapes. Simplify straw into a modest number of clearly outlined flat ochre ribbons. Remove ALL fur striations, paper grain, painted gradients and simulated texture throughout background as well as focal bird. Keep biological meaning and exact single curled chick, no adult feathers, no extra limbs, no exposed yolk, no blood. Broad clean bold outlined 2D cartoon, no 3D, watercolor or photorealism. No text, letters, numbers, arrows, inset panels, borders or labels.",
   "references": [
     {
       "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-7928d00c-fc58-4e75-ba13-6986dbe18caa.png",
@@ -18,9 +18,34 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
-    "sha256": "1b5ed4fb477e26bb262b7c7d8d4024bd3cb42b39bc36e95bfa29384eb4b47870",
+    "reviewedAt": "2026-11-09",
+    "sha256": "fe0d80b4d62efc5885ae5c7045b581ee284da14c9593471ade44d98b32f5ed02",
     "note": "Inspected corrected cutaway: entire cream shell outline, curled late-stage chick, tucked small wing and folded feet, air space at broad rounded upper end; no conflicting mother scale.",
-    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "priorGeneration": {
+    "outputSha256": "1b5ed4fb477e26bb262b7c7d8d4024bd3cb42b39bc36e95bfa29384eb4b47870",
+    "sourceSha256": "f8971697e335f595ea268d90ed296e9bf4ac359eaa61f519f256264d463e2cc3",
+    "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-7a984dbd-b402-4156-9a21-71e8d7e5b9e7.png",
+    "generatedAt": "2026-11-07T04:43:39.706Z"
+  },
+  "inputReferences": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/a-08/page-02.webp",
+      "sha256": "1b5ed4fb477e26bb262b7c7d8d4024bd3cb42b39bc36e95bfa29384eb4b47870"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/a-08-reference.webp",
+      "sha256": "5c7cf8efa9e87d44976d269d359b524d9cca5832ba6b9f15434dffa6b5848ebe"
+    }
+  ],
+  "remediationEvidence": "source-art/world-discovery/remediation/2026-11-09/image-repairs.json",
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-a.json",
+    "bookId": "world-discovery-a-08",
+    "sha256": "f93655155014d30336ab8f173e82ba4db5c24be23d5b1a5d31487a071e09fc65",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

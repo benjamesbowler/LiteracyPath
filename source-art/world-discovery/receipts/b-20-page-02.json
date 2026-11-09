@@ -24,14 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "status": "reviewed",
-    "reviewer": "author_b_c",
-    "reviewedAt": "2026-11-07T16:42:48.189733+00:00",
-    "outputSha256": "7790f8c2a0644946ad08a9d872162f2715f02926b7faaef7415e9fc832ddacce",
-    "scope": "Production-author direct native and final installed WebP inspection with complete ordered prose/state, physical-scene and framing review; independent QA pending.",
-    "notes": "Kit gently tries closed handle; one drip persists; Zoe watches; empty cup aside. No adult or premature repair tools.",
     "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
     "sha256": "7790f8c2a0644946ad08a9d872162f2715f02926b7faaef7415e9fc832ddacce",
-    "note": "Kit gently tries closed handle; one drip persists; Zoe watches; empty cup aside. No adult or premature repair tools."
+    "note": "Kit gently tries closed handle; one drip persists; Zoe watches; empty cup aside. No adult or premature repair tools.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-b.json",
+    "bookId": "world-discovery-b-20",
+    "sha256": "92eaaf25eedbef9efc455f395f0cccab7e5bc8efc5bed9a0f560345c93381a12",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

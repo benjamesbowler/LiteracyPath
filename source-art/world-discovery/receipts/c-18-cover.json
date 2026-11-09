@@ -25,8 +25,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T16:24:52.771141+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "68741289c85b45962a6085b96971df5fd39368c892bcf0cc6c43ba08a737b3af",
-    "note": "Native source and actual final WebP directly viewed. Hatchling has attached pale spiral shell beside an opened egg; two long eye and two short sensory tentacles, continuous foot, soil and leaf setting. Focal subjects safely inset; no obvious malformed geometry."
+    "note": "Native source and actual final WebP directly viewed. Hatchling has attached pale spiral shell beside an opened egg; two long eye and two short sensory tentacles, continuous foot, soil and leaf setting. Focal subjects safely inset; no obvious malformed geometry.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-c.json",
+    "bookId": "world-discovery-c-18",
+    "sha256": "5122829b18eeec4e9b9a029ff7859227597ee2144b5d9284a88e4cdf4b5607b6",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

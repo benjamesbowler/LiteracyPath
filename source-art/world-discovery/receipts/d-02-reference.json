@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "74e6b3397c8322de42e60224c7447e1e6d112ea7a3a9b5fbe94b6ef08a143720",
     "note": "Direct inspection: canonical equal-height Kit/Zoe, blue chair, exactly six plain blocks, one green pencil and blank sheet; round table, separated rug and second table layouts clear.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-d.json",
+    "bookId": "world-discovery-d-02",
+    "sha256": "9a751b9dc6fe87dee6e27896e543775dc1dcea6106b63646d6b97b2981f118f0",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

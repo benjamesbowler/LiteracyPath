@@ -24,8 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "sha256": "c0d33c41c50d875ef59a0ce06f003c11ddf07d4e3263e496ba33604870b6fa18",
     "method": "codex-direct-image-inspection",
-    "note": "One Moon enters central shadow from below. Upper portion overlapped by cone is dark; lower portion remains pale; one upward arrow. Complete centered diagram."
+    "reviewedAt": "2026-11-09",
+    "sha256": "c0d33c41c50d875ef59a0ce06f003c11ddf07d4e3263e496ba33604870b6fa18",
+    "note": "One Moon enters central shadow from below. Upper portion overlapped by cone is dark; lower portion remains pale; one upward arrow. Complete centered diagram.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-d.json",
+    "bookId": "world-discovery-d-16",
+    "sha256": "b152118c0c292da9c859317a8f2467fd54493abc204f671bd9a2b3bd84286244",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

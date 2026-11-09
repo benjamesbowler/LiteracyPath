@@ -25,9 +25,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T14:24:03.883334+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "bd6b935508920622e1c53a30f3d1b20e20c1208080e944d567b558e4d9e709f6",
     "note": "Generated source and installed WebP inspected. Zoe lifts the opaque paper sun clear, revealing the small gray cloud without rain. Natural grip, intact chairs, legs and body support.",
-    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-d.json",
+    "bookId": "world-discovery-d-11",
+    "sha256": "e70828bde1a48b334200ec948fbd85b7b7f1570579a972536fcb424ddd436b94",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

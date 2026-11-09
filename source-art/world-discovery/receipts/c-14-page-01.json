@@ -24,14 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "status": "reviewed",
-    "reviewer": "author_b_c",
-    "reviewedAt": "2026-11-07T18:12:31.555893+00:00",
-    "outputSha256": "f9ca63feb6aeceb56864e085016433aa9608112fd88b1359904e566672677e64",
-    "scope": "Production-author direct native and final installed WebP inspection; full ordered prose/state and whole-scene review. Independent final QA pending.",
-    "notes": "Single arrow followed by blank paper; bookmark stopped beyond tip; full natural legs and feet visible.",
     "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
     "sha256": "f9ca63feb6aeceb56864e085016433aa9608112fd88b1359904e566672677e64",
-    "note": "Single arrow followed by blank paper; bookmark stopped beyond tip; full natural legs and feet visible."
+    "note": "Single arrow followed by blank paper; bookmark stopped beyond tip; full natural legs and feet visible.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-c.json",
+    "bookId": "world-discovery-c-14",
+    "sha256": "140ce92291067179d732a3587d485b05a7c166c5a5e7afde2f0d356f4c034a0f",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

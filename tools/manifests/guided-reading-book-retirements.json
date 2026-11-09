@@ -323,8 +323,8 @@
       {
         "mode": "contextual",
         "word": "bow",
-        "meaning": "Two ribbon loops tied on a parcel, pronounced /boʊ/.",
-        "pronunciation": "boʊ",
+        "meaning": "Two ribbon loops tied on a parcel, pronounced /bo\u028a/.",
+        "pronunciation": "bo\u028a",
         "voiceName": "en-US-Chirp3-HD-Leda",
         "oldAudioPath": "/audio/production/en-US/isolated_word/bow-ribbon-v2-4bfb1ca242.mp3",
         "oldSha256": "4bfb1ca242c1aa7088a708daa04cc63c55111c255f76bdf12cafc6a3b695a0f5",
@@ -353,7 +353,7 @@
         "mode": "default",
         "word": "bows",
         "meaning": "Bends the body forward, as Kit does while his shadow copies him.",
-        "pronunciation": "baʊz",
+        "pronunciation": "ba\u028az",
         "voiceName": "en-US-Chirp3-HD-Leda",
         "oldAudioPath": "/audio/production/en-US/isolated_word/bows-a9a580f6d5.mp3",
         "oldSha256": "71ba8949fa99c875f8f5ba2665cc0346b251590e1f2c9e5058df2e6f53991ba6",
@@ -372,7 +372,7 @@
         "mode": "default",
         "word": "glacier",
         "meaning": "A mass of land ice that flows slowly.",
-        "pronunciation": "ˈɡleɪʃɚ",
+        "pronunciation": "\u02c8\u0261le\u026a\u0283\u025a",
         "voiceName": "en-US-Chirp3-HD-Leda",
         "oldAudioPath": "/audio/production/en-US/isolated_word/glacier-79004d8c33.mp3",
         "oldSha256": "27accff39fd57160dd9020cc7a02836f9ace8a0109f1d218bc7c1a565ca433d9",
@@ -401,7 +401,7 @@
         "mode": "default",
         "word": "lends",
         "meaning": "Gives temporarily, as the fantasy circle gives Kit a shadow.",
-        "pronunciation": "lɛndz",
+        "pronunciation": "l\u025bndz",
         "voiceName": "en-US-Chirp3-HD-Leda",
         "oldAudioPath": "/audio/production/en-US/isolated_word/lends-a2679d0155.mp3",
         "oldSha256": "97d96dd64503412aebbaa68097709859d2371703b3fb6469e3afc140d898463a",
@@ -412,7 +412,7 @@
           {
             "bookId": "world-discovery-d-14",
             "pageNumber": 1,
-            "pageText": "Zoe draws a silver circle. “Stand here,” she says. “It lends you a giant shadow that copies your shape.”"
+            "pageText": "Zoe draws a silver circle. \u201cStand here,\u201d she says. \u201cIt lends you a giant shadow that copies your shape.\u201d"
           }
         ]
       },
@@ -420,7 +420,7 @@
         "mode": "default",
         "word": "mated",
         "meaning": "Reproduced with another snail before laying eggs.",
-        "pronunciation": "ˈmeɪ.tɪd",
+        "pronunciation": "\u02c8me\u026a.t\u026ad",
         "voiceName": "en-US-Chirp3-HD-Leda",
         "oldAudioPath": "/audio/production/en-US/isolated_word/mated-91e5d2b0b4.mp3",
         "oldSha256": "125a638c6e08269ae5cab0f33464cef3452faa21ea27f553455b8110c05be210",
@@ -439,7 +439,7 @@
         "mode": "default",
         "word": "nor",
         "meaning": "Links the second excluded property after neither.",
-        "pronunciation": "nɔr",
+        "pronunciation": "n\u0254r",
         "voiceName": "en-US-Chirp3-HD-Leda",
         "oldAudioPath": "/audio/production/en-US/isolated_word/nor-f550879b7e.mp3",
         "oldSha256": "63b50a0558eed5279145a06692db8165177d9ce96b63824f9c3cbb5c196b93e6",
@@ -458,7 +458,7 @@
         "mode": "default",
         "word": "patterned",
         "meaning": "Having a visible repeated shell pattern.",
-        "pronunciation": "ˈpætərnd",
+        "pronunciation": "\u02c8p\u00e6t\u0259rnd",
         "voiceName": "en-US-Chirp3-HD-Leda",
         "oldAudioPath": "/audio/production/en-US/isolated_word/patterned-ea1314e284.mp3",
         "oldSha256": "62f69554c42c0a1c1a39c6f767a37a3c912624e66c3a4fc44881bcecf172928e",
@@ -477,7 +477,7 @@
         "mode": "default",
         "word": "scratches",
         "meaning": "Grooves left in stone by scraping.",
-        "pronunciation": "ˈskrætʃɪz",
+        "pronunciation": "\u02c8skr\u00e6t\u0283\u026az",
         "voiceName": "en-US-Chirp3-HD-Leda",
         "oldAudioPath": "/audio/production/en-US/isolated_word/scratches-d653180060.mp3",
         "oldSha256": "c51353602fd976b26ef4b6d24b9519cd84ae464c2c54bc806f250e4bde43bbf9",
@@ -501,7 +501,7 @@
         "mode": "default",
         "word": "speeding",
         "meaning": "Moving fast, describing the rock passing through air.",
-        "pronunciation": "ˈspiːdɪŋ",
+        "pronunciation": "\u02c8spi\u02d0d\u026a\u014b",
         "voiceName": "en-US-Chirp3-HD-Leda",
         "oldAudioPath": "/audio/production/en-US/isolated_word/speeding-8c81a8efba.mp3",
         "oldSha256": "88186a49f735dd5826c4cf922c997215d7af5e07932ccc998b0c155e7063d842",
@@ -515,6 +515,111 @@
             "pageText": "Air heats the speeding rock."
           }
         ]
+      }
+    ],
+    "contextWithdrawals": [
+      {
+        "oldAudioPath": "/audio/production/en-US/isolated_word/bow-ribbon-v2-4bfb1ca242.mp3",
+        "word": "bow",
+        "context": {
+          "bookId": "world-discovery-c-12",
+          "pageNumber": 8,
+          "pageText": "Zoe holds the knot while Kit pulls the bow. Their parcel stays shut, with two red loops on top."
+        },
+        "replacementPageText": "Zoe holds the knot while Kit pulls the loops tight. The red ribbon keeps their parcel closed.",
+        "authorization": "2026-11-09 user explicitly authorized all Guided Reading ESL prose, artwork and Leda repairs and full re-audit; this former token was removed by the approved page rewrite.",
+        "manuscript": {
+          "path": "src/content/world-discovery/cohorts/11-20/level-c.json",
+          "sha256": "3e59ec0ece34ddb0cb788c012600e25f01c6a0a91f7eee677689fb29e8cb40a9"
+        },
+        "registration": {
+          "path": "src/content/world-discovery/registrations/2026-11-09/11-20.json",
+          "sha256": "19aa3749a04b205bd05ae85c89199c024b5f4e408562d60d86d5aa56b492340e"
+        }
+      },
+      {
+        "oldAudioPath": "/audio/production/en-US/isolated_word/bows-a9a580f6d5.mp3",
+        "word": "bows",
+        "context": {
+          "bookId": "world-discovery-d-14",
+          "pageNumber": 10,
+          "pageText": "Zoe waves back with both hands. Kit bows, and a giant bow carries the shadow fan almost to the floor."
+        },
+        "replacementPageText": "Zoe waves both hands. Kit bends forward, and his giant shadow bends too. The fan\u2019s shadow moves down the wall.",
+        "authorization": "2026-11-09 user explicitly authorized all Guided Reading ESL prose, artwork and Leda repairs and full re-audit; this former token was removed by the approved page rewrite.",
+        "manuscript": {
+          "path": "src/content/world-discovery/cohorts/11-20/level-d.json",
+          "sha256": "fad1681e0b870a7c70400b75eb82c1f7245b0b921733afbe77e882ec92b1a731"
+        },
+        "registration": {
+          "path": "src/content/world-discovery/registrations/2026-11-09/11-20.json",
+          "sha256": "19aa3749a04b205bd05ae85c89199c024b5f4e408562d60d86d5aa56b492340e"
+        }
+      },
+      {
+        "oldAudioPath": "/audio/production/en-US/isolated_word/mated-91e5d2b0b4.mp3",
+        "word": "mated",
+        "context": {
+          "bookId": "world-discovery-c-18",
+          "pageNumber": 7,
+          "pageText": "When this snail is grown and has mated, it can lay eggs in another soil hole."
+        },
+        "replacementPageText": "Later, the grown snail lays eggs in another hole in the soil.",
+        "authorization": "2026-11-09 user explicitly authorized all Guided Reading ESL prose, artwork and Leda repairs and full re-audit; this former token was removed by the approved page rewrite.",
+        "manuscript": {
+          "path": "src/content/world-discovery/cohorts/11-20/level-c.json",
+          "sha256": "3e59ec0ece34ddb0cb788c012600e25f01c6a0a91f7eee677689fb29e8cb40a9"
+        },
+        "registration": {
+          "path": "src/content/world-discovery/registrations/2026-11-09/11-20.json",
+          "sha256": "19aa3749a04b205bd05ae85c89199c024b5f4e408562d60d86d5aa56b492340e"
+        }
+      }
+    ],
+    "contextAdditions": [
+      {
+        "oldAudioPath": "/audio/production/en-US/isolated_word/glacier-79004d8c33.mp3",
+        "word": "glacier",
+        "meaning": "A mass of land ice that flows slowly.",
+        "pronunciation": "\u02c8\u0261le\u026a\u0283\u025a",
+        "audioPath": "/audio/production/en-US/isolated_word/glacier-clear-v3-f3d13111c7.mp3",
+        "audioSha256": "f3d13111c77ac9f569aa83d22ff6b5c541f59e05d42aedfce01968dcec44a5de",
+        "context": {
+          "bookId": "world-discovery-e-15",
+          "pageNumber": 10,
+          "pageText": "The river runs through the wide valley. The glacier is gone, but its long scratches are still in the rock."
+        },
+        "authorization": "2026-11-09: User authorized the full ESL book remediation. Independently reviewed this new page context against the original accepted geological meaning and pronunciation; retain the exact accepted default Leda MP3 and original retirement provenance.",
+        "manuscript": {
+          "path": "src/content/world-discovery/cohorts/11-20/level-e.json",
+          "sha256": "f33accf9701982db97f1645f7ec75839b2d7f0fb792a0dfbe4f870a2ffb30a8b"
+        },
+        "registration": {
+          "path": "src/content/world-discovery/registrations/2026-11-09/11-20.json",
+          "sha256": "19aa3749a04b205bd05ae85c89199c024b5f4e408562d60d86d5aa56b492340e"
+        }
+      },
+      {
+        "oldAudioPath": "/audio/production/en-US/isolated_word/scratches-d653180060.mp3",
+        "word": "scratches",
+        "meaning": "Grooves left in stone by scraping.",
+        "pronunciation": "\u02c8skr\u00e6t\u0283\u026az",
+        "audioPath": "/audio/production/en-US/isolated_word/scratches-clear-v3-f73e7d745b.mp3",
+        "audioSha256": "f73e7d745b5d97e1233cfe850466db36a7001c8ed2d47ad03e016b8d774976ae",
+        "context": {
+          "bookId": "world-discovery-e-15",
+          "pageNumber": 10,
+          "pageText": "The river runs through the wide valley. The glacier is gone, but its long scratches are still in the rock."
+        },
+        "authorization": "2026-11-09: User authorized the full ESL book remediation. Independently reviewed this new page context against the original accepted geological meaning and pronunciation; retain the exact accepted default Leda MP3 and original retirement provenance.",
+        "manuscript": {
+          "path": "src/content/world-discovery/cohorts/11-20/level-e.json",
+          "sha256": "f33accf9701982db97f1645f7ec75839b2d7f0fb792a0dfbe4f870a2ffb30a8b"
+        },
+        "registration": {
+          "path": "src/content/world-discovery/registrations/2026-11-09/11-20.json",
+          "sha256": "19aa3749a04b205bd05ae85c89199c024b5f4e408562d60d86d5aa56b492340e"
+        }
       }
     ]
   }

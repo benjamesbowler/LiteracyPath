@@ -25,8 +25,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T16:24:52.777175+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "ee3176c9a166acc6d49696147615ea6a2523755e2454ba78bfb8023c9c733182",
-    "note": "Native source and actual final WebP directly viewed. Mature snail has larger strongly patterned shell attached to body; natural continuous foot and four tentacles. Focal subjects safely inset; no obvious malformed geometry."
+    "note": "Native source and actual final WebP directly viewed. Mature snail has larger strongly patterned shell attached to body; natural continuous foot and four tentacles. Focal subjects safely inset; no obvious malformed geometry.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-c.json",
+    "bookId": "world-discovery-c-18",
+    "sha256": "5122829b18eeec4e9b9a029ff7859227597ee2144b5d9284a88e4cdf4b5607b6",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

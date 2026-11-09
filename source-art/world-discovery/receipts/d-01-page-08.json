@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "9671bb463b307014f065a687f3c723895a6d731c719691e1ab5659a3868e26b6",
     "note": "Direct inspection after drawn wheel repair: card with four blue circle wheels and looping track slides under sock in box beside folded red kite; one real train stays outside.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-d.json",
+    "bookId": "world-discovery-d-01",
+    "sha256": "c03f9e9b25bc79bb3b748737fc3a295ac49f4e2f9a11173bda07c088f669dc3c",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

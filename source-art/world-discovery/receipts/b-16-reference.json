@@ -24,14 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "status": "reviewed",
-    "reviewer": "author_b_c",
-    "reviewedAt": "2026-11-07T11:49:24.740Z",
-    "outputSha256": "9a05760d26b78a21ac29ca3a5dd1af85c2cf5cdaac018a6630bbbc91f1fa4344",
-    "scope": "Direct reference WebP inspection before final illustration production",
-    "notes": "Full reference WebP viewed. Three near and three far wheel positions, rocker/bogie pivots, white instrument body and gray mast. Side design clearly links front wheel to rocker and middle/rear to bogie; no humans. Corrected unnecessary scale figure and ground grain.",
     "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
     "sha256": "9a05760d26b78a21ac29ca3a5dd1af85c2cf5cdaac018a6630bbbc91f1fa4344",
-    "note": "Full reference WebP viewed. Three near and three far wheel positions, rocker/bogie pivots, white instrument body and gray mast. Side design clearly links front wheel to rocker and middle/rear to bogie; no humans. Corrected unnecessary scale figure and ground grain."
+    "note": "Full reference WebP viewed. Three near and three far wheel positions, rocker/bogie pivots, white instrument body and gray mast. Side design clearly links front wheel to rocker and middle/rear to bogie; no humans. Corrected unnecessary scale figure and ground grain.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-b.json",
+    "bookId": "world-discovery-b-16",
+    "sha256": "f21fdf5fab9a8e5f93e0bbd642b24ac5519ae657556d200632b2594bfa579d45",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

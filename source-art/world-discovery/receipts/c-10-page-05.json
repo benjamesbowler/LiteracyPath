@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "ba75f55decba418469a5db98fdf0cba280f6a157ab09fe68be0c1e159142f68a",
     "note": "Direct inspection after premature-plant removal: same bin pile lower/darker with recognizable soft peel/leaf fragments, not finished; bare soil bed and empty tray, children observe.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-c.json",
+    "bookId": "world-discovery-c-10",
+    "sha256": "abc3172845cd8a873b3f79b54c2fef72490decbc19a54a367d9faa52687fde03",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

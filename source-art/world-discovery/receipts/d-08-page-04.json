@@ -18,8 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T04:08:45.968028+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "ce1a2b1a7a760d4e88eaa6a09ddfb133b28ab34f9334d72bd002c244a0313e43",
-    "note": "Young shoot has two thick cotyledons above soil and first pair of opening simple leaves; roots below; no mature pods."
+    "note": "Young shoot has two thick cotyledons above soil and first pair of opening simple leaves; roots below; no mature pods.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-d.json",
+    "bookId": "world-discovery-d-08",
+    "sha256": "3a25b145cd58db709fdda3e16fd040625c66d2bdf4e3ff3064d53907a957aa0f",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

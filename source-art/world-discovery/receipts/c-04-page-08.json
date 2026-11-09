@@ -26,9 +26,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "f181fb0e4cdcc5c899a6574f8e86ad3eac4a7ee2dd0449420261065e831ecacb",
     "note": "Truck is visible entirely inside garage through nearly closed left-hinged door. Kit closes it with one finger; Zoe holds shortened bridge aside. Parking goal and deliberate ordered repair are visible.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-c.json",
+    "bookId": "world-discovery-c-04",
+    "sha256": "a8a8e9f00f4c47aec7369fe76755119fd5e5528ea5b9ebccf486d5ba5fb77583",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review-r2.json"
   }
 }

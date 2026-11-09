@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "a6939f1ae2fd343a2edeb4f37e49eee994c17896c68ccffe78bc88b79ec30f1f",
     "note": "Zoe clutches crayon and turns away; Kit holds blank sheet and open hand; kite stays flat on right with three tail bows after precise correction.",
-    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-a.json",
+    "bookId": "world-discovery-a-02",
+    "sha256": "90227228cf648d5840836fd6bd3b38955ea1abbde0fc52706dda9933c9024ceb",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

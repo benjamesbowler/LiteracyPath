@@ -25,8 +25,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T11:13:05.085881+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "f2ec124c500e3284e2e7274dae8be3276a38e828e543ab231bd5a433c7db9f01",
-    "note": "Root directly inspected native repair and installed WebP. Zoe's long bread remainder now has the pale broken left face, beside her single short bitten piece; Kit's separate stick on blue plate retains a missing bite at its right end. Two untouched pear wedges remain in basket; bread compartment empty. Hands, cast and composition unchanged."
+    "note": "Root directly inspected native repair and installed WebP. Zoe's long bread remainder now has the pale broken left face, beside her single short bitten piece; Kit's separate stick on blue plate retains a missing bite at its right end. Two untouched pear wedges remain in basket; bread compartment empty. Hands, cast and composition unchanged.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-a.json",
+    "bookId": "world-discovery-a-11",
+    "sha256": "39dcd311f7e5c478fe89dd2870a0dd687b0f3050ad776015e9675a9886d2e8d5",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

@@ -22,9 +22,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "66d5c56f983090679c68080be7538e40b7a9fce28634551c6726600e76b7f446",
     "note": "Direct inspection: same tomato noticeably larger/leafier than planting scene, Kit waters soil at base while Zoe points to new top leaves; no fruit, intact core or instant growth cue; bin closed.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-c.json",
+    "bookId": "world-discovery-c-10",
+    "sha256": "abc3172845cd8a873b3f79b54c2fef72490decbc19a54a367d9faa52687fde03",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

@@ -18,8 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T04:47:01.812729+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "b8769dccacfcba55ab4ec99701f96146a934ef5c0d16007e356b75d66d2088ae",
-    "note": "Low view of ribbed lunar footprint with matching suited astronaut walking away, dry gray outlined terrain and black starless sky."
+    "note": "Low view of ribbed lunar footprint with matching suited astronaut walking away, dry gray outlined terrain and black starless sky.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-b.json",
+    "bookId": "world-discovery-b-06",
+    "sha256": "95c162744226d000ed4c2dbd0905f56e99b5b6cbfb7cd9a17396f67a70d1fda7",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

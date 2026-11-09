@@ -25,9 +25,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T16:50:28.747231+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "f6143be9ebeaa597a39f9b9d4bf6b7aa3054770392279358b63eae2292b23024",
     "note": "Generated source and installed WebP inspected. Ice is gone. Rounded lower valley corners connect steep sides to broad floor; narrow river returns to opening viewpoint.",
-    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-e.json",
+    "bookId": "world-discovery-e-15",
+    "sha256": "a57d2e19830e6922434e13fa17fa20597f9031c568ccce469773f4251f93f3fb",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

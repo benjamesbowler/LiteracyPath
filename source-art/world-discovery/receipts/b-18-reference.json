@@ -24,14 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "status": "reviewed",
-    "reviewer": "author_b_c",
-    "reviewedAt": "2026-11-07T12:23:27.040802+00:00",
-    "outputSha256": "83daede64568d0d1d810c168d1ff36f7c2d4e366947abbebcde43dafea8bfcb9",
-    "scope": "Direct final reference WebP inspection; production-author design review only",
-    "notes": "Distinct early wingless nymph, late wing-pad nymph and long-winged adult model views; six legs with paired thick jumping hindlegs, two antennae and two pale stripes; egg-only soil location key. Safe study spacing.",
     "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
     "sha256": "83daede64568d0d1d810c168d1ff36f7c2d4e366947abbebcde43dafea8bfcb9",
-    "note": "Distinct early wingless nymph, late wing-pad nymph and long-winged adult model views; six legs with paired thick jumping hindlegs, two antennae and two pale stripes; egg-only soil location key. Safe study spacing."
+    "note": "Distinct early wingless nymph, late wing-pad nymph and long-winged adult model views; six legs with paired thick jumping hindlegs, two antennae and two pale stripes; egg-only soil location key. Safe study spacing.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-b.json",
+    "bookId": "world-discovery-b-18",
+    "sha256": "b6e524aa784fbb38b190331b8b1f1cd01da53d647f37e02571938ae3aef73d1a",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

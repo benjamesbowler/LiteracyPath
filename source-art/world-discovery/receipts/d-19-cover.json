@@ -29,9 +29,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T16:19:26.981453+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "03b84f94c21283f990a0d88e6034165a0ee0824212800d1bbb48fc482863857b",
     "note": "Generated source and installed WebP inspected. One tomato half with visible seeds and opened six-pea pod on separate shallow dishes; cream tabletop, full dishes inset, no impossible soil/table ambiguity.",
-    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-d.json",
+    "bookId": "world-discovery-d-19",
+    "sha256": "ac8434eb87c7ed38d402f824acd8b7188efe9acbdbc2651ec49b779188a64cca",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

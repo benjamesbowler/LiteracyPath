@@ -67,7 +67,7 @@
       },
       {
         "pageNumber": 5,
-        "text": "“Maybe I should keep it all,” she says. She lowers the sheet, though her finger still rests on the bubbles.",
+        "text": "“Maybe I won’t show this picture,” Zoe says. She lowers the sheet, but her finger still points to the bubbles.",
         "imageBrief": "Zoe holds the open sheet low, finger on the happy half, looking toward the empty display clip.",
         "imageAlt": "Zoe holds the open sheet low, finger on the happy half, looking toward the empty display clip.",
         "pageDescription": "Zoe holds the open sheet low, finger on the happy half, looking toward the empty display clip.",
@@ -420,7 +420,7 @@
       },
       {
         "pageNumber": 10,
-        "text": "Their plan has room for sitting and room for passing through. It works at the time the class needs it.",
+        "text": "At lunchtime, Kit and Zoe sit in the shade. The caretaker walks past their bench to the doorway.",
         "imageBrief": "Final wide noon view: children sit under canopy while caretaker walks unobstructed route from doorway.",
         "imageAlt": "Final wide noon view: children sit under canopy while caretaker walks unobstructed route from doorway.",
         "pageDescription": "Final wide noon view: children sit under canopy while caretaker walks unobstructed route from doorway.",
@@ -569,7 +569,7 @@
       },
       {
         "pageNumber": 10,
-        "text": "When the tray is clean too, Kit sets the boat inside. “My surprise took a little finding,” he says.",
+        "text": "Kit sets the clean boat inside the tray. “There it is!” he says. “I can see my boat again!”",
         "imageBrief": "Both smile at fully restored boat centered in fully wiped yellow tray; damp purple-stained cloth lies beside water cup.",
         "imageAlt": "Both smile at fully restored boat centered in fully wiped yellow tray; damp purple-stained cloth lies beside water cup.",
         "pageDescription": "Both smile at fully restored boat centered in fully wiped yellow tray; damp purple-stained cloth lies beside water cup.",
@@ -734,7 +734,7 @@
       },
       {
         "pageNumber": 10,
-        "text": "The river still changes the valley, but it did not make this wide space alone. The missing ice left its work behind.",
+        "text": "The river runs through the wide valley. The glacier is gone, but its long scratches are still in the rock.",
         "imageBrief": "Final wide view connects small river, U-shaped valley and scratched foreground bedrock.",
         "imageAlt": "Final wide view connects small river, U-shaped valley and scratched foreground bedrock.",
         "pageDescription": "Final wide view connects small river, U-shaped valley and scratched foreground bedrock.",
@@ -858,7 +858,7 @@
       },
       {
         "pageNumber": 6,
-        "text": "Kit joins her. The same three stars look much farther apart. They were never fixed to one flat picture.",
+        "text": "Kit joins Zoe beside the table. Now he can see the spaces between the three model stars.",
         "imageBrief": "Both children at side mat inspect card depths along table; blue mat visible at end.",
         "imageAlt": "Both children at side mat inspect card depths along table; blue mat visible at end.",
         "pageDescription": "Both children at side mat inspect card depths along table; blue mat visible at end.",
@@ -867,7 +867,7 @@
       },
       {
         "pageNumber": 7,
-        "text": "Real stars are vastly farther away than these cards. Walking across our yard does not give us this side view of them.",
+        "text": "Real stars are much farther away than these cards. A walk across our yard cannot show their distances like this.",
         "imageBrief": "Children outdoors at evening a few paces apart, same apparent star grouping above both.",
         "imageAlt": "Children outdoors at evening a few paces apart, same apparent star grouping above both.",
         "pageDescription": "Children outdoors at evening a few paces apart, same apparent star grouping above both.",
@@ -896,7 +896,7 @@
       },
       {
         "pageNumber": 10,
-        "text": "The stars can share a pattern without sharing one small place. What looks close depends on where we are looking from.",
+        "text": "Stars can look close together from Earth even when they are far apart in space.",
         "imageBrief": "Two clearly bordered views: Earth-facing star pattern at left and classroom three-depth model at right.",
         "imageAlt": "Two clearly bordered views: Earth-facing star pattern at left and classroom three-depth model at right.",
         "pageDescription": "Two clearly bordered views: Earth-facing star pattern at left and classroom three-depth model at right.",
@@ -1041,7 +1041,7 @@
       },
       {
         "pageNumber": 8,
-        "text": "But these are not two fixed menus. A plover can pull out a worm, and a dowitcher can pick up surface food.",
+        "text": "Both birds can eat different foods. A plover can pull out a worm, and a dowitcher can pick food off the mud.",
         "imageBrief": "Plover pulls small worm from burrow while dowitcher takes tiny surface prey nearby.",
         "imageAlt": "Plover pulls small worm from burrow while dowitcher takes tiny surface prey nearby.",
         "pageDescription": "Plover pulls small worm from burrow while dowitcher takes tiny surface prey nearby.",
@@ -1059,7 +1059,7 @@
       },
       {
         "pageNumber": 10,
-        "text": "A long bill is useful for reaching in. A sharp look can help at the surface. This muddy place holds both opportunities.",
+        "text": "The plover watches for food on the mud. Beside it, the dowitcher pushes its long bill into the mud.",
         "imageBrief": "Final shared view emphasizes alert plover and dowitcher probing beside exposed and wetter patches.",
         "imageAlt": "Final shared view emphasizes alert plover and dowitcher probing beside exposed and wetter patches.",
         "pageDescription": "Final shared view emphasizes alert plover and dowitcher probing beside exposed and wetter patches.",
@@ -1069,8 +1069,8 @@
     ],
     "discussion": {
       "oral": {
-        "prompt": "Why does the book say the birds do not have two fixed menus?",
-        "listenFor": "They often search differently, but methods and foods overlap: either can take food reached by the other's common method."
+        "prompt": "Can both birds find food on top of the mud and under it? How do you know?",
+        "listenFor": "Both birds can find some food on the surface and below it; a long bill helps the dowitcher reach deeper."
       },
       "visual": {
         "page": 6,
@@ -1097,7 +1097,7 @@
   {
     "id": "world-discovery-e-18",
     "number": 18,
-    "title": "The Butterfly Relay",
+    "title": "The Monarchs’ Long Journey",
     "topic": "life cycles",
     "type": "nonfiction",
     "appLevel": "E",
@@ -1213,7 +1213,7 @@
       },
       {
         "pageNumber": 9,
-        "text": "They gather in Mexico as the earlier travelers did. The route has come around again, but the butterflies have changed.",
+        "text": "Butterflies gather in Mexico again. These are younger butterflies, born after the ones that left the forest in spring.",
         "imageBrief": "New autumn arrivals cluster on oyamel fir; inset map shows route ending in same central Mexican region.",
         "imageAlt": "New autumn arrivals cluster on oyamel fir; inset map shows route ending in same central Mexican region.",
         "pageDescription": "New autumn arrivals cluster on oyamel fir; inset map shows route ending in same central Mexican region.",
@@ -1223,7 +1223,7 @@
       },
       {
         "pageNumber": 10,
-        "text": "No single butterfly made the whole yearly journey. Like a relay, the journey continued while one generation gave way to the next.",
+        "text": "No butterfly made this whole yearly trip. Older butterflies laid eggs. Their young grew up and continued traveling.",
         "imageBrief": "Three clearly separated seasonal recap vignettes: winter adults, northern summer new adult on milkweed, next winter adults.",
         "imageAlt": "Three clearly separated seasonal recap vignettes: winter adults, northern summer new adult on milkweed, next winter adults.",
         "pageDescription": "Three clearly separated seasonal recap vignettes: winter adults, northern summer new adult on milkweed, next winter adults.",
@@ -1234,8 +1234,8 @@
     ],
     "discussion": {
       "oral": {
-        "prompt": "Why is this journey compared with a relay?",
-        "listenFor": "It continues across generations. The later southward butterflies are descendants rather than the original winter butterflies making one yearly loop."
+        "prompt": "Did the same butterflies make the whole trip north and south? Tell me what happened.",
+        "listenFor": "Different butterflies make different parts of the yearly journey. Eggs hatch, young butterflies grow up, and later butterflies keep traveling."
       },
       "visual": {
         "page": 5,
@@ -1254,8 +1254,8 @@
         "meaning": "children, grandchildren, and later family of a living thing"
       },
       {
-        "word": "relay",
-        "meaning": "a race in which different runners take turns continuing the race"
+        "word": "milkweed",
+        "meaning": "the plant monarch caterpillars eat"
       }
     ]
   },
@@ -1325,7 +1325,7 @@
       },
       {
         "pageNumber": 4,
-        "text": "Can one board show both things? They draw four spaces, with red above not red and round beside not round.",
+        "text": "They draw four spaces. For each shape, they ask, “Is it red?” and “Is it round?”",
         "imageBrief": "Empty four-cell board with row labels at left and column labels above; four active shapes below board.",
         "imageAlt": "Empty four-cell board with row labels at left and column labels above; four active shapes below board.",
         "pageDescription": "Empty four-cell board with row labels at left and column labels above; four active shapes below board.",
@@ -1385,7 +1385,7 @@
       },
       {
         "pageNumber": 10,
-        "text": "Sharing a space does not mean every piece is the same. It means they give the same answers to these two questions.",
+        "text": "The red square and triangle sit together. Both are red. Neither is round, so they belong in the same space.",
         "imageBrief": "Final close board view with children pointing to red square and triangle sharing top-right cell.",
         "imageAlt": "Final close board view with children pointing to red square and triangle sharing top-right cell.",
         "pageDescription": "Final close board view with children pointing to red square and triangle sharing top-right cell.",
@@ -1556,7 +1556,7 @@
       },
       {
         "pageNumber": 10,
-        "text": "One place can hold a clear way through and a patch left to grow. Keeping both takes more than cutting everything alike.",
+        "text": "Kit and Zoe walk along the clear path. Beside them, the tall stems still have seeds to drop.",
         "imageBrief": "Final wide view: children on maintained route, gardener beside retained seed heads, two corner markers visible.",
         "imageAlt": "Final wide view: children on maintained route, gardener beside retained seed heads, two corner markers visible.",
         "pageDescription": "Final wide view: children on maintained route, gardener beside retained seed heads, two corner markers visible.",

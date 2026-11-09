@@ -25,8 +25,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T12:06:23.097305+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "bb1d22985f4954dccd72142d7fd8b524a008da11015f008c8bd1d68c06e7991f",
-    "note": "Wings expand downwards while the butterfly hangs; two antennae, empty chrysalis, entire flower visible. Native generation and installed WebP directly inspected."
+    "note": "Wings expand downwards while the butterfly hangs; two antennae, empty chrysalis, entire flower visible. Native generation and installed WebP directly inspected.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-a.json",
+    "bookId": "world-discovery-a-18",
+    "sha256": "9624c179f0364c94c1c2dd7468615ae3a63bd6ee32442d0b2838e8f214194c8c",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

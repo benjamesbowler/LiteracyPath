@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T04:44:36.446Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "7addba250211a419cdb39832213203e5e0a50af708fc350121c26b6dc0609ee9",
     "note": "Transparent shallowview shows sandgrains settling onto innerbar, no intentionalagent.",
-    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-e.json",
+    "bookId": "world-discovery-e-05",
+    "sha256": "c9ef5abe40f9ef1dbfa3dfe508e4b409dd008728682119c98f52c1415cf37f63",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T04:21:34.040Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "980b8c4fac7e5c8e2ac35fabd909b9e471159f3631b9280af5da6235e220358e",
     "note": "Downspout and stonechannel connect to planted depression separated from foundation/path; soilsection rendered diagrammatically.",
-    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-e.json",
+    "bookId": "world-discovery-e-03",
+    "sha256": "dfca7c29bf091d81cd5add3259ecb264806a48f37dac4a9aa9a8bcb5f486795d",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

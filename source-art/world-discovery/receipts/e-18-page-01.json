@@ -24,8 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "sha256": "310abef36eb8f1835239f10c9543a066fc0413846d04a8f8692aa67742429089",
     "method": "codex-direct-image-inspection",
-    "note": "Widened migration scene keeps full foreground monarch wings and accurate north-up route map safely framed. Final repair connects foreground fir boughs to natural left trunk, removing straight pasted cutoff. Natural butterfly bodies and complete map preserved."
+    "reviewedAt": "2026-11-09",
+    "sha256": "310abef36eb8f1835239f10c9543a066fc0413846d04a8f8692aa67742429089",
+    "note": "Widened migration scene keeps full foreground monarch wings and accurate north-up route map safely framed. Final repair connects foreground fir boughs to natural left trunk, removing straight pasted cutoff. Natural butterfly bodies and complete map preserved.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-e.json",
+    "bookId": "world-discovery-e-18",
+    "sha256": "586b6b4be22233348ef2f620a5d1c74588bac0eac3e1e1e3fcb63a72638fd863",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

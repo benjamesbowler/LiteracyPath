@@ -24,8 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "sha256": "f7a8c31585a368ad57b3a35e49a79e5d7ab95836fa5d69abb1c574efbf829d76",
     "method": "codex-direct-image-inspection",
-    "note": "Children lean naturally from maintained route without touching stems or bee; mower stationary behind. Full feet, people, blooms and two markers comfortably framed."
+    "reviewedAt": "2026-11-09",
+    "sha256": "f7a8c31585a368ad57b3a35e49a79e5d7ab95836fa5d69abb1c574efbf829d76",
+    "note": "Children lean naturally from maintained route without touching stems or bee; mower stationary behind. Full feet, people, blooms and two markers comfortably framed.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-e.json",
+    "bookId": "world-discovery-e-20",
+    "sha256": "fac02292fb99181c3cdf95a864e5c86a9e22d1df1677d6d1143abbaca2559e90",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

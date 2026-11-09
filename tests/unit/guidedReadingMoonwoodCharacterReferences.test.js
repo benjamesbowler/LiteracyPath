@@ -41,6 +41,7 @@ test("original Fern and Luna references retain the botanical silhouette and natu
     assert.doesNotMatch(fern, /fern-frond wings/i, book.id);
     assert.match(luna, /feathered wings/i, book.id);
     assert.match(luna, /taloned feet/i, book.id);
-    assert.match(luna, /no human hands/i, book.id);
+    assert.match(luna, /no (?:eyeglasses or )?human hands/i, book.id);
+    assert.match(luna, /no eyeglasses/i, book.id);
   }
 });

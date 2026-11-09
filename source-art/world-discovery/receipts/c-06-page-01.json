@@ -22,9 +22,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "1ad862f31e320ff6c90c69a24f4498a2e39a01528f7ebfe57e2629d25bd8cd3c",
     "note": "Direct inspection: Zoe alone watches fading early-evening light through classroom window; model equipment not prematurely introduced; no Moon causes darkness.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-c.json",
+    "bookId": "world-discovery-c-06",
+    "sha256": "5b614e84d6a55340905c2ed5c83e6aeb5494bc5c35d9cba991d8ed9a5ba91a07",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

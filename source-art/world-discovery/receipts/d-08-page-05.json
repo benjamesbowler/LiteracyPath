@@ -18,8 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T04:08:45.969464+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "bfe2380c700647dc30ac64be4eaf641006f3e2affee7d19301d08458cca1f93c",
-    "note": "Larger bean plant has distinct trifoliate leaf sets and spreading roots shown in a cutaway. No flowers or pods before their stage."
+    "note": "Larger bean plant has distinct trifoliate leaf sets and spreading roots shown in a cutaway. No flowers or pods before their stage.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-d.json",
+    "bookId": "world-discovery-d-08",
+    "sha256": "3a25b145cd58db709fdda3e16fd040625c66d2bdf4e3ff3064d53907a957aa0f",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

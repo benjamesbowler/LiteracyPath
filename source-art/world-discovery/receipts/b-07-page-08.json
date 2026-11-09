@@ -18,8 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T04:52:31.181Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "a992895a3443eb1d6f11dd45478cd0927b2124dd586ee7872c37ce724b3adc6a",
-    "note": "Same female mallard stands with two webbed feet supporting it on grassy bank, pond behind."
+    "note": "Same female mallard stands with two webbed feet supporting it on grassy bank, pond behind.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-b.json",
+    "bookId": "world-discovery-b-07",
+    "sha256": "89efce04f21896b692ab9b206853ee9136376a7a3d337e86cc7e564c945cecf6",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

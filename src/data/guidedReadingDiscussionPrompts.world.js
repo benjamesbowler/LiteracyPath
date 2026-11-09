@@ -74,14 +74,14 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_WORLD = Object.freeze({
     }),
     visual: Object.freeze({
       page: 8,
-      prompt: "Which two actions show that Noisy is protecting Sleepy's quiet?",
-      lookFor: "Find Noisy pointing toward the worm and using a whisper."
+      prompt: "What does Noisy do when he sees the worm?",
+      lookFor: "Noisy points to the worm and whispers."
     })
   }),
   "meadow-pals-08-tiny-is-very-small": Object.freeze({
     oral: Object.freeze({
-      prompt: "Why is Tiny the right friend to retrieve the key from the log?",
-      listenFor: "A strong response links Tiny's small body to the hole that blocks hoof and wing."
+      prompt: "Why can Tiny get the key when the other friends cannot?",
+      listenFor: "Tiny can crawl through the small hole and get the key. The bigger friends cannot reach far enough inside."
     }),
     visual: Object.freeze({
       page: 7,
@@ -102,8 +102,8 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_WORLD = Object.freeze({
   }),
   "meadow-pals-10-giggly-has-the-hiccups": Object.freeze({
     oral: Object.freeze({
-      prompt: "Why does one slow breath help Giggly more than sipping or hopping?",
-      listenFor: "Listen for Giggly calming her body instead of adding more movement and laughter."
+      prompt: "What does Giggly try? What helps her hiccups stop in this story?",
+      listenFor: "She tries a sip of water and a hop. Then she takes a slow breath, and her hiccups stop."
     }),
     visual: Object.freeze({
       page: 6,
@@ -388,7 +388,7 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_WORLD = Object.freeze({
   }),
   "moonwood-tales-c-01": Object.freeze({
     oral: Object.freeze({
-      prompt: "What proves that Pip's courage came from Pip rather than the glowing stone?",
+      prompt: "What did Pip do to keep climbing even when he felt afraid?",
       listenFor: "Listen for his slow breathing, checked grips, careful steps, and use of marsh markers."
     }),
     visual: Object.freeze({
@@ -404,8 +404,8 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_WORLD = Object.freeze({
     }),
     visual: Object.freeze({
       page: 7,
-      prompt: "What do the rustling leaves repeat, and where do they pause?",
-      lookFor: "Notice Fern listening as the leaves echo the opening and fall silent at its unfinished end."
+      prompt: "What blocks the doorway? What is Fern doing?",
+      lookFor: "Points to the thick leaves across the doorway and notices Fern listening."
     })
   }),
   "moonwood-tales-c-03": Object.freeze({
@@ -482,7 +482,7 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_WORLD = Object.freeze({
     visual: Object.freeze({
       page: 12,
       prompt: "How do Wren and Spark share the work of making the leaf wash?",
-      lookFor: "Finds Wren measuring at the recipe book while Spark gathers leaves and carries the finished bowl."
+      lookFor: "Wren pours water into a bowl. Spark carries a bowl of water and leaves with both hands."
     })
   }),
   "moonwood-tales-c-10": Object.freeze({
@@ -498,7 +498,7 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_WORLD = Object.freeze({
   }),
   "moonwood-tales-c-11": Object.freeze({
     oral: Object.freeze({
-      prompt: "How do Pip and Stone change their response after discovering the loud caller is lost?",
+      prompt: "How do Pip and Stone help the little toad find its family?",
       listenFor: "The friends move from fearing something enormous to using softer calls to find its family."
     }),
     visual: Object.freeze({
@@ -679,7 +679,7 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_WORLD = Object.freeze({
     }),
     visual: Object.freeze({
       page: 8,
-      prompt: "What adjustment is Fern asking Stone to make to the reflected moonbeam?",
+      prompt: "Where does Fern want Stone to point the light?",
       lookFor: "See Fern point just above the buds while Stone tips the rock lower."
     })
   }),
@@ -701,8 +701,8 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_WORLD = Object.freeze({
     }),
     visual: Object.freeze({
       page: 8,
-      prompt: "How is Wren turning ten separate moonberries into one object?",
-      lookFor: "Count nine berries on the broad leaf as she adds the tenth and prepares the cord."
+      prompt: "How is Wren keeping all ten berries together?",
+      lookFor: "The broad leaf wraps all the berries in one tied bundle."
     })
   }),
   "moonwood-tales-c-30": Object.freeze({
@@ -718,8 +718,8 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_WORLD = Object.freeze({
   }),
   "moonwood-tales-c-31": Object.freeze({
     oral: Object.freeze({
-      prompt: "How does measuring the underground root keep Burrow from digging another circle?",
-      listenFor: "The clay dots and cord reveal a firm crossing beneath the root's deepest bend."
+      prompt: "What does Burrow change after digging in a circle?",
+      listenFor: "He stops following the curved root. He looks below it, finds firm soil, and digs a straight tunnel toward Fern’s garden."
     }),
     visual: Object.freeze({
       page: 6,

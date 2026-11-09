@@ -25,8 +25,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T17:40:29.107410+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "2ed3b0778104dc362059e9805a7b6de3199d663b34ee3c9a70cde603869bac97",
-    "note": "Native PNG and final WebP directly inspected at full image size. Lamp off, adult fits reachable opaque shield, child safely watches; hedge dark and lower opening black."
+    "note": "Native PNG and final WebP directly inspected at full image size. Lamp off, adult fits reachable opaque shield, child safely watches; hedge dark and lower opening black.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-d.json",
+    "bookId": "world-discovery-d-20",
+    "sha256": "1c0c1ebe4d302e72bc6925286eb5e4c635c0846331744f327d3c261dc1200d7d",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

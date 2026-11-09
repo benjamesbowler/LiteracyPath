@@ -420,6 +420,7 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "After decoding each line, compare where the same hat is. At the end, use the picture to demonstrate both in and on. Revisit this short text as part of daily connected reading; narration remains supported reading.",
       "fluency": "Reread the repeated My hat is frame smoothly, giving in and on clear meaning without chanting individual words."
     },
+    "reviewedAt": "2026-11-09",
     "reviewedTextFingerprint": "fnv1a64:a2aaba76d4865b93",
     "reviewedManuscriptSha256": "d512c837834e1e62dc79c292948f454ccaa336b45b17cc9f5d6e83344fa5e95e",
     "readingBandProfile": "standard",
@@ -937,6 +938,7 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Read the print first, then trace Sam’s move from the mat to the hut. Ask the child to retell what did not work and what he changed. Reread during daily connected reading.",
       "fluency": "Read I am hot the same way on both occasions; give the final not its contrasting meaning."
     },
+    "reviewedAt": "2026-11-09",
     "reviewedTextFingerprint": "fnv1a64:f0dceaf6e6c58c27",
     "reviewedManuscriptSha256": "b1fcde570c4d04a604a973f0448204a0c99b3d2dffcdf1df7aeb6b91e8bcaeb2",
     "readingBandProfile": "standard",
@@ -1358,6 +1360,7 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Read the lines without guessing from the picture. Afterward, compare the first tug with the running game and retell the change.",
       "fluency": "Reread the two cat-on-rug lines smoothly, then give the final rag ending a playful landing."
     },
+    "reviewedAt": "2026-11-09",
     "reviewedTextFingerprint": "fnv1a64:d0b57b81b25b42e7",
     "reviewedManuscriptSha256": "399b69f33d4e6c8e09f8be4857e3b72c39941e5e018e4ca359e8c7ed9cf3e76f",
     "readingBandProfile": "standard",
@@ -1765,6 +1768,7 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Read each line and keep track of who hums. Invite an oral retelling of Sam’s two attempts, without asking the child to disclose a personal sad event.",
       "fluency": "Read the short lines warmly. Contrast Sam humming alone with Dad and I in the last line."
     },
+    "reviewedAt": "2026-11-09",
     "reviewedTextFingerprint": "fnv1a64:3330598b1df1a274",
     "reviewedManuscriptSha256": "c14bc991a631de4e78649dcce9242558077f7fdbf14529b8f1b31429168eb9e0",
     "readingBandProfile": "standard",
@@ -2286,6 +2290,7 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Decode the printed action, then trace Dad’s route in the pictures. Ask the child to explain Sam’s change and the final role swap.",
       "fluency": "Pause naturally between the two short sentences. Read the invitation with friendly excitement, not speed."
     },
+    "reviewedAt": "2026-11-09",
     "reviewedTextFingerprint": "fnv1a64:91daa9b9559c81c1",
     "reviewedManuscriptSha256": "94ad50d5c7b6d3f2108dbba7275c63601ce8259be9df4f071a9137855473345e",
     "readingBandProfile": "standard",
@@ -2760,6 +2765,7 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Read each step, then explain dip and dab with empty-hand gestures. Retell the process in order. If making a cap later, use washable paint and let it dry before wearing.",
       "fluency": "Reread I dab on my cap as the same useful action with a new mark each time; pause at each full stop."
     },
+    "reviewedAt": "2026-11-09",
     "reviewedTextFingerprint": "fnv1a64:5b5f3e7f9be0d49e",
     "reviewedManuscriptSha256": "beee5d545e5be74edf481a9145d01c4a7d9f1837a3afcba28c00539cc07e53b4",
     "readingBandProfile": "standard",
@@ -3186,6 +3192,7 @@ const MANUSCRIPTS = deepFreeze([
         "checked": "2026-10-29"
       }
     ],
+    "reviewedAt": "2026-11-09",
     "reviewedTextFingerprint": "fnv1a64:9e1c97900f924fe8",
     "reviewedManuscriptSha256": "8b3786df033a31c203a3855b9faa53677cf7a3a7f6f517b0dc7b0e2a4edde230",
     "readingBandProfile": "standard",
@@ -3840,6 +3847,7 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Read the first claim as Sam’s mistaken thought. After the reveal, revisit the tag clue and explain why Sam changes his mind. Read the words rather than guessing the hidden object.",
       "fluency": "Read the question with a gentle rise, pause at the reveal, and let the final two sentences complete the joke."
     },
+    "reviewedAt": "2026-11-09",
     "reviewedTextFingerprint": "fnv1a64:bc06f4fa2c6ade4f",
     "reviewedManuscriptSha256": "63c67d244c7615d748d69f81e0fb2dcebd583d7b400ac8fcc7180a354038dd38",
     "readingBandProfile": "standard",
@@ -4292,6 +4300,7 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Read each line first, then compare what stays the same and what changes. Retell the attempt on red and the result on tan.",
       "fluency": "Reread the two I dab a dot lines at a natural pace and make the change from do not see to can see meaningful."
     },
+    "reviewedAt": "2026-11-09",
     "reviewedTextFingerprint": "fnv1a64:19fb2a3c5bc27078",
     "reviewedManuscriptSha256": "f427b1193e0c600bc6d1d51bc92379bb136c96bfcae08a832ae0d1e0e09186b7",
     "readingBandProfile": "standard",
@@ -4937,6 +4946,7 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Read the attempt and its consequence together. Retell why pulling alone fails and how the peg changes the doorway; reread for meaning during daily practice.",
       "fluency": "Pause briefly at each sentence boundary. Keep It linked to the rag on page 3, and read the final two sentences as a calm completed result."
     },
+    "reviewedAt": "2026-11-09",
     "reviewedTextFingerprint": "fnv1a64:6078bccde682c512",
     "reviewedManuscriptSha256": "5785b4a2d92cca51b679e1fc61d97e6da7728a53c89473708574589164f8e957",
     "readingBandProfile": "standard",
@@ -5569,6 +5579,7 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "After decoding, track who has a drink. Ask what Sam notices and how the last page changes his role. Keep independent attempts separate from narration support.",
       "fluency": "Read the repeated I get frame as a smooth phrase. Give the final I sip a quiet, satisfying pause."
     },
+    "reviewedAt": "2026-11-09",
     "reviewedTextFingerprint": "fnv1a64:ea21491b5f204123",
     "reviewedManuscriptSha256": "241140fe14162dbfdf031530a413196c5a5c570ab16b9ec03fda3e59bfd8a738",
     "readingBandProfile": "standard",
@@ -6196,6 +6207,7 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Read the two hopping attempts, then explain what changes between them. Teach his as the exact whole word with final /z/, without generalizing that sound to every s.",
       "fluency": "Read each invitation with the same playful voice. Pause at the fallen-wig surprise and let the final on Dad finish the callback."
     },
+    "reviewedAt": "2026-11-09",
     "reviewedTextFingerprint": "fnv1a64:2b89ba9dd577ceee",
     "reviewedManuscriptSha256": "a9f84a1ac70bde018e4e24db0c174727ff77ba319c6d7e4c6c7d88e1dbd39e93",
     "readingBandProfile": "standard",
@@ -6858,6 +6870,7 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Decode the print, teach this as the exact Cycle 14 exception, then use the starting positions to explain why Sam tries again. Ask for the fair-start cause, not a memorized moral.",
       "fluency": "Distinguish the speakers through gentle expression. Pause at the two-sentence contrast on page 7 and make the final congratulations sound friendly."
     },
+    "reviewedAt": "2026-11-09",
     "reviewedTextFingerprint": "fnv1a64:3b8a6dcc85c41f64",
     "reviewedManuscriptSha256": "07ea2bf0060dd61bdfb60dc37bba5095428b428e3cf211f7d6051dae64229045",
     "readingBandProfile": "standard",
@@ -7417,6 +7430,7 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Read both failed attempts and the placement change. Ask the child to explain where the ship was before and after. The final pass back connects the solution with shared play.",
       "fluency": "Read the repeated rim lines with gentle anticipation; pause at the change and use lively voices for the two invitations."
     },
+    "reviewedAt": "2026-11-09",
     "reviewedTextFingerprint": "fnv1a64:b7c221cfdef1a59e",
     "reviewedManuscriptSha256": "64895f3c08002d1b473e683194549edb02d42949c21e06e04cf897e51f55b272",
     "readingBandProfile": "standard",
@@ -8063,6 +8077,7 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Read the dialogue and identify the speaker from each clear turn. Then explain how Dot gets a turn and how the last action includes both ideas. Offer unscored oral role-play after reading.",
       "fluency": "Give Sam and Dot distinct but natural voices. Pause between speakers and read Sam and I chat as a warm callback to Sam chatting alone at the start."
     },
+    "reviewedAt": "2026-11-09",
     "reviewedTextFingerprint": "fnv1a64:b0d02981afcfb1d1",
     "reviewedManuscriptSha256": "d295bec86abec809a825e6faece0faaec513aeccde504a4d868116e0d2fb5b6b",
     "readingBandProfile": "standard",
@@ -8774,6 +8789,7 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Let the child try the print, with support as needed. If a word is difficult, return to its reviewed spelling and sounds; use the picture to discuss meaning after reading, not to guess the word. Then ask: What did Sam change to make the race work for both of them? A daily short reading routine may include this book; record independent reading separately from narration or word help.",
       "fluency": "Reread the page 4 passage with attention to its punctuation and the actual scene. Invite a smoother second reading that preserves every printed word, then check the explanation against the picture."
     },
+    "reviewedAt": "2026-11-09",
     "reviewedTextFingerprint": "fnv1a64:b7731abe98ad3000",
     "reviewedManuscriptSha256": "42a1745889fcfa7aa5c2df27711741ad25c8ea6b8ccc3d3322748671b47c11e8",
     "type": "fiction",
@@ -9247,12 +9263,13 @@ const MANUSCRIPTS = deepFreeze([
         },
         {
           "word": "wall",
-          "meaning": "a structure that stands up"
+          "meaning": "Here, cups stacked up together."
         }
       ],
       "connectedReading": "Let the child try the print, with support as needed. If a word is difficult, return to its reviewed spelling and sounds; use the picture to discuss meaning after reading, not to guess the word. Then ask: What did Dot change after the cups fell? A daily short reading routine may include this book; record independent reading separately from narration or word help.",
       "fluency": "Reread the page 5 passage with attention to its punctuation and the actual scene. Invite a smoother second reading that preserves every printed word, then check the explanation against the picture."
     },
+    "reviewedAt": "2026-11-09",
     "reviewedTextFingerprint": "fnv1a64:1c1baa19d97122fe",
     "reviewedManuscriptSha256": "5390c91398d9a6976e50e905fdf5a042026c8a6c5e43e13f4d5d353244dc179f",
     "type": "fiction",
@@ -9916,6 +9933,7 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Let the child try the print, with support as needed. If a word is difficult, return to its reviewed spelling and sounds; use the picture to discuss meaning after reading, not to guess the word. Then ask: Which clue helped Dad change his answer? A daily short reading routine may include this book; record independent reading separately from narration or word help.",
       "fluency": "Reread the page 4 passage with attention to its punctuation and the actual scene. Invite a smoother second reading that preserves every printed word, then check the explanation against the picture."
     },
+    "reviewedAt": "2026-11-09",
     "reviewedTextFingerprint": "fnv1a64:678d4b3ab0dddb92",
     "reviewedManuscriptSha256": "d983af3af303ac46d97256611748f18f967dde7f46ecf763b3cdae6b34fb4b3f",
     "type": "fiction",
@@ -10827,7 +10845,7 @@ const MANUSCRIPTS = deepFreeze([
       "languagePrep": [
         {
           "word": "each",
-          "meaning": "every one, considered separately"
+          "meaning": "One for every person or thing."
         },
         {
           "word": "jug",
@@ -10837,6 +10855,7 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Let the child try the print, with support as needed. If a word is difficult, return to its reviewed spelling and sounds; use the picture to discuss meaning after reading, not to guess the word. Then ask: How did the snack job change after Dot sat down? A daily short reading routine may include this book; record independent reading separately from narration or word help.",
       "fluency": "Reread the page 6 passage with attention to its punctuation and the actual scene. Invite a smoother second reading that preserves every printed word, then check the explanation against the picture."
     },
+    "reviewedAt": "2026-11-09",
     "reviewedTextFingerprint": "fnv1a64:0b77f2f0d514493e",
     "reviewedManuscriptSha256": "a1bbea4bccc5750e5d2d7437678769d89657ebc9c7a7d4d8f9ec61eb94e1c345",
     "type": "fiction",
@@ -11532,7 +11551,7 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Let the child try the print, with support as needed. If a word is difficult, return to its reviewed spelling and sounds; use the picture to discuss meaning after reading, not to guess the word. Then ask: What helped Sam choose the right puzzle piece? A daily short reading routine may include this book; record independent reading separately from narration or word help.",
       "fluency": "Reread the page 5 passage with attention to its punctuation and the actual scene. Invite a smoother second reading that preserves every printed word, then check the explanation against the picture."
     },
-    "reviewedAt": "2026-11-05",
+    "reviewedAt": "2026-11-09",
     "reviewedTextFingerprint": "fnv1a64:65e8861cf89a0f35",
     "reviewedManuscriptSha256": "901b5c24d99a806c09b900e7c67f99179790c146d2c4a263edc55ca90070510b",
     "type": "fiction",
@@ -12104,6 +12123,7 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Let the child try the print, with support as needed. If a word is difficult, return to its reviewed spelling and sounds; use the picture to discuss meaning after reading, not to guess the word. Then ask: What changed when Sam joined Dot? A daily short reading routine may include this book; record independent reading separately from narration or word help.",
       "fluency": "Reread the page 4 passage with attention to its punctuation and the actual scene. Invite a smoother second reading that preserves every printed word, then check the explanation against the picture."
     },
+    "reviewedAt": "2026-11-09",
     "reviewedTextFingerprint": "fnv1a64:87362958898f0852",
     "reviewedManuscriptSha256": "b7cf7944f25d4fb5c94b1bf143b4cdc70a137eedb67088467e35bb6c4b88ec47",
     "type": "fiction",
@@ -12819,6 +12839,7 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Let the child try the print, with support as needed. If a word is difficult, return to its reviewed spelling and sounds; use the picture to discuss meaning after reading, not to guess the word. Then ask: How did Sam get the moth outside after the net failed? A daily short reading routine may include this book; record independent reading separately from narration or word help.",
       "fluency": "Reread the page 4 passage with attention to its punctuation and the actual scene. Invite a smoother second reading that preserves every printed word, then check the explanation against the picture."
     },
+    "reviewedAt": "2026-11-09",
     "reviewedTextFingerprint": "fnv1a64:c527aa7f9b9d3f35",
     "reviewedManuscriptSha256": "cf97b3d3ce83821daca15510a8ebc2fca7cd71f19a00b5b66a3d8831aa807b6e",
     "type": "fiction",
@@ -13427,7 +13448,7 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Let the child try the print, with support as needed. If a word is difficult, return to its reviewed spelling and sounds; use the picture to discuss meaning after reading, not to guess the word. Then ask: Why did Dot change the surface under the top? A daily short reading routine may include this book; record independent reading separately from narration or word help.",
       "fluency": "Reread the page 4 passage with attention to its punctuation and the actual scene. Invite a smoother second reading that preserves every printed word, then check the explanation against the picture."
     },
-    "reviewedAt": "2026-11-05",
+    "reviewedAt": "2026-11-09",
     "reviewedTextFingerprint": "fnv1a64:4f1f6f553d74ec09",
     "reviewedManuscriptSha256": "961bab28fa3ddf02d155d13a32816fd489b3300642ea46050154edd830beef26",
     "type": "fiction",
@@ -14039,6 +14060,7 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Let the child try the print, with support as needed. If a word is difficult, return to its reviewed spelling and sounds; use the picture to discuss meaning after reading, not to guess the word. Then ask: What did Dot notice that helped Sam? A daily short reading routine may include this book; record independent reading separately from narration or word help.",
       "fluency": "Reread the page 4 passage with attention to its punctuation and the actual scene. Invite a smoother second reading that preserves every printed word, then check the explanation against the picture."
     },
+    "reviewedAt": "2026-11-09",
     "reviewedTextFingerprint": "fnv1a64:9924c2c23f1a026f",
     "reviewedManuscriptSha256": "496efad5681e962f92827053560703cfbd25bca7b72f35fd4a0985a9da0c4358",
     "type": "fiction",
@@ -14899,6 +14921,7 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Let the child try the print, with support as needed. If a word is difficult, return to its reviewed spelling and sounds; use the picture to discuss meaning after reading, not to guess the word. Then ask: Why did Dot think Sam was pretending to be Dad? A daily short reading routine may include this book; record independent reading separately from narration or word help.",
       "fluency": "Reread the page 7 passage with attention to its punctuation and the actual scene. Invite a smoother second reading that preserves every printed word, then check the explanation against the picture."
     },
+    "reviewedAt": "2026-11-09",
     "reviewedTextFingerprint": "fnv1a64:63cebd65a32482b9",
     "reviewedManuscriptSha256": "fd8227257447e5e15fe806fdb598d0ec29d67405e2d7e875a2798a7a8e3affd5",
     "type": "fiction",
@@ -15529,7 +15552,7 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Let the child try the print, with support as needed. If a word is difficult, return to its reviewed spelling and sounds; use the picture to discuss meaning after reading, not to guess the word. Then ask: What helped both vehicles get through? A daily short reading routine may include this book; record independent reading separately from narration or word help.",
       "fluency": "Reread the page 5 passage with attention to its punctuation and the actual scene. Invite a smoother second reading that preserves every printed word, then check the explanation against the picture."
     },
-    "reviewedAt": "2026-11-05",
+    "reviewedAt": "2026-11-09",
     "reviewedTextFingerprint": "fnv1a64:0b84368fc78260e9",
     "reviewedManuscriptSha256": "7511bb5511746d6095897ea0cbd0a42a7f4dea2c38950f6a441d316259dacc44",
     "type": "fiction",
@@ -16441,6 +16464,7 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Let the child try the print, with support as needed. If a word is difficult, return to its reviewed spelling and sounds; use the picture to discuss meaning after reading, not to guess the word. Then ask: Why did Sam grin when he looked again at the bug? A daily short reading routine may include this book; record independent reading separately from narration or word help.",
       "fluency": "Reread the page 6 passage with attention to its punctuation and the actual scene. Invite a smoother second reading that preserves every printed word, then check the explanation against the picture."
     },
+    "reviewedAt": "2026-11-09",
     "reviewedTextFingerprint": "fnv1a64:784d71305b9f8b66",
     "reviewedManuscriptSha256": "1b3c88050fc36c72b785d4e3334bf28b4d6620231ca40fc422fbd8c3fa595def",
     "type": "fiction",
@@ -17130,16 +17154,17 @@ const MANUSCRIPTS = deepFreeze([
       "languagePrep": [
         {
           "word": "king",
-          "meaning": "a ruler; Sam is only pretending"
+          "meaning": "A man who leads a country. Sam is pretending."
         },
         {
           "word": "said",
-          "meaning": "the past-tense word used to tell what someone spoke"
+          "meaning": "Spoke words. “Hello,” said Sam."
         }
       ],
       "connectedReading": "Let the child try the print, with support as needed. If a word is difficult, return to its reviewed spelling and sounds; use the picture to discuss meaning after reading, not to guess the word. Then ask: What did Sam do after Dot stopped fetching things? A daily short reading routine may include this book; record independent reading separately from narration or word help.",
       "fluency": "Reread the page 5 passage with attention to its punctuation and the actual scene. Invite a smoother second reading that preserves every printed word, then check the explanation against the picture."
     },
+    "reviewedAt": "2026-11-09",
     "reviewedTextFingerprint": "fnv1a64:e197201836cc549e",
     "reviewedManuscriptSha256": "2a9066677d75d2423b76408a40dd67f0b4d8280955aa5b0d2f6db94cc1a04e38",
     "type": "fiction",
@@ -17736,6 +17761,7 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Let the child try the print, with support as needed. If a word is difficult, return to its reviewed spelling and sounds; use the picture to discuss meaning after reading, not to guess the word. Then ask: What did Pup try after tapping the empty cup? A daily short reading routine may include this book; record independent reading separately from narration or word help.",
       "fluency": "Reread the page 5 passage with attention to its punctuation and the actual scene. Invite a smoother second reading that preserves every printed word, then check the explanation against the picture."
     },
+    "reviewedAt": "2026-11-09",
     "reviewedTextFingerprint": "fnv1a64:da4e3099871acf37",
     "reviewedManuscriptSha256": "a67cff4e25caf05431e90a0f3e80b89e4878c45140029175069fa08900bb9e48",
     "type": "fiction",
@@ -18431,6 +18457,7 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Let the child try the print, with support as needed. If a word is difficult, return to its reviewed spelling and sounds; use the picture to discuss meaning after reading, not to guess the word. Then ask: What helped Sam stop with Dot? A daily short reading routine may include this book; record independent reading separately from narration or word help.",
       "fluency": "Reread the page 6 passage with attention to its punctuation and the actual scene. Invite a smoother second reading that preserves every printed word, then check the explanation against the picture."
     },
+    "reviewedAt": "2026-11-09",
     "reviewedTextFingerprint": "fnv1a64:e52cfc35b67aa662",
     "reviewedManuscriptSha256": "185511c47619dd20dac77212628ec0bfb4fefe8cc8aafda2eab6613ed56d0b57",
     "type": "fiction",

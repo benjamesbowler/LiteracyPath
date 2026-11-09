@@ -28,14 +28,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "status": "reviewed",
-    "reviewer": "author_b_c",
-    "reviewedAt": "2026-11-07T15:22:01.379687+00:00",
-    "outputSha256": "f3ccba550db9acf3f3b39fcbf593aeaed8a0b26b2bd95dd30cd47b206f4d96e2",
-    "scope": "Direct final WebP inspection and full ordered sequence; production-author review, not independent approval",
-    "notes": "Side/three-quarter silhouette separates same long brown insect from supporting branch; naturally occluded far limb portions, no color/shape change or wings. Full-scene scale/support, natural anatomy and focal margins checked; independent QA pending.",
     "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
     "sha256": "f3ccba550db9acf3f3b39fcbf593aeaed8a0b26b2bd95dd30cd47b206f4d96e2",
-    "note": "Side/three-quarter silhouette separates same long brown insect from supporting branch; naturally occluded far limb portions, no color/shape change or wings. Full-scene scale/support, natural anatomy and focal margins checked; independent QA pending."
+    "note": "Side/three-quarter silhouette separates same long brown insect from supporting branch; naturally occluded far limb portions, no color/shape change or wings. Full-scene scale/support, natural anatomy and focal margins checked; independent QA pending.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-b.json",
+    "bookId": "world-discovery-b-17",
+    "sha256": "9d1817788b8107ed835c74432033de05e082d25afebb0b54c85001e5067a2bcf",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

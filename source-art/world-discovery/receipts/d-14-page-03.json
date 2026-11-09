@@ -2,14 +2,14 @@
   "bookId": "world-discovery-d-14",
   "slot": "page-03",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-07T18:02:49.640Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-fe743cbc-9c34-4c1a-8188-580dcc1e10f4.png",
-  "sourceSha256": "0a98f1c5fe543dceffd21be958d1e5684693010db646f89ce52e8a2174902078",
+  "generatedAt": "2026-11-09",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a10981-fcf4-7523-bda5-790b073481a6/exec-2315ca33-d93d-4759-a9a6-3ccefbde94ec.png",
+  "sourceSha256": "4c0b2db0db565b691a81e45bf1158c27fe0b53f89665869b41714a060e0e097f",
   "output": "public/guided-reading/world-discovery/d-14/page-03.webp",
-  "outputSha256": "87659efabb6cf01c00ce5447ae581a2a7811f9672a71326c02226ff7206bee0f",
+  "outputSha256": "204053c9b489c936d1c744457964ab800628903edcd9502ec25f94205ae99d39",
   "width": 1536,
   "height": 1024,
-  "prompt": "Use case: precise-object-edit. FIRST reference is edit target; other references preserve identity only. Pull camera back substantially: shrink the ENTIRE composition of both children, full giant wall shadow, floor circle, blue chair, fan, cabinet and window to 70 PERCENT of current size, centered. Extend plain lavender floor and peach walls naturally on all four sides. Entire giant shadow including hair and fan must be at least15percent BELOW top; full circle15percent ABOVE bottom; full chair15percent fromright. Keep exact existing body poses. Keep the entire scene logically coherent, exact counts, state, colors, camera side, hand contact and clean flat cartoon style. Full 1536x1024 landscape, no text or border.",
+  "prompt": "Use case: illustration-story. Edit only the FIRST attached illustration. Other attached image locks identity and object design, not composition. One finished landscape 3:2 full-bleed illustration. Preserve exact fantasy scene and poses: Kit inside the white floor circle raising one clearly five-fingered open hand, his single large matching shadow raising its five-fingered hand on the wall, Zoe at left, red folded fan on blue chair at right. Shadow has exactly the same hand pose as Kit. Repair only cloudy wall and floor finish into uniform clean peach wall and flat mauve floor, retaining crisp geometry, outlines, setting and sunset window. No grain or blotchy paint. Preserve five fingers on the raised hand and shadow. Entire image uses bold clean clear 2D cartoon with crisp continuous dark outlines, flat colors and minimal smooth cel-shaded shapes. No grain, painterly texture, mottling, blur, photographic or 3D surfaces. No new text, letters, numbers, logos, labels, panels or borders. Preserve all other content.",
   "references": [
     {
       "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-da9943ae-f2f0-475a-b940-def2046ae67a.png",
@@ -33,9 +33,34 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T18:23:40.868Z",
-    "sha256": "87659efabb6cf01c00ce5447ae581a2a7811f9672a71326c02226ff7206bee0f",
+    "reviewedAt": "2026-11-09",
+    "sha256": "204053c9b489c936d1c744457964ab800628903edcd9502ec25f94205ae99d39",
     "note": "Generated native and installed full WebP directly inspected. Kit raises open right hand with five visible digits and corresponding shadow has matching open hand; fan remains on chair.",
-    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "priorGeneration": {
+    "outputSha256": "87659efabb6cf01c00ce5447ae581a2a7811f9672a71326c02226ff7206bee0f",
+    "sourceSha256": "0a98f1c5fe543dceffd21be958d1e5684693010db646f89ce52e8a2174902078",
+    "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-a9e1-7852-a507-67f1de66e601/exec-fe743cbc-9c34-4c1a-8188-580dcc1e10f4.png",
+    "generatedAt": "2026-11-07T18:02:49.640Z"
+  },
+  "inputReferences": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/d-14/page-03.webp",
+      "sha256": "87659efabb6cf01c00ce5447ae581a2a7811f9672a71326c02226ff7206bee0f"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    }
+  ],
+  "remediationEvidence": "source-art/world-discovery/remediation/2026-11-09/image-repairs.json",
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-d.json",
+    "bookId": "world-discovery-d-14",
+    "sha256": "f556073033b05fe367daba68ebe1f88da06adad7fc5fb9c6bbf48f6d9c900cc9",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

@@ -22,9 +22,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "87a3c51d6db81ea198fa70984a51961ddade0c4ae9d593757f3c31303deb1707",
     "note": "Direct inspection: standalone Earth in space with recognizable simplified continents, lit left and dark right hemispheres; no classroom, model, Moon shadow or orbit line.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-c.json",
+    "bookId": "world-discovery-c-06",
+    "sha256": "5b614e84d6a55340905c2ed5c83e6aeb5494bc5c35d9cba991d8ed9a5ba91a07",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

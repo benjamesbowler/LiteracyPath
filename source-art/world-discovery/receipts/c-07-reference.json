@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "2e8ab932bb81c958669444dc57a96225e57c66fea9ada756570795bd48af3cc7",
     "note": "Direct inspection after human removal: natural four-legged beaver with broad scaly tail and orange incisors, mouth-carried branch; dam crosses downstream outlet separately from dome lodge; cutaway dry chamber above water and underwater approach.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-c.json",
+    "bookId": "world-discovery-c-07",
+    "sha256": "3128c54f7d967814daec68f8fc5299bbcce8da53689d8a302b45ffb5f4f254a8",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

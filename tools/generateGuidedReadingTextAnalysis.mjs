@@ -47,7 +47,7 @@ const analysis = Object.fromEntries(books.map(book => {
     illustrationSupport: {
       basis: "existing-description-metadata",
       status: described === metrics.pageCount ? "separately-described" : described ? "partly-described" : "text-derived-descriptions-only",
-      note: "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      note: "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     lexile: receipt ? validateLexileReceipt(receipt, textHash) : {
       status: "pending", measure: null, label: "Lexile pending",

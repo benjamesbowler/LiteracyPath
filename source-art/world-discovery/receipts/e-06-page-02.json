@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T04:55:31.159Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "3a34c07ba6e9999c517143a8281afc395476c5e63834b88968abf9af1664f07f",
     "note": "Whole round Moon with left hemisphere illuminated, right dark; no Earth shadow or cutout.",
-    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-e.json",
+    "bookId": "world-discovery-e-06",
+    "sha256": "ee7fbae5a543f22990a78929d424b7b0ae5208b2cf696db2cdbabd8ab4bee424",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

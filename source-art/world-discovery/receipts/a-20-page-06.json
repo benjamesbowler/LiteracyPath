@@ -25,8 +25,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T12:00:04.178204+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "ba9e00413ed2978b71af4467d47932ee6c0a5694fae0be77efafc65da195ee5c",
-    "note": "Native PNG and installed WebP directly inspected. Kit points to six uneaten tin crackers, crumb plate remains; no pressure from adult. Coherent anatomy and object contact, clean flat illustration, intact focal shapes with room around them, no unwanted lettering."
+    "note": "Native PNG and installed WebP directly inspected. Kit points to six uneaten tin crackers, crumb plate remains; no pressure from adult. Coherent anatomy and object contact, clean flat illustration, intact focal shapes with room around them, no unwanted lettering.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-a.json",
+    "bookId": "world-discovery-a-20",
+    "sha256": "22c7b02f2a8500e829c1797bbf1a19f661fc5c4cb1e6c53836ac1459ce58082f",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

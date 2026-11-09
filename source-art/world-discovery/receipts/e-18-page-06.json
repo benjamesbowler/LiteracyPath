@@ -24,8 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "sha256": "ee0f2daa2c6b7770b0f4f6638a5f0a65ced488edf102a03a52634bee6299876f",
     "method": "codex-direct-image-inspection",
-    "note": "Directly inspected female and striped monarch caterpillar on separate milkweed leaves. Larva has three tiny pointed true legs near right-side head and five side-view prolegs including anal pair; natural adult/larva/leaf scale, one small egg and no extra stages."
+    "reviewedAt": "2026-11-09",
+    "sha256": "ee0f2daa2c6b7770b0f4f6638a5f0a65ced488edf102a03a52634bee6299876f",
+    "note": "Directly inspected female and striped monarch caterpillar on separate milkweed leaves. Larva has three tiny pointed true legs near right-side head and five side-view prolegs including anal pair; natural adult/larva/leaf scale, one small egg and no extra stages.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-e.json",
+    "bookId": "world-discovery-e-18",
+    "sha256": "586b6b4be22233348ef2f620a5d1c74588bac0eac3e1e1e3fcb63a72638fd863",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

@@ -47,21 +47,6 @@
       "reviewEvidence": "source-art/world-discovery/cohorts/11-20/narration-review.json"
     },
     {
-      "bookId": "world-discovery-c-12",
-      "pageNumber": 8,
-      "pageText": "Zoe holds the knot while Kit pulls the bow. Their parcel stays shut, with two red loops on top.",
-      "word": "bow",
-      "pronunciation": "boʊ",
-      "pronunciationEncoding": "PHONETIC_ENCODING_IPA",
-      "voiceName": "en-US-Chirp3-HD-Leda",
-      "audioPath": "/audio/production/en-US/isolated_word/bow-ribbon-v3-8b606bac05.mp3",
-      "audioSha256": "8b606bac053ab4bdeb755d924df9704d81c769ee325c9f673463e0204385564c",
-      "status": "reviewed",
-      "reviewedAt": "2026-11-07",
-      "reviewNote": "Exact page sense and explicit IPA reviewed; complete decoded signal and independent unprompted speech screens retained. Vowel contrasts use acoustic formant evidence where applicable; spelling-only recognition is not phoneme proof. Automated evidence, not human listening.",
-      "reviewEvidence": "source-art/world-discovery/cohorts/11-20/narration-review.json"
-    },
-    {
       "bookId": "world-discovery-c-15",
       "pageNumber": 2,
       "pageText": "During an eruption, hot melted rock reaches the surface. We call it lava.",
@@ -101,21 +86,6 @@
       "voiceName": "en-US-Chirp3-HD-Leda",
       "audioPath": "/audio/production/en-US/isolated_word/patterned-clear-99e86edde7.mp3",
       "audioSha256": "99e86edde7dea5d5586c82f65fc104e3cca1bf24c4269142e6f9d81d03817e3a",
-      "status": "reviewed",
-      "reviewedAt": "2026-11-07",
-      "reviewNote": "Scoped clarity repair after an isolated-word recognition difference. Complete decoded signal and independent unprompted recognition recover the exact word; production pronunciation payload and screened bytes are retained. Automated evidence, not human listening.",
-      "reviewEvidence": "source-art/world-discovery/cohorts/11-20/narration-review.json"
-    },
-    {
-      "bookId": "world-discovery-c-18",
-      "pageNumber": 7,
-      "pageText": "When this snail is grown and has mated, it can lay eggs in another soil hole.",
-      "word": "mated",
-      "pronunciation": "ˈmeɪ.tɪd",
-      "pronunciationEncoding": "PHONETIC_ENCODING_IPA",
-      "voiceName": "en-US-Chirp3-HD-Leda",
-      "audioPath": "/audio/production/en-US/isolated_word/mated-clear-v3-bca9118a81.mp3",
-      "audioSha256": "bca9118a812c79e6cf9a1499fd4b2a1da8a6abe8df4eb3741f11a7628c2bcc73",
       "status": "reviewed",
       "reviewedAt": "2026-11-07",
       "reviewNote": "Scoped clarity repair after an isolated-word recognition difference. Complete decoded signal and independent unprompted recognition recover the exact word; production pronunciation payload and screened bytes are retained. Automated evidence, not human listening.",
@@ -197,36 +167,6 @@
       "reviewEvidence": "source-art/world-discovery/cohorts/11-20/narration-review.json"
     },
     {
-      "bookId": "world-discovery-d-14",
-      "pageNumber": 10,
-      "pageText": "Zoe waves back with both hands. Kit bows, and a giant bow carries the shadow fan almost to the floor.",
-      "word": "bow",
-      "pronunciation": "baʊ",
-      "pronunciationEncoding": "PHONETIC_ENCODING_IPA",
-      "voiceName": "en-US-Chirp3-HD-Leda",
-      "audioPath": "/audio/production/en-US/isolated_word/bow-bend-29621b450a.mp3",
-      "audioSha256": "29621b450a347685ec384224342f69569da95eca848eaa1f6fc1bf3facd51750",
-      "status": "reviewed",
-      "reviewedAt": "2026-11-07",
-      "reviewNote": "Exact page sense and explicit IPA reviewed; complete decoded signal and independent unprompted speech screens retained. Vowel contrasts use acoustic formant evidence where applicable; spelling-only recognition is not phoneme proof. Automated evidence, not human listening.",
-      "reviewEvidence": "source-art/world-discovery/cohorts/11-20/narration-review.json"
-    },
-    {
-      "bookId": "world-discovery-d-14",
-      "pageNumber": 10,
-      "pageText": "Zoe waves back with both hands. Kit bows, and a giant bow carries the shadow fan almost to the floor.",
-      "word": "bows",
-      "pronunciation": "baʊz",
-      "pronunciationEncoding": "PHONETIC_ENCODING_IPA",
-      "voiceName": "en-US-Chirp3-HD-Leda",
-      "audioPath": "/audio/production/en-US/isolated_word/bows-bend-1eb69c4111.mp3",
-      "audioSha256": "1eb69c41118cc285aaf21e4e034515cf3f51e19400af173fd4d418f3bf4b2610",
-      "status": "reviewed",
-      "reviewedAt": "2026-11-07",
-      "reviewNote": "Exact page sense and explicit IPA reviewed; complete decoded signal and independent unprompted speech screens retained. Vowel contrasts use acoustic formant evidence where applicable; spelling-only recognition is not phoneme proof. Automated evidence, not human listening.",
-      "reviewEvidence": "source-art/world-discovery/cohorts/11-20/narration-review.json"
-    },
-    {
       "bookId": "world-discovery-d-15",
       "pageNumber": 4,
       "pageText": "The wind carries sand up the dune's gentle side. Grain after grain reaches the top.",
@@ -259,7 +199,7 @@
     {
       "bookId": "world-discovery-d-15",
       "pageNumber": 10,
-      "pageText": "A hill can travel one grain at a time. Here, the wind keeps moving sand toward the dune's steep side.",
+      "pageText": "Wind moves the sand one grain at a time. Over many windy days, the dune moves across the ground.",
       "word": "wind",
       "pronunciation": "wɪnd",
       "pronunciationEncoding": "PHONETIC_ENCODING_IPA",
@@ -267,8 +207,8 @@
       "audioPath": "/audio/production/en-US/isolated_word/wind-air-3f2073185a.mp3",
       "audioSha256": "3f2073185a5e4004066540e372818cb8aa671ae12d8c6863ba2bde505d0f82f2",
       "status": "reviewed",
-      "reviewedAt": "2026-11-07",
-      "reviewNote": "Exact page sense and explicit IPA reviewed; complete decoded signal and independent unprompted speech screens retained. Vowel contrasts use acoustic formant evidence where applicable; spelling-only recognition is not phoneme proof. Automated evidence, not human listening.",
+      "reviewedAt": "2026-11-09",
+      "reviewNote": "Exact page sense and explicit IPA reviewed; complete decoded signal and independent unprompted speech screens retained. Vowel contrasts use acoustic formant evidence where applicable; spelling-only recognition is not phoneme proof. Automated evidence, not human listening. Current revised sentence reviewed on 2026-11-09; word meaning and phonemes are unchanged.",
       "reviewEvidence": "source-art/world-discovery/cohorts/11-20/narration-review.json"
     },
     {
@@ -379,7 +319,7 @@
     {
       "bookId": "world-discovery-e-16",
       "pageNumber": 10,
-      "pageText": "The stars can share a pattern without sharing one small place. What looks close depends on where we are looking from.",
+      "pageText": "Stars can look close together from Earth even when they are far apart in space.",
       "word": "close",
       "pronunciation": "kloʊs",
       "pronunciationEncoding": "PHONETIC_ENCODING_IPA",
@@ -387,8 +327,8 @@
       "audioPath": "/audio/production/en-US/isolated_word/close-near-f86d1e575c.mp3",
       "audioSha256": "f86d1e575cff18cb883540da8344bdedc059fbe0877891711f814ac1cc68232b",
       "status": "reviewed",
-      "reviewedAt": "2026-11-07",
-      "reviewNote": "Exact page sense and explicit IPA reviewed; complete decoded signal and independent unprompted speech screens retained. Vowel contrasts use acoustic formant evidence where applicable; spelling-only recognition is not phoneme proof. Automated evidence, not human listening.",
+      "reviewedAt": "2026-11-09",
+      "reviewNote": "Exact page sense and explicit IPA reviewed; complete decoded signal and independent unprompted speech screens retained. Vowel contrasts use acoustic formant evidence where applicable; spelling-only recognition is not phoneme proof. Automated evidence, not human listening. Current revised sentence reviewed on 2026-11-09; word meaning and phonemes are unchanged.",
       "reviewEvidence": "source-art/world-discovery/cohorts/11-20/narration-review.json"
     },
     {
@@ -424,7 +364,7 @@
     {
       "bookId": "world-discovery-e-19",
       "pageNumber": 4,
-      "pageText": "Can one board show both things? They draw four spaces, with red above not red and round beside not round.",
+      "pageText": "They draw four spaces. For each shape, they ask, “Is it red?” and “Is it round?”",
       "word": "spaces",
       "pronunciation": "ˈspeɪ.sɪz",
       "pronunciationEncoding": "PHONETIC_ENCODING_IPA",
@@ -432,8 +372,8 @@
       "audioPath": "/audio/production/en-US/isolated_word/spaces-clear-v4-8742ed3532.mp3",
       "audioSha256": "8742ed3532f636131c205876acea99d5484dcb6a2343bfda3d8327e8d0463f6d",
       "status": "reviewed",
-      "reviewedAt": "2026-11-07",
-      "reviewNote": "Scoped clarity repair after an isolated-word recognition difference. Complete decoded signal and independent unprompted recognition recover the exact word; production pronunciation payload and screened bytes are retained. Automated evidence, not human listening.",
+      "reviewedAt": "2026-11-09",
+      "reviewNote": "Scoped clarity repair after an isolated-word recognition difference. Complete decoded signal and independent unprompted recognition recover the exact word; production pronunciation payload and screened bytes are retained. Automated evidence, not human listening. Current revised sentence reviewed on 2026-11-09; word meaning and phonemes are unchanged.",
       "reviewEvidence": "source-art/world-discovery/cohorts/11-20/narration-review.json"
     },
     {

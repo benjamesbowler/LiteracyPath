@@ -160,6 +160,7 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Read the process in order, helping with unfamiliar words; retell using the leaf and paper.",
       "fluency": "Reread pages 5–8 in smooth phrases and pause at each full stop."
     },
+    "reviewedAt": "2026-11-09",
     "reviewedTextFingerprint": "fnv1a64:fc4d5b48183da39d",
     "reviewedManuscriptSha256": "fd54bfed79dde65dddf82eaa38f43a45d4c0f32ee2c57255a815cf4ad7971347",
     "readingMode": "predictable-levelled",
@@ -309,6 +310,7 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Let the reader try the print, then retell what Dot sees before and after the turn.",
       "fluency": "Reread the last three pages, letting the nose-tap line land without adding words."
     },
+    "reviewedAt": "2026-11-09",
     "reviewedTextFingerprint": "fnv1a64:22681ef55a0336e8",
     "reviewedManuscriptSha256": "86e8461de537c9b50b093daac7f59f284e14be350b5456e8e4ce3b8f3e1b9443",
     "readingMode": "predictable-levelled",
@@ -463,6 +465,7 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Read the sequence and explain the change from walking to a ball and back.",
       "fluency": "Reread pages 4–8 with a brief pause after We wait."
     },
+    "reviewedAt": "2026-11-09",
     "reviewedTextFingerprint": "fnv1a64:e6dd5e918b608896",
     "reviewedManuscriptSha256": "6e4bfa799888166213e146ce0217cf613a7bbc3ae5961ba939ef2aed950e9400",
     "readingMode": "predictable-levelled",
@@ -581,7 +584,7 @@ const MANUSCRIPTS = deepFreeze([
         "lookFor": "One loop passes through the other; edges are not simply touching."
       }
     },
-    "levelRationale": "Two short lines per page, limited dialogue-free present narration, and a concrete failed attempt/repair. Connective meaning develops through pictured loop geometry.",
+    "levelRationale": "Short present-tense narration uses one or two sentences per page and a concrete failed attempt followed by repair. The reader follows how passing a strip through another ring produces a connected chain.",
     "foundationsGuide": {
       "soundLetter": {
         "grapheme": "ch",
@@ -615,6 +618,7 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Read the failed lift and the repair, then explain why the second lift works.",
       "fluency": "Reread pages 3 and 5 to contrast stay with hang."
     },
+    "reviewedAt": "2026-11-09",
     "reviewedTextFingerprint": "fnv1a64:d214ec5ff0b0dac8",
     "reviewedManuscriptSha256": "93b19a9e366ee401ca3fc73e0454b28ae4e6fe59fc8c549eabd7b438f6373fc5",
     "readingMode": "predictable-levelled",
@@ -793,6 +797,7 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Read every word before studying the close-up, then explain how pressing and pulling differ.",
       "fluency": "Reread paired action/result sentences in pages 2–3 and 10."
     },
+    "reviewedAt": "2026-11-09",
     "reviewedTextFingerprint": "fnv1a64:51a21f1480d1453f",
     "reviewedManuscriptSha256": "69ee2a0ca97f802897eac4eb536e411367ac91053acda359e58b254d7dc4a4f5",
     "readingMode": "predictable-levelled",
@@ -974,6 +979,7 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "After reading, explain the two drops’ different paths using the printed action verbs.",
       "fluency": "Reread pages 8–10, emphasizing off, in and different."
     },
+    "reviewedAt": "2026-11-09",
     "reviewedTextFingerprint": "fnv1a64:cc8c063fe31e4736",
     "reviewedManuscriptSha256": "b9b39f4f41514c56501d935676b1b6a3e1c4ab2a7c8430ecccea5c9bcc0b0558",
     "readingMode": "predictable-levelled",
@@ -1109,7 +1115,7 @@ const MANUSCRIPTS = deepFreeze([
         "lookFor": "Two pebbles are touching without a leaf between them."
       }
     },
-    "levelRationale": "Brief B-contract lines carry a repeating unit, an error, a visual clue and a social repair. Tracking a rule rather than a single action earns App C.",
+    "levelRationale": "Brief statements carry a repeating unit, an error, a visible clue and a social repair. Tracking and restoring the alternating rule supports App C.",
     "foundationsGuide": {
       "soundLetter": {
         "grapheme": "p",
@@ -1147,6 +1153,7 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Read and retell the accident, wrong repair and useful clue without guessing words from the pattern picture.",
       "fluency": "Reread page 2 rhythmically, then read page 6 slowly enough to hear the mismatch."
     },
+    "reviewedAt": "2026-11-09",
     "reviewedTextFingerprint": "fnv1a64:eb3a2980ac31c7fd",
     "reviewedManuscriptSha256": "3ea5a33b129d80734c8bd37b2f5ee6fd686e0b147acbaa2823ebd8cd8cbeb028",
     "readingMode": "predictable-levelled",
@@ -1270,7 +1277,7 @@ const MANUSCRIPTS = deepFreeze([
       },
       {
         "pageNumber": 10,
-        "text": "A small squeeze starts a chain of actions.\nThe brake connects the hand to the wheel.",
+        "text": "You squeeze the lever. The cable moves the pads, and the pads slow the wheel.",
         "imageBrief": "Use the built-in image generator. Clean, clear, bright cartoon illustration with crisp consistent outlines, simple flat colors and readable shapes. No embossed relief, patchy or daubed paint, painterly/gouache effects, canvas grain, paper texture or simulated brushwork. Preserve locked Small Steps character identities, clothes and proportions, translating the rendering to this clean cartoon style. Landscape, full composition with action inset; no generated text, labels, numbers or pseudo-writing. Dad’s workshop doorway in daylight; a red bicycle is clamped securely in a repair stand with its front wheel raised. The stopped bicycle fills the scene with lever, cable and rim brake all visible. Exact state: Wheel stopped; mechanism connected; no arrows or embedded labels.",
         "imageAlt": "Dad points out the connected brake cable while Sam and Dot watch.",
         "state": "Wheel stopped; mechanism connected; no arrows or embedded labels.",
@@ -1317,18 +1324,19 @@ const MANUSCRIPTS = deepFreeze([
         },
         {
           "word": "lever",
-          "meaning": "a handle that moves a mechanism"
+          "meaning": "The handle you squeeze to use the brake."
         },
         {
           "word": "friction",
-          "meaning": "rubbing that resists movement"
+          "meaning": "Rubbing that slows a moving object, like the brake pads rubbing the wheel rim."
         }
       ],
       "connectedReading": "Read the sequence, then trace the cause through the printed nouns lever, cable, pads and rim.",
       "fluency": "Reread page 9 in three linked phrases, pausing lightly between actions."
     },
-    "reviewedTextFingerprint": "fnv1a64:4597c87925880bab",
-    "reviewedManuscriptSha256": "7c61f65f376ca108146e25720f181d64d8e5c7400cc54dd6e91986744b599cbf",
+    "reviewedAt": "2026-11-09",
+    "reviewedTextFingerprint": "fnv1a64:84866a32d0c908e4",
+    "reviewedManuscriptSha256": "aeea54439f3e18109143bedfbe60686f6b29374687812ef98d0c86dcb00f62a1",
     "readingMode": "predictable-levelled",
     "additionalPrerequisites": []
   },
@@ -1507,6 +1515,7 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Read the two measurements and explain which shower left more, using the text rather than a guessed picture height.",
       "fluency": "Reread pages 5–8 with clear pauses after each measurement."
     },
+    "reviewedAt": "2026-11-09",
     "reviewedTextFingerprint": "fnv1a64:480af6bb285e2d8b",
     "reviewedManuscriptSha256": "64335d1768abb19bd8fd92eafe0a3a9beda7050e88a75ea38a45ae2cd7983911",
     "readingMode": "predictable-levelled",
@@ -1691,6 +1700,7 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Read how one strip becomes part of a whole nest; explain why these pages need this order.",
       "fluency": "Reread pages 3–6 in smooth action phrases, slowing to clarify over and under."
     },
+    "reviewedAt": "2026-11-09",
     "reviewedTextFingerprint": "fnv1a64:1efc4b3863027c47",
     "reviewedManuscriptSha256": "83eb157020172f7d952c0d9762e698e6ab30bf1585d47ba51b7478d13c63985e",
     "readingMode": "predictable-levelled",
@@ -1865,6 +1875,7 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Read the failed rolls and traced route, then explain the change that makes the finish reachable.",
       "fluency": "Reread Sam’s first confident line and final Again? with their different meanings."
     },
+    "reviewedAt": "2026-11-09",
     "reviewedTextFingerprint": "fnv1a64:d5c3f9d8b26a9a26",
     "reviewedManuscriptSha256": "7096a90cb7627787438d1cbcb8538384dfad81b0bd7ab274da1adb3e9cd9eed7",
     "readingMode": "predictable-levelled",
@@ -1992,7 +2003,7 @@ const MANUSCRIPTS = deepFreeze([
       },
       {
         "pageNumber": 10,
-        "text": "Heating and cooling in this careful way reduce stresses in the glass.\nThe process is called annealing.",
+        "text": "An oven cools the glass slowly. This helps stop it from cracking. This careful heating and cooling is called annealing.",
         "imageBrief": "Use the built-in image generator. Clean, clear, bright cartoon illustration with crisp consistent outlines, simple flat colors and readable shapes. No embossed relief, patchy or daubed paint, painterly/gouache effects, canvas grain, paper texture or simulated brushwork. Preserve locked Small Steps character identities, clothes and proportions, translating the rendering to this clean cartoon style. Landscape, full composition with action inset; no generated text, labels, numbers or pseudo-writing. An illustrated container-glass factory sequence, ending at a kitchen table; all factory workers are adults behind appropriate barriers. A row of identical bottles passes along the cooling tunnel toward its cooler end. Exact state: No visible stress cracks as normal outcome.",
         "imageAlt": "A row of identical bottles passes along the cooling tunnel toward its cooler end.",
         "state": "No visible stress cracks as normal outcome.",
@@ -2001,7 +2012,7 @@ const MANUSCRIPTS = deepFreeze([
       },
       {
         "pageNumber": 11,
-        "text": "Each bottle is checked for flaws.\nA flawed bottle can be melted and made again.",
+        "text": "Each bottle is checked for cracks and other problems. A damaged bottle can be melted and made again.",
         "imageBrief": "Use the built-in image generator. Clean, clear, bright cartoon illustration with crisp consistent outlines, simple flat colors and readable shapes. No embossed relief, patchy or daubed paint, painterly/gouache effects, canvas grain, paper texture or simulated brushwork. Preserve locked Small Steps character identities, clothes and proportions, translating the rendering to this clean cartoon style. Landscape, full composition with action inset; no generated text, labels, numbers or pseudo-writing. An illustrated container-glass factory sequence, ending at a kitchen table; all factory workers are adults behind appropriate barriers. An inspection machine examines a cooled bottle beside a separate recycling return route. Exact state: Good tracked bottle passes; defective example separate.",
         "imageAlt": "An inspection machine examines a cooled bottle beside a separate recycling return route.",
         "state": "Good tracked bottle passes; defective example separate.",
@@ -2061,14 +2072,15 @@ const MANUSCRIPTS = deepFreeze([
         },
         {
           "word": "annealing",
-          "meaning": "controlled heating and cooling that reduces stress in glass"
+          "meaning": "heating glass and then cooling it slowly to help stop it from cracking"
         }
       ],
       "connectedReading": "Read one transformation at a time; explain what changes and what has not yet happened.",
       "fluency": "Reread the closing list in meaningful groups rather than as separate word calls."
     },
-    "reviewedTextFingerprint": "fnv1a64:cd27114770f73a20",
-    "reviewedManuscriptSha256": "6ebe590458460eb13f39e0d8db702cef0b3bd31764357f6bedd94a4308d693d2",
+    "reviewedAt": "2026-11-09",
+    "reviewedTextFingerprint": "fnv1a64:054bf772aa1b0854",
+    "reviewedManuscriptSha256": "4baac9a3237d64d8a8c420280fc6ff1ee0be704164bc891c3cb399915f490836",
     "readingMode": "predictable-levelled",
     "additionalPrerequisites": []
   },
@@ -2275,6 +2287,7 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Read the whole-to-part explanation, then explain why an outline can be harder to follow.",
       "fluency": "Reread pages 5–8 slowly, grouping each cause with its result."
     },
+    "reviewedAt": "2026-11-09",
     "reviewedTextFingerprint": "fnv1a64:624d74cc46d0b54f",
     "reviewedManuscriptSha256": "519c2243be07ef36d0503fb5f7e4b7ed854a17f890530d975a973d1611aeefe5",
     "readingMode": "predictable-levelled",
@@ -2471,6 +2484,7 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Read and keep track of both unfinished jobs; retell the moment Dot tells the truth and what happens next.",
       "fluency": "Use different phrasing for Sam’s question, Dot’s admission and her clear later statement."
     },
+    "reviewedAt": "2026-11-09",
     "reviewedTextFingerprint": "fnv1a64:40fdb45523d3e8df",
     "reviewedManuscriptSha256": "749596d83ccdbffc8ab2a5caf4f2ed7dc5fc6d8308662fa00a23ebef2cb717bf",
     "readingMode": "predictable-levelled",
@@ -2522,7 +2536,7 @@ const MANUSCRIPTS = deepFreeze([
     "pages": [
       {
         "pageNumber": 1,
-        "text": "A dinosaur steps onto soft ground.\nIts foot lifts, but a print remains. Could that mark outlast the animal?",
+        "text": "A dinosaur steps onto soft ground. Its foot lifts, but a print remains. How long could that print stay?",
         "imageBrief": "Use the built-in image generator. Clean, clear, bright cartoon illustration with crisp consistent outlines, simple flat colors and readable shapes. No embossed relief, patchy or daubed paint, painterly/gouache effects, canvas grain, paper texture or simulated brushwork. Preserve locked Small Steps character identities, clothes and proportions, translating the rendering to this clean cartoon style. Landscape, full composition with action inset; no generated text, labels, numbers or pseudo-writing. A scientifically informed illustrative sequence from an ancient muddy shore through layered sediment to a present-day exposed rock surface. A natural three-toed dinosaur foot lifts from damp sediment. Exact state: Documentary reconstruction; no Dino Pals cast; exact print shape begins.",
         "imageAlt": "A natural three-toed dinosaur foot lifts from damp sediment.",
         "state": "Documentary reconstruction; no Dino Pals cast; exact print shape begins.",
@@ -2540,7 +2554,7 @@ const MANUSCRIPTS = deepFreeze([
       },
       {
         "pageNumber": 3,
-        "text": "Ground that is too hard may take no clear print.\nVery soft mud may slump into the mark.",
+        "text": "Ground that is too hard may take no clear print. Very soft mud may fall back into the mark.",
         "imageBrief": "Use the built-in image generator. Clean, clear, bright cartoon illustration with crisp consistent outlines, simple flat colors and readable shapes. No embossed relief, patchy or daubed paint, painterly/gouache effects, canvas grain, paper texture or simulated brushwork. Preserve locked Small Steps character identities, clothes and proportions, translating the rendering to this clean cartoon style. Landscape, full composition with action inset; no generated text, labels, numbers or pseudo-writing. A scientifically informed illustrative sequence from an ancient muddy shore through layered sediment to a present-day exposed rock surface. A simple comparison shows hard ground and slumped mud beside a clear print. Exact state: Three substrate examples clearly separate; no false same-print state.",
         "imageAlt": "A simple comparison shows hard ground and slumped mud beside a clear print.",
         "state": "Three substrate examples clearly separate; no false same-print state.",
@@ -2576,7 +2590,7 @@ const MANUSCRIPTS = deepFreeze([
       },
       {
         "pageNumber": 7,
-        "text": "The dinosaur is long gone.\nIts preserved step is a trace fossil, rather than a fossil of its body.",
+        "text": "This mark is a trace fossil. It records a dinosaur’s step. It is not a fossil of the dinosaur’s body.",
         "imageBrief": "A stepped cutaway exposes the horizontal footprint-bearing surface beneath younger layers. The footprint is a depression in a horizontal sedimentary surface. A shallow side section plus separate top-view inset identifies the three-toed shape; never represent it standing vertically through strata.",
         "imageAlt": "A stepped cutaway exposes the horizontal footprint-bearing surface beneath younger layers.",
         "state": "The footprint is a depression in a horizontal sedimentary surface. A shallow side section plus separate top-view inset identifies the three-toed shape; never represent it standing vertically through strata.",
@@ -2639,7 +2653,7 @@ const MANUSCRIPTS = deepFreeze([
       },
       {
         "pageNumber": 14,
-        "text": "One step took a moment.\nThe trace lets us study that action millions of years later.",
+        "text": "The dinosaur took one step. Millions of years later, scientists can look at its footprint in the rock.",
         "imageBrief": "Use the built-in image generator. Clean, clear, bright cartoon illustration with crisp consistent outlines, simple flat colors and readable shapes. No embossed relief, patchy or daubed paint, painterly/gouache effects, canvas grain, paper texture or simulated brushwork. Preserve locked Small Steps character identities, clothes and proportions, translating the rendering to this clean cartoon style. Landscape, full composition with action inset; no generated text, labels, numbers or pseudo-writing. A scientifically informed illustrative sequence from an ancient muddy shore through layered sediment to a present-day exposed rock surface. A wide present-day view shows the exposed trackway crossing ancient rock. Exact state: Return to opening action with surviving trace; no living dinosaur in present.",
         "imageAlt": "A wide present-day view shows the exposed trackway crossing ancient rock.",
         "state": "Return to opening action with surviving trace; no living dinosaur in present.",
@@ -2696,8 +2710,9 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Read the possible sequence, then sort one supported conclusion from one unanswered question.",
       "fluency": "Reread may, can and could accurately; do not turn qualified facts into certainties."
     },
-    "reviewedTextFingerprint": "fnv1a64:2d9bb91e624a0069",
-    "reviewedManuscriptSha256": "f083fd3d468328c99ba3e67576e190da6b223c2ce4e4cd33f2683e4f44dd131a",
+    "reviewedAt": "2026-11-09",
+    "reviewedTextFingerprint": "fnv1a64:995d20d5f58570e0",
+    "reviewedManuscriptSha256": "e5da655a38ba52e5edfd374b65d924970106a2aa04a9ce9defae461fd696ccad",
     "readingMode": "predictable-levelled",
     "additionalPrerequisites": []
   },
@@ -2878,7 +2893,7 @@ const MANUSCRIPTS = deepFreeze([
         "lookFor": "Small upper passages admit water; both wide boat gates stay shut."
       }
     },
-    "levelRationale": "Four spatial states, two kinds of openings, pressure-related level matching and reversed operation demand sustained mechanism tracking. Compact C print supports App F with adult vocabulary preparation.",
+    "levelRationale": "Several water and gate states, two kinds of openings, matched water levels and reversed operation demand sustained mechanism tracking. Compact printed clauses support App F with adult vocabulary preparation.",
     "foundationsGuide": {
       "soundLetter": {
         "grapheme": "sh",
@@ -2916,6 +2931,7 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Read with the lower/upper orientation fixed; explain which state must change before the next action.",
       "fluency": "Reread pages 5–10, grouping each condition with the action it permits."
     },
+    "reviewedAt": "2026-11-09",
     "reviewedTextFingerprint": "fnv1a64:e0088847adf2bc3a",
     "reviewedManuscriptSha256": "c172c10393954509e2dd3103952c5458c0d117c5ddbd5ccaf6cde5090af7f5ad",
     "readingMode": "predictable-levelled",
@@ -3035,7 +3051,7 @@ const MANUSCRIPTS = deepFreeze([
       },
       {
         "pageNumber": 10,
-        "text": "“Once might fool us,” Sam says.\nThey empty the cups and repeat with another dry pair of equal-sized samples.",
+        "text": "“Let’s check again,” Sam says. They empty the cups and repeat with another dry pair of equal-sized samples.",
         "imageBrief": "Use the built-in image generator. Clean, clear, bright cartoon illustration with crisp consistent outlines, simple flat colors and readable shapes. No embossed relief, patchy or daubed paint, painterly/gouache effects, canvas grain, paper texture or simulated brushwork. Preserve locked Small Steps character identities, clothes and proportions, translating the rendering to this clean cartoon style. Landscape, full composition with action inset; no generated text, labels, numbers or pseudo-writing. The kitchen craft table on a dry afternoon, with a low waterproof testing tray. Sam resets the cups as Dad provides a second equal-sized dry pair. Exact state: New dry samples of same respective materials; not wet reuse.",
         "imageAlt": "Sam resets the cups as Dad provides a second equal-sized dry pair.",
         "state": "New dry samples of same respective materials; not wet reuse.",
@@ -3128,8 +3144,9 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Read the first claim and revised conclusion, then explain which evidence justified the change.",
       "fluency": "Reread Dot’s questions with natural questioning stress; keep this and our in the conclusion audible."
     },
-    "reviewedTextFingerprint": "fnv1a64:860a462e8db646da",
-    "reviewedManuscriptSha256": "6ed4567ff1f001c31dab7275b3683060508041c37092f499c0ae0f8f1fd7ea13",
+    "reviewedAt": "2026-11-09",
+    "reviewedTextFingerprint": "fnv1a64:1f295981d88f8c95",
+    "reviewedManuscriptSha256": "d6e163786b03c7ffd51e9014f014ee0f0a6aa32f176666e2c6a9559180943064",
     "readingMode": "predictable-levelled",
     "additionalPrerequisites": []
   },
@@ -3164,12 +3181,12 @@ const MANUSCRIPTS = deepFreeze([
       "Tray of loose plain cloth strips",
       "Plain banner cord"
     ],
-    "coverBrief": "Use the built-in image generator. Clean, clear, bright cartoon illustration with crisp consistent outlines, simple flat colors and readable shapes. No embossed relief, patchy or daubed paint, painterly/gouache effects, canvas grain, paper texture or simulated brushwork. Preserve the approved original Moonwood character identities and proportions, including smooth-skinned Stone rather than the rocky expansion model. Stone is 2–3 times Pip height; Fern has green skin and frond hair; Luna has feather wings and round glasses. Landscape, no generated lettering. Wren holds the unfinished banner cord beside Fern’s garden table. The three covered baskets retain red-left, blue-middle and yellow-right ribbon markers beside the crooked root. Pip draws the baskets; Fern stands nearby. Keep the tray of plain strips separate, with no floating magical colors.",
+    "coverBrief": "Use the built-in image generator. Clean, clear, bright cartoon illustration with crisp consistent outlines, simple flat colors and readable shapes. No embossed relief, patchy or daubed paint, painterly/gouache effects, canvas grain, paper texture or simulated brushwork. Preserve the approved original Moonwood character identities and proportions, including smooth-skinned Stone rather than the rocky expansion model. Stone is 2–3 times Pip height; Fern has green skin and frond hair; Luna has navy/slate feathers, a cream face and chest, golden eyes, natural feather wings and yellow talons, without eyeglasses. Landscape, no generated lettering. Wren holds the unfinished banner cord beside Fern’s garden table. The three covered baskets retain red-left, blue-middle and yellow-right ribbon markers beside the crooked root. Pip draws the baskets; Fern stands nearby. Keep the tray of plain strips separate, with no floating magical colors. Wren is a small child witch with curly brown hair, green eyes, a plain navy pointed hat with one brown band and a plain dark navy robe with sewn taupe patches. No gold stars, gold trim or decorative gem clasp.",
     "pages": [
       {
         "pageNumber": 1,
-        "text": "Wren wanted a bright banner for Fern’s garden. Three covered baskets stood on the table. Their red, blue, and yellow ribbons looked much grander than plain string.",
-        "imageBrief": "Use the built-in image generator. Clean, clear, bright cartoon illustration with crisp consistent outlines, simple flat colors and readable shapes. No embossed relief, patchy or daubed paint, painterly/gouache effects, canvas grain, paper texture or simulated brushwork. Preserve the approved original Moonwood character identities and proportions, including smooth-skinned Stone rather than the rocky expansion model. Stone is 2–3 times Pip height; Fern has green skin and frond hair; Luna has feather wings and round glasses. Landscape, no generated lettering. Fern’s garden table beneath Hollow Oak in one dry late afternoon; three covered seed baskets stay in fixed left-to-right positions. Wren studies three ribbon-tied baskets on Fern’s garden table. Exact state: Left red, middle blue, right yellow; lids closed; banner cord bare.",
+        "text": "Wren wanted a bright banner for Fern’s garden. Three covered baskets stood on the table. She liked their red, blue, and yellow ribbons more than the plain string.",
+        "imageBrief": "Use the built-in image generator. Clean, clear, bright cartoon illustration with crisp consistent outlines, simple flat colors and readable shapes. No embossed relief, patchy or daubed paint, painterly/gouache effects, canvas grain, paper texture or simulated brushwork. Preserve the approved original Moonwood character identities and proportions, including smooth-skinned Stone rather than the rocky expansion model. Stone is 2–3 times Pip height; Fern has green skin and frond hair; Luna has navy/slate feathers, a cream face and chest, golden eyes, natural feather wings and yellow talons, without eyeglasses. Landscape, no generated lettering. Fern’s garden table beneath Hollow Oak in one dry late afternoon; three covered seed baskets stay in fixed left-to-right positions. Wren studies three ribbon-tied baskets on Fern’s garden table. Exact state: Left red, middle blue, right yellow; lids closed; banner cord bare. Wren is a small child witch with curly brown hair, green eyes, a plain navy pointed hat with one brown band and a plain dark navy robe with sewn taupe patches. No gold stars, gold trim or decorative gem clasp.",
         "imageAlt": "Wren studies three ribbon-tied baskets on Fern’s garden table.",
         "state": "Left red, middle blue, right yellow; lids closed; banner cord bare.",
         "pageDescription": "Wren studies three ribbon-tied baskets on Fern’s garden table.",
@@ -3178,7 +3195,7 @@ const MANUSCRIPTS = deepFreeze([
       {
         "pageNumber": 2,
         "text": "Pip sat beside the table, drawing the baskets. He copied each ribbon’s color. Fern needed those colors to remember which garden bed each basket of seeds belonged to.",
-        "imageBrief": "Use the built-in image generator. Clean, clear, bright cartoon illustration with crisp consistent outlines, simple flat colors and readable shapes. No embossed relief, patchy or daubed paint, painterly/gouache effects, canvas grain, paper texture or simulated brushwork. Preserve the approved original Moonwood character identities and proportions, including smooth-skinned Stone rather than the rocky expansion model. Stone is 2–3 times Pip height; Fern has green skin and frond hair; Luna has feather wings and round glasses. Landscape, no generated lettering. Fern’s garden table beneath Hollow Oak in one dry late afternoon; three covered seed baskets stay in fixed left-to-right positions. Pip makes a colored drawing of the fixed basket row while Fern checks it. Exact state: Drawing faithfully records left red/middle blue/right yellow; avoid generated letters.",
+        "imageBrief": "Use the built-in image generator. Clean, clear, bright cartoon illustration with crisp consistent outlines, simple flat colors and readable shapes. No embossed relief, patchy or daubed paint, painterly/gouache effects, canvas grain, paper texture or simulated brushwork. Preserve the approved original Moonwood character identities and proportions, including smooth-skinned Stone rather than the rocky expansion model. Stone is 2–3 times Pip height; Fern has green skin and frond hair; Luna has navy/slate feathers, a cream face and chest, golden eyes, natural feather wings and yellow talons, without eyeglasses. Landscape, no generated lettering. Fern’s garden table beneath Hollow Oak in one dry late afternoon; three covered seed baskets stay in fixed left-to-right positions. Pip makes a colored drawing of the fixed basket row while Fern checks it. Exact state: Drawing faithfully records left red/middle blue/right yellow; avoid generated letters. Wren is a small child witch with curly brown hair, green eyes, a plain navy pointed hat with one brown band and a plain dark navy robe with sewn taupe patches. No gold stars, gold trim or decorative gem clasp.",
         "imageAlt": "Pip makes a colored drawing of the fixed basket row while Fern checks it.",
         "state": "Drawing faithfully records left red/middle blue/right yellow; avoid generated letters.",
         "pageDescription": "Pip makes a colored drawing of the fixed basket row while Fern checks it.",
@@ -3187,7 +3204,7 @@ const MANUSCRIPTS = deepFreeze([
       {
         "pageNumber": 3,
         "text": "“May I borrow some ribbon?” Wren asked, and Fern pointed toward a tray. “Take the loose strips,” Fern said. Wren glanced at the baskets before Fern returned to planting.",
-        "imageBrief": "Use the built-in image generator. Clean, clear, bright cartoon illustration with crisp consistent outlines, simple flat colors and readable shapes. No embossed relief, patchy or daubed paint, painterly/gouache effects, canvas grain, paper texture or simulated brushwork. Preserve the approved original Moonwood character identities and proportions, including smooth-skinned Stone rather than the rocky expansion model. Stone is 2–3 times Pip height; Fern has green skin and frond hair; Luna has feather wings and round glasses. Landscape, no generated lettering. Fern’s garden table beneath Hollow Oak in one dry late afternoon; three covered seed baskets stay in fixed left-to-right positions. Fern points clearly at a tray of loose plain strips while Wren looks at the baskets. Exact state: Permission limited to loose strips; tied markers still present.",
+        "imageBrief": "Use the built-in image generator. Clean, clear, bright cartoon illustration with crisp consistent outlines, simple flat colors and readable shapes. No embossed relief, patchy or daubed paint, painterly/gouache effects, canvas grain, paper texture or simulated brushwork. Preserve the approved original Moonwood character identities and proportions, including smooth-skinned Stone rather than the rocky expansion model. Stone is 2–3 times Pip height; Fern has green skin and frond hair; Luna has navy/slate feathers, a cream face and chest, golden eyes, natural feather wings and yellow talons, without eyeglasses. Landscape, no generated lettering. Fern’s garden table beneath Hollow Oak in one dry late afternoon; three covered seed baskets stay in fixed left-to-right positions. Fern points clearly at a tray of loose plain strips while Wren looks at the baskets. Exact state: Permission limited to loose strips; tied markers still present. Wren is a small child witch with curly brown hair, green eyes, a plain navy pointed hat with one brown band and a plain dark navy robe with sewn taupe patches. No gold stars, gold trim or decorative gem clasp.",
         "imageAlt": "Fern points clearly at a tray of loose plain strips while Wren looks at the baskets.",
         "state": "Permission limited to loose strips; tied markers still present.",
         "pageDescription": "Fern points clearly at a tray of loose plain strips while Wren looks at the baskets.",
@@ -3196,7 +3213,7 @@ const MANUSCRIPTS = deepFreeze([
       {
         "pageNumber": 4,
         "text": "Wren untied the red ribbon, then the blue and yellow ones. She knotted them along her banner cord. The baskets stayed in place, but all three now looked alike.",
-        "imageBrief": "Use the built-in image generator. Clean, clear, bright cartoon illustration with crisp consistent outlines, simple flat colors and readable shapes. No embossed relief, patchy or daubed paint, painterly/gouache effects, canvas grain, paper texture or simulated brushwork. Preserve the approved original Moonwood character identities and proportions, including smooth-skinned Stone rather than the rocky expansion model. Stone is 2–3 times Pip height; Fern has green skin and frond hair; Luna has feather wings and round glasses. Landscape, no generated lettering. Fern’s garden table beneath Hollow Oak in one dry late afternoon; three covered seed baskets stay in fixed left-to-right positions. Wren ties the removed colored ribbons onto her banner cord. Exact state: All three basket lids closed and positions unchanged; plain tray untouched.",
+        "imageBrief": "Use the built-in image generator. Clean, clear, bright cartoon illustration with crisp consistent outlines, simple flat colors and readable shapes. No embossed relief, patchy or daubed paint, painterly/gouache effects, canvas grain, paper texture or simulated brushwork. Preserve the approved original Moonwood character identities and proportions, including smooth-skinned Stone rather than the rocky expansion model. Stone is 2–3 times Pip height; Fern has green skin and frond hair; Luna has navy/slate feathers, a cream face and chest, golden eyes, natural feather wings and yellow talons, without eyeglasses. Landscape, no generated lettering. Fern’s garden table beneath Hollow Oak in one dry late afternoon; three covered seed baskets stay in fixed left-to-right positions. Wren ties the removed colored ribbons onto her banner cord. Exact state: All three basket lids closed and positions unchanged; plain tray untouched. Wren is a small child witch with curly brown hair, green eyes, a plain navy pointed hat with one brown band and a plain dark navy robe with sewn taupe patches. No gold stars, gold trim or decorative gem clasp.",
         "imageAlt": "Wren ties the removed colored ribbons onto her banner cord.",
         "state": "All three basket lids closed and positions unchanged; plain tray untouched.",
         "pageDescription": "Wren ties the removed colored ribbons onto her banner cord.",
@@ -3204,8 +3221,8 @@ const MANUSCRIPTS = deepFreeze([
       },
       {
         "pageNumber": 5,
-        "text": "Fern returned for the seeds and stopped at the bare baskets. “Which one goes beside the pond?” Wren lowered the banner. She had borrowed more than decoration.",
-        "imageBrief": "Use the built-in image generator. Clean, clear, bright cartoon illustration with crisp consistent outlines, simple flat colors and readable shapes. No embossed relief, patchy or daubed paint, painterly/gouache effects, canvas grain, paper texture or simulated brushwork. Preserve the approved original Moonwood character identities and proportions, including smooth-skinned Stone rather than the rocky expansion model. Stone is 2–3 times Pip height; Fern has green skin and frond hair; Luna has feather wings and round glasses. Landscape, no generated lettering. Fern’s garden table beneath Hollow Oak in one dry late afternoon; three covered seed baskets stay in fixed left-to-right positions. Fern points to the three unmarked baskets while Wren lowers the banner. Exact state: Consequence is lost information, not angry punishment.",
+        "text": "Fern returned for the seeds and stopped beside the baskets. “Which basket goes beside the pond?” Wren lowered the banner. The ribbons had helped Fern choose the right seeds.",
+        "imageBrief": "Use the built-in image generator. Clean, clear, bright cartoon illustration with crisp consistent outlines, simple flat colors and readable shapes. No embossed relief, patchy or daubed paint, painterly/gouache effects, canvas grain, paper texture or simulated brushwork. Preserve the approved original Moonwood character identities and proportions, including smooth-skinned Stone rather than the rocky expansion model. Stone is 2–3 times Pip height; Fern has green skin and frond hair; Luna has navy/slate feathers, a cream face and chest, golden eyes, natural feather wings and yellow talons, without eyeglasses. Landscape, no generated lettering. Fern’s garden table beneath Hollow Oak in one dry late afternoon; three covered seed baskets stay in fixed left-to-right positions. Fern points to the three unmarked baskets while Wren lowers the banner. Exact state: Consequence is lost information, not angry punishment. Wren is a small child witch with curly brown hair, green eyes, a plain navy pointed hat with one brown band and a plain dark navy robe with sewn taupe patches. No gold stars, gold trim or decorative gem clasp.",
         "imageAlt": "Fern points to the three unmarked baskets while Wren lowers the banner.",
         "state": "Consequence is lost information, not angry punishment.",
         "pageDescription": "Fern points to the three unmarked baskets while Wren lowers the banner.",
@@ -3214,7 +3231,7 @@ const MANUSCRIPTS = deepFreeze([
       {
         "pageNumber": 6,
         "text": "“I can put them back,” Wren said. She tied yellow on the left basket and red in the middle. Fern kept her planting basket on the ground.",
-        "imageBrief": "Use the built-in image generator. Clean, clear, bright cartoon illustration with crisp consistent outlines, simple flat colors and readable shapes. No embossed relief, patchy or daubed paint, painterly/gouache effects, canvas grain, paper texture or simulated brushwork. Preserve the approved original Moonwood character identities and proportions, including smooth-skinned Stone rather than the rocky expansion model. Stone is 2–3 times Pip height; Fern has green skin and frond hair; Luna has feather wings and round glasses. Landscape, no generated lettering. Fern’s garden table beneath Hollow Oak in one dry late afternoon; three covered seed baskets stay in fixed left-to-right positions. Wren attaches two markers in the wrong order while Fern waits. Exact state: Left yellow, middle red, right unmarked; blue still on banner cord.",
+        "imageBrief": "Use the built-in image generator. Clean, clear, bright cartoon illustration with crisp consistent outlines, simple flat colors and readable shapes. No embossed relief, patchy or daubed paint, painterly/gouache effects, canvas grain, paper texture or simulated brushwork. Preserve the approved original Moonwood character identities and proportions, including smooth-skinned Stone rather than the rocky expansion model. Stone is 2–3 times Pip height; Fern has green skin and frond hair; Luna has navy/slate feathers, a cream face and chest, golden eyes, natural feather wings and yellow talons, without eyeglasses. Landscape, no generated lettering. Fern’s garden table beneath Hollow Oak in one dry late afternoon; three covered seed baskets stay in fixed left-to-right positions. Wren attaches two markers in the wrong order while Fern waits. Exact state: Left yellow, middle red, right unmarked; blue still on banner cord. Wren is a small child witch with curly brown hair, green eyes, a plain navy pointed hat with one brown band and a plain dark navy robe with sewn taupe patches. No gold stars, gold trim or decorative gem clasp.",
         "imageAlt": "Wren attaches two markers in the wrong order while Fern waits.",
         "state": "Left yellow, middle red, right unmarked; blue still on banner cord.",
         "pageDescription": "Wren attaches two markers in the wrong order while Fern waits.",
@@ -3223,7 +3240,7 @@ const MANUSCRIPTS = deepFreeze([
       {
         "pageNumber": 7,
         "text": "Fern asked how Wren knew the order was right. Wren could not answer, so she loosened the knots. All three ribbons went flat on the table again.",
-        "imageBrief": "Use the built-in image generator. Clean, clear, bright cartoon illustration with crisp consistent outlines, simple flat colors and readable shapes. No embossed relief, patchy or daubed paint, painterly/gouache effects, canvas grain, paper texture or simulated brushwork. Preserve the approved original Moonwood character identities and proportions, including smooth-skinned Stone rather than the rocky expansion model. Stone is 2–3 times Pip height; Fern has green skin and frond hair; Luna has feather wings and round glasses. Landscape, no generated lettering. Fern’s garden table beneath Hollow Oak in one dry late afternoon; three covered seed baskets stay in fixed left-to-right positions. Wren removes the guessed markers and lays red, blue and yellow ribbons on the table. Exact state: All baskets unmarked again; no seeds moved or planted.",
+        "imageBrief": "Use the built-in image generator. Clean, clear, bright cartoon illustration with crisp consistent outlines, simple flat colors and readable shapes. No embossed relief, patchy or daubed paint, painterly/gouache effects, canvas grain, paper texture or simulated brushwork. Preserve the approved original Moonwood character identities and proportions, including smooth-skinned Stone rather than the rocky expansion model. Stone is 2–3 times Pip height; Fern has green skin and frond hair; Luna has navy/slate feathers, a cream face and chest, golden eyes, natural feather wings and yellow talons, without eyeglasses. Landscape, no generated lettering. Fern’s garden table beneath Hollow Oak in one dry late afternoon; three covered seed baskets stay in fixed left-to-right positions. Wren removes the guessed markers and lays red, blue and yellow ribbons on the table. Exact state: All baskets unmarked again; no seeds moved or planted. Wren is a small child witch with curly brown hair, green eyes, a plain navy pointed hat with one brown band and a plain dark navy robe with sewn taupe patches. No gold stars, gold trim or decorative gem clasp.",
         "imageAlt": "Wren removes the guessed markers and lays red, blue and yellow ribbons on the table.",
         "state": "All baskets unmarked again; no seeds moved or planted.",
         "pageDescription": "Wren removes the guessed markers and lays red, blue and yellow ribbons on the table.",
@@ -3232,7 +3249,7 @@ const MANUSCRIPTS = deepFreeze([
       {
         "pageNumber": 8,
         "text": "Pip put down his pencil. His drawing still showed the colors, though the real baskets had lost them. Wren pulled her chair beside him and looked closely.",
-        "imageBrief": "Use the built-in image generator. Clean, clear, bright cartoon illustration with crisp consistent outlines, simple flat colors and readable shapes. No embossed relief, patchy or daubed paint, painterly/gouache effects, canvas grain, paper texture or simulated brushwork. Preserve the approved original Moonwood character identities and proportions, including smooth-skinned Stone rather than the rocky expansion model. Stone is 2–3 times Pip height; Fern has green skin and frond hair; Luna has feather wings and round glasses. Landscape, no generated lettering. Fern’s garden table beneath Hollow Oak in one dry late afternoon; three covered seed baskets stay in fixed left-to-right positions. Pip shows the earlier colored drawing to Wren. Exact state: Original drawing unchanged; table row matches positions.",
+        "imageBrief": "Use the built-in image generator. Clean, clear, bright cartoon illustration with crisp consistent outlines, simple flat colors and readable shapes. No embossed relief, patchy or daubed paint, painterly/gouache effects, canvas grain, paper texture or simulated brushwork. Preserve the approved original Moonwood character identities and proportions, including smooth-skinned Stone rather than the rocky expansion model. Stone is 2–3 times Pip height; Fern has green skin and frond hair; Luna has navy/slate feathers, a cream face and chest, golden eyes, natural feather wings and yellow talons, without eyeglasses. Landscape, no generated lettering. Fern’s garden table beneath Hollow Oak in one dry late afternoon; three covered seed baskets stay in fixed left-to-right positions. Pip shows the earlier colored drawing to Wren. Exact state: Original drawing unchanged; table row matches positions. Wren is a small child witch with curly brown hair, green eyes, a plain navy pointed hat with one brown band and a plain dark navy robe with sewn taupe patches. No gold stars, gold trim or decorative gem clasp.",
         "imageAlt": "Pip shows the earlier colored drawing to Wren.",
         "state": "Original drawing unchanged; table row matches positions.",
         "pageDescription": "Pip shows the earlier colored drawing to Wren.",
@@ -3241,7 +3258,7 @@ const MANUSCRIPTS = deepFreeze([
       {
         "pageNumber": 9,
         "text": "The drawing showed red on the left basket beside the crooked root. Wren checked that root, then tied the red ribbon back. She kept the drawing open.",
-        "imageBrief": "Use the built-in image generator. Clean, clear, bright cartoon illustration with crisp consistent outlines, simple flat colors and readable shapes. No embossed relief, patchy or daubed paint, painterly/gouache effects, canvas grain, paper texture or simulated brushwork. Preserve the approved original Moonwood character identities and proportions, including smooth-skinned Stone rather than the rocky expansion model. Stone is 2–3 times Pip height; Fern has green skin and frond hair; Luna has feather wings and round glasses. Landscape, no generated lettering. Fern’s garden table beneath Hollow Oak in one dry late afternoon; three covered seed baskets stay in fixed left-to-right positions. Wren matches the left basket to the crooked root in Pip’s drawing. Exact state: Left red restored from evidence; middle/right bare.",
+        "imageBrief": "Use the built-in image generator. Clean, clear, bright cartoon illustration with crisp consistent outlines, simple flat colors and readable shapes. No embossed relief, patchy or daubed paint, painterly/gouache effects, canvas grain, paper texture or simulated brushwork. Preserve the approved original Moonwood character identities and proportions, including smooth-skinned Stone rather than the rocky expansion model. Stone is 2–3 times Pip height; Fern has green skin and frond hair; Luna has navy/slate feathers, a cream face and chest, golden eyes, natural feather wings and yellow talons, without eyeglasses. Landscape, no generated lettering. Fern’s garden table beneath Hollow Oak in one dry late afternoon; three covered seed baskets stay in fixed left-to-right positions. Wren matches the left basket to the crooked root in Pip’s drawing. Exact state: Left red restored from evidence; middle/right bare. Wren is a small child witch with curly brown hair, green eyes, a plain navy pointed hat with one brown band and a plain dark navy robe with sewn taupe patches. No gold stars, gold trim or decorative gem clasp.",
         "imageAlt": "Wren matches the left basket to the crooked root in Pip’s drawing.",
         "state": "Left red restored from evidence; middle/right bare.",
         "pageDescription": "Wren matches the left basket to the crooked root in Pip’s drawing.",
@@ -3250,16 +3267,16 @@ const MANUSCRIPTS = deepFreeze([
       {
         "pageNumber": 10,
         "text": "Blue belonged in the middle, and yellow belonged on the right. Wren replaced both markers. Pip checked every ribbon against his drawing before Fern lifted a basket.",
-        "imageBrief": "Pip checks the restored red, blue and yellow basket markers against his drawing while Wren rests her hands on the yellow basket’s handle.",
-        "imageAlt": "Pip checks the restored red, blue and yellow basket markers against his drawing while Wren rests her hands on the yellow basket’s handle.",
-        "state": "Pip checks the restored red, blue and yellow basket markers against his drawing while Wren rests her hands on the yellow basket’s handle.",
-        "pageDescription": "Pip checks the restored red, blue and yellow basket markers against his drawing while Wren rests her hands on the yellow basket’s handle.",
+        "imageBrief": "Pip checks the restored red, blue and yellow basket markers against his drawing while Wren rests her hands on the yellow basket’s handle. Wren is a small child witch with curly brown hair, green eyes, a plain navy pointed hat with one brown band and a plain dark navy robe with sewn taupe patches. No gold stars, gold trim or decorative gem clasp.",
+        "imageAlt": "Pip checks the restored red, blue and yellow basket markers against his drawing while Wren rests her hands on the yellow basket’s handle. Wren is a small child witch with curly brown hair, green eyes, a plain navy pointed hat with one brown band and a plain dark navy robe with sewn taupe patches. No gold stars, gold trim or decorative gem clasp.",
+        "state": "Pip checks the restored red, blue and yellow basket markers against his drawing while Wren rests her hands on the yellow basket’s handle. Wren is a small child witch with curly brown hair, green eyes, a plain navy pointed hat with one brown band and a plain dark navy robe with sewn taupe patches. No gold stars, gold trim or decorative gem clasp.",
+        "pageDescription": "Pip checks the restored red, blue and yellow basket markers against his drawing while Wren rests her hands on the yellow basket’s handle. Wren is a small child witch with curly brown hair, green eyes, a plain navy pointed hat with one brown band and a plain dark navy robe with sewn taupe patches. No gold stars, gold trim or decorative gem clasp.",
         "embeddedImageText": ""
       },
       {
         "pageNumber": 11,
         "text": "Fern took the correctly marked basket to the pond bed. Wren carried the other two behind her. This time she waited for Fern to show where each belonged.",
-        "imageBrief": "Fern carries the red basket toward the pond bed; Wren carries the blue and yellow baskets behind. Pip has set down his pencil and turned the drawing face down. After using the drawing to restore the markers on10, Pip puts down his pencil and turns the one paper face down on11; the same blank back remains visible12–14. Seed baskets first move on11, red by pond left and blue/yellow beside right beds.",
+        "imageBrief": "Fern carries the red basket toward the pond bed; Wren carries the blue and yellow baskets behind. Pip has set down his pencil and turned the drawing face down. After using the drawing to restore the markers on10, Pip puts down his pencil and turns the one paper face down on11; the same blank back remains visible12–14. Seed baskets first move on11, red by pond left and blue/yellow beside right beds. Wren is a small child witch with curly brown hair, green eyes, a plain navy pointed hat with one brown band and a plain dark navy robe with sewn taupe patches. No gold stars, gold trim or decorative gem clasp.",
         "imageAlt": "Fern carries the red basket toward the pond bed; Wren carries the blue and yellow baskets behind. Pip has set down his pencil and turned the drawing face down.",
         "state": "After using the drawing to restore the markers on10, Pip puts down his pencil and turns the one paper face down on11; the same blank back remains visible12–14. Seed baskets first move on11, red by pond left and blue/yellow beside right beds.",
         "pageDescription": "Fern carries the red basket toward the pond bed; Wren carries the blue and yellow baskets behind. Pip has set down his pencil and turned the drawing face down.",
@@ -3267,8 +3284,8 @@ const MANUSCRIPTS = deepFreeze([
       },
       {
         "pageNumber": 12,
-        "text": "Back at the table, Wren opened the tray she had missed. Plain cloth strips lay inside. She rubbed one between her fingers, then tied it to the empty banner cord.",
-        "imageBrief": "Wren knots a plain cream strip onto the bare cord while all three colored markers remain on their seed baskets in the garden. After using the drawing to restore the markers on10, Pip puts down his pencil and turns the one paper face down on11; the same blank back remains visible12–14. Seed baskets first move on11, red by pond left and blue/yellow beside right beds.",
+        "text": "Back at the table, Wren looked inside the tray she had missed. Plain cloth strips lay inside. She rubbed one between her fingers, then tied it to the empty banner cord.",
+        "imageBrief": "Wren knots a plain cream strip onto the bare cord while all three colored markers remain on their seed baskets in the garden. After using the drawing to restore the markers on10, Pip puts down his pencil and turns the one paper face down on11; the same blank back remains visible12–14. Seed baskets first move on11, red by pond left and blue/yellow beside right beds. Wren is a small child witch with curly brown hair, green eyes, a plain navy pointed hat with one brown band and a plain dark navy robe with sewn taupe patches. No gold stars, gold trim or decorative gem clasp.",
         "imageAlt": "Wren knots a plain cream strip onto the bare cord while all three colored markers remain on their seed baskets in the garden.",
         "state": "After using the drawing to restore the markers on10, Pip puts down his pencil and turns the one paper face down on11; the same blank back remains visible12–14. Seed baskets first move on11, red by pond left and blue/yellow beside right beds.",
         "pageDescription": "Wren knots a plain cream strip onto the bare cord while all three colored markers remain on their seed baskets in the garden.",
@@ -3277,7 +3294,7 @@ const MANUSCRIPTS = deepFreeze([
       {
         "pageNumber": 13,
         "text": "Pip helped add more plain strips. The breeze lifted them above the table. Wren held up the banner, and Fern stepped underneath without moving a single basket marker.",
-        "imageBrief": "Wren and Pip hold a plain-cloth banner above the table while Fern passes beneath it on the grass. After using the drawing to restore the markers on10, Pip puts down his pencil and turns the one paper face down on11; the same blank back remains visible12–14. Seed baskets first move on11, red by pond left and blue/yellow beside right beds.",
+        "imageBrief": "Wren and Pip hold a plain-cloth banner above the table while Fern passes beneath it on the grass. After using the drawing to restore the markers on10, Pip puts down his pencil and turns the one paper face down on11; the same blank back remains visible12–14. Seed baskets first move on11, red by pond left and blue/yellow beside right beds. Wren is a small child witch with curly brown hair, green eyes, a plain navy pointed hat with one brown band and a plain dark navy robe with sewn taupe patches. No gold stars, gold trim or decorative gem clasp.",
         "imageAlt": "Wren and Pip hold a plain-cloth banner above the table while Fern passes beneath it on the grass.",
         "state": "After using the drawing to restore the markers on10, Pip puts down his pencil and turns the one paper face down on11; the same blank back remains visible12–14. Seed baskets first move on11, red by pond left and blue/yellow beside right beds.",
         "pageDescription": "Wren and Pip hold a plain-cloth banner above the table while Fern passes beneath it on the grass.",
@@ -3285,8 +3302,8 @@ const MANUSCRIPTS = deepFreeze([
       },
       {
         "pageNumber": 14,
-        "text": "One loose strip tickled the tip of Wren’s hat. She ducked beneath it and laughed. The banner could flutter all it liked; Fern’s colors stayed with the seeds.",
-        "imageBrief": "One cream strip on the thin banner cord brushes Wren’s hat while the three marked seed baskets remain in their garden beds. After using the drawing to restore the markers on10, Pip puts down his pencil and turns the one paper face down on11; the same blank back remains visible12–14. Seed baskets first move on11, red by pond left and blue/yellow beside right beds.",
+        "text": "The wind blew a loose strip against Wren’s hat. She ducked and laughed. Her banner moved in the breeze, and each basket still had its colored ribbon.",
+        "imageBrief": "One cream strip on the thin banner cord brushes Wren’s hat while the three marked seed baskets remain in their garden beds. After using the drawing to restore the markers on10, Pip puts down his pencil and turns the one paper face down on11; the same blank back remains visible12–14. Seed baskets first move on11, red by pond left and blue/yellow beside right beds. Wren is a small child witch with curly brown hair, green eyes, a plain navy pointed hat with one brown band and a plain dark navy robe with sewn taupe patches. No gold stars, gold trim or decorative gem clasp.",
         "imageAlt": "One cream strip on the thin banner cord brushes Wren’s hat while the three marked seed baskets remain in their garden beds.",
         "state": "After using the drawing to restore the markers on10, Pip puts down his pencil and turns the one paper face down on11; the same blank back remains visible12–14. Seed baskets first move on11, red by pond left and blue/yellow beside right beds.",
         "pageDescription": "One cream strip on the thin banner cord brushes Wren’s hat while the three marked seed baskets remain in their garden beds.",
@@ -3332,7 +3349,7 @@ const MANUSCRIPTS = deepFreeze([
         },
         {
           "word": "decoration",
-          "meaning": "something added for its appearance"
+          "meaning": "something added to make a place or thing look pretty"
         },
         {
           "word": "order",
@@ -3342,8 +3359,9 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Read together without pre-explaining the mistake. Retell the permission, wrong assumption, failed guess and checked repair.",
       "fluency": "Pause at Wren’s failure to answer on page 7, then let the checked repair paragraphs flow in linked phrases."
     },
-    "reviewedTextFingerprint": "fnv1a64:b1550ade377f2bc5",
-    "reviewedManuscriptSha256": "448418e3317ffa8a8c0bf83bffaa19c4f3c695488f2e4d79b3b73cc864d838a5",
+    "reviewedAt": "2026-11-09",
+    "reviewedTextFingerprint": "fnv1a64:5b1df3863b217ceb",
+    "reviewedManuscriptSha256": "23969de820b0e2cc5e22449c2139df773b91c574fa60afcef540ae8e6810ecd2",
     "readingMode": "supported-read-together",
     "additionalPrerequisites": []
   },
@@ -3554,6 +3572,7 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Read together, tracking the seven stone pieces and explaining why assembling at the destination works.",
       "fluency": "Reread the gate scene with urgency in Pip’s warning, then slow for Stone’s careful rearrangement."
     },
+    "reviewedAt": "2026-11-09",
     "reviewedTextFingerprint": "fnv1a64:9a12d22bd00c2c93",
     "reviewedManuscriptSha256": "06caf96e74877bf7bb79bdf71cd86565d437c17b63329e7e23a50a5114c5da4a",
     "readingMode": "supported-read-together",
@@ -3662,7 +3681,7 @@ const MANUSCRIPTS = deepFreeze([
       },
       {
         "pageNumber": 3,
-        "text": "Dot follows a blue pipe back to a small water tower. “In some towns, pumps lift water into a high tank,” Dad explains. “Gravity helps it flow from there through pipes.” Dot traces the route from the tower toward the houses. The tall tank now has a job.",
+        "text": "Dot follows a blue pipe back to a small water tower. “In some towns, pumps lift water into a high tank,” Dad explains. “Gravity helps it flow from there through pipes.” Dot traces the route from the tower toward the houses. Water flows down from the tank.",
         "imageBrief": "Use the built-in image generator. Clean, clear, bright cartoon illustration with crisp consistent outlines, simple flat colors and readable shapes. No embossed relief, patchy or daubed paint, painterly/gouache effects, canvas grain, paper texture or simulated brushwork. Preserve locked Small Steps character identities, clothes and proportions, translating the rendering to this clean cartoon style. Landscape, full composition with action inset; no generated text, labels, numbers or pseudo-writing. A community discovery room with a large removable-top street model; Sam, Dot and Dad remain beside the model throughout. Dot traces the blue supply route from the tower to the two model houses. Exact state: Tower elevated; model pump on source side; no sewer connection to tower.",
         "imageAlt": "Dot points to the blue water tower; a cutaway in the small treatment building reveals a pump inside.",
         "state": "Dot stands on the left and Sam on the right. The explanatory cutaway reveals the existing building's pump, without adding an external pump. The center panel remains aside at back right.",
@@ -3716,7 +3735,7 @@ const MANUSCRIPTS = deepFreeze([
       },
       {
         "pageNumber": 9,
-        "text": "Sam notices a model worker beside a loose road panel. “How do workers find the right pipe?” he asks. “They use plans and special tools,” Dad says. Trained crews locate buried equipment, check problems, and make repairs. A street can look still while people keep its hidden systems working.",
+        "text": "Sam notices a model worker beside a loose road panel. “How do workers find the right pipe?” he asks. “They use maps and special tools,” Dad says. The workers find pipes under the road. They check for leaks and fix broken pipes.",
         "imageBrief": "Use the built-in image generator. Clean, clear, bright cartoon illustration with crisp consistent outlines, simple flat colors and readable shapes. No embossed relief, patchy or daubed paint, painterly/gouache effects, canvas grain, paper texture or simulated brushwork. Preserve locked Small Steps character identities, clothes and proportions, translating the rendering to this clean cartoon style. Landscape, full composition with action inset; no generated text, labels, numbers or pseudo-writing. A community discovery room with a large removable-top street model; Sam, Dot and Dad remain beside the model throughout. Dad shows a simple route plan beside a model maintenance worker and a loose road panel. Exact state: Children remain at safe display; no real digging, open trench or operational tool use.",
         "imageAlt": "Dad shows a four-row route plan beside a tiny model worker in a yellow hardhat.",
         "state": "Dad holds the single plan with two hands. Its four rows show blue water, brown drainage, gray rainwater and orange electricity with picture icons. Sam points to it. The worker first appears on the back-right green model grass.",
@@ -3725,7 +3744,7 @@ const MANUSCRIPTS = deepFreeze([
       },
       {
         "pageNumber": 10,
-        "text": "“One big tunnel for everything?” Sam asks. Dot shakes her head and follows the separate model routes. Drinking water comes in, used water goes away, and the cable carries electricity. Their jobs differ, so their connections matter. Dot puts her finger between the blue and brown pipes. There is a gap all along.",
+        "text": "“One big tunnel for everything?” Sam asks. Dot follows the separate model routes. Drinking water comes in, used water goes away, and the cable carries electricity. The cable is separate from the pipes. Dot puts her finger between the blue and brown pipes. There is a gap all along.",
         "imageBrief": "Use the built-in image generator. Clean, clear, bright cartoon illustration with crisp consistent outlines, simple flat colors and readable shapes. No embossed relief, patchy or daubed paint, painterly/gouache effects, canvas grain, paper texture or simulated brushwork. Preserve locked Small Steps character identities, clothes and proportions, translating the rendering to this clean cartoon style. Landscape, full composition with action inset; no generated text, labels, numbers or pseudo-writing. A community discovery room with a large removable-top street model; Sam, Dot and Dad remain beside the model throughout. Dot points to separated supply, sewer and cable routes under the same road corridor. Exact state: No single combined utility tube; each route remains attached to its intended endpoint.",
         "imageAlt": "Dot places her pointing fingertip in the tan gap between the blue supply pipe and brown drainpipe.",
         "state": "Her fingertip touches neither pipe. The plan now lies face down, blank back visible, at the back left of the table. The worker and spare road panel remain at the back right; the center road gap is empty.",
@@ -3804,8 +3823,9 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Read together in short sections. Let the child read selected printed words and sentences, then explain one complete route with its start and destination.",
       "fluency": "Reread one paragraph at a time, grouping explanations into meaning units. Narration or word help remains supported practice, not evidence of independent reading."
     },
-    "reviewedTextFingerprint": "fnv1a64:ba5d6cb74aaf2747",
-    "reviewedManuscriptSha256": "33e71ec8d18e20aaad74f608e1c060407f87da3ed38ac3c390e6676930973cbc",
+    "reviewedAt": "2026-11-09",
+    "reviewedTextFingerprint": "fnv1a64:a1a30570eeddc23b",
+    "reviewedManuscriptSha256": "670fc3df5f9ac2ae65faf13d75b18784d17b68df53c653233205abaa3927c741",
     "readingMode": "supported-read-together",
     "additionalPrerequisites": []
   }
@@ -3839,7 +3859,8 @@ export const GUIDED_READING_BRIGHT_IDEAS_METADATA = deepFreeze(Object.fromEntrie
 
 export const GUIDED_READING_BRIGHT_IDEAS_LEVEL_REVIEWS = deepFreeze(Object.fromEntries(
   GUIDED_READING_BRIGHT_IDEAS_BOOKS.map(book => [book.id, {
-    appReadingLevel: book.appLevel, rationale: book.levelRationale, reviewedAt: "2026-10-29",
+    appReadingLevel: book.appLevel, rationale: book.levelRationale, reviewedAt: book.reviewedAt || "2026-10-29",
+    ...(book.levelDimensionObservations ? { dimensionObservations: book.levelDimensionObservations } : {}),
     reviewMethod: "codex-full-manuscript-editorial-review", reviewedTextFingerprint: book.reviewedTextFingerprint
   }])
 ));

@@ -25,8 +25,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T11:58:44.745907+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "5f85e7cf0ab8a29174be50f1f8e02b10e1186666429ba45d4b11197f616d28d9",
-    "note": "Native PNG and installed WebP directly inspected. Dedicated curb introduction; opposing blue/right and red/left traffic, orange stop hand, all people on sidewalk. Clear flat art, intact essential shapes and safe framing; no unwanted lettering."
+    "note": "Native PNG and installed WebP directly inspected. Dedicated curb introduction; opposing blue/right and red/left traffic, orange stop hand, all people on sidewalk. Clear flat art, intact essential shapes and safe framing; no unwanted lettering.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-a.json",
+    "bookId": "world-discovery-a-13",
+    "sha256": "5b67b54e6a8b6a75d335183bcf36b831b659f6db8b2c6143c21fda4086a941e9",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

@@ -45,6 +45,9 @@ test("current context clips bind real source pages and bytes and share resolutio
     assert.ok(readingSessionMediaUrls({ ...book, pages: [{ ...page, words: [{ text: row.word }] }] }, [page.pageNumber]).includes(row.audioPath));
   }
   const bow = GUIDED_READING_CONTEXTUAL_WORD_AUDIO.filter(row => row.word === "bow");
-  assert.deepEqual(new Set(bow.map(row => row.pronunciation)), new Set(["boʊ", "baʊ"]));
-  assert.equal(new Set(bow.map(row => row.audioPath)).size, 2);
+  assert.deepEqual(bow, [], "repaired ribbon/body-bow pages no longer consume either contextual selector");
+  const remainingBowUses = books.flatMap(book => [...book.pages, { text: book.title, pageNumber: "title" }]
+    .filter(page => (page.text.toLowerCase().match(/[a-z0-9]+(?:['’][a-z0-9]+)*(?:-[a-z0-9]+(?:['’][a-z0-9]+)*)*/g) || []).includes("bow"))
+    .map(page => `${book.id}:${page.pageNumber}`));
+  assert.deepEqual(remainingBowUses, [], "an actual bow use would still need its exact pronunciation review");
 });

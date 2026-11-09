@@ -22,8 +22,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T05:09:04.560963+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "b431cd44ae6874b4bd1fd3c360533e354a92cc9d414f0fb218af4c764af9b199",
-    "note": "Clear elevated view preserves exact color groups, each with both sizes; four holes on every button."
+    "note": "Clear elevated view preserves exact color groups, each with both sizes; four holes on every button.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-b.json",
+    "bookId": "world-discovery-b-09",
+    "sha256": "b587adb07a59c582086fccca29f0e836828a7fd4d0271753dd1828446ff82410",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

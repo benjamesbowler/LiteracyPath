@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "d715ea73935b7d413af5acd0c18b48b2bef432c5c71320dbf2065fea726447d4",
     "note": "Direct inspection after card/continuity repairs: same small card remains on table outside closed box; four circle wheels retained with added blue body, chimney and oval loop track; pencil at chimney, actual train beside.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-d.json",
+    "bookId": "world-discovery-d-01",
+    "sha256": "c03f9e9b25bc79bb3b748737fc3a295ac49f4e2f9a11173bda07c088f669dc3c",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

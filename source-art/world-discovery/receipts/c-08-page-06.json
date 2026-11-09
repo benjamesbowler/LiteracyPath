@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "6def67a4547672af00e59bc366ed99eaccaf65c30359da20edc12ec5135058ac",
     "note": "Direct inspection: one adult pulls abdomen from split dorsal skin, gripping reed; soft folded overlapping wings hang downward, old shell remains empty and attached; no cocoon or extra insect.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-c.json",
+    "bookId": "world-discovery-c-08",
+    "sha256": "c5d5cb8270ca81d7b055ab2f2c494395f136188f4707ae29653f8f410342970b",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

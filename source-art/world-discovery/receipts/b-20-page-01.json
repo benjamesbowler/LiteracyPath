@@ -24,14 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "status": "reviewed",
-    "reviewer": "author_b_c",
-    "reviewedAt": "2026-11-07T16:42:48.188900+00:00",
-    "outputSha256": "3cdb1cffdaa5b002e9e53bda5d6f7deef059f093fc59ad0be99713337f809e0c",
-    "scope": "Production-author direct native and final installed WebP inspection with complete ordered prose/state, physical-scene and framing review; independent QA pending.",
-    "notes": "Zoe closes one tap, one drop remains; empty yellow cup aside; Kit observes; no adult. Final 3:2 framing extends floor naturally with full feet and correct contact.",
     "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
     "sha256": "3cdb1cffdaa5b002e9e53bda5d6f7deef059f093fc59ad0be99713337f809e0c",
-    "note": "Zoe closes one tap, one drop remains; empty yellow cup aside; Kit observes; no adult. Final 3:2 framing extends floor naturally with full feet and correct contact."
+    "note": "Zoe closes one tap, one drop remains; empty yellow cup aside; Kit observes; no adult. Final 3:2 framing extends floor naturally with full feet and correct contact.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-b.json",
+    "bookId": "world-discovery-b-20",
+    "sha256": "92eaaf25eedbef9efc455f395f0cccab7e5bc8efc5bed9a0f560345c93381a12",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

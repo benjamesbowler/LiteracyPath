@@ -33,10 +33,11 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T18:40:53.328Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "983958b79b0dcbb81ff162169e3f530a2a1cd82aec90756a62d43b284c7d3652",
     "note": "Framing repair generated native and installed full WebP directly inspected against complete manuscript and retained p4/p8. Full worker head/shoes inset, open loaded tray remains supported at van rear; separate lid visibly rests inside. One focal green-star letter and other mail preserved; coherent van, floor and natural lifting pose.",
-    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
   },
   "generationManuscriptSource": {
     "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/world-discovery-expansion/manuscripts/first-50",
@@ -45,5 +46,12 @@
     "firstNumber": 11,
     "lastNumber": 20
   },
-  "manuscriptRebindNote": "Page5 imageAlt and pageDescription aligned with unchanged authored open-tray brief/state and separate lid. Printed prose, image meaning, and exact original generation prompts unchanged; original generation manuscript source retained."
+  "manuscriptRebindNote": "Page5 imageAlt and pageDescription aligned with unchanged authored open-tray brief/state and separate lid. Printed prose, image meaning, and exact original generation prompts unchanged; original generation manuscript source retained.",
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-b.json",
+    "bookId": "world-discovery-b-13",
+    "sha256": "731e2a7910fdc66e05d92ea872f09c5a03911ef681278a250e3e9f584ed6ddd2",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
+  }
 }

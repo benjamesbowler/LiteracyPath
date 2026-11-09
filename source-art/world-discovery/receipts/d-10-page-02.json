@@ -18,8 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T04:25:52.339Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "92ecf8f0198c4793ff2502d5e910a9213e35c5fcaa24fa62de9eecfc1e8f75d4",
-    "note": "Daylight reaches top solar panel from one Sun; intact lamp is off without emitted light."
+    "note": "Daylight reaches top solar panel from one Sun; intact lamp is off without emitted light.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-d.json",
+    "bookId": "world-discovery-d-10",
+    "sha256": "ca01455632d2ab41b0d96149fc43ef59a70841e5fb409f384c603d9dc77bd850",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

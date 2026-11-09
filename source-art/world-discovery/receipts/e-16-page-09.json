@@ -24,8 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "sha256": "f5454caf6d1be8cef7920865f50114f6457b8355d089fa1a34b1c8f8ba697302",
     "method": "codex-direct-image-inspection",
-    "note": "Same three bright stars with exactly two faint dotted mental-guide segments, natural children and school yard, broad safe margins."
+    "reviewedAt": "2026-11-09",
+    "sha256": "f5454caf6d1be8cef7920865f50114f6457b8355d089fa1a34b1c8f8ba697302",
+    "note": "Same three bright stars with exactly two faint dotted mental-guide segments, natural children and school yard, broad safe margins.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-e.json",
+    "bookId": "world-discovery-e-16",
+    "sha256": "e8dc48d61762e86c1f86b408af60926486ab6890413bd10757ef502693722ef7",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

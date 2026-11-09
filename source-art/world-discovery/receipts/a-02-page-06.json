@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "33e7c2b911bff04c1d29e338552dbdff4d9c97b6a318ae394d95ea8f417f3f5b",
     "note": "Zoe gives the single crayon to Kit; his left sheet is entirely blank; completed kite stays right. Future balloon was removed by direct edit.",
-    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-a.json",
+    "bookId": "world-discovery-a-02",
+    "sha256": "90227228cf648d5840836fd6bd3b38955ea1abbde0fc52706dda9933c9024ceb",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

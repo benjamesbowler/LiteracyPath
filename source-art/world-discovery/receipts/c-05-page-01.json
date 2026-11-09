@@ -22,9 +22,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "8668d4fc014d50b33903e59623b5151ae304a290997fa0f6ef12117f595e7404",
     "note": "Directly inspected: Kit at real entrance studies map; real and mapped single fork, left flowerbed, central bench, right tree before distant pond agree.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-c.json",
+    "bookId": "world-discovery-c-05",
+    "sha256": "82042aa026d7c61c15e92b344417a2a8a47d6faa1613d44970635301753cb799",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

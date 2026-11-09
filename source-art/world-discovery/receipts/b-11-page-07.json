@@ -2,14 +2,14 @@
   "bookId": "world-discovery-b-11",
   "slot": "page-07",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-07T10:55:52.529Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-3531ec1a-a435-47b5-8a17-e2c4f3b7eb74.png",
-  "sourceSha256": "c3f3d8248404bfcb8d9487d0087c1749208b3789bf9cf13bccfc9edcc2bccb59",
+  "generatedAt": "2026-11-09",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a10981-fcf4-7523-bda5-790b073481a6/exec-e6828271-a056-4625-984a-29334f38910a.png",
+  "sourceSha256": "232decab7eea58bb9f7771e0a1a203e66afcc0b1aed49935fa5ea6019312c7e2",
   "output": "public/guided-reading/world-discovery/b-11/page-07.webp",
-  "outputSha256": "a1cd2eb346217e6abaeb9f805ff38d226306cbe96cad868eed208ef9c674ae0b",
+  "outputSha256": "a2dba059e2e303b4be3b7ed244e5b9280c43943e1414f9f020b8ea54a8f45a92",
   "width": 1536,
   "height": 1024,
-  "prompt": "Use case: precise-object-edit. Edit supplied image 1 only; images 2\u20133 are fixed character/book references. Preserve every character pose, expression, hand contact, exact block count and road state, red truck position and scene composition relationships. Widen the view by about 15 percent, extending the existing floor and wall naturally, so both children's ENTIRE shoes/hair/hands and all story props are at least 8 percent away from every canvas edge. Specifically no shoe should lie near the left or right edge. No white border or framed inset: still one full-bleed 3:2 landscape classroom scene. Keep clean flat color fills and crisp outlines, no grain/noise or added texture. Do not add/remove/move blocks relative to one another, do not change the gap or its filled state, do not add extra people or writing. The source image is otherwise correct.",
+  "prompt": "Use case: illustration-story. Repair the first picture only. Second picture shows the final completed toy road for continuity; third locks Kit and Zoe identity. Produce one finished 3:2 landscape picture-book illustration. Keep Kit off his chair and bending down to pick up the single eighth unused loose block below the road. Zoe watches him, kneeling. His hand touches only that loose block; he has not placed it into the road yet. ESSENTIAL EXACT COUNT AND GAP: there are exactly EIGHT equal-size tan rectangular wooden blocks in the whole picture. Seven blocks are already arranged as the same road seen in reference two, except ONE straight road block immediately BEFORE the far-right turning block is missing, leaving a clear gap exactly one block long. Specifically: SIX straight blocks touch end-to-end from left to right; then ONE empty block-sized space; then the SEVENTH placed block turned ninety degrees to form the far-right corner. This far-right corner is already on the same road, clearly aligned with the row across the single gap, not another loose block. The EIGHTH block is the single unused loose one below the road. The final picture's completed road thus needs only this one block inserted. Make the gap and count unmistakable. Keep the red truck at the left start, green rug, window, shelf and plain wooden chair. Preserve character identities, clothing and poses appropriate to this page. Bold clean dark outlines, flat warm colors, smooth small cel-shadows, no texture or grain. No labels, digits, text, arrows, extra blocks or objects, borders or panels.",
   "references": [
     {
       "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-49596f03-7d54-4cb9-ac78-5249171edf9e.png",
@@ -32,14 +32,39 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "status": "reviewed",
-    "reviewer": "author_b_c",
-    "reviewedAt": "2026-11-07T10:56:20.744Z",
-    "outputSha256": "a1cd2eb346217e6abaeb9f805ff38d226306cbe96cad868eed208ef9c674ae0b",
-    "scope": "direct final WebP and full ordered sequence review; production-author review, not independent approval",
-    "notes": "Kit stands and reaches toward the still-loose eighth block. Six straight and seventh turn block remain apart; empty chair behind. No premature filling. Corrected wide framing retains feet. Compared with exact text/state and neighboring pages. No visible pseudo-writing, extra limbs, fused hands or incorrect cast clothes. Independent final QA remains pending.",
     "method": "codex-direct-image-inspection",
-    "sha256": "a1cd2eb346217e6abaeb9f805ff38d226306cbe96cad868eed208ef9c674ae0b",
-    "note": "Kit stands and reaches toward the still-loose eighth block. Six straight and seventh turn block remain apart; empty chair behind. No premature filling. Corrected wide framing retains feet. Compared with exact text/state and neighboring pages. No visible pseudo-writing, extra limbs, fused hands or incorrect cast clothes. Independent final QA remains pending."
+    "reviewedAt": "2026-11-09",
+    "sha256": "a2dba059e2e303b4be3b7ed244e5b9280c43943e1414f9f020b8ea54a8f45a92",
+    "note": "Kit stands and reaches toward the still-loose eighth block. Six straight and seventh turn block remain apart; empty chair behind. No premature filling. Corrected wide framing retains feet. Compared with exact text/state and neighboring pages. No visible pseudo-writing, extra limbs, fused hands or incorrect cast clothes. Independent final QA remains pending.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "priorGeneration": {
+    "outputSha256": "a1cd2eb346217e6abaeb9f805ff38d226306cbe96cad868eed208ef9c674ae0b",
+    "sourceSha256": "c3f3d8248404bfcb8d9487d0087c1749208b3789bf9cf13bccfc9edcc2bccb59",
+    "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-3531ec1a-a435-47b5-8a17-e2c4f3b7eb74.png",
+    "generatedAt": "2026-11-07T10:55:52.529Z"
+  },
+  "inputReferences": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/b-11/page-07.webp",
+      "sha256": "a1cd2eb346217e6abaeb9f805ff38d226306cbe96cad868eed208ef9c674ae0b"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/b-11/page-08.webp",
+      "sha256": "313372bada5aec0ad328d56340b48253459d4c80ae8581430e5ae5fdf753aefc"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/cast-v1.png",
+      "sha256": "e2bf44049656b34df98dcc7bd88fa1e14e97e61530edecd36b9b029f5f027e15"
+    }
+  ],
+  "remediationEvidence": "source-art/world-discovery/remediation/2026-11-09/image-repairs.json",
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-b.json",
+    "bookId": "world-discovery-b-11",
+    "sha256": "8337686b7d69f43090784df480919175220625123fd601a897d6276b2dfcaa93",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

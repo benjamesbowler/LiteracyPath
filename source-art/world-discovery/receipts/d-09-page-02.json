@@ -22,8 +22,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T04:25:52.336Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "45bcb1b7a535b27094c7ed07839a87a5a94d4228e86f655568498cc114a987b9",
-    "note": "A single paper clip contacts and hangs from the red magnet end; foil stays on table and both trays remain empty."
+    "note": "A single paper clip contacts and hangs from the red magnet end; foil stays on table and both trays remain empty.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-d.json",
+    "bookId": "world-discovery-d-09",
+    "sha256": "1a4773aeb1bdc62e90e431087c7a886aacbe1bbbdc4c5ba7101b59d4965bbd59",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

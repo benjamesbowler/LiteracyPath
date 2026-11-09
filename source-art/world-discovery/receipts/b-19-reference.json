@@ -24,14 +24,18 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "status": "reviewed",
-    "reviewer": "author_b_c",
-    "reviewedAt": "2026-11-07T15:23:50.905396+00:00",
-    "outputSha256": "11d5b042d7ba11402e5ec49602ed2f42089e1dd33e8bb7278dbd5f9e33077d31",
-    "scope": "Direct final reference WebP production review, not finished-page or independent approval",
-    "notes": "Reference board inspected: locked cast, one blue flashlight design, three equal clear/translucent/opaque square samples, elongated red station-wagon toy, upright white screen and ordinary child classroom table. Car/sheet relative size corrected for three portion comparison.",
     "method": "codex-direct-image-inspection",
+    "reviewedAt": "2026-11-09",
     "sha256": "11d5b042d7ba11402e5ec49602ed2f42089e1dd33e8bb7278dbd5f9e33077d31",
-    "note": "Reference board inspected: locked cast, one blue flashlight design, three equal clear/translucent/opaque square samples, elongated red station-wagon toy, upright white screen and ordinary child classroom table. Car/sheet relative size corrected for three portion comparison."
+    "note": "Reference board inspected: locked cast, one blue flashlight design, three equal clear/translucent/opaque square samples, elongated red station-wagon toy, upright white screen and ordinary child classroom table. Car/sheet relative size corrected for three portion comparison.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-b.json",
+    "bookId": "world-discovery-b-19",
+    "sha256": "7dd89cf131c734afd0d2e036abbc3fbc93949fee06e26bc1700a9044fad6647d",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

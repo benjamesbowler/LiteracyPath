@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "73feaea1719bb898ed07fc1c50ba1f336ebc109e0a0525d66fbd00e515cc65c0",
     "note": "Direct inspection after tunnel correction: continuous sloping entrance connects submerged pond at lodge right to dry chamber at left, beaver above waterline; distinct downstream dam holds water and passes small flow.",
-    "limits": "Direct agent visual review; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-c.json",
+    "bookId": "world-discovery-c-07",
+    "sha256": "3128c54f7d967814daec68f8fc5299bbcce8da53689d8a302b45ffb5f4f254a8",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

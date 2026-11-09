@@ -2,14 +2,14 @@
   "bookId": "world-discovery-c-14",
   "slot": "page-05",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-07T18:00:39.039Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-c879b9b2-2349-4c29-97de-bf36e64faaea.png",
-  "sourceSha256": "fcdb83c6e1be787fcafe27c88747dd5674712b1029b4e92d488c65f14aff8d44",
+  "generatedAt": "2026-11-09",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1bd84-e6ed-7133-9f3f-b7c5ee069573/exec-fc253350-69a3-4a4c-8192-f6a82fa8f536.png",
+  "sourceSha256": "3629a79c1d211a2590d89c12460830e827964ab051dae7b8f2a833b9d170fa2d",
   "output": "public/guided-reading/world-discovery/c-14/page-05.webp",
-  "outputSha256": "a33be5c51dab8160f3d3dabcbb3dd3ef75e6341b9f3816a970950b310d00d2d0",
+  "outputSha256": "1f3f233cc97051d3a2ec9180cf350668924caec3f182876832773b8a7610d46a",
   "width": 1536,
   "height": 1024,
-  "prompt": "Use case: precise-object-edit. Fix ONLY the artificial rectangular room vignette: blue floor must extend naturally to both side edges and the bottom edge of the entire 3:2 canvas, and its horizontal wall/baseboard junction must continue naturally to both sides. Remove peach side/bottom border area; this is one continuous full-bleed room, not a picture pasted inside another picture. Preserve all current furniture, characters, generous margins, exact SIX heads (three right heads then opposing fourth/fifth X then final right), one continuous shaft, red bookmark, pointing hands, single book, pencil and eraser. No new objects.",
+  "prompt": "Use case: precise-object-edit. Edit only the first attached image. Finished landscape 3:2 full-bleed kindergarten picture-book illustration, crisp continuous bold outlines and flat clean colors with smooth cel shading. Preserve Kit, Zoe, room, poses, hands, table, paper strip endpoints, red bookmark position and blue book. ESSENTIAL: turn the six disconnected arrows into ONE continuous horizontal graphite pencil shaft from left to right, with SIX clearly separated arrowheads at six evenly spaced positions. Heads 1, 2, 3, 4 and 6 point RIGHT toward the book; head 5 points LEFT. Do not create crossing arrowheads, X shapes or overlapping heads. Connect all shafts so there are no white gaps anywhere between the six arrows. Preserve six-arrow order and spacing. Keep the standing lion on green ground on the book right page exactly as shown; keep blank left page and Kit pointing at the left arrow. No additional text, letters, labels, numbers, symbols, panels, frames, texture, grain or painterly marks.",
   "references": [
     {
       "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-96b05c67-aab8-4a07-8b6c-bf57641b276a.png",
@@ -24,14 +24,31 @@
     "lastNumber": 20
   },
   "visualReview": {
-    "status": "reviewed",
-    "reviewer": "author_b_c",
-    "reviewedAt": "2026-11-07T18:12:31.555893+00:00",
-    "outputSha256": "a33be5c51dab8160f3d3dabcbb3dd3ef75e6341b9f3816a970950b310d00d2d0",
-    "scope": "Production-author direct native and final installed WebP inspection; full ordered prose/state and whole-scene review. Independent final QA pending.",
-    "notes": "Kit identifies opposing fifth point; continuous shaft and exactly six heads; Zoe indicates destination page; full-bleed floor repaired.",
     "method": "codex-direct-image-inspection",
-    "sha256": "a33be5c51dab8160f3d3dabcbb3dd3ef75e6341b9f3816a970950b310d00d2d0",
-    "note": "Kit identifies opposing fifth point; continuous shaft and exactly six heads; Zoe indicates destination page; full-bleed floor repaired."
+    "reviewedAt": "2026-11-09",
+    "sha256": "1f3f233cc97051d3a2ec9180cf350668924caec3f182876832773b8a7610d46a",
+    "note": "Six separated arrowheads with continuous shaft and unchanged standing lion, or seven near-side walking legs per foreground woodlouse; corrected defect resolved.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "priorGeneration": {
+    "outputSha256": "a33be5c51dab8160f3d3dabcbb3dd3ef75e6341b9f3816a970950b310d00d2d0",
+    "sourceSha256": "fcdb83c6e1be787fcafe27c88747dd5674712b1029b4e92d488c65f14aff8d44",
+    "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f2-8a37-7903-ae68-4d9a4d952c0b/exec-c879b9b2-2349-4c29-97de-bf36e64faaea.png",
+    "generatedAt": "2026-11-07T18:00:39.039Z"
+  },
+  "inputReferences": [
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/guided-reading-remediation-20261109/images/c14p5.webp",
+      "sha256": "846221ec3e2d346ff0f035a0e44a427723a4e6b2521ced8912198b1a7d9a1048"
+    }
+  ],
+  "remediationEvidence": "source-art/world-discovery/remediation/2026-11-09/image-repairs.json",
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-c.json",
+    "bookId": "world-discovery-c-14",
+    "sha256": "140ce92291067179d732a3587d485b05a7c166c5a5e7afde2f0d356f4c034a0f",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

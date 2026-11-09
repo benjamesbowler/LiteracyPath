@@ -8,12 +8,12 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
       "syntax": "Short declaratives with coordinated lists and infinitive purposes.",
       "vocabulary": "Exercise, quiet, hay and care extend everyday pet nouns.",
       "knowledge": "Needs differ by animal rather than one care routine fitting all.",
-      "progression": "Six examples culminate in an explicit generalization.",
+      "progression": "Five animal examples culminate in an explicit comparison of their care needs.",
       "inference": "Low; care differences are stated, not deduced."
     },
     "rationale": "The dog and cat care lists combine several needs, then hay and room to fly distinguish other pets; the final different-kinds-of-care statement gathers the examples into a comparison.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:032ced625a8facc8",
     "textHash": "sha256:f7d47f728cb8fead70d2d776cfb61290ae2fec925dddbf49d55cba5fb72faad7",
     "metrics": {
@@ -39,7 +39,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -61,7 +61,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Sunlight reaching our side of Earth, heat warming land and water, and plants making food connect the Sun to several functions; the safety instruction adds another sentence shape.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:467d1a2a6c7343dd",
     "textHash": "sha256:ecf73ffb6b8c702e7864e932354e3de56415c098d19f29b8930c652a39e490a7",
     "metrics": {
@@ -87,7 +87,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -109,7 +109,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "The can-look color frame repeats around red apples, blue sky and green grass; ripe, clear and the final spotting question create modest variation.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:8476ed9900934ad5",
     "textHash": "sha256:b57ad568644c4f389b6696ed968283bcbbb08829ac6f6c269c9feaff2c42a23c",
     "metrics": {
@@ -135,7 +135,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -149,30 +149,30 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "B",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Repeated helps-me clauses; a final coordinated sentence.",
+      "syntax": "Repeated help-me clauses, coordinated actions and a short handwashing sentence.",
       "vocabulary": "Familiar body parts and common action verbs.",
-      "knowledge": "Concrete functions and body ownership.",
-      "progression": "Repeated examples expand into one whole-body statement.",
+      "knowledge": "Concrete body functions and a familiar hygiene action.",
+      "progression": "Five body-function examples end with washing hands using soap and water.",
       "inference": "Low; every function is explicit."
     },
-    "rationale": "Eyes help me see repeats through familiar body actions, with coordinated eat-and-speak and hold-and-make phrases before the ownership and care close.",
+    "rationale": "The repeated help-me frame names familiar body functions, with eat-and-speak and hold-and-make pairs before a concrete handwashing action.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:2615f5f645d1bbd4",
-    "textHash": "sha256:87a1d4213dd1a65ce308aafec1d93099c2b0b8e9097379c97879f16fce5948dd",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:3ae049ac47a41e4d",
+    "textHash": "sha256:3e24d8695a1212b5858da2c47d52c9c95a34b31872432a1d514e155ddc90a1ae",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 6,
-      "wordCount": 39,
-      "uniqueWordCount": 25,
-      "uniqueWordRatio": 0.64,
-      "averageWordLength": 3.31,
-      "averageWordsPerPage": 6.5,
+      "wordCount": 38,
+      "uniqueWordCount": 23,
+      "uniqueWordRatio": 0.61,
+      "averageWordLength": 3.47,
+      "averageWordsPerPage": 6.33,
       "minWordsPerPage": 5,
-      "maxWordsPerPage": 9,
+      "maxWordsPerPage": 8,
       "sentenceUnitCount": 6,
-      "averageWordsPerSentence": 6.5,
-      "maxWordsPerSentence": 9,
+      "averageWordsPerSentence": 6.33,
+      "maxWordsPerSentence": 8,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.17,
       "dialoguePageCount": 0,
@@ -183,7 +183,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -198,28 +198,28 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
       "syntax": "Short varied declaratives with some, many and may qualifiers.",
-      "vocabulary": "Buds, frost, season and pattern.",
+      "vocabulary": "Buds, frost, sunshine and season.",
       "knowledge": "Recognizing changing seasons and yearly recurrence.",
       "progression": "Spring-to-winter observations end with spring again.",
       "inference": "Low; the return is explicitly stated."
     },
     "rationale": "Seasonal observations introduce buds, late summer daylight and frost, then explicitly return to spring; the text describes a cycle without explaining its hidden cause.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:1fe96a7678cabc14",
-    "textHash": "sha256:e757c3954f2812de125210eccbb74654e9be38b5debd9d0a8e285e525b601e08",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:b7a4f01e0508176d",
+    "textHash": "sha256:fa5ed0a1ce7760fbd2ad97daa4af111203b7093b79ee924ddc090ef13890d7f6",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 6,
-      "wordCount": 43,
-      "uniqueWordCount": 37,
-      "uniqueWordRatio": 0.86,
-      "averageWordLength": 4.77,
-      "averageWordsPerPage": 7.17,
-      "minWordsPerPage": 6,
+      "wordCount": 40,
+      "uniqueWordCount": 35,
+      "uniqueWordRatio": 0.88,
+      "averageWordLength": 4.65,
+      "averageWordsPerPage": 6.67,
+      "minWordsPerPage": 5,
       "maxWordsPerPage": 8,
       "sentenceUnitCount": 6,
-      "averageWordsPerSentence": 7.17,
+      "averageWordsPerSentence": 6.67,
       "maxWordsPerSentence": 8,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.17,
@@ -231,7 +231,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -253,7 +253,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Bite an apple and a paired crisp sentence introduce sensory comparisons; bunches and bumpy peel lead to the explicit fact that fruit grows from a flower.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:7f013edfb319f23a",
     "textHash": "sha256:80d9ec98ca90db1c95d8fc6472a51bae05c71ee666cf68b9884d0cf3e3c6e7db",
     "metrics": {
@@ -279,7 +279,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -301,7 +301,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Each tool has a concrete job, but wrench turning nuts and bolts and a ruler checking length require specific vocabulary; the final safety pair broadens the pattern.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:e36b413ea124e183",
     "textHash": "sha256:3d4d702b7c6b48ee5c30e36d9cfbd35de54116c3e870a8c85f4efb08ed7ef531",
     "metrics": {
@@ -327,7 +327,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -349,21 +349,21 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Sunlight reaches one side of Earth and our place turns away from it; the darkening sky and alternating day and night depend on a spatial rotation explanation.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:79e718c95179810a",
-    "textHash": "sha256:81fb06ceae7714f570b45cf3e8f1b3fd3f602703f4641bc23ca9e2cf85b44a95",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:90db76e478aac427",
+    "textHash": "sha256:51cb308683c1831353467b127f6b2e05af9a0fa2da4eacdc74bdfb04e5ff4bfb",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 6,
-      "wordCount": 32,
+      "wordCount": 33,
       "uniqueWordCount": 26,
-      "uniqueWordRatio": 0.81,
-      "averageWordLength": 4.34,
-      "averageWordsPerPage": 5.33,
+      "uniqueWordRatio": 0.79,
+      "averageWordLength": 4.48,
+      "averageWordsPerPage": 5.5,
       "minWordsPerPage": 3,
-      "maxWordsPerPage": 7,
+      "maxWordsPerPage": 8,
       "sentenceUnitCount": 7,
-      "averageWordsPerSentence": 4.57,
+      "averageWordsPerSentence": 4.71,
       "maxWordsPerSentence": 7,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.17,
@@ -375,7 +375,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -395,18 +395,18 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
       "progression": "A set of jobs leads to an explicit shared purpose.",
       "inference": "Low; the social connection is stated."
     },
-    "rationale": "Chef and teacher examples are supported by a job-action pattern, while firefighter, blaze and emergency widen vocabulary before the town-level summary.",
+    "rationale": "Chef and teacher examples are supported by a job-action pattern, while firefighter, blaze and emergency widen vocabulary before the explicit statement that different jobs help us.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:7d9f78b43e79343a",
-    "textHash": "sha256:9b7faa4ccf2a0f61cf6e6ee8d68c9c6ec2367729d0fcf8b5f4cecf9b50b0beb8",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:f31fd8c2968ac292",
+    "textHash": "sha256:12a8eb6c306e1011655a49b44351c97339682d5296d4b7204d0da834d5dcf86d",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 6,
       "wordCount": 34,
-      "uniqueWordCount": 28,
-      "uniqueWordRatio": 0.82,
-      "averageWordLength": 4.12,
+      "uniqueWordCount": 26,
+      "uniqueWordRatio": 0.76,
+      "averageWordLength": 4.18,
       "averageWordsPerPage": 5.67,
       "minWordsPerPage": 4,
       "maxWordsPerPage": 7,
@@ -423,7 +423,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -445,7 +445,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Freeze and invisible vapor connect changes of state with plant roots and drinking; the final sentence explicitly classifies ice, liquid and vapor as forms of water.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:6a91d9a5d41aa717",
     "textHash": "sha256:891051fd23709b324eee83f0b92dd37e4b330cab2695870f72b6afb07709223c",
     "metrics": {
@@ -471,7 +471,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -486,29 +486,29 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
       "syntax": "Short help-us statements and two final linked sentences.",
-      "vocabulary": "Tongue, touch, warmth and senses.",
+      "vocabulary": "Tongue, skin, rough, smooth and senses.",
       "knowledge": "Functions of five senses and their combination.",
       "progression": "Five examples become one explicit learning connection.",
       "inference": "Low; synthesis is provided."
     },
-    "rationale": "Repeated body-part functions support tongue and warmth; the ending connects five senses working together to learning rather than only listing actions.",
+    "rationale": "Repeated body-part functions support tongue and rough/smooth contrasts; the ending connects five senses working together to learning rather than only listing actions.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:62721532601c9a43",
-    "textHash": "sha256:00623c1a6d8bb63b394153bed15be15548c636cdf8c9d91ef1e754908941c524",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:8b74a7e131a9dba3",
+    "textHash": "sha256:e4165a4945d390d542d74fa096f609d73ea73f1525f78325729ee21f44796401",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 6,
-      "wordCount": 38,
-      "uniqueWordCount": 26,
+      "wordCount": 40,
+      "uniqueWordCount": 27,
       "uniqueWordRatio": 0.68,
-      "averageWordLength": 4.08,
-      "averageWordsPerPage": 6.33,
+      "averageWordLength": 4.1,
+      "averageWordsPerPage": 6.67,
       "minWordsPerPage": 5,
       "maxWordsPerPage": 9,
       "sentenceUnitCount": 7,
-      "averageWordsPerSentence": 5.43,
-      "maxWordsPerSentence": 7,
+      "averageWordsPerSentence": 5.71,
+      "maxWordsPerSentence": 9,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.17,
       "dialoguePageCount": 0,
@@ -519,7 +519,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -534,29 +534,29 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
       "syntax": "Short varied demonstratives with one paired-sentence opening.",
-      "vocabulary": "Triangle, rectangle, oval, edge, outline and solid.",
+      "vocabulary": "Triangle, rectangle, oval, edge, outline and flat.",
       "knowledge": "Recognizing a flat aspect of a three-dimensional object.",
-      "progression": "Concrete examples end with the flat-on-solid generalization.",
+      "progression": "Concrete examples end with an invitation to find flat shapes on other things.",
       "inference": "Low to moderate visual abstraction; properties are not formally derived."
     },
-    "rationale": "Wheel face, roof edge and egg outline show different ways flat shapes appear on solid things; the conclusion explicitly names that distinction.",
+    "rationale": "Wheel face, roof edge and egg outline show different ways flat shapes appear on everyday objects; the conclusion asks the reader to find more flat shapes on things.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:faf81a7f15e8dbec",
-    "textHash": "sha256:0170e72f264261361b93345aad78740bb39adc40a6a14487dde1f7657a4bc795",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:531a165d7e5ce001",
+    "textHash": "sha256:324360a9b89537c95bda8e51059b24d8f8b508b42f750a7fccc472d9719a90b1",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 6,
-      "wordCount": 42,
-      "uniqueWordCount": 33,
-      "uniqueWordRatio": 0.79,
-      "averageWordLength": 3.9,
-      "averageWordsPerPage": 7,
+      "wordCount": 39,
+      "uniqueWordCount": 29,
+      "uniqueWordRatio": 0.74,
+      "averageWordLength": 3.87,
+      "averageWordsPerPage": 6.5,
       "minWordsPerPage": 6,
       "maxWordsPerPage": 9,
       "sentenceUnitCount": 7,
-      "averageWordsPerSentence": 6,
-      "maxWordsPerSentence": 9,
+      "averageWordsPerSentence": 5.57,
+      "maxWordsPerSentence": 6,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.17,
       "dialoguePageCount": 0,
@@ -567,7 +567,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -589,7 +589,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Coasts, peaks, deep oceans and continents widen the scale from a home in space to a little park as one part of Earth; that part-whole structure raises conceptual demand.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:dcf423a05456f72b",
     "textHash": "sha256:db84e392b599349f6b7525613ac5f2cc61c60342df1cad7799a41e4dde55e4af",
     "metrics": {
@@ -615,7 +615,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -637,21 +637,21 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "First-person wash, eat, drink and brush statements describe familiar routines; twice a day and the final habits-care statement modestly vary the repeated I opening.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:fd102069774a8b6d",
-    "textHash": "sha256:5b9af99369db295482bac761c0166d17ae67c6b52dfe52c81c629f83da3878dd",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:8ea53db8234e9e84",
+    "textHash": "sha256:125ec50a33dd99552568a6b4ebce9ec0f42d5afd6c317efb5bc411a6ab772e71",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 6,
-      "wordCount": 42,
-      "uniqueWordCount": 32,
-      "uniqueWordRatio": 0.76,
-      "averageWordLength": 3.57,
-      "averageWordsPerPage": 7,
+      "wordCount": 44,
+      "uniqueWordCount": 33,
+      "uniqueWordRatio": 0.75,
+      "averageWordLength": 3.45,
+      "averageWordsPerPage": 7.33,
       "minWordsPerPage": 6,
-      "maxWordsPerPage": 8,
-      "sentenceUnitCount": 6,
-      "averageWordsPerSentence": 7,
+      "maxWordsPerPage": 9,
+      "sentenceUnitCount": 7,
+      "averageWordsPerSentence": 6.29,
       "maxWordsPerSentence": 8,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.17,
@@ -663,7 +663,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -685,7 +685,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Nest, den, burrow and pond examples distinguish a shelter from the wider food-water-shelter habitat; the nest-is-just-one-part ending requires a category relationship.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:78eb72b263083520",
     "textHash": "sha256:c6fd5e8be72c9b40eea985c9ccda69d227f38a080d86bcb1d636bddd6cdf8eb9",
     "metrics": {
@@ -711,7 +711,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -733,7 +733,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Earth around Sun and Moon around Earth establish different orbital relationships; nearest, beyond and farther away then contrast the objects' distances.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:8297fa239ef39367",
     "textHash": "sha256:e35224afb927711a4a8ed7bbf2df8199abb3f55664a152bc1429acf170c7d99b",
     "metrics": {
@@ -759,7 +759,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -781,7 +781,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Dry scaly skin and egg laying introduce reptiles; snakes, turtles and basking lizards give concrete examples, ending in an explicit warm-Sun link to movement and hunting.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:434c6b06fe27a91c",
     "textHash": "sha256:18c7dbc87dd553b8b1ff17bc85b74d0a30545c3a6fb1697a024ed58bf2a0df66",
     "metrics": {
@@ -807,7 +807,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -829,7 +829,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Root-stem-leaf growth, tadpole-to-frog change and caterpillar-chrysalis-butterfly change combine into a comparison of growing bigger and changing shape.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:dabdc17d863d84f7",
     "textHash": "sha256:a35d1072de10cf4cacedb3b0c74f6c7e61da6034a1d5db229c5e6ee20725a516",
     "metrics": {
@@ -855,7 +855,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -877,7 +877,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Wood and glass contrasts support the reading, but two poles, opposite-pole attraction and matching-pole repulsion introduce an unseen relational rule.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:c2bff9614d749888",
     "textHash": "sha256:71a7d870f4ceb091ed4841fab5d6bc5c26895eba75e7a9d2f9e2a4bd24256d43",
     "metrics": {
@@ -903,7 +903,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -917,29 +917,29 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "C",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Short varied purpose clauses and an abstract comparative close.",
-      "vocabulary": "Shades, holds heat, gloves, pajamas and activities.",
+      "syntax": "Short varied declaratives describe a garment, its use or its effect.",
+      "vocabulary": "Shades, coat, mittens, pajamas and jacket.",
       "knowledge": "Garments serve different practical conditions.",
-      "progression": "Examples culminate in selection by weather and activity.",
+      "progression": "Examples move through garments used for different weather and activities.",
       "inference": "Low; purposes and comparison are explicit."
     },
-    "rationale": "Clothing-purpose clauses vary between shading, holding heat, staying dry and sleeping, then compare weather with activities. These changing functions and the abstract final category add language demands beyond a repeated B naming pattern.",
+    "rationale": "Clothing-purpose clauses connect a hat, coat, rain boots, mittens, pajamas and jacket with warmth, dryness, sleep and outdoor play. The changing functions and sentence forms sustain C even though each example stays concrete.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:23540db0fd32f609",
-    "textHash": "sha256:d21bf0b7b2183a909ebb6ad09172135723ec4ef17011ecdc645bb3b874433ff5",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:47f2176a393d2f66",
+    "textHash": "sha256:898907004dc8d3467a968538cc90c26821e4b6bf89b897a2ee39b171cf9e148d",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 6,
-      "wordCount": 35,
+      "wordCount": 36,
       "uniqueWordCount": 28,
-      "uniqueWordRatio": 0.8,
-      "averageWordLength": 4.63,
-      "averageWordsPerPage": 5.83,
+      "uniqueWordRatio": 0.78,
+      "averageWordLength": 3.94,
+      "averageWordsPerPage": 6,
       "minWordsPerPage": 5,
       "maxWordsPerPage": 7,
       "sentenceUnitCount": 6,
-      "averageWordsPerSentence": 5.83,
+      "averageWordsPerSentence": 6,
       "maxWordsPerSentence": 7,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.17,
@@ -951,7 +951,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -971,24 +971,24 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
       "progression": "Five observations join in a final collective function.",
       "inference": "Low; the connections are supplied."
     },
-    "rationale": "Find, catch and feel vary across sensory color/shape and loud/soft contrasts; tongue and the final senses-explore link broaden the familiar body-part opening.",
+    "rationale": "Find, hear and feel vary across sensory color/shape and loud/soft contrasts; tongue and the final senses-explore link broaden the familiar body-part opening.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:500b474cde26b8f6",
-    "textHash": "sha256:f5844196843113dcaafb143eea017e6c75fdf52e2dadaa9e888c26c51924e00e",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:819a854a8b4eba5a",
+    "textHash": "sha256:770ad7c33e3564b776a60c22f97a27777172104d0a6d8792323600e63f0ef718",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 6,
-      "wordCount": 36,
-      "uniqueWordCount": 28,
-      "uniqueWordRatio": 0.78,
-      "averageWordLength": 4.39,
-      "averageWordsPerPage": 6,
+      "wordCount": 38,
+      "uniqueWordCount": 30,
+      "uniqueWordRatio": 0.79,
+      "averageWordLength": 4.26,
+      "averageWordsPerPage": 6.33,
       "minWordsPerPage": 5,
-      "maxWordsPerPage": 7,
+      "maxWordsPerPage": 9,
       "sentenceUnitCount": 6,
-      "averageWordsPerSentence": 6,
-      "maxWordsPerSentence": 7,
+      "averageWordsPerSentence": 6.33,
+      "maxWordsPerSentence": 9,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.17,
       "dialoguePageCount": 0,
@@ -999,7 +999,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -1021,7 +1021,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Paired ball-and-hat and cup-and-bag examples keep color naming predictable, while singular frog and bright-Sun observations vary subject structure before a brief summary.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:258b377f2170b69b",
     "textHash": "sha256:ff6cf66b63560e626b886c79d306baba54a6e2ab94d90ccf853d5c64c3ea570c",
     "metrics": {
@@ -1047,7 +1047,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -1069,7 +1069,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Six pages repeat A animal says sound with pig, hen, cow, dog, duck and cat; the final sentence directly gathers these as farm-animal sounds.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:9d8fa709c46dee2e",
     "textHash": "sha256:2f8171ce2543a6c7249b1452d7b60f404791d44a0e0e34822ee037f438f9d739",
     "metrics": {
@@ -1090,12 +1090,12 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
       "dialoguePageCount": 0,
       "questionPageCount": 0,
       "illustratedPageCount": 7,
-      "independentlyDescribedPageCount": 0
+      "independentlyDescribedPageCount": 1
     },
     "illustrationSupport": {
       "basis": "existing-description-metadata",
-      "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "status": "partly-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -1117,7 +1117,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Big dog/little bug and other noun pairs repeat the same two fragments; the closing sentence simply names the big-or-little contrast.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:52f9fe02222adbaf",
     "textHash": "sha256:1ca9616898e69e0338c0b8765d4b128c2b98f1f462e2a24ed870aad35b167808",
     "metrics": {
@@ -1143,7 +1143,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -1165,7 +1165,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Drink, play and wash repeat we and water, then fish, ducks and frogs repeat action-in-water sentences; the last line states a shared water need.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:f07c17ab2d9a8142",
     "textHash": "sha256:a017b0b7f24a9f4d00278aa2f5d5618b17d05493f70556a9039734032b709f97",
     "metrics": {
@@ -1191,7 +1191,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -1213,7 +1213,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Shines above us and glows at night repeat location/time phrases, but floats, jet and the final look-up direction widen the action pattern.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:5cfa70b7e29263a3",
     "textHash": "sha256:e53387f60f7fa9ca113fe65c863422ae6b615bfb3d9da1f830764a5016566c58",
     "metrics": {
@@ -1239,7 +1239,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -1261,7 +1261,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Dog can run, cat can jump and four other animal-action examples repeat A animal can verb; I can move too directly echoes the same construction.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:21d660e67f107938",
     "textHash": "sha256:c23e7d977986785aaaa3344fbdff8a0ba20adc3afeb7cd0fc860645f61a48f27",
     "metrics": {
@@ -1287,7 +1287,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -1309,7 +1309,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "The can-action frame supports fly, sting, dig and hide, but a worm digging through soil and the creatures-around-us close change structure and vocabulary.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:3491fce5c50360b2",
     "textHash": "sha256:73a4122b4fd51c96fd3d2e5abc042a2cb1b6b0965a9d5552e58d1e13fd5c0425",
     "metrics": {
@@ -1335,7 +1335,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -1350,23 +1350,23 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
       "syntax": "Short needs/likes/wants clauses, sometimes with to-infinitives.",
-      "vocabulary": "Perch, quiet, gentle cuddle and space.",
+      "vocabulary": "Perch, quiet, gentle pat and space.",
       "knowledge": "Basic pet care and responsive interaction.",
       "progression": "Examples shift to one dog's changing rest/contact/play needs.",
       "inference": "Low; each need is stated."
     },
-    "rationale": "This animal needs repeats concrete bed, rest, water, perch and hopping-space needs; gentle cuddle and wants to play introduce two small closing pattern changes.",
+    "rationale": "This animal needs repeats concrete bed, rest, water, perch and hopping-space needs; gentle pat and wants to play introduce two small closing pattern changes.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:5e018106b61d2735",
-    "textHash": "sha256:45b3663b4d2d2a283a40a2ac0b05f32d951576e85aba68538c5c18f5781a163b",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:88fca99bfa725485",
+    "textHash": "sha256:82a71269ba36c906f94ca3a8a9cea34a3bb55fd6d8916813ed9dabe8a77fafb8",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 7,
       "wordCount": 40,
       "uniqueWordCount": 24,
       "uniqueWordRatio": 0.6,
-      "averageWordLength": 3.9,
+      "averageWordLength": 3.83,
       "averageWordsPerPage": 5.71,
       "minWordsPerPage": 5,
       "maxWordsPerPage": 6,
@@ -1383,7 +1383,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -1405,7 +1405,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Hot and cold recur in very short Sun, ice, fire, snow, soup and milk examples; the final line simply repeats the sensory contrast.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:21f067f11050e04d",
     "textHash": "sha256:19038f84ba55eb30dc2954547dcf0a2b6c4bbef7f247a830c2fa23dee627daaf",
     "metrics": {
@@ -1431,7 +1431,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -1453,7 +1453,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Round and square examples lead to rectangular and triangular, then a circle comparison and a find-a-shape question; formal shape vocabulary exceeds the short print load.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:ce619f7584b43c52",
     "textHash": "sha256:5dac783f76245df26fdf8420a732a9ba4ec75a33219ef98d92d293ecd79de855",
     "metrics": {
@@ -1479,7 +1479,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -1501,7 +1501,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Pig/chick/cow sound statements alternate with a tall barn, hay as food and a running farm dog; this variety breaks a single repeated labeling frame.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:b2366c2c36033d16",
     "textHash": "sha256:3c10fdffe92c885ba329dcb03e61500556a40965304af15a38176a52257d28bc",
     "metrics": {
@@ -1527,7 +1527,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -1549,7 +1549,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Repeated swimming statements add swish, sideways, dives and slowly, with a final people-can-swim connection; movements stay concrete and directly stated.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:be6a6a0f2f660a4d",
     "textHash": "sha256:6dcd4ab2b6d468c094cb0b9f855c6f43d27b2aff7a48160e4c2d4294297b8cbf",
     "metrics": {
@@ -1575,7 +1575,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -1597,7 +1597,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Apple, banana, plum, orange and grape descriptions compare familiar color, softness, size and roundness; the last two lines generalize those observable features.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:bd7cb21d7895e479",
     "textHash": "sha256:277a784b60850cd3f3160975b6bff2290cd859c4dfaf2863fbc161e8afe522f5",
     "metrics": {
@@ -1623,7 +1623,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -1645,7 +1645,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Roots below ground, a trunk holding up branches, leaves catching sunlight and apples on branches connect named parts into one tree. Varied functional/spatial verbs and the final whole-tree synthesis retain C despite very short clauses.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-05",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:9d7fa0a3e09ae22c",
     "textHash": "sha256:33ee0eb429e5ae3ac566cd7ab8534ad1c96c1fa69dd50290c8b12d5b669bbbce",
     "metrics": {
@@ -1671,7 +1671,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -1693,7 +1693,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "This little chick/kitten/puppy pattern is varied by wool, fur and a calf drinking milk; the ending directly states that babies grow bigger.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:37efd3e35ac32a19",
     "textHash": "sha256:ee18d14ad546936d9d05b235189f9f2aedad70e3a6a1c5a7c139743b89d18e34",
     "metrics": {
@@ -1719,7 +1719,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "partly-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -1741,16 +1741,16 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Can move fast and moves slowly repeat across vehicles and animals, while does not rush and the final find instruction introduce small changes.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:c2c91e8be0d5e799",
-    "textHash": "sha256:e53b936e3242a68844fe7c8bc6639fd8976eef56c52f904b2485463114510804",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:e7d29e8406f00e8d",
+    "textHash": "sha256:3142fc310ae69039cfca1edbc2b96e3aff293dfff686306f01c3cd72df29845b",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 7,
       "wordCount": 34,
       "uniqueWordCount": 20,
       "uniqueWordRatio": 0.59,
-      "averageWordLength": 3.5,
+      "averageWordLength": 3.85,
       "averageWordsPerPage": 4.86,
       "minWordsPerPage": 4,
       "maxWordsPerPage": 6,
@@ -1767,7 +1767,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -1789,7 +1789,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Soil, a downward root, an upward shoot, a leaf, a bud and a flower form seven different growth stages; the reader follows changing plant parts rather than a repeated B action frame.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:faac98f4f4446f12",
     "textHash": "sha256:4ae1e2e61bb54f3cbc7a451fdbb7302f078fe21fc2ad646510f96a728cc4ff84",
     "metrics": {
@@ -1815,7 +1815,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -1837,7 +1837,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "My two eyes can see repeats through ears, nose, mouth, hands and feet; the final whole-body ownership sentence is a small direct variation.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:bedf417c687b7476",
     "textHash": "sha256:37e7191ffc53f6ed4c9150f89623487e60a3ec8280f6dcca1e0b2665af1d2e21",
     "metrics": {
@@ -1863,7 +1863,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -1881,25 +1881,25 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
       "vocabulary": "Daytime, during, sets and night.",
       "knowledge": "Familiar day/night observations.",
       "progression": "Moves from day to setting to night and recurrence.",
-      "inference": "Low; take turns names rather than explains the cycle."
+      "inference": "Low; night ending and day returning are stated directly, without explaining the cycle."
     },
     "rationale": "Bright daytime, birds singing, the Sun setting and stars shining are observations with modest time-language variation; no cause of the cycle is explained.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:0191b1d11cc7b540",
-    "textHash": "sha256:0814886f22e6bf4cdcb6adb8536cc2c190ebde5ffcad2a2c0c0bd88a374f9466",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:97504aa72dbc8e8d",
+    "textHash": "sha256:47d2f39d69b221b8c070a06afd3ae6b3a9eaaba777fd14d79fde7d2bb62e43af",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 7,
       "wordCount": 32,
       "uniqueWordCount": 22,
       "uniqueWordRatio": 0.69,
-      "averageWordLength": 4,
+      "averageWordLength": 4.06,
       "averageWordsPerPage": 4.57,
       "minWordsPerPage": 3,
       "maxWordsPerPage": 6,
-      "sentenceUnitCount": 7,
-      "averageWordsPerSentence": 4.57,
+      "sentenceUnitCount": 8,
+      "averageWordsPerSentence": 4,
       "maxWordsPerSentence": 6,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.29,
@@ -1911,7 +1911,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -1933,16 +1933,16 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Moon, Sun, Earth, Mars and Saturn examples introduce hot star, rocky planet and rings, then explicitly group stars and planets in space.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:d7e15aa920c815a6",
-    "textHash": "sha256:fcaf89c048bc08643fd75166a710a12c81432b08599705260263e2e54ccc1922",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:b02897c538ed7d2c",
+    "textHash": "sha256:bc4ccb3f9c2de1a5eaea0bf384e6b7b63bdfb37aceee443a43c996b7071e6ed4",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 7,
       "wordCount": 35,
       "uniqueWordCount": 29,
       "uniqueWordRatio": 0.83,
-      "averageWordLength": 3.89,
+      "averageWordLength": 3.91,
       "averageWordsPerPage": 5,
       "minWordsPerPage": 4,
       "maxWordsPerPage": 6,
@@ -1959,7 +1959,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -1976,26 +1976,26 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
       "syntax": "Repeated paired short observations with changing subjects and a final question.",
       "vocabulary": "Robin's breast, orange-red, feathers, pumpkin and lavender.",
       "knowledge": "Object-color comparisons rather than color mechanisms.",
-      "progression": "Six color groups culminate in a world-level noticing invitation.",
+      "progression": "Six color groups culminate in an invitation to notice more colors nearby.",
       "inference": "Low; each comparison is explicit."
     },
     "rationale": "Paired apple/robin and Sun/duck comparisons use two sentences per page; robin's breast, feathers and lavender broaden descriptive vocabulary before the final noticing question.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:a835be99de8b3e16",
-    "textHash": "sha256:17099bf4170724a5c533ca3ad243743937741ea28a4743f251cb95b317190f03",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:e0d9eacdbef7e2f8",
+    "textHash": "sha256:0e65cf7e0d3d9a4b5688b7991a672b8df159743dd87457a999291c4a849c4992",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 7,
-      "wordCount": 67,
-      "uniqueWordCount": 44,
-      "uniqueWordRatio": 0.66,
-      "averageWordLength": 4.43,
-      "averageWordsPerPage": 9.57,
-      "minWordsPerPage": 9,
+      "wordCount": 65,
+      "uniqueWordCount": 41,
+      "uniqueWordRatio": 0.63,
+      "averageWordLength": 4.48,
+      "averageWordsPerPage": 9.29,
+      "minWordsPerPage": 7,
       "maxWordsPerPage": 10,
       "sentenceUnitCount": 14,
-      "averageWordsPerSentence": 4.79,
+      "averageWordsPerSentence": 4.64,
       "maxWordsPerSentence": 5,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.14,
@@ -2007,7 +2007,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -2022,28 +2022,28 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
       "syntax": "Varied short clauses, some paired-sentence pages and then recurrence.",
-      "vocabulary": "Nest, young, frost, squirrel and yearly cycle.",
+      "vocabulary": "Nests, babies, frost and squirrel extend familiar season words.",
       "knowledge": "Seasonal observations and yearly repetition.",
       "progression": "A clear spring-to-winter-to-spring sequence.",
       "inference": "Low; the return and sequence are stated."
     },
-    "rationale": "Spring nesting and young animals, summer growth, fall leaf change and winter clothing form an explicit seasonal cycle; frost and yearly cycle widen vocabulary without explaining Earth's seasons.",
+    "rationale": "Spring flowers and animal babies, summer growth, fall leaves and winter clothing form an explicit seasonal sequence. Frost and the return of spring add topic vocabulary and recurrence.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:36b86968acb62c40",
-    "textHash": "sha256:c7ea0787f3a40cbf6a990ba667048387cc5b284557c58f53e922e782a6df3f4e",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:f8f894b01af1a8bd",
+    "textHash": "sha256:c2bdaa3cc627c41472be20e44a805956e153cfd0017c8fa877d6b4198af9d122",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 9,
-      "wordCount": 63,
-      "uniqueWordCount": 52,
-      "uniqueWordRatio": 0.83,
-      "averageWordLength": 4.52,
-      "averageWordsPerPage": 7,
+      "wordCount": 65,
+      "uniqueWordCount": 50,
+      "uniqueWordRatio": 0.77,
+      "averageWordLength": 4.49,
+      "averageWordsPerPage": 7.22,
       "minWordsPerPage": 6,
-      "maxWordsPerPage": 9,
+      "maxWordsPerPage": 10,
       "sentenceUnitCount": 11,
-      "averageWordsPerSentence": 5.73,
+      "averageWordsPerSentence": 5.91,
       "maxWordsPerSentence": 9,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.11,
@@ -2055,7 +2055,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -2077,16 +2077,16 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Water entering and splitting a seed coat precede first-root, next-shoot and first-flower stages; temporal words support a continuous, concrete growth account.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:2bf651352d4b8309",
-    "textHash": "sha256:256996193994a18223e61997353f2339e175a9cb6e93ed87cd097d621d60d40a",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:02e9b8f62121471b",
+    "textHash": "sha256:39e8cd88c281ad2f40a48c0533a23ace341ff42a582928e51e1bf40ba95d969e",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 7,
       "wordCount": 44,
       "uniqueWordCount": 34,
       "uniqueWordRatio": 0.77,
-      "averageWordLength": 4.18,
+      "averageWordLength": 4.11,
       "averageWordsPerPage": 6.29,
       "minWordsPerPage": 5,
       "maxWordsPerPage": 8,
@@ -2103,7 +2103,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -2125,7 +2125,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Wind bends twigs, snow falls as flakes, and lightning precedes thunder; the rainbow statement adds an explicit connection between sunlight and raindrops.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:914bdfc1c37cae81",
     "textHash": "sha256:86151a2960f0c91d59561476e61bc24e42110c94d3bf84ad01732a5bf0f506af",
     "metrics": {
@@ -2151,7 +2151,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -2173,21 +2173,21 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Petals, thorns, roots taking in water and deciduous/evergreen observations compare plants; every feature or function is directly stated and the final needs list is explicit.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:a6c61c617c6f17f3",
-    "textHash": "sha256:ad2e6b0bb885cf6f584c5e26422b090978ea560dbdd6d078a46cc564b177131d",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:9b221d1a345471c2",
+    "textHash": "sha256:bdf521a39a7a5d85f2be797237327848a8abe750bd62d40e6feed5f88c6dd284",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
-      "wordCount": 67,
+      "wordCount": 69,
       "uniqueWordCount": 54,
-      "uniqueWordRatio": 0.81,
-      "averageWordLength": 4.49,
-      "averageWordsPerPage": 8.38,
+      "uniqueWordRatio": 0.78,
+      "averageWordLength": 4.45,
+      "averageWordsPerPage": 8.63,
       "minWordsPerPage": 7,
       "maxWordsPerPage": 10,
       "sentenceUnitCount": 9,
-      "averageWordsPerSentence": 7.44,
+      "averageWordsPerSentence": 7.67,
       "maxWordsPerSentence": 10,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.13,
@@ -2199,7 +2199,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "partly-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -2221,7 +2221,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "The young-animal is-called-a-name frame is stable, but calf, lamb, foal and duckling require a broader naming set than the simpler B baby-animal descriptions.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:54bdbc8b82af7904",
     "textHash": "sha256:1808304eeef72ac01b8769967fb292a7980a7d1b7b52c35c6fe316472cef94a0",
     "metrics": {
@@ -2247,7 +2247,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -2269,7 +2269,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Milk for a calf, mud for cooling, a woolly coat and a horse's heavy load introduce different concrete functions, followed by an explicit food-water-shelter-care summary.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:cba7bc5dc1f6de53",
     "textHash": "sha256:590a90f9ce9c1327f50f44ac1f4650f58489fad301bcfae64d837e963a6ac110",
     "metrics": {
@@ -2295,7 +2295,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -2317,7 +2317,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Whales and dolphins coming up for air, octopus arms, protective crab shell and curling seahorse tail build a comparison of movement, hiding and breathing adaptations.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:87a8c970836d58c2",
     "textHash": "sha256:0a75b68e183e262a77d80c439ee02c24769909af128b1495ba9451a402409384",
     "metrics": {
@@ -2343,7 +2343,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -2365,22 +2365,22 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "An opening question leads to owls sensing dim movement, bats using echoes and foxes finding prey; these are introductory sensory hunting mechanisms rather than simple nighttime labels.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:231a382f90798b73",
-    "textHash": "sha256:9c46e833725d2ba8a241cffeaf2a59ff1dfe4b75d83024722835ee49645b246c",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:e2a36ecd5c38748c",
+    "textHash": "sha256:eeedecdb7e815c393e47440624883e4f3434985931d08169b64ff80028ad4fbc",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 6,
-      "wordCount": 38,
-      "uniqueWordCount": 33,
-      "uniqueWordRatio": 0.87,
-      "averageWordLength": 4.74,
-      "averageWordsPerPage": 6.33,
+      "wordCount": 43,
+      "uniqueWordCount": 36,
+      "uniqueWordRatio": 0.84,
+      "averageWordLength": 4.58,
+      "averageWordsPerPage": 7.17,
       "minWordsPerPage": 6,
-      "maxWordsPerPage": 8,
-      "sentenceUnitCount": 7,
-      "averageWordsPerSentence": 5.43,
-      "maxWordsPerSentence": 8,
+      "maxWordsPerPage": 11,
+      "sentenceUnitCount": 8,
+      "averageWordsPerSentence": 5.38,
+      "maxWordsPerSentence": 7,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.17,
       "dialoguePageCount": 0,
@@ -2391,7 +2391,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -2406,23 +2406,23 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
       "syntax": "Varied declaratives, an opening question and a spatially contrasting close.",
-      "vocabulary": "Pollen, bloom, aphids, tunnel and broad foot.",
+      "vocabulary": "Pollen, flowers, aphids, tunnel and broad foot.",
       "knowledge": "Different organisms' feeding, movement and shelter functions.",
       "progression": "A shared setting links several ecological examples.",
       "inference": "Moderate synthesis across organisms and above/below locations."
     },
     "rationale": "Pollen transfer, aphid hunting, underground nests, earthworm tunnels and a snail's broad foot connect food and shelter above and below one garden.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:44f3d2a4abde43b9",
-    "textHash": "sha256:9e1fe0abab7d0337824b00d1e7be506cc954f6b5e7e8d9e65c416a8adf6411f8",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:9a8c45ca63def489",
+    "textHash": "sha256:efe6a461cb5f92b2b4ffafe18fa3fb434f7cfb6971a70597fd15dbceecd3691d",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
       "wordCount": 62,
-      "uniqueWordCount": 52,
-      "uniqueWordRatio": 0.84,
-      "averageWordLength": 4.69,
+      "uniqueWordCount": 51,
+      "uniqueWordRatio": 0.82,
+      "averageWordLength": 4.73,
       "averageWordsPerPage": 7.75,
       "minWordsPerPage": 6,
       "maxWordsPerPage": 11,
@@ -2439,7 +2439,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -2461,7 +2461,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Dogs’ exercise and regular care, rabbits’ company and room, and hamsters’ digging/exploration extend coordinated needs lists. Different pets need different care states the final comparison plainly, while the multiple needs and animal distinctions retain C.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-05",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:61a1174cad574411",
     "textHash": "sha256:9eaa34191528dab06b7bac61988f56b91ac6480ffa8b5f20ba4e539d9cccfc85",
     "metrics": {
@@ -2487,7 +2487,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -2509,21 +2509,21 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Equal square sides, square rectangle corners and a stretched oval pair formal properties with object examples; readers apply defined attributes when finding flat shapes.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:33e4a16d00be2d3c",
-    "textHash": "sha256:174675ca01c1f149817aa0905434a9ddb13b7cb6673cf10b04c54f8895dc04df",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:727301445d0327ec",
+    "textHash": "sha256:71c6f1d3d8295c32006b0c8ba6104c261275fb99d1209abf0235ba9bf9ce7c44",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 7,
-      "wordCount": 71,
-      "uniqueWordCount": 45,
-      "uniqueWordRatio": 0.63,
-      "averageWordLength": 4.37,
-      "averageWordsPerPage": 10.14,
+      "wordCount": 72,
+      "uniqueWordCount": 43,
+      "uniqueWordRatio": 0.6,
+      "averageWordLength": 4.39,
+      "averageWordsPerPage": 10.29,
       "minWordsPerPage": 9,
       "maxWordsPerPage": 12,
       "sentenceUnitCount": 14,
-      "averageWordsPerSentence": 5.07,
+      "averageWordsPerSentence": 5.14,
       "maxWordsPerSentence": 6,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.14,
@@ -2535,7 +2535,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -2557,7 +2557,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Big beside a mouse is reversed to small beside an elephant, then repeated with a toy car, flower and whale; the final prompt asks a direct comparison.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:745f896c11e78c0d",
     "textHash": "sha256:95d078543c2f5c992d5e9aed2c61ccd1d99ee7e3ce5229690e7a96cd920bd0c0",
     "metrics": {
@@ -2583,7 +2583,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -2605,7 +2605,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Fire's stay-back instruction, food needing time to cool, temperature naming and asking an adult vary the concrete hot/cold examples into practical safety language.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:b144194e67042186",
     "textHash": "sha256:7a014d3f783a7467ff2c7ddd8fdd48ff1061068b3921a59263e0970e2ffede7f",
     "metrics": {
@@ -2631,7 +2631,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -2646,28 +2646,28 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
       "syntax": "Short contrast statements, two paired-sentence pages and an experiment question.",
-      "vocabulary": "Hollow, solid, floats, sinks and material.",
+      "vocabulary": "Hollow, solid, floats, sinks, wooden and metal.",
       "knowledge": "Buoyancy depends on more than apparent weight.",
       "progression": "Examples set up a generalization that overturns an easy assumption.",
       "inference": "Moderate causal comparison and experimental interpretation."
     },
-    "rationale": "Hollow duck/solid stone and heavy hollow boat examples challenge a simple weight rule; shape and material and the heavy-floats/light-sinks close require comparing competing properties.",
+    "rationale": "Hollow duck/solid stone and heavy hollow boat examples challenge a simple weight rule; wooden and metal balls and the heavy-floats/light-sinks close require comparing different object properties.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:2a34a4f5c37ab940",
-    "textHash": "sha256:5cfa2f4f5da368a7c8921e0070e84d3ddda58eb4750ce68b10b3c8c6f4e9f5a8",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:8ae886d9d55773e9",
+    "textHash": "sha256:0bcf7f92bb239eb20b1e39e3aef03938c903ce8e0eb78771d4ea17920327b05a",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 7,
-      "wordCount": 49,
-      "uniqueWordCount": 38,
-      "uniqueWordRatio": 0.78,
-      "averageWordLength": 4.22,
-      "averageWordsPerPage": 7,
-      "minWordsPerPage": 5,
+      "wordCount": 52,
+      "uniqueWordCount": 36,
+      "uniqueWordRatio": 0.69,
+      "averageWordLength": 4.21,
+      "averageWordsPerPage": 7.43,
+      "minWordsPerPage": 7,
       "maxWordsPerPage": 8,
-      "sentenceUnitCount": 10,
-      "averageWordsPerSentence": 4.9,
+      "sentenceUnitCount": 11,
+      "averageWordsPerSentence": 4.73,
       "maxWordsPerSentence": 7,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.14,
@@ -2679,7 +2679,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -2701,7 +2701,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Away/close contrasts repeat through door, swing and zipper examples; a magnet pulling a steel clip extends the set before the explicit start-stop-turn summary.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:c85ec3e1affbb3ed",
     "textHash": "sha256:dcbb0bd98c64e6c128870516a6dd4c427b4e7ab24cb29b46a7bd5568de9510a5",
     "metrics": {
@@ -2727,7 +2727,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -2741,7 +2741,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "D",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Varied declaratives with and/so clauses plus paired imperatives.",
+      "syntax": "Varied declaratives with and/so links, paired sentences and one explicit safety imperative.",
       "vocabulary": "Closest, midday, fades and seems.",
       "knowledge": "Rotation differs from the Sun's apparent movement; sunlight has heat and safety effects.",
       "progression": "Observations lead to the explicit causal correction at the close.",
@@ -2749,7 +2749,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Earth turning explains morning and evening and the Sun's apparent crossing; closest-star language, midday warmth and eye safety add distinct conceptual relationships.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:510dfdb9625e7573",
     "textHash": "sha256:113221fdcdb13e672af97d464f90b5b5c100def2bda191b775d8e98de69ff444",
     "metrics": {
@@ -2775,7 +2775,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -2790,29 +2790,29 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
       "syntax": "Short explanatory clauses with repeated sunlit/reflect wording.",
-      "vocabulary": "Reflects, surface, crescent, fully and moonlight.",
+      "vocabulary": "Reflects, surface, crescent, sunlit and moonlight.",
       "knowledge": "The Moon has no light source of its own; visible shapes depend on illumination.",
-      "progression": "Initial claim develops through face examples and a final restatement.",
+      "progression": "The opening claim develops through crescent and full-Moon examples and a final restatement.",
       "inference": "Moderate invisible-light relationship."
     },
-    "rationale": "Reflected sunlight, crescent/full sunlit faces and Moon-Earth motion explain why moonlight appears; readers must integrate illumination and viewpoint rather than simply name phases.",
+    "rationale": "Reflected sunlight, crescent/full sunlit sides and Moon-Earth motion explain why moonlight appears; readers must integrate illumination and viewpoint rather than simply name phases.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:eefc976ac7f02029",
-    "textHash": "sha256:100432e27f97bbb83336771120fe4dd2a9a8a3510b7ae576a8daaebd9819629c",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:83abe029421c7d0d",
+    "textHash": "sha256:9d3ddaa28f2a2ee13721fa1cc1abca4ebca89d7f0a7b31043f11684ce486ab3b",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 7,
-      "wordCount": 54,
-      "uniqueWordCount": 39,
-      "uniqueWordRatio": 0.72,
-      "averageWordLength": 4.39,
-      "averageWordsPerPage": 7.71,
+      "wordCount": 57,
+      "uniqueWordCount": 43,
+      "uniqueWordRatio": 0.75,
+      "averageWordLength": 4.25,
+      "averageWordsPerPage": 8.14,
       "minWordsPerPage": 5,
-      "maxWordsPerPage": 9,
+      "maxWordsPerPage": 11,
       "sentenceUnitCount": 7,
-      "averageWordsPerSentence": 7.71,
-      "maxWordsPerSentence": 9,
+      "averageWordsPerSentence": 8.14,
+      "maxWordsPerSentence": 11,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.29,
       "dialoguePageCount": 0,
@@ -2823,7 +2823,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -2845,7 +2845,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "The side toward the Sun having day and the side turned from it having night explain a rotation cycle; repeated Earth turns supports syntax without removing the spatial model.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:46a8716a2a666b7b",
     "textHash": "sha256:9b391feffd51755ca6cc2d951088188af8c486e9bec4816884e013f19ca05f6d",
     "metrics": {
@@ -2871,7 +2871,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -2886,28 +2886,28 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
       "syntax": "Opening/closing questions, short clauses and coordinated lists.",
-      "vocabulary": "Tongue, notices, warmth and senses.",
+      "vocabulary": "Tongue, skin, touch, warmth and senses.",
       "knowledge": "The five senses jointly support learning about surroundings.",
       "progression": "Five functions answer an opening question and lead to personal application.",
       "inference": "Low; collective use is stated."
     },
-    "rationale": "Questions frame body-part observations; light/color/shape and touch/warmth/cold lists plus the senses-working-together statement broaden a familiar repeated pattern.",
+    "rationale": "Questions frame body-part observations; color-and-shape and touch-warmth-cold lists broaden a familiar pattern before the senses-working-together statement and personal question.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:faa4ccdc91f99ad5",
-    "textHash": "sha256:a7016edddae85ba25dc7cb77bf8468b9c74ac057674e249f7efb8b7d388dbc7c",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:c05c1aa66351ae84",
+    "textHash": "sha256:094ccece700706e26ac98f3e5257a4dd1ac52487259bfbe1e26c5cfcf480d17e",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
-      "wordCount": 47,
-      "uniqueWordCount": 39,
-      "uniqueWordRatio": 0.83,
-      "averageWordLength": 4.3,
-      "averageWordsPerPage": 5.88,
-      "minWordsPerPage": 4,
+      "wordCount": 59,
+      "uniqueWordCount": 41,
+      "uniqueWordRatio": 0.69,
+      "averageWordLength": 3.88,
+      "averageWordsPerPage": 7.38,
+      "minWordsPerPage": 6,
       "maxWordsPerPage": 9,
       "sentenceUnitCount": 8,
-      "averageWordsPerSentence": 5.88,
+      "averageWordsPerSentence": 7.38,
       "maxWordsPerSentence": 9,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.13,
@@ -2919,7 +2919,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -2934,28 +2934,28 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
       "syntax": "Varied short first-person statements, time markers and action lists.",
-      "vocabulary": "Crawl, practice, skills and own way/time.",
+      "vocabulary": "Crawl, practice, standing, blocks and different times.",
       "knowledge": "Development varies and needs food, play and sleep.",
       "progression": "Chronological milestones lead to needs and individual variation.",
       "inference": "Low; order and differences are stated."
     },
-    "rationale": "First sit/crawl, then stand/walk and soon run/play establish explicit milestones; new skills, growth needs and individual timing widen the comparison.",
+    "rationale": "First sit/crawl, then stand/walk and soon run/play establish explicit milestones; building, talking, growth needs and different learning times widen the comparison.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:8d863571e38a3515",
-    "textHash": "sha256:b0ecdf395d1986f515b03eff555bd7353f3de21e62721e9496f7f844cb4cea86",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:c1bde71efade21bd",
+    "textHash": "sha256:7745fbddb76c47e38308fb08d6a9d2c39eb52830634455ebd1cc5e61c73b98be",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 7,
-      "wordCount": 51,
-      "uniqueWordCount": 36,
-      "uniqueWordRatio": 0.71,
-      "averageWordLength": 3.69,
-      "averageWordsPerPage": 7.29,
+      "wordCount": 52,
+      "uniqueWordCount": 34,
+      "uniqueWordRatio": 0.65,
+      "averageWordLength": 3.85,
+      "averageWordsPerPage": 7.43,
       "minWordsPerPage": 6,
       "maxWordsPerPage": 10,
       "sentenceUnitCount": 7,
-      "averageWordsPerSentence": 7.29,
+      "averageWordsPerSentence": 7.43,
       "maxWordsPerSentence": 10,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.14,
@@ -2967,7 +2967,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -2982,40 +2982,40 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
       "syntax": "Varied subject-action clauses with functional explanations.",
-      "vocabulary": "Nutrients, muscles, germs, fluoride and brains.",
-      "knowledge": "Different health actions affect different body systems.",
-      "progression": "Distinct mechanisms accumulate into a habits-add-up conclusion.",
-      "inference": "Moderate integration of less visible health benefits."
+      "vocabulary": "Healthy, germs, fluoride, toothpaste and brains.",
+      "knowledge": "Different actions support body needs; washing removes germs and fluoride helps prevent holes in teeth.",
+      "progression": "Concrete habits and their benefits lead to a final list of daily actions.",
+      "inference": "Connect the directly explained tooth and hand-care benefits with the broader set of body needs."
     },
-    "rationale": "Nutrients, active hearts/muscles, germs and fluoride link different habits to body functions; the text supplies several introductory biological relationships rather than familiar routines alone.",
+    "rationale": "Food, water, movement, washing, tooth care and sleep are linked to body needs. Germ removal and fluoride preventing holes in teeth introduce less visible health relationships, with the fluoride outcome now explained directly.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:13c022915cbc1224",
-    "textHash": "sha256:fa1afb47b260157853f4f895292096aab0db1a680a1e457f7f34aa8afcf9ba67",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:3e7232284a3b9340",
+    "textHash": "sha256:82de21cfd65b4a4ac424bc2292d802c1bf27c4d37d3f7a5be21eb60a6a8d4e09",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 7,
-      "wordCount": 49,
-      "uniqueWordCount": 40,
-      "uniqueWordRatio": 0.82,
-      "averageWordLength": 5.04,
-      "averageWordsPerPage": 7,
-      "minWordsPerPage": 6,
-      "maxWordsPerPage": 8,
+      "wordCount": 58,
+      "uniqueWordCount": 43,
+      "uniqueWordRatio": 0.74,
+      "averageWordLength": 4.64,
+      "averageWordsPerPage": 8.29,
+      "minWordsPerPage": 7,
+      "maxWordsPerPage": 10,
       "sentenceUnitCount": 7,
-      "averageWordsPerSentence": 7,
-      "maxWordsPerSentence": 8,
+      "averageWordsPerSentence": 8.29,
+      "maxWordsPerSentence": 10,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.14,
       "dialoguePageCount": 0,
       "questionPageCount": 0,
       "illustratedPageCount": 7,
-      "independentlyDescribedPageCount": 0
+      "independentlyDescribedPageCount": 1
     },
     "illustrationSupport": {
       "basis": "existing-description-metadata",
-      "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "status": "partly-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -3029,7 +3029,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "C",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Short varied clauses, action lists and two paired-sentence pages.",
+      "syntax": "Short varied clauses, coordinated action lists and pages with two or three brief sentences.",
       "vocabulary": "Brain, stomach, balance, sunscreen and helmet.",
       "knowledge": "Basic organ functions, movement and protection.",
       "progression": "Body examples move to care actions and ownership.",
@@ -3037,21 +3037,21 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Brain thinking, stomach breaking down food and arms balancing vary body functions before sunscreen and helmet protection; the practical actions stay explicit and concrete.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:c2389d73e838b9d0",
-    "textHash": "sha256:70ecd253e0f0ea667a732946e8a38699b44a22744c2bc36c5193a6c943513cc7",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:4f966f5bf8da379d",
+    "textHash": "sha256:cae0d5ddd8a5be839acbc5e4650e081c9a9e8620491c35acd42572e4073212f4",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
-      "wordCount": 61,
-      "uniqueWordCount": 41,
+      "wordCount": 63,
+      "uniqueWordCount": 42,
       "uniqueWordRatio": 0.67,
-      "averageWordLength": 3.77,
-      "averageWordsPerPage": 7.63,
+      "averageWordLength": 3.7,
+      "averageWordsPerPage": 7.88,
       "minWordsPerPage": 6,
       "maxWordsPerPage": 10,
-      "sentenceUnitCount": 10,
-      "averageWordsPerSentence": 6.1,
+      "sentenceUnitCount": 12,
+      "averageWordsPerSentence": 5.25,
       "maxWordsPerSentence": 8,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.13,
@@ -3063,7 +3063,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -3085,7 +3085,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Moving water smoothing pebbles, a shell-shaped fossil from a long-ago animal and big rocks wearing down connect present evidence to past change.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:32a8f398161b5e50",
     "textHash": "sha256:704696cfd8f0c09841131c31d813babc523912b8c4dee04cd0b92796a8c5cd30",
     "metrics": {
@@ -3111,7 +3111,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -3133,7 +3133,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Cloud/rain/river movement, living things' uses and liquid/ice/invisible vapor combine into a water-location/form explanation; the final oceans/clouds comparison requires synthesis.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:b88aa1f2ba24f145",
     "textHash": "sha256:199edf31b0d460a0e2c64a654842b3ef7e2a032f39bf7ab5cbdfd7ee90ca95c3",
     "metrics": {
@@ -3159,7 +3159,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -3176,26 +3176,26 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
       "syntax": "Varied longer sentences, an as-clause, question and paired causal statements.",
       "vocabulary": "Queen, worker, hive, nectar, pollen and blooming.",
       "knowledge": "Colony work and pollination have related but distinct outcomes.",
-      "progression": "An opening honey question expands into production, pollination and mutual benefit.",
+      "progression": "An opening honey question expands into honey production, pollination and two explicit outcomes.",
       "inference": "Moderate causal synthesis across the two processes."
     },
-    "rationale": "Queen/worker roles connect nectar-to-honey production with pollen moving flower-to-flower and later fruit; an as-clause and the final garden benefit require following two linked processes.",
+    "rationale": "Queen and worker roles connect nectar-to-honey production with pollen moving between flowers and later fruit. The closing sentences distinguish food for bees from carrying pollen.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:1fc6c0c71b1ca464",
-    "textHash": "sha256:a8455a925b36d7ed2a2fa99f5306ae67b1cc2752eb713c5c3806084eed3909cd",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:cf121de5ec33053b",
+    "textHash": "sha256:3def6c4ccbc25d7bf233f549c360c234ec5dc13e5e042fbb1116b6d5bccb02c9",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 9,
-      "wordCount": 94,
-      "uniqueWordCount": 62,
-      "uniqueWordRatio": 0.66,
-      "averageWordLength": 4.51,
-      "averageWordsPerPage": 10.44,
+      "wordCount": 96,
+      "uniqueWordCount": 67,
+      "uniqueWordRatio": 0.7,
+      "averageWordLength": 4.55,
+      "averageWordsPerPage": 10.67,
       "minWordsPerPage": 9,
       "maxWordsPerPage": 13,
-      "sentenceUnitCount": 11,
-      "averageWordsPerSentence": 8.55,
+      "sentenceUnitCount": 12,
+      "averageWordsPerSentence": 8,
       "maxWordsPerSentence": 11,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.11,
@@ -3207,7 +3207,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -3229,21 +3229,21 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Magma rising through vents becomes lava or explosive ash/gas; island building, mineral-rich soil and scientific warning signs add multiple geological causes and outcomes.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:ea9b78b1255b845e",
-    "textHash": "sha256:904e95fbb1cd2182ee96a5e04a59205a03d90dd445baba753fbf429cfe71a57f",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:6894a1e0758dd34c",
+    "textHash": "sha256:496542b0d5cb93d3e4998328a545749243fe7b0e13ed90b2ffbabbb9c1bc7806",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 9,
-      "wordCount": 91,
-      "uniqueWordCount": 68,
-      "uniqueWordRatio": 0.75,
-      "averageWordLength": 5.02,
-      "averageWordsPerPage": 10.11,
+      "wordCount": 98,
+      "uniqueWordCount": 70,
+      "uniqueWordRatio": 0.71,
+      "averageWordLength": 4.86,
+      "averageWordsPerPage": 10.89,
       "minWordsPerPage": 8,
-      "maxWordsPerPage": 12,
+      "maxWordsPerPage": 15,
       "sentenceUnitCount": 11,
-      "averageWordsPerSentence": 8.27,
+      "averageWordsPerSentence": 8.91,
       "maxWordsPerSentence": 12,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.11,
@@ -3255,7 +3255,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -3277,7 +3277,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "While/when clauses track alternating parental care; hunting, colony calls and camouflage viewed from above versus below add several adaptations and perspective shifts.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:9a649cc721b7e44c",
     "textHash": "sha256:47f4987c3715cd5b540abe7fc3c46b6122142f6224aecfb16fd43bf102d31a06",
     "metrics": {
@@ -3303,7 +3303,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -3325,22 +3325,22 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Measurement, reflected-light observation, changing sunlit portions, tides, impact craters and Apollo samples form an inquiry requiring several scientific explanations and evidence sources.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:892b9b7a570583a7",
-    "textHash": "sha256:7e2427ae67e845668e1bc8719f2e856e74dcd9f1c17c478e181f80ddab0c0ab6",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:3200a64a6d5bb72e",
+    "textHash": "sha256:034d499849224a967113e1331bef23606dd0545bdbdb24c5ccbecf302e1021b9",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 9,
-      "wordCount": 139,
-      "uniqueWordCount": 93,
-      "uniqueWordRatio": 0.67,
-      "averageWordLength": 4.43,
-      "averageWordsPerPage": 15.44,
+      "wordCount": 143,
+      "uniqueWordCount": 91,
+      "uniqueWordRatio": 0.64,
+      "averageWordLength": 4.59,
+      "averageWordsPerPage": 15.89,
       "minWordsPerPage": 13,
-      "maxWordsPerPage": 17,
-      "sentenceUnitCount": 16,
-      "averageWordsPerSentence": 8.69,
-      "maxWordsPerSentence": 16,
+      "maxWordsPerPage": 20,
+      "sentenceUnitCount": 18,
+      "averageWordsPerSentence": 7.94,
+      "maxWordsPerSentence": 13,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.11,
       "dialoguePageCount": 0,
@@ -3351,7 +3351,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -3366,29 +3366,29 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
       "syntax": "Varied explanatory sentences, lists, paired statements and an imperative close.",
-      "vocabulary": "Absorbs, photosynthesis, pollination, pollen, pods and emerges.",
+      "vocabulary": "Photosynthesis, pollination, pollen, pods, shoot and soil.",
       "knowledge": "Germination, food production, reproduction and dispersal are interdependent.",
       "progression": "A complete cycle links successive mechanisms and returns to planting.",
       "inference": "Substantial cross-process causal understanding."
     },
     "rationale": "Absorbing roots, leaves making food through photosynthesis, flower pollination and seed dispersal connect several processes in a seed-to-seed cycle.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:3a542bd749f2c81b",
-    "textHash": "sha256:cce2c5b432535300e2da2aca4c43de4352f51661a9e98490b06175859ba32733",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:aa08f6da2011bb48",
+    "textHash": "sha256:7ef9982d8c06266f33fe7e5ef46964c30ed4f30f4044fdf0dd1450d913c4a4e2",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 9,
-      "wordCount": 94,
-      "uniqueWordCount": 65,
-      "uniqueWordRatio": 0.69,
-      "averageWordLength": 4.64,
-      "averageWordsPerPage": 10.44,
+      "wordCount": 100,
+      "uniqueWordCount": 59,
+      "uniqueWordRatio": 0.59,
+      "averageWordLength": 4.35,
+      "averageWordsPerPage": 11.11,
       "minWordsPerPage": 9,
       "maxWordsPerPage": 13,
-      "sentenceUnitCount": 12,
-      "averageWordsPerSentence": 7.83,
-      "maxWordsPerSentence": 12,
+      "sentenceUnitCount": 14,
+      "averageWordsPerSentence": 7.14,
+      "maxWordsPerSentence": 10,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.11,
       "dialoguePageCount": 0,
@@ -3399,7 +3399,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -3421,7 +3421,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Spinnerets making silk, orb-web construction, alternative web forms and a jumping spider's hunting strategy are compared before prey handling and egg protection.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:6c7a95ad21c0daf4",
     "textHash": "sha256:a17fa6b056d079bf0c11d0754783f5e5083147ea86887a98339e38aaf005a5a2",
     "metrics": {
@@ -3447,7 +3447,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -3462,29 +3462,29 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
       "syntax": "Varied explanatory paragraphs, paired/triple statements and a just-as comparison.",
-      "vocabulary": "Pressure, bioluminescence, Mariana Trench, plankton and oxygen.",
+      "vocabulary": "Skeletons, bioluminescence, Mariana Trench, plankton, oxygen and submarines.",
       "knowledge": "Depth/light/pressure relationships plus reef and food-production mechanisms.",
-      "progression": "A descent to the trench returns far above to sunlit plankton.",
+      "progression": "A descent to the trench returns to sunlit plankton, then introduces submarine exploration.",
       "inference": "Substantial spatial, numerical and biological integration."
     },
-    "rationale": "A depth journey links sunlight, coral construction, increasing pressure, bioluminescence and plankton oxygen production; meters/kilometers add difficult scale relationships.",
+    "rationale": "A depth journey links sunlight, reef building, increasing water push, animals making light and plankton releasing oxygen. Meter and kilometer comparisons add scale demands.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:0e2044e41c1149a9",
-    "textHash": "sha256:29449e5d8609b5a8dcb68f63723591028aa17bb4e9cfc9aef42cbaa0ee7fe3d1",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:b9f4e9af91fe3808",
+    "textHash": "sha256:be10f4d96522384e7299b51200935f18f47d9bcc25ab4e4aec905ebf53e588c1",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 9,
-      "wordCount": 110,
-      "uniqueWordCount": 82,
-      "uniqueWordRatio": 0.75,
-      "averageWordLength": 4.81,
-      "averageWordsPerPage": 12.22,
+      "wordCount": 125,
+      "uniqueWordCount": 92,
+      "uniqueWordRatio": 0.74,
+      "averageWordLength": 4.73,
+      "averageWordsPerPage": 13.89,
       "minWordsPerPage": 10,
       "maxWordsPerPage": 18,
-      "sentenceUnitCount": 14,
-      "averageWordsPerSentence": 7.86,
-      "maxWordsPerSentence": 13,
+      "sentenceUnitCount": 16,
+      "averageWordsPerSentence": 7.81,
+      "maxWordsPerSentence": 11,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.11,
       "dialoguePageCount": 0,
@@ -3495,7 +3495,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -3517,7 +3517,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "A four-stage monarch cycle is explicit, but antennae, milkweed, chrysalis, metamorphosis and proboscis introduce dense specialist vocabulary alongside body change and feeding function.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:0099a61ee3347918",
     "textHash": "sha256:e3838ad954896e11a968e2ccfb3c6bb8f356911fc8fcfcf6f9fa562e3ce5aacc",
     "metrics": {
@@ -3543,7 +3543,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "partly-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -3558,28 +3558,28 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
       "syntax": "Varied cause statements, paired sequential pages and a contrastive close.",
-      "vocabulary": "Acidic, limestone, mineral-rich, stalactites, stalagmites and columns.",
+      "vocabulary": "Acid, limestone, minerals, stalactites, stalagmites and columns.",
       "knowledge": "Chemical weathering, deposition, cave ecology and archaeological timescales.",
       "progression": "Formation leads to structures, living inhabitants and past human visitors.",
       "inference": "Substantial reasoning about slow unseen causes and traces."
     },
     "rationale": "Acidic water widening limestone, mineral deposits forming stalactites/stalagmites and their joining into columns explain slow processes before animal adaptations and ancient art broaden the timescale.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:c49819ca16fd0ca1",
-    "textHash": "sha256:5b69b573b92ed7da669db54597cae7376d5b54e77dab4a36fbecf80c6897f7d8",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:f9ad79897cdb8dbb",
+    "textHash": "sha256:b9f7cd9eefc2fb3b628a4cf64e0005ee35fb6e4a5334d26900169532fec6c465",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 9,
-      "wordCount": 103,
-      "uniqueWordCount": 81,
-      "uniqueWordRatio": 0.79,
-      "averageWordLength": 4.84,
-      "averageWordsPerPage": 11.44,
+      "wordCount": 116,
+      "uniqueWordCount": 85,
+      "uniqueWordRatio": 0.73,
+      "averageWordLength": 4.65,
+      "averageWordsPerPage": 12.89,
       "minWordsPerPage": 7,
       "maxWordsPerPage": 17,
-      "sentenceUnitCount": 13,
-      "averageWordsPerSentence": 7.92,
+      "sentenceUnitCount": 14,
+      "averageWordsPerSentence": 8.29,
       "maxWordsPerSentence": 12,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.11,
@@ -3591,7 +3591,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -3611,23 +3611,23 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
       "progression": "One chronological cycle returns to spring eggs.",
       "inference": "Moderate physiological and cycle synthesis, strongly supported by sequence."
     },
-    "rationale": "A clear egg-tadpole-froglet-adult chain supports gills and lungs, while shrinking tail, moist-skin breathing and camouflage connect bodily change to two habitats.",
+    "rationale": "An egg-tadpole-froglet-adult sequence supports gills, lungs, a shrinking tail and moist-skin breathing. Feeding and hiding observations connect the changing body to life in water and on damp land.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:0dd5f90e3afed36c",
-    "textHash": "sha256:ce21ac3a0214c1f321105e2772a7662f2f3c000f77b6dd2746ae27e0a21cd834",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:f8dc021f490c203f",
+    "textHash": "sha256:2f08157d351aac811c0cbf2c15cb8bb1792be577d205299df66fb9fa68c99a47",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 9,
-      "wordCount": 103,
-      "uniqueWordCount": 77,
+      "wordCount": 106,
+      "uniqueWordCount": 79,
       "uniqueWordRatio": 0.75,
-      "averageWordLength": 4.15,
-      "averageWordsPerPage": 11.44,
+      "averageWordLength": 4.23,
+      "averageWordsPerPage": 11.78,
       "minWordsPerPage": 9,
       "maxWordsPerPage": 15,
-      "sentenceUnitCount": 12,
-      "averageWordsPerSentence": 8.58,
+      "sentenceUnitCount": 13,
+      "averageWordsPerSentence": 8.15,
       "maxWordsPerSentence": 13,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.22,
@@ -3639,7 +3639,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -3661,7 +3661,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "The running-pal goal moves through wanting, running alone, running together and resting side by side. Repeated names support the text, but the varying clause patterns and social outcome make this a short B narrative rather than an A naming/action pattern.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:2f222b0f0ab51aaa",
     "textHash": "sha256:c71d1fb7439bfce8e7c1c04c20ba1a2fc716f6f5a706cb161346e6e8e318abdd",
     "metrics": {
@@ -3687,7 +3687,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -3709,7 +3709,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Short park actions lead to a hill solving a blocked-view problem; the opening question and whole-park comparison add a simple inference.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:3c79d272db017955",
     "textHash": "sha256:b66bb6ecea8153949ff27586db96b5428e1b0f03e14ff420fed081db63ba5763",
     "metrics": {
@@ -3735,7 +3735,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -3757,7 +3757,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Bob wants Fluff to sit, then Fluff moves between two children before calm patting produces the result. Infinitive phrasing, calmly and changing spatial relations add small pattern and vocabulary demands appropriate to B.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:cc585ac4446b0f9b",
     "textHash": "sha256:36863bc30f0348be6c2c32efad3fec8a46d049703ca09df63fd844577e5b4a42",
     "metrics": {
@@ -3783,7 +3783,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -3805,7 +3805,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Short construction actions form a wave-knocks-it-down problem; farther-from-the-waves connects the revised plan to the dry ending.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:a03fbbdd3077b430",
     "textHash": "sha256:ff686e7731cbbfbf2ad46f198a611ce16a88bbef6b7d8e07f4799b5e48ee79e2",
     "metrics": {
@@ -3831,7 +3831,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -3853,7 +3853,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Names and bag-holding actions repeat, but classroom, side-by-side and a smile exchange add situational inference and longer words.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:b0e7571249748ac7",
     "textHash": "sha256:f0ab6d5183b7d44ec1f277d0b7751cb463e8d262621d3199c010e8803dc5ad33",
     "metrics": {
@@ -3879,7 +3879,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -3901,7 +3901,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Repeated spots/finds examples support a six-animal checklist; hidden frog, elephant and complete add small vocabulary demands.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:92fb5a97dc144adf",
     "textHash": "sha256:6f26ec86e026957870c5d29bfd576f6b7ab24663ef0051c417f4a390cb00ec8f",
     "metrics": {
@@ -3927,7 +3927,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -3944,21 +3944,21 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
       "syntax": "Short clauses vary their opening, subject and purpose across the book, with some negation or linked actions.",
       "vocabulary": "Familiar people, objects and actions with modest topic or spatial phrase variation.",
       "knowledge": "Familiar child/pet situation; any problem and result stay concrete.",
-      "progression": "Short birthday actions include paper that will not rip, then a bat reveal; the reader connects the present to the final game.",
+      "progression": "The wrapped gift opens after a harder pull; cake and a ball game lead to resting with Fluff.",
       "inference": "A small goal, changed condition or action/result link is supported by the explicit prose."
     },
-    "rationale": "Short birthday actions include paper that will not rip, then a bat reveal; the reader connects the present to the final game.",
+    "rationale": "Short birthday actions include paper that will not rip, then a bat reveal; the reader connects the present to the ball game before the friends rest.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:736efd1dd20300a7",
-    "textHash": "sha256:73c372252f4082042eb2fe0c7cb0f428c1f8308bd3205a2a138b39f8e9e24c87",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:72e0eb4877e897b5",
+    "textHash": "sha256:fddf7b5d70b2127f091e34f95f562e011a749241a13aef3ae4c76c34eeae0456",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
       "wordCount": 40,
-      "uniqueWordCount": 33,
-      "uniqueWordRatio": 0.83,
-      "averageWordLength": 3.68,
+      "uniqueWordCount": 35,
+      "uniqueWordRatio": 0.88,
+      "averageWordLength": 3.75,
       "averageWordsPerPage": 5,
       "minWordsPerPage": 3,
       "maxWordsPerPage": 6,
@@ -3975,7 +3975,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -3997,7 +3997,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Feeling too ill to play, falling asleep beside Fluff, resting for two days and becoming stronger form a short recovery sequence. Several changing clause frames and time/comparison language put the combined demand in B.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:3cf00385374ea68c",
     "textHash": "sha256:c7a87c1d32ac132699bf32c7e9efe4dfcb89dc56c5ad680bd6c036384d0967a7",
     "metrics": {
@@ -4023,7 +4023,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -4045,7 +4045,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Short repeated Bob-reads lines support a simple learning sequence; sounds-out and cannot-read-yet require a little topic knowledge.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:ef8cd6be88116f3b",
     "textHash": "sha256:347771b9a8290ec8b0d1aa2c0dd1a234be3a4b9fdede77405870bd21e416ae67",
     "metrics": {
@@ -4071,7 +4071,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -4093,7 +4093,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "The sore-leg problem proceeds explicitly through vet, medicine and rest; weeks-pass introduces a time jump across short sentences.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:bbf9b533a36e7816",
     "textHash": "sha256:69e5dc7155eab613eaf1d649b422e104314501976ea67b437f51c78396b0c2c9",
     "metrics": {
@@ -4119,7 +4119,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -4134,14 +4134,14 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
       "syntax": "Varied short paragraphs with direct dialogue, paired sentences and occasional longer coordinated clauses.",
-      "vocabulary": "Everyday family language plus specific setting/action words and figurative reactions.",
+      "vocabulary": "Rocket, pointy nose, pretend, alien, astronauts and blast off extend familiar play language.",
       "knowledge": "Dialogue, sound effects and a pretend-space frame vary short sentences; the reader must distinguish building a box rocket from imagined travel.",
       "progression": "Several connected scenes keep a practical goal or activity in view.",
-      "inference": "Track an explicit action/consequence chain; the school play adds sustained performance anxiety and a supported emotional change."
+      "inference": "Keep the real box-building scene separate from the explicitly introduced pretend Moon journey, then recognize the return to the garden."
     },
     "rationale": "Dialogue, sound effects and a pretend-space frame vary short sentences; the reader must distinguish building a box rocket from imagined travel.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:eae6ebde3d6dcfc1",
     "textHash": "sha256:5ed488bbf1e76f9ddf9d497a8c248fe9d941ddffa303f2170bb48a0166ad639e",
     "metrics": {
@@ -4167,7 +4167,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -4181,29 +4181,29 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "D",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Varied short paragraphs with direct dialogue, paired sentences and occasional longer coordinated clauses.",
-      "vocabulary": "Everyday family language plus specific setting/action words and figurative reactions.",
-      "knowledge": "Repeated Drop commands organize Chips's mischief; quoted dialogue, possessives and a final successful attempt connect several events.",
-      "progression": "Several connected scenes keep a practical goal or activity in view.",
-      "inference": "Track an explicit action/consequence chain; the school play adds sustained performance anxiety and a supported emotional change."
+      "syntax": "Short action paragraphs, quoted commands, possessives and brief sound effects.",
+      "vocabulary": "Trots, leash, rose bush, sleeve and jingle extend everyday home words.",
+      "knowledge": "A pet responds inconsistently to a child's drop command.",
+      "progression": "Repeated grabbing and releasing lead to James's successful final command.",
+      "inference": "Follow Chips's changing actions and connect the repeated command with letting go."
     },
     "rationale": "Repeated Drop commands organize Chips's mischief; quoted dialogue, possessives and a final successful attempt connect several events.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:df2d91df3d514776",
-    "textHash": "sha256:77bacde1a9302d9dd4e89ab207968f4a19cd48bfbf7b32489b71d2d605722fd9",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:773005bfda9f3986",
+    "textHash": "sha256:592d8d44024a1d2b643b2abd3c65cf9b1ceb513c3483c6a5e27bfd5a499caf06",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 12,
-      "wordCount": 109,
-      "uniqueWordCount": 66,
-      "uniqueWordRatio": 0.61,
+      "wordCount": 110,
+      "uniqueWordCount": 65,
+      "uniqueWordRatio": 0.59,
       "averageWordLength": 4.18,
-      "averageWordsPerPage": 9.08,
-      "minWordsPerPage": 8,
+      "averageWordsPerPage": 9.17,
+      "minWordsPerPage": 7,
       "maxWordsPerPage": 11,
       "sentenceUnitCount": 31,
-      "averageWordsPerSentence": 3.52,
+      "averageWordsPerSentence": 3.55,
       "maxWordsPerSentence": 6,
       "repeatedSentenceUnitCount": 3,
       "dominantTwoWordPageOpeningRatio": 0.17,
@@ -4215,7 +4215,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -4230,32 +4230,32 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
       "syntax": "Varied short paragraphs with direct dialogue, paired sentences and occasional longer coordinated clauses.",
-      "vocabulary": "Everyday family language plus specific setting/action words and figurative reactions.",
-      "knowledge": "A longer shopping sequence tracks list items and safe egg handling; crunchy, checkout and an unspoken look add vocabulary and inference.",
+      "vocabulary": "List, ripe, crunchy seeds, loaf, checkout and whole add specific shopping language.",
+      "knowledge": "Track the shopping list, careful egg handling and waiting until home before eating the bread.",
       "progression": "Several connected scenes keep a practical goal or activity in view.",
-      "inference": "Track an explicit action/consequence chain; the school play adds sustained performance anxiety and a supported emotional change."
+      "inference": "Connect the list with checking the purchases and Anna’s spoken request with James reaching for the bread."
     },
-    "rationale": "A longer shopping sequence tracks list items and safe egg handling; crunchy, checkout and an unspoken look add vocabulary and inference.",
+    "rationale": "A longer shopping sequence tracks list items and safe egg handling; crunchy, checkout and an explicit wait-until-home request add vocabulary and linked practical decisions.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:a94199b59775cca2",
-    "textHash": "sha256:72b418b4bc40b5e8574f5e6458e9f50060433b6da28aae9d31ff57b7d6fe96b7",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:a737f424d829d52a",
+    "textHash": "sha256:f671f51b8e9fd9aba3fd08bde139ef4812063b66be645fc8179a3b1af2bfea42",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 12,
-      "wordCount": 122,
-      "uniqueWordCount": 79,
-      "uniqueWordRatio": 0.65,
-      "averageWordLength": 4.31,
-      "averageWordsPerPage": 10.17,
+      "wordCount": 127,
+      "uniqueWordCount": 80,
+      "uniqueWordRatio": 0.63,
+      "averageWordLength": 4.25,
+      "averageWordsPerPage": 10.58,
       "minWordsPerPage": 8,
       "maxWordsPerPage": 14,
       "sentenceUnitCount": 23,
-      "averageWordsPerSentence": 5.3,
+      "averageWordsPerSentence": 5.52,
       "maxWordsPerSentence": 10,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.08,
-      "dialoguePageCount": 2,
+      "dialoguePageCount": 3,
       "questionPageCount": 1,
       "illustratedPageCount": 12,
       "independentlyDescribedPageCount": 12
@@ -4263,7 +4263,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -4278,28 +4278,28 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
       "syntax": "Varied short paragraphs with direct dialogue, paired sentences and occasional longer coordinated clauses.",
-      "vocabulary": "Everyday family language plus specific setting/action words and figurative reactions.",
+      "vocabulary": "Dental checkup, waiting-room, grips, armrests and dentist add specific visit language.",
       "knowledge": "Short dialogue and action show worry changing through reassurance; dental checkup, armrests and physical reactions need contextual interpretation.",
       "progression": "Several connected scenes keep a practical goal or activity in view.",
-      "inference": "Track an explicit action/consequence chain; the school play adds sustained performance anxiety and a supported emotional change."
+      "inference": "Connect James’s smiling return and spoken reassurance with Anna following him into the chair; the change in worry is supported by visible actions."
     },
     "rationale": "Short dialogue and action show worry changing through reassurance; dental checkup, armrests and physical reactions need contextual interpretation.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:28426347606a3e01",
-    "textHash": "sha256:d7bf52eaf00252ba5fa86ff30dfcacc7516d355afcd5c5a4d7cb11841ccc7ea7",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:e1dc9430428430f7",
+    "textHash": "sha256:26c1511b541e37d1e3f886a1e644e09bd26bb96aefe195b0073f56eb6c009234",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 12,
-      "wordCount": 109,
-      "uniqueWordCount": 78,
+      "wordCount": 111,
+      "uniqueWordCount": 80,
       "uniqueWordRatio": 0.72,
-      "averageWordLength": 4.44,
-      "averageWordsPerPage": 9.08,
+      "averageWordLength": 4.4,
+      "averageWordsPerPage": 9.25,
       "minWordsPerPage": 7,
-      "maxWordsPerPage": 10,
+      "maxWordsPerPage": 11,
       "sentenceUnitCount": 26,
-      "averageWordsPerSentence": 4.19,
+      "averageWordsPerSentence": 4.27,
       "maxWordsPerSentence": 7,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.08,
@@ -4311,7 +4311,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -4325,29 +4325,29 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "D",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Varied short paragraphs with direct dialogue, paired sentences and occasional longer coordinated clauses.",
-      "vocabulary": "Everyday family language plus specific setting/action words and figurative reactions.",
-      "knowledge": "A tree-house plan drives ordered construction steps; quoted dialogue, tools and a nighttime landing widen vocabulary and sequence length.",
-      "progression": "Several connected scenes keep a practical goal or activity in view.",
-      "inference": "Track an explicit action/consequence chain; the school play adds sustained performance anxiety and a supported emotional change."
+      "syntax": "Short action paragraphs with direct dialogue, lists and linked sentences.",
+      "vocabulary": "Oak, ladder, hammer, firm, saw, flag and sleeping bags.",
+      "knowledge": "A simple construction plan is carried out with an adult's help.",
+      "progression": "Planning and building lead through painting and a small pet interruption to using the finished tree house.",
+      "inference": "Connect tools and actions with the plan and the completed structure; most steps are explicit."
     },
-    "rationale": "A tree-house plan drives ordered construction steps; quoted dialogue, tools and a nighttime landing widen vocabulary and sequence length.",
+    "rationale": "A tree-house plan drives construction, painting and an overnight stay. Tool vocabulary, quoted dialogue and the ordered practical steps retain a sustained D-level sequence.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:441b79a5a2ad0abe",
-    "textHash": "sha256:aaee86fecd82066b93e55ab3d29f1a58ac8cf4e6ac6dfce5df39f751a665264c",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:2b62e639890a9986",
+    "textHash": "sha256:35d47d449aaecda29c7cdf2966589b30c1dc38ee25897d37c29fbf9ca563b235",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 12,
-      "wordCount": 116,
+      "wordCount": 118,
       "uniqueWordCount": 72,
-      "uniqueWordRatio": 0.62,
-      "averageWordLength": 4.12,
-      "averageWordsPerPage": 9.67,
+      "uniqueWordRatio": 0.61,
+      "averageWordLength": 4.09,
+      "averageWordsPerPage": 9.83,
       "minWordsPerPage": 8,
       "maxWordsPerPage": 13,
       "sentenceUnitCount": 21,
-      "averageWordsPerSentence": 5.52,
+      "averageWordsPerSentence": 5.62,
       "maxWordsPerSentence": 11,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.08,
@@ -4359,7 +4359,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -4374,14 +4374,14 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
       "syntax": "Varied short paragraphs with direct dialogue, paired sentences and occasional longer coordinated clauses.",
-      "vocabulary": "Everyday family language plus specific setting/action words and figurative reactions.",
+      "vocabulary": "Gather, palm, strokes, escapes, zigzags and beans extend familiar farm vocabulary.",
       "knowledge": "Farm jobs shift into an escape and repair; dialogue, counting, zigzags and several named animals require tracking parallel actions.",
       "progression": "Several connected scenes keep a practical goal or activity in view.",
-      "inference": "Track an explicit action/consequence chain; the school play adds sustained performance anxiety and a supported emotional change."
+      "inference": "Track which animal escapes or needs redirecting and how Grandma, James and Anna respond across the farm scenes."
     },
     "rationale": "Farm jobs shift into an escape and repair; dialogue, counting, zigzags and several named animals require tracking parallel actions.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:a7379161a62c2f9f",
     "textHash": "sha256:b947a1ff2d5125a9107c879047236947101ff1dd13f42be75e8ecd456d60dafe",
     "metrics": {
@@ -4407,7 +4407,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -4422,28 +4422,28 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
       "syntax": "Varied short paragraphs with direct dialogue, paired sentences and occasional longer coordinated clauses.",
-      "vocabulary": "Everyday family language plus specific setting/action words and figurative reactions.",
-      "knowledge": "Audition, rehearsal and stage fright form linked time stages; metaphorical lost lines and a thumbs-up imply confidence changing through support.",
+      "vocabulary": "Script, part, earmuffs, scales, mask, crowd and thumbs-up extend school performance language.",
+      "knowledge": "A performance involves preparation, an audience and remembered actions; a familiar signal can support a worried performer.",
       "progression": "Several connected scenes keep a practical goal or activity in view.",
       "inference": "Track an explicit action/consequence chain; the school play adds sustained performance anxiety and a supported emotional change."
     },
-    "rationale": "Audition, rehearsal and stage fright form linked time stages; metaphorical lost lines and a thumbs-up imply confidence changing through support.",
+    "rationale": "Trying for a part, practicing and performing form linked stages; James explicitly forgets what to say, and Anna’s smile and thumbs-up help him begin. Readers connect the earlier practice with the final roar and follow confidence changing through support.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:14c74d43e8eda02f",
-    "textHash": "sha256:d8571f47cc4bcf05e93211e64398c50aa144dd268a7cec08f305e8b375aaeec2",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:121a84e342c7307c",
+    "textHash": "sha256:3b356107d06320c3e0befc03f1122ae083752ef8816b002cac6cec0e5728bbac",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 12,
-      "wordCount": 120,
-      "uniqueWordCount": 85,
+      "wordCount": 126,
+      "uniqueWordCount": 89,
       "uniqueWordRatio": 0.71,
-      "averageWordLength": 4.47,
-      "averageWordsPerPage": 10,
+      "averageWordLength": 4.4,
+      "averageWordsPerPage": 10.5,
       "minWordsPerPage": 9,
       "maxWordsPerPage": 12,
       "sentenceUnitCount": 25,
-      "averageWordsPerSentence": 4.8,
+      "averageWordsPerSentence": 5.04,
       "maxWordsPerSentence": 10,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.08,
@@ -4455,7 +4455,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -4469,24 +4469,24 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "D",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Varied short paragraphs with direct dialogue, paired sentences and occasional longer coordinated clauses.",
-      "vocabulary": "Everyday family language plus specific setting/action words and figurative reactions.",
-      "knowledge": "Short action and dialogue track two pets, damage and cleanup; figurative rockets/fly wording adds demands beyond a repeated action frame.",
-      "progression": "Several connected scenes keep a practical goal or activity in view.",
-      "inference": "Track an explicit action/consequence chain; the school play adds sustained performance anxiety and a supported emotional change."
+      "syntax": "Varied short action paragraphs, direct dialogue and linked sentences.",
+      "vocabulary": "Gate, circles, races, petals, leash, props and wags.",
+      "knowledge": "A lively pet visit causes a mess that the children help put right.",
+      "progression": "Arrival and chase lead to a splash and damaged flowers, followed by stopping, care and cleanup.",
+      "inference": "Track which animal acts and connect rough play with the children's responses."
     },
-    "rationale": "Short action and dialogue track two pets, damage and cleanup; figurative rockets/fly wording adds demands beyond a repeated action frame.",
+    "rationale": "Short action and dialogue follow two pets through running, a pool splash, damaged flowers, stopping and cleanup. Tracking both animals and several consequences retains D with the new literal wording.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:7918424bff6bbb1e",
-    "textHash": "sha256:d7f810246bb88ab368751bf45a416c77a06df83368809922946ce3bc5e119a07",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:ea331ad7ea73ccfb",
+    "textHash": "sha256:33b5057f4f365640663bf3db8c7e7ee8a9a9bc8a945d5ceee6a1ed5e56363f94",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 12,
       "wordCount": 117,
       "uniqueWordCount": 78,
       "uniqueWordRatio": 0.67,
-      "averageWordLength": 4.42,
+      "averageWordLength": 4.41,
       "averageWordsPerPage": 9.75,
       "minWordsPerPage": 8,
       "maxWordsPerPage": 12,
@@ -4503,7 +4503,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -4518,28 +4518,28 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
       "syntax": "Varied short paragraphs with direct dialogue, paired sentences and occasional longer coordinated clauses.",
-      "vocabulary": "Everyday family language plus specific setting/action words and figurative reactions.",
+      "vocabulary": "Brakes, hedge, steady, pedal and lane extend familiar bicycle vocabulary.",
       "knowledge": "Repeated bike failures lead to looking ahead and keeping hands on; short dialogue and hedge callbacks require causal reading across pages.",
       "progression": "Several connected scenes keep a practical goal or activity in view.",
-      "inference": "Track an explicit action/consequence chain; the school play adds sustained performance anxiety and a supported emotional change."
+      "inference": "Connect watching his feet or lifting his hands with James falling, then compare those failures with looking ahead and keeping both hands on."
     },
     "rationale": "Repeated bike failures lead to looking ahead and keeping hands on; short dialogue and hedge callbacks require causal reading across pages.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:de4dc9ec2f378ead",
-    "textHash": "sha256:218ab9dca7e34a268251f449010caa49ba973dc51b49c64323c614013e8e4833",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:5b4c4426730edb61",
+    "textHash": "sha256:ceefa34da457560952fe1d1543f7a359a00aa2f79bffaec521a21f2b5854598d",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 12,
-      "wordCount": 111,
-      "uniqueWordCount": 78,
-      "uniqueWordRatio": 0.7,
-      "averageWordLength": 4.49,
-      "averageWordsPerPage": 9.25,
+      "wordCount": 118,
+      "uniqueWordCount": 77,
+      "uniqueWordRatio": 0.65,
+      "averageWordLength": 4.39,
+      "averageWordsPerPage": 9.83,
       "minWordsPerPage": 8,
-      "maxWordsPerPage": 11,
+      "maxWordsPerPage": 14,
       "sentenceUnitCount": 23,
-      "averageWordsPerSentence": 4.83,
+      "averageWordsPerSentence": 5.13,
       "maxWordsPerSentence": 9,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.08,
@@ -4551,7 +4551,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -4566,29 +4566,29 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
       "syntax": "Varied short paragraphs with direct dialogue, paired sentences and occasional longer coordinated clauses.",
-      "vocabulary": "Everyday family language plus specific setting/action words and figurative reactions.",
-      "knowledge": "Tent assembly, a nighttime fox and a repaired seam form a longer sequence; fragments, dialogue and camping equipment diversify the print.",
+      "vocabulary": "Peg, poles, sleeping bags, marshmallow, toy horn and patch extend camping vocabulary.",
+      "knowledge": "Tent assembly, sheltering at night and repairing a chewed hole connect several camping events.",
       "progression": "Several connected scenes keep a practical goal or activity in view.",
-      "inference": "Track an explicit action/consequence chain; the school play adds sustained performance anxiety and a supported emotional change."
+      "inference": "Track Chips’s interruptions and the chewed hole, then connect Anna’s patch with repairing that damage."
     },
-    "rationale": "Tent assembly, a nighttime fox and a repaired seam form a longer sequence; fragments, dialogue and camping equipment diversify the print.",
+    "rationale": "Tent assembly, a nighttime fox and a repaired hole form a longer sequence; fragments, dialogue and camping equipment diversify the print.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:a4b5050ac04d8115",
-    "textHash": "sha256:0d1bfc35b35c9b2cb400fd7a292682b0a9e76b10fd64946816ff4f2ab09a8e31",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:f0be61f7df9cbe26",
+    "textHash": "sha256:a080953adb069eb0d5de670c396a0beba44f13eeea6912cfa8d876a52cd078fc",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 12,
-      "wordCount": 109,
-      "uniqueWordCount": 74,
-      "uniqueWordRatio": 0.68,
-      "averageWordLength": 4.56,
-      "averageWordsPerPage": 9.08,
-      "minWordsPerPage": 7,
-      "maxWordsPerPage": 10,
+      "wordCount": 114,
+      "uniqueWordCount": 76,
+      "uniqueWordRatio": 0.67,
+      "averageWordLength": 4.41,
+      "averageWordsPerPage": 9.5,
+      "minWordsPerPage": 8,
+      "maxWordsPerPage": 11,
       "sentenceUnitCount": 28,
-      "averageWordsPerSentence": 3.89,
-      "maxWordsPerSentence": 9,
+      "averageWordsPerSentence": 4.07,
+      "maxWordsPerSentence": 10,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.08,
       "dialoguePageCount": 3,
@@ -4599,7 +4599,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -4613,29 +4613,29 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "E",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Sustained past-tense prose with direct dialogue, varied longer clauses and temporal shifts.",
-      "vocabulary": "Broader descriptive and situational language; F titles add multiple specialist, spatial or social relationships.",
-      "knowledge": "Past-tense school events link anxiety to repeated attempts; investigate, woodlouse and physical feeling clues add vocabulary and supported inference.",
-      "progression": "A connected story across multiple scenes, with reasons, setbacks, adjustments and a retrospective ending.",
-      "inference": "Read supported motives or reactions across scenes; the F titles combine more relationships rather than merely adding length."
+      "syntax": "Past-tense narration, direct dialogue, questions and varied longer clauses across a full school day.",
+      "vocabulary": "Handwriting, embarrassed, investigate, woodlouse and scuttled.",
+      "knowledge": "Starting a new school year involves unfamiliar tasks, help from others and repeated attempts.",
+      "progression": "Anticipation leads through several lessons and a setback to renewed participation and an end-of-day reflection.",
+      "inference": "Use Aiden's words and actions to follow his changing confidence across the day."
     },
     "rationale": "Past-tense school events link anxiety to repeated attempts; investigate, woodlouse and physical feeling clues add vocabulary and supported inference.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:0cadcedfede47817",
-    "textHash": "sha256:cbe6335fd812940b1dc4a471bcd3f20a62e339984ab50045023ed27422dd105a",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:2cc01f77c420e46f",
+    "textHash": "sha256:2e5fd9eb1bb1f5e19b5a632d9796ccc13eda1d8abbd7fba83331a56c65cc12b3",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 13,
-      "wordCount": 179,
-      "uniqueWordCount": 131,
+      "wordCount": 181,
+      "uniqueWordCount": 132,
       "uniqueWordRatio": 0.73,
-      "averageWordLength": 4.54,
-      "averageWordsPerPage": 13.77,
+      "averageWordLength": 4.57,
+      "averageWordsPerPage": 13.92,
       "minWordsPerPage": 11,
-      "maxWordsPerPage": 17,
-      "sentenceUnitCount": 29,
-      "averageWordsPerSentence": 6.17,
+      "maxWordsPerPage": 18,
+      "sentenceUnitCount": 31,
+      "averageWordsPerSentence": 5.84,
       "maxWordsPerSentence": 12,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.08,
@@ -4647,7 +4647,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -4669,25 +4669,25 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Sorting, selling and counting sustain a tent-buying goal; while-clauses, money amounts and a kept toy require tracking related decisions.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:bc9fb14d2d618418",
-    "textHash": "sha256:44c234400cff61a78371ed16b666cd11cea758ca9b3903f421c5b6eabd90d2c3",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:422cf9a129bbd612",
+    "textHash": "sha256:bb3ad672833c8d08f0f10558a68b1541fb4857dafb1b6657c95dd16d5c5d6e5c",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 13,
-      "wordCount": 161,
+      "wordCount": 170,
       "uniqueWordCount": 114,
-      "uniqueWordRatio": 0.71,
-      "averageWordLength": 4.82,
-      "averageWordsPerPage": 12.38,
+      "uniqueWordRatio": 0.67,
+      "averageWordLength": 4.52,
+      "averageWordsPerPage": 13.08,
       "minWordsPerPage": 9,
-      "maxWordsPerPage": 15,
-      "sentenceUnitCount": 24,
-      "averageWordsPerSentence": 6.71,
+      "maxWordsPerPage": 17,
+      "sentenceUnitCount": 25,
+      "averageWordsPerSentence": 6.8,
       "maxWordsPerSentence": 12,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.08,
-      "dialoguePageCount": 2,
+      "dialoguePageCount": 3,
       "questionPageCount": 0,
       "illustratedPageCount": 13,
       "independentlyDescribedPageCount": 13
@@ -4695,7 +4695,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -4717,7 +4717,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Thirteen past-tense scenes follow a seaside trip through weather changes, a mapped route and a lighthouse climb. Descriptive compounds, distance/time shifts, contrasting interests and the final request for Betty’s map retain F; dinner is an ordinary meal marker.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-05",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:eb5f6187d8604164",
     "textHash": "sha256:b6805e5b3beb96812b9604ee4391e93da137c9e436eb06d61df4160addf62298",
     "metrics": {
@@ -4743,7 +4743,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -4757,29 +4757,29 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "F",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Sustained past-tense prose with direct dialogue, varied longer clauses and temporal shifts.",
-      "vocabulary": "Broader descriptive and situational language; F titles add multiple specialist, spatial or social relationships.",
-      "knowledge": "A foster dog's trust develops across many incidents; quoted guidance, compound clauses and a final quiet pencil scene imply the changed relationship.",
-      "progression": "A connected story across multiple scenes, with reasons, setbacks, adjustments and a retrospective ending.",
-      "inference": "Read supported motives or reactions across scenes; the F titles combine more relationships rather than merely adding length."
+      "syntax": "Past-tense narration with dialogue, coordinated actions and time changes across several days.",
+      "vocabulary": "Rescue dog, carrier, frightened, trust, crate, crouched, pegs and chew ring.",
+      "knowledge": "A nervous dog needs time, predictable care and patient contact in a new home.",
+      "progression": "Arrival and taking household objects lead through care routines to closer contact and a quiet shared ending.",
+      "inference": "Connect Socks's movement, collecting and willingness to approach with his developing trust."
     },
-    "rationale": "A foster dog's trust develops across many incidents; quoted guidance, compound clauses and a final quiet pencil scene imply the changed relationship.",
+    "rationale": "A rescue dog settles into a new home across repeated incidents. Quoted guidance, several household routines and the final quiet drawing scene support inference about his growing trust.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:63484315cfd2f6e9",
-    "textHash": "sha256:c4c74887586ce7292ed504d9f02d3a8898f8abb6e36e8e4e6e0228c61ab6e3d7",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:de77ceda2c6dd6e5",
+    "textHash": "sha256:d24017ece6ce2f1ac50578b67868d28a774591769cebe8755b52bbb66a0c8357",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 14,
-      "wordCount": 216,
-      "uniqueWordCount": 143,
-      "uniqueWordRatio": 0.66,
-      "averageWordLength": 4.78,
-      "averageWordsPerPage": 15.43,
+      "wordCount": 220,
+      "uniqueWordCount": 141,
+      "uniqueWordRatio": 0.64,
+      "averageWordLength": 4.75,
+      "averageWordsPerPage": 15.71,
       "minWordsPerPage": 11,
       "maxWordsPerPage": 20,
-      "sentenceUnitCount": 32,
-      "averageWordsPerSentence": 6.75,
+      "sentenceUnitCount": 33,
+      "averageWordsPerSentence": 6.67,
       "maxWordsPerSentence": 15,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.07,
@@ -4791,7 +4791,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -4813,19 +4813,19 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Gate and warmth clues organize a missing-dog search; a return explanation requires linking earlier habits, the radiator and pawprints.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:fcbdb0103a10c7e8",
-    "textHash": "sha256:4a4e14bd34db5c25ad1f4050622a99b64db4cac320619df0bca0f082567c266d",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:7d10b1eaf45669a8",
+    "textHash": "sha256:9967493dfc270a0d28901f127f148fcf9aa38c3ca1ad696671e846342eb3ab70",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 14,
       "wordCount": 187,
-      "uniqueWordCount": 137,
-      "uniqueWordRatio": 0.73,
-      "averageWordLength": 4.67,
+      "uniqueWordCount": 128,
+      "uniqueWordRatio": 0.68,
+      "averageWordLength": 4.62,
       "averageWordsPerPage": 13.36,
       "minWordsPerPage": 10,
-      "maxWordsPerPage": 16,
+      "maxWordsPerPage": 17,
       "sentenceUnitCount": 30,
       "averageWordsPerSentence": 6.23,
       "maxWordsPerSentence": 12,
@@ -4839,7 +4839,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -4854,28 +4854,28 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
       "syntax": "Sustained past-tense prose with direct dialogue, varied longer clauses and temporal shifts.",
-      "vocabulary": "Broader descriptive and situational language; F titles add multiple specialist, spatial or social relationships.",
-      "knowledge": "Crystal growth, daily records and judging form a multi-step investigation; why/while clauses and figurative comparisons add explanatory demands.",
+      "vocabulary": "Crystal kit, powder, instructions, photographs, chart and judges support the investigation.",
+      "knowledge": "Waiting and recording changes allow the children to show how crystals grew over several days.",
       "progression": "A connected story across multiple scenes, with reasons, setbacks, adjustments and a retrospective ending.",
-      "inference": "Read supported motives or reactions across scenes; the F titles combine more relationships rather than merely adding length."
+      "inference": "Connect the dated photographs and chart with the evidence the judges value; Aiden’s worry is explicitly stated."
     },
-    "rationale": "Crystal growth, daily records and judging form a multi-step investigation; why/while clauses and figurative comparisons add explanatory demands.",
+    "rationale": "Crystal growth, daily photographs, a chart and judging form a sustained investigation. Readers compare empty early days with later growth, connect waiting with the recorded evidence and follow how the children explain their results.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:c4599672c1a5dae3",
-    "textHash": "sha256:b6cfd2a28799db6324963961e77ae16db39093219c4a4fffacdbaa1f4a9f8d0b",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:7400a1325abec9cb",
+    "textHash": "sha256:98fb0fe8d0b4ba16e61854d75d2faffc482670d9c6fec5e6df392cd6eff17589",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 12,
-      "wordCount": 193,
+      "wordCount": 197,
       "uniqueWordCount": 131,
-      "uniqueWordRatio": 0.68,
-      "averageWordLength": 4.97,
-      "averageWordsPerPage": 16.08,
+      "uniqueWordRatio": 0.66,
+      "averageWordLength": 4.86,
+      "averageWordsPerPage": 16.42,
       "minWordsPerPage": 12,
       "maxWordsPerPage": 20,
       "sentenceUnitCount": 38,
-      "averageWordsPerSentence": 5.08,
+      "averageWordsPerSentence": 5.18,
       "maxWordsPerSentence": 12,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.08,
@@ -4887,7 +4887,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -4901,29 +4901,29 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "E",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Sustained past-tense prose with direct dialogue, varied longer clauses and temporal shifts.",
-      "vocabulary": "Broader descriptive and situational language; F titles add multiple specialist, spatial or social relationships.",
-      "knowledge": "An observation goal changes from birds to pond life; past-tense dialogue, bird blind and nature vocabulary support a sustained perspective shift.",
-      "progression": "A connected story across multiple scenes, with reasons, setbacks, adjustments and a retrospective ending.",
-      "inference": "Read supported motives or reactions across scenes; the F titles combine more relationships rather than merely adding length."
+      "syntax": "Past-tense action, direct dialogue, paired sentences and temporal transitions.",
+      "vocabulary": "Nature preserve, bird blind, logbook, reeds, kingfisher, dragonflies, beetles and meadow.",
+      "knowledge": "Watching a natural place can reveal different animals from those first expected.",
+      "progression": "Waiting for birds leads to a walk, finding pond animals and filling notebooks, followed by a quiet return home.",
+      "inference": "Follow the change in the children's observation goal and the final joke about Socks being their guide."
     },
     "rationale": "An observation goal changes from birds to pond life; past-tense dialogue, bird blind and nature vocabulary support a sustained perspective shift.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:d98d2108e295949a",
-    "textHash": "sha256:cfbc3d7bec29b42ff93a2460e62c826db54112c02dc15516c2830beda991bb15",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:99d391627deb30cb",
+    "textHash": "sha256:bc307359a36683a4bfa70a86fa51e85c5a976193162d11a823c3d95715da767a",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 13,
-      "wordCount": 192,
-      "uniqueWordCount": 127,
+      "wordCount": 190,
+      "uniqueWordCount": 126,
       "uniqueWordRatio": 0.66,
-      "averageWordLength": 4.85,
-      "averageWordsPerPage": 14.77,
+      "averageWordLength": 4.83,
+      "averageWordsPerPage": 14.62,
       "minWordsPerPage": 10,
-      "maxWordsPerPage": 20,
+      "maxWordsPerPage": 18,
       "sentenceUnitCount": 31,
-      "averageWordsPerSentence": 6.19,
+      "averageWordsPerSentence": 6.13,
       "maxWordsPerSentence": 12,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.08,
@@ -4935,7 +4935,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -4957,22 +4957,22 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Repeated bullying, attempted boundaries and teacher support form a longer social sequence; dialogue and physical reactions imply changing confidence.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:1fcf59eb6bdb2901",
-    "textHash": "sha256:b7ee3ac1577b2f62ce0e122e0d5c68227c89e1c076fba774652346b6a641fb6b",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:4dd097974f9373a4",
+    "textHash": "sha256:7afa13257c79527d838a4fec850f282521048eee3bde44d981b87742580bf283",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 13,
-      "wordCount": 214,
-      "uniqueWordCount": 112,
-      "uniqueWordRatio": 0.52,
-      "averageWordLength": 4.36,
-      "averageWordsPerPage": 16.46,
+      "wordCount": 213,
+      "uniqueWordCount": 108,
+      "uniqueWordRatio": 0.51,
+      "averageWordLength": 4.33,
+      "averageWordsPerPage": 16.38,
       "minWordsPerPage": 12,
       "maxWordsPerPage": 18,
-      "sentenceUnitCount": 42,
-      "averageWordsPerSentence": 5.1,
-      "maxWordsPerSentence": 10,
+      "sentenceUnitCount": 40,
+      "averageWordsPerSentence": 5.33,
+      "maxWordsPerSentence": 16,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.15,
       "dialoguePageCount": 9,
@@ -4983,7 +4983,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -4999,22 +4999,22 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": {
       "syntax": "Sustained past-tense prose with direct dialogue, varied longer clauses and temporal shifts.",
       "vocabulary": "Broader descriptive and situational language; F titles add multiple specialist, spatial or social relationships.",
-      "knowledge": "A loose-tooth worry spans days and weeks; while/beneath phrases, dialogue and bodily feeling clues support inference about reassurance and growth.",
+      "knowledge": "Losing a baby tooth and seeing a new tooth emerge can take time; the characters compare their experiences.",
       "progression": "A connected story across multiple scenes, with reasons, setbacks, adjustments and a retrospective ending.",
-      "inference": "Read supported motives or reactions across scenes; the F titles combine more relationships rather than merely adding length."
+      "inference": "Compare Betty’s brief pinch with Aiden’s painless tooth loss and connect the later new tooth with his earlier worry."
     },
-    "rationale": "A loose-tooth worry spans days and weeks; while/beneath phrases, dialogue and bodily feeling clues support inference about reassurance and growth.",
+    "rationale": "A loose-tooth worry spans days and weeks; dialogue, explicit worry and contrasting tooth-loss experiences support understanding reassurance and growth. The later new tooth answers Aiden’s earlier concern about the gap.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:5858a121cba5ca12",
-    "textHash": "sha256:797ab03e1922eed9b08b12a883891012e7fbf1bed0a5f303f6bc9da227920f5e",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:400c8294f25981a0",
+    "textHash": "sha256:2ed16b9a5e0c3bfedd96d96b1eda82714dc4da53fcbfe4734cadf7755c55be83",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 13,
       "wordCount": 179,
-      "uniqueWordCount": 116,
-      "uniqueWordRatio": 0.65,
-      "averageWordLength": 4.24,
+      "uniqueWordCount": 115,
+      "uniqueWordRatio": 0.64,
+      "averageWordLength": 4.21,
       "averageWordsPerPage": 13.77,
       "minWordsPerPage": 9,
       "maxWordsPerPage": 16,
@@ -5031,7 +5031,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -5045,30 +5045,30 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "F",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Sustained past-tense prose with direct dialogue, varied longer clauses and temporal shifts.",
-      "vocabulary": "Broader descriptive and situational language; F titles add multiple specialist, spatial or social relationships.",
-      "knowledge": "Castle clues build an inquiry with a delayed storeroom answer; armor, archers, moat and protection add historical knowledge and compound sentences.",
-      "progression": "A connected story across multiple scenes, with reasons, setbacks, adjustments and a retrospective ending.",
-      "inference": "Read supported motives or reactions across scenes; the F titles combine more relationships rather than merely adding length."
+      "syntax": "Past-tense narration with dialogue, questions and linked explanations across a full visit.",
+      "vocabulary": "Moat, great hall, armor, lookouts, arrow slit, archers, barrels and storeroom.",
+      "knowledge": "Castle features served defensive and practical needs that differ from a modern home.",
+      "progression": "A notebook inquiry gathers several clues before a book reveals the purpose of the dark room.",
+      "inference": "Connect observed features with past uses and carry the unanswered storeroom question across intervening scenes."
     },
     "rationale": "Castle clues build an inquiry with a delayed storeroom answer; armor, archers, moat and protection add historical knowledge and compound sentences.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:cce2432d3dfcd94e",
-    "textHash": "sha256:7a5851eebdca894fd9fa5a27e4d2c88f340db825df7d405418ee394ef51c7303",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:bb5aca239c15c920",
+    "textHash": "sha256:ee404532adffcf105e1cb72d17bf7d78c25ea37b3f5471b5f61bc6c8719f53f5",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 13,
-      "wordCount": 201,
-      "uniqueWordCount": 131,
-      "uniqueWordRatio": 0.65,
-      "averageWordLength": 4.46,
-      "averageWordsPerPage": 15.46,
+      "wordCount": 209,
+      "uniqueWordCount": 133,
+      "uniqueWordRatio": 0.64,
+      "averageWordLength": 4.39,
+      "averageWordsPerPage": 16.08,
       "minWordsPerPage": 11,
       "maxWordsPerPage": 20,
-      "sentenceUnitCount": 34,
-      "averageWordsPerSentence": 5.91,
-      "maxWordsPerSentence": 13,
+      "sentenceUnitCount": 35,
+      "averageWordsPerSentence": 5.97,
+      "maxWordsPerSentence": 11,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.08,
       "dialoguePageCount": 9,
@@ -5079,7 +5079,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "partly-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -5101,7 +5101,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Paired eating-and-rumbling sentences, shared food, short dialogue and a quiet-tummy bedtime callback require varied language and linking food with a satisfied appetite. His tummy still rumbles makes the continuing problem clear while retaining C.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-05",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:b8487ff98c873f4d",
     "textHash": "sha256:0837e190dfbbbdb71c1814db1a2c6b4f59df08cd3b66717ce1730c1b480463cc",
     "metrics": {
@@ -5127,7 +5127,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -5149,7 +5149,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Sunny's splash, three frowns and a smaller invitation create an explicitly observable social repair, while huddle/broad leaves and changing short sentence patterns demand more than B's narrow action sequence.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:076034030f0b0863",
     "textHash": "sha256:6349b0f46b52a7e7a4d7f95be6f69496fdc46e2138697c6aad4277e917903ea0",
     "metrics": {
@@ -5175,7 +5175,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -5197,21 +5197,21 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "repeated unsuccessful calls support the text, but paired actions, several named callers and the shift from noise to the smell of berry buns add C-level variation and a simple sensory inference.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:1badbce86cb3ed83",
-    "textHash": "sha256:6ca990d5fd0227b037644795ae3420af90ee4ab7aa14359a007dfc88433bfeb2",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:648e94e47e9ab0ad",
+    "textHash": "sha256:0eefc8c7f961941c09511082ff0711b00f6e0f0d78bf16e185887e905f26ac48",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
-      "wordCount": 54,
-      "uniqueWordCount": 40,
-      "uniqueWordRatio": 0.74,
-      "averageWordLength": 4.28,
-      "averageWordsPerPage": 6.75,
+      "wordCount": 55,
+      "uniqueWordCount": 41,
+      "uniqueWordRatio": 0.75,
+      "averageWordLength": 4.24,
+      "averageWordsPerPage": 6.88,
       "minWordsPerPage": 6,
       "maxWordsPerPage": 8,
       "sentenceUnitCount": 14,
-      "averageWordsPerSentence": 3.86,
+      "averageWordsPerSentence": 3.93,
       "maxWordsPerSentence": 8,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.13,
@@ -5223,7 +5223,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "partly-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -5245,7 +5245,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "the trapped-tail problem is concrete and resolved in short dialogue, with pulling versus shared pushing stated through visible results; rock's flat side and springs free add language variety without a sustained D investigation.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:a888cd96d14a3add",
     "textHash": "sha256:af5e21b2160c329311d18270c0624fac30f7272589ef9960696bf32f10d825dc",
     "metrics": {
@@ -5271,7 +5271,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "partly-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -5293,7 +5293,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "three mismatched jobs fail differently before Bossy asks the Pals to demonstrate strengths and reallocates jobs. Tracking that revision across several characters, including Chompy's changed waiting, exceeds a single C action/result chain.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:8f3635aff6fa1fab",
     "textHash": "sha256:cf228480d950ba6fecbb6a5222329f6140b2494349453535454a7cc9b42378d4",
     "metrics": {
@@ -5319,7 +5319,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -5334,23 +5334,23 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
       "syntax": "Short paired action/repair sentences alternate with a sound effect and object list.",
-      "vocabulary": "falls, plates, gather, enormous and checks broaden familiar movement language.",
+      "vocabulary": "Bumps, plates, gather, enormous and checks broaden familiar movement language.",
       "knowledge": "Bumping objects causes spills; open space changes the risk.",
       "progression": "Successive bumps cause repairs, a sneeze enlarges the mess, then Bouncy checks for space.",
       "inference": "Connect the empty field with avoiding the damage caused by earlier bouncing."
     },
     "rationale": "Bouncy's repeated bumps form an accessible pattern, while each accident changes the object and repair, and the final empty-field choice links the earlier mess to a safer large bounce.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:19623f3820f5e774",
-    "textHash": "sha256:d75c51644ed990496aa100ccae4d889af8fd9283ec5e47da50f502ae75de7ea7",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:a2e6c308448025d4",
+    "textHash": "sha256:2dc2db2688cfd361e67249c84d5d3f4ba094a2a3ef4dbd3e63b22ca4219ae46c",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
       "wordCount": 68,
       "uniqueWordCount": 50,
       "uniqueWordRatio": 0.74,
-      "averageWordLength": 4.4,
+      "averageWordLength": 4.46,
       "averageWordsPerPage": 8.5,
       "minWordsPerPage": 7,
       "maxWordsPerPage": 9,
@@ -5367,7 +5367,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -5382,28 +5382,28 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
       "syntax": "Short sentences include paired actions, a quoted apology and a possessive noun phrase.",
-      "vocabulary": "swish, favorite, freezes, keeps clear and swishes extend concrete motion words.",
+      "vocabulary": "Swish, favorite, keeps clear, rolls and swishes extend concrete motion words.",
       "knowledge": "A long tail needs room; accidental splashes can upset a friend.",
       "progression": "Accidents and repairs lead to an apology, marked space and slower swishing.",
       "inference": "Link Fancy's withdrawal and later distance to the tail's effect, using the explicit request for room."
     },
-    "rationale": "the long-tail accidents and explicitly marked space carry the sequence; favorite, freezes, keeps clear and the apology vary the language and require a supported reading of friends' reactions.",
+    "rationale": "The long-tail accidents and explicitly marked space carry the sequence; favorite, stops walking, keeps clear and the apology vary the language and require a supported reading of friends’ reactions.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:29ccacefbb43d17f",
-    "textHash": "sha256:efea080e9286d7d9e5beb1ad8b5cd0c0cb0645df69b60d4dd619be5ee455a544",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:20a572d43d9d39a9",
+    "textHash": "sha256:398685b6652afd711baa17802f6a4ef4e0080b9d57e460161e3dc0c9cd63940d",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
-      "wordCount": 69,
-      "uniqueWordCount": 55,
-      "uniqueWordRatio": 0.8,
-      "averageWordLength": 4.72,
-      "averageWordsPerPage": 8.63,
+      "wordCount": 74,
+      "uniqueWordCount": 60,
+      "uniqueWordRatio": 0.81,
+      "averageWordLength": 4.69,
+      "averageWordsPerPage": 9.25,
       "minWordsPerPage": 8,
-      "maxWordsPerPage": 10,
+      "maxWordsPerPage": 11,
       "sentenceUnitCount": 15,
-      "averageWordsPerSentence": 4.6,
+      "averageWordsPerSentence": 4.93,
       "maxWordsPerSentence": 8,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.13,
@@ -5415,7 +5415,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -5437,7 +5437,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Zippy must recognise flowers he passed, use the bent tree to retrace his route and lead Sunny home past the waterfall. This landmark-memory chain adds a fair spatial clue demand beyond C's directly linked actions.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:4dca344fcf5c2070",
     "textHash": "sha256:88bd61966893de6aac1e90cf37a7b4e90161baeed597d24e667c6bb5ecc2faab",
     "metrics": {
@@ -5463,7 +5463,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -5485,7 +5485,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "repeated loud/soft contrasts support Honky's breakfast problem, while the rain rescue requires choosing a louder call for a different purpose and the closing whisper recalls the original difficulty.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:3317752ea632dbb2",
     "textHash": "sha256:fcce62e0ab3887e12612b0d4e75b8e88336628bd2f72b08390fdc53337d64093",
     "metrics": {
@@ -5511,7 +5511,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "partly-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -5533,7 +5533,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "two unwanted pranks, a shared slip, cleanup and a direct question explain Cheeky's changed joke. Varied actions and dialogue create more demand than B, while the repair remains concrete and explicit.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:cb19129c7ce5d966",
     "textHash": "sha256:8ef249936001ef938dc57e1c9b40e0f4c3bf4fc9788ae6080161173be4deee71",
     "metrics": {
@@ -5559,7 +5559,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "partly-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -5581,7 +5581,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Repeated gifts establish a mystery, but the reader links noisy searches, Cheeky’s failed watch after dinner, Sunny’s quiet wait, two small feet and Shy’s reply. The next-morning returned gifts require interpreting a reciprocal response, retaining D.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-05",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:7d0ec5d66dc4be1d",
     "textHash": "sha256:4daadf62bf22a9b616f8b9e16c4d42494fe610061542819ee46a95f415c3815d",
     "metrics": {
@@ -5607,7 +5607,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -5629,7 +5629,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "the folded fan passes through several unsuitable offers before wetting and pressing solve it, and the closing bracelet expresses thanks. Woven/fold/damp vocabulary and the multi-step repair exceed a simple C consequence chain.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:be88cd272126b965",
     "textHash": "sha256:47e8c1c2890ce677aea54ab36c61acf87394f2def2cd821a69cd9ee373a6e11b",
     "metrics": {
@@ -5655,7 +5655,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "partly-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -5670,29 +5670,29 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
       "syntax": "Varied action sentences mix with quoted claims, an offer and a confession.",
-      "vocabulary": "scans, beyond, floats, falls short and soggy support search/retrieval distinctions.",
+      "vocabulary": "Scans, beyond, floats, stretches and soggy support search and retrieval distinctions.",
       "knowledge": "A higher viewpoint can reveal a hidden object without making it reachable.",
       "progression": "Low searches fail, Clumsy locates the pillow, Bouncy explains its movement and Wiggly retrieves it.",
       "inference": "Identify the blue square as the pillow and distinguish seeing it from being able to reach it."
     },
     "rationale": "the search changes from low viewpoints to Clumsy's higher view, then separates locating the pillow from retrieving it. The blue-square clue, downstream setting and second helper require connected spatial reasoning.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:80647dcc4d6b0a0e",
-    "textHash": "sha256:4bbb4bc2d532c7276a2a9e0d9cd522b3904c2b697d6194b2d8890bb7f2a52c4e",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:ec8556682bd2f237",
+    "textHash": "sha256:a26f43f6403ab3095a0b0879f5974d9a07649cc0cddd76310f7f86b0be0a69e6",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 12,
-      "wordCount": 95,
-      "uniqueWordCount": 66,
-      "uniqueWordRatio": 0.69,
-      "averageWordLength": 4.39,
-      "averageWordsPerPage": 7.92,
+      "wordCount": 97,
+      "uniqueWordCount": 65,
+      "uniqueWordRatio": 0.67,
+      "averageWordLength": 4.45,
+      "averageWordsPerPage": 8.08,
       "minWordsPerPage": 6,
       "maxWordsPerPage": 10,
       "sentenceUnitCount": 17,
-      "averageWordsPerSentence": 5.59,
-      "maxWordsPerSentence": 9,
+      "averageWordsPerSentence": 5.71,
+      "maxWordsPerSentence": 10,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.08,
       "dialoguePageCount": 4,
@@ -5703,7 +5703,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -5725,7 +5725,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Flappy revises the assumption that wings mean upward flight by observing claws, climbing and gliding. The contrast with Bossy and the repeated up/down demonstrations introduce connected biological and physical relationships.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:a870d9f5059953ca",
     "textHash": "sha256:9a1c5dff4e3705750695250e0b4dd6f1cd46cbf2f45c7616cb0279c8964748d2",
     "metrics": {
@@ -5751,7 +5751,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -5773,7 +5773,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "a blocked stream explains the stopped waterfall, three failed attempts establish the problem, and Sneezy's warning, sheltering friends and aimed sneeze resolve it. Readers track several coordinated causal steps across the sequence.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:5a21dfc678b3774a",
     "textHash": "sha256:ccb05ecd9f967114127085161be6a6cff904fbdc841f7f42fb2c703691a08c1b",
     "metrics": {
@@ -5799,7 +5799,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -5821,7 +5821,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "the quiet outing develops contrasting preferences, a two-attempt ditch problem, rescue and an understated invitation back to berries. Sun-warmed/mud-covered language and the friendship change add demands beyond a repeated C action sequence.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:23b96c3ebfd49a6d",
     "textHash": "sha256:656e02b0e5dbd34e9b571020659202fce692c1fbfa5a5b2d49d0818eee30be7d",
     "metrics": {
@@ -5847,7 +5847,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -5869,7 +5869,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Bossy's one-winner board conflicts with different strengths across the games, so the reader must compare categories and understand the revised one-winner-per-game rule. Repeated bows support a multi-character plan change.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:cecc68765d06116b",
     "textHash": "sha256:665897be3a430a4a98ef161fbafe4b22de6e5f43b9bad309d069520cba9c1844",
     "metrics": {
@@ -5895,7 +5895,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -5917,7 +5917,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "the explicit dream and waking frame supports imagined cloud beds, but repeated failures must be compared with the stable rock solution and the friends' return around Dozy's pillow.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:2329c1cc1b604f76",
     "textHash": "sha256:a4dd4704d6fbb815a8a4d6cf618cb1b5788da17fd57afaa6d211e64de347c2aa",
     "metrics": {
@@ -5943,7 +5943,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "partly-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -5958,28 +5958,28 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
       "syntax": "Varied short action/dialogue sentences include temporal shifts and a final then-linked pair.",
-      "vocabulary": "valleys, practice loops, final bend, crosses and winner's pebble extend race language.",
+      "vocabulary": "Valleys, practice loops, final bend, crosses and the pebble he won extend race language.",
       "knowledge": "Too much practice without rest can tire a runner before competition.",
       "progression": "Expectations lead to overtraining, a hard race, reflection and a shorter next-day practice.",
       "inference": "Connect the easy-win pressure to extra laps and infer why the next morning's routine changes."
     },
     "rationale": "the race joins friends' easy-win claim, excessive practice, tired legs, a close finish and changed training next morning. The reason for Zippy's silence and the understated final rest require supported inference.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:c4a1b8cc47078cd2",
-    "textHash": "sha256:ea39aaff115c7404af9dc80a7e4bd24471d7d8115f19b42917902ce3cff5977b",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:a664afce07bf2818",
+    "textHash": "sha256:fbe2dfdf8316b825d0906dd606a0115de91a28d248ef13fcb9f6a6f01ebb8781",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 12,
-      "wordCount": 97,
-      "uniqueWordCount": 71,
-      "uniqueWordRatio": 0.73,
-      "averageWordLength": 4.62,
-      "averageWordsPerPage": 8.08,
+      "wordCount": 101,
+      "uniqueWordCount": 72,
+      "uniqueWordRatio": 0.71,
+      "averageWordLength": 4.5,
+      "averageWordsPerPage": 8.42,
       "minWordsPerPage": 7,
-      "maxWordsPerPage": 12,
-      "sentenceUnitCount": 17,
-      "averageWordsPerSentence": 5.71,
+      "maxWordsPerPage": 13,
+      "sentenceUnitCount": 18,
+      "averageWordsPerSentence": 5.61,
       "maxWordsPerSentence": 9,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.08,
@@ -5991,7 +5991,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -6013,21 +6013,21 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "a storm forecast turns a sprawling job list into coordinated tasks by several Pals, followed by shelter and cleanup. The dry pillow is evidence that the linked preparation worked.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:ec80a1f79c1dcdea",
-    "textHash": "sha256:16d08f266d0144b4c8625cc721e4dc176f531b8f1248d2b99232cdac6b8a469e",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:e3fa5271891e583c",
+    "textHash": "sha256:6e3cbccab4becb65f7347d542abcf96ca6792400bd525b4718df889788501eca",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 12,
-      "wordCount": 100,
-      "uniqueWordCount": 70,
-      "uniqueWordRatio": 0.7,
-      "averageWordLength": 4.18,
-      "averageWordsPerPage": 8.33,
+      "wordCount": 99,
+      "uniqueWordCount": 71,
+      "uniqueWordRatio": 0.72,
+      "averageWordLength": 4.22,
+      "averageWordsPerPage": 8.25,
       "minWordsPerPage": 4,
       "maxWordsPerPage": 11,
       "sentenceUnitCount": 20,
-      "averageWordsPerSentence": 5,
+      "averageWordsPerSentence": 4.95,
       "maxWordsPerSentence": 9,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.08,
@@ -6039,7 +6039,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -6061,7 +6061,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Muddy, mud, bath and water recur in clauses of at most six words. Time to eat gives a familiar purpose, brown water leads directly to fresh water and another wash, and the clean-to-eat ending closes one concrete sequence without dialogue or an unstated rule.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-05",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:c7db1b4fea397f43",
     "textHash": "sha256:903900cf712e83c491539e7b5c83ec47719ed83d0bcfed036a6d19a3c35d9743",
     "metrics": {
@@ -6087,7 +6087,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -6102,23 +6102,23 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
       "syntax": "Single short clauses vary between Woolly actions and sound-source sentences.",
-      "vocabulary": "listens, slow breath, nestles and straw extend the familiar sleep/sound set.",
+      "vocabulary": "Listens, slow breath, lies and straw extend the familiar sleep/sound set.",
       "knowledge": "Listening can keep someone alert; slow breathing and settling can precede sleep.",
-      "progression": "Several sounds hold Woolly's attention before breathing and nesting lead to sleep.",
+      "progression": "Several sounds hold Woolly’s attention before slow breathing and lying in straw lead to sleep.",
       "inference": "Connect the changed settling action with the final sleep; no hidden motive is needed."
     },
-    "rationale": "the goes sound pattern and repeated listening support the story, while nestles, straw and the slow-breath turn introduce modest vocabulary and a simple self-settling consequence beyond A's most predictable actions.",
+    "rationale": "The goes sound pattern and repeated listening support the story, while straw and the slow-breath turn introduce modest vocabulary and a simple settling sequence beyond A’s most predictable actions.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:ab23ea1b56f036b2",
-    "textHash": "sha256:0478502fc3a4dfd8735d54c15534d14f72a6d94346d04f695b063018653e112d",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:6dbbaa3adcca1b5d",
+    "textHash": "sha256:4c002020b2dfcba754ac6d3ac547bfa406c169bcb4b3bb95b5d9d047c787de86",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 9,
       "wordCount": 35,
       "uniqueWordCount": 26,
       "uniqueWordRatio": 0.74,
-      "averageWordLength": 4.4,
+      "averageWordLength": 4.31,
       "averageWordsPerPage": 3.89,
       "minWordsPerPage": 3,
       "maxWordsPerPage": 5,
@@ -6135,7 +6135,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -6157,7 +6157,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "repeated too high/hard/small trials support the nest search, but several material and position contrasts, a tipping hat and the farmer's straw solution require small pattern changes and a concrete problem/solution link.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:d55e9ff635218934",
     "textHash": "sha256:97b32059c3b340dfb763235ffb96aaf5e1d266171a8a4aa7570f2fb503e9004c",
     "metrics": {
@@ -6183,7 +6183,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -6205,7 +6205,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Bouncy's repeated hopping causes a tipped pail and spilled eggs, then separate fetching/gathering actions repair both. The two affected friends and final route around them add variation beyond A's single direct outcome.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:c3fc511b0fbfc45c",
     "textHash": "sha256:dca58cdf61a954536bfe042fb9f20b18af476785e703bb49bc4f143784f214cb",
     "metrics": {
@@ -6231,7 +6231,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "partly-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -6253,7 +6253,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "very short birthday actions and familiar cake/hat words support Grumpy's withdrawal and return, while the preference for less noise and the one-more-bite variation require a small social link beyond a fixed A pattern.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:602d6d858f43d810",
     "textHash": "sha256:7748563cc34f2ca03ffab5edaa3b31bbf749ee07bae3c862d9c9a4fa2d4c466a",
     "metrics": {
@@ -6279,7 +6279,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -6301,7 +6301,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Sleepy's repeated not-waking, staying and snoring responses anchor familiar bed/bell/toast actions; the final smell-to-breakfast turn is concrete and directly named rather than inferred through a complex clue.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:aa1ad9a13fa0a0f6",
     "textHash": "sha256:7bf385f470581b79c13425777ba35c46d909089027d2755c150701451fcca8bb",
     "metrics": {
@@ -6327,7 +6327,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -6349,7 +6349,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "the quiet goal, loud yell and renewed try lead to a point-and-whisper response that lets Sleepy remain asleep. Two distractions and the changed response create a simple causal comparison beyond A repetition.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:283b22ad4163c948",
     "textHash": "sha256:50081ce6af4ed7abf12e58b8203a385ecf51ee00a987371c90cffea8c685b311",
     "metrics": {
@@ -6375,7 +6375,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -6397,7 +6397,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Key, log, hole and small recur through a short retrieval, while repeated Tiny actions show the small character succeeding after larger reaching fails. The final they cheer refers to the already introduced onlookers; one visible size contrast sustains A.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-05",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:321d54d73469f25d",
     "textHash": "sha256:2b8b07cf160dec0e1beb320e49045854be93722769fa1a423fb71020e2902d50",
     "metrics": {
@@ -6423,7 +6423,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "partly-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -6445,7 +6445,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "repeated Shy/Cuddly names and very short waits/sits/steps clauses make the approach to play direct. Cuddly's stillness and Shy's exit are stated in order, with no dialogue or hidden clue to decode.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:2b26893cf29667c5",
     "textHash": "sha256:625a62a43bf0a4e0c5b2f4dbaf015ecf9d530cbea26424f29de556544483e852",
     "metrics": {
@@ -6471,7 +6471,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -6493,7 +6493,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "repeated hiccups and does not help frames support failed remedies, but worse, a returning hiccup and the second breath require tracking a small recurrence and changed response beyond A's direct finish.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:67d1b0bd3f525c0f",
     "textHash": "sha256:53df050f9265009e9d11bf5f6b0859f580fa69e2e793cbd712fc4acf51ef04ed",
     "metrics": {
@@ -6519,7 +6519,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -6541,7 +6541,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Brave climbs, falls and repeats the same steep-side attempt in clauses of at most six words, then finds a lower step and reaches the top. Repeating the steep side makes the failure explicit; the one concrete climbing solution retains A.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-05",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:3bc3f76ef01dc6d0",
     "textHash": "sha256:816a1493bb2e3de8e59e6269cc21c4ec40f233665cf7f47364761f2cd16f6e81",
     "metrics": {
@@ -6567,7 +6567,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -6589,7 +6589,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "repeated feeding actions and the empty-trough/farmer-response sequence remain simple, while trough, gate, hay and slowly add broader concrete vocabulary and a small need-to-help link.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:f62cce31fe90a371",
     "textHash": "sha256:73d517d754602fe3f0ce46dcbd9617900f9cb688d20b1b52faa27d831b968ca9",
     "metrics": {
@@ -6615,7 +6615,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -6637,7 +6637,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "repeated Splashy/jump actions lead to explicitly wet, displeased friends and a named drying repair. Scowls/frowns and choosing a roomier puddle add a simple social consequence without a C-level explanation.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:f7011ece47ba32f3",
     "textHash": "sha256:e7ee440f644d1ee3e079361aade04b88f5b6fff12480f5992c5b032b193cb9dc",
     "metrics": {
@@ -6663,7 +6663,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "partly-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -6685,7 +6685,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "runs past repeats briefly, but the full text adds missing the path, being unseen, losing home and stopping to use Tiny's call. The route/sound recovery and several later pattern changes exceed A's direct repeated actions.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:82a279c123f83593",
     "textHash": "sha256:4758bb8be2863ba5aa77f19540cbd41f7461d6a2e87320eb9109e80f3694e2a3",
     "metrics": {
@@ -6711,7 +6711,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -6733,7 +6733,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "repeated approaches and familiar hug actions support Cuddly's search, while changing pronoun references and asking/nodding require tracking who wants the hug and who agrees.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:da095b064af024b1",
     "textHash": "sha256:36916fe4879bcc190ed5dcc4c93ce8f1c2a8b49da774734133ca5b1253e31c76",
     "metrics": {
@@ -6759,7 +6759,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -6781,7 +6781,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Mud repeats through making and jumping into one pool; short clauses name mud landing all around, Grumpy’s frown, washing and his grin. The two protagonists share one concrete consequence and repair within A-length language.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-05",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:f5cbf83c9d17aa2d",
     "textHash": "sha256:9f7d0cae7fca236a9b4cd73bfba2d43b64dc3c2d85cebead63e96936df78e5a3",
     "metrics": {
@@ -6807,7 +6807,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -6829,7 +6829,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "they pass repeats across three familiar landmarks, and the missed turn is followed immediately by stop and turn and finishing together. Short clauses keep the correction explicit without the remembered-clue demand of Dino Zippy's route.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:83c76778028c0d5f",
     "textHash": "sha256:b1028826df49d25fa396e80c70f9a4cc3183b46354f16d76de5930ccfc09078e",
     "metrics": {
@@ -6855,7 +6855,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -6877,7 +6877,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Repeated dark sky and loud calls support the wake-up sequence. Too soon, the friends’ frowns and waiting for dawn require one simple link between time of day and Noisy’s changed action, retaining B despite the short print.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-05",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:7a6112e632fa9977",
     "textHash": "sha256:de0e9f4cfa6ccaefc5d7d67c8577db698eeaee8fafbb9bf2a71f6cb644b521c0",
     "metrics": {
@@ -6903,7 +6903,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -6925,7 +6925,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "repeated red hat/log words help, but the complete story combines a chase, a size-dependent retrieval and Brave's tying action to prevent another loss. Fit/through/outside/tight add several linked spatial and object-state changes.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:09248e6dae1772d9",
     "textHash": "sha256:262c22186e360484b8b062508179410c828939c2beaef4319e58762e07db4a06",
     "metrics": {
@@ -6951,7 +6951,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -6973,7 +6973,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "short search and hiding actions converge through Shy's hum, then asking and leaning in establish a chosen hug. Branch, pronoun shifts and the sound-to-location link extend A's direct repeated actions.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:4ffca2edafbda7c4",
     "textHash": "sha256:8309c185283c0e00cfa1315039f9777820ff09faf6bc165e49cb99430ff035e3",
     "metrics": {
@@ -6999,7 +6999,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -7021,7 +7021,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Repeated left/right actions show wool snagged on a horn becoming a tighter knot. Catches on and pulls the wool free clarify the physical action without removing the B demand of linking movement, worsening, stopping and help.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-05",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:ffb6559b8f6c0121",
     "textHash": "sha256:ff3e749a0a721ec1d75e7e73c7b1b3c2fa0ea9a6bfcc210e66dc10d9be42845b",
     "metrics": {
@@ -7047,7 +7047,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -7061,29 +7061,29 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "B",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Short single clauses include a then-marked result and before phrases.",
-      "vocabulary": "dream, breath, last lap and wins by one hoof broaden familiar race words.",
+      "syntax": "Short action clauses include before phrases and a clear final result.",
+      "vocabulary": "Dream, breath, last lap, tired and wins broaden familiar race words.",
       "knowledge": "Running too fast can tire someone; resting can help them continue.",
-      "progression": "An explicit dream frame contains overfast running, fatigue, rest and a close finish.",
+      "progression": "An explicit dream frame contains fast running, fatigue, rest and a win.",
       "inference": "Connect tired legs with the rest; the dream need not be distinguished from an unmarked second timeline."
     },
-    "rationale": "the dream is explicitly announced and then one short race sequence shows fast running, tired legs, rest and a narrow win. The one-hoof comparison and simple pacing consequence exceed A but remain directly linked.",
+    "rationale": "An explicit dream frame introduces one short race sequence: fast running, tired legs, a brief rest and a win. The changed pace and linked actions add variation beyond a repeated naming pattern.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:9e28ffa9013cd9f4",
-    "textHash": "sha256:8bdbd790f286f787d2a4b029c7654e6837b7a7e2f2b6c3ad5ba44235363c0110",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:25e732c8b0b946d2",
+    "textHash": "sha256:ccd037a9f44331f4f9967e133d8f074945774b4e675d1805266630259c3c0739",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
-      "wordCount": 44,
-      "uniqueWordCount": 34,
-      "uniqueWordRatio": 0.77,
-      "averageWordLength": 4.02,
-      "averageWordsPerPage": 5.5,
+      "wordCount": 42,
+      "uniqueWordCount": 31,
+      "uniqueWordRatio": 0.74,
+      "averageWordLength": 4.07,
+      "averageWordsPerPage": 5.25,
       "minWordsPerPage": 4,
       "maxWordsPerPage": 6,
       "sentenceUnitCount": 8,
-      "averageWordsPerSentence": 5.5,
+      "averageWordsPerSentence": 5.25,
       "maxWordsPerSentence": 6,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.13,
@@ -7095,7 +7095,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -7117,7 +7117,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "repeated brings actions and cake words support the sequence, while a spill, flat cake and measuring before baking again create a concrete retry. Ingredients and oven add modest topic vocabulary without sustained explanation.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:61528bf52677185b",
     "textHash": "sha256:0e491b06091494f36ca9950f4754d797764c2e0f8ab4ba8412f07039fb2d9dab",
     "metrics": {
@@ -7143,7 +7143,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -7158,28 +7158,28 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
       "syntax": "Repeated short negatives give way to varied actions and a weeks later temporal phrase.",
-      "vocabulary": "dawn, grows, shoots, beams and garden extend beyond the repeated character/search words.",
-      "knowledge": "Young shoots grow over weeks with water, so the later garden is a changed living state.",
+      "vocabulary": "Dawn, grows, soil, wets, weeks and garden extend beyond the repeated character/search words.",
+      "knowledge": "Plants can grow over weeks with water, so the later garden is a changed living state.",
       "progression": "Absence prompts a search, gardening is shown, then weeks pass before the friends see the result.",
       "inference": "Connect Grumpy's early absence and watering with the later established garden."
     },
-    "rationale": "The repeated does-not-know search leads Tiny along the path to Grumpy watering his plants. Familiar short actions and a directly stated garden reveal support B; shoots and a time marker add modest vocabulary without a second process or concealed mechanism.",
+    "rationale": "The repeated does-not-know search leads Tiny along the path to Grumpy growing plants and wetting their soil. Familiar short actions and a directly stated garden reveal support B; dawn and a weeks-later shift add modest vocabulary without a hidden mechanism.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:d0a196151339242b",
-    "textHash": "sha256:5a32d504708549d5d099e133dceffaf3d3e721b8bfc9214b5d3af33e2fb413eb",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:b37da49af1148aa5",
+    "textHash": "sha256:8846e10581fdf93465ff6973dc6c61a363c03b72b0157c0cf93bda64f7bc55ee",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 10,
-      "wordCount": 46,
-      "uniqueWordCount": 35,
-      "uniqueWordRatio": 0.76,
-      "averageWordLength": 4.35,
-      "averageWordsPerPage": 4.6,
+      "wordCount": 44,
+      "uniqueWordCount": 33,
+      "uniqueWordRatio": 0.75,
+      "averageWordLength": 4.36,
+      "averageWordsPerPage": 4.4,
       "minWordsPerPage": 4,
       "maxWordsPerPage": 6,
       "sentenceUnitCount": 10,
-      "averageWordsPerSentence": 4.6,
+      "averageWordsPerSentence": 4.4,
       "maxWordsPerSentence": 6,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.1,
@@ -7191,7 +7191,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -7213,7 +7213,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "familiar party preparations use short named-character actions, then Shy and Grumpy withdraw and join after less noise. The quieter-party link is direct despite several characters.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:440cba78da8bf9a2",
     "textHash": "sha256:1d4137482a642d3965dae21fd84e1c7b1055134d8b91d39293a87e59087b31e8",
     "metrics": {
@@ -7239,7 +7239,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -7253,8 +7253,8 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "G",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Past-tense paragraphs combine temporal, purpose and concessive clauses with indirect dialogue.",
-      "vocabulary": "Flickered, discovery, courage, steep, grips, reeds and dull broaden familiar action language.",
+      "syntax": "Past-tense paragraphs combine temporal and purpose clauses with direct dialogue and remembered actions.",
+      "vocabulary": "Flickered, discovery, afraid, steep, grip, reeds and dull broaden familiar action language.",
       "knowledge": "The reader distinguishes a claimed magical property from evidence of personal action.",
       "progression": "Two separate trials precede the fading stone and a retrospective reinterpretation.",
       "inference": "Connect the pocket question, persistent fear and final confident action across pages.",
@@ -7262,23 +7262,23 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Pip tests the supposed Bravery Stone across a climb and a fog crossing, yet still feels fear. Burrow’s pocket question and Pip’s confident final offer require the reader to reinterpret both earlier successes without an explicit explanation that the magic did not supply his courage.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:4503795391c33c3d",
-    "textHash": "sha256:04cb19951a128faaf309171d856da542f6ae79d81dc39245176c6759e7f70ae7",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:44c570e1d3210097",
+    "textHash": "sha256:c55ba8b1af1c400744af78a86fa0282516441a1116e9f4538c2d29781b05e3d7",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 12,
-      "wordCount": 302,
-      "uniqueWordCount": 174,
-      "uniqueWordRatio": 0.58,
+      "wordCount": 301,
+      "uniqueWordCount": 168,
+      "uniqueWordRatio": 0.56,
       "averageWordLength": 4.39,
-      "averageWordsPerPage": 25.17,
-      "minWordsPerPage": 24,
+      "averageWordsPerPage": 25.08,
+      "minWordsPerPage": 22,
       "maxWordsPerPage": 28,
-      "sentenceUnitCount": 30,
-      "averageWordsPerSentence": 10.07,
+      "sentenceUnitCount": 31,
+      "averageWordsPerSentence": 9.71,
       "maxWordsPerSentence": 15,
-      "repeatedSentenceUnitCount": 0,
+      "repeatedSentenceUnitCount": 1,
       "dominantTwoWordPageOpeningRatio": 0.08,
       "dialoguePageCount": 4,
       "questionPageCount": 2,
@@ -7288,7 +7288,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -7303,7 +7303,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
       "syntax": "As, while, before and so clauses link parallel actions and consequences.",
-      "vocabulary": "Verse, enormous, dense, tangled, stem, casting and flowering extend ordinary gardening language.",
+      "vocabulary": "Verse, enormous, doorway, stem, casting and flowering extend ordinary gardening language.",
       "knowledge": "A fictional song has a completion condition; adding unrelated spells does not satisfy it.",
       "progression": "An interrupted action causes escalating consequences, failed attempts and a clue-based repair.",
       "inference": "Retain the missing ending and recognize the leaves as repeating the incomplete pattern.",
@@ -7311,21 +7311,21 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "The unfinished growth song supplies a rule that persists through escalating plant damage and unsuccessful new spells. The leaves repeat the opening notes and pause, so the reader must connect that audible clue to the missing ending before the completed song restores access to Hollow Oak.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:b56e06fc33ce6e10",
-    "textHash": "sha256:f3381ccf667d123c7fba1fcef11bda892eda9b2abb324cb7f9f9bac81acec0ad",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:95cca6da622fea5c",
+    "textHash": "sha256:ee817cdc1bc3cca12bb91100e7cfc6867d1a5870e51fc2b7e515466399ccdfa2",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 12,
-      "wordCount": 294,
-      "uniqueWordCount": 168,
-      "uniqueWordRatio": 0.57,
-      "averageWordLength": 4.73,
-      "averageWordsPerPage": 24.5,
-      "minWordsPerPage": 22,
+      "wordCount": 299,
+      "uniqueWordCount": 166,
+      "uniqueWordRatio": 0.56,
+      "averageWordLength": 4.6,
+      "averageWordsPerPage": 24.92,
+      "minWordsPerPage": 24,
       "maxWordsPerPage": 27,
-      "sentenceUnitCount": 25,
-      "averageWordsPerSentence": 11.76,
+      "sentenceUnitCount": 27,
+      "averageWordsPerSentence": 11.07,
       "maxWordsPerSentence": 16,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.08,
@@ -7337,7 +7337,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -7355,26 +7355,26 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
       "vocabulary": "Sway, narrow, gripped, fixed, steady, shore and rushing are concrete in context.",
       "knowledge": "Bridge crossing, reassuring a friend and managing fear use familiar physical and social ideas.",
       "progression": "One failed first step is followed by a supported outward and return journey.",
-      "inference": "Notice that Stone acts despite continuing uncertainty; the bridge itself does not change.",
+      "inference": "Connect Stone's repeated attempts with helping Burrow despite fear; his final look answers his earlier question about the water below.",
       "sustainedReading": "Twelve paragraphs sustain one realistic action sequence rather than several competing threads."
     },
-    "rationale": "Stone’s fear, Burrow’s need and the careful crossing and return form one sustained, plainly explained problem. The final still-swaying bridge leaves a supported emotional inference, but the text introduces no concealed mechanism, specialist explanation or interleaved mystery requiring a G-level reading.",
+    "rationale": "Stone's fear, Burrow's need and the careful outward and return crossings form one sustained problem. Reassurance, controlled movement and his final look beneath the bridge combine physical action with a supported emotional change.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:27a5a4403a27e794",
-    "textHash": "sha256:6fca124c32a890e842b1f1df7f3812cea36d63bec3d898731260c85ff1e92693",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:b4d7cb91a435c2a3",
+    "textHash": "sha256:37dff29463df8a05ed996ac3a860b3a4d5d346e144fb394044444490a013d81c",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 12,
-      "wordCount": 302,
-      "uniqueWordCount": 161,
-      "uniqueWordRatio": 0.53,
-      "averageWordLength": 4.51,
-      "averageWordsPerPage": 25.17,
+      "wordCount": 307,
+      "uniqueWordCount": 160,
+      "uniqueWordRatio": 0.52,
+      "averageWordLength": 4.48,
+      "averageWordsPerPage": 25.58,
       "minWordsPerPage": 24,
       "maxWordsPerPage": 30,
-      "sentenceUnitCount": 28,
-      "averageWordsPerSentence": 10.79,
+      "sentenceUnitCount": 29,
+      "averageWordsPerSentence": 10.59,
       "maxWordsPerSentence": 18,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.17,
@@ -7386,7 +7386,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -7401,7 +7401,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
       "syntax": "Multi-sentence paragraphs vary temporal clauses, dialogue, participles and cause-and-effect links.",
-      "vocabulary": "Flicker, scowled, cinnamon, pouch, clamped, bolted and practice patch enrich the action.",
+      "vocabulary": "Flame, scowled, cinnamon, pouch, clamped, bolted and practice patch enrich the action.",
       "knowledge": "Smell can mislead an animal; fatigue can make further practice unhelpful.",
       "progression": "Several practice outcomes seed the later fox episode and the quiet resting close.",
       "inference": "Connect scent, the fox’s mistaken food expectation and a useful non-fire response.",
@@ -7409,21 +7409,21 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Repeated failed fire practice develops into a different use for Glimmer’s cinnamon breath. The fox follows the smell expecting food and drops the seed pouch after a sneeze; readers connect the earlier apparently useless warmth to this rescue and recognize the need to rest without a stated moral.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:751975ba766eb2cb",
-    "textHash": "sha256:e33480838ff84ccb45486ce84597c1d9a507508bcf5665ff716b929cf5aba309",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:e97d1e048cd0be82",
+    "textHash": "sha256:ecd63ef1e393125448f52e18b96effe9df36b79f055836a1cb5aa7d181c7e7aa",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 12,
-      "wordCount": 319,
-      "uniqueWordCount": 178,
-      "uniqueWordRatio": 0.56,
-      "averageWordLength": 4.63,
-      "averageWordsPerPage": 26.58,
+      "wordCount": 317,
+      "uniqueWordCount": 174,
+      "uniqueWordRatio": 0.55,
+      "averageWordLength": 4.61,
+      "averageWordsPerPage": 26.42,
       "minWordsPerPage": 24,
-      "maxWordsPerPage": 29,
+      "maxWordsPerPage": 28,
       "sentenceUnitCount": 34,
-      "averageWordsPerSentence": 9.38,
+      "averageWordsPerSentence": 9.32,
       "maxWordsPerSentence": 13,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.17,
@@ -7435,7 +7435,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "partly-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -7458,22 +7458,22 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "The reader must follow mirrored writing, starting direction, a size-changing error and a curling page that blocks completion of the correction. Luna’s wing solves that physical obstacle; Wren’s rejection of another charm in favor of a step-stool book then depends on understanding the earlier magical and practical risks.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:3785a5c404cc22eb",
-    "textHash": "sha256:5c223b81c5b42136d5f2e5b0749b83835ac1ad0c0caeb78870456b5201c39094",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:2fdd98fabf65b4c1",
+    "textHash": "sha256:f4af95bbdc9a76acf720f241649232df2e126711bf940bc6bc1e5c7b1c77da44",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 12,
-      "wordCount": 306,
-      "uniqueWordCount": 165,
-      "uniqueWordRatio": 0.54,
-      "averageWordLength": 4.38,
-      "averageWordsPerPage": 25.5,
+      "wordCount": 308,
+      "uniqueWordCount": 162,
+      "uniqueWordRatio": 0.53,
+      "averageWordLength": 4.34,
+      "averageWordsPerPage": 25.67,
       "minWordsPerPage": 24,
       "maxWordsPerPage": 29,
       "sentenceUnitCount": 27,
-      "averageWordsPerSentence": 11.33,
-      "maxWordsPerSentence": 16,
+      "averageWordsPerSentence": 11.41,
+      "maxWordsPerSentence": 18,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.08,
       "dialoguePageCount": 1,
@@ -7484,7 +7484,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "partly-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -7499,41 +7499,41 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
       "syntax": "Temporal, purpose and concessive clauses contrast earlier accuracy with present mismatch and repeated updates.",
-      "vocabulary": "Parchment, quill, symbol, landmark, mismatch and atlas retain substantial world and map vocabulary.",
+      "vocabulary": "Feather pen, parchment, traveler, trail, landmark, route and labels TODAY and YESTERDAY.",
       "knowledge": "A map records places at a time; changed terrain does not erase the earlier record’s meaning.",
-      "progression": "A confident complete map fails; Flint compares landmarks with a new dated map and keeps both as an ongoing method.",
+      "progression": "A finished map fails after the paths move; Flint draws and checks a current route, keeps the earlier page and draws further changes.",
       "inference": "Understand how maps can be accurate at different times and why the changing paths still require updates.",
       "sustainedReading": "Twelve paragraphs revisit a representation problem across several days, a failed journey and later reuse."
     },
-    "rationale": "Flint’s accurate map becomes misleading when the paths change. Checking landmarks against his new map clarifies the repair without simplifying the G relationship between a historical record, a present route, dated updates and a growing atlas.",
+    "rationale": "Flint's map becomes misleading when magical paths move. He compares landmarks with a new map, keeps the earlier drawing and makes more maps as routes change; readers relate a past record, the current route and repeated updates.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-05",
-    "textFingerprint": "fnv1a64:7480107d5dc4c6a0",
-    "textHash": "sha256:05addbf7e49d26f9243a13d59e90199921d64bd638df012953dd326f4075d5e0",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:e46a247c7cb035c0",
+    "textHash": "sha256:be9835f14b098ee7e1e7f6fb0e95f1d4683fab6e4287861fb3f09821c46295b8",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 12,
-      "wordCount": 299,
-      "uniqueWordCount": 185,
-      "uniqueWordRatio": 0.62,
-      "averageWordLength": 4.59,
-      "averageWordsPerPage": 24.92,
-      "minWordsPerPage": 24,
+      "wordCount": 315,
+      "uniqueWordCount": 172,
+      "uniqueWordRatio": 0.55,
+      "averageWordLength": 4.31,
+      "averageWordsPerPage": 26.25,
+      "minWordsPerPage": 23,
       "maxWordsPerPage": 29,
-      "sentenceUnitCount": 24,
-      "averageWordsPerSentence": 12.46,
-      "maxWordsPerSentence": 17,
+      "sentenceUnitCount": 32,
+      "averageWordsPerSentence": 9.84,
+      "maxWordsPerSentence": 18,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.08,
       "dialoguePageCount": 3,
-      "questionPageCount": 0,
+      "questionPageCount": 1,
       "illustratedPageCount": 12,
       "independentlyDescribedPageCount": 0
     },
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -7556,22 +7556,22 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Dewdrop tests a stranger’s impressive story against its description of moles and Burrow’s dry-tunnel map. Readers evaluate an unreliable speaker using several contradictions, then distinguish the false boast from the fish’s real discovery and infer why an ordinary true experience earns attention.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:9507ea7d543e334f",
-    "textHash": "sha256:cb8d2ba471df7860728c81c5d29515d017e0ce9c4b19fd5be20fc3d39d49b797",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:acb13a8258ae5c17",
+    "textHash": "sha256:84d1a2f6b1193ba29f7414c0855c54f1e7c7981eb3568d25a4677d742ff9743a",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 12,
-      "wordCount": 322,
-      "uniqueWordCount": 177,
+      "wordCount": 315,
+      "uniqueWordCount": 172,
       "uniqueWordRatio": 0.55,
-      "averageWordLength": 4.52,
-      "averageWordsPerPage": 26.83,
-      "minWordsPerPage": 24,
+      "averageWordLength": 4.45,
+      "averageWordsPerPage": 26.25,
+      "minWordsPerPage": 22,
       "maxWordsPerPage": 31,
       "sentenceUnitCount": 39,
-      "averageWordsPerSentence": 8.26,
-      "maxWordsPerSentence": 14,
+      "averageWordsPerSentence": 8.08,
+      "maxWordsPerSentence": 13,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.08,
       "dialoguePageCount": 9,
@@ -7582,7 +7582,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -7597,7 +7597,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
       "syntax": "While, until, instead of and as clauses extend action and interpretive sentences.",
-      "vocabulary": "Spade, ancient, carving, sketch, notch, latch, vanished and wingtip are varied and unfamiliar.",
+      "vocabulary": "Spade, ancient, carving, sketch, notch, latch and wingtip are varied and unfamiliar.",
       "knowledge": "A picture archive can preserve past places and accept a new record of the present.",
       "progression": "Discovery, safe inspection, a physical clue and a remembered identity precede a new magical effect.",
       "inference": "Connect the final glowing chalk tree with the surrounding historical records.",
@@ -7605,21 +7605,21 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "The carved door, Luna’s partial memory, the notch-and-claw latch and the old glowing pictures lead to a room that records Moonwood’s past. Burrow’s ordinary chalk drawing then begins to glow, requiring readers to connect the newly observed present with the room’s historical function.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:d3783c0560516568",
-    "textHash": "sha256:abf28fed05e7a3766700630a1c83b3f48edc14a73951dd277428f518b752d77a",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:fed5b285ef84c560",
+    "textHash": "sha256:b0fb1dad162f5b7f3f53a8c354e54d5c6e255b3d8feba6c1d46bec773ed8041b",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 13,
-      "wordCount": 341,
+      "wordCount": 339,
       "uniqueWordCount": 191,
       "uniqueWordRatio": 0.56,
-      "averageWordLength": 4.67,
-      "averageWordsPerPage": 26.23,
-      "minWordsPerPage": 24,
+      "averageWordLength": 4.64,
+      "averageWordsPerPage": 26.08,
+      "minWordsPerPage": 23,
       "maxWordsPerPage": 31,
       "sentenceUnitCount": 30,
-      "averageWordsPerSentence": 11.37,
+      "averageWordsPerSentence": 11.3,
       "maxWordsPerSentence": 17,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.08,
@@ -7631,7 +7631,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "partly-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -7646,7 +7646,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
       "syntax": "Because, which, while, just as and with-every clauses combine causes, timing and consequences.",
-      "vocabulary": "Stray, porridge, petals, gathered, powerful, key, measured and rinsed broaden language.",
+      "vocabulary": "Stray, porridge, petals, gathered, powerful, measured and rinsed broaden language.",
       "knowledge": "The fictional sneeze-and-wand relation must stay distinct from ordinary cold-care actions.",
       "progression": "Escalating accidents cross several locations before a two-part cleanup and a final retest.",
       "inference": "Compare the last sneeze with earlier ones and retain the abandoned wand’s significance.",
@@ -7654,16 +7654,16 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Loose wand magic turns sneezes into increasingly disruptive events, and suppressing a sneeze worsens the effect. Spark must stop experimenting, help repair two places and keep his wand aside; the last harmless sneeze asks readers to connect changed behavior with the rule established at the beginning.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:f7cc1eada486b5a7",
-    "textHash": "sha256:bea626703fbdc5cd2af145cc8bc5807ed4283499bb528027425f2ee32cf898b8",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:701cd0d32d5e4b0b",
+    "textHash": "sha256:433445d2cc4dbd1afd3d3603ae7b215bc1fc2c30429a56c3d154b5bbb9308229",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 14,
       "wordCount": 366,
-      "uniqueWordCount": 191,
+      "uniqueWordCount": 189,
       "uniqueWordRatio": 0.52,
-      "averageWordLength": 4.59,
+      "averageWordLength": 4.6,
       "averageWordsPerPage": 26.14,
       "minWordsPerPage": 24,
       "maxWordsPerPage": 28,
@@ -7680,7 +7680,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "partly-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -7695,7 +7695,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
       "syntax": "Where, while, before and purpose clauses vary longer descriptions and action sequences.",
-      "vocabulary": "Urgent, current, latch, shaded, stepping stones and mound require broader concrete vocabulary.",
+      "vocabulary": "Current, latch, shaded, stepping stones, silver and mound require broader concrete vocabulary.",
       "knowledge": "Cold storage protects seeds; old trees can be succeeded by newly planted ones.",
       "progression": "Search and elimination lead to retrieval, checking contents and a substantial planting sequence.",
       "inference": "Link the remembered water and pebble to one location and the planting to the old oak.",
@@ -7703,21 +7703,21 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Luna’s cold-water and silver-pebble memories narrow a search before the box is recovered. The text then explains the seeds’ purpose and follows their planting beside the old oak. This is rich sustained narrative with supported clue use, but the search’s decisive links are supplied directly.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:133e776f915a7a77",
-    "textHash": "sha256:f98a6b7c1c0147e5e25641841889f1dd61d7c160f5903fae90bd1d7fd74ce7f2",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:7b187ba72869e65e",
+    "textHash": "sha256:b338519af10abf948142dbcb1b0b8291be9a08f701a48eb41c90f299be8179a1",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 14,
-      "wordCount": 352,
-      "uniqueWordCount": 183,
-      "uniqueWordRatio": 0.52,
-      "averageWordLength": 4.68,
-      "averageWordsPerPage": 25.14,
+      "wordCount": 354,
+      "uniqueWordCount": 181,
+      "uniqueWordRatio": 0.51,
+      "averageWordLength": 4.6,
+      "averageWordsPerPage": 25.29,
       "minWordsPerPage": 22,
       "maxWordsPerPage": 30,
       "sentenceUnitCount": 35,
-      "averageWordsPerSentence": 10.06,
+      "averageWordsPerSentence": 10.11,
       "maxWordsPerSentence": 16,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.07,
@@ -7729,7 +7729,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -7752,16 +7752,16 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Pip and Stone’s assumption that a huge sound means a huge creature is overturned by a tiny lost toadling. Stone must then soften his own call to help it. The linked size/sound reversals and shifting reactions make this richer than a simple rescue, while the cause and solution are openly explained.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:eff2c40da7d4394e",
-    "textHash": "sha256:9090ffc7de2d73e4f011f61318c711b3d284eb85e7247ba258ed685d69a8b2b4",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:55a3d1ec60f5e9f5",
+    "textHash": "sha256:90de32842b0cdb3eb868c39ed6a8d0d9934c014578568a8406021809e0516cb2",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 12,
       "wordCount": 298,
-      "uniqueWordCount": 176,
+      "uniqueWordCount": 175,
       "uniqueWordRatio": 0.59,
-      "averageWordLength": 4.54,
+      "averageWordLength": 4.53,
       "averageWordsPerPage": 24.83,
       "minWordsPerPage": 24,
       "maxWordsPerPage": 26,
@@ -7778,7 +7778,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -7801,7 +7801,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "The missing stream music is traced upstream to a boulder, and separate pushing and water attempts fail. The successful solution combines water loosening mud from beneath with a vine pulling from the bank, requiring causal and spatial reasoning beyond a friendship-only narrative.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:c2cc520ce43f2ac7",
     "textHash": "sha256:5790836e1895735409c6b8cf9fc2072d3affe3228015a85254d67fe7922a894f",
     "metrics": {
@@ -7827,7 +7827,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -7850,7 +7850,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Spark and Glimmer alternate roles as unsuccessful teachers, then simplify one floating target and use Glimmer’s gliding breath as a model. Readers connect two learning problems and infer the value of observation and smaller steps, with the actual breath and boot results made visible in the prose.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:d4da751a4428f251",
     "textHash": "sha256:dd77f13f7e5df095076dee76cf109fda4676b3180f046522783192fb4ee84268",
     "metrics": {
@@ -7876,7 +7876,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -7899,7 +7899,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Conflicting guides lead Wren and Flint astray, after which observing the mushrooms supplies a reliable route. The brighter side, linked lights and dated map are directly described, so the reader tracks a richer comparison between methods without needing a sustained concealed-rule deduction.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:3d3c8f6e17bb633e",
     "textHash": "sha256:2794b829d8ac1e0225fa7ce1f92e49fd0b1916d08022f058f2f66083bad6f6b3",
     "metrics": {
@@ -7925,7 +7925,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -7940,7 +7940,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
       "syntax": "Some/others contrasts and reported past events structure an embedded history within the present investigation.",
-      "vocabulary": "Gallery, carved, ceiling, waistcoat, raised, acorn and doorway extend concrete descriptive vocabulary.",
+      "vocabulary": "Gallery, carved, ceiling, vest, brass lantern, raised, acorn and doorway extend concrete descriptive vocabulary.",
       "knowledge": "A picture sequence can encode time, tree growth and an old doorway surviving within a growing oak.",
       "progression": "A blocked tunnel opens to an unreadable display, becomes an ordered origin story and ends in a personal comparison.",
       "inference": "Use tree size and root clues to order pictures, then connect the old doorway with Burrow’s current work.",
@@ -7948,21 +7948,21 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "A narrow tunnel behind the Memory Room leads to carved trees Burrow cannot order. Luna’s root hint and tree sizes reveal a beginning; the rabbit’s acorn and doorway explain Hollow Oak’s history. Burrow’s final comparison transfers the long time-scale relationship to his own tunnel, retaining G.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-05",
-    "textFingerprint": "fnv1a64:71cbec04beb24d02",
-    "textHash": "sha256:a64b2356a9a2a3d7439f8febc95d16b601368d509b76fbb261bc4cf32813f31f",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:b64e284cc6d825d5",
+    "textHash": "sha256:d3c8d279e2b610f42c4bc6630d0eacc816f2f1f52aa5c77db267a01a3d66848e",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 12,
-      "wordCount": 317,
-      "uniqueWordCount": 172,
+      "wordCount": 318,
+      "uniqueWordCount": 173,
       "uniqueWordRatio": 0.54,
-      "averageWordLength": 4.57,
-      "averageWordsPerPage": 26.42,
+      "averageWordLength": 4.53,
+      "averageWordsPerPage": 26.5,
       "minWordsPerPage": 22,
       "maxWordsPerPage": 29,
       "sentenceUnitCount": 35,
-      "averageWordsPerSentence": 9.06,
+      "averageWordsPerSentence": 9.09,
       "maxWordsPerSentence": 16,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.17,
@@ -7974,7 +7974,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "partly-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -7997,22 +7997,22 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Moved objects prompt a night watch, which reveals Burrow carrying boots and biscuits while asleep. The prose identifies his state as soon as he is seen; crumbs and footprints then corroborate it for Burrow. Readers retain evidence and understand the joke, but need not solve an extended ambiguous mystery.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:1d38eed661caf456",
-    "textHash": "sha256:c8f00ecff7a393f3c60257a94e26fc6769a2de6d084a33caf0f033feb076933c",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:b1e982042df9f303",
+    "textHash": "sha256:5c6f29310c041f584f8de729773f441289422e12958e10f7d4737be8685be9ab",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 12,
       "wordCount": 310,
-      "uniqueWordCount": 187,
-      "uniqueWordRatio": 0.6,
-      "averageWordLength": 4.86,
+      "uniqueWordCount": 177,
+      "uniqueWordRatio": 0.57,
+      "averageWordLength": 4.76,
       "averageWordsPerPage": 25.83,
       "minWordsPerPage": 22,
-      "maxWordsPerPage": 28,
-      "sentenceUnitCount": 29,
-      "averageWordsPerSentence": 10.69,
-      "maxWordsPerSentence": 18,
+      "maxWordsPerPage": 30,
+      "sentenceUnitCount": 30,
+      "averageWordsPerSentence": 10.33,
+      "maxWordsPerSentence": 17,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.08,
       "dialoguePageCount": 2,
@@ -8023,7 +8023,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -8037,8 +8037,8 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "F",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "While, but, followed by and one-by-one structures link warnings, parallel movement and ordered treatment.",
-      "vocabulary": "Cauldron, potion, recipe, motion, sprinkled, parade and waddled introduce substantial unfamiliar language.",
+      "syntax": "While, but, then and one-by-one structures link warnings, parallel movement and ordered treatment.",
+      "vocabulary": "Cauldron, potion, recipe, sprinkled, parade and waddled introduce substantial unfamiliar language.",
       "knowledge": "Instructions have conditions and order; warnings must be checked before acting.",
       "progression": "A warning is ignored, effects spread and an explicitly supplied two-stage cure restores the garden.",
       "inference": "Connect the wrong color with the later moving plants and infer responsibility from the final agreement.",
@@ -8046,21 +8046,21 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "A visible purple/green mismatch warns that Wren has made the wrong potion; walking plants confirm the mistake. The discovered recipe gives a clearly ordered song-then-water cure. Varied dialogue, unfamiliar objects and the multi-step repair require F-level support without a concealed G-level rule.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:80656d079571dda9",
-    "textHash": "sha256:f031484065503a00d3b9b2802583bf8dd172aac43b79d98aa3d5c7a30f5dcbf0",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:387cf325587b8fac",
+    "textHash": "sha256:e908351249984b4c23f7f30c96090cc3b10c2d53f9a4781f0dfeedca3732a128",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 12,
-      "wordCount": 311,
-      "uniqueWordCount": 177,
-      "uniqueWordRatio": 0.57,
-      "averageWordLength": 4.69,
-      "averageWordsPerPage": 25.92,
+      "wordCount": 318,
+      "uniqueWordCount": 175,
+      "uniqueWordRatio": 0.55,
+      "averageWordLength": 4.61,
+      "averageWordsPerPage": 26.5,
       "minWordsPerPage": 24,
-      "maxWordsPerPage": 28,
-      "sentenceUnitCount": 28,
-      "averageWordsPerSentence": 11.11,
+      "maxWordsPerPage": 31,
+      "sentenceUnitCount": 29,
+      "averageWordsPerSentence": 10.97,
       "maxWordsPerSentence": 16,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.08,
@@ -8072,7 +8072,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "partly-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -8095,7 +8095,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "A failed current presses the fish tighter, so Stone inspects the rocks and helps despite not liking wet hands. Direct dialogue and concrete pushing language clarify the events, while force, rock position and the wet-but-relaxed close still combine physical and emotional relationships at F.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-05",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:9643fd5f6b574bdd",
     "textHash": "sha256:37dc89baec2ab3f1fefcd005ba330bfebdada73395ad09a5538887ef39d212d3",
     "metrics": {
@@ -8121,7 +8121,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -8136,7 +8136,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
       "syntax": "If, where, when and cause clauses support elimination, parallel searches and a changed plan.",
-      "vocabulary": "Channel, delicate, seedlings, shallow, tremble and aboveground extend environmental vocabulary.",
+      "vocabulary": "Channel, delicate, seedlings, shallow, nightfall and aboveground extend environmental vocabulary.",
       "knowledge": "Runoff can move seeds, wet soil supports germination and rooted seedlings must not be treated like loose seeds.",
       "progression": "Several false leads are tested before evidence reveals a different state of the missing objects.",
       "inference": "Combine rain route, dry tunnels, hum and roots; understand why the original goal must change.",
@@ -8144,22 +8144,22 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "The search separates misleading gold dust from the route rain actually took, eliminates dry tunnels and connects an empty box with newly rooted seedlings. The solution changes from retrieving missing seeds to protecting their growth and using their light in place, requiring a sustained causal reinterpretation.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:9c3601090b635d7f",
-    "textHash": "sha256:1b8664bf40ea3e08637fb5bf26bf8c4063bd5330f9d7da665f5bdf7fcd5d3b88",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:d6cff39e3c8c99ec",
+    "textHash": "sha256:cf65fb70e01a373dec6351ad3c0b07fe50c2a14ea794a3346bf174b1b7393fef",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 12,
-      "wordCount": 312,
-      "uniqueWordCount": 184,
-      "uniqueWordRatio": 0.59,
-      "averageWordLength": 4.75,
-      "averageWordsPerPage": 26,
+      "wordCount": 310,
+      "uniqueWordCount": 180,
+      "uniqueWordRatio": 0.58,
+      "averageWordLength": 4.72,
+      "averageWordsPerPage": 25.83,
       "minWordsPerPage": 22,
-      "maxWordsPerPage": 29,
+      "maxWordsPerPage": 31,
       "sentenceUnitCount": 31,
-      "averageWordsPerSentence": 10.06,
-      "maxWordsPerSentence": 17,
+      "averageWordsPerSentence": 10,
+      "maxWordsPerSentence": 16,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.08,
       "dialoguePageCount": 2,
@@ -8170,7 +8170,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -8185,7 +8185,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
       "syntax": "When, before and purpose clauses link changing light, visibility and timed collective action.",
-      "vocabulary": "Fragments, constellations, pulsed, ledge, beams and paling introduce specialist and literary words.",
+      "vocabulary": "Fragments, constellations, pulsed, ledge, beams and dawn introduce celestial and descriptive language.",
       "knowledge": "The fiction depends on matching star patterns and an unobstructed view rather than ordinary falling rocks.",
       "progression": "Observation and a failed low attempt lead to a stated rule and a shared higher-site solution.",
       "inference": "Retain matching patterns and the trees’ obstruction while the setting changes.",
@@ -8193,21 +8193,21 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Patterns on the fallen fragments answer their constellations, and a blocked view explains why a higher ledge is needed. Luna states the deadline and rule, after which the group carries and aligns the pieces. The celestial vocabulary and spatial matching are substantial, but the key relations are explicitly given.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:957bdf03eea1baeb",
-    "textHash": "sha256:92c60129182bb96965eb5d57afd9709e36ccead9701facb7c445d2d92e5ca9ad",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:ce2440ea8b8adee3",
+    "textHash": "sha256:3d41624e2e38bb8b4090698a837551fb19d18f4c14db11e73e158e4c68e21119",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 12,
-      "wordCount": 270,
-      "uniqueWordCount": 154,
+      "wordCount": 273,
+      "uniqueWordCount": 155,
       "uniqueWordRatio": 0.57,
-      "averageWordLength": 5.12,
-      "averageWordsPerPage": 22.5,
+      "averageWordLength": 5.11,
+      "averageWordsPerPage": 22.75,
       "minWordsPerPage": 22,
-      "maxWordsPerPage": 24,
-      "sentenceUnitCount": 25,
-      "averageWordsPerSentence": 10.8,
+      "maxWordsPerPage": 25,
+      "sentenceUnitCount": 26,
+      "averageWordsPerSentence": 10.5,
       "maxWordsPerSentence": 16,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.08,
@@ -8219,7 +8219,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -8240,11 +8240,11 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
       "inference": "Recognize the glasses-on-head joke and connect the crowded collection with difficulty finding them.",
       "sustainedReading": "Twelve paragraphs sustain atmosphere, several participants and two directly resolved discoveries."
     },
-    "rationale": "An unseen scratching source leads several friends through a room search to Twig’s hidden home. Glasses resting on her head resolve the second problem directly, while collecting and sorting explain the room. Familiar glasses replaces spectacles without removing the twelve-paragraph descriptive and causal demands that retain F.",
+    "rationale": "An unseen scratching source leads several friends through a room search to Twig's hidden home. Glasses resting on her head resolve the second problem, while collecting and sorting explain the room; the twelve-paragraph description and causal sequence retain F.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-05",
-    "textFingerprint": "fnv1a64:182c3f1b775469be",
-    "textHash": "sha256:9dcb0aad63efe848287d2607b362fa0155d29a7ca1913f8237a7c4f86d61f6dd",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:21609479c939cbeb",
+    "textHash": "sha256:364cbd60314d57c1427af6210d8420563106cbfdaf30c90c4a742812acb76498",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 12,
@@ -8268,7 +8268,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -8291,7 +8291,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "The race follows several competitors through different mistakes while Wren’s spell accelerates everyone except herself. Her change from winning to marking a safe return, Dewdrop’s return after finishing and the contrasting final awards require integration of simultaneous events, intentions and consequences across the ensemble.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:231b285085818ee8",
     "textHash": "sha256:89e82ffb3b052f4e358db73ab10f1a502e9274310a7edc89317a65e31c68f423",
     "metrics": {
@@ -8317,7 +8317,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -8340,7 +8340,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Pip’s marker establishes changing evidence before the search finds a crowded mist spirit. The expanding fog is linked to displaced habitat and blocked water; removing objects, clearing the channel and creating a boundary solve related but distinct causes. The closing marker check validates the whole account.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:561b99f7dbc98182",
     "textHash": "sha256:b2dfca962ec9f43e191f8e90ac54055e41b324a73b6cba8f772c94b5325ebc56",
     "metrics": {
@@ -8366,7 +8366,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -8389,21 +8389,21 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Glimmer’s controlled attempts, a wobbling flame and Luna’s stop instruction lead to lighting one lantern that activates the path. The practical safety sequence is explicit; the richer demands lie in varied clauses, fire-control vocabulary and reading Glimmer’s quiet pride rather than in a concealed magic rule.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:0af2a4ccf98e49b8",
-    "textHash": "sha256:0e563b1551c00d6612b989dfb2c458046d34034a51f10a38c59329cf850eb6c9",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:18e63d5f7ac49244",
+    "textHash": "sha256:2ddd4c06091c7321a692014243e6cf024dc57bfe130fb09248178e13a86fec4e",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 12,
-      "wordCount": 315,
-      "uniqueWordCount": 171,
+      "wordCount": 317,
+      "uniqueWordCount": 172,
       "uniqueWordRatio": 0.54,
-      "averageWordLength": 4.69,
-      "averageWordsPerPage": 26.25,
+      "averageWordLength": 4.68,
+      "averageWordsPerPage": 26.42,
       "minWordsPerPage": 23,
-      "maxWordsPerPage": 29,
-      "sentenceUnitCount": 34,
-      "averageWordsPerSentence": 9.26,
+      "maxWordsPerPage": 30,
+      "sentenceUnitCount": 37,
+      "averageWordsPerSentence": 8.57,
       "maxWordsPerSentence": 18,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.08,
@@ -8415,7 +8415,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -8438,7 +8438,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "The friends build a frightened creature’s trust, interpret its brief answer and navigate beyond the range of their light using Burrow’s scent clue. The matching eyes and final blink establish reunion indirectly. Atmosphere and perspective create a richer supported rescue, without an elaborate magical condition.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:d18db032e07ab1cf",
     "textHash": "sha256:2100f512acc69fa70790c907038ab2764f0ce4b437bea48db04a4f8e8a661757",
     "metrics": {
@@ -8464,7 +8464,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "text-derived-descriptions-only",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -8486,7 +8486,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Muddy first changes wet blocks into hard ones to build a stable wall, then uses that wall's shade to cool the pool. Those two connected material/heat relationships raise the demand beyond one B action/consequence.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:101eac80a13dfc0e",
     "textHash": "sha256:28b274dc9473ec06d271ecf77c224f96f4e9818d6b4804b981c414860d9a40b4",
     "metrics": {
@@ -8512,7 +8512,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -8534,7 +8534,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "short boat actions repeat a spin before Splashy folds the sail and the boat goes straight. Reed/sail vocabulary adds breadth, while one concrete failed push and changed sail state keep the link simple.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:007f016b2e0d2a69",
     "textHash": "sha256:f052a19fa5596696781ccfe0ea14bf7bef1aa20b1f5cbe3e5f846530365b623e",
     "metrics": {
@@ -8560,7 +8560,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -8582,7 +8582,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Repeated wool words and short chasing, patting and drying actions show a blown-away cloud craft being repaired. Tufts and board broaden concrete vocabulary; mud supplies one plainly sequenced holding solution at B.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-05",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:1fc896c4d963427c",
     "textHash": "sha256:341379d287691b2f72fc4888082f0106f9c23a6856440d127aeb3a6faf744210",
     "metrics": {
@@ -8608,7 +8608,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -8630,7 +8630,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "the short pond question and waiting sequence lead directly to a visible frog. Creeps/bank and varied small actions broaden the language, but the answer is revealed rather than requiring a sustained D clue chain.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:a31f6f3e441a982d",
     "textHash": "sha256:ac2fdef4ce743e81ba586bab31130ff9ef081d59726f11d940fca916f106c67e",
     "metrics": {
@@ -8656,7 +8656,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -8671,16 +8671,16 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
       "syntax": "Short clauses repeatedly name Cuddly or she; the ending uses an ordinary noun phrase, her ball of yarn.",
-      "vocabulary": "Yarn, strand, knots, loop, rolls and pats form a concrete textile/action set.",
-      "knowledge": "Pulling tangled yarn can tighten knots; loosening loops permits winding a ball.",
+      "vocabulary": "Yarn, strand, loops, tight, rolls and pats form a concrete textile/action set.",
+      "knowledge": "Pulling yarn around roots can tighten its loops; freeing each loop permits winding a ball.",
       "progression": "Hard pulling fails; following the yarn back and freeing loops allow the desired ball, which Cuddly pats.",
-      "inference": "Connect the changed action with releasing rather than tightening the knots."
+      "inference": "Connect the changed action with releasing rather than tightening the loops around the roots."
     },
-    "rationale": "Yarn repeats through pulling, tight knots, following back and freeing loops before rolling a ball. The concrete strand/knots/loop words and changed physical approach sustain B; the final ball of yarn makes the outcome explicit.",
+    "rationale": "Yarn repeats through pulling, tight loops around roots, following back and freeing each loop before rolling a ball. The concrete strand, loop and root relationships and changed physical approach sustain B; the final ball of yarn makes the outcome explicit.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-05",
-    "textFingerprint": "fnv1a64:def37e436cdcaf20",
-    "textHash": "sha256:cc08a69a4207087f401fb2b6806f62579b7c9c3e06284c6abb413e3c4e163dec",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:2e7a71f998d167a8",
+    "textHash": "sha256:d934b9e7549858b729e0a1b578bd1eddc46419a857758a68323c94a4b14f21ac",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
@@ -8704,7 +8704,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -8726,7 +8726,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "repeated hay/bale/bounce words support an overshoot followed by a smaller bounce. Top/past/inside and pressing springs add a modest physical-direction link beyond a fixed A action pattern.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:1ca49d6aa44a0932",
     "textHash": "sha256:5fcadd72f4081514dbda916acbf128b41ad58ef5beea3630c88b0c9c2d9516f3",
     "metrics": {
@@ -8752,7 +8752,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -8774,7 +8774,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Tiny must stabilise the oval berry with a pebble and turn it so the formerly blocked wide side can pass the root. Shape, orientation, downhill movement and a prop create a connected physical solution beyond one B effect.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:62fc6b532cbc09a1",
     "textHash": "sha256:c0a5d815b95e48d1263a51946dd632638a12c2fc1043949cd08c97b77826e34c",
     "metrics": {
@@ -8800,7 +8800,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -8820,9 +8820,9 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
       "progression": "Tapping stops the beetle; Brave builds a tunnel and waits as it walks out toward the flowers.",
       "inference": "Connect the changed approach and waiting with the beetle’s movement through the tunnel."
     },
-    "rationale": "Short beetle/Brave clauses contrast an unhelpful tap with building a leaf tunnel and waiting. Ordinary wants to help and the beetle walks out retain the B spatial and cause/result demands without an inverted sentence.",
+    "rationale": "Short beetle and Brave clauses contrast an unhelpful tap with building a leaf tunnel and waiting. The stated goal and the beetle's visible exit support B-level spatial and action-result relationships.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-05",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:ef48a73062b092f6",
     "textHash": "sha256:3a9fa14f83a3bd4a4756a4d25e1ec206c94ced0e2f441d77d5a3ec3e2aa436b9",
     "metrics": {
@@ -8848,7 +8848,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -8870,7 +8870,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "The reader compares a marked shady edge that shifts twice with the tree trunk remaining in shade, then connects the final lunch position with staying cool. Natural in the shade phrases clarify the language while the sustained time/space comparison retains C.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-05",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:4a749317957000a4",
     "textHash": "sha256:8f261f9aae645b45fc485d22a4b3c4ca62f62e9002da5428a10a619fb0af695d",
     "metrics": {
@@ -8896,7 +8896,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -8918,7 +8918,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "The broken wheel and scattered flowers make the problem explicit; a round slice of wood that fits and reloaded flowers show a concrete repair. One diagnostic question and the causal turn retain B without a sustained technical explanation.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-05",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:1ffb8a912493c24d",
     "textHash": "sha256:fbebfbb3ca915334602afa42bb956106a0fd04577092ec54023ded20af55d12b",
     "metrics": {
@@ -8944,7 +8944,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -8966,7 +8966,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Fancy compares rolling round supports with stable flat ones, then coordinates curved branches and knots to finish an arch. Paired results and construction vocabulary broaden both language and physical relationships.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:c99499854a085890",
     "textHash": "sha256:4f3eb0860425007ef3e0f486e0b1e971be9f7c3b53746f65f294bdfbb7e4b214",
     "metrics": {
@@ -8992,7 +8992,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -9014,7 +9014,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "the sinking stone is followed by beetles at a dry edge and yellow-leaf route marking. Specific terrain vocabulary and paired observations link evidence to a practical crossing while stating the dry-ground conclusion directly.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:6282cecd5554a8e2",
     "textHash": "sha256:f04c44c577f64923344f65ee9b7f2987e2b84a94aadca8dd1d7f9a813de2aa91",
     "metrics": {
@@ -9040,7 +9040,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -9057,21 +9057,21 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
       "syntax": "Paired and three-clause pages mix with single longer actions and a final emphatic fragment.",
       "vocabulary": "grips, glides, bundle, narrow, loop and roof form a broader delivery/material set.",
       "knowledge": "A broad load catches wind and obstructs vision; bundling changes both effects.",
-      "progression": "A roof delivery fails, the fern is rolled and tied, then delivered before the rain.",
+      "progression": "A roof delivery fails in the rain; the fern is rolled and tied, delivered and used to keep the cave dry.",
       "inference": "Connect the narrower hanging load with straight flight and the roof with the dry cave."
     },
     "rationale": "a wide fern spins and blocks Flappy's view, then rolling and tying it makes a narrow load for a successful delivery. Paired actions and the wide/narrow comparison exceed B's brief one-variable action frame.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:3c7b92b5d803a9a9",
-    "textHash": "sha256:207bb68befe34e9f2c9ab826e6be941f684c2d4a80154cf164078c1f81c1db9e",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:6a017f9c89b662a5",
+    "textHash": "sha256:f815cfe892e1a58bacb77f33f2edcc24aaf5dbd654543f863ef54e55c7703b0b",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
       "wordCount": 72,
       "uniqueWordCount": 55,
       "uniqueWordRatio": 0.76,
-      "averageWordLength": 4.25,
+      "averageWordLength": 4.26,
       "averageWordsPerPage": 9,
       "minWordsPerPage": 7,
       "maxWordsPerPage": 11,
@@ -9088,7 +9088,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -9110,7 +9110,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "four stacked bowls roll away, stop on different surfaces and are returned singly to flat ground. The question and varied paired language support a clear comparison of carrying and placement methods.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:107a80856d62c29f",
     "textHash": "sha256:00a242a6260c0a3a7b7e59a99696438fcc8ff9c06348d0974ce110aeb8789894",
     "metrics": {
@@ -9136,7 +9136,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -9158,7 +9158,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Sneezy's clearing sneeze enlarges the fluff cloud, but seeds stuck to a wet rock suggest a damp leaf for cleanup. Specific material words and the observation-to-plan link create broader C demands.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:591fe88c27992516",
     "textHash": "sha256:002bd3f856b2ff275dcf2fa1a33cec3783437e8c4c3495a406fed21de69d2463",
     "metrics": {
@@ -9184,7 +9184,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -9206,7 +9206,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "two different temperature preferences survive one failed shared-shade solution, then the sun/shade boundary permits one picnic with two locations. Paired contrasting sentences and explicit comparison raise demand above B.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:ddce51fe80a1b870",
     "textHash": "sha256:301241189d0c17b84ba740fa2b3e7b033dc2ab20ecad7bbefa8d819a142375ed",
     "metrics": {
@@ -9232,7 +9232,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -9254,9 +9254,9 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Zippy's easy crossing contrasts with Grumpy's gap problem, and Bossy supplies closer stones plus alternative routes. Varied short language and an explicit different-needs comparison justify C without assuming a higher level from the clipboard alone.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:207c328f9fa98a1f",
-    "textHash": "sha256:9e9ebae585e63cc1bc47f367592d071d05c3bc8f6dcd633c8be8a14d7a179c96",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:1cb72ee79dac129e",
+    "textHash": "sha256:44e923d2223a537bef56295ee4c502af8e33f5eeb07e70cbd11bdcbb10c9d443",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
@@ -9280,7 +9280,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -9302,21 +9302,21 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Honky replaces an uninformative loud call with separate soft tests, then combines a faint echo and moving fern in cool stream air to select a tunnel. The final return confirms a multi-cue investigation.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:8cadc23f32dec213",
-    "textHash": "sha256:2e5d88ebfb712b5a0e4c59122ccbb737619c68dadc57a00bfa4b58fd8b4a831c",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:a3d71d64122cc335",
+    "textHash": "sha256:156e1fdcf3e346bd8168c52f94539d1de55ff911a315600cfd8e8d7b43ffd7ed",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
-      "wordCount": 75,
-      "uniqueWordCount": 51,
-      "uniqueWordRatio": 0.68,
-      "averageWordLength": 4.37,
-      "averageWordsPerPage": 9.38,
+      "wordCount": 80,
+      "uniqueWordCount": 53,
+      "uniqueWordRatio": 0.66,
+      "averageWordLength": 4.35,
+      "averageWordsPerPage": 10,
       "minWordsPerPage": 7,
       "maxWordsPerPage": 13,
-      "sentenceUnitCount": 14,
-      "averageWordsPerSentence": 5.36,
+      "sentenceUnitCount": 15,
+      "averageWordsPerSentence": 5.33,
       "maxWordsPerSentence": 9,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.13,
@@ -9328,7 +9328,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -9350,21 +9350,21 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "the noon failure must be compared with the later low sun, longer shadows and a turned screen before the show works. Time, light direction and projection relationships create a connected spatial explanation beyond C's single comparison.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:812fec173e3a9d24",
-    "textHash": "sha256:770bb0421cd697a619a796b76fc45936e14660e31e3b3aa5e93b3ad5ad0005c5",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:a7e4122dc9d32d9b",
+    "textHash": "sha256:59ef5b94c455bdc8ea22ef5028df3b01738b55a0abf52bb1b72602373f81c2a5",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
-      "wordCount": 73,
-      "uniqueWordCount": 49,
-      "uniqueWordRatio": 0.67,
-      "averageWordLength": 4.19,
-      "averageWordsPerPage": 9.13,
+      "wordCount": 74,
+      "uniqueWordCount": 51,
+      "uniqueWordRatio": 0.69,
+      "averageWordLength": 4.22,
+      "averageWordsPerPage": 9.25,
       "minWordsPerPage": 7,
       "maxWordsPerPage": 12,
       "sentenceUnitCount": 12,
-      "averageWordsPerSentence": 6.08,
+      "averageWordsPerSentence": 6.17,
       "maxWordsPerSentence": 9,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.13,
@@ -9376,7 +9376,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -9390,7 +9390,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "C",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Short paired actions include a contracted causal result and repeated bump sounds.",
+      "syntax": "Short paired actions, directional phrases and repeated bump sounds carry the cause-and-result sequence.",
       "vocabulary": "Guards, props, stretches, scrambles, dip and across extend rolling-object language.",
       "knowledge": "A dip can stop a rolling object and a spread pillow can cushion a landing.",
       "progression": "A stretch dislodges the melon and pillow, a tap speeds the melon, and the stopped pillow becomes the catching surface.",
@@ -9398,7 +9398,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "A rolling melon and pillow produce a failed tap, a pillow caught in a dip and Dozy’s changed catching plan. Dozy stretches directly names the initiating action; paired events and the directional cause chain retain C.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-05",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:fa9f8cda1883104e",
     "textHash": "sha256:fc16f6de1a9f11ce5c108edb2bf02ee453f4eead9131aa6aa08b4ff0ef6f6537",
     "metrics": {
@@ -9424,7 +9424,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -9447,7 +9447,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "A trembling root leads Pip and Burrow to a buried branch and second rope, revealing how wind aboveground rings the bell. A loose wedge fails before a tied rope works. Readers follow a multi-link physical explanation, which the prose supplies directly before the successful retest.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:1876eb0be8cb9f00",
     "textHash": "sha256:27c4de28be5d16f001bfb9b813c7185bc9da86faa8d0c613d654c2ebb5ccf785",
     "metrics": {
@@ -9473,7 +9473,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -9496,7 +9496,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Stone’s attempt to clear the shade creates another shadow, so reflected moonlight becomes an alternative. The rock’s angle, a beam too high and Fern’s adjustment require spatial and causal reasoning. Each relation is narrated directly, making this a compact F-level explanation in story form.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:ecb3597e7d5d0819",
     "textHash": "sha256:ec9cd9199acd61838e48dc1b4c9b038c723b30b031f52f2ae2f687471aefb455",
     "metrics": {
@@ -9522,7 +9522,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -9536,8 +9536,8 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "G",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "When, with no, before and until-like limits express response timing and control.",
-      "vocabulary": "Curve, loosened, tightened, unwound, frame and gripped support abstracted movement relations.",
+      "syntax": "When, with no, before and until clauses express response timing and control.",
+      "vocabulary": "Curve, loose, tighten, unwound, frame and gripped describe the root's changing movement and position.",
       "knowledge": "A fictional sound-response rule distinguishes duration and position of the stimulus.",
       "progression": "Observation and repeated failure lead to isolating a variable and applying the rule at three locations.",
       "inference": "Compare sustained notes with taps and transfer that distinction to the final hooting effect.",
@@ -9545,7 +9545,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Long notes tighten the root into loops, while silence stops it and brief taps draw it without allowing a curl. Fern must infer that difference from several failures and apply it at changing positions to make an arch; the owls’ final hooting then strengthens the intended new shape.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:52f708ed6e2f3f3f",
     "textHash": "sha256:3cc6bc98a62e7f8dac4a4e6f378b0df0ae64d1169a5e0181a1f8ffbb169ae750",
     "metrics": {
@@ -9571,7 +9571,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -9594,7 +9594,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Wren confuses a pocket’s one-object limit with the small size of ten berries. The reader sees each new berry displace the last before Wren does, then must understand how one tied bundle can contain ten berries while still satisfying the unchanged magical rule.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:f3a69168ea71ffc0",
     "textHash": "sha256:0618c9377470d993d1274baa7d36e4a098a160f57e29e109588186266fe1b095",
     "metrics": {
@@ -9620,7 +9620,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -9643,7 +9643,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Luna’s size-sorted mobile produces the wrong projection, so she compares the hanging stars with the real sky and adjusts their positions. A red star’s position relative to three silver points and the wall’s owl pattern require representational and spatial comparison, but the method and success criteria are directly explained.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:cff7a16e4c48d373",
     "textHash": "sha256:1fa049121239e3caf10a37ae3b168b54302812fa3df5848830307d39fa4448bf",
     "metrics": {
@@ -9669,7 +9669,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -9684,7 +9684,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
       "syntax": "Until, instead of, before and purpose clauses express route alternatives and verification.",
-      "vocabulary": "Shortcut, measurements, strip, firm, crossing and potting bench extend spatial vocabulary.",
+      "vocabulary": "Shortcut, measured, cord, strip, firm, crossing and potting bench extend spatial and practical vocabulary.",
       "knowledge": "Circling an obstacle differs from crossing beneath its depth; firm soil supports a tunnel.",
       "progression": "A direct plan fails, following the obstacle fails and measurement reveals a different route.",
       "inference": "Compare the curved return with the lower crossing and connect the revised map to the real tunnel.",
@@ -9692,21 +9692,21 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Following a curved root returns Burrow to his starting point, so he measures its circle and finds a straight route beneath it. The contrast among map, circular obstacle and underground crossing requires spatial reasoning and knowledge of soil support, with each discovery clearly stated.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:f059ae2a04f605a6",
-    "textHash": "sha256:cd2cc58ac02f7734cbf611282fda1f3fa03642849e0794d8b6c8d672b135e1f3",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:50904fea5a97bd45",
+    "textHash": "sha256:bdec95faa247f204a735d15386849f64e9329faad72a25793289e45a6113aaa4",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 10,
-      "wordCount": 261,
-      "uniqueWordCount": 147,
-      "uniqueWordRatio": 0.56,
-      "averageWordLength": 4.61,
-      "averageWordsPerPage": 26.1,
+      "wordCount": 262,
+      "uniqueWordCount": 142,
+      "uniqueWordRatio": 0.54,
+      "averageWordLength": 4.55,
+      "averageWordsPerPage": 26.2,
       "minWordsPerPage": 22,
       "maxWordsPerPage": 30,
       "sentenceUnitCount": 29,
-      "averageWordsPerSentence": 9,
+      "averageWordsPerSentence": 9.03,
       "maxWordsPerSentence": 16,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.1,
@@ -9718,7 +9718,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -9741,24 +9741,24 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Flint cannot read the root shadows safely until Pip discovers the angled crystal dividing the lantern beam. The falling crystal briefly recreates the doubled shadows, confirming the cause. Readers integrate light source, beam and obstacle, but the optical mechanism is directly explained rather than left as a long mystery.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:d3a6a0c8ab6056b1",
-    "textHash": "sha256:dc0d87d4e2719f4835697f04185bc7022258fe0380aa6cb4da8db35ce157bbae",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:6202175750a5f926",
+    "textHash": "sha256:befc1d2ee6c807419cd110ab7cf9e849e2a9734753d87f8509406cefe9dbebc7",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 10,
-      "wordCount": 274,
-      "uniqueWordCount": 139,
-      "uniqueWordRatio": 0.51,
-      "averageWordLength": 4.4,
-      "averageWordsPerPage": 27.4,
+      "wordCount": 275,
+      "uniqueWordCount": 137,
+      "uniqueWordRatio": 0.5,
+      "averageWordLength": 4.37,
+      "averageWordsPerPage": 27.5,
       "minWordsPerPage": 24,
       "maxWordsPerPage": 29,
       "sentenceUnitCount": 29,
-      "averageWordsPerSentence": 9.45,
+      "averageWordsPerSentence": 9.48,
       "maxWordsPerSentence": 16,
       "repeatedSentenceUnitCount": 0,
-      "dominantTwoWordPageOpeningRatio": 0.1,
+      "dominantTwoWordPageOpeningRatio": 0.2,
       "dialoguePageCount": 2,
       "questionPageCount": 0,
       "illustratedPageCount": 10,
@@ -9767,7 +9767,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -9782,7 +9782,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
       "syntax": "While and contrasting sentences connect conditions, material change and indirect treatment.",
-      "vocabulary": "Amber, sap, hardened, surface, softened and layer introduce material-property language.",
+      "vocabulary": "Amber, sap, hard, surface, softened and layer introduce material-property language.",
       "knowledge": "Heat can move through a stack; warming adhesive differs from blowing on exposed paper.",
       "progression": "A direct attempt worsens the problem, prompting a controlled indirect method and repair.",
       "inference": "Connect curled paper and still-cold sap with the decision to warm from underneath.",
@@ -9790,21 +9790,21 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Direct warm breath curls the paper without reaching the cold sap between layers. Glimmer and Luna instead warm a rock beneath the stack so heat reaches the adhesive indirectly. The reader must distinguish the damaged material from the material needing treatment and follow a clear causal repair.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:cab0c4cc85500d65",
-    "textHash": "sha256:87dc4eca895421c513e9c8382fec3bddb5bc2457bb571cb1e5037a5173a7ddd1",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:534e4fcb0ac39b55",
+    "textHash": "sha256:893262b6a995de2aa81f804ba875ff0bc5d3606278438a3fa52665503c3a2791",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 10,
-      "wordCount": 258,
-      "uniqueWordCount": 130,
-      "uniqueWordRatio": 0.5,
-      "averageWordLength": 4.65,
-      "averageWordsPerPage": 25.8,
-      "minWordsPerPage": 24,
+      "wordCount": 252,
+      "uniqueWordCount": 129,
+      "uniqueWordRatio": 0.51,
+      "averageWordLength": 4.62,
+      "averageWordsPerPage": 25.2,
+      "minWordsPerPage": 22,
       "maxWordsPerPage": 27,
-      "sentenceUnitCount": 30,
-      "averageWordsPerSentence": 8.6,
+      "sentenceUnitCount": 29,
+      "averageWordsPerSentence": 8.69,
       "maxWordsPerSentence": 15,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.1,
@@ -9816,7 +9816,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -9839,21 +9839,21 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "A copy disappears after ten counts even when Spark retries, so lasting success cannot come from merely recasting the spell. Capturing the temporary hook’s negative shape in clay, filling that hollow with fiber and removing a permanent hook require readers to track a representation surviving its vanished original.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:c658c580a933e90f",
-    "textHash": "sha256:e040590f1a0cad8375d074f75f49cd56b5e699ba9571ed4ec6c69a55e68f0498",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:aa7d6f0f0982b0d2",
+    "textHash": "sha256:9941bce45a437b0dd11808a869c082784c8f8a1bee0b0011065fb93815407927",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 10,
-      "wordCount": 265,
-      "uniqueWordCount": 141,
+      "wordCount": 264,
+      "uniqueWordCount": 140,
       "uniqueWordRatio": 0.53,
-      "averageWordLength": 4.61,
-      "averageWordsPerPage": 26.5,
+      "averageWordLength": 4.56,
+      "averageWordsPerPage": 26.4,
       "minWordsPerPage": 24,
       "maxWordsPerPage": 29,
-      "sentenceUnitCount": 30,
-      "averageWordsPerSentence": 8.83,
+      "sentenceUnitCount": 29,
+      "averageWordsPerSentence": 9.1,
       "maxWordsPerSentence": 14,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.2,
@@ -9865,7 +9865,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -9880,32 +9880,32 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
       "syntax": "While, as, until and comparative phrases link simultaneous inspection with ordered testing.",
-      "vocabulary": "Chime, tuning, harsh, suited, tinkle and tilted extend sound and movement language.",
-      "knowledge": "Different strikers and suspended alignment affect sounds; sequential notes differ from a crash.",
-      "progression": "A uniform approach fails before differentiated tests, a physical adjustment and an ordered performance.",
+      "vocabulary": "Chime, tuning, harsh, tilted, leaf stem, fingertip and note extend sound and movement language.",
+      "knowledge": "The striking object, strength of tapping and suspended alignment affect the sounds; ordered notes differ from a loud crash.",
+      "progression": "Hard tapping fails before gentler tests, a physical adjustment and an ordered performance.",
       "inference": "Connect tool-to-chime matching and the untwisted cord with the clearer final sound sequence.",
       "sustainedReading": "Ten paragraphs maintain four concrete mappings and a straightforward test-and-adjust procedure."
     },
-    "rationale": "One heavy striker produces harsh simultaneous sounds, so Pip tests and assigns different tools to four chimes, straightens a twisted cord and plays them in sequence. Tracking size, tool, sound and order creates multiple concrete relationships, with the successful mappings explicitly named.",
+    "rationale": "A heavy pebble makes the chimes loud and harsh, so Pip tests different tools and his fingertip, straightens a twisted cord and plays the four chimes in order with Stone. Tracking size, tool, sound and order creates several concrete relationships, with the successful pairings explicitly named.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:f0e947cdb79a8cbb",
-    "textHash": "sha256:d9e8e96c0294833547aadb773e408836a77b4ef73cb7dc0a615033c8d71fb66a",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:a3fc86a184e1e929",
+    "textHash": "sha256:19113acdaf5171a61bdad3fb74a21049381189ce7443bf8e53fe86e59c58ef3c",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 10,
-      "wordCount": 262,
-      "uniqueWordCount": 144,
-      "uniqueWordRatio": 0.55,
-      "averageWordLength": 4.63,
-      "averageWordsPerPage": 26.2,
-      "minWordsPerPage": 25,
-      "maxWordsPerPage": 27,
-      "sentenceUnitCount": 32,
-      "averageWordsPerSentence": 8.19,
-      "maxWordsPerSentence": 15,
+      "wordCount": 271,
+      "uniqueWordCount": 130,
+      "uniqueWordRatio": 0.48,
+      "averageWordLength": 4.5,
+      "averageWordsPerPage": 27.1,
+      "minWordsPerPage": 24,
+      "maxWordsPerPage": 34,
+      "sentenceUnitCount": 35,
+      "averageWordsPerSentence": 7.74,
+      "maxWordsPerSentence": 16,
       "repeatedSentenceUnitCount": 0,
-      "dominantTwoWordPageOpeningRatio": 0.1,
+      "dominantTwoWordPageOpeningRatio": 0.2,
       "dialoguePageCount": 2,
       "questionPageCount": 1,
       "illustratedPageCount": 10,
@@ -9914,7 +9914,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -9936,7 +9936,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Lunchbox names and labels repeat through swapping; a remaining spoon and folded-napkin clue connect the second check to a complete repair.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:fe25eac0fd7c00a2",
     "textHash": "sha256:f0364985ffdf2f89797edc7be8f03c0a80586fc358b21e79da56347ce5c0ae9f",
     "metrics": {
@@ -9962,7 +9962,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -9976,15 +9976,15 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "C",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Varied short clauses include selected speech, subordination or temporal links.",
-      "vocabulary": "Everyday school/community words plus specific topic or process terms.",
-      "knowledge": "Repeated look-under/between/beside searches anchor the story; a leaf triggers memory of a bench and a librarian's dialogue resolves the search.",
-      "progression": "A visible problem or task is followed through several related steps to its result.",
-      "inference": "Link the supplied cause, clue or comparison; D titles add a specialized process or convention."
+      "syntax": "Short present-tense search sentences, position phrases and one quoted answer.",
+      "vocabulary": "Missing, between, window seat, leaf, bench and librarian.",
+      "knowledge": "A clue in a bag can remind someone where a missing object was left.",
+      "progression": "Three unsuccessful searches lead to a leaf clue, a remembered bench and the librarian returning the book.",
+      "inference": "Connect the leaf with the bench and the remembered location with the librarian's answer."
     },
     "rationale": "Repeated look-under/between/beside searches anchor the story; a leaf triggers memory of a bench and a librarian's dialogue resolves the search.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:222e5ca5628f857d",
     "textHash": "sha256:e4e2b3fb58712d1eb6a0e65a8b089bd83d856c6790918e096ea072035b7b01bc",
     "metrics": {
@@ -10010,7 +10010,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -10032,7 +10032,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Wind and napkin words recur through a chase and relocation; a while-clause and food-box weights connect two practical solutions.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:9c47ef910e4f7c19",
     "textHash": "sha256:76a37e96970b205e85041df55c2749fbaaeed1438eb69ba2cc56297f0ce8a222",
     "metrics": {
@@ -10058,7 +10058,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -10080,16 +10080,16 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Short dialogue and paired action/result sentences test mud then stones; dry, sticky and stable contrasts make the safer route explicit.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:410472a00391f25b",
-    "textHash": "sha256:cfd1463113e59bab59d9c0b1f9d73f6cf6904ebae4cdcf3606ec2e4091e127fe",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:6a767e48231388ec",
+    "textHash": "sha256:78a90c125f1262f09fae0a8aa11f1cbc430536cc4d5fda3e87ab1e64e7380245",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
       "wordCount": 72,
-      "uniqueWordCount": 54,
-      "uniqueWordRatio": 0.75,
-      "averageWordLength": 4.15,
+      "uniqueWordCount": 55,
+      "uniqueWordRatio": 0.76,
+      "averageWordLength": 4.1,
       "averageWordsPerPage": 9,
       "minWordsPerPage": 7,
       "maxWordsPerPage": 11,
@@ -10106,7 +10106,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -10120,15 +10120,15 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "D",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Varied short clauses include selected speech, subordination or temporal links.",
-      "vocabulary": "Everyday school/community words plus specific topic or process terms.",
-      "knowledge": "A failed stones check precedes a gardener's oil-on-axle repair; the reader links lubrication and repeated turning to the quiet wheel.",
-      "progression": "A visible problem or task is followed through several related steps to its result.",
-      "inference": "Link the supplied cause, clue or comparison; D titles add a specialized process or convention."
+      "syntax": "Short action sentences include a when clause, repeated attempts and a time phrase.",
+      "vocabulary": "Squeaks, cart, gardener, oil, axle, seedlings and quietly.",
+      "knowledge": "Oil applied at the wheel's axle can reduce its squeak.",
+      "progression": "Checking for stones fails; asking the gardener leads to oiling, turning and testing the wheel.",
+      "inference": "Connect the oil and repeated turning with the final quiet movement."
     },
     "rationale": "A failed stones check precedes a gardener's oil-on-axle repair; the reader links lubrication and repeated turning to the quiet wheel.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:a5f6f63dc862e652",
     "textHash": "sha256:5fba1abb6575e8e7dc460131bf1d081d3bcebbee7ca1c23f736a9d97398f1c7a",
     "metrics": {
@@ -10154,7 +10154,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -10176,7 +10176,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "A failed gate pull is explained by a stone underneath; beneath, gritty and close-before-moving phrases support an ordered physical repair.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:b22c1a6c6ab8b3cb",
     "textHash": "sha256:c227a4611164dc32a65f26e04ab62526a953fa48a78a9c09827743f9835edb28",
     "metrics": {
@@ -10202,7 +10202,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -10224,7 +10224,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "A lunch-tin space problem is solved by repeated folding; chapati, lentils, steel tin and triangle broaden concrete food and shape vocabulary.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:f4f9de48c29f169d",
     "textHash": "sha256:a24038dcdea27467c6e75019e0a60d7533bb512a938d90d057241e48bf52bd5f",
     "metrics": {
@@ -10250,7 +10250,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -10264,15 +10264,15 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "D",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Varied short clauses include selected speech, subordination or temporal links.",
-      "vocabulary": "Everyday school/community words plus specific topic or process terms.",
-      "knowledge": "A failed overfilled wrapper and a smaller spoonful lead to folding, pinching, adult cooking and a successful bite. Concrete kitchen vocabulary and visible evidence preserve the existing reviewed band after neutral dinner framing.",
-      "progression": "A visible problem or task is followed through several related steps to its result.",
-      "inference": "Link the supplied cause, clue or comparison; D titles add a specialized process or convention."
+      "syntax": "Short action paragraphs, direct advice, paired sentences and a final result.",
+      "vocabulary": "Dumplings, filling, wrapper, spoonful, pinches, edges and boiling.",
+      "knowledge": "The amount of filling affects whether a wrapper can close; an adult handles cooking.",
+      "progression": "An overfilled wrapper leads to a smaller amount, closed edges, cooking and a successful bite.",
+      "inference": "Connect less filling with the closed wrapper and the final filling staying inside."
     },
-    "rationale": "A failed overfilled wrapper and a smaller spoonful lead to folding, pinching, adult cooking and a successful bite. Concrete kitchen vocabulary and visible evidence preserve the existing reviewed band after neutral dinner framing.",
+    "rationale": "An overfilled wrapper fails to close, then a smaller spoonful allows folding and pinching before adult cooking. Concrete kitchen terms and dependent preparation steps retain D.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-30",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:331ab4caa083fb9b",
     "textHash": "sha256:7d4ddea370967f9bd9a88e98e0338617168889edbaccf27c4bdef00ba64aeb74",
     "metrics": {
@@ -10298,7 +10298,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -10313,28 +10313,28 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
       "syntax": "Varied short clauses include selected speech, subordination or temporal links.",
-      "vocabulary": "Everyday school/community words plus specific topic or process terms.",
-      "knowledge": "A premature drum answer interrupts a call; waiting for its end and matching the group pattern preserve the existing reviewed band after neutral neighborhood-band framing.",
+      "vocabulary": "Drum beat, call, answer, group and practice connect familiar actions to a musical convention.",
+      "knowledge": "A call must be heard before the group plays its answer.",
       "progression": "A visible problem or task is followed through several related steps to its result.",
-      "inference": "Link the supplied cause, clue or comparison; D titles add a specialized process or convention."
+      "inference": "Connect Leo playing too soon with the unheard call, then use the defined call/answer order to explain the successful group turn."
     },
-    "rationale": "A premature drum answer interrupts a call; waiting for its end and matching the group pattern preserve the existing reviewed band after neutral neighborhood-band framing.",
+    "rationale": "Leo plays before the drum call finishes, so the group cannot hear it. Waiting, listening and playing an answer require following a shared musical convention; the call and answer are now directly defined.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-30",
-    "textFingerprint": "fnv1a64:0ab74407a83260a0",
-    "textHash": "sha256:4c05f67a75876e3fc1061b8d8743f2e21d3b555f6274cef95d45f717998758e8",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:ca3a63f7bf4d460a",
+    "textHash": "sha256:7e381f3bbbc3381e9600b829a56856afb00eae22e83a442a76ff7f5c5812adeb",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
-      "wordCount": 69,
-      "uniqueWordCount": 43,
+      "wordCount": 71,
+      "uniqueWordCount": 44,
       "uniqueWordRatio": 0.62,
-      "averageWordLength": 4.51,
-      "averageWordsPerPage": 8.63,
-      "minWordsPerPage": 8,
-      "maxWordsPerPage": 9,
+      "averageWordLength": 4.21,
+      "averageWordsPerPage": 8.88,
+      "minWordsPerPage": 7,
+      "maxWordsPerPage": 11,
       "sentenceUnitCount": 13,
-      "averageWordsPerSentence": 5.31,
+      "averageWordsPerSentence": 5.46,
       "maxWordsPerSentence": 9,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.25,
@@ -10346,7 +10346,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -10368,7 +10368,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Eight short concrete present-tense pages make the table problem, unsuccessful cup-holding attempt, visible short-leg clue, adult-assisted block repair and steady-cup test explicit. Common objects and supplied visual evidence support one causal comparison without specialist background knowledge or hidden inference.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-30",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:99f2833c36bfec1c",
     "textHash": "sha256:e527f8ad33b6fd663e5677b48761ce90355a413742a91447af183449ecc0449f",
     "metrics": {
@@ -10394,7 +10394,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -10416,7 +10416,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Until-damp and between-paper-and-glass directions require spatial/conditional control; daily checking precedes the root/shoot sequence and transferring the sprouted bean.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:c03c7a474cbfcf2f",
     "textHash": "sha256:e4799a18ac24ecd55edd883bf53af86320826fc47432e9508f98697598815569",
     "metrics": {
@@ -10442,7 +10442,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -10464,7 +10464,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Sticks across a diamond, a line tied where they cross and wind behind the reader require ordered spatial construction; the road/wire rule constrains the flying site.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:d210652b33f1199d",
     "textHash": "sha256:eafc46787c6a0bf9a6c27e071311c760df03a6622dfd2d7ba52ae623e57976e6",
     "metrics": {
@@ -10490,7 +10490,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -10512,7 +10512,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "After a secured ramp is built, two release-and-mark trials require changing ramp height and comparing stopping points; the result depends on retaining both marks.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:4eb52e20e65dcc07",
     "textHash": "sha256:74de6e2e4566d1354147db56b235c73f4679b4408b4465bc72d6d9fc269fac4b",
     "metrics": {
@@ -10538,7 +10538,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -10560,7 +10560,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Allergy checking, rinsing and adult cutting frame the repeated cup/fruit layering; cover-and-chill until snack time adds a temporal safety constraint.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:f62316f97ed534c5",
     "textHash": "sha256:8c5ab90a1550ae83ecc2f658b846ea3efe0e2b96e37084752622619554acfb7e",
     "metrics": {
@@ -10586,7 +10586,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -10608,7 +10608,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Grain harvesting, cleaning and grinding connect to flour/yeast/dough transformation; before and while clauses plus the yeast-rise cause require following a sustained production explanation.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:fc5f542f9a7a5348",
     "textHash": "sha256:ae57560f785c4cadf934eb018896e51a98338fe15a2e4d040f5c2c982f3fcd2c",
     "metrics": {
@@ -10634,7 +10634,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -10649,14 +10649,14 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
       "syntax": "Short declaratives, repeated some frames, one and-clause and a final relative clause.",
-      "vocabulary": "Pavement, gutters, water butts, drains and vapor.",
+      "vocabulary": "Pavement, gutters, rain barrels, drains and vapor.",
       "knowledge": "Introductory drainage and water-cycle relationships.",
       "progression": "Several explicit routes connect to one evaporation/condensation return.",
       "inference": "Moderate route and cycle integration, with little unstated mechanism."
     },
     "rationale": "Repeated some-rainwater branches show soil soaking, pavement runoff, gutters and drains before streams/sea and vapor/cloud return; each route and transition is stated directly.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:3193295116ef53ba",
     "textHash": "sha256:4ca33c547d5912fcf1a40b4e43a315d6640807d0082da5a8ea6def6ebd961ccd",
     "metrics": {
@@ -10682,7 +10682,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -10704,7 +10704,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Dispatcher details trigger clothing and engine preparation; emergency roles, return checks and training form a work cycle with when/before language and equipment lists.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:42aef2972d832fc7",
     "textHash": "sha256:5ac220b27340b85bd71675747b09d32620ad3f3160211c527f2791efef5ca5ff",
     "metrics": {
@@ -10730,7 +10730,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -10752,7 +10752,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Sorting unwanted material, making pulp, screening staples and pressing/drying sheets require following material transformation and removal across a connected manufacturing chain.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:4cb872a56209f236",
     "textHash": "sha256:d3ad83d684e6d4aa793ae265b21baa8ae5f4dc5a5133646fb4389c4858917a97",
     "metrics": {
@@ -10778,7 +10778,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -10800,7 +10800,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "Dusk-to-dawn behavior links sensing tentacles, a muscular foot, slime and feeding to damp conditions; the so-it-will-not-dry-out ending explains the return to shelter.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:0dcf011ac560e7bc",
     "textHash": "sha256:8f5716abce8594770618152ddf81e533d07bc8c12b94c708bda96f9c1990b7dc",
     "metrics": {
@@ -10826,7 +10826,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -10840,30 +10840,30 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "D",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Repeated professional-action openings followed by passive manufacturing clauses.",
-      "vocabulary": "Revises, illustrator, designer, ink and bound.",
+      "syntax": "Professional-action openings lead into printing, a passive folding sentence and an active assembly step.",
+      "vocabulary": "Revises, editor, illustrator, designer, ink, folded, sew and glue.",
       "knowledge": "Roles and physical assembly contribute sequentially to a book.",
       "progression": "Creation moves into printing/assembly and distribution.",
       "inference": "Moderate process continuity; no mechanism or causal investigation is developed."
     },
     "rationale": "Author, editor, illustrator and designer roles precede printing, folding and binding; the transition from page sheets to page groups requires an ordered production model.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:4fbc992a78718f7b",
-    "textHash": "sha256:9da634b22bfe8cb9774823772fa7e98402d75f4af1bcb06efb53a5f11c0e30e0",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:d7dda1539693a7db",
+    "textHash": "sha256:59142a0d375e4d283b370eafe85d5966737bd0641a3f9a56623ba9aad35b9e58",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
-      "wordCount": 62,
-      "uniqueWordCount": 46,
-      "uniqueWordRatio": 0.74,
-      "averageWordLength": 5.05,
-      "averageWordsPerPage": 7.75,
+      "wordCount": 68,
+      "uniqueWordCount": 52,
+      "uniqueWordRatio": 0.76,
+      "averageWordLength": 5,
+      "averageWordsPerPage": 8.5,
       "minWordsPerPage": 7,
-      "maxWordsPerPage": 9,
+      "maxWordsPerPage": 11,
       "sentenceUnitCount": 8,
-      "averageWordsPerSentence": 7.75,
-      "maxWordsPerSentence": 9,
+      "averageWordsPerSentence": 8.5,
+      "maxWordsPerSentence": 11,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.13,
       "dialoguePageCount": 0,
@@ -10874,7 +10874,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -10890,7 +10890,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "Short first-person clauses repeat cat, mat and fit; the cat changes from the crowded mat to Sam’s lap, making one concrete cause and solution visible.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-28",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:6101ba6c8cd6502d",
     "textHash": "sha256:446f3eaf731aba1af39dc30414f2c8f5e1dcab5f87b04ac3a923cf76405760fa",
     "metrics": {
@@ -10916,7 +10916,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -10932,7 +10932,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "Repeated mud, rug and rag phrases support a failed wipe and rinsed-cloth solution; the hat callback adds gentle humor without difficult syntax.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-28",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:384d936b43a3c1fd",
     "textHash": "sha256:4bbb5b62f4e614fb63f75d2b2436a78ed8bc1d143e1cf7415de9058f25b39e64",
     "metrics": {
@@ -10958,7 +10958,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -10974,7 +10974,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "Brief commands and first-person actions compare two boxes; the puppy’s fit and the small-box hat have direct pictured outcomes.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-28",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:062d684321e7cc62",
     "textHash": "sha256:483150a9cdac5acfcdb768f53eadbed062041e29923b118824f8bb1f62a4258c",
     "metrics": {
@@ -11000,7 +11000,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -11016,7 +11016,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "Very short hot-bun observations and repeated fanning support one change in method; the command to Dad and Yum close vary voice within familiar concrete language.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-28",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:ba3695acb62fdcdb",
     "textHash": "sha256:e08e21c4f6dea4f029ea9cda948225b47174504626fd61470a68fa987575afdc",
     "metrics": {
@@ -11042,7 +11042,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -11058,7 +11058,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "Brief present clauses track a hen leaving the lap and choosing to return after the people sit; vet is introduced in a simple naming clause and the change remains visible.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-28",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:1c8890532ededb32",
     "textHash": "sha256:a2999dd375d11503b63f2fda6097ee14a3f4434a07ef84f4e822c1d4e35147be",
     "metrics": {
@@ -11084,7 +11084,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -11100,7 +11100,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "Tug and lid repeat across a failed solo attempt and shared pull; a short two-person action and jam-on-Dad payoff add modest causal variation.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-28",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:c57415aa1acde29c",
     "textHash": "sha256:8340fd6983605fe6c95c694970ffed24fd7f359389b987960791efa8ffdd1f54",
     "metrics": {
@@ -11126,7 +11126,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -11142,7 +11142,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "The repeated in-my-bag frame changes to a question, unsuccessful tug and removal; hat, mug, log and zip keep the packing problem concrete.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-28",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:dfcc78a95f0b34be",
     "textHash": "sha256:c3dd582d8e797b6a0a77874a7adc493f08575836ac8d9befbdc0144f15e16ba9",
     "metrics": {
@@ -11168,7 +11168,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -11184,7 +11184,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "Short first-person actions contrast a large hat and small cap; a simple handoff to Dad and shared running resolve the visible size problem.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-28",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:c3d247f26c816cc6",
     "textHash": "sha256:a793638673d0df36a31806d2cd13fdf0abddb767ada3bd8bd944f23429bfa4a8",
     "metrics": {
@@ -11210,7 +11210,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -11226,7 +11226,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "Repeated cat-nap sentences alternate with Sam-and-Dot actions; chatting, waking and shutting the shop make the rest interruption and resolution explicit.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-28",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:82312a8e71832b7e",
     "textHash": "sha256:93171c4217cf7268d5db17e1ec6ec85b24cef5803d44b8fbc541a256610f11c0",
     "metrics": {
@@ -11252,7 +11252,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -11268,7 +11268,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "Short chip/chin/dish clauses follow a dropped snack, clean replacement and friendly question; the small pictured chin joke adds limited inference without complex grammar.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-28",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:191b9cd75d9ff20a",
     "textHash": "sha256:6aaa89d5c4e501ebc69d991ad87de9fa9b462cd5fd7ce051910db563d4eecfc9",
     "metrics": {
@@ -11294,7 +11294,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -11310,7 +11310,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "Repeated get/set actions compare two felt shapes; brief dialogue identifies the wrong part and the visibly completed fish resolves the sequence.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-28",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:bac73f1aeaac227e",
     "textHash": "sha256:041d9597f2df5bf00a8a87d0664975665371ecb627e9b0e8cf433935ca30c2a3",
     "metrics": {
@@ -11336,7 +11336,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -11352,7 +11352,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "On and in distinguish a ball balanced on a rim from a ball placed inside; repeated ball/tin language, one question and direct spatial cause support the short sequence.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-28",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:31235ecfeb728152",
     "textHash": "sha256:d54a16afac69efc6c8f4d352c060e6bb7eab70744013d5633b412a7541d95d40",
     "metrics": {
@@ -11378,7 +11378,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -11394,7 +11394,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "Simple first-person clauses explain a hot pig’s repeated digging; the failed fit, wider pit and comfortable rest form one concrete problem and resolution.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-28",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:996578e9c54dfe5c",
     "textHash": "sha256:51d47b029e249803c8d80ba9222a7162b5dd83ccbe6e2d2928a7257ea068d539",
     "metrics": {
@@ -11420,7 +11420,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -11436,7 +11436,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "Short repeated look/get/run clauses carry a two-place search; a visible picture-map dot corrects the first guess and the printed ending confirms finding the cap.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-28",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:57bb276a8ca1fc82",
     "textHash": "sha256:b7b0c84685d168c6c0306f6e70092e4d1318ae7d647836803dd1000643f20994",
     "metrics": {
@@ -11462,7 +11462,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -11478,7 +11478,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "Repeated pup/tub/rag actions distinguish a dry cloth from a wet one; the removed mud and wet-Sam callback stay within short concrete present clauses.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-28",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:60eb2077db6d9cfd",
     "textHash": "sha256:66beed60b54edc73f18e330992e0044ead85e92c07b8a33427f1a1df3dc613db",
     "metrics": {
@@ -11504,7 +11504,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -11520,7 +11520,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "Short get/dip/toss statements follow a failed cup attempt and successful net; the wet-ball handoff adds a pictured humorous consequence without additional syntax.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-28",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:9755a9d4179bd54c",
     "textHash": "sha256:f45eaa1ae3703f9864403b3b0c69df736739cc02d6a51febeb61f7756db350c1",
     "metrics": {
@@ -11546,7 +11546,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -11562,7 +11562,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "Repeated toy-van and log language supports a failed tug and changed angle; whiz links the question to the rolling resolution while the objects remain concrete.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-28",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:554423702d953b4f",
     "textHash": "sha256:691386abaccc1186fdb011e62a2d71b23e7ce4413a3680b3f8c34e74fbb0b948",
     "metrics": {
@@ -11588,7 +11588,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -11602,9 +11602,9 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "B",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": null,
-    "rationale": "Brief ink, pink and sink clauses follow a spreading smear and wet-rag correction; the final colored rag/finger consequence requires only a simple comparison.",
+    "rationale": "Brief ink, pink and sink clauses follow a spreading smear and wet-rag correction. The final clean mat and pink rag require a simple comparison of where the ink has moved.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-28",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:5c4ea7485784ad47",
     "textHash": "sha256:1bc9616367525616bfcc9a3f7cd551bace35519c54fdf81fd70fdd2e34cfc8b2",
     "metrics": {
@@ -11630,7 +11630,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -11646,7 +11646,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "Repeated sing/song clauses contrast pan noise with quieter singing; a brief command and the cat’s return make the effect on another character visible.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-28",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:e84e58297a29a70f",
     "textHash": "sha256:8314a53b2f2c249f2593abd48a35a2ab9654337d7c0b14e0243f4f8e1868080a",
     "metrics": {
@@ -11672,7 +11672,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -11688,7 +11688,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "Short bell/fuzz/cup clauses follow a small sound clue and discovery; repeated ding and the explicit cleanup/ringing close resolve the search with familiar actions.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-28",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:b837bdf6ccfd4f61",
     "textHash": "sha256:c10c7cf606271d4ea5b2625297a20683051191294351efb862bd84276c95caea",
     "metrics": {
@@ -11714,7 +11714,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -11730,7 +11730,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "Six single-line pages, each at most six words; concrete repeated position frames and visible comparisons. No dialogue. Final nested relation is discussed orally rather than adding print.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:a2aaba76d4865b93",
     "textHash": "sha256:c38d26768fe643ed40fedb567a22c712ce27dd96c6ccc1fb3075a585fc341ace",
     "metrics": {
@@ -11756,7 +11756,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -11772,7 +11772,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "Eight brief single-line pages use familiar first-person action and one concrete cause. A repeated feeling changes after a visible change of place; no dialogue or complex syntax.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:f0dceaf6e6c58c27",
     "textHash": "sha256:8ce069769bdf62b9c9b5b3901a1537dad025a7351cc9f381b16b2249f6676938",
     "metrics": {
@@ -11798,7 +11798,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -11814,7 +11814,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "Six single-line pages with familiar actions, repeated cat/on frames and a concrete action payoff. The change from sitting to following is supported directly by the illustrations.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:d0b57b81b25b42e7",
     "textHash": "sha256:8f1956b15ecbe96465157d5791ef5b0d281fde328b2195f23442a3439dba64f2",
     "metrics": {
@@ -11840,7 +11840,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -11856,7 +11856,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "Seven very short single-line present-tense pages. Concrete familiar affection and a repeated feeling keep inference bounded; no dialogue or abstract moral.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:3330598b1df1a274",
     "textHash": "sha256:68cbbf052f9763b52ff881308fcd3b15e44c1ed0a4d7fc142851171e18c533c4",
     "metrics": {
@@ -11882,7 +11882,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -11898,7 +11898,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "Eight brief pages with paired simple sentences, a negative contrast, a spatially clear plan and one dialogue page. The slight planning inference supports B rather than A.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:91daa9b9559c81c1",
     "textHash": "sha256:f1764206326c3c566edfdd42dffbb202c5704802025876f31d7f4d0cbb5cf2c4",
     "metrics": {
@@ -11924,7 +11924,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -11940,7 +11940,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "Six single-line pages in a concrete ordered process. Repetition changes the visible number of marks and ends with the completed object in use; no fictional failed-attempt requirement is imposed.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:5b5f3e7f9be0d49e",
     "textHash": "sha256:a2e1fac6b2713929d192db5c0919a669e5dc27c147a06fbf79ee3d6e2451a224",
     "metrics": {
@@ -11966,7 +11966,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -11982,7 +11982,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "Six short single-line pages with a repeated I see frame followed by a concrete real-to-map comparison. Illustration carries spatial reference; the print stays within A syntax.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:9e1c97900f924fe8",
     "textHash": "sha256:a7ef1df06f5b6b16a91425bc18b0717e73c4afb3155667e78c5cf47aee987e61",
     "metrics": {
@@ -12008,7 +12008,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -12024,7 +12024,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "Eight short pages with one question in dialogue, a controlled false first impression, a visible clue and a twelve-word paired-sentence ending. The identity inference and pattern break warrant B.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:bc06f4fa2c6ade4f",
     "textHash": "sha256:193b1f3e6670fd007e976e2499250ab4e986ec31fef835c3044172e6c80764c1",
     "metrics": {
@@ -12050,7 +12050,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -12066,7 +12066,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "Seven single-line pages use a repeated concrete action and a single visible contrast. The negative sentence is at most six words and no dialogue is introduced.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:19fb2a3c5bc27078",
     "textHash": "sha256:4638c12b89428c1d7fcff67e8082909d88a4e86512feadafe4c5f9198496ada3",
     "metrics": {
@@ -12092,7 +12092,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -12108,7 +12108,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "Eight pages with paired simple sentences, two light surprise beats, a clear causal tool choice and at most fourteen words per page. Concrete pronoun referents stay visible; no dialogue.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:6078bccde682c512",
     "textHash": "sha256:39733b67d6977f56cebe3b7ff60aeec7e1d31e6f585d2cbf71ec082cfd870bc8",
     "metrics": {
@@ -12134,7 +12134,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -12150,7 +12150,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "Eight single-line pages with familiar first-person sentence frames, a visible omission and a direct repair. The final two very short lines complete participation rather than adding a moral.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:ea21491b5f204123",
     "textHash": "sha256:e5792f71e0aa1e8eccd61506d905bbd6ec3c881fe72e2f88e134005ed50ec138",
     "metrics": {
@@ -12176,7 +12176,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -12192,7 +12192,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "Eight pages with paired simple sentences and two short dialogue pages. A repeated invitation frames a visible failed attempt and repair; all lines stay within B limits.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:2b89ba9dd577ceee",
     "textHash": "sha256:fe6852120c1ebd616e9b83754ebd9904b86da2ee0daec99b8c5beb580dead636",
     "metrics": {
@@ -12218,7 +12218,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -12234,7 +12234,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "Eight pages with simple sentences, a concrete rule and a small fairness inference. Four dialogue pages meet the B maximum of half the book; the longest page has thirteen words.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:3b8a6dcc85c41f64",
     "textHash": "sha256:30046d2c1a4681fbbf7d424f9fb2093ccd1065b877abb8b463a5504b519c14fe",
     "metrics": {
@@ -12260,7 +12260,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -12276,7 +12276,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "Eight pages with short paired sentences, one physical cause and two dialogue pages. The repeated failed action changes at the explicit placement sentence; the return trip completes shared play.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:b7c221cfdef1a59e",
     "textHash": "sha256:77af220d287a559c84384b053cc2e3da8d5013a34c64773f7a2a42b5a076d3fa",
     "metrics": {
@@ -12302,7 +12302,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -12318,7 +12318,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "Eight short pages include four dialogue pages, clear speaker changes and a concrete social consequence. A final shared conversation returns to the opening with both children participating, and the combined toys make the change concrete.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:b0d02981afcfb1d1",
     "textHash": "sha256:80334eeec1f59e6cef5d2166b74ffafea54af42f78f03ff4750b6711b741abc2",
     "metrics": {
@@ -12344,7 +12344,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -12360,7 +12360,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "C: the child compares repeated trials, interprets contrasting outcomes, and reads an explicit if-clause before Sam applies his new rule.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:b7731abe98ad3000",
     "textHash": "sha256:d1edac3bad62dd1eddb5420b9554b46620163a5cafa722fb304b7baa0528782a",
     "metrics": {
@@ -12386,7 +12386,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -12402,7 +12402,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "B: a single construction problem, one observed failure and one changed arrangement, carried by short present-tense sentences.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:1c1baa19d97122fe",
     "textHash": "sha256:d0b9efade1eaa6a1d5c213ef172ca966a56d3ca1f84ecd8de65e6d032faa2c6b",
     "metrics": {
@@ -12428,7 +12428,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -12444,7 +12444,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "B, revised from planned C: one partial-view clue and one corrected guess form a complete six-page story. More pages would pad this small arc.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:678d4b3ab0dddb92",
     "textHash": "sha256:62d2eb5c5bf413ac73f161d82454850f92c785a664a4fb2e9962d75757f13aed",
     "metrics": {
@@ -12470,7 +12470,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -12486,7 +12486,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "C: past-tense narration, several speakers and a sequence of unequal effort, explicit negotiation, divided jobs and reciprocal adult help.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:0b77f2f0d514493e",
     "textHash": "sha256:dd112293f7da88f9eda1a9319a2d8a2d69e6369eb87fbeea8c7b4552862c01a6",
     "metrics": {
@@ -12512,7 +12512,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -12534,7 +12534,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "B: short present-tense actions and a visible red-path matching strategy lead from pieces that do not fit to a completed map and one invitation to play again. Fit it in/fit in more bits keep natural grammar within the existing line/page profile; decoding scope is judged separately.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-05",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:65e8861cf89a0f35",
     "textHash": "sha256:90a9297060bdde45e098432346dd11fce11009dc0178c8e652f045bd2562f75a",
     "metrics": {
@@ -12560,7 +12560,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -12576,7 +12576,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "B, revised from planned C: one concrete cooperative problem and one direct solution make six purposeful present-tense pages.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:87362958898f0852",
     "textHash": "sha256:52e2071fcf5a0c2e5339bb3dee0455371a623f0b7ab9a9d919546906893cee16",
     "metrics": {
@@ -12602,7 +12602,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -12618,7 +12618,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "C: a failed plan leads to a new interpretation of an animal’s position, a gentle transport sequence and a return that resolves both animal and prop locations.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:c527aa7f9b9d3f35",
     "textHash": "sha256:feeeabf84639b51324763955536ccd0ba2a1d688bc31212d14077763e51b3ebf",
     "metrics": {
@@ -12644,7 +12644,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -12666,7 +12666,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "B: two rug attempts establish a spinning problem; an explicit uneven/flat surface contrast leads to a lid and a visible repeatable spin. I spin the top fast states the outcome naturally with this manuscript’s already reviewed words; phonics prerequisites remain separate.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-05",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:4f1f6f553d74ec09",
     "textHash": "sha256:a3cc1e6b76c2df0f9ed3188857ea8fd497acb2fac40ff0ea6b8ead8b8c7365e8",
     "metrics": {
@@ -12692,7 +12692,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -12708,7 +12708,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "B, revised from planned C: a single visible orientation mistake, a specific clue and one corrective action make a complete short arc.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:9924c2c23f1a026f",
     "textHash": "sha256:8d75e65c97e87aad30f9bab95300781a62d78c307083ea7646b896613407a834",
     "metrics": {
@@ -12734,7 +12734,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -12750,7 +12750,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "C: three connected rounds require readers to compare misleading and useful clues, follow changing speakers and interpret a prepared imitation joke.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:63cebd65a32482b9",
     "textHash": "sha256:9b6a0db82e8145d2870d17bbaec0c18f31327b6ec55c460c404ff9ff208b0f87",
     "metrics": {
@@ -12776,7 +12776,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -12798,7 +12798,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "B: one narrow-gap problem, unhelpful honking and an explicit turn-taking solution unfold in short present-tense clauses. The final Dot and I honk uses ordinary complete wording; the gap and movement demands remain the same.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-05",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:0b84368fc78260e9",
     "textHash": "sha256:b3188535c1bc6c8d484ee836d42b1e0f97453ee88b4481dde52274d554f48e96",
     "metrics": {
@@ -12824,7 +12824,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -12840,7 +12840,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "C: the reader follows a failed plan, a reversed surprise and a reinterpretation of the same prop; the ending turns the shared joke into a new use.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:784d71305b9f8b66",
     "textHash": "sha256:db9ed1620316971398f4dc261d41a88e7c814748547b5c9f3f969685285aae1a",
     "metrics": {
@@ -12866,7 +12866,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -12882,7 +12882,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "C: the child must track a social boundary and an action-based repair across dialogue and past-tense narration, then interpret the playful transfer of the hat.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:e197201836cc549e",
     "textHash": "sha256:17ec5363ba75d8eed4b38f03e016c17b67ff0d878be244a595bf6095f4963d92",
     "metrics": {
@@ -12908,7 +12908,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -12924,7 +12924,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "B: a concrete two-choice search changes from the first selection to smell, with one consistent concealed object and a clear reward.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:da4e3099871acf37",
     "textHash": "sha256:18c011be59279f778d4f4504cfc5dc39e8969075e172f9e0d349b67f17db81cf",
     "metrics": {
@@ -12950,7 +12950,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -12966,7 +12966,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "C: conditional when-clauses, a missed visual cue, coordinated correction and an intentionally playful double meaning for the final clap.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:e52cfc35b67aa662",
     "textHash": "sha256:827576edd07e1babaae5b321fae1f2d39ceef7a948d47ba4496ddd6d08cf97be",
     "metrics": {
@@ -12992,7 +12992,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -13008,7 +13008,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "One concrete clause per page, recurring leaf/paper/lines, and a visible ordered process. Raised and rubbing merit oral meaning support without raising the simple printed syntax.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:fc4d5b48183da39d",
     "textHash": "sha256:3888e3d183d19e0debabc25ee80e1617f04516dbaa4dbd642179cf56a1731787",
     "metrics": {
@@ -13034,7 +13034,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -13050,7 +13050,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "Highly controlled present-tense clauses and repeated concrete nouns support one perspective change and an immediate physical payoff.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:22681ef55a0336e8",
     "textHash": "sha256:d7ace53cd86a0e4a01bd2689cbaf785730876e1bfac82818ede6d4e04dc1e7af",
     "metrics": {
@@ -13076,7 +13076,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -13092,7 +13092,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "Short present-tense sentences with changing subjects and simple cause/consequence. Soft/hard and curling require a modest contrast beyond A.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:e6dd5e918b608896",
     "textHash": "sha256:4cbbcbec0dcb002737ac8e1039310c8b6a158cd3d22d316625d403489c81c0e3",
     "metrics": {
@@ -13118,7 +13118,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -13132,9 +13132,9 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "B",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": null,
-    "rationale": "Two short lines per page, limited dialogue-free present narration, and a concrete failed attempt/repair. Connective meaning develops through pictured loop geometry.",
+    "rationale": "Short present-tense narration uses one or two sentences per page and a concrete failed attempt followed by repair. The reader follows how passing a strip through another ring produces a connected chain.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:d214ec5ff0b0dac8",
     "textHash": "sha256:67027aaeef88c5b2f4a12bebc1bdaa83a61115dc36d15d062bfd86ca484e2f36",
     "metrics": {
@@ -13160,7 +13160,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -13176,7 +13176,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "Print fits instructional B, but changing scale, part-to-whole mechanism, catch used as a noun, and reversible cause support App C.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:51a21f1480d1453f",
     "textHash": "sha256:538ded4cfca9b247587f1d1f4fd5459e649b5401e3a62764e060bbc6c616a01f",
     "metrics": {
@@ -13202,7 +13202,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -13218,7 +13218,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "B-sized print supports App C comparative inference: drops persist in two different states and the final generalization is limited to tested fabrics.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:cc8c063fe31e4736",
     "textHash": "sha256:c1fe5d1886b0c5add9b6e81965c587c57b29910179cd6f1ac0d26bd1a1cca707",
     "metrics": {
@@ -13244,7 +13244,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -13258,9 +13258,9 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "C",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": null,
-    "rationale": "Brief B-contract lines carry a repeating unit, an error, a visual clue and a social repair. Tracking a rule rather than a single action earns App C.",
+    "rationale": "Brief statements carry a repeating unit, an error, a visible clue and a social repair. Tracking and restoring the alternating rule supports App C.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:eb3a2980ac31c7fd",
     "textHash": "sha256:5903abf54c35288cd512fc54089693f9596c30749f9657dd68e42829e9a5080c",
     "metrics": {
@@ -13286,7 +13286,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -13302,22 +13302,22 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "Compact C print carries a four-part mechanism, spatial reference and the new term friction. Repeated causal observation and release/retest make App D appropriate.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:4597c87925880bab",
-    "textHash": "sha256:a44d7408128b851b5d324b28cff74f18ed626d6b34c894b1ad85932a488cc4d2",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:84866a32d0c908e4",
+    "textHash": "sha256:addd2262ac572b36204c51a0e4b2769fa81cd91e83862068e56121e545551efc",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 10,
-      "wordCount": 138,
-      "uniqueWordCount": 76,
-      "uniqueWordRatio": 0.55,
-      "averageWordLength": 4.2,
-      "averageWordsPerPage": 13.8,
+      "wordCount": 137,
+      "uniqueWordCount": 70,
+      "uniqueWordRatio": 0.51,
+      "averageWordLength": 4.18,
+      "averageWordsPerPage": 13.7,
       "minWordsPerPage": 12,
       "maxWordsPerPage": 16,
       "sentenceUnitCount": 21,
-      "averageWordsPerSentence": 6.57,
-      "maxWordsPerSentence": 10,
+      "averageWordsPerSentence": 6.52,
+      "maxWordsPerSentence": 11,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.2,
       "dialoguePageCount": 0,
@@ -13328,7 +13328,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -13344,7 +13344,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "An explicit two-event comparison requires measurement vocabulary, retained numbers and a counterfactual about mixed readings, within short C sentences.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:480af6bb285e2d8b",
     "textHash": "sha256:fdfca42f384c586f607c1206dc25342a17ddbc34c9f5c724bbd84c0048a4158c",
     "metrics": {
@@ -13370,7 +13370,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -13386,7 +13386,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "Close construction steps, growth over time and specialized weaving/entrance vocabulary require linked spatial explanation beyond App C, while print remains compact.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:1efc4b3863027c47",
     "textHash": "sha256:3b2ebb9c430d3e5c69a6587a79aad70049ce15021ffcd475bf65479ed82113e5",
     "metrics": {
@@ -13412,7 +13412,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -13428,7 +13428,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "Varied dialogue and a fair diagram clue sustain a ten-step causal investigation. Reader must reject a luck explanation and track a changed rule.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:d5c3f9d8b26a9a26",
     "textHash": "sha256:51f9f95be54ba6afbfbfd0cfd5d75fcfe5b11fed1a4b3337edb1183d4c4954e5",
     "metrics": {
@@ -13454,7 +13454,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -13470,22 +13470,22 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "Twelve linked transformations, unfamiliar process terms and distinctions between material, shape and controlled cooling create App E explanatory demands despite compact C pages.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:cd27114770f73a20",
-    "textHash": "sha256:48fe79d0a7aed910e76c32fa562861b37d36b1ef23b58752bbec45528496a51f",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:054bf772aa1b0854",
+    "textHash": "sha256:c875abe662a62c1326d67d3d0babeaa1172eab358541698306409d7414764f36",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 12,
-      "wordCount": 178,
+      "wordCount": 184,
       "uniqueWordCount": 105,
-      "uniqueWordRatio": 0.59,
-      "averageWordLength": 4.47,
-      "averageWordsPerPage": 14.83,
+      "uniqueWordRatio": 0.57,
+      "averageWordLength": 4.49,
+      "averageWordsPerPage": 15.33,
       "minWordsPerPage": 12,
-      "maxWordsPerPage": 17,
-      "sentenceUnitCount": 24,
-      "averageWordsPerSentence": 7.42,
-      "maxWordsPerSentence": 12,
+      "maxWordsPerPage": 20,
+      "sentenceUnitCount": 25,
+      "averageWordsPerSentence": 7.36,
+      "maxWordsPerSentence": 10,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.08,
       "dialoguePageCount": 0,
@@ -13496,7 +13496,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -13512,7 +13512,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "An observation-to-microscopic-mechanism-to-whole progression requires sustained referents, scale shifts and inference. Technical ideas are explained with short clauses, supporting App E.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:624d74cc46d0b54f",
     "textHash": "sha256:28b0a78e80751aac1f89607f7e240cbdd0d518084f37c0f6815576aafaf34d28",
     "metrics": {
@@ -13538,7 +13538,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -13554,7 +13554,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "Two simultaneous obligations, off-view information, a missed event and negotiated repair require motive and temporal inference over twelve pages. The language remains concrete and within C limits.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:40fdb45523d3e8df",
     "textHash": "sha256:8e24a50eede6132ae375eb0cf81fe52ec2a80a10e979080be327f4dd233d268c",
     "metrics": {
@@ -13580,7 +13580,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -13596,21 +13596,21 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "Conditional preservation, geological time, trace/body distinction and limits of inference require specialist understanding across fourteen compact pages. These relationships earn App F without pretending the text is cumulatively decodable.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:2d9bb91e624a0069",
-    "textHash": "sha256:8498e96384c0ab2d6f2b6ea4d554d2fdd47298016009f8a69a606aba63c04a19",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:995d20d5f58570e0",
+    "textHash": "sha256:9ea7d908c952fc6023972f8600531509ca7157ef384b29fb4a35605f24ceecda",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 14,
-      "wordCount": 247,
-      "uniqueWordCount": 143,
-      "uniqueWordRatio": 0.58,
-      "averageWordLength": 4.35,
-      "averageWordsPerPage": 17.64,
+      "wordCount": 251,
+      "uniqueWordCount": 141,
+      "uniqueWordRatio": 0.56,
+      "averageWordLength": 4.33,
+      "averageWordsPerPage": 17.93,
       "minWordsPerPage": 15,
-      "maxWordsPerPage": 19,
-      "sentenceUnitCount": 29,
-      "averageWordsPerSentence": 8.52,
+      "maxWordsPerPage": 20,
+      "sentenceUnitCount": 30,
+      "averageWordsPerSentence": 8.37,
       "maxWordsPerSentence": 14,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.07,
@@ -13622,7 +13622,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -13636,9 +13636,9 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "F",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": null,
-    "rationale": "Four spatial states, two kinds of openings, pressure-related level matching and reversed operation demand sustained mechanism tracking. Compact C print supports App F with adult vocabulary preparation.",
+    "rationale": "Several water and gate states, two kinds of openings, matched water levels and reversed operation demand sustained mechanism tracking. Compact printed clauses support App F with adult vocabulary preparation.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:e0088847adf2bc3a",
     "textHash": "sha256:65efac2dcd823373b8f0c9955abb1377d1da37a77ad28edbacc317f4bc7c0860",
     "metrics": {
@@ -13664,7 +13664,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -13680,21 +13680,21 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "Reader distinguishes a confounded observation from a controlled comparison, follows repeated trials and interprets a deliberately limited conclusion. This sustained evidence reasoning earns App F; it is not a universal sponge experiment result.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:860a462e8db646da",
-    "textHash": "sha256:b66aca64506c50c0eb93550113fd4d456206237ce4021d3761e2a8f324c4cdfc",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:1f295981d88f8c95",
+    "textHash": "sha256:0a078855d6490d3f6669b9b099f377689338dd6fbc2152d7088d5c37330a88d3",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 14,
-      "wordCount": 271,
-      "uniqueWordCount": 139,
+      "wordCount": 270,
+      "uniqueWordCount": 137,
       "uniqueWordRatio": 0.51,
-      "averageWordLength": 4.26,
-      "averageWordsPerPage": 19.36,
+      "averageWordLength": 4.27,
+      "averageWordsPerPage": 19.29,
       "minWordsPerPage": 17,
       "maxWordsPerPage": 21,
       "sentenceUnitCount": 36,
-      "averageWordsPerSentence": 7.53,
+      "averageWordsPerSentence": 7.5,
       "maxWordsPerSentence": 13,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.07,
@@ -13706,7 +13706,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -13722,21 +13722,21 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "Fourteen connected paragraphs, three voices, permission versus assumption, lost information and evidence-based restoration sustain inference across an extended read-together story. Every clue is seeded before use.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:b1550ade377f2bc5",
-    "textHash": "sha256:80486ac58ce4b5ece00c975412de4050d67f7f5bc08f0cf780da55415b63e931",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:5b1df3863b217ceb",
+    "textHash": "sha256:f6ceb9164e8283e9933c07921c244beb684c428625f69dc6907761e23ca4cdf2",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 14,
-      "wordCount": 389,
-      "uniqueWordCount": 182,
-      "uniqueWordRatio": 0.47,
-      "averageWordLength": 4.49,
-      "averageWordsPerPage": 27.79,
+      "wordCount": 392,
+      "uniqueWordCount": 177,
+      "uniqueWordRatio": 0.45,
+      "averageWordLength": 4.48,
+      "averageWordsPerPage": 28,
       "minWordsPerPage": 27,
-      "maxWordsPerPage": 30,
+      "maxWordsPerPage": 31,
       "sentenceUnitCount": 44,
-      "averageWordsPerSentence": 8.84,
+      "averageWordsPerSentence": 8.91,
       "maxWordsPerSentence": 15,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.07,
@@ -13748,7 +13748,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -13764,7 +13764,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "Extended paragraphs link two different scale failures, an affected companion, transport state and a perspective check. Sustained object tracking and three-character inference support G read-together placement.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:9a12d22bd00c2c93",
     "textHash": "sha256:21104d56fecb926baa368328549b3c9c2607a807302e206c8016e5f9091ac911",
     "metrics": {
@@ -13790,7 +13790,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -13806,21 +13806,21 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "readingDemands": null,
     "rationale": "Twelve sustained paragraphs combine dialogue, four invisible systems, model-versus-reality caveats and cross-page synthesis. The sustained investigation warrants supported H shared reading, with no independent C placement or decodability claim.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
-    "textFingerprint": "fnv1a64:ba5d6cb74aaf2747",
-    "textHash": "sha256:858d72190c9422d6a309be5479204f6f6f144571bc26dc64e297c8631a52c662",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:a1a30570eeddc23b",
+    "textHash": "sha256:f9a450960b55c9d2b6b4d5961c37f7d23a00dcc61fee7804e39d379546a895f0",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 12,
-      "wordCount": 576,
-      "uniqueWordCount": 277,
-      "uniqueWordRatio": 0.48,
-      "averageWordLength": 4.49,
-      "averageWordsPerPage": 48,
+      "wordCount": 564,
+      "uniqueWordCount": 260,
+      "uniqueWordRatio": 0.46,
+      "averageWordLength": 4.46,
+      "averageWordsPerPage": 47,
       "minWordsPerPage": 42,
-      "maxWordsPerPage": 53,
+      "maxWordsPerPage": 51,
       "sentenceUnitCount": 69,
-      "averageWordsPerSentence": 8.35,
+      "averageWordsPerSentence": 8.17,
       "maxWordsPerSentence": 21,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.08,
@@ -13832,7 +13832,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -13846,15 +13846,15 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "A",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Eight pages, each one short clause of at most six words; no dialogue or subordinate clauses.",
-      "vocabulary": "Concrete drawing and body words; mirror and puffs receive oral preparation.",
+      "syntax": "8 pages; 5–5 words per page, 40 page words overall. Complete manuscript checked against current A limits.",
+      "vocabulary": "Current oral preparation covers mirror, puffs. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "One child-sized goal or problem with an explicit action and outcome.",
       "progression": "Additive portrait steps culminate in noticing and filling one missing feature.",
       "inference": "Low: the absent smile and its repair are printed directly."
     },
-    "rationale": "The eight pages use recurring Zoe/she and draws/adds in short concrete clauses. The missing smile is stated before Zoe adds it, giving the picture sequence an explicit outcome without concealed motive or a second plot. This fits A.",
+    "rationale": "One concrete five- or six-word clause on each page; repeated she/Zoe plus draws/adds; the missing-and-added smile is explicit. A visible drawing sequence supports the identity inquiry without hidden inference.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:3af61a2b91f1471d",
     "textHash": "sha256:2346d40c8d623b8e63ef6e75ed654f78dc3349559a8d987196a67d1c0901cd04",
     "metrics": {
@@ -13880,7 +13880,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -13894,15 +13894,15 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "A",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Eight pages, each one short clause of at most six words; no dialogue or subordinate clauses.",
-      "vocabulary": "Familiar drawing nouns plus blank and together, supported by the scene.",
+      "syntax": "8 pages; 5–5 words per page, 40 page words overall. Complete manuscript checked against current A limits.",
+      "vocabulary": "Current oral preparation covers blank, together. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "One child-sized goal or problem with an explicit action and outcome.",
       "progression": "Wish, blocked access, recognition, handoff and completed drawings form one clear chain.",
       "inference": "Low: no dialogue, hidden motive or abstract lesson is needed."
     },
-    "rationale": "A repeated red-crayon object links one simple social problem to a visible repair. Kit’s wish, Zoe’s withholding, the blank page and the handoff are explicit in five- or six-word clauses; the two finished pictures close the exchange. A is appropriate.",
+    "rationale": "Concrete short clauses and repeated red/crayon/paper carry a visible social consequence and repair; no dialogue or subordinate clauses. Kit’s blank page makes the change explicit.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:7ff925f83fda50b2",
     "textHash": "sha256:1a8fd8707e2871190bc5347eae539fa965be29dc6eb159b05f5854ba26b24a75",
     "metrics": {
@@ -13928,7 +13928,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -13942,15 +13942,15 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "A",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Eight pages, each one short clause of at most six words; no dialogue or subordinate clauses.",
-      "vocabulary": "Concrete classroom words; cart is introduced with oral support.",
+      "syntax": "8 pages; 5–5 words per page, 40 page words overall. Complete manuscript checked against current A limits.",
+      "vocabulary": "Current oral preparation covers cart, class. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "One child-sized goal or problem with an explicit action and outcome.",
       "progression": "One failed container leads to a larger wheeled container and completed delivery.",
       "inference": "Low: the reason for changing carrier is stated."
     },
-    "rationale": "The bag/cart contrast carries a single size problem in short present-tense clauses. Books recur on every stage of an explicit loading, transporting and reading sequence; the pronoun it follows the named cart immediately. A is appropriate.",
+    "rationale": "Familiar concrete words with small changes in repeated book/cart references; a single clearly stated size obstacle and visible solution. Each page has at most six words.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:5bd5a3fbf0ecab6a",
     "textHash": "sha256:fd90e55ffbf81cc0332070f039d65c1ef66dc7e4f68d5359cd59718b48ec053c",
     "metrics": {
@@ -13976,7 +13976,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -13990,15 +13990,15 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "A",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Eight pages, each one short clause of at most six words; no dialogue or subordinate clauses.",
-      "vocabulary": "Familiar sock/bag/bun and action verbs; bites and bun are prepared orally.",
+      "syntax": "8 pages; 4–5 words per page, 38 page words overall. Complete manuscript checked against current A limits.",
+      "vocabulary": "Current oral preparation covers bites, bun. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "One child-sized goal or problem with an explicit action and outcome.",
       "progression": "A failed retrieval leads to a food swap and recovered sock.",
       "inference": "Low: each necessary exchange and outcome appears in the printed text."
     },
-    "rationale": "The bag grips one object at a time, and the words show the failed pull, alternative bun and released sock. Brief concrete clauses make the single fantasy rule observable through action rather than explanation. The compact causal sequence fits A.",
+    "rationale": "A visible one-object magical grip supports a short goal/failed attempt/changed attempt sequence. Five-word or shorter clauses, concrete actions and no dialogue keep the language at A.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:ee24c8f03453790d",
     "textHash": "sha256:bfc97a92d7c1d222b8332bcc7fba54b6998f38bf48b9faf33c3f55ac21c82fb8",
     "metrics": {
@@ -14024,7 +14024,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -14038,24 +14038,24 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "A",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Eight pages, each one short clause of at most six words; no dialogue or subordinate clauses.",
-      "vocabulary": "Common place and position words; hilltop and below receive oral preparation.",
+      "syntax": "8 pages; 4–6 words per page, 41 page words overall. Complete manuscript checked against current A limits.",
+      "vocabulary": "Current oral preparation covers hilltop, below. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "One concrete observation or staged concept; specialist explanations remain outside the child text.",
       "progression": "Low start, uphill movement, top view and return preserve a visible route.",
       "inference": "Low: each position and the final return are stated."
     },
-    "rationale": "Repeated path/pond references and literal up/down/beside positions guide a single return route. The hilltop view is explicitly described, with no map decoding, scale calculation or causal theory. Short concrete clauses fit A.",
+    "rationale": "Short repeated path/pond/Kit sentences with literal up/down/beside relationships; a simple visible route controls the sequence. No map symbols or inferred geographic system.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:260cc868d91888fb",
-    "textHash": "sha256:57d7a7037d07a74038547225e1d8b5169cafa254fb8c185d8be1856030476f80",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:2a247d66232bb79e",
+    "textHash": "sha256:8d084f5e9f6a14a18b528458b8892b324b1b955192204d56a339c28a479b4f2f",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
       "wordCount": 41,
-      "uniqueWordCount": 23,
-      "uniqueWordRatio": 0.56,
-      "averageWordLength": 3.78,
+      "uniqueWordCount": 22,
+      "uniqueWordRatio": 0.54,
+      "averageWordLength": 3.76,
       "averageWordsPerPage": 5.13,
       "minWordsPerPage": 4,
       "maxWordsPerPage": 6,
@@ -14072,7 +14072,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -14086,32 +14086,32 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "A",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Eight pages, each one short clause of at most six words; no dialogue or subordinate clauses.",
-      "vocabulary": "Moon/cloud/sky recur; daylight is introduced in the title and prepared orally.",
+      "syntax": "8 pages; 4–5 words per page, 36 page words overall. Complete manuscript checked against current A limits.",
+      "vocabulary": "Current oral preparation covers daylight, covers. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "One concrete observation or staged concept; specialist explanations remain outside the child text.",
       "progression": "Daytime observation, temporary occlusion, reappearance and explicit daylight close.",
       "inference": "Low: the cloud’s covering and passing are printed directly."
     },
-    "rationale": "The visible Moon/cloud pattern repeats through a short hide-and-reappear observation. One clause per page keeps the daytime discovery concrete; the manuscript does not require orbital explanation or phase inference. A is appropriate.",
+    "rationale": "One short concrete sentence per page and repeated Moon/cloud words; a visible hide-and-reappear progression supports the single daytime observation without explaining orbital mechanics.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:9eeae6f1d7325d64",
-    "textHash": "sha256:231d5cdc0de4b18bbd064894f26c05f12bf79cb0bc52dfe1f03bcc3aab350231",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:541dfb55766795fe",
+    "textHash": "sha256:119d9c688998e510b49c74d5f4b2c2cefbe367d847107b3ff5a7cde49cff892d",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
-      "wordCount": 35,
-      "uniqueWordCount": 21,
-      "uniqueWordRatio": 0.6,
-      "averageWordLength": 3.86,
-      "averageWordsPerPage": 4.38,
+      "wordCount": 36,
+      "uniqueWordCount": 20,
+      "uniqueWordRatio": 0.56,
+      "averageWordLength": 3.81,
+      "averageWordsPerPage": 4.5,
       "minWordsPerPage": 4,
       "maxWordsPerPage": 5,
       "sentenceUnitCount": 8,
-      "averageWordsPerSentence": 4.38,
+      "averageWordsPerSentence": 4.5,
       "maxWordsPerSentence": 5,
       "repeatedSentenceUnitCount": 0,
-      "dominantTwoWordPageOpeningRatio": 0.25,
+      "dominantTwoWordPageOpeningRatio": 0.38,
       "dialoguePageCount": 0,
       "questionPageCount": 0,
       "illustratedPageCount": 8,
@@ -14120,7 +14120,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -14134,15 +14134,15 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "A",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Eight pages, each one short clause of at most six words; no dialogue or subordinate clauses.",
-      "vocabulary": "One specialized sense of foot is prepared; the remaining nouns and actions are concrete.",
+      "syntax": "8 pages; 5–6 words per page, 45 page words overall. Complete manuscript checked against current A limits.",
+      "vocabulary": "Current oral preparation covers shell, foot. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "One concrete observation or staged concept; specialist explanations remain outside the child text.",
       "progression": "Emergence and gliding reverse into withdrawal after a visible shadow.",
       "inference": "Low: the movement and final protected state are explicit, without taxonomy."
     },
-    "rationale": "Paired out/in actions and repeated snail/shell/foot words organize one close observation. Each short clause states the body part and movement, while the final covering sentence closes the inquiry. The anatomy is concrete enough for A with oral foot support.",
+    "rationale": "Concrete six-word-or-shorter clauses use paired out/in actions and repeated snail/shell/foot. The single anatomical movement is visible; specialist taxonomy is absent.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:d0ed5514ca64e5b7",
     "textHash": "sha256:0d0162d053afa081dd7c340a8efa442452ed1b150ce56b127589159b0cfe1e5c",
     "metrics": {
@@ -14168,7 +14168,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -14182,15 +14182,15 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "A",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Eight pages, each one short clause of at most six words; no dialogue or subordinate clauses.",
-      "vocabulary": "Concrete bird and egg vocabulary; hen and fluff receive oral preparation.",
+      "syntax": "8 pages; 4–6 words per page, 42 page words overall. Complete manuscript checked against current A limits.",
+      "vocabulary": "Current oral preparation covers hen, fluff. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "One concrete observation or staged concept; specialist explanations remain outside the child text.",
       "progression": "One chick develops, hatches, dries, grows feathers and becomes an egg-laying adult.",
       "inference": "Low: development is stated at every stage, with elapsed time shown by growth."
     },
-    "rationale": "The eight short clauses name an ordered growth sequence using repeated chick/hen/egg words. This chick explicitly becomes a hen, avoiding a universal sex claim; no dates, embryology terms or causal mechanism are demanded of the reader. A is appropriate.",
+    "rationale": "One short clause per page and explicitly named growth steps form a concrete life-cycle sequence. Chick/hen/egg recur; no dense developmental vocabulary or exact-time calculation.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:50e3722991a053d9",
     "textHash": "sha256:dba7dbbda8e96f8bc1fe442022ad0339f55abdfa61bac3ea2b41ca564248b6ff",
     "metrics": {
@@ -14216,7 +14216,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -14230,15 +14230,15 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "A",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Eight pages, each one short clause of at most six words; no dialogue or subordinate clauses.",
-      "vocabulary": "Familiar red/blue/round/square; sort and tiles receive oral preparation.",
+      "syntax": "8 pages; 5–6 words per page, 44 page words overall. Complete manuscript checked against current A limits.",
+      "vocabulary": "Current oral preparation covers sort, tiles. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "One concrete observation or staged concept; specialist explanations remain outside the child text.",
       "progression": "The same four objects move from color groups to shape groups without changing membership.",
       "inference": "Low with the exact illustrations: both rules are stated and the conserved tiles remain visible."
     },
-    "rationale": "Short repeated tile/group frames compare two successive, visible sorting rules. Familiar color and shape words change within the same simple syntax, and the final line explicitly says the tiles can change groups. The two concrete demonstrations support A rather than requiring abstract classification terminology.",
+    "rationale": "Repeated tiles/groups words and concrete red/blue/round/square changes; a two-step visible re-sorting gives the final line meaning. All sentences are six words or fewer without subordination.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:d074dc6f45f8c29c",
     "textHash": "sha256:a328339d3f8b746d3fc2d97ec3d4aaa44eb50e53fbaa8adbd1b4b40f6fb428bb",
     "metrics": {
@@ -14264,7 +14264,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -14278,15 +14278,15 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "A",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Eight pages, each one short clause of at most six words; no dialogue or subordinate clauses.",
-      "vocabulary": "Everyday toy/box/cloth words; tucks receives oral preparation.",
+      "syntax": "8 pages; 5–6 words per page, 41 page words overall. Complete manuscript checked against current A limits.",
+      "vocabulary": "Current oral preparation covers tucks, use. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "One child-sized goal or problem with an explicit action and outcome.",
       "progression": "Empty box, need for a bed, soft lining, placement and completed reuse form one sequence.",
       "inference": "Low: both the difficulty and changed use are printed, with no environmental generalization."
     },
-    "rationale": "Repeated box/bear references support one direct problem and solution. The hard box receives a cloth, the bear fits, and the final line names the new use. Concrete five- or six-word clauses and an explicit outcome fit A.",
+    "rationale": "A concrete object transformation with repeated box/bear words and one simple problem/response. Six-word-or-shorter present-tense clauses and clear final reuse support A.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:b75cf2bd41d26740",
     "textHash": "sha256:63879f5220ee281188a16204aba52132ad6ca5d6d9251c606cc2a1c966e5b435",
     "metrics": {
@@ -14312,7 +14312,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -14326,15 +14326,15 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "B",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Short first-person clauses, paired sentences and one the-rest-of-the-way phrase.",
-      "vocabulary": "Button, edge and hole recur with visible referents.",
+      "syntax": "8 pages; 7–9 words per page, 60 page words overall. Complete manuscript checked against current B limits.",
+      "vocabulary": "Current oral preparation covers edge, fasten, myself. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "One ordinary dressing skill; no hidden cultural or factual knowledge.",
       "progression": "A failed push leads to an explicit edge-first method, then two more attempts.",
       "inference": "Low: the method and independent success are stated."
     },
-    "rationale": "The first-person account holds one practical goal across eight pages. Short paired clauses describe an explicit failed push, a changed angle, and repeated success, with enough variation beyond A repetition. The supported physical sequence fits B.",
+    "rationale": "B uses first-person repeated action, short paired sentences and an explicit physical adjustment. Edge and through have visible support; the completed skill answers the opening want.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:8d07a8fb4c61e56b",
     "textHash": "sha256:19946be1df6c20f16c2137371675f4a7a8034d7bb4aeeb4dd637df9e48c0fcd2",
     "metrics": {
@@ -14360,7 +14360,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -14374,29 +14374,29 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "B",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Short paired statements with two brief dialogue turns.",
-      "vocabulary": "Beat and taps are supported by the repeated drum action.",
+      "syntax": "8 pages; 7–10 words per page, 67 page words overall. Complete manuscript checked against current B limits.",
+      "vocabulary": "Current oral preparation covers beat, taps. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "An everyday turn-taking situation; no musical notation needed.",
       "progression": "Overlapping sounds prevent listening, then each child makes space for a response.",
       "inference": "Low: readers connect still hands with listening; no concealed motive."
     },
-    "rationale": "The shared rhythm conflict and repair are printed directly. Short dialogue, alternating names and repeated taps require tracking two speakers and their turns, while the physical actions show why listening works. This fits B.",
+    "rationale": "B uses short present-tense actions, controlled dialogue on two pages and a visible pause that repairs an interruption. Repeated tapping/listening changes roles rather than repeating an unchanged event.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:8209dcb678df2230",
-    "textHash": "sha256:97ad6a8f3b03b889fa716594e248f724622178df11a43b09133cbfe9e7c9f24d",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:bcb9d23e8a0cd099",
+    "textHash": "sha256:51fb9d81fe055757544d115d6819357542af8049fac7ae4e3de09c5c859f732c",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
-      "wordCount": 65,
-      "uniqueWordCount": 36,
-      "uniqueWordRatio": 0.55,
-      "averageWordLength": 3.65,
-      "averageWordsPerPage": 8.13,
+      "wordCount": 67,
+      "uniqueWordCount": 35,
+      "uniqueWordRatio": 0.52,
+      "averageWordLength": 3.66,
+      "averageWordsPerPage": 8.38,
       "minWordsPerPage": 7,
-      "maxWordsPerPage": 9,
+      "maxWordsPerPage": 10,
       "sentenceUnitCount": 17,
-      "averageWordsPerSentence": 3.82,
+      "averageWordsPerSentence": 3.94,
       "maxWordsPerSentence": 6,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.25,
@@ -14408,7 +14408,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -14422,15 +14422,15 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "B",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Short direct statements and two brief quoted turns; one explicit then sequence.",
-      "vocabulary": "Borrow and return recur in a concrete book exchange; checks in receives picture support.",
+      "syntax": "8 pages; 7–9 words per page, 62 page words overall. Complete manuscript checked against current B limits.",
+      "vocabulary": "Current oral preparation covers borrow, return, library. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "A local library loan ends today; no universal lending-period claim is needed.",
       "progression": "The due return precedes Zoe’s own loan, followed by reading together.",
       "inference": "Low: responsibility and new borrower are explicit."
     },
-    "rationale": "The return due today motivates a clear community sequence. Brief dialogue and repeated book references connect returning, checking in, borrowing and reading, all with visible transfers. This supports B rather than a procedural or abstract account.",
+    "rationale": "B has a single familiar lending sequence, repeated book and Kit/Zoe references and controlled short dialogue on two pages. Borrow and return are supported by concrete transfers, without procedural detail.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:e88e69aecb020e55",
     "textHash": "sha256:e0645e9cfecd9ef9efa84dc335cca38658b11764f2501497992bf025a1969533",
     "metrics": {
@@ -14456,7 +14456,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -14470,15 +14470,15 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "B",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Short action sentences, he/Kit continuity and one brief sentence pair per page.",
-      "vocabulary": "Clap, hop, box and boot recur; path has a visible direction.",
+      "syntax": "8 pages; 6–8 words per page, 59 page words overall. Complete manuscript checked against current B limits.",
+      "vocabulary": "Current oral preparation covers clap, path, hop. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "A single declared magic rule, wholly separate from the information books.",
       "progression": "Rule, goal, failure, changed placement and successful containment form one causal chain.",
       "inference": "Low: the rule and physical solution are stated; the final wave repeats the rule by contrast."
     },
-    "rationale": "One clap produces one hop, and Kit uses that repeated rule after a failed grab. Short clauses plus a visible box-placement solution keep the fantasy comprehensible at B without a second magical system.",
+    "rationale": "B follows one concrete fantasy rule with short actions and repeated claps whose consequences change. The turn uses the established rule; there is no unexplained extra magic.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:badfce5e9fc559aa",
     "textHash": "sha256:69025fb368d97320baec14e37fdc22105707bde43b9ca2f8f4fde832ef0dac71",
     "metrics": {
@@ -14504,7 +14504,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -14518,29 +14518,29 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "B",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Short declarative clauses; final fragments summarize the already-shown path.",
-      "vocabulary": "Stream, river, valley and sea recur with landscape support.",
+      "syntax": "8 pages; 5–13 words per page, 60 page words overall. Complete manuscript checked against current B limits.",
+      "vocabulary": "Current oral preparation covers stream, valley, sea, fresh water. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "The specific illustrated stream reaches the sea; the text makes no claim about every river.",
       "progression": "Downhill flow, joining a river, passing a bridge and reaching the sea stay in sequence.",
       "inference": "Low: the connection is explicitly restated on the last page."
     },
-    "rationale": "A single stream is followed into a river and sea. Concrete spatial verbs and repeated water references support a connected route across eight pages; fresh and salty give a simple end comparison. This fits B.",
+    "rationale": "B uses concrete location words, small sentence-frame changes and a simple continuous journey. The final familiar-word phrase makes the visible connection explicit without a watershed terminology burden.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:fd44032acdbf8c6d",
-    "textHash": "sha256:db852a4d3121491648bf2719e63bf72707cdc4e7c97403be01a6184848c40f20",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:c2f35ed6b89b0459",
+    "textHash": "sha256:1d9d35d26153e2000c412f6dd17f011f5d0a38189517bc3ef726e285aa8fbd9b",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
-      "wordCount": 56,
-      "uniqueWordCount": 34,
-      "uniqueWordRatio": 0.61,
-      "averageWordLength": 4.23,
-      "averageWordsPerPage": 7,
+      "wordCount": 60,
+      "uniqueWordCount": 30,
+      "uniqueWordRatio": 0.5,
+      "averageWordLength": 4.17,
+      "averageWordsPerPage": 7.5,
       "minWordsPerPage": 5,
-      "maxWordsPerPage": 9,
+      "maxWordsPerPage": 13,
       "sentenceUnitCount": 9,
-      "averageWordsPerSentence": 6.22,
+      "averageWordsPerSentence": 6.67,
       "maxWordsPerSentence": 8,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.25,
@@ -14552,7 +14552,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -14566,15 +14566,15 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "B",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Short subject–verb clauses with can and repeated negatives.",
-      "vocabulary": "Boot, print and dust recur; rain/wind are familiar contrast words.",
+      "syntax": "8 pages; 6–9 words per page, 61 page words overall. Complete manuscript checked against current B limits.",
+      "vocabulary": "Current oral preparation covers dust, print, trail. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "Only the absence of ordinary lunar weather is needed; no space-weather mechanism is required.",
       "progression": "Make a print, compare Earth rain, state lunar conditions, observe retained marks.",
       "inference": "Low: one straightforward link between absent weather and lasting prints."
     },
-    "rationale": "One familiar print introduces a simple Earth–Moon comparison. Repeated boot/print references and direct no-rain/no-wind statements carry the explanation without orbital science or dense vocabulary. The conditional can avoids an eternal-preservation claim and suits B.",
+    "rationale": "The short two-sentence pattern and visible footprint comparison fit B. Moon and dust are concrete; cause is explicitly given by familiar rain/wind words rather than abstract atmosphere vocabulary.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:b20d4a89232921ad",
     "textHash": "sha256:887cc082456f702180775a10cba7e9dfb847270d25f3195918a8fb750d1400d4",
     "metrics": {
@@ -14600,7 +14600,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -14614,15 +14614,15 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "B",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Mostly one short clause per page; paired clauses explicitly link paddling and movement.",
-      "vocabulary": "Foot/feet, toes, water and duck recur; joins and pushes are visible.",
+      "syntax": "8 pages; 5–8 words per page, 56 page words overall. Complete manuscript checked against current B limits.",
+      "vocabulary": "Current oral preparation covers toes, paddling, bank. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "One ordinary water movement, without technical force terminology.",
       "progression": "Whole animal, close foot view, spreading, pushing, movement and exit are ordered.",
       "inference": "Low: readers connect the shown push and movement; the relationship is printed."
     },
-    "rationale": "The book focuses on one body feature and one function. Short linked clauses show toes spread, the wide foot pushes water back and the duck moves forward, with an explicit return to land. Visible mechanism and controlled syntax fit B.",
+    "rationale": "B follows one visible body part through a simple action and outcome. Short clauses and repeated foot/feet/water support the few topic words, with no technical force vocabulary.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:617996eb4082d0d6",
     "textHash": "sha256:1d53043c06fc935688a696625d5beff425efb1099f793e2a466e9e56ac39c8c2",
     "metrics": {
@@ -14648,7 +14648,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -14662,29 +14662,29 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "B",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Short simple or paired clauses; it/its refer consistently to the one developing insect.",
-      "vocabulary": "Larva is introduced in plain language; repeated body/bug/eggs limit vocabulary load.",
+      "syntax": "8 pages; 6–9 words per page, 57 page words overall. Complete manuscript checked against current B limits.",
+      "vocabulary": "Current oral preparation covers larva, pupa, aphids. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "Stages are chronological, with no hidden explanation of metamorphosis or claim that all eggs hatch.",
       "progression": "Each visible change advances the same life cycle; the new eggs reconnect to the beginning.",
       "inference": "Low: changes are printed and ordered; the final female is one case."
     },
-    "rationale": "The revised manuscript introduces larva as a young ladybug and repeats it once; other specialist stage names are reserved for oral enrichment. Short sentences trace feeding, shedding, stillness, emergence and egg laying through one female’s life. This fits B with pictures and brief oral preparation.",
+    "rationale": "B presents an ordered life cycle in short clauses. Larva and pupa name the two visible young stages and are explained in simple language. Feeding, shedding and color changes connect the steps.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:441b5d871bd85509",
-    "textHash": "sha256:be27e582e10fb408af9333e47f63aed7b195ea5009021d11658defccf58830c7",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:f27868406106c244",
+    "textHash": "sha256:d3bb58c0aa48ca1eee03fc23ee4bfd91e1e957ca69671d598498f8fa0c3638c8",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
-      "wordCount": 55,
+      "wordCount": 57,
       "uniqueWordCount": 39,
-      "uniqueWordRatio": 0.71,
-      "averageWordLength": 4.13,
-      "averageWordsPerPage": 6.88,
+      "uniqueWordRatio": 0.68,
+      "averageWordLength": 3.98,
+      "averageWordsPerPage": 7.13,
       "minWordsPerPage": 6,
-      "maxWordsPerPage": 8,
+      "maxWordsPerPage": 9,
       "sentenceUnitCount": 12,
-      "averageWordsPerSentence": 4.58,
+      "averageWordsPerSentence": 4.75,
       "maxWordsPerSentence": 7,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.13,
@@ -14696,7 +14696,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -14710,15 +14710,15 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "B",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Short statements, two brief fragment pairs and one this-time transition.",
-      "vocabulary": "Color, size, big, small and group are concrete and repeated.",
+      "syntax": "8 pages; 6–8 words per page, 58 page words overall. Complete manuscript checked against current B limits.",
+      "vocabulary": "Current oral preparation covers sort, group, size. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "Two familiar attributes of the same six objects; no abstract taxonomy.",
       "progression": "First sort, inspect mixed sizes, recombine, then sort by size.",
       "inference": "Low: the changed rule and unchanged buttons are stated directly."
     },
-    "rationale": "The same fixed set is sorted by color and then size, with every regrouping action printed. Repeated she/puts/buttons language plus the explicitly named new rule makes one comparison manageable at B.",
+    "rationale": "B uses a repeated concrete grouping pattern with one explicit rule change. Color and size are familiar, all quantities are visible, and the close names the comparison without abstract classification language.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:c5b84fb0d53029bd",
     "textHash": "sha256:b34f3ab16394ac7ba9e7108c5bf7d739b2c7300267ff3fb8397830988f7f5602",
     "metrics": {
@@ -14744,7 +14744,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -14758,15 +14758,15 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "B",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Short paired clauses; one and joins a return and fold, and one joins finding help.",
-      "vocabulary": "Bag, block, hole and patch recur; sews has a visible adult action.",
+      "syntax": "8 pages; 6–12 words per page, 69 page words overall. Complete manuscript checked against current B limits.",
+      "vocabulary": "Current oral preparation covers patch, sews, cloth. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "One practical repair with no abstract environmental claim in the pupil text.",
       "progression": "Initial use, failure, failed fold, emptying, adult repair and reuse form one sequence.",
       "inference": "Low: the same bag and three blocks demonstrate reuse without an inferred moral."
     },
-    "rationale": "One failed folded-corner fix leads to a visible patch and a successful retest. Paired clauses explicitly return the fallen block and empty the bag before sewing, avoiding a hidden state jump. The familiar objects and direct cause chain fit B.",
+    "rationale": "B follows one failed fix and one concrete repair, with familiar objects and short paired sentences. Reuse is shown by the same bag and blocks rather than an abstract environmental moral.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:d9c3329fd864c46b",
     "textHash": "sha256:ea2a78eb71229d079d166d5a1dcc405a5fb517676ad79975f0c4258c2e8cd8ae",
     "metrics": {
@@ -14792,7 +14792,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -14806,24 +14806,24 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "C",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Varied short clauses, paired sentences and three concise dialogue turns.",
-      "vocabulary": "Puppet, stiff and props extend familiar classroom vocabulary; their meanings are physically shown.",
+      "syntax": "8 pages; 11–15 words per page, 107 page words overall. Complete manuscript checked against current C limits.",
+      "vocabulary": "Current oral preparation covers puppet, props, stiff. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "A familiar performance problem combines drawing and construction.",
       "progression": "Two attempts lead to a shared construction and a functioning show.",
       "inference": "The reader links each child’s contribution to the result; no concealed motive is required."
     },
-    "rationale": "The paired failures of a weak drawing and an unsupported paper stage are resolved through explicitly shown contributions. Short linked sentences and brief dialogue require more continuity than B, while the solution and each child’s role remain direct. C fits.",
+    "rationale": "C pairs related sentences, includes concise dialogue and links two visible failed attempts to complementary actions. No hidden inference or abstract claim about talent is needed.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:238f21bdbfc1f9ea",
-    "textHash": "sha256:10b53f73608102a4653bdfa68a225195450909e11d10b567e01a829fcc2db4a9",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:f8172e644ee4417f",
+    "textHash": "sha256:d5f6c4d2171c173761fa3482db295a2230da6027a6134a49742da5a136627d66",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
       "wordCount": 107,
       "uniqueWordCount": 68,
       "uniqueWordRatio": 0.64,
-      "averageWordLength": 3.85,
+      "averageWordLength": 3.89,
       "averageWordsPerPage": 13.38,
       "minWordsPerPage": 11,
       "maxWordsPerPage": 15,
@@ -14840,7 +14840,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -14854,30 +14854,30 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "C",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Paired sentences, direct speech and changing action verbs.",
-      "vocabulary": "Roll, hoop, closer and soft describe visible play actions and positions.",
+      "syntax": "8 pages; 11–20 words per page, 116 page words overall. Complete manuscript checked against current C limits.",
+      "vocabulary": "Current oral preparation covers hoop, roll, closer. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "A familiar playground disagreement needs no abstract social explanation.",
       "progression": "Misses lead to frustration, an invitation, an adjustment and a successful shared game.",
       "inference": "The reader connects Zoe’s listening to the changed game; Kit’s choice is printed."
     },
-    "rationale": "The narrative connects an unsuccessful throwing game, Kit’s stated wish to stop and Zoe’s invitation to roll instead. Changing actions and dialogue carry one explicit social repair with enough sentence variation for C. The improved result is shown after a second rolling attempt.",
+    "rationale": "C uses varied short sentences, compact dialogue and an explicit adjustment to another child’s response. It asks for a small supported motive link while keeping action and prop state clear.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:71cc0e3e3078ec91",
-    "textHash": "sha256:81846d0adfdb0233eb8409b378e32412d0a7a986ded40e652c5c8d04b2083b77",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:56f3115f343b5a80",
+    "textHash": "sha256:4298702b07c8fc0c2b4dc17e9fc8c1078a21c929b65bc19feafe9276b66ac8e4",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
-      "wordCount": 111,
-      "uniqueWordCount": 67,
-      "uniqueWordRatio": 0.6,
-      "averageWordLength": 3.98,
-      "averageWordsPerPage": 13.88,
+      "wordCount": 116,
+      "uniqueWordCount": 65,
+      "uniqueWordRatio": 0.56,
+      "averageWordLength": 3.91,
+      "averageWordsPerPage": 14.5,
       "minWordsPerPage": 11,
-      "maxWordsPerPage": 16,
+      "maxWordsPerPage": 20,
       "sentenceUnitCount": 19,
-      "averageWordsPerSentence": 5.84,
-      "maxWordsPerSentence": 10,
+      "averageWordsPerSentence": 6.11,
+      "maxWordsPerSentence": 11,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.13,
       "dialoguePageCount": 5,
@@ -14888,7 +14888,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -14902,30 +14902,30 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "C",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Short varied statements and paired test/result sentences; a simple but contrast.",
-      "vocabulary": "Ramp, slope, steep and gentler are repeated in directly comparable views.",
+      "syntax": "8 pages; 12–18 words per page, 115 page words overall. Complete manuscript checked against current C limits.",
+      "vocabulary": "Current oral preparation covers ramp, gentler, model. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "A model library and toy cart introduce a single physical comparison.",
       "progression": "Blocked step, short ramp and longer ramp form a controlled visible sequence.",
       "inference": "The final generalization restates the tested route rather than requiring an unseen cause."
     },
-    "rationale": "C is justified by one explicitly tested relationship: a gentler ramp reaches the same height with a smaller push. The same cart, load and surface keep the comparison concrete; paired sentences explain each step without measurement, force terminology or a hidden mechanism.",
+    "rationale": "C supports new ramp/slope vocabulary with direct comparison and explicitly linked test steps. Paired sentences explain one relationship without adding measurement or hidden mechanical concepts.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:30506e0c90bf5c1f",
-    "textHash": "sha256:7dc3a9adc9fef85adc3b35e3edc18e8ec0f9a933428a0b99f139d4057feee618",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:6d7509a08ed32b26",
+    "textHash": "sha256:dc2dbcd282e5b25a70a9429821e37b14b51e24f1e867ded6ae9dc42916df7bc7",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
-      "wordCount": 113,
-      "uniqueWordCount": 62,
-      "uniqueWordRatio": 0.55,
-      "averageWordLength": 3.94,
-      "averageWordsPerPage": 14.13,
+      "wordCount": 115,
+      "uniqueWordCount": 61,
+      "uniqueWordRatio": 0.53,
+      "averageWordLength": 3.86,
+      "averageWordsPerPage": 14.38,
       "minWordsPerPage": 12,
-      "maxWordsPerPage": 16,
+      "maxWordsPerPage": 18,
       "sentenceUnitCount": 16,
-      "averageWordsPerSentence": 7.06,
-      "maxWordsPerSentence": 10,
+      "averageWordsPerSentence": 7.19,
+      "maxWordsPerSentence": 11,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.25,
       "dialoguePageCount": 0,
@@ -14936,7 +14936,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -14950,15 +14950,15 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "C",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Short dialogue commands alternate with paired narrative sentences.",
-      "vocabulary": "Bridge, bank, tilts and garage extend concrete toy-play vocabulary.",
+      "syntax": "8 pages; 13–17 words per page, 121 page words overall. Complete manuscript checked against current C limits.",
+      "vocabulary": "Current oral preparation covers bridge, stretches, shrinks and bank (land beside a river). All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "One fantasy rule transforms a familiar toy arrangement.",
       "progression": "An obstructing bridge and an early shortening lead to a corrected order of actions.",
       "inference": "Modest inference about why the truck must get off first, supported by the stated tilt and repair."
     },
-    "rationale": "The magical long/short rule is explicit, and the failed timing leaves the truck visibly tilted. Dialogue, changing actions and the sequence of restoring the bridge, clearing it and shortening it fit C. The reader follows one local rule through a repair.",
+    "rationale": "C combines a clearly stated two-part magic rule with several linked actions and short dialogue. The visible consequence and repair support a simple timing inference without introducing new magic at the ending.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:278546839cc2041b",
     "textHash": "sha256:daafbe27168353df6e02e21af1c82046d4c2bcad5cbc543933ba647c5e8c60ca",
     "metrics": {
@@ -14984,7 +14984,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -14998,29 +14998,29 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "C",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Paired statements and direct route language carry several linked actions.",
-      "vocabulary": "Map, path, turn and symbols are supported by matching landmarks.",
+      "syntax": "8 pages; 14–19 words per page, 123 page words overall. Complete manuscript checked against current C limits.",
+      "vocabulary": "Current oral preparation covers map, route, stands for. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "A map represents an invented enclosed park with a fixed simple layout.",
       "progression": "Orient the map, choose the correct branch, check a landmark and arrive.",
       "inference": "The reader tracks representation and route continuity, with each check stated."
     },
-    "rationale": "The text links picture symbols, landmarks, a turn and a destination in one continuous route. Varied short sentences and explicit comparisons between map and park fit C. It does not require scale calculations, a compass system or prior knowledge of a real place.",
+    "rationale": "C has paired observations, varied sentence shapes and an explicit representation-to-place comparison. Familiar landmarks support map and route vocabulary, with no cardinal-direction or scale burden.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:4c0368d8d49844a0",
-    "textHash": "sha256:3b1f04a7eb19a3c2371249994dd5a2be4092bc9ee3e677ec827bce8bbd332c1c",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:48365cf8eecc1a05",
+    "textHash": "sha256:3938036add58c863dca3d32b4fa6dbdd98b49444939ddad847018b5d6ca30cdf",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
-      "wordCount": 124,
-      "uniqueWordCount": 61,
-      "uniqueWordRatio": 0.49,
-      "averageWordLength": 3.73,
-      "averageWordsPerPage": 15.5,
+      "wordCount": 123,
+      "uniqueWordCount": 58,
+      "uniqueWordRatio": 0.47,
+      "averageWordLength": 3.71,
+      "averageWordsPerPage": 15.38,
       "minWordsPerPage": 14,
       "maxWordsPerPage": 19,
       "sentenceUnitCount": 16,
-      "averageWordsPerSentence": 7.75,
+      "averageWordsPerSentence": 7.69,
       "maxWordsPerSentence": 13,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.13,
@@ -15032,7 +15032,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -15046,15 +15046,15 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "C",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Varied short statements, a question and paired model/explanation sentences.",
-      "vocabulary": "Earth, spins and flashlight are concrete or modeled; familiar day/night words recur.",
+      "syntax": "8 pages; 11–15 words per page, 108 page words overall. Complete manuscript checked against current C limits.",
+      "vocabulary": "Current oral preparation covers spins, facing, model. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "One rotating-Earth relationship, with no orbital or seasonal explanation.",
       "progression": "Fading light leads to a model, a dark dot, a returning bright dot and a direct conclusion.",
       "inference": "A supported analogy is required; no unseen astronomical mechanism must be supplied."
     },
-    "rationale": "The day/night concept is introduced through an explicit ball-and-flashlight model. Paired short explanations, like and stands for carry one causal relationship; the dot and fixed light make each change observable. This is C despite the astronomical topic, because the causal conclusion is printed directly.",
+    "rationale": "C gives an observable model, paired short explanations and explicit like/stands-for comparisons. The simple causal link is stated rather than inferred from an unseen astronomical process.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:a375978f63b58247",
     "textHash": "sha256:c6fcc591037d2a004ff8613c6d2836b986bddc000f0cad6926e216afa30df660",
     "metrics": {
@@ -15080,7 +15080,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -15094,29 +15094,29 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "C",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Short varied statements and paired explanatory sentences.",
-      "vocabulary": "Dam, lodge, tunnel and chamber are introduced through concrete structures.",
+      "syntax": "8 pages; 12–16 words per page, 109 page words overall. Complete manuscript checked against current C limits.",
+      "vocabulary": "Current oral preparation covers dam, lodge, shelters. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "One pond-building beaver example, scoped to avoid claims about all beavers.",
       "progression": "Construction affects pond depth before the separate home and its entrance are inspected.",
       "inference": "The reader connects a structure to its job; the dam/home distinction is stated."
     },
-    "rationale": "The inquiry distinguishes two structures by their different visible jobs. Short paired explanations connect slowing water, a pond, an underwater lodge entrance and a dry chamber; the conclusion states the contrast. Its limited causal chain and explicit comparisons fit C.",
+    "rationale": "C supports two new concrete terms through an explicit contrast and a stepwise cause. Short paired sentences make the underwater entrance/dry room relationship clear without specialist ecosystem vocabulary.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:4d32e66694ae461e",
-    "textHash": "sha256:58ac287ddce0ac7cc16edcbf597a22978d153eb2ad68b8384b9af089482583a0",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:68b26b74a6f3ffb7",
+    "textHash": "sha256:5f35a923d83eac69c776fbaea4ca0eba3af1ad4d3b0458ef9838f3d54bf8b2d6",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
-      "wordCount": 110,
-      "uniqueWordCount": 60,
-      "uniqueWordRatio": 0.55,
-      "averageWordLength": 4.25,
-      "averageWordsPerPage": 13.75,
+      "wordCount": 109,
+      "uniqueWordCount": 57,
+      "uniqueWordRatio": 0.52,
+      "averageWordLength": 4.13,
+      "averageWordsPerPage": 13.63,
       "minWordsPerPage": 12,
       "maxWordsPerPage": 16,
-      "sentenceUnitCount": 17,
-      "averageWordsPerSentence": 6.47,
+      "sentenceUnitCount": 16,
+      "averageWordsPerSentence": 6.81,
       "maxWordsPerSentence": 10,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.25,
@@ -15128,7 +15128,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -15142,15 +15142,15 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "C",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Varied short statements plus as it grows and sequential markers.",
-      "vocabulary": "Nymph, sheds and wings introduce observable lifecycle features; nymph is defined in text.",
+      "syntax": "8 pages; 12–16 words per page, 106 page words overall. Complete manuscript checked against current C limits.",
+      "vocabulary": "Current oral preparation covers nymph, sheds, adult. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "One dragonfly example with aquatic young and winged adults.",
       "progression": "Hatching, feeding, repeated growth, emergence and egg laying form a connected cycle.",
       "inference": "The reader maintains the animal’s identity across changing forms; each transition is printed."
     },
-    "rationale": "The eight pages follow one lifecycle through explicitly named transitions from egg to nymph to adult. Paired sentences, temporal markers and supported new vocabulary fit C; the return to eggs supplies a complete sequence without adding a second ecological explanation.",
+    "rationale": "C combines short paired sentences, sequence markers and broader but supported life-cycle vocabulary. The explicit contrast between wingless water stage and winged adult makes the change followable without an unseen pupa.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:6fb1780762521897",
     "textHash": "sha256:d29238cae7cc6cc387de70cc0880b085066083ac21890b0dbbaa98f7e4fc388f",
     "metrics": {
@@ -15176,7 +15176,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -15190,15 +15190,15 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "C",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "A question, paired comparisons and a concluding causal clause.",
-      "vocabulary": "Feathers, skin, finger bones and mammal extend topic language through visible traits.",
+      "syntax": "8 pages; 11–18 words per page, 108 page words overall. Complete manuscript checked against current C limits.",
+      "vocabulary": "Current oral preparation covers mammal, fur, feathers. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "One bird/bat comparison; no claim that all birds fly or that only birds lay eggs.",
       "progression": "Shared flight is tested against body coverings and care of young, then revisited.",
       "inference": "The reader contrasts movement with body traits, but the grouping conclusion is explicit."
     },
-    "rationale": "This is a focused comparison of a bird and a bat, with feathers, wing skin, fur and milk named beside their subjects. Paired explanations and a simple grouping conclusion fit C. The final classification is supplied rather than requiring broader taxonomic knowledge or handling an exception.",
+    "rationale": "C supports classification with explicit paired comparisons and a concrete opening misconception. New mammal and feather vocabulary is repeated beside clear features, without a broader taxonomy lecture.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:c3790e17565dd510",
     "textHash": "sha256:73d466992d0d75707e67eaf02500d33cc9f1cebfbf917d1b94b0be1b2a99fe6b",
     "metrics": {
@@ -15224,7 +15224,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -15234,21 +15234,21 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     }
   },
   "world-discovery-c-10": {
-    "title": "The Apple Core Comes Back",
+    "title": "From Apple Core to Compost",
     "appReadingLevel": "C",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Varied short statements, paired process explanations and time markers.",
-      "vocabulary": "Compost, scraps, crumbly and nutrients broaden garden vocabulary with oral preparation.",
+      "syntax": "8 pages; 13–17 words per page, 122 page words overall. Complete manuscript checked against current C limits.",
+      "vocabulary": "Current oral preparation covers compost, damp, nutrients. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "A maintained compost bin and soil amendment form one everyday process.",
       "progression": "Ingredients, air and moisture precede weeks of partial change, months of finished compost and use.",
       "inference": "The reader follows a material change over time; it is not presented as instant soil or an intact returning apple."
     },
-    "rationale": "The compost inquiry links a familiar apple core to a later plant through visible steps and explicitly marked waiting. Short paired explanations and concrete process vocabulary fit C. The text distinguishes finished compost from soil and gives the benefit directly, without a broader nutrient-cycle argument.",
+    "rationale": "C uses clear time markers, paired explanations and an explicit transformation with support for compost and nutrients. The ordered process avoids the inference that scraps instantly turn into soil.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:9e9cff063377ce03",
-    "textHash": "sha256:39dcdd34012f01a98005b3d43de39463b8998dc77ea47bc0139feb4ba4dbd233",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:ee0e89523b775ed2",
+    "textHash": "sha256:9d2032ed519c7134352032c9db8a3493f52528e291752c7ecec24f8c31887169",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
@@ -15272,7 +15272,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -15286,29 +15286,29 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "D",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Paired and compound clauses, direct dialogue, tomorrow/used-to/now contrasts.",
-      "vocabulary": "Concrete keepsakes support figurative matter and room-for-things-to-say.",
+      "syntax": "10 pages; 17–20 words per page, 185 page words overall. Complete manuscript checked against current D limits.",
+      "vocabulary": "Current oral preparation covers keepsake, matter, chimney. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "Everyday objects stand for past and present interests.",
       "progression": "A physically successful removal feels incomplete, so a flat representation resolves both needs.",
       "inference": "Moderate and supported: why the unused train still belongs in Kit’s account of himself."
     },
-    "rationale": "The story carries a practical space problem and a related identity problem: Kit still values an old interest while making room for a new one. The drawing represents a memory, and the final room-to-say callback depends on the preceding choices. Dialogue, time contrasts and supported symbolism earn D.",
+    "rationale": "Ten linked events require tracking an old interest, a present interest, a failed space solution and the symbolic use of a drawing. Paired sentences and restrained dialogue support a fair motive inference at App D.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:23055b0d45f0edac",
-    "textHash": "sha256:5e54076595a55b797ffd8aa4967e3acb98e1b2f4f1afab1cf88e2b0cf71ad7b7",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:138cf0934c4669a5",
+    "textHash": "sha256:85e0da94c212b81b551052ef5050b4ec9d7afde709b4827abcf1779329baa9f1",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 10,
-      "wordCount": 187,
-      "uniqueWordCount": 106,
-      "uniqueWordRatio": 0.57,
-      "averageWordLength": 3.8,
-      "averageWordsPerPage": 18.7,
+      "wordCount": 185,
+      "uniqueWordCount": 97,
+      "uniqueWordRatio": 0.52,
+      "averageWordLength": 3.82,
+      "averageWordsPerPage": 18.5,
       "minWordsPerPage": 17,
       "maxWordsPerPage": 20,
       "sentenceUnitCount": 23,
-      "averageWordsPerSentence": 8.13,
+      "averageWordsPerSentence": 8.04,
       "maxWordsPerSentence": 13,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.1,
@@ -15320,7 +15320,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -15334,29 +15334,29 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "D",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Dialogue interleaves with causal actions; relative and participial phrases extend sentence structure.",
-      "vocabulary": "Clatter, jerks and stray connect sound, movement and mark.",
+      "syntax": "10 pages; 16–21 words per page, 178 page words overall. Complete manuscript checked against current D limits.",
+      "vocabulary": "Current oral preparation covers clatter, stray, quiet. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "A familiar shared room with two simultaneous needs.",
       "progression": "Misread invitation, harm to the drawing, clarification, changed behavior and callback.",
       "inference": "Moderate: distinguish Kit’s assumption from Zoe’s stated need and recognize the final repaired relationship."
     },
-    "rationale": "Readers must revise Kit’s interpretation of Zoe’s movement: she seeks quiet, not separation from him. A visible accidental mark and her later explanation provide evidence, and the final branch recalls the disruption. The perspective change and sustained dialogue/action links fit D.",
+    "rationale": "The reader revises Kit’s assumption using an explicit boundary, a physical consequence and a later conversation. Ten linked dialogue/action pages and a callback support App D without abstract emotion vocabulary.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:379890c684de0dc6",
-    "textHash": "sha256:72b71a98c698eb15640d9d64a7cc90922abd61e3059a1ffc37fe5890132f19a3",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:48eadc0daf200f3d",
+    "textHash": "sha256:fb273b8027437498ff48ce33b8667002f428c10c1cb004b0d87b015a379028c5",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 10,
-      "wordCount": 179,
-      "uniqueWordCount": 110,
-      "uniqueWordRatio": 0.61,
-      "averageWordLength": 4.02,
-      "averageWordsPerPage": 17.9,
+      "wordCount": 178,
+      "uniqueWordCount": 106,
+      "uniqueWordRatio": 0.6,
+      "averageWordLength": 3.99,
+      "averageWordsPerPage": 17.8,
       "minWordsPerPage": 16,
       "maxWordsPerPage": 21,
-      "sentenceUnitCount": 29,
-      "averageWordsPerSentence": 6.17,
+      "sentenceUnitCount": 30,
+      "averageWordsPerSentence": 5.93,
       "maxWordsPerSentence": 12,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.1,
@@ -15368,7 +15368,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -15382,29 +15382,29 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "D",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Paired sentences with before, after, including and a which clause.",
-      "vocabulary": "Supply, treated and sewer recur with explicit destinations and pipe colors.",
+      "syntax": "10 pages; 17–20 words per page, 187 page words overall. Complete manuscript checked against current D limits.",
+      "vocabulary": "Current oral preparation covers treated, sewer, drain, treatment plant. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "A specific water system is explained in the text; no prior utility knowledge is assumed.",
       "progression": "Source-to-home route, home-to-treatment route, river consequence and synthesis.",
       "inference": "Moderate integration: connect treatment purpose to the water’s changing state."
     },
-    "rationale": "Two distinct pipe routes and treatment purposes must be tracked around one sink. Explicit transition words support the route switch, while the river connection extends the explanation beyond the household. The multi-part system and qualified this-town example fit D.",
+    "rationale": "App D follows two linked routes and distinguishes two treatment purposes, with explicit transitions and a return to the original sink. Vocabulary is supported by concrete pipe and destination imagery.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:41dd6790b94499a4",
-    "textHash": "sha256:b2f6a30c17eb995e284627eb322fa9116858d72af0e7df47d30dca3e7579209f",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:0289537246f337e4",
+    "textHash": "sha256:9eca8831a45fa48988ce6ecacb09bb4b3641a09b918fc4d671f91383dfff4056",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 10,
-      "wordCount": 189,
-      "uniqueWordCount": 101,
+      "wordCount": 187,
+      "uniqueWordCount": 99,
       "uniqueWordRatio": 0.53,
-      "averageWordLength": 4.38,
-      "averageWordsPerPage": 18.9,
+      "averageWordLength": 4.41,
+      "averageWordsPerPage": 18.7,
       "minWordsPerPage": 17,
       "maxWordsPerPage": 20,
       "sentenceUnitCount": 21,
-      "averageWordsPerSentence": 9,
+      "averageWordsPerSentence": 8.9,
       "maxWordsPerSentence": 18,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.2,
@@ -15416,7 +15416,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -15426,28 +15426,28 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     }
   },
   "world-discovery-d-04": {
-    "title": "The Pocket of Wind",
+    "title": "The Bag of Wind",
     "appReadingLevel": "D",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "When, but and as clauses connect actions; dialogue remains short.",
-      "vocabulary": "Pocket/pouch, gust, fork and puff recur with concrete states.",
+      "syntax": "10 pages; 16–20 words per page, 188 page words overall. Complete manuscript checked against current D limits.",
+      "vocabulary": "Current oral preparation covers gust, fork, wedged. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "One explicitly fictional mechanism, no extra unseeded power.",
       "progression": "Demonstration creates the problem; strong upward release fails; two small aimed releases succeed.",
       "inference": "Moderate: combine force, direction and viewpoint to explain the changed result."
     },
-    "rationale": "The fantasy establishes wind capture, then requires tracking stored wind, release direction and amount across failed and successful attempts. Changed viewpoint reveals an existing route, and the saved-wind ending recalls the rule. This sustained spatial and causal sequence supports D.",
+    "rationale": "App D tracks a seeded magical mechanism, failed force/direction choice, changed viewpoint and two controlled attempts. The concrete repeated pouch state supports a fair spatial inference.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:8508a45f4a845dfa",
-    "textHash": "sha256:24e01f9eed4298ef48738f35e7942a8db179949445833ea45cd629d00467f4bd",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:babf401b100fca28",
+    "textHash": "sha256:b7705573b8ae8e4e700f4aee5293e377cc9ce592163a34ed42b11f9cf42ce3c6",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 10,
       "wordCount": 188,
       "uniqueWordCount": 107,
       "uniqueWordRatio": 0.57,
-      "averageWordLength": 4.02,
+      "averageWordLength": 3.91,
       "averageWordsPerPage": 18.8,
       "minWordsPerPage": 16,
       "maxWordsPerPage": 20,
@@ -15464,7 +15464,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -15478,24 +15478,24 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "D",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Paired sentences and but/without/to-reach constructions; a conditional would-need statement.",
-      "vocabulary": "Peninsula, mainland and island are defined and repeated.",
+      "syntax": "10 pages; 14–21 words per page, 190 page words overall. Complete manuscript checked against current D limits.",
+      "vocabulary": "Current oral preparation covers peninsula, mainland, island. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "Water boundary and land continuity, without a named-map knowledge demand.",
       "progression": "Initial guess, dry-route test, removal, real-world transfer and restored connection.",
       "inference": "Moderate: retain the defining relation when appearance and size change."
     },
-    "rationale": "A reversible model change defines two related landforms, then real landscapes test whether size alone matters. Readers track water boundary and dry connection while connecting model and real examples. Explicit definitions support this D comparison.",
+    "rationale": "App D uses a model-to-real-world comparison and a reversible change to distinguish related landforms. The reader tracks a boundary and route across several pages; explicit definitions prevent unsupported guessing.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:57aa16a75eacf61e",
-    "textHash": "sha256:172a9eed31082ee13fa8f741d2b5b1ee95c4207ba43be0090fa52df2a8fdd49b",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:83c1d70e876c2876",
+    "textHash": "sha256:f7c2e0ed67086ad56800004de840ea0cc22b25f4ff9e760f970f0f5febab4eab",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 10,
       "wordCount": 190,
-      "uniqueWordCount": 109,
-      "uniqueWordRatio": 0.57,
-      "averageWordLength": 4.1,
+      "uniqueWordCount": 107,
+      "uniqueWordRatio": 0.56,
+      "averageWordLength": 4.06,
       "averageWordsPerPage": 19,
       "minWordsPerPage": 14,
       "maxWordsPerPage": 21,
@@ -15512,7 +15512,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -15526,29 +15526,29 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "D",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Definitions inside sentences plus when, because-in-meaning and comparative phrases.",
-      "vocabulary": "Impact, crater and rim recur with explicit visual referents.",
+      "syntax": "10 pages; 15–19 words per page, 175 page words overall. Complete manuscript checked against current D limits.",
+      "vocabulary": "Current oral preparation covers impact, crater, rim. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "Impact and surface-change mechanisms are explained; no dates or astronomy facts are assumed.",
       "progression": "Formation, preserved marks, overlap, then explanation of the overlap clue.",
       "inference": "Moderate: use a broken older edge to establish order of two events."
     },
-    "rationale": "The account connects impact formation, Earth–Moon erosion differences and evidence of relative age. The interrupted rim supplies a direct clue, so readers infer order from structure rather than size. This linked explanation and evidence use fits D.",
+    "rationale": "App D links impact, visible landform and a supported relative-age clue. Contrast with Earth adds one explanatory relationship, while repeated concrete crater/rim language supports the ten-page progression.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:7a09918fe2e39cc3",
-    "textHash": "sha256:3ca75392de4302fda45a30efa87e36468f0a35f609b6bf84759f2f2951b48398",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:aa72de2a8ea3ba74",
+    "textHash": "sha256:92cee860afb0d2e26504890a164710626a74e02194e7d922af04c13a363e364a",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 10,
-      "wordCount": 178,
-      "uniqueWordCount": 116,
-      "uniqueWordRatio": 0.65,
-      "averageWordLength": 4.29,
-      "averageWordsPerPage": 17.8,
+      "wordCount": 175,
+      "uniqueWordCount": 112,
+      "uniqueWordRatio": 0.64,
+      "averageWordLength": 4.23,
+      "averageWordsPerPage": 17.5,
       "minWordsPerPage": 15,
-      "maxWordsPerPage": 20,
+      "maxWordsPerPage": 19,
       "sentenceUnitCount": 22,
-      "averageWordsPerSentence": 8.09,
+      "averageWordsPerSentence": 7.95,
       "maxWordsPerSentence": 14,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.1,
@@ -15560,7 +15560,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -15574,15 +15574,15 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "D",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Connected clauses with making, where and not-every qualifications.",
-      "vocabulary": "Silk, spokes, spiral and sticky are repeated with defined spatial relations.",
+      "syntax": "10 pages; 15–20 words per page, 174 page words overall. Complete manuscript checked against current D limits.",
+      "vocabulary": "Current oral preparation covers orb, spokes, silk. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "Natural predation and body contact, without anthropomorphic intentions.",
       "progression": "Web structure supports capture, vibration detection, movement and prey wrapping.",
       "inference": "Moderate integration: explain how the same web catches and signals."
     },
-    "rationale": "The web has several parts and two linked functions: trapping prey and transmitting movement. The account moves from structure to capture, sensation and a resulting gap, with cautious wording about sticky lines. Linking these explained mechanisms across ten pages fits D.",
+    "rationale": "App D connects structure, function and a multistep prey-capture sequence. Supported terms frame, spokes, sticky and silk introduce relationships without turning natural predation into a character story.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:9909a79ef8857afc",
     "textHash": "sha256:8375aa9c1a78efef441bc94b3ffaafaec9bc5fa1e4c1969076f69e3e89aec757",
     "metrics": {
@@ -15608,7 +15608,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -15622,29 +15622,29 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "D",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "After, while and as clauses, participial opening and conditional can.",
-      "vocabulary": "Seed, shoot, pod and coat recur; pollination receives oral support.",
+      "syntax": "10 pages; 15–21 words per page, 176 page words overall. Complete manuscript checked against current D limits.",
+      "vocabulary": "Current oral preparation covers seed coat, shoot, pod, pollinated. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "Several plant functions are introduced within an ordered familiar garden example.",
       "progression": "Stored reserves support emergence; leaves and flowers lead to pods and the next seed.",
       "inference": "Moderate: connect final beans to the opening seed while preserving generation identity."
     },
-    "rationale": "The bean account connects visible growth to food reserves, sunlight, pollination and new seeds, spanning two generations. Time markers and conditional can keep the full cycle explicit without claiming every seed or flower succeeds. The sustained structural and causal links fit D.",
+    "rationale": "App D sustains a full plant cycle and links visible structures to food supply, pollination and new seeds. Time markers and repeated seed/pod references make the causal sequence explicit.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:ad62115fa8ba73ee",
-    "textHash": "sha256:020cfbe59d85adb0b0c2f95c7b990ae8d377313e0fc69a96244951662e8fd2d9",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:c2b4bbf75c63b322",
+    "textHash": "sha256:f7ed480c827b3be2ffc8ee57fbed526034399389b371fc1d7c075b515638f466",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 10,
-      "wordCount": 171,
+      "wordCount": 176,
       "uniqueWordCount": 96,
-      "uniqueWordRatio": 0.56,
-      "averageWordLength": 4.13,
-      "averageWordsPerPage": 17.1,
+      "uniqueWordRatio": 0.55,
+      "averageWordLength": 4.12,
+      "averageWordsPerPage": 17.6,
       "minWordsPerPage": 15,
-      "maxWordsPerPage": 20,
-      "sentenceUnitCount": 20,
-      "averageWordsPerSentence": 8.55,
+      "maxWordsPerPage": 21,
+      "sentenceUnitCount": 21,
+      "averageWordsPerSentence": 8.38,
       "maxWordsPerSentence": 13,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.1,
@@ -15656,7 +15656,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -15670,32 +15670,32 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "D",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Contrasting but clauses, even-when and before constructions.",
-      "vocabulary": "Steel, iron, attract and test recur in concrete comparisons.",
+      "syntax": "10 pages; 15–20 words per page, 177 page words overall. Complete manuscript checked against current D limits.",
+      "vocabulary": "Current oral preparation covers attract, steel, test. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "The text explains the material relation; children do not need a prior list of magnetic metals.",
       "progression": "Prediction, contrasting evidence, further tests, qualified explanation and new test.",
       "inference": "Moderate: separate appearance, material and observed attraction as different criteria."
     },
-    "rationale": "The children revise a shiny-material prediction using repeated tests, distinguish metal from attracted-by-this-magnet, and apply the method to a new object. Explicit qualification about metals supports D evidence-based grouping rather than a simple appearance sort.",
+    "rationale": "App D requires revising an appearance-based prediction using several tests and applying the revised rule to a new object. The category criterion is explicit, with measured qualifications about metals.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:29e90712118e93d5",
-    "textHash": "sha256:23912e0cfc9b4ff120787830a5819a559cef41892e5be2149bee0cac07adc763",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:b71cbf8d9395230f",
+    "textHash": "sha256:a833c94feb3b9826c40076da77ca4ab0c750864d10d4d7b068fc9781ca66e155",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 10,
-      "wordCount": 179,
-      "uniqueWordCount": 94,
-      "uniqueWordRatio": 0.53,
-      "averageWordLength": 4.03,
-      "averageWordsPerPage": 17.9,
+      "wordCount": 177,
+      "uniqueWordCount": 88,
+      "uniqueWordRatio": 0.5,
+      "averageWordLength": 3.99,
+      "averageWordsPerPage": 17.7,
       "minWordsPerPage": 15,
       "maxWordsPerPage": 20,
       "sentenceUnitCount": 22,
-      "averageWordsPerSentence": 8.14,
+      "averageWordsPerSentence": 8.05,
       "maxWordsPerSentence": 15,
       "repeatedSentenceUnitCount": 0,
-      "dominantTwoWordPageOpeningRatio": 0.1,
+      "dominantTwoWordPageOpeningRatio": 0.2,
       "dialoguePageCount": 1,
       "questionPageCount": 1,
       "illustratedPageCount": 10,
@@ -15704,7 +15704,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -15718,32 +15718,32 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "D",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Earlier/as/while transitions and an if condition link multiple times and parts.",
-      "vocabulary": "Solar panel, electricity, battery and energy recur with roles explained.",
+      "syntax": "10 pages; 15–20 words per page, 179 page words overall. Complete manuscript checked against current D limits.",
+      "vocabulary": "Current oral preparation covers solar panel, battery, electricity. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "One self-contained light rather than grid engineering; no prior circuit knowledge required.",
       "progression": "Night question, daytime charging, night use, limited charging and care, synthesis.",
       "inference": "Moderate: explain an effect now using stored energy collected earlier."
     },
-    "rationale": "A nighttime question is answered through an earlier daytime sequence, a panel-to-battery-to-lamp system and a limit on storage. Readers must distinguish conversion from storage while retaining time and conditions. The supported mechanism and flashback earn D.",
+    "rationale": "App D tracks a three-part energy system across a flashback and evening return. Concrete parts and explicit time markers support the distinction between converting energy and storing it.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:f43ae8df54de9cf4",
-    "textHash": "sha256:cb1a92a41145ef8ef43485b73e794419288e2b474449d1b501cdb570198eb64c",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:a37c2c93cd37ee00",
+    "textHash": "sha256:e024b99f69cde9a6c3438ee56d27791f46ef76f1208b6658b8dc97513f20ff41",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 10,
-      "wordCount": 184,
-      "uniqueWordCount": 106,
-      "uniqueWordRatio": 0.58,
-      "averageWordLength": 4.55,
-      "averageWordsPerPage": 18.4,
+      "wordCount": 179,
+      "uniqueWordCount": 98,
+      "uniqueWordRatio": 0.55,
+      "averageWordLength": 4.6,
+      "averageWordsPerPage": 17.9,
       "minWordsPerPage": 15,
-      "maxWordsPerPage": 22,
+      "maxWordsPerPage": 20,
       "sentenceUnitCount": 21,
-      "averageWordsPerSentence": 8.76,
-      "maxWordsPerSentence": 15,
+      "averageWordsPerSentence": 8.52,
+      "maxWordsPerSentence": 14,
       "repeatedSentenceUnitCount": 0,
-      "dominantTwoWordPageOpeningRatio": 0.1,
+      "dominantTwoWordPageOpeningRatio": 0.2,
       "dialoguePageCount": 0,
       "questionPageCount": 1,
       "illustratedPageCount": 10,
@@ -15752,7 +15752,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -15766,29 +15766,29 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "E",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "While, but and relative clauses, embedded dialogue and a parallel figurative closing.",
-      "vocabulary": "Stage and puppet actions ground role, part, lines and holds-up figurative language.",
+      "syntax": "10 pages; 18–21 words per page, 195 page words overall. Complete manuscript checked against current E limits.",
+      "vocabulary": "Current oral preparation covers rehearsal, role, scenery. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "A performance contains construction, practice and acting roles; their compatibility is the theme.",
       "progression": "Unspoken wish, mistaken offer, explicit request, supported rehearsal and public success.",
       "inference": "Sustained: infer the wish before speech and connect both final successes to the opening label."
     },
-    "rationale": "Kit’s wish is first conveyed by gaze and practice, then misunderstood as a sound effect before he names it. Readers track the difference between others’ role labels and his two capabilities, with a rehearsal error and a double-meaning ending. This sustained interpretation supports E.",
+    "rationale": "App E requires sustained interpretation of an unspoken wish, a mistaken helpful offer, an explicit self-advocacy turn and a two-part ending. Temporal change from construction to rehearsal to performance is supported through concrete props.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:09306e748c5eb38d",
-    "textHash": "sha256:3c87a2ad439fe4844e707b1dfa60c6ee4a308320e6ffcce9c96357a376800150",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:0fff329b36a8a56c",
+    "textHash": "sha256:c18904e69721fee957a3d933de4f4b58917a3ea35c43adea77ded6f8f1666005",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 10,
-      "wordCount": 200,
-      "uniqueWordCount": 117,
+      "wordCount": 195,
+      "uniqueWordCount": 115,
       "uniqueWordRatio": 0.59,
-      "averageWordLength": 4,
-      "averageWordsPerPage": 20,
+      "averageWordLength": 4.03,
+      "averageWordsPerPage": 19.5,
       "minWordsPerPage": 18,
-      "maxWordsPerPage": 22,
+      "maxWordsPerPage": 21,
       "sentenceUnitCount": 27,
-      "averageWordsPerSentence": 7.41,
+      "averageWordsPerSentence": 7.22,
       "maxWordsPerSentence": 14,
       "repeatedSentenceUnitCount": 1,
       "dominantTwoWordPageOpeningRatio": 0.1,
@@ -15800,7 +15800,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -15814,29 +15814,29 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "E",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Dialogue and compound sentences include as-if, but, before-in-sequence and purposeful fragments.",
-      "vocabulary": "Ending, sketching and page refer both to collaboration and the drawn story.",
+      "syntax": "10 pages; 18–22 words per page, 205 page words overall. Complete manuscript checked against current E limits.",
+      "vocabulary": "Current oral preparation covers ending, sketching, surprise. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "A shared book has an outside authors’ conflict and an inside dog-and-ball plot.",
       "progression": "Each child overwrites the other; explanations make possible a newly ordered shared ending.",
       "inference": "Sustained: reconstruct each motive, distinguish drawing from event, and explain how both aims survive."
     },
-    "rationale": "The reader follows two authors’ competing intentions inside a story-within-a-story. Reciprocal page changes make sense only after the motives emerge, and the revised sequence must prepare a joke while preserving rest. These simultaneous perspectives and nested causality fit E.",
+    "rationale": "App E sustains two perspectives, reciprocal changes to shared work and a story-within-a-story. Readers infer why each child removes a page before the dialogue reveals their different intentions.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:8d38cc7310b0afe2",
-    "textHash": "sha256:e36c1e5979dca5d04c99a60164ac7f3c4ccee8d7d0a7430ecfea1e63eaaf2028",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:e268b4ac8fe28d64",
+    "textHash": "sha256:3c0b93811084a72f8e3b38def08cded9c2b64dd7fe769f26ef69456ca173cf53",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 10,
-      "wordCount": 209,
-      "uniqueWordCount": 107,
-      "uniqueWordRatio": 0.51,
-      "averageWordLength": 3.8,
-      "averageWordsPerPage": 20.9,
-      "minWordsPerPage": 20,
+      "wordCount": 205,
+      "uniqueWordCount": 102,
+      "uniqueWordRatio": 0.5,
+      "averageWordLength": 3.78,
+      "averageWordsPerPage": 20.5,
+      "minWordsPerPage": 18,
       "maxWordsPerPage": 22,
       "sentenceUnitCount": 29,
-      "averageWordsPerSentence": 7.21,
+      "averageWordsPerSentence": 7.07,
       "maxWordsPerSentence": 16,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.2,
@@ -15848,7 +15848,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -15862,32 +15862,32 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "E",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "As, while, that and during clauses plus can/may and cannot-every qualifications.",
-      "vocabulary": "Runoff is defined; hollow, overflow and drainage recur with physical routes.",
+      "syntax": "10 pages; 16–21 words per page, 196 page words overall. Complete manuscript checked against current E limits.",
+      "vocabulary": "Current oral preparation covers runoff, overflow, drainage. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "A planted drainage system is explained without assuming engineering knowledge.",
       "progression": "Existing route and problem, alternative route, mechanisms, siting, capacity and observed result.",
       "inference": "Sustained integration: hold benefit and limit together; overflow is planned behavior rather than failure."
     },
-    "rationale": "The book connects hard surfaces, transported material, temporary storage, soil infiltration and an overflow exception. Readers must track multiple routes and a capacity limit while evaluating the garden’s partial benefit. This qualified community-system explanation supports E.",
+    "rationale": "App E connects land cover, runoff, pollutants, infiltration and capacity limits across a community system. Conditional language and the overflow exception require synthesis beyond a simple sequence.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:a1aec686183e03a4",
-    "textHash": "sha256:30c74f13de43f0bf65436cbf12f9acf069a22838afe67b09ec5bbc9f262f5a13",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:65f9c7da7e7daeae",
+    "textHash": "sha256:91d01a692f525dd006e4166f15ff76772e7bbef840ced83e862b024c36a9a7ab",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 10,
-      "wordCount": 200,
-      "uniqueWordCount": 115,
-      "uniqueWordRatio": 0.57,
-      "averageWordLength": 4.53,
-      "averageWordsPerPage": 20,
-      "minWordsPerPage": 17,
-      "maxWordsPerPage": 22,
-      "sentenceUnitCount": 20,
-      "averageWordsPerSentence": 10,
+      "wordCount": 196,
+      "uniqueWordCount": 109,
+      "uniqueWordRatio": 0.56,
+      "averageWordLength": 4.55,
+      "averageWordsPerPage": 19.6,
+      "minWordsPerPage": 16,
+      "maxWordsPerPage": 21,
+      "sentenceUnitCount": 21,
+      "averageWordsPerSentence": 9.33,
       "maxWordsPerSentence": 15,
       "repeatedSentenceUnitCount": 0,
-      "dominantTwoWordPageOpeningRatio": 0.2,
+      "dominantTwoWordPageOpeningRatio": 0.1,
       "dialoguePageCount": 0,
       "questionPageCount": 0,
       "illustratedPageCount": 10,
@@ -15896,7 +15896,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -15910,15 +15910,15 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "E",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Or, when, until and after clauses express conditions and sequence; brief dialogue carries spatial reasoning.",
-      "vocabulary": "Outline, narrow, width and joins recur as concrete geometric terms.",
+      "syntax": "10 pages; 18–22 words per page, 200 page words overall. Complete manuscript checked against current E limits.",
+      "vocabulary": "Current oral preparation covers outline, width, continuous. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "One declared magic rule with ordinary geometry; a rigid sphere prevents an unexplained edgewise solution.",
       "progression": "Seeded opening, dimensional failure, measured revision, interrupted condition, repair and deliberate closure.",
       "inference": "Sustained: combine width and continuity while tracking Kit in the adjacent unseen room."
     },
-    "rationale": "The story holds two independent constraints, continuous boundary and adequate width, across separate failures. A visible gap explains an off-screen change, and the final deliberate erasure reverses an earlier accident. Tracking this conditional mechanism and changed intention fits E.",
+    "rationale": "App E holds a magical condition across two different failures: wrong dimensions and an interrupted boundary. Measuring, waiting off-screen and deliberate final erasure require sustained state and cause tracking.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:565ca266739954f7",
     "textHash": "sha256:e1dd9eb94ac8f017a6ede08e574a8f51d981fe8e16daaeebb9bdb2baa789d959",
     "metrics": {
@@ -15944,7 +15944,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -15958,32 +15958,32 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "E",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Where, while, when and after clauses; comparison, qualification and a semicolon connect mechanisms.",
-      "vocabulary": "Erosion, sediment and deposition are explicitly named after concrete observations.",
+      "syntax": "10 pages; 11–22 words per page, 195 page words overall. Complete manuscript checked against current E limits.",
+      "vocabulary": "Current oral preparation covers erosion, sediment, deposition. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "Transport capacity and bank change are taught through one persistent bend.",
       "progression": "Contrasting banks, material removal/transport/deposition, gradual shift, stronger flow and synthesis.",
       "inference": "Sustained: connect loss here with buildup elsewhere without assuming equal amounts or instant change."
     },
-    "rationale": "Erosion, transport and deposition act in different places at the same bend, and changing flow alters what can move. The reader integrates simultaneous changes and a later storm, retaining a fixed landmark across elapsed time. This interconnected explanation supports E.",
+    "rationale": "App E links two simultaneous processes, transport capacity, changing flow and elapsed time. The reader must connect removal and deposition across separate places while retaining the same river bend.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:cb84dcec5b28a684",
-    "textHash": "sha256:b3fb0fc69bb29c2fd31f0cea0c85a9b8a4d9abb21d61ae8ba8a2f42f957b5b63",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:52a96da3f2793183",
+    "textHash": "sha256:23be3a3ef81681808d80fe877ca6530d20ce3978a16fbfbf9fb2d3050dc2b648",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 10,
-      "wordCount": 201,
-      "uniqueWordCount": 119,
-      "uniqueWordRatio": 0.59,
-      "averageWordLength": 4.51,
-      "averageWordsPerPage": 20.1,
-      "minWordsPerPage": 17,
+      "wordCount": 195,
+      "uniqueWordCount": 113,
+      "uniqueWordRatio": 0.58,
+      "averageWordLength": 4.47,
+      "averageWordsPerPage": 19.5,
+      "minWordsPerPage": 11,
       "maxWordsPerPage": 22,
-      "sentenceUnitCount": 22,
-      "averageWordsPerSentence": 9.14,
+      "sentenceUnitCount": 21,
+      "averageWordsPerSentence": 9.29,
       "maxWordsPerSentence": 15,
       "repeatedSentenceUnitCount": 0,
-      "dominantTwoWordPageOpeningRatio": 0.1,
+      "dominantTwoWordPageOpeningRatio": 0.2,
       "dialoguePageCount": 0,
       "questionPageCount": 0,
       "illustratedPageCount": 10,
@@ -15992,7 +15992,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -16006,30 +16006,30 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "E",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "While, as, near and after constructions link spatial and temporal relationships.",
-      "vocabulary": "Sunlit half, phase, orbiting and viewpoint recur with distinct meanings.",
+      "syntax": "10 pages; 18–22 words per page, 201 page words overall. Complete manuscript checked against current E limits.",
+      "vocabulary": "Current oral preparation covers phase, orbiting, viewpoint. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "A whole object and its visible illumination must be kept separate; the needed geometry is supplied.",
       "progression": "Question, invariant sphere/light, changing view, monthly examples and eclipse distinction.",
       "inference": "Sustained spatial inference: changing visible area does not imply changing shape or Earth’s shadow."
     },
-    "rationale": "Readers coordinate a three-dimensional sphere, its illuminated hemisphere and Earth’s changing view across an orbit. The phase sequence is distinguished from physical shape change and an eclipse exception. This multi-viewpoint reasoning and explicit misconception correction earn E.",
+    "rationale": "App E coordinates two viewpoints, a sunlit hemisphere and a month-long orbital sequence. The distinction between actual shape, visible illumination and eclipse requires supported conceptual inference.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:10b0663b991ffaa2",
-    "textHash": "sha256:aacc93f57615b3a2f6307b0992162776d50f9b36cf93f2ce1d5669331027ddcf",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:9f7fd88263d0353a",
+    "textHash": "sha256:ba2fc260db8e2783532893ae086ebe0c69e7b65a814ab76f91c7038236d48873",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 10,
-      "wordCount": 199,
-      "uniqueWordCount": 104,
-      "uniqueWordRatio": 0.52,
-      "averageWordLength": 4.3,
-      "averageWordsPerPage": 19.9,
-      "minWordsPerPage": 17,
+      "wordCount": 201,
+      "uniqueWordCount": 103,
+      "uniqueWordRatio": 0.51,
+      "averageWordLength": 4.27,
+      "averageWordsPerPage": 20.1,
+      "minWordsPerPage": 18,
       "maxWordsPerPage": 22,
       "sentenceUnitCount": 22,
-      "averageWordsPerSentence": 9.05,
-      "maxWordsPerSentence": 13,
+      "averageWordsPerSentence": 9.14,
+      "maxWordsPerSentence": 14,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.1,
       "dialoguePageCount": 0,
@@ -16040,7 +16040,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -16054,32 +16054,32 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "E",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "When, as and after clauses; can/may qualify reproductive outcomes.",
-      "vocabulary": "Nectar and pollination are defined; long muzzle, pollen and flower connect anatomy to function.",
+      "syntax": "10 pages; 16–22 words per page, 193 page words overall. Complete manuscript checked against current E limits.",
+      "vocabulary": "Current oral preparation covers nectar, pollen, pollination. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "A named bat and cactus example avoids a claim about every bat or flower.",
       "progression": "Night feeding, pollen transfer, delayed seeds/fruit, additional visitors and reciprocal synthesis.",
       "inference": "Sustained: one action meets an immediate animal need and a different, delayed plant outcome."
     },
-    "rationale": "The explanation connects a bat’s feeding adaptations to incidental pollen movement and later cactus reproduction. Benefit to each organism, intent versus consequence, delayed fruiting and other pollinators remain in view. That ecological relationship supports E.",
+    "rationale": "App E links adaptations, feeding, incidental pollen transport and delayed reproduction across night and later-season views. Qualified claims and the distinction between purpose and consequence support a connected ecological explanation.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:e8026634c8884f7a",
-    "textHash": "sha256:51bb15274ae9c6d4f7da453e6bca0df338220a6bd25f626500946b85d8c09273",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:c34672099006f0c2",
+    "textHash": "sha256:f93180644ec98269843d6f60c58699b8d987588dd5aae6bb73777177b9ca4424",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 10,
-      "wordCount": 201,
-      "uniqueWordCount": 119,
-      "uniqueWordRatio": 0.59,
-      "averageWordLength": 4.4,
-      "averageWordsPerPage": 20.1,
-      "minWordsPerPage": 17,
+      "wordCount": 193,
+      "uniqueWordCount": 104,
+      "uniqueWordRatio": 0.54,
+      "averageWordLength": 4.33,
+      "averageWordsPerPage": 19.3,
+      "minWordsPerPage": 16,
       "maxWordsPerPage": 22,
-      "sentenceUnitCount": 22,
-      "averageWordsPerSentence": 9.14,
-      "maxWordsPerSentence": 13,
+      "sentenceUnitCount": 21,
+      "averageWordsPerSentence": 9.19,
+      "maxWordsPerSentence": 14,
       "repeatedSentenceUnitCount": 0,
-      "dominantTwoWordPageOpeningRatio": 0.1,
+      "dominantTwoWordPageOpeningRatio": 0.2,
       "dialoguePageCount": 0,
       "questionPageCount": 1,
       "illustratedPageCount": 10,
@@ -16088,7 +16088,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -16102,24 +16102,24 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "E",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Earlier, as, while and when clauses, negation and an explicit not-the-same-generation contrast.",
-      "vocabulary": "Gills, froglet, absorbed and generation are grounded in successive body states.",
+      "syntax": "10 pages; 17–22 words per page, 203 page words overall. Complete manuscript checked against current E limits.",
+      "vocabulary": "Current oral preparation covers gills, froglet, generation. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "Common frog scope supports biological accuracy while several body functions are linked.",
       "progression": "Present frog, earlier egg/tadpole, overlapping transformation, habitat change and next generation.",
       "inference": "Sustained: distinguish growth, repurposed body material and a new individual life cycle."
     },
-    "rationale": "The flashback follows overlapping changes to limbs, breathing and tail, then separates the adult’s breeding return from its own early life. Coordinating systems, habitat use and generations gives this E more than an ordered stage list.",
+    "rationale": "App E integrates multiple body changes, overlapping development and a return across generations. Temporal shifts and careful distinctions between growth, metamorphosis and reproduction require sustained explanation.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:d9bfed3e94de3cd1",
-    "textHash": "sha256:3e1ceae02ae7a835df1e2483aa56031040dc0a7860e85835e684ac892b4887ad",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:8121623f7b8e1f24",
+    "textHash": "sha256:99dc45734875f62938823e72769e3e3c129944f5f9756f484c8573afd059847b",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 10,
       "wordCount": 203,
       "uniqueWordCount": 126,
       "uniqueWordRatio": 0.62,
-      "averageWordLength": 4.32,
+      "averageWordLength": 4.29,
       "averageWordsPerPage": 20.3,
       "minWordsPerPage": 17,
       "maxWordsPerPage": 22,
@@ -16136,7 +16136,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -16150,29 +16150,29 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "E",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "While, although, despite and including phrases; direct questions and qualified some statements.",
-      "vocabulary": "Mammal, trait and streamlined support a comparison across named animal groups.",
+      "syntax": "10 pages; 19–22 words per page, 203 page words overall. Complete manuscript checked against current E limits.",
+      "vocabulary": "Current oral preparation covers mammal, trait, streamlined. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "The text supplies the biological criteria and concrete exception, without requiring a prior taxonomy.",
       "progression": "Appearance puzzle, multiple body/life traits, live-birth counterexample and new mammal example.",
       "inference": "Sustained: distinguish relevant related traits from tempting shared or insufficient single clues."
     },
-    "rationale": "Readers weigh several classification clues, reject shared habitat and then reject live birth alone using a shark exception. Milk, breathing and internal warmth support the mammal grouping, followed by transfer to dolphins. This multi-criterion reasoning earns E.",
+    "rationale": "App E weighs multiple classification criteria, rejects two tempting single-clue rules and introduces a concrete exception. Cross-page comparison and qualification carry more conceptual load than simply naming features.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:a4226bc606356fb4",
-    "textHash": "sha256:3e43ccfcd851b71e6b805f4f57800638c63bdd40b1bd431071d40f3a9890ab1e",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:07cc7ebe8546b8dd",
+    "textHash": "sha256:3c142ea70b6515c48e18ef3ac804a0cc91e84e05fec427e3db85fd2666ab2880",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 10,
-      "wordCount": 207,
-      "uniqueWordCount": 136,
-      "uniqueWordRatio": 0.66,
-      "averageWordLength": 4.61,
-      "averageWordsPerPage": 20.7,
+      "wordCount": 203,
+      "uniqueWordCount": 123,
+      "uniqueWordRatio": 0.61,
+      "averageWordLength": 4.39,
+      "averageWordsPerPage": 20.3,
       "minWordsPerPage": 19,
       "maxWordsPerPage": 22,
-      "sentenceUnitCount": 23,
-      "averageWordsPerSentence": 9,
+      "sentenceUnitCount": 24,
+      "averageWordsPerSentence": 8.46,
       "maxWordsPerSentence": 18,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.1,
@@ -16184,7 +16184,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -16198,24 +16198,24 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "E",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "But, if, without and participial phrases relate conditions, causes and choices.",
-      "vocabulary": "Evaporation and mulch are defined; roots/soil/water recur with changing states.",
+      "syntax": "10 pages; 21–22 words per page, 216 page words overall. Complete manuscript checked against current E limits.",
+      "vocabulary": "Current oral preparation covers moisture, evaporation, mulch. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "Visible surface, unseen moisture and care decisions are distinct; no fixed schedule is imposed.",
       "progression": "Initial appearance, deeper check, loss mechanism, mulch, later need, slow watering and recheck.",
       "inference": "Sustained: integrate multiple causes and observations to justify both watering and withholding water."
     },
-    "rationale": "The children revise an appearance-based watering response using hidden moisture, evaporation, mulch and repeated observations. A conditional runoff warning prevents a simple more-water rule, and the final decision depends on evidence across three mornings. This interconnected inquiry supports E.",
+    "rationale": "App E connects observation, hidden soil moisture, evaporation, mulch and conditional watering decisions across several days. The ending depends on checking evidence rather than following a fixed routine.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:74a5cfbdf1d2412f",
-    "textHash": "sha256:249d229e39c8da1528eb8d99740e0e0a220fbe88c45545c88dc1873ec7911d50",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:a25072f7164fe845",
+    "textHash": "sha256:9cda61595d6a10cf6fdba0ebe821c74e6e2eeab4e4f839ddf141330ad7158974",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 10,
       "wordCount": 216,
-      "uniqueWordCount": 125,
-      "uniqueWordRatio": 0.58,
-      "averageWordLength": 4.32,
+      "uniqueWordCount": 119,
+      "uniqueWordRatio": 0.55,
+      "averageWordLength": 4.24,
       "averageWordsPerPage": 21.6,
       "minWordsPerPage": 21,
       "maxWordsPerPage": 22,
@@ -16232,7 +16232,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -16246,29 +16246,29 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "A",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "One explicit preference change is carried by repeated Zoe/she and picks/tries/takes. All eight pages use one short present-tense clause; concrete food textures and the second pear choice support beginning readers.",
-      "vocabulary": "crunchy, breadstick, pear, juicy; crunchy and slice have oral preparation.",
+      "syntax": "8 pages; 4–5 words per page, 38 page words overall. Complete manuscript checked against current A limits.",
+      "vocabulary": "Current oral preparation covers crunchy, slice. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "The narrative describes Zoe’s individual choice, not a universal food preference or a health claim.",
       "progression": "Pages 2–4 test the crunchy choice; page 5 states the new want; pages 6–8 try and choose a softer pear. The preference turn is printed.",
       "inference": "Choosing another pear after the first taste provides concrete evidence of Zoe’s preference."
     },
-    "rationale": "One explicit preference change is carried by repeated Zoe/she and picks/tries/takes. All eight pages use one short present-tense clause; concrete food textures and the second pear choice support beginning readers.",
+    "rationale": "Eight single present-tense clauses of four to six words. Repeated Zoe/she plus picks/tries/takes makes the preference change explicit; food and action are directly visible. No dialogue or implied moral.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:dbaef15506666dbb",
-    "textHash": "sha256:92105e1dae8aa6452389e90bced9aac0769fdb95fd2b77f87afe799eebb36cce",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:b19c82d952cfbfe6",
+    "textHash": "sha256:61499434aed320f61080263083cd19e54d70e9632367526992f12f485cc17c93",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
-      "wordCount": 39,
-      "uniqueWordCount": 21,
-      "uniqueWordRatio": 0.54,
-      "averageWordLength": 4.03,
-      "averageWordsPerPage": 4.88,
+      "wordCount": 38,
+      "uniqueWordCount": 22,
+      "uniqueWordRatio": 0.58,
+      "averageWordLength": 4.24,
+      "averageWordsPerPage": 4.75,
       "minWordsPerPage": 4,
       "maxWordsPerPage": 5,
       "sentenceUnitCount": 8,
-      "averageWordsPerSentence": 4.88,
+      "averageWordsPerSentence": 4.75,
       "maxWordsPerSentence": 5,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.25,
@@ -16280,7 +16280,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -16294,29 +16294,29 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "A",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Visible distance, stopping, waiting and changed pace form one complete social micro-arc. The language is familiar and present tense, with no dialogue or subordinate clauses.",
-      "vocabulary": "ahead, behind, catches up, together; spatial opposites recur in visible actions.",
+      "syntax": "8 pages; 4–6 words per page, 40 page words overall. Complete manuscript checked against current A limits.",
+      "vocabulary": "Current oral preparation covers ahead, catches up. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "One child runs ahead inside a fenced playground; the story does not place unsupervised children in traffic.",
       "progression": "Pages 2–3 create separation; pages 4–6 show Kit notice, stop and wait; pages 7–8 preserve togetherness by slowing his steps.",
       "inference": "The final together is earned by smaller steps rather than an unexplained reunion."
     },
-    "rationale": "Visible distance, stopping, waiting and changed pace form one complete social micro-arc. The language is familiar and present tense, with no dialogue or subordinate clauses.",
+    "rationale": "Eight simple present-tense lines, each at most six words. The physical gap, wait, reunion and changed stride make the social cause and repair visible without inference-heavy dialogue.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:e8387a7c33b446b3",
-    "textHash": "sha256:caf38f75350aae80fd3a31d98d5c82746febf7df02f007d91bf34c906bf3ec3b",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:1d87994c169d4124",
+    "textHash": "sha256:b2eb02140077527aa7be4284801dbf7c7ca3594920f03e453d98835f3676ac68",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
-      "wordCount": 41,
-      "uniqueWordCount": 30,
+      "wordCount": 40,
+      "uniqueWordCount": 29,
       "uniqueWordRatio": 0.73,
-      "averageWordLength": 3.9,
-      "averageWordsPerPage": 5.13,
+      "averageWordLength": 4.05,
+      "averageWordsPerPage": 5,
       "minWordsPerPage": 4,
       "maxWordsPerPage": 6,
       "sentenceUnitCount": 8,
-      "averageWordsPerSentence": 5.13,
+      "averageWordsPerSentence": 5,
       "maxWordsPerSentence": 6,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.13,
@@ -16328,7 +16328,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -16342,29 +16342,29 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "A",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "A single crossing progresses through wait, signal, check, cross and arrival. Repeated we/our and one directly pictured action per page support A; safety-critical checking is explicit.",
-      "vocabulary": "sidewalk, crossing, walking sign, grown-up; signal meanings are pictured and orally discussable.",
+      "syntax": "8 pages; 4–5 words per page, 39 page words overall. Complete manuscript checked against current A limits.",
+      "vocabulary": "Current oral preparation covers sidewalk, crossing. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "Independently checked NHTSA pedestrian safety and child curriculum: young children cross with an adult, wait for Walk, and still check stopped traffic. The manuscript follows that order.",
       "progression": "Pages 3–4 hold the group on the sidewalk; page 5 changes the signal; page 6 checks traffic before page 7 crosses.",
       "inference": "A walking symbol does not by itself cause entry; the separate checking page makes the relationship clear."
     },
-    "rationale": "A single crossing progresses through wait, signal, check, cross and arrival. Repeated we/our and one directly pictured action per page support A; safety-critical checking is explicit.",
+    "rationale": "Eight concrete present-tense lines of five or six words. One crossing unfolds in visible sequence; repeated we/our anchors the shared community route. The grown-up and traffic checks are explicit.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:055a202858ac27b3",
-    "textHash": "sha256:f7049c889531a06be478350350c782a65578ddbfcef714f18f3e0a9a8969eda8",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:75bb7a9b46722aae",
+    "textHash": "sha256:0799048846f62451593c52669ac48f5842aa478d3ae934d4b33f41d243f2ff7d",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
-      "wordCount": 40,
-      "uniqueWordCount": 27,
-      "uniqueWordRatio": 0.68,
-      "averageWordLength": 4.53,
-      "averageWordsPerPage": 5,
-      "minWordsPerPage": 5,
+      "wordCount": 39,
+      "uniqueWordCount": 28,
+      "uniqueWordRatio": 0.72,
+      "averageWordLength": 4.26,
+      "averageWordsPerPage": 4.88,
+      "minWordsPerPage": 4,
       "maxWordsPerPage": 5,
       "sentenceUnitCount": 8,
-      "averageWordsPerSentence": 5,
+      "averageWordsPerSentence": 4.88,
       "maxWordsPerSentence": 5,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.13,
@@ -16376,7 +16376,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -16390,29 +16390,29 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "A",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "One fold-to-object rule creates a failed big wheel and a successful small wheel. Fit/not fit and big/small are explicit, so understanding the ending requires no hidden magical exception.",
-      "vocabulary": "folded, drawing, huge, fits; folding and fit have oral preparation.",
+      "syntax": "8 pages; 4–6 words per page, 41 page words overall. Complete manuscript checked against current A limits.",
+      "vocabulary": "Current oral preparation covers folds, fits. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "The transformation is explicitly fantasy and is not presented as a physical manufacturing fact.",
       "progression": "Pages 2–4 establish the rule and size failure; pages 5–7 repeat the same rule with a changed drawing; page 8 demonstrates the repair.",
       "inference": "The retained huge wheel makes the second attempt meaningfully different from the first."
     },
-    "rationale": "One fold-to-object rule creates a failed big wheel and a successful small wheel. Fit/not fit and big/small are explicit, so understanding the ending requires no hidden magical exception.",
+    "rationale": "Eight single present-tense clauses of four to six words. Big/small and fit/not fit are directly pictured. The folding rule appears before its successful reuse; no dialogue or complex explanation is required.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:12a277b24a8226bd",
-    "textHash": "sha256:3ec82b066de4f3327ca60fcfa9cfe1e6f5542f1b4dec44bf260166e7157d9d8e",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:e935146527c7b59d",
+    "textHash": "sha256:23e0e75792f549951a019429bbbcb5a083c704be897aa1bfa873f0202764affe",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
-      "wordCount": 40,
+      "wordCount": 41,
       "uniqueWordCount": 27,
-      "uniqueWordRatio": 0.68,
-      "averageWordLength": 4.15,
-      "averageWordsPerPage": 5,
+      "uniqueWordRatio": 0.66,
+      "averageWordLength": 4.05,
+      "averageWordsPerPage": 5.13,
       "minWordsPerPage": 4,
       "maxWordsPerPage": 6,
       "sentenceUnitCount": 8,
-      "averageWordsPerSentence": 5,
+      "averageWordsPerSentence": 5.13,
       "maxWordsPerSentence": 6,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.25,
@@ -16424,7 +16424,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -16438,15 +16438,15 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "A",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "A single wave and a fixed shell make the moving edge observable. Water/shell/sea recur across short present-tense sentences, with one explicit return and a second wave to extend the observation.",
-      "vocabulary": "shore, wave, edge; moving water and a fixed shell support the location terms.",
+      "syntax": "8 pages; 5–6 words per page, 41 page words overall. Complete manuscript checked against current A limits.",
+      "vocabulary": "Current oral preparation covers shore, wave. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "Independently checked NOAA/NWS definitions of runup, swash and backwash. This short event concerns wave wash, not a tidal cycle or a universal claim that shells never move.",
       "progression": "Pages 2–4 advance water to the shell; pages 5–6 expose it again; pages 7–8 identify the next wave and a moving sea edge.",
       "inference": "The unchanged shell and pebble allow the reader to compare water position across pages."
     },
-    "rationale": "A single wave and a fixed shell make the moving edge observable. Water/shell/sea recur across short present-tense sentences, with one explicit return and a second wave to extend the observation.",
+    "rationale": "Eight short present-tense clauses of five or six words. Repeated water/sand/shell and a fixed visual landmark support the ordered wave observation. No technical wave or tide vocabulary is required in the reading text.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:59df08e22ddc6736",
     "textHash": "sha256:03739ce4aa713ac6d585c63bbd80ce602b8fe2ebb6062d49d140d5bbccbe296b",
     "metrics": {
@@ -16472,7 +16472,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -16486,15 +16486,15 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "A",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "The bright streak is named once, then tied to one small rock entering air. Short concrete clauses and the return to the unchanged stars keep one distinction central; explanatory close views must retain that same event.",
-      "vocabulary": "meteor, streak, speeding; meteor and streak receive oral preparation.",
+      "syntax": "8 pages; 5–6 words per page, 41 page words overall. Complete manuscript checked against current A limits.",
+      "vocabulary": "Current oral preparation covers meteor, streak. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "Independently checked NASA Basics of Space Flight: fast entry compresses/heats nearby air and transfers heat to the object; a tiny object may burn up. Meteor means the observed light, not a departing star.",
       "progression": "Pages 1–3 observe and name the brief light; pages 4–6 explain the same event; pages 7–8 return to the unchanged sky after it fades.",
       "inference": "The stars are still present after the streak disappears, answering the common falling-star confusion."
     },
-    "rationale": "The bright streak is named once, then tied to one small rock entering air. Short concrete clauses and the return to the unchanged stars keep one distinction central; explanatory close views must retain that same event.",
+    "rationale": "Eight single clauses of five or six words with concrete verbs shine/flashes/enters/heats/fades. Meteor is the one supported topic word. The return to the same star field makes the distinction visible.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:83596a257a35aef9",
     "textHash": "sha256:3d8958aaa9de0bd08584f41b05b0fd283de76c7c75fa3a7aa6bcee9160451558",
     "metrics": {
@@ -16520,7 +16520,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -16534,15 +16534,15 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "A",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Small/bigger, shell and crab repeat within a simple comparison. The unsuitable second shell and the inspected larger shell give the final fit a complete concept progression using six-word-or-shorter lines.",
-      "vocabulary": "shell, empty, bigger, inside; empty and hermit crab receive oral preparation.",
+      "syntax": "8 pages; 4–6 words per page, 45 page words overall. Complete manuscript checked against current A limits.",
+      "vocabulary": "Current oral preparation covers hermit crab, empty. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "Independently checked MarLIN species description and Monterey Bay Aquarium: Pagurus has a soft abdomen, ten legs including claws, four walking legs and rear gripping pairs. Larger-right-claw species and suitable borrowed shells are correctly locked.",
       "progression": "Pages 1–4 establish and reject small shells; pages 5–6 locate and inspect the larger empty shell; pages 7–8 transfer and settle.",
       "inference": "A different shell is not enough; its size and inspected opening matter."
     },
-    "rationale": "Small/bigger, shell and crab repeat within a simple comparison. The unsuitable second shell and the inspected larger shell give the final fit a complete concept progression using six-word-or-shorter lines.",
+    "rationale": "Eight concrete present-tense lines of five or six words. Repeated shell/crab plus small/bigger/empty/inside provides explicit comparison and sequence. The scientific name is confined to production metadata.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:89a9af2b7ad523ea",
     "textHash": "sha256:a4aa8140bb21b85111017992ed09ec369d5e3a2bca5a6b7f6f7b40e2268fe13e",
     "metrics": {
@@ -16568,7 +16568,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -16582,15 +16582,15 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "A",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "The revised text follows only emergence and wing readiness. Observable folded-to-wide and soft-to-firm changes replace the invisible fluid diagram; repeated wings/butterfly and short clauses keep the sequence at A.",
-      "vocabulary": "butterfly, chrysalis, folded, firm; chrysalis and folded receive oral preparation. Fluid is absent from child prose.",
+      "syntax": "8 pages; 4–6 words per page, 40 page words overall. Complete manuscript checked against current A limits.",
+      "vocabulary": "Current oral preparation covers chrysalis, folded. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "Independently checked Florida Museum: after emergence monarch wings expand and harden before first flight. The book depicts one female monarch with four wings and the reduced foreleg pair.",
       "progression": "Pages 1–2 establish soft folded wings; pages 3–4 expand them; pages 5–6 wait and firm; pages 7–8 begin flight and reach the flower.",
       "inference": "Waiting becomes meaningful because soft wings cannot yet lift the butterfly."
     },
-    "rationale": "The revised text follows only emergence and wing readiness. Observable folded-to-wide and soft-to-firm changes replace the invisible fluid diagram; repeated wings/butterfly and short clauses keep the sequence at A.",
+    "rationale": "Eight single present-tense lines of four to six words. One closely pictured change proceeds from soft to firm wings. Butterfly/chrysalis/folded are supported orally and visually; no full-cycle terminology list or abstract timescale.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:a38d4458a17eb421",
     "textHash": "sha256:c099e50e8e3dae021a91c357e902bcf0404bfbcac8a1c89536b8c47662fe1f49",
     "metrics": {
@@ -16616,7 +16616,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -16630,24 +16630,24 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "A",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "One sensory sorting rule, feels rough/smooth, repeats with four concrete examples. The different-shapes page exposes the relationship before the final rule names it; no secondary sorting criterion is required.",
-      "vocabulary": "rough, smooth, bark, pebble; rough and smooth receive oral preparation.",
+      "syntax": "8 pages; 4–5 words per page, 37 page words overall. Complete manuscript checked against current A limits.",
+      "vocabulary": "Current oral preparation covers rough, smooth. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "Independently checked NGSS: observable properties including texture can group materials, and different materials can share properties. These are selected samples, not universal texture claims.",
       "progression": "Pages 2–3 establish rough and smooth examples; pages 4–6 form and complete two groups; pages 7–8 distinguish the grouping rule from shape.",
       "inference": "The spoon and pebble belong together despite their different shapes because both feel smooth."
     },
-    "rationale": "One sensory sorting rule, feels rough/smooth, repeats with four concrete examples. The different-shapes page exposes the relationship before the final rule names it; no secondary sorting criterion is required.",
+    "rationale": "Eight single clauses of four to six words. Repeated feels rough/smooth and explicit groups support classification by one concrete property. The two-property contrast is pictured, not dependent on reading a chart.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:d75594a253033b95",
-    "textHash": "sha256:7256197a30364c3f723c477acca791e78e42758f061f1bdc2903de7784fb46ab",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:dbb8892ac6af6153",
+    "textHash": "sha256:e71d9b1696f812d36186d407f28a2e980efd497057f9b154a0fdd5d4b51ba985",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
       "wordCount": 37,
-      "uniqueWordCount": 26,
-      "uniqueWordRatio": 0.7,
-      "averageWordLength": 4.35,
+      "uniqueWordCount": 21,
+      "uniqueWordRatio": 0.57,
+      "averageWordLength": 4.3,
       "averageWordsPerPage": 4.63,
       "minWordsPerPage": 4,
       "maxWordsPerPage": 5,
@@ -16664,7 +16664,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -16674,34 +16674,34 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     }
   },
   "world-discovery-a-20": {
-    "title": "A Little First",
+    "title": "Crackers for Later",
     "appReadingLevel": "A",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "One snack follows takes/eats/more/full/stores in short present-tense lines. Kit’s hunger and stopping decisions are explicit, while the unchanged untouched remainder gives the conservation idea a concrete basis.",
-      "vocabulary": "cracker, hungry, full, tin; full and tin receive oral preparation.",
+      "syntax": "8 pages; 4–5 words per page, 37 page words overall. Complete manuscript checked against current A limits.",
+      "vocabulary": "Current oral preparation covers full, tin. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "The EPA source-reduction toolkit’s indexed strategy checklist supports smaller portions and storage to reduce waste. Two crackers are this child’s illustrative choice, with more freely available, not a dietary rule.",
       "progression": "Pages 1–2 serve and eat a little; pages 3–5 notice hunger, take more and stop; pages 6–8 retain and store untouched food.",
       "inference": "The remaining crackers are available later because they stayed in the tin, separate from the used plate."
     },
-    "rationale": "One snack follows takes/eats/more/full/stores in short present-tense lines. Kit’s hunger and stopping decisions are explicit, while the unchanged untouched remainder gives the conservation idea a concrete basis.",
+    "rationale": "Eight explicit present-tense lines of four to six words. Takes/eats/more/still recur in a concrete portion-and-storage sequence. Counting is visible support; the book gives no required portion size or clean-plate rule.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:245c9acc3402ce12",
-    "textHash": "sha256:9e23d78b9cd1613917170800deea7440896fdaca68b2e3e78132994373ad751f",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:1911b6597b137e48",
+    "textHash": "sha256:1995d129d4da800dc8c2a7831bffc06f074f82b716ac2df7397fa9f0de7f3a5c",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
-      "wordCount": 38,
-      "uniqueWordCount": 24,
-      "uniqueWordRatio": 0.63,
-      "averageWordLength": 4.29,
-      "averageWordsPerPage": 4.75,
+      "wordCount": 37,
+      "uniqueWordCount": 25,
+      "uniqueWordRatio": 0.68,
+      "averageWordLength": 4.32,
+      "averageWordsPerPage": 4.63,
       "minWordsPerPage": 4,
-      "maxWordsPerPage": 6,
+      "maxWordsPerPage": 5,
       "sentenceUnitCount": 8,
-      "averageWordsPerSentence": 4.75,
-      "maxWordsPerSentence": 6,
+      "averageWordsPerSentence": 4.63,
+      "maxWordsPerSentence": 5,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.13,
       "dialoguePageCount": 0,
@@ -16712,7 +16712,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -16726,15 +16726,15 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "B",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "The dropped block makes tiredness concrete; Kit chooses both the pause and his return. Two brief dialogue pages and the unchanged final gap keep the sequence explicit.",
-      "vocabulary": "break, gap",
+      "syntax": "8 pages; 8–10 words per page, 74 page words overall. Complete manuscript checked against current B limits.",
+      "vocabulary": "Current oral preparation covers break, gap. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "Rest is a personal choice in one event, not a universal medical claim or a fixed label for Kit.",
       "progression": "Pages 2–4 link tired arms, dropped block and chosen break; pages 6–8 preserve and fill his last gap.",
       "inference": "Eight blocks, one truck and one gap give the chosen return a visible payoff."
     },
-    "rationale": "The dropped block makes tiredness concrete; Kit chooses both the pause and his return. Two brief dialogue pages and the unchanged final gap keep the sequence explicit.",
+    "rationale": "Candidate B: Short present-tense actions and two dialogue pages track one familiar goal. The pause has an observable consequence and a chosen return; no general medical or learning-style claim is made.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:56ce5e44f2c4f451",
     "textHash": "sha256:fccae968e44556bb09995842daac3c356c503cd5724bb7798c4b9004bc9ed928",
     "metrics": {
@@ -16760,7 +16760,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -16774,29 +16774,29 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "B",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "The whole cracker and cheese make taking, its effect, an inadequate crumb and an agreed replacement visible. Short dialogue does not conceal the social repair.",
-      "vocabulary": "crumb, whole",
+      "syntax": "8 pages; 7–11 words per page, 70 page words overall. Complete manuscript checked against current B limits.",
+      "vocabulary": "Current oral preparation covers crumb, whole. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "The text distinguishes replacing what was taken from merely offering an apology; no forced forgiveness or reward.",
       "progression": "Pages 1–4 establish Zoe’s saved purpose and why a crumb fails; pages 5–8 transfer Kit’s own whole cracker with consent.",
       "inference": "The cracker is a needed base for the cheese, not a generic share-a-snack moral."
     },
-    "rationale": "The whole cracker and cheese make taking, its effect, an inadequate crumb and an agreed replacement visible. Short dialogue does not conceal the social repair.",
+    "rationale": "Candidate B: A concrete object remains the goal throughout; brief dialogue occurs on two pages. Taking, impact, an inadequate attempt and agreed repair are all printed rather than left only to faces.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:a0cdf4943b6fb25d",
-    "textHash": "sha256:b8f8ae6d7e362051c6b0596d52a00fe6ee4357f5b026632f99ebb5d61d1bcdcd",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:34babeadee5eb9ff",
+    "textHash": "sha256:2ec72c8ec9ef6cf3edcb883dae32c68ca4d17dbf07304f23229ec9ca676e73d9",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
-      "wordCount": 72,
-      "uniqueWordCount": 47,
-      "uniqueWordRatio": 0.65,
-      "averageWordLength": 3.78,
-      "averageWordsPerPage": 9,
+      "wordCount": 70,
+      "uniqueWordCount": 44,
+      "uniqueWordRatio": 0.63,
+      "averageWordLength": 3.79,
+      "averageWordsPerPage": 8.75,
       "minWordsPerPage": 7,
       "maxWordsPerPage": 11,
       "sentenceUnitCount": 16,
-      "averageWordsPerSentence": 4.5,
+      "averageWordsPerSentence": 4.38,
       "maxWordsPerSentence": 7,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.13,
@@ -16808,7 +16808,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -16822,29 +16822,29 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "B",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "One picture and envelope connect a postal route through short concrete sentences. Address and carrier broaden vocabulary, while visible continuity carries the several steps.",
-      "vocabulary": "address, sort, carrier",
+      "syntax": "8 pages; 8–11 words per page, 76 page words overall. Complete manuscript checked against current B limits.",
+      "vocabulary": "Current oral preparation covers address, sort, carrier. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "Postal museum evidence supports an illustrative route, not a universal transport method or delivery-time promise.",
       "progression": "Pages 1–7 maintain the sealed envelope through addressing, collection, sorting and delivery; page 8 reveals the opening picture.",
       "inference": "The green star stamp and red truck picture identify the same letter across locations."
     },
-    "rationale": "One picture and envelope connect a postal route through short concrete sentences. Address and carrier broaden vocabulary, while visible continuity carries the several steps.",
+    "rationale": "Candidate B: Each short page advances one familiar object along a concrete route. Three postal terms are supported orally; syntax remains simple and the ending returns to the opening picture.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:f19a858108c5346c",
-    "textHash": "sha256:0be8bc654efc7812f1c9232af6789b68fca1a29ccd4b610beaf021b0513249aa",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:bb9826cdf566be1f",
+    "textHash": "sha256:b63a0600b16355258fcf8d882b0eba2147bcaffa7111cdac18209370f79d16e1",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
-      "wordCount": 78,
-      "uniqueWordCount": 51,
-      "uniqueWordRatio": 0.65,
-      "averageWordLength": 4.31,
-      "averageWordsPerPage": 9.75,
+      "wordCount": 76,
+      "uniqueWordCount": 48,
+      "uniqueWordRatio": 0.63,
+      "averageWordLength": 4.46,
+      "averageWordsPerPage": 9.5,
       "minWordsPerPage": 8,
       "maxWordsPerPage": 11,
       "sentenceUnitCount": 14,
-      "averageWordsPerSentence": 5.57,
+      "averageWordsPerSentence": 5.43,
       "maxWordsPerSentence": 8,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.13,
@@ -16856,7 +16856,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -16870,29 +16870,29 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "B",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "A visible reversible color swap creates one social consequence. Kit restores Zoe’s cup and uses an agreed alternative; two dialogue pages keep the exchange within B.",
-      "vocabulary": "swap, clip",
+      "syntax": "8 pages; 9–11 words per page, 81 page words overall. Complete manuscript checked against current B limits.",
+      "vocabulary": "Current oral preparation covers swap, clip. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "Magic changes only the two clipped objects’ colors. Cart, cup, paper, cord and clip states are explicitly tracked.",
       "progression": "Pages 1–4 seed the paired-clip rule and reverse the unwanted change; pages 5–8 apply the same rule to authorized red paper.",
       "inference": "Kit can keep his red-cart goal while Zoe’s red cup remains hers and unchanged."
     },
-    "rationale": "A visible reversible color swap creates one social consequence. Kit restores Zoe’s cup and uses an agreed alternative; two dialogue pages keep the exchange within B.",
+    "rationale": "Candidate B: The same three props carry a reversible rule and a visible social consequence. Two dialogue pages and short color/action clauses keep the causal sequence within B; it is explicitly magic, not a claim about color science.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:87bd45768096a8d0",
-    "textHash": "sha256:902ff5b9834f0c829192bea82a241d8f7edd311f0f0a958a4c6bb234d9110d29",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:bb30bb0b3e741928",
+    "textHash": "sha256:cfdc1cb3dc5395f266d293dada5a7f417fee1d3ada4f5904aee82c380c42c9ad",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
-      "wordCount": 82,
-      "uniqueWordCount": 42,
-      "uniqueWordRatio": 0.51,
-      "averageWordLength": 3.65,
-      "averageWordsPerPage": 10.25,
+      "wordCount": 81,
+      "uniqueWordCount": 40,
+      "uniqueWordRatio": 0.49,
+      "averageWordLength": 3.64,
+      "averageWordsPerPage": 10.13,
       "minWordsPerPage": 9,
       "maxWordsPerPage": 11,
-      "sentenceUnitCount": 18,
-      "averageWordsPerSentence": 4.56,
+      "sentenceUnitCount": 17,
+      "averageWordsPerSentence": 4.76,
       "maxWordsPerSentence": 8,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.25,
@@ -16904,7 +16904,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -16918,32 +16918,32 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "B",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Repeated sea/rock/pool words and short observations follow one hollow across a tide. The printed holding relation is explicit rather than dependent on a hidden scientific mechanism.",
-      "vocabulary": "tide, rim, pool",
+      "syntax": "8 pages; 6–12 words per page, 75 page words overall. Complete manuscript checked against current B limits.",
+      "vocabulary": "Current oral preparation covers tide, rim, pool. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "NOAA tide-pool evidence supports this continuous-rim example; the sequence is hours of tidal change, not one wave.",
       "progression": "Pages 1–4 expose and isolate the same hollow; page 5 explains its retaining rim; pages 6–8 reconnect it with rising sea.",
       "inference": "The white mineral vein and boulder allow a reader to recognize the same place after water levels change."
     },
-    "rationale": "Repeated sea/rock/pool words and short observations follow one hollow across a tide. The printed holding relation is explicit rather than dependent on a hidden scientific mechanism.",
+    "rationale": "Candidate B: Short paired observations repeatedly revisit one visible place. The simple holding/connecting relationship is carried by changing water level, with tide and rim prepared orally.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:a4f0b68c70cddf0f",
-    "textHash": "sha256:9c3ed46e8da861871391a1150d9dfcf8d658b98ba3c96b62dcea01647a515886",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:e67f0a67af17f629",
+    "textHash": "sha256:d9230371c78edeea8eff38c8810b6a7b07af84a85ba8ec48ab3c42b77fe6fbf0",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
-      "wordCount": 68,
-      "uniqueWordCount": 35,
-      "uniqueWordRatio": 0.51,
-      "averageWordLength": 3.72,
-      "averageWordsPerPage": 8.5,
+      "wordCount": 75,
+      "uniqueWordCount": 39,
+      "uniqueWordRatio": 0.52,
+      "averageWordLength": 3.88,
+      "averageWordsPerPage": 9.38,
       "minWordsPerPage": 6,
-      "maxWordsPerPage": 10,
-      "sentenceUnitCount": 13,
-      "averageWordsPerSentence": 5.23,
+      "maxWordsPerPage": 12,
+      "sentenceUnitCount": 14,
+      "averageWordsPerSentence": 5.36,
       "maxWordsPerSentence": 7,
       "repeatedSentenceUnitCount": 0,
-      "dominantTwoWordPageOpeningRatio": 0.25,
+      "dominantTwoWordPageOpeningRatio": 0.38,
       "dialoguePageCount": 0,
       "questionPageCount": 0,
       "illustratedPageCount": 8,
@@ -16952,7 +16952,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -16966,17 +16966,17 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "B",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Front, middle and back wheel actions carry one directly pictured mechanism. Short sentences and repeated wheel/joint words support the unfamiliar rover without mission-history load.",
-      "vocabulary": "rover, joint, rough",
+      "syntax": "8 pages; 7–12 words per page, 67 page words overall. Complete manuscript checked against current B limits.",
+      "vocabulary": "Current oral preparation covers rover, joint, rough. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "NASA rover evidence supports exactly six wheels and articulated rocker-bogie supports; the rods rotate at joints rather than bending like rubber.",
       "progression": "Pages 2–7 follow one rock beneath successive wheels; page 8 connects their different heights to movable joints.",
       "inference": "A tiny rock and shallow dip make the practical purpose of the moving supports observable."
     },
-    "rationale": "Front, middle and back wheel actions carry one directly pictured mechanism. Short sentences and repeated wheel/joint words support the unfamiliar rover without mission-history load.",
+    "rationale": "Candidate B: Concrete repeated wheel positions support a single physical sequence; no mission history, numerical speed or telecommunications load. Names for front/middle/back are spatially visible.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:e21478caa3160ec1",
-    "textHash": "sha256:f1bf0c8b32fa9429a352e7c4c1d04c4c36a8bc32f5cd8374989470736fb592c9",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:9159cd826d551cb3",
+    "textHash": "sha256:0f5e9b3c45af8281c8aa92f44112b2f3c96e4212c46f229d74043722065682b5",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
@@ -17000,7 +17000,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -17014,29 +17014,29 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "B",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "A concrete visual puzzle leads to legs, movement and feeding. Familiar twig/leaf words and a few supported insect terms maintain B despite the new animal.",
-      "vocabulary": "twig, grip, insect",
+      "syntax": "8 pages; 6–12 words per page, 69 page words overall. Complete manuscript checked against current B limits.",
+      "vocabulary": "Current oral preparation covers twig, grip, insect. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "The named production species is a wingless adult northern walkingstick; six legs and two antennae remain distinct.",
       "progression": "Pages 1–5 establish resemblance and concealment; pages 6–8 use a moving leg and bitten leaf as identifying evidence.",
       "inference": "The leaf’s new notch is a specific clue that a twig cannot make."
     },
-    "rationale": "A concrete visual puzzle leads to legs, movement and feeding. Familiar twig/leaf words and a few supported insect terms maintain B despite the new animal.",
+    "rationale": "Candidate B: The opening visual puzzle is answered through concrete observations, not a list of animal facts. Repeated familiar body/plant nouns support the limited new terms.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:5f18386edc7fcb3e",
-    "textHash": "sha256:44a05b7ec658435faf27b010c75e9332a36631ea8cf57494e6b065a5c4546ec1",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:17239ad5556a0ea1",
+    "textHash": "sha256:f2abcc887f77bec267d2bd6c6df6b2c35c94d716909d8f250859b605788f1a2e",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
-      "wordCount": 65,
-      "uniqueWordCount": 47,
-      "uniqueWordRatio": 0.72,
-      "averageWordLength": 3.72,
-      "averageWordsPerPage": 8.13,
+      "wordCount": 69,
+      "uniqueWordCount": 48,
+      "uniqueWordRatio": 0.7,
+      "averageWordLength": 3.67,
+      "averageWordsPerPage": 8.63,
       "minWordsPerPage": 6,
       "maxWordsPerPage": 12,
-      "sentenceUnitCount": 11,
-      "averageWordsPerSentence": 5.91,
+      "sentenceUnitCount": 12,
+      "averageWordsPerSentence": 5.75,
       "maxWordsPerSentence": 8,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.13,
@@ -17048,7 +17048,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -17062,30 +17062,30 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "B",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Revised text now follows eggs, hatching, repeated sheds and adult wings chronologically in present tense. Repetition of grows/wings plus pictured stages supports the limited new vocabulary.",
-      "vocabulary": "shed, wing pads, nymph",
+      "syntax": "8 pages; 6–12 words per page, 71 page words overall. Complete manuscript checked against current B limits.",
+      "vocabulary": "Current oral preparation covers shed, wing pads, nymph. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "Sources and artwork specify a winged two-striped grasshopper. The book does not introduce a butterfly chrysalis or claim all species fly.",
       "progression": "Pages 1–2 establish egg and wingless hatchling; pages 4–6 show successive molts; pages 7–8 connect adult wings to flight.",
       "inference": "The adult’s new ability answers what changed during the same animal’s growth."
     },
-    "rationale": "Revised text now follows eggs, hatching, repeated sheds and adult wings chronologically in present tense. Repetition of grows/wings plus pictured stages supports the limited new vocabulary.",
+    "rationale": "Candidate B: One visible change answers the initial inability to fly. Short main clauses avoid a technical definition chain; nymph is oral preparation, while printed wing pads are pictured in context.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:17a9594f5baa5d58",
-    "textHash": "sha256:b66612463bb764e8fe3c598555c748bcb1855c46683c195898d25d7a00eecadc",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:3d79070dd095b653",
+    "textHash": "sha256:230308779827f1d9e7c5e4a15353960b5368eb8f9897b1e8fdd165e860bbc4f2",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
       "wordCount": 71,
-      "uniqueWordCount": 46,
-      "uniqueWordRatio": 0.65,
-      "averageWordLength": 4.18,
+      "uniqueWordCount": 44,
+      "uniqueWordRatio": 0.62,
+      "averageWordLength": 4.15,
       "averageWordsPerPage": 8.88,
       "minWordsPerPage": 6,
-      "maxWordsPerPage": 13,
-      "sentenceUnitCount": 13,
-      "averageWordsPerSentence": 5.46,
-      "maxWordsPerSentence": 10,
+      "maxWordsPerPage": 12,
+      "sentenceUnitCount": 14,
+      "averageWordsPerSentence": 5.07,
+      "maxWordsPerSentence": 7,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.13,
       "dialoguePageCount": 0,
@@ -17096,7 +17096,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -17110,29 +17110,29 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "B",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Testing and grouping use familiar clear, blurred and blocked views. The two-stage split is explicit on the page; technical transparent/translucent/opaque words are not imposed on the reader.",
-      "vocabulary": "clear, blurred, block",
+      "syntax": "8 pages; 7–13 words per page, 85 page words overall. Complete manuscript checked against current B limits.",
+      "vocabulary": "Current oral preparation covers clear, blurred, block, screen. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "Clear plastic may show edge shadows; wax paper scatters light; card blocks the central beam. Flashlight is not aimed toward eyes.",
       "progression": "Pages 2–4 compare equal sheets in one light path; pages 5–6 split passing/blocking; pages 7–8 separate the two passing views.",
       "inference": "One red car shows why two light-passing sheets need not provide the same view."
     },
-    "rationale": "Testing and grouping use familiar clear, blurred and blocked views. The two-stage split is explicit on the page; technical transparent/translucent/opaque words are not imposed on the reader.",
+    "rationale": "Candidate B: Concrete testing verbs and familiar clear/blurred/no-view language carry the grouping; technical transparent/translucent/opaque terms are not required in the printed B text.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:2718e6e3000012d3",
-    "textHash": "sha256:b39bbc64d56bfd0c703201da7120e42b8114abf149300511f6a6b10efbcb307f",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:21e9d6ea4a534a8a",
+    "textHash": "sha256:b62d1682b577e9f5611bb122619cf6abd19572a1b7850f071d27602b4772eebb",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
-      "wordCount": 83,
-      "uniqueWordCount": 52,
-      "uniqueWordRatio": 0.63,
-      "averageWordLength": 4.29,
-      "averageWordsPerPage": 10.38,
+      "wordCount": 85,
+      "uniqueWordCount": 55,
+      "uniqueWordRatio": 0.65,
+      "averageWordLength": 4.44,
+      "averageWordsPerPage": 10.63,
       "minWordsPerPage": 7,
-      "maxWordsPerPage": 12,
-      "sentenceUnitCount": 16,
-      "averageWordsPerSentence": 5.19,
+      "maxWordsPerPage": 13,
+      "sentenceUnitCount": 15,
+      "averageWordsPerSentence": 5.67,
       "maxWordsPerSentence": 7,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.13,
@@ -17144,7 +17144,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -17158,30 +17158,30 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "B",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Short clauses and the repeated drip follow a failed handle check, adult repair and test. The child’s meaningful part is noticing, reporting and conserving the caught water.",
-      "vocabulary": "leak, repair",
+      "syntax": "8 pages; 8–12 words per page, 78 page words overall. Complete manuscript checked against current B limits.",
+      "vocabulary": "Current oral preparation covers leak, repair. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "EPA evidence supports a worn washer in this compression-faucet example; an adult alone handles tools and the supply is off for dismantling.",
       "progression": "Pages 1–4 show the continuing leak despite a closed handle; pages 5–7 distinguish supply shutoff from a verified repair; page 8 uses the caught water.",
       "inference": "The cup is a visible measure of the persistent drip and becomes useful water for a plant."
     },
-    "rationale": "Short clauses and the repeated drip follow a failed handle check, adult repair and test. The child’s meaningful part is noticing, reporting and conserving the caught water.",
+    "rationale": "Candidate B: Two short clauses at a time track a practical failed attempt, help-seeking and verified repair. No procedural instruction asks a child to handle plumbing; the visible cup gives meaning to the small leak.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:ed3edde30d64b231",
-    "textHash": "sha256:dcbab5386629a7865918b9833e6270a5a785e9bc77b7aebeb7297b1da0a6ef9c",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:2e7c49180cbe0de8",
+    "textHash": "sha256:102af46ddd7798231a4a011b3559263e48974e6d1eeaa551f50897fadda750c9",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
-      "wordCount": 79,
-      "uniqueWordCount": 47,
-      "uniqueWordRatio": 0.59,
-      "averageWordLength": 3.75,
-      "averageWordsPerPage": 9.88,
+      "wordCount": 78,
+      "uniqueWordCount": 44,
+      "uniqueWordRatio": 0.56,
+      "averageWordLength": 3.64,
+      "averageWordsPerPage": 9.75,
       "minWordsPerPage": 8,
       "maxWordsPerPage": 12,
-      "sentenceUnitCount": 18,
-      "averageWordsPerSentence": 4.39,
-      "maxWordsPerSentence": 8,
+      "sentenceUnitCount": 17,
+      "averageWordsPerSentence": 4.59,
+      "maxWordsPerSentence": 11,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.13,
       "dialoguePageCount": 0,
@@ -17192,7 +17192,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -17206,30 +17206,30 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "C",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Paired sentences and brief dialogue track a missing item, a failed mental picture and a chosen spoken check. The missing mat is explicitly exposed, so inference remains supported.",
-      "vocabulary": "remind, check",
+      "syntax": "8 pages; 16–20 words per page, 142 page words overall. Complete manuscript checked against current C limits.",
+      "vocabulary": "Current oral preparation covers remember, check. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "One child tries a strategy for one task; no fixed visual/auditory learning-type claim is made.",
       "progression": "Pages 2–4 show the incomplete collection; pages 5–7 turn a three-item chant into a check; page 8 supplies the intended play space.",
       "inference": "Tapping three fingers and finding the absent mat give the strategy a concrete result."
     },
-    "rationale": "Paired sentences and brief dialogue track a missing item, a failed mental picture and a chosen spoken check. The missing mat is explicitly exposed, so inference remains supported.",
+    "rationale": "Candidate C: Paired sentences, brief dialogue and a small inference about an omitted object add demand beyond B. The story makes no fixed learning-style or memory-performance claim; it depicts one child choosing a method for one task.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:7bc019bc4d2c5a6e",
-    "textHash": "sha256:fe13d3822fe432ab39dfaa76bfaec99b8f54827cf864dc177620644fedad059d",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:6a7198df92c8a439",
+    "textHash": "sha256:193af527e1cbb57f921ad37e4ae752f822628e2257a1e93dc8be66d1f2775b75",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
-      "wordCount": 138,
-      "uniqueWordCount": 74,
-      "uniqueWordRatio": 0.54,
-      "averageWordLength": 3.78,
-      "averageWordsPerPage": 17.25,
+      "wordCount": 142,
+      "uniqueWordCount": 73,
+      "uniqueWordRatio": 0.51,
+      "averageWordLength": 3.79,
+      "averageWordsPerPage": 17.75,
       "minWordsPerPage": 16,
-      "maxWordsPerPage": 19,
-      "sentenceUnitCount": 22,
-      "averageWordsPerSentence": 6.27,
-      "maxWordsPerSentence": 12,
+      "maxWordsPerPage": 20,
+      "sentenceUnitCount": 21,
+      "averageWordsPerSentence": 6.76,
+      "maxWordsPerSentence": 15,
       "repeatedSentenceUnitCount": 1,
       "dominantTwoWordPageOpeningRatio": 0.13,
       "dialoguePageCount": 5,
@@ -17240,7 +17240,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -17254,30 +17254,30 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "C",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Two possible pots create a fair ambiguity. Repeated incomplete directions fail until a specific question and confirmation identify the location; concise dialogue and concrete objects fit C.",
-      "vocabulary": "parcel, direction",
+      "syntax": "8 pages; 15–19 words per page, 142 page words overall. Complete manuscript checked against current C limits.",
+      "vocabulary": "Current oral preparation covers parcel, direction. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "Both pots and the ribbon location exist before the misunderstanding; louder speech is not presented as a hearing impairment issue.",
       "progression": "Pages 2–4 search the wrong pot; pages 5–6 supply and confirm the missing color/location detail; pages 7–8 finish the parcel.",
       "inference": "Two red loops close the parcel problem through a clearer message."
     },
-    "rationale": "Two possible pots create a fair ambiguity. Repeated incomplete directions fail until a specific question and confirmation identify the location; concise dialogue and concrete objects fit C.",
+    "rationale": "Candidate C: Two similar locations create a fair information gap, repaired by a specific question and confirmation. The page sequence supports inference without concealing the ribbon’s true position.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:498887bb7967f249",
-    "textHash": "sha256:ac6bca26e60ca844353bca944a7521c562aa4f7fefe1d32cf6a5aa917c202861",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:c749e36170b7284f",
+    "textHash": "sha256:d3970088e3a756e76dccf53276f109c9f50d79ee2571614bfb331ecb3c957b66",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
-      "wordCount": 144,
-      "uniqueWordCount": 81,
-      "uniqueWordRatio": 0.56,
+      "wordCount": 142,
+      "uniqueWordCount": 76,
+      "uniqueWordRatio": 0.54,
       "averageWordLength": 3.92,
-      "averageWordsPerPage": 18,
+      "averageWordsPerPage": 17.75,
       "minWordsPerPage": 15,
       "maxWordsPerPage": 19,
       "sentenceUnitCount": 23,
-      "averageWordsPerSentence": 6.26,
-      "maxWordsPerSentence": 12,
+      "averageWordsPerSentence": 6.17,
+      "maxWordsPerSentence": 11,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.25,
       "dialoguePageCount": 4,
@@ -17288,7 +17288,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -17302,29 +17302,29 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "C",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Several explicit actions follow one carrot crate from grower to customer. Before/now and the final connected explanation add C demand without a detached list of community jobs.",
-      "vocabulary": "grower, stand, crop",
+      "syntax": "8 pages; 16–19 words per page, 141 page words overall. Complete manuscript checked against current C limits.",
+      "vocabulary": "Current oral preparation covers grower, stand, crop. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "USDA evidence supports direct farm-vendor sales; a van and a gate are plausible details of this one market rather than universal operations.",
       "progression": "Pages 1–5 explain how an empty table gains produce; pages 6–8 connect that preparation to the purchase.",
       "inference": "The same empty green crate remains under the now working stall, connecting preparation and outcome."
     },
-    "rationale": "Several explicit actions follow one carrot crate from grower to customer. Before/now and the final connected explanation add C demand without a detached list of community jobs.",
+    "rationale": "Candidate C: The same concrete crate supports a longer connected sequence with before/now relationships and several human roles. The final sentence gathers the causal work rather than listing unrelated community helpers.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:fe7f06315a2f0a71",
-    "textHash": "sha256:9c0bfaf2b5fa6c3391b20668850f4bba9994d66e35cd64b305db4caf6bcc59e6",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:8eaf153860773945",
+    "textHash": "sha256:fff82734925440d7f9fe365de724e3911b314ecd2926eac49c2daaa955d54351",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
-      "wordCount": 142,
-      "uniqueWordCount": 80,
-      "uniqueWordRatio": 0.56,
-      "averageWordLength": 4.3,
-      "averageWordsPerPage": 17.75,
+      "wordCount": 141,
+      "uniqueWordCount": 81,
+      "uniqueWordRatio": 0.57,
+      "averageWordLength": 4.23,
+      "averageWordsPerPage": 17.63,
       "minWordsPerPage": 16,
       "maxWordsPerPage": 19,
       "sentenceUnitCount": 16,
-      "averageWordsPerSentence": 8.88,
+      "averageWordsPerSentence": 8.81,
       "maxWordsPerSentence": 14,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.13,
@@ -17336,7 +17336,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -17350,29 +17350,29 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "C",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "The corrected local back-and-forth loop creates a visible fair clue. A failed restart and a changed arrow apply one seeded rule through varied short sentences and brief dialogue.",
-      "vocabulary": "route, trace, bookmark",
+      "syntax": "8 pages; 16–20 words per page, 145 page words overall. Complete manuscript checked against current C limits.",
+      "vocabulary": "Current oral preparation covers route, trace, bookmark. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "Opposing fourth/fifth arrows now cause a local reversal, not impossible travel back against the first three arrows. Blank page stopping remains seeded.",
       "progression": "Pages 1–2 establish the rule and touching route; pages 3–4 expose the unchanged local trap; pages 5–8 identify, redraw and reach the blank destination.",
       "inference": "The red tip remains exactly at Kit’s reading place after the route strip is removed."
     },
-    "rationale": "The corrected local back-and-forth loop creates a visible fair clue. A failed restart and a changed arrow apply one seeded rule through varied short sentences and brief dialogue.",
+    "rationale": "Candidate C: A fair visible clue and an unsuccessful workaround require the reader to connect a rule to its consequences. Dialogue is brief; directions and changes remain concrete and printed.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:ed68a6b25d8695da",
-    "textHash": "sha256:90211810666e3981af3be1899551c91a6bccd1150e6697ad0879af4771638076",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:ba1078096f094a82",
+    "textHash": "sha256:827ca83414b371b3e374040dd205cc04141c75b2a25e1deb267b05fe683e2c17",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
-      "wordCount": 144,
-      "uniqueWordCount": 92,
-      "uniqueWordRatio": 0.64,
-      "averageWordLength": 4.17,
-      "averageWordsPerPage": 18,
+      "wordCount": 145,
+      "uniqueWordCount": 83,
+      "uniqueWordRatio": 0.57,
+      "averageWordLength": 4.1,
+      "averageWordsPerPage": 18.13,
       "minWordsPerPage": 16,
       "maxWordsPerPage": 20,
       "sentenceUnitCount": 18,
-      "averageWordsPerSentence": 8,
+      "averageWordsPerSentence": 8.06,
       "maxWordsPerSentence": 11,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.25,
@@ -17384,7 +17384,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -17398,29 +17398,29 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "C",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "The old-flow opening is explained through paired sentences and explicit outside/inside comparisons. Lava and crust are supported topic terms; one cooling process remains the focus.",
-      "vocabulary": "lava, crust, solid",
+      "syntax": "8 pages; 9–18 words per page, 122 page words overall. Complete manuscript checked against current C limits.",
+      "vocabulary": "Current oral preparation covers lava, crust, solid. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "USGS evidence distinguishes solidification from cooling to ambient temperature; a dark surface is not asserted safe to touch.",
       "progression": "Pages 2–4 form an outer crust; page 5 shows hot material beneath it; pages 6–8 thicken the solid portion and return to the opening rock.",
       "inference": "Preserved flow folds let the final rock retain a visible trace of its moving past."
     },
-    "rationale": "The old-flow opening is explained through paired sentences and explicit outside/inside comparisons. Lava and crust are supported topic terms; one cooling process remains the focus.",
+    "rationale": "Candidate C: One time sequence and repeated outside/inside contrast support a connected explanation. Specialist vocabulary is limited to lava and crust, with cutaways explicitly supporting the relationship.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:8e32b4ff4b3385a6",
-    "textHash": "sha256:bbdc1dc9fc036b5d323eaca1c5a52425b4f9229e6084dd85eb7ac248de70ef52",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:637502d15b0a212a",
+    "textHash": "sha256:45730dbb0253c02e6b1c37330279b68273442b31cacbb25b8a685a7cff899d1a",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
-      "wordCount": 130,
-      "uniqueWordCount": 83,
-      "uniqueWordRatio": 0.64,
-      "averageWordLength": 4.32,
-      "averageWordsPerPage": 16.25,
-      "minWordsPerPage": 13,
-      "maxWordsPerPage": 19,
-      "sentenceUnitCount": 18,
-      "averageWordsPerSentence": 7.22,
+      "wordCount": 122,
+      "uniqueWordCount": 73,
+      "uniqueWordRatio": 0.6,
+      "averageWordLength": 4.23,
+      "averageWordsPerPage": 15.25,
+      "minWordsPerPage": 9,
+      "maxWordsPerPage": 18,
+      "sentenceUnitCount": 16,
+      "averageWordsPerSentence": 7.63,
       "maxWordsPerSentence": 10,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.13,
@@ -17432,7 +17432,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -17446,30 +17446,30 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "C",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Revision removes competing tail types and solar-force explanations. One question—solid tail or loose dust—is answered with short linked observations, supported topic words and explicit near/far changes.",
-      "vocabulary": "comet, dust, reflect",
+      "syntax": "8 pages; 15–20 words per page, 136 page words overall. Complete manuscript checked against current C limits.",
+      "vocabulary": "Current oral preparation covers comet, dust, reflect. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "NASA evidence supports an illustrated dust tail reflecting sunlight. The book selects this tail and does not deny an additional gas tail.",
       "progression": "Pages 2–4 release dust from the icy center; pages 5–6 show reflected light and relative size; pages 7–8 explain a fading diffuse tail.",
       "inference": "A tail much larger than its solid center makes the solid-versus-loose comparison specific and memorable."
     },
-    "rationale": "Revision removes competing tail types and solar-force explanations. One question—solid tail or loose dust—is answered with short linked observations, supported topic words and explicit near/far changes.",
+    "rationale": "Candidate C: one question contrasts a solid center with a visible loose-dust tail. Short paired clauses connect warming, dust release, reflected light and fading; gas-tail types, ion physics and a second solar-wind mechanism are excluded from child print.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:1b54fd2e0776c872",
-    "textHash": "sha256:a4baadd81c51b37cc72726f9152b7670c787f989588357a21d12d2654a59d097",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:fb331a657767eaf3",
+    "textHash": "sha256:b13edfb127c3ba9a33bf97901b37e26f1787e53467c0eaaad19788f4f9558ba2",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
-      "wordCount": 133,
-      "uniqueWordCount": 64,
-      "uniqueWordRatio": 0.48,
-      "averageWordLength": 3.87,
-      "averageWordsPerPage": 16.63,
+      "wordCount": 136,
+      "uniqueWordCount": 62,
+      "uniqueWordRatio": 0.46,
+      "averageWordLength": 3.8,
+      "averageWordsPerPage": 17,
       "minWordsPerPage": 15,
-      "maxWordsPerPage": 19,
-      "sentenceUnitCount": 15,
-      "averageWordsPerSentence": 8.87,
-      "maxWordsPerSentence": 17,
+      "maxWordsPerPage": 20,
+      "sentenceUnitCount": 16,
+      "averageWordsPerSentence": 8.5,
+      "maxWordsPerSentence": 14,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.13,
       "dialoguePageCount": 0,
@@ -17480,7 +17480,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -17494,32 +17494,32 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "C",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "A hard shell creates a concrete inquiry, and a repeated strike supplies the consequence. The final tool category is explicitly connected to the stone’s observed use.",
-      "vocabulary": "clam, tool, seabed",
+      "syntax": "8 pages; 11–18 words per page, 119 page words overall. Complete manuscript checked against current C limits.",
+      "vocabulary": "Current oral preparation covers clam, tool, seabed. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "Aquarium and USGS accounts support sea otter prey processing on the chest with stone tools; this is one example, not every otter’s every meal.",
       "progression": "Pages 1–4 establish prey and anvil; pages 5–6 distinguish unsuccessful and successful strikes; pages 7–8 connect access to food with tool use.",
       "inference": "The first unbroken shell gives the crack on the next strike page-turn meaning."
     },
-    "rationale": "A hard shell creates a concrete inquiry, and a repeated strike supplies the consequence. The final tool category is explicitly connected to the stone’s observed use.",
+    "rationale": "Candidate C: Action and consequence stay concrete while the ending connects a particular action to the category tool. Short paired sentences and a supported contrast earn more demand than a simple feeding list.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:c5003afcb294e81f",
-    "textHash": "sha256:3782d07210d8df5f07e91a06d349eaf46068fee59d0bd0e3c6425d99df147946",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:4d3c262a11dff6a0",
+    "textHash": "sha256:99a5683a0230a14da1991053d0ec35b5f64d19da959a307121d6a77692712370",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
-      "wordCount": 120,
-      "uniqueWordCount": 59,
-      "uniqueWordRatio": 0.49,
-      "averageWordLength": 3.88,
-      "averageWordsPerPage": 15,
+      "wordCount": 119,
+      "uniqueWordCount": 57,
+      "uniqueWordRatio": 0.48,
+      "averageWordLength": 3.85,
+      "averageWordsPerPage": 14.88,
       "minWordsPerPage": 11,
-      "maxWordsPerPage": 19,
+      "maxWordsPerPage": 18,
       "sentenceUnitCount": 16,
-      "averageWordsPerSentence": 7.5,
-      "maxWordsPerSentence": 14,
+      "averageWordsPerSentence": 7.44,
+      "maxWordsPerSentence": 13,
       "repeatedSentenceUnitCount": 0,
-      "dominantTwoWordPageOpeningRatio": 0.38,
+      "dominantTwoWordPageOpeningRatio": 0.5,
       "dialoguePageCount": 0,
       "questionPageCount": 0,
       "illustratedPageCount": 8,
@@ -17528,7 +17528,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -17542,30 +17542,30 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "C",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Temporal wording and an explicit shell-exchange comparison add supported C demand. Repeated body/shell/egg references keep the longer life sequence coherent.",
-      "vocabulary": "hatch, clutch, mature",
+      "syntax": "8 pages; 12–19 words per page, 123 page words overall. Complete manuscript checked against current C limits.",
+      "vocabulary": "Current oral preparation covers hatch, shell, grown. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "Brown garden snail sources support soil eggs, hatchling shells and growth; adult mating is mentioned without sex stereotypes or graphic detail.",
       "progression": "Pages 1–3 reveal the attached hatchling shell; pages 4–6 retain it through growth; pages 7–8 begin a new generation.",
       "inference": "The shell is present from the first emergence, contrasting with the hermit crab’s borrowed shell without repeating its story."
     },
-    "rationale": "Temporal wording and an explicit shell-exchange comparison add supported C demand. Repeated body/shell/egg references keep the longer life sequence coherent.",
+    "rationale": "Candidate C: The familiar snail is examined through a new egg/growth inquiry. Temporal language and a shell-exchange misconception require supported links across pages without using dense reproductive terminology.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:b6013c61349d3f0c",
-    "textHash": "sha256:9da43cea5c3fede983515ab19bc3ccfaa4b6b7498dc8201e86537955f6345dca",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:918ecc348953c13a",
+    "textHash": "sha256:1a4a424004f894eea89a2020abd3dce68e51323ccfaf7c1614a7e76e9b116def",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
-      "wordCount": 126,
-      "uniqueWordCount": 75,
-      "uniqueWordRatio": 0.6,
-      "averageWordLength": 3.98,
-      "averageWordsPerPage": 15.75,
-      "minWordsPerPage": 13,
+      "wordCount": 123,
+      "uniqueWordCount": 69,
+      "uniqueWordRatio": 0.56,
+      "averageWordLength": 3.99,
+      "averageWordsPerPage": 15.38,
+      "minWordsPerPage": 12,
       "maxWordsPerPage": 19,
       "sentenceUnitCount": 15,
-      "averageWordsPerSentence": 8.4,
-      "maxWordsPerSentence": 16,
+      "averageWordsPerSentence": 8.2,
+      "maxWordsPerSentence": 12,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.13,
       "dialoguePageCount": 0,
@@ -17576,7 +17576,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -17590,30 +17590,30 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "C",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "An observation, question and confirming drying test connect the pages. Explicit salt/sand comparisons support dissolving vocabulary without requiring invisible-particle theory.",
-      "vocabulary": "dissolve, settle, crystal",
+      "syntax": "8 pages; 14–20 words per page, 138 page words overall. Complete manuscript checked against current C limits.",
+      "vocabulary": "Current oral preparation covers dissolve, settle, crystal. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "RSC evidence supports salt dissolving, sand remaining separate and unheated evaporation. A small salt sample stays below saturation; nothing is tasted.",
       "progression": "Pages 2–4 contrast clear solution and settled grains; pages 5–6 recover salt; pages 7–8 group by observed behavior.",
       "inference": "Recovered white crystals provide evidence for the question rather than an adult simply announcing the answer."
     },
-    "rationale": "An observation, question and confirming drying test connect the pages. Explicit salt/sand comparisons support dissolving vocabulary without requiring invisible-particle theory.",
+    "rationale": "Candidate C: Paired sentences link an observation, a question and a confirming test. Two explicit behavior groups keep the new dissolving concept concrete; evaporation is shown as water drying without requiring particle theory.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:ef9580fccc35683e",
-    "textHash": "sha256:6762a5eaac06157e0e23e11021e16cfeb5884e13f66154612101e21f3fba4097",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:aec30d6077e56488",
+    "textHash": "sha256:d10db7ac22e3023715ab204c431c46dd66e12072ec50ef0824a56ac0b30228aa",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
-      "wordCount": 141,
-      "uniqueWordCount": 89,
-      "uniqueWordRatio": 0.63,
-      "averageWordLength": 4.21,
-      "averageWordsPerPage": 17.63,
-      "minWordsPerPage": 15,
+      "wordCount": 138,
+      "uniqueWordCount": 86,
+      "uniqueWordRatio": 0.62,
+      "averageWordLength": 4.13,
+      "averageWordsPerPage": 17.25,
+      "minWordsPerPage": 14,
       "maxWordsPerPage": 20,
-      "sentenceUnitCount": 19,
-      "averageWordsPerSentence": 7.42,
-      "maxWordsPerSentence": 13,
+      "sentenceUnitCount": 20,
+      "averageWordsPerSentence": 6.9,
+      "maxWordsPerSentence": 12,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.13,
       "dialoguePageCount": 1,
@@ -17624,7 +17624,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -17638,30 +17638,30 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "C",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "A discovered habitat changes the practical action. Paired sentences explicitly connect woodlice’s moisture needs to the log’s cover, then distinguish habitat from litter.",
-      "vocabulary": "damp, shelter, decay",
+      "syntax": "8 pages; 11–17 words per page, 116 page words overall. Complete manuscript checked against current C limits.",
+      "vocabulary": "Current oral preparation covers damp, shelter, woodlouse. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "Woodland Trust evidence supports damp shelter and dead-plant feeding; the small log sits beside an open path, and no standing hazard is retained.",
       "progression": "Pages 1–4 expose damp cover and feeding; pages 5–6 restore the log; pages 7–8 remove a wrapper while preserving the habitat.",
       "inference": "The blue wrapper is removed while the moss-up log stays, making the changed judgment visible."
     },
-    "rationale": "A discovered habitat changes the practical action. Paired sentences explicitly connect woodlice’s moisture needs to the log’s cover, then distinguish habitat from litter.",
+    "rationale": "Candidate C: A visible discovery leads to a changed practical choice. The short connected explanation adds a clear cause—woodlice’s moisture needs—without a generic conservation slogan.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:a85a1320f1aaf8de",
-    "textHash": "sha256:b34a563784ac50a18da0d6b64e590552818f274e350c376bc865844fb2567904",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:1e611adf3098629a",
+    "textHash": "sha256:c6e19cc73614fe34ea8f42b93f5fda2b338a6977cdb6d63e5671f662c4b980a1",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 8,
-      "wordCount": 119,
-      "uniqueWordCount": 81,
-      "uniqueWordRatio": 0.68,
-      "averageWordLength": 4.33,
-      "averageWordsPerPage": 14.88,
+      "wordCount": 116,
+      "uniqueWordCount": 70,
+      "uniqueWordRatio": 0.6,
+      "averageWordLength": 4.16,
+      "averageWordsPerPage": 14.5,
       "minWordsPerPage": 11,
-      "maxWordsPerPage": 18,
+      "maxWordsPerPage": 17,
       "sentenceUnitCount": 16,
-      "averageWordsPerSentence": 7.44,
-      "maxWordsPerSentence": 14,
+      "averageWordsPerSentence": 7.25,
+      "maxWordsPerSentence": 11,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.13,
       "dialoguePageCount": 0,
@@ -17672,7 +17672,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -17686,33 +17686,33 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "D",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Zoe’s initially accepted change conflicts with her own remembered reason. Dialogue, a removable prop and a stated personal explanation carry a supported perspective change over ten linked pages.",
-      "vocabulary": "prefer, puddle, remember",
+      "syntax": "10 pages; 16–21 words per page, 186 page words overall. Complete manuscript checked against current D limits.",
+      "vocabulary": "Current oral preparation covers prefer, puddle, remember. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "Kit and Zoe retain locked designs; purple boots appear only in a child’s drawing, not on the real character. Their opinions can differ without one being corrected as fact.",
       "progression": "Pages 2–5 cover the cloud and expose the mismatch; pages 6–8 restore the reason for the puddle; pages 9–10 retain two different choices.",
       "inference": "The loose paper sun can be lifted off, and the biggest splash supplies Zoe’s own reason for choosing the rainy day."
     },
-    "rationale": "Zoe’s initially accepted change conflicts with her own remembered reason. Dialogue, a removable prop and a stated personal explanation carry a supported perspective change over ten linked pages.",
+    "rationale": "Candidate D: Zoe revises a concrete choice after noticing a mismatch between her memory and someone else's preference. Dialogue, a reversible failed change and the restored picture carry an internal decision across linked pages. Independent placement remains pending.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:dfe3bc843044be84",
-    "textHash": "sha256:dccc18cd916130553aae5844d56d88658cdb23181c432a8229f1a767c0bde8bc",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:03444d9eefa52e21",
+    "textHash": "sha256:564f7d2c728fd3abef76cdd33a86dd3cadc7d601fedf66d9374d34ad0e48dbf8",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 10,
-      "wordCount": 192,
-      "uniqueWordCount": 101,
-      "uniqueWordRatio": 0.53,
-      "averageWordLength": 3.88,
-      "averageWordsPerPage": 19.2,
+      "wordCount": 186,
+      "uniqueWordCount": 95,
+      "uniqueWordRatio": 0.51,
+      "averageWordLength": 3.85,
+      "averageWordsPerPage": 18.6,
       "minWordsPerPage": 16,
       "maxWordsPerPage": 21,
-      "sentenceUnitCount": 26,
-      "averageWordsPerSentence": 7.38,
-      "maxWordsPerSentence": 13,
+      "sentenceUnitCount": 27,
+      "averageWordsPerSentence": 6.89,
+      "maxWordsPerSentence": 12,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.1,
-      "dialoguePageCount": 4,
+      "dialoguePageCount": 5,
       "questionPageCount": 1,
       "illustratedPageCount": 10,
       "independentlyDescribedPageCount": 10
@@ -17720,7 +17720,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -17734,15 +17734,15 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "D",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "A helpful intention, an unwanted change and a failed undoing lead to a different approach. Several dialogue/action steps make the perspective change explicit without abstract advice.",
-      "vocabulary": "patch, rim, support",
+      "syntax": "10 pages; 16–20 words per page, 184 page words overall. Complete manuscript checked against current D limits.",
+      "vocabulary": "Current oral preparation covers patch, rim, support. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "The model’s roof opening is intentional; the red bed and separate patch retain their locations. Precut cardboard and ready tape keep the repair child-sized.",
       "progression": "Pages 1–4 cover an intentional opening and tear its rim; pages 5–8 ask what should remain and support only the tear; pages 9–10 act on a new specific request.",
       "inference": "The final opening lets both children see the bed, paying off the precise feature that the first fix concealed."
     },
-    "rationale": "A helpful intention, an unwanted change and a failed undoing lead to a different approach. Several dialogue/action steps make the perspective change explicit without abstract advice.",
+    "rationale": "Candidate D: an initially helpful intention causes a visible loss, then a failed undoing creates a second concrete problem. Readers connect different interpretations of the opening to a changed approach and an earned repair. Independent placement remains pending.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:5acd9c050a9b701e",
     "textHash": "sha256:d35fb4e2bafd7b35b15a8bbe506dd8758a0d2b1d721593c48f8906e459fcf2c1",
     "metrics": {
@@ -17768,7 +17768,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -17782,29 +17782,29 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "D",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "The same crossing interval is compared through sight, hearing and touch. Distinguishing locator sound from the walk cue adds an introductory relationship while the sequence stays concrete.",
-      "vocabulary": "vibrate, raised, signal",
+      "syntax": "10 pages; 13–20 words per page, 170 page words overall. Complete manuscript checked against current D limits.",
+      "vocabulary": "Current oral preparation covers vibrate, raised, signal. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "US Access Board sources support quiet locator tone, rapid percussive walk signal and a vibrating arrow/button surface. The arrow is now explicitly integral to the vibrating button face; signals do not guarantee drivers have stopped.",
       "progression": "Pages 1–5 find and press the arrow-bearing button while waiting; pages 6–8 compare simultaneous walk cues; pages 9–10 complete the checked crossing.",
       "inference": "One small box communicates the same message in several forms; the adult uses the tactile cue naturally."
     },
-    "rationale": "The same crossing interval is compared through sight, hearing and touch. Distinguishing locator sound from the walk cue adds an introductory relationship while the sequence stays concrete.",
+    "rationale": "Candidate D: a bounded observation compares three forms of one signal and distinguishes locating, waiting and crossing. The final caution corrects a causal misconception without introducing traffic-engineering detail. Independent placement remains pending.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:2594e8ddb9482c91",
-    "textHash": "sha256:7395beb6b6756dbc2cd8f597e419450d07b9ae9088582879f915aa5a0a3dd7e2",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:a0fd3c22c3371f27",
+    "textHash": "sha256:a5e9720e96a53fe6a5419163098c34dcf98abb662a48199df0a94eef1a9d9c80",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 10,
-      "wordCount": 175,
-      "uniqueWordCount": 105,
-      "uniqueWordRatio": 0.6,
-      "averageWordLength": 4.38,
-      "averageWordsPerPage": 17.5,
+      "wordCount": 170,
+      "uniqueWordCount": 93,
+      "uniqueWordRatio": 0.55,
+      "averageWordLength": 4.41,
+      "averageWordsPerPage": 17,
       "minWordsPerPage": 13,
       "maxWordsPerPage": 20,
       "sentenceUnitCount": 20,
-      "averageWordsPerSentence": 8.75,
+      "averageWordsPerSentence": 8.5,
       "maxWordsPerSentence": 14,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.2,
@@ -17816,7 +17816,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -17830,29 +17830,29 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "D",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "An impossible grasp creates a fair clue about a seeded copying rule. Kit connects his empty real hand to the shadow’s failure, then supplies the real object through a sustained short dialogue sequence.",
-      "vocabulary": "outline, copies, bow",
+      "syntax": "10 pages; 17–21 words per page, 184 page words overall. Complete manuscript checked against current D limits.",
+      "vocabulary": "Current oral preparation covers outline, copies, bow. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "The revised prop is a red semicircular paper fan, not a flag. One flat silhouette remains tied to Kit’s outline and held objects while he stays inside the circle.",
       "progression": "Pages 1–3 seed copying; pages 4–6 fail to move a real fan with a flat shadow; pages 7–10 hold and wave the real fan so its copied shape moves.",
       "inference": "Kit’s bow makes the giant shadow fan dip almost to the floor while the real fan stays small."
     },
-    "rationale": "An impossible grasp creates a fair clue about a seeded copying rule. Kit connects his empty real hand to the shadow’s failure, then supplies the real object through a sustained short dialogue sequence.",
+    "rationale": "Candidate D: the concrete failed grasp leads to a supported inference about one established magical rule. Ten short dialogue/action beats retain clear object identity and end with a visible comic payoff. Independent placement remains pending.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:e005e564e113e788",
-    "textHash": "sha256:dcad67676e305307f94bbe9a28849059cfe286f6752a972061780ea0b4ea705c",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:d5cd462571e88e16",
+    "textHash": "sha256:1562ccd0d144df1b61489786cee6d21aef641cb1f5deeafd81d5ce915b34351c",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 10,
-      "wordCount": 180,
+      "wordCount": 184,
       "uniqueWordCount": 103,
-      "uniqueWordRatio": 0.57,
-      "averageWordLength": 4.01,
-      "averageWordsPerPage": 18,
+      "uniqueWordRatio": 0.56,
+      "averageWordLength": 4.03,
+      "averageWordsPerPage": 18.4,
       "minWordsPerPage": 17,
-      "maxWordsPerPage": 20,
-      "sentenceUnitCount": 25,
-      "averageWordsPerSentence": 7.2,
+      "maxWordsPerPage": 21,
+      "sentenceUnitCount": 27,
+      "averageWordsPerSentence": 6.81,
       "maxWordsPerSentence": 14,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.1,
@@ -17864,7 +17864,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -17878,30 +17878,30 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "D",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "One connected mechanism links tiny grain movements with a larger landform change. A fixed rock supports a fair time comparison; technical saltation terminology is unnecessary.",
-      "vocabulary": "dune, grain, steep",
+      "syntax": "10 pages; 14–20 words per page, 171 page words overall. Complete manuscript checked against current D limits.",
+      "vocabulary": "Current oral preparation covers dune, grain, steep. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "USGS and NPS sources support hopping, collisions, deposition and slipface migration. Motion is illustrative and no universal migration rate or dune shape is claimed.",
       "progression": "Pages 2–4 move grains up the gentle side; pages 5–7 deposit them down the steep side; pages 8–10 compare the changed dune position with fixed bedrock.",
       "inference": "The notched rock does not move, making the hill’s gradual change measurable by looking."
     },
-    "rationale": "One connected mechanism links tiny grain movements with a larger landform change. A fixed rock supports a fair time comparison; technical saltation terminology is unnecessary.",
+    "rationale": "Candidate D: a ten-step concrete mechanism connects particle movement with a larger landform change. The stable reference rock supports comparison across time; specialist labels such as saltation and repose are omitted. Independent placement remains pending.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:d9c6fbd2afa2ae4f",
-    "textHash": "sha256:a082efbfa940f79aee71b24261ba35185f5acec24d251b5bbceb2e27e59497a2",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:b892c8b829bf914e",
+    "textHash": "sha256:59fff1701522741e0926ff17cf5ab795186f035d958d963a4e27ee85b37b46dd",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 10,
       "wordCount": 171,
-      "uniqueWordCount": 100,
-      "uniqueWordRatio": 0.58,
-      "averageWordLength": 4.3,
+      "uniqueWordCount": 97,
+      "uniqueWordRatio": 0.57,
+      "averageWordLength": 4.25,
       "averageWordsPerPage": 17.1,
       "minWordsPerPage": 14,
       "maxWordsPerPage": 20,
       "sentenceUnitCount": 20,
       "averageWordsPerSentence": 8.55,
-      "maxWordsPerSentence": 11,
+      "maxWordsPerSentence": 13,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.1,
       "dialoguePageCount": 0,
@@ -17912,7 +17912,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -17926,29 +17926,29 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "D",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "A visible eclipse is connected to an introductory Sun–Earth–Moon relationship over several explanatory steps. The light/shadow vocabulary and complete round Moon support the spatial cause.",
-      "vocabulary": "eclipse, reflect, filtered",
+      "syntax": "10 pages; 15–19 words per page, 169 page words overall. Complete manuscript checked against current D limits.",
+      "vocabulary": "Current oral preparation covers eclipse, reflect, filtered. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "NASA sources support Earth blocking direct sunlight and red light transmitted through its air. Diagrams must keep Earth opaque, scale qualified and the Moon’s mare pattern unchanged.",
       "progression": "Pages 1–4 connect a dark edge to Earth’s shadow; pages 5–6 allow filtered reddish light; pages 7–10 restore direct light and separate this event from ordinary phases.",
       "inference": "The apparently bitten disk remains a whole Moon throughout; the final bright view answers the opening puzzle."
     },
-    "rationale": "A visible eclipse is connected to an introductory Sun–Earth–Moon relationship over several explanatory steps. The light/shadow vocabulary and complete round Moon support the spatial cause.",
+    "rationale": "Candidate D: a sustained visible change is linked to one spatial cause. Familiar light/shadow language supports eclipse and filtered light; the phase comparison prevents a misconception without teaching orbital calculations. Independent placement remains pending.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:585049d02c1885d0",
-    "textHash": "sha256:864a8af7c0a405540053f705fefc2b170bd6d5da7e184375a0cdcfb5393ff974",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:6da264a4a03ee80c",
+    "textHash": "sha256:bf02505c960faaa792bbad18fe3bf20d5e217761012673f9cd74d55c326349bc",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 10,
-      "wordCount": 167,
+      "wordCount": 169,
       "uniqueWordCount": 101,
       "uniqueWordRatio": 0.6,
-      "averageWordLength": 4.51,
-      "averageWordsPerPage": 16.7,
+      "averageWordLength": 4.61,
+      "averageWordsPerPage": 16.9,
       "minWordsPerPage": 15,
-      "maxWordsPerPage": 18,
+      "maxWordsPerPage": 19,
       "sentenceUnitCount": 20,
-      "averageWordsPerSentence": 8.35,
+      "averageWordsPerSentence": 8.45,
       "maxWordsPerSentence": 14,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.2,
@@ -17960,7 +17960,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -17974,30 +17974,30 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "D",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "A change of background tests the idea that a wing region is missing. Several short explanations compare transparent membrane, veins and opaque border, then apply that distinction again.",
-      "vocabulary": "transparent, membrane, vein",
+      "syntax": "10 pages; 14–22 words per page, 186 page words overall. Complete manuscript checked against current D limits.",
+      "vocabulary": "Current oral preparation covers transparent, membrane, vein. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "Primary Greta oto studies support transparent membrane, sparse bristle-like scales and opaque broad-scaled borders. Art locks now include four developed walking legs plus reduced forelegs.",
       "progression": "Pages 1–5 establish an intact light-transmitting patch and its borders; pages 6–8 change the background; pages 9–10 retain the complete wing during movement.",
       "inference": "The same patch looks green and then pink because the visible background changes, not the butterfly’s identity."
     },
-    "rationale": "A change of background tests the idea that a wing region is missing. Several short explanations compare transparent membrane, veins and opaque border, then apply that distinction again.",
+    "rationale": "Candidate D: the reader tracks the same body part through a controlled change of background and distinguishes transparent material from absence. Paired explanations and supported counterexamples earn more demand than a simple animal label book. Independent placement remains pending.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:9fe801114c655d9b",
-    "textHash": "sha256:0365658a6ce2ed86a2d8b18f087504ad3990650d39b52557703fb285d1c10110",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:5575b000a194187b",
+    "textHash": "sha256:f7242af618f317925083116e809c7ccbc370c658698f0191b3dfc02ea241bb8c",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 10,
-      "wordCount": 187,
-      "uniqueWordCount": 108,
-      "uniqueWordRatio": 0.58,
-      "averageWordLength": 4.25,
-      "averageWordsPerPage": 18.7,
+      "wordCount": 186,
+      "uniqueWordCount": 97,
+      "uniqueWordRatio": 0.52,
+      "averageWordLength": 4.2,
+      "averageWordsPerPage": 18.6,
       "minWordsPerPage": 14,
       "maxWordsPerPage": 22,
       "sentenceUnitCount": 21,
-      "averageWordsPerSentence": 8.9,
-      "maxWordsPerSentence": 16,
+      "averageWordsPerSentence": 8.86,
+      "maxWordsPerSentence": 17,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.1,
       "dialoguePageCount": 0,
@@ -18008,7 +18008,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -18022,32 +18022,32 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "D",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "The sequence links a hard covering’s limitation to a soft new covering and its hardening. The final two-shapes comparison requires a fair distinction between animal and empty molt.",
-      "vocabulary": "molt, expand, sheltered",
+      "syntax": "10 pages; 11–22 words per page, 175 page words overall. Complete manuscript checked against current D limits.",
+      "vocabulary": "Current oral preparation covers molt, expand, sheltered. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "Maryland DNR and Florida FWC evidence support blue-crab molting and water-driven expansion. One living crab has ten limbs; the old exuvia is a separate empty cast, not another live crab.",
       "progression": "Pages 1–4 prepare and shed the outer covering; pages 5–8 distinguish exuvia, water expansion and shelter; pages 9–10 leave the empty form behind.",
       "inference": "The empty shape cannot follow the living animal, resolving why two crab-like forms appeared."
     },
-    "rationale": "The sequence links a hard covering’s limitation to a soft new covering and its hardening. The final two-shapes comparison requires a fair distinction between animal and empty molt.",
+    "rationale": "Candidate D: one bounded developmental change is told through sequential cause and contrast, with a final inference about two similar-looking forms. Molt is supported by concrete covering language; mating and larval stages are excluded. Independent placement remains pending.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:c66d329e584a41dd",
-    "textHash": "sha256:3689ec67e2f85cc7b9cf3522ba6e2ad8ed9abc1872f9087d31b8a1eaebb96893",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:7b5a5acac937b5cf",
+    "textHash": "sha256:b2180302f5bee8350e22deb1d8c042be32451e65769e04717f5068a1ecb77c2e",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 10,
-      "wordCount": 188,
-      "uniqueWordCount": 102,
-      "uniqueWordRatio": 0.54,
+      "wordCount": 175,
+      "uniqueWordCount": 91,
+      "uniqueWordRatio": 0.52,
       "averageWordLength": 4.13,
-      "averageWordsPerPage": 18.8,
-      "minWordsPerPage": 17,
+      "averageWordsPerPage": 17.5,
+      "minWordsPerPage": 11,
       "maxWordsPerPage": 22,
       "sentenceUnitCount": 21,
-      "averageWordsPerSentence": 8.95,
-      "maxWordsPerSentence": 14,
+      "averageWordsPerSentence": 8.33,
+      "maxWordsPerSentence": 13,
       "repeatedSentenceUnitCount": 0,
-      "dominantTwoWordPageOpeningRatio": 0.1,
+      "dominantTwoWordPageOpeningRatio": 0.2,
       "dialoguePageCount": 0,
       "questionPageCount": 0,
       "illustratedPageCount": 10,
@@ -18056,7 +18056,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -18070,30 +18070,30 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "D",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Two contrasting specimens develop a nested fruit/seed relationship. The printed comparison and fixed six-pea count support classification beyond a simple appearance group.",
-      "vocabulary": "pod, fruit, flesh",
+      "syntax": "10 pages; 15–20 words per page, 178 page words overall. Complete manuscript checked against current D limits.",
+      "vocabulary": "Current oral preparation covers pod, fruit, flesh. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "University extension sources support tomato and pea pod as botanical fruits and individual peas as seeds. Claims stay with these seeded examples, avoiding a universal fruit checklist.",
       "progression": "Pages 2–5 connect both fruits to flowers and seeds; pages 6–8 separate a pea from its pod and compare tomato flesh; pages 9–10 apply the same relationship to both dishes.",
       "inference": "Six peas remain accounted for even when one is lifted out: the whole pod is not one giant seed."
     },
-    "rationale": "Two contrasting specimens develop a nested fruit/seed relationship. The printed comparison and fixed six-pea count support classification beyond a simple appearance group.",
+    "rationale": "Candidate D: comparison develops a nested part-whole relationship, correcting the plausible idea that the whole pod is one seed. Several linked explanations and stable examples support botanical vocabulary without encyclopedic categories. Independent placement remains pending.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:53d8cdef72334ffd",
-    "textHash": "sha256:12d4a800edbabc1d886142369a9e075cadd35cb73f51a0e7b193811f2aaba40b",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:5f25fb94697ad415",
+    "textHash": "sha256:3e0e1b88d71df22ec7be6e3620b28dcec1982a3160c0a54bb1161d2beab0be89",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 10,
-      "wordCount": 177,
-      "uniqueWordCount": 86,
-      "uniqueWordRatio": 0.49,
-      "averageWordLength": 4.01,
-      "averageWordsPerPage": 17.7,
+      "wordCount": 178,
+      "uniqueWordCount": 82,
+      "uniqueWordRatio": 0.46,
+      "averageWordLength": 3.97,
+      "averageWordsPerPage": 17.8,
       "minWordsPerPage": 15,
       "maxWordsPerPage": 20,
       "sentenceUnitCount": 21,
-      "averageWordsPerSentence": 8.43,
-      "maxWordsPerSentence": 14,
+      "averageWordsPerSentence": 8.48,
+      "maxWordsPerSentence": 13,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.2,
       "dialoguePageCount": 0,
@@ -18104,7 +18104,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -18118,29 +18118,29 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "D",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Before-and-after observations connect one fixture’s direction to glare, spill and useful light. The timing step closes the same bounded inquiry rather than adding an ecology catalogue.",
-      "vocabulary": "shield, glare, timer",
+      "syntax": "10 pages; 14–21 words per page, 177 page words overall. Complete manuscript checked against current D limits.",
+      "vocabulary": "Current oral preparation covers shield, glare, timer. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "DarkSky/IES and NPS evidence supports targeted, controlled lighting. An adult alone fits the shield with power off; no claim that one fixture eliminates regional skyglow.",
       "progression": "Pages 1–3 identify unwanted spill; pages 4–6 fit a top-and-side shield and compare the same view; pages 7–10 connect needed brightness and timing to the local path.",
       "inference": "The same bulb can serve the path while the hedge and upstairs window receive less direct light."
     },
-    "rationale": "Before-and-after observations connect one fixture’s direction to glare, spill and useful light. The timing step closes the same bounded inquiry rather than adding an ecology catalogue.",
+    "rationale": "Candidate D: a concrete before-and-after sequence connects lamp design, direction, usefulness and timing. The reader tracks what changes and what stays the same; the scope remains one fixture rather than a wide ecology lecture. Independent placement remains pending.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:b02894d791062d2c",
-    "textHash": "sha256:02520808e76ae372073331d5b3f0adf6faece332a31bf844db14328035f14c28",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:9332635e185a77bc",
+    "textHash": "sha256:fdf39892fc41b1fb7d3aab44728403f0c729f7788c8d595c99c97b0ffaf0f0b2",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 10,
-      "wordCount": 185,
-      "uniqueWordCount": 97,
-      "uniqueWordRatio": 0.52,
-      "averageWordLength": 4.18,
-      "averageWordsPerPage": 18.5,
+      "wordCount": 177,
+      "uniqueWordCount": 87,
+      "uniqueWordRatio": 0.49,
+      "averageWordLength": 4.23,
+      "averageWordsPerPage": 17.7,
       "minWordsPerPage": 14,
       "maxWordsPerPage": 21,
-      "sentenceUnitCount": 20,
-      "averageWordsPerSentence": 9.25,
+      "sentenceUnitCount": 21,
+      "averageWordsPerSentence": 8.43,
       "maxWordsPerSentence": 14,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.1,
@@ -18152,7 +18152,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -18166,24 +18166,24 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "E",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Two simultaneous wishes remain active: sharing a new skill and keeping an earlier worry private. A failed fold, a pause and a new sheet resolve that conflict through supported motive and temporal reference.",
-      "vocabulary": "private, fold, choose",
+      "syntax": "10 pages; 18–21 words per page, 196 page words overall. Complete manuscript checked against current E limits.",
+      "vocabulary": "Current oral preparation covers private, fold, choose. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "The swimmer exists only in a drawing; current Kit/Zoe clothing stays fixed. Kit waits for the offered picture and does not open Zoe’s folder.",
       "progression": "Pages 1–4 establish two memories and failed concealment; pages 5–7 distinguish withholding everything from choosing one part; pages 8–10 preserve the original while sharing the new drawing.",
       "inference": "The first drawing remains hers even after a different picture hangs publicly."
     },
-    "rationale": "Two simultaneous wishes remain active: sharing a new skill and keeping an earlier worry private. A failed fold, a pause and a new sheet resolve that conflict through supported motive and temporal reference.",
+    "rationale": "Candidate E: the reader follows two simultaneous wishes, a failed concealment, a pause that exposes the conflict, and a deliberate solution. Earlier fear, present pride and ownership of personal detail remain connected through concrete sheets and folds. Independent placement remains pending.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:bbfbefc13ff37a0d",
-    "textHash": "sha256:c097f50b80493fb30e15cd2f5bd32fe829b0e200f3dd80b173f0c82ba9a79de7",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:842dfe5f0898a477",
+    "textHash": "sha256:a536c4bb1fe6e85c0e5a805b310699dd58642082c275333c738d99f076e819b8",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 10,
       "wordCount": 196,
-      "uniqueWordCount": 111,
-      "uniqueWordRatio": 0.57,
-      "averageWordLength": 3.94,
+      "uniqueWordCount": 106,
+      "uniqueWordRatio": 0.54,
+      "averageWordLength": 3.95,
       "averageWordsPerPage": 19.6,
       "minWordsPerPage": 18,
       "maxWordsPerPage": 21,
@@ -18200,7 +18200,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -18214,15 +18214,15 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "E",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Concealed knowledge, an accidental fall and delayed disclosure sustain motive across the search. The later solution uses an earlier sound and location, earning supported inference.",
-      "vocabulary": "gap, explain, clue",
+      "syntax": "10 pages; 17–22 words per page, 203 page words overall. Complete manuscript checked against current E limits.",
+      "vocabulary": "Current oral preparation covers gap, explain, clue. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "Exactly twelve puzzle pieces remain: eleven assembled and one hidden/fallen/retrieved. The bench gap is accessible without moving heavy furniture or trapping a child.",
       "progression": "Pages 1–3 hide then lose the piece; pages 4–5 search without useful information; pages 6–9 disclose and retrace the fall; page 10 gives Zoe the final placement.",
       "inference": "The small tap becomes useful evidence only after Kit says where he hid the piece."
     },
-    "rationale": "Concealed knowledge, an accidental fall and delayed disclosure sustain motive across the search. The later solution uses an earlier sound and location, earning supported inference.",
+    "rationale": "Candidate E: the plot depends on concealed knowledge, an unintended consequence, delayed disclosure and a shared inference from an earlier sound. Pronouns, time clauses and dialogue sustain motives across the whole search without an abstract moral. Independent placement remains pending.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:eadcb37cc82b190b",
     "textHash": "sha256:906c120d31ac4da2c9f756c645b6aa849f946226f98986e604c0432bc5dfafe8",
     "metrics": {
@@ -18248,7 +18248,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -18262,32 +18262,32 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "E",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "An attractive morning solution fails at the relevant time. The revised plan coordinates noon shade, present tree size and a clear walking route across temporal and spatial comparisons.",
-      "vocabulary": "courtyard, shade, crown",
+      "syntax": "10 pages; 16–21 words per page, 193 page words overall. Complete manuscript checked against current E limits.",
+      "vocabulary": "Current oral preparation covers courtyard, shade, crown. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "EPA and DOE sources support shade and time-sensitive site planning. The bench remains on the west side; the morning east-wall shadow and fixed doorway route are consistently specified.",
       "progression": "Pages 1–2 establish the noon problem; pages 3–5 test morning shade at lunchtime; pages 6–8 locate and check a canopy; pages 9–10 preserve future tree care and present access.",
       "inference": "The final plan succeeds at lunchtime and still leaves room for someone passing through."
     },
-    "rationale": "An attractive morning solution fails at the relevant time. The revised plan coordinates noon shade, present tree size and a clear walking route across temporal and spatial comparisons.",
+    "rationale": "Candidate E: an apparent solution is tested against a different time, revised using a plan, and weighed against a second need. The linked inquiry asks readers to compare observations, distinguish present from future shade and infer why placement matters. Independent placement remains pending.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:7524e275dc6b090b",
-    "textHash": "sha256:16302eb1f3c2ea5e33c0d7e70c4256ed75eb19f42291278ccd39620781b138b0",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:3df763615d1ebe7e",
+    "textHash": "sha256:737d5b429589eaeff14b55253052c2ed1bcb3d04a8377106d47e1550eb1a83c8",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 10,
-      "wordCount": 195,
-      "uniqueWordCount": 102,
+      "wordCount": 193,
+      "uniqueWordCount": 101,
       "uniqueWordRatio": 0.52,
-      "averageWordLength": 4.21,
-      "averageWordsPerPage": 19.5,
+      "averageWordLength": 4.22,
+      "averageWordsPerPage": 19.3,
       "minWordsPerPage": 16,
       "maxWordsPerPage": 21,
       "sentenceUnitCount": 20,
-      "averageWordsPerSentence": 9.75,
+      "averageWordsPerSentence": 9.65,
       "maxWordsPerSentence": 16,
       "repeatedSentenceUnitCount": 0,
-      "dominantTwoWordPageOpeningRatio": 0.2,
+      "dominantTwoWordPageOpeningRatio": 0.3,
       "dialoguePageCount": 1,
       "questionPageCount": 1,
       "illustratedPageCount": 10,
@@ -18296,7 +18296,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -18310,29 +18310,29 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "E",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "The revised opening visibly seeds the wiped yellow corner. The reader retains the paint rule, follows unseen displacement and connects that remembered evidence to a controlled recovery.",
-      "vocabulary": "vanish, rim, visible",
+      "syntax": "10 pages; 18–21 words per page, 193 page words overall. Complete manuscript checked against current E limits.",
+      "vocabulary": "Current oral preparation covers vanish, rim, visible. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "All visible boat surfaces, including its mast, are now painted before disappearance and wiped clean at the end. Painted objects stay solid; the unpainted table and tools remain visible.",
       "progression": "Page 1 tests wiping; pages 2–4 coat the hull, sail, mast and tray; pages 5–6 expose the failure of guessing; pages 7–10 trace and clean the moved objects.",
       "inference": "A revealed yellow edge leads to a blue strip, turning the tray itself into a usable clue."
     },
-    "rationale": "The revised opening visibly seeds the wiped yellow corner. The reader retains the paint rule, follows unseen displacement and connects that remembered evidence to a controlled recovery.",
+    "rationale": "Candidate E: the reader retains an opening rule, tracks an unseen object's location after contact, recognizes the danger of repeating the failed approach, and connects a remembered observation to a controlled solution. Temporal and conditional clauses support the inference. Independent placement remains pending.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:d494b5d83a0e38d7",
-    "textHash": "sha256:a14197b915712fcd42a3c126dfed3ceba306c651b63db5f4aab689b73f38a0fc",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:3d9be9561aa2f6cd",
+    "textHash": "sha256:4289b43e4dba92b3eede9166360b561e3ee25bb4367c7af99e8eea95a9a9e859",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 10,
       "wordCount": 193,
-      "uniqueWordCount": 105,
+      "uniqueWordCount": 104,
       "uniqueWordRatio": 0.54,
-      "averageWordLength": 4.16,
+      "averageWordLength": 4.1,
       "averageWordsPerPage": 19.3,
       "minWordsPerPage": 18,
       "maxWordsPerPage": 21,
-      "sentenceUnitCount": 23,
-      "averageWordsPerSentence": 8.39,
+      "sentenceUnitCount": 25,
+      "averageWordsPerSentence": 7.72,
       "maxWordsPerSentence": 13,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.1,
@@ -18344,7 +18344,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -18358,29 +18358,29 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "E",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "A present valley puzzle is reconstructed through past glacier movement, then tested against remaining shape and scratches. The explicit temporal shifts and supported causal inference earn E without an extended landform catalogue.",
-      "vocabulary": "glacier, valley, clue",
+      "syntax": "10 pages; 17–22 words per page, 202 page words overall. Complete manuscript checked against current E limits.",
+      "vocabulary": "Current oral preparation covers glacier, valley, clue. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "NPS and USGS evidence supports widening/deepening, embedded-rock striations and a retreating front while ice still flows downslope. No backward-sliding glacier or instant landscape change is depicted.",
       "progression": "Pages 1–3 connect present space to former ice; pages 4–5 explain erosion; pages 6–7 retreat by net melting; pages 8–10 return to the two present clues.",
       "inference": "The ice is missing, but its work remains visible beside the small present river."
     },
-    "rationale": "A present valley puzzle is reconstructed through past glacier movement, then tested against remaining shape and scratches. The explicit temporal shifts and supported causal inference earn E without an extended landform catalogue.",
+    "rationale": "Candidate E: a present puzzle prompts reconstruction across past and present, then inference from two remaining clues. One explained specialist noun and a single erosion chain support temporal and causal reasoning without a landform catalogue. Independent placement remains pending.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:5eae69eefc9f0886",
-    "textHash": "sha256:f5db2e245c8c2e293c174067aae033bd748e419fd1a1ce85f7c54301723bda70",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:f78a02263c44fafa",
+    "textHash": "sha256:06119a48cbe9ee4651d30ab177f3c1c8d7d2aad859e0b4a5ec77d619f459056e",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 10,
-      "wordCount": 204,
-      "uniqueWordCount": 114,
-      "uniqueWordRatio": 0.56,
+      "wordCount": 202,
+      "uniqueWordCount": 108,
+      "uniqueWordRatio": 0.53,
       "averageWordLength": 4.25,
-      "averageWordsPerPage": 20.4,
+      "averageWordsPerPage": 20.2,
       "minWordsPerPage": 17,
       "maxWordsPerPage": 22,
       "sentenceUnitCount": 20,
-      "averageWordsPerSentence": 10.2,
+      "averageWordsPerSentence": 10.1,
       "maxWordsPerSentence": 16,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.1,
@@ -18392,7 +18392,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -18406,29 +18406,29 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "E",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "The reader transfers a depth/viewpoint relation from a model to real stars, then applies an explicit limit. Contrast clauses and cross-page references support a spatial inference beyond merely naming a pattern.",
-      "vocabulary": "model, depth, constellation",
+      "syntax": "10 pages; 15–22 words per page, 193 page words overall. Complete manuscript checked against current E limits.",
+      "vocabulary": "Current oral preparation covers model, depth, constellation. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "NASA and LPI sources support different stellar distances within apparent patterns. Equal model cards remain fixed; ordinary movement across a yard cannot produce the model’s side-view change for distant stars.",
       "progression": "Pages 1–2 pose and model the problem; pages 3–6 change observers while holding cards fixed; pages 7–8 limit the analogy; pages 9–10 interpret apparent grouping.",
       "inference": "The same three stars can look close without occupying one small region of space."
     },
-    "rationale": "The reader transfers a depth/viewpoint relation from a model to real stars, then applies an explicit limit. Contrast clauses and cross-page references support a spatial inference beyond merely naming a pattern.",
+    "rationale": "Candidate E: readers transfer a viewpoint-and-depth relationship from a concrete model to the sky, then use an explicit limit to avoid overgeneralizing it. Contrast clauses and cross-page reference sustain a spatial inference, not a constellation list. Independent placement remains pending.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:19b2432804324db3",
-    "textHash": "sha256:ebac5b708e4225a5eb150d465a53623523a6d32d1112d8f2437ca62a46cf4fee",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:098cb1766bd01541",
+    "textHash": "sha256:8b1df3eadf189e9594733f564a3d106c76580b4abb55a3fc891397675c8af3ba",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 10,
-      "wordCount": 203,
-      "uniqueWordCount": 115,
-      "uniqueWordRatio": 0.57,
-      "averageWordLength": 4.19,
-      "averageWordsPerPage": 20.3,
-      "minWordsPerPage": 18,
+      "wordCount": 193,
+      "uniqueWordCount": 103,
+      "uniqueWordRatio": 0.53,
+      "averageWordLength": 4.17,
+      "averageWordsPerPage": 19.3,
+      "minWordsPerPage": 15,
       "maxWordsPerPage": 22,
-      "sentenceUnitCount": 19,
-      "averageWordsPerSentence": 10.68,
+      "sentenceUnitCount": 17,
+      "averageWordsPerSentence": 11.35,
       "maxWordsPerSentence": 19,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.1,
@@ -18440,7 +18440,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -18454,78 +18454,30 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "E",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "The reader first forms a comparison from visible actions and hidden prey, then adjusts it for overlapping methods. That qualification sustains reasoning while the two species remain concrete.",
-      "vocabulary": "plover, dowitcher, probe",
+      "syntax": "10 pages; 16–22 words per page, 201 page words overall. Complete manuscript checked against current E limits.",
+      "vocabulary": "Current oral preparation covers plover, dowitcher, probe. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "Cornell and Smithsonian accounts support the named birds’ search behaviors and overlapping prey. The cutaway is reader explanation, not X-ray vision or an exclusive feeding zone.",
       "progression": "Pages 1–3 follow the plover’s surface search; pages 4–6 reveal probing reach; pages 7–8 compare and qualify; pages 9–10 connect marks and opportunities to the same mudflat.",
       "inference": "Probing holes remain evidence even when the worm itself stays hidden."
     },
-    "rationale": "The reader first forms a comparison from visible actions and hidden prey, then adjusts it for overlapping methods. That qualification sustains reasoning while the two species remain concrete.",
+    "rationale": "Candidate E: the reader forms a supported comparison, then adjusts it when an exception appears. Hidden prey, visible actions and reach stay connected; two orally introduced bird names support one inquiry rather than an animal catalogue. Independent placement remains pending.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:75e761882270d869",
-    "textHash": "sha256:c26f1751141416f17986e6d50654bb3d99137cbd52ac92e8400276228f689a64",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:c68ffea9719db70e",
+    "textHash": "sha256:131c4fda873bda9a94faca19ac3b91f9dcccb905b63b630eba2a8e4347d53104",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 10,
-      "wordCount": 204,
-      "uniqueWordCount": 119,
-      "uniqueWordRatio": 0.58,
-      "averageWordLength": 4.2,
-      "averageWordsPerPage": 20.4,
+      "wordCount": 201,
+      "uniqueWordCount": 112,
+      "uniqueWordRatio": 0.56,
+      "averageWordLength": 4.18,
+      "averageWordsPerPage": 20.1,
       "minWordsPerPage": 16,
       "maxWordsPerPage": 22,
-      "sentenceUnitCount": 21,
-      "averageWordsPerSentence": 9.71,
-      "maxWordsPerSentence": 16,
-      "repeatedSentenceUnitCount": 0,
-      "dominantTwoWordPageOpeningRatio": 0.1,
-      "dialoguePageCount": 0,
-      "questionPageCount": 0,
-      "illustratedPageCount": 10,
-      "independentlyDescribedPageCount": 10
-    },
-    "illustrationSupport": {
-      "basis": "existing-description-metadata",
-      "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
-    },
-    "lexile": {
-      "status": "pending",
-      "measure": null,
-      "label": "Lexile pending",
-      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
-    }
-  },
-  "world-discovery-e-18": {
-    "title": "The Butterfly Relay",
-    "appReadingLevel": "E",
-    "levelSystem": "literacy-guide-a-h-v1",
-    "readingDemands": {
-      "syntax": "Season markers and a plain definition of generation let readers distinguish continuity of a route from continuity of an individual. The ending requires a supported year-spanning inference without distance figures or mechanism overload.",
-      "vocabulary": "generation, descendants, relay",
-      "knowledge": "FWS and NPS sources support the eastern migratory population’s Mexican overwintering and multigeneration northward movement. Maps must stay in eastern North America; no uniquely marked individual returns across the full year.",
-      "progression": "Pages 1–3 follow autumn migrants through winter into spring; pages 4–7 introduce descendants moving north; pages 8–10 return a different generation south to the earlier region.",
-      "inference": "The same winter forest welcomes new butterflies, making the relay comparison meaningful rather than literal."
-    },
-    "rationale": "Season markers and a plain definition of generation let readers distinguish continuity of a route from continuity of an individual. The ending requires a supported year-spanning inference without distance figures or mechanism overload.",
-    "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:12219f7311fba905",
-    "textHash": "sha256:fa49d96e69e5573b096674eef0621a165671d30e90fd766283a0d88b87cff8f1",
-    "metrics": {
-      "metricVersion": "1",
-      "pageCount": 10,
-      "wordCount": 202,
-      "uniqueWordCount": 120,
-      "uniqueWordRatio": 0.59,
-      "averageWordLength": 5,
-      "averageWordsPerPage": 20.2,
-      "minWordsPerPage": 18,
-      "maxWordsPerPage": 22,
       "sentenceUnitCount": 20,
-      "averageWordsPerSentence": 10.1,
-      "maxWordsPerSentence": 15,
+      "averageWordsPerSentence": 10.05,
+      "maxWordsPerSentence": 16,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.2,
       "dialoguePageCount": 0,
@@ -18536,7 +18488,55 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
+    },
+    "lexile": {
+      "status": "pending",
+      "measure": null,
+      "label": "Lexile pending",
+      "reason": "No authorized MetaMetrics measurement receipt for this exact text."
+    }
+  },
+  "world-discovery-e-18": {
+    "title": "The Monarchs’ Long Journey",
+    "appReadingLevel": "E",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "readingDemands": {
+      "syntax": "10 pages; 18–21 words per page, 197 page words overall. Complete manuscript checked against current E limits.",
+      "vocabulary": "Current oral preparation covers generation, descendants, milkweed. All prose and glosses reread for literal, contemporary ESL language and picture support.",
+      "knowledge": "FWS and NPS sources support the eastern migratory population’s Mexican overwintering and multigeneration northward movement. Maps must stay in eastern North America; no uniquely marked individual returns across the full year.",
+      "progression": "Pages 1–3 follow autumn migrants through winter into spring; pages 4–7 introduce descendants moving north; pages 8–10 return a different generation south to the earlier region.",
+      "inference": "The same winter forest welcomes new butterflies, making the relay comparison meaningful rather than literal."
+    },
+    "rationale": "Candidate E: the reader distinguishes continuity of a journey from continuity of an individual. Season markers, a plain explanation of generation and return to the winter setting support this inference; exact distances, generation counts and migration mechanisms are excluded. Independent placement remains pending.",
+    "reviewMethod": "codex-full-manuscript-editorial-review",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:644e73c4cf537a40",
+    "textHash": "sha256:d593d50b8a3edc73c2c62256f89f3bd04d238d1f0a649b3f268bd26440a2d149",
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 197,
+      "uniqueWordCount": 117,
+      "uniqueWordRatio": 0.59,
+      "averageWordLength": 5.08,
+      "averageWordsPerPage": 19.7,
+      "minWordsPerPage": 18,
+      "maxWordsPerPage": 21,
+      "sentenceUnitCount": 21,
+      "averageWordsPerSentence": 9.38,
+      "maxWordsPerSentence": 15,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.1,
+      "dialoguePageCount": 0,
+      "questionPageCount": 0,
+      "illustratedPageCount": 10,
+      "independentlyDescribedPageCount": 10
+    },
+    "illustrationSupport": {
+      "basis": "existing-description-metadata",
+      "status": "separately-described",
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -18550,33 +18550,33 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "E",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "The reader coordinates two properties and their negations, then transfers the rule to new shapes and a different size. Both/neither reasoning and the final same-answers distinction sustain E demand.",
-      "vocabulary": "sort, neither, column",
+      "syntax": "10 pages; 16–22 words per page, 196 page words overall. Complete manuscript checked against current E limits.",
+      "vocabulary": "Current oral preparation covers sort, neither, column. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "NRICH’s Carroll-diagram structure supports the exact red/not-red by round/not-round grid. Headers and fixed orientation are required on interior diagrams; six pieces stay accounted for.",
       "progression": "Pages 1–3 expose the limits of one-property sorting; pages 4–7 fill all four cells; pages 8–9 test new examples; page 10 separates matching criteria from being identical.",
       "inference": "A triangle and square share a cell because of two answers, even though they visibly differ."
     },
-    "rationale": "The reader coordinates two properties and their negations, then transfers the rule to new shapes and a different size. Both/neither reasoning and the final same-answers distinction sustain E demand.",
+    "rationale": "Candidate E: the reader coordinates two properties, tracks negation and interprets both/neither, then transfers the rule to new examples without adding a size rule. The closing inference distinguishes matching criteria from being identical. Independent placement remains pending.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:64c7c29ef4dc8a38",
-    "textHash": "sha256:628aec0aa3bfa3cb13f05eb46ad0466e1c2d5a7da721ab6331977934e229dd19",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:edc79687c94016c9",
+    "textHash": "sha256:f92f0a86755306af5b91be76756e80f7cca5b8646b34d325bc5fb165949291c1",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 10,
-      "wordCount": 202,
-      "uniqueWordCount": 95,
-      "uniqueWordRatio": 0.47,
-      "averageWordLength": 4.19,
-      "averageWordsPerPage": 20.2,
-      "minWordsPerPage": 18,
+      "wordCount": 196,
+      "uniqueWordCount": 85,
+      "uniqueWordRatio": 0.43,
+      "averageWordLength": 4.15,
+      "averageWordsPerPage": 19.6,
+      "minWordsPerPage": 16,
       "maxWordsPerPage": 22,
-      "sentenceUnitCount": 20,
-      "averageWordsPerSentence": 10.1,
+      "sentenceUnitCount": 22,
+      "averageWordsPerSentence": 8.91,
       "maxWordsPerSentence": 14,
       "repeatedSentenceUnitCount": 0,
-      "dominantTwoWordPageOpeningRatio": 0.2,
-      "dialoguePageCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.3,
+      "dialoguePageCount": 1,
       "questionPageCount": 1,
       "illustratedPageCount": 10,
       "independentlyDescribedPageCount": 10
@@ -18584,7 +18584,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -18598,29 +18598,29 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "appReadingLevel": "E",
     "levelSystem": "literacy-guide-a-h-v1",
     "readingDemands": {
-      "syntax": "Conditional consequences connect mowing decisions to weeks of change. Faded flowers invite a revised judgment when seed production continues, and the ending integrates habitat with access.",
-      "vocabulary": "bud, seed head, route",
+      "syntax": "10 pages; 18–22 words per page, 200 page words overall. Complete manuscript checked against current E limits.",
+      "vocabulary": "Current oral preparation covers bud, seed head, route. All prose and glosses reread for literal, contemporary ESL language and picture support.",
       "knowledge": "Xerces and USDA evidence supports site-specific mowing timing and Rudbeckia hirta flowering/seed development. No blanket no-mowing rule, instant growth or sunflower-sized seeds is implied.",
       "progression": "Pages 1–3 retain buds beside a cut route; pages 4–6 follow bloom into seed heads; pages 7–9 allow maturation and continued management; page 10 keeps both uses visible.",
       "inference": "The less colorful brown heads still have a function, so the patch’s value is not judged by peak flowers alone."
     },
-    "rationale": "Conditional consequences connect mowing decisions to weeks of change. Faded flowers invite a revised judgment when seed production continues, and the ending integrates habitat with access.",
+    "rationale": "Candidate E: conditional consequences connect a planning choice to changes over weeks, then the reader revises an appearance-based judgment when faded flowers still have a function. The ending integrates access and habitat without a universal rule to stop mowing. Independent placement remains pending.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-11-07",
-    "textFingerprint": "fnv1a64:cf7a47e5f561f216",
-    "textHash": "sha256:2c682b685b6284dd3b70d13a19a35b9cce240e09f85282e2b7fb5424cb58a3a4",
+    "reviewedAt": "2026-11-09",
+    "textFingerprint": "fnv1a64:40151b28c2b906fc",
+    "textHash": "sha256:2d69bd21aef7f4dfb159529e362c0a9f621c2d613d79c745199a0121ea024500",
     "metrics": {
       "metricVersion": "1",
       "pageCount": 10,
-      "wordCount": 204,
-      "uniqueWordCount": 130,
-      "uniqueWordRatio": 0.64,
-      "averageWordLength": 4.4,
-      "averageWordsPerPage": 20.4,
-      "minWordsPerPage": 19,
+      "wordCount": 200,
+      "uniqueWordCount": 118,
+      "uniqueWordRatio": 0.59,
+      "averageWordLength": 4.37,
+      "averageWordsPerPage": 20,
+      "minWordsPerPage": 18,
       "maxWordsPerPage": 22,
       "sentenceUnitCount": 20,
-      "averageWordsPerSentence": 10.2,
+      "averageWordsPerSentence": 10,
       "maxWordsPerSentence": 17,
       "repeatedSentenceUnitCount": 0,
       "dominantTwoWordPageOpeningRatio": 0.1,
@@ -18632,7 +18632,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",
@@ -18654,7 +18654,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     },
     "rationale": "the full sandwich investigation sustains paragraph-length dialogue and explanatory clauses across organs, chemical helpers, nutrient absorption, blood transport, waste and elapsed time. Its specialist causal network and two linked mysteries far exceed the short Meadow/Dino stories.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-29",
+    "reviewedAt": "2026-11-09",
     "textFingerprint": "fnv1a64:61b5dc18669d6b34",
     "textHash": "sha256:5b501f2db159824dae0154b9198eae50105d87ad19047a02bf9871903cef6a0f",
     "metrics": {
@@ -18680,7 +18680,7 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
     "illustrationSupport": {
       "basis": "existing-description-metadata",
       "status": "separately-described",
-      "note": "Picture support is a contextual assumption from the manuscript and available descriptions; this review did not inspect rendered art."
+      "note": "This field is derived from manuscript descriptions. Direct visual review is recorded separately; description metadata does not establish image accuracy."
     },
     "lexile": {
       "status": "pending",

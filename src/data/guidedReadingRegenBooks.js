@@ -1116,8 +1116,8 @@ export const guidedReadingRegenBooks = [
         "pageNumber": 5,
         "text": "I have two hands.",
         "image": "/guided-reading/regen/pages/gr-a-29-page-05.webp",
-        "imageAlt": "A child holding up two open hands with all ten fingers spread.",
-        "pageDescription": "A child holds up two open hands showing all ten fingers spread wide.",
+        "imageAlt": "A child uses both hands to build a tower of red, blue and yellow blocks.",
+        "pageDescription": "One hand places a red block on the tower while the other hand holds the yellow block steady.",
         "embeddedImageText": "",
         "targetWords": [
           "I",

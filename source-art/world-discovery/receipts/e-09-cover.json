@@ -22,9 +22,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T05:28:00.999Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "3dfb4ef837f7ddb98e156076c1322194297ccd36c188dc8216d5c3e24a8733ae",
     "note": "Adult blue whale and calf above fish; corrected both whale tails to horizontal flukes, fish tails remain vertical.",
-    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-e.json",
+    "bookId": "world-discovery-e-09",
+    "sha256": "43eb926cbe0a07dc0d1b058be1105196bed2baedce48a013f47f33f5ea5b6077",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

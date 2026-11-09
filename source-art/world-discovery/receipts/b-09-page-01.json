@@ -22,8 +22,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T05:09:04.560608+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "d5c81b3b05c58819b61feb205ea59c789850312195befaf7f1ee390c41c82049",
-    "note": "All six original buttons visible on mat with two trays empty; exact color and size inventory correct."
+    "note": "All six original buttons visible on mat with two trays empty; exact color and size inventory correct.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-b.json",
+    "bookId": "world-discovery-b-09",
+    "sha256": "b587adb07a59c582086fccca29f0e836828a7fd4d0271753dd1828446ff82410",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

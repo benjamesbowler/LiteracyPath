@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07",
+    "reviewedAt": "2026-11-09",
     "sha256": "dcc2b1b36671e0e96506db50c819067633996fe41cfe0820a42b30fdda0e5a46",
     "note": "Bag grips closed toe of one loose sock; open cuff toward Kit; bare left and socked right feet; bun on bedside shelf after continuity repair.",
-    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-a.json",
+    "bookId": "world-discovery-a-04",
+    "sha256": "e2bc16addab0628dc3333ecc08920705d36e3e3947c3d9536bcfa2b3adafa8d3",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

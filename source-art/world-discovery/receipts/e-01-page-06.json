@@ -26,9 +26,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T03:59:19.954Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "3eca09bb7b5418752436385fdab491f71a01b2f2b9f898af147f6261f4412988",
     "note": "Kit asks for role, fox gripped externally with empty sleeve; Zoe gestures, unused rabbit accounted on stool.",
-    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-e.json",
+    "bookId": "world-discovery-e-01",
+    "sha256": "dc3533df3dc31db1a524cf56cacd91d7525f93bfc9606e449be42aece897aebb",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

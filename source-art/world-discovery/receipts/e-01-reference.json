@@ -18,9 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T03:59:19.949Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "880c410c6c1ea563ffa2eb5399c5251f60792bd4f04c7474ff066ccdd9c3b0ed",
     "note": "Directly inspected clean isolated prop/empty location key; exact cast, fox/rabbit handsleeves and brown left-paw mark.",
-    "limits": "Direct agent image/sequence inspection; no classroom or physical-device observation."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-e.json",
+    "bookId": "world-discovery-e-01",
+    "sha256": "dc3533df3dc31db1a524cf56cacd91d7525f93bfc9606e449be42aece897aebb",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

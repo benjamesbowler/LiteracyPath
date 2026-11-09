@@ -33,9 +33,17 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T16:05:16.292170+00:00",
+    "reviewedAt": "2026-11-09",
     "sha256": "a425dea13a6107f19dcce28d1ad9e07b5e2da8fc704d6b69f6b4a53ed59145bf",
     "note": "Generated source and installed WebP inspected. Table now has orange wood legs; seated scale, paper/sun coverage and hand contact unchanged.",
-    "limits": "Agent visual inspection, not classroom or physical-device evidence."
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/cohorts/11-20/level-d.json",
+    "bookId": "world-discovery-d-11",
+    "sha256": "e70828bde1a48b334200ec948fbd85b7b7f1570579a972536fcb424ddd436b94",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

@@ -18,8 +18,17 @@
   ],
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-07T04:25:52.329Z",
+    "reviewedAt": "2026-11-09",
     "sha256": "fa658257dc80352525ec3302c108e0b496ffad8758f7ecee5cb83ad47f4cf627",
-    "note": "Exact recurring object designs and empty classroom table key inspected; two children, red-blue magnet, two empty silver trays, clip, foil, wooden block, plastic spoon, washer and key are distinct."
+    "note": "Exact recurring object designs and empty classroom table key inspected; two children, red-blue magnet, two empty silver trays, clip, foil, wooden block, plastic spoon, washer and key are distinct.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+  },
+  "reviewedManuscriptSource": {
+    "path": "src/content/world-discovery/level-d.json",
+    "bookId": "world-discovery-d-09",
+    "sha256": "1a4773aeb1bdc62e90e431087c7a886aacbe1bbbdc4c5ba7101b59d4965bbd59",
+    "reviewedAt": "2026-11-09",
+    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
   }
 }

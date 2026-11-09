@@ -165,7 +165,7 @@ export const GUIDED_READING_BRIDGE_BOOKS = Object.freeze([
       ["A wide puddle blocks the garden path.", "Illustrated wide view of the Willow Street community garden after rain: a broad shallow puddle spans the main path; Leo and Samir stop in boots before the water, with the shed beyond."],
       ["Leo points to the edge. “Let’s try over there.”", "Leo points to the near straight edge while Samir holds two small orange cones; ripples and darker mud show this route is wet despite appearing short."],
       ["Leo’s foot sinks into the soft, sticky mud.", "Close side view of Leo testing one boot at the puddle edge; it presses into soft mud without danger, while Samir stays on firm ground and notices the problem."],
-      ["Samir spots some dry stones beside the muddy patch.", "Samir points to a curved line of pale dry paving stones around the puddle; Leo lifts his muddy boot back onto firm ground, and the orange cones remain ready."],
+      ["Samir spots a line of stones across the puddle.", "Samir points to a curved line of pale dry paving stones around the puddle; Leo lifts his muddy boot back onto firm ground, and the orange cones remain ready."],
       ["He tests each stone. It stays still under his foot.", "Samir takes a careful step along the dry curved stones while Leo watches from firm ground; show stable flat stones, shallow water, and no jumping or risky balancing."],
       ["Leo puts cones beside the stones to mark the way.", "Leo sets the two orange cones on firm ground beside the curved dry route; Samir stands near the shed end, clearly showing the complete safe path around the puddle."],
       ["Maya follows the stones. Her shoes stay dry.", "Maya approaches and follows the cone-marked dry stones while Leo gestures along the route and Samir waits ahead; her shoes stay dry and the puddle remains undisturbed."],
@@ -293,12 +293,12 @@ export const GUIDED_READING_BRIDGE_BOOKS = Object.freeze([
     ),
     rows: [
       ["Leo brings his small drum to band practice.", "Neutral community hall: Leo in his striped shirt and navy trousers enters carrying a child-size hand drum; Mr Baptiste in a plain teal shirt and cream trousers and a mixed-age neighborhood percussion group in everyday clothes prepare against plain walls. No sashes, ceremonial costume, festival decorations or identity flags.", "Leo brings his drum into the community hall for practice."],
-      ["Mr. Baptiste plays first. Everyone waits to answer.", "Bandleader Mr Baptiste raises one hand and plays a short call on a barrel drum; the circle watches attentively, instruments held correctly, with Leo ready but not yet playing.", "Mr. Baptiste plays a drum while the group waits."],
-      ["Leo starts too soon. His drum covers the call.", "Leo enthusiastically continues drumming while the group begins its answer; overlapping motion lines and concerned listening faces show the rhythm has become crowded without shaming him.", "Leo drums while Mr. Baptiste is still playing the call."],
+      ["Mr. Baptiste plays a short drum beat. This is the call.", "Bandleader Mr Baptiste raises one hand and plays a short call on a barrel drum; the circle watches attentively, instruments held correctly, with Leo ready but not yet playing.", "Mr. Baptiste plays a drum while the group waits."],
+      ["Leo plays too soon. Now nobody can hear the call.", "Leo enthusiastically continues drumming while the group begins its answer; overlapping motion lines and concerned listening faces show the rhythm has become crowded without shaming him.", "Leo drums while Mr. Baptiste is still playing the call."],
       ["Mr. Baptiste raises his hand. The group stops.", "The whole percussion circle becomes still as Mr Baptiste calmly repeats the call with a hand cue; Leo lowers his sticks and leans forward to listen closely.", "Mr. Baptiste raises his hand and the group stops playing."],
       ["This time, Leo waits for the call to end.", "Mr Baptiste finishes the call and points to the group; Leo joins exactly as the answering beat starts, matching the neighbors' hand drums in coordinated motion.", "Leo listens for Mr. Baptiste to finish his call."],
-      ["Then Leo answers with the group. Softly, then loudly.", "The percussion group follows two visible hand cues: a small low hand for soft playing and raised open hand for strong playing; Leo mirrors both dynamics attentively.", "Leo plays an answering rhythm with the percussion group."],
-      ["In the hall, their drums answer Mr. Baptiste together.", "Wide neutral hall view: Leo, Mr Baptiste, and the full community group sustain one coordinated rhythm in ordinary casual clothes; families watch beside plain walls, with joyful expressions and mechanically plausible instruments. No identity-themed costume or symbols.", "Leo and the group play together inside the hall."],
+      ["Then the group plays back. This is the answer.", "The percussion group follows two visible hand cues: a small low hand for soft playing and raised open hand for strong playing; Leo mirrors both dynamics attentively.", "Leo plays an answering rhythm with the percussion group."],
+      ["They wait, then play their drums together.", "Wide neutral hall view: Leo, Mr Baptiste, and the full community group sustain one coordinated rhythm in ordinary casual clothes; families watch beside plain walls, with joyful expressions and mechanically plausible instruments. No identity-themed costume or symbols.", "Leo and the group play together inside the hall."],
       ["Outside, Leo marches beside Mr. Baptiste. Call, wait, answer!", "Resolved daylight music practice outside an ordinary flat-roofed community hall: Leo walks safely with the supervised band in casual clothes, keeping his small drum beat steady; plain pedestrian square, no ceremonial costume, festival decoration, symbols or identity flags.", "Leo marches beside Mr. Baptiste with the supervised band."]
     ]
   }),
@@ -570,7 +570,7 @@ export const GUIDED_READING_BRIDGE_BOOKS = Object.freeze([
     visualTreatment: "self-created-photorealistic",
     mediaLicense: "self-created",
     cast: [],
-    repeatedLanguage: "The book",
+    repeatedLanguage: "words",
     coverBrief: "Photorealistic publishing worktable linking handwritten story notes, thumbnail sketches, page proofs, folded printed sections, thread binding, plain cover, and finished unbranded picture book; neutral studio light, no readable manuscript text.",
     storyBibleReview: nonfictionReview(
       "How do people's ideas become a finished printed book?",
@@ -579,12 +579,12 @@ export const GUIDED_READING_BRIDGE_BOOKS = Object.freeze([
     ),
     rows: [
       ["An author writes and revises the book's words.", "Photorealistic adult author's desk: hands revise a printed manuscript with marks kept unreadable, beside notes and a laptop showing blurred lines; natural daylight, no identifiable person or brand."],
-      ["An editor helps make the meaning clear.", "Photorealistic collaborative desk: editor and author point to the same page proof, discussing one marked paragraph with all text deliberately illegible; respectful professional setting, no logos."],
+      ["An editor checks the words and makes them easier to understand.", "Photorealistic collaborative desk: editor and author point to the same page proof, discussing one marked paragraph with all text deliberately illegible; respectful professional setting, no logos."],
       ["An illustrator creates pictures for each page.", "Photorealistic artist workspace: adult illustrator paints an original simple woodland scene on paper while eight small thumbnail boxes suggest page planning; tools realistic, art not copying any named style."],
       ["A designer places words and pictures together.", "Photorealistic design monitor and print proofs: adult designer aligns blank text blocks and original illustrations within page margins; interface details unreadable, page order visible through numbered shape tabs only."],
       ["Printing machines press ink onto large paper sheets.", "Photorealistic guarded printing press running large sheets with repeated page layouts; cyan, magenta, yellow, and black units visible, no worker touching moving parts or readable publication content."],
       ["The printed sheets are folded into page groups.", "Photorealistic bindery line: large printed sheets fold into neat multi-page sections, with one section opened to show correct page sequence; guarded rollers and realistic paper grain."],
-      ["The book's page groups are bound inside a cover.", "Photorealistic binding close-up: folded sections sewn or glued at the spine, then placed into a plain sturdy cover by adult hands; adhesive controlled and book anatomy mechanically plausible."],
+      ["Workers sew or glue the pages together, then add a cover.", "Photorealistic binding close-up: folded sections sewn or glued at the spine, then placed into a plain sturdy cover by adult hands; adhesive controlled and book anatomy mechanically plausible."],
       ["Finished books travel to libraries, shops, and readers.", "Photorealistic final distribution scene: plain cartons of finished books move from bindery trolley toward a library shelf and bookshop delivery area; one child reads with an adult, no brands or text." ]
     ]
   })
