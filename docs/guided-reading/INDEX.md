@@ -61,6 +61,9 @@ twenty each at App levels A–E, across ten recurring topics. Its 880 story page
 exact Leda narration and unscored teacher discussion support are governed by
 the [World Discovery content Bible](WORLD_DISCOVERY_CONTENT_BIBLE.md). Full-text
 level reviews remain separate from image inspection and narration evidence.
+The [9 November ESL and image audit handoff](WORLD_DISCOVERY_ESL_AUDIT_HANDOFF.md)
+records open remediation findings across both cohorts; it is not a new
+publication or media approval.
 
 **The Case of the Missing Sandwich** is a twelve-page Meadow Pals science
 read-aloud for interest ages 5–7. Its `READ_ALOUD` placement appears as
