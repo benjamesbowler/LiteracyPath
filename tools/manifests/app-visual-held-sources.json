@@ -16637,7 +16637,7 @@
     },
     "runtimeSources": {
       "count": 1745,
-      "sha256": "a2f726ea8291fd33f1fa1b7acbbccf4b22717e47f7db70e5a06f963b0aa9d8cf",
+      "sha256": "b3533d690bd8ff5843396efaebc85c7c387f2422cccd42a7caa5403b3fbfe15a",
       "files": [
         {
           "path": "demos/sound-seekers/chapter.config.mjs",
@@ -19145,23 +19145,23 @@
         },
         {
           "path": "src/content/cycle-shorts/audio.generated.js",
-          "sha256": "2952daaeafd04190ea1a0f017909e1da998b225287e6cd06e63729c4dcc1cd53"
+          "sha256": "380c9dbcd870e2d2039f7e098881c3d1d2234aabc72f455a0fbecf984812e67e"
         },
         {
           "path": "src/content/cycle-shorts/audioManifest.generated.json",
-          "sha256": "29048ffd5815ee69a79fb1ca52ee6efd473cd619e731fb01faf4674543a640c0"
+          "sha256": "372a6431510caff31a6fdfcd9701fe9f01ab7781021ab0df2d9c62c650293622"
         },
         {
           "path": "src/content/cycle-shorts/passages.js",
-          "sha256": "cdde2e4ecfc656b989bfd3f060a36d6467a0e5fbf535a2aa2f661c9d53b3ae9f"
+          "sha256": "77546fe8d0c80e42013b716902142485c058d14114f36adde20f9fb838b0b1e8"
         },
         {
           "path": "src/content/cycle-shorts/pictures.generated.js",
-          "sha256": "a4f78cd2783a9ae3cb6b0b3140eeb90b3b0443a9cdfb85fdba1b615e9c724ab8"
+          "sha256": "a56fcc9cb948ecba3978b684bc186f0e1e4f9d203fb8dd7528be20deb1321c1d"
         },
         {
           "path": "src/content/cycle-shorts/pictures.js",
-          "sha256": "b387c40a4801cd06d8354334e18ee680d73be5cdcc8074a79ede0f1253a97f06"
+          "sha256": "cea04b703bc59178ae517d014f7a60ebd26b41e289ed8b82360d0f51a9ade78c"
         },
         {
           "path": "src/content/guidedReading/imageTextArtifactSummary.generated.json",
@@ -19177,7 +19177,7 @@
         },
         {
           "path": "src/content/guidedReadingHumanFictionRewrites.js",
-          "sha256": "b2f055efe1d7f5dfb216579aa5f10804566b6a7dd9cd948af866b5e9e4d02831"
+          "sha256": "bb762f4c8561abfe516d97ae012b5e7a0d5467a1898b60f85b7c211c9cd51672"
         },
         {
           "path": "src/content/guidedReadingIllustrationDescriptions.js",
@@ -19189,7 +19189,7 @@
         },
         {
           "path": "src/content/guidedReadingWorldFictionRewrites.js",
-          "sha256": "9276c1c56b62854575acde3a70b88d7e78137b2a69afc226a5d999fc6d743d77"
+          "sha256": "98133fa8ba95ba785f4424ea79535f0873e224f5ab32070157eee7e21f3b84e2"
         },
         {
           "path": "src/content/illustrationStyle.js",
@@ -19253,7 +19253,7 @@
         },
         {
           "path": "src/content/storyContentReviews.js",
-          "sha256": "1a9b884633f0de05a381a8bd44bdecb97e208a9c7506093ad702f8e03ab6359b"
+          "sha256": "6eceab970338aeea0a3aa4f2438e1bec8871464fbccfec6806b442e44947b5ed"
         },
         {
           "path": "src/content/storyQuestNarrationManifest.generated.json",
@@ -19753,19 +19753,19 @@
         },
         {
           "path": "src/data/generated/audioFilePaths.generated.js",
-          "sha256": "a8cced12913ac0f88c490a12001570db0e1104dd75e80d5ec41dd02ee8ad1cea"
+          "sha256": "f131c048b18806a7986f875ea7dbcea055593cec2dc6c5d1d3db9e2a61f00d52"
         },
         {
           "path": "src/data/generated/audioGuidedReadingPaths.generated.js",
-          "sha256": "9436badc24c4112dad59607d3e4c73aab9783a91659fd8aa278f6866d9d7125f"
+          "sha256": "0d65d87642667378b01c8cb7942d0e8cabd83221c314f04fae86feb9b8a498d2"
         },
         {
           "path": "src/data/generated/audioPhonemePaths.generated.js",
-          "sha256": "70c31a2fcd76bd36349fa6a0f2b594c34996c64f55546d53b98e525208a075f6"
+          "sha256": "b422a2f6ef0771e47b72919666a794d23195888b1cfd9dfbf931164810790d36"
         },
         {
           "path": "src/data/generated/audioQuestPaths.generated.js",
-          "sha256": "05f8182b77de3dc6c1b9fc91da2faff344b4e5d207edca1b6c27a13ca7e36c16"
+          "sha256": "bdada3b05a00a6275c7eaa7f7189810f544d321f4731ef609b3e60fbc63a0613"
         },
         {
           "path": "src/data/generated/cyclePracticeInstructionAudio.generated.js",
@@ -19773,7 +19773,7 @@
         },
         {
           "path": "src/data/generated/guidedReadingBookIndex.generated.js",
-          "sha256": "2ad28c646f084d77fec46bc28ac0fa0b82359f1fdc7edade4d531ec170310cf3"
+          "sha256": "af0dd7ce9060c3257cdcf6b950aa09d4445bfb9f5e1d113a65bdd096792874fd"
         },
         {
           "path": "src/data/generated/guidedReadingCoverRenditions.generated.js",
@@ -19785,19 +19785,19 @@
         },
         {
           "path": "src/data/generated/guidedReadingLedaGaps.generated.js",
-          "sha256": "69eb834289ec7b0811fdbcfa3e94031c52898a18809a1a29e04791988d8a7125"
+          "sha256": "b17c0b9e1dfdad2d7a23203d191d0aaee50e7da5c5aec788d513f2933852fe9d"
         },
         {
           "path": "src/data/generated/guidedReadingNarrationClearance.generated.js",
-          "sha256": "6a05584e2d75a5358deba9e2dfead17c31ef0488a10460c41e5d94b79dd0548e"
+          "sha256": "eb2757a8150f492b5c4f56a1c3f023b75305e2b2ecebf9932345065d093440de"
         },
         {
           "path": "src/data/generated/guidedReadingNarrationProvenance.generated.js",
-          "sha256": "13a58870184f9e632ca849574a7800c954d2d224393b8d91cca016e47fdba5b3"
+          "sha256": "2acf128725329c80e4ff52d26ef98b56649cf43190c93344fd9146c2328bc057"
         },
         {
           "path": "src/data/generated/guidedReadingTextAnalysis.generated.js",
-          "sha256": "2262b6e9511edbb343aca03d45cbde8130b5b869a9398f9c3195c12c7ec98b4e"
+          "sha256": "5508a568b62476f201773789ec52521399f3c46d78c24629f18901171a641868"
         },
         {
           "path": "src/data/generated/hfwCuratedSentences.generated.js",
@@ -19821,7 +19821,7 @@
         },
         {
           "path": "src/data/generated/ledaProductionAudio.generated.js",
-          "sha256": "d0df8500601c6e6de90c963d486bc93e1a84ed2f98406b862380c4205e12f75b"
+          "sha256": "6602d783851ed07005b51011461a61eeee5b09232fc5ff0ef8b2b9ad8d77a738"
         },
         {
           "path": "src/data/generated/ledaRuntimeSupplement.generated.js",
@@ -19829,7 +19829,7 @@
         },
         {
           "path": "src/data/generated/ledaWordAudio.generated.js",
-          "sha256": "ed1296e438636d5a8099531c3f58ec05d631ec09c721c9eda7c768390cfd860a"
+          "sha256": "ce301bc69fc1aae77de7d227c7e0576863fe824f23b3a72f3775782989338461"
         },
         {
           "path": "src/data/generated/literacyMockAudioV11.generated.js",
@@ -19889,7 +19889,7 @@
         },
         {
           "path": "src/data/generated/questStoryQuestions.generated.js",
-          "sha256": "31d9651c9dfe130be5e93a4c20122a536c4f23739cca3f01bec03694e1327852"
+          "sha256": "f21e1a10c7455e1f57c18c64d8b0e8dd8782d7c3893128491f0669dbe5602a16"
         },
         {
           "path": "src/data/generated/rallyPalsArt.generated.js",
@@ -19937,7 +19937,7 @@
         },
         {
           "path": "src/data/guidedReadingBridgeBooks.js",
-          "sha256": "2cf5a9ad70206522a75700e24530a40e6f55da3fb84036d455c5258368b8bc3a"
+          "sha256": "03459643480700a1d361922b97c2f1b3b15c66b7c4fdb07699d22f80d7a1d7d7"
         },
         {
           "path": "src/data/guidedReadingBridgeBooks.manifest.js",
@@ -19969,15 +19969,15 @@
         },
         {
           "path": "src/data/guidedReadingDiscussionPrompts.willow.js",
-          "sha256": "ed16d5313e52d358f577862b7fdb85867c7396e8a54867f70227c725942069fb"
+          "sha256": "50c35f839648f2071633b1a1c77ec2713ab04cf31b7e79646d20e46fd93dc077"
         },
         {
           "path": "src/data/guidedReadingDiscussionPrompts.world.js",
-          "sha256": "befcd852641cc6b467e628bb597b08d6b3a1599ae2e562663e045a6113848929"
+          "sha256": "c810cb12d2739c2fa2a355390b98cde66bd0611a1775e663ca618c700fa54cb3"
         },
         {
           "path": "src/data/guidedReadingLevelReviews.js",
-          "sha256": "ef5536e140c9860a823383b515fbffa831c609c4bca1ac0263ef2723942fceb9"
+          "sha256": "dbc0c31d27af12b36178acbbd5bf6716def03ebec82ec332fd4b4f9768d68191"
         },
         {
           "path": "src/data/guidedReadingLexileMeasures.js",
@@ -20001,7 +20001,7 @@
         },
         {
           "path": "src/data/guidedReadingSeriesBooks.js",
-          "sha256": "a9a9612f0456f282673c3c743e908baef1f1ea213507097ba203c03bae3e8114"
+          "sha256": "28519465652fea2219aa0548c756768d419a12fe7e9e5932bfbb8e87f6665e33"
         },
         {
           "path": "src/data/guidedReadingSmallStepsBooks.js",
@@ -20017,7 +20017,7 @@
         },
         {
           "path": "src/data/guidedReadingWorldExpansionBooks.js",
-          "sha256": "b7d7debfadf3b35b60d9be8f80b36b10b4f5de378fa2904d6a836bb8f970b5aa"
+          "sha256": "f7042c5008a00753b6447bcd74d65d8ae6ecc73a13a2d7c4eefb5deb22f0c2bc"
         },
         {
           "path": "src/data/guidedStoryBooks.js",

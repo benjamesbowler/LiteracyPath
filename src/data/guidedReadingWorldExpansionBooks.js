@@ -789,7 +789,7 @@ const books = [
     storyPromise: "Spark must replace a broken lantern hook before moonrise, but every copied hook vanishes after exactly ten counts.",
     storySpine: "Spark hangs a lantern from a ten-count copy and nearly drops it, then uses the temporary shape to mould a lasting root-fibre hook.",
     failedAttempt: "The copied hook vanishes precisely at count ten while Luna catches the lantern safely.", turningPoint: "Spark accepts that repetition cannot alter the spell's duration and uses its accurate shape instead.",
-    resolution: "Soft clay records the copy, and Fern's dried root fibre fills the curved mould.", landing: "The permanent hook holds while Spark counts far beyond ten.",
+    resolution: "Soft clay records the copy's shape. Fern fills the mold with root fiber and glue. Once the glue dries, Spark removes the solid hook.", landing: "The permanent hook holds while Spark counts far beyond ten.",
     duplicateAudit: "Distinct from failed spell-correction plots: the spell is never fixed; its strict time limit becomes a manufacturing tool.",
     targetSkills: ["moulding", "rule-based-magic"], sightWords: ["the", "before", "exactly", "after", "inside", "beyond"],
     pages: [

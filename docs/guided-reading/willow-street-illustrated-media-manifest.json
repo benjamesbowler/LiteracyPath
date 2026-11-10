@@ -68,7 +68,7 @@
       "sha256": "26583032686b8491e41ce566f3338e48941b097f916499d019fe52ebadfc5add",
       "width": 1365,
       "height": 768,
-      "textSha256": "dd2aa19f4f536afc1330c8321f56e039518a6101fca146094f057489b8ebc870",
+      "textSha256": "9dd7738bf6474d977c683ea3fa279b5afd29d7b4dd00f2ade784ebaaa88925ff",
       "briefSha256": "b522a8847afa87ab548155a522bcdd039ff6699e2d2878d0a2405777387b9270",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
@@ -98,7 +98,15 @@
         }
       },
       "sourceNativeSha256": "32417a10aa115d8a472378e4969c1f3114d6973c1ab7df6d2444f9bec2ef4c03",
-      "productionPrompt": "Edit second reference scene FRAMING ONLY, preserve exact clue positions/exchange/objects/faceexpressions. First reference is clean consistent school/children. Zoom camera out30percent so people and objects occupy only CENTRAL60PERCENT width/height. Highest Maya puff point must be y18percent, Samirhairtop y22percent orlower, BOTH whole shoes if visible must be ABOVE y68percent. Keep lower22percent quiet CREAM band. Include full shoes with plainfloor above cream; don't slice feet at cream edge. Maya TEAL pants PLUM shoes, Samir CHARCOAL pants WHITEBLUE shoes. No extra foods or duplicatedclues. Allfaceshandsboxesapplecupspoonnapkin safelyinset>=12percent, samecharacters. MAYA small upperfrontTOOTHGAP visible ifsmiling. Style solidflatfills, ONE hardedgecelshadow, crispdarkoutlines, no grain/brush/fuzz/gradients. Childcharacters remain same size relativeeachother. Landscape16:9."
+      "productionPrompt": "Edit second reference scene FRAMING ONLY, preserve exact clue positions/exchange/objects/faceexpressions. First reference is clean consistent school/children. Zoom camera out30percent so people and objects occupy only CENTRAL60PERCENT width/height. Highest Maya puff point must be y18percent, Samirhairtop y22percent orlower, BOTH whole shoes if visible must be ABOVE y68percent. Keep lower22percent quiet CREAM band. Include full shoes with plainfloor above cream; don't slice feet at cream edge. Maya TEAL pants PLUM shoes, Samir CHARCOAL pants WHITEBLUE shoes. No extra foods or duplicatedclues. Allfaceshandsboxesapplecupspoonnapkin safelyinset>=12percent, samecharacters. MAYA small upperfrontTOOTHGAP visible ifsmiling. Style solidflatfills, ONE hardedgecelshadow, crispdarkoutlines, no grain/brush/fuzz/gradients. Childcharacters remain same size relativeeachother. Landscape16:9.",
+      "editorialReview20261111": {
+        "reviewedAt": "2026-11-11",
+        "method": "Original-detail review against the current wording and the complete ordered story.",
+        "notes": [
+          "Maya points to the patch on her yellow box; Samir holds his green box. Both patches are blank. The cup and apple remain in the wrong boxes."
+        ],
+        "priorTextSha256": "dd2aa19f4f536afc1330c8321f56e039518a6101fca146094f057489b8ebc870"
+      }
     },
     {
       "bookId": "willow-street-the-lunchbox-mix-up",
@@ -107,7 +115,7 @@
       "sha256": "44380fb230d1c7b22a53a3526b2ee1ef6c1a29511675da9e96e4511f8e9f0b30",
       "width": 1365,
       "height": 768,
-      "textSha256": "bb23a11859a5f293b807425c49571fb8ed5b28d23ec5d70e03ef39f2830abab3",
+      "textSha256": "8c1110ea7becc4c1690ee922cf68521525f2fd524511482dd56049c93cc2de7d",
       "briefSha256": "f77c85ac826b963a81deb7d9dc24a552ecac01d1273222f8e4838531314258e9",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
@@ -121,7 +129,15 @@
       "sourceImageGenOutput": "exec-297a55cd-9cab-4817-afc2-f182819a845d.png",
       "cacheVersion": "44380fb230d1",
       "sourceNativeSha256": "770ce93659cec04a2ccaebf26bbb9b62db002d98a67f3d99780cf55843f7ff7b",
-      "productionPrompt": "Edit this exact clean flat outlined cartoon only to correct classroom table geometry. The foreground table must be one RECTANGULAR light oak school table, straight long front edge, straight side edges, FOUR right angle corners, four grey metal legs. It must not be oval, round, octagonal or have clipped corners. Preserve the current safely inset characters, hands, correct lunch props, outfits, positions, proportions and wide framing. Samir points at the green apple inside green lunchbox; blue cup is inside yellow lunchbox. Preserve all these clues. Keep sage chairs and tall windows, crisp bold outlines, uniform solid fills, one simple hard edge cel shadow, plain cream lower 22% footer. No lettering or invented detail."
+      "productionPrompt": "Edit this exact clean flat outlined cartoon only to correct classroom table geometry. The foreground table must be one RECTANGULAR light oak school table, straight long front edge, straight side edges, FOUR right angle corners, four grey metal legs. It must not be oval, round, octagonal or have clipped corners. Preserve the current safely inset characters, hands, correct lunch props, outfits, positions, proportions and wide framing. Samir points at the green apple inside green lunchbox; blue cup is inside yellow lunchbox. Preserve all these clues. Keep sage chairs and tall windows, crisp bold outlines, uniform solid fills, one simple hard edge cel shadow, plain cream lower 22% footer. No lettering or invented detail.",
+      "editorialReview20261111": {
+        "reviewedAt": "2026-11-11",
+        "method": "Original-detail review against the current wording and the complete ordered story.",
+        "notes": [
+          "Samir points to Maya’s apple in his own green lunchbox. Maya holds her yellow box with the blue cup inside. The spoon stays beside the napkin."
+        ],
+        "priorTextSha256": "bb23a11859a5f293b807425c49571fb8ed5b28d23ec5d70e03ef39f2830abab3"
+      }
     },
     {
       "bookId": "willow-street-the-lunchbox-mix-up",

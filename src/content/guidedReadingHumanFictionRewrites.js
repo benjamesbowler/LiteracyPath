@@ -419,8 +419,8 @@ export const GUIDED_READING_HUMAN_FICTION_REWRITES = Object.freeze({
   "ab-c-09": humanFictionRewrite({
     canonIds: ["HUMAN-AIDEN", "HUMAN-BETTY", "HUMAN-SOCKS"],
     storySpine: "Aiden wants to know whether losing his loose tooth will hurt or change how he looks.",
-    failedAttempt: "Mom's explanation comforts him briefly, but uncertainty returns before the tooth falls out.",
-    resolution: "Betty's experience and Aiden's painless loss answer his fear, and he decides that he likes the new tooth.",
+    failedAttempt: "Mom explains that loose teeth are part of growing, but Aiden still wonders whether it will hurt and how the gap will look.",
+    resolution: "Betty's experience and Aiden's painless tooth loss ease his fears. Mom leaves a coin as a gift, and Aiden decides that he likes the new tooth.",
     pages: [
       "Aiden bit an apple and felt one front tooth wobble.",
       "Betty shone her flashlight. “A baby tooth! A bigger tooth is pushing up below it.”",
@@ -430,7 +430,7 @@ export const GUIDED_READING_HUMAN_FICTION_REWRITES = Object.freeze({
       "Betty grinned at her gap. “It pinched for one second. That's all.”",
       "On Thursday, Aiden's tooth slipped out while he read. “Oh!” It had not hurt at all.",
       "He placed the tiny tooth in an envelope beneath his pillow.",
-      "By morning, a coin lay where the envelope had been. Aiden raced to show Mom.",
+      "Mom had left a coin as a gift for his lost tooth. Aiden raced to thank her.",
       "Three weeks later, a broad white edge peeked through his gum. The new tooth was coming!",
       "“You don't look strange,” Betty said. “You look like Aiden—with one new tooth.”",
       "Socks inspected both tooth gaps with his curious nose.",

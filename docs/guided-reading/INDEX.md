@@ -76,8 +76,8 @@ reviews. [Edition history](BOOK_EDITION_HISTORY.md) preserves prior results and
 starts separate progress for those replacement topics.
 
 The [11 November library suitability audit](LIBRARY_SUITABILITY_AUDIT_2026-11-11.md)
-covers the active catalogue and Cycle Shorts, and records the local fixes and
-the wording proposals awaiting matching narration.
+covers the active catalogue and Cycle Shorts, and records the illustration,
+wording and matching narration repairs.
 
 **The Case of the Missing Sandwich** is a twelve-page Meadow Pals science
 read-aloud for interest ages 5–7. Its `READ_ALOUD` placement appears as

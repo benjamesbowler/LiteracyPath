@@ -2704,9 +2704,9 @@ export const guidedReadingSeriesBooks = [
   }),
   createDinoPalsBook({
     id: "dino-pals-14-what-is-flappy",
-    title: "What is Flappy?",
+    title: "Flappy Finds a Way",
     bookNumber: 14,
-    theme: "identity and belonging",
+    theme: "finding a route by climbing and gliding",
     pages: [
       { pageNumber: 1, text: "Flappy woke up and tried to fly. Flappy got three wing-flaps up. Then landed in the mud." },
       { pageNumber: 2, text: "I should be able to fly, said Flappy. I have wings. You are also a dinosaur, said Grumpy. Dinosaurs do not fly." },

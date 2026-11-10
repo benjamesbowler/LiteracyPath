@@ -1,7 +1,7 @@
 import { passagePicture } from '../comprehension/pictures.js';
 import { CYCLE_SHORT_PICTURES } from './pictures.generated.js';
 
-// Reuse a scene only with the complete unchanged source passage.
+// Every picture resolves against the complete passage reviewed with its panels.
 export function cycleShortPicture(passage) {
   if (!passage || typeof passage.id !== 'string' || typeof passage.text !== 'string') return null;
   if (passage.sourcePassageId) return passagePicture({...passage, id: passage.sourcePassageId});

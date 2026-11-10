@@ -471,7 +471,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-09::9": {
-    "displayedText": "By morning, a coin lay where the envelope had been. Aiden raced to show Mom.",
+    "displayedText": "Mom had left a coin as a gift for his lost tooth. Aiden raced to thank her.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-10::1": {
@@ -6799,7 +6799,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-03::10": {
-    "displayedText": "On the way back, Stone held Burrow in one arm and gripped the rope with his free hand. Pip walked just ahead. Board by board, the far bank drew closer.",
+    "displayedText": "On the way back, Stone held Burrow in one arm and gripped the rope with his free hand. Pip led them toward the bank where he and Stone had started.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-03::11": {
@@ -7543,7 +7543,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-18::11": {
-    "displayedText": "Stone sat dripping beside Dewdrop while the fish circled them once. His shoulders relaxed when he saw it swimming strongly, with no rocks blocking its path.",
+    "displayedText": "Stone sat dripping beside Dewdrop as the fish swam in a circle nearby. His shoulders relaxed when he saw it swimming strongly, with no rocks blocking its path.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-18::12": {
@@ -8271,11 +8271,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-34::8": {
-    "displayedText": "Fern packed strong woven root fiber into every part of the curved mold. Spark pressed the material down carefully. Then they left it beside the warm lanterns.",
+    "displayedText": "Fern packed strong woven root fiber and sticky glue into every part of the curved mold. Spark pressed it down. They left it beside the warm lanterns.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-34::9": {
-    "displayedText": "When the root fiber dried, Spark lifted a solid hook from the mold. Its curve matched the good hook exactly. He carried it to the lowest rail.",
+    "displayedText": "When the glue dried, Spark lifted a solid root-fiber hook from the mold. Its curve matched the good hook exactly. He carried it to the lowest rail.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-35::1": {
@@ -10283,11 +10283,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-the-lunchbox-mix-up::2": {
-    "displayedText": "Maya checks the labels on both lunchboxes.",
+    "displayedText": "Maya checks both boxes. The lunchboxes are not swapped.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-the-lunchbox-mix-up::3": {
-    "displayedText": "Samir checks the labels and spots Maya's green apple.",
+    "displayedText": "Samir spots Maya's green apple inside his own lunchbox.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-the-lunchbox-mix-up::4": {

@@ -3545,8 +3545,8 @@
       "assetType": "reading-page",
       "pageNumber": 2,
       "path": "/guided-reading/willow-street/the-lunchbox-mix-up/page-02.webp",
-      "displayedText": "Maya checks the labels on both lunchboxes.",
-      "textSha256": "dd2aa19f4f536afc1330c8321f56e039518a6101fca146094f057489b8ebc870",
+      "displayedText": "Maya checks both boxes. The lunchboxes are not swapped.",
+      "textSha256": "9dd7738bf6474d977c683ea3fa279b5afd29d7b4dd00f2ade784ebaaa88925ff",
       "visualBriefSha256": "b522a8847afa87ab548155a522bcdd039ff6699e2d2878d0a2405777387b9270",
       "imageSha256": "26583032686b8491e41ce566f3338e48941b097f916499d019fe52ebadfc5add",
       "visualTreatment": "willow-street-illustrated",
@@ -3560,7 +3560,15 @@
       },
       "disposition": "approved",
       "notes": "2026-11-11 brief alignment for the installed illustration. Both boxes are open. Samir’s blue cup sits in Maya’s yellow box and her green apple sits in his green box. The inspection date and generation record apply to the same installed image. The prior note and brief are recorded in source-art/guided-reading-remediation/2026-11-11/willow-brief-bindings.json.",
-      "sourceManifest": "docs/guided-reading/willow-street-illustrated-media-manifest.json"
+      "sourceManifest": "docs/guided-reading/willow-street-illustrated-media-manifest.json",
+      "editorialReview20261111": {
+        "reviewedAt": "2026-11-11",
+        "method": "Original-detail review against the current wording and the complete ordered story.",
+        "notes": [
+          "Maya points to the patch on her yellow box; Samir holds his green box. Both patches are blank. The cup and apple remain in the wrong boxes."
+        ],
+        "priorTextSha256": "dd2aa19f4f536afc1330c8321f56e039518a6101fca146094f057489b8ebc870"
+      }
     },
     {
       "bookId": "willow-street-the-lunchbox-mix-up",
@@ -3568,8 +3576,8 @@
       "assetType": "reading-page",
       "pageNumber": 3,
       "path": "/guided-reading/willow-street/the-lunchbox-mix-up/page-03.webp",
-      "displayedText": "Samir checks the labels and spots Maya's green apple.",
-      "textSha256": "bb23a11859a5f293b807425c49571fb8ed5b28d23ec5d70e03ef39f2830abab3",
+      "displayedText": "Samir spots Maya’s green apple inside his own lunchbox.",
+      "textSha256": "8c1110ea7becc4c1690ee922cf68521525f2fd524511482dd56049c93cc2de7d",
       "visualBriefSha256": "f77c85ac826b963a81deb7d9dc24a552ecac01d1273222f8e4838531314258e9",
       "imageSha256": "44380fb230d1c7b22a53a3526b2ee1ef6c1a29511675da9e96e4511f8e9f0b30",
       "visualTreatment": "willow-street-illustrated",
@@ -3583,7 +3591,15 @@
       },
       "disposition": "approved",
       "notes": "2026-11-11 brief alignment for the installed illustration. Samir points to Maya’s apple inside his green box. His blue cup is still in her yellow box, with a spoon and orange napkin between them. The inspection date and generation record apply to the same installed image. The prior note and brief are recorded in source-art/guided-reading-remediation/2026-11-11/willow-brief-bindings.json.",
-      "sourceManifest": "docs/guided-reading/willow-street-illustrated-media-manifest.json"
+      "sourceManifest": "docs/guided-reading/willow-street-illustrated-media-manifest.json",
+      "editorialReview20261111": {
+        "reviewedAt": "2026-11-11",
+        "method": "Original-detail review against the current wording and the complete ordered story.",
+        "notes": [
+          "Samir points to Maya’s apple in his own green lunchbox. Maya holds her yellow box with the blue cup inside. The spoon stays beside the napkin."
+        ],
+        "priorTextSha256": "bb23a11859a5f293b807425c49571fb8ed5b28d23ec5d70e03ef39f2830abab3"
+      }
     },
     {
       "bookId": "willow-street-the-lunchbox-mix-up",

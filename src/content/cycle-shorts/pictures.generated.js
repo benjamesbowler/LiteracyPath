@@ -27,12 +27,12 @@ export const CYCLE_SHORT_PICTURES = {
   },
   "cycle-short-6": {
     "src": "/images/comprehension/cycle-shorts/cycle-short-6.webp",
-    "sourceText": "My red hat is in the mud. Muddy runs to it. How do I get my hat? Muddy lifts it with a stick. The hat is back on Muddy.",
+    "sourceText": "Muddy’s red hat is in the mud. Muddy runs to it. “How do I get my hat?” Muddy asks. Muddy lifts it with a stick. The hat is back on Muddy.",
     "alt": "First: A red hat lies in a shallow mud patch; Muddy approaches. Next: Muddy uses a long stick to lift the red hat out of the mud. Last: The same red hat is back on Muddy’s head; the stick rests nearby."
   },
   "cycle-short-7": {
     "src": "/images/comprehension/cycle-shorts/cycle-short-7.webp",
-    "sourceText": "The tin fell into the mud. Muddy said the tin was stuck. Muddy pulls it with a stick. Out comes the tin! Muddy sets it on a log.",
+    "sourceText": "The tin fell into the mud. Muddy said the tin was stuck. Muddy pulled it with a stick. Out came the tin! Muddy put it on a log.",
     "alt": "First: An open tin is stuck in a shallow mud patch beside Muddy. Next: Muddy pulls the tin out with a hooked stick, visibly connected to the tin. Last: The recovered tin rests on a log beside Muddy; the stick is nearby."
   },
   "cycle-short-8": {
@@ -97,7 +97,7 @@ export const CYCLE_SHORT_PICTURES = {
   },
   "cycle-short-24": {
     "src": "/images/comprehension/cycle-shorts/cycle-short-24.webp",
-    "sourceText": "Muddy hears a buzz by the bell. Which bug is it? A bee lands on the bell. Muddy will miss the picnic call. He waits for the bee to fly off. Then Muddy rings the bell for lunch.",
+    "sourceText": "Muddy hears a buzz by the bell. Which bug is it? A bee lands on the bell. His friends may miss lunch. He waits for the bee to fly off. Then Muddy rings the bell for lunch.",
     "alt": "First: Muddy looks at a bee flying beside a farm lunch bell. Next: The bee lands on the bell; Muddy waits with his forehooves away from the bell. Last: The bee has flown clear and Muddy rings the bell beside a picnic blanket."
   },
   "cycle-short-26": {

@@ -445,7 +445,7 @@ export const GUIDED_READING_WORLD_FICTION_REWRITES = Object.freeze({
     canonIds: ["MOON-STONE", "MOON-PIP", "MOON-BURROW"],
     storySpine: "Stone wants to avoid the swaying rope bridge, but Burrow becomes stranded, so Stone crosses by focusing on one fixed rope at a time.",
     failedAttempt: "Stone places one foot on the bridge, feels it sway, and steps back before Burrow needs help.",
-    resolution: "Stone carries Burrow back in one arm while gripping the rope with his free hand, then sets him down on the near bank.",
+    resolution: "Pip leads Stone and Burrow back to the bank where Pip and Stone began. Stone carries Burrow in one arm and grips the rope with his free hand.",
     pages: [
       "The Moonwood friends crossed the rope bridge over Crystal Stream, but Stone stayed behind. From the bank, the wooden boards looked narrow beneath his huge feet.",
       "Stone watched the wooden bridge sway over the bright, rushing water. \"What if something is waiting underneath?\" he asked, hugging his broad arms close.",
@@ -456,7 +456,7 @@ export const GUIDED_READING_WORLD_FICTION_REWRITES = Object.freeze({
       "Stone gripped the thick fixed side rope with both broad hands. Keeping his eyes on that steady rope, he stepped onto the bridge again.",
       "At the middle, the boards swayed and the stream flashed below Stone. He watched Pip's clear hand signal instead and took another careful step.",
       "Stone reached Burrow and bent close to the grass. \"Up you come.\" He lifted the little mole against his chest, leaving one hand free for the rope.",
-      "On the way back, Stone held Burrow in one arm and gripped the rope with his free hand. Pip walked just ahead. Board by board, the far bank drew closer.",
+      "On the way back, Stone held Burrow in one arm and gripped the rope with his free hand. Pip led them toward the bank where he and Stone had started.",
       "Stone set Burrow on the grass and let go of the rope. Burrow straightened his glasses. Behind them, the empty bridge still swayed over Crystal Stream.",
       "Stone still wanted to know what was under the swaying bridge. He stayed on the bank and bent down to look. He could only see flowing water."
     ]
@@ -765,7 +765,7 @@ export const GUIDED_READING_WORLD_FICTION_REWRITES = Object.freeze({
     canonIds: ["MOON-STONE", "MOON-DEWDROP", "MOON-LOCAL-C18-FISH"],
     storySpine: "Dewdrop wants a fish freed from two rocks, but water pressure fails and Stone fears getting wet, so Stone chooses one careful reach.",
     failedAttempt: "Dewdrop's strongest current presses the fish tighter, while Stone's first reach stops above the water.",
-    resolution: "Stone moves the loose rock, accepts one enormous splash, and watches the freed fish surface.",
+    resolution: "Stone moves the loose rock, gets soaked by a splash, and relaxes as he watches the freed fish swim in clear water.",
     pages: [
       "Dewdrop was swimming through Crystal Stream when she found a large fish trapped in the shallows. Its silver body twisted between two rocks, but it could not escape.",
       "The rocks gripped the fish on both sides while its tail flicked desperately. Dewdrop checked for injuries, then asked the fish to stay as still as possible.",
@@ -777,7 +777,7 @@ export const GUIDED_READING_WORLD_FICTION_REWRITES = Object.freeze({
       "Stone spread his palm across the rock's dry top. Then he curled his fingers down into the water. His hand stayed there, although the stream felt cold.",
       "Stone pushed the loose rock. The mud made a wet sucking sound, the rock rolled aside, and the fish darted into open water.",
       "The fish leaped in a shining arc and landed with an enormous splash. Water soaked Stone from head to feet, and Dewdrop waited for his reaction.",
-      "Stone sat dripping beside Dewdrop while the fish circled them once. His shoulders relaxed when he saw it swimming strongly, with no rocks blocking its path.",
+      "Stone sat dripping beside Dewdrop as the fish swam in a circle nearby. His shoulders relaxed when he saw it swimming strongly, with no rocks blocking its path.",
       "Beyond the shallows, the fish lifted its head above the stream. Stone gave one small nod and said, \"Good.\" Water dripped from the end of his nose."
     ]
   }),
@@ -1085,7 +1085,7 @@ export const GUIDED_READING_WORLD_FICTION_REWRITES = Object.freeze({
     canonIds: ["MOON-SPARK", "MOON-LUNA", "MOON-FERN"],
     storySpine: "Spark wants a lasting lantern hook, but every copied hook vanishes at ten, so he uses the temporary shape to make a permanent one.",
     failedAttempt: "Spark hangs the lantern from a copied hook, which disappears at count ten and drops the lantern into Luna's catch.",
-    resolution: "Spark molds the copy in clay, Fern fills it with root fiber, and the new hook keeps holding beyond the tenth count.",
+    resolution: "Spark molds the copy in clay. Fern fills the mold with root fiber and glue. The glue dries into a firm bond, and the new hook holds the lantern beyond the tenth count.",
     pages: [
       "Before moonrise, Spark found a broken hook beside the lowest lantern. Hollow Oak needed a matching replacement. Spark set the lantern down and studied the good hook above it.",
       "Spark raised his wand and copied the good hook in golden light. His copy spell always lasted exactly ten spoken counts. \"That is plenty,\" he said.",
@@ -1094,8 +1094,8 @@ export const GUIDED_READING_WORLD_FICTION_REWRITES = Object.freeze({
       "Spark cast the copy spell again, hoping the second hook might last longer. He counted without hanging the lantern. At ten, that hook vanished too.",
       "This time, Spark pressed a third glowing hook into soft clay before it disappeared. He pushed it down to make a clear curved mark and counted aloud.",
       "At count ten, the golden copy vanished from inside the clay. A smooth curved hollow remained. Spark had captured the hook's shape, even though its magic was gone.",
-      "Fern packed strong woven root fiber into every part of the curved mold. Spark pressed the material down carefully. Then they left it beside the warm lanterns.",
-      "When the root fiber dried, Spark lifted a solid hook from the mold. Its curve matched the good hook exactly. He carried it to the lowest rail.",
+      "Fern packed strong woven root fiber and sticky glue into every part of the curved mold. Spark pressed it down. They left it beside the warm lanterns.",
+      "When the glue dried, Spark lifted a solid root-fiber hook from the mold. Its curve matched the good hook exactly. He carried it to the lowest rail.",
       "Spark hung the lantern on the new root-fiber hook, then counted aloud. \"Ten, eleven, twelve!\" The hook stayed firm, and the lantern kept shining."
     ]
   }),
