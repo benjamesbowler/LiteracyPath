@@ -5,7 +5,7 @@ import c0c from "../../content/world-discovery/level-c.json" with { type: "json"
 import c0d from "../../content/world-discovery/level-d.json" with { type: "json" };
 import c0e from "../../content/world-discovery/level-e.json" with { type: "json" };
 import c0reviews from "../../content/world-discovery/reviews.json" with { type: "json" };
-import c0registration from "../../content/world-discovery/registrations/2026-11-09/01-10-r2.json" with { type: "json" };
+import c0registration from "../../content/world-discovery/registrations/2026-11-11/01-10-grounding.json" with { type: "json" };
 import c1a from "../../content/world-discovery/cohorts/11-20/level-a.json" with { type: "json" };
 import c1b from "../../content/world-discovery/cohorts/11-20/level-b.json" with { type: "json" };
 import c1c from "../../content/world-discovery/cohorts/11-20/level-c.json" with { type: "json" };

@@ -1893,3 +1893,15 @@ The hygiene walker now appends large directory results iteratively, preserving
 the exact ordering, coverage, ignore rules and checks while avoiding JavaScript's
 argument-count limit at more than163,000 artifact entries. Current hygiene and
 the existing verification-runner tests were exercised after this change.
+
+### 11 November library audit
+
+Retired six superseded cover cards (248,258 bytes) after proving that their only
+remaining references were in the visual review ledger. Verified the replacement
+source and rendition hashes, the reader's actual requests, and the production
+package before removing the temporary transfer copies. The six old cards remain
+recoverable from commit `fe46cf529b0584e34aec88030471ba753e2eae58`. Removed one
+byte-identical duplicate plant cover candidate; its selected copy and original
+generation remain. The [audit](guided-reading/LIBRARY_SUITABILITY_AUDIT_2026-11-11.md)
+and exact media and historical provenance are retained. No protected path or
+hosted media was removed.

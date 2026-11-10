@@ -1,11 +1,11 @@
 {
   "schemaVersion": "2.0",
-  "auditDate": "2026-11-10",
+  "auditDate": "2026-11-11",
   "status": "complete",
   "gateSemantics": {
     "mode": "fail-closed",
     "rule": "Every active page must have an exact displayed-text hash, image path, image-file hash and approved/replace decision. Any changed text, path or image bytes invalidate this audit record and require re-audit.",
-    "releaseFingerprintSha256": "1e2d6af22180428bac9711aa800aaee805ffeb7a9cb20e4e0ecd66287c5e9832"
+    "releaseFingerprintSha256": "2ed146b21f4422f6444bdd88a5c8e9dbaef3574735b228ccb1f8300ef50a3ccc"
   },
   "scope": {
     "activeBooksAudited": 446,
@@ -602,11 +602,11 @@
       "displayedText": "At lunch, Aiden found Mom’s note under his sandwich. It said, “Keep trying. I love you!” Aiden smiled.",
       "imagePath": "/guided-reading/series/aiden-and-betty/book-01/page-008.webp",
       "textSha256": "f53867b56d76d092abfc2f7f71e2709ec307001997db6b60e9195da89ca7a3cf",
-      "imageSha256": "b11f90754a3e9235a94319a6ccaa1ca4683f9c50187121437005c11ff8301d38",
+      "imageSha256": "a6b9d6a4cab89972e526cdaf05afce965d0167e9b2a78a081f345f30c4a61ad2",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "November 9 complete 397-book reread and ordered cover/page review; final replacement WebPs inspected natively and rechecked in whole-book sequences. Evidence: source-art/guided-reading-remediation/2026-11-09 and source-art/world-discovery/remediation/2026-11-09; character identity, physical continuity, concrete ESL scene support, anatomy, object counts and factual detail checked. This is agent visual review, not classroom or physical-device observation."
+      "regenerationBrief": "11 November 2026: installed replacement natively inspected and checked in its complete ordered book sequence against the unchanged manuscript. See dated image repair provenance."
     },
     {
       "bookId": "ab-c-01",
@@ -36157,11 +36157,11 @@
       "displayedText": "Fern checked the shaded garden while Burrow checked the cool tunnels. Neither place held the silver box. Luna crossed both places off her list.",
       "imagePath": "/guided-reading/series/moonwood-tales/book-10/page-004.webp",
       "textSha256": "daf5b312c4572a2f55609697f59da6a3642155e928a17bfb79fba80cc64f795f",
-      "imageSha256": "3a3313c017478972253ac4b0bcbbdd340f56cd995a9620c3289b3f080e8933f9",
+      "imageSha256": "dfbd342593c24ced35c015f42c0be1d5eccea815a82526e79d66b0c1ae95235e",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "November 9 complete 397-book reread and ordered cover/page review; final replacement WebPs inspected natively and rechecked in whole-book sequences. Evidence: source-art/guided-reading-remediation/2026-11-09 and source-art/world-discovery/remediation/2026-11-09; character identity, physical continuity, concrete ESL scene support, anatomy, object counts and factual detail checked. This is agent visual review, not classroom or physical-device observation."
+      "regenerationBrief": "11 November 2026: installed replacement natively inspected and checked in its complete ordered book sequence against the unchanged manuscript. See dated image repair provenance."
     },
     {
       "bookId": "moonwood-tales-c-10",
@@ -36271,11 +36271,11 @@
       "displayedText": "Fern leaned closer as Luna lifted the lid. Twelve round seeds shone inside the box, bright as candle flames. Luna counted them once; none had cracked in the cold water.",
       "imagePath": "/guided-reading/series/moonwood-tales/book-10/page-010.webp",
       "textSha256": "4d6157931439811db3013f4461e48a94d7c09fc276f3e0f024daf40e00c22f42",
-      "imageSha256": "95ef076cb40cd652933303fa214104e146c8bff3f1e5a7cf8273b3d203a812a4",
+      "imageSha256": "a27fb39c105bafac95c8380ec3011fee845d4f140d4784777be5fe4e68c13b27",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "November 9 complete 397-book reread and ordered cover/page review; final replacement WebPs inspected natively and rechecked in whole-book sequences. Evidence: source-art/guided-reading-remediation/2026-11-09 and source-art/world-discovery/remediation/2026-11-09; character identity, physical continuity, concrete ESL scene support, anatomy, object counts and factual detail checked. This is agent visual review, not classroom or physical-device observation.",
+      "regenerationBrief": "11 November 2026: installed replacement natively inspected and checked in its complete ordered book sequence against the unchanged manuscript. See dated image repair provenance.",
       "editorialReview20260922": {
         "reviewedAt": "2026-09-22",
         "reviewer": "Editorial repair team; agent visual review",
@@ -36305,11 +36305,11 @@
       "displayedText": "Luna looked up through Hollow Oak's old branches. She had saved the seeds to grow young trees beside them. Now twelve small lights waited in her open box.",
       "imagePath": "/guided-reading/series/moonwood-tales/book-10/page-011.webp",
       "textSha256": "8714c52b05ea3beeb1bf96a890723f527e9709c4384ee254dc7999183bdba28c",
-      "imageSha256": "1861a28b9d0eaf3a08899b85e82bee21337dd76f2183061fc92c57425328e807",
+      "imageSha256": "6666e909fb4f9ef6187bee94312f89a8c3ff096b3b16f5851f580d4000be141c",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "November 9 complete 397-book reread and ordered cover/page review; final replacement WebPs inspected natively and rechecked in whole-book sequences. Evidence: source-art/guided-reading-remediation/2026-11-09 and source-art/world-discovery/remediation/2026-11-09; character identity, physical continuity, concrete ESL scene support, anatomy, object counts and factual detail checked. This is agent visual review, not classroom or physical-device observation.",
+      "regenerationBrief": "11 November 2026: installed replacement natively inspected and checked in its complete ordered book sequence against the unchanged manuscript. See dated image repair provenance.",
       "editorialReview20260922": {
         "reviewedAt": "2026-09-22",
         "reviewer": "Editorial repair team; agent visual review",
@@ -36339,11 +36339,11 @@
       "displayedText": "Luna set the open box on the ground outside Hollow Oak. She gave each helper a seed and pointed to a bare patch beneath the old branches.",
       "imagePath": "/guided-reading/series/moonwood-tales/book-10/page-012.webp",
       "textSha256": "a4b5d75254e8ee7a39b49c3aec11baccf9640c1a5ee7db902222d1e23130cad4",
-      "imageSha256": "940e86590687450dbfb285698afc3b26ef4e3b1ce30df29e35f817ee3060a3ef",
+      "imageSha256": "4a09b6427cf70c0dcd4436e33d946546fbe5dad571399c8b488d6e9c7518ff80",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "November 9 complete 397-book reread and ordered cover/page review; final replacement WebPs inspected natively and rechecked in whole-book sequences. Evidence: source-art/guided-reading-remediation/2026-11-09 and source-art/world-discovery/remediation/2026-11-09; character identity, physical continuity, concrete ESL scene support, anatomy, object counts and factual detail checked. This is agent visual review, not classroom or physical-device observation.",
+      "regenerationBrief": "11 November 2026: installed replacement natively inspected and checked in its complete ordered book sequence against the unchanged manuscript. See dated image repair provenance.",
       "editorialReview20260922": {
         "reviewedAt": "2026-09-22",
         "reviewer": "Editorial repair team; agent visual review",
@@ -36383,11 +36383,11 @@
       "displayedText": "Before sunset, the friends planted all twelve seeds in a wide ring around Hollow Oak. They covered each hole gently and watered the dark soil.",
       "imagePath": "/guided-reading/series/moonwood-tales/book-10/page-013.webp",
       "textSha256": "b1b292e71f18d904a78f233e31c8bc86da8554edc3ec15e87fdce8ac889597a5",
-      "imageSha256": "1f90e8897c17e25b1c010b9d21a1374f1643a4b79009b3e2d6404d85cc374289",
+      "imageSha256": "7f5365fc89c35f13d6015981c0b15524e2bc2479aca876bdfec4348d7a5cede0",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "November 9 complete 397-book reread and ordered cover/page review; final replacement WebPs inspected natively and rechecked in whole-book sequences. Evidence: source-art/guided-reading-remediation/2026-11-09 and source-art/world-discovery/remediation/2026-11-09; character identity, physical continuity, concrete ESL scene support, anatomy, object counts and factual detail checked. This is agent visual review, not classroom or physical-device observation."
+      "regenerationBrief": "11 November 2026: installed replacement natively inspected and checked in its complete ordered book sequence against the unchanged manuscript. See dated image repair provenance."
     },
     {
       "bookId": "moonwood-tales-c-10",
@@ -36397,11 +36397,11 @@
       "displayedText": "Luna settled beside the last small mound. Above her, the old leaves rustled; below, twelve seeds rested in damp soil. She listened until the light left the clearing.",
       "imagePath": "/guided-reading/series/moonwood-tales/book-10/page-014.webp",
       "textSha256": "00a10daa0b4a71d169f0d4ff8aa10c20a1f3b5a75daf5345a9e25fc1cdf5cc1a",
-      "imageSha256": "d603a5dca9f054cb5dc022c2e6b7c8c05ac0564294ef7d706471a6d697677e80",
+      "imageSha256": "6f83751e8e4ae718b8aca1249d93a3a0d15670144d7a2ea0177040114510dab9",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "November 9 complete 397-book reread and ordered cover/page review; final replacement WebPs inspected natively and rechecked in whole-book sequences. Evidence: source-art/guided-reading-remediation/2026-11-09 and source-art/world-discovery/remediation/2026-11-09; character identity, physical continuity, concrete ESL scene support, anatomy, object counts and factual detail checked. This is agent visual review, not classroom or physical-device observation.",
+      "regenerationBrief": "11 November 2026: installed replacement natively inspected and checked in its complete ordered book sequence against the unchanged manuscript. See dated image repair provenance.",
       "editorialReview20260922": {
         "reviewedAt": "2026-09-22",
         "reviewer": "Editorial repair team; agent visual review",
@@ -63764,11 +63764,11 @@
       "displayedText": "She fills the bag once more and points it through the gap. This time she opens only a tiny corner.",
       "imagePath": "/guided-reading/world-discovery/d-04/page-07.webp",
       "textSha256": "a47315aa2363a5cd9f1b08f14a0aa949ec2ed9cbda34740523e22b24975bf268",
-      "imageSha256": "72b842a46eecb9dbde52933ce74d1ea0c6433df3402fae9922ed8af2ced98c76",
+      "imageSha256": "f09799f3b38c84fb63b8674848f5024ca2142c649b1a06b64100ff424578aec7",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "November 9 complete 397-book reread and ordered cover/page review; final replacement WebPs inspected natively and rechecked in whole-book sequences. Evidence: source-art/guided-reading-remediation/2026-11-09 and source-art/world-discovery/remediation/2026-11-09; character identity, physical continuity, concrete ESL scene support, anatomy, object counts and factual detail checked. This is agent visual review, not classroom or physical-device observation."
+      "regenerationBrief": "11 November 2026: installed replacement natively inspected and checked in its complete ordered book sequence against the unchanged manuscript. See dated image repair provenance."
     },
     {
       "bookId": "world-discovery-d-04",
@@ -63778,11 +63778,11 @@
       "displayedText": "A little puff lifts one kite corner. Kit holds out his hands as Zoe lets a second puff escape.",
       "imagePath": "/guided-reading/world-discovery/d-04/page-08.webp",
       "textSha256": "4515ac7f2f83b85f0923970f5414ac194e2b9c2957e34809bf7e4ba56e24cd90",
-      "imageSha256": "58eb80ece8a79eb257ec8cba40dc23894c8c0508e4e26e6b40788b437648af41",
+      "imageSha256": "87ebba7dfcfdb47642ce66bf31161176eb818b7f32db821e4e74fc3caa2bac16",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "November 9 complete 397-book reread and ordered cover/page review; final replacement WebPs inspected natively and rechecked in whole-book sequences. Evidence: source-art/guided-reading-remediation/2026-11-09 and source-art/world-discovery/remediation/2026-11-09; character identity, physical continuity, concrete ESL scene support, anatomy, object counts and factual detail checked. This is agent visual review, not classroom or physical-device observation."
+      "regenerationBrief": "11 November 2026: installed replacement natively inspected and checked in its complete ordered book sequence against the unchanged manuscript. See dated image repair provenance."
     },
     {
       "bookId": "world-discovery-d-04",

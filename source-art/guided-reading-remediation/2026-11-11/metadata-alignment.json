@@ -1,0 +1,1311 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-11",
+  "kind": "metadata-alignment-only",
+  "basis": "Confirmed findings across the five library suitability reports, current frozen runtime prose and directly inspected installed images.",
+  "scope": "Current descriptive/production fields and teacher discussion support only. No child prose/title, artwork, narration, word audio, public level, edition or global registry changes.",
+  "provenanceLimit": "Before values preserve exact pre-repair source fields. They are not claimed to be exact submitted image-generation tool prompts. Existing historical generation receipts are untouched.",
+  "files": [
+    {
+      "file": "src/data/guidedReadingSeriesBooks.js",
+      "beforeSha256": "291d8935e5ae74410a7eb47c984ca043ccca1535fbe708406a45994e81fbe8f0",
+      "afterSha256": "479a82079d500193cdb9a010affa1e5ad6ac454c4bd588c43a2a6aea9dc3ecde"
+    },
+    {
+      "file": "src/data/guidedReadingWorldExpansionBooks.js",
+      "beforeSha256": "8e2592f5368c606238248e984f59f446f763e552b054897c0722004701bfe2cf",
+      "afterSha256": "b7d7debfadf3b35b60d9be8f80b36b10b4f5de378fa2904d6a836bb8f970b5aa"
+    },
+    {
+      "file": "src/data/guidedReadingBridgeBooks.js",
+      "beforeSha256": "f2aa1e038f03eb8e702f2e6469bdd6d392f4cde9df7ffce78a5dfb796fac4e53",
+      "afterSha256": "2cf5a9ad70206522a75700e24530a40e6f55da3fb84036d455c5258368b8bc3a"
+    },
+    {
+      "file": "src/content/guidedReadingIllustrationDescriptions.js",
+      "beforeSha256": "82f0637b00b2cccf965bd0d81bea2d27d188d2dd868cfa051e31c1f23435d065",
+      "afterSha256": "a6223a80a31282bc7d74bf806784264173f9a9dc5d33596bc8fa5b78e7d0a535"
+    },
+    {
+      "file": "src/data/guidedReadingNextStepsBooks.js",
+      "beforeSha256": "69dcde36457e1e1623fd775f33928d0bf93e2b70dc56e91d1ad76c8284228044",
+      "afterSha256": "70b8bbc59373ac1542d080e215d433f013d503bf3287608eda8f57b0748c38b1"
+    },
+    {
+      "file": "src/data/guidedReadingDiscussionPrompts.core.js",
+      "beforeSha256": "3cc7f9a94e6a73db4a35510637683298cff42d11b0a8e260ba6bd40b52ad682f",
+      "afterSha256": "0a4214389ebd185a6de62eada1cdec0fb2a834375431fb1f42b87a0709106558"
+    }
+  ],
+  "changes": [
+    {
+      "file": "src/data/guidedReadingSeriesBooks.js",
+      "id": "ab-c-01",
+      "page": 9,
+      "field": "pages[pageNumber=9].illustrationPrompt",
+      "before": "Aiden concentrating on a reading puzzle with story clues.",
+      "after": "Aiden studies a board of colored shape patterns at a classroom table."
+    },
+    {
+      "file": "src/data/guidedReadingSeriesBooks.js",
+      "id": "james-and-anna-03-shopping",
+      "page": 13,
+      "field": "pages[pageNumber=13].illustrationPrompt",
+      "before": "James and Anna laughing at the table while Chips eats the paper bag.",
+      "after": "James and Anna sit at the kitchen table with cakes on plates while Mom washes at the sink. Chips stands beside a crumpled paper bag."
+    },
+    {
+      "file": "src/data/guidedReadingSeriesBooks.js",
+      "id": "ja-b-06",
+      "page": 12,
+      "field": "pages[pageNumber=12].illustrationPrompt",
+      "before": "Golden sunset farm scene: James and Anna sitting on a fence rail with Grandma between them. Bess's head over the stable gate in the background. Percy a round pink lump asleep in the pen. Chips quietly chewing the fence post they are sitting on. Warm, perfect end-of-day light.",
+      "after": "James holds out hay beside Grandma and Anna. Chips turns away from the fence toward the hay as the three stand in the farmyard."
+    },
+    {
+      "file": "src/data/guidedReadingSeriesBooks.js",
+      "id": "ja-b-09",
+      "page": 13,
+      "field": "pages[pageNumber=13].illustrationPrompt",
+      "before": "Bedtime: James's bedroom. James and Anna both in sleeping bags/beds, still in their helmets (they fell asleep like that). James turning to ask his question. Anna already completely, peacefully asleep. Their bikes propped against the wall. Warm lamplight.",
+      "after": "James turns toward Anna from his bed while Anna sleeps in the other bed. Both helmets rest on a bench beside the beds."
+    },
+    {
+      "file": "src/data/guidedReadingSeriesBooks.js",
+      "id": "ja-b-10",
+      "page": 6,
+      "field": "pages[pageNumber=6].illustrationPrompt",
+      "before": "Chips's marshmallow is on fire at the end of his stick (someone held it for him). Chips is entirely unfazed. He leans forward and eats the burning marshmallow, stick and all, in one go. James and Anna watch with wide eyes.",
+      "after": "Dad holds Chips back by his collar and lifts the hot marshmallow on its stick out of reach. James and Anna watch beside the camping fire."
+    },
+    {
+      "file": "src/data/guidedReadingSeriesBooks.js",
+      "id": "bob-and-nan-07-birthday",
+      "page": 3,
+      "field": "pages[pageNumber=3].illustrationPrompt",
+      "before": "Bob tearing open the wrapping paper with delight, discovering a bright red cricket bat inside.",
+      "after": "Bob and Nan tug at the intact red wrapping around the tall present. The blue ribbon stays tied and the bat is still hidden; Fluff watches beside them."
+    },
+    {
+      "file": "src/data/guidedReadingSeriesBooks.js",
+      "id": "bob-and-nan-07-birthday",
+      "page": 4,
+      "field": "pages[pageNumber=4].illustrationPrompt",
+      "before": "Mom lighting six candles on a large birthday cake while Bob and Nan watch eagerly.",
+      "after": "Nan steadies the tall present while Bob leans back and pulls a strip of red wrapping paper. The paper starts to tear; Fluff watches nearby."
+    },
+    {
+      "file": "src/data/guidedReadingSeriesBooks.js",
+      "id": "bob-and-nan-07-birthday",
+      "page": 5,
+      "field": "pages[pageNumber=5].illustrationPrompt",
+      "before": "Close up on Bob's face, lit by candlelight, eyes reflecting the six flames.",
+      "after": "A red cricket bat is revealed upright in the opened present, with torn wrapping and blue ribbon around the box. Bob and Nan react with delight while Fluff watches."
+    },
+    {
+      "file": "src/data/guidedReadingSeriesBooks.js",
+      "id": "bob-and-nan-05-school",
+      "page": 4,
+      "field": "pages[pageNumber=4].illustrationPrompt",
+      "before": "Bob's face with a slightly wobbly bottom lip, eyes wide, not crying but close. School gate visible ahead of him.",
+      "after": "Bob pauses at the open classroom doorway with his blue backpack on. Nan waits just behind him while the teacher and children are visible inside."
+    },
+    {
+      "file": "src/data/guidedReadingSeriesBooks.js",
+      "id": "bob-and-nan-05-school",
+      "page": 5,
+      "field": "pages[pageNumber=5].illustrationPrompt",
+      "before": "Nan's face similarly worried, clutching Mom's hand tightly. Both are walking bravely forward.",
+      "after": "Nan and Bob smile at each other beside the open classroom doorway. Their teacher smiles and gestures into the room."
+    },
+    {
+      "file": "src/data/guidedReadingSeriesBooks.js",
+      "id": "bob-and-nan-05-school",
+      "page": 7,
+      "field": "pages[pageNumber=7].illustrationPrompt",
+      "before": "End of the day. Bob and Nan running out of the school gate, huge grins, school bags bouncing. Mom waiting.",
+      "after": "Bob and Nan draw side by side with crayons at a classroom table while their teacher helps two other children behind them."
+    },
+    {
+      "file": "src/data/guidedReadingSeriesBooks.js",
+      "id": "bob-and-nan-04-beach",
+      "page": 2,
+      "field": "pages[pageNumber=2].illustrationPrompt",
+      "before": "Bob and Nan standing on the beach looking up at a huge bright sun, shielding their eyes and grinning.",
+      "after": "Bob and Nan kneel with their spades and point to a low sand mound inside a rectangular outline for their fort. Their buckets sit beside them and the sea is behind."
+    },
+    {
+      "file": "src/data/guidedReadingSeriesBooks.js",
+      "id": "bob-and-nan-04-beach",
+      "page": 5,
+      "field": "pages[pageNumber=5].illustrationPrompt",
+      "before": "Bob standing in the shallow sea, a wave just washing over his shoes. Mouth open in a gasp, then laughing.",
+      "after": "A wave washes over the sand fort and breaks its walls and towers. Bob and Nan watch from the dry sand beside their buckets."
+    },
+    {
+      "file": "src/data/guidedReadingSeriesBooks.js",
+      "id": "bob-and-nan-04-beach",
+      "page": 6,
+      "field": "pages[pageNumber=6].illustrationPrompt",
+      "before": "Nan splashing in the shallow sea, both arms out for balance, sea water splashing all around. Huge delighted grin.",
+      "after": "Bob and Nan build a new sand fort on dry sand farther back from the sea. Bob uses his red spade while Nan tips sand from her yellow bucket."
+    },
+    {
+      "file": "src/data/guidedReadingSeriesBooks.js",
+      "id": "bob-and-nan-04-beach",
+      "page": 7,
+      "field": "pages[pageNumber=7].illustrationPrompt",
+      "before": "Bob and Nan sitting on the sand at the water's edge. Sun lower now, sea sparkling. Happy, tired smiles.",
+      "after": "The rebuilt sand fort stands dry farther back on the beach. Bob and Nan sit in front of it as small waves reach the shoreline and the Sun sets."
+    },
+    {
+      "file": "src/data/guidedReadingWorldExpansionBooks.js",
+      "id": "moonwood-tales-c-32",
+      "page": 3,
+      "field": "pages[pageNumber=3].scene",
+      "before": "Flint covers one glass panel with a gloved hand while two shadows stay visible.",
+      "after": "Flint holds the lantern by its handle beside the roots. Two shadows stretch across the path."
+    },
+    {
+      "file": "src/data/guidedReadingWorldExpansionBooks.js",
+      "id": "moonwood-tales-c-32",
+      "page": 10,
+      "field": "pages[pageNumber=10].scene",
+      "before": "Flint walks into Deep Dark carrying the low steady lantern while Pip watches from the safe edge.",
+      "after": "Flint walks along the path holding his lantern low while small Pip brushes a fern leaf from Flint’s collar."
+    },
+    {
+      "file": "src/data/guidedReadingWorldExpansionBooks.js",
+      "id": "moonwood-tales-c-35",
+      "page": 7,
+      "field": "pages[pageNumber=7].scene",
+      "before": "Huge Stone uses one fingertip delicately to straighten the smallest chime's cord.",
+      "after": "Huge Stone steadies the smallest chime while tiny Pip reaches up with both hands to untwist its cord."
+    },
+    {
+      "file": "src/data/guidedReadingWorldExpansionBooks.js",
+      "id": "dino-pals-23-flappys-fern-delivery",
+      "page": 1,
+      "field": "pages[pageNumber=1].scene",
+      "before": "Flappy holds one very broad fern near the stream as dark rain clouds gather.",
+      "after": "Flappy holds one very broad fern near the stream as rain falls beneath dark clouds."
+    },
+    {
+      "file": "src/data/guidedReadingWorldExpansionBooks.js",
+      "id": "dino-pals-23-flappys-fern-delivery",
+      "page": 8,
+      "field": "pages[pageNumber=8].scene",
+      "before": "The opened fern forms a dry small awning at Cozy Cave as first drops fall beyond it.",
+      "after": "The opened fern forms a small awning at Cozy Cave. Flappy and Wiggly stand dry beneath it while rain continues beyond the entrance."
+    },
+    {
+      "file": "src/data/guidedReadingWorldExpansionBooks.js",
+      "id": "dino-pals-25-sneezys-seed-cloud",
+      "page": 1,
+      "field": "pages[pageNumber=1].scene",
+      "before": "A visible cloud of harmless white fern seed fluff approaches Cozy Cave's entrance.",
+      "after": "A visible cloud of harmless white plant seed fluff approaches Cozy Cave's entrance."
+    },
+    {
+      "file": "src/data/guidedReadingWorldExpansionBooks.js",
+      "id": "dino-pals-23-flappys-fern-delivery",
+      "page": null,
+      "field": "location",
+      "before": "the stream crossing between Fernwood and Cozy Cave under gathering rain clouds",
+      "after": "the stream crossing between Fernwood and Cozy Cave during ongoing rain"
+    },
+    {
+      "file": "src/data/guidedReadingWorldExpansionBooks.js",
+      "id": "dino-pals-23-flappys-fern-delivery",
+      "page": null,
+      "field": "storyPromise",
+      "before": "Flappy must carry a roof fern to Cozy Cave before rain, but the wide leaf catches the crosswind.",
+      "after": "Flappy must carry a roof fern to Cozy Cave during the rain, but the wide leaf catches the crosswind."
+    },
+    {
+      "file": "src/data/guidedReadingWorldExpansionBooks.js",
+      "id": "dino-pals-23-flappys-fern-delivery",
+      "page": null,
+      "field": "landing",
+      "before": "The fern opens into a dry entrance roof before the first rain.",
+      "after": "The fern opens into an entrance roof that keeps Flappy and Wiggly dry while rain continues."
+    },
+    {
+      "file": "src/data/guidedReadingBridgeBooks.js",
+      "id": "willow-street-drums-for-carnival",
+      "page": 3,
+      "field": "rows[pageNumber=3].imageBrief",
+      "before": "Leo enthusiastically continues drumming while the group begins its answer; overlapping motion lines and concerned listening faces show the rhythm has become crowded without shaming him.",
+      "after": "Leo strikes his small hand drum while Mr Baptiste is still playing the call on the large drum. The other two players pause and look concerned at the overlapping beats."
+    },
+    {
+      "file": "src/data/guidedReadingBridgeBooks.js",
+      "id": "willow-street-drums-for-carnival",
+      "page": 4,
+      "field": "rows[pageNumber=4].imageBrief",
+      "before": "The whole percussion circle becomes still as Mr Baptiste calmly repeats the call with a hand cue; Leo lowers his sticks and leans forward to listen closely.",
+      "after": "Mr Baptiste holds one open hand up while his sticks rest together in his other hand. Leo and the other players stop and hold their instruments still."
+    },
+    {
+      "file": "src/data/guidedReadingBridgeBooks.js",
+      "id": "willow-street-drums-for-carnival",
+      "page": 5,
+      "field": "rows[pageNumber=5].imageBrief",
+      "before": "Mr Baptiste finishes the call and points to the group; Leo joins exactly as the answering beat starts, matching the neighbors' hand drums in coordinated motion.",
+      "after": "Mr Baptiste plays the call on the large drum while Leo waits with one hand lifted away from his own drum. The other players listen without playing."
+    },
+    {
+      "file": "src/data/guidedReadingBridgeBooks.js",
+      "id": "willow-street-drums-for-carnival",
+      "page": 6,
+      "field": "rows[pageNumber=6].imageBrief",
+      "before": "The percussion group follows two visible hand cues: a small low hand for soft playing and raised open hand for strong playing; Leo mirrors both dynamics attentively.",
+      "after": "Leo and the other two players play the answering rhythm on their hand drums and shaker. Mr Baptiste watches with both sticks lifted clear of his drum."
+    },
+    {
+      "file": "src/content/guidedReadingIllustrationDescriptions.js",
+      "id": "meadow-pals-13-splashy-finds-a-puddle",
+      "page": 8,
+      "field": "meadow-pals-13-splashy-finds-a-puddle::8",
+      "before": "Splashy wipes Grumpy’s wet hat while Grumpy holds a towel around himself beside the puddle.",
+      "after": "Splashy wipes Clucky’s red hat on a stool while Clucky watches. Grumpy stands nearby with a towel draped across his back."
+    },
+    {
+      "file": "src/content/guidedReadingIllustrationDescriptions.js",
+      "id": "gr-c-38",
+      "page": 4,
+      "field": "gr-c-38::4",
+      "before": "The child tastes a slice of apple at the kitchen table.",
+      "after": "The child tastes a cut strawberry at the kitchen table beside a bowl of strawberries."
+    },
+    {
+      "file": "src/data/guidedReadingNextStepsBooks.js",
+      "id": "next-steps-09",
+      "page": null,
+      "field": "storyBibleReview.storySpine",
+      "before": "Sam wants to see a dot, but his red pen leaves a hard-to-see mark on a red paper mat; he chooses a tan mat and makes a dot he can see.",
+      "after": "Sam wants to see a dot, but his red pen leaves a hard-to-see mark on a red work mat; he chooses a tan work mat and makes a dot he can see."
+    },
+    {
+      "file": "src/data/guidedReadingNextStepsBooks.js",
+      "id": "next-steps-09",
+      "page": null,
+      "field": "storyBibleReview.failedAttempt",
+      "before": "Sam dabs the red pen on the red paper mat and cannot distinguish the mark.",
+      "after": "Sam dabs the red pen on the red work mat and cannot distinguish the mark."
+    },
+    {
+      "file": "src/data/guidedReadingNextStepsBooks.js",
+      "id": "next-steps-09",
+      "page": null,
+      "field": "storyBibleReview.turn",
+      "before": "Sam chooses the tan paper mat instead.",
+      "after": "Sam chooses the tan work mat instead."
+    },
+    {
+      "file": "src/data/guidedReadingNextStepsBooks.js",
+      "id": "next-steps-09",
+      "page": null,
+      "field": "discussion.visual.lookFor",
+      "before": "The red dot has a different color from the tan paper around it.",
+      "after": "The red dot has a different color from the tan work mat around it."
+    },
+    {
+      "file": "src/data/guidedReadingDiscussionPrompts.core.js",
+      "id": "first-facts-a-04-what-is-weather",
+      "page": null,
+      "field": "oral.listenFor",
+      "before": "Wind bends plants, thunder booms, lightning flashes, and Sun or snow changes temperature.",
+      "after": "Wind bends the twigs and grass and carries loose leaves through the air."
+    },
+    {
+      "file": "src/data/guidedReadingBridgeBooks.js",
+      "id": "willow-street-the-lunchbox-mix-up",
+      "page": 2,
+      "field": "rows[pageNumber=2].imageBrief_and_readerDescription",
+      "before": "Maya compares blank cream label patches on both open lunchbox lids. The blue cup stays inside her yellow box and the green apple inside Samir's green box; spoon and orange napkin stay together on the table. No readable lettering.",
+      "after": "Maya and Samir hold their open lunchboxes on the table. Samir's blue cup is inside Maya's yellow box, and her green apple is inside his green box. A spoon and orange napkin lie between them."
+    },
+    {
+      "file": "src/data/guidedReadingBridgeBooks.js",
+      "id": "willow-street-the-lunchbox-mix-up",
+      "page": 3,
+      "field": "rows[pageNumber=3].imageBrief_and_readerDescription",
+      "before": "Samir points from the blank label on his open green box to Maya's green apple inside. Maya's open yellow box still contains the blue cup. Spoon and orange napkin remain on the table between them.",
+      "after": "Samir points to Maya's green apple inside his open green lunchbox. Maya's yellow lunchbox still contains his blue cup. A spoon and orange napkin remain on the table between them."
+    }
+  ],
+  "reviewReports": [
+    {
+      "path": ".artifacts/library-suitability-audit/shard-1/review.json",
+      "sha256": "af6a404a6ed38e7edf10ed2b543a2ee27b76e7389db16ea5dee4c3c3e331acd8"
+    },
+    {
+      "path": ".artifacts/library-suitability-audit/shard-2/review.json",
+      "sha256": "447d4c3100258fa05dc8ed9ed850148258797ff5bfa19945f8c9c14ebf52545e"
+    },
+    {
+      "path": ".artifacts/library-suitability-audit/shard-3/review.json",
+      "sha256": "b51fe51a1bbbe19a1be27805405e21bb072d1f8a3356d77c62458e7758a91329"
+    },
+    {
+      "path": ".artifacts/library-suitability-audit/shard-2/shard1-60-99-review.json",
+      "sha256": "409e7baf963320b62697fb9c50fe2ba4c42d800db9ee39034e0236b84224680c"
+    },
+    {
+      "path": ".artifacts/library-suitability-audit/shard-3/shard1-100-148-review.json",
+      "sha256": "a3b55b23ebd8990d9e03ad20760bb636222e23320b46a15f04ec3bc015f68445"
+    }
+  ],
+  "resolvedMetadataFindingIds": [
+    "S1-003",
+    "S1-004",
+    "S1-005",
+    "S1-006",
+    "S1-011",
+    "S1-012",
+    "S2-M01",
+    "S2-M02",
+    "S2-M03",
+    "S2-M04",
+    "S2-M05",
+    "S2-M06",
+    "S3-04",
+    "S3-10",
+    "S2-S1-M01",
+    "S1S3-01",
+    "S1S3-03"
+  ],
+  "partiallyAlignedPendingParentTextRepair": [
+    "S3-06: p2/p3 descriptions/briefs now describe current box contents; child label wording, adult story review and oral guidance remain the parent's pending authorized text work."
+  ],
+  "runtimeMetadataChanges": [
+    {
+      "id": "gr-c-38",
+      "page": 4,
+      "field": "imageAlt",
+      "before": "The child tastes a slice of apple at the kitchen table.",
+      "after": "The child tastes a cut strawberry at the kitchen table beside a bowl of strawberries."
+    },
+    {
+      "id": "gr-c-38",
+      "page": 4,
+      "field": "pageDescription",
+      "before": "The child tastes a slice of apple at the kitchen table.",
+      "after": "The child tastes a cut strawberry at the kitchen table beside a bowl of strawberries."
+    },
+    {
+      "id": "gr-c-38",
+      "page": 4,
+      "field": "illustrationPrompt",
+      "before": "The child tastes a slice of apple at the kitchen table.",
+      "after": "The child tastes a cut strawberry at the kitchen table beside a bowl of strawberries."
+    },
+    {
+      "id": "bob-and-nan-04-beach",
+      "page": 2,
+      "field": "imageAlt",
+      "before": "Bob and Nan standing on the beach looking up at a huge bright sun, shielding their eyes and grinning.",
+      "after": "Bob and Nan kneel with their spades and point to a low sand mound inside a rectangular outline for their fort. Their buckets sit beside them and the sea is behind."
+    },
+    {
+      "id": "bob-and-nan-04-beach",
+      "page": 2,
+      "field": "pageDescription",
+      "before": "Bob and Nan standing on the beach looking up at a huge bright sun, shielding their eyes and grinning.",
+      "after": "Bob and Nan kneel with their spades and point to a low sand mound inside a rectangular outline for their fort. Their buckets sit beside them and the sea is behind."
+    },
+    {
+      "id": "bob-and-nan-04-beach",
+      "page": 2,
+      "field": "illustrationPrompt",
+      "before": "Bob and Nan standing on the beach looking up at a huge bright sun, shielding their eyes and grinning.",
+      "after": "Bob and Nan kneel with their spades and point to a low sand mound inside a rectangular outline for their fort. Their buckets sit beside them and the sea is behind."
+    },
+    {
+      "id": "bob-and-nan-04-beach",
+      "page": 5,
+      "field": "imageAlt",
+      "before": "Bob standing in the shallow sea, a wave just washing over his shoes. Mouth open in a gasp, then laughing.",
+      "after": "A wave washes over the sand fort and breaks its walls and towers. Bob and Nan watch from the dry sand beside their buckets."
+    },
+    {
+      "id": "bob-and-nan-04-beach",
+      "page": 5,
+      "field": "pageDescription",
+      "before": "Bob standing in the shallow sea, a wave just washing over his shoes. Mouth open in a gasp, then laughing.",
+      "after": "A wave washes over the sand fort and breaks its walls and towers. Bob and Nan watch from the dry sand beside their buckets."
+    },
+    {
+      "id": "bob-and-nan-04-beach",
+      "page": 5,
+      "field": "illustrationPrompt",
+      "before": "Bob standing in the shallow sea, a wave just washing over his shoes. Mouth open in a gasp, then laughing.",
+      "after": "A wave washes over the sand fort and breaks its walls and towers. Bob and Nan watch from the dry sand beside their buckets."
+    },
+    {
+      "id": "bob-and-nan-04-beach",
+      "page": 6,
+      "field": "imageAlt",
+      "before": "Nan splashing in the shallow sea, both arms out for balance, sea water splashing all around. Huge delighted grin.",
+      "after": "Bob and Nan build a new sand fort on dry sand farther back from the sea. Bob uses his red spade while Nan tips sand from her yellow bucket."
+    },
+    {
+      "id": "bob-and-nan-04-beach",
+      "page": 6,
+      "field": "pageDescription",
+      "before": "Nan splashing in the shallow sea, both arms out for balance, sea water splashing all around. Huge delighted grin.",
+      "after": "Bob and Nan build a new sand fort on dry sand farther back from the sea. Bob uses his red spade while Nan tips sand from her yellow bucket."
+    },
+    {
+      "id": "bob-and-nan-04-beach",
+      "page": 6,
+      "field": "illustrationPrompt",
+      "before": "Nan splashing in the shallow sea, both arms out for balance, sea water splashing all around. Huge delighted grin.",
+      "after": "Bob and Nan build a new sand fort on dry sand farther back from the sea. Bob uses his red spade while Nan tips sand from her yellow bucket."
+    },
+    {
+      "id": "bob-and-nan-04-beach",
+      "page": 7,
+      "field": "imageAlt",
+      "before": "Bob and Nan sitting on the sand at the water's edge. Sun lower now, sea sparkling. Happy, tired smiles.",
+      "after": "The rebuilt sand fort stands dry farther back on the beach. Bob and Nan sit in front of it as small waves reach the shoreline and the Sun sets."
+    },
+    {
+      "id": "bob-and-nan-04-beach",
+      "page": 7,
+      "field": "pageDescription",
+      "before": "Bob and Nan sitting on the sand at the water's edge. Sun lower now, sea sparkling. Happy, tired smiles.",
+      "after": "The rebuilt sand fort stands dry farther back on the beach. Bob and Nan sit in front of it as small waves reach the shoreline and the Sun sets."
+    },
+    {
+      "id": "bob-and-nan-04-beach",
+      "page": 7,
+      "field": "illustrationPrompt",
+      "before": "Bob and Nan sitting on the sand at the water's edge. Sun lower now, sea sparkling. Happy, tired smiles.",
+      "after": "The rebuilt sand fort stands dry farther back on the beach. Bob and Nan sit in front of it as small waves reach the shoreline and the Sun sets."
+    },
+    {
+      "id": "bob-and-nan-05-school",
+      "page": 4,
+      "field": "imageAlt",
+      "before": "Bob's face with a slightly wobbly bottom lip, eyes wide, not crying but close. School gate visible ahead of him.",
+      "after": "Bob pauses at the open classroom doorway with his blue backpack on. Nan waits just behind him while the teacher and children are visible inside."
+    },
+    {
+      "id": "bob-and-nan-05-school",
+      "page": 4,
+      "field": "pageDescription",
+      "before": "Bob's face with a slightly wobbly bottom lip, eyes wide, not crying but close. School gate visible ahead of him.",
+      "after": "Bob pauses at the open classroom doorway with his blue backpack on. Nan waits just behind him while the teacher and children are visible inside."
+    },
+    {
+      "id": "bob-and-nan-05-school",
+      "page": 4,
+      "field": "illustrationPrompt",
+      "before": "Bob's face with a slightly wobbly bottom lip, eyes wide, not crying but close. School gate visible ahead of him.",
+      "after": "Bob pauses at the open classroom doorway with his blue backpack on. Nan waits just behind him while the teacher and children are visible inside."
+    },
+    {
+      "id": "bob-and-nan-05-school",
+      "page": 5,
+      "field": "imageAlt",
+      "before": "Nan's face similarly worried, clutching Mom's hand tightly. Both are walking bravely forward.",
+      "after": "Nan and Bob smile at each other beside the open classroom doorway. Their teacher smiles and gestures into the room."
+    },
+    {
+      "id": "bob-and-nan-05-school",
+      "page": 5,
+      "field": "pageDescription",
+      "before": "Nan's face similarly worried, clutching Mom's hand tightly. Both are walking bravely forward.",
+      "after": "Nan and Bob smile at each other beside the open classroom doorway. Their teacher smiles and gestures into the room."
+    },
+    {
+      "id": "bob-and-nan-05-school",
+      "page": 5,
+      "field": "illustrationPrompt",
+      "before": "Nan's face similarly worried, clutching Mom's hand tightly. Both are walking bravely forward.",
+      "after": "Nan and Bob smile at each other beside the open classroom doorway. Their teacher smiles and gestures into the room."
+    },
+    {
+      "id": "bob-and-nan-05-school",
+      "page": 7,
+      "field": "imageAlt",
+      "before": "End of the day. Bob and Nan running out of the school gate, huge grins, school bags bouncing. Mom waiting.",
+      "after": "Bob and Nan draw side by side with crayons at a classroom table while their teacher helps two other children behind them."
+    },
+    {
+      "id": "bob-and-nan-05-school",
+      "page": 7,
+      "field": "pageDescription",
+      "before": "End of the day. Bob and Nan running out of the school gate, huge grins, school bags bouncing. Mom waiting.",
+      "after": "Bob and Nan draw side by side with crayons at a classroom table while their teacher helps two other children behind them."
+    },
+    {
+      "id": "bob-and-nan-05-school",
+      "page": 7,
+      "field": "illustrationPrompt",
+      "before": "End of the day. Bob and Nan running out of the school gate, huge grins, school bags bouncing. Mom waiting.",
+      "after": "Bob and Nan draw side by side with crayons at a classroom table while their teacher helps two other children behind them."
+    },
+    {
+      "id": "bob-and-nan-07-birthday",
+      "page": 3,
+      "field": "imageAlt",
+      "before": "Bob tearing open the wrapping paper with delight, discovering a bright red cricket bat inside.",
+      "after": "Bob and Nan tug at the intact red wrapping around the tall present. The blue ribbon stays tied and the bat is still hidden; Fluff watches beside them."
+    },
+    {
+      "id": "bob-and-nan-07-birthday",
+      "page": 3,
+      "field": "pageDescription",
+      "before": "Bob tearing open the wrapping paper with delight, discovering a bright red cricket bat inside.",
+      "after": "Bob and Nan tug at the intact red wrapping around the tall present. The blue ribbon stays tied and the bat is still hidden; Fluff watches beside them."
+    },
+    {
+      "id": "bob-and-nan-07-birthday",
+      "page": 3,
+      "field": "illustrationPrompt",
+      "before": "Bob tearing open the wrapping paper with delight, discovering a bright red cricket bat inside.",
+      "after": "Bob and Nan tug at the intact red wrapping around the tall present. The blue ribbon stays tied and the bat is still hidden; Fluff watches beside them."
+    },
+    {
+      "id": "bob-and-nan-07-birthday",
+      "page": 4,
+      "field": "imageAlt",
+      "before": "Mom lighting six candles on a large birthday cake while Bob and Nan watch eagerly.",
+      "after": "Nan steadies the tall present while Bob leans back and pulls a strip of red wrapping paper. The paper starts to tear; Fluff watches nearby."
+    },
+    {
+      "id": "bob-and-nan-07-birthday",
+      "page": 4,
+      "field": "pageDescription",
+      "before": "Mom lighting six candles on a large birthday cake while Bob and Nan watch eagerly.",
+      "after": "Nan steadies the tall present while Bob leans back and pulls a strip of red wrapping paper. The paper starts to tear; Fluff watches nearby."
+    },
+    {
+      "id": "bob-and-nan-07-birthday",
+      "page": 4,
+      "field": "illustrationPrompt",
+      "before": "Mom lighting six candles on a large birthday cake while Bob and Nan watch eagerly.",
+      "after": "Nan steadies the tall present while Bob leans back and pulls a strip of red wrapping paper. The paper starts to tear; Fluff watches nearby."
+    },
+    {
+      "id": "bob-and-nan-07-birthday",
+      "page": 5,
+      "field": "imageAlt",
+      "before": "Close up on Bob's face, lit by candlelight, eyes reflecting the six flames.",
+      "after": "A red cricket bat is revealed upright in the opened present, with torn wrapping and blue ribbon around the box. Bob and Nan react with delight while Fluff watches."
+    },
+    {
+      "id": "bob-and-nan-07-birthday",
+      "page": 5,
+      "field": "pageDescription",
+      "before": "Close up on Bob's face, lit by candlelight, eyes reflecting the six flames.",
+      "after": "A red cricket bat is revealed upright in the opened present, with torn wrapping and blue ribbon around the box. Bob and Nan react with delight while Fluff watches."
+    },
+    {
+      "id": "bob-and-nan-07-birthday",
+      "page": 5,
+      "field": "illustrationPrompt",
+      "before": "Close up on Bob's face, lit by candlelight, eyes reflecting the six flames.",
+      "after": "A red cricket bat is revealed upright in the opened present, with torn wrapping and blue ribbon around the box. Bob and Nan react with delight while Fluff watches."
+    },
+    {
+      "id": "james-and-anna-03-shopping",
+      "page": 13,
+      "field": "imageAlt",
+      "before": "James and Anna laughing at the table while Chips eats the paper bag.",
+      "after": "James and Anna sit at the kitchen table with cakes on plates while Mom washes at the sink. Chips stands beside a crumpled paper bag."
+    },
+    {
+      "id": "james-and-anna-03-shopping",
+      "page": 13,
+      "field": "pageDescription",
+      "before": "James and Anna laughing at the table while Chips eats the paper bag.",
+      "after": "James and Anna sit at the kitchen table with cakes on plates while Mom washes at the sink. Chips stands beside a crumpled paper bag."
+    },
+    {
+      "id": "james-and-anna-03-shopping",
+      "page": 13,
+      "field": "illustrationPrompt",
+      "before": "James and Anna laughing at the table while Chips eats the paper bag.",
+      "after": "James and Anna sit at the kitchen table with cakes on plates while Mom washes at the sink. Chips stands beside a crumpled paper bag."
+    },
+    {
+      "id": "ja-b-06",
+      "page": 12,
+      "field": "imageAlt",
+      "before": "Golden sunset farm scene: James and Anna sitting on a fence rail with Grandma between them. Bess's head over the stable gate in the background. Percy a round pink lump asleep in the pen. Chips quietly chewing the fence post they are sitting on. Warm, perfect end-of-day light.",
+      "after": "James holds out hay beside Grandma and Anna. Chips turns away from the fence toward the hay as the three stand in the farmyard."
+    },
+    {
+      "id": "ja-b-06",
+      "page": 12,
+      "field": "pageDescription",
+      "before": "Golden sunset farm scene: James and Anna sitting on a fence rail with Grandma between them. Bess's head over the stable gate in the background. Percy a round pink lump asleep in the pen. Chips quietly chewing the fence post they are sitting on. Warm, perfect end-of-day light.",
+      "after": "James holds out hay beside Grandma and Anna. Chips turns away from the fence toward the hay as the three stand in the farmyard."
+    },
+    {
+      "id": "ja-b-06",
+      "page": 12,
+      "field": "illustrationPrompt",
+      "before": "Golden sunset farm scene: James and Anna sitting on a fence rail with Grandma between them. Bess's head over the stable gate in the background. Percy a round pink lump asleep in the pen. Chips quietly chewing the fence post they are sitting on. Warm, perfect end-of-day light.",
+      "after": "James holds out hay beside Grandma and Anna. Chips turns away from the fence toward the hay as the three stand in the farmyard."
+    },
+    {
+      "id": "ja-b-09",
+      "page": 13,
+      "field": "imageAlt",
+      "before": "Bedtime: James's bedroom. James and Anna both in sleeping bags/beds, still in their helmets (they fell asleep like that). James turning to ask his question. Anna already completely, peacefully asleep. Their bikes propped against the wall. Warm lamplight.",
+      "after": "James turns toward Anna from his bed while Anna sleeps in the other bed. Both helmets rest on a bench beside the beds."
+    },
+    {
+      "id": "ja-b-09",
+      "page": 13,
+      "field": "pageDescription",
+      "before": "Bedtime: James's bedroom. James and Anna both in sleeping bags/beds, still in their helmets (they fell asleep like that). James turning to ask his question. Anna already completely, peacefully asleep. Their bikes propped against the wall. Warm lamplight.",
+      "after": "James turns toward Anna from his bed while Anna sleeps in the other bed. Both helmets rest on a bench beside the beds."
+    },
+    {
+      "id": "ja-b-09",
+      "page": 13,
+      "field": "illustrationPrompt",
+      "before": "Bedtime: James's bedroom. James and Anna both in sleeping bags/beds, still in their helmets (they fell asleep like that). James turning to ask his question. Anna already completely, peacefully asleep. Their bikes propped against the wall. Warm lamplight.",
+      "after": "James turns toward Anna from his bed while Anna sleeps in the other bed. Both helmets rest on a bench beside the beds."
+    },
+    {
+      "id": "ja-b-10",
+      "page": 6,
+      "field": "imageAlt",
+      "before": "Chips's marshmallow is on fire at the end of his stick (someone held it for him). Chips is entirely unfazed. He leans forward and eats the burning marshmallow, stick and all, in one go. James and Anna watch with wide eyes.",
+      "after": "Dad holds Chips back by his collar and lifts the hot marshmallow on its stick out of reach. James and Anna watch beside the camping fire."
+    },
+    {
+      "id": "ja-b-10",
+      "page": 6,
+      "field": "pageDescription",
+      "before": "Chips's marshmallow is on fire at the end of his stick (someone held it for him). Chips is entirely unfazed. He leans forward and eats the burning marshmallow, stick and all, in one go. James and Anna watch with wide eyes.",
+      "after": "Dad holds Chips back by his collar and lifts the hot marshmallow on its stick out of reach. James and Anna watch beside the camping fire."
+    },
+    {
+      "id": "ja-b-10",
+      "page": 6,
+      "field": "illustrationPrompt",
+      "before": "Chips's marshmallow is on fire at the end of his stick (someone held it for him). Chips is entirely unfazed. He leans forward and eats the burning marshmallow, stick and all, in one go. James and Anna watch with wide eyes.",
+      "after": "Dad holds Chips back by his collar and lifts the hot marshmallow on its stick out of reach. James and Anna watch beside the camping fire."
+    },
+    {
+      "id": "ab-c-01",
+      "page": 9,
+      "field": "imageAlt",
+      "before": "Aiden concentrating on a reading puzzle with story clues.",
+      "after": "Aiden studies a board of colored shape patterns at a classroom table."
+    },
+    {
+      "id": "ab-c-01",
+      "page": 9,
+      "field": "pageDescription",
+      "before": "Aiden concentrating on a reading puzzle with story clues.",
+      "after": "Aiden studies a board of colored shape patterns at a classroom table."
+    },
+    {
+      "id": "ab-c-01",
+      "page": 9,
+      "field": "illustrationPrompt",
+      "before": "Aiden concentrating on a reading puzzle with story clues.",
+      "after": "Aiden studies a board of colored shape patterns at a classroom table."
+    },
+    {
+      "id": "meadow-pals-13-splashy-finds-a-puddle",
+      "page": 8,
+      "field": "imageAlt",
+      "before": "Splashy wipes Grumpy’s wet hat while Grumpy holds a towel around himself beside the puddle.",
+      "after": "Splashy wipes Clucky’s red hat on a stool while Clucky watches. Grumpy stands nearby with a towel draped across his back."
+    },
+    {
+      "id": "meadow-pals-13-splashy-finds-a-puddle",
+      "page": 8,
+      "field": "pageDescription",
+      "before": "Splashy wipes Grumpy’s wet hat while Grumpy holds a towel around himself beside the puddle.",
+      "after": "Splashy wipes Clucky’s red hat on a stool while Clucky watches. Grumpy stands nearby with a towel draped across his back."
+    },
+    {
+      "id": "meadow-pals-13-splashy-finds-a-puddle",
+      "page": 8,
+      "field": "illustrationPrompt",
+      "before": "Splashy wipes Grumpy’s wet hat while Grumpy holds a towel around himself beside the puddle.",
+      "after": "Splashy wipes Clucky’s red hat on a stool while Clucky watches. Grumpy stands nearby with a towel draped across his back."
+    },
+    {
+      "id": "dino-pals-23-flappys-fern-delivery",
+      "page": 1,
+      "field": "imageAlt",
+      "before": "Flappy holds one very broad fern near the stream as dark rain clouds gather.",
+      "after": "Flappy holds one very broad fern near the stream as rain falls beneath dark clouds."
+    },
+    {
+      "id": "dino-pals-23-flappys-fern-delivery",
+      "page": 1,
+      "field": "pageDescription",
+      "before": "Flappy holds one very broad fern near the stream as dark rain clouds gather.",
+      "after": "Flappy holds one very broad fern near the stream as rain falls beneath dark clouds."
+    },
+    {
+      "id": "dino-pals-23-flappys-fern-delivery",
+      "page": 1,
+      "field": "illustrationPrompt",
+      "before": "Bold, clean, clear 2D cartoon illustration with crisp continuous outlines, clear silhouettes, flat clean colors and a small number of smooth cel-shaded shapes. Keep the focal action readable at child-facing display size. Draw material details with simple outlined shapes and restrained flat marks. No painterly rendering, gouache, watercolor, brush daubs, patchy paint, visible brushwork, paper or canvas grain, embossed or impasto relief, pebbled surfaces, fuzzy edges or hyper-textured material rendering. Use neutral everyday settings and clothing with ordinary variation in skin tone and hair. No religious buildings, symbols or clothing, racial or ethnic caricatures or identity-themed costumes, or national, religious or political flags. Plain game-course pennants and checkered racing flags are allowed. Rounded young dinosaurs, large readable gestures, a warm prehistoric valley and clear physical comedy. the stream crossing between Fernwood and Cozy Cave under gathering rain clouds. Flappy holds one very broad fern near the stream as dark rain clouds gather. Show exactly this beat and state; preserve cast identity, relative scale, direction, carried props and preceding consequences; keep faces, limbs and props inside the 8% safe area; no embedded text, extra characters, duplicate bodies, malformed limbs or faceless scenery.",
+      "after": "Bold, clean, clear 2D cartoon illustration with crisp continuous outlines, clear silhouettes, flat clean colors and a small number of smooth cel-shaded shapes. Keep the focal action readable at child-facing display size. Draw material details with simple outlined shapes and restrained flat marks. No painterly rendering, gouache, watercolor, brush daubs, patchy paint, visible brushwork, paper or canvas grain, embossed or impasto relief, pebbled surfaces, fuzzy edges or hyper-textured material rendering. Use neutral everyday settings and clothing with ordinary variation in skin tone and hair. No religious buildings, symbols or clothing, racial or ethnic caricatures or identity-themed costumes, or national, religious or political flags. Plain game-course pennants and checkered racing flags are allowed. Rounded young dinosaurs, large readable gestures, a warm prehistoric valley and clear physical comedy. the stream crossing between Fernwood and Cozy Cave during ongoing rain. Flappy holds one very broad fern near the stream as rain falls beneath dark clouds. Show exactly this beat and state; preserve cast identity, relative scale, direction, carried props and preceding consequences; keep faces, limbs and props inside the 8% safe area; no embedded text, extra characters, duplicate bodies, malformed limbs or faceless scenery."
+    },
+    {
+      "id": "dino-pals-23-flappys-fern-delivery",
+      "page": 2,
+      "field": "illustrationPrompt",
+      "before": "Bold, clean, clear 2D cartoon illustration with crisp continuous outlines, clear silhouettes, flat clean colors and a small number of smooth cel-shaded shapes. Keep the focal action readable at child-facing display size. Draw material details with simple outlined shapes and restrained flat marks. No painterly rendering, gouache, watercolor, brush daubs, patchy paint, visible brushwork, paper or canvas grain, embossed or impasto relief, pebbled surfaces, fuzzy edges or hyper-textured material rendering. Use neutral everyday settings and clothing with ordinary variation in skin tone and hair. No religious buildings, symbols or clothing, racial or ethnic caricatures or identity-themed costumes, or national, religious or political flags. Plain game-course pennants and checkered racing flags are allowed. Rounded young dinosaurs, large readable gestures, a warm prehistoric valley and clear physical comedy. the stream crossing between Fernwood and Cozy Cave under gathering rain clouds. Flappy launches into a plausible low glide holding the fern's center. Show exactly this beat and state; preserve cast identity, relative scale, direction, carried props and preceding consequences; keep faces, limbs and props inside the 8% safe area; no embedded text, extra characters, duplicate bodies, malformed limbs or faceless scenery.",
+      "after": "Bold, clean, clear 2D cartoon illustration with crisp continuous outlines, clear silhouettes, flat clean colors and a small number of smooth cel-shaded shapes. Keep the focal action readable at child-facing display size. Draw material details with simple outlined shapes and restrained flat marks. No painterly rendering, gouache, watercolor, brush daubs, patchy paint, visible brushwork, paper or canvas grain, embossed or impasto relief, pebbled surfaces, fuzzy edges or hyper-textured material rendering. Use neutral everyday settings and clothing with ordinary variation in skin tone and hair. No religious buildings, symbols or clothing, racial or ethnic caricatures or identity-themed costumes, or national, religious or political flags. Plain game-course pennants and checkered racing flags are allowed. Rounded young dinosaurs, large readable gestures, a warm prehistoric valley and clear physical comedy. the stream crossing between Fernwood and Cozy Cave during ongoing rain. Flappy launches into a plausible low glide holding the fern's center. Show exactly this beat and state; preserve cast identity, relative scale, direction, carried props and preceding consequences; keep faces, limbs and props inside the 8% safe area; no embedded text, extra characters, duplicate bodies, malformed limbs or faceless scenery."
+    },
+    {
+      "id": "dino-pals-23-flappys-fern-delivery",
+      "page": 3,
+      "field": "illustrationPrompt",
+      "before": "Bold, clean, clear 2D cartoon illustration with crisp continuous outlines, clear silhouettes, flat clean colors and a small number of smooth cel-shaded shapes. Keep the focal action readable at child-facing display size. Draw material details with simple outlined shapes and restrained flat marks. No painterly rendering, gouache, watercolor, brush daubs, patchy paint, visible brushwork, paper or canvas grain, embossed or impasto relief, pebbled surfaces, fuzzy edges or hyper-textured material rendering. Use neutral everyday settings and clothing with ordinary variation in skin tone and hair. No religious buildings, symbols or clothing, racial or ethnic caricatures or identity-themed costumes, or national, religious or political flags. Plain game-course pennants and checkered racing flags are allowed. Rounded young dinosaurs, large readable gestures, a warm prehistoric valley and clear physical comedy. the stream crossing between Fernwood and Cozy Cave under gathering rain clouds. A crosswind turns the open leaf and Flappy in one controlled airborne half-circle. Show exactly this beat and state; preserve cast identity, relative scale, direction, carried props and preceding consequences; keep faces, limbs and props inside the 8% safe area; no embedded text, extra characters, duplicate bodies, malformed limbs or faceless scenery.",
+      "after": "Bold, clean, clear 2D cartoon illustration with crisp continuous outlines, clear silhouettes, flat clean colors and a small number of smooth cel-shaded shapes. Keep the focal action readable at child-facing display size. Draw material details with simple outlined shapes and restrained flat marks. No painterly rendering, gouache, watercolor, brush daubs, patchy paint, visible brushwork, paper or canvas grain, embossed or impasto relief, pebbled surfaces, fuzzy edges or hyper-textured material rendering. Use neutral everyday settings and clothing with ordinary variation in skin tone and hair. No religious buildings, symbols or clothing, racial or ethnic caricatures or identity-themed costumes, or national, religious or political flags. Plain game-course pennants and checkered racing flags are allowed. Rounded young dinosaurs, large readable gestures, a warm prehistoric valley and clear physical comedy. the stream crossing between Fernwood and Cozy Cave during ongoing rain. A crosswind turns the open leaf and Flappy in one controlled airborne half-circle. Show exactly this beat and state; preserve cast identity, relative scale, direction, carried props and preceding consequences; keep faces, limbs and props inside the 8% safe area; no embedded text, extra characters, duplicate bodies, malformed limbs or faceless scenery."
+    },
+    {
+      "id": "dino-pals-23-flappys-fern-delivery",
+      "page": 4,
+      "field": "illustrationPrompt",
+      "before": "Bold, clean, clear 2D cartoon illustration with crisp continuous outlines, clear silhouettes, flat clean colors and a small number of smooth cel-shaded shapes. Keep the focal action readable at child-facing display size. Draw material details with simple outlined shapes and restrained flat marks. No painterly rendering, gouache, watercolor, brush daubs, patchy paint, visible brushwork, paper or canvas grain, embossed or impasto relief, pebbled surfaces, fuzzy edges or hyper-textured material rendering. Use neutral everyday settings and clothing with ordinary variation in skin tone and hair. No religious buildings, symbols or clothing, racial or ethnic caricatures or identity-themed costumes, or national, religious or political flags. Plain game-course pennants and checkered racing flags are allowed. Rounded young dinosaurs, large readable gestures, a warm prehistoric valley and clear physical comedy. the stream crossing between Fernwood and Cozy Cave under gathering rain clouds. Flappy stands safely while the broad fern blocks most of his forward view. Show exactly this beat and state; preserve cast identity, relative scale, direction, carried props and preceding consequences; keep faces, limbs and props inside the 8% safe area; no embedded text, extra characters, duplicate bodies, malformed limbs or faceless scenery.",
+      "after": "Bold, clean, clear 2D cartoon illustration with crisp continuous outlines, clear silhouettes, flat clean colors and a small number of smooth cel-shaded shapes. Keep the focal action readable at child-facing display size. Draw material details with simple outlined shapes and restrained flat marks. No painterly rendering, gouache, watercolor, brush daubs, patchy paint, visible brushwork, paper or canvas grain, embossed or impasto relief, pebbled surfaces, fuzzy edges or hyper-textured material rendering. Use neutral everyday settings and clothing with ordinary variation in skin tone and hair. No religious buildings, symbols or clothing, racial or ethnic caricatures or identity-themed costumes, or national, religious or political flags. Plain game-course pennants and checkered racing flags are allowed. Rounded young dinosaurs, large readable gestures, a warm prehistoric valley and clear physical comedy. the stream crossing between Fernwood and Cozy Cave during ongoing rain. Flappy stands safely while the broad fern blocks most of his forward view. Show exactly this beat and state; preserve cast identity, relative scale, direction, carried props and preceding consequences; keep faces, limbs and props inside the 8% safe area; no embedded text, extra characters, duplicate bodies, malformed limbs or faceless scenery."
+    },
+    {
+      "id": "dino-pals-23-flappys-fern-delivery",
+      "page": 5,
+      "field": "illustrationPrompt",
+      "before": "Bold, clean, clear 2D cartoon illustration with crisp continuous outlines, clear silhouettes, flat clean colors and a small number of smooth cel-shaded shapes. Keep the focal action readable at child-facing display size. Draw material details with simple outlined shapes and restrained flat marks. No painterly rendering, gouache, watercolor, brush daubs, patchy paint, visible brushwork, paper or canvas grain, embossed or impasto relief, pebbled surfaces, fuzzy edges or hyper-textured material rendering. Use neutral everyday settings and clothing with ordinary variation in skin tone and hair. No religious buildings, symbols or clothing, racial or ethnic caricatures or identity-themed costumes, or national, religious or political flags. Plain game-course pennants and checkered racing flags are allowed. Rounded young dinosaurs, large readable gestures, a warm prehistoric valley and clear physical comedy. the stream crossing between Fernwood and Cozy Cave under gathering rain clouds. Flappy rolls the same intact fern lengthwise into a tight narrow cylinder. Show exactly this beat and state; preserve cast identity, relative scale, direction, carried props and preceding consequences; keep faces, limbs and props inside the 8% safe area; no embedded text, extra characters, duplicate bodies, malformed limbs or faceless scenery.",
+      "after": "Bold, clean, clear 2D cartoon illustration with crisp continuous outlines, clear silhouettes, flat clean colors and a small number of smooth cel-shaded shapes. Keep the focal action readable at child-facing display size. Draw material details with simple outlined shapes and restrained flat marks. No painterly rendering, gouache, watercolor, brush daubs, patchy paint, visible brushwork, paper or canvas grain, embossed or impasto relief, pebbled surfaces, fuzzy edges or hyper-textured material rendering. Use neutral everyday settings and clothing with ordinary variation in skin tone and hair. No religious buildings, symbols or clothing, racial or ethnic caricatures or identity-themed costumes, or national, religious or political flags. Plain game-course pennants and checkered racing flags are allowed. Rounded young dinosaurs, large readable gestures, a warm prehistoric valley and clear physical comedy. the stream crossing between Fernwood and Cozy Cave during ongoing rain. Flappy rolls the same intact fern lengthwise into a tight narrow cylinder. Show exactly this beat and state; preserve cast identity, relative scale, direction, carried props and preceding consequences; keep faces, limbs and props inside the 8% safe area; no embedded text, extra characters, duplicate bodies, malformed limbs or faceless scenery."
+    },
+    {
+      "id": "dino-pals-23-flappys-fern-delivery",
+      "page": 6,
+      "field": "illustrationPrompt",
+      "before": "Bold, clean, clear 2D cartoon illustration with crisp continuous outlines, clear silhouettes, flat clean colors and a small number of smooth cel-shaded shapes. Keep the focal action readable at child-facing display size. Draw material details with simple outlined shapes and restrained flat marks. No painterly rendering, gouache, watercolor, brush daubs, patchy paint, visible brushwork, paper or canvas grain, embossed or impasto relief, pebbled surfaces, fuzzy edges or hyper-textured material rendering. Use neutral everyday settings and clothing with ordinary variation in skin tone and hair. No religious buildings, symbols or clothing, racial or ethnic caricatures or identity-themed costumes, or national, religious or political flags. Plain game-course pennants and checkered racing flags are allowed. Rounded young dinosaurs, large readable gestures, a warm prehistoric valley and clear physical comedy. the stream crossing between Fernwood and Cozy Cave under gathering rain clouds. Wiggly secures the rolled fern with one visible long grass tie. Show exactly this beat and state; preserve cast identity, relative scale, direction, carried props and preceding consequences; keep faces, limbs and props inside the 8% safe area; no embedded text, extra characters, duplicate bodies, malformed limbs or faceless scenery.",
+      "after": "Bold, clean, clear 2D cartoon illustration with crisp continuous outlines, clear silhouettes, flat clean colors and a small number of smooth cel-shaded shapes. Keep the focal action readable at child-facing display size. Draw material details with simple outlined shapes and restrained flat marks. No painterly rendering, gouache, watercolor, brush daubs, patchy paint, visible brushwork, paper or canvas grain, embossed or impasto relief, pebbled surfaces, fuzzy edges or hyper-textured material rendering. Use neutral everyday settings and clothing with ordinary variation in skin tone and hair. No religious buildings, symbols or clothing, racial or ethnic caricatures or identity-themed costumes, or national, religious or political flags. Plain game-course pennants and checkered racing flags are allowed. Rounded young dinosaurs, large readable gestures, a warm prehistoric valley and clear physical comedy. the stream crossing between Fernwood and Cozy Cave during ongoing rain. Wiggly secures the rolled fern with one visible long grass tie. Show exactly this beat and state; preserve cast identity, relative scale, direction, carried props and preceding consequences; keep faces, limbs and props inside the 8% safe area; no embedded text, extra characters, duplicate bodies, malformed limbs or faceless scenery."
+    },
+    {
+      "id": "dino-pals-23-flappys-fern-delivery",
+      "page": 7,
+      "field": "illustrationPrompt",
+      "before": "Bold, clean, clear 2D cartoon illustration with crisp continuous outlines, clear silhouettes, flat clean colors and a small number of smooth cel-shaded shapes. Keep the focal action readable at child-facing display size. Draw material details with simple outlined shapes and restrained flat marks. No painterly rendering, gouache, watercolor, brush daubs, patchy paint, visible brushwork, paper or canvas grain, embossed or impasto relief, pebbled surfaces, fuzzy edges or hyper-textured material rendering. Use neutral everyday settings and clothing with ordinary variation in skin tone and hair. No religious buildings, symbols or clothing, racial or ethnic caricatures or identity-themed costumes, or national, religious or political flags. Plain game-course pennants and checkered racing flags are allowed. Rounded young dinosaurs, large readable gestures, a warm prehistoric valley and clear physical comedy. the stream crossing between Fernwood and Cozy Cave under gathering rain clouds. Flappy makes a straight low glide with the narrow bundle hanging beneath him. Show exactly this beat and state; preserve cast identity, relative scale, direction, carried props and preceding consequences; keep faces, limbs and props inside the 8% safe area; no embedded text, extra characters, duplicate bodies, malformed limbs or faceless scenery.",
+      "after": "Bold, clean, clear 2D cartoon illustration with crisp continuous outlines, clear silhouettes, flat clean colors and a small number of smooth cel-shaded shapes. Keep the focal action readable at child-facing display size. Draw material details with simple outlined shapes and restrained flat marks. No painterly rendering, gouache, watercolor, brush daubs, patchy paint, visible brushwork, paper or canvas grain, embossed or impasto relief, pebbled surfaces, fuzzy edges or hyper-textured material rendering. Use neutral everyday settings and clothing with ordinary variation in skin tone and hair. No religious buildings, symbols or clothing, racial or ethnic caricatures or identity-themed costumes, or national, religious or political flags. Plain game-course pennants and checkered racing flags are allowed. Rounded young dinosaurs, large readable gestures, a warm prehistoric valley and clear physical comedy. the stream crossing between Fernwood and Cozy Cave during ongoing rain. Flappy makes a straight low glide with the narrow bundle hanging beneath him. Show exactly this beat and state; preserve cast identity, relative scale, direction, carried props and preceding consequences; keep faces, limbs and props inside the 8% safe area; no embedded text, extra characters, duplicate bodies, malformed limbs or faceless scenery."
+    },
+    {
+      "id": "dino-pals-23-flappys-fern-delivery",
+      "page": 8,
+      "field": "imageAlt",
+      "before": "The opened fern forms a dry small awning at Cozy Cave as first drops fall beyond it.",
+      "after": "The opened fern forms a small awning at Cozy Cave. Flappy and Wiggly stand dry beneath it while rain continues beyond the entrance."
+    },
+    {
+      "id": "dino-pals-23-flappys-fern-delivery",
+      "page": 8,
+      "field": "pageDescription",
+      "before": "The opened fern forms a dry small awning at Cozy Cave as first drops fall beyond it.",
+      "after": "The opened fern forms a small awning at Cozy Cave. Flappy and Wiggly stand dry beneath it while rain continues beyond the entrance."
+    },
+    {
+      "id": "dino-pals-23-flappys-fern-delivery",
+      "page": 8,
+      "field": "illustrationPrompt",
+      "before": "Bold, clean, clear 2D cartoon illustration with crisp continuous outlines, clear silhouettes, flat clean colors and a small number of smooth cel-shaded shapes. Keep the focal action readable at child-facing display size. Draw material details with simple outlined shapes and restrained flat marks. No painterly rendering, gouache, watercolor, brush daubs, patchy paint, visible brushwork, paper or canvas grain, embossed or impasto relief, pebbled surfaces, fuzzy edges or hyper-textured material rendering. Use neutral everyday settings and clothing with ordinary variation in skin tone and hair. No religious buildings, symbols or clothing, racial or ethnic caricatures or identity-themed costumes, or national, religious or political flags. Plain game-course pennants and checkered racing flags are allowed. Rounded young dinosaurs, large readable gestures, a warm prehistoric valley and clear physical comedy. the stream crossing between Fernwood and Cozy Cave under gathering rain clouds. The opened fern forms a dry small awning at Cozy Cave as first drops fall beyond it. Show exactly this beat and state; preserve cast identity, relative scale, direction, carried props and preceding consequences; keep faces, limbs and props inside the 8% safe area; no embedded text, extra characters, duplicate bodies, malformed limbs or faceless scenery.",
+      "after": "Bold, clean, clear 2D cartoon illustration with crisp continuous outlines, clear silhouettes, flat clean colors and a small number of smooth cel-shaded shapes. Keep the focal action readable at child-facing display size. Draw material details with simple outlined shapes and restrained flat marks. No painterly rendering, gouache, watercolor, brush daubs, patchy paint, visible brushwork, paper or canvas grain, embossed or impasto relief, pebbled surfaces, fuzzy edges or hyper-textured material rendering. Use neutral everyday settings and clothing with ordinary variation in skin tone and hair. No religious buildings, symbols or clothing, racial or ethnic caricatures or identity-themed costumes, or national, religious or political flags. Plain game-course pennants and checkered racing flags are allowed. Rounded young dinosaurs, large readable gestures, a warm prehistoric valley and clear physical comedy. the stream crossing between Fernwood and Cozy Cave during ongoing rain. The opened fern forms a small awning at Cozy Cave. Flappy and Wiggly stand dry beneath it while rain continues beyond the entrance. Show exactly this beat and state; preserve cast identity, relative scale, direction, carried props and preceding consequences; keep faces, limbs and props inside the 8% safe area; no embedded text, extra characters, duplicate bodies, malformed limbs or faceless scenery."
+    },
+    {
+      "id": "dino-pals-25-sneezys-seed-cloud",
+      "page": 1,
+      "field": "imageAlt",
+      "before": "A visible cloud of harmless white fern seed fluff approaches Cozy Cave's entrance.",
+      "after": "A visible cloud of harmless white plant seed fluff approaches Cozy Cave's entrance."
+    },
+    {
+      "id": "dino-pals-25-sneezys-seed-cloud",
+      "page": 1,
+      "field": "pageDescription",
+      "before": "A visible cloud of harmless white fern seed fluff approaches Cozy Cave's entrance.",
+      "after": "A visible cloud of harmless white plant seed fluff approaches Cozy Cave's entrance."
+    },
+    {
+      "id": "dino-pals-25-sneezys-seed-cloud",
+      "page": 1,
+      "field": "illustrationPrompt",
+      "before": "Bold, clean, clear 2D cartoon illustration with crisp continuous outlines, clear silhouettes, flat clean colors and a small number of smooth cel-shaded shapes. Keep the focal action readable at child-facing display size. Draw material details with simple outlined shapes and restrained flat marks. No painterly rendering, gouache, watercolor, brush daubs, patchy paint, visible brushwork, paper or canvas grain, embossed or impasto relief, pebbled surfaces, fuzzy edges or hyper-textured material rendering. Use neutral everyday settings and clothing with ordinary variation in skin tone and hair. No religious buildings, symbols or clothing, racial or ethnic caricatures or identity-themed costumes, or national, religious or political flags. Plain game-course pennants and checkered racing flags are allowed. Rounded young dinosaurs, large readable gestures, a warm prehistoric valley and clear physical comedy. the entrance to Cozy Cave beside the stream on a dry breezy day. A visible cloud of harmless white fern seed fluff approaches Cozy Cave's entrance. Show exactly this beat and state; preserve cast identity, relative scale, direction, carried props and preceding consequences; keep faces, limbs and props inside the 8% safe area; no embedded text, extra characters, duplicate bodies, malformed limbs or faceless scenery.",
+      "after": "Bold, clean, clear 2D cartoon illustration with crisp continuous outlines, clear silhouettes, flat clean colors and a small number of smooth cel-shaded shapes. Keep the focal action readable at child-facing display size. Draw material details with simple outlined shapes and restrained flat marks. No painterly rendering, gouache, watercolor, brush daubs, patchy paint, visible brushwork, paper or canvas grain, embossed or impasto relief, pebbled surfaces, fuzzy edges or hyper-textured material rendering. Use neutral everyday settings and clothing with ordinary variation in skin tone and hair. No religious buildings, symbols or clothing, racial or ethnic caricatures or identity-themed costumes, or national, religious or political flags. Plain game-course pennants and checkered racing flags are allowed. Rounded young dinosaurs, large readable gestures, a warm prehistoric valley and clear physical comedy. the entrance to Cozy Cave beside the stream on a dry breezy day. A visible cloud of harmless white plant seed fluff approaches Cozy Cave's entrance. Show exactly this beat and state; preserve cast identity, relative scale, direction, carried props and preceding consequences; keep faces, limbs and props inside the 8% safe area; no embedded text, extra characters, duplicate bodies, malformed limbs or faceless scenery."
+    },
+    {
+      "id": "moonwood-tales-c-32",
+      "page": 3,
+      "field": "imageAlt",
+      "before": "Flint covers one glass panel with a gloved hand while two shadows stay visible.",
+      "after": "Flint holds the lantern by its handle beside the roots. Two shadows stretch across the path."
+    },
+    {
+      "id": "moonwood-tales-c-32",
+      "page": 3,
+      "field": "pageDescription",
+      "before": "Flint covers one glass panel with a gloved hand while two shadows stay visible.",
+      "after": "Flint holds the lantern by its handle beside the roots. Two shadows stretch across the path."
+    },
+    {
+      "id": "moonwood-tales-c-32",
+      "page": 3,
+      "field": "illustrationPrompt",
+      "before": "Bold, clean, clear 2D cartoon illustration with crisp continuous outlines, clear silhouettes, flat clean colors and a small number of smooth cel-shaded shapes. Keep the focal action readable at child-facing display size. Draw material details with simple outlined shapes and restrained flat marks. No painterly rendering, gouache, watercolor, brush daubs, patchy paint, visible brushwork, paper or canvas grain, embossed or impasto relief, pebbled surfaces, fuzzy edges or hyper-textured material rendering. Use neutral everyday settings and clothing with ordinary variation in skin tone and hair. No religious buildings, symbols or clothing, racial or ethnic caricatures or identity-themed costumes, or national, religious or political flags. Plain game-course pennants and checkered racing flags are allowed. Moonlit woodland fantasy, uncluttered readable backgrounds, controlled blue-gold glow and clearly outlined bark and foliage. the fern path at the safe edge of Deep Dark before a night map delivery. Flint covers one glass panel with a gloved hand while two shadows stay visible. Show exactly this beat and state; preserve cast identity, relative scale, direction, carried props and preceding consequences; keep faces, limbs and props inside the 8% safe area; no embedded text, extra characters, duplicate bodies, malformed limbs or faceless scenery.",
+      "after": "Bold, clean, clear 2D cartoon illustration with crisp continuous outlines, clear silhouettes, flat clean colors and a small number of smooth cel-shaded shapes. Keep the focal action readable at child-facing display size. Draw material details with simple outlined shapes and restrained flat marks. No painterly rendering, gouache, watercolor, brush daubs, patchy paint, visible brushwork, paper or canvas grain, embossed or impasto relief, pebbled surfaces, fuzzy edges or hyper-textured material rendering. Use neutral everyday settings and clothing with ordinary variation in skin tone and hair. No religious buildings, symbols or clothing, racial or ethnic caricatures or identity-themed costumes, or national, religious or political flags. Plain game-course pennants and checkered racing flags are allowed. Moonlit woodland fantasy, uncluttered readable backgrounds, controlled blue-gold glow and clearly outlined bark and foliage. the fern path at the safe edge of Deep Dark before a night map delivery. Flint holds the lantern by its handle beside the roots. Two shadows stretch across the path. Show exactly this beat and state; preserve cast identity, relative scale, direction, carried props and preceding consequences; keep faces, limbs and props inside the 8% safe area; no embedded text, extra characters, duplicate bodies, malformed limbs or faceless scenery."
+    },
+    {
+      "id": "moonwood-tales-c-32",
+      "page": 10,
+      "field": "imageAlt",
+      "before": "Flint walks into Deep Dark carrying the low steady lantern while Pip watches from the safe edge.",
+      "after": "Flint walks along the path holding his lantern low while small Pip brushes a fern leaf from Flint’s collar."
+    },
+    {
+      "id": "moonwood-tales-c-32",
+      "page": 10,
+      "field": "pageDescription",
+      "before": "Flint walks into Deep Dark carrying the low steady lantern while Pip watches from the safe edge.",
+      "after": "Flint walks along the path holding his lantern low while small Pip brushes a fern leaf from Flint’s collar."
+    },
+    {
+      "id": "moonwood-tales-c-32",
+      "page": 10,
+      "field": "illustrationPrompt",
+      "before": "Bold, clean, clear 2D cartoon illustration with crisp continuous outlines, clear silhouettes, flat clean colors and a small number of smooth cel-shaded shapes. Keep the focal action readable at child-facing display size. Draw material details with simple outlined shapes and restrained flat marks. No painterly rendering, gouache, watercolor, brush daubs, patchy paint, visible brushwork, paper or canvas grain, embossed or impasto relief, pebbled surfaces, fuzzy edges or hyper-textured material rendering. Use neutral everyday settings and clothing with ordinary variation in skin tone and hair. No religious buildings, symbols or clothing, racial or ethnic caricatures or identity-themed costumes, or national, religious or political flags. Plain game-course pennants and checkered racing flags are allowed. Moonlit woodland fantasy, uncluttered readable backgrounds, controlled blue-gold glow and clearly outlined bark and foliage. the fern path at the safe edge of Deep Dark before a night map delivery. Flint walks into Deep Dark carrying the low steady lantern while Pip watches from the safe edge. Show exactly this beat and state; preserve cast identity, relative scale, direction, carried props and preceding consequences; keep faces, limbs and props inside the 8% safe area; no embedded text, extra characters, duplicate bodies, malformed limbs or faceless scenery.",
+      "after": "Bold, clean, clear 2D cartoon illustration with crisp continuous outlines, clear silhouettes, flat clean colors and a small number of smooth cel-shaded shapes. Keep the focal action readable at child-facing display size. Draw material details with simple outlined shapes and restrained flat marks. No painterly rendering, gouache, watercolor, brush daubs, patchy paint, visible brushwork, paper or canvas grain, embossed or impasto relief, pebbled surfaces, fuzzy edges or hyper-textured material rendering. Use neutral everyday settings and clothing with ordinary variation in skin tone and hair. No religious buildings, symbols or clothing, racial or ethnic caricatures or identity-themed costumes, or national, religious or political flags. Plain game-course pennants and checkered racing flags are allowed. Moonlit woodland fantasy, uncluttered readable backgrounds, controlled blue-gold glow and clearly outlined bark and foliage. the fern path at the safe edge of Deep Dark before a night map delivery. Flint walks along the path holding his lantern low while small Pip brushes a fern leaf from Flint’s collar. Show exactly this beat and state; preserve cast identity, relative scale, direction, carried props and preceding consequences; keep faces, limbs and props inside the 8% safe area; no embedded text, extra characters, duplicate bodies, malformed limbs or faceless scenery."
+    },
+    {
+      "id": "moonwood-tales-c-35",
+      "page": 7,
+      "field": "imageAlt",
+      "before": "Huge Stone uses one fingertip delicately to straighten the smallest chime's cord.",
+      "after": "Huge Stone steadies the smallest chime while tiny Pip reaches up with both hands to untwist its cord."
+    },
+    {
+      "id": "moonwood-tales-c-35",
+      "page": 7,
+      "field": "pageDescription",
+      "before": "Huge Stone uses one fingertip delicately to straighten the smallest chime's cord.",
+      "after": "Huge Stone steadies the smallest chime while tiny Pip reaches up with both hands to untwist its cord."
+    },
+    {
+      "id": "moonwood-tales-c-35",
+      "page": 7,
+      "field": "illustrationPrompt",
+      "before": "Bold, clean, clear 2D cartoon illustration with crisp continuous outlines, clear silhouettes, flat clean colors and a small number of smooth cel-shaded shapes. Keep the focal action readable at child-facing display size. Draw material details with simple outlined shapes and restrained flat marks. No painterly rendering, gouache, watercolor, brush daubs, patchy paint, visible brushwork, paper or canvas grain, embossed or impasto relief, pebbled surfaces, fuzzy edges or hyper-textured material rendering. Use neutral everyday settings and clothing with ordinary variation in skin tone and hair. No religious buildings, symbols or clothing, racial or ethnic caricatures or identity-themed costumes, or national, religious or political flags. Plain game-course pennants and checkered racing flags are allowed. Moonlit woodland fantasy, uncluttered readable backgrounds, controlled blue-gold glow and clearly outlined bark and foliage. Hollow Oak's four root chimes before a moonrise gathering. Huge Stone uses one fingertip delicately to straighten the smallest chime's cord. Show exactly this beat and state; preserve cast identity, relative scale, direction, carried props and preceding consequences; keep faces, limbs and props inside the 8% safe area; no embedded text, extra characters, duplicate bodies, malformed limbs or faceless scenery.",
+      "after": "Bold, clean, clear 2D cartoon illustration with crisp continuous outlines, clear silhouettes, flat clean colors and a small number of smooth cel-shaded shapes. Keep the focal action readable at child-facing display size. Draw material details with simple outlined shapes and restrained flat marks. No painterly rendering, gouache, watercolor, brush daubs, patchy paint, visible brushwork, paper or canvas grain, embossed or impasto relief, pebbled surfaces, fuzzy edges or hyper-textured material rendering. Use neutral everyday settings and clothing with ordinary variation in skin tone and hair. No religious buildings, symbols or clothing, racial or ethnic caricatures or identity-themed costumes, or national, religious or political flags. Plain game-course pennants and checkered racing flags are allowed. Moonlit woodland fantasy, uncluttered readable backgrounds, controlled blue-gold glow and clearly outlined bark and foliage. Hollow Oak's four root chimes before a moonrise gathering. Huge Stone steadies the smallest chime while tiny Pip reaches up with both hands to untwist its cord. Show exactly this beat and state; preserve cast identity, relative scale, direction, carried props and preceding consequences; keep faces, limbs and props inside the 8% safe area; no embedded text, extra characters, duplicate bodies, malformed limbs or faceless scenery."
+    },
+    {
+      "id": "willow-street-the-lunchbox-mix-up",
+      "page": 2,
+      "field": "imageAlt",
+      "before": "Maya compares blank cream label patches on both open lunchbox lids. The blue cup stays inside her yellow box and the green apple inside Samir's green box; spoon and orange napkin stay together on the table. No readable lettering.",
+      "after": "Maya and Samir hold their open lunchboxes on the table. Samir's blue cup is inside Maya's yellow box, and her green apple is inside his green box. A spoon and orange napkin lie between them."
+    },
+    {
+      "id": "willow-street-the-lunchbox-mix-up",
+      "page": 2,
+      "field": "pageDescription",
+      "before": "Maya compares blank cream label patches on both open lunchbox lids. The blue cup stays inside her yellow box and the green apple inside Samir's green box; spoon and orange napkin stay together on the table. No readable lettering.",
+      "after": "Maya and Samir hold their open lunchboxes on the table. Samir's blue cup is inside Maya's yellow box, and her green apple is inside his green box. A spoon and orange napkin lie between them."
+    },
+    {
+      "id": "willow-street-the-lunchbox-mix-up",
+      "page": 2,
+      "field": "imageBrief",
+      "before": "Maya compares blank cream label patches on both open lunchbox lids. The blue cup stays inside her yellow box and the green apple inside Samir's green box; spoon and orange napkin stay together on the table. No readable lettering.",
+      "after": "Maya and Samir hold their open lunchboxes on the table. Samir's blue cup is inside Maya's yellow box, and her green apple is inside his green box. A spoon and orange napkin lie between them."
+    },
+    {
+      "id": "willow-street-the-lunchbox-mix-up",
+      "page": 3,
+      "field": "imageAlt",
+      "before": "Samir points from the blank label on his open green box to Maya's green apple inside. Maya's open yellow box still contains the blue cup. Spoon and orange napkin remain on the table between them.",
+      "after": "Samir points to Maya's green apple inside his open green lunchbox. Maya's yellow lunchbox still contains his blue cup. A spoon and orange napkin remain on the table between them."
+    },
+    {
+      "id": "willow-street-the-lunchbox-mix-up",
+      "page": 3,
+      "field": "pageDescription",
+      "before": "Samir points from the blank label on his open green box to Maya's green apple inside. Maya's open yellow box still contains the blue cup. Spoon and orange napkin remain on the table between them.",
+      "after": "Samir points to Maya's green apple inside his open green lunchbox. Maya's yellow lunchbox still contains his blue cup. A spoon and orange napkin remain on the table between them."
+    },
+    {
+      "id": "willow-street-the-lunchbox-mix-up",
+      "page": 3,
+      "field": "imageBrief",
+      "before": "Samir points from the blank label on his open green box to Maya's green apple inside. Maya's open yellow box still contains the blue cup. Spoon and orange napkin remain on the table between them.",
+      "after": "Samir points to Maya's green apple inside his open green lunchbox. Maya's yellow lunchbox still contains his blue cup. A spoon and orange napkin remain on the table between them."
+    },
+    {
+      "id": "willow-street-drums-for-carnival",
+      "page": 3,
+      "field": "imageBrief",
+      "before": "Leo enthusiastically continues drumming while the group begins its answer; overlapping motion lines and concerned listening faces show the rhythm has become crowded without shaming him.",
+      "after": "Leo strikes his small hand drum while Mr Baptiste is still playing the call on the large drum. The other two players pause and look concerned at the overlapping beats."
+    },
+    {
+      "id": "willow-street-drums-for-carnival",
+      "page": 4,
+      "field": "imageBrief",
+      "before": "The whole percussion circle becomes still as Mr Baptiste calmly repeats the call with a hand cue; Leo lowers his sticks and leans forward to listen closely.",
+      "after": "Mr Baptiste holds one open hand up while his sticks rest together in his other hand. Leo and the other players stop and hold their instruments still."
+    },
+    {
+      "id": "willow-street-drums-for-carnival",
+      "page": 5,
+      "field": "imageBrief",
+      "before": "Mr Baptiste finishes the call and points to the group; Leo joins exactly as the answering beat starts, matching the neighbors' hand drums in coordinated motion.",
+      "after": "Mr Baptiste plays the call on the large drum while Leo waits with one hand lifted away from his own drum. The other players listen without playing."
+    },
+    {
+      "id": "willow-street-drums-for-carnival",
+      "page": 6,
+      "field": "imageBrief",
+      "before": "The percussion group follows two visible hand cues: a small low hand for soft playing and raised open hand for strong playing; Leo mirrors both dynamics attentively.",
+      "after": "Leo and the other two players play the answering rhythm on their hand drums and shaker. Mr Baptiste watches with both sticks lifted clear of his drum."
+    }
+  ],
+  "discussionChanges": [
+    {
+      "id": "first-facts-a-04-what-is-weather",
+      "field": "oral.listenFor",
+      "before": "Wind bends plants, thunder booms, lightning flashes, and Sun or snow changes temperature.",
+      "after": "Wind bends the twigs and grass and carries loose leaves through the air."
+    },
+    {
+      "id": "next-steps-09",
+      "field": "visual.lookFor",
+      "before": "The red dot has a different color from the tan paper around it.",
+      "after": "The red dot has a different color from the tan work mat around it."
+    }
+  ],
+  "inspectedInstalledImages": [
+    {
+      "id": "ab-c-01",
+      "page": 9,
+      "path": "public/guided-reading/series/aiden-and-betty/book-01/page-009.webp",
+      "sha256": "9bf3e1d4006cd0bcb9c5d1d5840cd7659252c5f28a81c3563c0c0bbf1abe182c",
+      "inspection": "Original-resolution inspection recorded in shard1 review; same installed output hash checked again."
+    },
+    {
+      "id": "james-and-anna-03-shopping",
+      "page": 13,
+      "path": "public/guided-reading/series/james-and-anna/book-03/page-013.webp",
+      "sha256": "0ed90ac957e5917423e4a57352e2b265358aeffe302f9e0529d5607abad3f177",
+      "inspection": "Original-resolution inspection recorded in shard1 review; same installed output hash checked again."
+    },
+    {
+      "id": "ja-b-06",
+      "page": 12,
+      "path": "public/guided-reading/series/james-and-anna/book-06/page-012.webp",
+      "sha256": "5a648c2cc62374f065195047e67add982e0a3258c7324c6fb6f169498ba65769",
+      "inspection": "Original-resolution inspection recorded in shard1 review; same installed output hash checked again."
+    },
+    {
+      "id": "ja-b-09",
+      "page": 13,
+      "path": "public/guided-reading/series/james-and-anna/book-09/page-013.webp",
+      "sha256": "31fbeb90ce7720d6da2657ff4144aa6c3812451dec1fa0025a9d3b2202835b54",
+      "inspection": "Original-resolution inspection recorded in shard1 review; same installed output hash checked again."
+    },
+    {
+      "id": "moonwood-tales-c-32",
+      "page": 3,
+      "path": "public/guided-reading/series/moonwood-tales/book-32/page-003.webp",
+      "sha256": "b67eff06646fd2b6727c78f7c61f5a4a7e87187a8b01130693732dedf2a0ae50",
+      "inspection": "Original-resolution inspection recorded in shard1 review; same installed output hash checked again."
+    },
+    {
+      "id": "moonwood-tales-c-32",
+      "page": 10,
+      "path": "public/guided-reading/series/moonwood-tales/book-32/page-010.webp",
+      "sha256": "a928cdf71b3f9afecb4e9c291bbf6703df2a0255d43dbbfcd7a8770dbf40d990",
+      "inspection": "Original-resolution inspection recorded in shard1 review; same installed output hash checked again."
+    },
+    {
+      "id": "moonwood-tales-c-35",
+      "page": 7,
+      "path": "public/guided-reading/series/moonwood-tales/book-35/page-007.webp",
+      "sha256": "cb4f02710872192d8baf9f9d62a42067f88b6f922c9d16f8343d9de95aa1e7ca",
+      "inspection": "Original-resolution inspection recorded in shard1 review; same installed output hash checked again."
+    },
+    {
+      "id": "ja-b-10",
+      "page": 6,
+      "path": "public/guided-reading/series/james-and-anna/book-10/page-006.webp",
+      "sha256": "2b25aeff11d1d79506ec815612bc92e30b9a3f77bd569580749b8efad704d166",
+      "inspection": "Original-resolution inspection in current metadata repair pass."
+    },
+    {
+      "id": "bob-and-nan-07-birthday",
+      "page": 3,
+      "path": "public/guided-reading/series/bob-and-nan/book-07/page-003.webp",
+      "sha256": "2852d593d54c060cacd6ca1274af63c5fa88ee4f1e647c38971e80a361e0b3c6",
+      "inspection": "Original-resolution inspection in current metadata repair pass."
+    },
+    {
+      "id": "bob-and-nan-07-birthday",
+      "page": 4,
+      "path": "public/guided-reading/series/bob-and-nan/book-07/page-004.webp",
+      "sha256": "058062bf32086a7ba9f38137a834b6e847d433d3aec1dd0640bbb0d66c48bc66",
+      "inspection": "Original-resolution inspection in current metadata repair pass."
+    },
+    {
+      "id": "bob-and-nan-07-birthday",
+      "page": 5,
+      "path": "public/guided-reading/series/bob-and-nan/book-07/page-005.webp",
+      "sha256": "31b4e835d06cf37c34b061be1c01a8d664b53ccd0d3fc5b73b2f8c4388eb3085",
+      "inspection": "Original-resolution inspection in current metadata repair pass."
+    },
+    {
+      "id": "meadow-pals-13-splashy-finds-a-puddle",
+      "page": 8,
+      "path": "public/guided-reading/series/meadow-pals/book-13/page-008.webp",
+      "sha256": "ef978937657419147910ca0f4014c868b9eff5f0e178c6827917ccfe8e4bf9eb",
+      "inspection": "Original-resolution inspection in current metadata repair pass."
+    },
+    {
+      "id": "willow-street-drums-for-carnival",
+      "page": 3,
+      "path": "public/guided-reading/willow-street/drums-for-carnival/page-03.webp",
+      "sha256": "33d114569372e9d31716e4c00f8f9cda9cd4a9d617fdcf6415326e1aaaad47f1",
+      "inspection": "Original-resolution inspection in current metadata repair pass."
+    },
+    {
+      "id": "willow-street-drums-for-carnival",
+      "page": 4,
+      "path": "public/guided-reading/willow-street/drums-for-carnival/page-04.webp",
+      "sha256": "24a01832421f7d34e3902f6bf5664b2f15f9cc661706afd98f9b2c34491a04d7",
+      "inspection": "Original-resolution inspection in current metadata repair pass."
+    },
+    {
+      "id": "willow-street-drums-for-carnival",
+      "page": 5,
+      "path": "public/guided-reading/willow-street/drums-for-carnival/page-05.webp",
+      "sha256": "17857f766f69534c4f2a9488aaa4eae8e5c49a559fc344d55eb43f11e707de66",
+      "inspection": "Original-resolution inspection in current metadata repair pass."
+    },
+    {
+      "id": "willow-street-drums-for-carnival",
+      "page": 6,
+      "path": "public/guided-reading/willow-street/drums-for-carnival/page-06.webp",
+      "sha256": "41a29a9b691acf36d1f405646d4921e5fd79983da200011af2c3811b771556f4",
+      "inspection": "Original-resolution inspection in current metadata repair pass."
+    },
+    {
+      "id": "bob-and-nan-05-school",
+      "page": 4,
+      "path": "public/guided-reading/series/bob-and-nan/book-05/page-004.webp",
+      "sha256": "7bac6b398c373b519d3b4427b4c6dc48274bb98c78516721c8b51da19c04eea8",
+      "inspection": "Original-resolution inspection in current metadata repair pass."
+    },
+    {
+      "id": "bob-and-nan-05-school",
+      "page": 5,
+      "path": "public/guided-reading/series/bob-and-nan/book-05/page-005.webp",
+      "sha256": "f40973aacd6795387dcdb1b486971008034f9839999a40a6d45781a2477fe6ee",
+      "inspection": "Original-resolution inspection in current metadata repair pass."
+    },
+    {
+      "id": "bob-and-nan-05-school",
+      "page": 7,
+      "path": "public/guided-reading/series/bob-and-nan/book-05/page-007.webp",
+      "sha256": "8168afb03ac9ffe160a8c2cb102f7d4c3ecb12aac5e62f3fdf48a5d9fef38d99",
+      "inspection": "Original-resolution inspection in current metadata repair pass."
+    },
+    {
+      "id": "dino-pals-23-flappys-fern-delivery",
+      "page": 1,
+      "path": "public/guided-reading/series/dino-pals/book-23/page-001.webp",
+      "sha256": "3d1cbc3354be30c97c4b95c986cbbb5ff8a04a0ccdbbbb6c67f0641879d21ba9",
+      "inspection": "Original-resolution inspection in current metadata repair pass."
+    },
+    {
+      "id": "dino-pals-23-flappys-fern-delivery",
+      "page": 8,
+      "path": "public/guided-reading/series/dino-pals/book-23/page-008.webp",
+      "sha256": "6163693665767b164a52e91df9c351653b90625fde9c35238e4f1c90e191d737",
+      "inspection": "Original-resolution inspection in current metadata repair pass."
+    },
+    {
+      "id": "dino-pals-25-sneezys-seed-cloud",
+      "page": 1,
+      "path": "public/guided-reading/series/dino-pals/book-25/page-001.webp",
+      "sha256": "2e5e01bc21ac3cce6ce6740ab3d29e91335afa4ff738bcdab8d5e17cc4b8bdb6",
+      "inspection": "Original-resolution inspection in current metadata repair pass."
+    },
+    {
+      "id": "next-steps-09",
+      "page": 7,
+      "path": "public/guided-reading/next-steps/book-09/page-07.webp",
+      "sha256": "70b934d53ca98631af62a6ee71316c608ee063146b30f404d4fb66de82db47f2",
+      "inspection": "Teacher evidence checked against native installed image."
+    },
+    {
+      "id": "bob-and-nan-04-beach",
+      "page": 2,
+      "path": "public/guided-reading/series/bob-and-nan/book-04/page-002.webp",
+      "sha256": "d43fb65b11144688030693f9df885e20a65d49073ec51b863a3a01656e8f4d64",
+      "inspection": "Original-resolution inspection in current metadata repair pass."
+    },
+    {
+      "id": "bob-and-nan-04-beach",
+      "page": 5,
+      "path": "public/guided-reading/series/bob-and-nan/book-04/page-005.webp",
+      "sha256": "c2c18bc861bbd4c26521cb265eebf221be1589f31e701cc1690d9664986d6d64",
+      "inspection": "Original-resolution inspection in current metadata repair pass."
+    },
+    {
+      "id": "bob-and-nan-04-beach",
+      "page": 6,
+      "path": "public/guided-reading/series/bob-and-nan/book-04/page-006.webp",
+      "sha256": "4f686f8ece8ee91f3de7557a6fdfc7f3c5180f8654fd62a51c7ce6709efaf9a9",
+      "inspection": "Original-resolution inspection in current metadata repair pass."
+    },
+    {
+      "id": "bob-and-nan-04-beach",
+      "page": 7,
+      "path": "public/guided-reading/series/bob-and-nan/book-04/page-007.webp",
+      "sha256": "4e22c3f1b7d5d1aaf3ba6e7832e5e713b0a1de9b2a283ea7a9abf1353ecd17c9",
+      "inspection": "Original-resolution inspection in current metadata repair pass."
+    },
+    {
+      "id": "gr-c-38",
+      "page": 4,
+      "path": "public/guided-reading/regen/pages/gr-c-38-page-04.webp",
+      "sha256": "8bc22a715de987822bd6458f33a32e35a903211469073be9d9750fad780e0033",
+      "inspection": "Original-resolution inspection in current metadata repair pass."
+    },
+    {
+      "id": "first-facts-a-04-what-is-weather",
+      "page": 3,
+      "path": "public/guided-reading/nonfiction/first-facts/book-04/page-003.webp",
+      "sha256": "95e5d11ddb50c70150d34d6457deae89d077c4d37c74960742318fac55029ee2",
+      "inspection": "Teacher evidence checked against native installed image."
+    },
+    {
+      "id": "willow-street-the-lunchbox-mix-up",
+      "page": 2,
+      "path": "public/guided-reading/willow-street/the-lunchbox-mix-up/page-02.webp",
+      "sha256": "26583032686b8491e41ce566f3338e48941b097f916499d019fe52ebadfc5add",
+      "inspection": "Original-resolution inspection in current metadata repair pass."
+    },
+    {
+      "id": "willow-street-the-lunchbox-mix-up",
+      "page": 3,
+      "path": "public/guided-reading/willow-street/the-lunchbox-mix-up/page-03.webp",
+      "sha256": "44380fb230d1c7b22a53a3526b2ee1ef6c1a29511675da9e96e4511f8e9f0b30",
+      "inspection": "Original-resolution inspection in current metadata repair pass."
+    },
+    {
+      "id": "dino-pals-23-flappys-fern-delivery",
+      "page": 2,
+      "path": "public/guided-reading/series/dino-pals/book-23/page-002.webp",
+      "sha256": "943279f8eb087205c1d023b082fc0d6db8c97c6883b41af3c718a3bfaa6ce858",
+      "inspection": "Original-resolution inspection in current metadata repair pass."
+    },
+    {
+      "id": "dino-pals-23-flappys-fern-delivery",
+      "page": 3,
+      "path": "public/guided-reading/series/dino-pals/book-23/page-003.webp",
+      "sha256": "116a4528506c92faa6bdd415d270d1666e300bcda2ba1a05db49b55dea56a01d",
+      "inspection": "Original-resolution inspection in current metadata repair pass."
+    },
+    {
+      "id": "dino-pals-23-flappys-fern-delivery",
+      "page": 4,
+      "path": "public/guided-reading/series/dino-pals/book-23/page-004.webp",
+      "sha256": "60c1f5d51cba06bebb407b3effaa69aaf04c7a5109859c942aeba99a76aae266",
+      "inspection": "Original-resolution inspection in current metadata repair pass."
+    },
+    {
+      "id": "dino-pals-23-flappys-fern-delivery",
+      "page": 5,
+      "path": "public/guided-reading/series/dino-pals/book-23/page-005.webp",
+      "sha256": "b9c1bdc804bc8638fc5ba5f3a733b794cc1e0324e6cd6387628a33609003ff18",
+      "inspection": "Original-resolution inspection in current metadata repair pass."
+    },
+    {
+      "id": "dino-pals-23-flappys-fern-delivery",
+      "page": 6,
+      "path": "public/guided-reading/series/dino-pals/book-23/page-006.webp",
+      "sha256": "e32af4ecdfa9c42e1685439c9a46e7212f264898dba5e86338ed7542eee48f9e",
+      "inspection": "Original-resolution inspection in current metadata repair pass."
+    },
+    {
+      "id": "dino-pals-23-flappys-fern-delivery",
+      "page": 7,
+      "path": "public/guided-reading/series/dino-pals/book-23/page-007.webp",
+      "sha256": "096bbb4ac245358bf82a9aa76ee9e3e7c8ceae29587aaba54e9a8f75086a9bb4",
+      "inspection": "Original-resolution inspection in current metadata repair pass."
+    }
+  ],
+  "preservation": {
+    "status": "passed",
+    "books": 447,
+    "sourcePageEntries": 3959,
+    "activeReadingPages": 3941,
+    "exactSourceStringsChanged": 37,
+    "sourceFiles": 6,
+    "runtimeChangedPages": 35,
+    "protectedNarrativeProjectionSha256": "7c05d8cd74374ae39ae3e73ca6e8cfd72fb8c8d517b04bd8bfeed06b69934314",
+    "currentNarrativeProjectionSha256": "7c05d8cd74374ae39ae3e73ca6e8cfd72fb8c8d517b04bd8bfeed06b69934314",
+    "unchanged": [
+      "all447 titles",
+      "all3959 source page texts and page order, including3941 active reading pages",
+      "all word text/audio evidence",
+      "all page/cover/title/narration path and page fields outside descriptions",
+      "all public levels and edition fields"
+    ]
+  },
+  "verification": [
+    {
+      "check": "Exact-source replacement reconstruction and AST string matching",
+      "result": "37 expected string values changed; no other source bytes changed in six owned files."
+    },
+    {
+      "check": "Complete runtime protected-field comparison",
+      "result": "447 titles and all3959 source page entries including3941 active reading pages unchanged for child text/order/words/audio/media/level/edition fields."
+    },
+    {
+      "check": "Focused existing unit tests",
+      "result": "36 passed;0 failed.",
+      "evidence": ".artifacts/library-suitability-audit/metadata-repair/focused-unit.log"
+    },
+    {
+      "check": "Story Bible manuscript gate --skip-audio",
+      "result": "447 books/3941 active pages passed; narration playback not claimed.",
+      "evidence": ".artifacts/library-suitability-audit/metadata-repair/story-bible.log"
+    },
+    {
+      "check": "Discussion prompt gate",
+      "result": "447 static book records passed.",
+      "evidence": ".artifacts/library-suitability-audit/metadata-repair/discussion-gate.log"
+    },
+    {
+      "check": "Scoped visual alignment",
+      "result": "All16 books with runtime page metadata changes passed existing exact-text/image-hash gate.",
+      "evidence": ".artifacts/library-suitability-audit/metadata-repair/visual-alignment.log"
+    },
+    {
+      "check": "Scoped ESLint --max-warnings=0",
+      "result": "Passed for all six owned source files.",
+      "evidence": ".artifacts/library-suitability-audit/metadata-repair/lint.log"
+    },
+    {
+      "check": "git diff --check",
+      "result": "Passed."
+    }
+  ]
+}

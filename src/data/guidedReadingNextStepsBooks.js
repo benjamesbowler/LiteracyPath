@@ -4092,9 +4092,9 @@ const MANUSCRIPTS = deepFreeze([
     ],
     "storyBibleReview": {
       "kind": "fiction",
-      "storySpine": "Sam wants to see a dot, but his red pen leaves a hard-to-see mark on a red paper mat; he chooses a tan mat and makes a dot he can see.",
-      "failedAttempt": "Sam dabs the red pen on the red paper mat and cannot distinguish the mark.",
-      "turn": "Sam chooses the tan paper mat instead.",
+      "storySpine": "Sam wants to see a dot, but his red pen leaves a hard-to-see mark on a red work mat; he chooses a tan work mat and makes a dot he can see.",
+      "failedAttempt": "Sam dabs the red pen on the red work mat and cannot distinguish the mark.",
+      "turn": "Sam chooses the tan work mat instead.",
       "resolution": "The red dot is plainly visible against the tan mat.",
       "canonIds": [
         "SMALL-SAM"
@@ -4264,7 +4264,7 @@ const MANUSCRIPTS = deepFreeze([
       "visual": {
         "page": 7,
         "prompt": "What makes the new dot easier to see?",
-        "lookFor": "The red dot has a different color from the tan paper around it."
+        "lookFor": "The red dot has a different color from the tan work mat around it."
       }
     },
     "levelRationale": "Seven single-line pages use a repeated concrete action and a single visible contrast. The negative sentence is at most six words and no dialogue is introduced.",

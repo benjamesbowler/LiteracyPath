@@ -1924,7 +1924,7 @@
         "illustration": {
           "score": 3,
           "status": "reviewed",
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json#world-discovery-d-04: reference, cover and all 10 pages directly inspected in sequence for anatomy, plausible object contact, identity, style, counts and text/state continuity. Exact installed hashes are bound here and in per-image receipts."
+          "evidence": "source-art/world-discovery/remediation/2026-11-11/d04-complete-book-review.json#world-discovery-d-04: native reference, cover and all10orderedpages reviewed with p7/8 complete-grounded-body repairs; exact installed hashes and current manuscript/state bound. Child text/prep/discussion unchanged."
         },
         "audio": {
           "score": 3,
@@ -1937,8 +1937,8 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "completeBook": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
-        "automatedNarration": "source-art/world-discovery/remediation/2026-11-09/01-10-narration-review.json",
+        "completeBook": "source-art/world-discovery/remediation/2026-11-11/d04-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-11/01-10-grounding-narration-review.json",
         "humanListeningObserved": false
       }
     }

@@ -2,33 +2,38 @@
   "bookId": "world-discovery-d-04",
   "slot": "page-08",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-07T05:57:57.576Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-db545d8e-f1db-49ba-b16d-d1266311f500.png",
-  "sourceSha256": "6b2043e4946bf74eca8694d2d65472928c13bb8bcd3952dd13b6679fab77af77",
+  "generatedAt": "2026-11-11",
+  "source": "source-art/world-discovery/remediation/2026-11-11/d04-generation-inputs/page-08-selected.png",
+  "sourceSha256": "e4ec986825f93e4742377084bc531e61a0252a6b3b75dec726c4a88024705c73",
   "output": "public/guided-reading/world-discovery/d-04/page-08.webp",
-  "outputSha256": "58eb80ece8a79eb257ec8cba40dc23894c8c0508e4e26e6b40788b437648af41",
+  "outputSha256": "87ebba7dfcfdb47642ce66bf31161176eb818b7f32db821e4e74fc3caa2bac16",
   "width": 1536,
   "height": 1024,
-  "prompt": "Edit this accepted page 7 illustration to show the immediate NEXT moment. Preserve EXACT same U-fork tree, Zoe behind the trunk, identities, garden and clean flat cartoon. Keep Zoe's blue pouch MOSTLY ZIPPED CLOSED with only the SAME tiny right-corner opening. A second SMALL white puff emerges sideways RIGHT through OPEN AIR toward the red kite. Lift the kite's upper-right corner free of the small inward twig: tilt the single red diamond kite slightly toward Kit on the right, one corner now above and outside twig, kite almost free, still in front of the same fork. Kit moves closer on the right, reaches BOTH EMPTY HANDS toward the kite, both feet remain on grass. Keep the one short white ribbon tail and separate SLACK string to the one wooden spool on the grass. No wide-open pouch, no huge blast, no wind passing through wood, no climbing, no new branch, no duplicate props, no text.",
+  "prompt": "Edit this illustration with one correction only. Remove the entire white caption band and ALL printed sentence lettering along the bottom. Extend the existing green grass seamlessly to the bottom edge so the full landscape canvas is only the picture, with NO text anywhere, NO white caption band and NO new labels. Preserve every other detail exactly: two children standing on grass with visible shoes, low apple tree, blue pouch with tiny horizontal puff, tilted red kite freeing from fork toward boy's open hands, white tail/string and single spool, background wall, crisp outlined flat-color cartoon style. Keep the existing positions/proportions and canvas dimensions. Do not write or reproduce any caption, title, explanation or watermark.",
   "references": [
     {
-      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-56527786-1cd9-4646-8e95-f32734ff09fb.png",
-      "sha256": "45bd7d10ee7a302a430660f2edb9ac49420b94107782e388a57c2c88703deb33"
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1c3ed-c928-70e2-a423-68d0aaffd69c/exec-ee11ad09-4ceb-4f9b-96b9-f9945c5b6eca.png",
+      "sha256": "ab824efc3dbac0c625466663d1f6f50cf050582735f8e7d60acd472f8b7fc6f9"
     }
   ],
+  "generationProvenance": "source-art/world-discovery/remediation/2026-11-11/d04-generation-provenance.json",
+  "supersedes": {
+    "path": "source-art/world-discovery/remediation/2026-11-11/d04-prior-receipts/d-04-page-08.json",
+    "sha256": "075160d7db41c09386e1d4981217878705431c4ef036f20c1824d717ab99ce3f"
+  },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-09",
-    "sha256": "58eb80ece8a79eb257ec8cba40dc23894c8c0508e4e26e6b40788b437648af41",
-    "note": "Viewed full-size against preceding image: same back-of-tree position and tiny pouch opening; second small puff tilts kite corner clear; grounded Kit reaches with two hands, one slack line and ribbon remain.",
-    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "reviewedAt": "2026-11-11",
+    "sha256": "87ebba7dfcfdb47642ce66bf31161176eb818b7f32db821e4e74fc3caa2bac16",
+    "note": "Zoe and Kit complete and grounded; kite tilts right free of twig toward two waiting open hands, second small puff, same attached slack string/spool; no caption, label or watermark.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-11/d04-complete-book-review.json",
     "limits": "Direct agent image/sequence inspection; not physical classroom observation."
   },
   "reviewedManuscriptSource": {
     "path": "src/content/world-discovery/level-d.json",
     "bookId": "world-discovery-d-04",
-    "sha256": "276b1b7042e6da481cec4c0568940b0d78e77d21070e94f1bc0e54270b408f95",
-    "reviewedAt": "2026-11-09",
-    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
+    "sha256": "94bfa8da474e89a395d7d99e98695d9aba42b1d3a5736a0214c60d5e027ac27e",
+    "reviewedAt": "2026-11-11",
+    "evidence": "source-art/world-discovery/remediation/2026-11-11/d04-complete-book-review.json"
   }
 }
