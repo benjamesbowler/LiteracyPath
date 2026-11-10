@@ -53,9 +53,14 @@ test("review corrections retain later evidence and never duplicate a retry", () 
   assert.equal(upsertDiagnosticEntry(edited, 0, edited[0]).length, 2);
 });
 
-test("diagnostic gates require genuine error evidence and an access reason", () => {
-  assert.match(diagnosticObservationIssue("incorrect", {}), /what the student said/);
+test("quick teacher judgments need no transcript while unscorable responses still need a reason", () => {
+  assert.equal(diagnosticObservationIssue("incorrect", {}), "");
   assert.equal(diagnosticObservationIssue("incorrect", { responseText: "bee" }), "");
+  const quick = diagnosticResponseFields({ letter: "A", nameOutcome: "incorrect" }, "name");
+  assert.equal(quick.isCorrect, false);
+  assert.equal(quick.responseCaptureMode, "teacher_observation");
+  assert.equal(quick.selectedAnswer, "");
+  assert.equal(quick.responseDetailCaptured, false);
   assert.match(diagnosticObservationIssue("not_scorable", {}), /why/);
   assert.equal(diagnosticObservationIssue("not_scorable", { notes: "Interrupted" }), "");
   assert.match(diagnosticObservationIssue("no_response", { responseText: "bee" }), /response is recorded/);
@@ -74,6 +79,21 @@ test("partial archive restores the unrecorded subtask, exact response and author
   assert.equal(restored.patternAssessment[0].formVersion, "old-form");
   assert.equal(restored.patternAssessment[0].responseEvidence.sound.responseText, "ah");
   assert.deepEqual(restored.patternAssessment[0].responseEvidence.sound.errorTags, ["vowel"]);
+});
+
+test("quick letter observations survive history restoration with distinct name and sound evidence", () => {
+  const entry = { letter: "A", nameOutcome: "incorrect", soundOutcome: "correct", recorded: true, diagnosticVersion: "manual-diagnostic-v2", formVersion: "letter-names-sounds-2026.09-v2" };
+  const records = ["name", "sound"].map(task => ({ ...diagnosticResponseFields(entry, task), targetLetter: "A" }));
+  const restored = restoreManualAssessmentDraftsFromHistory({ studentId: "student-1", assessmentHistory: [{ assessmentType: "el_letter_assessment", administrationStatus: "partial", attemptId: "quick-observation", startedAt: "2026-11-10T09:00:00Z", studentId: "student-1", questionRecords: records }] });
+  assert.equal(restored.letterIndex, 1);
+  assert.equal(restored.letterAssessment[0].knowsName, false);
+  assert.equal(restored.letterAssessment[0].knowsSound, true);
+  assert.equal(isDiagnosticEntryComplete(restored.letterAssessment[0]), true);
+  assert.equal(diagnosticResponseFields(restored.letterAssessment[0], "name").responseCaptureMode, "teacher_observation");
+  assert.equal(restored.letterAssessment[0].responseEvidence.name.responseText, "");
+  const profile = summarizeDiagnostic(restored.letterAssessment, [letters[0]]);
+  assert.equal(profile.totals.name.incorrect, 1);
+  assert.equal(profile.totals.sound.correct, 1);
 });
 
 test("Excel evidence distinguishes missing work and never invents a transcript", async () => {
@@ -104,10 +124,12 @@ test("stable pattern inventory keeps all 33 targets with varied authored words a
   assert.match(advancedPhonicsPatterns.find(item => item.pattern === "th").soundGuidance, /voiced/);
 });
 
-test("finishing returns to an earlier incomplete item and invalid error drafts cannot complete", () => {
+test("finishing returns to an earlier incomplete item and preserves quick observations", () => {
   const partial = [{ letter: "A", nameOutcome: "correct", soundOutcome: "", recorded: false }, { letter: "a", nameOutcome: "correct", soundOutcome: "correct", recorded: true }];
   assert.equal(nextDiagnosticItemIndex(partial, letters, "letter", 1), 0);
-  const missingEvidence = { letter: "A", nameOutcome: "incorrect", soundOutcome: "correct", recorded: true, diagnosticVersion: "manual-diagnostic-v2" };
-  assert.equal(isDiagnosticEntryComplete(missingEvidence), false);
-  assert.equal(isDiagnosticEntryComplete({ ...missingEvidence, responseEvidence: { name: { responseText: "bee" } } }), true);
+  const quickEvidence = { letter: "A", nameOutcome: "incorrect", soundOutcome: "correct", recorded: true, diagnosticVersion: "manual-diagnostic-v2" };
+  assert.equal(isDiagnosticEntryComplete(quickEvidence), true);
+  assert.equal(isDiagnosticEntryComplete({ ...quickEvidence, responseEvidence: { name: { responseText: "bee" } } }), true);
+  assert.equal(isDiagnosticEntryComplete({ ...quickEvidence, nameOutcome: "not_scorable" }), false);
+  assert.equal(isDiagnosticEntryComplete({ ...quickEvidence, nameOutcome: "not_scorable", responseEvidence: { name: { notes: "Interrupted" } } }), true);
 });

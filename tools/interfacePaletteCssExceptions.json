@@ -1,5 +1,17 @@
 [
   {
+    "file": "src/styles/manual-diagnostic.css",
+    "selector": ".md-page .md-quick-outcomes .md-outcome-correct",
+    "property": "background",
+    "reason": "Owner-requested green Knows/Correct assessment control, paired with a tick and explicit text; limited to the correct marking outcome."
+  },
+  {
+    "file": "src/styles/manual-diagnostic.css",
+    "selector": ".md-page .md-quick-outcomes .md-outcome-correct",
+    "property": "border-color",
+    "reason": "Owner-requested green Knows/Correct assessment control, paired with a tick and explicit text; limited to the correct marking outcome."
+  },
+  {
     "file": "src/styles/teacher-whole-class-practice.css",
     "selector": ".whole-class-feedback.is-correct",
     "property": "border-color",

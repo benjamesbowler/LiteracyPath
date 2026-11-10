@@ -71,7 +71,6 @@ export function nextDiagnosticItemIndex(entries = [], items = [], kind = "letter
 export function diagnosticObservationIssue(outcome, observation = {}) {
   if (!outcome) return "Choose an outcome before continuing.";
   if (["no_response", "not_administered"].includes(outcome) && String(observation.responseText || "").trim()) return "A response is recorded. Choose Correct, Not yet or Not scorable.";
-  if (outcome === "incorrect" && !String(observation.responseText || "").trim()) return "Record what the student said so this result can guide teaching.";
   if (outcome === "not_scorable" && !String(observation.notes || "").trim()) return "Record why this response could not be scored.";
   return "";
 }
