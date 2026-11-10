@@ -2,23 +2,27 @@
   "bookId": "world-discovery-e-21",
   "slot": "page-10",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-09T11:42:43.557Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-5cf34945-b142-403f-ad43-613cca164863.png",
-  "sourceSha256": "26ce1418ce1dc2a47d2e705d827fe82e6e6309f9d7a3eb45bb1d75ebf992d1f4",
+  "generatedAt": "2026-11-10T09:47:23.827Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1c3ee-e610-7d22-ad30-a2bee077e3d6/exec-0eb97b62-6c43-47b1-a119-a27f50431c70.png",
+  "sourceSha256": "443c7fad3d8ac6bd61c86f062ecef8d31aa615c6c88fd3d9936992237deffd76",
   "output": "public/guided-reading/world-discovery/e-21/page-10.webp",
-  "outputSha256": "fe8947bce60a4845b227c3ba563a26fc252d691bc272464d0a068c4661281ea5",
+  "outputSha256": "875fee865b5fd69d3379d4d298a9da766de9a91c969773417273e30ccf7aaa20",
   "width": 1536,
   "height": 1024,
-  "prompt": "A NEW coherent interior illustration inside the same white-and-blue ferry. Flat2D clean bold outlines and solidcolors. Kit(tealshirt yellowshorts),Zoe(yellowshirt purpleoveralls twohairpuffs),their adult(tealpolo navypants shortblackhair) sit safely together on a blue bench INSIDE the enclosed passenger cabin. Show all3 complete seated figures with feet and heads comfortably inside frame. Their calm faces turn toward ONE large closed cabin window behind them. Through window see the approaching EAST grayquay and museum: creamwalls,redroof,ONE circularbluewindow,on green oppositebank. The outside scene must be beyond the glass, never inside cabin. Pale blue cabin walls,blue windowframe,plainfloor. Do not depict extra people,lifejackets,open gaps,extra boats,timetable,letters,words,numerals or reference-board panels. Pull back enough that heads,feet,bench and window corners are all at least15percent inside allfour edges. The scene conveys an ordinary safe ferry ride with adult supervision.",
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one explanatory comparison diagram. Allow only the distinct views, stages or comparison panels explicitly authored in this page's illustration brief, with their exact relationships and counts. No unrequested panels, insets, annotations or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Transport Through Time; World Discovery; nonfiction.\nSetting: A selected factual history followed by contemporary transport comparisons. Historical pictures are reconstructions, not a claim that all countries changed at once. Plain practical clothes only; no flags, religious buildings, political events or cultural costumes. Cart: brown wooden four-wheel wagon, one healthy bay horse and adult driver in plain gray shirt and dark trousers. Steam train: black early passenger steam locomotive with red wheels and two brown wooden coaches. Early motor car: dark-green open four-wheel gasoline car with adult driver. Early aircraft: plain cream single-propeller biplane. Modern train: white electric passenger train with blue band and overhead wire. Jet: white twin-engine passenger jet with teal tail. No named cast or brand logos.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Horse-drawn brown wagon; Early black steam train; Early dark-green motor car; Cream early propeller biplane; Modern white-blue electric train; Modern white-teal passenger jet\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and specific stages explicitly required below; the declared diagram permits no other scenes or story events.\nPage 10. Printed prose (NOT text to put in art): New inventions added ways to travel. People still walk, cycle, row, and ride animals alongside today’s motor vehicles.\nRequired illustration: Closing comparison diagram of four clearly separated everyday scenes: pedestrian and cyclist on park path; adult rows on calm water; adult on horse along a rural bridleway; modern train and car on separate track and road. Each user appropriately equipped. No one shares unsafe surfaces or races.\nExact current state: Synthesis: older and newer forms coexist today; no claim of universal replacement.\nDo not add events or stages beyond the authored diagram. Repeat a subject only when the authored comparison or cutaway requires it. No written title; the app renders live text.\nFINAL QUALITY LOCK: Render 1536 by 1024 pixels, clean landscape 3:2. This is the finished page, not a reference sheet. Keep all essential subjects fully framed with 8 percent margin. Use plain ordinary clothes and exactly the subjects specified in this page. Do not transfer extraneous reference animals, poses or props into the picture. No national symbols, logos or written marks. All wheels visibly contact their own road or rails. Train rails are a coherent parallel pair under the wheels. A locomotive has a plausible horizontal boiler, firebox, steam pipe, cylinder, piston and connecting rods only where explicitly requested. No fantasy plumbing, exposed loose hoses, melted wheels or floating mechanisms. Horses have exactly four natural legs; tack is coherent. Aircraft have exactly one fuselage, one tail and matching wings with correct attachment.\nCLOSING REPAIR to LAST reference: keep its exact FOUR distinct contemporary scenes. Replace ONLY the old open dark-green antique car in lower-right with an ordinary MODERN CLOSED BLUE compact car on its separate road, modern wheels/windows and adult driver visible through windscreen. The white-blue electric train remains on separate rails above, pantograph touching overhead wire. Rower in upper-right wears a plain blue life jacket over gray shirt. Keep walking adult and HELMETED cyclist upper-left, helmeted horse rider lower-left, correct oar grips and four natural horse legs. Shrink the complete four-panel layout together so all panels and subjects fit x140..1396 and y90..934; preserve complete feet, horse hooves and wheels. No new scenes, symbols, arrows or text.",
   "references": [
     {
-      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-e747a502-605d-4e3a-bd8b-c15bf73afcaa.png",
-      "sha256": "dcd7d4a07ec2c6824a9b961808a19fecc8d4e1d2483a1fa354530a453592f67a"
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-21-reference.webp",
+      "sha256": "bcd9084f0fd6888f17aec2fe89d8d9237c31f3ae501978dc1610288aba71214c"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1c3ee-e610-7d22-ad30-a2bee077e3d6/exec-f166d4b1-11d2-4ff3-a9d6-b14101b74a05.png",
+      "sha256": "5266477427b55d743beed58a72f836beb22978115fdb682e268f60e7b3990a9e"
     }
   ],
   "manuscriptSource": {
-    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
-    "sha256": "9421bb4bb1f97c822674b76871fc5ee9b7b4398f02e9bdb626223b2a8cf9283e",
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/discovery-topic-revision/manuscripts",
+    "sha256": "5476e5d3a4c300cd350ded4aee8195556e25aa6db8b5208012c7e1c76178cb6e",
     "isolated": true,
     "firstNumber": 21,
     "lastNumber": 30,
@@ -26,15 +30,14 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "date": "2026-11-09T11:43:18.037951+00:00",
-    "sha256": "fe8947bce60a4845b227c3ba563a26fc252d691bc272464d0a068c4661281ea5",
-    "note": "Three full seated figures safely inside enclosed cabin; museum and east quay beyond closed window. Correct cast/anatomy, no text, feet clear of lower edge and window comfortably inset.",
-    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+    "reviewedAt": "2026-11-10",
+    "sha256": "875fee865b5fd69d3379d4d298a9da766de9a91c969773417273e30ccf7aaa20",
+    "note": "Exactly four present-day transport scenes: walker and helmeted cyclist; seated rower in plain blue buoyancy vest; helmeted horse rider on separate path; modern electric train and closed blue compact car on separate rail/road. Four-legged horse and complete vehicle silhouettes; corrected antique car. Producer independently inspected the final installed WebP natively; complete final sequence and relevant native diagrams were independently reviewed."
   },
   "reviewedManuscriptSource": {
     "bookId": "world-discovery-e-21",
     "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
-    "sha256": "9421bb4bb1f97c822674b76871fc5ee9b7b4398f02e9bdb626223b2a8cf9283e",
-    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
+    "sha256": "d2b00cf5ebb83c26d8921703250179413a877c2f73e333ebcb39d3b45604dc4f",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json"
   }
 }

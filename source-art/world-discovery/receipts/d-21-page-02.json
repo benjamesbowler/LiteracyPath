@@ -2,24 +2,23 @@
   "bookId": "world-discovery-d-21",
   "slot": "page-02",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-09T06:02:03.932Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-6079f647-cebb-4935-9f2b-9af9903f1888.png",
-  "sourceSha256": "4824c3aefb98ca0dbf5a77a78fa511394776f42b9d771203c26d64e396cd976e",
+  "generatedAt": "2026-11-10T06:07:34.605Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1c3ef-11ed-7331-8274-1234bc3e482f/exec-3c5e5e7c-d7ba-4a18-8e46-695ac69c0a21.png",
+  "sourceSha256": "71b1c451f8b68753ec36a37638c17d3175cbdb83e0a0a7bdfc4b7bed14bf8eb6",
   "output": "public/guided-reading/world-discovery/d-21/page-02.webp",
-  "outputSha256": "bc5223aafc833b368dc0816cf2d10aab56c2b95dd1895078450abf4a0238e3eb",
+  "outputSha256": "245da6f6f9c1b081945517de77494a220f15bfcf70d320ca74e3a73026451ef1",
   "width": 1536,
   "height": 1024,
-  "prompt": "Pull the camera back slightly in this exact illustration, extending the existing scene naturally around all edges. Preserve EVERY person, container, vehicle, pose, cargo, color, door state and object count. Shrink and reposition the existing scene within the canvas just enough that every foreground boot, every complete foreground carton and its open flaps, and all visible blue notebooks sit at least 9 percent of the image height ABOVE the bottom edge and at least 9 percent of image width INSIDE the left/right edges. Leave a broad clean strip of ordinary flat pavement beneath all feet and cartons. Do not crop any carton or footwear. Do not duplicate, remove or redesign any subject, and do not add people, letters, numbers, symbols, vehicles or objects. Preserve the orange corrugated container and blue square only on its left cargo door, two adult workers in PPE where already present, blue notebooks in brown cartons, and the same location. This is framing-only, not a change in story state. Bold crisp 2D cartoon with smooth flat colors, no grain or stipple. Keep landscape 3:2 full-bleed format.",
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one integrated explanatory diagram. Allow only the cutaways, insets, schematic elements or arrows explicitly authored in this page's illustration brief; keep them spatially connected to the subject they explain. No unrequested panels, insets, annotations or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Gasoline and Electric Cars; World Discovery; nonfiction.\nSetting: Ordinary contemporary civilian cars on a calm road and at separate safe service areas. Gasoline car is orange with dark gray roof and one rear exhaust pipe. All-electric car is teal with light gray roof and no exhaust pipe. Same proportions but different colors keep referents clear. Each car has four road wheels. Cutaways are explicitly diagrams; adults handle fuel and charging. No brands, flags or political messages.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Orange gasoline sedan, gray engine under front hood, fuel tank near rear and exhaust pipe at rear; Teal all-electric sedan, large flat battery beneath passenger floor and motor near rear axle, no fuel tank or exhaust; Unbranded fuel pump with hose and separate charging post with cable\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and specific stages explicitly required below; the declared diagram permits no other scenes or story events.\nPage 2. Printed prose (NOT text to put in art): The gasoline car carries liquid fuel in a tank. Its engine burns small amounts of that fuel mixed with air.\nRequired illustration: Side cutaway of parked orange gasoline car. Rear fuel tank contains amber liquid; one thin fuel line leads forward to gray engine. A small magnified inset shows an enclosed cylinder with a small burning fuel-air mixture above a piston, not an engine full of loose flames. One inset only; no text.\nExact current state: Fuel storage and combustion inside an enclosed engine.\nDo not add events or stages beyond the authored diagram. Repeat a subject only when the authored comparison or cutaway requires it. No written title; the app renders live text.\nFraming clarification: Keep every entire aircraft/car and its required teaching parts completely within the inner 84 percent of the canvas, leaving at least 8 percent clear background margin on ALL sides. Nothing essential touches or approaches the picture edge.\nPhysical-logic clarification: The gasoline fuel tank has one THIN fuel line running to the FRONT engine. The exhaust is a DIFFERENT pipe, originating at the ENGINE and running underneath the car to ONE rear outlet. The exhaust never starts at or passes through the fuel tank. Mechanical drive connection is distinct from both the fuel line and exhaust. No pipe connects the two cars. The teal all-electric car has no exhaust outlet, no fuel tank and no combustion engine.",
   "references": [
     {
-      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/d-21/page-02.webp",
-      "sha256": "c68a361d4348a07c21d6219a8afc38e9f158907c67496fc90d52bf4b3c6fc513",
-      "preservedInputPath": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/.artifacts/nonfiction-next-50/media-review-inputs/d21-page-02-before-margin.webp"
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-21-reference.webp",
+      "sha256": "12bdcf040d47f4dd39cd88921ed1aecf52635f88a3fbe71a8a71e715ad895ad4"
     }
   ],
   "manuscriptSource": {
-    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
-    "sha256": "4cd850616c2e31aecc557996032490d0fb984ea0f222fa11e0f2a878a417a9c7",
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/discovery-topic-revision/manuscripts",
+    "sha256": "7d1860e2dae10eae9a699a4df3ae5d6f56a9a9781a39f8c3d092049b64334db4",
     "isolated": true,
     "firstNumber": 21,
     "lastNumber": 30,
@@ -27,17 +26,14 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "date": "2026-11-09T14:07:15.494Z",
-    "sha256": "bc5223aafc833b368dc0816cf2d10aab56c2b95dd1895078450abf4a0238e3eb",
-    "note": "Direct inspection of independent-review framing repair: all foreground cartons, flaps, notebooks and worker footwear now fully inside >9% bottom/side margins; loading/locking/unloading state, same workers, cargo, marker and vehicle preserved. Prior reviewed input and receipt retained as hash-bound review evidence.",
-    "reviewer": "/root/gap_taxonomy",
-    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
-    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+    "reviewedAt": "2026-11-10",
+    "sha256": "245da6f6f9c1b081945517de77494a220f15bfcf70d320ca74e3a73026451ef1",
+    "note": "Fuel tank at rear feeds front engine through continuous fuel line; enclosed combustion inset correctly shows a piston and contained burning mixture. Producer independently inspected the final installed WebP natively; complete final sequence and relevant native diagrams were independently reviewed."
   },
   "reviewedManuscriptSource": {
     "bookId": "world-discovery-d-21",
     "path": "src/content/world-discovery/cohorts/21-30/level-d.json",
-    "sha256": "4cd850616c2e31aecc557996032490d0fb984ea0f222fa11e0f2a878a417a9c7",
-    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
+    "sha256": "98d098b7790b51f3544d7069a44403c5a1e9da9323808471ee96dc80f0033831",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json"
   }
 }

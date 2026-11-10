@@ -167,5 +167,22 @@ export const WORLD_DISCOVERY_NONFICTION_AUDIO_REPAIRS = Object.freeze({
       }
     ],
     "reviewEvidence": "source-art/world-discovery/cohorts/21-30/narration-review.json — decoded signal and unprompted exact speech screening; automated evidence, not human listening."
+  },
+  "isolated_word:janeiro": {
+    "role": "isolated_word",
+    "normalizedLookupText": "janeiro",
+    "spokenText": "Janeiro",
+    "voiceName": "en-US-Chirp3-HD-Leda",
+    "audioPath": "/audio/production/en-US/isolated_word/janeiro-9c7c8f55d6.mp3",
+    "audioSha256": "9c7c8f55d6652e060d3fae208f4406f687924ba7c0388cea7ba25f04a3503f12",
+    "reviewedAt": "2026-11-10",
+    "pronunciations": [
+      {
+        "phrase": "Janeiro",
+        "pronunciation": "ʒəˈnɛɹoʊ"
+      }
+    ],
+    "pronunciationSource": "https://dictionary.cambridge.org/us/pronunciation/english/rio-de-janeiro",
+    "reviewEvidence": "source-art/world-discovery/remediation/2026-11-10/topic-revision-new-narration-review.json — exact IPA payload, complete decode/signal and unprompted recognition; residual rare-name ASR ambiguity recorded, not human listening."
   }
 });

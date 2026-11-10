@@ -2,27 +2,23 @@
   "bookId": "world-discovery-b-21",
   "slot": "page-01",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-09T05:06:29.364Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-d101ffa3-5ecd-463a-81f8-1ca5a0a31685.png",
-  "sourceSha256": "52c2354cabf914e916be846354a12c1d4f89f9ea5a587794ab0a6b9e42f40142",
+  "generatedAt": "2026-11-10T06:00:47.042Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1c3ed-c928-70e2-a423-68d0aaffd69c/exec-c37c7257-637d-4e35-9623-d0880fee8365.png",
+  "sourceSha256": "e18df43214c3f5bf18f2ba61b1742f7fb11cf85a1dd8c0b8c6d9269c6c322c35",
   "output": "public/guided-reading/world-discovery/b-21/page-01.webp",
-  "outputSha256": "e985d79aa9c1289681d4d47fc444af6a7b642e8af41a39ce584a88e6d2065218",
+  "outputSha256": "5aa08adfee1c06e7c9ff5fd098d0fafb93eb57633278b41ac53fba3cf525cfe4",
   "width": 1536,
   "height": 1024,
-  "prompt": "Edit image one. Preserve its exact opening state: three loaded open boxcars red/yellow/green are coupled together, and the blue locomotive waits separately with the visible gap before the red car. Pull the camera back and center the entire train group so the COMPLETE locomotive and all three cars occupy at most 80 percent of picture width, with at least 10 percent clear margin at both ends. Keep crates clearly visible, all wheels correctly on the two rails, one coherent landscape scene, smooth flat fills and crisp outlines. No panels or lettering. Image two is a design reference only.\n\nAuthoritative scene specification:\nUse case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Train for Heavy Loads; World Discovery; nonfiction.\nSetting: A short contemporary freight journey between two warehouses. No public access to tracks. Unbranded blue diesel-electric locomotive, followed by red, yellow and green enclosed boxcars in that fixed order. Adult railway workers have orange safety vests, blue trousers and hard hats.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One blue locomotive; Exactly three boxcars in red/yellow/green order; Gray steel couplers between all vehicles; Wooden crates secured inside the cars; One continuous pair of rails\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 1. Printed prose (NOT text to put in art): These heavy boxes need a ride.\nThey fill three train cars.\nRequired illustration: Warehouse loading bay. Three open boxcars contain securely stacked wooden crates; fixed red/yellow/green order. Blue locomotive waits ahead.\nExact current state: Three loaded cars; doors open; locomotive not moving.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nFinish requirement: all fills are perfectly smooth, clean, flat vector-like color. Absolutely no paper grain, stipple, speckles, mottled paint, fuzzy edges or surface noise anywhere, including backgrounds. Clear crisp outlines and only a few flat cel-shadow shapes. Do not imitate texture from any supporting reference. The three boxcars are coupled to one another, but the waiting locomotive is visibly separated from the red first car by a small safe gap; it has not joined the train yet. Do not show workers on the track. Exactly four vehicles total: blue locomotive, red, yellow, green.",
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one explanatory comparison diagram. Allow only the distinct views, stages or comparison panels explicitly authored in this page's illustration brief, with their exact relationships and counts. No unrequested panels, insets, annotations or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: People Power; World Discovery; nonfiction.\nSetting: Three factual adult demonstrations: a level traffic-free park cycle path, a quiet enclosed ice rink, and a calm lake. Cyclist: medium-brown skin, short straight black hair under a plain yellow helmet, teal jacket, navy pants, white shoes; red upright chain-driven bicycle. Skater: light-brown skin, short curly dark hair, blue helmet, orange jacket, dark-green pants, black ice skates with one metal blade each. Rower: deep-brown skin, close-cropped black hair, purple shirt, navy pants and orange life jacket; green broad stable rowboat with two tan oars pivoted in the gunwales. No motors, races, steep slopes, roads, cultural costumes, flags or logos.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Red pedal bicycle with two wheels, visible chain and rear sprocket; Black ice skates with single silver blades, not wheels; Green rowboat with bow pointing right, rower facing left, two tan pivoted oars; Cyclist/skater helmets and rower life jacket retained in every view\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and specific stages explicitly required below; the declared diagram permits no other scenes or story events.\nPage 1. Printed prose (NOT text to put in art): A bike, skates, and a rowboat move.\nWhat makes them go?\nRequired illustration: Three-part comparison diagram: cyclist rides red bicycle to the right on a park path; skater glides to the right on ice; rower faces left in green boat moving bow-first to the right on water. Each person and vehicle complete and distinct. No arrows.\nExact current state: Opening comparison; three separate surfaces; all three are powered by people.\nDo not add events or stages beyond the authored diagram. Repeat a subject only when the authored comparison or cutaway requires it. No written title; the app renders live text.",
   "references": [
     {
-      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-7e243951-173e-47a8-a8ce-6bba555202af.png",
-      "sha256": "ec29989d531af224f79cfe6da9f3fdd6b49a571fe76c793cd56dc889b7ace6a3"
-    },
-    {
-      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/b-21-reference.webp",
-      "sha256": "7855ef43e8e33eeeed6375214c4aa318ef90c9ff4f2c415843cfbdb563694042"
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/b-21-reference.webp",
+      "sha256": "7db119f20aa1a9ea4d31c6afe2936a22afb8809a8e7b6971e59fa9a04a85af67"
     }
   ],
   "manuscriptSource": {
-    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
-    "sha256": "e2840abe2bce545cbddeb0319fa0aade90784202e01e047d8bcd74ba38ddbcbb",
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/discovery-topic-revision/manuscripts",
+    "sha256": "790ccfb000c5a7286216b9ebcfd42c3f0b6779fed339fbc569cddf6ee58d3e09",
     "isolated": true,
     "firstNumber": 21,
     "lastNumber": 30,
@@ -30,15 +26,14 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-09T05:07:31.030535+00:00",
-    "sha256": "e985d79aa9c1289681d4d47fc444af6a7b642e8af41a39ce584a88e6d2065218",
-    "note": "Directly viewed repaired native source and installed WebP. Exactly three open red/yellow/green loaded boxcars are connected; the blue locomotive is visibly separate before the later joining step. Four visible crates per car, clear train count and safe margins. No people on tracks or premature closed-door state.",
-    "limits": "Direct image inspection only; complete sequence and app display review follow separately."
+    "reviewedAt": "2026-11-10",
+    "sha256": "5aa08adfee1c06e7c9ff5fd098d0fafb93eb57633278b41ac53fba3cf525cfe4",
+    "note": "Same three activities introduce the question. Cyclist and skater move right; the rower faces left in a bow-right boat. Diagram panels are exactly the authored comparison. Producer independently inspected the final installed WebP natively; complete final sequence and relevant native diagrams were independently reviewed."
   },
   "reviewedManuscriptSource": {
     "bookId": "world-discovery-b-21",
     "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
-    "sha256": "6d40120e98f2ff48a5cf89a9eb34eb073cdc2b64b8c7787eb0d4ca5f64455114",
-    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
+    "sha256": "664f916d1379302ae82b7a5dbf774413f4378508f9326855afd22b7b7086bbfc",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json"
   }
 }

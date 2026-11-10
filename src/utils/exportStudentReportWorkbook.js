@@ -1,4 +1,4 @@
-import { getPublicBookMetadata } from "./guidedReading/bookLevelMetadata.js";
+import { getGuidedReadingEvidenceMetadata } from "./guidedReading/bookLevelMetadata.js";
 import {
   SHEET_NAMES,
   addCoverSheet,
@@ -541,7 +541,7 @@ export async function createStudentReportWorkbook({
 
   const bookRows = (guided.books || []).map(book => ({
     title: book.title || "Untitled book",
-    level: getPublicBookMetadata(book.bookId || book.id).levelLabel,
+    level: getGuidedReadingEvidenceMetadata(book).levelLabel,
     completed: book.completed ? "Completed" : "In progress",
     reads: book.readCount ?? book.reads ?? 1,
     lastRead: book.lastReadAt || book.observedAt || "",
@@ -569,7 +569,7 @@ export async function createStudentReportWorkbook({
 
   const supportWords = (guided.wordRows || [])
     .filter(word => canonicalStatusId(word.statusLabel) !== "secure")
-    .map(word => ({ ...word, level: getPublicBookMetadata(word.bookId).levelLabel }));
+    .map(word => ({ ...word, level: getGuidedReadingEvidenceMetadata(word).levelLabel }));
   row = addSectionHeading(reading, row, "Words that needed support", "In the books read so far.", { span: 6 });
   addTable(
     reading,

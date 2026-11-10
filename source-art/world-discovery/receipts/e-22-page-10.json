@@ -2,38 +2,46 @@
   "bookId": "world-discovery-e-22",
   "slot": "page-10",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-09T12:31:43.224Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-ded25734-4ead-465d-b902-e597b08d1ff5.png",
-  "sourceSha256": "6fe1bbcbd26268b0a78949658c8bfd17f79f53551cbf24beff2c5fea4738af7a",
+  "generatedAt": "2026-11-10T09:44:46.548Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1c3ee-e610-7d22-ad30-a2bee077e3d6/exec-ef1ab5ee-cdac-479a-92c5-1ac2046447b6.png",
+  "sourceSha256": "d604576a03f81312006ec0a45934ce0eff49660942700d7ff944a6da91039147",
   "output": "public/guided-reading/world-discovery/e-22/page-10.webp",
-  "outputSha256": "49b68b711141840570f9b3a74c327e024db4e8bc4a12fd4574e9e08ab02ae971",
+  "outputSha256": "a008add7a8a62ac4aa04c9043c744420ab5febc5687f40d4cda2ac3815a4cd19",
   "width": 1536,
   "height": 1024,
-  "prompt": "Use case: precise-object-edit. Change ONLY framing. Uniformly scale this ENTIRE scene—both people, table, cards, chairs and their legs—DOWN by18 percent, centered on same1536x1024 canvas. Extend the existing flat wall and floor around it. Both people's shoes and ALL table/chair feet must now be at least12 percent ABOVE the bottom edge; complete hair at least15 percent below top. Preserve every pose, body proportion, five-finger hand, card picture, exact labels Wells Reading Lacock, physical grounding and all spatial relationships. Do not reveal extra objects or reshape bodies. Same clean smooth flat color and crisp outlines, no woodgrain/grain/paper texture. No new text or elements.",
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one integrated explanatory diagram. Allow only the cutaways, insets, schematic elements or arrows explicitly authored in this page's illustration brief; keep them spatially connected to the subject they explain. No unrequested panels, insets, annotations or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Different Countries, Different Places; World Discovery; nonfiction.\nSetting: Factual geographic tour of selected ordinary landscapes in Japan, Egypt and Brazil. No fictional child travels between pages; no suggestion that one climate, building or landscape represents all people in a country. Maps are simplified geographic aids, not political claims; show whole-country approximate outlines with no disputed detail, capitals, flags, national costumes, religious monuments or political buildings. Japan: island coastline, Mount Fuji lower wooded slopes, ordinary Tokyo railway street. Egypt: dry plateau and connected Nile-side irrigated farmland with ordinary homes. Brazil: Amazon waterway with rainforest and ordinary Rio coastline framed by forested hills; omit Christ statue. Small background adults wear ordinary contemporary clothing and are never cultural symbols.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Simplified world locator map with dots for Japan, Egypt and Brazil; Japan island coastline, wooded Mount Fuji slopes, ordinary Tokyo train; Egypt desert and Nile river fields; Brazil Amazon waterway and Rio coastal city\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and specific stages explicitly required below; the declared diagram permits no other scenes or story events.\nPage 10. Printed prose (NOT text to put in art): Japan, Egypt, and Brazil each have many kinds of places. A country’s name tells only part of its story.\nRequired illustration: Return to same world map with three accurate dots. Around map place three paired landscape medallions: Japan wooded mountain and urban buildings; Egypt dry plateau and Nile fields; Brazil forest river and city coast. Thin leader lines bind each pair to correct dot. No flags, words, costumes or national icons.\nExact current state: Close with country location plus internal variety; map completes the opening inquiry.\nDo not add events or stages beyond the authored diagram. Repeat a subject only when the authored comparison or cutaway requires it. No written title; the app renders live text.\nFINAL QUALITY LOCK: Render 1536 by 1024 pixels, clean landscape 3:2. This is the finished page, not a reference sheet. Keep all essential subjects fully framed with 8 percent margin. Use plain ordinary clothes and exactly the subjects specified in this page. Do not transfer extraneous reference animals, poses or props into the picture. No national symbols, logos or written marks. Geography accuracy: the reference is an identity/style aid, not an authority for map locations or permission to add animals. No crane, camel, jaguar or any other animal anywhere in this book. No national, ethnic, religious or political symbols. Map-specific lock: standard accurate north-up world continental silhouettes, with clear eastern coast of Asia and distinct Japan offshore, northeast Africa adjoining the Mediterranean and Red Sea, eastern South America with Brazil. EXACTLY THREE red locator dots total. Japan dot ON its island chain around 137 E 36 N, never mainland China or Russia. Egypt dot in northeast Africa around 30 E 27 N, just SOUTH of Mediterranean and WEST of Red Sea, never central Africa or Ethiopia. Brazil dot in east-central South America around 52 W 14 S. Correct these locations even if the production reference board is imprecise. Dots are unlabelled. Each has one unambiguous leader line to its corresponding external circular focus marker. No extra dots, miniature maps or invented country borders.\nFINAL COMPOSITION: Reference image 2 is the inspected actual opening map; reuse its accurate continental silhouettes and dot locations. One world map only, plus exactly THREE external round landscape medallions, each divided into exactly TWO small scenes: Japan pair = Fuji woodland and Tokyo buildings/train; Egypt pair = tan plateau and green Nile fields; Brazil pair = brown Amazon forest-water and Rio urban beach. Each medallion has ONE leader line connected only to its correct country dot. Exactly three red dots and exactly three leaders. No empty medallions, no extra dots, no animals, no flags or lettering. Make all six different landscapes clearly visible. Keep every essential shape within 130px side margins and 90px top/bottom margins.\nFRAMING-ONLY REPAIR to LAST reference: this draft has the correct3 dots,3 leaders,3 paired landscape circles, and6 country views. Preserve ALL of these shapes and assignments precisely. Shrink this entire connected map-and-medallions diagram together by18 percent and center it so EVERYTHING, including full circular edges, Fuji peak, and all three dots, lies inside x140..1396 and y100..924 on1536x1024. Fill newly exposed outer canvas with the same calm blue sky/ocean background. Keep Brazil leader to Amazon/Rio pair, Japan leader to Fuji/Tokyo pair, Egypt leader to dry-plateau/Nile-farm pair. No new or missing circles, dots, scenes or labels. No animals or symbols.",
   "references": [
     {
-      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-0ebf8be7-2133-44f7-a9cc-84446bceaedd.png",
-      "sha256": "e09c8c5ae28be948a685c0b05d04d4de369e0a22e00a3b8e4687140ec1da95ee"
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-22-reference.webp",
+      "sha256": "83582d8397835477531f768217b2f65fe5a1ab830c18b2b2b0c9172984c06dd1"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/e-22/page-01.webp",
+      "sha256": "21b3e81ec9a1364ff0315b7b77279439450258c250410bb4a350f639200cd9e0"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1c3ee-e610-7d22-ad30-a2bee077e3d6/exec-d252a9ac-3446-49b4-a115-2b66bfe5117c.png",
+      "sha256": "e4fe2953ce0020a581f2b67688b1cb455cda28f5dd47d8c7488381182eda6fe8"
     }
   ],
   "manuscriptSource": {
-    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
-    "sha256": "2aff8b9432244a41072eb7c7376c77e21594d83a655dfa83d99e44c528e86755",
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/discovery-topic-revision/manuscripts",
+    "sha256": "10f17301c0b54d74f0667c993770e82a84c710618d5e3fa02c5648e46692e76e",
     "isolated": true,
     "firstNumber": 21,
     "lastNumber": 30,
     "topicProfile": "nonfiction-discovery"
   },
   "visualReview": {
-    "sha256": "49b68b711141840570f9b3a74c327e024db4e8bc4a12fd4574e9e08ab02ae971",
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-09T12:31:43.229Z",
-    "note": "Direct native inspection after framing/texture corrections: one unnamed adult and child seated at table, full heads17%+ top margin and shoes/table feet16% above bottom. Adult points to Wells house with coherent finger contact, child hands clear, three exact labels unobscured. Clean flat cloth/table/floor, no grain or extra named place."
+    "reviewedAt": "2026-11-10",
+    "sha256": "a008add7a8a62ac4aa04c9043c744420ab5febc5687f40d4cda2ac3815a4cd19",
+    "note": "One north-up world-outline map has exactly three dots on Japan/northeast Africa/east-central South America and three non-crossing leaders to three paired circles: Fuji/Tokyo, desert/Nile, Amazon/Rio. Complete diagram inside frame; no animals, extra dots, labels, symbols or flags. Producer independently inspected the final installed WebP natively; complete final sequence and relevant native diagrams were independently reviewed."
   },
   "reviewedManuscriptSource": {
     "bookId": "world-discovery-e-22",
     "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
-    "sha256": "2aff8b9432244a41072eb7c7376c77e21594d83a655dfa83d99e44c528e86755",
-    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
+    "sha256": "d3b67d6c70cda202a99594710f903a9dc9ec37110031b15daf30f7eb0b2fb747",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json"
   }
 }

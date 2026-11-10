@@ -3,7 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { validateWorldDiscoveryCohortManifest } from "../src/data/worldDiscoveryCohortContract.js";
-import { readWorldDiscoveryMaintenanceAudio, validateWorldDiscoveryMaintenancePaths, prepareWorldDiscoveryMaintenanceWrites, requireWorldDiscoveryMaintenanceBaselinePreserved } from "./worldDiscoveryMaintenanceLib.mjs";
+import { readWorldDiscoveryMaintenanceAudio, validateWorldDiscoveryMaintenancePaths, prepareWorldDiscoveryMaintenanceWrites, requireWorldDiscoveryMaintenanceBaselinePreserved, requireWorldDiscoveryMaintenanceCardReview } from "./worldDiscoveryMaintenanceLib.mjs";
 import { auditWorldDiscoveryCohort, addWorldDiscoveryApprovedAudio, buildWorldDiscoveryAudioPlan, collectWorldDiscoveryCohortAudio, readWorldDiscoveryCohort } from "./worldDiscoveryCohortReleaseLib.mjs";
 import { validateWorldDiscoveryCohortDrafts } from "./worldDiscoveryValidationLib.mjs";
 import { worldDiscoveryCohortModule } from "./registerWorldDiscoveryCohorts.mjs";
@@ -31,9 +31,10 @@ export async function repairWorldDiscoveryCohorts(manifestFile, { write = false,
   // history be read before a later cohort's immutable fields are checked.
   for (const [index, cohort] of proposed.cohorts.entries()) {
     const before = current.cohorts[index];
-    for (const key of ["id", "index", "firstNumber", "lastNumber", "expectedBooks", "expectedPages", "active", "sourceDir", "cardReview"])
+    for (const key of ["id", "index", "firstNumber", "lastNumber", "expectedBooks", "expectedPages", "active", "sourceDir"])
       requireThat(cohort[key] === before[key], `Repair cannot change ${cohort.id}:${key}`);
     requireWorldDiscoveryMaintenanceBaselinePreserved(before, cohort);
+    requireWorldDiscoveryMaintenanceCardReview(before, cohort);
   }
   for (const cohort of proposed.cohorts) {
     requireThat(cohort.active && cohort.maintenanceBaseline, "Repair requires an already active cohort and pinned maintenance history");

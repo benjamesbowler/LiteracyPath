@@ -1,3 +1,4 @@
+import { getCurrentGuidedReadingRecord } from "./editions.js";
 import { enrichGuidedReadingBook } from "./phonicsPageAnalyzer.js";
 import { getGuidedReadingBookMetadata } from "../../data/guidedReadingBookMetadata.js";
 import { APP_READING_LEVELS, getBookTextAnalysis } from "./bookTextAnalysis.js";
@@ -124,7 +125,7 @@ function resolveReadingLevel(enrichedBooks, studentProgress, readingHistory) {
     // when the teacher explicitly chooses that band for browsing.
     .filter(book => APP_READING_LEVELS.includes(book.appReadingLevel)
       && book.level !== "READ_ALOUD" && book.readingBandProfile !== "read-aloud")
-    .map(book => ({ book, record: readingHistory[book.id] || {} }))
+    .map(book => ({ book, record: getCurrentGuidedReadingRecord(book, readingHistory) }))
     .filter(({ record }) => recordHasStarted(record))
     .sort((a, b) => (
       recordDateValue(b.record) - recordDateValue(a.record)
@@ -159,7 +160,7 @@ export function recommendBooksForStudent({ books = [], studentProgress = {}, rea
 
   return candidates
     .map(book => {
-      const history = readingHistory[book.id] || {};
+      const history = getCurrentGuidedReadingRecord(book, readingHistory);
       const needMatches = needs.filter(need => needMatchesBook(need, book));
       const readingPurpose = classifyBookReadingPurpose(book, studentProgress);
       const unreadBonus = recordIsComplete(book, history) ? 0 : recordHasStarted(history) ? 16 : 12;

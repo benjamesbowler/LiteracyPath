@@ -1,3 +1,4 @@
+import { currentGuidedReadingRecord, guidedReadingContentId, guidedReadingHistoryBook } from "../utils/guidedReading/editions.js";
 /* eslint-disable no-unused-vars -- LEGACY-LINT: pre-strict-rules file; new code must not add violations. */
 import { guidedReadingRegenBooks } from "./guidedReadingRegenBooks.js";
 import { guidedReadingSeriesBooks } from "./guidedReadingSeriesBooks.js";
@@ -3391,7 +3392,8 @@ export function formatGuidedReadingType(type = "") {
 }
 
 export function getGuidedReadingProgress(book = {}, record = {}) {
-  const totalPages = book.pages?.length || record.totalPages || 0;
+  if (!book.historicalEdition) record = currentGuidedReadingRecord(book, record);
+  const totalPages = book.pages?.length || record.totalPages || book.historicalPageCount || 0;
   const completedPages = Math.min(
     totalPages,
     Math.max(
@@ -3408,6 +3410,7 @@ export function getGuidedReadingProgress(book = {}, record = {}) {
     studentId: record.studentId || "",
     bookId: book.id || record.bookId || "",
     title: book.title || record.title || "",
+    historicalEdition: Boolean(book.historicalEdition),
     level: book.level || record.level || "",
     type: normalizeGuidedReadingType(book.type || record.type || ""),
     firstReadAt,
@@ -3420,13 +3423,10 @@ export function getGuidedReadingProgress(book = {}, record = {}) {
 }
 
 export function summarizeGuidedReadingProgress(records = {}) {
-  const rows = guidedReadingBooks
-    .map(book => {
-      const record = records[book.id];
-      if (!record) return null;
-      return getGuidedReadingProgress(book, record);
-    })
-    .filter(Boolean);
+  const rows = Object.entries(records).map(([recordKey, record]) => {
+    const book = guidedReadingBooks.find(item => item.id === guidedReadingContentId(recordKey)) || {};
+    return getGuidedReadingProgress(guidedReadingHistoryBook(book, record, recordKey), { ...record, bookId: recordKey });
+  });
   const completedBooks = rows.filter(row => row.completed);
   const inProgressBooks = rows.filter(row => !row.completed && row.completedPages > 0);
   const byLevel = ["A", "B", "C", "D", "E", "F"].reduce((acc, level) => {
@@ -3497,7 +3497,8 @@ export function getGuidedReadingWordStatusRows(records = {}) {
   const aggregate = new Map();
 
   Object.entries(records || {}).forEach(([bookId, record]) => {
-    const book = guidedReadingBooks.find(item => item.id === bookId);
+    const currentBook = guidedReadingBooks.find(item => item.id === guidedReadingContentId(bookId)) || {};
+    const book = guidedReadingHistoryBook(currentBook, record, bookId);
     const title = book?.title || record.title || bookId;
     const level = book?.level || record.level || "";
     const type = normalizeGuidedReadingType(book?.type || record.type || "");
@@ -3514,6 +3515,7 @@ export function getGuidedReadingWordStatusRows(records = {}) {
           date,
           bookId,
           title,
+          historicalEdition: Boolean(book.historicalEdition),
           level,
           type,
           page: pageNumber,
@@ -3538,10 +3540,12 @@ export function getGuidedReadingWordStatusRows(records = {}) {
 export function summarizeGuidedReadingRecords(records = {}) {
   return Object.entries(records)
     .map(([bookId, record]) => {
-      const book = guidedReadingBooks.find(item => item.id === bookId);
+      const currentBook = guidedReadingBooks.find(item => item.id === guidedReadingContentId(bookId)) || {};
+    const book = guidedReadingHistoryBook(currentBook, record, bookId);
       return {
         bookId,
         title: book?.title || record.title || bookId,
+        historicalEdition: Boolean(book.historicalEdition),
         type: book?.type || record.type || "",
         level: book?.level || record.level || "",
         ...summarizeGuidedReadingRecord(record)

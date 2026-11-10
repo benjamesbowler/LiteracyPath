@@ -1,4 +1,5 @@
-import { getPublicBookMetadata } from "./guidedReading/bookLevelMetadata.js";
+import { guidedReadingContentId, guidedReadingHistoryBook } from "./guidedReading/editions.js";
+import { getPublicBookMetadata, getGuidedReadingEvidenceMetadata } from "./guidedReading/bookLevelMetadata.js";
 // Pure helpers behind the teacher's individual student report
 // (src/components/FinishedReportPage.jsx). Plain data in, plain data out —
 // no React, no localStorage, no browser APIs — so tests/unit/reportSections.test.js
@@ -257,14 +258,15 @@ export function buildGuidedReadingReportRows(records = {}, module = {}) {
 
   return Object.entries(records || {})
     .map(([bookId, record = {}]) => {
-      const book = books.find(item => item.id === bookId) || {};
+      const book = guidedReadingHistoryBook(books.find(item => item.id === guidedReadingContentId(bookId)) || {}, record, bookId);
       const progress = module.getGuidedReadingProgress?.(book, { ...record, bookId }) || {};
       const summary = summariesByBook.get(bookId) || module.summarizeGuidedReadingRecord?.(record) || {};
       const readCount = Math.max(Number(progress.readCount || record.readCount || 0), progress.completed ? 1 : 0);
-      const metadata = getPublicBookMetadata(bookId);
+      const metadata = getPublicBookMetadata(book);
       return {
         bookId,
         title: book.title || record.title || bookId,
+        historicalEdition: Boolean(book.historicalEdition),
         level: metadata.appReadingLevel || "",
         appReadingLevel: metadata.appReadingLevel,
         levelLabel: metadata.levelLabel,
@@ -278,6 +280,7 @@ export function buildGuidedReadingReportRows(records = {}, module = {}) {
         correctWords: summary.correctWords || [],
         notes: getGuidedReadingNoteRows(summary),
         pagesRead: Number(progress.completedPages || record.completedPages || 0),
+        totalPages: Number(progress.totalPages || record.totalPages || 0),
         attempted: Number(summary.attempted || 0)
       };
     })
@@ -300,7 +303,7 @@ export function buildGuidedReadingSummary(rows = []) {
   const completedRows = allRows.filter(row => row.completed);
   const byLevelMap = new Map();
   completedRows.forEach(row => {
-    const level = getPublicBookMetadata(row.bookId).appReadingLevel || "pending";
+    const level = getGuidedReadingEvidenceMetadata(row).appReadingLevel || "pending";
     byLevelMap.set(level, (byLevelMap.get(level) || 0) + 1);
   });
   const byLevel = Array.from(byLevelMap.entries())
@@ -313,7 +316,7 @@ export function buildGuidedReadingSummary(rows = []) {
     totalCompleted: completedRows.length,
     byLevel,
     mostRecent: mostRecent
-      ? { bookId: mostRecent.bookId, title: mostRecent.title, level: getPublicBookMetadata(mostRecent.bookId).appReadingLevel || "", levelLabel: getPublicBookMetadata(mostRecent.bookId).levelLabel, lastReadAt: mostRecent.lastReadAt }
+      ? { bookId: mostRecent.bookId, title: mostRecent.title, level: getGuidedReadingEvidenceMetadata(mostRecent).appReadingLevel || "", levelLabel: getGuidedReadingEvidenceMetadata(mostRecent).levelLabel, lastReadAt: mostRecent.lastReadAt }
       : null
   };
 }

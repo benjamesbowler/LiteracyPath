@@ -6,6 +6,7 @@ import { fileURLToPath } from "node:url";
 import { fingerprintBookReadingText } from "../src/utils/guidedReading/textMetrics.js";
 import { normalizeLedaAudioText } from "../src/data/normalizeLedaAudioText.js";
 import { WORLD_DISCOVERY_TOPIC_PROFILES, worldDiscoveryTopicProfile } from "../src/data/worldDiscoveryTopicProfiles.js";
+import { APP_READING_LEVELS } from "../src/utils/guidedReading/bookLevelMetadata.js";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const LEVELS = ["A", "B", "C", "D", "E"];
@@ -198,7 +199,7 @@ export function validateWorldDiscoveryReviews(books, reviews) {
     const review = reviews?.[book.id];
     if (!review) { failures.push(`${book.id}: independent full-manuscript review missing`); continue; }
     if (review.reviewedTextFingerprint !== fingerprintBookReadingText(book)) failures.push(`${book.id}: reviewed title/pages fingerprint is stale`);
-    if (review.appReadingLevel !== book.appLevel) failures.push(`${book.id}: reviewed public level differs from manuscript`);
+    if (!APP_READING_LEVELS.includes(review.appReadingLevel)) failures.push(`${book.id}: reviewed public level is invalid`);
     if (!text(review.rationale) || !/^\d{4}-\d{2}-\d{2}$/.test(review.reviewedAt || "") || review.reviewMethod !== "codex-full-manuscript-editorial-review") failures.push(`${book.id}: incomplete authored review evidence`);
   }
   return failures;
@@ -266,7 +267,7 @@ export async function validateRelease(books, reviews, narrationReports) {
     }
     const book = runtime.get(source.id);
     if (!book || book.pages.length !== source.pages.length) { failures.push(`${source.id}: complete book is absent from runtime`); continue; }
-    if (book.appReadingLevel !== source.appLevel || book.appReadingLevelStatus !== "current") failures.push(`${source.id}: public level is unavailable or stale`);
+    if (book.appReadingLevel !== reviews[source.id]?.appReadingLevel || book.appReadingLevelStatus !== "current") failures.push(`${source.id}: public level is unavailable or stale`);
     if (fingerprintBookReadingText(book) !== fingerprintBookReadingText(source)) failures.push(`${source.id}: runtime manuscript differs from source`);
     for (const imagePath of [book.coverImage, ...book.pages.map(page => page.image)]) {
       if (checkedImages.has(imagePath)) { failures.push(`${source.id}: cover/page art path is reused`); continue; }

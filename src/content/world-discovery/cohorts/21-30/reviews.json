@@ -1017,104 +1017,157 @@
     }
   },
   "world-discovery-b-21": {
+    "title": "People Power",
+    "sourceCandidateLevel": "B",
     "appReadingLevel": "B",
-    "rationale": "Short paired present-tense statements follow one visible freight journey. Three cars and one engine remain fixed; couplers is immediately explained as metal links.",
-    "reviewedAt": "2026-11-09",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "reviewedAt": "2026-11-10",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:590293c92252c135",
-    "dimensionObservations": {
-      "syntax": "Eight pages with short paired clauses, no dialogue; each authored line was read for ordinary spoken English.",
-      "vocabulary": "Focused terms engine, rails, couplers are introduced through named objects/actions and oral preparation.",
-      "knowledge": "The opening question and concrete example introduce the needed context; no unintroduced off-page knowledge is required for the stated answer.",
-      "progression": "Linked cars move together from loading to unloading.",
-      "inference": "Short paired present-tense statements follow one visible freight journey. Three cars and one engine remain fixed; couplers is immediately explained as metal links."
-    },
-    "reviewScope": "complete-book-editorial-and-media-review",
+    "reviewedTextFingerprint": "fnv1a64:134409cd9ee3130c",
+    "reviewedTextHash": "sha256:8ae3721b1fa849d9f3ba8d4208377b730894f711e0bd96b4cef256d147d4f7fd",
     "manuscriptReviewStatus": "complete",
+    "reviewScope": "complete-book-editorial-and-media-review",
+    "rationale": "Short paired present-tense clauses follow three familiar bodily actions and their visible movement results. Chain, blade and glide broaden concrete vocabulary, but no specialist force theory or unstated mechanism is required. The final people-power statement supplies the shared comparison explicitly. Upper B is supported by the catalogue’s B swimming-feet and train/mirror sequences; the presence of three vehicles alone does not require C.",
+    "dimensionObservations": {
+      "syntax": "Eight pages of brief present-tense clauses and one opening question; two authored lines per page, 12 words maximum and no subordinate clauses. Push/glide repetitions vary purposefully.",
+      "vocabulary": "Pedals, chain, skate, glide, oar handles and blades name visible parts/actions. Oral preparation defines pedal, glide and the oar meaning of blade. This is levelled text, not a cumulative-decoding claim.",
+      "knowledge": "People supply the push or pull for three non-motorized rides. Backward water movement beside forward boat movement is concrete and is already an established B demand in Feet for Swimming.",
+      "progression": "Bicycle transmission/rolling, skating push/glide and rowing pull/blade action each lead to movement; the last page states the shared bodily source of power.",
+      "inference": "Low. The opening asks what makes the rides go; the text names people and their actions rather than asking the reader to derive an unseen physical law."
+    },
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 82,
+      "uniqueWordCount": 52,
+      "uniqueWordRatio": 0.63,
+      "averageWordLength": 4.5,
+      "averageWordsPerPage": 10.25,
+      "minWordsPerPage": 8,
+      "maxWordsPerPage": 12,
+      "sentenceUnitCount": 17,
+      "averageWordsPerSentence": 4.82,
+      "maxWordsPerSentence": 7,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.13,
+      "dialoguePageCount": 0,
+      "questionPageCount": 1,
+      "illustratedPageCount": 0,
+      "independentlyDescribedPageCount": 8
+    },
+    "comparisons": [
+      {
+        "id": "world-discovery-b-07",
+        "title": "Feet for Swimming",
+        "currentPublicLevel": "B",
+        "reviewedTextFingerprint": "fnv1a64:617996eb4082d0d6"
+      },
+      {
+        "id": "world-discovery-b-21",
+        "title": "A Train for Heavy Loads",
+        "currentPublicLevel": "B",
+        "reviewedTextFingerprint": "fnv1a64:590293c92252c135"
+      },
+      {
+        "id": "world-discovery-b-25",
+        "title": "A Mirror Moves the Light",
+        "currentPublicLevel": "B",
+        "reviewedTextFingerprint": "fnv1a64:c896b3df4406df15"
+      },
+      {
+        "id": "world-discovery-c-09",
+        "title": "Both Have Wings",
+        "currentPublicLevel": "C",
+        "reviewedTextFingerprint": "fnv1a64:c3790e17565dd510"
+      }
+    ],
+    "editorialScorecard": {
+      "authority": "docs/content/STORY_BIBLE_PART_1_WRITING.md#9-editorial-scorecard",
+      "reviewedAt": "2026-11-10",
+      "scope": "complete-book",
+      "reviewedTextFingerprint": "fnv1a64:134409cd9ee3130c",
+      "categories": {
+        "character": {
+          "score": 4,
+          "evidence": "A chain-driven bicycle, sideways skating push and pivoted oar action distinguish these three forms of human-powered movement."
+        },
+        "goal": {
+          "score": 4,
+          "evidence": "What makes them go? gives a concrete shared inquiry on the first page and is answered on the last."
+        },
+        "causality": {
+          "score": 4,
+          "evidence": "Each ride links a named push/pull to movement; the backward-water/forward-boat pair remains adjacent across pages 6–7."
+        },
+        "obstacle": {
+          "score": 3,
+          "evidence": "Three different ways of passing on bodily effort develop the inquiry; the contrast is useful and deliberately simple."
+        },
+        "agency": {
+          "score": 3,
+          "evidence": "The mechanism for the next familiar ride gives a functional page-turn reason; no fictional obstacle is imposed."
+        },
+        "ending": {
+          "score": 4,
+          "evidence": "Legs push. Arms pull. gathers the examples and People power all three rides directly answers the opening."
+        },
+        "language": {
+          "score": 4,
+          "evidence": "Brief natural clauses, repeated push/pull vocabulary and explicit outcomes support B while keeping the topic dignified."
+        },
+        "voice": {
+          "score": 3,
+          "evidence": "Push, glide, push, glide creates an audible rhythm; the rest is clear, specific explanatory prose."
+        },
+        "delight": {
+          "score": 3,
+          "evidence": "Recognizing one’s body as the common source across wheels, ice and water offers a modest concrete discovery; no child-response observation is claimed."
+        },
+        "canon": {
+          "score": 4,
+          "evidence": "The full production reference, cover and ordered page sequence were inspected; identities, recurring subjects and relevant physical mechanisms remain coherent. Exact per-image observations and hashes are in the complete-book review."
+        },
+        "illustration": {
+          "score": 4,
+          "evidence": "Every final page matches the exact concrete prose and authorized diagram state; meaningful mechanical/map/framing defects were repaired and the complete final sequence independently inspected."
+        },
+        "audio": {
+          "score": 3,
+          "evidence": "All 9 exact current title/page texts resolve to matching screened Leda clips, with full decode/signal and independent-recognition dispositions. Missing words and page-scoped clarity takes have separate exact-byte screening. Automated evidence supports current recordings; human listening and physical-device playback are not claimed."
+        }
+      },
+      "manuscriptSubtotal": 32,
+      "releaseTotal": 43,
+      "thresholdMet": true,
+      "openManuscriptDefects": [],
+      "openMediaDefects": [],
+      "mediaReviewEvidence": {
+        "completeBook": "source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json#world-discovery-b-21",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-10/topic-revision-new-narration-review.json",
+        "automatedNarrationSha256": "30a2705085245a70b65230b1fb73b0273d0dc23256d70dc3c6156e97a390a1fa",
+        "additionalWordScreening": "source-art/world-discovery/remediation/2026-11-10/topic-revision-additional-word-review.json",
+        "additionalWordScreeningSha256": "0e1312f6c797d86b8576672450e80875aa314d6880bfeb9e30687d8643c5a45f",
+        "humanListeningObserved": false
+      }
+    },
+    "openManuscriptDefects": [],
     "mediaReviewStatus": {
       "visualContinuity": "direct-and-independent-sequence-reviewed",
       "imageTextMatch": "direct-and-independent-sequence-reviewed",
       "audio": "automated-exact-byte-screening-complete"
     },
     "sourceReview": {
-      "checkedAt": "2026-11-09",
-      "method": "primary-source-pages-and-identified-indexed-primary-text-compared-with-manuscript",
+      "checkedAt": "2026-11-10",
+      "method": "primary-source-claim-verification-recorded-with-manuscript",
       "urls": [
-        "https://www.aar.org/operations-101/"
+        "https://sciencebehindthesport.wvu.edu/cycling/drivetrain",
+        "https://www.isu-skating.com/en/speed-skating/news/new-fans-guide-speed-skating-101/",
+        "https://www.britishrowing.org/go-rowing/equipment/",
+        "https://worldrowing.com/2022/08/23/defining-rowing-oars-and-blades/"
       ],
-      "assessment": "AAR freight operations overview supports the transport context; number, colors and short route are explicitly illustrative."
+      "assessment": "A bicycle drivetrain links pedals, chainrings, chain and rear wheel. This manuscript depicts an ordinary chain-driven pedal bicycle, not an electric bicycle. Skaters push sideways to generate forward movement. The book shows ice skates to match this source, not wheeled roller skates. Rowers use oars as levers to propel a boat; their broad blade ends enter the water. The book depicts a stable recreational rowboat with two pivoted oars. The blade is the broad flat end placed into water to propel the boat. The rower pulls the handles, the immersed blades move toward the stern, and the boat moves bow-first."
     },
-    "openManuscriptDefects": [],
-    "releaseStatus": "editorial-media-reviewed-reader-release-gates-separate",
-    "editorialScorecard": {
-      "authority": "docs/content/STORY_BIBLE_PART_1_WRITING.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09T13:54:07.399Z",
-      "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:590293c92252c135",
-      "categories": {
-        "character": {
-          "score": 4,
-          "evidence": "One engine moves three particular loaded cars from one warehouse to another. The fixed load, cars and destination make the transport subject concrete."
-        },
-        "goal": {
-          "score": 3,
-          "evidence": "The heavy boxes establish a practical transport need; how the engine moves them is an implicit inquiry rather than an opening question."
-        },
-        "causality": {
-          "score": 4,
-          "evidence": "Wheels on rails and couplers explain the joined cars before engine power moves the train; stopping at the destination permits unloading."
-        },
-        "obstacle": {
-          "score": 3,
-          "evidence": "The sequence adds the essential parts of this freight journey, with sound but restrained conceptual development."
-        },
-        "agency": {
-          "score": 3,
-          "evidence": "Each page adds a necessary part or action. Anticipation follows the journey rather than a striking reveal or reversal."
-        },
-        "ending": {
-          "score": 4,
-          "evidence": "One engine, three cars and many boxes in one trip combines the previously observed parts into the useful result."
-        },
-        "language": {
-          "score": 4,
-          "evidence": "Short paired clauses name rails and explain couplers beside their visible function. Repeated cars, boxes and engine keep the B sequence easy to track."
-        },
-        "voice": {
-          "score": 3,
-          "evidence": "Fill, rest, join, pull, stop and unload are concrete spoken actions. The instructional voice is natural and deliberately plain."
-        },
-        "delight": {
-          "score": 3,
-          "evidence": "Following a heavy load and recognizing the three cars offers modest mechanical interest and a reason to track the same train again."
-        },
-        "canon": {
-          "score": 4,
-          "evidence": "Independent review confirms the blue engine, red/yellow/green car order, four crates per car, distinct couplers and brake hoses, correct door states and safe adult forklift operation. Repaired p2 is a true cropped bogie close-up, with two axles on two rails."
-        },
-        "illustration": {
-          "score": 4,
-          "evidence": "The current images distinguish loading, coupled movement and destination unloading; the full-car views retain two bogies and all twelve crates reach the destination. The current independent image sequence is clear."
-        },
-        "audio": {
-          "score": 3,
-          "evidence": "All 9 exact current title/page texts have hash-matching Leda clips in the completed automated narration report, with full decode/signal checks and recorded independent-recognition dispositions. Shared word reuse is governed by the cohort inventory. Automated evidence supports a sound current recording set; reader playback remains separate, so fully verified score 4 is not assigned. No human-listening claim."
-        }
-      },
-      "manuscriptSubtotal": 31,
-      "releaseTotal": 42,
-      "thresholdMet": true,
-      "openManuscriptDefects": [],
-      "openMediaDefects": [],
-      "mediaReviewEvidence": {
-        "independentSequence": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-b-21/independentImageReview",
-        "independentSequenceSha256": "f2ad9c3a516eb372b241ec41365136192c22a581677d10b51e260bc13a280efe",
-        "automatedNarration": "source-art/world-discovery/cohorts/21-30/narration-review.json",
-        "automatedNarrationSha256": "1274b52ebb6ecdba0c730ecf5672b4ebfd4d1c8cfcd0824ab5de2413c8afa647",
-        "humanListeningObserved": false,
-        "completeBook": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-b-21"
-      }
-    }
+    "releaseStatus": "editorial-media-reviewed-reader-release-gates-separate"
   },
   "world-discovery-b-22": {
     "appReadingLevel": "B",
@@ -2055,104 +2108,157 @@
     }
   },
   "world-discovery-c-21": {
+    "title": "Vehicles That Fly",
+    "sourceCandidateLevel": "C",
     "appReadingLevel": "C",
-    "rationale": "Varied simple sentences sustain one tagged bag through eight steps. The tag gives an explicit cause for routing; cabin and hold comparison supports the final reunion.",
-    "reviewedAt": "2026-11-09",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "reviewedAt": "2026-11-10",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:e934d385c60a5830",
-    "dimensionObservations": {
-      "syntax": "Eight connected pages with varied simple explanatory sentences and explicitly linked causes; page caps alone did not determine the level.",
-      "vocabulary": "Focused terms tag, scanner, passenger are introduced through named objects/actions and oral preparation.",
-      "knowledge": "The opening question and concrete example introduce the needed context; no unintroduced off-page knowledge is required for the stated answer.",
-      "progression": "Follow one bag and its owner on separate airport routes onto the same aircraft.",
-      "inference": "Varied simple sentences sustain one tagged bag through eight steps. The tag gives an explicit cause for routing; cabin and hold comparison supports the final reunion."
-    },
-    "reviewScope": "complete-book-editorial-and-media-review",
+    "reviewedTextFingerprint": "fnv1a64:29198ee65628b240",
+    "reviewedTextHash": "sha256:4512949ef8242d0ed1c968d552968e0ff747a467196832d10b6475261fdc740e",
     "manuscriptReviewStatus": "complete",
+    "reviewScope": "complete-book-editorial-and-media-review",
+    "rationale": "The revised manuscript compares a plane’s fixed wings, a helicopter’s rotating wing-like blades and a balloon’s heating/cooling operation. Causal links are explicit in short varied sentences and the final return states what differs. The new page 6 removes the equal-volume/density inference: no hidden physical model must be held across the text. This is comparable with C Rocket and Cloud, and substantially less integrated than the current E Wings explanation.",
+    "dimensionObservations": {
+      "syntax": "Eight pages, 139 words, up to 21 words per page. Short declaratives mix with a question, coordination and the concise purpose construction To come down.",
+      "vocabulary": "Helicopter, hot-air balloon, blades, burner, fabric, drift and pilot are topic words. Blades as spinning wings, burner heating air and drift with wind are supported directly in the printed explanation; oral preparation adds definitions.",
+      "knowledge": "Three flying vehicles use air differently. The balloon is introduced operationally through heating, rising, cooling and descent; neither density nor equal-volume mass comparison is in this version.",
+      "progression": "An opening three-way question leads through plane wings, helicopter blades, balloon heating and control before returning to different uses of air.",
+      "inference": "Low to moderate. The reader compares the stated lifting arrangements; the book supplies each cause and the synthesis rather than demanding pressure/force reconciliation."
+    },
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 8,
+      "wordCount": 139,
+      "uniqueWordCount": 75,
+      "uniqueWordRatio": 0.54,
+      "averageWordLength": 4.24,
+      "averageWordsPerPage": 17.38,
+      "minWordsPerPage": 15,
+      "maxWordsPerPage": 21,
+      "sentenceUnitCount": 18,
+      "averageWordsPerSentence": 7.72,
+      "maxWordsPerSentence": 12,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.38,
+      "dialoguePageCount": 0,
+      "questionPageCount": 1,
+      "illustratedPageCount": 0,
+      "independentlyDescribedPageCount": 8
+    },
+    "comparisons": [
+      {
+        "id": "world-discovery-c-23",
+        "title": "How Can a Bone Move?",
+        "currentPublicLevel": "C",
+        "reviewedTextFingerprint": "fnv1a64:080d0a0711aeacf7"
+      },
+      {
+        "id": "world-discovery-c-24",
+        "title": "How Does a Cloud Form?",
+        "currentPublicLevel": "C",
+        "reviewedTextFingerprint": "fnv1a64:754227700caf01a1"
+      },
+      {
+        "id": "world-discovery-c-30",
+        "title": "A Rocket Pushes Up",
+        "currentPublicLevel": "C",
+        "reviewedTextFingerprint": "fnv1a64:980d650188a10dd7"
+      },
+      {
+        "id": "world-discovery-e-25",
+        "title": "How Wings Lift a Plane",
+        "currentPublicLevel": "E",
+        "reviewedTextFingerprint": "fnv1a64:090c9a62e03faf40"
+      }
+    ],
+    "editorialScorecard": {
+      "authority": "docs/content/STORY_BIBLE_PART_1_WRITING.md#9-editorial-scorecard",
+      "reviewedAt": "2026-11-10",
+      "scope": "complete-book",
+      "reviewedTextFingerprint": "fnv1a64:29198ee65628b240",
+      "categories": {
+        "character": {
+          "score": 4,
+          "evidence": "The fixed-wing, rotating-wing and heated-balloon subjects are differentiated by their actual operating parts rather than generic flying facts."
+        },
+        "goal": {
+          "score": 4,
+          "evidence": "What helps each one rise? establishes the comparison and remains the reason for all three sections."
+        },
+        "causality": {
+          "score": 4,
+          "evidence": "Forward motion, airflow and wing lift are linked; rotating blades lift the helicopter; the burner/heat/rise and cool/descent sequence is explicit."
+        },
+        "obstacle": {
+          "score": 4,
+          "evidence": "The balloon’s lack of wings breaks the emerging wing pattern and broadens the explanation without an abstract density detour."
+        },
+        "agency": {
+          "score": 3,
+          "evidence": "Moving from fixed to rotating wings and then to no wings creates a useful explanatory contrast, with clear rather than dramatic anticipation."
+        },
+        "ending": {
+          "score": 4,
+          "evidence": "The closing fixed/rotating-wing versus warm-air contrast answers the opening question across all three examples."
+        },
+        "language": {
+          "score": 4,
+          "evidence": "The revised operation-based balloon wording preserves a connected C-level explanation within the standard page limit; it does not smuggle in an equal-volume lesson."
+        },
+        "voice": {
+          "score": 3,
+          "evidence": "Short active explanatory sentences are speakable and varied; this is competent nonfiction rather than character dialogue."
+        },
+        "delight": {
+          "score": 3,
+          "evidence": "The wingless balloon makes a concrete comparison worth revisiting; no learner reaction or audio inspection is claimed."
+        },
+        "canon": {
+          "score": 4,
+          "evidence": "The full production reference, cover and ordered page sequence were inspected; identities, recurring subjects and relevant physical mechanisms remain coherent. Exact per-image observations and hashes are in the complete-book review."
+        },
+        "illustration": {
+          "score": 4,
+          "evidence": "Every final page matches the exact concrete prose and authorized diagram state; meaningful mechanical/map/framing defects were repaired and the complete final sequence independently inspected."
+        },
+        "audio": {
+          "score": 3,
+          "evidence": "All 9 exact current title/page texts resolve to matching screened Leda clips, with full decode/signal and independent-recognition dispositions. Missing words and page-scoped clarity takes have separate exact-byte screening. Automated evidence supports current recordings; human listening and physical-device playback are not claimed."
+        }
+      },
+      "manuscriptSubtotal": 33,
+      "releaseTotal": 44,
+      "thresholdMet": true,
+      "openManuscriptDefects": [],
+      "openMediaDefects": [],
+      "mediaReviewEvidence": {
+        "completeBook": "source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json#world-discovery-c-21",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-10/topic-revision-new-narration-review.json",
+        "automatedNarrationSha256": "30a2705085245a70b65230b1fb73b0273d0dc23256d70dc3c6156e97a390a1fa",
+        "additionalWordScreening": "source-art/world-discovery/remediation/2026-11-10/topic-revision-additional-word-review.json",
+        "additionalWordScreeningSha256": "0e1312f6c797d86b8576672450e80875aa314d6880bfeb9e30687d8643c5a45f",
+        "humanListeningObserved": false
+      }
+    },
+    "openManuscriptDefects": [],
     "mediaReviewStatus": {
       "visualContinuity": "direct-and-independent-sequence-reviewed",
       "imageTextMatch": "direct-and-independent-sequence-reviewed",
       "audio": "automated-exact-byte-screening-complete"
     },
     "sourceReview": {
-      "checkedAt": "2026-11-09",
-      "method": "primary-source-pages-and-identified-indexed-primary-text-compared-with-manuscript",
+      "checkedAt": "2026-11-10",
+      "method": "primary-source-claim-verification-recorded-with-manuscript",
       "urls": [
-        "https://www.easa.europa.eu/en/light/topics/journey-suitcase"
+        "https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/what-is-lift/",
+        "https://www.nasa.gov/learning-resources/for-kids-and-students/what-is-a-helicopter-2-grades-5-8/",
+        "https://www.noaa.gov/jetstream/upperair/parcel-theory",
+        "https://www.msichicago.org/science-at-home/hands-on-science/hot-air-balloon/"
       ],
-      "assessment": "EASA suitcase journey explicitly describes check-in, screening, sorting, loading, flight and baggage claim. This is one direct-flight example, not universal equipment."
+      "assessment": "A wing interacts with airflow and turns flowing air, generating lift in the opposite direction. Both surfaces contribute; the book does not use equal-transit-time or underside-only explanations. Helicopter blades are rotating wings. They allow vertical takeoff and hovering. Only those facts, not the page’s simplified wing-pressure account, support this manuscript. Heating balloon air reduces its density. Denser surrounding air provides the buoyant force; merely saying that hot air rises does not describe the outside air’s role. Heating air inside the balloon enables it to rise; allowing the air to cool enables descent. The revised manuscript describes this operation and no longer compares equal volumes or particle density."
     },
-    "openManuscriptDefects": [],
-    "releaseStatus": "editorial-media-reviewed-reader-release-gates-separate",
-    "editorialScorecard": {
-      "authority": "docs/content/STORY_BIBLE_PART_1_WRITING.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09T13:54:07.399Z",
-      "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:e934d385c60a5830",
-      "categories": {
-        "character": {
-          "score": 4,
-          "evidence": "Kit checks one blue bag with an orange stripe and later collects that same bag; the identifying features anchor a particular airport journey."
-        },
-        "goal": {
-          "score": 4,
-          "evidence": "The opening asks how the bag travels with Kit, giving the separate passenger and baggage routes a sustained purpose."
-        },
-        "causality": {
-          "score": 4,
-          "evidence": "A tag directs the checked bag through screening and loading below the cabin, then unloading and the arrival belt return it to Kit."
-        },
-        "obstacle": {
-          "score": 4,
-          "evidence": "The parallel routes converge on the same aircraft and destination, revealing a transport process the passenger does not directly see."
-        },
-        "agency": {
-          "score": 4,
-          "evidence": "Each transfer advances the bag toward the reunion; comparing Kit above and his bag below gives the central spatial reveal."
-        },
-        "ending": {
-          "score": 4,
-          "evidence": "Kit collects the identified bag after their different paths on the same plane, resolving the original travel question."
-        },
-        "language": {
-          "score": 4,
-          "evidence": "Varied short C sentences support a simple parallel-route inference; repeated tag, bag and stripe keep the object easy to follow."
-        },
-        "voice": {
-          "score": 3,
-          "evidence": "The first-person title and concrete airport actions give a natural guided journey, with straightforward explanatory narration."
-        },
-        "delight": {
-          "score": 3,
-          "evidence": "Following a familiar possession through unseen airport spaces creates mild anticipation and a satisfying recognition at collection."
-        },
-        "canon": {
-          "score": 4,
-          "evidence": "Independent review confirms the blue bag, orange stripe, black handle and blank white tag, adult baggage handling, below-floor cargo position, passenger seat belt and arrival belt. The p2/p8 tail-bridge defects were repaired and rechecked."
-        },
-        "illustration": {
-          "score": 4,
-          "evidence": "Screening, tagged routing, aircraft loading, separate passenger seating, unloading and collection agree with the authored journey, with the same identifiable bag throughout. The current independent image sequence is clear."
-        },
-        "audio": {
-          "score": 3,
-          "evidence": "All 9 exact current title/page texts have hash-matching Leda clips in the completed automated narration report, with full decode/signal checks and recorded independent-recognition dispositions. Shared word reuse is governed by the cohort inventory. Automated evidence supports a sound current recording set; reader playback remains separate, so fully verified score 4 is not assigned. No human-listening claim."
-        }
-      },
-      "manuscriptSubtotal": 34,
-      "releaseTotal": 45,
-      "thresholdMet": true,
-      "openManuscriptDefects": [],
-      "openMediaDefects": [],
-      "mediaReviewEvidence": {
-        "independentSequence": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-c-21/independentImageReview",
-        "independentSequenceSha256": "eaf8843faf12c775c18a29d1968111629f4eb56b7735ee138c16a3f4c3a448a5",
-        "automatedNarration": "source-art/world-discovery/cohorts/21-30/narration-review.json",
-        "automatedNarrationSha256": "1274b52ebb6ecdba0c730ecf5672b4ebfd4d1c8cfcd0824ab5de2413c8afa647",
-        "humanListeningObserved": false,
-        "completeBook": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-c-21"
-      }
-    }
+    "releaseStatus": "editorial-media-reviewed-reader-release-gates-separate"
   },
   "world-discovery-c-22": {
     "appReadingLevel": "C",
@@ -3056,105 +3162,156 @@
     }
   },
   "world-discovery-d-21": {
+    "title": "Gasoline and Electric Cars",
+    "sourceCandidateLevel": "D",
     "appReadingLevel": "D",
-    "rationale": "Ten connected transfer steps retain one container and unchanged contents while carriers change. While/when-style relationships, freight vocabulary and tracking one object across several places exceed a simple list, but explicit transitions and repeated container references support D.",
-    "reviewedAt": "2026-11-09",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "reviewedAt": "2026-11-10",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:3dde59ce1f22685b",
-    "dimensionObservations": {
-      "syntax": "Ten pages, 159 word tokens; maximum 18 words per page. Short sentences combine with explicit sequence, comparison and introductory causal clauses.",
-      "vocabulary": "Oral preparation supports container, freight, warehouse. Topic terms are linked to named objects, visible processes or direct explanations; this is levelled text, not a cumulative-decodable claim.",
-      "knowledge": "How can the same box carry goods on a ship, a train and a truck?",
-      "progression": "Follow one sealed container through successive transfers, keeping its contents fixed while its carrier changes.",
-      "inference": "Ten connected transfer steps retain one container and unchanged contents while carriers change. While/when-style relationships, freight vocabulary and tracking one object across several places exceed a simple list, but explicit transitions and repeated container references support D."
-    },
-    "reviewScope": "complete-book-editorial-and-media-review",
+    "reviewedTextFingerprint": "fnv1a64:aa760a88909a5d93",
+    "reviewedTextHash": "sha256:ec78fccd3581b3d03afc51c0e012da109e78a8985d677740eb85cf2153f58e29",
     "manuscriptReviewStatus": "complete",
+    "reviewScope": "complete-book-editorial-and-media-review",
+    "rationale": "The reader follows two power systems and compares their energy stores, wheel-turning parts, replenishment and exhaust. When-clauses, technical concrete nouns and the final production-pollution qualification increase demand beyond C, but the causal chains and referents remain direct. The resulting introductory systems comparison aligns with D Robot/Container and is less inferential than E Wings or the multi-condition E journey choice.",
+    "dimensionObservations": {
+      "syntax": "Ten connected pages of paired statements and when-clauses, with a 20-word page maximum. The ending deliberately condenses the two already-explained systems into parallel fragments.",
+      "vocabulary": "Gasoline/petrol, liquid fuel, engine, exhaust, stored energy, electricity, motor, charger and pollution. The same nouns recur, and the language preparation separates engine from electric motor.",
+      "knowledge": "Fuel burned in an engine and battery energy supplied to a motor are different power routes. Replenishment and exhaust are compared without claiming electric cars are pollution-free.",
+      "progression": "Both cars raise one wheel-turning question; each system is explained, then pump/charger actions and pollution boundaries lead to the two-system synthesis.",
+      "inference": "Moderate introductory systems tracking. The reader holds and compares two chains; no unseen mechanical detail, carbon calculation or life-cycle verdict has to be invented."
+    },
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 187,
+      "uniqueWordCount": 98,
+      "uniqueWordRatio": 0.52,
+      "averageWordLength": 4.5,
+      "averageWordsPerPage": 18.7,
+      "minWordsPerPage": 17,
+      "maxWordsPerPage": 20,
+      "sentenceUnitCount": 23,
+      "averageWordsPerSentence": 8.13,
+      "maxWordsPerSentence": 14,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.2,
+      "dialoguePageCount": 0,
+      "questionPageCount": 1,
+      "illustratedPageCount": 0,
+      "independentlyDescribedPageCount": 10
+    },
+    "comparisons": [
+      {
+        "id": "world-discovery-c-30",
+        "title": "A Rocket Pushes Up",
+        "currentPublicLevel": "C",
+        "reviewedTextFingerprint": "fnv1a64:980d650188a10dd7"
+      },
+      {
+        "id": "world-discovery-d-21",
+        "title": "A Container's Journey",
+        "currentPublicLevel": "D",
+        "reviewedTextFingerprint": "fnv1a64:3dde59ce1f22685b"
+      },
+      {
+        "id": "world-discovery-d-26",
+        "title": "What Can a Robot Sense?",
+        "currentPublicLevel": "D",
+        "reviewedTextFingerprint": "fnv1a64:647bf2d63bf0167f"
+      },
+      {
+        "id": "world-discovery-e-25",
+        "title": "How Wings Lift a Plane",
+        "currentPublicLevel": "E",
+        "reviewedTextFingerprint": "fnv1a64:090c9a62e03faf40"
+      }
+    ],
+    "editorialScorecard": {
+      "authority": "docs/content/STORY_BIBLE_PART_1_WRITING.md#9-editorial-scorecard",
+      "reviewedAt": "2026-11-10",
+      "scope": "complete-book",
+      "reviewedTextFingerprint": "fnv1a64:aa760a88909a5d93",
+      "categories": {
+        "character": {
+          "score": 4,
+          "evidence": "A gasoline car and an all-electric car are distinguished precisely by tank/engine versus battery/motor and by pump/charger replenishment."
+        },
+        "goal": {
+          "score": 4,
+          "evidence": "What turns their wheels? creates a practical comparison before either system is explained."
+        },
+        "causality": {
+          "score": 4,
+          "evidence": "Fuel/air burning precedes internal movement and wheel turning; battery energy/electricity feeds a motor that turns wheels. Refilling and charging answer where the continuing energy comes from."
+        },
+        "obstacle": {
+          "score": 4,
+          "evidence": "The no-exhaust comparison is qualified by the production-energy pollution sentence, preventing an unsupported clean-versus-dirty simplification."
+        },
+        "agency": {
+          "score": 3,
+          "evidence": "The second system, then replenishment, gives a clear page-turn progression; the prose avoids fabricated excitement."
+        },
+        "ending": {
+          "score": 4,
+          "evidence": "Two parallel component pairs and their common motion purpose synthesize the original comparison."
+        },
+        "language": {
+          "score": 4,
+          "evidence": "Repeated exact referents and short explanatory clauses support the technical terms at D. The larger vocabulary does useful conceptual work."
+        },
+        "voice": {
+          "score": 3,
+          "evidence": "Natural specific explanations with a restrained parallel ending; no report-style category labels appear in the child prose."
+        },
+        "delight": {
+          "score": 3,
+          "evidence": "The reader can compare two familiar-looking cars that work differently under their bodies; the discovery is concrete rather than a claimed child reaction."
+        },
+        "canon": {
+          "score": 4,
+          "evidence": "The full production reference, cover and ordered page sequence were inspected; identities, recurring subjects and relevant physical mechanisms remain coherent. Exact per-image observations and hashes are in the complete-book review."
+        },
+        "illustration": {
+          "score": 4,
+          "evidence": "Every final page matches the exact concrete prose and authorized diagram state; meaningful mechanical/map/framing defects were repaired and the complete final sequence independently inspected."
+        },
+        "audio": {
+          "score": 3,
+          "evidence": "All 11 exact current title/page texts resolve to matching screened Leda clips, with full decode/signal and independent-recognition dispositions. Missing words and page-scoped clarity takes have separate exact-byte screening. Automated evidence supports current recordings; human listening and physical-device playback are not claimed."
+        }
+      },
+      "manuscriptSubtotal": 33,
+      "releaseTotal": 44,
+      "thresholdMet": true,
+      "openManuscriptDefects": [],
+      "openMediaDefects": [],
+      "mediaReviewEvidence": {
+        "completeBook": "source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json#world-discovery-d-21",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-10/topic-revision-new-narration-review.json",
+        "automatedNarrationSha256": "30a2705085245a70b65230b1fb73b0273d0dc23256d70dc3c6156e97a390a1fa",
+        "additionalWordScreening": "source-art/world-discovery/remediation/2026-11-10/topic-revision-additional-word-review.json",
+        "additionalWordScreeningSha256": "0e1312f6c797d86b8576672450e80875aa314d6880bfeb9e30687d8643c5a45f",
+        "humanListeningObserved": false
+      }
+    },
+    "openManuscriptDefects": [],
     "mediaReviewStatus": {
       "visualContinuity": "direct-and-independent-sequence-reviewed",
       "imageTextMatch": "direct-and-independent-sequence-reviewed",
       "audio": "automated-exact-byte-screening-complete"
     },
     "sourceReview": {
-      "checkedAt": "2026-11-09",
-      "method": "opened-primary-sources-and-compared-supported-manuscript-claims; indexed primary text used where retrieval note states",
+      "checkedAt": "2026-11-10",
+      "method": "primary-source-claim-verification-recorded-with-manuscript",
       "urls": [
-        "https://portoflosangeles.org/business/supply-chain",
-        "https://portoflosangeles.org/business/supply-chain/rail"
+        "https://afdc.energy.gov/vehicles/how-do-gasoline-cars-work",
+        "https://afdc.energy.gov/vehicles/how-do-all-electric-cars-work",
+        "https://afdc.energy.gov/files/u/publication/electric_vehicles.pdf"
       ],
-      "assessment": "Opened Port of Los Angeles supply-chain and rail pages. They establish ships/rail/road distribution and intermodal handling; the orange container and notebooks are explicitly an illustrative shipment. No misleading real-shipment claim."
+      "assessment": "Gasoline cars store fuel in a tank, burn a fuel-air mixture in an internal-combustion engine, transmit movement to wheels and release exhaust gases through an exhaust system. Battery electric cars use a large traction battery and electric motor, charge from external electricity, do not burn gasoline and have no tailpipe exhaust. This book explicitly compares an all-electric car, not a hybrid. All-electric vehicles have zero tailpipe emissions, while vehicle manufacture and production of fuel or electricity can cause life-cycle emissions. No claim of zero total pollution or a universal environmental ranking is made."
     },
-    "openManuscriptDefects": [],
-    "releaseStatus": "editorial-media-reviewed-reader-release-gates-separate",
-    "editorialScorecard": {
-      "authority": "docs/content/STORY_BIBLE_PART_1_WRITING.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09T14:08:49.610Z",
-      "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:3dde59ce1f22685b",
-      "categories": {
-        "character": {
-          "score": 4,
-          "evidence": "One orange container holds boxed notebooks through ship, rail and road transfers. The unchanged contents and marked box make this particular freight journey identifiable."
-        },
-        "goal": {
-          "score": 3,
-          "evidence": "The notebooks must travel a long way establishes a concrete need, while the question of using different vehicles develops implicitly through the transfers."
-        },
-        "causality": {
-          "score": 4,
-          "evidence": "Packing and closing permit whole-container lifting; sea arrival leads to rail, the inland yard enables a road transfer, and the warehouse finally opens the box."
-        },
-        "obstacle": {
-          "score": 4,
-          "evidence": "Changing carriers while preserving one sealed load reveals the central relationship of container transport, rather than merely naming three vehicles."
-        },
-        "agency": {
-          "score": 3,
-          "evidence": "Each transfer is necessary to the route and the destination gives it direction. Anticipation is functional and procedural rather than a striking puzzle."
-        },
-        "ending": {
-          "score": 4,
-          "evidence": "Ship, train, then truck and the still-packed notebooks combine the whole route and explain what remained constant through every vehicle change."
-        },
-        "language": {
-          "score": 4,
-          "evidence": "Ten connected steps, explicit location transitions and repeated container references support the D tracking demand. Freight and warehouse are prepared beside concrete actions."
-        },
-        "voice": {
-          "score": 3,
-          "evidence": "Pack, lift, carry, lower and open are natural spoken verbs. The coherent explanatory voice is plain and restrained."
-        },
-        "delight": {
-          "score": 3,
-          "evidence": "Following one box across sea, tracks and roads provides modest journey interest and a useful reason to recognize the same marked container again."
-        },
-        "canon": {
-          "score": 4,
-          "evidence": "Independent image review confirms one marked orange container, continuous notebooks, coherent four-corner spreaders, two-bogie railcar and blue tractor with separate three-axle trailer. Focused margin and final truck-geometry repairs were directly rechecked."
-        },
-        "illustration": {
-          "score": 4,
-          "evidence": "The container stays closed during all vehicle transfers, the crane lifts the whole box, and the original cartons appear only at packing and final unloading. Safe adult work zones and the emptied final container agree with the text. The current independent image sequence is clear."
-        },
-        "audio": {
-          "score": 3,
-          "evidence": "All 11 exact current title/page texts have hash-matching Leda clips in the completed automated narration report, with full decode/signal checks and recorded independent-recognition dispositions. Shared word reuse is governed by the cohort inventory. Automated evidence supports a sound current recording set; reader playback remains separate, so fully verified score 4 is not assigned. No human-listening claim."
-        }
-      },
-      "manuscriptSubtotal": 32,
-      "releaseTotal": 43,
-      "thresholdMet": true,
-      "openManuscriptDefects": [],
-      "openMediaDefects": [],
-      "mediaReviewEvidence": {
-        "independentSequence": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-d-21/independentImageReview",
-        "independentSequenceSha256": "cc39109c3c6bda1e9897bcb451649339510cfbba824b3cb67ff5d0a172c5c5f0",
-        "automatedNarration": "source-art/world-discovery/cohorts/21-30/narration-review.json",
-        "automatedNarrationSha256": "1274b52ebb6ecdba0c730ecf5672b4ebfd4d1c8cfcd0824ab5de2413c8afa647",
-        "humanListeningObserved": false,
-        "completeBook": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-d-21"
-      }
-    }
+    "releaseStatus": "editorial-media-reviewed-reader-release-gates-separate"
   },
   "world-discovery-d-22": {
     "appReadingLevel": "D",
@@ -4107,207 +4264,303 @@
     }
   },
   "world-discovery-e-21": {
+    "title": "Transport Through Time",
+    "sourceCandidateLevel": "E",
     "appReadingLevel": "E",
-    "rationale": "The practice example distinguishes a ride segment from a whole journey, combines three time components and compares three alternatives before considering a changed waiting time. Conditional and contrast clauses support a sustained comparison rather than a vehicle list. Exact example arithmetic and direct time words keep the E inference fair.",
-    "reviewedAt": "2026-11-09",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "reviewedAt": "2026-11-10",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:8536590032aff0ef",
-    "dimensionObservations": {
-      "syntax": "Ten pages, 179 word tokens; maximum 20 words per page. Short sentences combine with varied causal, conditional and temporal clauses across a sustained explanation.",
-      "vocabulary": "Oral preparation supports route, ferry, compare. Topic terms are linked to named objects, visible processes or direct explanations; this is levelled text, not a cumulative-decodable claim.",
-      "knowledge": "How can comparing whole journeys help us choose a way to travel?",
-      "progression": "Compare walking, bus and ferry routes in an explicit practice example, including time spent waiting and walking.",
-      "inference": "The practice example distinguishes a ride segment from a whole journey, combines three time components and compares three alternatives before considering a changed waiting time. Conditional and contrast clauses support a sustained comparison rather than a vehicle list. Exact example arithmetic and direct time words keep the E inference fair."
-    },
-    "reviewScope": "complete-book-editorial-and-media-review",
+    "reviewedTextFingerprint": "fnv1a64:480212568e457313",
+    "reviewedTextHash": "sha256:97505c9dc052a0087abefb09ca2930451dd2bb08b4f0f7e356e4ba6417b7059b",
     "manuscriptReviewStatus": "complete",
+    "reviewScope": "complete-book-editorial-and-media-review",
+    "rationale": "A sustained historical comparison changes time periods, power sources, carrying possibilities and ordinary travel speed, then qualifies the fastest-vehicle assumption using airport access/waiting. Past-tense history and present-tense comparison are explicitly bridged. This is a lower-E connected explanation: more temporal and cross-example integration than the D Container journey, while simpler than the arithmetic and changing-wait conditions of E Choose a Ride.",
+    "dimensionObservations": {
+      "syntax": "Ten pages with temporal openings, subordinate/contrast clauses, comparatives and a past-to-present shift. Maximum 21 words per page; sentence lengths vary rather than repeating a single frame.",
+      "vocabulary": "Motor vehicles, horse-drawn cart, goods, steam engines, tracks, inventions, jets, stations, airport and journeys. Terms sit beside their transport function rather than an unexplained date list.",
+      "knowledge": "Successive inventions changed available choices and typical capabilities, but older forms continue. No claim says every person or place changed at the same time.",
+      "progression": "Walking/animal/boat travel leads to horse carts, steam rail, cars, flight and modern rail; the last comparison considers whole-journey time, then returns to coexistence.",
+      "inference": "Moderate. Readers retain differences across periods and revise speed-only comparison when access/waiting is introduced. The text supports that inference with explicit examples."
+    },
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 190,
+      "uniqueWordCount": 122,
+      "uniqueWordRatio": 0.64,
+      "averageWordLength": 4.83,
+      "averageWordsPerPage": 19,
+      "minWordsPerPage": 17,
+      "maxWordsPerPage": 21,
+      "sentenceUnitCount": 19,
+      "averageWordsPerSentence": 10,
+      "maxWordsPerSentence": 18,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.1,
+      "dialoguePageCount": 0,
+      "questionPageCount": 1,
+      "illustratedPageCount": 0,
+      "independentlyDescribedPageCount": 10
+    },
+    "comparisons": [
+      {
+        "id": "world-discovery-d-21",
+        "title": "A Container's Journey",
+        "currentPublicLevel": "D",
+        "reviewedTextFingerprint": "fnv1a64:3dde59ce1f22685b"
+      },
+      {
+        "id": "world-discovery-e-21",
+        "title": "How Do We Choose a Ride?",
+        "currentPublicLevel": "E",
+        "reviewedTextFingerprint": "fnv1a64:8536590032aff0ef"
+      },
+      {
+        "id": "world-discovery-e-22",
+        "title": "City, Town or Village?",
+        "currentPublicLevel": "E",
+        "reviewedTextFingerprint": "fnv1a64:4a37c6e06f0dc7f2"
+      }
+    ],
+    "editorialScorecard": {
+      "authority": "docs/content/STORY_BIBLE_PART_1_WRITING.md#9-editorial-scorecard",
+      "reviewedAt": "2026-11-10",
+      "scope": "complete-book",
+      "reviewedTextFingerprint": "fnv1a64:480212568e457313",
+      "categories": {
+        "character": {
+          "score": 4,
+          "evidence": "Horse care, fuel-heated steam, rail capacity, jet flight and airport waiting make the transport history particular rather than a list of named vehicles."
+        },
+        "goal": {
+          "score": 4,
+          "evidence": "How did new inventions change their journeys? links the historical examples to effects on travel from the opening."
+        },
+        "causality": {
+          "score": 4,
+          "evidence": "Power sources, capacity and typical speed explain changes; airport access/waiting adds a supported limit to judging by vehicle speed alone."
+        },
+        "obstacle": {
+          "score": 4,
+          "evidence": "The fastest-vehicle/whole-journey distinction introduces a meaningful qualification after the historical progression."
+        },
+        "agency": {
+          "score": 3,
+          "evidence": "Each invention adds a different capability before the final comparison; anticipation is conceptual rather than dramatic."
+        },
+        "ending": {
+          "score": 4,
+          "evidence": "The closing coexistence of walking, cycling, rowing and animal transport with motor vehicles prevents a misleading total-replacement ending."
+        },
+        "language": {
+          "score": 4,
+          "evidence": "Explicit temporal transitions support the past/present shifts and sustained comparison at lower E; the book earns its band through relationships, not dates or length alone."
+        },
+        "voice": {
+          "score": 3,
+          "evidence": "Concrete human journey details and varied transitions read naturally, with a useful direct comparison invitation."
+        },
+        "delight": {
+          "score": 3,
+          "evidence": "Recognizing familiar present-day travel inside a longer history and questioning speed-only choice offers worthwhile rereading; no classroom finding is claimed."
+        },
+        "canon": {
+          "score": 4,
+          "evidence": "The full production reference, cover and ordered page sequence were inspected; identities, recurring subjects and relevant physical mechanisms remain coherent. Exact per-image observations and hashes are in the complete-book review."
+        },
+        "illustration": {
+          "score": 4,
+          "evidence": "Every final page matches the exact concrete prose and authorized diagram state; meaningful mechanical/map/framing defects were repaired and the complete final sequence independently inspected."
+        },
+        "audio": {
+          "score": 3,
+          "evidence": "All 11 exact current title/page texts resolve to matching screened Leda clips, with full decode/signal and independent-recognition dispositions. Missing words and page-scoped clarity takes have separate exact-byte screening. Automated evidence supports current recordings; human listening and physical-device playback are not claimed."
+        }
+      },
+      "manuscriptSubtotal": 33,
+      "releaseTotal": 44,
+      "thresholdMet": true,
+      "openManuscriptDefects": [],
+      "openMediaDefects": [],
+      "mediaReviewEvidence": {
+        "completeBook": "source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json#world-discovery-e-21",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-10/topic-revision-new-narration-review.json",
+        "automatedNarrationSha256": "30a2705085245a70b65230b1fb73b0273d0dc23256d70dc3c6156e97a390a1fa",
+        "additionalWordScreening": "source-art/world-discovery/remediation/2026-11-10/topic-revision-additional-word-review.json",
+        "additionalWordScreeningSha256": "0e1312f6c797d86b8576672450e80875aa314d6880bfeb9e30687d8643c5a45f",
+        "humanListeningObserved": false
+      }
+    },
+    "openManuscriptDefects": [],
     "mediaReviewStatus": {
       "visualContinuity": "direct-and-independent-sequence-reviewed",
       "imageTextMatch": "direct-and-independent-sequence-reviewed",
       "audio": "automated-exact-byte-screening-complete"
     },
     "sourceReview": {
-      "checkedAt": "2026-11-09",
-      "method": "opened-primary-sources-and-compared-supported-manuscript-claims; indexed primary text used where retrieval note states",
+      "checkedAt": "2026-11-10",
+      "method": "primary-source-claim-verification-recorded-with-manuscript",
       "urls": [
-        "https://content.tfl.gov.uk/the-planning-for-walking-toolkit.pdf"
+        "https://www.eia.gov/kids/history-of-energy/timelines/transportation.php",
+        "https://blog.sciencemuseum.org.uk/top-5-things-to-see-at-the-science-museum-if-you-love-transport/",
+        "https://www.si.edu/spotlight/early-cars",
+        "https://airandspace.si.edu/jet-age",
+        "https://www.nms.ac.uk/discover-catalogue/the-worlds-first-passenger-jet-comet-4c",
+        "https://tfl.gov.uk/plan-a-journey/"
       ],
-      "assessment": "The TfL planner returned 403 and the toolkit was too large for open, but the primary toolkit's indexed section 6.1.4 was retrieved. It explicitly combines walking access and waiting time in public-transport connectivity. All book times and routes are marked practice data. Arithmetic checked: 10+10+15=35, 5+10+5=20, and 20<25<35. Supporting toolkit section retrieved from primary-domain indexed source text after oversized PDF response; not a complete visual PDF inspection."
+      "assessment": "Horse-drawn carts and river boats carried people/goods before modern powered transport; steam vehicles and railways developed before widespread gasoline cars and passenger aircraft. The book gives a selected sequence, not a complete worldwide chronology or single-inventor claim. Puffing Billy dates from 1813–14; the Panhard motor car dates from 1894–95. These objects support the historical order of steam railway and early gasoline motor-car examples. Early cars used steam, gasoline and electric power. This manuscript does not suggest electric cars were invented only after modern gasoline cars. Jet engines enabled faster airliners and transformed long-distance air travel. The comparison is ordinary passenger jet cruise versus a passenger train, not a record-breaking race. The 1952 passenger jet was faster than earlier airliners. The book omits dates rather than presenting a false universal adoption date. Whole journey planning includes access and waiting as well as the riding stage. The manuscript gives no invented timetable or claim that air is always the quickest whole journey."
     },
-    "openManuscriptDefects": [],
-    "releaseStatus": "editorial-media-reviewed-reader-release-gates-separate",
-    "editorialScorecard": {
-      "authority": "docs/content/STORY_BIBLE_PART_1_WRITING.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09T14:03:48.034Z",
-      "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:8536590032aff0ef",
-      "categories": {
-        "character": {
-          "score": 4,
-          "evidence": "Kit and Zoe compare one museum journey across a fixed river using walking, a bus and a ferry on an explicitly fictional practice map."
-        },
-        "goal": {
-          "score": 4,
-          "evidence": "The first page establishes the destination and three alternatives; whole-journey comparison remains the concrete decision throughout."
-        },
-        "causality": {
-          "score": 4,
-          "evidence": "Bridge routes explain ride differences; walking and waiting are then added to each option, allowing the complete totals to determine the choice."
-        },
-        "obstacle": {
-          "score": 4,
-          "evidence": "A fifteen-minute bus ride becomes a thirty-five-minute journey, revealing why the initially quicker-sounding ride is not the best whole trip."
-        },
-        "agency": {
-          "score": 4,
-          "evidence": "The partial-time trap, the ferry's full calculation and a changed-wait counterexample each alter the decision or its confidence."
-        },
-        "ending": {
-          "score": 4,
-          "evidence": "Choosing the ferry explicitly follows comparison of walking, waiting and riding, returning to the opening decision with the reasoning made visible."
-        },
-        "language": {
-          "score": 4,
-          "evidence": "The E task sustains three alternatives, adds components and qualifies the result for this trip; route/ferry/compare preparation and the smallest-total prompt support the inference."
-        },
-        "voice": {
-          "score": 3,
-          "evidence": "That sounds quicker and but they must check naturally guide the comparison. Repeated time totals are purposeful but keep the voice instructional."
-        },
-        "delight": {
-          "score": 3,
-          "evidence": "Discovering that the apparently faster ride loses after access and waiting creates a modest practical surprise and rereading invitation."
-        },
-        "canon": {
-          "score": 4,
-          "evidence": "Independent report confirms fixed river, footbridge/road-bridge/quay geometry, stable museum and ferry, exact time cards and safe Kit/Zoe/adult positions."
-        },
-        "illustration": {
-          "score": 4,
-          "evidence": "Practice figures visibly total bus 10+10+15=35 and ferry 5+10+5=20 against walk 25; the final choice and later-wait qualification agree without claiming a real timetable. Current independent sequence is clear."
-        },
-        "audio": {
-          "score": 3,
-          "evidence": "All 11 exact current title/page texts have hash-matching Leda clips in the automated narration report, with full decode/signal and independent-recognition dispositions. Shared word reuse is governed by the cohort inventory. Automated evidence supports a sound current recording set; reader playback remains separate, so fully verified score 4 is not assigned. No human-listening claim."
-        }
-      },
-      "manuscriptSubtotal": 34,
-      "releaseTotal": 45,
-      "thresholdMet": true,
-      "openManuscriptDefects": [],
-      "openMediaDefects": [],
-      "mediaReviewEvidence": {
-        "independentSequence": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-e-21/independentImageReview",
-        "independentSequenceSha256": "a375d50d72c6559483e6c6b4f883711b15b89bf4a9175dfd77de51fbef65c4de",
-        "automatedNarration": "source-art/world-discovery/cohorts/21-30/narration-review.json",
-        "automatedNarrationSha256": "1274b52ebb6ecdba0c730ecf5672b4ebfd4d1c8cfcd0824ab5de2413c8afa647",
-        "humanListeningObserved": false,
-        "completeBook": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-e-21"
-      }
-    }
+    "releaseStatus": "editorial-media-reviewed-reader-release-gates-separate"
   },
   "world-discovery-e-22": {
-    "appReadingLevel": "E",
-    "rationale": "Three concrete settlements establish a distinction between a formal name and size. Although, just by and world-wide qualification ask the reader to revise an expected classification using explicit evidence. The final observation invitation follows the comparison and fits E with place-name/status preparation.",
-    "reviewedAt": "2026-11-09",
+    "title": "Different Countries, Different Places",
+    "sourceCandidateLevel": "E",
+    "appReadingLevel": "D",
+    "levelSystem": "literacy-guide-a-h-v1",
+    "reviewedAt": "2026-11-10",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:4a37c6e06f0dc7f2",
-    "dimensionObservations": {
-      "syntax": "Ten pages, 190 word tokens; maximum 21 words per page. Short sentences combine with varied causal, conditional and temporal clauses across a sustained explanation.",
-      "vocabulary": "Oral preparation supports village, status, settlement. Topic terms are linked to named objects, visible processes or direct explanations; this is levelled text, not a cumulative-decodable claim.",
-      "knowledge": "Can a place name alone tell us how large a settlement is?",
-      "progression": "Compare three named English settlements and their everyday features, then separate city status from size.",
-      "inference": "Three concrete settlements establish a distinction between a formal name and size. Although, just by and world-wide qualification ask the reader to revise an expected classification using explicit evidence. The final observation invitation follows the comparison and fits E with place-name/status preparation."
-    },
-    "reviewScope": "complete-book-editorial-and-media-review",
+    "reviewedTextFingerprint": "fnv1a64:b8e30bde780d290a",
+    "reviewedTextHash": "sha256:13775b8993892ed3685357cc9f9d2fc079a3a017ebdeaa1835347f9e73daa22e",
     "manuscriptReviewStatus": "complete",
+    "reviewScope": "complete-book-editorial-and-media-review",
+    "rationale": "Three explicitly paired examples show different landscapes and settlements within Japan, Egypt and Brazil, then state that one country contains different kinds of places. Readers hold nested country/place relationships and several proper names, supporting D, but the wording supplies every contrast and the synthesis. There is no E-level status exception, conditional choice, temporal shift or sustained causal inference. The demands align with D Continents and remain below E City, Town or Village; proper-name load alone does not justify E.",
+    "dimensionObservations": {
+      "syntax": "Ten pages with short varied statements, one opening question, a where-clause and coordinated lists. The maximum is 20 words per page; the closing metaphor is anchored by the preceding concrete places.",
+      "vocabulary": "Japan, Mount Fuji, Tokyo, Egypt, Nile, Brazil, Amazon and Rio de Janeiro add substantial proper-name decoding/pronunciation demands. Islands, peak, slopes, banks, crops, rainforest and waterways add concrete geography vocabulary. Oral preparation and narration support access but do not turn this into a decodable text.",
+      "knowledge": "A country can include multiple physical environments and settlements. The Japan, Egypt and Brazil examples show within-country variety without claiming to represent every place or person there.",
+      "progression": "The opening tests whether all places inside a country are alike; mountain/city, desert/river-bank cultivation and rainforest/coastal city pairs precede an explicit part–whole synthesis.",
+      "inference": "Low to moderate. Country/place nesting and references must be retained, but the contrasts and conclusion are stated. There is less conceptual revision than the current E settlement-status book."
+    },
+    "metrics": {
+      "metricVersion": "1",
+      "pageCount": 10,
+      "wordCount": 180,
+      "uniqueWordCount": 116,
+      "uniqueWordRatio": 0.64,
+      "averageWordLength": 4.5,
+      "averageWordsPerPage": 18,
+      "minWordsPerPage": 15,
+      "maxWordsPerPage": 20,
+      "sentenceUnitCount": 21,
+      "averageWordsPerSentence": 8.57,
+      "maxWordsPerSentence": 16,
+      "repeatedSentenceUnitCount": 0,
+      "dominantTwoWordPageOpeningRatio": 0.1,
+      "dialoguePageCount": 0,
+      "questionPageCount": 1,
+      "illustratedPageCount": 0,
+      "independentlyDescribedPageCount": 10
+    },
+    "comparisons": [
+      {
+        "id": "world-discovery-c-22",
+        "title": "Which Way Is North?",
+        "currentPublicLevel": "C",
+        "reviewedTextFingerprint": "fnv1a64:5d3a95b4fdfe09e2"
+      },
+      {
+        "id": "world-discovery-d-22",
+        "title": "The Continents on One Earth",
+        "currentPublicLevel": "D",
+        "reviewedTextFingerprint": "fnv1a64:1b69ad6e16bf246c"
+      },
+      {
+        "id": "world-discovery-e-22",
+        "title": "City, Town or Village?",
+        "currentPublicLevel": "E",
+        "reviewedTextFingerprint": "fnv1a64:4a37c6e06f0dc7f2"
+      }
+    ],
+    "editorialScorecard": {
+      "authority": "docs/content/STORY_BIBLE_PART_1_WRITING.md#9-editorial-scorecard",
+      "reviewedAt": "2026-11-10",
+      "scope": "complete-book",
+      "reviewedTextFingerprint": "fnv1a64:b8e30bde780d290a",
+      "categories": {
+        "character": {
+          "score": 4,
+          "evidence": "Mount Fuji/Tokyo, Nile-border fields within dry Egypt, and Amazon/Rio make the chosen places specific while showing more than one view per country."
+        },
+        "goal": {
+          "score": 4,
+          "evidence": "Are all places inside one country alike? establishes a concrete question that each country pair tests."
+        },
+        "causality": {
+          "score": 4,
+          "evidence": "The primary relation is comparison and part–whole nesting; each pair adds evidence against one-landscape-per-country thinking, with one explicit water/crops cause."
+        },
+        "obstacle": {
+          "score": 3,
+          "evidence": "The three pairs reveal within-country variation; the conceptual turn is modest and explicit rather than an E-level classification exception."
+        },
+        "agency": {
+          "score": 3,
+          "evidence": "The contrasting next place provides a useful reason to turn pages; the text does not impose an artificial travel adventure."
+        },
+        "ending": {
+          "score": 4,
+          "evidence": "The named examples support the last two pages: one country can contain different places, so its name cannot describe every landscape."
+        },
+        "language": {
+          "score": 4,
+          "evidence": "The full manuscript fits D’s introductory geographic relationships. Reassigning public level to D preserves the real proper-name demands without inventing greater inference to maintain E."
+        },
+        "voice": {
+          "score": 3,
+          "evidence": "Let’s look closely and concrete active place descriptions make the prose accessible; the final part-of-its-story phrase has an immediate concrete anchor."
+        },
+        "delight": {
+          "score": 3,
+          "evidence": "Surprising contrasts within familiar country names invite looking again, without claiming a child’s response or treating a country as one stereotype."
+        },
+        "canon": {
+          "score": 4,
+          "evidence": "The full production reference, cover and ordered page sequence were inspected; identities, recurring subjects and relevant physical mechanisms remain coherent. Exact per-image observations and hashes are in the complete-book review."
+        },
+        "illustration": {
+          "score": 4,
+          "evidence": "Every final page matches the exact concrete prose and authorized diagram state; meaningful mechanical/map/framing defects were repaired and the complete final sequence independently inspected."
+        },
+        "audio": {
+          "score": 3,
+          "evidence": "All 11 exact current title/page texts resolve to matching screened Leda clips, with full decode/signal and independent-recognition dispositions. Missing words and page-scoped clarity takes have separate exact-byte screening. Automated evidence supports current recordings; human listening and physical-device playback are not claimed."
+        }
+      },
+      "manuscriptSubtotal": 32,
+      "releaseTotal": 43,
+      "thresholdMet": true,
+      "openManuscriptDefects": [],
+      "openMediaDefects": [],
+      "mediaReviewEvidence": {
+        "completeBook": "source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json#world-discovery-e-22",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-10/topic-revision-new-narration-review.json",
+        "automatedNarrationSha256": "30a2705085245a70b65230b1fb73b0273d0dc23256d70dc3c6156e97a390a1fa",
+        "additionalWordScreening": "source-art/world-discovery/remediation/2026-11-10/topic-revision-additional-word-review.json",
+        "additionalWordScreeningSha256": "0e1312f6c797d86b8576672450e80875aa314d6880bfeb9e30687d8643c5a45f",
+        "humanListeningObserved": false
+      }
+    },
+    "openManuscriptDefects": [],
     "mediaReviewStatus": {
       "visualContinuity": "direct-and-independent-sequence-reviewed",
       "imageTextMatch": "direct-and-independent-sequence-reviewed",
       "audio": "automated-exact-byte-screening-complete"
     },
     "sourceReview": {
-      "checkedAt": "2026-11-09",
-      "method": "opened-primary-sources-and-compared-supported-manuscript-claims; indexed primary text used where retrieval note states",
+      "checkedAt": "2026-11-10",
+      "method": "primary-source-claim-verification-recorded-with-manuscript",
       "urls": [
-        "https://www.wells.gov.uk/about",
-        "https://www.reading.gov.uk/about-reading/profile-of-reading/",
-        "https://apps.wiltshire.gov.uk/communityhistory/Community/Index/132",
-        "https://commonslibrary.parliament.uk/research-briefings/cbp-11240/"
+        "https://www.mofa.go.jp/territory/page1we_000006.html",
+        "https://www.japan.travel/national-parks/parks/fuji-hakone-izu/explore/",
+        "https://www.gotokyo.org/en/plan/tokyo-outline/index.html",
+        "https://science.nasa.gov/earth/earth-observatory/the-great-bend-of-the-nile-day-and-night/",
+        "https://science.nasa.gov/earth/earth-observatory/cultivating-egypts-desert-89820/",
+        "https://whc.unesco.org/en/list/998",
+        "https://whc.unesco.org/en/list/1100/"
       ],
-      "assessment": "Opened Wells City Council, Reading Borough Council, Wiltshire Lacock history and House of Commons Library. They confirm city/town/village naming, the much larger Reading population, ordinary Lacock homes/shops and UK city status as a formal title rather than an automatic population threshold. The manuscript does not invent numerical worldwide category rules."
+      "assessment": "Japan comprises many islands and is mountainous, with extensive forest. The book omits disputed borders, territorial counts and political settings. Mount Fuji rises to a high volcanic peak, with woodland on lower slopes and walking trails. Depicted as landscape, without shrines or religious monuments. Tokyo is a major urban region in Japan with extensive transit and tall buildings. The book presents an ordinary urban street, not a claim that all of Tokyo is built-up. Along Egypt’s Nile, green irrigated fields and urban places contrast with surrounding dry desert. One connected river-edge scene supports the comparison. Egypt’s Western Desert receives very little rainfall. The text says much, not all, of Egypt is desert and does not claim that no crops grow away from the Nile. The Brazilian Amazon contains extensive rainforest and waterways. The book does not equate the whole country with rainforest or suggest that the entire Amazon lies in Brazil. Rio de Janeiro lies between forested hills and the Atlantic, with dense buildings and sandy coastal areas. Use a coastal panorama without the religious monuments mentioned in the source."
     },
-    "openManuscriptDefects": [],
-    "releaseStatus": "editorial-media-reviewed-reader-release-gates-separate",
-    "editorialScorecard": {
-      "authority": "docs/content/STORY_BIBLE_PART_1_WRITING.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09T13:17:28.876Z",
-      "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:4a37c6e06f0dc7f2",
-      "categories": {
-        "character": {
-          "score": 4,
-          "evidence": "Wells, Reading and Lacock are three specific English settlements with documented ordinary housing, shops, workplaces and transport features."
-        },
-        "goal": {
-          "score": 4,
-          "evidence": "The title asks City, Town or Village? and p1 names all three; the sustained comparison examines what those names do and do not tell us."
-        },
-        "causality": {
-          "score": 4,
-          "evidence": "Lived-in village features lead to a busy town, then smaller Wells city creates the counterexample needed to separate status from size."
-        },
-        "obstacle": {
-          "score": 4,
-          "evidence": "The smaller city/larger town contrast reveals why one universal size ladder fails, then extends carefully to local naming rules."
-        },
-        "agency": {
-          "score": 4,
-          "evidence": "The sequence moves from visible examples to a genuine counterexample and a transferable observation question, without disconnected settlement trivia."
-        },
-        "ending": {
-          "score": 4,
-          "evidence": "The closing homes/work/shop/travel inquiry returns to the three examples and gives a practical way to look beyond names."
-        },
-        "language": {
-          "score": 4,
-          "evidence": "Connected concrete clauses support the E comparison and qualification load. Status/settlement/village preparation and the visual larger-area prompt match the central distinction."
-        },
-        "voice": {
-          "score": 3,
-          "evidence": "Start in Lacock and Now look at Reading give a natural guided-tour voice; the later qualifications remain clear but expository."
-        },
-        "delight": {
-          "score": 3,
-          "evidence": "Discovering that a city can be smaller than a town provides an intellectual surprise and a reason to inspect the comparison again."
-        },
-        "canon": {
-          "score": 4,
-          "evidence": "Independent report confirms exact Natural Earth England locator and Wells/Lacock/Reading dots, consistent named ordinary-place cards, same-scale size comparison and railway only in Reading."
-        },
-        "illustration": {
-          "score": 4,
-          "evidence": "Images distinguish documented explanatory features from literal landmark replicas, preserve smaller Wells/larger Reading, avoid universal numeric thresholds, and end with exactly the original three places. Current independent sequence is clear."
-        },
-        "audio": {
-          "score": 3,
-          "evidence": "All 11 exact current title/page texts have hash-matching Leda clips in the automated narration report, with full decode/signal and independent-recognition dispositions. Shared word reuse is governed by the cohort inventory. Automated evidence supports a sound current recording set; reader playback remains separate, so fully verified score 4 is not assigned. No human-listening claim."
-        }
-      },
-      "manuscriptSubtotal": 34,
-      "releaseTotal": 45,
-      "thresholdMet": true,
-      "openManuscriptDefects": [],
-      "openMediaDefects": [],
-      "mediaReviewEvidence": {
-        "independentSequence": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-e-22/independentImageReview",
-        "independentSequenceSha256": "a2b63f255ec917c98bdb697c0fdf52b670ef3e578d651f16640b90d18e56ac7b",
-        "automatedNarration": "source-art/world-discovery/cohorts/21-30/narration-review.json",
-        "automatedNarrationSha256": "1274b52ebb6ecdba0c730ecf5672b4ebfd4d1c8cfcd0824ab5de2413c8afa647",
-        "humanListeningObserved": false,
-        "completeBook": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-e-22"
-      }
-    }
+    "releaseStatus": "editorial-media-reviewed-reader-release-gates-separate"
   },
   "world-discovery-e-23": {
     "appReadingLevel": "E",

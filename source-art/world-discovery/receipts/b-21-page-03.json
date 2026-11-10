@@ -2,23 +2,23 @@
   "bookId": "world-discovery-b-21",
   "slot": "page-03",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-09T05:02:43.449Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-8da3d65e-3ec2-4504-b14d-1ad37e23f18c.png",
-  "sourceSha256": "68cd8b7e3f2920366a55573f2091bba1db97663742ca19d8e574f4ae129932d9",
+  "generatedAt": "2026-11-10T06:04:53.677Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1c3ed-c928-70e2-a423-68d0aaffd69c/exec-dfff60bb-b777-4019-a87a-66b51067b297.png",
+  "sourceSha256": "6317f3b33a754bbff844654d751ab6dee4731a1fa06d137f74852f698b055bf4",
   "output": "public/guided-reading/world-discovery/b-21/page-03.webp",
-  "outputSha256": "bbb2b3c0a9373bd02848e4fcfe6c6543b5cf242e753252916ab4b90281e2b462",
+  "outputSha256": "f4c740ae29f2fa4761ed83e8c570e209f4c988bef683d18cd37da77fa7069fa5",
   "width": 1536,
   "height": 1024,
-  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Train for Heavy Loads; World Discovery; nonfiction.\nSetting: A short contemporary freight journey between two warehouses. No public access to tracks. Unbranded blue diesel-electric locomotive, followed by red, yellow and green enclosed boxcars in that fixed order. Adult railway workers have orange safety vests, blue trousers and hard hats.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One blue locomotive; Exactly three boxcars in red/yellow/green order; Gray steel couplers between all vehicles; Wooden crates secured inside the cars; One continuous pair of rails\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 3. Printed prose (NOT text to put in art): Strong metal links join the cars.\nThese links are called couplers.\nRequired illustration: Close view between red and yellow boxcars shows one correctly joined knuckle-coupler pair and separate brake hose.\nExact current state: One actual coupling, no human hand near it.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nFinish requirement: all fills are perfectly smooth, clean, flat vector-like color. Absolutely no paper grain, stipple, speckles, mottled paint, fuzzy edges or surface noise anywhere, including backgrounds. Clear crisp outlines and only a few flat cel-shadow shapes. Do not imitate texture from any supporting reference. The two steel knuckle coupler heads mechanically interlock at the center; show short drawbars extending from each car body. A separate flexible black brake hose hangs below; it is not the structural coupler. No chain-link substitute, open uncoupled ends or impossible fused car bodies.",
+  "prompt": "Edit only the yellow curved rotation arrow beside the REAR (left) wheel of this bicycle picture. The bicycle travels RIGHT, so that wheel rotates CLOCKWISE. On the LEFT side of the rear wheel, the arrow must point UPWARD: draw the curve from below-left toward above-left, with its single arrowhead at the TOP end pointing upward along the tire. The current downward arrow is mechanically wrong: remove it entirely before drawing the corrected upward-pointing curved arrow. Preserve the separate rightward horizontal arrow on the path, all bicycle geometry, continuous chain, hands, pedals, rider identity, clothes, helmet, park background and clean flat cartoon style exactly. No extra arrows or text. Same 1536x1024 full image.",
   "references": [
     {
-      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/b-21-reference.webp",
-      "sha256": "7855ef43e8e33eeeed6375214c4aa318ef90c9ff4f2c415843cfbdb563694042"
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1c3ed-c928-70e2-a423-68d0aaffd69c/exec-61b4ad05-3165-437b-bbb8-53af22ae501d.png",
+      "sha256": "eec35a55fa569e25a16d7a078f1ed331ab64177188f6ec41be06580adef5d0da"
     }
   ],
   "manuscriptSource": {
-    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
-    "sha256": "e2840abe2bce545cbddeb0319fa0aade90784202e01e047d8bcd74ba38ddbcbb",
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/discovery-topic-revision/manuscripts",
+    "sha256": "790ccfb000c5a7286216b9ebcfd42c3f0b6779fed339fbc569cddf6ee58d3e09",
     "isolated": true,
     "firstNumber": 21,
     "lastNumber": 30,
@@ -26,15 +26,19 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-09T05:07:31.030535+00:00",
-    "sha256": "bbb2b3c0a9373bd02848e4fcfe6c6543b5cf242e753252916ab4b90281e2b462",
-    "note": "Directly viewed native source and installed WebP. Red and yellow cars are joined by a large centered interlocking steel coupler pair. A separate flexible brake hose hangs underneath; no person is between cars. Correct source colors and loaded/open early state, clean outlines and readable mechanical connection.",
-    "limits": "Direct image inspection only; complete sequence and app display review follow separately."
+    "reviewedAt": "2026-11-10",
+    "sha256": "f4c740ae29f2fa4761ed83e8c570e209f4c988bef683d18cd37da77fa7069fa5",
+    "note": "Native inspection confirms repaired rear-wheel rotation arrow points up along the left side, correctly clockwise for rightward travel. Separate horizontal arrow points right. Chain, tire contact and rider remain coherent. Producer independently inspected the final installed WebP natively; complete final sequence and relevant native diagrams were independently reviewed."
+  },
+  "repairHistory": {
+    "rejectedSource": "/Users/benjaminbowler/.codex/generated_images/01a1c3ed-c928-70e2-a423-68d0aaffd69c/exec-61b4ad05-3165-437b-bbb8-53af22ae501d.png",
+    "reason": "Rear-wheel rotation arrow pointed counterclockwise while bicycle travels right.",
+    "previousPrompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one integrated explanatory diagram. Allow only the cutaways, insets, schematic elements or arrows explicitly authored in this page's illustration brief; keep them spatially connected to the subject they explain. No unrequested panels, insets, annotations or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: People Power; World Discovery; nonfiction.\nSetting: Three factual adult demonstrations: a level traffic-free park cycle path, a quiet enclosed ice rink, and a calm lake. Cyclist: medium-brown skin, short straight black hair under a plain yellow helmet, teal jacket, navy pants, white shoes; red upright chain-driven bicycle. Skater: light-brown skin, short curly dark hair, blue helmet, orange jacket, dark-green pants, black ice skates with one metal blade each. Rower: deep-brown skin, close-cropped black hair, purple shirt, navy pants and orange life jacket; green broad stable rowboat with two tan oars pivoted in the gunwales. No motors, races, steep slopes, roads, cultural costumes, flags or logos.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Red pedal bicycle with two wheels, visible chain and rear sprocket; Black ice skates with single silver blades, not wheels; Green rowboat with bow pointing right, rower facing left, two tan pivoted oars; Cyclist/skater helmets and rower life jacket retained in every view\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and specific stages explicitly required below; the declared diagram permits no other scenes or story events.\nPage 3. Printed prose (NOT text to put in art): The back wheel pushes against the ground.\nThe bike rolls forward.\nRequired illustration: Full side view of same cyclist riding right along the level path, slightly farther past the same low bench. Rear tire touches pavement. One small curved arrow beside rear wheel shows clockwise rotation, and one horizontal arrow above ground points right. No other explanatory marks.\nExact current state: Drive wheel contacts ground and bicycle advances.\nDo not add events or stages beyond the authored diagram. Repeat a subject only when the authored comparison or cutaway requires it. No written title; the app renders live text."
   },
   "reviewedManuscriptSource": {
     "bookId": "world-discovery-b-21",
     "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
-    "sha256": "6d40120e98f2ff48a5cf89a9eb34eb073cdc2b64b8c7787eb0d4ca5f64455114",
-    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
+    "sha256": "664f916d1379302ae82b7a5dbf774413f4378508f9326855afd22b7b7086bbfc",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json"
   }
 }

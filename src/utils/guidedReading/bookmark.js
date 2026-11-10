@@ -1,6 +1,7 @@
+import { currentGuidedReadingRecord } from "./editions.js";
 // Page position is separate from the furthest page reached and book completion.
 export function guidedReadingBookmark(book, record = {}, requestedIndex = null) {
-  record = record || {};
+  record = currentGuidedReadingRecord(book, record);
   const pageCount = book?.pages?.length || 0;
   const valid = value => Number.isInteger(value) && value >= 0 && value < pageCount;
   if (valid(requestedIndex)) return requestedIndex;

@@ -1,3 +1,5 @@
+import { isReadingSessionCompatible } from "../data/readingSessionCore.js";
+import { guidedReadingContentId } from "../utils/guidedReading/editions.js";
 export const INITIAL_READING_FOLLOWER_STATE = Object.freeze({
   session: null,
   page: null,
@@ -13,7 +15,7 @@ export function followerRetryDelay(failureCount) {
 
 export function resolveFollowerPage({ books = [], session, contentVersion }) {
   if (!session) return { page: null, book: null, contentOk: true };
-  const book = books.find(candidate => candidate.id === session.book_id) || null;
+  const book = books.find(candidate => candidate.id === guidedReadingContentId(session.book_id)) || null;
   const pageNumber = session.page_numbers?.[session.page_index];
   const page = book?.pages?.find(candidate => candidate.pageNumber === pageNumber) || null;
   return {
@@ -22,7 +24,7 @@ export function resolveFollowerPage({ books = [], session, contentVersion }) {
     contentOk: Boolean(
       page
       && session.content_version
-      && session.content_version === contentVersion
+      && isReadingSessionCompatible(session, book, contentVersion)
     )
   };
 }

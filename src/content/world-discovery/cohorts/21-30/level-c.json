@@ -2,7 +2,7 @@
   {
     "id": "world-discovery-c-21",
     "number": 21,
-    "title": "My Bag at the Airport",
+    "title": "Vehicles That Fly",
     "topic": "transport",
     "type": "nonfiction",
     "appLevel": "C",
@@ -12,136 +12,149 @@
     "interestAge": "4–8",
     "storyBibleReview": {
       "kind": "nonfiction",
-      "canonIds": [
-        "WD-KIT"
-      ],
-      "topicQuestion": "How can a checked bag take a different route from its owner and still reach the same airport?",
-      "progression": "Follow one tagged suitcase from check-in through screening and sorting to the plane’s hold, flight, unloading and baggage claim beside the owner’s passenger journey.",
-      "synthesis": "The bag and passenger follow different airport paths but travel on the same aircraft and reunite at the destination.",
+      "canonIds": [],
+      "topicQuestion": "What helps a plane, helicopter, and hot-air balloon rise?",
+      "progression": "Begin with three aircraft; compare fixed wings moving forward with rotating wings, then contrast both with heated air in a balloon; close by relating all three to the air around them.",
+      "synthesis": "Wings moving through air lift planes and helicopters; heated air inside a balloon enables surrounding air to lift it. Different aircraft use air in different ways.",
       "scienceSources": [
         {
-          "title": "European Union Aviation Safety Agency: The journey of a suitcase",
-          "url": "https://www.easa.europa.eu/en/light/topics/journey-suitcase",
-          "evidence": "Checked luggage is weighed, tagged, screened, sorted, loaded in the hold, transported and returned at baggage claim; handling routes vary by airport and aircraft.",
-          "checked": "2026-11-09"
+          "title": "NASA Glenn Research Center: What Is Lift?",
+          "url": "https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/what-is-lift/",
+          "evidence": "A wing interacts with airflow and turns flowing air, generating lift in the opposite direction. Both surfaces contribute; the book does not use equal-transit-time or underside-only explanations.",
+          "checked": "2026-11-10"
         },
         {
-          "title": "Finavia: What happens to your bag between check-in and plane?",
-          "url": "https://www.finavia.fi/en/newsroom/2022/do-you-know-what-happens-your-bag-between-check-and-plane",
-          "evidence": "A barcode tag identifies the bag for routing to its aircraft. This book uses one typical direct-flight route and does not imply all bags use identical equipment.",
-          "checked": "2026-11-09"
+          "title": "NASA: What Is a Helicopter? Grades 5–8",
+          "url": "https://www.nasa.gov/learning-resources/for-kids-and-students/what-is-a-helicopter-2-grades-5-8/",
+          "evidence": "Helicopter blades are rotating wings. They allow vertical takeoff and hovering. Only those facts, not the page’s simplified wing-pressure account, support this manuscript.",
+          "checked": "2026-11-10"
+        },
+        {
+          "title": "NOAA JetStream: Parcel Theory",
+          "url": "https://www.noaa.gov/jetstream/upperair/parcel-theory",
+          "evidence": "Heating balloon air reduces its density. Denser surrounding air provides the buoyant force; merely saying that hot air rises does not describe the outside air’s role.",
+          "checked": "2026-11-10"
+        },
+        {
+          "title": "Griffin Museum of Science and Industry: Hot Air Balloon",
+          "url": "https://www.msichicago.org/science-at-home/hands-on-science/hot-air-balloon/",
+          "evidence": "Heating air inside the balloon enables it to rise; allowing the air to cool enables descent. The revised manuscript describes this operation and no longer compares equal volumes or particle density.",
+          "checked": "2026-11-10"
         }
       ]
     },
-    "setting": "One illustrative direct flight in a contemporary airport. Kit travels with an unnamed guardian: medium golden skin, short black hair, navy shirt and gray trousers. One blue suitcase with a broad orange diagonal stripe and black handles; white route tag secured to top handle. Unbranded white narrow-body plane with teal tail. No flags, airline logos, passport details or readable personal information.",
+    "setting": "Factual daylight aircraft views with no recurring children. Plane: plain white twin-engine passenger jet with teal tail, fixed wings and both engine nacelles under wings. Helicopter: orange civilian craft with a four-blade main rotor, enclosed cabin, tail rotor and two skids. Balloon: broad yellow fabric envelope with three blue vertical panels, dark burner frame, tan basket and one adult pilot wearing a plain gray jacket. Keep aircraft types distinct; safe separated flight areas; no flags, brands or military details.",
     "props": [
-      "Blue suitcase with orange diagonal stripe",
-      "White baggage tag on top handle",
-      "Conveyor and security scanner",
-      "Gray baggage cart",
-      "White jet with teal tail",
-      "Baggage-claim belt"
+      "White passenger jet with teal tail",
+      "Orange four-blade helicopter",
+      "Yellow-and-blue hot-air balloon with burner and tan basket"
     ],
-    "coverBrief": "Kit and guardian stand safely behind a baggage-claim belt as the same blue striped suitcase arrives. Airplane visible through distant airport windows.",
+    "coverBrief": "One comparison diagram shows the whole white jet at upper left, the whole orange helicopter at upper right and the whole yellow-blue hot-air balloon at lower center. Each sits in its own generous open-sky space; views are not to a shared scale. No arrows, words or numbers.",
+    "coverImageLayout": "comparison-diagram",
     "pages": [
       {
         "pageNumber": 1,
-        "text": "Kit checks a blue bag at the airport. A worker adds a tag. Will the bag travel with him?",
-        "imageBrief": "Check-in desk: worker secures white tag to top handle of blue orange-striped bag while Kit and guardian wait together.",
-        "imageAlt": "A worker attaches a white tag to Kit’s blue suitcase with an orange stripe. Kit and his grown-up wait at the airport desk.",
-        "pageDescription": "A worker attaches a white tag to Kit’s blue suitcase with an orange stripe. Kit and his grown-up wait at the airport desk.",
-        "state": "Same distinctive bag; tag attached before conveyor journey.",
-        "embeddedImageText": ""
+        "text": "A plane, a helicopter, and a hot-air balloon all fly. What helps each one rise?",
+        "imageBrief": "Three-part comparison diagram: white teal-tailed jet angled gently upward at left, orange helicopter level at right and yellow-blue balloon rising at center above low fields. Clearly separate the aircraft; no close formation or collision path.",
+        "imageAlt": "A plane, an orange helicopter and a yellow-and-blue hot-air balloon are shown in separate parts of the sky.",
+        "pageDescription": "A plane, an orange helicopter and a yellow-and-blue hot-air balloon are shown in separate parts of the sky.",
+        "state": "Opening comparison; all three aircraft whole and clearly separated.",
+        "embeddedImageText": "",
+        "imageLayout": "comparison-diagram"
       },
       {
         "pageNumber": 2,
-        "text": "The bag rides a moving belt through a scanner. Workers check bags before they can go onto the plane.",
-        "imageBrief": "Secure baggage area: striped bag enters a covered screening machine on conveyor; authorized adult worker monitors plain display.",
-        "imageAlt": "The tagged suitcase rides a conveyor into a baggage scanner while a worker watches a nearby screen.",
-        "pageDescription": "The tagged suitcase rides a conveyor into a baggage scanner while a worker watches a nearby screen.",
-        "state": "Kit absent from restricted area; tag remains attached.",
-        "embeddedImageText": ""
-      },
-      {
-        "pageNumber": 3,
-        "text": "A scanner reads the bag’s tag. The airport system sends it toward the right flight with other bags.",
-        "imageBrief": "Striped bag passes tag reader before conveyor junction; its route leads toward teal-tail plane loading area.",
-        "imageAlt": "The striped suitcase passes a tag reader before the conveyor divides into different routes.",
-        "pageDescription": "The striped suitcase passes a tag reader before the conveyor divides into different routes.",
-        "state": "Correct tag route, no magical sorting or exposed private text.",
-        "embeddedImageText": ""
-      },
-      {
-        "pageNumber": 4,
-        "text": "A cart carries the bags to the plane. Workers load them into a space beneath the passenger floor.",
-        "imageBrief": "Worker uses belt loader to move bag from gray cart into lower cargo door; upper passenger windows distinctly above.",
-        "imageAlt": "A conveyor carries the striped suitcase into the plane’s lower cargo door. The passenger windows are above it.",
-        "pageDescription": "A conveyor carries the striped suitcase into the plane’s lower cargo door. The passenger windows are above it.",
-        "state": "Bag enters hold below floor; aircraft parked.",
-        "embeddedImageText": ""
-      },
-      {
-        "pageNumber": 5,
-        "text": "Kit sits above. His bag rests below. Their different paths meet inside the same plane.",
-        "imageBrief": "Integrated aircraft cutaway in flight: Kit and guardian seated and belted in cabin, secured striped bag in separate lower hold.",
-        "imageAlt": "A view inside the flying plane shows Kit and his grown-up seated above the floor, with their suitcase secured in the hold below.",
-        "pageDescription": "A view inside the flying plane shows Kit and his grown-up seated above the floor, with their suitcase secured in the hold below.",
-        "state": "Physical floor separates baggage and passengers; no open external door in flight.",
+        "text": "The plane moves forward. Air flows around its wings. The wings turn air downward, and the air pushes the plane up.",
+        "imageBrief": "Integrated airflow diagram of the same complete passenger jet facing right, viewed from side and slightly ahead. Several fine blue airflow arrows approach the wing from right, pass around it toward the left and bend downward behind it. One clear upward arrow at the wing shows lift. Show a real complete wing, not a hollow split wing or equal-length paths.",
+        "imageAlt": "Arrows show air moving around the plane’s wing and bending downward. An upward arrow shows the air’s push on the wing.",
+        "pageDescription": "Arrows show air moving around the plane’s wing and bending downward. An upward arrow shows the air’s push on the wing.",
+        "state": "Forward flight; airflow deflected downward and lift shown upward.",
         "embeddedImageText": "",
         "imageLayout": "integrated-diagram"
       },
       {
+        "pageNumber": 3,
+        "text": "A helicopter has long blades above its body. These blades are wings that spin in a circle.",
+        "imageBrief": "Close three-quarter view of orange helicopter safely on open helipad. Four distinct intact main blades meet a single central hub above the cabin. One thin curved arrow around the hub shows rotation. Tail rotor visible, no extra main hubs.",
+        "imageAlt": "Four long blades meet above the orange helicopter’s cabin. A curved arrow shows the blades turning.",
+        "pageDescription": "Four long blades meet above the orange helicopter’s cabin. A curved arrow shows the blades turning.",
+        "state": "Introduce rotating wings; helicopter remains grounded in this explanatory view.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 4,
+        "text": "The spinning blades lift the helicopter. It can rise straight up and stay above one spot.",
+        "imageBrief": "Same helicopter hovering a short height directly above its circular helipad. Four main rotor blades visible with restrained curved rotation marks, no duplicate fuselages. One vertical arrow rises from pad center toward helicopter. Open safe space around craft.",
+        "imageAlt": "The helicopter hovers directly above its landing pad. An arrow points straight up from the pad.",
+        "pageDescription": "The helicopter hovers directly above its landing pad. An arrow points straight up from the pad.",
+        "state": "Vertical rise and hover over the same ground point.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
+      },
+      {
+        "pageNumber": 5,
+        "text": "The balloon has no wings. A burner heats the air inside its large fabric bag.",
+        "imageBrief": "Low angle near yellow-blue balloon during inflation, with envelope upright and full. One adult pilot stands in basket, hand at burner control; contained burner flame points upward through open mouth into envelope, not toward fabric wall. No wings or engine propellers.",
+        "imageAlt": "A burner above the balloon’s basket sends a flame upward into its large yellow-and-blue bag.",
+        "pageDescription": "A burner above the balloon’s basket sends a flame upward into its large yellow-and-blue bag.",
+        "state": "Burner adds heat; envelope full, basket still just above ground.",
+        "embeddedImageText": ""
+      },
+      {
         "pageNumber": 6,
-        "text": "After landing, workers unload the bags. The blue bag takes another cart ride into the airport.",
-        "imageBrief": "At destination parked jet, worker transfers same striped bag from lower hold to cart.",
-        "imageAlt": "A worker lifts the striped suitcase onto a baggage cart beside the plane after landing.",
-        "pageDescription": "A worker lifts the striped suitcase onto a baggage cart beside the plane after landing.",
-        "state": "Flight complete; tag and stripe unchanged.",
+        "text": "The balloon rises as the air inside warms. To come down, the pilot lets the air cool.",
+        "imageBrief": "Same full yellow-blue balloon floating above a wide open field, higher than on the previous page. One adult pilot stands securely inside tan basket with hand at the burner control; burner is safely contained under the open mouth. Low ground and trees make height clear. One coherent scene without dots, panels, arrows or cutaways.",
+        "imageAlt": "The yellow-and-blue balloon floats above an open field. Its pilot stands in the basket beside the burner control.",
+        "pageDescription": "The yellow-and-blue balloon floats above an open field. Its pilot stands in the basket beside the burner control.",
+        "state": "Heating raises the balloon; pilot controls the heat. Cooling is described as the way to descend.",
         "embeddedImageText": ""
       },
       {
         "pageNumber": 7,
-        "text": "A moving belt brings the bags into the arrival hall. Kit spots the orange stripe beside the black handle.",
-        "imageBrief": "Kit and guardian behind baggage-claim safety edge see striped suitcase approaching on moving carousel.",
-        "imageAlt": "Kit points to his striped suitcase as it approaches on the baggage-claim belt. His grown-up stands beside him.",
-        "pageDescription": "Kit points to his striped suitcase as it approaches on the baggage-claim belt. His grown-up stands beside him.",
-        "state": "One distinctive bag among plain other luggage; child not climbing belt.",
-        "embeddedImageText": ""
+        "text": "The balloon drifts with the wind. Its pilot can make it rise or sink by changing the heat.",
+        "imageBrief": "Same balloon above open fields at safe height. Pilot in basket attends burner; small windsock on field points right, and one thin horizontal arrow in open sky points right beside balloon. Envelope remains full and intact; no powered steering device.",
+        "imageAlt": "The balloon floats above fields. A windsock and an arrow point in the direction of the wind.",
+        "pageDescription": "The balloon floats above fields. A windsock and an arrow point in the direction of the wind.",
+        "state": "Wind carries balloon horizontally; pilot controls heating, not a steering wheel.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
       },
       {
         "pageNumber": 8,
-        "text": "Kit collects his bag with his grown-up. The bag took another path, but it flew on their plane.",
-        "imageBrief": "Guardian lifts striped suitcase from belt while Kit holds its side handle safely; both on public hall floor.",
-        "imageAlt": "Kit and his grown-up hold the tagged suitcase beside the baggage-claim belt.",
-        "pageDescription": "Kit and his grown-up hold the tagged suitcase beside the baggage-claim belt.",
-        "state": "Owner and exact tagged bag reunited at destination.",
-        "embeddedImageText": ""
+        "text": "Wings lift planes and helicopters. Warm air helps lift a hot-air balloon. Different shapes use the air in different ways.",
+        "imageBrief": "Closing three-part comparison diagram with a large fixed plane wing at left, a helicopter main rotor above complete small helicopter at center, and a full balloon at right with contained flame at mouth. Each aircraft complete; do not combine parts into one imaginary machine. No arrows or labels.",
+        "imageAlt": "A plane’s fixed wings, a helicopter’s spinning blades and a balloon’s heated bag appear side by side.",
+        "pageDescription": "A plane’s fixed wings, a helicopter’s spinning blades and a balloon’s heated bag appear side by side.",
+        "state": "Synthesis returns to three distinct structures and their interaction with air.",
+        "embeddedImageText": "",
+        "imageLayout": "comparison-diagram"
       }
     ],
     "discussion": {
       "oral": {
-        "prompt": "Why could the bag reach Kit even though he did not carry it onto the plane?",
-        "listenFor": "Its tag helped workers and the airport system route it onto the same flight; they collected it after landing."
+        "prompt": "How is a helicopter different from a plane?",
+        "listenFor": "Its wing-like blades spin, so it can rise straight up and hover. A plane’s fixed wings move through the air with the plane."
       },
       "visual": {
         "page": 5,
-        "prompt": "Where does the bag travel compared with Kit’s seat?",
-        "lookFor": "It is in a separate hold beneath the passenger floor."
+        "prompt": "What heats the air inside the balloon?",
+        "lookFor": "The burner above the basket sends heat through the opening into the envelope."
       }
     },
-    "levelRationale": "Candidate C: linked parallel passenger/baggage routes require a modest supported inference, with a concrete identifying stripe and a complete journey. Independent band review pending.",
+    "levelRationale": "The revised manuscript compares a plane’s fixed wings, a helicopter’s rotating wing-like blades and a balloon’s heating/cooling operation. Causal links are explicit in short varied sentences and the final return states what differs. The new page 6 removes the equal-volume/density inference: no hidden physical model must be held across the text. This is comparable with C Rocket and Cloud, and substantially less integrated than the current E Wings explanation.",
     "languagePrep": [
       {
-        "word": "tag",
-        "meaning": "a small label attached to something"
+        "word": "blade",
+        "meaning": "one long wing that spins above a helicopter"
       },
       {
-        "word": "scanner",
-        "meaning": "a machine that reads or checks something"
+        "word": "burner",
+        "meaning": "the part that makes a flame to heat the balloon’s air"
       },
       {
-        "word": "hold",
-        "meaning": "the space in a plane used for bags or cargo"
+        "word": "drift",
+        "meaning": "move along with the wind"
       }
     ]
   },

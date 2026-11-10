@@ -2,23 +2,27 @@
   "bookId": "world-discovery-e-21",
   "slot": "page-09",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-09T11:42:43.353Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-fb110660-30bf-4c36-b341-41aeb72fad2c.png",
-  "sourceSha256": "47cd11bc3f7d7c163b8784a8075650a53b19a2754f6ddc9ba507da40e3620a31",
+  "generatedAt": "2026-11-10T09:40:02.288Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1c3ee-e610-7d22-ad30-a2bee077e3d6/exec-5385cebb-28e0-48f4-a285-295ee78a1f9e.png",
+  "sourceSha256": "e5c208f096f590cf4579f956a33d27af0f1d3027d55bf981c9ff6950e3af2038",
   "output": "public/guided-reading/world-discovery/e-21/page-09.webp",
-  "outputSha256": "a50f79942b74a64788a105f49b7e36c28aae1e48e08200b7a02338d2dd59f256",
+  "outputSha256": "2b02c9624da89b650d54384762d0eb93aad909053d3d2e1fdf30962081af3ffa",
   "width": 1536,
   "height": 1024,
-  "prompt": "Pull the camera back on this exact entire scene by15percent, retaining the same3:2landscape frame and extending existing sky,river,quayside paving and background vegetation. The entire ferry at right including its rightmost bow must now be at least15percent inside the right image edge, and all3people/clockdisplay likewise at least15percent inside all edges. Preserve their positions relative to each other,closed safetyrail,mooringrope attached boat-to-quay,four ferry windows,museum and bridges. Do not add,remove or change any essential object. No words/numerals/labels. Flat2D cleanboldlines and solidcolors.",
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one explanatory comparison diagram. Allow only the distinct views, stages or comparison panels explicitly authored in this page's illustration brief, with their exact relationships and counts. No unrequested panels, insets, annotations or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Transport Through Time; World Discovery; nonfiction.\nSetting: A selected factual history followed by contemporary transport comparisons. Historical pictures are reconstructions, not a claim that all countries changed at once. Plain practical clothes only; no flags, religious buildings, political events or cultural costumes. Cart: brown wooden four-wheel wagon, one healthy bay horse and adult driver in plain gray shirt and dark trousers. Steam train: black early passenger steam locomotive with red wheels and two brown wooden coaches. Early motor car: dark-green open four-wheel gasoline car with adult driver. Early aircraft: plain cream single-propeller biplane. Modern train: white electric passenger train with blue band and overhead wire. Jet: white twin-engine passenger jet with teal tail. No named cast or brand logos.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Horse-drawn brown wagon; Early black steam train; Early dark-green motor car; Cream early propeller biplane; Modern white-blue electric train; Modern white-teal passenger jet\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and specific stages explicitly required below; the declared diagram permits no other scenes or story events.\nPage 9. Printed prose (NOT text to put in art): A jet usually travels faster than a fast train. But reaching an airport and waiting can add hours to a journey.\nRequired illustration: Integrated two-part journey diagram: adult with small suitcase travels on shuttle bus toward distant airport terminal at left; same adult sits waiting safely at departure gate at right, passenger jet visible through window. No printed clock digits or fake timetable. Plain ordinary clothes; no flags or brands.\nExact current state: Whole-journey time includes access and waiting, distinct from cruise speed.\nDo not add events or stages beyond the authored diagram. Repeat a subject only when the authored comparison or cutaway requires it. No written title; the app renders live text.\nFINAL QUALITY LOCK: Render 1536 by 1024 pixels, clean landscape 3:2. This is the finished page, not a reference sheet. Keep all essential subjects fully framed with 8 percent margin. Use plain ordinary clothes and exactly the subjects specified in this page. Do not transfer extraneous reference animals, poses or props into the picture. No national symbols, logos or written marks. All wheels visibly contact their own road or rails. Train rails are a coherent parallel pair under the wheels. A locomotive has a plausible horizontal boiler, firebox, steam pipe, cylinder, piston and connecting rods only where explicitly requested. No fantasy plumbing, exposed loose hoses, melted wheels or floating mechanisms. Horses have exactly four natural legs; tack is coherent. Aircraft have exactly one fuselage, one tail and matching wings with correct attachment.\nCRITICAL SCENE REPAIR to LAST reference: DELETE THE ENTIRE UNREQUESTED TOP-HALF plane/train/rural comparison. This page consists ONLY of TWO equally sized side-by-side scenes: LEFT same adult with small gray rolling suitcase SITTING INSIDE ordinary shuttle bus traveling toward a visible distant airport terminal; RIGHT that SAME adult with same small gray suitcase SITTING AND WAITING in departure lounge, white teal-tail passenger jet visible through large window on apron. Show actual suitcase in BOTH scenes. Same face/hair and plain cream shirt/dark trousers. No third scene, no free-flying jet, no train, no arrows, no timetable or clocks. Entire two-panel composition inside x140..1396 and y100..924. Calm clear full-size final picture.",
   "references": [
     {
-      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-5d3916ed-9d84-4a39-9678-1634065b0723.png",
-      "sha256": "ffbec2bf1a5b9b05ac1b34ec17d5ab51f1dcccaad0d05393706803077d93df22"
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-21-reference.webp",
+      "sha256": "bcd9084f0fd6888f17aec2fe89d8d9237c31f3ae501978dc1610288aba71214c"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1c3ee-e610-7d22-ad30-a2bee077e3d6/exec-c773703e-65d4-4d78-9777-be2be001b4a4.png",
+      "sha256": "f33c9152fd3ace3e78deef7227a6c5f1bd6858cdfb50dccb20ad6ffcf787b46d"
     }
   ],
   "manuscriptSource": {
-    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
-    "sha256": "9421bb4bb1f97c822674b76871fc5ee9b7b4398f02e9bdb626223b2a8cf9283e",
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/discovery-topic-revision/manuscripts",
+    "sha256": "5476e5d3a4c300cd350ded4aee8195556e25aa6db8b5208012c7e1c76178cb6e",
     "isolated": true,
     "firstNumber": 21,
     "lastNumber": 30,
@@ -26,15 +30,14 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "date": "2026-11-09T11:43:18.037346+00:00",
-    "sha256": "a50f79942b74a64788a105f49b7e36c28aae1e48e08200b7a02338d2dd59f256",
-    "note": "Pulled-back scene shows adult examining clock-only blank display, two children safely behind rail and four-window ferry moored by rope. Same museum/bridge geography, all essential subjects safely inset.",
-    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+    "reviewedAt": "2026-11-10",
+    "sha256": "2b02c9624da89b650d54384762d0eb93aad909053d3d2e1fdf30962081af3ffa",
+    "note": "Exactly two journey stages: cream-shirt adult and small gray rolling suitcase on airport shuttle; same adult/clothing/suitcase waiting at gate with jet beyond glass. Corrected unwanted extra train/plane comparison and arrow. No additional stage. Producer independently inspected the final installed WebP natively; complete final sequence and relevant native diagrams were independently reviewed."
   },
   "reviewedManuscriptSource": {
     "bookId": "world-discovery-e-21",
     "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
-    "sha256": "9421bb4bb1f97c822674b76871fc5ee9b7b4398f02e9bdb626223b2a8cf9283e",
-    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
+    "sha256": "d2b00cf5ebb83c26d8921703250179413a877c2f73e333ebcb39d3b45604dc4f",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json"
   }
 }

@@ -2,23 +2,23 @@
   "bookId": "world-discovery-c-21",
   "slot": "page-06",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-09T11:20:01.202Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-663ea86e-8e09-4fc4-aff0-a1f750114e2c.png",
-  "sourceSha256": "4ebd699edaf06b5d94d7113bc285537030b5cfa175b68516c9712a6e20abc5be",
+  "generatedAt": "2026-11-10T06:07:31.697Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1c3ef-11ed-7331-8274-1234bc3e482f/exec-6662899d-7be0-4e6e-a663-35b97c58375a.png",
+  "sourceSha256": "659932ae1c453f84ecbfa39051fe929bc55a6f8cee7e96bba4f15e8541e4b026",
   "output": "public/guided-reading/world-discovery/c-21/page-06.webp",
-  "outputSha256": "046dea1542f873b886cce9f0ebbecaca327156270b663f0c843d14dc9f13c2a1",
+  "outputSha256": "c824edeee084fce60d3aff5a6fbed6ba1eaa4c884fbfc75303bb1dcd8dfe80fe",
   "width": 1536,
   "height": 1024,
-  "prompt": "Pull the camera back by 25 percent on this otherwise correct baggage-unloading scene. Entire nose, wing, tail, gray cart including tow hook, worker head and both shoes must be at least 10 percent inside all frame edges. Preserve the same worker lifting the exact tagged blue orange-striped bag onto the gray cart, lower-hold door and connected loader, parked landing gear and airport background. No extra people or objects. Preserve all correct content, exact identity, flat clean colors, crisp outlines, landscape3:2. No text, grain, texture or new props. Essential content stays within central75percent.",
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Vehicles That Fly; World Discovery; nonfiction.\nSetting: Factual daylight aircraft views with no recurring children. Plane: plain white twin-engine passenger jet with teal tail, fixed wings and both engine nacelles under wings. Helicopter: orange civilian craft with a four-blade main rotor, enclosed cabin, tail rotor and two skids. Balloon: broad yellow fabric envelope with three blue vertical panels, dark burner frame, tan basket and one adult pilot wearing a plain gray jacket. Keep aircraft types distinct; safe separated flight areas; no flags, brands or military details.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): White passenger jet with teal tail; Orange four-blade helicopter; Yellow-and-blue hot-air balloon with burner and tan basket\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 6. Printed prose (NOT text to put in art): The balloon rises as the air inside warms. To come down, the pilot lets the air cool.\nRequired illustration: Same full yellow-blue balloon floating above a wide open field, higher than on the previous page. One adult pilot stands securely inside tan basket with hand at the burner control; burner is safely contained under the open mouth. Low ground and trees make height clear. One coherent scene without dots, panels, arrows or cutaways.\nExact current state: Heating raises the balloon; pilot controls the heat. Cooling is described as the way to descend.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nFraming clarification: Keep every entire aircraft/car and its required teaching parts completely within the inner 84 percent of the canvas, leaving at least 8 percent clear background margin on ALL sides. Nothing essential touches or approaches the picture edge.",
   "references": [
     {
-      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-1805538a-ffbe-4923-9956-14f38a63824b.png",
-      "sha256": "014a25c759d5911a39c93cd1ae29e4d9c5a601c9bc58e443cd88b178f8db4ef4"
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/c-21-reference.webp",
+      "sha256": "038b76328ab4972cd0b5f6bc4d7d43d3baf0ba956735770c11eadc4cd918f3d1"
     }
   ],
   "manuscriptSource": {
-    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
-    "sha256": "adafabd724e58b7f6c3e03af760b56ae0cdebf5dbdc7ec8e6a3d11c2e19a0ce2",
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/discovery-topic-revision/manuscripts",
+    "sha256": "5c87ee01b5617d2edff1107560ad70a54b675e564510c21acde971003db71f22",
     "isolated": true,
     "firstNumber": 21,
     "lastNumber": 30,
@@ -26,15 +26,14 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-09T11:20:57.440250+00:00",
-    "sha256": "046dea1542f873b886cce9f0ebbecaca327156270b663f0c843d14dc9f13c2a1",
-    "note": "Native and final WebP directly viewed: destination worker transfers same tagged blue-orange bag to cart after lower-hold unloading; upper cabin windows remain above cargo opening; whole worker, cart, loader and plane safely inset.",
-    "limits": "Independent sequence and reader review follow separately."
+    "reviewedAt": "2026-11-10",
+    "sha256": "c824edeee084fce60d3aff5a6fbed6ba1eaa4c884fbfc75303bb1dcd8dfe80fe",
+    "note": "Balloon visibly higher above fields, ordinary pilot controls heat; abstract equal-volume particle diagram removed. Producer independently inspected the final installed WebP natively; complete final sequence and relevant native diagrams were independently reviewed."
   },
   "reviewedManuscriptSource": {
     "bookId": "world-discovery-c-21",
     "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
-    "sha256": "d35c2646e023daa2322256d158452fa66e0c07c88e5e0aee3f35253a6d6154d0",
-    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
+    "sha256": "64fc91f6c01ea97064c24b464d0add6b505a38d410f33adf22efff79ac2710a6",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json"
   }
 }

@@ -2,23 +2,27 @@
   "bookId": "world-discovery-e-21",
   "slot": "page-06",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-09T11:29:55.755Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-43dfb86e-853c-4f59-8191-fe05b6a22292.png",
-  "sourceSha256": "5a902ceb62b127cc1694a64a3a7898c99a3ee64f819599bb3f81fc7d1ece1f86",
+  "generatedAt": "2026-11-10T09:47:22.931Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1c3ee-e610-7d22-ad30-a2bee077e3d6/exec-04204d79-f3c9-4829-8f1e-6a12de23cda6.png",
+  "sourceSha256": "8218324d71eb89f3093d78125e9cadc226a305b9ce95d9d92a74e4e28a2d00cd",
   "output": "public/guided-reading/world-discovery/e-21/page-06.webp",
-  "outputSha256": "6f3b304ec3a2ef6dca76e2246d88a7c1f49e711645cb613fee63de7ff2e69b7f",
+  "outputSha256": "6a9cdd7a070d5e253c99116a0607a147692ac9ef98eaa218a95d37c8d935e55d",
   "width": 1536,
   "height": 1024,
-  "prompt": "Edit this exact overhead practice map to explain the ferry crossing. Keep every bank, road, bridge, museum, start dot, path and quay unchanged. Remove all purple walking dots and completely remove the lower-left walking/25 badge. Add ONE small white-and-blue enclosed ferry in the water between the TWO LOWER GRAY QUAYS. Ferry has exactly four small square cabin windows in a row, blue roofline and white top/blue lower hull, right-facing pilot cabin. Bow points RIGHT toward the east quay and museum. A short dotted blue route extends horizontally from west quay to boat and from boat to east quay; dots remain in water, not on land. No route dots on roads, footbridge or paths. Do not add a people/vehicle reference-board panel. Entire map is centered on white canvas with at least 10 percent margins. No labels, letters, digits, extra numbers or logos anywhere. Flat 2D clean bold-line style.",
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one explanatory comparison diagram. Allow only the distinct views, stages or comparison panels explicitly authored in this page's illustration brief, with their exact relationships and counts. No unrequested panels, insets, annotations or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Transport Through Time; World Discovery; nonfiction.\nSetting: A selected factual history followed by contemporary transport comparisons. Historical pictures are reconstructions, not a claim that all countries changed at once. Plain practical clothes only; no flags, religious buildings, political events or cultural costumes. Cart: brown wooden four-wheel wagon, one healthy bay horse and adult driver in plain gray shirt and dark trousers. Steam train: black early passenger steam locomotive with red wheels and two brown wooden coaches. Early motor car: dark-green open four-wheel gasoline car with adult driver. Early aircraft: plain cream single-propeller biplane. Modern train: white electric passenger train with blue band and overhead wire. Jet: white twin-engine passenger jet with teal tail. No named cast or brand logos.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Horse-drawn brown wagon; Early black steam train; Early dark-green motor car; Cream early propeller biplane; Modern white-blue electric train; Modern white-teal passenger jet\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and specific stages explicitly required below; the declared diagram permits no other scenes or story events.\nPage 6. Printed prose (NOT text to put in art): Early airplanes carried people above the ground. Later, jet planes made long journeys across oceans much faster.\nRequired illustration: Two-part historical comparison diagram: cream propeller biplane flying low above fields at left; modern white teal-tailed passenger jet above ocean at right. Separate sky scenes, distinct scales, no implication the planes fly in formation. No dates or brands.\nExact current state: Aircraft and later jet power extend travel above land and sea.\nDo not add events or stages beyond the authored diagram. Repeat a subject only when the authored comparison or cutaway requires it. No written title; the app renders live text.\nFINAL QUALITY LOCK: Render 1536 by 1024 pixels, clean landscape 3:2. This is the finished page, not a reference sheet. Keep all essential subjects fully framed with 8 percent margin. Use plain ordinary clothes and exactly the subjects specified in this page. Do not transfer extraneous reference animals, poses or props into the picture. No national symbols, logos or written marks. All wheels visibly contact their own road or rails. Train rails are a coherent parallel pair under the wheels. A locomotive has a plausible horizontal boiler, firebox, steam pipe, cylinder, piston and connecting rods only where explicitly requested. No fantasy plumbing, exposed loose hoses, melted wheels or floating mechanisms. Horses have exactly four natural legs; tack is coherent. Aircraft have exactly one fuselage, one tail and matching wings with correct attachment.\nFRAMING-ONLY REPAIR to LAST reference: preserve exactly TWO separate comparisons, cream propeller BIPLANE over fields LEFT, white teal-tail TWIN-ENGINE passenger jet over ocean RIGHT. Both aircraft geometries and attached wings/tails/engines stay the same. Shrink the ENTIRE two-panel layout together by18 percent and center it on plain white so full panels and all wing tips, propeller tips and tail fit inside x140..1396 and y100..924. Do not add windows, figures, arrows or dates. They remain in separate scenes, never flying in formation.",
   "references": [
     {
-      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-bdd496df-3570-4cb4-9fb2-9f836c8cfd8d.png",
-      "sha256": "3eaaec3997d322c51437c58c9fb125b3536dde96156c5cde6c0119acfb1e240b"
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-21-reference.webp",
+      "sha256": "bcd9084f0fd6888f17aec2fe89d8d9237c31f3ae501978dc1610288aba71214c"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1c3ee-e610-7d22-ad30-a2bee077e3d6/exec-9b5f3388-25b1-4ddf-bd45-bff66c285e10.png",
+      "sha256": "3b87c183fd88959e3151a8cff34e29d6307387f0427ff4a3d6db628e3c08d140"
     }
   ],
   "manuscriptSource": {
-    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
-    "sha256": "9421bb4bb1f97c822674b76871fc5ee9b7b4398f02e9bdb626223b2a8cf9283e",
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/discovery-topic-revision/manuscripts",
+    "sha256": "5476e5d3a4c300cd350ded4aee8195556e25aa6db8b5208012c7e1c76178cb6e",
     "isolated": true,
     "firstNumber": 21,
     "lastNumber": 30,
@@ -26,15 +30,14 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "date": "2026-11-09T11:31:58.778789+00:00",
-    "sha256": "6f3b304ec3a2ef6dca76e2246d88a7c1f49e711645cb613fee63de7ff2e69b7f",
-    "note": "Same map with ferry crossing horizontally between opposite lower quays. Four-window white-blue boat points toward museum. Only ferry route dotted; map comfortably inset.",
-    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+    "reviewedAt": "2026-11-10",
+    "sha256": "6a9cdd7a070d5e253c99116a0607a147692ac9ef98eaa218a95d37c8d935e55d",
+    "note": "Exactly two comparison scenes: cream biplane over fields and modern white-teal twin-engine jet over ocean. Complete wings, tails and engines contained; no clock, speed values, finish line or extra journey state. Producer independently inspected the final installed WebP natively; complete final sequence and relevant native diagrams were independently reviewed."
   },
   "reviewedManuscriptSource": {
     "bookId": "world-discovery-e-21",
     "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
-    "sha256": "9421bb4bb1f97c822674b76871fc5ee9b7b4398f02e9bdb626223b2a8cf9283e",
-    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
+    "sha256": "d2b00cf5ebb83c26d8921703250179413a877c2f73e333ebcb39d3b45604dc4f",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json"
   }
 }

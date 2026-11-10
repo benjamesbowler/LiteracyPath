@@ -1,3 +1,4 @@
+import { currentGuidedReadingRecord, getCurrentGuidedReadingRecord, guidedReadingEdition } from "./editions.js";
 export function shouldShowGuidedReadingCompletionSummary({ mode, studentId } = {}) {
   return mode === "teacher" && Boolean(String(studentId || "").trim());
 }
@@ -30,7 +31,7 @@ export function getGuidedReadingCompletionMilestone({ book, levelBooks = [], rec
     ? levelBooks.filter(candidate => candidate.readingBandProfile !== "extended")
     : levelBooks;
   const allDone = progressionBooks.length > 1 && progressionBooks.every(candidate =>
-    candidate.id === book?.id || Boolean(records[candidate.id]?.completed || records[candidate.id]?.completedAt)
+    candidate.id === book?.id || Boolean(getCurrentGuidedReadingRecord(candidate, records).completed || getCurrentGuidedReadingRecord(candidate, records).completedAt)
   );
   return allDone ? { level: book.level, count: progressionBooks.length } : null;
 }
@@ -42,8 +43,11 @@ export function mergeGuidedReadingRecord({
   now = new Date().toISOString(),
   patch = {}
 } = {}) {
+  previous = currentGuidedReadingRecord(book, previous);
+  const edition = guidedReadingEdition(book);
   return {
     ...previous,
+    ...(edition ? { edition } : {}),
     studentId,
     bookId: book.id,
     title: book.title,

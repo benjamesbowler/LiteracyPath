@@ -311,7 +311,7 @@ function walkFilesAndDirs(relativeDir = ".") {
     });
 
     if (entry.isDirectory()) {
-      rows.push(...walkFilesAndDirs(relativePath));
+      for (const row of walkFilesAndDirs(relativePath)) rows.push(row);
     }
   }
   return rows;

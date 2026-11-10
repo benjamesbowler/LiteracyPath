@@ -2,33 +2,33 @@
   "bookId": "world-discovery-e-22",
   "slot": "reference",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-09T12:03:19.179Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-a89e5383-d891-423f-b960-0c21ca14f690.png",
-  "sourceSha256": "fd5b1387b3a7ef914f5a59c7270eb764d0c6f60d6d3ab27b5f12b8a031f35b3a",
+  "generatedAt": "2026-11-10T05:45:21.234Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1c3ed-c928-70e2-a423-68d0aaffd69c/exec-bb8785f9-2e02-4f3b-9dfd-63a2893252b3.png",
+  "sourceSha256": "032109c82471936feb9df5b50932ac464dbcb66a471841f0afe845399aff52d0",
   "output": "source-art/world-discovery/e-22-reference.webp",
-  "outputSha256": "172548db2bfe23621971ad50050336ebb46b8c078d160f10725fc069d806952a",
+  "outputSha256": "83582d8397835477531f768217b2f65fe5a1ab830c18b2b2b0c9172984c06dd1",
   "width": 1536,
   "height": 1024,
-  "prompt": "Use case: illustration-story. Production reference board for World Discovery nonfiction book City, Town or Village? Landscape 1536x1024. Bold clean clear 2D children's cartoon, crisp continuous dark outlines, FLAT smooth clean colors with at most restrained cel shading; no painted, grainy or paper texture, no 3D. On white, three large separated UNLETTERED ordinary-place design panels, each comfortably inset. LEFT: Wells, a small English city represented by ordinary warm pale-stone two-storey homes with simple pitched roofs and a small shop on a quiet paved street. No railway. MIDDLE: Reading, a busy English town represented by modern red-brick and glass office blocks and a plain low contemporary station, a teal passenger train on straight separate railway tracks behind a fence and one blue bus on an adjacent ROAD. Distinct safe pavements; road and rail never merge. RIGHT: Lacock village, a quiet connected street of modest pale stone cottages and one black timber-framed cream cottage, muted terracotta pitched roofs and a simple shop window displaying groceries without signage. All are explanatory generic ordinary architecture, NOT claimed literal landmark or specific street replicas. Consistent palette across the three places. No humans needed in this reference. The panels establish design references for later pages only. Absolutely NO religious buildings, towers/steeples, crosses or other religious symbols; no flags, crests, crowns, ceremonial scenes, logos or branded items. Absolutely NO lettering, place names, labels, numbers, captions or pseudo-writing anywhere. No map in this reference board; the accurate locator is a separate supporting reference for final page1. Essential features at least 12 percent inside outer edges.",
+  "prompt": "Use case: illustration-story. PRODUCTION REFERENCE SHEET, landscape, not a finished book page. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Different Countries, Different Places; World Discovery; nonfiction.\nSetting: Factual geographic tour of selected ordinary landscapes in Japan, Egypt and Brazil. No fictional child travels between pages; no suggestion that one climate, building or landscape represents all people in a country. Maps are simplified geographic aids, not political claims; show whole-country approximate outlines with no disputed detail, capitals, flags, national costumes, religious monuments or political buildings. Japan: island coastline, Mount Fuji lower wooded slopes, ordinary Tokyo railway street. Egypt: dry plateau and connected Nile-side irrigated farmland with ordinary homes. Brazil: Amazon waterway with rainforest and ordinary Rio coastline framed by forested hills; omit Christ statue. Small background adults wear ordinary contemporary clothing and are never cultural symbols.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Simplified world locator map with dots for Japan, Egypt and Brazil; Japan island coastline, wooded Mount Fuji slopes, ordinary Tokyo train; Egypt desert and Nile river fields; Brazil Amazon waterway and Rio coastal city\n Create a clean separated reference board on white: show the principal recurring props/animals in front, side and three-quarter views, their relative scale beside any named human cast, and a single simple location key showing the persistent setting and daylight/palette. The human character model sheet is a supporting identity reference, not content to copy wholesale. Show only the subjects this book requires. Use initial object states: Opening locates three selected countries; no travel time or universal-country claim.. For orientation, the opening location/action is: Simple world locator map, north up, with geographically correct continental silhouettes. Three dots only: Japan in east Asia, Egypt in northeast Africa, Brazil in eastern South America. Each dot has one leader line to a plain empty circular focus marker, no country names, political borders or invented land. Do not show Antarctica as an inhabited country.. Do not show a completed craft or later scene merely because the finished object is listed in design locks. No future story events, no captions. Reference-sheet override: any lettering requested by the opening page brief belongs only in that finished page. Keep this production reference board entirely unlabelled; no letters, numbers or pseudo-writing.",
   "references": [],
   "manuscriptSource": {
-    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
-    "sha256": "2aff8b9432244a41072eb7c7376c77e21594d83a655dfa83d99e44c528e86755",
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/discovery-topic-revision/manuscripts",
+    "sha256": "10f17301c0b54d74f0667c993770e82a84c710618d5e3fa02c5648e46692e76e",
     "isolated": true,
     "firstNumber": 21,
     "lastNumber": 30,
     "topicProfile": "nonfiction-discovery"
   },
   "visualReview": {
-    "sha256": "172548db2bfe23621971ad50050336ebb46b8c078d160f10725fc069d806952a",
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-09T12:03:19.189Z",
-    "note": "Directly inspected native unlettered three-panel design reference. Ordinary Wells stone houses/shop, Reading office/station and separate bus-road/train-rail areas, Lacock stone and timber-framed homes/shop. No religious architecture, flags, cast or lettering. Final pages must compose new scenes and enforce safe margins; this is a design board only."
+    "reviewedAt": "2026-11-10",
+    "sha256": "83582d8397835477531f768217b2f65fe5a1ab830c18b2b2b0c9172984c06dd1",
+    "note": "Geographic/style reference; extraneous wildlife and house types are production-only and excluded from all final reader scenes. Final maps and depicted geography were reviewed independently. Producer independently inspected the final installed WebP natively; complete final sequence and relevant native diagrams were independently reviewed."
   },
   "reviewedManuscriptSource": {
     "bookId": "world-discovery-e-22",
     "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
-    "sha256": "2aff8b9432244a41072eb7c7376c77e21594d83a655dfa83d99e44c528e86755",
-    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
+    "sha256": "d3b67d6c70cda202a99594710f903a9dc9ec37110031b15daf30f7eb0b2fb747",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json"
   }
 }

@@ -2,23 +2,23 @@
   "bookId": "world-discovery-c-21",
   "slot": "page-07",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-09T11:20:01.460Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-d590a1a2-cbeb-4449-a751-5e1100b35708.png",
-  "sourceSha256": "8721cc3c7825fbe37df60cfd2d530d7ecc50e39841aaef049b3abb219208ac59",
+  "generatedAt": "2026-11-10T06:07:32.621Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1c3ef-11ed-7331-8274-1234bc3e482f/exec-4a5ba795-c1aa-42a8-8825-22acfaf7aa18.png",
+  "sourceSha256": "68e0ca019fed3bc87e110b428297216e178e6d21eb57077d73ce235f63b756bb",
   "output": "public/guided-reading/world-discovery/c-21/page-07.webp",
-  "outputSha256": "d9ac6feea79f62583c6a63f828fede8ce0ec75a92913c5c3eb8224e0190af47e",
+  "outputSha256": "429a935397f78701a1765985f63210c600c4bfe80cf69c9d8c555249a2670c1b",
   "width": 1536,
   "height": 1024,
-  "prompt": "Make only this tiny bag continuity repair: move the one black SIDE carry handle of the orange-striped blue suitcase from its RIGHT side to its LEFT side, matching the other book pages. Keep exactly one side handle and one top handle, the broad stripe, white tag, wheels, Kit pointing, guardian, two plain other bags, safe floor positions and full background unchanged. Preserve all correct content, exact identity, flat clean colors, crisp outlines, landscape3:2. No text, grain, texture or new props. Essential content stays within central75percent.",
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one integrated explanatory diagram. Allow only the cutaways, insets, schematic elements or arrows explicitly authored in this page's illustration brief; keep them spatially connected to the subject they explain. No unrequested panels, insets, annotations or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Vehicles That Fly; World Discovery; nonfiction.\nSetting: Factual daylight aircraft views with no recurring children. Plane: plain white twin-engine passenger jet with teal tail, fixed wings and both engine nacelles under wings. Helicopter: orange civilian craft with a four-blade main rotor, enclosed cabin, tail rotor and two skids. Balloon: broad yellow fabric envelope with three blue vertical panels, dark burner frame, tan basket and one adult pilot wearing a plain gray jacket. Keep aircraft types distinct; safe separated flight areas; no flags, brands or military details.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): White passenger jet with teal tail; Orange four-blade helicopter; Yellow-and-blue hot-air balloon with burner and tan basket\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and specific stages explicitly required below; the declared diagram permits no other scenes or story events.\nPage 7. Printed prose (NOT text to put in art): The balloon drifts with the wind. Its pilot can make it rise or sink by changing the heat.\nRequired illustration: Same balloon above open fields at safe height. Pilot in basket attends burner; small windsock on field points right, and one thin horizontal arrow in open sky points right beside balloon. Envelope remains full and intact; no powered steering device.\nExact current state: Wind carries balloon horizontally; pilot controls heating, not a steering wheel.\nDo not add events or stages beyond the authored diagram. Repeat a subject only when the authored comparison or cutaway requires it. No written title; the app renders live text.\nFraming clarification: Keep every entire aircraft/car and its required teaching parts completely within the inner 84 percent of the canvas, leaving at least 8 percent clear background margin on ALL sides. Nothing essential touches or approaches the picture edge.",
   "references": [
     {
-      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-9d041667-f54f-4a3d-b6e1-a8ed9b9436c2.png",
-      "sha256": "147588a18967a9eb3866d6c0558ef414c1ef5aa261246e73eaf9affbb3d913a5"
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/c-21-reference.webp",
+      "sha256": "038b76328ab4972cd0b5f6bc4d7d43d3baf0ba956735770c11eadc4cd918f3d1"
     }
   ],
   "manuscriptSource": {
-    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
-    "sha256": "adafabd724e58b7f6c3e03af760b56ae0cdebf5dbdc7ec8e6a3d11c2e19a0ce2",
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/discovery-topic-revision/manuscripts",
+    "sha256": "5c87ee01b5617d2edff1107560ad70a54b675e564510c21acde971003db71f22",
     "isolated": true,
     "firstNumber": 21,
     "lastNumber": 30,
@@ -26,15 +26,14 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-09T11:20:57.441069+00:00",
-    "sha256": "d9ac6feea79f62583c6a63f828fede8ce0ec75a92913c5c3eb8224e0190af47e",
-    "note": "Native and final WebP directly viewed: Kit points from outside claim belt beside guardian; bag has consistent left-side carry handle, lower-left to upper-right orange stripe and top tag; foreground children safely inset.",
-    "limits": "Independent sequence and reader review follow separately."
+    "reviewedAt": "2026-11-10",
+    "sha256": "429a935397f78701a1765985f63210c600c4bfe80cf69c9d8c555249a2670c1b",
+    "note": "Right-pointing wind cue and extended windsock agree; no powered steering implied. Producer independently inspected the final installed WebP natively; complete final sequence and relevant native diagrams were independently reviewed."
   },
   "reviewedManuscriptSource": {
     "bookId": "world-discovery-c-21",
     "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
-    "sha256": "d35c2646e023daa2322256d158452fa66e0c07c88e5e0aee3f35253a6d6154d0",
-    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
+    "sha256": "64fc91f6c01ea97064c24b464d0add6b505a38d410f33adf22efff79ac2710a6",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json"
   }
 }

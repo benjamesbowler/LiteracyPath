@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test';
-import { GUIDED_READING_WORLD_DISCOVERY_BOOKS as books } from '../../src/data/guidedReadingWorldDiscoveryBooks.js';
+import { GUIDED_READING_WORLD_DISCOVERY_BOOKS as books, GUIDED_READING_WORLD_DISCOVERY_LEVEL_REVIEWS as levelReviews } from '../../src/data/guidedReadingWorldDiscoveryBooks.js';
 import { getRuntimeGuidedReadingBooks } from '../../src/utils/guidedReading/runtimeBooks.js';
+import { guidedReadingProgressKey } from '../../src/utils/guidedReading/editions.js';
 import { getGuidedReadingPageAudioPath, getGuidedReadingWordProductionAudioPath } from '../../src/utils/guidedReading/readAloudPolicy.js';
 import { appReadingLevelLabel } from '../../src/utils/guidedReading/bookTextAnalysis.js';
 import { STUDENT_DEVICE_PROFILES, STUDENT_MINIMUM_TARGET_PX } from '../../src/policy/studentDeviceMatrix.js';
@@ -15,7 +16,7 @@ if (selectedIds?.some(id => !books.some(book => book.id === id))) throw Error('U
 const selected = selectedIds ? books.filter(book => selectedIds.includes(book.id)) : books;
 const activeCohorts = cohortManifest.cohorts.filter(cohort => cohort.active);
 const expectedBooks = activeCohorts.reduce((total, cohort) => total + cohort.expectedBooks, 0);
-const expectedPerLevel = activeCohorts.length * 10;
+const publicLevelBooks = level => books.filter(book => levelReviews[book.id].appReadingLevel === level);
 
 function observeRealAudio() {
   window.__worldDiscoveryAudio = [];
@@ -57,7 +58,7 @@ test('all declared registered books are in the real runtime at current public le
   const live = getRuntimeGuidedReadingBooks().filter(book => book.seriesId === 'world-discovery');
   expect(live).toHaveLength(expectedBooks);
   for (const level of ['A', 'B', 'C', 'D', 'E']) {
-    expect(live.filter(book => book.appReadingLevel === level && book.appReadingLevelStatus === 'current')).toHaveLength(expectedPerLevel);
+    expect(live.filter(book => book.appReadingLevel === level && book.appReadingLevelStatus === 'current')).toHaveLength(publicLevelBooks(level).length);
   }
   for (const book of books) expect(live.find(row => row.id === book.id)?.pages.map(page => page.text)).toEqual(book.pages.map(page => page.text));
 });
@@ -97,13 +98,13 @@ for (const book of selected) test(`${book.id} every page, real narration, word h
     await reader.getByRole('button', { name: index + 1 === book.pages.length ? 'Finish book' : 'Next page', exact: true }).click();
   }
   await expect(reader).not.toBeVisible();
-  await expect.poll(() => page.evaluate(id => window.__guidedReadingPreviewRecords[id]?.completed, book.id)).toBe(true);
+  await expect.poll(() => page.evaluate(id => window.__guidedReadingPreviewRecords[id]?.completed, guidedReadingProgressKey(book))).toBe(true);
   expect(errors).toEqual([]);
 });
 
 for (const viewport of STUDENT_DEVICE_PROFILES.filter(profile => profile.id !== portrait.id)) {
   for (const level of ['A', 'B', 'C', 'D', 'E']) {
-    const book = books.filter(row => row.appLevel === level).sort((a, b) => Math.max(...b.pages.map(page => page.text.length)) - Math.max(...a.pages.map(page => page.text.length)))[0];
+    const book = publicLevelBooks(level).sort((a, b) => Math.max(...b.pages.map(page => page.text.length)) - Math.max(...a.pages.map(page => page.text.length)))[0];
     test(`${level} longest reader at ${viewport.id}`, async ({ page }, info) => {
       await page.setViewportSize({ width: viewport.width, height: viewport.height });
       await page.emulateMedia({ reducedMotion: 'no-preference' });
@@ -188,8 +189,8 @@ test('World Discovery child library has every declared ordered cover and public 
   expect(await cards.evaluateAll(nodes => nodes.map(node => node.dataset.bookId))).toEqual(books.map(book => book.id));
   for (const level of ['A', 'B', 'C', 'D', 'E']) {
     await page.getByRole('navigation', { name: 'Book levels' }).getByRole('button', { name: appReadingLevelLabel(level), exact: true }).click();
-    await expect(cards).toHaveCount(expectedPerLevel);
-    expect(await cards.evaluateAll(nodes => nodes.map(node => node.dataset.bookId))).toEqual(books.filter(book => book.appLevel === level).map(book => book.id));
+    await expect(cards).toHaveCount(publicLevelBooks(level).length);
+    expect(await cards.evaluateAll(nodes => nodes.map(node => node.dataset.bookId))).toEqual(publicLevelBooks(level).map(book => book.id));
     for (const card of await cards.all()) {
       await card.scrollIntoViewIfNeeded();
       await expect.poll(() => card.locator('img').first().evaluate(node => node.complete && node.naturalWidth > 0)).toBe(true);

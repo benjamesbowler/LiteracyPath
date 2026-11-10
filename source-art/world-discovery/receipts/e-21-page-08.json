@@ -2,23 +2,27 @@
   "bookId": "world-discovery-e-21",
   "slot": "page-08",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-09T11:42:43.129Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-d94de646-d2c6-4da2-a37f-d9f4bae9ee94.png",
-  "sourceSha256": "daa82721db36ac968c67d67a93ae5e5c9923435a28afed62cce542a7404a61dc",
+  "generatedAt": "2026-11-10T09:44:46.077Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1c3ee-e610-7d22-ad30-a2bee077e3d6/exec-55016ab5-1c80-425d-84b6-f0d83ecabe44.png",
+  "sourceSha256": "f228a3ac0af7672aafc4e3606170c667e7cbef054187dd9e1a0eb9f4c83bd38c",
   "output": "public/guided-reading/world-discovery/e-21/page-08.webp",
-  "outputSha256": "78df6acff864680115461f754db6d09b3b498132014228380197d8f5dd8ce810",
+  "outputSha256": "214830c90aebf9a1dfd4f5b98cabbebe274e6d79778546dffcf6d2ec6774785a",
   "width": 1536,
   "height": 1024,
-  "prompt": "Correct ONLY the ferry pictogram on the RIGHT time card. It currently has three square passenger windows; change it to EXACTLY FOUR small square passenger windows in a horizontal row before the slanted right-facing pilot window. Keep its white upper body,blue lower hull and blue roof. Preserve all other details exactly including Kit,table,map,bridges,25/35/20 and other cards. No new text,characters or changes to framing. Flat2D cleanboldlines.",
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one explanatory comparison diagram. Allow only the distinct views, stages or comparison panels explicitly authored in this page's illustration brief, with their exact relationships and counts. No unrequested panels, insets, annotations or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Transport Through Time; World Discovery; nonfiction.\nSetting: A selected factual history followed by contemporary transport comparisons. Historical pictures are reconstructions, not a claim that all countries changed at once. Plain practical clothes only; no flags, religious buildings, political events or cultural costumes. Cart: brown wooden four-wheel wagon, one healthy bay horse and adult driver in plain gray shirt and dark trousers. Steam train: black early passenger steam locomotive with red wheels and two brown wooden coaches. Early motor car: dark-green open four-wheel gasoline car with adult driver. Early aircraft: plain cream single-propeller biplane. Modern train: white electric passenger train with blue band and overhead wire. Jet: white twin-engine passenger jet with teal tail. No named cast or brand logos.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Horse-drawn brown wagon; Early black steam train; Early dark-green motor car; Cream early propeller biplane; Modern white-blue electric train; Modern white-teal passenger jet\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and specific stages explicitly required below; the declared diagram permits no other scenes or story events.\nPage 8. Printed prose (NOT text to put in art): Compare a cart, a fast train, and a jet plane. For a long journey, their usual travel speeds are very different.\nRequired illustration: Three-part comparison diagram in ascending usual cruise-speed order: horse wagon on its road at left, modern electric train on tracks at center and passenger jet in open sky at right. Use separate equal-sized frames and no numeric speedometer, shared finish line, race or scaled travel-distance claim.\nExact current state: Qualitative speed comparison among selected examples; no exact speed or race claim.\nDo not add events or stages beyond the authored diagram. Repeat a subject only when the authored comparison or cutaway requires it. No written title; the app renders live text.\nFINAL QUALITY LOCK: Render 1536 by 1024 pixels, clean landscape 3:2. This is the finished page, not a reference sheet. Keep all essential subjects fully framed with 8 percent margin. Use plain ordinary clothes and exactly the subjects specified in this page. Do not transfer extraneous reference animals, poses or props into the picture. No national symbols, logos or written marks. All wheels visibly contact their own road or rails. Train rails are a coherent parallel pair under the wheels. A locomotive has a plausible horizontal boiler, firebox, steam pipe, cylinder, piston and connecting rods only where explicitly requested. No fantasy plumbing, exposed loose hoses, melted wheels or floating mechanisms. Horses have exactly four natural legs; tack is coherent. Aircraft have exactly one fuselage, one tail and matching wings with correct attachment.\nFRAMING REPAIR to LAST reference: keep exactly THREE EQUAL comparison frames, LEFT complete bay-horse wagon on road; CENTER complete white-blue electric train on tracks, pantograph touching overhead wire; RIGHT complete white-teal twin-engine passenger jet flying in sky. Shrink the entire strip and its contents together, then center so all three frames collectively fit x140..1396 and y100..924. All vehicles complete, no cut-off train at frame edge, no clipped jet/horse. Preserve separate routes, no racing or speed labels. Do not add people except plain wagon driver.",
   "references": [
     {
-      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-ff5fc7b9-42ec-45d6-a190-10804a290246.png",
-      "sha256": "b9ce5a50f4a3aa05c38eb1dfcf10160542ff781c79f4f44ba6a40f29c288371c"
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-21-reference.webp",
+      "sha256": "bcd9084f0fd6888f17aec2fe89d8d9237c31f3ae501978dc1610288aba71214c"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1c3ee-e610-7d22-ad30-a2bee077e3d6/exec-62d24ef4-4264-4bc5-90f7-2ef202e4c6c9.png",
+      "sha256": "49e320c3a9edfa7e19269518d2d5f74cfe0ce677895490da8f3387c3267a2724"
     }
   ],
   "manuscriptSource": {
-    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
-    "sha256": "9421bb4bb1f97c822674b76871fc5ee9b7b4398f02e9bdb626223b2a8cf9283e",
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/discovery-topic-revision/manuscripts",
+    "sha256": "5476e5d3a4c300cd350ded4aee8195556e25aa6db8b5208012c7e1c76178cb6e",
     "isolated": true,
     "firstNumber": 21,
     "lastNumber": 30,
@@ -26,15 +30,14 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "date": "2026-11-09T11:43:18.037101+00:00",
-    "sha256": "78df6acff864680115461f754db6d09b3b498132014228380197d8f5dd8ce810",
-    "note": "Kit compares exactly three equal cards: walking25,bus35,ferry20. Correct four-window ferry icon. All map elements and full Kit visible with safe margins; no leftover route badge.",
-    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+    "reviewedAt": "2026-11-10",
+    "sha256": "214830c90aebf9a1dfd4f5b98cabbebe274e6d79778546dffcf6d2ec6774785a",
+    "note": "Exactly three comparable independent scenes: horse wagon on road; complete modern electric train on rails with pantograph/wire contact; modern jet in sky. No shared race, finish line or numeric speed. Producer independently inspected the final installed WebP natively; complete final sequence and relevant native diagrams were independently reviewed."
   },
   "reviewedManuscriptSource": {
     "bookId": "world-discovery-e-21",
     "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
-    "sha256": "9421bb4bb1f97c822674b76871fc5ee9b7b4398f02e9bdb626223b2a8cf9283e",
-    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
+    "sha256": "d2b00cf5ebb83c26d8921703250179413a877c2f73e333ebcb39d3b45604dc4f",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json"
   }
 }

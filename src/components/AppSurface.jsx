@@ -1,3 +1,4 @@
+import { guidedReadingContentId } from "../utils/guidedReading/editions.js";
 import { readTeacherSessionReturn, rememberTeacherSessionReturn } from "../utils/teacherSessionReturn.js";
 import { createTeacherLaunchContext } from "../utils/teacherLaunchContext.js";
 import { Suspense, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
@@ -68,9 +69,9 @@ import { adventureMapFocusLockFor } from "../policy/childTrailPolicy.js";
 import { resolveConfirmedElPlacement } from "../policy/elPlacementPolicy.js";
 import { worldForScope } from "../utils/palWorlds.js";
 import { useReadingSessionFollower } from "../hooks/useReadingSessionFollower.js";
-import { useReadingSessionHost, pendingReadingChanges } from "../hooks/useReadingSessionHost.js";
+import { useReadingSessionHost, pendingReadingChanges, recoverPreviousTopicReadingChanges } from "../hooks/useReadingSessionHost.js";
 import { useStudentFocusSessionHost } from "../hooks/useStudentFocusSessionHost.js";
-import { endReadingSession, resumeReadingSession } from "../data/readingSessionCore.js";
+import { endReadingSession, resumeReadingSession, isPreviousTopicReadingSession } from "../data/readingSessionCore.js";
 import { lazyWithRetry } from "../utils/lazyWithRetry.js";
 import { teacherCycleOptions } from "./teacher/teacherCycleReference.js";
 import { confirmTeacherCycle, readTeacherCycleState, resolveTeacherCycleContext } from "../utils/teacherCycleContext.js";
@@ -1492,7 +1493,7 @@ export function AppSurface({ surface }) {
       {!isStudentMode && !isFocusedShell && readingRecoveryError && <div role="status" className="student-session-bar">We could not check for unfinished reading. Your saved records are unchanged. <button type="button" className="lp-button" onClick={() => { abandonedSessionCheckedForRef.current = ""; setReadingRecoveryError(false); setReadingRecoveryRetry(value => value + 1); }}>Try loading reading session</button></div>}
       {!isStudentMode && !isFocusedShell && <Suspense fallback={null}>
         {!(appView === APP_VIEWS.TEACHER_GUIDED_READING && activeReadingView) && <TeacherReadingSessionStrip host={readingSessionHost} teacherId={teacherId}
-          onOpen={() => openSessionDestination(activeReadingSession, APP_VIEWS.TEACHER_GUIDED_READING, { bookId: activeReadingSession?.book_id, readingSession: activeReadingSession?.id })}
+          onOpen={() => openSessionDestination(activeReadingSession, APP_VIEWS.TEACHER_GUIDED_READING, { bookId: guidedReadingContentId(activeReadingSession?.book_id), readingSession: activeReadingSession?.id })}
           onOpenResults={session => openSessionDestination(session, APP_VIEWS.REPORTS)}
           onReturn={session => returnToSessionOrigin(session)} returnLabel={readingReturn.returnLabel} />}
         <TeacherFocusCompletion completed={studentFocusHost.lastCompleted} onDismiss={studentFocusHost.dismissCompleted}
@@ -2126,6 +2127,7 @@ export function AppSurface({ surface }) {
               onGrownUps={goStudentHome}
               focusLocked={isStudentFocusLocked}
               lockedBookId={assignedBookId}
+              lockedBookTitle={activeStudentFocus?.resolved_config?.book_title || null}
               headerActions={studentFocusNoticeInChildHeader ? (
                 <StudentSessionNotice
                   connection={studentFocus.connection}
@@ -2666,8 +2668,8 @@ export function AppSurface({ surface }) {
           setAbandonedReadingSession(null);
           rememberTeacherSessionReturn({ teacherId, session, context: readingLaunchContext });
           setActiveReadingSession({ ...session, teacher_id: teacherId });
-          setGuidedInitialBookId(session.book_id);
-          goToTeacherIntent(APP_VIEWS.TEACHER_GUIDED_READING, { classId: session.class_id, learnerId: "", bookId: session.book_id, readingSession: session.id });
+          setGuidedInitialBookId(guidedReadingContentId(session.book_id));
+          goToTeacherIntent(APP_VIEWS.TEACHER_GUIDED_READING, { classId: session.class_id, learnerId: "", bookId: guidedReadingContentId(session.book_id), readingSession: session.id });
         }}
         open={readingSetupOpen}
         students={studentList.filter(student => !student.archived_at)}
@@ -2687,12 +2689,16 @@ export function AppSurface({ surface }) {
         onResume={async () => {
           const session = abandonedReadingSession;
           if (!await selectTeacherClass(session.class_id)) throw new Error("The session's students could not be loaded.");
-          const result = await resumeReadingSession({ client: supabase, sessionId: session.id });
+          if (isPreviousTopicReadingSession(session) && pendingReadingChanges(session) > 0) {
+            await recoverPreviousTopicReadingChanges({ client: supabase, session });
+            setAbandonedReadingSession({ ...session });
+          }
+          const result = await resumeReadingSession({ client: supabase, sessionId: session.id, session });
           if (result?.ok !== true || result.session?.id !== session.id || result.session?.teacher_id !== teacherId || result.session?.class_id !== session.class_id) throw new Error("The reading session could not be resumed.");
           setAbandonedReadingSession(null);
           setActiveReadingSession(result.session);
-          setGuidedInitialBookId(session.book_id);
-          goToTeacherIntent(APP_VIEWS.TEACHER_GUIDED_READING, { classId: session.class_id, learnerId: "", bookId: session.book_id, readingSession: session.id });
+          setGuidedInitialBookId(guidedReadingContentId(session.book_id));
+          goToTeacherIntent(APP_VIEWS.TEACHER_GUIDED_READING, { classId: session.class_id, learnerId: "", bookId: guidedReadingContentId(session.book_id), readingSession: session.id });
         }}
         session={abandonedReadingSession}
       /></Suspense>}

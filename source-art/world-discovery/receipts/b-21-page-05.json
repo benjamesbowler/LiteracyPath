@@ -2,31 +2,23 @@
   "bookId": "world-discovery-b-21",
   "slot": "page-05",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-09T05:20:33.212Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-2731ab55-c17c-40df-aa6a-61dfc923e3ce.png",
-  "sourceSha256": "14fb2319398cea3cabe32776f5f9f04b4da48bd239d5721ad68948ca647f528d",
+  "generatedAt": "2026-11-10T06:00:47.477Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1c3ed-c928-70e2-a423-68d0aaffd69c/exec-0c22edb4-2828-4408-86a8-659d71b382e0.png",
+  "sourceSha256": "9b539227b102dcd728ffca9f3adda1a3a3c080357f137b801c180bd95e5d66d2",
   "output": "public/guided-reading/world-discovery/b-21/page-05.webp",
-  "outputSha256": "696f927c196b940f5fe60a778ada4803cde2b2eb0a0686d0cda8dd1cde2bd2d4",
+  "outputSha256": "86ba8934bfe627306beb08c39f7bc985646a48a7e33bc2e1fc3b2bbc0ed8202b",
   "width": 1536,
   "height": 1024,
-  "prompt": "Edit the FIRST image. Change ONLY the three boxcar doors to match the established CLOSED design: each car has two closed sliding door panels meeting at the vertical CENTER, with two small gray handles immediately beside that center seam, one on each panel. Match the supplied cover. Keep the existing excellent wide framing, driver, train geometry, background, colors and all other content unchanged. Do not add labels, borders, panels or texture.\n\nAuthoritative scene specification:\nUse case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Train for Heavy Loads; World Discovery; nonfiction.\nSetting: A short contemporary freight journey between two warehouses. No public access to tracks. Unbranded blue diesel-electric locomotive, followed by red, yellow and green enclosed boxcars in that fixed order. Adult railway workers have orange safety vests, blue trousers and hard hats.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One blue locomotive; Exactly three boxcars in red/yellow/green order; Gray steel couplers between all vehicles; Wooden crates secured inside the cars; One continuous pair of rails\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 5. Printed prose (NOT text to put in art): The engine pulls.\nThe linked cars move along the track.\nRequired illustration: Whole short train begins rolling away from warehouse; rails curve gently ahead and all wheelsets stay on them.\nExact current state: Blue/red/yellow/green sequence; no gaps at couplers.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nAll colors perfectly smooth and flat; no grain or speckling.",
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: People Power; World Discovery; nonfiction.\nSetting: Three factual adult demonstrations: a level traffic-free park cycle path, a quiet enclosed ice rink, and a calm lake. Cyclist: medium-brown skin, short straight black hair under a plain yellow helmet, teal jacket, navy pants, white shoes; red upright chain-driven bicycle. Skater: light-brown skin, short curly dark hair, blue helmet, orange jacket, dark-green pants, black ice skates with one metal blade each. Rower: deep-brown skin, close-cropped black hair, purple shirt, navy pants and orange life jacket; green broad stable rowboat with two tan oars pivoted in the gunwales. No motors, races, steep slopes, roads, cultural costumes, flags or logos.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Red pedal bicycle with two wheels, visible chain and rear sprocket; Black ice skates with single silver blades, not wheels; Green rowboat with bow pointing right, rower facing left, two tan pivoted oars; Cyclist/skater helmets and rower life jacket retained in every view\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 5. Printed prose (NOT text to put in art): Push, glide, push, glide.\nThe skater keeps moving.\nRequired illustration: Same skater farther along the quiet rink during a glide, feet drawn closer under the body and hands low for balance. Wide view includes rink boards, making travel from previous position clear. No sequence duplicates or motion-blur limbs.\nExact current state: A new glide follows the previous push; same skater and rink.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.",
   "references": [
     {
-      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-b589ceb4-9e19-4aa5-a655-5498de8de9ee.png",
-      "sha256": "fafb497492e07bed05794938abae9de6329197bc7ec3ef57fffb79a1422e2e23"
-    },
-    {
-      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/b-21-reference.webp",
-      "sha256": "7855ef43e8e33eeeed6375214c4aa318ef90c9ff4f2c415843cfbdb563694042"
-    },
-    {
-      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/b-21/cover.webp",
-      "sha256": "1e34373e9d9b4ce9c001b630eed3af5ea92cd25c10a72526e4c7f5c2a41693d3"
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/b-21-reference.webp",
+      "sha256": "7db119f20aa1a9ea4d31c6afe2936a22afb8809a8e7b6971e59fa9a04a85af67"
     }
   ],
   "manuscriptSource": {
-    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
-    "sha256": "e2840abe2bce545cbddeb0319fa0aade90784202e01e047d8bcd74ba38ddbcbb",
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/discovery-topic-revision/manuscripts",
+    "sha256": "790ccfb000c5a7286216b9ebcfd42c3f0b6779fed339fbc569cddf6ee58d3e09",
     "isolated": true,
     "firstNumber": 21,
     "lastNumber": 30,
@@ -34,15 +26,14 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-09T05:24:08.485Z",
-    "sha256": "696f927c196b940f5fe60a778ada4803cde2b2eb0a0686d0cda8dd1cde2bd2d4",
-    "note": "Directly viewed native source and installed WebP. Blue locomotive pulls exactly three closed red/yellow/green boxcars. Doors preserve paired central handles. Driver stays in the cab; wheels contact rails along the gentle bend.",
-    "limits": "Direct image inspection only; complete sequence and app display review follow separately."
+    "reviewedAt": "2026-11-10",
+    "sha256": "86ba8934bfe627306beb08c39f7bc985646a48a7e33bc2e1fc3b2bbc0ed8202b",
+    "note": "Skater changes to a glide with feet closer beneath the body, preserving blue helmet, orange jacket and green pants in same rink. Producer independently inspected the final installed WebP natively; complete final sequence and relevant native diagrams were independently reviewed."
   },
   "reviewedManuscriptSource": {
     "bookId": "world-discovery-b-21",
     "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
-    "sha256": "6d40120e98f2ff48a5cf89a9eb34eb073cdc2b64b8c7787eb0d4ca5f64455114",
-    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
+    "sha256": "664f916d1379302ae82b7a5dbf774413f4378508f9326855afd22b7b7086bbfc",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json"
   }
 }

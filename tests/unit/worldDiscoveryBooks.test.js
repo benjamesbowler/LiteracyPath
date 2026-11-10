@@ -5,6 +5,7 @@ import { fingerprintBookReadingText } from "../../src/utils/guidedReading/textMe
 import { getRuntimeGuidedReadingBooks } from "../../src/utils/guidedReading/runtimeBooks.js";
 import { BOOK_COLLECTIONS, bookCollectionId, buildBookShelves } from "../../src/policy/childLibraryPolicy.js";
 import cohorts from "../../src/content/world-discovery/cohorts.json" with { type: "json" };
+import { GUIDED_READING_WORLD_DISCOVERY_LEVEL_REVIEWS as reviews } from "../../src/data/guidedReadingWorldDiscoveryBooks.js";
 
 test("the library exposes exactly the declared registered World Discovery cohorts", () => {
   const books = getRuntimeGuidedReadingBooks().filter(book => book.seriesId === "world-discovery");
@@ -13,7 +14,9 @@ test("the library exposes exactly the declared registered World Discovery cohort
   assert.equal(books.length, expectedBooks);
   assert.equal(books.reduce((count, book) => count + book.pages.length, 0), active.reduce((count, cohort) => count + cohort.expectedPages, 0));
   assert.ok(books.every(book => book.appReadingLevelStatus === "current" && bookCollectionId(book) === "world-discovery"));
-  for (const level of "ABCDE") assert.equal(books.filter(book => book.appReadingLevel === level).length, active.length * 10);
+  for (const book of books) assert.equal(book.appReadingLevel, reviews[book.id].appReadingLevel);
+  // Production membership stays fixed even when a repaired text earns another shelf.
+  for (const level of "ABCDE") assert.equal(books.filter(book => book.appLevel === level).length, active.length * 10);
   assert.equal(BOOK_COLLECTIONS.filter(row => row.id === "world-discovery").length, 1);
   const shelf = buildBookShelves({ books: [...books].reverse(), mode: "all", slots: expectedBooks })[0];
   assert.deepEqual(shelf.books.map(row => row.book.id), books.map(book => book.id));
@@ -78,11 +81,13 @@ test("changing a title, page text or page order invalidates a separately authore
   }
 });
 
-test("a requested public band cannot override the approved band or internal limits", () => {
+test("a production band cannot force the reviewed public shelf or relax internal limits", () => {
   const book = manuscript();
   const reviews = { [book.id]: review(book) };
   book.appLevel = "E";
-  assert.match(validateWorldDiscoveryReviews([book], reviews).join("\n"), /public level differs/);
+  assert.deepEqual(validateWorldDiscoveryReviews([book], reviews), []);
+  reviews[book.id].appReadingLevel = "pending";
+  assert.match(validateWorldDiscoveryReviews([book], reviews).join("\n"), /public level is invalid/);
   book.appLevel = "A";
   book.pages[0].text = "Kit has a very large red paper hat.";
   assert.match(validateWorldDiscoveryDrafts([book], { requireComplete: false }).failures.join("\n"), /exceeds A limit/);

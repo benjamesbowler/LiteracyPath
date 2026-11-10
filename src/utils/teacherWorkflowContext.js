@@ -1,3 +1,4 @@
+import { guidedReadingContentId } from "./guidedReading/editions.js";
 import { resolveLaunchAudience } from './teacherLaunchContext.js';
 
 /** A reporting priority id identifies a concept; the report owns the learner. */
@@ -20,7 +21,7 @@ export function teacherReadingRouteContext({ session, teacherId, classId, params
   return {
     active,
     key: active ? session.id : 'browse',
-    bookId: active ? session.book_id : params.get('book') || ''
+    bookId: active ? guidedReadingContentId(session.book_id) : params.get('book') || ''
   };
 }
 

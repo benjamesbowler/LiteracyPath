@@ -286,6 +286,10 @@ construction, missing-word reveals and all eight-card memory boards. Helper
 slides remain hidden from ordinary slide progression. Use the on-screen Next
 control to move to the next actual classroom round, and Slides to choose a
 lesson slide. Native PowerPoint playback handles the embedded speaker objects.
+Use PowerPoint's pointer for linked buttons and return to it after modelling
+with the pen. The tested Mac Slide Show setting is **Pointer Options → Visible**;
+native mouse answer, feedback and retry paths were verified with that setting.
+Keyboard links also remain available.
 
 The offline classroom equivalents are explicit: the teacher paces the
 15-second reading interval and chooses when to hide mismatched cards;

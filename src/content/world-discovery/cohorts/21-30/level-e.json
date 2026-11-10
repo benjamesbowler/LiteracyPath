@@ -2,7 +2,7 @@
   {
     "id": "world-discovery-e-21",
     "number": 21,
-    "title": "How Do We Choose a Ride?",
+    "title": "Transport Through Time",
     "topic": "transport",
     "type": "nonfiction",
     "appLevel": "E",
@@ -12,162 +12,194 @@
     "interestAge": "4–8",
     "storyBibleReview": {
       "kind": "nonfiction",
-      "canonIds": [
-        "WD-KIT",
-        "WD-ZOE"
-      ],
-      "topicQuestion": "How can comparing whole journeys help us choose a way to travel?",
-      "progression": "Compare walking, bus and ferry routes in an explicit practice example, including time spent waiting and walking.",
-      "synthesis": "The shortest ride is not necessarily the shortest whole journey; this example favors the ferry.",
+      "canonIds": [],
+      "topicQuestion": "How have inventions changed the ways and speeds at which people travel?",
+      "progression": "Move from walking, animal transport and boats through a horse-drawn cart, steam trains, motor cars and aircraft; compare modern train and plane speed, distinguish travel speed from whole-journey time, and return to coexistence of older and newer ways.",
+      "synthesis": "Inventions added faster and different ways to travel without making all earlier forms disappear; speed during travel is only part of the time a journey takes.",
       "scienceSources": [
+        {
+          "title": "U.S. Energy Information Administration: Transportation Timeline",
+          "url": "https://www.eia.gov/kids/history-of-energy/timelines/transportation.php",
+          "evidence": "Horse-drawn carts and river boats carried people/goods before modern powered transport; steam vehicles and railways developed before widespread gasoline cars and passenger aircraft. The book gives a selected sequence, not a complete worldwide chronology or single-inventor claim.",
+          "checked": "2026-11-10"
+        },
+        {
+          "title": "Science Museum: Transport collection highlights",
+          "url": "https://blog.sciencemuseum.org.uk/top-5-things-to-see-at-the-science-museum-if-you-love-transport/",
+          "evidence": "Puffing Billy dates from 1813–14; the Panhard motor car dates from 1894–95. These objects support the historical order of steam railway and early gasoline motor-car examples.",
+          "checked": "2026-11-10"
+        },
+        {
+          "title": "Smithsonian: Early Cars: Fact Sheet for Kids",
+          "url": "https://www.si.edu/spotlight/early-cars",
+          "evidence": "Early cars used steam, gasoline and electric power. This manuscript does not suggest electric cars were invented only after modern gasoline cars.",
+          "checked": "2026-11-10"
+        },
+        {
+          "title": "Smithsonian National Air and Space Museum: The Jet Age",
+          "url": "https://airandspace.si.edu/jet-age",
+          "evidence": "Jet engines enabled faster airliners and transformed long-distance air travel. The comparison is ordinary passenger jet cruise versus a passenger train, not a record-breaking race.",
+          "checked": "2026-11-10"
+        },
+        {
+          "title": "National Museums Scotland: The world’s first passenger jet: Comet 4C",
+          "url": "https://www.nms.ac.uk/discover-catalogue/the-worlds-first-passenger-jet-comet-4c",
+          "evidence": "The 1952 passenger jet was faster than earlier airliners. The book omits dates rather than presenting a false universal adoption date.",
+          "checked": "2026-11-10"
+        },
         {
           "title": "Transport for London: Plan a Journey",
           "url": "https://tfl.gov.uk/plan-a-journey/",
-          "evidence": "Journey planning compares travel modes and departure choices; all manuscript routes and numbers are explicitly invented practice data."
-        },
-        {
-          "title": "Transport for London: Planning for Walking Toolkit",
-          "url": "https://content.tfl.gov.uk/the-planning-for-walking-toolkit.pdf",
-          "evidence": "Public-transport trips include walking stages; whole-journey comparisons must include access and onward walking."
+          "evidence": "Whole journey planning includes access and waiting as well as the riding stage. The manuscript gives no invented timetable or claim that air is always the quickest whole journey.",
+          "checked": "2026-11-10"
         }
       ]
     },
-    "setting": "An invented practice map and journey times, not a real timetable. Kit and Zoe plan with an adult: medium-brown skin, short black hair, plain teal shirt and navy pants. Start west bank, museum east bank; footbridge north; road bridge farther north; ferry crosses between nearby quays. White-and-blue enclosed ferry, yellow bus.",
+    "setting": "A selected factual history followed by contemporary transport comparisons. Historical pictures are reconstructions, not a claim that all countries changed at once. Plain practical clothes only; no flags, religious buildings, political events or cultural costumes. Cart: brown wooden four-wheel wagon, one healthy bay horse and adult driver in plain gray shirt and dark trousers. Steam train: black early passenger steam locomotive with red wheels and two brown wooden coaches. Early motor car: dark-green open four-wheel gasoline car with adult driver. Early aircraft: plain cream single-propeller biplane. Modern train: white electric passenger train with blue band and overhead wire. Jet: white twin-engine passenger jet with teal tail. No named cast or brand logos.",
     "props": [
-      "Practice map with three consistent routes",
-      "Plain museum with a round window",
-      "Walking 25 minutes; bus 35 total; ferry 20 total"
+      "Horse-drawn brown wagon",
+      "Early black steam train",
+      "Early dark-green motor car",
+      "Cream early propeller biplane",
+      "Modern white-blue electric train",
+      "Modern white-teal passenger jet"
     ],
-    "coverBrief": "Kit and Zoe compare a route map beside a river with a ferry and distant bridge.",
+    "coverBrief": "Four-part historical comparison diagram from left to right: horse-drawn wagon, early steam train, early motor car, modern passenger jet. Each vehicle stands or travels on its correct separate surface, with generous whitespace and no shared-scale claim. No dates, labels, flags or arrows.",
+    "coverImageLayout": "comparison-diagram",
     "pages": [
       {
         "pageNumber": 1,
-        "text": "On this practice map, the museum stands across a river. Kit and Zoe compare three ways to get there.",
-        "imageBrief": "Kit and Zoe study a simple map with their adult. Start on west bank; museum on east bank; footbridge north, road bridge farther north; two opposite ferry quays.",
-        "imageAlt": "Kit and Zoe study a simple map with their adult.",
-        "pageDescription": "Kit and Zoe study a simple map with their adult.",
-        "state": "Start on west bank; museum on east bank; footbridge north, road bridge farther north; two opposite ferry quays.",
-        "embeddedImageText": "5 10 15 20 25 35",
-        "imageLayout": "integrated-diagram"
+        "text": "Before motor vehicles existed, people walked, rode animals, and traveled in boats. How did new inventions change their journeys?",
+        "imageBrief": "Three-part historical comparison diagram: adults carry baskets while walking along a path at left; adult rides a horse at center; two adults row a small wooden boat on river at right. Plain practical clothing; separate valid surfaces, not one unsafe mixed path. No engines or modern wires.",
+        "imageAlt": "People walk with baskets, ride a horse, and row a boat in three separate scenes.",
+        "pageDescription": "People walk with baskets, ride a horse, and row a boat in three separate scenes.",
+        "state": "Opening selected pre-motor travel methods, not one universal place or date.",
+        "embeddedImageText": "",
+        "imageLayout": "comparison-diagram"
       },
       {
         "pageNumber": 2,
-        "text": "They could walk over the footbridge. The whole walk would take twenty-five minutes.",
-        "imageBrief": "A dotted walking route crosses the footbridge and reaches the museum. Route continuous from start to destination; use 25 beside a walking symbol; no crossing through the river.",
-        "imageAlt": "A dotted walking route crosses the footbridge and reaches the museum.",
-        "pageDescription": "A dotted walking route crosses the footbridge and reaches the museum.",
-        "state": "Route continuous from start to destination; use 25 beside a walking symbol; no crossing through the river.",
-        "embeddedImageText": "5 10 15 20 25 35",
-        "imageLayout": "integrated-diagram"
+        "text": "A horse could pull a cart full of people or goods. Travelers still needed to feed and rest the horse.",
+        "imageBrief": "Historical reconstruction: one bay horse rests beside stationary brown wagon on firm level road. Adult driver offers hay from a small bucket at horse’s head; two travelers sit safely in wagon. Tack and traces connect realistically, all four horse legs clear. No contemporary car.",
+        "imageAlt": "A horse rests beside a loaded wooden wagon while its driver offers food.",
+        "pageDescription": "A horse rests beside a loaded wooden wagon while its driver offers food.",
+        "state": "Animal transport depends on a living animal needing care and rest.",
+        "embeddedImageText": ""
       },
       {
         "pageNumber": 3,
-        "text": "The bus must use the road bridge. Its route goes farther upstream before crossing the river.",
-        "imageBrief": "A yellow bus route follows streets to the farther road bridge. Same map geometry; continuous road route returns along east bank to a stop by the museum.",
-        "imageAlt": "A yellow bus route follows streets to the farther road bridge.",
-        "pageDescription": "A yellow bus route follows streets to the farther road bridge.",
-        "state": "Same map geometry; continuous road route returns along east bank to a stop by the museum.",
-        "embeddedImageText": "5 10 15 20 25 35",
+        "text": "Later, steam engines pulled trains along tracks. Burning fuel heated water, and steam helped turn the wheels.",
+        "imageBrief": "Early steam passenger train on rails. A single integrated cutaway in black locomotive shows small enclosed firebox beneath a water-filled boiler; steam pipe leads to piston and connecting rod by red driving wheel. Two brown coaches behind. No text, open fire beside passengers or floating pipes.",
+        "imageAlt": "A steam train pulls wooden coaches. A cutaway shows a fire heating water and a pipe leading toward the driving wheels.",
+        "pageDescription": "A steam train pulls wooden coaches. A cutaway shows a fire heating water and a pipe leading toward the driving wheels.",
+        "state": "Steam locomotive and its energy-to-wheel mechanism introduced.",
+        "embeddedImageText": "",
         "imageLayout": "integrated-diagram"
       },
       {
         "pageNumber": 4,
-        "text": "The bus ride takes fifteen minutes. That sounds quicker, but the ride is only part of the journey.",
-        "imageBrief": "A yellow bus travels over the road bridge. One vehicle on its correct road; show 15 beside a bus symbol, without treating it as the whole journey.",
-        "imageAlt": "A yellow bus travels over the road bridge.",
-        "pageDescription": "A yellow bus travels over the road bridge.",
-        "state": "One vehicle on its correct road; show 15 beside a bus symbol, without treating it as the whole journey.",
-        "embeddedImageText": "5 10 15 20 25 35"
+        "text": "A steam train could carry many people farther in one day than a horse-drawn cart could usually travel.",
+        "imageBrief": "Two-part historical comparison diagram: same wagon with two travelers on road at left; same locomotive with two occupied passenger coaches on rail at right. Distinct scenes, no racing side by side. Longer row of small identical sun-to-sunset time symbols is prohibited; use no numerical or proportional distance chart.",
+        "imageAlt": "A small horse-drawn wagon and a steam train with passenger coaches are compared side by side.",
+        "pageDescription": "A small horse-drawn wagon and a steam train with passenger coaches are compared side by side.",
+        "state": "Compare carrying and travel potential; diagram is not a literal race or exact speed chart.",
+        "embeddedImageText": "",
+        "imageLayout": "comparison-diagram"
       },
       {
         "pageNumber": 5,
-        "text": "They must also walk for ten minutes altogether and wait ten minutes. The bus journey takes thirty-five minutes.",
-        "imageBrief": "Three time blocks show walking, waiting and riding. Exactly 10, 10 and 15 with walking, waiting and bus symbols; total 35. Walking includes both ends.",
-        "imageAlt": "Three time blocks show walking, waiting and riding.",
-        "pageDescription": "Three time blocks show walking, waiting and riding.",
-        "state": "Exactly 10, 10 and 15 with walking, waiting and bus symbols; total 35. Walking includes both ends.",
-        "embeddedImageText": "5 10 15 20 25 35",
-        "imageLayout": "integrated-diagram"
+        "text": "Motor cars brought another change. Their engines used fuel to move the wheels, so the cars did not need horses.",
+        "imageBrief": "Early dark-green open motor car travels on a clear firm road. Adult driver in plain gray jacket and dark trousers holds wheel; simple engine visible under open-sided front hood, no horse or carriage traces. Preserve early four-wheel vehicle proportions.",
+        "imageAlt": "An adult drives an early green motor car along a road. No horse pulls it.",
+        "pageDescription": "An adult drives an early green motor car along a road. No horse pulls it.",
+        "state": "A motor vehicle supplies its own mechanical movement.",
+        "embeddedImageText": ""
       },
       {
         "pageNumber": 6,
-        "text": "The ferry has a shorter crossing. Its ride takes only five minutes, but they must check its waiting time too.",
-        "imageBrief": "The white-and-blue ferry crosses between the two quays. Same practice map and museum; no claim that every ferry is faster than a bus.",
-        "imageAlt": "The white-and-blue ferry crosses between the two quays.",
-        "pageDescription": "The white-and-blue ferry crosses between the two quays.",
-        "state": "Same practice map and museum; no claim that every ferry is faster than a bus.",
-        "embeddedImageText": "5 10 15 20 25 35"
+        "text": "Early airplanes carried people above the ground. Later, jet planes made long journeys across oceans much faster.",
+        "imageBrief": "Two-part historical comparison diagram: cream propeller biplane flying low above fields at left; modern white teal-tailed passenger jet above ocean at right. Separate sky scenes, distinct scales, no implication the planes fly in formation. No dates or brands.",
+        "imageAlt": "An early propeller airplane flies above fields. A modern passenger jet flies above the sea in a separate scene.",
+        "pageDescription": "An early propeller airplane flies above fields. A modern passenger jet flies above the sea in a separate scene.",
+        "state": "Aircraft and later jet power extend travel above land and sea.",
+        "embeddedImageText": "",
+        "imageLayout": "comparison-diagram"
       },
       {
         "pageNumber": 7,
-        "text": "Here, walking takes five minutes altogether, waiting takes ten, and the ride takes five. The ferry journey takes twenty minutes.",
-        "imageBrief": "Three ferry journey time blocks show walking, waiting and riding. Exactly 5, 10 and 5 with matching symbols; total 20. Walking includes both ends.",
-        "imageAlt": "Three ferry journey time blocks show walking, waiting and riding.",
-        "pageDescription": "Three ferry journey time blocks show walking, waiting and riding.",
-        "state": "Exactly 5, 10 and 5 with matching symbols; total 20. Walking includes both ends.",
-        "embeddedImageText": "5 10 15 20 25 35",
-        "imageLayout": "integrated-diagram"
+        "text": "Some modern trains run on electricity. They can carry many passengers quickly between stations without stopping in road traffic.",
+        "imageBrief": "Modern white-blue passenger train on fenced electrified rail line with one pantograph touching overhead wire. Coaches carry seated people. Nearby road separated by fence shows stationary cars at traffic lights. No train on road, no pedestrians on tracks.",
+        "imageAlt": "An electric passenger train moves on its own tracks beside a road where cars wait at a light.",
+        "pageDescription": "An electric passenger train moves on its own tracks beside a road where cars wait at a light.",
+        "state": "Modern electric rail differs from steam and follows a separated route.",
+        "embeddedImageText": ""
       },
       {
         "pageNumber": 8,
-        "text": "Twenty minutes is less than twenty-five or thirty-five. For this trip, the ferry gives them the quickest whole journey.",
-        "imageBrief": "Kit compares three total-time cards on the map. Walk 25, bus 35 and ferry 20 with clear matching icons; same units, no different departure times.",
-        "imageAlt": "Kit compares three total-time cards on the map.",
-        "pageDescription": "Kit compares three total-time cards on the map.",
-        "state": "Walk 25, bus 35 and ferry 20 with clear matching icons; same units, no different departure times.",
-        "embeddedImageText": "5 10 15 20 25 35",
+        "text": "Compare a cart, a fast train, and a jet plane. For a long journey, their usual travel speeds are very different.",
+        "imageBrief": "Three-part comparison diagram in ascending usual cruise-speed order: horse wagon on its road at left, modern electric train on tracks at center and passenger jet in open sky at right. Use separate equal-sized frames and no numeric speedometer, shared finish line, race or scaled travel-distance claim.",
+        "imageAlt": "A horse-drawn cart, a modern train and a passenger jet are shown on their separate routes.",
+        "pageDescription": "A horse-drawn cart, a modern train and a passenger jet are shown on their separate routes.",
+        "state": "Qualitative speed comparison among selected examples; no exact speed or race claim.",
+        "embeddedImageText": "",
         "imageLayout": "comparison-diagram"
       },
       {
         "pageNumber": 9,
-        "text": "On another day, a longer wait could change their choice. They would need to check the times again.",
-        "imageBrief": "The adult checks a ferry departure display while the children wait beside the quay. Ferry moored; children behind railing; display is blank except a simple clock symbol, no invented live timetable.",
-        "imageAlt": "The adult checks a ferry departure display while the children wait beside the quay.",
-        "pageDescription": "The adult checks a ferry departure display while the children wait beside the quay.",
-        "state": "Ferry moored; children behind railing; display is blank except a simple clock symbol, no invented live timetable.",
-        "embeddedImageText": "5 10 15 20 25 35"
+        "text": "A jet usually travels faster than a fast train. But reaching an airport and waiting can add hours to a journey.",
+        "imageBrief": "Integrated two-part journey diagram: adult with small suitcase travels on shuttle bus toward distant airport terminal at left; same adult sits waiting safely at departure gate at right, passenger jet visible through window. No printed clock digits or fake timetable. Plain ordinary clothes; no flags or brands.",
+        "imageAlt": "A traveler rides toward an airport, then waits in a departure lounge before boarding a plane.",
+        "pageDescription": "A traveler rides toward an airport, then waits in a departure lounge before boarding a plane.",
+        "state": "Whole-journey time includes access and waiting, distinct from cruise speed.",
+        "embeddedImageText": "",
+        "imageLayout": "comparison-diagram"
       },
       {
         "pageNumber": 10,
-        "text": "They choose the ferry for this practice trip. They have compared the walking, waiting and riding before deciding.",
-        "imageBrief": "The children and adult sit safely inside the ferry near a window. Same white-and-blue ferry approaches east quay; museum round window visible beyond; calm ordinary journey.",
-        "imageAlt": "The children and adult sit safely inside the ferry near a window.",
-        "pageDescription": "The children and adult sit safely inside the ferry near a window.",
-        "state": "Same white-and-blue ferry approaches east quay; museum round window visible beyond; calm ordinary journey.",
-        "embeddedImageText": "5 10 15 20 25 35"
+        "text": "New inventions added ways to travel. People still walk, cycle, row, and ride animals alongside today’s motor vehicles.",
+        "imageBrief": "Closing comparison diagram of four clearly separated everyday scenes: pedestrian and cyclist on park path; adult rows on calm water; adult on horse along a rural bridleway; modern train and car on separate track and road. Each user appropriately equipped. No one shares unsafe surfaces or races.",
+        "imageAlt": "People walk, cycle, row and ride a horse. A car and train travel on their own routes in separate scenes.",
+        "pageDescription": "People walk, cycle, row and ride a horse. A car and train travel on their own routes in separate scenes.",
+        "state": "Synthesis: older and newer forms coexist today; no claim of universal replacement.",
+        "embeddedImageText": "",
+        "imageLayout": "comparison-diagram"
       }
     ],
     "discussion": {
       "oral": {
-        "prompt": "Why should they include waiting time?",
-        "listenFor": "Waiting is part of the whole journey, even when the ride is short."
+        "prompt": "How did inventions change travel? Why do people still use older ways?",
+        "listenFor": "Engines, trains and aircraft added choices and often greater speed or carrying ability. Walking, cycling, rowing and animal transport still suit some journeys and activities."
       },
       "visual": {
-        "page": 8,
-        "prompt": "Which card has the smallest total?",
-        "lookFor": "The ferry card shows twenty minutes."
+        "page": 9,
+        "prompt": "What parts of this journey happen before the plane flies?",
+        "lookFor": "The traveler goes to the airport and waits there. These steps take time too."
       }
     },
-    "levelRationale": "Candidate E: Compare walking, bus and ferry routes in an explicit practice example, including time spent waiting and walking. The connected explanation uses concrete clauses and supported topic words. Independent placement and media review remain pending.",
+    "levelRationale": "A sustained historical comparison changes time periods, power sources, carrying possibilities and ordinary travel speed, then qualifies the fastest-vehicle assumption using airport access/waiting. Past-tense history and present-tense comparison are explicitly bridged. This is a lower-E connected explanation: more temporal and cross-example integration than the D Container journey, while simpler than the arithmetic and changing-wait conditions of E Choose a Ride.",
     "languagePrep": [
       {
-        "word": "route",
-        "meaning": "the way followed to get somewhere"
+        "word": "transport",
+        "meaning": "ways of carrying people or things between places"
       },
       {
-        "word": "ferry",
-        "meaning": "a boat that carries people or vehicles across water"
+        "word": "steam",
+        "meaning": "water in its gas form"
       },
       {
-        "word": "compare",
-        "meaning": "look at things together to find differences"
+        "word": "invention",
+        "meaning": "something new that people design and make"
+      },
+      {
+        "word": "journey",
+        "meaning": "a trip from one place to another"
       }
     ]
   },
   {
     "id": "world-discovery-e-22",
     "number": 22,
-    "title": "City, Town or Village?",
+    "title": "Different Countries, Different Places",
     "topic": "geography",
     "type": "nonfiction",
     "appLevel": "E",
@@ -178,173 +210,189 @@
     "storyBibleReview": {
       "kind": "nonfiction",
       "canonIds": [],
-      "topicQuestion": "Can a place name alone tell us how large a settlement is?",
-      "progression": "Compare three named English settlements and their everyday features, then separate city status from size.",
-      "synthesis": "Cities, towns and villages are places where people live, but their names do not provide one worldwide size rule.",
+      "topicQuestion": "Are all places inside one country alike?",
+      "progression": "Locate three countries, then look within each: Japan’s mountainous islands and Tokyo; Egypt’s desert and Nile farmland; Brazil’s Amazon forest and coastal city. Use those within-country contrasts to reject a single-landscape picture of any country.",
+      "synthesis": "Japan, Egypt and Brazil each contain many kinds of places. A country name does not identify one landscape or one way of life.",
       "scienceSources": [
         {
-          "title": "Wells City Council: About",
-          "url": "https://www.wells.gov.uk/about",
-          "evidence": "Wells is a city; its parish population and local description establish a small settlement."
+          "title": "Ministry of Foreign Affairs of Japan: Japanese Territory",
+          "url": "https://www.mofa.go.jp/territory/page1we_000006.html",
+          "evidence": "Japan comprises many islands and is mountainous, with extensive forest. The book omits disputed borders, territorial counts and political settings.",
+          "checked": "2026-11-10"
         },
         {
-          "title": "Reading Borough Council: Profile of Reading",
-          "url": "https://www.reading.gov.uk/about-reading/profile-of-reading/",
-          "evidence": "Reading is called a town, with a large population, workplaces and important road and rail connections."
+          "title": "Japan National Tourism Organization: Fuji-Hakone-Izu National Park",
+          "url": "https://www.japan.travel/national-parks/parks/fuji-hakone-izu/explore/",
+          "evidence": "Mount Fuji rises to a high volcanic peak, with woodland on lower slopes and walking trails. Depicted as landscape, without shrines or religious monuments.",
+          "checked": "2026-11-10"
         },
         {
-          "title": "Wiltshire Council: Lacock Community History",
-          "url": "https://apps.wiltshire.gov.uk/communityhistory/Community/Index/132",
-          "evidence": "Lacock is a lived-in village with old buildings and shops."
+          "title": "Tokyo Metropolitan Government: Tokyo Outline",
+          "url": "https://www.gotokyo.org/en/plan/tokyo-outline/index.html",
+          "evidence": "Tokyo is a major urban region in Japan with extensive transit and tall buildings. The book presents an ordinary urban street, not a claim that all of Tokyo is built-up.",
+          "checked": "2026-11-10"
         },
         {
-          "title": "House of Commons Library: What Makes a City?",
-          "url": "https://commonslibrary.parliament.uk/research-briefings/cbp-11240/",
-          "evidence": "UK city status is distinct from a universal population threshold."
+          "title": "NASA Earth Observatory: The Great Bend of the Nile, Day and Night",
+          "url": "https://science.nasa.gov/earth/earth-observatory/the-great-bend-of-the-nile-day-and-night/",
+          "evidence": "Along Egypt’s Nile, green irrigated fields and urban places contrast with surrounding dry desert. One connected river-edge scene supports the comparison.",
+          "checked": "2026-11-10"
         },
         {
-          "title": "ONS: Towns and Cities, Characteristics of Built-up Areas",
-          "url": "https://www.ons.gov.uk/peoplepopulationandcommunity/housing/articles/townsandcitiescharacteristicsofbuiltupareasenglandandwales/census2021",
-          "evidence": "Statistical settlement categories depend on defined methods, not a single universal meaning of town or city."
+          "title": "NASA Earth Observatory: Cultivating Egypt’s Desert",
+          "url": "https://science.nasa.gov/earth/earth-observatory/cultivating-egypts-desert-89820/",
+          "evidence": "Egypt’s Western Desert receives very little rainfall. The text says much, not all, of Egypt is desert and does not claim that no crops grow away from the Nile.",
+          "checked": "2026-11-10"
         },
         {
-          "title": "UN-Habitat: Applying the Degree of Urbanisation",
-          "url": "https://unhabitat.org/applying-the-degree-of-urbanisation-a-methodological-manual-to-define-cities-towns-and-rural-areas",
-          "evidence": "International statistical methods classify settlements for comparison; this differs from local place names and formal UK city status."
+          "title": "UNESCO World Heritage Centre: Central Amazon Conservation Complex",
+          "url": "https://whc.unesco.org/en/list/998",
+          "evidence": "The Brazilian Amazon contains extensive rainforest and waterways. The book does not equate the whole country with rainforest or suggest that the entire Amazon lies in Brazil.",
+          "checked": "2026-11-10"
+        },
+        {
+          "title": "UNESCO World Heritage Centre: Rio de Janeiro: Carioca Landscapes between the Mountain and the Sea",
+          "url": "https://whc.unesco.org/en/list/1100/",
+          "evidence": "Rio de Janeiro lies between forested hills and the Atlantic, with dense buildings and sandy coastal areas. Use a coastal panorama without the religious monuments mentioned in the source.",
+          "checked": "2026-11-10"
         }
       ]
     },
-    "setting": "Wells, Reading and Lacock in England. Views are explanatory illustrations of documented features, not records of a particular street. No religious buildings, flags, crests or ceremonial scenes. England location map must accurately place Wells southwest of Lacock, and Reading east of both.",
+    "setting": "Factual geographic tour of selected ordinary landscapes in Japan, Egypt and Brazil. No fictional child travels between pages; no suggestion that one climate, building or landscape represents all people in a country. Maps are simplified geographic aids, not political claims; show whole-country approximate outlines with no disputed detail, capitals, flags, national costumes, religious monuments or political buildings. Japan: island coastline, Mount Fuji lower wooded slopes, ordinary Tokyo railway street. Egypt: dry plateau and connected Nile-side irrigated farmland with ordinary homes. Brazil: Amazon waterway with rainforest and ordinary Rio coastline framed by forested hills; omit Christ statue. Small background adults wear ordinary contemporary clothing and are never cultural symbols.",
     "props": [
-      "Accurate small England locator map",
-      "Ordinary stone houses, shops, roads and railway",
-      "Three cards labeled Wells, Reading, Lacock"
+      "Simplified world locator map with dots for Japan, Egypt and Brazil",
+      "Japan island coastline, wooded Mount Fuji slopes, ordinary Tokyo train",
+      "Egypt desert and Nile river fields",
+      "Brazil Amazon waterway and Rio coastal city"
     ],
-    "coverBrief": "Three simple unlettered place-picture cards show Wells, Reading and Lacock through authentic ordinary homes and street features. The cards contain pictures only, without place names, other lettering, flags or religious buildings and symbols.",
+    "coverBrief": "One geographic comparison diagram shows three broad ordinary landscapes in separate gently framed areas: Mount Fuji wooded slopes at left; Egypt Nile fields beside dry plateau at center; Brazil coast with green hills, beach and ordinary buildings at right. A small simple whole-Earth outline below supplies orientation only. No national flags, costumes, religious landmarks, labels or text.",
+    "coverImageLayout": "comparison-diagram",
     "pages": [
       {
         "pageNumber": 1,
-        "text": "Wells is a city. Reading is a town. Lacock is a village. These three places are all in England.",
-        "imageBrief": "An accurate England map marks Wells, Reading and Lacock. Three correctly located dots with exact names; Wells southwest of Lacock, Reading farther east; no invented borders or flags.",
-        "imageAlt": "An accurate England map marks Wells, Reading and Lacock.",
-        "pageDescription": "An accurate England map marks Wells, Reading and Lacock.",
-        "state": "Three correctly located dots with exact names; Wells southwest of Lacock, Reading farther east; no invented borders or flags.",
-        "embeddedImageText": "Wells Reading Lacock",
+        "text": "A world map shows many countries. Are all places inside one country alike? Let’s look closely at three countries.",
+        "imageBrief": "Simple world locator map, north up, with geographically correct continental silhouettes. Three dots only: Japan in east Asia, Egypt in northeast Africa, Brazil in eastern South America. Each dot has one leader line to a plain empty circular focus marker, no country names, political borders or invented land. Do not show Antarctica as an inhabited country.",
+        "imageAlt": "A world map marks Japan in east Asia, Egypt in northeast Africa and Brazil in South America with three dots.",
+        "pageDescription": "A world map marks Japan in east Asia, Egypt in northeast Africa and Brazil in South America with three dots.",
+        "state": "Opening locates three selected countries; no travel time or universal-country claim.",
+        "embeddedImageText": "",
         "imageLayout": "integrated-diagram"
       },
       {
         "pageNumber": 2,
-        "text": "Start in Lacock. Houses stand beside its streets, and people live there today. Its old buildings are still in use.",
-        "imageBrief": "Ordinary stone and timber-framed houses line a Lacock village street. Modern residents in everyday clothes; no historical costumes, churches or suggestion that the village is an empty museum.",
-        "imageAlt": "Ordinary stone and timber-framed houses line a Lacock village street.",
-        "pageDescription": "Ordinary stone and timber-framed houses line a Lacock village street.",
-        "state": "Modern residents in everyday clothes; no historical costumes, churches or suggestion that the village is an empty museum.",
-        "embeddedImageText": "Wells Reading Lacock"
-      },
-      {
-        "pageNumber": 3,
-        "text": "Lacock also has shops. A village can have places to buy things as well as places to live.",
-        "imageBrief": "A small village shop stands among homes. Plain shop window and groceries, no readable brand signs; connected everyday street, no universal claim about every village.",
-        "imageAlt": "A small village shop stands among homes.",
-        "pageDescription": "A small village shop stands among homes.",
-        "state": "Plain shop window and groceries, no readable brand signs; connected everyday street, no universal claim about every village.",
-        "embeddedImageText": "Wells Reading Lacock"
-      },
-      {
-        "pageNumber": 4,
-        "text": "Now look at Reading. This town has many workplaces and busy routes for buses and trains.",
-        "imageBrief": "A Reading transport scene shows a train station beside buses and office buildings. Modern ordinary architecture; transport remains separate from pedestrians; explanatory view, not a fabricated landmark replica.",
-        "imageAlt": "A Reading transport scene shows a train station beside buses and office buildings.",
-        "pageDescription": "A Reading transport scene shows a train station beside buses and office buildings.",
-        "state": "Modern ordinary architecture; transport remains separate from pedestrians; explanatory view, not a fabricated landmark replica.",
-        "embeddedImageText": "Wells Reading Lacock"
-      },
-      {
-        "pageNumber": 5,
-        "text": "People travel into Reading to work. A town can be a busy place with many connections to other places.",
-        "imageBrief": "A train arrives beside the station while adults walk along a separate public path. Same station setting; no invented passenger counts or timetable details.",
-        "imageAlt": "A train arrives beside the station while adults walk along a separate public path.",
-        "pageDescription": "A train arrives beside the station while adults walk along a separate public path.",
-        "state": "Same station setting; no invented passenger counts or timetable details.",
-        "embeddedImageText": "Wells Reading Lacock"
-      },
-      {
-        "pageNumber": 6,
-        "text": "Wells has city status, although it is much smaller than Reading. The word city does not always mean the biggest place.",
-        "imageBrief": "Wells and Reading appear as two schematic settlement footprints. Same illustration scale; Wells footprint smaller; no numerical population claim or exact administrative boundary.",
-        "imageAlt": "Wells and Reading appear as two schematic settlement footprints.",
-        "pageDescription": "Wells and Reading appear as two schematic settlement footprints.",
-        "state": "Same illustration scale; Wells footprint smaller; no numerical population claim or exact administrative boundary.",
-        "embeddedImageText": "Wells Reading Lacock",
-        "imageLayout": "comparison-diagram"
-      },
-      {
-        "pageNumber": 7,
-        "text": "In the United Kingdom, city status is a special title. A place does not gain it just by growing larger.",
-        "imageBrief": "Three labeled place cards retain their names beside differently sized clusters of homes. Wells remains city and Reading town; no crowns, ceremonies or religious symbols; this is about naming rules.",
-        "imageAlt": "Three labeled place cards retain their names beside differently sized clusters of homes.",
-        "pageDescription": "Three labeled place cards retain their names beside differently sized clusters of homes.",
-        "state": "Wells remains city and Reading town; no crowns, ceremonies or religious symbols; this is about naming rules.",
-        "embeddedImageText": "Wells Reading Lacock",
+        "text": "Japan is a country made of islands. Sea water lies around them, and mountains rise across much of the land.",
+        "imageBrief": "Oblique geographic diagram of Japan’s main island chain with many smaller coastal islands, surrounded by blue sea. Show mountainous interior in green and brown, not four detached identical islands or a single perfect circle. No borders, flags or text.",
+        "imageAlt": "A view of Japan shows a chain of islands surrounded by sea, with mountains across the land.",
+        "pageDescription": "A view of Japan shows a chain of islands surrounded by sea, with mountains across the land.",
+        "state": "Japan whole-country geographic overview before two contrasting closer views.",
+        "embeddedImageText": "",
         "imageLayout": "integrated-diagram"
       },
       {
+        "pageNumber": 3,
+        "text": "Near Mount Fuji, the land rises to a high peak. Paths lead through forests on the slopes below.",
+        "imageBrief": "Wide daylight landscape with Mount Fuji’s distinct broad volcanic cone above wooded lower slopes. A single clear walking path curves through low forest in foreground. No shrine gate, temple, flags, souvenir text or people in traditional costume. Not a jungle or jagged Alpine peak.",
+        "imageAlt": "Mount Fuji rises above green wooded slopes. A path winds through the trees below the peak.",
+        "pageDescription": "Mount Fuji rises above green wooded slopes. A path winds through the trees below the peak.",
+        "state": "First close view within Japan: mountain and forest.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Tokyo is in Japan too. Here, trains run between tall buildings and busy streets. One country has very different places.",
+        "imageBrief": "Ordinary contemporary Tokyo urban scene from elevated pedestrian viewpoint. Unbranded silver commuter train follows elevated rails between tall modern buildings; road traffic and small casually dressed adults remain on correct surfaces. No flags, readable signs or religious landmarks.",
+        "imageAlt": "A commuter train runs between tall buildings above a busy Tokyo street.",
+        "pageDescription": "A commuter train runs between tall buildings above a busy Tokyo street.",
+        "state": "Second Japan view contrasts urban setting with previous wooded mountain.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "Now look at Egypt. Much of this country is desert, where very little rain falls.",
+        "imageBrief": "Broad realistic Egyptian Western Desert landscape: pale tan rocky plateau, low dry ridges and a few sand patches under clear sky. No pyramids, camels, costumes or stereotyped village; this is a landscape comparison, not a portrait of all Egypt.",
+        "imageAlt": "Dry rocky land and low sand patches stretch across an Egyptian desert.",
+        "pageDescription": "Dry rocky land and low sand patches stretch across an Egyptian desert.",
+        "state": "New country, first view: dry desert; scope is much of country, not everywhere.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "The Nile River crosses that dry land. Along its banks, water helps crops grow beside homes and roads.",
+        "imageBrief": "Oblique daylight view of Nile in Egypt with a green cultivated strip along both riverbanks, ordinary low-rise homes and road beside fields, and tan dry plateau beyond. Irrigation channel connects river toward fields. No monuments or costume figures.",
+        "imageAlt": "Green fields, homes and a road line the Nile. Dry tan land lies beyond the fields.",
+        "pageDescription": "Green fields, homes and a road line the Nile. Dry tan land lies beyond the fields.",
+        "state": "Second Egypt view explains and contrasts the watered river edge with dry surroundings.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "Brazil has a different large river: the Amazon. Thick rainforest grows beside many of its waterways.",
+        "imageBrief": "Brazilian Amazon daylight river view: broad brown water with a curving narrower tributary, dense green broadleaf rainforest on both banks. No invented waterfall, jungle temple, exotic costume figure or whole-country outline filled only with trees.",
+        "imageAlt": "A broad Amazon waterway curves between dense green rainforest on both banks.",
+        "pageDescription": "A broad Amazon waterway curves between dense green rainforest on both banks.",
+        "state": "Third country, first view: one Amazon forest-waterway landscape in Brazil.",
+        "embeddedImageText": ""
+      },
+      {
         "pageNumber": 8,
-        "text": "Countries can use these names differently. A size chart may help compare places, but it does not explain every local name.",
-        "imageBrief": "Several varied unnamed settlements appear on plain comparison cards. No flags or stereotyped costumes; varied building density without assigning universal numerical thresholds.",
-        "imageAlt": "Several varied unnamed settlements appear on plain comparison cards.",
-        "pageDescription": "Several varied unnamed settlements appear on plain comparison cards.",
-        "state": "No flags or stereotyped costumes; varied building density without assigning universal numerical thresholds.",
-        "embeddedImageText": "Wells Reading Lacock",
-        "imageLayout": "comparison-diagram"
+        "text": "Brazil also has cities beside the sea. In Rio de Janeiro, buildings stand between green hills and sandy beaches.",
+        "imageBrief": "Wide ordinary Rio coastal panorama with curved pale sandy beach, blue Atlantic water, dense modern buildings and distinctive steep green hills in background. Keep Corcovado statue and all religious monuments out of frame; no flags, carnival costumes or readable signs.",
+        "imageAlt": "Buildings in Rio de Janeiro stand beside a sandy beach, with green hills rising behind them.",
+        "pageDescription": "Buildings in Rio de Janeiro stand beside a sandy beach, with green hills rising behind them.",
+        "state": "Second Brazil view contrasts a populated coast with Amazon forest.",
+        "embeddedImageText": ""
       },
       {
         "pageNumber": 9,
-        "text": "These three places have homes and streets. Their buildings and transport can tell us more than the names alone.",
-        "imageBrief": "A shared comparison shows homes and streets in Wells, Reading and Lacock. Documented ordinary features only; do not add a railway station to Lacock or Wells.",
-        "imageAlt": "A shared comparison shows homes and streets in Wells, Reading and Lacock.",
-        "pageDescription": "A shared comparison shows homes and streets in Wells, Reading and Lacock.",
-        "state": "Documented ordinary features only; do not add a railway station to Lacock or Wells.",
-        "embeddedImageText": "Wells Reading Lacock",
+        "text": "A mountain, a desert, a forest, a city: a country can have different places inside it.",
+        "imageBrief": "Three paired-picture comparison diagram, one pair per country. Japan pair repeats miniature mountain and Tokyo scenes; Egypt pair shows desert and Nile farms; Brazil pair shows Amazon forest and Rio coast. Each pair sits inside one simple separate frame; all six scenes distinct and legible. No flags, labels or mixed landmarks.",
+        "imageAlt": "Three pairs compare places within each country: Japan’s mountain and city, Egypt’s desert and Nile fields, and Brazil’s forest and coast.",
+        "pageDescription": "Three pairs compare places within each country: Japan’s mountain and city, Egypt’s desert and Nile fields, and Brazil’s forest and coast.",
+        "state": "Within-country pairs prepare synthesis; no country reduced to a single view.",
+        "embeddedImageText": "",
         "imageLayout": "comparison-diagram"
       },
       {
         "pageNumber": 10,
-        "text": "When we visit a place, we can look closely. Where do people live, work, shop and travel?",
-        "imageBrief": "An adult and child examine the three place cards on a table. Return to the opening names and features; no quiz answers baked into art or invented fourth named place.",
-        "imageAlt": "An adult and child examine the three place cards on a table.",
-        "pageDescription": "An adult and child examine the three place cards on a table.",
-        "state": "Return to the opening names and features; no quiz answers baked into art or invented fourth named place.",
-        "embeddedImageText": "Wells Reading Lacock"
+        "text": "Japan, Egypt, and Brazil each have many kinds of places. A country’s name tells only part of its story.",
+        "imageBrief": "Return to same world map with three accurate dots. Around map place three paired landscape medallions: Japan wooded mountain and urban buildings; Egypt dry plateau and Nile fields; Brazil forest river and city coast. Thin leader lines bind each pair to correct dot. No flags, words, costumes or national icons.",
+        "imageAlt": "The world map connects each of three countries to two different landscapes from inside it.",
+        "pageDescription": "The world map connects each of three countries to two different landscapes from inside it.",
+        "state": "Close with country location plus internal variety; map completes the opening inquiry.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
       }
     ],
     "discussion": {
       "oral": {
-        "prompt": "Why can we not guess a place’s size from city or town alone?",
-        "listenFor": "The names follow local rules; Wells is a city while the larger Reading is a town."
+        "prompt": "Can one picture show every kind of place in a country? What did these countries help us notice?",
+        "listenFor": "No. The examples show different places inside each country: mountains and city, dry land and river fields, forest and built-up coast."
       },
       "visual": {
         "page": 6,
-        "prompt": "Which example covers the larger area in this comparison?",
-        "lookFor": "Reading, even though it is called a town."
+        "prompt": "How does the land beside the river differ from the land farther away?",
+        "lookFor": "Green fields and homes line the Nile; dry tan land lies beyond them. Water helps the crops grow."
       }
     },
-    "levelRationale": "Candidate E: Compare three named English settlements and their everyday features, then separate city status from size. The connected explanation uses concrete clauses and supported topic words. Independent placement and media review remain pending.",
+    "levelRationale": "Three explicitly paired examples show different landscapes and settlements within Japan, Egypt and Brazil, then state that one country contains different kinds of places. Readers hold nested country/place relationships and several proper names, supporting D, but the wording supplies every contrast and the synthesis. There is no E-level status exception, conditional choice, temporal shift or sustained causal inference. The demands align with D Continents and remain below E City, Town or Village; proper-name load alone does not justify E.",
     "languagePrep": [
       {
-        "word": "village",
-        "meaning": "a usually small group of homes and other buildings"
+        "word": "country",
+        "meaning": "a named area of the world, such as Japan or Brazil"
       },
       {
-        "word": "status",
-        "meaning": "an officially recognized position or title"
+        "word": "desert",
+        "meaning": "a place that gets very little rain"
       },
       {
-        "word": "settlement",
-        "meaning": "a place where people live together"
+        "word": "rainforest",
+        "meaning": "a thick forest in a place with a lot of rain"
+      },
+      {
+        "word": "bank",
+        "meaning": "the land along the side of a river"
       }
-    ],
-    "coverImageLayout": "comparison-diagram"
+    ]
   },
   {
     "id": "world-discovery-e-23",

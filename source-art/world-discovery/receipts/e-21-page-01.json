@@ -2,23 +2,27 @@
   "bookId": "world-discovery-e-21",
   "slot": "page-01",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-09T11:29:55.122Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-eb33b0a1-0b53-4667-ab61-e03b4aedeeac.png",
-  "sourceSha256": "9ab6d97d4b03c1c7f2c2df347b22630389f85a9ebf270e4473650634bba9735c",
+  "generatedAt": "2026-11-10T09:47:21.671Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1c3ee-e610-7d22-ad30-a2bee077e3d6/exec-3bcfd442-fdbf-4651-a5bc-0809cf48cba8.png",
+  "sourceSha256": "5050dbd4fa8de8a08d106983b14f3985e2ed25a843d67b70d8a0b22cbaddc72b",
   "output": "public/guided-reading/world-discovery/e-21/page-01.webp",
-  "outputSha256": "097fbd43b38f6c57ecfa8aa8987e07aa761d7ec56755fad4c23bc1a1e129325d",
+  "outputSha256": "4884a3002a30d3edfac8a713ffbb4aac28fdebf58cdcc57f1cb50e1b8ef6afff",
   "width": 1536,
   "height": 1024,
-  "prompt": "Pull the camera back on this exact coherent scene. Reduce the COMPLETE composition of all three people, table, entire map and table legs together to 75 percent of their present size, keep centered, and extend the same plain green park background around it. The adult hair must be at least 16 percent below top edge and the table-leg bottoms at least 16 percent above bottom edge. Preserve exact cast, poses, anatomy, map roads, river, bridges, ferry quays, start dot, museum and colors. No cropped parts, text or extra people. Maintain flat 2D bold-line illustration; do not add shading or textures.",
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one explanatory comparison diagram. Allow only the distinct views, stages or comparison panels explicitly authored in this page's illustration brief, with their exact relationships and counts. No unrequested panels, insets, annotations or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Transport Through Time; World Discovery; nonfiction.\nSetting: A selected factual history followed by contemporary transport comparisons. Historical pictures are reconstructions, not a claim that all countries changed at once. Plain practical clothes only; no flags, religious buildings, political events or cultural costumes. Cart: brown wooden four-wheel wagon, one healthy bay horse and adult driver in plain gray shirt and dark trousers. Steam train: black early passenger steam locomotive with red wheels and two brown wooden coaches. Early motor car: dark-green open four-wheel gasoline car with adult driver. Early aircraft: plain cream single-propeller biplane. Modern train: white electric passenger train with blue band and overhead wire. Jet: white twin-engine passenger jet with teal tail. No named cast or brand logos.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Horse-drawn brown wagon; Early black steam train; Early dark-green motor car; Cream early propeller biplane; Modern white-blue electric train; Modern white-teal passenger jet\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and specific stages explicitly required below; the declared diagram permits no other scenes or story events.\nPage 1. Printed prose (NOT text to put in art): Before motor vehicles existed, people walked, rode animals, and traveled in boats. How did new inventions change their journeys?\nRequired illustration: Three-part historical comparison diagram: adults carry baskets while walking along a path at left; adult rides a horse at center; two adults row a small wooden boat on river at right. Plain practical clothing; separate valid surfaces, not one unsafe mixed path. No engines or modern wires.\nExact current state: Opening selected pre-motor travel methods, not one universal place or date.\nDo not add events or stages beyond the authored diagram. Repeat a subject only when the authored comparison or cutaway requires it. No written title; the app renders live text.\nFINAL QUALITY LOCK: Render 1536 by 1024 pixels, clean landscape 3:2. This is the finished page, not a reference sheet. Keep all essential subjects fully framed with 8 percent margin. Use plain ordinary clothes and exactly the subjects specified in this page. Do not transfer extraneous reference animals, poses or props into the picture. No national symbols, logos or written marks. All wheels visibly contact their own road or rails. Train rails are a coherent parallel pair under the wheels. A locomotive has a plausible horizontal boiler, firebox, steam pipe, cylinder, piston and connecting rods only where explicitly requested. No fantasy plumbing, exposed loose hoses, melted wheels or floating mechanisms. Horses have exactly four natural legs; tack is coherent. Aircraft have exactly one fuselage, one tail and matching wings with correct attachment.\nFRAMING AND CONTACT REPAIR to LAST reference: preserve its exact three side-by-side historical comparison panels and subjects. Shrink the ENTIRE three-panel group together by18 percent and center on the same plain sky-blue canvas so every complete panel lies inside x140..1396 and y100..924. Keep two basket-carrying walking adults LEFT, four-legged horse and adult rider CENTER, and exactly two adults rowing the wooden boat RIGHT. In boat panel, one rower uses a port oar and one uses a starboard oar: show both shafts pivoting coherently in opposite-side gunwale rowlocks, each adult gripping their own oar with two hands, blades touching water outside hull. No fused hands, floating oars or rowing through hull. Historical ordinary clothing only. Preserve complete baskets, horse hooves, boat and blades inside the safe area.",
   "references": [
     {
-      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-299d6ef9-5d63-4c94-a63d-cd349b213e7b.png",
-      "sha256": "5cc37e51d85d47af403320013f75f9bf4c5573bfb3b1d68f8dcdd0550c90189d"
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-21-reference.webp",
+      "sha256": "bcd9084f0fd6888f17aec2fe89d8d9237c31f3ae501978dc1610288aba71214c"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1c3ee-e610-7d22-ad30-a2bee077e3d6/exec-0b194b91-8fa1-4b3f-9afd-4a8775f22a2e.png",
+      "sha256": "67fb2ab2642d25a339c85c73d253bb430497d214eb09999e2e2d95a368b16c84"
     }
   ],
   "manuscriptSource": {
-    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
-    "sha256": "9421bb4bb1f97c822674b76871fc5ee9b7b4398f02e9bdb626223b2a8cf9283e",
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/discovery-topic-revision/manuscripts",
+    "sha256": "5476e5d3a4c300cd350ded4aee8195556e25aa6db8b5208012c7e1c76178cb6e",
     "isolated": true,
     "firstNumber": 21,
     "lastNumber": 30,
@@ -26,15 +30,14 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "date": "2026-11-09T11:31:58.777676+00:00",
-    "sha256": "097fbd43b38f6c57ecfa8aa8987e07aa761d7ec56755fad4c23bc1a1e129325d",
-    "note": "Exact people at table; clear west start, east museum, upper road/lower footbridge and two quays. Pulled-back composition gives generous hair/feet/table margins.",
-    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+    "reviewedAt": "2026-11-10",
+    "sha256": "4884a3002a30d3edfac8a713ffbb4aac28fdebf58cdcc57f1cb50e1b8ef6afff",
+    "note": "Three pre-motor comparison scenes: two adults carry baskets on foot; adult rides the bay horse with four coherent legs; two adults use two gripped, gunwale-supported oars in a wooden boat. No modern engines, wires, extra panels or text. Producer independently inspected the final installed WebP natively; complete final sequence and relevant native diagrams were independently reviewed."
   },
   "reviewedManuscriptSource": {
     "bookId": "world-discovery-e-21",
     "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
-    "sha256": "9421bb4bb1f97c822674b76871fc5ee9b7b4398f02e9bdb626223b2a8cf9283e",
-    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
+    "sha256": "d2b00cf5ebb83c26d8921703250179413a877c2f73e333ebcb39d3b45604dc4f",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json"
   }
 }

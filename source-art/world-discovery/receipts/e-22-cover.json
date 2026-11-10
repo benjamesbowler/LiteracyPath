@@ -2,38 +2,38 @@
   "bookId": "world-discovery-e-22",
   "slot": "cover",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-09T12:11:35.426Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-878ea14c-7f61-453e-b702-9100f88ff819.png",
-  "sourceSha256": "fc7a9dac07af2364f2395d4e0a0d643f92b8b80c32ee4f2bef32f18a2aec82f2",
+  "generatedAt": "2026-11-10T06:20:12.247Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1c3ee-e610-7d22-ad30-a2bee077e3d6/exec-0aa4dd4a-f717-4a47-a63a-a834ba9838ea.png",
+  "sourceSha256": "85f61d070122ec802fd7f4a9376b8995619beb6be573eb80c80704ec327038a0",
   "output": "public/guided-reading/world-discovery/e-22/cover.webp",
-  "outputSha256": "ce1fd77c1cd16197d954e563d16fcaa126a716df3a9290551837c91eb31ff0d8",
+  "outputSha256": "9e8325448ed87541fbb7223ac867a23b5e78c19bd116b3a290377ecc1a2da7bd",
   "width": 1536,
   "height": 1024,
-  "prompt": "Use case: precise-object-edit. Preserve these exact THREE unlettered place picture cards, all details inside them, and their side-by-side order. Scale the entire three-card group uniformly DOWN by 28 percent, centered on the same warm cream1536x1024 canvas. Give the outermost card edges at least12 percent clear cream margin from both LEFT and RIGHT edges, and comfortable top/bottom breathing room. All three cards remain equal size and clearly separated. Do not zoom individual pictures, crop cards, change buildings/transport, rearrange cards or add anything. Smooth flat colors and crisp outlines, no paper/grain texture, no labels/text.",
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one explanatory comparison diagram. Allow only the distinct views, stages or comparison panels explicitly authored in this page's illustration brief, with their exact relationships and counts. No unrequested panels, insets, annotations or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Different Countries, Different Places; World Discovery; nonfiction.\nSetting: Factual geographic tour of selected ordinary landscapes in Japan, Egypt and Brazil. No fictional child travels between pages; no suggestion that one climate, building or landscape represents all people in a country. Maps are simplified geographic aids, not political claims; show whole-country approximate outlines with no disputed detail, capitals, flags, national costumes, religious monuments or political buildings. Japan: island coastline, Mount Fuji lower wooded slopes, ordinary Tokyo railway street. Egypt: dry plateau and connected Nile-side irrigated farmland with ordinary homes. Brazil: Amazon waterway with rainforest and ordinary Rio coastline framed by forested hills; omit Christ statue. Small background adults wear ordinary contemporary clothing and are never cultural symbols.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Simplified world locator map with dots for Japan, Egypt and Brazil; Japan island coastline, wooded Mount Fuji slopes, ordinary Tokyo train; Egypt desert and Nile river fields; Brazil Amazon waterway and Rio coastal city\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and specific stages explicitly required below; the declared diagram permits no other scenes or story events.\nDedicated cover art: One geographic comparison diagram shows three broad ordinary landscapes in separate gently framed areas: Mount Fuji wooded slopes at left; Egypt Nile fields beside dry plateau at center; Brazil coast with green hills, beach and ordinary buildings at right. A small simple whole-Earth outline below supplies orientation only. No national flags, costumes, religious landmarks, labels or text.\nDo not add events or stages beyond the authored diagram. Repeat a subject only when the authored comparison or cutaway requires it. No written title; the app renders live text.\nFINAL QUALITY LOCK: Render 1536 by 1024 pixels, clean landscape 3:2. This is the finished page, not a reference sheet. Keep all essential subjects fully framed with 8 percent margin. Use plain ordinary clothes and exactly the subjects specified in this page. Do not transfer extraneous reference animals, poses or props into the picture. No national symbols, logos or written marks. Geography accuracy: the reference is an identity/style aid, not an authority for map locations or permission to add animals. No crane, camel, jaguar or any other animal anywhere in this book. No national, ethnic, religious or political symbols.",
   "references": [
     {
-      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-f759a2ed-880e-466b-aa17-25e358f5cf0e.png",
-      "sha256": "ce0980a4a655308044ec9b8e6becfc8f158b01982f711fb4a2455d6ca54b5ead"
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-22-reference.webp",
+      "sha256": "83582d8397835477531f768217b2f65fe5a1ab830c18b2b2b0c9172984c06dd1"
     }
   ],
   "manuscriptSource": {
-    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
-    "sha256": "2aff8b9432244a41072eb7c7376c77e21594d83a655dfa83d99e44c528e86755",
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/discovery-topic-revision/manuscripts",
+    "sha256": "10f17301c0b54d74f0667c993770e82a84c710618d5e3fa02c5648e46692e76e",
     "isolated": true,
     "firstNumber": 21,
     "lastNumber": 30,
     "topicProfile": "nonfiction-discovery"
   },
   "visualReview": {
-    "sha256": "ce1fd77c1cd16197d954e563d16fcaa126a716df3a9290551837c91eb31ff0d8",
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-09T12:11:35.428Z",
-    "note": "Direct native inspection: exactly three unlettered cards now inset about12% from left/right and28% top, Wells/Reading/Lacock order. Ordinary houses/shops and Reading train+bus only; no religious symbols, text or logos. Group uniformly reduced to clear framing."
+    "reviewedAt": "2026-11-10",
+    "sha256": "9e8325448ed87541fbb7223ac867a23b5e78c19bd116b3a290377ecc1a2da7bd",
+    "note": "Three separate landscape comparisons: broad Fuji cone/woodland, Nile green fields against dry plateau, and built-up Rio beach/green hills. Orientation map has exactly three dots. No animals, symbols or text. Producer independently inspected the final installed WebP natively; complete final sequence and relevant native diagrams were independently reviewed."
   },
   "reviewedManuscriptSource": {
     "bookId": "world-discovery-e-22",
     "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
-    "sha256": "2aff8b9432244a41072eb7c7376c77e21594d83a655dfa83d99e44c528e86755",
-    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
+    "sha256": "d3b67d6c70cda202a99594710f903a9dc9ec37110031b15daf30f7eb0b2fb747",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json"
   }
 }

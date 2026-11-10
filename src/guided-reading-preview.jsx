@@ -1,3 +1,4 @@
+import { GUIDED_READING_TOPIC_EDITIONS } from "./utils/guidedReading/editions.js";
 import { useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 
@@ -26,7 +27,9 @@ export function GuidedReadingPreview() {
     ? params.get("mode")
     : "student";
   const book = guidedReadingBooks.find(item => item.id === requestedBookId) || guidedReadingBooks[0];
-  const [records, setRecords] = useState(() => params.has("complete-c-standard")
+  const [records, setRecords] = useState(() => params.has("saved-prior-edition") && GUIDED_READING_TOPIC_EDITIONS[book.id]
+    ? { [book.id]: { bookId: book.id, title: GUIDED_READING_TOPIC_EDITIONS[book.id].retiredTitle, completed: true, completedAt: "2026-11-08T08:00:00Z", lastReadAt: "2026-11-08T08:00:00Z", readCount: 2, completedPages: 10, totalPages: 10, lastPageIndex: 7, wholeBookNote: "Original edition teacher note", pages: { 0: { wordTexts: ["train"], wordMarks: { 0: "support" }, note: "Original edition page note" } } } }
+    : params.has("complete-c-standard")
     ? Object.fromEntries(guidedReadingBooks
       .filter(item => (
         item.id !== book.id

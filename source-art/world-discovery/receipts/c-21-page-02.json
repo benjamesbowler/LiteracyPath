@@ -2,27 +2,23 @@
   "bookId": "world-discovery-c-21",
   "slot": "page-02",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-09T13:01:53.732Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-bcfee6b0-9d87-47ca-8139-6eeb31bc6eaa.png",
-  "sourceSha256": "cb8ebb1de7277bfac0be34d3d8cf26c1360a58a54f520bfc1682c5c9fecbf5af",
+  "generatedAt": "2026-11-10T06:07:28.367Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1c3ef-11ed-7331-8274-1234bc3e482f/exec-485cd2bb-3b2a-453a-a6ad-d0367b4133fa.png",
+  "sourceSha256": "b058606f467cbc6fe56327742fca18ee77b02cc91e3a91533d9e27681da573f0",
   "output": "public/guided-reading/world-discovery/c-21/page-02.webp",
-  "outputSha256": "b375d7478a3c40fed1031b809bce1fcc141b58f44ead5c3590645bea45c4e6bc",
+  "outputSha256": "f68035dd5516bef2658bd49496694508aa0058bfc77e0eba281051d4e8c37ab1",
   "width": 1536,
   "height": 1024,
-  "prompt": "Edit ONLY the distant background airport scene of the FIRST reference image. The SECOND reference only locks the established cast and props; keep their original relative scale. Kit and Zoe are equal height when both appear. REMOVE the entire passenger jet bridge/boarding tunnel that falsely meets the plane tail, replacing that structure with matching clear apron/terminal background. Keep the white airplane itself, its teal tail and nose-left orientation unchanged. Keep every foreground person, face, hand, blue luggage with orange stripe, handle, white tag, conveyor and all other foreground details exactly unchanged. Do not add a new bridge or doorway. Full-bleed smooth flat colors/crisp lines/no grain, same3:2 landscape.",
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one integrated explanatory diagram. Allow only the cutaways, insets, schematic elements or arrows explicitly authored in this page's illustration brief; keep them spatially connected to the subject they explain. No unrequested panels, insets, annotations or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Vehicles That Fly; World Discovery; nonfiction.\nSetting: Factual daylight aircraft views with no recurring children. Plane: plain white twin-engine passenger jet with teal tail, fixed wings and both engine nacelles under wings. Helicopter: orange civilian craft with a four-blade main rotor, enclosed cabin, tail rotor and two skids. Balloon: broad yellow fabric envelope with three blue vertical panels, dark burner frame, tan basket and one adult pilot wearing a plain gray jacket. Keep aircraft types distinct; safe separated flight areas; no flags, brands or military details.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): White passenger jet with teal tail; Orange four-blade helicopter; Yellow-and-blue hot-air balloon with burner and tan basket\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and specific stages explicitly required below; the declared diagram permits no other scenes or story events.\nPage 2. Printed prose (NOT text to put in art): The plane moves forward. Air flows around its wings. The wings turn air downward, and the air pushes the plane up.\nRequired illustration: Integrated airflow diagram of same passenger jet viewed from side and slightly ahead. Several fine blue airflow arrows approach the complete wing from left and curve downward behind it. One clear upward arrow at the wing shows lift. Show a real complete wing, not a hollow split wing or equal-length paths.\nExact current state: Forward flight; airflow deflected downward and lift shown upward.\nDo not add events or stages beyond the authored diagram. Repeat a subject only when the authored comparison or cutaway requires it. No written title; the app renders live text.\nFraming clarification: Keep every entire aircraft/car and its required teaching parts completely within the inner 84 percent of the canvas, leaving at least 8 percent clear background margin on ALL sides. Nothing essential touches or approaches the picture edge.\nAerodynamic direction clarification: Plane nose points RIGHT and tail LEFT. Relative airflow MUST come from the RIGHT in front of the wing, travel LEFT over/under the main wing, then bend DOWN and LEFT behind the wing. Never show flow from the left/tail toward the right/nose. Draw just two or three clear airflow arrows and one upward lift arrow anchored at the MAIN WING, not at the tail. Use a plain side or clean three-quarter educational view that makes these directions unambiguous.",
   "references": [
     {
-      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/c-21/page-02.webp",
-      "sha256": "54cdf3b5cb6bcd6de5e7d04b24ceb4031d55d600bf2c2ce919d1f494ed415c0c"
-    },
-    {
-      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/c-21-reference.webp",
-      "sha256": "7b43aa2de357cf3abba0e67409cbcec8f0ad0a190ad2eac801aaa542875d9e54"
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/c-21-reference.webp",
+      "sha256": "038b76328ab4972cd0b5f6bc4d7d43d3baf0ba956735770c11eadc4cd918f3d1"
     }
   ],
   "manuscriptSource": {
-    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
-    "sha256": "adafabd724e58b7f6c3e03af760b56ae0cdebf5dbdc7ec8e6a3d11c2e19a0ce2",
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/discovery-topic-revision/manuscripts",
+    "sha256": "5c87ee01b5617d2edff1107560ad70a54b675e564510c21acde971003db71f22",
     "isolated": true,
     "firstNumber": 21,
     "lastNumber": 30,
@@ -30,15 +26,14 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-09T13:02:36.802073+00:00",
-    "sha256": "b375d7478a3c40fed1031b809bce1fcc141b58f44ead5c3590645bea45c4e6bc",
-    "note": "Native replacement and actual installed WebP directly viewed. Distant tail-connected jet bridge removed; intact aircraft now on clear apron. Bag stripe/wheels/tag, conveyor, operator and all essential margins retained; clean flat style.",
-    "limits": "Independent sequence and reader review follow separately."
+    "reviewedAt": "2026-11-10",
+    "sha256": "f68035dd5516bef2658bd49496694508aa0058bfc77e0eba281051d4e8c37ab1",
+    "note": "Incoming airflow is right-to-left relative to the right-facing jet, with downward trailing flow and upward wing lift; root inspected this teaching diagram natively. Producer independently inspected the final installed WebP natively; complete final sequence and relevant native diagrams were independently reviewed."
   },
   "reviewedManuscriptSource": {
     "bookId": "world-discovery-c-21",
     "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
-    "sha256": "d35c2646e023daa2322256d158452fa66e0c07c88e5e0aee3f35253a6d6154d0",
-    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
+    "sha256": "64fc91f6c01ea97064c24b464d0add6b505a38d410f33adf22efff79ac2710a6",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json"
   }
 }

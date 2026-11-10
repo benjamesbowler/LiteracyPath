@@ -2,7 +2,7 @@
   {
     "id": "world-discovery-d-21",
     "number": 21,
-    "title": "A Container's Journey",
+    "title": "Gasoline and Electric Cars",
     "topic": "transport",
     "type": "nonfiction",
     "appLevel": "D",
@@ -13,150 +13,167 @@
     "storyBibleReview": {
       "kind": "nonfiction",
       "canonIds": [],
-      "topicQuestion": "How can the same box carry goods on a ship, a train and a truck?",
-      "progression": "Follow one sealed container through successive transfers, keeping its contents fixed while its carrier changes.",
-      "synthesis": "The container moves between carriers without unpacking its goods at every transfer.",
+      "topicQuestion": "What turns the wheels of gasoline cars and all-electric cars?",
+      "progression": "Introduce two similar-looking cars; trace fuel through an engine to wheel movement and exhaust, contrast a battery and motor, then compare refueling/recharging before synthesizing the two complete systems.",
+      "synthesis": "Gasoline cars burn stored fuel in an engine; all-electric cars use stored battery energy in a motor. Both turn wheels, but their energy stores, refilling methods and exhaust differ.",
       "scienceSources": [
         {
-          "title": "Port of Los Angeles: Supply Chain",
-          "url": "https://portoflosangeles.org/business/supply-chain",
-          "evidence": "The port connects ships, rail, trucks and warehouses; the manuscript uses an illustrative shipment."
+          "title": "U.S. Department of Energy AFDC: How Do Gasoline Cars Work?",
+          "url": "https://afdc.energy.gov/vehicles/how-do-gasoline-cars-work",
+          "evidence": "Gasoline cars store fuel in a tank, burn a fuel-air mixture in an internal-combustion engine, transmit movement to wheels and release exhaust gases through an exhaust system.",
+          "checked": "2026-11-10"
         },
         {
-          "title": "Port of Los Angeles: Rail",
-          "url": "https://portoflosangeles.org/business/supply-chain/rail",
-          "evidence": "On-dock and near-dock rail connect marine terminals and inland freight routes."
+          "title": "U.S. Department of Energy AFDC: How Do All-Electric Cars Work?",
+          "url": "https://afdc.energy.gov/vehicles/how-do-all-electric-cars-work",
+          "evidence": "Battery electric cars use a large traction battery and electric motor, charge from external electricity, do not burn gasoline and have no tailpipe exhaust. This book explicitly compares an all-electric car, not a hybrid.",
+          "checked": "2026-11-10"
         },
         {
-          "title": "Port of Los Angeles: Trucks",
-          "url": "https://portoflosangeles.org/business/supply-chain/trucks",
-          "evidence": "Road haulage connects containers with inland destinations."
+          "title": "U.S. Department of Energy: Electric Vehicle Basics",
+          "url": "https://afdc.energy.gov/files/u/publication/electric_vehicles.pdf",
+          "evidence": "All-electric vehicles have zero tailpipe emissions, while vehicle manufacture and production of fuel or electricity can cause life-cycle emissions. No claim of zero total pollution or a universal environmental ranking is made.",
+          "checked": "2026-11-10"
         }
       ]
     },
-    "setting": "An illustrative modern freight journey, not a record of a real shipment. One orange corrugated container with a plain blue square on its left door. No brands or flags. Workers wear ordinary safety equipment; children never enter operating areas.",
+    "setting": "Ordinary contemporary civilian cars on a calm road and at separate safe service areas. Gasoline car is orange with dark gray roof and one rear exhaust pipe. All-electric car is teal with light gray roof and no exhaust pipe. Same proportions but different colors keep referents clear. Each car has four road wheels. Cutaways are explicitly diagrams; adults handle fuel and charging. No brands, flags or political messages.",
     "props": [
-      "One orange container with two end doors and blue square marker",
-      "Ship, spreader crane, railcar, tractor and container trailer",
-      "Brown cartons of plain notebooks"
+      "Orange gasoline sedan, gray engine under front hood, fuel tank near rear and exhaust pipe at rear",
+      "Teal all-electric sedan, large flat battery beneath passenger floor and motor near rear axle, no fuel tank or exhaust",
+      "Unbranded fuel pump with hose and separate charging post with cable"
     ],
-    "coverBrief": "The orange container hangs level beneath a spreader crane beside a moored ship.",
+    "coverBrief": "Two-part comparison diagram stacks a complete orange gasoline car above a complete teal all-electric car. Both face left. Orange side cutaway exposes front engine, rear fuel tank and connected drive mechanism; teal cutaway shows underfloor battery and motor near the rear axle. Match wheel geometry. Each complete system remains inside its own car. No words, numbers or arrows.",
+    "coverImageLayout": "comparison-diagram",
     "pages": [
       {
         "pageNumber": 1,
-        "text": "These notebooks must travel a long way. Workers pack their boxes inside one large container.",
-        "imageBrief": "Workers load notebook cartons into an orange container. Both doors are open; one open carton reveals plain notebooks. The blue square is on the left door.",
-        "imageAlt": "Workers load notebook cartons into an orange container.",
-        "pageDescription": "Workers load notebook cartons into an orange container.",
-        "state": "Both doors are open; one open carton reveals plain notebooks. The blue square is on the left door.",
+        "text": "Two cars roll along the same road. One uses gasoline. The other runs only on electricity. What turns their wheels?",
+        "imageBrief": "Wide street view of orange car and teal car traveling safely right in separate lanes with ample distance. Ordinary adults drive with seatbelts; no visible exhaust cloud or close race. The two same-sized cars have distinct fixed colors.",
+        "imageAlt": "An orange car and a teal car travel along the same road, with space between them.",
+        "pageDescription": "An orange car and a teal car travel along the same road, with space between them.",
+        "state": "Opening: both cars move; their power systems are not yet exposed.",
         "embeddedImageText": ""
       },
       {
         "pageNumber": 2,
-        "text": "The doors close. The container keeps the boxes together while different vehicles carry them.",
-        "imageBrief": "A worker secures the container doors and locking bars. Doors now shut and remain shut until the final warehouse; no lettering or logos.",
-        "imageAlt": "A worker secures the container doors and locking bars.",
-        "pageDescription": "A worker secures the container doors and locking bars.",
-        "state": "Doors now shut and remain shut until the final warehouse; no lettering or logos.",
-        "embeddedImageText": ""
+        "text": "The gasoline car carries liquid fuel in a tank. Its engine burns small amounts of that fuel mixed with air.",
+        "imageBrief": "Side cutaway of parked orange gasoline car. Rear fuel tank contains amber liquid; one thin fuel line leads forward to gray engine. A small magnified inset shows an enclosed cylinder with a small burning fuel-air mixture above a piston, not an engine full of loose flames. One inset only; no text.",
+        "imageAlt": "A cutaway of the orange car shows liquid in a rear tank and a line leading to the engine. An inset shows fuel burning inside.",
+        "pageDescription": "A cutaway of the orange car shows liquid in a rear tank and a line leading to the engine. An inset shows fuel burning inside.",
+        "state": "Fuel storage and combustion inside an enclosed engine.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
       },
       {
         "pageNumber": 3,
-        "text": "At the port, a crane lifts the whole container onto a ship. The boxes stay inside.",
-        "imageBrief": "A spreader crane lowers the container onto a moored ship. Spreader attaches at all four top corners; container hangs level over a clear deck position, no person below.",
-        "imageAlt": "A spreader crane lowers the container onto a moored ship.",
-        "pageDescription": "A spreader crane lowers the container onto a moored ship.",
-        "state": "Spreader attaches at all four top corners; container hangs level over a clear deck position, no person below.",
-        "embeddedImageText": ""
+        "text": "Parts move inside the engine. That movement passes through other parts of the car and turns its wheels.",
+        "imageBrief": "Integrated mechanical diagram of same orange car with engine and simplified connected transmission and drive shafts. Show an inset crank and piston physically connected, plus one curved arrow at the crank and one at a driven wheel. No unsupported floating gears or direct flame at a tire.",
+        "imageAlt": "The orange car’s engine connects to parts that turn the wheels. Curved arrows show the engine and a wheel turning.",
+        "pageDescription": "The orange car’s engine connects to parts that turn the wheels. Curved arrows show the engine and a wheel turning.",
+        "state": "Engine movement is transferred mechanically to drive wheels.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
       },
       {
         "pageNumber": 4,
-        "text": "The ship carries many containers across the sea. Our orange box travels among them.",
-        "imageBrief": "The ship crosses open water with the orange container secured on deck. Same container visible at outer edge of an orderly stack; containers properly fastened, no crane at sea.",
-        "imageAlt": "The ship crosses open water with the orange container secured on deck.",
-        "pageDescription": "The ship crosses open water with the orange container secured on deck.",
-        "state": "Same container visible at outer edge of an orderly stack; containers properly fastened, no crane at sea.",
-        "embeddedImageText": ""
+        "text": "After burning fuel, gases leave through an exhaust pipe. Some of these gases add pollution to the air.",
+        "imageBrief": "Rear three-quarter close view of orange car on an empty road. Rear exhaust pipe intact and visible; small transparent pale wavy diagram lines emerge from pipe and disperse. They symbolize exhaust gas rather than dense smoke. No pedestrians near the pipe.",
+        "imageAlt": "A rear pipe on the orange car releases exhaust gases, shown by faint wavy diagram lines.",
+        "pageDescription": "A rear pipe on the orange car releases exhaust gases, shown by faint wavy diagram lines.",
+        "state": "Combustion exhaust leaves the gasoline car; avoid portraying all exhaust as visible black smoke.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
       },
       {
         "pageNumber": 5,
-        "text": "At another port, a crane lifts the orange container from the ship. It still holds the same notebooks.",
-        "imageBrief": "A shore crane lifts the same container at a different quay. Same blue marker and closed doors; different port skyline; clear landing area under the load.",
-        "imageAlt": "A shore crane lifts the same container at a different quay.",
-        "pageDescription": "A shore crane lifts the same container at a different quay.",
-        "state": "Same blue marker and closed doors; different port skyline; clear landing area under the load.",
-        "embeddedImageText": ""
+        "text": "The all-electric car has a large battery. Stored energy in the battery supplies electricity to an electric motor.",
+        "imageBrief": "Side cutaway of parked teal car reveals flat battery under passenger floor and compact motor near rear axle. Orange insulated electrical cables link battery and motor. Show four intact wheels and ordinary cabin above; no fuel tank, combustion cylinders or exhaust pipe.",
+        "imageAlt": "A cutaway of the teal car shows a large flat battery under the seats, connected by cables to a motor.",
+        "pageDescription": "A cutaway of the teal car shows a large flat battery under the seats, connected by cables to a motor.",
+        "state": "Battery-electric power system; no combustion components.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
       },
       {
         "pageNumber": 6,
-        "text": "Workers place the container on a railcar. The train can carry it far from the coast.",
-        "imageBrief": "The orange container rests securely on a container railcar. Railcar stationary, proper railway wheels and rails, secure corner connections, no passenger seats.",
-        "imageAlt": "The orange container rests securely on a container railcar.",
-        "pageDescription": "The orange container rests securely on a container railcar.",
-        "state": "Railcar stationary, proper railway wheels and rails, secure corner connections, no passenger seats.",
-        "embeddedImageText": ""
+        "text": "The motor turns the wheels. This car does not need to burn gasoline as it drives along the road.",
+        "imageBrief": "Same teal car in a side diagram with motor connected to rear axle and wheels. One curved arrow at motor and one at rear wheel show turning. Battery remains below passenger floor; no disconnected or floating drive parts.",
+        "imageAlt": "The teal car’s motor connects to its rear wheels. Curved arrows show the motor and a wheel turning.",
+        "pageDescription": "The teal car’s motor connects to its rear wheels. Curved arrows show the motor and a wheel turning.",
+        "state": "Electric motor transfers movement to wheels without burning fuel.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
       },
       {
         "pageNumber": 7,
-        "text": "The train follows its tracks to a freight yard. Here, the container changes vehicles again.",
-        "imageBrief": "The train enters an inland yard beside a waiting crane and road trailer. Container remains on the railcar at this moment; no opening or unloading of cartons.",
-        "imageAlt": "The train enters an inland yard beside a waiting crane and road trailer.",
-        "pageDescription": "The train enters an inland yard beside a waiting crane and road trailer.",
-        "state": "Container remains on the railcar at this moment; no opening or unloading of cartons.",
-        "embeddedImageText": ""
+        "text": "When the fuel tank is low, an adult stops at a pump. Liquid gasoline flows into the car’s tank.",
+        "imageBrief": "Orange car stationary at unbranded fuel pump. Adult driver medium-brown skin, short black hair, blue jacket and navy pants holds nozzle in correct rear-side filler. One small cutaway reveals liquid entering fuel tank. Engine off; no children, flames or charging cable.",
+        "imageAlt": "An adult fills the orange car from a fuel pump. A cutaway shows fuel entering the rear tank.",
+        "pageDescription": "An adult fills the orange car from a fuel pump. A cutaway shows fuel entering the rear tank.",
+        "state": "Refueling at pump; only gasoline car shown.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
       },
       {
         "pageNumber": 8,
-        "text": "A crane lowers the container onto a truck trailer. The driver can now take roads to the warehouse.",
-        "imageBrief": "The orange container is lowered onto a skeletal trailer attached to one tractor. Spreader aligned with four top corners; trailer beneath the full load; nobody below the crane.",
-        "imageAlt": "The orange container is lowered onto a skeletal trailer attached to one tractor.",
-        "pageDescription": "The orange container is lowered onto a skeletal trailer attached to one tractor.",
-        "state": "Spreader aligned with four top corners; trailer beneath the full load; nobody below the crane.",
-        "embeddedImageText": ""
+        "text": "When the electric car needs more energy, an adult plugs it into a charger. Electricity helps recharge its battery.",
+        "imageBrief": "Teal car stationary at separate charging post. Adult driver light-brown skin, short brown hair, plum jacket and dark pants plugs a thick cable connector into front-side charge port. Small clean cutaway reveals battery under floor connected by cable; no liquid pours from charger and no gasoline nozzle.",
+        "imageAlt": "An adult connects the teal car to a charging post. A cutaway shows the connection leading to its battery.",
+        "pageDescription": "An adult connects the teal car to a charging post. A cutaway shows the connection leading to its battery.",
+        "state": "Recharging from external electricity; only all-electric car shown.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
       },
       {
         "pageNumber": 9,
-        "text": "At the warehouse, workers finally open the doors. They lift out the boxes of notebooks.",
-        "imageBrief": "Workers unload the original cartons at a warehouse. Truck stationary; same orange doors now open and blue square visible; cartons match page one.",
-        "imageAlt": "Workers unload the original cartons at a warehouse.",
-        "pageDescription": "Workers unload the original cartons at a warehouse.",
-        "state": "Truck stationary; same orange doors now open and blue square visible; cartons match page one.",
-        "embeddedImageText": ""
+        "text": "The electric car has no exhaust pipe. Making cars and producing their energy can still cause pollution.",
+        "imageBrief": "Two-part factual comparison diagram: teal car viewed from rear with plain closed lower bumper and no exhaust pipe at left; at right one small distant industrial scene with car factory and fuel/electricity supply equipment. A limited pale emission plume comes from an industrial stack, never from the electric car. No rankings, green badges or slogans.",
+        "imageAlt": "The teal car has no rear exhaust pipe. A separate picture shows a factory and energy equipment with a plume from an industrial stack.",
+        "pageDescription": "The teal car has no rear exhaust pipe. A separate picture shows a factory and energy equipment with a plume from an industrial stack.",
+        "state": "Separate tailpipe emissions from broader manufacturing and energy-production pollution.",
+        "embeddedImageText": "",
+        "imageLayout": "comparison-diagram"
       },
       {
         "pageNumber": 10,
-        "text": "Ship, train, then truck: three kinds of transport carried one container. The notebooks stayed packed through every change.",
-        "imageBrief": "The notebook cartons stand inside the warehouse beside the open container. Journey complete; same notebooks and container, truck parked outside; one scene rather than vehicle collage.",
-        "imageAlt": "The notebook cartons stand inside the warehouse beside the open container.",
-        "pageDescription": "The notebook cartons stand inside the warehouse beside the open container.",
-        "state": "Journey complete; same notebooks and container, truck parked outside; one scene rather than vehicle collage.",
-        "embeddedImageText": ""
+        "text": "Fuel and an engine. A battery and a motor. Two different systems give these cars the power to move.",
+        "imageBrief": "Closing two-part comparison diagram of both complete cars with side cutaways, orange left and teal right. Orange tank connects to engine and drive wheels; teal floor battery connects to motor and drive wheels. Two clean horizontal arrows below point right, showing both can move; no common pipe or wire between cars.",
+        "imageAlt": "Cutaways show a fuel tank and engine inside the orange car, and a battery and motor inside the teal car.",
+        "pageDescription": "Cutaways show a fuel tank and engine inside the orange car, and a battery and motor inside the teal car.",
+        "state": "Synthesis: distinct energy stores and mechanisms produce the same wheel movement.",
+        "embeddedImageText": "",
+        "imageLayout": "comparison-diagram"
       }
     ],
     "discussion": {
       "oral": {
-        "prompt": "Why do workers move the whole container?",
-        "listenFor": "The packed goods stay together when the carrier changes."
+        "prompt": "What gives each car the power to turn its wheels?",
+        "listenFor": "The gasoline car burns fuel in an engine. The all-electric car uses energy from a battery in a motor."
       },
       "visual": {
         "page": 8,
-        "prompt": "What holds the container during this transfer?",
-        "lookFor": "The crane spreader holds its top corners above the trailer."
+        "prompt": "What connects this car to the charging post?",
+        "lookFor": "A cable plugged into its charge port. It supplies electricity, not liquid fuel."
       }
     },
-    "levelRationale": "Candidate D: Follow one sealed container through successive transfers, keeping its contents fixed while its carrier changes. The connected explanation uses concrete clauses and supported topic words. Independent placement and media review remain pending.",
+    "levelRationale": "The reader follows two power systems and compares their energy stores, wheel-turning parts, replenishment and exhaust. When-clauses, technical concrete nouns and the final production-pollution qualification increase demand beyond C, but the causal chains and referents remain direct. The resulting introductory systems comparison aligns with D Robot/Container and is less inferential than E Wings or the multi-condition E journey choice.",
     "languagePrep": [
       {
-        "word": "container",
-        "meaning": "a large strong box that carries goods"
+        "word": "gasoline",
+        "meaning": "a liquid fuel called petrol in some countries"
       },
       {
-        "word": "freight",
-        "meaning": "things carried from one place to another"
+        "word": "engine",
+        "meaning": "a machine that burns fuel to make parts move"
       },
       {
-        "word": "warehouse",
-        "meaning": "a building where goods are kept"
+        "word": "motor",
+        "meaning": "a machine that uses electricity to make parts move"
+      },
+      {
+        "word": "exhaust",
+        "meaning": "gases that leave an engine after fuel burns"
       }
     ]
   },

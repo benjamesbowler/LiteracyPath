@@ -1,0 +1,68 @@
+{
+  "childTitleAndPageTextChanged": false,
+  "originalGenerationManuscriptsPreserved": true,
+  "corrections": [
+    {
+      "bookId": "world-discovery-b-21",
+      "field": "levelRationale",
+      "reason": "Replace candidate label with independently calibrated public-level rationale; child text unchanged."
+    },
+    {
+      "bookId": "world-discovery-c-21",
+      "field": "levelRationale",
+      "reason": "Replace candidate label with independently calibrated public-level rationale; child text unchanged."
+    },
+    {
+      "bookId": "world-discovery-d-21",
+      "field": "levelRationale",
+      "reason": "Replace candidate label with independently calibrated public-level rationale; child text unchanged."
+    },
+    {
+      "bookId": "world-discovery-e-21",
+      "field": "levelRationale",
+      "reason": "Replace candidate label with independently calibrated public-level rationale; child text unchanged."
+    },
+    {
+      "bookId": "world-discovery-e-22",
+      "field": "levelRationale",
+      "reason": "Replace candidate label with independently calibrated public-level rationale; child text unchanged."
+    },
+    {
+      "bookId": "world-discovery-c-21",
+      "field": "pages[1].imageBrief",
+      "reason": "Match accepted right-facing jet and correct relative airflow direction; original generation inputs remain separately preserved."
+    },
+    {
+      "bookId": "world-discovery-c-21",
+      "field": "storyBibleReview.scienceSources[3].evidence",
+      "reason": "Remove superseded equal-volume manuscript description after simplified operation-based p6."
+    },
+    {
+      "bookId": "world-discovery-d-21",
+      "field": "coverBrief",
+      "reason": "Describe accepted actual stacked, left-facing cutaway cover; original generation prompt provenance is retained separately."
+    }
+  ],
+  "books": [
+    {
+      "bookId": "world-discovery-b-21",
+      "sourceBookSha256": "664f916d1379302ae82b7a5dbf774413f4378508f9326855afd22b7b7086bbfc"
+    },
+    {
+      "bookId": "world-discovery-c-21",
+      "sourceBookSha256": "64fc91f6c01ea97064c24b464d0add6b505a38d410f33adf22efff79ac2710a6"
+    },
+    {
+      "bookId": "world-discovery-d-21",
+      "sourceBookSha256": "98d098b7790b51f3544d7069a44403c5a1e9da9323808471ee96dc80f0033831"
+    },
+    {
+      "bookId": "world-discovery-e-21",
+      "sourceBookSha256": "d2b00cf5ebb83c26d8921703250179413a877c2f73e333ebcb39d3b45604dc4f"
+    },
+    {
+      "bookId": "world-discovery-e-22",
+      "sourceBookSha256": "d3b67d6c70cda202a99594710f903a9dc9ec37110031b15daf30f7eb0b2fb747"
+    }
+  ]
+}

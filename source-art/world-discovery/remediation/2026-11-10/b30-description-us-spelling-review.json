@@ -1,0 +1,186 @@
+{
+  "schemaVersion": 1,
+  "books": [
+    {
+      "bookId": "world-discovery-b-30",
+      "title": "Saturn’s Rings Are Pieces",
+      "sourceBookSha256": "22519974030f9bd4b168c1d5cc1444643681d60d128873e4b17fb21a08472051",
+      "sourceBookHashMethod": "SHA256(JSON.stringify([book]))",
+      "textFingerprint": "fnv1a64:28c7d7e93f5eb90f",
+      "reviewedAt": "2026-11-10",
+      "method": "exact-orthographic-description-correction-with-unchanged-full-book-image-review",
+      "fullTextPrepAndDiscussionReviewed": true,
+      "allReferencesCoversAndPagesReviewed": true,
+      "openFindings": [],
+      "retainedOriginalReview": {
+        "path": "source-art/world-discovery/cohorts/21-30/complete-book-review.json",
+        "sha256": "36a5bbb0be57aac5ea03f017dadb6cb1f266cf486f279bd0f850c35f5e52dab7",
+        "bookId": "world-discovery-b-30",
+        "bookRowSha256": "0c81a1f2ffef8374b877a44ef8f88dc7089513de4401202e2b49af95cc9e4595",
+        "sourceBookSha256": "f280a32df1585bc29fde637e24c87b820bf93699a99cac7d7239db824c8b14f3",
+        "reviewer": "/root/topic_classification",
+        "reviewedAt": "2026-11-09T13:54:07.399Z"
+      },
+      "descriptionReview": {
+        "path": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-description-review.json",
+        "sha256": "aaa39233d00f763b1c3f1aa42909fe60cb57ec066447b1799969d1e4a9f41306",
+        "reviewer": "/root, with independent image cross-review by /root/catalogue_audit and /root/gap_taxonomy",
+        "pageNumbers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      },
+      "assets": [
+        {
+          "slot": "reference",
+          "path": "source-art/world-discovery/b-30-reference.webp",
+          "sha256": "1777644a0ac8e1560cecc9e75d1b128026cfee873e3c79ccf6b788caf59c1bcf",
+          "inspection": {
+            "method": "codex-direct-image-inspection",
+            "reviewedAt": "2026-11-09T07:47:29.244350+00:00",
+            "sha256": "1777644a0ac8e1560cecc9e75d1b128026cfee873e3c79ccf6b788caf59c1bcf",
+            "note": "Directly viewed native PNG and installed WebP. Pale-gold banded sphere and thin flat concentric equatorial rings with correct front/back occlusion; edge-on study and irregular separate pale ice/dark grains. Design reference only; every final scientific diagram requires its own geometry inspection.",
+            "limits": "Independent sequence and reader review follow separately."
+          }
+        },
+        {
+          "slot": "cover",
+          "path": "public/guided-reading/world-discovery/b-30/cover.webp",
+          "sha256": "04cb6fe50fba55a15b6521e582c39623ba9f5a4f75197beddbc0664e6809bf56",
+          "inspection": {
+            "method": "codex-direct-image-inspection",
+            "reviewedAt": "2026-11-09T08:05:34.730841+00:00",
+            "sha256": "04cb6fe50fba55a15b6521e582c39623ba9f5a4f75197beddbc0664e6809bf56",
+            "note": "Directly viewed native PNG and installed WebP: unlettered Saturn with equatorial rings correctly occluded, connected enlarged separate ice pieces. Entire connected composition safely inset with ample background.",
+            "limits": "Independent sequence and reader review follow separately."
+          }
+        },
+        {
+          "slot": "page-01",
+          "path": "public/guided-reading/world-discovery/b-30/page-01.webp",
+          "sha256": "c03bf2c1c634c212c54bf7a5f1d1aeec15744eaa32f35a017a8c14153e3ec959",
+          "inspection": {
+            "method": "codex-direct-image-inspection",
+            "reviewedAt": "2026-11-09T08:14:43.540509+00:00",
+            "sha256": "c03bf2c1c634c212c54bf7a5f1d1aeec15744eaa32f35a017a8c14153e3ec959",
+            "note": "Directly viewed native PNG and installed WebP: complete Saturn and equatorial rings, correct front/back occlusion and distant continuous appearance; no particle inset, safe margins.",
+            "limits": "Independent sequence and reader review follow separately."
+          }
+        },
+        {
+          "slot": "page-02",
+          "path": "public/guided-reading/world-discovery/b-30/page-02.webp",
+          "sha256": "23f6383163cb0bf3c5c5293f293ccc01f4ad889043b0240f0e279c2f33b5b490",
+          "inspection": {
+            "method": "codex-direct-image-inspection",
+            "reviewedAt": "2026-11-09T10:18:34.438291+00:00",
+            "sha256": "23f6383163cb0bf3c5c5293f293ccc01f4ad889043b0240f0e279c2f33b5b490",
+            "note": "Directly viewed native PNG and installed WebP: nearer front-right ring perspective, correct equatorial occlusion, unresolved ring pieces and safely inset complete ring tips.",
+            "limits": "Independent sequence and reader review follow separately."
+          }
+        },
+        {
+          "slot": "page-03",
+          "path": "public/guided-reading/world-discovery/b-30/page-03.webp",
+          "sha256": "df76f47113adc2234a207aaaedcf2edf0df4fb3df1cf29b0b9a831a6ed7581a8",
+          "inspection": {
+            "method": "codex-direct-image-inspection",
+            "reviewedAt": "2026-11-09T10:25:18.183040+00:00",
+            "sha256": "df76f47113adc2234a207aaaedcf2edf0df4fb3df1cf29b0b9a831a6ed7581a8",
+            "note": "Directly viewed native PNG and installed WebP: many separate pale ice pieces with a few gray particles; dark gaps and consistent crisp faceted style, no ring sheet or unrequested diagrams.",
+            "limits": "Independent sequence and reader review follow separately."
+          }
+        },
+        {
+          "slot": "page-04",
+          "path": "public/guided-reading/world-discovery/b-30/page-04.webp",
+          "sha256": "22ad736b634bbd155ca46f4ec611f414a7ecbd0eedb8343080500602c71ea534",
+          "inspection": {
+            "method": "codex-direct-image-inspection",
+            "reviewedAt": "2026-11-09T10:25:18.183489+00:00",
+            "sha256": "22ad736b634bbd155ca46f4ec611f414a7ecbd0eedb8343080500602c71ea534",
+            "note": "Directly viewed native PNG and installed WebP: clear tiny/medium/large ice-particle size contrast, all separated and safely framed, no unsupported scale labels.",
+            "limits": "Independent sequence and reader review follow separately."
+          }
+        },
+        {
+          "slot": "page-05",
+          "path": "public/guided-reading/world-discovery/b-30/page-05.webp",
+          "sha256": "e26abc7fc5a1ac79b6d34329903fd628d887bcebcc402a0a4b5f07910c974916",
+          "inspection": {
+            "method": "codex-direct-image-inspection",
+            "reviewedAt": "2026-11-09T10:25:18.183831+00:00",
+            "sha256": "e26abc7fc5a1ac79b6d34329903fd628d887bcebcc402a0a4b5f07910c974916",
+            "note": "Directly viewed native PNG and installed WebP: seven separate irregular ice pieces with broad traceable dark gaps, no rails/chains/glue, safe framing.",
+            "limits": "Independent sequence and reader review follow separately."
+          }
+        },
+        {
+          "slot": "page-06",
+          "path": "public/guided-reading/world-discovery/b-30/page-06.webp",
+          "sha256": "6af0c45a09871d3a95ad0794d095426a98738ba643d08745834f959e16581a03",
+          "inspection": {
+            "method": "codex-direct-image-inspection",
+            "reviewedAt": "2026-11-09T10:50:39.358737+00:00",
+            "sha256": "6af0c45a09871d3a95ad0794d095426a98738ba643d08745834f959e16581a03",
+            "note": "Native and installed WebP directly viewed: south-polar concentric atmospheric bands around darker pole, separated enlarged ice arc and exactly three coherent clockwise tangent arrows; all major content safely framed.",
+            "limits": "Independent sequence and reader review follow separately."
+          }
+        },
+        {
+          "slot": "page-07",
+          "path": "public/guided-reading/world-discovery/b-30/page-07.webp",
+          "sha256": "6a34415b1b6580052952bc6d76eac64660632b5d4b55962565059372a5449a76",
+          "inspection": {
+            "method": "codex-direct-image-inspection",
+            "reviewedAt": "2026-11-09T10:43:44.542179+00:00",
+            "sha256": "6a34415b1b6580052952bc6d76eac64660632b5d4b55962565059372a5449a76",
+            "note": "Directly viewed native PNG and installed WebP: smaller distant Saturn with equatorial thin ring sheet appearance, correct front/back occlusion and generous margins.",
+            "limits": "Independent sequence and reader review follow separately."
+          }
+        },
+        {
+          "slot": "page-08",
+          "path": "public/guided-reading/world-discovery/b-30/page-08.webp",
+          "sha256": "5ab41d5ea84c4f16134f3378294fa8ee81a42eb09d26b55cc614e4c9014ea312",
+          "inspection": {
+            "method": "codex-direct-image-inspection",
+            "reviewedAt": "2026-11-09T10:43:44.542758+00:00",
+            "sha256": "5ab41d5ea84c4f16134f3378294fa8ee81a42eb09d26b55cc614e4c9014ea312",
+            "note": "Directly viewed native PNG and installed WebP: whole Saturn left connects one ring sampling point to magnified separated ice pieces right; no extra arrow, letter or misleading solid ice field.",
+            "limits": "Independent sequence and reader review follow separately."
+          }
+        }
+      ],
+      "limits": [
+        "Existing actual image inspection is reused only for identical bytes; no new generation or fresh image-inspection date is claimed.",
+        "Reading text, preparation, discussion and scores are unchanged; only explicitly reviewed descriptions differ.",
+        "No human listening observed."
+      ],
+      "reviewer": "/root metadata-only verification; original direct image reviewer retained below",
+      "priorCompleteBookReview": {
+        "path": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json",
+        "sha256": "320835783724391e7b562f276f2cc6b57d95d358693b6c38ecfd2aa40681494d"
+      },
+      "changes": [
+        {
+          "pageNumber": 6,
+          "fields": [
+            "imageAlt",
+            "pageDescription"
+          ],
+          "from": "A diagram uses three curved arrows to show ring particles travelling in the same direction around Saturn, which lies inside their paths.",
+          "to": "A diagram uses three curved arrows to show ring particles traveling in the same direction around Saturn, which lies inside their paths.",
+          "reason": "Current U.S. spelling gate requires traveling; meaning, reading text, picture state and audio are unchanged."
+        }
+      ],
+      "imageReviewLimit": "Every installed reference/cover/page hash remains identical to the complete independently inspected prior sequence. This metadata correction carries forward that exact-byte image review; it does not claim fresh native inspection of unchanged art or new narration."
+    }
+  ]
+}

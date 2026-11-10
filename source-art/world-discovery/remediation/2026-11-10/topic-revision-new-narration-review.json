@@ -1,0 +1,2184 @@
+{
+  "schemaVersion": 1,
+  "cohortId": "21-30",
+  "reviewedAt": "2026-11-10",
+  "status": "automated-review-complete",
+  "scope": "Exactly94 selected new clips for the five revised books:46 pages,5 titles,43 missing word clips. This is a new-output report, not the complete cohort narration inventory; unchanged prior consumed audio must be reconciled separately.",
+  "method": "Complete FFmpeg decode to finite24kHz PCM,50ms speech-window RMS and clipping/silence measurements; unprompted offline tiny.en recognition for all94 initial outputs, small.en discrepancy checks, and two-model checks of the final IPA-controlled Janeiro take.",
+  "limitations": "Not human listening, auditory-identity certification, classroom or physical-device acceptance. Janeiro retains explicit residual rare-name ASR ambiguity. Homophones, apostrophe spelling and Cambridge U.S. de pronunciation have individual dispositions. Reader playback/interruption is verified separately.",
+  "sourceReports": [
+    {
+      "path": ".artifacts/discovery-topic-revision/audio/screen-tiny.json",
+      "sha256": "29a21d2ba379954332da974b6a35197fe6dabc06f4d2a2aaffb70b1bb26d447a",
+      "modelSha256": "1a5afae06a4db91c975c9a9d78be5cc110ee4ea022ad57d55492e4550e936b2a"
+    },
+    {
+      "path": ".artifacts/discovery-topic-revision/audio/screen-small.json",
+      "sha256": "f70b2f1b861f161173c8f2704e086e91356ea2b1ec2ff624ff46fbb639912864",
+      "modelSha256": "62b2a45b05ee59acb4a5341b33ee35e041395d378d418a18acfe4c9e768ee37a"
+    },
+    {
+      "path": ".artifacts/discovery-topic-revision/audio/clarity-screen-tiny.json",
+      "sha256": "5284411c0336b3839824330cc1ced1947a4bd74eb948b3f65a2b51204cd2700c",
+      "modelSha256": "1a5afae06a4db91c975c9a9d78be5cc110ee4ea022ad57d55492e4550e936b2a"
+    },
+    {
+      "path": ".artifacts/discovery-topic-revision/audio/clarity-screen-small.json",
+      "sha256": "053b094919a3515290b8c3e13434322f318e8416d3b99fabf25b83bd588e21fe",
+      "modelSha256": "62b2a45b05ee59acb4a5341b33ee35e041395d378d418a18acfe4c9e768ee37a"
+    }
+  ],
+  "synthesisEvidence": [
+    {
+      "path": ".artifacts/discovery-topic-revision/audio/generation.json",
+      "sha256": "996cb40c8291fa2de1635263a5257afac28b9d2ae1930d8e9353f86731bb2a68"
+    },
+    {
+      "path": ".artifacts/discovery-topic-revision/audio/clarity/receipt.json",
+      "sha256": "81d79b08a1aaa2236859d53519d852029cc50c7b171a8ee211795d4ce47f78eb"
+    }
+  ],
+  "pronunciationControls": [
+    {
+      "text": "Janeiro",
+      "ipa": "ʒəˈnɛɹoʊ",
+      "source": "https://dictionary.cambridge.org/us/pronunciation/english/rio-de-janeiro",
+      "sourceUSPronunciation": "/ˌriː.oʊ deɪ ʒəˈner.oʊ/",
+      "payload": {
+        "input": {
+          "ssml": "<speak><break time=\"150ms\"/><phoneme alphabet=\"ipa\" ph=\"ʒəˈnɛɹoʊ\">Janeiro</phoneme><break time=\"200ms\"/></speak>"
+        },
+        "voice": {
+          "name": "en-US-Chirp3-HD-Leda",
+          "languageCode": "en-US"
+        },
+        "audioConfig": {
+          "audioEncoding": "LINEAR16",
+          "sampleRateHertz": 24000,
+          "speakingRate": 0.94
+        }
+      },
+      "audioPath": "/audio/production/en-US/isolated_word/janeiro-9c7c8f55d6.mp3",
+      "audioSha256": "9c7c8f55d6652e060d3fae208f4406f687924ba7c0388cea7ba25f04a3503f12",
+      "decision": "root-accepted-explicit-ipa-with-residual-asr-ambiguity"
+    },
+    {
+      "text": "de",
+      "source": "https://dictionary.cambridge.org/us/pronunciation/english/rio-de-janeiro",
+      "sourceUSPronunciation": "/ˌriː.oʊ deɪ ʒəˈner.oʊ/",
+      "decision": "Day is the dictionary-supported U.S. pronunciation variant, not a spurious recognized word"
+    }
+  ],
+  "results": [
+    {
+      "kind": "page_or_title",
+      "text": "A bike, skates, and a rowboat move. What makes them go?",
+      "lookupText": "A bike, skates, and a rowboat move. What makes them go?",
+      "audioPath": "/audio/production/en-US/guided_page/a-bike-skates-and-a-rowboat-move-what-makes-them-go-67a88b5a71.mp3",
+      "audioSha256": "2236978d37ea55d07e9827353b022d7636e277907396f490db3ac68996cd0424",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "A bike, skates, and a robot move? What makes them go?",
+        "A bike, skates, and a rowboat move? What makes them go?"
+      ],
+      "sourceScreening": [
+        "screen-tiny.json",
+        "screen-small.json"
+      ],
+      "durationSeconds": 4.68,
+      "peakDbfs": -4.315344743378729,
+      "rmsDbfs": -23.500921097544545,
+      "leadingSilenceSeconds": 0.05,
+      "trailingSilenceSeconds": 0.22999999999999954,
+      "longestInteriorSilenceSeconds": 0.2
+    },
+    {
+      "kind": "page_or_title",
+      "text": "A helicopter has long blades above its body. These blades are wings that spin in a circle.",
+      "lookupText": "A helicopter has long blades above its body. These blades are wings that spin in a circle.",
+      "audioPath": "/audio/production/en-US/guided_page/a-helicopter-has-long-blades-above-its-body-these-blades-are-wings-that-spin-in-a-circle-4a3aaffa97.mp3",
+      "audioSha256": "714c87a8d0c687f4bf11a2bce81160352e265d3c6d65e9b092abedd8234df2b8",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "A helicopter has long blades above its body. These blades are wings that spin in a circle."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 6.88,
+      "peakDbfs": -7.645274942996964,
+      "rmsDbfs": -25.639760244586633,
+      "leadingSilenceSeconds": 0.4,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.15000000000000002
+    },
+    {
+      "kind": "page_or_title",
+      "text": "A horse could pull a cart full of people or goods. Travelers still needed to feed and rest the horse.",
+      "lookupText": "A horse could pull a cart full of people or goods. Travelers still needed to feed and rest the horse.",
+      "audioPath": "/audio/production/en-US/guided_page/a-horse-could-pull-a-cart-full-of-people-or-goods-travelers-still-needed-to-feed-and-rest-the-horse-9affc1290e.mp3",
+      "audioSha256": "aa72e5baa182b649ce633d57daa42f743204b74b138be2808080e6091c75f874",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "A horse could pull a cart full of people or goods. Travelers still needed to feed and rest the horse."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 6.96,
+      "peakDbfs": -4.889921357211532,
+      "rmsDbfs": -24.895229818763212,
+      "leadingSilenceSeconds": 0.1,
+      "trailingSilenceSeconds": 0.009999999999999787,
+      "longestInteriorSilenceSeconds": 0.30000000000000004
+    },
+    {
+      "kind": "page_or_title",
+      "text": "A jet usually travels faster than a fast train. But reaching an airport and waiting can add hours to a journey.",
+      "lookupText": "A jet usually travels faster than a fast train. But reaching an airport and waiting can add hours to a journey.",
+      "audioPath": "/audio/production/en-US/guided_page/a-jet-usually-travels-faster-than-a-fast-train-but-reaching-an-airport-and-waiting-can-add-hours-to-a-journey-3436cec716.mp3",
+      "audioSha256": "039711fcd1906925c8b3a8d213dab1a80753fb57f670e5cb70a321c3439d90ee",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "A jet usually travels faster than a fast train, but reaching an airport and waiting can add hours to a journey."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 7.4,
+      "peakDbfs": -7.106050513111724,
+      "rmsDbfs": -25.3020915256228,
+      "leadingSilenceSeconds": 0.1,
+      "trailingSilenceSeconds": 0.20000000000000018,
+      "longestInteriorSilenceSeconds": 0.35000000000000003
+    },
+    {
+      "kind": "page_or_title",
+      "text": "A mountain, a desert, a forest, a city: a country can have different places inside it.",
+      "lookupText": "A mountain, a desert, a forest, a city: a country can have different places inside it.",
+      "audioPath": "/audio/production/en-US/guided_page/a-mountain-a-desert-a-forest-a-city-a-country-can-have-different-places-inside-it-d22ffc2a3f.mp3",
+      "audioSha256": "ea958ea10b6917001616afe0481852a65382d9876ddf83375b92fcd61e3756f6",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "A mountain, a desert, a forest, a city, a country can have different places inside it."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 5.56,
+      "peakDbfs": -7.538701530948742,
+      "rmsDbfs": -24.700251407730835,
+      "leadingSilenceSeconds": 0.05,
+      "trailingSilenceSeconds": 0.05999999999999961,
+      "longestInteriorSilenceSeconds": 0.15000000000000002
+    },
+    {
+      "kind": "page_or_title",
+      "text": "A plane, a helicopter, and a hot-air balloon all fly. What helps each one rise?",
+      "lookupText": "A plane, a helicopter, and a hot-air balloon all fly. What helps each one rise?",
+      "audioPath": "/audio/production/en-US/guided_page/a-plane-a-helicopter-and-a-hot-air-balloon-all-fly-what-helps-each-one-rise-ad8cc8f6c4.mp3",
+      "audioSha256": "49cb375d77fa08669e2153e5872cf037741f13735ff2d4e34b698b55b7a84c5f",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "A plane, a helicopter, and a hot air balloon all fly. What helps each one rise?"
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 6.16,
+      "peakDbfs": -8.181105284066618,
+      "rmsDbfs": -24.816798433542296,
+      "leadingSilenceSeconds": 0.2,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.25
+    },
+    {
+      "kind": "page_or_title",
+      "text": "A steam train could carry many people farther in one day than a horse-drawn cart could usually travel.",
+      "lookupText": "A steam train could carry many people farther in one day than a horse-drawn cart could usually travel.",
+      "audioPath": "/audio/production/en-US/guided_page/a-steam-train-could-carry-many-people-farther-in-one-day-than-a-horse-drawn-cart-could-usually-travel-0645c1095a.mp3",
+      "audioSha256": "7ec4908705be95cfa7ca3d4dc53b5861f5b2886dc66a11c7520ac4caa65ef4c3",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "A steam train could carry many people farther in one day than a horse-drawn cart could usually travel."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 5.2,
+      "peakDbfs": -9.095866559718239,
+      "rmsDbfs": -25.45417191907889,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "page_or_title",
+      "text": "A world map shows many countries. Are all places inside one country alike? Let's look closely at three countries.",
+      "lookupText": "A world map shows many countries. Are all places inside one country alike? Let's look closely at three countries.",
+      "audioPath": "/audio/production/en-US/guided_page/a-world-map-shows-many-countries-are-all-places-inside-one-country-alike-let-s-look-closely-at-three-countries-496469ef90.mp3",
+      "audioSha256": "f749a841b88970d99fa419699d624b0bb79ec31c12178620fa93843c9a23bf6b",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "A world map shows many countries. Are all places inside one country alike? Let's look closely at three countries."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 8.8,
+      "peakDbfs": -5.520084066430514,
+      "rmsDbfs": -24.894055362428386,
+      "leadingSilenceSeconds": 0.05,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.25
+    },
+    {
+      "kind": "page_or_title",
+      "text": "After burning fuel, gases leave through an exhaust pipe. Some of these gases add pollution to the air.",
+      "lookupText": "After burning fuel, gases leave through an exhaust pipe. Some of these gases add pollution to the air.",
+      "audioPath": "/audio/production/en-US/guided_page/after-burning-fuel-gases-leave-through-an-exhaust-pipe-some-of-these-gases-add-pollution-to-the-air-42b3a261dc.mp3",
+      "audioSha256": "c95ffa6feb7f6171834d568256a5ce750a13d8cb38ca2a21fa9405f635355afb",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "After burning fuel, gases leave through an exhaust pipe. Some of these gases add pollution to the air."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 7.16,
+      "peakDbfs": -7.039508430139989,
+      "rmsDbfs": -25.364318113448704,
+      "leadingSilenceSeconds": 0.4,
+      "trailingSilenceSeconds": 0.2599999999999998,
+      "longestInteriorSilenceSeconds": 0.25
+    },
+    {
+      "kind": "page_or_title",
+      "text": "Before motor vehicles existed, people walked, rode animals, and traveled in boats. How did new inventions change their journeys?",
+      "lookupText": "Before motor vehicles existed, people walked, rode animals, and traveled in boats. How did new inventions change their journeys?",
+      "audioPath": "/audio/production/en-US/guided_page/before-motor-vehicles-existed-people-walked-rode-animals-and-traveled-in-boats-how-did-new-inventions-change-their-journeys-7fe65273b0.mp3",
+      "audioSha256": "2bb015930d0625ac40b5df427eca99afd36e6b2915925352b006b5dd1d61bec9",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Before motor vehicles existed, people walked, rode animals and traveled in boats. How did new inventions change their journeys?"
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 8.56,
+      "peakDbfs": -8.654530780582727,
+      "rmsDbfs": -24.344634753320406,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.15000000000000002
+    },
+    {
+      "kind": "page_or_title",
+      "text": "Brazil also has cities beside the sea. In Rio de Janeiro, buildings stand between green hills and sandy beaches.",
+      "lookupText": "Brazil also has cities beside the sea. In Rio de Janeiro, buildings stand between green hills and sandy beaches.",
+      "audioPath": "/audio/production/en-US/guided_page/brazil-also-has-cities-beside-the-sea-in-rio-de-janeiro-buildings-stand-between-green-hills-and-sandy-beaches-3bd7054680.mp3",
+      "audioSha256": "32cbdb959a2ac0d6fd64acc76fd96b011d725a478ede42d50c5c303da74ef23a",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Brazil also has cities beside the sea. In Rio de Janeiro, building stand between green hills and sandy beaches.",
+        "Brazil also has cities beside the sea. In Rio de Janeiro, buildings stand between green hills and sandy beaches."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json",
+        "screen-small.json"
+      ],
+      "durationSeconds": 8.84,
+      "peakDbfs": -7.43566863215232,
+      "rmsDbfs": -24.577000308636016,
+      "leadingSilenceSeconds": 0.15000000000000002,
+      "trailingSilenceSeconds": 0.03999999999999915,
+      "longestInteriorSilenceSeconds": 0.15000000000000002
+    },
+    {
+      "kind": "page_or_title",
+      "text": "Brazil has a different large river: the Amazon. Thick rainforest grows beside many of its waterways.",
+      "lookupText": "Brazil has a different large river: the Amazon. Thick rainforest grows beside many of its waterways.",
+      "audioPath": "/audio/production/en-US/guided_page/brazil-has-a-different-large-river-the-amazon-thick-rainforest-grows-beside-many-of-its-waterways-315e46f5f4.mp3",
+      "audioSha256": "f757504eee450e0119359b79854993109b8855df082192dde01dc62e5d038fb1",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Brazil has a different large river, the Amazon. Thick rainforest grows beside many of its waterways."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 7.56,
+      "peakDbfs": -5.933167894605868,
+      "rmsDbfs": -24.44470450763605,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0.05999999999999961,
+      "longestInteriorSilenceSeconds": 0.35000000000000003
+    },
+    {
+      "kind": "page_or_title",
+      "text": "Compare a cart, a fast train, and a jet plane. For a long journey, their usual travel speeds are very different.",
+      "lookupText": "Compare a cart, a fast train, and a jet plane. For a long journey, their usual travel speeds are very different.",
+      "audioPath": "/audio/production/en-US/guided_page/compare-a-cart-a-fast-train-and-a-jet-plane-for-a-long-journey-their-usual-travel-speeds-are-very-different-497cf3ef4d.mp3",
+      "audioSha256": "0a556190e64b85cfb3d14b4c874410b1ceddb70bc9ccf1f5ca86f7113cd72e4b",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Compare cart, a fast train, and a jet plane. For a long journey, their usual travel speeds are very different.",
+        "Compare a cart, a fast train, and a jet plane. For a long journey, their usual travel speeds are very different."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json",
+        "screen-small.json"
+      ],
+      "durationSeconds": 7.68,
+      "peakDbfs": -7.000243526098884,
+      "rmsDbfs": -25.092697685663666,
+      "leadingSilenceSeconds": 0.05,
+      "trailingSilenceSeconds": 0.02999999999999936,
+      "longestInteriorSilenceSeconds": 0.35000000000000003
+    },
+    {
+      "kind": "page_or_title",
+      "text": "Different Countries, Different Places",
+      "lookupText": "Different Countries, Different Places",
+      "audioPath": "/audio/production/en-US/guided_page/different-countries-different-places-01f8c2df19.mp3",
+      "audioSha256": "6973000d4ce9a77e47dccbf74520f34d9feb52a7aee84cba77bdc1179a3cb7aa",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "different countries, different places."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 1.64,
+      "peakDbfs": -7.494684216376943,
+      "rmsDbfs": -23.848604070966324,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "page_or_title",
+      "text": "Early airplanes carried people above the ground. Later, jet planes made long journeys across oceans much faster.",
+      "lookupText": "Early airplanes carried people above the ground. Later, jet planes made long journeys across oceans much faster.",
+      "audioPath": "/audio/production/en-US/guided_page/early-airplanes-carried-people-above-the-ground-later-jet-planes-made-long-journeys-across-oceans-much-faster-f9d98779ca.mp3",
+      "audioSha256": "0da93412496a36112df77ac83f157cbf6531501fc3f8e47545382194b03e7838",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Early airplanes carried people above the ground. Later, jet planes made long journeys across oceans much faster."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 6.76,
+      "peakDbfs": -6.285523646595942,
+      "rmsDbfs": -24.91014546423713,
+      "leadingSilenceSeconds": 0.05,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.4
+    },
+    {
+      "kind": "page_or_title",
+      "text": "Fuel and an engine. A battery and a motor. Two different systems give these cars the power to move.",
+      "lookupText": "Fuel and an engine. A battery and a motor. Two different systems give these cars the power to move.",
+      "audioPath": "/audio/production/en-US/guided_page/fuel-and-an-engine-a-battery-and-a-motor-two-different-systems-give-these-cars-the-power-to-move-825d9f27f1.mp3",
+      "audioSha256": "36c65f640f5c814f8a4415a16ff0dad6f954ccb1c31702d846241730333366e9",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Fuel and an engine A battery and a motor Two different systems give these cars the power to move"
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 8.0,
+      "peakDbfs": -7.300847983905216,
+      "rmsDbfs": -25.269014256865766,
+      "leadingSilenceSeconds": 0.05,
+      "trailingSilenceSeconds": 0.09999999999999964,
+      "longestInteriorSilenceSeconds": 0.30000000000000004
+    },
+    {
+      "kind": "page_or_title",
+      "text": "Gasoline and Electric Cars",
+      "lookupText": "Gasoline and Electric Cars",
+      "audioPath": "/audio/production/en-US/guided_page/gasoline-and-electric-cars-b4eee72c28.mp3",
+      "audioSha256": "18267728390978043f9762c08ef78b8db096a0d6fd97f750631d4c99329afac4",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "gasoline and electric cars."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 1.68,
+      "peakDbfs": -12.908975094760372,
+      "rmsDbfs": -26.0920645009992,
+      "leadingSilenceSeconds": 0.05,
+      "trailingSilenceSeconds": 0.029999999999999805,
+      "longestInteriorSilenceSeconds": 0.05
+    },
+    {
+      "kind": "page_or_title",
+      "text": "Japan, Egypt, and Brazil each have many kinds of places. A country's name tells only part of its story.",
+      "lookupText": "Japan, Egypt, and Brazil each have many kinds of places. A country's name tells only part of its story.",
+      "audioPath": "/audio/production/en-US/guided_page/japan-egypt-and-brazil-each-have-many-kinds-of-places-a-country-s-name-tells-only-part-of-its-story-8e89972d1d.mp3",
+      "audioSha256": "c234d5c82527495949dbcef14614a61e4db8e66d4ccb118adcd4ba153a66247a",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Japan, Egypt, and Brazil each have many kinds of places. A country's name tells only part of its story."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 7.68,
+      "peakDbfs": -8.435315756383947,
+      "rmsDbfs": -25.498838848399412,
+      "leadingSilenceSeconds": 0.05,
+      "trailingSilenceSeconds": 0.129999999999999,
+      "longestInteriorSilenceSeconds": 0.15000000000000002
+    },
+    {
+      "kind": "page_or_title",
+      "text": "Japan is a country made of islands. Sea water lies around them, and mountains rise across much of the land.",
+      "lookupText": "Japan is a country made of islands. Sea water lies around them, and mountains rise across much of the land.",
+      "audioPath": "/audio/production/en-US/guided_page/japan-is-a-country-made-of-islands-sea-water-lies-around-them-and-mountains-rise-across-much-of-the-land-ccffb0c6bc.mp3",
+      "audioSha256": "43802440713ec200b95ca9b420f7ef1fe0df9ec393f3e111c187709eac80cdab",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Japan is a country made of islands. Sea water lies around them, and mountains rise across much of the land."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 7.56,
+      "peakDbfs": -6.56000050373015,
+      "rmsDbfs": -24.20312720744569,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0.10999999999999943,
+      "longestInteriorSilenceSeconds": 0.30000000000000004
+    },
+    {
+      "kind": "page_or_title",
+      "text": "Later, steam engines pulled trains along tracks. Burning fuel heated water, and steam helped turn the wheels.",
+      "lookupText": "Later, steam engines pulled trains along tracks. Burning fuel heated water, and steam helped turn the wheels.",
+      "audioPath": "/audio/production/en-US/guided_page/later-steam-engines-pulled-trains-along-tracks-burning-fuel-heated-water-and-steam-helped-turn-the-wheels-d07d13260a.mp3",
+      "audioSha256": "cf0887ae1eeba2fa3d7ec17a65ab4046cfdb9a89857e7d4064a5c8ee8aa5b647",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Later, steam engines pulled trains along tracks. Burning fuel, heated water, and steam helped turn the wheels."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 7.2,
+      "peakDbfs": -8.96329859335234,
+      "rmsDbfs": -24.362356741104172,
+      "leadingSilenceSeconds": 0.05,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.25
+    },
+    {
+      "kind": "page_or_title",
+      "text": "Legs push. Arms pull. People power all three rides.",
+      "lookupText": "Legs push. Arms pull. People power all three rides.",
+      "audioPath": "/audio/production/en-US/guided_page/legs-push-arms-pull-people-power-all-three-rides-0b26b9b121.mp3",
+      "audioSha256": "5ba1bd42688d0f2fe899776c553d11b9594e32ce884505cfc5aa49db04e98f29",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Legs push, arms pull, people power all three rides."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 4.24,
+      "peakDbfs": -6.007017299081253,
+      "rmsDbfs": -24.194351593565887,
+      "leadingSilenceSeconds": 0.05,
+      "trailingSilenceSeconds": 0.040000000000000036,
+      "longestInteriorSilenceSeconds": 0.05
+    },
+    {
+      "kind": "page_or_title",
+      "text": "Motor cars brought another change. Their engines used fuel to move the wheels, so the cars did not need horses.",
+      "lookupText": "Motor cars brought another change. Their engines used fuel to move the wheels, so the cars did not need horses.",
+      "audioPath": "/audio/production/en-US/guided_page/motor-cars-brought-another-change-their-engines-used-fuel-to-move-the-wheels-so-the-cars-did-not-need-horses-653c105678.mp3",
+      "audioSha256": "91e258397952e650aec07de29a71f3fb69d59df83543408d99cfcf68b1df925c",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Motor cars brought another change. Their engines used fuel to move the wheels, so the cars did not need horses."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 8.08,
+      "peakDbfs": -7.449626033923983,
+      "rmsDbfs": -24.426771863469842,
+      "leadingSilenceSeconds": 0.05,
+      "trailingSilenceSeconds": 0.08000000000000007,
+      "longestInteriorSilenceSeconds": 0.15000000000000002
+    },
+    {
+      "kind": "page_or_title",
+      "text": "Near Mount Fuji, the land rises to a high peak. Paths lead through forests on the slopes below.",
+      "lookupText": "Near Mount Fuji, the land rises to a high peak. Paths lead through forests on the slopes below.",
+      "audioPath": "/audio/production/en-US/guided_page/near-mount-fuji-the-land-rises-to-a-high-peak-paths-lead-through-forests-on-the-slopes-below-f858fc6a9a.mp3",
+      "audioSha256": "e7b71aa88ae16e28bf4543308f2f19a685b13e260c6a2a9a8e38094c8e84d011",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Near Mount Fuji, the land rises to a high peak. Paths lead through forests on the slopes below."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 7.0,
+      "peakDbfs": -9.040349362825058,
+      "rmsDbfs": -25.795657167295715,
+      "leadingSilenceSeconds": 0.25,
+      "trailingSilenceSeconds": 0.14999999999999947,
+      "longestInteriorSilenceSeconds": 0.35000000000000003
+    },
+    {
+      "kind": "page_or_title",
+      "text": "New inventions added ways to travel. People still walk, cycle, row, and ride animals alongside today's motor vehicles.",
+      "lookupText": "New inventions added ways to travel. People still walk, cycle, row, and ride animals alongside today's motor vehicles.",
+      "audioPath": "/audio/production/en-US/guided_page/new-inventions-added-ways-to-travel-people-still-walk-cycle-row-and-ride-animals-alongside-today-s-motor-vehicles-665a7ff3f0.mp3",
+      "audioSha256": "144aa7811467275c09a4a2472253b27ccc1aaabed02a9b05a5cd075261c2243d",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "New inventions added ways to travel. People still walk, cycle, row, and ride animals alongside today's motor vehicles."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 8.64,
+      "peakDbfs": -8.479205672303058,
+      "rmsDbfs": -25.006904166642343,
+      "leadingSilenceSeconds": 0.2,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.30000000000000004
+    },
+    {
+      "kind": "page_or_title",
+      "text": "Now look at Egypt. Much of this country is desert, where very little rain falls.",
+      "lookupText": "Now look at Egypt. Much of this country is desert, where very little rain falls.",
+      "audioPath": "/audio/production/en-US/guided_page/now-look-at-egypt-much-of-this-country-is-desert-where-very-little-rain-falls-2ae06b4c60.mp3",
+      "audioSha256": "219c1381ee3837ef61c7eff5e5a1ca14da92afea4f1dc8e526ef886410009b76",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Now look at Egypt, much of this country is desert, where very little rain falls."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 5.44,
+      "peakDbfs": -5.213454989691781,
+      "rmsDbfs": -24.798253195356924,
+      "leadingSilenceSeconds": 0.6000000000000001,
+      "trailingSilenceSeconds": 0.040000000000000036,
+      "longestInteriorSilenceSeconds": 0.30000000000000004
+    },
+    {
+      "kind": "page_or_title",
+      "text": "Parts move inside the engine. That movement passes through other parts of the car and turns its wheels.",
+      "lookupText": "Parts move inside the engine. That movement passes through other parts of the car and turns its wheels.",
+      "audioPath": "/audio/production/en-US/guided_page/parts-move-inside-the-engine-that-movement-passes-through-other-parts-of-the-car-and-turns-its-wheels-5d76ac5b06.mp3",
+      "audioSha256": "df00df5ae69696b586fedda1554dd603d9ab3ee8b9b4da4783f45b4fc8cd0b6a",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Parts move inside the engine. That movement passes through other parts of the car and turns its wheels."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 6.88,
+      "peakDbfs": -4.726344123358347,
+      "rmsDbfs": -24.756053500059167,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0.07999999999999918,
+      "longestInteriorSilenceSeconds": 0.2
+    },
+    {
+      "kind": "page_or_title",
+      "text": "People Power",
+      "lookupText": "People Power",
+      "audioPath": "/audio/production/en-US/guided_page/people-power-b9bb17b957.mp3",
+      "audioSha256": "06d0b5ec41033350be48c74c9d574ed2289b2ff1540ff3a917aebc6cafb835a8",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "people power"
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 1.44,
+      "peakDbfs": -10.01741737794028,
+      "rmsDbfs": -25.507039411091345,
+      "leadingSilenceSeconds": 0.2,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.1
+    },
+    {
+      "kind": "page_or_title",
+      "text": "Push, glide, push, glide. The skater keeps moving.",
+      "lookupText": "Push, glide, push, glide. The skater keeps moving.",
+      "audioPath": "/audio/production/en-US/guided_page/push-glide-push-glide-the-skater-keeps-moving-0b2f1ffeb7.mp3",
+      "audioSha256": "7a258e7e4ba2cda570919036565fd089159a72714a566001312c760b27feb253",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Push glide, push glide, the skater keeps moving."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 3.84,
+      "peakDbfs": -7.536951812627447,
+      "rmsDbfs": -24.39339243133116,
+      "leadingSilenceSeconds": 0.05,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.2
+    },
+    {
+      "kind": "page_or_title",
+      "text": "Some modern trains run on electricity. They can carry many passengers quickly between stations without stopping in road traffic.",
+      "lookupText": "Some modern trains run on electricity. They can carry many passengers quickly between stations without stopping in road traffic.",
+      "audioPath": "/audio/production/en-US/guided_page/some-modern-trains-run-on-electricity-they-can-carry-many-passengers-quickly-between-stations-without-stopping-in-road-traffic-375492e230.mp3",
+      "audioSha256": "ce5e4c839a342ea17368bea05c292e3e42b020242bef1935ae4eef4bcc678d7c",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Some modern trains run on electricity, they can carry many passengers quickly between stations without stopping in road traffic."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 7.84,
+      "peakDbfs": -7.48564932626971,
+      "rmsDbfs": -25.211579287207748,
+      "leadingSilenceSeconds": 0.25,
+      "trailingSilenceSeconds": 0.1899999999999995,
+      "longestInteriorSilenceSeconds": 0.30000000000000004
+    },
+    {
+      "kind": "page_or_title",
+      "text": "The all-electric car has a large battery. Stored energy in the battery supplies electricity to an electric motor.",
+      "lookupText": "The all-electric car has a large battery. Stored energy in the battery supplies electricity to an electric motor.",
+      "audioPath": "/audio/production/en-US/guided_page/the-all-electric-car-has-a-large-battery-stored-energy-in-the-battery-supplies-electricity-to-an-electric-motor-a23db8ffb8.mp3",
+      "audioSha256": "32224f38f6be061dc51bf3b6b4f1eed45cb5d664cb3273b735a6c5d01fbb2061",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "The all-electric car has a large battery, stored energy in the battery supplies electricity to an electric motor."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 6.92,
+      "peakDbfs": -7.285317467139524,
+      "rmsDbfs": -24.87046686996043,
+      "leadingSilenceSeconds": 0.2,
+      "trailingSilenceSeconds": 0.11999999999999922,
+      "longestInteriorSilenceSeconds": 0.25
+    },
+    {
+      "kind": "page_or_title",
+      "text": "The back wheel pushes against the ground. The bike rolls forward.",
+      "lookupText": "The back wheel pushes against the ground. The bike rolls forward.",
+      "audioPath": "/audio/production/en-US/guided_page/the-back-wheel-pushes-against-the-ground-the-bike-rolls-forward-509f405424.mp3",
+      "audioSha256": "9510b39857c4170f779f97036ffb8f289eaa826a8503aaca5420e7a229d5f64e",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "The back wheel pushes against the ground. The bike rolls forward."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 4.6,
+      "peakDbfs": -2.4601353950344937,
+      "rmsDbfs": -22.59135536742946,
+      "leadingSilenceSeconds": 0.05,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.05
+    },
+    {
+      "kind": "page_or_title",
+      "text": "The balloon drifts with the wind. Its pilot can make it rise or sink by changing the heat.",
+      "lookupText": "The balloon drifts with the wind. Its pilot can make it rise or sink by changing the heat.",
+      "audioPath": "/audio/production/en-US/guided_page/the-balloon-drifts-with-the-wind-its-pilot-can-make-it-rise-or-sink-by-changing-the-heat-c52fa11667.mp3",
+      "audioSha256": "52de530c809985daf29ceda91c855eb922363e7c252a2adef14212d188bc1ec5",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "The balloon drifts with the wind. Its pilot can make it rise or sink by changing the heat."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 6.44,
+      "peakDbfs": -8.638369636351168,
+      "rmsDbfs": -24.45199987849845,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0.13999999999999968,
+      "longestInteriorSilenceSeconds": 0.4
+    },
+    {
+      "kind": "page_or_title",
+      "text": "The balloon has no wings. A burner heats the air inside its large fabric bag.",
+      "lookupText": "The balloon has no wings. A burner heats the air inside its large fabric bag.",
+      "audioPath": "/audio/production/en-US/guided_page/the-balloon-has-no-wings-a-burner-heats-the-air-inside-its-large-fabric-bag-2369991aa9.mp3",
+      "audioSha256": "479570dd563d340a94855b74e2e17677d7ab2ba7154aa70f04cfc0e11a0cab69",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "The balloon has no wings. A burner heats the air inside its large fabric bag."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 6.28,
+      "peakDbfs": -10.115672637047812,
+      "rmsDbfs": -25.2579506378623,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0.28000000000000025,
+      "longestInteriorSilenceSeconds": 0.55
+    },
+    {
+      "kind": "page_or_title",
+      "text": "The balloon rises as the air inside warms. To come down, the pilot lets the air cool.",
+      "lookupText": "The balloon rises as the air inside warms. To come down, the pilot lets the air cool.",
+      "audioPath": "/audio/production/en-US/guided_page/the-balloon-rises-as-the-air-inside-warms-to-come-down-the-pilot-lets-the-air-cool-414048a3eb.mp3",
+      "audioSha256": "6f2fbc173f90c59ecd267b4bf8db500b41f438b9b0ad094afed44b2e3c05cd94",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "The balloon rises as the air inside warms. To come down, the pilot lets the air cool."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 6.84,
+      "peakDbfs": -8.339482611840172,
+      "rmsDbfs": -24.899706260238887,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0.13999999999999968,
+      "longestInteriorSilenceSeconds": 0.4
+    },
+    {
+      "kind": "page_or_title",
+      "text": "The boat moves forward. The rower lifts the blades.",
+      "lookupText": "The boat moves forward. The rower lifts the blades.",
+      "audioPath": "/audio/production/en-US/guided_page/the-boat-moves-forward-the-rower-lifts-the-blades-13085f7d42.mp3",
+      "audioSha256": "8aa0ca27ac9cc2daa0d8bd86280cc810193f711d5ffbc520a4e4071c6a6981e2",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "The belt moves forward, the rower lifts the blades.",
+        "The boat moves forward, the rower lifts the blades."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json",
+        "screen-small.json"
+      ],
+      "durationSeconds": 3.04,
+      "peakDbfs": -4.8656535050982175,
+      "rmsDbfs": -23.897161988015228,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.45
+    },
+    {
+      "kind": "page_or_title",
+      "text": "The electric car has no exhaust pipe. Making cars and producing their energy can still cause pollution.",
+      "lookupText": "The electric car has no exhaust pipe. Making cars and producing their energy can still cause pollution.",
+      "audioPath": "/audio/production/en-US/guided_page/the-electric-car-has-no-exhaust-pipe-making-cars-and-producing-their-energy-can-still-cause-pollution-f5d54896fd.mp3",
+      "audioSha256": "5a7adf08efd7dc5e21601301581ec51766c3952c3d3c3dfc921453946e584ea6",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "The electric car has no exhaust pipe. Making cars and producing their energy can still cause pollution."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 7.12,
+      "peakDbfs": -8.449206204017477,
+      "rmsDbfs": -24.876930671438284,
+      "leadingSilenceSeconds": 0.1,
+      "trailingSilenceSeconds": 0.1200000000000001,
+      "longestInteriorSilenceSeconds": 0.15000000000000002
+    },
+    {
+      "kind": "page_or_title",
+      "text": "The gasoline car carries liquid fuel in a tank. Its engine burns small amounts of that fuel mixed with air.",
+      "lookupText": "The gasoline car carries liquid fuel in a tank. Its engine burns small amounts of that fuel mixed with air.",
+      "audioPath": "/audio/production/en-US/guided_page/the-gasoline-car-carries-liquid-fuel-in-a-tank-its-engine-burns-small-amounts-of-that-fuel-mixed-with-air-0e30d38ebc.mp3",
+      "audioSha256": "e7d7d23936e9328a3002d53870a779196fdc6c4bdcc4e45028fec0047d98e66e",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "The gasoline car carries liquid fuel in a tank. Its engine burns small amounts of that fuel mixed with air."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 6.28,
+      "peakDbfs": -7.603423027486481,
+      "rmsDbfs": -23.549723432508173,
+      "leadingSilenceSeconds": 0.05,
+      "trailingSilenceSeconds": 0.03000000000000025,
+      "longestInteriorSilenceSeconds": 0.25
+    },
+    {
+      "kind": "page_or_title",
+      "text": "The motor turns the wheels. This car does not need to burn gasoline as it drives along the road.",
+      "lookupText": "The motor turns the wheels. This car does not need to burn gasoline as it drives along the road.",
+      "audioPath": "/audio/production/en-US/guided_page/the-motor-turns-the-wheels-this-car-does-not-need-to-burn-gasoline-as-it-drives-along-the-road-76c2d491fc.mp3",
+      "audioSha256": "28d5845107883dffc72d4c694ca8a321e839efc26ba6d2cb290e96f363af7c3b",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "The motor turns the wheels. This car does not need to burn gasoline as it drives along the road."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 7.4,
+      "peakDbfs": -7.822409721075131,
+      "rmsDbfs": -24.472241895612402,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.2
+    },
+    {
+      "kind": "page_or_title",
+      "text": "The Nile River crosses that dry land. Along its banks, water helps crops grow beside homes and roads.",
+      "lookupText": "The Nile River crosses that dry land. Along its banks, water helps crops grow beside homes and roads.",
+      "audioPath": "/audio/production/en-US/guided_page/the-nile-river-crosses-that-dry-land-along-its-banks-water-helps-crops-grow-beside-homes-and-roads-2c6ece3041.mp3",
+      "audioSha256": "851c0ee388aba20f1e2484695a13d7db12854366f104de949b2853703a2d4ad2",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "the Nile River crosses that dry land. Along its banks, water helps crops grow beside homes and roads."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 6.76,
+      "peakDbfs": -6.087781531366067,
+      "rmsDbfs": -25.167134002845685,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.2
+    },
+    {
+      "kind": "page_or_title",
+      "text": "The plane moves forward. Air flows around its wings. The wings turn air downward, and the air pushes the plane up.",
+      "lookupText": "The plane moves forward. Air flows around its wings. The wings turn air downward, and the air pushes the plane up.",
+      "audioPath": "/audio/production/en-US/guided_page/the-plane-moves-forward-air-flows-around-its-wings-the-wings-turn-air-downward-and-the-air-pushes-the-plane-up-063726961e.mp3",
+      "audioSha256": "89d891c84b2a9ac0a184e0cbf3bb8ec63a8fc17f8cdf13072586ee23a698c1e5",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "the plane moves forward, air flows around its wings. The wings turn air downward, and the air pushes the plane up."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 7.48,
+      "peakDbfs": -9.947034811285496,
+      "rmsDbfs": -25.019811369234276,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0.1299999999999999,
+      "longestInteriorSilenceSeconds": 0.5
+    },
+    {
+      "kind": "page_or_title",
+      "text": "The rider pushes the bike pedals. A chain turns the back wheel.",
+      "lookupText": "The rider pushes the bike pedals. A chain turns the back wheel.",
+      "audioPath": "/audio/production/en-US/guided_page/the-rider-pushes-the-bike-pedals-a-chain-turns-the-back-wheel-744e833723.mp3",
+      "audioSha256": "bc804da2efa264d5e54ac273c59e088d5c6540ae8c2e0615b2bf181523c87b8b",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "The rider pushes the bike pedals. A chain turns the back wheel."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 4.2,
+      "peakDbfs": -5.543529737593607,
+      "rmsDbfs": -24.04741129753413,
+      "leadingSilenceSeconds": 0.4,
+      "trailingSilenceSeconds": 0.09999999999999964,
+      "longestInteriorSilenceSeconds": 0.6000000000000001
+    },
+    {
+      "kind": "page_or_title",
+      "text": "The rower pulls the oar handles. The blades push water backward.",
+      "lookupText": "The rower pulls the oar handles. The blades push water backward.",
+      "audioPath": "/audio/production/en-US/guided_page/the-rower-pulls-the-oar-handles-the-blades-push-water-backward-d87b0c98fa.mp3",
+      "audioSha256": "f7ccdcd562971ddea57d78c71bfc0a5cf4da5008a48a47ee3f03d05d1c65f797",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "reviewed-recognition-equivalent",
+      "reviewNote": "Both recognizers write ore for oar, a U.S. English homophone. All other words match. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "The rower pulls the ore handles. The blades push water backward.",
+        "The rower pulls the ore handles. The blades push water backward."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json",
+        "screen-small.json"
+      ],
+      "durationSeconds": 4.52,
+      "peakDbfs": -5.596502714157299,
+      "rmsDbfs": -25.20504078790833,
+      "leadingSilenceSeconds": 0.05,
+      "trailingSilenceSeconds": 0.16999999999999904,
+      "longestInteriorSilenceSeconds": 0.15000000000000002
+    },
+    {
+      "kind": "page_or_title",
+      "text": "The skater pushes one foot sideways. The other skate slides ahead.",
+      "lookupText": "The skater pushes one foot sideways. The other skate slides ahead.",
+      "audioPath": "/audio/production/en-US/guided_page/the-skater-pushes-one-foot-sideways-the-other-skate-slides-ahead-68b2e03425.mp3",
+      "audioSha256": "19124060581dcb35d519dcd288329266ead13daf4210ee989b531786cd4eb5f0",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "The skater pushes one foot sideways. The other skates slides ahead.",
+        "The skater pushes one foot sideways, the other skate slides ahead."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json",
+        "screen-small.json"
+      ],
+      "durationSeconds": 4.68,
+      "peakDbfs": -6.572308928830691,
+      "rmsDbfs": -24.917870535150414,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.05
+    },
+    {
+      "kind": "page_or_title",
+      "text": "The spinning blades lift the helicopter. It can rise straight up and stay above one spot.",
+      "lookupText": "The spinning blades lift the helicopter. It can rise straight up and stay above one spot.",
+      "audioPath": "/audio/production/en-US/guided_page/the-spinning-blades-lift-the-helicopter-it-can-rise-straight-up-and-stay-above-one-spot-6f91bfb35f.mp3",
+      "audioSha256": "4870f3a03b0abd5fb11a97dbf143070ac011e9974c7225a1054b4d9bd2f84148",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "The spinning blades lift the helicopter. It can rise straight up and stay above one spot."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 5.68,
+      "peakDbfs": -6.414994530937571,
+      "rmsDbfs": -24.55239790271652,
+      "leadingSilenceSeconds": 0.05,
+      "trailingSilenceSeconds": 0.07999999999999918,
+      "longestInteriorSilenceSeconds": 0.2
+    },
+    {
+      "kind": "page_or_title",
+      "text": "Tokyo is in Japan too. Here, trains run between tall buildings and busy streets. One country has very different places.",
+      "lookupText": "Tokyo is in Japan too. Here, trains run between tall buildings and busy streets. One country has very different places.",
+      "audioPath": "/audio/production/en-US/guided_page/tokyo-is-in-japan-too-here-trains-run-between-tall-buildings-and-busy-streets-one-country-has-very-different-places-68aa9bd3c5.mp3",
+      "audioSha256": "d9fbc9abfea816cbe0fe1ad1b54dba7416b7bad35c94695e9e230881883b6495",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Tokyo is in Japan, too. Here, trains run between tall buildings and busy streets. One country has very different places."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 9.88,
+      "peakDbfs": -4.2211002408421665,
+      "rmsDbfs": -24.65338776695596,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.25
+    },
+    {
+      "kind": "page_or_title",
+      "text": "Transport Through Time",
+      "lookupText": "Transport Through Time",
+      "audioPath": "/audio/production/en-US/guided_page/transport-through-time-e4b25c3d20.mp3",
+      "audioSha256": "ecdff6c1a72b8a2fe5b300e9bafba3baba2f6fe253596585da5abf57f33b948d",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "transport through time."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 1.48,
+      "peakDbfs": -7.573141149044126,
+      "rmsDbfs": -24.312418360496114,
+      "leadingSilenceSeconds": 0.05,
+      "trailingSilenceSeconds": 0.07999999999999985,
+      "longestInteriorSilenceSeconds": 0.05
+    },
+    {
+      "kind": "page_or_title",
+      "text": "Two cars roll along the same road. One uses gasoline. The other runs only on electricity. What turns their wheels?",
+      "lookupText": "Two cars roll along the same road. One uses gasoline. The other runs only on electricity. What turns their wheels?",
+      "audioPath": "/audio/production/en-US/guided_page/two-cars-roll-along-the-same-road-one-uses-gasoline-the-other-runs-only-on-electricity-what-turns-their-wheels-be011ad166.mp3",
+      "audioSha256": "0f218c17b56c862c0a16eb43e29dff7d79fce50b83db026fcf67591c075e3c19",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "two cars roll along the same road. One uses gasoline, the other runs only on electricity. What turns their wheels?"
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 7.24,
+      "peakDbfs": -8.328737235440894,
+      "rmsDbfs": -25.06542026930994,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0.040000000000000036,
+      "longestInteriorSilenceSeconds": 0.55
+    },
+    {
+      "kind": "page_or_title",
+      "text": "Vehicles That Fly",
+      "lookupText": "Vehicles That Fly",
+      "audioPath": "/audio/production/en-US/guided_page/vehicles-that-fly-bb6f6209b5.mp3",
+      "audioSha256": "e45ba0ea6a96d5607df687c384ea412ae7d18c2072348c050976999f1310c9f6",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Vehicles that fly."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 1.24,
+      "peakDbfs": -9.574852329164118,
+      "rmsDbfs": -24.161916637186156,
+      "leadingSilenceSeconds": 0.05,
+      "trailingSilenceSeconds": 0.08999999999999986,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "page_or_title",
+      "text": "When the electric car needs more energy, an adult plugs it into a charger. Electricity helps recharge its battery.",
+      "lookupText": "When the electric car needs more energy, an adult plugs it into a charger. Electricity helps recharge its battery.",
+      "audioPath": "/audio/production/en-US/guided_page/when-the-electric-car-needs-more-energy-an-adult-plugs-it-into-a-charger-electricity-helps-recharge-its-battery-5ae7f4a2cc.mp3",
+      "audioSha256": "1496d32d6a8e06cdaea6fe22f6bef665ad85caff800d28afff4a926149f3e663",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "When the electric car needs more energy and adult plugs it into a charger, electricity helps recharge its battery.",
+        "When the electric car needs more energy, an adult plugs it into a charger. Electricity helps recharge its battery."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json",
+        "screen-small.json"
+      ],
+      "durationSeconds": 7.32,
+      "peakDbfs": -9.077192802748423,
+      "rmsDbfs": -25.497415970338043,
+      "leadingSilenceSeconds": 0.4,
+      "trailingSilenceSeconds": 0.07000000000000028,
+      "longestInteriorSilenceSeconds": 0.25
+    },
+    {
+      "kind": "page_or_title",
+      "text": "When the fuel tank is low, an adult stops at a pump. Liquid gasoline flows into the car's tank.",
+      "lookupText": "When the fuel tank is low, an adult stops at a pump. Liquid gasoline flows into the car's tank.",
+      "audioPath": "/audio/production/en-US/guided_page/when-the-fuel-tank-is-low-an-adult-stops-at-a-pump-liquid-gasoline-flows-into-the-car-s-tank-4088bf0dec.mp3",
+      "audioSha256": "bf2d45a7b82cfb64e724c77e3915788da9b4e0845ef19ca016236afce9125bdc",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "When the fuel tank is low and adult stops at a pump, liquid gasoline flows into the car's tank.",
+        "When the fuel tank is low, an adult stops at a pump, liquid gasoline flows into the car's tank."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json",
+        "screen-small.json"
+      ],
+      "durationSeconds": 6.84,
+      "peakDbfs": -8.549034634321425,
+      "rmsDbfs": -24.946161319295385,
+      "leadingSilenceSeconds": 0.4,
+      "trailingSilenceSeconds": 0.08999999999999986,
+      "longestInteriorSilenceSeconds": 0.25
+    },
+    {
+      "kind": "page_or_title",
+      "text": "Wings lift planes and helicopters. Warm air helps lift a hot-air balloon. Different shapes use the air in different ways.",
+      "lookupText": "Wings lift planes and helicopters. Warm air helps lift a hot-air balloon. Different shapes use the air in different ways.",
+      "audioPath": "/audio/production/en-US/guided_page/wings-lift-planes-and-helicopters-warm-air-helps-lift-a-hot-air-balloon-different-shapes-use-the-air-in-different-ways-4a2e74ef83.mp3",
+      "audioSha256": "2e15084dc00e2c9d7c79fa4d3861efdd421ee9fd6477af252a871246733fdf89",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Wings lift planes and helicopters. Warm air helps lift a hot air balloon. Different shapes use the air in different ways."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 8.36,
+      "peakDbfs": -7.386281064236253,
+      "rmsDbfs": -25.84761137993467,
+      "leadingSilenceSeconds": 0.05,
+      "trailingSilenceSeconds": 0.10999999999999943,
+      "longestInteriorSilenceSeconds": 0.5
+    },
+    {
+      "kind": "word",
+      "text": "airplanes",
+      "lookupText": "airplanes",
+      "audioPath": "/audio/production/en-US/isolated_word/airplanes-69e126acde.mp3",
+      "audioSha256": "0423f9e2f933a543a97259ffd4bd0debc9d499efd5e954d5d2e4f0b6c8cea6ca",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Airplanes."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 1.36,
+      "peakDbfs": -6.42754988711693,
+      "rmsDbfs": -26.661145939463736,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0.010000000000000009,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "all-electric",
+      "lookupText": "all-electric",
+      "audioPath": "/audio/production/en-US/isolated_word/all-electric-94f71e4099.mp3",
+      "audioSha256": "3314f31db4ccf95962f9dc721f476da1eab97e4d58d913fa524bd5020fd65e04",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "All electric."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 1.44,
+      "peakDbfs": -9.486759788991158,
+      "rmsDbfs": -25.639418349412367,
+      "leadingSilenceSeconds": 0.2,
+      "trailingSilenceSeconds": 0.1399999999999999,
+      "longestInteriorSilenceSeconds": 0.15000000000000002
+    },
+    {
+      "kind": "word",
+      "text": "alongside",
+      "lookupText": "alongside",
+      "audioPath": "/audio/production/en-US/isolated_word/alongside-325218f812.mp3",
+      "audioSha256": "4c0a06e187d2e3ceb9748b7ec3a903d917e1b21ea53f99ded3625e231133f5ac",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Alongside."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 1.88,
+      "peakDbfs": -9.870433757949561,
+      "rmsDbfs": -26.01283810955106,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.25
+    },
+    {
+      "kind": "word",
+      "text": "Amazon",
+      "lookupText": "Amazon",
+      "audioPath": "/audio/production/en-US/isolated_word/amazon-ed35860db8.mp3",
+      "audioSha256": "f0433e894298122a8a904c6dd94a1338301c07b894dd59e2d1a7f8ee1ad120aa",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Amazon."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 1.4,
+      "peakDbfs": -11.511454405061192,
+      "rmsDbfs": -26.530622554658883,
+      "leadingSilenceSeconds": 0.65,
+      "trailingSilenceSeconds": 0.09999999999999987,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "blades",
+      "lookupText": "blades",
+      "audioPath": "/audio/production/en-US/isolated_word/blades-72daa1735a.mp3",
+      "audioSha256": "4f007ae49d48703174de1f9d163fa1d878c85adffefdcaec32adceef4d5db3b3",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "braids.",
+        "blades"
+      ],
+      "sourceScreening": [
+        "screen-tiny.json",
+        "screen-small.json"
+      ],
+      "durationSeconds": 0.64,
+      "peakDbfs": -11.739309351326648,
+      "rmsDbfs": -24.386061388934436,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "Brazil",
+      "lookupText": "Brazil",
+      "audioPath": "/audio/production/en-US/isolated_word/brazil-3928bd32a1.mp3",
+      "audioSha256": "df6901d9cab086bbc6d106091cdcd4e1c0748a9027a46a2a5e76de14ec1662f3",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Brazil."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 1.16,
+      "peakDbfs": -10.220576009320794,
+      "rmsDbfs": -25.73866947620328,
+      "leadingSilenceSeconds": 0.2,
+      "trailingSilenceSeconds": 0.009999999999999787,
+      "longestInteriorSilenceSeconds": 0.1
+    },
+    {
+      "kind": "word",
+      "text": "burner",
+      "lookupText": "burner",
+      "audioPath": "/audio/production/en-US/isolated_word/burner-0b19db1509.mp3",
+      "audioSha256": "89291b24a15f88cc7a3ea59cae73dc704c6ab6de81235f3b30898854b8ee9d76",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "burner"
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 1.0,
+      "peakDbfs": -8.875763284662487,
+      "rmsDbfs": -25.41538491978617,
+      "leadingSilenceSeconds": 0.25,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "burning",
+      "lookupText": "burning",
+      "audioPath": "/audio/production/en-US/isolated_word/burning-ced09ddfca.mp3",
+      "audioSha256": "d7e626b05d621b98e3a16bdc77b55c3c56534eaf5d7f6546ea186a9458d55862",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "burning."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 1.04,
+      "peakDbfs": -7.676575921746204,
+      "rmsDbfs": -25.68534828779456,
+      "leadingSilenceSeconds": 0.1,
+      "trailingSilenceSeconds": 0.14,
+      "longestInteriorSilenceSeconds": 0.15000000000000002
+    },
+    {
+      "kind": "word",
+      "text": "car’s",
+      "lookupText": "car’s",
+      "audioPath": "/audio/production/en-US/isolated_word/car-s-2167e20ba0.mp3",
+      "audioSha256": "64c0416d4fafa15a5a61eeb56eb5ae0fb37dc9086cd8062cebd253914ab8445a",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "reviewed-recognition-equivalent",
+      "reviewNote": "Cars/car’s differs only in apostrophe spelling; the pronounced possessive/plural ending is the same. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Cars.",
+        "cars"
+      ],
+      "sourceScreening": [
+        "screen-tiny.json",
+        "screen-small.json"
+      ],
+      "durationSeconds": 0.72,
+      "peakDbfs": -11.326084418820454,
+      "rmsDbfs": -25.149147990408267,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0.06999999999999995,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "cause",
+      "lookupText": "cause",
+      "audioPath": "/audio/production/en-US/isolated_word/cause-3f672f43c9.mp3",
+      "audioSha256": "e4ea8581408a2b2643639a1b3dcf786de8a7e3e4aa0e953ab25225ca3c436732",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Cause."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 0.68,
+      "peakDbfs": -13.317576756154246,
+      "rmsDbfs": -25.460579167876215,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0.030000000000000027,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "charger",
+      "lookupText": "charger",
+      "audioPath": "/audio/production/en-US/isolated_word/charger-846337261c.mp3",
+      "audioSha256": "8520792002cc9c3e986896790daf7c61d23fcf044c21d4fc7c0eb5aff81b03d5",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Charger."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 0.72,
+      "peakDbfs": -9.13459819048607,
+      "rmsDbfs": -24.746540441782706,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0.019999999999999907,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "country’s",
+      "lookupText": "country’s",
+      "audioPath": "/audio/production/en-US/isolated_word/country-s-dafb679a5c.mp3",
+      "audioSha256": "3a4a0989b4f9f2fa8270adbbcb6b74c7daa1a0ec17171aa20c3c4db811feb3a0",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "reviewed-recognition-equivalent",
+      "reviewNote": "Countries/country’s differs in spelling and grammar but has the same U.S. pronunciation. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "countries.",
+        "Countries."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json",
+        "screen-small.json"
+      ],
+      "durationSeconds": 0.64,
+      "peakDbfs": -13.494332782959162,
+      "rmsDbfs": -24.629654518924617,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "de",
+      "lookupText": "de",
+      "audioPath": "/audio/production/en-US/isolated_word/de-4e7fa30d53.mp3",
+      "audioSha256": "1072a19adf29319f093b52b243890aa02a9ec4947cd23b6b8b28e36b8b025198",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "reviewed-dictionary-pronunciation-equivalent",
+      "reviewNote": "Small recognition gives Day, matching the U.S. /deɪ/ variant explicitly listed in Cambridge’s pronunciation of Rio de Janeiro. Tiny gives Deeee. This is not Portuguese pronunciation certification. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Deeee.",
+        "Day"
+      ],
+      "sourceScreening": [
+        "screen-tiny.json",
+        "screen-small.json"
+      ],
+      "durationSeconds": 1.32,
+      "peakDbfs": -10.686184953565853,
+      "rmsDbfs": -27.051698024467715,
+      "leadingSilenceSeconds": 0.65,
+      "trailingSilenceSeconds": 0.11999999999999988,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "Egypt",
+      "lookupText": "Egypt",
+      "audioPath": "/audio/production/en-US/isolated_word/egypt-8451f1016b.mp3",
+      "audioSha256": "80930806b3fb0cfb480ed1fd7b74571e5aaf00b624473d196cfba8c236c1fba1",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Egypt."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 0.6,
+      "peakDbfs": -10.3454889677546,
+      "rmsDbfs": -23.882921572137494,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0.04999999999999993,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "engines",
+      "lookupText": "engines",
+      "audioPath": "/audio/production/en-US/isolated_word/engines-bd765021a3.mp3",
+      "audioSha256": "c6dcac2f7abc9739e82cc868008adbbe42aa47a80668810b8a3e440e684d5119",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "engines."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 1.32,
+      "peakDbfs": -9.862841779335016,
+      "rmsDbfs": -26.303796818036975,
+      "leadingSilenceSeconds": 0.35000000000000003,
+      "trailingSilenceSeconds": 0.07000000000000006,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "exhaust",
+      "lookupText": "exhaust",
+      "audioPath": "/audio/production/en-US/isolated_word/exhaust-9790913326.mp3",
+      "audioSha256": "bfe60ec9b24fad6ef71dd93635adef5d604d7fa69ec43bcdec1dd8dfb3dc503b",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Exhaust."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 1.48,
+      "peakDbfs": -7.6574192482128876,
+      "rmsDbfs": -26.1357438918777,
+      "leadingSilenceSeconds": 0.35000000000000003,
+      "trailingSilenceSeconds": 0.17999999999999994,
+      "longestInteriorSilenceSeconds": 0.05
+    },
+    {
+      "kind": "word",
+      "text": "existed",
+      "lookupText": "existed",
+      "audioPath": "/audio/production/en-US/isolated_word/existed-d020dfeb38.mp3",
+      "audioSha256": "07476df84aba58d8fa8379896de9e47a224178382216370afb60a8ffc14d9aef",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Existed."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 1.24,
+      "peakDbfs": -8.91819772800337,
+      "rmsDbfs": -25.667031907280062,
+      "leadingSilenceSeconds": 0.05,
+      "trailingSilenceSeconds": 0.039999999999999813,
+      "longestInteriorSilenceSeconds": 0.05
+    },
+    {
+      "kind": "word",
+      "text": "Fuji",
+      "lookupText": "Fuji",
+      "audioPath": "/audio/production/en-US/isolated_word/fuji-1bfbf4d349.mp3",
+      "audioSha256": "b7d6208bac2330d42bcec34f1df3c86a6cd7daede183b62eacc5acfd1881e156",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Fuji"
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 0.8,
+      "peakDbfs": -10.34067506296969,
+      "rmsDbfs": -25.052815083656196,
+      "leadingSilenceSeconds": 0.1,
+      "trailingSilenceSeconds": 0.050000000000000044,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "gasoline",
+      "lookupText": "gasoline",
+      "audioPath": "/audio/production/en-US/isolated_word/gasoline-d7d08dcb05.mp3",
+      "audioSha256": "06d890d395ba94b797368c3633b76d3401e52e91c2ab36a88169d1affa1f1138",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "gasoline"
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 1.16,
+      "peakDbfs": -12.94835306004228,
+      "rmsDbfs": -24.693452784157827,
+      "leadingSilenceSeconds": 0.35000000000000003,
+      "trailingSilenceSeconds": 0.05999999999999983,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "goods",
+      "lookupText": "goods",
+      "audioPath": "/audio/production/en-US/isolated_word/goods-666b0e382b.mp3",
+      "audioSha256": "609ddc4b6fb4f9ce96f93f13dcdda7ba6b8a58e0cb52765ac6fc57b7ddfa0796",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Goods."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 1.04,
+      "peakDbfs": -8.160911565558896,
+      "rmsDbfs": -26.15205874611331,
+      "leadingSilenceSeconds": 0.2,
+      "trailingSilenceSeconds": 0.08999999999999997,
+      "longestInteriorSilenceSeconds": 0.05
+    },
+    {
+      "kind": "word",
+      "text": "helicopters",
+      "lookupText": "helicopters",
+      "audioPath": "/audio/production/en-US/isolated_word/helicopters-b522d32d0b.mp3",
+      "audioSha256": "0a5ba54e4ef45fcb630910e7261dbb949284d92514c113e1e461a6ca3b05db63",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Helicopters."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 1.08,
+      "peakDbfs": -5.061740292471081,
+      "rmsDbfs": -23.998735577618465,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0.030000000000000027,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "hills",
+      "lookupText": "hills",
+      "audioPath": "/audio/production/en-US/isolated_word/hills-0bf6e0ac39.mp3",
+      "audioSha256": "73d1f699b277180b6a2b3497e5c49d90abdd8d59fbc3e19ea99461b941fb442f",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "kills.",
+        "Hills"
+      ],
+      "sourceScreening": [
+        "screen-tiny.json",
+        "screen-small.json"
+      ],
+      "durationSeconds": 0.64,
+      "peakDbfs": -14.027606963678409,
+      "rmsDbfs": -25.024441357568858,
+      "leadingSilenceSeconds": 0.05,
+      "trailingSilenceSeconds": 0.08999999999999997,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "horse-drawn",
+      "lookupText": "horse-drawn",
+      "audioPath": "/audio/production/en-US/isolated_word/horse-drawn-270327a8f4.mp3",
+      "audioSha256": "1599bf301418f135c5a7baeadc26689163417ded829546e163ee28ce2aa014bc",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Horse drawn."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 1.44,
+      "peakDbfs": -7.828187288831017,
+      "rmsDbfs": -25.61604718437327,
+      "leadingSilenceSeconds": 0.35000000000000003,
+      "trailingSilenceSeconds": 0.1399999999999999,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "hot-air",
+      "lookupText": "hot-air",
+      "audioPath": "/audio/production/en-US/isolated_word/hot-air-ba11f7b602.mp3",
+      "audioSha256": "709d5c5fcaaa6ed76662ab523dd7c06811cbe2b332afbce432ba97d7638cc0bd",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Hot air."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 0.96,
+      "peakDbfs": -7.957316257641746,
+      "rmsDbfs": -24.407597430807225,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0.009999999999999898,
+      "longestInteriorSilenceSeconds": 0.15000000000000002
+    },
+    {
+      "kind": "word",
+      "text": "inventions",
+      "lookupText": "inventions",
+      "audioPath": "/audio/production/en-US/isolated_word/inventions-fa8a8f77ac.mp3",
+      "audioSha256": "1eb88ec6e7237e9fe061aa6bfb571852eb9d95c7dde00fb2c814239e4b39cab4",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "inventions."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 0.84,
+      "peakDbfs": -11.23857193089793,
+      "rmsDbfs": -24.64666327928387,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "Janeiro",
+      "lookupText": "Janeiro",
+      "audioPath": "/audio/production/en-US/isolated_word/janeiro-9c7c8f55d6.mp3",
+      "audioSha256": "9c7c8f55d6652e060d3fae208f4406f687924ba7c0388cea7ba25f04a3503f12",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "reviewed-exact-ipa-residual-asr-ambiguity",
+      "reviewNote": "Root accepted the exact dictionary-supported IPA-controlled /ʒəˈnɛɹoʊ/ take after full decode/signal and unprompted recognition. Small writes Genaro and tiny writes is a narrow; these remain recorded recognition ambiguity, not an exact-match claim or independent phoneme certification. The complete page containing Rio de Janeiro was confirmed by the small recognizer. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "is a narrow.",
+        "Genaro"
+      ],
+      "sourceScreening": [
+        "clarity-screen-tiny.json",
+        "clarity-screen-small.json"
+      ],
+      "durationSeconds": 2.0073333333333334,
+      "peakDbfs": -11.279821619853339,
+      "rmsDbfs": -28.358354471977822,
+      "leadingSilenceSeconds": 0.9500000000000001,
+      "trailingSilenceSeconds": 0.4073333333333333,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "Japan",
+      "lookupText": "Japan",
+      "audioPath": "/audio/production/en-US/isolated_word/japan-1db2ddb439.mp3",
+      "audioSha256": "20faecbe9df4cfca3f927f93f108c2c7a8e507eb91d1835de954abd2f481591e",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Japan."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 1.36,
+      "peakDbfs": -8.825191034185346,
+      "rmsDbfs": -26.130413993676164,
+      "leadingSilenceSeconds": 0.25,
+      "trailingSilenceSeconds": 0.1100000000000001,
+      "longestInteriorSilenceSeconds": 0.1
+    },
+    {
+      "kind": "word",
+      "text": "journeys",
+      "lookupText": "journeys",
+      "audioPath": "/audio/production/en-US/isolated_word/journeys-d7a0cab7ab.mp3",
+      "audioSha256": "80ee1902842f5a680e5cc5e92959b599623c3a0f5393271b4f182735a777f578",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "juries.",
+        "Journeys"
+      ],
+      "sourceScreening": [
+        "screen-tiny.json",
+        "screen-small.json"
+      ],
+      "durationSeconds": 1.4,
+      "peakDbfs": -8.218621656284828,
+      "rmsDbfs": -26.263400015121547,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.05
+    },
+    {
+      "kind": "word",
+      "text": "Nile",
+      "lookupText": "Nile",
+      "audioPath": "/audio/production/en-US/isolated_word/nile-05be5b5bf7.mp3",
+      "audioSha256": "e28d6e657ef127045d54f60e78031346a0bb2ca0bc7a8683e091e5051a550c3a",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Nile."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 1.0,
+      "peakDbfs": -9.708075475600161,
+      "rmsDbfs": -25.68080228719746,
+      "leadingSilenceSeconds": 0.1,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.05
+    },
+    {
+      "kind": "word",
+      "text": "pedals",
+      "lookupText": "pedals",
+      "audioPath": "/audio/production/en-US/isolated_word/pedals-65302bbbab.mp3",
+      "audioSha256": "7e077f0d4fbdac9ed6ffbe8dc838da27b47d8dbcbce6f2983a38e4225ecaa69c",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Pedals."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 1.0,
+      "peakDbfs": -10.469758134613498,
+      "rmsDbfs": -25.22644211180538,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "plugs",
+      "lookupText": "plugs",
+      "audioPath": "/audio/production/en-US/isolated_word/plugs-f4c7c3721b.mp3",
+      "audioSha256": "c7de29b03e629b7eaebad6b2ca03b8235ed0a99245f467b4bb4205556a73569f",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "plugs."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 0.64,
+      "peakDbfs": -10.451004598733817,
+      "rmsDbfs": -25.675603727882613,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0.039999999999999925,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "pollution",
+      "lookupText": "pollution",
+      "audioPath": "/audio/production/en-US/isolated_word/pollution-8326b2dcb8.mp3",
+      "audioSha256": "f0b47efd43b88887667756cb5df0abd610f0b0c2da5cf2432ea927a023866c14",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Pollution."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 1.36,
+      "peakDbfs": -12.49554279503435,
+      "rmsDbfs": -27.215731793856218,
+      "leadingSilenceSeconds": 0.05,
+      "trailingSilenceSeconds": 0.010000000000000009,
+      "longestInteriorSilenceSeconds": 0.2
+    },
+    {
+      "kind": "word",
+      "text": "producing",
+      "lookupText": "producing",
+      "audioPath": "/audio/production/en-US/isolated_word/producing-b6394179ee.mp3",
+      "audioSha256": "b92ea674dcb28ceaca769c058c6718b84159fa1761083d76988e150a773ff6a2",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Producing."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 0.84,
+      "peakDbfs": -10.512170166643385,
+      "rmsDbfs": -24.402384460641482,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "recharge",
+      "lookupText": "recharge",
+      "audioPath": "/audio/production/en-US/isolated_word/recharge-44980bbf71.mp3",
+      "audioSha256": "5e7d0f7d74a97e4a88f3970b1d27e104c9158b3bd70372e8b852fa02027c1beb",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Recharge."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 1.48,
+      "peakDbfs": -11.40730293850617,
+      "rmsDbfs": -26.5177772222574,
+      "leadingSilenceSeconds": 0.65,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.05
+    },
+    {
+      "kind": "word",
+      "text": "rider",
+      "lookupText": "rider",
+      "audioPath": "/audio/production/en-US/isolated_word/rider-1d6fb0b936.mp3",
+      "audioSha256": "553f949b60224a3222e1b7cfd9d532dcb76c2d94c4ab0669f032315d3db3be49",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Ryder.",
+        "Rider"
+      ],
+      "sourceScreening": [
+        "screen-tiny.json",
+        "screen-small.json"
+      ],
+      "durationSeconds": 1.32,
+      "peakDbfs": -8.759066468431795,
+      "rmsDbfs": -27.86890731439366,
+      "leadingSilenceSeconds": 0.7000000000000001,
+      "trailingSilenceSeconds": 0.11999999999999988,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "Rio",
+      "lookupText": "Rio",
+      "audioPath": "/audio/production/en-US/isolated_word/rio-742c0841fa.mp3",
+      "audioSha256": "89058b1188be036d5c8932486d53b2c460b6f0f54741b93ab37586713255698f",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Reo",
+        "Rio"
+      ],
+      "sourceScreening": [
+        "screen-tiny.json",
+        "screen-small.json"
+      ],
+      "durationSeconds": 1.08,
+      "peakDbfs": -12.94269339286997,
+      "rmsDbfs": -25.597189557729813,
+      "leadingSilenceSeconds": 0.30000000000000004,
+      "trailingSilenceSeconds": 0.18000000000000005,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "rowboat",
+      "lookupText": "rowboat",
+      "audioPath": "/audio/production/en-US/isolated_word/rowboat-6713020d1e.mp3",
+      "audioSha256": "faf7a9d0803ff630fbb1daa1b3579dea000831df006cfe7292b69e6c87f90c06",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Row boat.",
+        "rowboat"
+      ],
+      "sourceScreening": [
+        "screen-tiny.json",
+        "screen-small.json"
+      ],
+      "durationSeconds": 1.48,
+      "peakDbfs": -10.50631107607833,
+      "rmsDbfs": -26.694918856104962,
+      "leadingSilenceSeconds": 0.65,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.05
+    },
+    {
+      "kind": "word",
+      "text": "rower",
+      "lookupText": "rower",
+      "audioPath": "/audio/production/en-US/isolated_word/rower-98429535ed.mp3",
+      "audioSha256": "d9d0b8bab72b859c7c34b058941d3728581a6b84ea481626fde37785e7c09467",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "rower."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 1.0,
+      "peakDbfs": -9.472669132092399,
+      "rmsDbfs": -26.014201835192154,
+      "leadingSilenceSeconds": 0.25,
+      "trailingSilenceSeconds": 0.1499999999999999,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "skater",
+      "lookupText": "skater",
+      "audioPath": "/audio/production/en-US/isolated_word/skater-b85c89352d.mp3",
+      "audioSha256": "98e17366990e860706be246fb5e4bc1bd42b697b8e97ce3f384ded9d8ce30d1e",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Skater."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 1.12,
+      "peakDbfs": -10.971068563298434,
+      "rmsDbfs": -26.618564364606016,
+      "leadingSilenceSeconds": 0.5,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "skates",
+      "lookupText": "skates",
+      "audioPath": "/audio/production/en-US/isolated_word/skates-3e7177e3aa.mp3",
+      "audioSha256": "8b1af078d8dfad3c73a44d722c3e358e8061e8fdaf9e192945b30b99c0f375cd",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "skates."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 1.16,
+      "peakDbfs": -8.060057203020888,
+      "rmsDbfs": -26.143606379426274,
+      "leadingSilenceSeconds": 0.15000000000000002,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.15000000000000002
+    },
+    {
+      "kind": "word",
+      "text": "stations",
+      "lookupText": "stations",
+      "audioPath": "/audio/production/en-US/isolated_word/stations-e8640ec068.mp3",
+      "audioSha256": "ea0d5b2b57fcb991e94a31c6345ae329cd584e462a6c766cde69398598fe737a",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Stations."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 0.96,
+      "peakDbfs": -11.659974288021369,
+      "rmsDbfs": -24.5629764856532,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0.009999999999999898,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "Tokyo",
+      "lookupText": "Tokyo",
+      "audioPath": "/audio/production/en-US/isolated_word/tokyo-015f9a0957.mp3",
+      "audioSha256": "3ab02181a4bd6f72dfdd0d609f5404815ab23b1bfaf0bc974d91d05bace3e8ab",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Tokyo."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 0.76,
+      "peakDbfs": -12.655920274838234,
+      "rmsDbfs": -24.905185534044275,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0.05999999999999994,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "waterways",
+      "lookupText": "waterways",
+      "audioPath": "/audio/production/en-US/isolated_word/waterways-3206ff0ecc.mp3",
+      "audioSha256": "c534b6eed24461a4e9b76c03f09f8b0a2aae50601faf3fbdec68c71af452ad2a",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite, unclipped signal; automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Waterways."
+      ],
+      "sourceScreening": [
+        "screen-tiny.json"
+      ],
+      "durationSeconds": 0.96,
+      "peakDbfs": -7.140966634656762,
+      "rmsDbfs": -24.648079371711155,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0.009999999999999898,
+      "longestInteriorSilenceSeconds": 0.0
+    }
+  ],
+  "summary": {
+    "independent-recognizer-match": 89,
+    "reviewed-dictionary-pronunciation-equivalent": 1,
+    "reviewed-exact-ipa-residual-asr-ambiguity": 1,
+    "reviewed-recognition-equivalent": 3
+  }
+}

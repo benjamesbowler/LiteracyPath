@@ -2,23 +2,18 @@
   "bookId": "world-discovery-d-21",
   "slot": "reference",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-09T04:57:54.370Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-7dae9e7e-810d-4570-8b43-39c8d842bb1d.png",
-  "sourceSha256": "a68f1be22a39ac25d563392492e12c55ea4fce5b2554366d787607bed459e407",
+  "generatedAt": "2026-11-10T05:54:58.109Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1c3ef-11ed-7331-8274-1234bc3e482f/exec-1e0911eb-57bb-40cc-a2f2-cd555cfd7c31.png",
+  "sourceSha256": "1fa20b96e36883ee9f2aa7efe7a2e3f5d53e9d1669b5a04297a0d090b0c853fd",
   "output": "source-art/world-discovery/d-21-reference.webp",
-  "outputSha256": "c9f245ba0f568a1ae3182927ff1961cd43a353bd7122c7ed6b03a2883edb26e6",
+  "outputSha256": "12bdcf040d47f4dd39cd88921ed1aecf52635f88a3fbe71a8a71e715ad895ad4",
   "width": 1536,
   "height": 1024,
-  "prompt": "Use case: precise-object-edit. Edit this production reference board, preserving its clean 2D cartoon style, orange container design, the two adult workers, blue notebooks, cartons, transport equipment, white board and original book constraints. Make these exact corrections everywhere on the board: The orange freight container has ONLY ONE pair of cargo doors at ONE short end; the opposite short end is a plain solid corrugated wall with NO doors or locking bars. Its ONLY blue square marker belongs on the LEFT cargo door, with zero blue squares on either long side, the roof or opposite solid end. Remove the erroneous blue square on the side-view containers resting on the railcar and truck trailer. In the unlabeled straight-on second end view, replace the two barred doors with one plain solid corrugated orange end wall. Preserve front, side and three-quarter container views, correct real container proportions, corner castings and the open doors/loading scene. Keep all floor, sky, vehicle and object surfaces completely clean flat color with restrained smooth cel shading; remove mottled texture from the port pavement. No added text, labels, numbers, logos, extra props or people. This remains an unlabelled production design board, not a finished book page.",
-  "references": [
-    {
-      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-a38133a5-428a-47d2-8bb4-d4c4a983eb1e.png",
-      "sha256": "268083b0f3c756b3fb477b96deca59ad601b83e0156e9dbe346667dbc1d26a53"
-    }
-  ],
+  "prompt": "Use case: illustration-story. PRODUCTION REFERENCE SHEET, landscape, not a finished book page. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Gasoline and Electric Cars; World Discovery; nonfiction.\nSetting: Ordinary contemporary civilian cars on a calm road and at separate safe service areas. Gasoline car is orange with dark gray roof and one rear exhaust pipe. All-electric car is teal with light gray roof and no exhaust pipe. Same proportions but different colors keep referents clear. Each car has four road wheels. Cutaways are explicitly diagrams; adults handle fuel and charging. No brands, flags or political messages.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Orange gasoline sedan, gray engine under front hood, fuel tank near rear and exhaust pipe at rear; Teal all-electric sedan, large flat battery beneath passenger floor and motor near rear axle, no fuel tank or exhaust; Unbranded fuel pump with hose and separate charging post with cable\n Create a clean separated reference board on white: show the principal recurring props/animals in front, side and three-quarter views, their relative scale beside any named human cast, and a single simple location key showing the persistent setting and daylight/palette. The human character model sheet is a supporting identity reference, not content to copy wholesale. Show only the subjects this book requires. Use initial object states: Opening: both cars move; their power systems are not yet exposed.. For orientation, the opening location/action is: Wide street view of orange car and teal car traveling safely right in separate lanes with ample distance. Ordinary adults drive with seatbelts; no visible exhaust cloud or close race. The two same-sized cars have distinct fixed colors.. Do not show a completed craft or later scene merely because the finished object is listed in design locks. No future story events, no captions. Reference-sheet override: any lettering requested by the opening page brief belongs only in that finished page. Keep this production reference board entirely unlabelled; no letters, numbers or pseudo-writing.\nPhysical-logic clarification: This board locks EXTERNAL car bodies and service-prop designs only. Do NOT draw any cutaway, internal engine, fuel tank, battery or fuel/exhaust pipe routing on the reference sheet. Show each intact orange and teal sedan in front, side, rear and three-quarter views. Only the orange sedan has one rear exhaust outlet; the teal sedan has none. Keep one blue-clothed adult driver and one plum-jacketed adult driver as separate identity views, and separate intact fuel pump and charging-post designs. No fuel hose plugged into a charger. White separated reference-board background.",
+  "references": [],
   "manuscriptSource": {
-    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
-    "sha256": "4cd850616c2e31aecc557996032490d0fb984ea0f222fa11e0f2a878a417a9c7",
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/discovery-topic-revision/manuscripts",
+    "sha256": "7d1860e2dae10eae9a699a4df3ae5d6f56a9a9781a39f8c3d092049b64334db4",
     "isolated": true,
     "firstNumber": 21,
     "lastNumber": 30,
@@ -26,17 +21,14 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "date": "2026-11-09T14:07:15.499Z",
-    "sha256": "c9f245ba0f568a1ae3182927ff1961cd43a353bd7122c7ed6b03a2883edb26e6",
-    "note": "Direct native result inspection: corrected one two-door short end, opposite solid corrugated end, blue square confined to left cargo door. Long sides unmarked. Clean flat port surfaces, no lettering, ordinary PPE workers and blue notebook/carton identity. Reference only; final cover/page sequence still unreviewed.",
-    "reviewer": "/root/gap_taxonomy",
-    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
-    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+    "reviewedAt": "2026-11-10",
+    "sha256": "12bdcf040d47f4dd39cd88921ed1aecf52635f88a3fbe71a8a71e715ad895ad4",
+    "note": "Consistent adult driver identities, fixed orange gasoline/teal electric cars, separate service areas and ordinary complete car design reference. Producer independently inspected the final installed WebP natively; complete final sequence and relevant native diagrams were independently reviewed."
   },
   "reviewedManuscriptSource": {
     "bookId": "world-discovery-d-21",
     "path": "src/content/world-discovery/cohorts/21-30/level-d.json",
-    "sha256": "4cd850616c2e31aecc557996032490d0fb984ea0f222fa11e0f2a878a417a9c7",
-    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
+    "sha256": "98d098b7790b51f3544d7069a44403c5a1e9da9323808471ee96dc80f0033831",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json"
   }
 }

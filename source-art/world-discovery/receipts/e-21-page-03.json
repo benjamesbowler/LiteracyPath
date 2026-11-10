@@ -2,23 +2,31 @@
   "bookId": "world-discovery-e-21",
   "slot": "page-03",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-09T11:29:55.278Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-86d64a9a-1039-4e6a-95a1-a0e61cee92c3.png",
-  "sourceSha256": "7b4512913f2e9e2f63beab67255669bf8250e4d2bc3a41ded89bb2f7735650c9",
+  "generatedAt": "2026-11-10T09:40:01.216Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1c3ee-e610-7d22-ad30-a2bee077e3d6/exec-75444a47-ea59-48c8-864b-a4a1bf98888f.png",
+  "sourceSha256": "cba0d0d39d2ba45998faa5e57d2bc406909092caa218537eae23815e55ffaec5",
   "output": "public/guided-reading/world-discovery/e-21/page-03.webp",
-  "outputSha256": "f7c8eab2205e2b89ce40d49a2418050689e26b9526d746966c96eea6efe4a88c",
+  "outputSha256": "e4bcb73ecc43a49cd4c09f0a08fd5cf7560460beb1ea772e1a3bf3c11f83f946",
   "width": 1536,
   "height": 1024,
-  "prompt": "Edit this illustration into ONE map-only diagram: REMOVE all three people and the large ferry outside the map on the left. Recenter the remaining COMPLETE map on the white 3:2 landscape canvas. Preserve the map geometry, museum, orange road-route dots, small bus on the upper road bridge, lower brown footbridge, tan paths, blue river and opposite quays exactly. Map outer boundary should occupy 74 percent of canvas width and 74 percent of canvas height, leaving 13 percent white margins all around. No added text, numbers, icons, people or vehicles. Flat 2D clean bold lines and solid colors.",
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one integrated explanatory diagram. Allow only the cutaways, insets, schematic elements or arrows explicitly authored in this page's illustration brief; keep them spatially connected to the subject they explain. No unrequested panels, insets, annotations or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Transport Through Time; World Discovery; nonfiction.\nSetting: A selected factual history followed by contemporary transport comparisons. Historical pictures are reconstructions, not a claim that all countries changed at once. Plain practical clothes only; no flags, religious buildings, political events or cultural costumes. Cart: brown wooden four-wheel wagon, one healthy bay horse and adult driver in plain gray shirt and dark trousers. Steam train: black early passenger steam locomotive with red wheels and two brown wooden coaches. Early motor car: dark-green open four-wheel gasoline car with adult driver. Early aircraft: plain cream single-propeller biplane. Modern train: white electric passenger train with blue band and overhead wire. Jet: white twin-engine passenger jet with teal tail. No named cast or brand logos.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Horse-drawn brown wagon; Early black steam train; Early dark-green motor car; Cream early propeller biplane; Modern white-blue electric train; Modern white-teal passenger jet\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and specific stages explicitly required below; the declared diagram permits no other scenes or story events.\nPage 3. Printed prose (NOT text to put in art): Later, steam engines pulled trains along tracks. Burning fuel heated water, and steam helped turn the wheels.\nRequired illustration: Early steam passenger train on rails. A single integrated cutaway in black locomotive shows small enclosed firebox beneath a water-filled boiler; steam pipe leads to piston and connecting rod by red driving wheel. Two brown coaches behind. No text, open fire beside passengers or floating pipes.\nExact current state: Steam locomotive and its energy-to-wheel mechanism introduced.\nDo not add events or stages beyond the authored diagram. Repeat a subject only when the authored comparison or cutaway requires it. No written title; the app renders live text.\nFINAL QUALITY LOCK: Render 1536 by 1024 pixels, clean landscape 3:2. This is the finished page, not a reference sheet. Keep all essential subjects fully framed with 8 percent margin. Use plain ordinary clothes and exactly the subjects specified in this page. Do not transfer extraneous reference animals, poses or props into the picture. No national symbols, logos or written marks. All wheels visibly contact their own road or rails. Train rails are a coherent parallel pair under the wheels. A locomotive has a plausible horizontal boiler, firebox, steam pipe, cylinder, piston and connecting rods only where explicitly requested. No fantasy plumbing, exposed loose hoses, melted wheels or floating mechanisms. Horses have exactly four natural legs; tack is coherent. Aircraft have exactly one fuselage, one tail and matching wings with correct attachment.\nCORRECTION TO THE GENERATED DRAFT (second reference): Replace its inaccurate steam engine mechanism with a physically coherent simple teaching cutaway in side view. The locomotive faces LEFT. Long horizontal boiler, chimney at front LEFT, cab at rear RIGHT. The SMALL firebox is at the REAR RIGHT end of the boiler, just in front of the cab, with fire below a surrounding water jacket. Hot gases run from rear firebox through flue tubes toward the front chimney. A single steam takeoff pipe runs from the TOP of the boiler FORWARD LEFT, then down to one horizontal cylinder located low at the FRONT LEFT, ahead of the large red driving wheels. Horizontal piston rod leaves the cylinder toward a guided crosshead and diagonal connecting rod reaches an offset crank pin on the first main red driving wheel. A straight coupling rod joins the three equal driving wheels. All parts attached and supported, no giant bent piston on top of rear wheel, no floating or open piping, no fire under front smokebox. One integrated cutaway only, not external inset. Retain two brown coaches behind the cab, driver in gray, black locomotive, red wheels and normal tracks. Zoom out so entire locomotive AND both coaches fit with 130px left/right margins and 100px top/bottom. Thin restrained gray exhaust near chimney, not giant cropped cloud.\nFINAL MECHANISM CORRECTION: Keep the second draft's REAR firebox and front horizontal cylinder, but remove EVERY yellow/orange diagram arrow (no arrows are authored on this page). The three driving wheels must have the same rotational phase: all three crank pins visibly offset upper-left of their respective wheel centers by the same distance, and the straight coupling rod joins those three offset crank pins. Never connect the driving linkage directly to wheel axles/centers. Piston rod stays horizontal through its supported crosshead; diagonal connecting rod reaches the offset crank pin on the first large driving wheel. Reduce the entire train diagram to fit completely inside x150..1386 and y210..820; add calm field/sky around it, NOT empty coaches cropped at the edge. One black engine plus exactly TWO complete brown coaches. Water jacket surrounds rear firebox safely; no passengers beside open fire.\nFRAMING-ONLY REPAIR to LAST reference: preserve the now-correct engine cutaway EXACTLY: rear-right firebox, water/flue tubes, front-left steam cylinder, horizontal guided piston rod and same-phase OFF-CENTER wheel crank pins joined by coupling rod. No arrows or extra pipes. Make the camera20 percent farther away so ENTIRE train including both buffer ends and BOTH brown coaches lies completely inside x160..1376 and y250..820 on1536x1024. Extend only the same background field/sky around it. Do not change mechanism geometry or add coaches.",
   "references": [
     {
-      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-908bfc85-154f-480d-943e-0dc8b1fd25fd.png",
-      "sha256": "1e557ceb4fa279a55daa0bfede76bcbd67d038444f28bfd78a0dd344dbbbd156"
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-21-reference.webp",
+      "sha256": "bcd9084f0fd6888f17aec2fe89d8d9237c31f3ae501978dc1610288aba71214c"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1c3ee-e610-7d22-ad30-a2bee077e3d6/exec-99026191-4feb-4fba-94b4-8e78363af79a.png",
+      "sha256": "51fc1a573539cbba713689d7299a12aee30bdac7508ad2f7908b096377fb432e"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1c3ee-e610-7d22-ad30-a2bee077e3d6/exec-733c56d6-a9c0-45eb-b063-0b4efb440c11.png",
+      "sha256": "d0dc6eb0ba91161b3cd7dbd27c61e265a16a7b0005e7ec590e76e2b219763c81"
     }
   ],
   "manuscriptSource": {
-    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
-    "sha256": "9421bb4bb1f97c822674b76871fc5ee9b7b4398f02e9bdb626223b2a8cf9283e",
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/discovery-topic-revision/manuscripts",
+    "sha256": "5476e5d3a4c300cd350ded4aee8195556e25aa6db8b5208012c7e1c76178cb6e",
     "isolated": true,
     "firstNumber": 21,
     "lastNumber": 30,
@@ -26,15 +34,14 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "date": "2026-11-09T11:31:58.778240+00:00",
-    "sha256": "f7c8eab2205e2b89ce40d49a2418050689e26b9526d746966c96eea6efe4a88c",
-    "note": "Orange bus route follows upper road bridge from start to museum. One bus on road, no extraneous reference-board panels. Geometry preserved; ample map margin.",
-    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+    "reviewedAt": "2026-11-10",
+    "sha256": "e4bcb73ecc43a49cd4c09f0a08fd5cf7560460beb1ea772e1a3bf3c11f83f946",
+    "note": "One integrated steam locomotive cutaway with rear firebox, boiler water around flues, steam space/pipe to front cylinder, horizontal guided piston rod and connecting rod to an offset crank. Three wheel crank pins share angular phase with straight coupling rod. Two brown coaches remain attached. No teaching arrows or disconnected fantasy plumbing. Producer independently inspected the final installed WebP natively; complete final sequence and relevant native diagrams were independently reviewed."
   },
   "reviewedManuscriptSource": {
     "bookId": "world-discovery-e-21",
     "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
-    "sha256": "9421bb4bb1f97c822674b76871fc5ee9b7b4398f02e9bdb626223b2a8cf9283e",
-    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
+    "sha256": "d2b00cf5ebb83c26d8921703250179413a877c2f73e333ebcb39d3b45604dc4f",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json"
   }
 }

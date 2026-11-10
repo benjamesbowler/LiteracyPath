@@ -2,27 +2,27 @@
   "bookId": "world-discovery-d-21",
   "slot": "page-10",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-09T06:08:18.235Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-ae7b7e63-eddf-46b8-b21d-d5ece7e66c65.png",
-  "sourceSha256": "9f5df8bd45e28df25cabc10afb2ef8200eb25d495672c6f2cf8c19316c7c4f87",
+  "generatedAt": "2026-11-10T07:07:33.826Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1c3ef-11ed-7331-8274-1234bc3e482f/exec-9d1f23fa-bdce-4686-a128-6252b6f18f6d.png",
+  "sourceSha256": "d907c6c34e527a2b23304d85bdc7a3cac17025f34db0bcf18fe480b3c2b412e8",
   "output": "public/guided-reading/world-discovery/d-21/page-10.webp",
-  "outputSha256": "9b562cff6f94286b1b599fb90b8cd19c4fbd613066b8e432da7b32512280e183",
+  "outputSha256": "46a7572c04b508ae57fb81bbb7fd3535bfe2e378e7a11eb5a2820ce25b1224d0",
   "width": 1536,
   "height": 1024,
-  "prompt": "Edit the FIRST image, the delivered-cartons warehouse ending. Use the SECOND image only as the exact truck design reference. Replace the small background vehicle with the SAME blue tractor cab attached to the SAME separate long blue skeletal semi-trailer with THREE rear trailer axles, plus the separate tractor rear axle and front steering axle. Do not turn it into a rigid box truck or a two-axle trailer. The single orange corrugated container stays on that trailer, with its rear doors open toward the warehouse and its interior empty; single blue square only on the left cargo door. Exactly one truck and one container, no duplicates. Preserve delivered brown cartons and plain blue notebooks INSIDE the warehouse, two adult workers in their same yellow hardhats/vests and navy clothing. Pull camera back enough that both workers' complete boots and every foreground carton/flap sit at least 10 percent of image height above the bottom edge and 9 percent inside left/right edges; leave a broad clean strip of warehouse floor below. Keep this coherent view from inside warehouse toward truck outside. Preserve bold clean 2D cartoon style, flat smooth colors, no grain, no lettering. Landscape 3:2.",
+  "prompt": "Edit target Image 1 precisely. Preserve the horizontal side-by-side layout, whole orange car LEFT and whole teal car RIGHT, both facing RIGHT, two rightward arrows below, car body geometry and white background. In the orange cutaway, draw a mechanically complete gray drivetrain: front engine drives a distinct gray transmission, then a thin solid gray driveshaft runs rearward to a differential centered on the REAR (left) wheel axle and connects to that wheel hub. This drivetrain must be separate from the yellow fuel line and separate from the lower exhaust. Keep exhaust originating at engine and ending at rear outlet; never route through fuel tank. In the teal cutaway keep motor connected to rear wheel and battery cables to motor; make battery cells LIGHT BLUE to match the established pack. No extra scenes, props or people.\nInput image roles: Image 1 is the exact edit target. Image 2 is a supporting identity reference for body shapes/colors only. Preserve Image 1 outside the named changes.\nHARD scene isolation: TWO COMPLETE CARS SIDE BY SIDE IN ONE HORIZONTAL ROW, ORANGE LEFT, TEAL RIGHT, both noses/headlights pointing RIGHT. No humans, pumps, charging posts, refueling scenes or inset cars. Each single car has its own correct connected side cutaway and one rightward arrow beneath. Do NOT stack vertically.\nUse case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one explanatory comparison diagram. Allow only the distinct views, stages or comparison panels explicitly authored in this page's illustration brief, with their exact relationships and counts. No unrequested panels, insets, annotations or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Gasoline and Electric Cars; World Discovery; nonfiction.\nSetting: Ordinary contemporary civilian cars on a calm road and at separate safe service areas. Gasoline car is orange with dark gray roof and one rear exhaust pipe. All-electric car is teal with light gray roof and no exhaust pipe. Same proportions but different colors keep referents clear. Each car has four road wheels. Cutaways are explicitly diagrams; adults handle fuel and charging. No brands, flags or political messages.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Orange gasoline sedan, gray engine under front hood, fuel tank near rear and exhaust pipe at rear; Teal all-electric sedan, large flat battery beneath passenger floor and motor near rear axle, no fuel tank or exhaust; Unbranded fuel pump with hose and separate charging post with cable\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and specific stages explicitly required below; the declared diagram permits no other scenes or story events.\nPage 10. Printed prose (NOT text to put in art): Fuel and an engine. A battery and a motor. Two different systems give these cars the power to move.\nRequired illustration: Closing two-part comparison diagram of both complete cars with side cutaways, orange left and teal right. Orange tank connects to engine and drive wheels; teal floor battery connects to motor and drive wheels. Two clean horizontal arrows below point right, showing both can move; no common pipe or wire between cars.\nExact current state: Synthesis: distinct energy stores and mechanisms produce the same wheel movement.\nDo not add events or stages beyond the authored diagram. Repeat a subject only when the authored comparison or cutaway requires it. No written title; the app renders live text.\nFraming clarification: Keep every entire aircraft/car and its required teaching parts completely within the inner 84 percent of the canvas, leaving at least 8 percent clear background margin on ALL sides. Nothing essential touches or approaches the picture edge.\nPhysical-logic clarification: The gasoline fuel tank has one THIN fuel line running to the FRONT engine. The exhaust is a DIFFERENT pipe, originating at the ENGINE and running underneath the car to ONE rear outlet. The exhaust never starts at or passes through the fuel tank. Mechanical drive connection is distinct from both the fuel line and exhaust. No pipe connects the two cars. The teal all-electric car has no exhaust outlet, no fuel tank and no combustion engine.\nHARD scene isolation: TWO COMPLETE CARS SIDE BY SIDE IN ONE HORIZONTAL ROW, ORANGE LEFT, TEAL RIGHT, both noses/headlights pointing RIGHT. No humans, pumps, charging posts, refueling scenes or inset cars. Each single car has its own correct connected side cutaway and one rightward arrow beneath. Do NOT stack vertically.",
   "references": [
     {
-      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-b367b57d-e49c-4ca6-ba86-581102bf8868.png",
-      "sha256": "7af53c764b83b12869bb76f441c7afe03dc77124dec9fa96e722764d4e391cc4"
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/discovery-topic-revision/edit-inputs/d-21-page-10.png",
+      "sha256": "f87f0b4255274d0a71dc357e448b9176b7aac3f0f3e4ddb41f0bf268e1b879ad"
     },
     {
-      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-52e83673-ee1f-408b-9454-722261a8fa39.png",
-      "sha256": "9d8df77146e3843b0ab45a93c4f0c89a1e949e0d6844dcd4b1ff5d72a990019f"
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-21-reference.webp",
+      "sha256": "12bdcf040d47f4dd39cd88921ed1aecf52635f88a3fbe71a8a71e715ad895ad4"
     }
   ],
   "manuscriptSource": {
-    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
-    "sha256": "4cd850616c2e31aecc557996032490d0fb984ea0f222fa11e0f2a878a417a9c7",
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/discovery-topic-revision/manuscripts",
+    "sha256": "7d1860e2dae10eae9a699a4df3ae5d6f56a9a9781a39f8c3d092049b64334db4",
     "isolated": true,
     "firstNumber": 21,
     "lastNumber": 30,
@@ -30,17 +30,14 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "date": "2026-11-09T14:07:15.498Z",
-    "sha256": "9b562cff6f94286b1b599fb90b8cd19c4fbd613066b8e432da7b32512280e183",
-    "note": "Direct inspection: background vehicle now separate blue tractor with front/rear axles plus three-axle skeletal trailer, single empty orange container with open marked rear doors; foreground notebooks/cartons and both workers' boots >10% above bottom edge. Ready for focused independent repair recheck.",
-    "reviewer": "/root/gap_taxonomy",
-    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
-    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+    "reviewedAt": "2026-11-10",
+    "sha256": "46a7572c04b508ae57fb81bbb7fd3535bfe2e378e7a11eb5a2820ce25b1224d0",
+    "note": "Closing distinct orange and teal systems show rear stores/front engine versus floor battery/rear motor, both with rightward movement arrows and intact car geometry. Producer independently inspected the final installed WebP natively; complete final sequence and relevant native diagrams were independently reviewed."
   },
   "reviewedManuscriptSource": {
     "bookId": "world-discovery-d-21",
     "path": "src/content/world-discovery/cohorts/21-30/level-d.json",
-    "sha256": "4cd850616c2e31aecc557996032490d0fb984ea0f222fa11e0f2a878a417a9c7",
-    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
+    "sha256": "98d098b7790b51f3544d7069a44403c5a1e9da9323808471ee96dc80f0033831",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json"
   }
 }

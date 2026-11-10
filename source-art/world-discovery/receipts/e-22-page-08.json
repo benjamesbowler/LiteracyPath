@@ -2,38 +2,38 @@
   "bookId": "world-discovery-e-22",
   "slot": "page-08",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-09T12:26:32.878Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-f66025dc-a70e-4307-a240-2d72e2c5b2e8.png",
-  "sourceSha256": "d8f9632060ff1dbf673bd2b72fce0893f9b329933d00e734deb6301a391bff6f",
+  "generatedAt": "2026-11-10T06:04:39.696Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1c3ee-e610-7d22-ad30-a2bee077e3d6/exec-1c68713d-f3e2-4d03-b991-c396ea513110.png",
+  "sourceSha256": "3ffad6007504c47eefcfe50ef86ad01ffee587258112f40e2132d67ff173a173",
   "output": "public/guided-reading/world-discovery/e-22/page-08.webp",
-  "outputSha256": "b1220f160a1fc46d7938341151e321b1142594327e07a05c4e7324032c538de6",
+  "outputSha256": "20e553102e6f5177a73ea714e2485362356d74a42131e6752ac497acb8452dfa",
   "width": 1536,
   "height": 1024,
-  "prompt": "Use case: precise-object-edit. Preserve these exact FOUR UNLETTERED settlement cards in their2-by-2 group. Scale the ENTIRE card group uniformly DOWN25 percent and center on the same1536x1024 cream canvas. All outermost card edges need at least12 percent clear cream margin from every canvas edge. Do not crop, zoom individual pictures, change architecture, rearrange cards, add text or alter labels. Extend only plain cream background. Smooth flat colors and clean outlines, no grain or texture.",
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Different Countries, Different Places; World Discovery; nonfiction.\nSetting: Factual geographic tour of selected ordinary landscapes in Japan, Egypt and Brazil. No fictional child travels between pages; no suggestion that one climate, building or landscape represents all people in a country. Maps are simplified geographic aids, not political claims; show whole-country approximate outlines with no disputed detail, capitals, flags, national costumes, religious monuments or political buildings. Japan: island coastline, Mount Fuji lower wooded slopes, ordinary Tokyo railway street. Egypt: dry plateau and connected Nile-side irrigated farmland with ordinary homes. Brazil: Amazon waterway with rainforest and ordinary Rio coastline framed by forested hills; omit Christ statue. Small background adults wear ordinary contemporary clothing and are never cultural symbols.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Simplified world locator map with dots for Japan, Egypt and Brazil; Japan island coastline, wooded Mount Fuji slopes, ordinary Tokyo train; Egypt desert and Nile river fields; Brazil Amazon waterway and Rio coastal city\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 8. Printed prose (NOT text to put in art): Brazil also has cities beside the sea. In Rio de Janeiro, buildings stand between green hills and sandy beaches.\nRequired illustration: Wide ordinary Rio coastal panorama with curved pale sandy beach, blue Atlantic water, dense modern buildings and distinctive steep green hills in background. Keep Corcovado statue and all religious monuments out of frame; no flags, carnival costumes or readable signs.\nExact current state: Second Brazil view contrasts a populated coast with Amazon forest.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nFINAL QUALITY LOCK: Render 1536 by 1024 pixels, clean landscape 3:2. This is the finished page, not a reference sheet. Keep all essential subjects fully framed with 8 percent margin. Use plain ordinary clothes and exactly the subjects specified in this page. Do not transfer extraneous reference animals, poses or props into the picture. No national symbols, logos or written marks. Geography accuracy: the reference is an identity/style aid, not an authority for map locations or permission to add animals. No crane, camel, jaguar or any other animal anywhere in this book. No national, ethnic, religious or political symbols.",
   "references": [
     {
-      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-d00b19e2-c6c6-43ec-9ab7-76c568129c5a.png",
-      "sha256": "1ec1be6bd33db9a23899c4f0b4283b959a2a9644ca51ff5dfe555c6ed6ee2c24"
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-22-reference.webp",
+      "sha256": "83582d8397835477531f768217b2f65fe5a1ab830c18b2b2b0c9172984c06dd1"
     }
   ],
   "manuscriptSource": {
-    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
-    "sha256": "2aff8b9432244a41072eb7c7376c77e21594d83a655dfa83d99e44c528e86755",
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/discovery-topic-revision/manuscripts",
+    "sha256": "10f17301c0b54d74f0667c993770e82a84c710618d5e3fa02c5648e46692e76e",
     "isolated": true,
     "firstNumber": 21,
     "lastNumber": 30,
     "topicProfile": "nonfiction-discovery"
   },
   "visualReview": {
-    "sha256": "b1220f160a1fc46d7938341151e321b1142594327e07a05c4e7324032c538de6",
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-09T12:26:32.880Z",
-    "note": "Direct native inspection: exactly four varied unnamed settlement cards in2x2 group; no labels/thresholds or country stereotypes. Entire group inset about19% left/right and22% top/bottom, clean architectural variation and legible roads."
+    "reviewedAt": "2026-11-10",
+    "sha256": "20e553102e6f5177a73ea714e2485362356d74a42131e6752ac497acb8452dfa",
+    "note": "Rio panorama has curved sandy beach, blue sea, ordinary coastal buildings and distinctive steep forested hills. No Christ statue, flags, carnival attire or lettering. Ordinary small pedestrians on promenade. Producer independently inspected the final installed WebP natively; complete final sequence and relevant native diagrams were independently reviewed."
   },
   "reviewedManuscriptSource": {
     "bookId": "world-discovery-e-22",
     "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
-    "sha256": "2aff8b9432244a41072eb7c7376c77e21594d83a655dfa83d99e44c528e86755",
-    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
+    "sha256": "d3b67d6c70cda202a99594710f903a9dc9ec37110031b15daf30f7eb0b2fb747",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json"
   }
 }

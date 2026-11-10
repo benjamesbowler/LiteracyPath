@@ -1,3 +1,4 @@
+import { guidedReadingContentId, guidedReadingHistoryBook } from "./editions.js";
 import { GUIDED_READING_BOOK_INDEX } from "../../data/generated/guidedReadingBookIndex.generated.js";
 import { fingerprintBookReadingText } from "./textMetrics.js";
 import { isGuidedReadingAssetDeleted, readDeletedMediaManifest } from "../../data/deletedMediaManifest.js";
@@ -26,14 +27,15 @@ export function appReadingLevelLabel(level) {
 export function getPublicBookMetadata(bookOrId) {
   const book = typeof bookOrId === "string" ? null : bookOrId;
   const id = typeof bookOrId === "string" ? bookOrId : book?.id;
-  const entry = catalogue.get(id);
+  const contentId = guidedReadingContentId(id);
+  const entry = book?.historicalEdition ? null : catalogue.get(contentId);
   const hasCurrentReview = APP_READING_LEVELS.includes(entry?.appReadingLevel)
     && entry?.levelSystem === BOOK_LEVEL_SYSTEM && Boolean(entry?.textFingerprint);
   const changedText = hasCurrentReview && Array.isArray(book?.pages)
-    && fingerprintBookReadingText(book) !== entry.textFingerprint;
+    && fingerprintBookReadingText({ ...book, id: contentId }) !== entry.textFingerprint;
   const retirements = hasCurrentReview ? readDeletedMediaManifest() : [];
   const retiredPage = retirements.length > 0 && entry.reviewedPageMedia?.pages.some(([pageNumber, suffix]) =>
-    isGuidedReadingAssetDeleted({ bookId: id, pageNumber, path: entry.reviewedPageMedia.prefix + suffix }, retirements));
+    isGuidedReadingAssetDeleted({ bookId: contentId, pageNumber, path: entry.reviewedPageMedia.prefix + suffix }, retirements));
   const levelStatus = !hasCurrentReview ? "unreviewed" : changedText || retiredPage ? "stale" : "current";
   const appReadingLevel = levelStatus === "current" ? entry.appReadingLevel : null;
   return {
@@ -49,4 +51,12 @@ export function getPublicBookMetadata(bookOrId) {
     reviewedAt: levelStatus === "current" ? entry.reviewedAt : null,
     textFingerprint: levelStatus === "current" ? entry.textFingerprint : null
   };
+}
+
+// Saved evidence identifies an edition by its record key. Public catalogue
+// lookups still use the stable ID, while reports must not recalibrate retired
+// text using the different topic that now occupies that shelf position.
+export function getGuidedReadingEvidenceMetadata(row = {}) {
+  const id = row.bookId || row.id || "";
+  return getPublicBookMetadata(guidedReadingHistoryBook({ id }, row, id));
 }

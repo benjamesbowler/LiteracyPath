@@ -79,6 +79,7 @@ function ReadingSessionSetupBody({
         client,
         classId,
         bookId: selectedBook.id,
+        book: selectedBook,
         pageNumbers: selectedBook.pages.map(page => page.pageNumber),
         studentIds
       });

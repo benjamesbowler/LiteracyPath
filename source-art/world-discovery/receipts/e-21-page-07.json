@@ -2,23 +2,27 @@
   "bookId": "world-discovery-e-21",
   "slot": "page-07",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-09T11:42:42.946Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-3cbf2f18-1caf-47fd-98f4-e0d49b240329.png",
-  "sourceSha256": "afde8af32a2abd3d2c9bc1ac8323c81ed7010f798d1fcc66e88ccdca51364d7f",
+  "generatedAt": "2026-11-10T09:46:44.471Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1c3ee-e610-7d22-ad30-a2bee077e3d6/exec-274a44df-6809-4920-9e54-b4455c0653f8.png",
+  "sourceSha256": "888527b706416499eb4ce5de7f797ae462441643083a18d1e452aadeb4d4714d",
   "output": "public/guided-reading/world-discovery/e-21/page-07.webp",
-  "outputSha256": "34ff2df056331113deab36d3375167a3d2aaab4aca6eb3f5811557fd127600a2",
+  "outputSha256": "8d28be0b089c01448c1ba969c3cd9574de6c2319078eadfbda0afce17ac902db",
   "width": 1536,
   "height": 1024,
-  "prompt": "Change ONLY the small ferry pictogram in the right pale-blue block: replace its three square passenger windows with EXACTLY FOUR small square windows in a horizontal row, followed by the separate slanted pilot window at right. Preserve all block boundaries and widths exactly, first5,middle10,last5,total20,all walking/clock icons,bracket,white margins and colors. No other changes. The four passenger windows can be slightly smaller to fit.",
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Transport Through Time; World Discovery; nonfiction.\nSetting: A selected factual history followed by contemporary transport comparisons. Historical pictures are reconstructions, not a claim that all countries changed at once. Plain practical clothes only; no flags, religious buildings, political events or cultural costumes. Cart: brown wooden four-wheel wagon, one healthy bay horse and adult driver in plain gray shirt and dark trousers. Steam train: black early passenger steam locomotive with red wheels and two brown wooden coaches. Early motor car: dark-green open four-wheel gasoline car with adult driver. Early aircraft: plain cream single-propeller biplane. Modern train: white electric passenger train with blue band and overhead wire. Jet: white twin-engine passenger jet with teal tail. No named cast or brand logos.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Horse-drawn brown wagon; Early black steam train; Early dark-green motor car; Cream early propeller biplane; Modern white-blue electric train; Modern white-teal passenger jet\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 7. Printed prose (NOT text to put in art): Some modern trains run on electricity. They can carry many passengers quickly between stations without stopping in road traffic.\nRequired illustration: Modern white-blue passenger train on fenced electrified rail line with one pantograph touching overhead wire. Coaches carry seated people. Nearby road separated by fence shows stationary cars at traffic lights. No train on road, no pedestrians on tracks.\nExact current state: Modern electric rail differs from steam and follows a separated route.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nFINAL QUALITY LOCK: Render 1536 by 1024 pixels, clean landscape 3:2. This is the finished page, not a reference sheet. Keep all essential subjects fully framed with 8 percent margin. Use plain ordinary clothes and exactly the subjects specified in this page. Do not transfer extraneous reference animals, poses or props into the picture. No national symbols, logos or written marks. All wheels visibly contact their own road or rails. Train rails are a coherent parallel pair under the wheels. A locomotive has a plausible horizontal boiler, firebox, steam pipe, cylinder, piston and connecting rods only where explicitly requested. No fantasy plumbing, exposed loose hoses, melted wheels or floating mechanisms. Horses have exactly four natural legs; tack is coherent. Aircraft have exactly one fuselage, one tail and matching wings with correct attachment.\n\nFRAMING REPAIR ONLY: preserve the correct modern electric train with ONE pantograph touching the contact wire, seated passengers, fenced track and traffic-light road. Move camera 20 percent farther away; show the COMPLETE train nose and rear and COMPLETE three cars including all wheels with generous space. All essential subjects inside x140..1396 and y100..924 on 1536x1024. Do not cut the blue car bottom wheels. Extend plain sky and road around the smaller scene. No extra people or vehicles.",
   "references": [
     {
-      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-11b5299a-9cf5-461c-9ac7-5c9e072fb503.png",
-      "sha256": "d2943fd642ad39dc307e81c9197895f4be92fb6de774fad0165218a32e180dd3"
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-21-reference.webp",
+      "sha256": "bcd9084f0fd6888f17aec2fe89d8d9237c31f3ae501978dc1610288aba71214c"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1c3ee-e610-7d22-ad30-a2bee077e3d6/exec-60992223-39d2-4584-a538-0202aa883f97.png",
+      "sha256": "418ceac7e78da77b2ef9def2438229d061c650d66dbd6f6e97fa7e0777beef83"
     }
   ],
   "manuscriptSource": {
-    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
-    "sha256": "9421bb4bb1f97c822674b76871fc5ee9b7b4398f02e9bdb626223b2a8cf9283e",
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/discovery-topic-revision/manuscripts",
+    "sha256": "5476e5d3a4c300cd350ded4aee8195556e25aa6db8b5208012c7e1c76178cb6e",
     "isolated": true,
     "firstNumber": 21,
     "lastNumber": 30,
@@ -26,15 +30,14 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "date": "2026-11-09T11:43:18.036391+00:00",
-    "sha256": "34ff2df056331113deab36d3375167a3d2aaab4aca6eb3f5811557fd127600a2",
-    "note": "5/10/5 blocks now equalouter/doublemiddle proportions with combined walking icons, waiting clock and four-window ferry. Bracket total20, all labels accurate and safe margins.",
-    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+    "reviewedAt": "2026-11-10",
+    "sha256": "8d28be0b089c01448c1ba969c3cd9574de6c2319078eadfbda0afce17ac902db",
+    "note": "Modern white-blue train has one pantograph touching the overhead contact wire, seated passengers and separate fenced rails. Three complete ordinary cars wait on adjacent road at red traffic light. No pedestrian on tracks and no cropped wheels. Producer independently inspected the final installed WebP natively; complete final sequence and relevant native diagrams were independently reviewed."
   },
   "reviewedManuscriptSource": {
     "bookId": "world-discovery-e-21",
     "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
-    "sha256": "9421bb4bb1f97c822674b76871fc5ee9b7b4398f02e9bdb626223b2a8cf9283e",
-    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
+    "sha256": "d2b00cf5ebb83c26d8921703250179413a877c2f73e333ebcb39d3b45604dc4f",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json"
   }
 }

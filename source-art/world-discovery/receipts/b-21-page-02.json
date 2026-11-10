@@ -2,23 +2,23 @@
   "bookId": "world-discovery-b-21",
   "slot": "page-02",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-09T06:23:08.844Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-876d570f-eaaa-4f30-bd3a-96fd07ece65c.png",
-  "sourceSha256": "6b4715ec536405062b603dfc2aa4f6e1afeda436f4ab3fc4912a3d9cf9f70866",
+  "generatedAt": "2026-11-10T06:00:47.211Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1c3ed-c928-70e2-a423-68d0aaffd69c/exec-19d2202f-ba10-4799-9dd4-1dc43aace91c.png",
+  "sourceSha256": "f9504ceb922d63a2c1beb9c373df248f4005c4bdb7290550e2e68079c4dc790b",
   "output": "public/guided-reading/world-discovery/b-21/page-02.webp",
-  "outputSha256": "c40ec406dba52dc4795054e46c71c4e72e7efaa162155fbc2b6ff1bbf2cd05fe",
+  "outputSha256": "50f8c74015488ac189085f7976472086360176ce3534f1eca195583c161f3cd8",
   "width": 1536,
   "height": 1024,
-  "prompt": "Outpaint this wide image VERTICALLY into a finished LANDSCAPE3:2 canvas. Add equal extra height above and below while preserving the existing illustration EXACTLY in its center, including all four wheels, both axles and contacts on the two rails. Above: continue the same cropped red freight-car body and partial wooden load; no roof or complete car ends. Below: extend gravel, sleepers and foreground ground naturally. Do not alter, resize or redraw existing wheel/rail geometry; this is only canvas extension. Keep the current generous horizontal margin around the one bogie. No couplers, people, captions or borders. Final aspect ratio MUST be3:2, not2:1.\nClean bold continuous dark outlines, perfectly smooth flat vectorlike colors, no texture, grain, stipple or painted finish.",
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: People Power; World Discovery; nonfiction.\nSetting: Three factual adult demonstrations: a level traffic-free park cycle path, a quiet enclosed ice rink, and a calm lake. Cyclist: medium-brown skin, short straight black hair under a plain yellow helmet, teal jacket, navy pants, white shoes; red upright chain-driven bicycle. Skater: light-brown skin, short curly dark hair, blue helmet, orange jacket, dark-green pants, black ice skates with one metal blade each. Rower: deep-brown skin, close-cropped black hair, purple shirt, navy pants and orange life jacket; green broad stable rowboat with two tan oars pivoted in the gunwales. No motors, races, steep slopes, roads, cultural costumes, flags or logos.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Red pedal bicycle with two wheels, visible chain and rear sprocket; Black ice skates with single silver blades, not wheels; Green rowboat with bow pointing right, rower facing left, two tan pivoted oars; Cyclist/skater helmets and rower life jacket retained in every view\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 2. Printed prose (NOT text to put in art): The rider pushes the bike pedals.\nA chain turns the back wheel.\nRequired illustration: Close side view of red bicycle drivetrain and cyclist lower body; right foot presses a forward pedal downward. One continuous chain wraps the front chainring and rear sprocket. Include both wheels and show their road contact; no exposed floating chain.\nExact current state: Pedal stroke drives the chain and rear wheel; same bicycle and rider.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.",
   "references": [
     {
-      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-cb13d979-1188-4283-a5c6-e264ca8c260c.png",
-      "sha256": "4510fe5b760649b9a40fb9d2fc80691941178f1b2e91184fadfca8dfb81ab2d0"
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/b-21-reference.webp",
+      "sha256": "7db119f20aa1a9ea4d31c6afe2936a22afb8809a8e7b6971e59fa9a04a85af67"
     }
   ],
   "manuscriptSource": {
-    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
-    "sha256": "e2840abe2bce545cbddeb0319fa0aade90784202e01e047d8bcd74ba38ddbcbb",
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/discovery-topic-revision/manuscripts",
+    "sha256": "790ccfb000c5a7286216b9ebcfd42c3f0b6779fed339fbc569cddf6ee58d3e09",
     "isolated": true,
     "firstNumber": 21,
     "lastNumber": 30,
@@ -26,15 +26,14 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-09T06:23:39.176356+00:00",
-    "sha256": "c40ec406dba52dc4795054e46c71c4e72e7efaa162155fbc2b6ff1bbf2cd05fe",
-    "note": "Directly viewed native PNG and installed WebP. True close-up crops the red car body beyond both side edges; no car ends or couplers are visible. One bogie has two transverse axles and four steel wheels contacting their respective near and far rails. Essential wheel mechanism is inside safe margins. Repairs the independent whole-car/one-bogie finding.",
-    "limits": "Independent sequence and reader review follow separately."
+    "reviewedAt": "2026-11-10",
+    "sha256": "50f8c74015488ac189085f7976472086360176ce3534f1eca195583c161f3cd8",
+    "note": "Pedals, front chainring, continuous chain and rear sprocket visibly connect to the back wheel. Rider, colors and foot placement are coherent; the image supports the pedal/chain sentence. Producer independently inspected the final installed WebP natively; complete final sequence and relevant native diagrams were independently reviewed."
   },
   "reviewedManuscriptSource": {
     "bookId": "world-discovery-b-21",
     "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
-    "sha256": "6d40120e98f2ff48a5cf89a9eb34eb073cdc2b64b8c7787eb0d4ca5f64455114",
-    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
+    "sha256": "664f916d1379302ae82b7a5dbf774413f4378508f9326855afd22b7b7086bbfc",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json"
   }
 }

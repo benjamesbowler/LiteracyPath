@@ -2,23 +2,23 @@
   "bookId": "world-discovery-c-21",
   "slot": "page-03",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-09T11:20:00.969Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-76a79032-b020-4d0f-9529-f90dcecfdabc.png",
-  "sourceSha256": "cf5117f37b251dfeb5f63d683ba9cf67ba59874c39188833f22edd52cb0a2313",
+  "generatedAt": "2026-11-10T06:07:29.483Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1c3ef-11ed-7331-8274-1234bc3e482f/exec-4cd4535b-e2a6-4256-8af4-299f9994ee3d.png",
+  "sourceSha256": "7f239908a5fd8ff765dc2a07ba988a6d4184c5944be8c280f4236b99c3453f80",
   "output": "public/guided-reading/world-discovery/c-21/page-03.webp",
-  "outputSha256": "2d10e8dbbb818cc2bdde76fde8dcabc88a7a69d953254d85a6024e73b494c584",
+  "outputSha256": "1ef90b2bf3eb61dc5a49b1b61807a426e36fd6a5974e12dcf9f87a3eee496fbc",
   "width": 1536,
   "height": 1024,
-  "prompt": "Preserve this exact tag-reader and connected conveyor-junction scene. Pull camera back by 12 percent with more neutral warehouse surroundings so the entire distant teal-tail plane is at least 8 percent inside the right edge. Keep only ONE orange-striped blue suitcase, other luggage plain. Reader, tag, junction geometry and route to the loading area unchanged. Preserve all correct content, exact identity, flat clean colors, crisp outlines, landscape3:2. No text, grain, texture or new props. Essential content stays within central75percent.",
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one integrated explanatory diagram. Allow only the cutaways, insets, schematic elements or arrows explicitly authored in this page's illustration brief; keep them spatially connected to the subject they explain. No unrequested panels, insets, annotations or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Vehicles That Fly; World Discovery; nonfiction.\nSetting: Factual daylight aircraft views with no recurring children. Plane: plain white twin-engine passenger jet with teal tail, fixed wings and both engine nacelles under wings. Helicopter: orange civilian craft with a four-blade main rotor, enclosed cabin, tail rotor and two skids. Balloon: broad yellow fabric envelope with three blue vertical panels, dark burner frame, tan basket and one adult pilot wearing a plain gray jacket. Keep aircraft types distinct; safe separated flight areas; no flags, brands or military details.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): White passenger jet with teal tail; Orange four-blade helicopter; Yellow-and-blue hot-air balloon with burner and tan basket\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and specific stages explicitly required below; the declared diagram permits no other scenes or story events.\nPage 3. Printed prose (NOT text to put in art): A helicopter has long blades above its body. These blades are wings that spin in a circle.\nRequired illustration: Close three-quarter view of orange helicopter safely on open helipad. Four distinct intact main blades meet a single central hub above the cabin. One thin curved arrow around the hub shows rotation. Tail rotor visible, no extra main hubs.\nExact current state: Introduce rotating wings; helicopter remains grounded in this explanatory view.\nDo not add events or stages beyond the authored diagram. Repeat a subject only when the authored comparison or cutaway requires it. No written title; the app renders live text.\nFraming clarification: Keep every entire aircraft/car and its required teaching parts completely within the inner 84 percent of the canvas, leaving at least 8 percent clear background margin on ALL sides. Nothing essential touches or approaches the picture edge.",
   "references": [
     {
-      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-f43a7b43-7329-469a-9e47-e27a1797fa8a.png",
-      "sha256": "51dd4be705391bd06f5f6892611895064f6d1debeeba340350057aa952390924"
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/c-21-reference.webp",
+      "sha256": "038b76328ab4972cd0b5f6bc4d7d43d3baf0ba956735770c11eadc4cd918f3d1"
     }
   ],
   "manuscriptSource": {
-    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
-    "sha256": "adafabd724e58b7f6c3e03af760b56ae0cdebf5dbdc7ec8e6a3d11c2e19a0ce2",
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/discovery-topic-revision/manuscripts",
+    "sha256": "5c87ee01b5617d2edff1107560ad70a54b675e564510c21acde971003db71f22",
     "isolated": true,
     "firstNumber": 21,
     "lastNumber": 30,
@@ -26,15 +26,14 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-09T11:20:57.438999+00:00",
-    "sha256": "2d10e8dbbb818cc2bdde76fde8dcabc88a7a69d953254d85a6024e73b494c584",
-    "note": "Native and final WebP directly viewed: tagged orange-striped bag passes reader before physical Y-conveyor junction, branch reaches aircraft loading area; plain secondary bags distinct; no children or invented labels.",
-    "limits": "Independent sequence and reader review follow separately."
+    "reviewedAt": "2026-11-10",
+    "sha256": "1ef90b2bf3eb61dc5a49b1b61807a426e36fd6a5974e12dcf9f87a3eee496fbc",
+    "note": "Four main rotor blades meet one hub, with single tail rotor and rotation cue; helicopter remains grounded. Producer independently inspected the final installed WebP natively; complete final sequence and relevant native diagrams were independently reviewed."
   },
   "reviewedManuscriptSource": {
     "bookId": "world-discovery-c-21",
     "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
-    "sha256": "d35c2646e023daa2322256d158452fa66e0c07c88e5e0aee3f35253a6d6154d0",
-    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
+    "sha256": "64fc91f6c01ea97064c24b464d0add6b505a38d410f33adf22efff79ac2710a6",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json"
   }
 }

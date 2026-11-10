@@ -1,3 +1,4 @@
+import { READING_SESSION_CONTENT_VERSION } from "./data/readingSessionCore.js";
 import { useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import './styles/fonts.js';
@@ -15,7 +16,7 @@ import TeacherLiteracyMockPanel from './components/progress/TeacherLiteracyMockP
 const params = new URLSearchParams(location.search);
 const students = ['Amina', 'Ben', 'Cara', 'Dev', 'Emi', 'Finn', 'Gia'].map((name, index) => ({ id: `student-${index}`, name }));
 const initialIds = params.get('selected') === 'all' ? students.map(row => row.id) : (params.get('selected') || '').split(',').filter(Boolean);
-const readingSession = { id: 'reading-preview', class_id: 'class-preview', teacher_id: 'teacher-preview', student_ids: ['student-0', 'student-1'], book_id: 'fixture-book', page_index: 0, page_numbers: [1, 2], book: { title: 'Synthetic reading', pages: [{}, {}] } };
+const readingSession = { id: 'reading-preview', class_id: 'class-preview', teacher_id: 'teacher-preview', student_ids: ['student-0', 'student-1'], book_id: 'fixture-book', content_version: READING_SESSION_CONTENT_VERSION, page_index: 0, page_numbers: [1, 2], book: { title: 'Synthetic reading', pages: [{}, {}] } };
 window.__teacherSessionCalls = [];
 window.__readingOffline = params.get('offline') === '1';
 window.__readingExpired = params.get('expired') === '1';

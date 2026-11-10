@@ -2,23 +2,23 @@
   "bookId": "world-discovery-d-21",
   "slot": "page-07",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-09T05:13:39.665Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-8ce961fc-f172-4fcd-bcbc-30b96762af1c.png",
-  "sourceSha256": "0e9018cce34d358dcdd92d2b11ec1533f6b19cb655664fda956ead9eddac70b2",
+  "generatedAt": "2026-11-10T07:07:30.750Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1c3ef-11ed-7331-8274-1234bc3e482f/exec-73eef6a5-257f-4614-a7fc-480af23bef8e.png",
+  "sourceSha256": "b458561c1395664b9d92132a1829c6e1b613816faae5a8d0e727ced5a53edbdd",
   "output": "public/guided-reading/world-discovery/d-21/page-07.webp",
-  "outputSha256": "f746fb3fe41ef0b5ad3dd60ac13adf4071628bddbebecc815913f61663acb7cc",
+  "outputSha256": "f2f78f6946f33f922b2d292b938c190e85bcb304d9c132618a4ce79c3f9e0fde",
   "width": 1536,
   "height": 1024,
-  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Container's Journey; World Discovery; nonfiction.\nSetting: An illustrative modern freight journey, not a record of a real shipment. One orange corrugated container with a plain blue square on its left door. No brands or flags. Workers wear ordinary safety equipment; children never enter operating areas.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One orange container with two end doors and blue square marker; Ship, spreader crane, railcar, tractor and container trailer; Brown cartons of plain notebooks\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 7. Printed prose (NOT text to put in art): The train follows its tracks to a freight yard. Here, the container changes vehicles again.\nRequired illustration: The train enters an inland yard beside a waiting crane and road trailer. Container remains on the railcar at this moment; no opening or unloading of cartons.\nExact current state: Container remains on the railcar at this moment; no opening or unloading of cartons.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.",
+  "prompt": "HARD scene isolation: EXACTLY ONE ORANGE GASOLINE CAR, ONE fuel pump and ONE adult man. NO teal car, no charging post, no charging cable. Man medium-brown skin, short dark hair, BLUE JACKET and NAVY PANTS; nozzle is inserted into REAR-SIDE fuel filler, never front bumper, cabin or hood. Engine is off. One small tank cutaway only.\nUse case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one integrated explanatory diagram. Allow only the cutaways, insets, schematic elements or arrows explicitly authored in this page's illustration brief; keep them spatially connected to the subject they explain. No unrequested panels, insets, annotations or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Gasoline and Electric Cars; World Discovery; nonfiction.\nSetting: Ordinary contemporary civilian cars on a calm road and at separate safe service areas. Gasoline car is orange with dark gray roof and one rear exhaust pipe. All-electric car is teal with light gray roof and no exhaust pipe. Same proportions but different colors keep referents clear. Each car has four road wheels. Cutaways are explicitly diagrams; adults handle fuel and charging. No brands, flags or political messages.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Orange gasoline sedan, gray engine under front hood, fuel tank near rear and exhaust pipe at rear; Teal all-electric sedan, large flat battery beneath passenger floor and motor near rear axle, no fuel tank or exhaust; Unbranded fuel pump with hose and separate charging post with cable\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and specific stages explicitly required below; the declared diagram permits no other scenes or story events.\nPage 7. Printed prose (NOT text to put in art): When the fuel tank is low, an adult stops at a pump. Liquid gasoline flows into the car’s tank.\nRequired illustration: Orange car stationary at unbranded fuel pump. Adult driver medium-brown skin, short black hair, blue jacket and navy pants holds nozzle in correct rear-side filler. One small cutaway reveals liquid entering fuel tank. Engine off; no children, flames or charging cable.\nExact current state: Refueling at pump; only gasoline car shown.\nDo not add events or stages beyond the authored diagram. Repeat a subject only when the authored comparison or cutaway requires it. No written title; the app renders live text.\nFraming clarification: Keep every entire aircraft/car and its required teaching parts completely within the inner 84 percent of the canvas, leaving at least 8 percent clear background margin on ALL sides. Nothing essential touches or approaches the picture edge.\nHARD scene isolation: EXACTLY ONE ORANGE GASOLINE CAR, ONE fuel pump and ONE adult man. NO teal car, no charging post, no charging cable. Man medium-brown skin, short dark hair, BLUE JACKET and NAVY PANTS; nozzle is inserted into REAR-SIDE fuel filler, never front bumper, cabin or hood. Engine is off. One small tank cutaway only.",
   "references": [
     {
-      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/d-21-reference.webp",
-      "sha256": "c9f245ba0f568a1ae3182927ff1961cd43a353bd7122c7ed6b03a2883edb26e6"
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-21-reference.webp",
+      "sha256": "12bdcf040d47f4dd39cd88921ed1aecf52635f88a3fbe71a8a71e715ad895ad4"
     }
   ],
   "manuscriptSource": {
-    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
-    "sha256": "4cd850616c2e31aecc557996032490d0fb984ea0f222fa11e0f2a878a417a9c7",
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/discovery-topic-revision/manuscripts",
+    "sha256": "7d1860e2dae10eae9a699a4df3ae5d6f56a9a9781a39f8c3d092049b64334db4",
     "isolated": true,
     "firstNumber": 21,
     "lastNumber": 30,
@@ -26,17 +26,14 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "date": "2026-11-09T14:07:15.497Z",
-    "sha256": "f746fb3fe41ef0b5ad3dd60ac13adf4071628bddbebecc815913f61663acb7cc",
-    "note": "Direct image inspection: blue locomotive with same closed marked orange container enters inland yard; empty blue skeletal trailer and waiting gantry are on separate paved lane, train wheels follow track; no ocean or exposed contents.",
-    "reviewer": "/root/gap_taxonomy",
-    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
-    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+    "reviewedAt": "2026-11-10",
+    "sha256": "f2f78f6946f33f922b2d292b938c190e85bcb304d9c132618a4ce79c3f9e0fde",
+    "note": "Adult operates correctly seated rear filler nozzle; separate inset makes fuel entering tank concrete, no electric cable. Producer independently inspected the final installed WebP natively; complete final sequence and relevant native diagrams were independently reviewed."
   },
   "reviewedManuscriptSource": {
     "bookId": "world-discovery-d-21",
     "path": "src/content/world-discovery/cohorts/21-30/level-d.json",
-    "sha256": "4cd850616c2e31aecc557996032490d0fb984ea0f222fa11e0f2a878a417a9c7",
-    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
+    "sha256": "98d098b7790b51f3544d7069a44403c5a1e9da9323808471ee96dc80f0033831",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json"
   }
 }
