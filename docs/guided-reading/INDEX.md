@@ -188,3 +188,19 @@ manifests, and provider-specific handoff reports are retired. They must not be r
 or used to override the live book modules.
 
 [Cycle Shorts](CYCLE_SHORTS.md) is a separate supported-reading collection in Guided Reading, with one weekly Meadow Farm passage and its questions also closing each daily Present. It does not add calibrated A–H books or reading-mastery evidence.
+
+## Printable books
+
+Open a book in the teacher library and choose **Download PDF**. **A5 pages**
+prints the front cover, story and back cover in reading order. **A4 folded
+booklet** arranges two pages per side in folding order. Print the A4 file in
+landscape at actual size, double-sided, with short-edge flipping. Keep the
+sheets in order and fold them in half.
+
+Print covers use the reviewed illustration for the current title and the
+current App level. The back cover shows the reading mode, frequent words from
+the manuscript, phonics examples, and any reviewed reading preparation. All
+books carry `Copyright © 2026 Literacy Guide`. The PDF embeds the app's
+OFL-licensed Andika typeface from the TrueType versions of its existing web
+fonts. The app generates the PDF on request from current published pages and
+illustrations.

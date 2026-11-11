@@ -38,5 +38,68 @@
    need the teacher touch target even inside the compact reader. */
 .guided-reading-reader-open .guided-teacher-book-actions .lp-button { min-height: 44px !important; }
 .guided-teacher-book-actions button:focus-visible { outline: 3px solid #3454c8; outline-offset: 3px; }
+@media (max-width: 480px) {
+  .guided-teacher-book-actions [role="group"] {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+  }
+  .guided-teacher-book-actions [role="group"] .lp-button {
+    min-width: 0;
+    padding-inline: 8px;
+    white-space: normal;
+  }
+}
+.guided-reading-reader-open .guided-book-pdf-trigger,
+.guided-book-pdf-card .lp-button {
+  min-height: var(--teacher-target-min, 44px) !important;
+}
+.guided-book-pdf-card {
+  display: grid;
+  gap: 16px;
+  max-height: calc(100dvh - 40px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  color: var(--lp-color-text);
+  font-family: var(--lp-font-ui);
+}
+.guided-book-pdf-card h2,
+.guided-book-pdf-card p {
+  margin: 0;
+}
+.guided-book-pdf-card header p,
+.guided-book-pdf-formats p {
+  color: var(--lp-color-text-muted);
+}
+.guided-book-pdf-formats {
+  display: grid;
+  gap: 12px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.guided-book-pdf-formats li {
+  display: grid;
+  justify-items: start;
+  gap: 6px;
+  padding: 12px;
+  border: 1px solid var(--lp-color-border);
+  border-radius: var(--lp-radius-card);
+  background: var(--lp-color-surface-subtle);
+}
+.guided-book-pdf-card button[aria-disabled="true"] {
+  opacity: .65;
+  cursor: wait;
+}
+.guided-book-pdf-card > [role="status"]:empty {
+  position: absolute;
+}
+.guided-book-pdf-card > [role="alert"] {
+  color: var(--lp-color-danger);
+}
+.guided-book-pdf-card footer {
+  display: flex;
+  justify-content: flex-end;
+}
 .guided-recommendation-list { align-items: start; }
 .guided-recommendation-list > article { align-content: start; }
