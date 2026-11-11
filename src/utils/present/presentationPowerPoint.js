@@ -16,11 +16,17 @@ function dataUrl(blob) {
 }
 
 async function imageData(src, signal) {
-  const response = await fetch(src, { signal });
-  if (!response.ok) throw new Error(`A lesson picture could not download (${response.status}). Please try again.`);
-  const blob = await response.blob();
-  if (!blob.type.startsWith('image/')) throw new Error('A lesson picture is unavailable. Please try again.');
-  const url = URL.createObjectURL(blob);
+  // Inline formation drawings can load as images under the site's policy.
+  // Fetching a data URL would instead be blocked by connect-src.
+  const inline = src.startsWith('data:image/');
+  let url = src;
+  if (!inline) {
+    const response = await fetch(src, { signal });
+    if (!response.ok) throw new Error(`A lesson picture could not download (${response.status}). Please try again.`);
+    const blob = await response.blob();
+    if (!blob.type.startsWith('image/')) throw new Error('A lesson picture is unavailable. Please try again.');
+    url = URL.createObjectURL(blob);
+  }
   try {
     const image = new Image();
     image.src = url;
@@ -30,7 +36,9 @@ async function imageData(src, signal) {
     canvas.width = Math.ceil(image.naturalWidth * scale); canvas.height = Math.ceil(image.naturalHeight * scale);
     canvas.getContext('2d').drawImage(image, 0, 0, canvas.width, canvas.height);
     return { data: canvas.toDataURL('image/png'), width: canvas.width, height: canvas.height };
-  } finally { URL.revokeObjectURL(url); }
+  } finally {
+    if (!inline) URL.revokeObjectURL(url);
+  }
 }
 
 async function loadFonts() {
