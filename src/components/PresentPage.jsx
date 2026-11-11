@@ -32,7 +32,7 @@ function DailyPresentPage({ classId, currentCycleId, onBack }) {
     try {
       const { downloadPresentationPowerPoint } = await import("../utils/present/presentationPowerPoint.js");
       await downloadPresentationPowerPoint(cycleId, { day, signal: controller.signal, onProgress: setNotice });
-      setNotice("PowerPoint downloaded. Open it in PowerPoint and choose Slide Show. Pictures and sound work offline.");
+      setNotice("PowerPoint downloaded. Open it in PowerPoint and choose Slide Show. On Mac, choose Pointer Options → Visible for the activity buttons.");
     } catch (error) {
       if (error.name !== "AbortError") setNotice(error.message || "The PowerPoint could not download. Please try again.");
     } finally {
@@ -76,7 +76,7 @@ function DailyPresentPage({ classId, currentCycleId, onBack }) {
       <button className="ws-ghost" type="button" onClick={downloadPowerPoint} disabled={!cycleId || exporting}>{exporting ? "Preparing PowerPoint…" : "Download PowerPoint"}</button>
       {initial.cycleId && cycleId !== currentCycleId && <button className="ws-ghost" type="button" disabled={exporting} onClick={() => { setCycleId(initial.cycleId); setDay(initial.day); setNotice(""); }}>Use current class lesson</button>}
     </TeacherFilterBar>
-    <p className="ws-note">Download a complete lesson with pictures, sound and clickable activities for offline PowerPoint Slide Show. Reading time and card comparisons are teacher-paced. Use PowerPoint’s pen for writing.</p>
+    <p className="ws-note">Download a complete lesson with pictures, sound and clickable activities for offline PowerPoint Slide Show. Reading time and card comparisons are teacher-paced. Writing practice includes stroke direction arrows.</p>
     {notice && <p className="ws-note" role="status">{notice}{fallbackUrl && <> <a href={fallbackUrl} target="_blank" rel="noreferrer">Open presentation</a></>}</p>}
   </TeacherPageShell>;
 }

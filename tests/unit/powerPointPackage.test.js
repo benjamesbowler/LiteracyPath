@@ -5,15 +5,23 @@ import {deduplicatePowerPointMedia} from '../../src/utils/present/powerPointPack
 
 test('offline PowerPoint shares repeated media and has unique audio targets with native playback timing', async () => {
   const source = new JSZip();
+  source.file('[Content_Types].xml', '<Types><Override PartName="/ppt/slideMasters/slideMaster1.xml" ContentType="master"/><Override PartName="/ppt/slideMasters/slideMaster2.xml" ContentType="master"/><Override PartName="/ppt/slides/slide1.xml" ContentType="slide"/></Types>');
+  source.file('ppt/slideMasters/slideMaster1.xml', '<p:sldMaster/>');
   source.file('ppt/media/one.png', 'same image');source.file('ppt/media/two.png', 'same image');
   source.file('ppt/media/spoken.mp3', 'different audio');
   source.file('ppt/slides/_rels/slide1.xml.rels', '<Relationships><Relationship Id="r1" Target="../media/one.png"/><Relationship Id="r2" Target="../media/two.png"/><Relationship Id="r3" Target="../media/spoken.mp3"/></Relationships>');
-  source.file('ppt/slides/slide1.xml', '<p:sld><p:cSld><p:spTree><p:cNvPr id="1"/><p:pic><p:nvPicPr><p:cNvPr id="1"><a:hlinkClick action="ppaction://media"/></p:cNvPr><p:nvPr><a:videoFile r:link="r3"/></p:nvPr></p:nvPicPr></p:pic><p:cNvPr id="1"/></p:spTree></p:cSld></p:sld>');
+  source.file('ppt/slides/slide1.xml', '<p:sld><p:cSld><p:spTree><p:cNvPr id="1"/><p:pic><p:nvPicPr><p:cNvPr id="1"><a:hlinkClick r:id="" action="ppaction://media"/></p:cNvPr><p:nvPr><a:videoFile r:link="r3"/></p:nvPr></p:nvPicPr></p:pic><p:cNvPr id="1"/></p:spTree></p:cSld></p:sld>');
   const result = await deduplicatePowerPointMedia(new Blob([await source.generateAsync({type:'uint8array'})]));
   const zip = await JSZip.loadAsync(await result.arrayBuffer());
+  const types = await zip.file('[Content_Types].xml').async('string');
+  assert.match(types, /slideMaster1\.xml/);
+  assert.doesNotMatch(types, /slideMaster2\.xml/);
+  assert.match(types, /slide1\.xml/);
   assert.ok(zip.file('ppt/media/one.png'));assert.equal(zip.file('ppt/media/two.png'), null);
   assert.match(await zip.file('ppt/slides/_rels/slide1.xml.rels').async('string'), /Id="r2" Target="\.\.\/media\/one.png"/);
   const xml = await zip.file('ppt/slides/slide1.xml').async('string');
+  assert.match(xml, /<a:hlinkClick action="ppaction:\/\/media"/);
+  assert.doesNotMatch(xml, /r:id=""/);
   assert.deepEqual([...xml.matchAll(/<p:cNvPr id="(\d+)"/g)].map(match => match[1]), ['1','2','3']);
   assert.match(xml, /<a:audioFile r:link="r3"/);assert.doesNotMatch(xml, /a:videoFile/);
   assert.match(xml, /presetClass="mediacall"/);assert.match(xml, /cmd="playFrom\(0.0\)"/);

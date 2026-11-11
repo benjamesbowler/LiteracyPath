@@ -19,6 +19,10 @@ test('every daily PowerPoint plan preserves all activities and has valid native 
       if (ids.size !== plan.slides.length) errors.push(`${cycle.id}/${day.value}: duplicate ID`);
       for (const source of deck.manifest.slides) if (!plan.slides.some(item => item.sourceIndex === source.index && item.main)) errors.push(`${cycle.id}/${day.value}: missing activity ${source.title}`);
       for (const slide of plan.slides) for (const target of [...(slide.buttons || []).map(item => item.target), ...(slide.cards || []).map(item => item.target), slide.next, slide.previous].filter(Boolean)) if (!ids.has(target)) errors.push(`${cycle.id}/${day.value}: broken ${target}`);
+      for (const slide of plan.slides.filter(item => item.formation)) {
+        const svg = atob(slide.images[0].src.split(',')[1]);
+        if (!svg.includes('marker-end="url(#direction)"') || !svg.includes('<circle')) errors.push(`${cycle.id}/${day.value}: missing stroke direction`);
+      }
       for (const source of deck.manifest.slides.filter(item => item.rounds)) for (let i = 0; i < source.rounds.length; i++) if (!plan.slides.some(item => item.id.startsWith(`${source.index}:`) && (item.id.includes(`round${i}`) || item.id.includes(`build${i}`) || item.id.includes(`missing${i}`)))) errors.push(`${cycle.id}/${day.value}: missing round ${i}`);
       const falseSentences = deck.manifest.slides.flatMap(item => item.rounds || []).filter(item => item.matches === false);
       for (const round of falseSentences) for (const slide of plan.slides.filter(item => item.text === round.sentence)) if (slide.audio.length) errors.push('False sentence plays true audio');
@@ -99,9 +103,21 @@ test('a lesson with letter formation downloads under the production image and co
   ]);
   expect(download.suggestedFilename()).toBe('Literacy-Guide-cycle-13-thursday.pptx');
   const zip = await JSZip.loadAsync(await fs.readFile(await download.path()));
+  const types = await zip.file('[Content_Types].xml').async('string');
+  const missingParts = [...types.matchAll(/<Override PartName="\/([^"]+)"/g)]
+    .map(match => match[1]).filter(part => !zip.file(part));
+  expect(missingParts).toEqual([]);
   const slides = zip.file(/^ppt\/slides\/slide\d+\.xml$/);
   const xmls = await Promise.all(slides.map(slide => slide.async('string')));
-  expect(xmls.some(xml => /descr="Formation model for [^"]+"/.test(xml))).toBe(true);
+  expect(xmls.every(xml => !xml.includes('r:id=""'))).toBe(true);
+  const picture = xmls.flatMap(xml => xml.match(/<p:pic>[\s\S]*?<\/p:pic>/g) || [])
+    .find(xml => xml.includes('descr="Formation model for K"'));
+  expect(picture).toBeDefined();
+  const x = Number(/<a:off x="(\d+)"/.exec(picture)[1]);
+  const width = Number(/<a:ext cx="(\d+)"/.exec(picture)[1]);
+  const presentation = await zip.file('ppt/presentation.xml').async('string');
+  const slideWidth = Number(/<p:sldSz cx="(\d+)"/.exec(presentation)[1]);
+  expect(Math.abs(x + width / 2 - slideWidth / 2)).toBeLessThan(2);
 });
 
 test('failed required media offers retry without downloading an incomplete deck', async ({page}) => {
