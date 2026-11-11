@@ -72,13 +72,23 @@ export function buildPresentationPowerPointPlan(deck, document) {
     } else if (source.construct === 'letter-formation') {
       [...String(source.modelText || source.target)].forEach((letter, index) => {
         const group = section.querySelectorAll('[data-writing-letter]')[index];
-        const paths = [...group.querySelectorAll('.p-ink-stroke')].map(node => node.getAttribute('d'));
-        const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="500" height="700" viewBox="0 0 100 140"><rect width="100" height="140" fill="white"/><path d="M0 20H100 M0 70H100 M0 120H100" fill="none" stroke="#B9C2D2" stroke-width="1"/>${paths.map(path => `<path d="${path}" fill="none" stroke="#8796B1" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>`).join('')}</svg>`;
+        const paths = [...group.querySelectorAll('.p-ink-stroke')];
+        const guides = paths.map(path => `<path d="${path.getAttribute('d')}" fill="none" stroke="#B2BDCF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>`).join('');
+        const arrows = paths.map(path => {
+          const length = path.getTotalLength();
+          const start = path.getPointAtLength(0);
+          const points = Array.from({ length: 7 }, (_, point) => {
+            const position = path.getPointAtLength(length * (0.3 + point * 0.065));
+            return `${point ? 'L' : 'M'}${position.x.toFixed(2)} ${position.y.toFixed(2)}`;
+          }).join(' ');
+          return `<circle cx="${start.x}" cy="${start.y}" r="2.8" fill="#3454C8"/><path d="${points}" fill="none" stroke="#3454C8" stroke-width="2.2" stroke-linecap="round" marker-end="url(#direction)"/>`;
+        }).join('');
+        const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="500" height="700" viewBox="0 0 100 140"><defs><marker id="direction" viewBox="0 0 8 8" refX="6.5" refY="4" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#3454C8"/></marker></defs><rect width="100" height="140" fill="white"/><path d="M0 20H100 M0 70H100 M0 120H100" fill="none" stroke="#B9C2D2" stroke-width="1"/>${guides}${arrows}</svg>`;
         push(source, `letter${index}`, {
           ...base, main: true, formation: true,
-          title: `Trace ${letter === letter.toUpperCase() ? 'uppercase' : 'lowercase'} ${letter}`,
+          title: `Write ${letter === letter.toUpperCase() ? 'uppercase' : 'lowercase'} ${letter}`,
           images: [{ src: `data:image/svg+xml;base64,${btoa(svg)}`, label: `Formation model for ${letter}` }],
-          prompt: 'In Slide Show, choose Pen under Pointer Options and trace the letter. Switch back to the arrow to click Next.',
+          prompt: 'Start at a dot and follow the arrows. Lift between strokes. Practise on paper or use PowerPoint’s pen.',
           audio: source.audioRoles.filter(item => item.src).map(item => ({ src: item.src, label: 'Hear instructions' }))
         });
       });
@@ -105,7 +115,7 @@ export function buildPresentationPowerPointPlan(deck, document) {
     const previous = mains.filter(main => slides.indexOf(main) < slides.indexOf(slide)).at(-1);
     slide.previous = previous?.id || 'start';
   });
-  slides.unshift({ id: 'start', title: deck.title, text: 'Our daily lesson', prompt: 'Open Slide Show. Choose answers and use the on-screen Next buttons. Click a speaker to hear its embedded recording.', notes: 'Works offline after download. All pictures and recordings are embedded. Construction activities use linked word tiles. For writing, model with PowerPoint’s pen and invite air-writing. For memory, choose Hide unmatched cards after discussion. Reading time is teacher-paced. Supported participation is unscored.', images: [], audio: [], buttons: [{ label: 'Start lesson', target: mains[0]?.id || 'end' }], next: mains[0]?.id || 'end' });
+  slides.unshift({ id: 'start', title: deck.title, text: 'Our daily lesson', prompt: 'Open Slide Show. On Mac, choose Pointer Options → Visible for the buttons. Click a speaker to hear its recording.', notes: 'Works offline after download. All pictures and recordings are embedded. Construction activities use linked word tiles. For writing, model with PowerPoint’s pen and invite air-writing. For memory, choose Hide unmatched cards after discussion. Reading time is teacher-paced. Supported participation is unscored.', images: [], audio: [], buttons: [{ label: 'Start lesson', target: mains[0]?.id || 'end' }], next: mains[0]?.id || 'end' });
   slides.push({ id: 'end', title: 'Lesson complete', text: 'Well done. Tell someone what you learned.', images: [], audio: [], buttons: [{ label: 'Start again', target: 'start' }], previous: mains.at(-1)?.id || 'start' });
   for (let page = 0; page < Math.ceil(mains.length / 9); page++) {
     const buttons = mains.slice(page * 9, page * 9 + 9).map((slide, i) => ({ label: `${page * 9 + i + 1}. ${slide.title}`, target: slide.id }));
