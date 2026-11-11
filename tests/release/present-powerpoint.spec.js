@@ -73,6 +73,37 @@ test('downloaded PowerPoint contains offline pictures, audio, links, all rounds 
   await page.screenshot({path:`${artifacts}/download-complete.png`, fullPage:true});
 });
 
+test('a lesson with letter formation downloads under the production image and connection policy', async ({page}) => {
+  test.setTimeout(60000);
+  const config = JSON.parse(await fs.readFile(new URL('../../config/vercel-base.json', import.meta.url), 'utf8'));
+  const policy = config.headers.find(rule => rule.source === '/(.*)').headers
+    .find(header => header.key === 'Content-Security-Policy').value;
+  // Apply the production media directives while letting the preview load Vite's development scripts.
+  const mediaPolicy = policy.split(';').map(directive => directive.trim())
+    .filter(directive => /^(img-src|connect-src) /.test(directive)).join('; ');
+  await page.route(url => url.pathname === '/preview/teacher-a11y.html', async route => {
+    const response = await route.fetch();
+    await route.fulfill({response, headers: {...response.headers(), 'content-security-policy': mediaPolicy}});
+  });
+  await page.goto('/preview/teacher-a11y.html?surface=present');
+  await page.getByLabel('Cycle', {exact:true}).selectOption('cycle-13');
+  await page.getByLabel('Day', {exact:true}).selectOption('thursday');
+  const [download] = await Promise.all([
+    page.waitForEvent('download', {timeout:45000}),
+    (async () => {
+      await page.getByRole('button', {name:'Download PowerPoint', exact:true}).click();
+      const status = page.getByRole('status');
+      await expect(status).toHaveText(/PowerPoint downloaded|Failed to fetch/, {timeout:40000});
+      await expect(status).toContainText('PowerPoint downloaded', {timeout:1000});
+    })()
+  ]);
+  expect(download.suggestedFilename()).toBe('Literacy-Guide-cycle-13-thursday.pptx');
+  const zip = await JSZip.loadAsync(await fs.readFile(await download.path()));
+  const slides = zip.file(/^ppt\/slides\/slide\d+\.xml$/);
+  const xmls = await Promise.all(slides.map(slide => slide.async('string')));
+  expect(xmls.some(xml => /descr="Formation model for [^"]+"/.test(xml))).toBe(true);
+});
+
 test('failed required media offers retry without downloading an incomplete deck', async ({page}) => {
   await page.goto('/preview/teacher-a11y.html?surface=present');
   await page.getByLabel('Cycle', {exact:true}).selectOption('cycle-1');
