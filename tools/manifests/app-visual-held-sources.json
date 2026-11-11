@@ -14525,8 +14525,8 @@
       }
     ],
     "graph": {
-      "count": 1556,
-      "sha256": "ade94e7dfc76f1ce6bd5fa7ee159bdac750361a1e814670a5fbd1a189f00c3ac",
+      "count": 1559,
+      "sha256": "ffffdfb0a8a16d3c95223704689700db76db8f6f3c6b6ead60b38082370126a3",
       "modules": [
         "demos/sound-seekers/assets/audio/brook-complete.mp3",
         "demos/sound-seekers/assets/audio/brook.mp3",
@@ -14892,6 +14892,7 @@
         "src/components/family/ParentAreaPage.jsx",
         "src/components/guided-reading/BookDiscussionPanel.jsx",
         "src/components/guided-reading/BookLevelGuide.jsx",
+        "src/components/guided-reading/BookPdfDownload.jsx",
         "src/components/guided-reading/BookReadingGuide.jsx",
         "src/components/guided-reading/BuddyReaderBar.jsx",
         "src/components/guided-reading/CycleShortsLibrary.jsx",
@@ -15905,6 +15906,8 @@
         "src/utils/graphemeSegments.js",
         "src/utils/guidedReading/bookLevelMetadata.js",
         "src/utils/guidedReading/bookLevelOverrides.js",
+        "src/utils/guidedReading/bookPdf.js",
+        "src/utils/guidedReading/bookPrintMetadata.js",
         "src/utils/guidedReading/bookTextAnalysis.js",
         "src/utils/guidedReading/bookmark.js",
         "src/utils/guidedReading/buddyReader.js",
@@ -16086,8 +16089,8 @@
         "src/utils/workshopObjects.js"
       ],
       "edges": {
-        "count": 3688,
-        "sha256": "15026cdf365c72e035f337a2789f1e6fc366ff2f184ab86134716f8c85777415"
+        "count": 3704,
+        "sha256": "1a3f25872a95d81c55482ceb9667c58b0e9d798f2ca1818798ddd5e6cb0ab19a"
       },
       "issues": [],
       "dynamic": []
@@ -16636,8 +16639,8 @@
       }
     },
     "runtimeSources": {
-      "count": 1745,
-      "sha256": "b3533d690bd8ff5843396efaebc85c7c387f2422cccd42a7caa5403b3fbfe15a",
+      "count": 1748,
+      "sha256": "5e779f8bee1a5a5ba7106b38a5351001d61f3ea05c811a829c1b96b0beafcb07",
       "files": [
         {
           "path": "demos/sound-seekers/chapter.config.mjs",
@@ -17328,6 +17331,10 @@
           "sha256": "3e432af826977350534bf9c940ac7906ad7d18845524c01bbbf71b26e2785878"
         },
         {
+          "path": "src/components/guided-reading/BookPdfDownload.jsx",
+          "sha256": "2529f3fc29a6e4439b297d294b5790f6fde14ff3056cb46c330f5f4b83e4a110"
+        },
+        {
           "path": "src/components/guided-reading/BookReadingGuide.jsx",
           "sha256": "5581ebadebf5cfc74e204c5d6c812d0a9295f3c731223e48fd573a18e3c304da"
         },
@@ -17345,7 +17352,7 @@
         },
         {
           "path": "src/components/guided-reading/GuidedReadingPage.jsx",
-          "sha256": "7bddbeb5605a08361f6fb08f73d5d9edcdd31d28e179ce976bc5776171b89881"
+          "sha256": "61c3ef1fe7306f8d45e3531e74870d4e74a47d1dc039e17594dcb997a19b74a3"
         },
         {
           "path": "src/components/guided-reading/guidedReadingTransport.css",
@@ -22305,7 +22312,7 @@
         },
         {
           "path": "src/styles/teacher-book-library.css",
-          "sha256": "3d0d52566e3464da9aac47656ffb413c7938ffb7665bdff9babaf33e61e84825"
+          "sha256": "166d8ad89d786636f03332de32ccb435a05a440a73fbc39894c2d12496a8e6c5"
         },
         {
           "path": "src/styles/teacher-context-bar.css",
@@ -22738,6 +22745,14 @@
         {
           "path": "src/utils/guidedReading/bookmark.js",
           "sha256": "5358705f6b95b271302bcc2f3e868a19b50ea05ab5f6dc10a08d634d91fdc1b0"
+        },
+        {
+          "path": "src/utils/guidedReading/bookPdf.js",
+          "sha256": "cd84dc2064840ea5eec7f6d21da48ab353eccecaa604da9428ce140558dae52a"
+        },
+        {
+          "path": "src/utils/guidedReading/bookPrintMetadata.js",
+          "sha256": "5452c61e1d55d910840b407a7cb6603ba6c1fcd240a44b88c862490c372aa99e"
         },
         {
           "path": "src/utils/guidedReading/bookTextAnalysis.js",

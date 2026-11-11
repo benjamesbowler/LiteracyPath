@@ -1,4 +1,4 @@
-import { currentGuidedReadingRecord, getCurrentGuidedReadingRecord, guidedReadingProgressKey, guidedReadingContentId } from "../../utils/guidedReading/editions.js";
+import { currentGuidedReadingRecord, getCurrentGuidedReadingRecord, guidedReadingProgressKey, guidedReadingContentId, GUIDED_READING_TOPIC_EDITIONS } from "../../utils/guidedReading/editions.js";
 import {lazy,Suspense} from "react";
 const CycleShortsLibrary = lazy(()=>import("./CycleShortsLibrary.jsx"));
 import "../../styles/book-levels.css";
@@ -10,6 +10,7 @@ import { useHopAndStopPublished } from "../action-songs/useHopAndStopPublished.j
 import { useEffect, useEffectEvent, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { APP_READING_LEVELS, getBookTextAnalysis, appReadingLevelLabel } from "../../utils/guidedReading/bookTextAnalysis.js";
 import BookLevelGuide from "./BookLevelGuide.jsx";
+import BookPdfDownload from "./BookPdfDownload.jsx";
 import { ImmersiveReader } from "./ImmersiveReader.jsx";
 import { announceMissionReturn, notifyMissionTaskDone } from "../../utils/dailyMission.js";
 import { printCertificate } from "../../utils/printCertificate.js";
@@ -32,7 +33,8 @@ import { readingRecommendationReason, readingRecommendationSummary } from "../..
 // screen shelves exactly the list this reader opens. See runtimeBooks.js.
 import { getRuntimeGuidedReadingBooks } from "../../utils/guidedReading/runtimeBooks.js";
 import { withRepairedGuidedReadingImageVersion } from "../../utils/guidedReading/mediaVersion.js";
-import { isGuidedReadingAssetDeleted } from "../../data/deletedMediaManifest.js";
+import { isGuidedReadingAssetDeleted, isGuidedReadingBookDeleted } from "../../data/deletedMediaManifest.js";
+import { bookCoverSources } from "../../policy/childLibraryPolicy.js";
 import {
   getGuidedReadingBookAudioPath,
   getGuidedReadingWordProductionAudioPath,
@@ -107,7 +109,8 @@ function GuidedReadingImage({
   decoding = "async",
   fetchPriority,
   loading = "lazy",
-  onLoad
+  onLoad,
+  onError
 }) {
   const [missing, setMissing] = useState(false);
 
@@ -130,7 +133,7 @@ function GuidedReadingImage({
       decoding={decoding}
       fetchPriority={fetchPriority}
       loading={loading}
-      onError={() => setMissing(true)}
+      onError={onError || (() => setMissing(true))}
       onLoad={onLoad}
       src={withGuidedReadingMediaVersion(src)}
     />
@@ -288,26 +291,11 @@ function AutoFitReadingText({
   );
 }
 
-function getGuidedBookCover(book = {}) {
-  const firstPage = (book.pages || []).find(page => page?.image || page?.imageUrl || page?.pageImage);
-  const firstPageSrc = firstPage?.image || firstPage?.imageUrl || firstPage?.pageImage || "";
-  const src = firstPageSrc || book.coverImage || book.cover || book.coverUrl || "";
-  if (src && isGuidedReadingAssetDeleted({ bookId: book.id, path: src, pageNumber: 0 })) {
-    return {
-      src: "",
-      isGenerated: true
-    };
-  }
-  return {
-    src,
-    isGenerated: !src
-  };
-}
-
 function GuidedBookCover({ book, showLevel = true }) {
-  const cover = getGuidedBookCover(book);
+  const [failedSources, setFailedSources] = useState([]);
+  const src = bookCoverSources(book, isGuidedReadingAssetDeleted).find(path => !failedSources.includes(path));
 
-  if (!cover.src) {
+  if (!src) {
     return (
       <div className="guided-book-generated-cover" role="img" aria-label={`${book.title} generated cover`}>
         <span>{formatGuidedReadingType(book.type)}</span>
@@ -322,7 +310,8 @@ function GuidedBookCover({ book, showLevel = true }) {
       alt={`${book.title} cover`}
       className="guided-book-cover"
       loading="lazy"
-      src={cover.src}
+      src={src}
+      onError={() => setFailedSources(current => [...current, src])}
     />
   );
 }
@@ -674,6 +663,11 @@ export function GuidedReadingPage({
   const selectedReview = selectedBook
     ? reviewByBookId[selectedBook.id] || { status: "pending", reviewNote: "" }
     : { status: "pending", reviewNote: "" };
+  const canDownloadBookPdf = !isStudentMode && !isReviewMode && !activeGroupSession && !isReaderFullscreen
+    && Boolean(selectedBook?.pages?.length) && !selectedBook.historicalEdition
+    && !isGuidedReadingBookDeleted(selectedBook.id)
+    && selectedBook.title !== GUIDED_READING_TOPIC_EDITIONS[selectedBook.id]?.retiredTitle
+    && selectedReview.status !== "quarantined";
   const enrichedSelectedBook = selectedBook ? enrichGuidedReadingBook(selectedBook) : null;
   const selectedReadingPurpose = selectedBook
     ? classifyBookReadingPurpose(selectedBook, studentProgress || {})
@@ -1022,7 +1016,7 @@ export function GuidedReadingPage({
 
     function handleKeyDown(event) {
       const tagName = event.target?.tagName?.toLowerCase();
-      if (tagName === "textarea" || tagName === "input" || tagName === "select") return;
+      if (tagName === "textarea" || tagName === "input" || tagName === "select" || event.target?.closest?.(".guided-book-pdf-dialog")) return;
 
       if (event.key === "ArrowLeft") {
         event.preventDefault();
@@ -2492,10 +2486,11 @@ export function GuidedReadingPage({
           {isClassMode && !activeGroupSession && !isReaderFullscreen && (onReadWithStudent || onReadTogether || onAssignStudentBook) && (
             <section className="guided-teacher-book-actions" aria-label="Use this book">
               <p><strong>Preview: {selectedBook.title}</strong><span>Choose who will read this book.</span></p>
-              <div role="group" aria-label="Reading audience">
+              <div role="group" aria-label="Book actions">
                 {typeof onReadWithStudent === "function" && <button className="lp-button lp-button-secondary" type="button" onClick={() => { stopReaderAudio(); onReadWithStudent(selectedBook.id); }}>Read with a student</button>}
                 {typeof onReadTogether === "function" && <button className="lp-button lp-button-secondary" type="button" onClick={() => { stopReaderAudio(); onReadTogether(selectedBook.id); }}>Read together</button>}
                 {typeof onAssignStudentBook === "function" && <button className="lp-button lp-button-secondary" type="button" onClick={() => { stopReaderAudio(); onAssignStudentBook(selectedBook.id); }}>Assign independently</button>}
+                {canDownloadBookPdf && <BookPdfDownload key={guidedReadingProgressKey(selectedBook)} book={selectedBook} />}
               </div>
             </section>
           )}
@@ -2659,6 +2654,7 @@ export function GuidedReadingPage({
                   </div>
                 )}
                 <div className="guided-reader-secondary-controls" role="group" aria-label="Reader view controls">
+                  {canDownloadBookPdf && <BookPdfDownload key={guidedReadingProgressKey(selectedBook)} book={selectedBook} />}
                   <details className="guided-record-options"><summary>View and notes</summary><div>
                   {!isStudentMode && !isClassMode && typeof onAssignStudentBook === "function" && <button className="lp-button lp-button-secondary" type="button" onClick={() => {
                     stopReaderAudio();
