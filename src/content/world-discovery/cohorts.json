@@ -12,9 +12,9 @@
       "active": true,
       "sourceDir": "src/content/world-discovery",
       "cardReview": "source-art/world-discovery/card-cover-review.json",
-      "narrationReview": "source-art/world-discovery/remediation/2026-11-09/01-10-narration-review.json",
-      "narrationInventory": "source-art/world-discovery/remediation/2026-11-09/01-10-narration-inventory-r2.json",
-      "registration": "src/content/world-discovery/registrations/2026-11-09/01-10-r2.json",
+      "narrationReview": "source-art/world-discovery/remediation/2026-11-11/01-10-grounding-narration-review.json",
+      "narrationInventory": "source-art/world-discovery/remediation/2026-11-11/01-10-grounding-narration-inventory.json",
+      "registration": "src/content/world-discovery/registrations/2026-11-11/01-10-grounding.json",
       "maintenanceBaseline": {
         "path": "source-art/world-discovery/remediation/2026-11-09/registered-audio-before.json",
         "sha256": "2b32bf8bc8f17c70b3ba730b2647ac443d9052e3895a9267dcdc2f2e3ded7352"
@@ -50,10 +50,10 @@
       "expectedPages": 440,
       "active": true,
       "sourceDir": "src/content/world-discovery/cohorts/21-30",
-      "cardReview": "source-art/world-discovery/cohorts/21-30/card-cover-review.json",
-      "narrationReview": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-narration-review.json",
-      "narrationInventory": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-narration-inventory.json",
-      "registration": "src/content/world-discovery/registrations/2026-11-10/21-30-accessibility.json",
+      "cardReview": "source-art/world-discovery/remediation/2026-11-10/21-30-topic-revision-card-cover-review.json",
+      "narrationReview": "source-art/world-discovery/remediation/2026-11-10/21-30-topic-revision-narration-review-r2.json",
+      "narrationInventory": "source-art/world-discovery/remediation/2026-11-10/21-30-topic-revision-narration-inventory-r2.json",
+      "registration": "src/content/world-discovery/registrations/2026-11-10/21-30-topic-revision-r2.json",
       "maintenanceBaseline": {
         "path": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-audio-before.json",
         "sha256": "4ca4b36544febad7d0aaa8b7912d6b24144aa28bbd88bc41d0c783f6eb575796"

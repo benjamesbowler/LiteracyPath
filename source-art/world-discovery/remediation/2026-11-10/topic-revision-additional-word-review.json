@@ -1,0 +1,1037 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-11-10",
+  "status": "automated-review-complete",
+  "scope": "Exactly42 additional required word clips for newly used World Discovery vocabulary:39 unchanged dictionary clips screened in their exact existing bytes, plus3 newly generated page-scoped clarity clips. These42 supplement the94 new-output report.",
+  "method": "Full FFmpeg decode, finite unclipped24kHz PCM,50ms RMS speech-window checks and unprompted offline tiny.en recognition; small.en investigated all6 initial discrepancies. Three shared dictionary clips with material repeated uncertainties received new explicit-IPA Leda takes; published defaults are preserved.",
+  "limitations": "Not human listening or phoneme certification. Alike/A like is spacing; peak/peek and oar/or are homophones. The three new takes have at least one exact unprompted model result; differing transcripts remain attached.",
+  "sourceReports": [
+    {
+      "path": ".artifacts/discovery-topic-revision/audio/prior-words-screen-tiny.json",
+      "sha256": "4884ea30386a6915719a701a5a4662735f906f45dcf1d94739b9582eb70662e4",
+      "modelSha256": "1a5afae06a4db91c975c9a9d78be5cc110ee4ea022ad57d55492e4550e936b2a"
+    },
+    {
+      "path": ".artifacts/discovery-topic-revision/audio/prior-words-screen-small.json",
+      "sha256": "33f050c1a46df931572b8fa581b744646c442aac2508aa5e8c8e2ba38e273c55",
+      "modelSha256": "62b2a45b05ee59acb4a5341b33ee35e041395d378d418a18acfe4c9e768ee37a"
+    },
+    {
+      "path": ".artifacts/discovery-topic-revision/audio/existing-word-clarity-screen-tiny.json",
+      "sha256": "0c50ba5821da495adef55995b8fcb84f182092d5de0e66e522fb76642d1522b0",
+      "modelSha256": "1a5afae06a4db91c975c9a9d78be5cc110ee4ea022ad57d55492e4550e936b2a"
+    },
+    {
+      "path": ".artifacts/discovery-topic-revision/audio/existing-word-clarity-screen-small.json",
+      "sha256": "c082e0a4229a2a8ab1a847d65dd150905e7eb81d62f574fb3cbadbd9d3d60e5b",
+      "modelSha256": "62b2a45b05ee59acb4a5341b33ee35e041395d378d418a18acfe4c9e768ee37a"
+    }
+  ],
+  "pronunciationControls": [
+    {
+      "word": "drifts",
+      "pronunciation": "dɹɪfts",
+      "audioPath": "/audio/production/en-US/isolated_word/drifts-topic-clear-4dffd33ec7.mp3",
+      "audioSha256": "4dffd33ec7cf8b72e3f3a0bb494c3394fd8ebee37b6abceafab66d352d19f306",
+      "payload": {
+        "input": {
+          "ssml": "<speak><break time=\"250ms\"/><phoneme alphabet=\"ipa\" ph=\"dɹɪfts\">Drifts</phoneme>.<break time=\"300ms\"/></speak>"
+        },
+        "voice": {
+          "name": "en-US-Chirp3-HD-Leda",
+          "languageCode": "en-US"
+        },
+        "audioConfig": {
+          "audioEncoding": "LINEAR16",
+          "sampleRateHertz": 24000,
+          "speakingRate": 0.88
+        }
+      }
+    },
+    {
+      "word": "pump",
+      "pronunciation": "pʌmp",
+      "audioPath": "/audio/production/en-US/isolated_word/pump-topic-clear-53b8c8ba45.mp3",
+      "audioSha256": "53b8c8ba45df7792044f3207dc9041408d75a3ffbb523dc374933a376f2ca871",
+      "payload": {
+        "input": {
+          "ssml": "<speak><break time=\"250ms\"/><phoneme alphabet=\"ipa\" ph=\"pʌmp\">Pump</phoneme>.<break time=\"300ms\"/></speak>"
+        },
+        "voice": {
+          "name": "en-US-Chirp3-HD-Leda",
+          "languageCode": "en-US"
+        },
+        "audioConfig": {
+          "audioEncoding": "LINEAR16",
+          "sampleRateHertz": 24000,
+          "speakingRate": 0.88
+        }
+      }
+    },
+    {
+      "word": "steam",
+      "pronunciation": "stiːm",
+      "audioPath": "/audio/production/en-US/isolated_word/steam-topic-clear-491c842d5a.mp3",
+      "audioSha256": "491c842d5a29d308b7a2f98042233bfc17ac6ac92ea1aaf815484174e9851dfe",
+      "payload": {
+        "input": {
+          "ssml": "<speak><break time=\"250ms\"/><phoneme alphabet=\"ipa\" ph=\"stiːm\">Steam</phoneme>.<break time=\"300ms\"/></speak>"
+        },
+        "voice": {
+          "name": "en-US-Chirp3-HD-Leda",
+          "languageCode": "en-US"
+        },
+        "audioConfig": {
+          "audioEncoding": "LINEAR16",
+          "sampleRateHertz": 24000,
+          "speakingRate": 0.88
+        }
+      }
+    }
+  ],
+  "results": [
+    {
+      "kind": "word",
+      "text": "added",
+      "lookupText": "added",
+      "audioPath": "/audio/production/en-US/isolated_word/added-02b1e34145.mp3",
+      "audioSha256": "4cc330ef354e9dceea2e1e20e7d3470327cfc2be5b05cf6540aec7dcfbce54a6",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms the complete normalized word. Entire file decodes to finite, unclipped signal. Automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Added"
+      ],
+      "sourceScreening": [
+        "prior-words-screen-tiny.json"
+      ],
+      "durationSeconds": 0.6979583333333333,
+      "peakDbfs": -8.560878772140638,
+      "rmsDbfs": -22.998176035031285,
+      "leadingSilenceSeconds": 0.1,
+      "trailingSilenceSeconds": 0.09795833333333326,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "alike",
+      "lookupText": "alike",
+      "audioPath": "/audio/production/en-US/isolated_word/alike-33fb05b2e9.mp3",
+      "audioSha256": "6e0c652626957e31ee428529f374a9f6c738618b79a8839131214e647bee65cb",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "reviewed-recognition-equivalent",
+      "reviewNote": "A like/alike is a word-spacing-only transcription difference. Entire file decodes to finite, unclipped signal. Automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "I like.",
+        "A like"
+      ],
+      "sourceScreening": [
+        "prior-words-screen-tiny.json",
+        "prior-words-screen-small.json"
+      ],
+      "durationSeconds": 0.96,
+      "peakDbfs": -10.145619904054001,
+      "rmsDbfs": -25.760555575061307,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0.009999999999999898,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "beaches",
+      "lookupText": "beaches",
+      "audioPath": "/audio/production/en-US/isolated_word/beaches-0298d99721.mp3",
+      "audioSha256": "0d222869d1a782eaf2da9149d06b3033ffc39760e3b619dcc9db11d9d7d146bd",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms the complete normalized word. Entire file decodes to finite, unclipped signal. Automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "beaches"
+      ],
+      "sourceScreening": [
+        "prior-words-screen-tiny.json"
+      ],
+      "durationSeconds": 1.0373333333333334,
+      "peakDbfs": -10.915712620362623,
+      "rmsDbfs": -23.64224294568137,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0.03733333333333344,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "bike",
+      "lookupText": "bike",
+      "audioPath": "/audio/production/en-US/isolated_word/bike-21fb12d912.mp3",
+      "audioSha256": "0a78169722046b4b885ceef98960b9f359ba47c99551d17490eb199ed39ecdeb",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms the complete normalized word. Entire file decodes to finite, unclipped signal. Automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Bike."
+      ],
+      "sourceScreening": [
+        "prior-words-screen-tiny.json"
+      ],
+      "durationSeconds": 0.7503333333333333,
+      "peakDbfs": -10.942813611102032,
+      "rmsDbfs": -27.970057539547156,
+      "leadingSilenceSeconds": 0.2,
+      "trailingSilenceSeconds": 0.05033333333333323,
+      "longestInteriorSilenceSeconds": 0.1
+    },
+    {
+      "kind": "word",
+      "text": "boats",
+      "lookupText": "boats",
+      "audioPath": "/audio/production/en-US/isolated_word/boats-4ea95ba33c.mp3",
+      "audioSha256": "26c25a2447b611146d886649037215cf6f800e82f8f86f4df7c53fec86916b15",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms the complete normalized word. Entire file decodes to finite, unclipped signal. Automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Boats."
+      ],
+      "sourceScreening": [
+        "prior-words-screen-tiny.json"
+      ],
+      "durationSeconds": 1.0743333333333334,
+      "peakDbfs": -5.093414221529659,
+      "rmsDbfs": -24.668561434123202,
+      "leadingSilenceSeconds": 0.4,
+      "trailingSilenceSeconds": 0.1243333333333333,
+      "longestInteriorSilenceSeconds": 0.05
+    },
+    {
+      "kind": "word",
+      "text": "burn",
+      "lookupText": "burn",
+      "audioPath": "/audio/production/en-US/isolated_word/burn-82a23826ee.mp3",
+      "audioSha256": "6e0b0882374b6128eb2eb694e9d34a999c575cc1604eb46bc671346f3a90769e",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms the complete normalized word. Entire file decodes to finite, unclipped signal. Automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Burn."
+      ],
+      "sourceScreening": [
+        "prior-words-screen-tiny.json"
+      ],
+      "durationSeconds": 1.0743333333333334,
+      "peakDbfs": -12.622123641495378,
+      "rmsDbfs": -30.08559059043779,
+      "leadingSilenceSeconds": 0.4,
+      "trailingSilenceSeconds": 0.17433333333333334,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "chain",
+      "lookupText": "chain",
+      "audioPath": "/audio/production/en-US/isolated_word/chain-31d77480b3.mp3",
+      "audioSha256": "415aa4895c054e258a001da71791054016e16570eb933d72b2618994f144a9c8",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms the complete normalized word. Entire file decodes to finite, unclipped signal. Automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "chain."
+      ],
+      "sourceScreening": [
+        "prior-words-screen-tiny.json"
+      ],
+      "durationSeconds": 0.6423333333333333,
+      "peakDbfs": -17.39968497391471,
+      "rmsDbfs": -34.09745509181419,
+      "leadingSilenceSeconds": 0.05,
+      "trailingSilenceSeconds": 0.04233333333333322,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "cities",
+      "lookupText": "cities",
+      "audioPath": "/audio/production/en-US/isolated_word/cities-cb8344fdcb.mp3",
+      "audioSha256": "26db5a6b6ddf9185225e7c8e081f54f26a2fa64555316a8464a2caae1e3e7e4c",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms the complete normalized word. Entire file decodes to finite, unclipped signal. Automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Cities."
+      ],
+      "sourceScreening": [
+        "prior-words-screen-tiny.json"
+      ],
+      "durationSeconds": 1.4523333333333333,
+      "peakDbfs": -13.339885567720502,
+      "rmsDbfs": -32.42907670045385,
+      "leadingSilenceSeconds": 0.75,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "country",
+      "lookupText": "country",
+      "audioPath": "/audio/production/en-US/isolated_word/country-4335c895e7.mp3",
+      "audioSha256": "fb4636604a89400c855bb4a4e23a456adab3cc61f0ea5db34042290429771680",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms the complete normalized word. Entire file decodes to finite, unclipped signal. Automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "country"
+      ],
+      "sourceScreening": [
+        "prior-words-screen-tiny.json"
+      ],
+      "durationSeconds": 0.6423333333333333,
+      "peakDbfs": -11.76686189769611,
+      "rmsDbfs": -25.04867855966555,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "crops",
+      "lookupText": "crops",
+      "audioPath": "/audio/production/en-US/isolated_word/crops-f41837a910.mp3",
+      "audioSha256": "7f06417435dcf9f6ed89b5ea54c2ad82bcd23e9153da6eb805a84822644c2124",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms the complete normalized word. Entire file decodes to finite, unclipped signal. Automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "crops"
+      ],
+      "sourceScreening": [
+        "prior-words-screen-tiny.json"
+      ],
+      "durationSeconds": 0.6423333333333333,
+      "peakDbfs": -11.086349490384004,
+      "rmsDbfs": -26.088721756343038,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0.04233333333333322,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "cycle",
+      "lookupText": "cycle",
+      "audioPath": "/audio/production/en-US/isolated_word/cycle-e91acdbae0.mp3",
+      "audioSha256": "574353bb351b55f0b6e7a6032e50a9e93e670ef77596cff5cb3669464030690b",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms the complete normalized word. Entire file decodes to finite, unclipped signal. Automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "cycle"
+      ],
+      "sourceScreening": [
+        "prior-words-screen-tiny.json"
+      ],
+      "durationSeconds": 0.6979583333333333,
+      "peakDbfs": -14.121032230792165,
+      "rmsDbfs": -27.513663845671957,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.05
+    },
+    {
+      "kind": "word",
+      "text": "drifts",
+      "lookupText": "drifts",
+      "audioPath": "/audio/production/en-US/isolated_word/drifts-topic-clear-4dffd33ec7.mp3",
+      "audioSha256": "4dffd33ec7cf8b72e3f3a0bb494c3394fd8ebee37b6abceafab66d352d19f306",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms the complete normalized word. Entire file decodes to finite, unclipped signal. Automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Drifts.",
+        "Drifts"
+      ],
+      "sourceScreening": [
+        "existing-word-clarity-screen-tiny.json",
+        "existing-word-clarity-screen-small.json"
+      ],
+      "durationSeconds": 1.3823333333333334,
+      "peakDbfs": -4.522998949621692,
+      "rmsDbfs": -26.273434144376147,
+      "leadingSilenceSeconds": 0.35000000000000003,
+      "trailingSilenceSeconds": 0.33233333333333337,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "drives",
+      "lookupText": "drives",
+      "audioPath": "/audio/production/en-US/isolated_word/drives-5780722f92.mp3",
+      "audioSha256": "d298dc07024df0c37ad9a6dff407c1ac0202f2af3317f11dd63e398c19c851e8",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms the complete normalized word. Entire file decodes to finite, unclipped signal. Automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Drives."
+      ],
+      "sourceScreening": [
+        "prior-words-screen-tiny.json"
+      ],
+      "durationSeconds": 1.2693333333333334,
+      "peakDbfs": -9.691203756716646,
+      "rmsDbfs": -26.164957043183847,
+      "leadingSilenceSeconds": 0.30000000000000004,
+      "trailingSilenceSeconds": 0.06933333333333325,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "early",
+      "lookupText": "early",
+      "audioPath": "/audio/production/en-US/isolated_word/early-da685f57c8.mp3",
+      "audioSha256": "5d51ed00e26b1a5ab670528eb6f3ec5102f84d5a5c3ae2a864f1f77cc50f913e",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms the complete normalized word. Entire file decodes to finite, unclipped signal. Automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "early"
+      ],
+      "sourceScreening": [
+        "prior-words-screen-tiny.json"
+      ],
+      "durationSeconds": 1.3459583333333334,
+      "peakDbfs": -9.683080872644949,
+      "rmsDbfs": -23.603946664791824,
+      "leadingSilenceSeconds": 0.65,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "gases",
+      "lookupText": "gases",
+      "audioPath": "/audio/production/en-US/isolated_word/gases-f1dc3aeaec.mp3",
+      "audioSha256": "95a2f50714fa13500e24008bf19056f3d0ccf2dc52890acee0621358b0519f38",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms the complete normalized word. Entire file decodes to finite, unclipped signal. Automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Gases?"
+      ],
+      "sourceScreening": [
+        "prior-words-screen-tiny.json"
+      ],
+      "durationSeconds": 1.2,
+      "peakDbfs": -10.437504215762889,
+      "rmsDbfs": -26.360367415498565,
+      "leadingSilenceSeconds": 0.25,
+      "trailingSilenceSeconds": 0.09999999999999987,
+      "longestInteriorSilenceSeconds": 0.05
+    },
+    {
+      "kind": "word",
+      "text": "handles",
+      "lookupText": "handles",
+      "audioPath": "/audio/production/en-US/isolated_word/handles-afc55d3374.mp3",
+      "audioSha256": "52579b3209147880ccdb48c2ec3a816b1019134b16daa9ed4494a9e7d4db73e2",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms the complete normalized word. Entire file decodes to finite, unclipped signal. Automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Handles."
+      ],
+      "sourceScreening": [
+        "prior-words-screen-tiny.json"
+      ],
+      "durationSeconds": 1.2113333333333334,
+      "peakDbfs": -11.182016474899266,
+      "rmsDbfs": -25.94970157131541,
+      "leadingSilenceSeconds": 0.5,
+      "trailingSilenceSeconds": 0.011333333333333195,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "horse",
+      "lookupText": "horse",
+      "audioPath": "/audio/production/en-US/isolated_word/horse-3215429083.mp3",
+      "audioSha256": "a0bdc83cceb4502c8a9951b9db888902b96857e30c908c595ebd593cf1f1f99b",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms the complete normalized word. Entire file decodes to finite, unclipped signal. Automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Horse."
+      ],
+      "sourceScreening": [
+        "prior-words-screen-tiny.json"
+      ],
+      "durationSeconds": 0.6423333333333333,
+      "peakDbfs": -11.095237166101635,
+      "rmsDbfs": -25.68838048483858,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "horses",
+      "lookupText": "horses",
+      "audioPath": "/audio/production/en-US/isolated_word/horses-67e0916d60.mp3",
+      "audioSha256": "b46b0a72d3cf39bf45f5ff469353ee43330459651101bbb527176ed7a8735bdd",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms the complete normalized word. Entire file decodes to finite, unclipped signal. Automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Horses."
+      ],
+      "sourceScreening": [
+        "prior-words-screen-tiny.json"
+      ],
+      "durationSeconds": 1.4523333333333333,
+      "peakDbfs": -8.967122222609325,
+      "rmsDbfs": -25.352466735150184,
+      "leadingSilenceSeconds": 0.05,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.25
+    },
+    {
+      "kind": "word",
+      "text": "jet",
+      "lookupText": "jet",
+      "audioPath": "/audio/production/en-US/isolated_word/jet-4231ddc063.mp3",
+      "audioSha256": "e3f347aa681be5894db405b46ac8e6735329a3dfd0d8785ea68d7059756446b6",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms the complete normalized word. Entire file decodes to finite, unclipped signal. Automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Jet."
+      ],
+      "sourceScreening": [
+        "prior-words-screen-tiny.json"
+      ],
+      "durationSeconds": 1.2903333333333333,
+      "peakDbfs": -13.63392314822729,
+      "rmsDbfs": -34.24807167695474,
+      "leadingSilenceSeconds": 0.65,
+      "trailingSilenceSeconds": 0.04033333333333333,
+      "longestInteriorSilenceSeconds": 0.1
+    },
+    {
+      "kind": "word",
+      "text": "modern",
+      "lookupText": "modern",
+      "audioPath": "/audio/production/en-US/isolated_word/modern-1b520b0375.mp3",
+      "audioSha256": "5b9d78c609fe51aa83d3c5552d43c3532f092caa13db19ad1e4cf1e247b9e97d",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms the complete normalized word. Entire file decodes to finite, unclipped signal. Automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Modern."
+      ],
+      "sourceScreening": [
+        "prior-words-screen-tiny.json"
+      ],
+      "durationSeconds": 0.6443333333333333,
+      "peakDbfs": -13.159242089629707,
+      "rmsDbfs": -25.059899266265447,
+      "leadingSilenceSeconds": 0.05,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "mount",
+      "lookupText": "mount",
+      "audioPath": "/audio/production/en-US/isolated_word/mount-16b52f938e.mp3",
+      "audioSha256": "05bd6f0a47084b666ca7887a13a8a12ad663d54e583d2d3a9249f7db96789062",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms the complete normalized word. Entire file decodes to finite, unclipped signal. Automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Mount."
+      ],
+      "sourceScreening": [
+        "prior-words-screen-tiny.json"
+      ],
+      "durationSeconds": 0.9139583333333333,
+      "peakDbfs": -10.491267421166901,
+      "rmsDbfs": -27.71722020159901,
+      "leadingSilenceSeconds": 0.35000000000000003,
+      "trailingSilenceSeconds": 0.013958333333333295,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "mountains",
+      "lookupText": "mountains",
+      "audioPath": "/audio/production/en-US/isolated_word/mountains-da5f8853d1.mp3",
+      "audioSha256": "21e91ddafb211d4ce5f8db78ef126b402e5f1fb6d6f6239e43b15bac3bdfd248",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms the complete normalized word. Entire file decodes to finite, unclipped signal. Automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Mountains."
+      ],
+      "sourceScreening": [
+        "prior-words-screen-tiny.json"
+      ],
+      "durationSeconds": 0.9663333333333334,
+      "peakDbfs": -10.978002850010238,
+      "rmsDbfs": -23.302147058120767,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0.01633333333333331,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "passengers",
+      "lookupText": "passengers",
+      "audioPath": "/audio/production/en-US/isolated_word/passengers-e3552886a1.mp3",
+      "audioSha256": "7a6e44176ed692670a0cb7ef2b65b2a3c422f99da6fa73ce2413d5d4b4cf3634",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms the complete normalized word. Entire file decodes to finite, unclipped signal. Automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Passengers."
+      ],
+      "sourceScreening": [
+        "prior-words-screen-tiny.json"
+      ],
+      "durationSeconds": 1.0373333333333334,
+      "peakDbfs": -6.096600269192144,
+      "rmsDbfs": -24.56517256138712,
+      "leadingSilenceSeconds": 0.05,
+      "trailingSilenceSeconds": 0.03733333333333344,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "peak",
+      "lookupText": "peak",
+      "audioPath": "/audio/production/en-US/isolated_word/peak-7673b4f6fa.mp3",
+      "audioSha256": "efbbe2268eed2e433db861dc0eac313260a506b0bae2482c20363e46486ce3f1",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "reviewed-recognition-equivalent",
+      "reviewNote": "Peek/peak is a U.S. English homophone. Entire file decodes to finite, unclipped signal. Automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Peat.",
+        "Peek."
+      ],
+      "sourceScreening": [
+        "prior-words-screen-tiny.json",
+        "prior-words-screen-small.json"
+      ],
+      "durationSeconds": 0.8043333333333333,
+      "peakDbfs": -13.19686842852558,
+      "rmsDbfs": -25.362941098680203,
+      "leadingSilenceSeconds": 0.45,
+      "trailingSilenceSeconds": 0.054333333333333345,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "pilot",
+      "lookupText": "pilot",
+      "audioPath": "/audio/production/en-US/isolated_word/pilot-9dfc2a09bc.mp3",
+      "audioSha256": "0839f355920c5c8fa017bc5a806a1f56c1f302f56ead6791fc208a45158e9786",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms the complete normalized word. Entire file decodes to finite, unclipped signal. Automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "pilot"
+      ],
+      "sourceScreening": [
+        "prior-words-screen-tiny.json"
+      ],
+      "durationSeconds": 0.6423333333333333,
+      "peakDbfs": -11.529508062599053,
+      "rmsDbfs": -25.91738747314129,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0.1423333333333333,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "planes",
+      "lookupText": "planes",
+      "audioPath": "/audio/production/en-US/isolated_word/planes-1c4bbee910.mp3",
+      "audioSha256": "541cd778fd84ce96db2bd6627f02eb15de5622af8d736e225286e7c51643b17e",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms the complete normalized word. Entire file decodes to finite, unclipped signal. Automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "planes."
+      ],
+      "sourceScreening": [
+        "prior-words-screen-tiny.json"
+      ],
+      "durationSeconds": 0.8043333333333333,
+      "peakDbfs": -9.83787813124123,
+      "rmsDbfs": -19.626312245514942,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "pulled",
+      "lookupText": "pulled",
+      "audioPath": "/audio/production/en-US/isolated_word/pulled-248000af1a.mp3",
+      "audioSha256": "42d03d90db38a5b4535f70a888c2290b1d94ca819e7680f64c9ecf46a0347d9f",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms the complete normalized word. Entire file decodes to finite, unclipped signal. Automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "pulled."
+      ],
+      "sourceScreening": [
+        "prior-words-screen-tiny.json"
+      ],
+      "durationSeconds": 0.6979583333333333,
+      "peakDbfs": -11.631018720204956,
+      "rmsDbfs": -23.32551773944718,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0.047958333333333325,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "pump",
+      "lookupText": "pump",
+      "audioPath": "/audio/production/en-US/isolated_word/pump-topic-clear-53b8c8ba45.mp3",
+      "audioSha256": "53b8c8ba45df7792044f3207dc9041408d75a3ffbb523dc374933a376f2ca871",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms the complete normalized word. Entire file decodes to finite, unclipped signal. Automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Pump.",
+        "Pomp."
+      ],
+      "sourceScreening": [
+        "existing-word-clarity-screen-tiny.json",
+        "existing-word-clarity-screen-small.json"
+      ],
+      "durationSeconds": 1.153,
+      "peakDbfs": -7.271845032166867,
+      "rmsDbfs": -26.476117468115685,
+      "leadingSilenceSeconds": 0.4,
+      "trailingSilenceSeconds": 0.30299999999999994,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "rode",
+      "lookupText": "rode",
+      "audioPath": "/audio/production/en-US/isolated_word/rode-90b0486c5f.mp3",
+      "audioSha256": "1d5dab207566c92499b315255b78d4eaff85d0173039ada84887e9075d845697",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms the complete normalized word. Entire file decodes to finite, unclipped signal. Automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Rode."
+      ],
+      "sourceScreening": [
+        "prior-words-screen-tiny.json"
+      ],
+      "durationSeconds": 1.3983333333333334,
+      "peakDbfs": -7.9927412974580445,
+      "rmsDbfs": -25.825046351133384,
+      "leadingSilenceSeconds": 0.05,
+      "trailingSilenceSeconds": 0.09833333333333338,
+      "longestInteriorSilenceSeconds": 0.2
+    },
+    {
+      "kind": "word",
+      "text": "sideways",
+      "lookupText": "sideways",
+      "audioPath": "/audio/production/en-US/isolated_word/sideways-48a5559675.mp3",
+      "audioSha256": "c419df9ff8658b2dbdf75ddaa1a1357663c248fd0ead114561d13824719b1c14",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms the complete normalized word. Entire file decodes to finite, unclipped signal. Automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "sideways."
+      ],
+      "sourceScreening": [
+        "prior-words-screen-tiny.json"
+      ],
+      "durationSeconds": 1.0203333333333333,
+      "peakDbfs": -8.264269154164106,
+      "rmsDbfs": -26.31488655438693,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "skate",
+      "lookupText": "skate",
+      "audioPath": "/audio/production/en-US/isolated_word/skate-8405ebbf27.mp3",
+      "audioSha256": "bb245836f2c0e038330df7b45a8d5b7251efbc4acb0a5996649c8f5c69d464ad",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms the complete normalized word. Entire file decodes to finite, unclipped signal. Automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Skate."
+      ],
+      "sourceScreening": [
+        "prior-words-screen-tiny.json"
+      ],
+      "durationSeconds": 1.2113333333333334,
+      "peakDbfs": -10.468631451601528,
+      "rmsDbfs": -26.524035328615668,
+      "leadingSilenceSeconds": 0.65,
+      "trailingSilenceSeconds": 0.011333333333333195,
+      "longestInteriorSilenceSeconds": 0.05
+    },
+    {
+      "kind": "word",
+      "text": "speeds",
+      "lookupText": "speeds",
+      "audioPath": "/audio/production/en-US/isolated_word/speeds-8c0af03135.mp3",
+      "audioSha256": "0b575af920f926e1a851c9e254795f1602b2fa422d010d1370755bdfbc963afb",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms the complete normalized word. Entire file decodes to finite, unclipped signal. Automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Speeds."
+      ],
+      "sourceScreening": [
+        "prior-words-screen-tiny.json"
+      ],
+      "durationSeconds": 0.88,
+      "peakDbfs": -15.121142298990883,
+      "rmsDbfs": -26.108308554099775,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0.07999999999999996,
+      "longestInteriorSilenceSeconds": 0.05
+    },
+    {
+      "kind": "word",
+      "text": "steam",
+      "lookupText": "steam",
+      "audioPath": "/audio/production/en-US/isolated_word/steam-topic-clear-491c842d5a.mp3",
+      "audioSha256": "491c842d5a29d308b7a2f98042233bfc17ac6ac92ea1aaf815484174e9851dfe",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms the complete normalized word. Entire file decodes to finite, unclipped signal. Automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Steam.",
+        "Steam"
+      ],
+      "sourceScreening": [
+        "existing-word-clarity-screen-tiny.json",
+        "existing-word-clarity-screen-small.json"
+      ],
+      "durationSeconds": 1.3823333333333334,
+      "peakDbfs": -8.767750007755726,
+      "rmsDbfs": -26.355705688763486,
+      "leadingSilenceSeconds": 0.35000000000000003,
+      "trailingSilenceSeconds": 0.33233333333333337,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "systems",
+      "lookupText": "systems",
+      "audioPath": "/audio/production/en-US/isolated_word/systems-1e9a58a5aa.mp3",
+      "audioSha256": "251e2fc095608c0d3cb8f92214c2d458f35ec0b3ec204c8806c9d9b6600ec5cd",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms the complete normalized word. Entire file decodes to finite, unclipped signal. Automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Systems."
+      ],
+      "sourceScreening": [
+        "prior-words-screen-tiny.json"
+      ],
+      "durationSeconds": 1.2363333333333333,
+      "peakDbfs": -14.547743822871265,
+      "rmsDbfs": -28.431490583412117,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "tank",
+      "lookupText": "tank",
+      "audioPath": "/audio/production/en-US/isolated_word/tank-5a25aabada.mp3",
+      "audioSha256": "c2bb66eed36860268dada979aee8c228732ee4e7ae9b6b4cc60a64588d6c57e0",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms the complete normalized word. Entire file decodes to finite, unclipped signal. Automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Tank."
+      ],
+      "sourceScreening": [
+        "prior-words-screen-tiny.json"
+      ],
+      "durationSeconds": 0.6423333333333333,
+      "peakDbfs": -12.817584525404824,
+      "rmsDbfs": -28.828501178939817,
+      "leadingSilenceSeconds": 0.05,
+      "trailingSilenceSeconds": 0.1423333333333333,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "today's",
+      "lookupText": "today's",
+      "audioPath": "/audio/production/en-US/isolated_word/today-s-b76cb09448.mp3",
+      "audioSha256": "511db813da38faba4a720843fb44613a092782dfde1e87adc7788cef4665f39e",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms the complete normalized word. Entire file decodes to finite, unclipped signal. Automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Today's"
+      ],
+      "sourceScreening": [
+        "prior-words-screen-tiny.json"
+      ],
+      "durationSeconds": 0.76,
+      "peakDbfs": -11.37759133808512,
+      "rmsDbfs": -26.193296330590154,
+      "leadingSilenceSeconds": 0.05,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "traveled",
+      "lookupText": "traveled",
+      "audioPath": "/audio/production/en-US/isolated_word/traveled-42ab4a1b22.mp3",
+      "audioSha256": "2674511d423712e3729b5f5691bbf81bb11c76be84b0a68f0642ac43daf0df5a",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms the complete normalized word. Entire file decodes to finite, unclipped signal. Automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Traveled."
+      ],
+      "sourceScreening": [
+        "prior-words-screen-tiny.json"
+      ],
+      "durationSeconds": 1.32,
+      "peakDbfs": -11.16642538328555,
+      "rmsDbfs": -28.54404151721642,
+      "leadingSilenceSeconds": 0.7000000000000001,
+      "trailingSilenceSeconds": 0.07000000000000006,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "walked",
+      "lookupText": "walked",
+      "audioPath": "/audio/production/en-US/isolated_word/walked-c9beae6a06.mp3",
+      "audioSha256": "67a72cf318f45e227fe88e16a53927d1b492d2f7cb3a3461d3591aaf27e8f15a",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms the complete normalized word. Entire file decodes to finite, unclipped signal. Automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "walked."
+      ],
+      "sourceScreening": [
+        "prior-words-screen-tiny.json"
+      ],
+      "durationSeconds": 1.1823333333333332,
+      "peakDbfs": -13.555912070254356,
+      "rmsDbfs": -28.91374127175093,
+      "leadingSilenceSeconds": 0.2,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.2
+    },
+    {
+      "kind": "word",
+      "text": "glide",
+      "lookupText": "glide",
+      "audioPath": "/audio/production/en-US/supplemental/glide-844dd73ef8.mp3",
+      "audioSha256": "1c4eb33d4fe1efe1f6206b921d8aa7bc64001270c1e56ce97ca9c3e3a14a9eef",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms the complete normalized word. Entire file decodes to finite, unclipped signal. Automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Glide."
+      ],
+      "sourceScreening": [
+        "prior-words-screen-tiny.json"
+      ],
+      "durationSeconds": 1.16,
+      "peakDbfs": -11.969081468866998,
+      "rmsDbfs": -26.706123338151073,
+      "leadingSilenceSeconds": 0.2,
+      "trailingSilenceSeconds": 0.009999999999999787,
+      "longestInteriorSilenceSeconds": 0.15000000000000002
+    },
+    {
+      "kind": "word",
+      "text": "heated",
+      "lookupText": "heated",
+      "audioPath": "/audio/production/en-US/supplemental/heated-0c9dba95f1.mp3",
+      "audioSha256": "f229971a57c3a8fdca91e1e98ca5b9fd61d476d9e3d1f9516c353d29d764a9ca",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms the complete normalized word. Entire file decodes to finite, unclipped signal. Automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "heated"
+      ],
+      "sourceScreening": [
+        "prior-words-screen-tiny.json"
+      ],
+      "durationSeconds": 0.76,
+      "peakDbfs": -15.3804154734555,
+      "rmsDbfs": -25.475962139510276,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0.05999999999999994,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "helicopter",
+      "lookupText": "helicopter",
+      "audioPath": "/audio/production/en-US/supplemental/helicopter-bf37cb9948.mp3",
+      "audioSha256": "bd8c8777110bc830190234c9b63a9191eb1047c54de2f051c895cf990646f536",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms the complete normalized word. Entire file decodes to finite, unclipped signal. Automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "Helicopter."
+      ],
+      "sourceScreening": [
+        "prior-words-screen-tiny.json"
+      ],
+      "durationSeconds": 1.0,
+      "peakDbfs": -6.754751366044286,
+      "rmsDbfs": -25.117930664973347,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "oar",
+      "lookupText": "oar",
+      "audioPath": "/audio/production/en-US/supplemental/oar-e460c2c113.mp3",
+      "audioSha256": "9590ed5ba3aca961a1cacb67f089b7068723f4fea8ee5189be03b15403161f33",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "reviewed-recognition-equivalent",
+      "reviewNote": "Or/oar is a U.S. English homophone. Entire file decodes to finite, unclipped signal. Automated evidence, not human listening.",
+      "recognizerOutputs": [
+        "or",
+        "or"
+      ],
+      "sourceScreening": [
+        "prior-words-screen-tiny.json",
+        "prior-words-screen-small.json"
+      ],
+      "durationSeconds": 0.6,
+      "peakDbfs": -9.130169865119056,
+      "rmsDbfs": -24.63567555457296,
+      "leadingSilenceSeconds": 0.05,
+      "trailingSilenceSeconds": 0.04999999999999993,
+      "longestInteriorSilenceSeconds": 0.0
+    }
+  ],
+  "summary": {
+    "files": 42,
+    "newScopedClarityFiles": 3,
+    "unchangedDictionaryFiles": 39,
+    "independentExactMatches": 39,
+    "reviewedSpacingOrHomophones": 3
+  }
+}

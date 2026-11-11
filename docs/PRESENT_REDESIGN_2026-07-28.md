@@ -271,3 +271,38 @@ listening and observed classroom duration.
 ## Cycle Shorts ending
 
 Every daily lesson now ends with its [weekly Meadow Farm short and three comprehension questions](guided-reading/CYCLE_SHORTS.md). The story and exact question evidence share one source with Guided Reading Cycle Shorts. This intentional reread supplements the varied daily picture sentences; bold sight-word emphasis respects daily introductions. Each reading slide shows the passage’s matching story illustration. The same picture and complete passage remain visible while discussing each question, including the 22 new story-specific comics and five reused comprehension scenes. Teachers read unfamiliar words and choices aloud and reveal answers deliberately. Participation remains unscored.
+
+## Offline PowerPoint alternative
+
+Each selected cycle/day offers **Download PowerPoint** beside Present. The
+export uses the same daily assembly and semantic manifest, expands every recap
+item and game round, and embeds all used pictures and recordings. It has no
+external media links, macros, learner records or scores. Required media failure
+stops the download and leaves retry available. Learning print uses bundled
+Andika rendered into pictures so another computer needs no font installation.
+
+PowerPoint Slide Show uses native links for choices, feedback, retry,
+construction, missing-word reveals and all eight-card memory boards. Helper
+slides remain hidden from ordinary slide progression. Use the on-screen Next
+control to move to the next actual classroom round, and Slides to choose a
+lesson slide. Native PowerPoint playback handles the embedded speaker objects.
+Use PowerPoint's pointer for linked buttons and return to it after modelling
+with the pen. The tested Mac Slide Show setting is **Pointer Options → Visible**;
+native mouse answer, feedback and retry paths were verified with that setting.
+Keyboard links also remain available.
+
+The offline classroom equivalents are explicit: the teacher paces the
+15-second reading interval and chooses when to hide mismatched cards;
+construction checks one proposed part at a time and offers Undo after a wrong
+part. Teachers model the supplied formation paths with PowerPoint’s pen while
+children air-write or palm-trace. These adaptations preserve the complete
+teaching content while using ordinary PowerPoint controls. The app retains
+its countdowns, timed card comparison and finger-ink runtime.
+
+`presentationPowerPointPlan.js` owns the native activity paths,
+`presentationPowerPoint.js` renders and downloads, and `powerPointPackage.js`
+shares repeated media and supplies native audio timing with unique shape IDs.
+`present-powerpoint.spec.js` checks all 135 plans, an actual download, embedded
+media/links, helper visibility and failure recovery. Package unit tests verify
+shared media relationships and audio timing. Native PowerPoint validation is
+recorded separately from package checks or human listening.

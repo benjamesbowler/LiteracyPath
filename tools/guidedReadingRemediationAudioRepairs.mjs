@@ -259,5 +259,95 @@ export const GUIDED_READING_REMEDIATION_AUDIO_REPAIRS = Object.freeze({
     ],
     "pronunciationEncoding": "PHONETIC_ENCODING_IPA",
     "reviewEvidence": "Existing exact Leda spaces recording independently recognized as Spaces; source-art/world-discovery/cohorts/11-20/narration-review.json pins screened bytes. Shared default now uses that clear plural, with contextual meanings unchanged. Automated evidence; not human listening."
+  },
+  "guided_page:mom had left a coin as a gift for his lost tooth. aiden raced to thank her": {
+    "role": "guided_page",
+    "normalizedLookupText": "mom had left a coin as a gift for his lost tooth. aiden raced to thank her",
+    "spokenText": "Mom had left a coin as a gift for his lost tooth. Aiden raced to thank her.",
+    "voiceName": "en-US-Chirp3-HD-Leda",
+    "audioPath": "/audio/production/en-US/guided_page/mom-had-left-a-coin-as-a-gift-for-his-lost-tooth-aiden-raced-to-thank-her-9dbc3d607c.mp3",
+    "audioSha256": "9dbc3d607ca2c71d3d51968ccb4fb52f8a104652e894a4549dace1ebd43dfec1",
+    "reviewedAt": "2026-11-11",
+    "reviewEvidence": "Full FFmpeg decode and independent offline speech screening recorded in source-art/guided-reading-remediation/2026-11-11/narration-review.json."
+  },
+  "guided_page:on the way back, stone held burrow in one arm and gripped the rope with his free hand. pip led them toward the bank where he and stone had started": {
+    "role": "guided_page",
+    "normalizedLookupText": "on the way back, stone held burrow in one arm and gripped the rope with his free hand. pip led them toward the bank where he and stone had started",
+    "spokenText": "On the way back, Stone held Burrow in one arm and gripped the rope with his free hand. Pip led them toward the bank where he and Stone had started.",
+    "voiceName": "en-US-Chirp3-HD-Leda",
+    "audioPath": "/audio/production/en-US/guided_page/on-the-way-back-stone-held-burrow-in-one-arm-and-gripped-the-rope-with-his-free-hand-pip-led-th-ff7f65a1a6.mp3",
+    "audioSha256": "ff7f65a1a60651660d181ee4d47a2f23390f5699c9ed824553475d3a15967458",
+    "reviewedAt": "2026-11-11",
+    "reviewEvidence": "Full FFmpeg decode and independent offline speech screening recorded in source-art/guided-reading-remediation/2026-11-11/narration-review.json."
+  },
+  "guided_page:stone sat dripping beside dewdrop as the fish swam in a circle nearby. his shoulders relaxed when he saw it swimming strongly, with no rocks blocking its path": {
+    "role": "guided_page",
+    "normalizedLookupText": "stone sat dripping beside dewdrop as the fish swam in a circle nearby. his shoulders relaxed when he saw it swimming strongly, with no rocks blocking its path",
+    "spokenText": "Stone sat dripping beside Dewdrop as the fish swam in a circle nearby. His shoulders relaxed when he saw it swimming strongly, with no rocks blocking its path.",
+    "voiceName": "en-US-Chirp3-HD-Leda",
+    "audioPath": "/audio/production/en-US/guided_page/stone-sat-dripping-beside-dewdrop-as-the-fish-swam-in-a-circle-nearby-his-shoulders-relaxed-whe-ae6eba5eff.mp3",
+    "audioSha256": "ae6eba5effe4360d59082967654743e19f839cc9facdd4325cf371cc6b44bbd6",
+    "reviewedAt": "2026-11-11",
+    "reviewEvidence": "Full FFmpeg decode and independent offline speech screening recorded in source-art/guided-reading-remediation/2026-11-11/narration-review.json."
+  },
+  "guided_page:fern packed strong woven root fiber and sticky glue into every part of the curved mold. spark pressed it down. they left it beside the warm lanterns": {
+    "role": "guided_page",
+    "normalizedLookupText": "fern packed strong woven root fiber and sticky glue into every part of the curved mold. spark pressed it down. they left it beside the warm lanterns",
+    "spokenText": "Fern packed strong woven root fiber and sticky glue into every part of the curved mold. Spark pressed it down. They left it beside the warm lanterns.",
+    "voiceName": "en-US-Chirp3-HD-Leda",
+    "audioPath": "/audio/production/en-US/guided_page/fern-packed-strong-woven-root-fiber-and-sticky-glue-into-every-part-of-the-curved-mold-spark-pr-eb44c0f35a.mp3",
+    "audioSha256": "eb44c0f35a66dc438ed375ca02e500c69c4e23cbe008b4e11d010300b3d2f874",
+    "reviewedAt": "2026-11-11",
+    "reviewEvidence": "Full FFmpeg decode and independent offline speech screening recorded in source-art/guided-reading-remediation/2026-11-11/narration-review.json."
+  },
+  "guided_page:when the glue dried, spark lifted a solid root-fiber hook from the mold. its curve matched the good hook exactly. he carried it to the lowest rail": {
+    "role": "guided_page",
+    "normalizedLookupText": "when the glue dried, spark lifted a solid root-fiber hook from the mold. its curve matched the good hook exactly. he carried it to the lowest rail",
+    "spokenText": "When the glue dried, Spark lifted a solid root-fiber hook from the mold. Its curve matched the good hook exactly. He carried it to the lowest rail.",
+    "voiceName": "en-US-Chirp3-HD-Leda",
+    "audioPath": "/audio/production/en-US/guided_page/when-the-glue-dried-spark-lifted-a-solid-root-fiber-hook-from-the-mold-its-curve-matched-the-go-06a9eba74b.mp3",
+    "audioSha256": "06a9eba74be388442e185c0ee0a41f73ec25937fa2aee0dd94efda1a8f3309ec",
+    "reviewedAt": "2026-11-11",
+    "reviewEvidence": "Full FFmpeg decode and independent offline speech screening recorded in source-art/guided-reading-remediation/2026-11-11/narration-review.json."
+  },
+  "guided_page:maya checks both boxes. the lunchboxes are not swapped": {
+    "role": "guided_page",
+    "normalizedLookupText": "maya checks both boxes. the lunchboxes are not swapped",
+    "spokenText": "Maya checks both boxes. The lunchboxes are not swapped.",
+    "voiceName": "en-US-Chirp3-HD-Leda",
+    "audioPath": "/audio/production/en-US/guided_page/maya-checks-both-boxes-the-lunchboxes-are-not-swapped-932ddcfda2.mp3",
+    "audioSha256": "932ddcfda281f795d720e10f54400dce58e39d47fdaf9c075dc3c3ce28fe9cf6",
+    "reviewedAt": "2026-11-11",
+    "reviewEvidence": "Full FFmpeg decode and independent offline speech screening recorded in source-art/guided-reading-remediation/2026-11-11/narration-review.json."
+  },
+  "guided_page:samir spots maya's green apple inside his own lunchbox": {
+    "role": "guided_page",
+    "normalizedLookupText": "samir spots maya's green apple inside his own lunchbox",
+    "spokenText": "Samir spots Maya's green apple inside his own lunchbox.",
+    "voiceName": "en-US-Chirp3-HD-Leda",
+    "audioPath": "/audio/production/en-US/guided_page/samir-spots-maya-s-green-apple-inside-his-own-lunchbox-616d160a69.mp3",
+    "audioSha256": "616d160a693b429e1d71a3e251950a9ed311629c06831c2bef07b3e73d578636",
+    "reviewedAt": "2026-11-11",
+    "reviewEvidence": "Full FFmpeg decode and independent offline speech screening recorded in source-art/guided-reading-remediation/2026-11-11/narration-review.json."
+  },
+  "guided_page:flappy finds a way": {
+    "role": "guided_page",
+    "normalizedLookupText": "flappy finds a way",
+    "spokenText": "Flappy Finds a Way",
+    "voiceName": "en-US-Chirp3-HD-Leda",
+    "audioPath": "/audio/production/en-US/guided_page/flappy-finds-a-way-7fac2d7db1.mp3",
+    "audioSha256": "7fac2d7db118c4e917afbd38ebe05e99a7f2670b6c0a54937647cf81ab85dc8f",
+    "reviewedAt": "2026-11-11",
+    "reviewEvidence": "Full FFmpeg decode and independent offline speech screening recorded in source-art/guided-reading-remediation/2026-11-11/narration-review.json."
+  },
+  "isolated_word:swapped": {
+    "role": "isolated_word",
+    "normalizedLookupText": "swapped",
+    "spokenText": "swapped",
+    "voiceName": "en-US-Chirp3-HD-Leda",
+    "audioPath": "/audio/production/en-US/isolated_word/swapped-6a4c964bce.mp3",
+    "audioSha256": "6a4c964bce1bd3a5429479cce9fa8ecc097a0c1ef588c54ffedd2008d83571e4",
+    "reviewedAt": "2026-11-11",
+    "reviewEvidence": "Full FFmpeg decode and independent offline speech screening recorded in source-art/guided-reading-remediation/2026-11-11/narration-review.json."
   }
 });

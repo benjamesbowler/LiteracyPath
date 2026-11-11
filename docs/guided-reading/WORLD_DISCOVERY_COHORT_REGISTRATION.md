@@ -2,7 +2,8 @@
 
 During this additive expansion, the existing published books remain unchanged.
 All three cohorts are locally registered: 150 World Discovery books, including
-the 50 new nonfiction books in `21-30`, ten at each public App level A–E.
+the 50 nonfiction books in `21-30`, ten in each production band A–E. Current
+independent public shelves are 30 A, 30 B, 30 C, 31 D and 29 E across the series.
 `src/content/world-discovery/cohorts.json` declares three ordered cohorts.
 `01-10`, `11-20` and `21-30` are active in the local source catalogue. The complete
 local Guided Reading runtime contains 447 books, including 217 nonfiction.
@@ -216,11 +217,21 @@ This changes only the evidence directory; it still exercises every active book
 
 Use `tools/repairWorldDiscoveryCohorts.mjs` for an explicitly authorized repair
 of already active books. Additive registration retains its preservation rules.
+The legacy source `appLevel` keeps a repair's production slot, ID, media folder,
+language limits and ordering stable. The current independent exact-text review
+owns its public A–H shelf. A whole-topic replacement may earn another shelf;
+registration must validate that review rather than force the old assignment.
 The repair manifest must keep cohort membership, IDs, ordering, declared counts,
 source directories and active status unchanged. It names new dated registration,
 narration-review and narration-inventory files, plus a hash-pinned historical
 audio baseline. Existing dated evidence may be reused only when identical;
 changed evidence requires a new revision path.
+
+When a repair replaces covers, give `cardReview` a new dated cohort-specific
+`source-art/world-discovery/remediation/YYYY-MM-DD/<cohort>-...-card-cover-review.json`
+path. Preserve the historical card receipt byte-for-byte at its pinned path.
+The new receipt must still bind all fifty current canonical/delivery pairs; a
+new path is not visual approval and does not bypass the complete audit.
 
 ```sh
 node tools/repairWorldDiscoveryCohorts.mjs --plan-audio REVIEWED_MANIFEST.json

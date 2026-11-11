@@ -1,3 +1,4 @@
+import { getCurrentGuidedReadingRecord } from "./guidedReading/editions.js";
 // The Daily Mission: one quest station, one book, one game per school day,
 // chosen from the student's own progress. Completing all three advances a
 // streak. Streaks are kind: weekends never break them, and one missed
@@ -232,7 +233,7 @@ function nextBook(scope, quarantinedBookIds) {
       || String(a.id).localeCompare(String(b.id))
     );
   if (!ordered.length) return null;
-  const unread = ordered.filter(book => !records[book.id]?.completed);
+  const unread = ordered.filter(book => !getCurrentGuidedReadingRecord(book, records).completed);
   const pool = unread.length ? unread : ordered;
   // Use the lowest reviewed App band with unread books. This orders book
   // complexity from reading history; it does not assess the child's level.

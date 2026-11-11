@@ -1,3 +1,4 @@
+import { guidedReadingContentId, guidedReadingProgressKey } from "../../src/utils/guidedReading/editions.js";
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
@@ -115,7 +116,7 @@ test('failed or foreign session navigation cannot clear context or emit a result
 test('actual Return to reading action includes explicit session and original-book route, clearing hidden learner', async () => {
   let args;
   const strip = element('TeacherReadingSessionStrip', 'onOpen');
-  prop(strip, 'onOpen', { activeReadingSession: session, APP_VIEWS, openSessionDestination: (...values) => { args = values; } })();
+  prop(strip, 'onOpen', { guidedReadingContentId, activeReadingSession: session, APP_VIEWS, openSessionDestination: (...values) => { args = values; } })();
   assert.equal(args[0], session); assert.equal(args[1], APP_VIEWS.TEACHER_GUIDED_READING);
   assert.deepEqual(args[2], { bookId: 'original-book', readingSession: 'reading-a' });
   let route;
@@ -123,6 +124,15 @@ test('actual Return to reading action includes explicit session and original-boo
   assert.deepEqual(route, { bookId: 'original-book', readingSession: 'reading-a', classId: 'class-a', learnerId: '', groupId: 'all' });
 });
 
+
+test('actual Return to reading uses public route for an internal replacement-edition session', () => {
+  const book = { id: 'world-discovery-b-21', title: 'People Power' };
+  const current = { ...session, book_id: guidedReadingProgressKey(book) };
+  let args;
+  prop(element('TeacherReadingSessionStrip', 'onOpen'), 'onOpen', { guidedReadingContentId, activeReadingSession: current, APP_VIEWS, openSessionDestination: (...values) => { args = values; } })();
+  assert.equal(args[0], current);
+  assert.deepEqual(args[2], { bookId: book.id, readingSession: current.id });
+});
 
 test('actual focus start persists origin separately from server session and return restores its class without a learner', async () => {
   const values = new Map();

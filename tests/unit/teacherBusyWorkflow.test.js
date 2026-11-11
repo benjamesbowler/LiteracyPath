@@ -891,11 +891,15 @@ test("teacher-run letter and pattern assessments retain visible directions and s
   assert.match(pages, /ManualDiagnosticAssessment kind="pattern"/);
   assert.equal(MANUAL_DIAGNOSTIC_COPY.letterTitle, "Letter names and sounds");
   assert.equal(MANUAL_DIAGNOSTIC_COPY.patternTitle, "Phonics patterns");
-  assert.match(MANUAL_DIAGNOSTIC_COPY.letterDescription, /names and sounds separately/);
+  assert.match(MANUAL_DIAGNOSTIC_COPY.letterDescription, /name and sound/);
+  assert.match(MANUAL_DIAGNOSTIC_COPY.letterDescription, /after both choices/);
+  assert.match(MANUAL_DIAGNOSTIC_COPY.pairedPrompt, /letter name, then its sound/);
   assert.match(MANUAL_DIAGNOSTIC_COPY.patternDescription, /spelling part first, then read one word/);
   assert.match(runner, /task === "word" \? item.exampleWord : item.pattern/);
   assert.match(runner, /<TeacherPageHeader[\s\S]*description=\{kind === "letter" \? COPY.letterDescription : COPY.patternDescription\}/);
-  assert.match(runner, /<div className="md-stimulus"><p>\{prompt\}<\/p>/);
+  assert.match(runner, /<div className="md-stimulus">\{kind !== "letter" && <p>\{prompt\}<\/p>\}/);
+  assert.match(runner, /className="md-paired-responses">\{tasks.map\(\(name, position\) => responseControls\(name, position === 0\)\)\}/);
+  assert.match(runner, /task === "name" \? COPY.namePrompt : COPY.soundPrompt/);
 });
 
 test("account setup failure uses teacher language and a clear recovery step", async () => {
@@ -1049,7 +1053,7 @@ test("manual letter and phonics checks save once, recover visibly, and preserve 
   assert.match(pages, /finally \{\s*setSaving\(false\);\s*\}/);
 });
 
-test("manual marking offers five distinct visible outcomes without a dropdown", async () => {
+test("manual marking retains two primary outcomes and three disclosed outcomes without a dropdown", async () => {
   const runner = await source("src/components/assessment/ManualDiagnosticAssessment.jsx");
   assert.doesNotMatch(runner, /<select|Choose result/);
   assert.deepEqual(MANUAL_DIAGNOSTIC_COPY.outcomes, [
@@ -1057,7 +1061,10 @@ test("manual marking offers five distinct visible outcomes without a dropdown", 
     { value: "no_response", label: "No response" }, { value: "not_scorable", label: "Not scorable" },
     { value: "not_administered", label: "Not assessed" }
   ]);
-  assert.match(runner, /COPY.outcomes.map\(choice => <button/);
+  assert.match(runner, /COPY.outcomes.slice\(0, 2\).map\(\(choice, position\) => <button/);
+  assert.match(runner, /COPY.outcomes.slice\(2\).map\(choice => <button/);
+  assert.match(runner, /<details className="md-optional-detail" open=\{detailsOpen\}/);
+  assert.match(runner, /<summary>\{COPY.moreOptions\}<\/summary>/);
   assert.match(runner, /aria-pressed=\{observation.outcome === choice.value\}/);
   assert.match(runner, /diagnosticObservationIssue/);
   assert.match(runner, /root.inert = true/);

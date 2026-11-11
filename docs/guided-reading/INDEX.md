@@ -17,7 +17,7 @@ The live book modules are the authority:
 - `src/data/meadowPalsScienceNarration.js`
 
 The locally registered catalogue contains 447 books and 3,941 pages: 53 A, 116 B,
-93 C, 86 D, 45 E, 36 F, 16 G and 2 H. This includes 217 nonfiction books.
+93 C, 87 D, 44 E, 36 F, 16 G and 2 H. This includes 217 nonfiction books.
 These local counts do not establish production deployment or completion of
 release verification.
 
@@ -58,8 +58,8 @@ decisions are recorded in the [expansion review](foundations-expansion-visual-re
 Release verification is recorded separately; an active local module alone is
 not a deployment claim.
 
-World Discovery contains 150 locally registered predictable/levelled books,
-thirty each at App levels A–E. The first 100 retain their original topic profile;
+World Discovery contains 150 locally registered predictable/levelled books:
+30 A, 30 B, 30 C, 31 D and 29 E. The first 100 retain their original topic profile;
 the fifty books in cohort `21-30` add distinct nonfiction inquiries across ten
 declared strands. Its 1,320 reading pages, 150 covers, exact Leda narration and
 unscored teacher discussion support are governed by
@@ -69,6 +69,15 @@ The [9 November ESL and image audit handoff](WORLD_DISCOVERY_ESL_AUDIT_HANDOFF.m
 records the earlier 397-book review and its remediation evidence, including the
 first two World Discovery cohorts. It remains historical evidence, not a new
 publication or media approval for the fifty additions.
+
+The [10 November topic replacements](WORLD_DISCOVERY_TOPIC_REPLACEMENTS_2026-11-10.md)
+record five broader ESL discovery manuscripts and their exact current media
+reviews. [Edition history](BOOK_EDITION_HISTORY.md) preserves prior results and
+starts separate progress for those replacement topics.
+
+The [11 November library suitability audit](LIBRARY_SUITABILITY_AUDIT_2026-11-11.md)
+covers the active catalogue and Cycle Shorts, and records the illustration,
+wording and matching narration repairs.
 
 **The Case of the Missing Sandwich** is a twelve-page Meadow Pals science
 read-aloud for interest ages 5–7. Its `READ_ALOUD` placement appears as

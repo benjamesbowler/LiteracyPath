@@ -2,24 +2,23 @@
   "bookId": "world-discovery-d-21",
   "slot": "page-09",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-09T06:02:04.193Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-ea2fadae-ed10-4727-9b60-9b06cf09c9f3.png",
-  "sourceSha256": "d824891c8e86afe2577aa69e65900de551dfc6974f97dea2a831e01af10f515c",
+  "generatedAt": "2026-11-10T07:07:32.787Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1c3ef-11ed-7331-8274-1234bc3e482f/exec-6dfa0857-7ce2-4873-acce-114adb725f5b.png",
+  "sourceSha256": "e4f70f522c4c90b697c7a4d8adf23b7dd6992d3fe84313b0cd615106fb148f71",
   "output": "public/guided-reading/world-discovery/d-21/page-09.webp",
-  "outputSha256": "a94ada7acc2e493ff780e979ba00d28dc1e98b9a5a94d4d782419132b126f8af",
+  "outputSha256": "21c20923477fa0b6c14be81c2005c9b98f1d3a3f19fb81f42ade19d125b7c2ef",
   "width": 1536,
   "height": 1024,
-  "prompt": "Pull the camera back slightly in this exact illustration, extending the existing scene naturally around all edges. Preserve EVERY person, container, vehicle, pose, cargo, color, door state and object count. Shrink and reposition the existing scene within the canvas just enough that every foreground boot, every complete foreground carton and its open flaps, and all visible blue notebooks sit at least 9 percent of the image height ABOVE the bottom edge and at least 9 percent of image width INSIDE the left/right edges. Leave a broad clean strip of ordinary flat pavement beneath all feet and cartons. Do not crop any carton or footwear. Do not duplicate, remove or redesign any subject, and do not add people, letters, numbers, symbols, vehicles or objects. Preserve the orange corrugated container and blue square only on its left cargo door, two adult workers in PPE where already present, blue notebooks in brown cartons, and the same location. This is framing-only, not a change in story state. Bold crisp 2D cartoon with smooth flat colors, no grain or stipple. Keep landscape 3:2 full-bleed format.",
+  "prompt": "HARD scene isolation: ONE TEAL ELECTRIC CAR REAR VIEW on LEFT, with a plain closed bumper and ZERO exhaust pipes. A SMALL SEPARATE DISTANT INDUSTRIAL SUPPLY SCENE on RIGHT is the only other scene. No orange car, no human drivers, no pumps/chargers or cables to the car. Limited pale emissions come only from industrial stack.\nUse case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one explanatory comparison diagram. Allow only the distinct views, stages or comparison panels explicitly authored in this page's illustration brief, with their exact relationships and counts. No unrequested panels, insets, annotations or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Gasoline and Electric Cars; World Discovery; nonfiction.\nSetting: Ordinary contemporary civilian cars on a calm road and at separate safe service areas. Gasoline car is orange with dark gray roof and one rear exhaust pipe. All-electric car is teal with light gray roof and no exhaust pipe. Same proportions but different colors keep referents clear. Each car has four road wheels. Cutaways are explicitly diagrams; adults handle fuel and charging. No brands, flags or political messages.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Orange gasoline sedan, gray engine under front hood, fuel tank near rear and exhaust pipe at rear; Teal all-electric sedan, large flat battery beneath passenger floor and motor near rear axle, no fuel tank or exhaust; Unbranded fuel pump with hose and separate charging post with cable\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and specific stages explicitly required below; the declared diagram permits no other scenes or story events.\nPage 9. Printed prose (NOT text to put in art): The electric car has no exhaust pipe. Making cars and producing their energy can still cause pollution.\nRequired illustration: Two-part factual comparison diagram: teal car viewed from rear with plain closed lower bumper and no exhaust pipe at left; at right one small distant industrial scene with car factory and fuel/electricity supply equipment. A limited pale emission plume comes from an industrial stack, never from the electric car. No rankings, green badges or slogans.\nExact current state: Separate tailpipe emissions from broader manufacturing and energy-production pollution.\nDo not add events or stages beyond the authored diagram. Repeat a subject only when the authored comparison or cutaway requires it. No written title; the app renders live text.\nFraming clarification: Keep every entire aircraft/car and its required teaching parts completely within the inner 84 percent of the canvas, leaving at least 8 percent clear background margin on ALL sides. Nothing essential touches or approaches the picture edge.\nHARD scene isolation: ONE TEAL ELECTRIC CAR REAR VIEW on LEFT, with a plain closed bumper and ZERO exhaust pipes. A SMALL SEPARATE DISTANT INDUSTRIAL SUPPLY SCENE on RIGHT is the only other scene. No orange car, no human drivers, no pumps/chargers or cables to the car. Limited pale emissions come only from industrial stack.",
   "references": [
     {
-      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/d-21/page-09.webp",
-      "sha256": "625e24f071cb4b5ab19413c2c46a6824839272691bf40683f4c00ce21af61656",
-      "preservedInputPath": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/.artifacts/nonfiction-next-50/media-review-inputs/d21-page-09-before-margin.webp"
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-21-reference.webp",
+      "sha256": "12bdcf040d47f4dd39cd88921ed1aecf52635f88a3fbe71a8a71e715ad895ad4"
     }
   ],
   "manuscriptSource": {
-    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
-    "sha256": "4cd850616c2e31aecc557996032490d0fb984ea0f222fa11e0f2a878a417a9c7",
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/discovery-topic-revision/manuscripts",
+    "sha256": "7d1860e2dae10eae9a699a4df3ae5d6f56a9a9781a39f8c3d092049b64334db4",
     "isolated": true,
     "firstNumber": 21,
     "lastNumber": 30,
@@ -27,17 +26,14 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "date": "2026-11-09T14:07:15.498Z",
-    "sha256": "a94ada7acc2e493ff780e979ba00d28dc1e98b9a5a94d4d782419132b126f8af",
-    "note": "Direct inspection of independent-review framing repair: all foreground cartons, flaps, notebooks and worker footwear now fully inside >9% bottom/side margins; loading/locking/unloading state, same workers, cargo, marker and vehicle preserved. Prior reviewed input and receipt retained as hash-bound review evidence.",
-    "reviewer": "/root/gap_taxonomy",
-    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
-    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+    "reviewedAt": "2026-11-10",
+    "sha256": "21c20923477fa0b6c14be81c2005c9b98f1d3a3f19fb81f42ade19d125b7c2ef",
+    "note": "Teal plain rear bumper has no tailpipe; industrial emission comes from separate distant stack, avoiding false zero-total-pollution message. Producer independently inspected the final installed WebP natively; complete final sequence and relevant native diagrams were independently reviewed."
   },
   "reviewedManuscriptSource": {
     "bookId": "world-discovery-d-21",
     "path": "src/content/world-discovery/cohorts/21-30/level-d.json",
-    "sha256": "4cd850616c2e31aecc557996032490d0fb984ea0f222fa11e0f2a878a417a9c7",
-    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
+    "sha256": "98d098b7790b51f3544d7069a44403c5a1e9da9323808471ee96dc80f0033831",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json"
   }
 }

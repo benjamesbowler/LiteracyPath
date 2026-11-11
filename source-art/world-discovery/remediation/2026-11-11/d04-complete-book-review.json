@@ -1,0 +1,129 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-11-11",
+  "scope": "D04 grounding illustration repair only",
+  "method": "codex-full-manuscript-and-complete-image-sequence-inspection",
+  "limits": "Actual native image inspection by /root/book_audit; unchanged audio reuses exact earlier automated evidence. No new human listening or classroom observation.",
+  "books": [
+    {
+      "bookId": "world-discovery-d-04",
+      "reviewedAt": "2026-11-11",
+      "method": "codex-full-manuscript-and-complete-image-sequence-inspection",
+      "textFingerprint": "fnv1a64:babf401b100fca28",
+      "sourceBookSha256": "94bfa8da474e89a395d7d99e98695d9aba42b1d3a5736a0214c60d5e027ac27e",
+      "reviewer": "/root/book_audit",
+      "fullTextPrepAndDiscussionReviewed": true,
+      "allReferencesCoversAndPagesReviewed": true,
+      "changes": [
+        {
+          "field": "pages pageNumber 7 imageBrief/imageAlt/pageDescription/state and artwork",
+          "reason": "Replace occluded body with complete grounded Zoe; retain tiny-puff and still-snagged kite state."
+        },
+        {
+          "field": "pages pageNumber 8 imageBrief/imageAlt/pageDescription/state and artwork",
+          "reason": "Complete grounded Zoe; kite corner frees toward waiting Kit; no caption."
+        }
+      ],
+      "assets": [
+        {
+          "slot": "reference",
+          "path": "source-art/world-discovery/d-04-reference.webp",
+          "sha256": "c8a2f09fac5bd4c1ec072a7047102a629dc2aaea1aefff72271a1b08bc35b06d",
+          "method": "view_image original",
+          "note": "Canonical models, pouch, kite/spool and low garden tree inspected.",
+          "replaced": false
+        },
+        {
+          "slot": "cover",
+          "path": "public/guided-reading/world-discovery/d-04/cover.webp",
+          "sha256": "9839a4cee5d0de6017702f23104dc60aa21c7114fca5537f27257836a42be33d",
+          "method": "view_image original",
+          "note": "Original inspected in ordered full-book sequence; unchanged.",
+          "replaced": false
+        },
+        {
+          "slot": "page-01",
+          "path": "public/guided-reading/world-discovery/d-04/page-01.webp",
+          "sha256": "5bfdfc9ef3045f842acdcb5ea326894c1bc7875c4011e0d5bf1894747a9e8694",
+          "method": "view_image original",
+          "note": "Original inspected in ordered full-book sequence; unchanged.",
+          "replaced": false
+        },
+        {
+          "slot": "page-02",
+          "path": "public/guided-reading/world-discovery/d-04/page-02.webp",
+          "sha256": "0b080845b7aeb14820fa86d7e4c0345e8bd66fcc824579f2b3bccfd1d45270d7",
+          "method": "view_image original",
+          "note": "Original inspected in ordered full-book sequence; unchanged.",
+          "replaced": false
+        },
+        {
+          "slot": "page-03",
+          "path": "public/guided-reading/world-discovery/d-04/page-03.webp",
+          "sha256": "8ef3056a17d8c6c05f6df7469bbaca2c523e928f8c32effb5af83d0dc153a6f6",
+          "method": "view_image original",
+          "note": "Original inspected in ordered full-book sequence; unchanged.",
+          "replaced": false
+        },
+        {
+          "slot": "page-04",
+          "path": "public/guided-reading/world-discovery/d-04/page-04.webp",
+          "sha256": "0ee04acf4f3203b3f7ce4c864d300ff0076fafb2220e4964ae0fd426864e37b1",
+          "method": "view_image original",
+          "note": "Original inspected in ordered full-book sequence; unchanged.",
+          "replaced": false
+        },
+        {
+          "slot": "page-05",
+          "path": "public/guided-reading/world-discovery/d-04/page-05.webp",
+          "sha256": "4db776b0031ef9b5856efd13b5c4ad5e49f75ecc064118403978007bd368f399",
+          "method": "view_image original",
+          "note": "Original inspected in ordered full-book sequence; unchanged.",
+          "replaced": false
+        },
+        {
+          "slot": "page-06",
+          "path": "public/guided-reading/world-discovery/d-04/page-06.webp",
+          "sha256": "386bb064301b8429d80e591f0163fa6e7fe5635f6d7224f43637b0e653e7342f",
+          "method": "view_image original",
+          "note": "Original inspected in ordered full-book sequence; unchanged.",
+          "replaced": false
+        },
+        {
+          "slot": "page-07",
+          "path": "public/guided-reading/world-discovery/d-04/page-07.webp",
+          "sha256": "f09799f3b38c84fb63b8674848f5024ca2142c649b1a06b64100ff424578aec7",
+          "method": "view_image original",
+          "note": "Original inspected: hidden lower body makes location ambiguous, replacement selected.",
+          "replaced": true
+        },
+        {
+          "slot": "page-08",
+          "path": "public/guided-reading/world-discovery/d-04/page-08.webp",
+          "sha256": "87ebba7dfcfdb47642ce66bf31161176eb818b7f32db821e4e74fc3caa2bac16",
+          "method": "view_image original",
+          "note": "Original inspected: hidden lower body makes location ambiguous, replacement selected.",
+          "replaced": true
+        },
+        {
+          "slot": "page-09",
+          "path": "public/guided-reading/world-discovery/d-04/page-09.webp",
+          "sha256": "b77962eaabebd23a5af77a33ed5018ba5738e1ae92649982843b18d2540137a7",
+          "method": "view_image original",
+          "note": "Original inspected in ordered full-book sequence; unchanged.",
+          "replaced": false
+        },
+        {
+          "slot": "page-10",
+          "path": "public/guided-reading/world-discovery/d-04/page-10.webp",
+          "sha256": "66a19b4c892874fd0a7a97eac12a3407a49546adc44265efe01e475e8cb8d9a9",
+          "method": "view_image original",
+          "note": "Original inspected in ordered full-book sequence; unchanged.",
+          "replaced": false
+        }
+      ],
+      "openFindings": [],
+      "note": "Reference, cover and10ordered originals, both selected native PNGs and encoded WebPs inspected. Source text/prep/discussion and explicit pouch rule retained; p7 snag -> p8 freed corner -> p9 caught -> p10 smoothed ending remains coherent."
+    }
+  ]
+}

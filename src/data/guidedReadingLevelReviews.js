@@ -1569,17 +1569,17 @@ export const GUIDED_READING_LEVEL_REVIEWS = Object.freeze({
   },
   "ab-c-09": {
     "appReadingLevel": "E",
-    "rationale": "A loose-tooth worry spans days and weeks; dialogue, explicit worry and contrasting tooth-loss experiences support understanding reassurance and growth. The later new tooth answers Aiden’s earlier concern about the gap.",
-    "reviewedAt": "2026-11-09",
+    "rationale": "Across days and weeks, Aiden compares his experience with Betty’s and discovers what the gap and new tooth mean for his smile. Dialogue, changes in time and his worries keep the full book at E after the coin’s giver is named.",
+    "reviewedAt": "2026-11-11",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:400c8294f25981a0",
+    "reviewedTextFingerprint": "fnv1a64:92177d1a602ab332",
     "levelSystem": "literacy-guide-a-h-v1",
     "dimensionObservations": {
-      "syntax": "Sustained past-tense prose with direct dialogue, varied longer clauses and temporal shifts.",
-      "vocabulary": "Broader descriptive and situational language; F titles add multiple specialist, spatial or social relationships.",
-      "knowledge": "Losing a baby tooth and seeing a new tooth emerge can take time; the characters compare their experiences.",
-      "progression": "A connected story across multiple scenes, with reasons, setbacks, adjustments and a retrospective ending.",
-      "inference": "Compare Betty’s brief pinch with Aiden’s painless tooth loss and connect the later new tooth with his earlier worry."
+      "syntax": "Past-tense narrative mixes direct dialogue and questions with temporal clauses and a past-perfect gift sentence.",
+      "vocabulary": "Wobble, pushing up, pinched, envelope, beneath, slipped and gum are concrete in context but extend everyday vocabulary.",
+      "knowledge": "Loose baby teeth can feel different when they come out, and the next tooth can take weeks to appear.",
+      "progression": "A wobble and worry lead to Betty’s example, Aiden’s own loss, Mom’s gift and the new tooth several weeks later.",
+      "inference": "Compare Betty’s brief pinch with Aiden’s painless loss and connect the later tooth with the earlier worry about his smile."
     }
   },
   "ab-c-10": {
@@ -1794,17 +1794,17 @@ export const GUIDED_READING_LEVEL_REVIEWS = Object.freeze({
   },
   "dino-pals-14-what-is-flappy": {
     "appReadingLevel": "D",
-    "rationale": "Flappy revises the assumption that wings mean upward flight by observing claws, climbing and gliding. The contrast with Bossy and the repeated up/down demonstrations introduce connected biological and physical relationships.",
-    "reviewedAt": "2026-11-09",
+    "rationale": "Flappy’s new title names the goal and solution arc. Across twelve short pages, the difference between flapping up and gliding down develops through failed attempts, evidence from the claws, climbing and a final demonstration at level D.",
+    "reviewedAt": "2026-11-11",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:a870d9f5059953ca",
+    "reviewedTextFingerprint": "fnv1a64:fa125fcca0cb996d",
     "levelSystem": "literacy-guide-a-h-v1",
     "dimensionObservations": {
-      "syntax": "Questions, but-linked contrasts and quoted explanations vary otherwise short actions.",
-      "vocabulary": "feathered, claws, grip, bark, glides and nest form a specific movement vocabulary.",
-      "knowledge": "Wings can support gliding while claws support climbing; different animals move differently.",
-      "progression": "Failed flapping and jumping lead to claw evidence, climbing, a glide and a final demonstration.",
-      "inference": "Combine the ground-gripping claws and spread wings to explain Flappy's successful route."
+      "syntax": "Questions, but-linked contrasts and quoted explanations vary the short action sentences.",
+      "vocabulary": "Feathered, claws, grip, bark, glides and nest give precise words for movement and habitat.",
+      "knowledge": "Claws grip bark for climbing, and spread wings can support a short downward glide.",
+      "progression": "Flapping fails, claws reveal a way to climb, and Flappy demonstrates the glide into the nest.",
+      "inference": "Put the evidence about claws and wings together to explain how Flappy reaches the nest."
     }
   },
   "dino-pals-15-sneezy-and-the-waterfall": {
@@ -2306,18 +2306,17 @@ export const GUIDED_READING_LEVEL_REVIEWS = Object.freeze({
   },
   "moonwood-tales-c-03": {
     "appReadingLevel": "E",
-    "rationale": "Stone's fear, Burrow's need and the careful outward and return crossings form one sustained problem. Reassurance, controlled movement and his final look beneath the bridge combine physical action with a supported emotional change.",
-    "reviewedAt": "2026-11-09",
+    "rationale": "Stone’s fear and Burrow’s need carry one sustained narrative through the outward crossing and return. The explicit starting bank makes the return direction clear while leaving the supported emotional inference and connected movement demands at E.",
+    "reviewedAt": "2026-11-11",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:b4d7cb91a435c2a3",
+    "reviewedTextFingerprint": "fnv1a64:0f8a2b08d0d834d0",
     "levelSystem": "literacy-guide-a-h-v1",
     "dimensionObservations": {
-      "syntax": "Varied compound sentences and keeping, when and so clauses describe controlled movement.",
-      "vocabulary": "Sway, narrow, gripped, fixed, steady, shore and rushing are concrete in context.",
-      "knowledge": "Bridge crossing, reassuring a friend and managing fear use familiar physical and social ideas.",
-      "progression": "One failed first step is followed by a supported outward and return journey.",
-      "inference": "Connect Stone's repeated attempts with helping Burrow despite fear; his final look answers his earlier question about the water below.",
-      "sustainedReading": "Twelve paragraphs sustain one realistic action sequence rather than several competing threads."
+      "syntax": "Varied compound and subordinate clauses describe simultaneous actions, conditions and choices over two crossings.",
+      "vocabulary": "Sway, gripped, fixed, steady, rushing and bank are concrete movement and position words.",
+      "knowledge": "A fixed rope can guide a careful crossing, and both banks are needed to track the outward trip and return.",
+      "progression": "An initial step fails. Stone crosses to reach Burrow, then follows Pip back to the starting bank and looks beneath the bridge.",
+      "inference": "Connect Stone’s change in focus and repeated efforts to his wish to help Burrow, then recognize his final answer about the water."
     }
   },
   "moonwood-tales-c-04": {
@@ -2546,18 +2545,17 @@ export const GUIDED_READING_LEVEL_REVIEWS = Object.freeze({
   },
   "moonwood-tales-c-18": {
     "appReadingLevel": "F",
-    "rationale": "A failed current presses the fish tighter, so Stone inspects the rocks and helps despite not liking wet hands. Direct dialogue and concrete pushing language clarify the events, while force, rock position and the wet-but-relaxed close still combine physical and emotional relationships at F.",
-    "reviewedAt": "2026-11-09",
+    "rationale": "The stream current makes the problem worse, and Stone uses the rocks’ positions to release the fish despite not wanting to get wet. The fish’s nearby swim clarifies the picture while preserving the physical and emotional relationships that make the full story F.",
+    "reviewedAt": "2026-11-11",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:9643fd5f6b574bdd",
+    "reviewedTextFingerprint": "fnv1a64:73e39e0f3f310416",
     "levelSystem": "literacy-guide-a-h-v1",
     "dimensionObservations": {
-      "syntax": "Instead of, though, although and while clauses connect a failed mechanical attempt with conflicting feelings and a precise repair.",
-      "vocabulary": "Shallows, desperately, injuries, current, loose, sucking sound and arc broaden physical vocabulary; don’t like keeps the character’s dialogue ordinary.",
-      "knowledge": "Force direction and a rock’s support affect whether the fish can escape.",
-      "progression": "A failed water attempt leads to a helper, inspection, loose-rock movement and release, followed by a splash and response.",
-      "inference": "Connect the loose mud and rock movement; read Stone’s relaxed shoulders after the unwanted splash.",
-      "sustainedReading": "Twelve paragraphs combine a physical solution with a continuing reluctance/help conflict."
+      "syntax": "Instead of, though, although and as link mechanical actions and conflicting feelings across connected paragraphs.",
+      "vocabulary": "Shallows, desperately, injuries, current, loose, sucking sound and arc broaden the physical vocabulary.",
+      "knowledge": "The direction of water force, a rock’s support and an opening affect whether a trapped fish can escape.",
+      "progression": "A failed current leads to inspection and a push, then the fish swims in open water after a splash.",
+      "inference": "Connect the loose mud to the movable rock and Stone’s relaxed shoulders to seeing the fish swim freely."
     }
   },
   "moonwood-tales-c-19": {
@@ -3102,18 +3100,17 @@ export const GUIDED_READING_LEVEL_REVIEWS = Object.freeze({
   },
   "moonwood-tales-c-34": {
     "appReadingLevel": "G",
-    "rationale": "A copy disappears after ten counts even when Spark retries, so lasting success cannot come from merely recasting the spell. Capturing the temporary hook’s negative shape in clay, filling that hollow with fiber and removing a permanent hook require readers to track a representation surviving its vanished original.",
-    "reviewedAt": "2026-11-09",
+    "rationale": "The ten-count rule holds through every attempt. Spark takes the vanishing hook’s impression in clay, then uses a different material and dried glue to make a lasting hook. Tracking the copy, its impression and the solid replacement across ten paragraphs sustains G.",
+    "reviewedAt": "2026-11-11",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:aa7d6f0f0982b0d2",
+    "reviewedTextFingerprint": "fnv1a64:c1c9af81b4941130",
     "levelSystem": "literacy-guide-a-h-v1",
     "dimensionObservations": {
-      "syntax": "When, before, even though and as clauses maintain a timed condition across successive attempts.",
-      "vocabulary": "Replacement, woven root fiber, mold, hollow, curved and solid create substantial process vocabulary.",
-      "knowledge": "A mold preserves an object’s negative shape and can form a lasting positive copy.",
-      "progression": "Repeated failure establishes an invariant rule; a new multi-stage fabrication process works within it.",
-      "inference": "Distinguish temporary object, retained hollow and durable replacement; recognize that the spell’s rule never changes.",
-      "sustainedReading": "Ten paragraphs sustain a timed magical constraint plus a multi-step representational solution."
+      "syntax": "When, before and even though clauses keep the timed condition clear across trials. The packing, pressing and drying pages use shorter actions within that sequence.",
+      "vocabulary": "Replacement, woven root fiber, curved mold, hollow, sticky glue and solid carry the craft process.",
+      "knowledge": "The clay holds the shape after the copy disappears. Glue binds the woven fiber so the finished hook keeps that shape.",
+      "progression": "A loaded copy drops the lantern, a second copy vanishes, and the next copy leaves an impression that is filled, dried and tested.",
+      "inference": "Distinguish the temporary copy, the mold that remains, and the solid replacement. Recognize that the spell never lasts beyond ten."
     }
   },
   "moonwood-tales-c-35": {
@@ -3134,17 +3131,17 @@ export const GUIDED_READING_LEVEL_REVIEWS = Object.freeze({
   },
   "willow-street-the-lunchbox-mix-up": {
     "appReadingLevel": "C",
-    "rationale": "Lunchbox names and labels repeat through swapping; a remaining spoon and folded-napkin clue connect the second check to a complete repair.",
-    "reviewedAt": "2026-11-09",
+    "rationale": "Eight short pages connect an everyday mix-up, two returned items and a missed spoon. Tracking who owns each box and each item adds linked actions and a supported clue within level C.",
+    "reviewedAt": "2026-11-11",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:fe25eac0fd7c00a2",
+    "reviewedTextFingerprint": "fnv1a64:bd904da5a6594f71",
     "levelSystem": "literacy-guide-a-h-v1",
     "dimensionObservations": {
-      "syntax": "Varied short clauses include selected speech, subordination or temporal links.",
-      "vocabulary": "Everyday school/community words plus specific topic or process terms.",
-      "knowledge": "Lunchbox names and labels repeat through swapping; a remaining spoon and folded-napkin clue connect the second check to a complete repair.",
-      "progression": "A visible problem or task is followed through several related steps to its result.",
-      "inference": "Link the supplied cause, clue or comparison; D titles add a specialized process or convention."
+      "syntax": "Short present-tense clauses vary with a negative, possession and a but-linked setback.",
+      "vocabulary": "Lunchbox, swapped, behind, folded and napkin support an everyday school meal.",
+      "knowledge": "A box can still belong to the child holding it when its contents belong to someone else.",
+      "progression": "The children check their own boxes, return the cup and apple, notice the remaining spoon, and eat together.",
+      "inference": "Track who owns each item and use the spoon beside Samir’s napkin to see what still needs to be returned."
     }
   },
   "willow-street-the-lost-library-book": {

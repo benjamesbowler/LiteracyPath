@@ -54,6 +54,9 @@ npx playwright test tests/release/cycle-shorts.spec.js --project=desktop
 
 Generated signal and browser receipts live in ignored `.artifacts/cycle-shorts/`.
 They do not establish human listening, physical-iPad or observed classroom use.
+When a revised story receives a new narration path, the previous recording can
+remain in `compatibilityClips` with its original text and byte hash for readers
+using a cached lesson.
 
 The existing Linux visual-baseline workflow has a `cycle-shorts` scope. It refreshes only the six Books baselines, then verifies Books, comprehension and the Cycle Shorts flow. It runs no database setup or hosted-data writes and does not claim the unrelated whole-product device matrix passed.
 
@@ -67,3 +70,9 @@ image outputs and derives lean runtime metadata; `--check` decodes all 22 new
 comics and rejects stale text, prompts, references or bytes. Existing reused
 passages keep their comprehension picture provenance. New story pictures are
 stored under `/images/comprehension/cycle-shorts/`.
+
+Cycles 6, 7 and 24 retain their illustrated sequences after the November 11
+wording revisions. The provenance file keeps the original generation text and
+prompts, with a separate review of each revised story against its installed
+image. `node tools/generateCycleShortPictures.mjs --sync-reviewed` verifies
+those bindings and writes the current picture lookup from the existing files.

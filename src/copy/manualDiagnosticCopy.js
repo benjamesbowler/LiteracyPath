@@ -1,6 +1,6 @@
 export const MANUAL_DIAGNOSTIC_COPY = {
   letterTitle: "Letter names and sounds", patternTitle: "Phonics patterns", unnamed: "Selected student",
-  letterDescription: "Record names and sounds separately. Keep the same letter order and accept consistent dialect differences.",
+  letterDescription: "Mark the name and sound. The next letter appears after both choices.",
   patternDescription: "Assess a spelling part first, then read one word. This diagnostic describes instruction needs; it does not set a reading level.",
   teacherView: "Teacher workspace", pupilView: "Show student view", pupilClose: "Back to teacher", pupilDialog: "Student stimulus",
   letterName: "Letter name", letterSound: "Letter sound", patternSound: "Pattern pronunciation", patternWord: "Word reading",
@@ -12,7 +12,8 @@ export const MANUAL_DIAGNOSTIC_COPY = {
   instruction: "Say to the student", scoringGuide: "Scoring guidance · teacher only", stage: (i,n)=>"Item "+i+" of "+n,
   taskStep: (i,n)=>"Task "+i+" of "+n, saved: (n,total)=>n+" of "+total+" items recorded", mark: "Record the response",
   outcomes: [{value:"correct",label:"Correct"},{value:"incorrect",label:"Not yet"},{value:"no_response",label:"No response"},{value:"not_scorable",label:"Not scorable"},{value:"not_administered",label:"Not assessed"}],
-  actual: "What the student said", optionalActual: "Optional for a correct response; required for Not yet.", actualPlaceholder: "Write the response you actually heard",
+  knows: "Knows", doesNotKnow: "Doesn’t know", moreOptions: "More options or notes", pairedPrompt: "Ask for the letter name, then its sound.",
+  actual: "What the student said", optionalActual: "Optional. Leave blank to record your observation without a transcript.", actualPlaceholder: "Write the response you actually heard",
   selfCorrected: "Self-corrected without help", errorTypes: "What did you notice?", notes: "Observation or access note", notePlaceholder: "For example, sound added; interruption; glasses unavailable",
   errorLabels: {letter_confusion:"Letter confusion", name_for_sound:"Named instead of sounded",sound_for_name:"Sounded instead of named",vowel:"Vowel",consonant:"Consonant",omission:"Sound omitted",addition:"Sound added",substitution:"Sound substituted",blending:"Blending",word_guess:"Guessed a word"},
   nextTask: label=>"Continue to "+label.toLowerCase(), nextItem: "Save and next", finish: "Finish and save", saveExit: "Save & exit", saving: "Saving…", previous: "Previous item",

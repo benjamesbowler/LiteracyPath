@@ -448,22 +448,22 @@ const books = [
   },
   {
     world: "dino", bookNumber: 23, id: "dino-pals-23-flappys-fern-delivery", title: "Flappy's Fern Delivery",
-    theme: "reducing wind drag by rolling a wide fern", cast: ["flappy", "wiggly"], canonIds: ["DINO-FLAPPY", "DINO-WIGGLY"], location: "the stream crossing between Fernwood and Cozy Cave under gathering rain clouds",
-    storyPromise: "Flappy must carry a roof fern to Cozy Cave before rain, but the wide leaf catches the crosswind.",
+    theme: "reducing wind drag by rolling a wide fern", cast: ["flappy", "wiggly"], canonIds: ["DINO-FLAPPY", "DINO-WIGGLY"], location: "the stream crossing between Fernwood and Cozy Cave during ongoing rain",
+    storyPromise: "Flappy must carry a roof fern to Cozy Cave during the rain, but the wide leaf catches the crosswind.",
     storySpine: "Flappy tries gliding with an open fern and spins, then rolls and ties it into a narrow bundle that flies straight.",
     failedAttempt: "Crosswind catches both wide sides of the open fern and turns Flappy around.", turningPoint: "Flappy compares the leaf's wide open shape with its narrow rolled shape.",
-    resolution: "A tied narrow bundle hangs steadily beneath Flappy's safe low glide.", landing: "The fern opens into a dry entrance roof before the first rain.",
+    resolution: "A tied narrow bundle hangs steadily beneath Flappy's safe low glide.", landing: "The fern opens into an entrance roof that keeps Flappy and Wiggly dry while rain continues.",
     duplicateAudit: "Distinct from high-branch flight and general storm preparation: the engine is aerodynamic drag and reshaping one delivery object.",
     targetSkills: ["air-resistance", "delivery"], sightWords: ["the", "one", "before", "he", "with", "under"],
     pages: [
-      ["Rain is falling. Flappy brings a fern for the roof.", "Flappy holds one very broad fern near the stream as dark rain clouds gather."],
+      ["Rain is falling. Flappy brings a fern for the roof.", "Flappy holds one very broad fern near the stream as rain falls beneath dark clouds."],
       ["He grips the middle and glides low.", "Flappy launches into a plausible low glide holding the fern's center."],
       ["Whoosh! Wind catches both sides. Flappy spins around.", "A crosswind turns the open leaf and Flappy in one controlled airborne half-circle."],
       ["Flappy lands. He cannot see past the fern.", "Flappy stands safely while the broad fern blocks most of his forward view."],
       ["He rolls the wide fern into a narrow bundle.", "Flappy rolls the same intact fern lengthwise into a tight narrow cylinder."],
       ["Wiggly ties it with one long grass loop.", "Wiggly secures the rolled fern with one visible long grass tie."],
       ["The rolled fern hangs below. Flappy glides straight to Cozy Cave.", "Flappy makes a straight low glide with the narrow bundle hanging beneath him."],
-      ["Rain patters on their new roof. Not a drop gets inside!", "The opened fern forms a dry small awning at Cozy Cave as first drops fall beyond it."]
+      ["Rain patters on their new roof. Not a drop gets inside!", "The opened fern forms a small awning at Cozy Cave. Flappy and Wiggly stand dry beneath it while rain continues beyond the entrance."]
     ]
   },
   {
@@ -496,7 +496,7 @@ const books = [
     duplicateAudit: "Distinct from waterfall clearing and magic sneezes: the sneeze fails, while moisture and deliberate cleanup solve airborne seed dispersal.",
     targetSkills: ["seed-dispersal", "repair"], sightWords: ["the", "before", "one", "he", "onto", "outside"],
     pages: [
-      ["Tickly seed fluff drifts toward Cozy Cave.", "A visible cloud of harmless white fern seed fluff approaches Cozy Cave's entrance."],
+      ["Tickly seed fluff drifts toward Cozy Cave.", "A visible cloud of harmless white plant seed fluff approaches Cozy Cave's entrance."],
       ["Sneezy must clear it before Dozy's nap.", "Sneezy stands ready outside while Dozy approaches carrying his blue pillow."],
       ["\"Stand back!\" Sneezy gives one careful sneeze.", "Sneezy signals Sunny and Dozy back before directing one sneeze away from them."],
       ["Poof! The fluff bursts into a bigger cloud.", "The sneeze disperses the dry seed fluff across the entire cave entrance."],
@@ -751,14 +751,14 @@ const books = [
     pages: [
       ["Flint tests his lantern before carrying maps through Deep Dark.", "Flint holds his stateful lit lantern low beside rolled maps at Deep Dark's edge."],
       ["Every root casts two shadows in different directions.", "Each nearby root has exactly two distinct shadows from the lantern's split beam."],
-      ["He covers one lantern panel but both shadows remain.", "Flint covers one glass panel with a gloved hand while two shadows stay visible."],
+      ["He covers one lantern panel but both shadows remain.", "Flint holds the lantern by its handle beside the roots. Two shadows stretch across the path."],
       ["Flint follows the darker shadow and meets a fern wall.", "Flint safely stops nose-to-leaf at a dense harmless fern wall beside the known path."],
       ["Pip notices one bright crystal beneath the lantern handle.", "Small Pip points to one angled clear crystal caught under the lantern handle."],
       ["The crystal splits the beam through its angled sides.", "Close readable view of one beam entering the crystal and two light beams leaving it."],
       ["Flint pulls it free but drops it into the beam again.", "The removed crystal falls safely across the light and briefly recreates two beams."],
       ["He wraps the crystal inside his brown pouch.", "Flint securely wraps and closes the crystal inside one brown explorer pouch."],
       ["One clear shadow now points away from every root.", "The tested lantern produces one clean shadow per root along the open path."],
-      ["Flint enters Deep Dark with the tested lantern held low.", "Flint walks into Deep Dark carrying the low steady lantern while Pip watches from the safe edge."],
+      ["Flint enters Deep Dark with the tested lantern held low.", "Flint walks along the path holding his lantern low while small Pip brushes a fern leaf from Flint’s collar."],
     ]
   },
   {
@@ -789,7 +789,7 @@ const books = [
     storyPromise: "Spark must replace a broken lantern hook before moonrise, but every copied hook vanishes after exactly ten counts.",
     storySpine: "Spark hangs a lantern from a ten-count copy and nearly drops it, then uses the temporary shape to mould a lasting root-fibre hook.",
     failedAttempt: "The copied hook vanishes precisely at count ten while Luna catches the lantern safely.", turningPoint: "Spark accepts that repetition cannot alter the spell's duration and uses its accurate shape instead.",
-    resolution: "Soft clay records the copy, and Fern's dried root fibre fills the curved mould.", landing: "The permanent hook holds while Spark counts far beyond ten.",
+    resolution: "Soft clay records the copy's shape. Fern fills the mold with root fiber and glue. Once the glue dries, Spark removes the solid hook.", landing: "The permanent hook holds while Spark counts far beyond ten.",
     duplicateAudit: "Distinct from failed spell-correction plots: the spell is never fixed; its strict time limit becomes a manufacturing tool.",
     targetSkills: ["moulding", "rule-based-magic"], sightWords: ["the", "before", "exactly", "after", "inside", "beyond"],
     pages: [
@@ -821,7 +821,7 @@ const books = [
       ["Four harsh notes collide and the smallest chime twists.", "Four overlapping vibration patterns surround one visibly twisted but unbroken smallest chime."],
       ["Pip tests an acorn, leaf stem, smooth stone, and fingertip.", "Pip lays out exactly four tools and tests them one at a time."],
       ["Each chime answers clearly to one different touch.", "Four chimes pair visibly with acorn, leaf stem, smooth stone and Pip's fingertip."],
-      ["Stone steadies the twisted chime with one careful finger.", "Huge Stone uses one fingertip delicately to straighten the smallest chime's cord."],
+      ["Stone steadies the twisted chime with one careful finger.", "Huge Stone steadies the smallest chime while tiny Pip reaches up with both hands to untwist its cord."],
       ["Pip places the three matching objects beneath their chimes.", "An acorn, leaf stem and smooth stone sit beneath their three matching chimes; Pip stands beside the fourth, ready to use a fingertip."],
       ["Together they play the notes from low roots upward.", "Pip touches the smaller chimes while Stone precisely taps larger ones in an upward sequence."],
       ["Luna opens the doors as one clear pattern crosses Moonwood.", "Luna opens Hollow Oak's doors while four harmonious sound ripples travel into the moonlit forest."],

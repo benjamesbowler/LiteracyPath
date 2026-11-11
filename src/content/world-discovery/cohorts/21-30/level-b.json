@@ -2,7 +2,7 @@
   {
     "id": "world-discovery-b-21",
     "number": 21,
-    "title": "A Train for Heavy Loads",
+    "title": "People Power",
     "topic": "transport",
     "type": "nonfiction",
     "appLevel": "B",
@@ -13,131 +13,147 @@
     "storyBibleReview": {
       "kind": "nonfiction",
       "canonIds": [],
-      "topicQuestion": "How can one engine move several loaded train cars?",
-      "progression": "Follow one illustrative short freight train from separate loaded cars, through their couplers and powered locomotive, along a track to unloading.",
-      "synthesis": "The engine provides power while connected cars carry the load together.",
+      "topicQuestion": "How do people make a bicycle, skates, and a rowboat move?",
+      "progression": "Start with three human-powered rides; follow legs through pedals and a chain to a wheel, compare a sideways skating push with a forward glide, then follow hands and oars to movement on water; return to the shared source of power.",
+      "synthesis": "A rider, skater, and rower use their bodies to move, even though the parts and surfaces differ.",
       "scienceSources": [
         {
-          "title": "Association of American Railroads: Freight Rail Operations 101",
-          "url": "https://www.aar.org/operations-101/",
-          "evidence": "Steel wheelsets support railcars on rails; couplers are strong links joining cars. This example has one locomotive and three cars, not a claim that every train uses one engine.",
-          "checked": "2026-11-09"
+          "title": "West Virginia University: Drivetrain",
+          "url": "https://sciencebehindthesport.wvu.edu/cycling/drivetrain",
+          "evidence": "A bicycle drivetrain links pedals, chainrings, chain and rear wheel. This manuscript depicts an ordinary chain-driven pedal bicycle, not an electric bicycle.",
+          "checked": "2026-11-10"
         },
         {
-          "title": "Association of American Railroads: Freight Rail Facts",
-          "url": "https://www.aar.org/faqs/",
-          "evidence": "A locomotive powers a train and freight cars carry goods.",
-          "checked": "2026-11-09"
+          "title": "International Skating Union: New fans’ guide: Speed Skating 101",
+          "url": "https://www.isu-skating.com/en/speed-skating/news/new-fans-guide-speed-skating-101/",
+          "evidence": "Skaters push sideways to generate forward movement. The book shows ice skates to match this source, not wheeled roller skates.",
+          "checked": "2026-11-10"
+        },
+        {
+          "title": "British Rowing: Equipment",
+          "url": "https://www.britishrowing.org/go-rowing/equipment/",
+          "evidence": "Rowers use oars as levers to propel a boat; their broad blade ends enter the water. The book depicts a stable recreational rowboat with two pivoted oars.",
+          "checked": "2026-11-10"
+        },
+        {
+          "title": "World Rowing: Defining Rowing: Oars and Blades",
+          "url": "https://worldrowing.com/2022/08/23/defining-rowing-oars-and-blades/",
+          "evidence": "The blade is the broad flat end placed into water to propel the boat. The rower pulls the handles, the immersed blades move toward the stern, and the boat moves bow-first.",
+          "checked": "2026-11-10"
         }
       ]
     },
-    "setting": "A short contemporary freight journey between two warehouses. No public access to tracks. Unbranded blue diesel-electric locomotive, followed by red, yellow and green enclosed boxcars in that fixed order. Adult railway workers have orange safety vests, blue trousers and hard hats.",
+    "setting": "Three factual adult demonstrations: a level traffic-free park cycle path, a quiet enclosed ice rink, and a calm lake. Cyclist: medium-brown skin, short straight black hair under a plain yellow helmet, teal jacket, navy pants, white shoes; red upright chain-driven bicycle. Skater: light-brown skin, short curly dark hair, blue helmet, orange jacket, dark-green pants, black ice skates with one metal blade each. Rower: deep-brown skin, close-cropped black hair, purple shirt, navy pants and orange life jacket; green broad stable rowboat with two tan oars pivoted in the gunwales. No motors, races, steep slopes, roads, cultural costumes, flags or logos.",
     "props": [
-      "One blue locomotive",
-      "Exactly three boxcars in red/yellow/green order",
-      "Gray steel couplers between all vehicles",
-      "Wooden crates secured inside the cars",
-      "One continuous pair of rails"
+      "Red pedal bicycle with two wheels, visible chain and rear sprocket",
+      "Black ice skates with single silver blades, not wheels",
+      "Green rowboat with bow pointing right, rower facing left, two tan pivoted oars",
+      "Cyclist/skater helmets and rower life jacket retained in every view"
     ],
-    "coverBrief": "Side view of the blue locomotive pulling its three connected freight cars past a warehouse; true wheels on rails, visibly closed couplers, no letters or logos.",
+    "coverBrief": "One three-part comparison diagram, with the cyclist on a path at left, the ice skater on ice in the center and the rower on water at right. Each person is actively pushing or pulling, with appropriate safety gear. Clearly separate the three surfaces with generous white space; do not put a bicycle or skater on the water. No lettering or arrows.",
+    "coverImageLayout": "comparison-diagram",
     "pages": [
       {
         "pageNumber": 1,
-        "text": "These heavy boxes need a ride.\nThey fill three train cars.",
-        "imageBrief": "Warehouse loading bay. Three open boxcars contain securely stacked wooden crates; fixed red/yellow/green order. Blue locomotive waits ahead.",
-        "imageAlt": "Three open freight cars, red, yellow and green, hold stacked wooden crates beside a warehouse. A blue engine waits ahead.",
-        "pageDescription": "Three open freight cars, red, yellow and green, hold stacked wooden crates beside a warehouse. A blue engine waits ahead.",
-        "state": "Three loaded cars; doors open; locomotive not moving.",
-        "embeddedImageText": ""
+        "text": "A bike, skates, and a rowboat move.\nWhat makes them go?",
+        "imageBrief": "Three-part comparison diagram: cyclist rides red bicycle to the right on a park path; skater glides to the right on ice; rower faces left in green boat moving bow-first to the right on water. Each person and vehicle complete and distinct. No arrows.",
+        "imageAlt": "A cyclist pedals on a path, a skater glides on ice, and a rower pulls two oars on a lake.",
+        "pageDescription": "A cyclist pedals on a path, a skater glides on ice, and a rower pulls two oars on a lake.",
+        "state": "Opening comparison; three separate surfaces; all three are powered by people.",
+        "embeddedImageText": "",
+        "imageLayout": "comparison-diagram"
       },
       {
         "pageNumber": 2,
-        "text": "Each car has wheels.\nThe wheels rest on two rails.",
-        "imageBrief": "Low close view of a red boxcar bogie; paired steel wheels sit correctly on two parallel rails, with crate-filled car above.",
-        "imageAlt": "Four steel wheels on one bogie sit on two rails beneath the red freight car.",
-        "pageDescription": "Four steel wheels on one bogie sit on two rails beneath the red freight car.",
-        "state": "Same red car; steel wheels and track geometry clear.",
+        "text": "The rider pushes the bike pedals.\nA chain turns the back wheel.",
+        "imageBrief": "Close side view of red bicycle drivetrain and cyclist lower body; right foot presses a forward pedal downward. One continuous chain wraps the front chainring and rear sprocket. Include both wheels and show their road contact; no exposed floating chain.",
+        "imageAlt": "The rider presses a pedal on a red bicycle. A chain connects the pedals to the back wheel.",
+        "pageDescription": "The rider presses a pedal on a red bicycle. A chain connects the pedals to the back wheel.",
+        "state": "Pedal stroke drives the chain and rear wheel; same bicycle and rider.",
         "embeddedImageText": ""
       },
       {
         "pageNumber": 3,
-        "text": "Strong metal links join the cars.\nThese links are called couplers.",
-        "imageBrief": "Close view between red and yellow boxcars shows one correctly joined knuckle-coupler pair and separate brake hose.",
-        "imageAlt": "Joined metal couplers connect the red and yellow cars. A separate black brake hose hangs below.",
-        "pageDescription": "Joined metal couplers connect the red and yellow cars. A separate black brake hose hangs below.",
-        "state": "One actual coupling, no human hand near it.",
-        "embeddedImageText": ""
+        "text": "The back wheel pushes against the ground.\nThe bike rolls forward.",
+        "imageBrief": "Full side view of same cyclist riding right along the level path, slightly farther past the same low bench. Rear tire touches pavement. One small curved arrow beside rear wheel shows clockwise rotation, and one horizontal arrow above ground points right. No other explanatory marks.",
+        "imageAlt": "The bicycle rolls to the right along the path. Arrows show the rear wheel turning and the bicycle moving forward.",
+        "pageDescription": "The bicycle rolls to the right along the path. Arrows show the rear wheel turning and the bicycle moving forward.",
+        "state": "Drive wheel contacts ground and bicycle advances.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
       },
       {
         "pageNumber": 4,
-        "text": "An engine joins the front car.\nIt gives this train its power.",
-        "imageBrief": "Blue locomotive is coupled to the red first car; yellow and green follow. All freight doors are now shut.",
-        "imageAlt": "A blue engine is joined to three closed freight cars in red, yellow and green order.",
-        "pageDescription": "A blue engine is joined to three closed freight cars in red, yellow and green order.",
-        "state": "All four vehicles connected in fixed order; loading complete.",
+        "text": "The skater pushes one foot sideways.\nThe other skate slides ahead.",
+        "imageBrief": "Three-quarter frontal side view on enclosed rink; same skater keeps one knee bent and supporting skate aligned forward while other leg extends out to the side in a clear push. Both single steel blades contact the ice. No bicycle or water.",
+        "imageAlt": "A skater pushes one skate out to the side while the other skate points ahead on the ice.",
+        "pageDescription": "A skater pushes one skate out to the side while the other skate points ahead on the ice.",
+        "state": "Sideways push; clear separate supporting and pushing legs.",
         "embeddedImageText": ""
       },
       {
         "pageNumber": 5,
-        "text": "The engine pulls.\nThe linked cars move along the track.",
-        "imageBrief": "Whole short train begins rolling away from warehouse; rails curve gently ahead and all wheelsets stay on them.",
-        "imageAlt": "The blue engine pulls its three closed freight cars away from the warehouse along the track.",
-        "pageDescription": "The blue engine pulls its three closed freight cars away from the warehouse along the track.",
-        "state": "Blue/red/yellow/green sequence; no gaps at couplers.",
+        "text": "Push, glide, push, glide.\nThe skater keeps moving.",
+        "imageBrief": "Same skater farther along the quiet rink during a glide, feet drawn closer under the body and hands low for balance. Wide view includes rink boards, making travel from previous position clear. No sequence duplicates or motion-blur limbs.",
+        "imageAlt": "The skater glides across the ice with both skates closer together.",
+        "pageDescription": "The skater glides across the ice with both skates closer together.",
+        "state": "A new glide follows the previous push; same skater and rink.",
         "embeddedImageText": ""
       },
       {
         "pageNumber": 6,
-        "text": "The cars follow the same rails.\nTheir boxes travel together.",
-        "imageBrief": "Elevated three-quarter view of the complete train following one gentle bend; car bodies pivot naturally above bogies.",
-        "imageAlt": "The engine and three linked cars curve around a bend on the same pair of rails.",
-        "pageDescription": "The engine and three linked cars curve around a bend on the same pair of rails.",
-        "state": "Same three loaded closed cars; no unexplained extra vehicle.",
-        "embeddedImageText": ""
+        "text": "The rower pulls the oar handles.\nThe blades push water backward.",
+        "imageBrief": "Three-quarter overhead view of green rowboat, bow to right and rower facing left. Both oars pivot visibly in gunwale oarlocks; hands pull handles toward torso. The broad blades dip into water on opposite sides. One arrow beside each blade points left, showing water pushed toward stern. Oars stay outside boat except handles.",
+        "imageAlt": "The rower pulls two oar handles. Both broad blades are in the water, with arrows pointing backward.",
+        "pageDescription": "The rower pulls two oar handles. Both broad blades are in the water, with arrows pointing backward.",
+        "state": "Power stroke; blades immersed; handles close to torso; bow right.",
+        "embeddedImageText": "",
+        "imageLayout": "integrated-diagram"
       },
       {
         "pageNumber": 7,
-        "text": "The train stops by another warehouse.\nWorkers take the boxes out.",
-        "imageBrief": "At second warehouse the stopped cars have open side doors; an adult unloads a crate with appropriate pallet equipment.",
-        "imageAlt": "A worker uses a forklift to unload a wooden crate beside three open freight cars at another warehouse.",
-        "pageDescription": "A worker uses a forklift to unload a wooden crate beside three open freight cars at another warehouse.",
-        "state": "All cars stationary; crates decrease only through unloading.",
+        "text": "The boat moves forward.\nThe rower lifts the blades.",
+        "imageBrief": "Same boat farther to the right of a stationary shoreline tree. Rower keeps facing left and lifts both broad blades just clear of the water after the pull. Small wake trails left behind the stern. No standing or duplicated arms.",
+        "imageAlt": "The green boat moves forward, leaving a small wake. The rower lifts the oar blades above the water.",
+        "pageDescription": "The green boat moves forward, leaving a small wake. The rower lifts the oar blades above the water.",
+        "state": "Recovery after the power stroke; boat advances bow-first.",
         "embeddedImageText": ""
       },
       {
         "pageNumber": 8,
-        "text": "One engine pulls three linked cars.\nMany boxes make one trip.",
-        "imageBrief": "Final broad view shows blue locomotive with the three stationary cars and delivered crates neatly beside second warehouse.",
-        "imageAlt": "Delivered crates stand beside the second warehouse. The blue engine and three open, empty freight cars wait on the track.",
-        "pageDescription": "Delivered crates stand beside the second warehouse. The blue engine and three open, empty freight cars wait on the track.",
-        "state": "The three-car load has arrived; couplers remain connected.",
-        "embeddedImageText": ""
+        "text": "Legs push. Arms pull.\nPeople power all three rides.",
+        "imageBrief": "Closing three-part comparison diagram in the same left-to-right order as opening, with new poses: cyclist pressing pedal, skater starting a sideways push and rower starting a pull. Keep path, ice and lake separate. The effort in legs or arms is visible; no motors, labels or arrows.",
+        "imageAlt": "The cyclist pushes the pedals, the skater pushes against the ice, and the rower pulls the oars.",
+        "pageDescription": "The cyclist pushes the pedals, the skater pushes against the ice, and the rower pulls the oars.",
+        "state": "Return to three rides with their common human power made visible.",
+        "embeddedImageText": "",
+        "imageLayout": "comparison-diagram"
       }
     ],
     "discussion": {
       "oral": {
-        "prompt": "How did one engine move all three cars?",
-        "listenFor": "The couplers joined the cars, so the engine could pull them together."
+        "prompt": "What makes all three rides move?",
+        "listenFor": "People use their legs or arms. The bicycle, skates and oars pass those pushes and pulls to the ground, ice or water."
       },
       "visual": {
-        "page": 3,
-        "prompt": "What joins these two cars?",
-        "lookFor": "The connected gray metal couplers between the car ends."
+        "page": 6,
+        "prompt": "Which parts of the oars are in the water?",
+        "lookFor": "The wide blades at the ends; the rower holds the handles inside the boat."
       }
     },
-    "levelRationale": "Candidate public B: a single visible part-to-whole mechanism and ordered journey, short present-tense sentences and repeated concrete referents. Independent calibration remains pending.",
+    "levelRationale": "Short paired present-tense clauses follow three familiar bodily actions and their visible movement results. Chain, blade and glide broaden concrete vocabulary, but no specialist force theory or unstated mechanism is required. The final people-power statement supplies the shared comparison explicitly. Upper B is supported by the catalogue’s B swimming-feet and train/mirror sequences; the presence of three vehicles alone does not require C.",
     "languagePrep": [
       {
-        "word": "engine",
-        "meaning": "the powered part of this train"
+        "word": "pedal",
+        "meaning": "a part a rider pushes with a foot to make a bicycle move"
       },
       {
-        "word": "coupler",
-        "meaning": "a strong link joining two train cars"
+        "word": "glide",
+        "meaning": "move smoothly for a short time after a push"
       },
       {
-        "word": "rail",
-        "meaning": "one of the long metal strips under train wheels"
+        "word": "blade",
+        "meaning": "the wide flat end of an oar that goes in the water"
       }
     ]
   },
@@ -1363,8 +1379,8 @@
         "pageNumber": 6,
         "text": "Each piece travels around Saturn.\nThe rings keep moving.",
         "imageBrief": "Wider ring-section diagram shows three small consistent curved direction arrows tangent to particle orbits, planet interior to curves.",
-        "imageAlt": "A diagram uses three curved arrows to show ring particles travelling in the same direction around Saturn, which lies inside their paths.",
-        "pageDescription": "A diagram uses three curved arrows to show ring particles travelling in the same direction around Saturn, which lies inside their paths.",
+        "imageAlt": "A diagram uses three curved arrows to show ring particles traveling in the same direction around Saturn, which lies inside their paths.",
+        "pageDescription": "A diagram uses three curved arrows to show ring particles traveling in the same direction around Saturn, which lies inside their paths.",
         "state": "All main-ring particles move around Saturn rather than one spinning sheet.",
         "embeddedImageText": "",
         "imageLayout": "integrated-diagram"

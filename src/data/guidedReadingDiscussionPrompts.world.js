@@ -752,7 +752,7 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_WORLD = Object.freeze({
   "moonwood-tales-c-34": Object.freeze({
     oral: Object.freeze({
       prompt: "How does Spark use a hook that vanishes at ten to make one that lasts?",
-      listenFor: "The temporary copy leaves its curve in clay, which Fern fills with drying root fiber."
+      listenFor: "The temporary copy leaves its shape in the clay. Fern fills the hollow with root fiber and glue. The glue dries and binds the fiber into a solid hook."
     }),
     visual: Object.freeze({
       page: 7,

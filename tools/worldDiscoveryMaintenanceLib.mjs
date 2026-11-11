@@ -24,6 +24,20 @@ export function requireWorldDiscoveryMaintenanceBaselinePreserved(current, propo
   `${current.id}: registered maintenance baseline path/hash is immutable`);
 }
 
+// Replacing a cover needs a new card receipt while the historical receipt stays
+// pinned by the immutable release baseline. A repair may not redirect it to an
+// unversioned file or another cohort's evidence. The complete audit still binds
+// all fifty actual source/delivery hashes before registration.
+export function requireWorldDiscoveryMaintenanceCardReview(current, proposed) {
+  if (current.cardReview === proposed.cardReview) return;
+  requireCanonicalPath(proposed.cardReview);
+  const prefix = /^source-art\/world-discovery\/remediation\/\d{4}-\d{2}-\d{2}\//;
+  const filename = proposed.cardReview.split("/").at(-1);
+  requireThat(prefix.test(proposed.cardReview)
+    && filename.startsWith(`${current.id}-`) && filename.endsWith("-card-cover-review.json"),
+  `${current.id}: changed card review requires new dated cohort evidence`);
+}
+
 export function validateWorldDiscoveryMaintenancePaths(cohorts) {
   const paths = new Set();
   for (const cohort of cohorts) {

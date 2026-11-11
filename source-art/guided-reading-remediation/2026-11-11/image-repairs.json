@@ -1,0 +1,1354 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-11-10T22:07:53.725Z",
+  "scope": "13 accepted non World Discovery illustration repairs; six dependent card deliveries",
+  "status": "installed-and-AI-direct-encoded-sequence-reviewed",
+  "reviewer": "Codex AI subagent present_download",
+  "humanReview": false,
+  "planFile": ".artifacts/library-suitability-audit/shard-3/image-install-plan.json",
+  "planSha256": "0f69c4f6611e2a4da6a88b99e71c581d07d2cf9f69b3726f8980d97915bfc63c",
+  "sourcePreservation": "Each original published image hash is pinned to a recoverable immutable Git revision; old Nov9 provenance is unchanged.",
+  "generationProvider": "built-in image_gen only",
+  "encodingEngine": {
+    "sharp": "0.35.5",
+    "vips": "8.18.7",
+    "platform": "darwin",
+    "architecture": "arm64"
+  },
+  "entries": [
+    {
+      "key": "our-earth-cover",
+      "bookId": "gr-d-42",
+      "title": "Our Earth",
+      "page": "cover",
+      "target": "public/guided-reading/regen/covers/gr-d-42-cover.webp",
+      "selectedPath": ".artifacts/library-suitability-audit/shard-3/art-candidates/our-earth-cover.png",
+      "expectedOriginalSha256": "d226136f306bb4b48c700a5548478a75f8e491ca25e48d4622906706e5d17dee",
+      "expectedSelectedSha256": "3097c100c69da18bfd6432f7188d2d8d31eadaf493fdac7282113ed0ae3e3a00",
+      "generationChain": [
+        {
+          "provider": "built-in image_gen",
+          "prompt": "Use case: scientific-educational. Asset: portrait cover illustration for early-reader nonfiction Our Earth. Reference image 1 is the existing cover to replace; use only its clean outlined-cartoon visual language and bright blue/green palette. Replace the fantasy subject with a factual educational cover matching this exact book: Earth is our home in space; land meets ocean at a coast; mountains, oceans, forests and a small local park are parts of Earth. Composition: a large geographically credible Earth globe viewed from space in the upper portion, clearly separated from a lower landscape panel showing a curving coast, blue ocean, green forest and distant mountain peaks, with a small ordinary park path in the foreground. The globe and landscape are distinct educational views, not a planet floating inside the landscape. Clean crisp continuous outlines, flat colors, restrained simple cel shading, uncluttered child-readable shapes. No people, leaf spacecraft, watering can, flying leaves, magic, faces on Sun/scenery, flags, religious buildings/symbols, national costume, logos, writing, labels, numbers or watermark. Accurate recognizable continents, ordinary clouds over globe, natural land-water boundary. Do not copy the original impossible watering-Earth metaphor. Preserve portrait cover framing. Opaque background.",
+          "referencedImagePaths": [
+            "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/regen/covers/gr-d-42-cover.webp"
+          ],
+          "defaultGeneratedPath": "/Users/benjaminbowler/.codex/generated_images/01a1c3ee-e610-7d22-ad30-a2bee077e3d6/exec-f6da660c-a235-4221-b9ae-3cc564c97a6b.png",
+          "defaultGeneratedSha256": "3097c100c69da18bfd6432f7188d2d8d31eadaf493fdac7282113ed0ae3e3a00",
+          "selectedCandidatePath": ".artifacts/library-suitability-audit/shard-3/art-candidates/our-earth-cover.png",
+          "selectedCandidateSha256": "3097c100c69da18bfd6432f7188d2d8d31eadaf493fdac7282113ed0ae3e3a00",
+          "inputReceipt": ".artifacts/library-suitability-audit/shard-3/art-candidates/receipts.json",
+          "inputReceiptSha256": "fc35c1126e4c720a081ba646f8f1403eacb476bf0b7e7b39207d520001dc4941"
+        }
+      ],
+      "candidateReview": {
+        "reviewer": "AI Codex child /root/present_download",
+        "humanReview": false,
+        "generatedDisplayInspected": true,
+        "verdict": "selected candidate for independent parent adjudication",
+        "observations": "No flying children/leaf craft or watering metaphor. Recognizable Earth globe and lower coast/forest/mountains/park path. Clean outlined illustration, no text/flags/religious symbols. Diagram-like globe/landscape views are distinguishable; not a scale diagram."
+      },
+      "original": {
+        "gitRevision": "fe46cf529b0584e34aec88030471ba753e2eae58",
+        "gitPath": "public/guided-reading/regen/covers/gr-d-42-cover.webp",
+        "sha256": "d226136f306bb4b48c700a5548478a75f8e491ca25e48d4622906706e5d17dee",
+        "bytes": 141132,
+        "width": 864,
+        "height": 1184,
+        "recovery": "git show fe46cf529b0584e34aec88030471ba753e2eae58:public/guided-reading/regen/covers/gr-d-42-cover.webp"
+      },
+      "displayedText": "Our Earth",
+      "displayedTextSha256": "bb83fb01bdb25778a49963c93d072c37d4b910b02aa65363a9518fa6409b11e9",
+      "previousCard": {
+        "src": "/guided-reading/card-covers/4859efa0728daf15f730d6de.webp",
+        "sourceSha256": "d226136f306bb4b48c700a5548478a75f8e491ca25e48d4622906706e5d17dee",
+        "deliverySha256": "4859efa0728daf15f730d6de5f3db842d785d6dacea72182cbfa3beb1da467e5",
+        "sourceWidth": 864,
+        "sourceHeight": 1184,
+        "width": 374,
+        "height": 512,
+        "bytes": 44348
+      },
+      "output": {
+        "publicPath": "/guided-reading/regen/covers/gr-d-42-cover.webp",
+        "sha256": "3b1a4272fb26594ba7513894350c8ec1b99b8c1ed4b0a22140d3c6cd632653ab",
+        "bytes": 171148,
+        "width": 864,
+        "height": 1184,
+        "format": "webp",
+        "encoding": {
+          "quality": 92,
+          "effort": 6,
+          "fit": "inside",
+          "withoutEnlargement": true,
+          "crop": false,
+          "distortion": false
+        }
+      },
+      "card": {
+        "src": "/guided-reading/card-covers/c253e9350a1febfbbf842d16.webp",
+        "sourceSha256": "3b1a4272fb26594ba7513894350c8ec1b99b8c1ed4b0a22140d3c6cd632653ab",
+        "deliverySha256": "c253e9350a1febfbbf842d165288f7d9ad5b7f741f191f827ecec27c8d8a675e",
+        "sourceWidth": 864,
+        "sourceHeight": 1184,
+        "width": 374,
+        "height": 512,
+        "bytes": 52646
+      },
+      "finalReview": {
+        "status": "accepted",
+        "reviewer": "Codex AI subagent present_download",
+        "humanReview": false,
+        "fullSizeMethod": "Final installed WebP opened with view_image original; inspected subjects/background, anatomy, props, counts, style and framing.",
+        "sequenceMethod": "Complete ordered book including final cover/pages and unchanged current prose screened on saved labelled contact sheet; all changed assets separately inspected at native size.",
+        "observations": [
+          "Recognizable globe with ordinary land/ocean outlines and separate coast/mountain/forest/park inquiry views; no watering-Earth metaphor or leaf spacecraft.",
+          "Fits unchanged six-page nonfiction inquiry; diagram-like composition is not a scale diagram."
+        ]
+      }
+    },
+    {
+      "key": "colors-cover",
+      "bookId": "first-facts-level-a-01-colors",
+      "title": "Colors",
+      "page": "cover",
+      "target": "public/guided-reading/nonfiction/first-facts-level-a/book-01/cover.webp",
+      "selectedPath": ".artifacts/library-suitability-audit/shard-3/art-candidates/colors-cover.png",
+      "expectedOriginalSha256": "6521ffff3f523517ec803176b0e230cdb7c6334e1c1bd34dbc4ac8f32756df61",
+      "expectedSelectedSha256": "c11139942edcfb6ad684f116332db1c41987cb80471a59d165aecbd88e8ac8e5",
+      "generationChain": [
+        {
+          "provider": "built-in image_gen",
+          "prompt": "Use case: precise-object-edit. Edit target: image1, the nonfiction Colors cover. Change ONLY the yellow Sun: remove both black eyes, both pink cheek circles, and the black smiling mouth, replacing those marks with uninterrupted flat yellow matching the Sun disk. Preserve the yellow circle, all rays, black outlines, white background, entire composition, all other subjects and colors exactly: red ball with white star and stripe, black cat, blue cup with its decorative wave, green frog, pink flowers. Do not alter animals, proportions, positions, line widths, perspective or aspect ratio. No new faces, text, objects, symbols, logos or watermark. Inanimate Sun must be faceless. Final output clean outlined cartoon matching input, opaque white background.",
+          "referencedImagePaths": [
+            "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/nonfiction/first-facts-level-a/book-01/cover.webp"
+          ],
+          "defaultGeneratedPath": "/Users/benjaminbowler/.codex/generated_images/01a1c3ee-e610-7d22-ad30-a2bee077e3d6/exec-1ae15f6a-ea56-4480-8b10-96036e3801df.png",
+          "defaultGeneratedSha256": "c11139942edcfb6ad684f116332db1c41987cb80471a59d165aecbd88e8ac8e5",
+          "selectedCandidatePath": ".artifacts/library-suitability-audit/shard-3/art-candidates/colors-cover.png",
+          "selectedCandidateSha256": "c11139942edcfb6ad684f116332db1c41987cb80471a59d165aecbd88e8ac8e5",
+          "inputReceipt": ".artifacts/library-suitability-audit/shard-3/art-candidates/receipts.json",
+          "inputReceiptSha256": "fc35c1126e4c720a081ba646f8f1403eacb476bf0b7e7b39207d520001dc4941"
+        }
+      ],
+      "candidateReview": {
+        "reviewer": "AI Codex child /root/present_download",
+        "humanReview": false,
+        "generatedDisplayInspected": true,
+        "verdict": "selected candidate for independent parent adjudication",
+        "observations": "Sun is faceless; other established subjects, composition and ordinary accepted details retained. No lettering or new objects."
+      },
+      "original": {
+        "gitRevision": "fe46cf529b0584e34aec88030471ba753e2eae58",
+        "gitPath": "public/guided-reading/nonfiction/first-facts-level-a/book-01/cover.webp",
+        "sha256": "6521ffff3f523517ec803176b0e230cdb7c6334e1c1bd34dbc4ac8f32756df61",
+        "bytes": 178786,
+        "width": 2752,
+        "height": 1536,
+        "recovery": "git show fe46cf529b0584e34aec88030471ba753e2eae58:public/guided-reading/nonfiction/first-facts-level-a/book-01/cover.webp"
+      },
+      "displayedText": "Colors",
+      "displayedTextSha256": "88c45d9e526c08dd7f8b9d1d3ab96a72d68205232090be5da57e05251bfea650",
+      "previousCard": {
+        "src": "/guided-reading/card-covers/25af4a6edadfb03936d101f6.webp",
+        "sourceSha256": "6521ffff3f523517ec803176b0e230cdb7c6334e1c1bd34dbc4ac8f32756df61",
+        "deliverySha256": "25af4a6edadfb03936d101f69a68bb7fb0b8e3496652a124cf7913139d6e7eab",
+        "sourceWidth": 2752,
+        "sourceHeight": 1536,
+        "width": 512,
+        "height": 286,
+        "bytes": 24642
+      },
+      "output": {
+        "publicPath": "/guided-reading/nonfiction/first-facts-level-a/book-01/cover.webp",
+        "sha256": "d02d892aab04b6d500496843677261521eefd58868501d2e7d72be4faced0f3d",
+        "bytes": 112082,
+        "width": 1678,
+        "height": 937,
+        "format": "webp",
+        "encoding": {
+          "quality": 92,
+          "effort": 6,
+          "fit": "inside",
+          "withoutEnlargement": true,
+          "crop": false,
+          "distortion": false
+        }
+      },
+      "card": {
+        "src": "/guided-reading/card-covers/7632a7fec229ac4b2bba0e10.webp",
+        "sourceSha256": "d02d892aab04b6d500496843677261521eefd58868501d2e7d72be4faced0f3d",
+        "deliverySha256": "7632a7fec229ac4b2bba0e100cf09fdb7b806a71e930436a454b886968615e3a",
+        "sourceWidth": 1678,
+        "sourceHeight": 937,
+        "width": 512,
+        "height": 286,
+        "bytes": 23708
+      },
+      "finalReview": {
+        "status": "accepted",
+        "reviewer": "Codex AI subagent present_download",
+        "humanReview": false,
+        "fullSizeMethod": "Final installed WebP opened with view_image original; inspected subjects/background, anatomy, props, counts, style and framing.",
+        "sequenceMethod": "Complete ordered book including final cover/pages and unchanged current prose screened on saved labelled contact sheet; all changed assets separately inspected at native size.",
+        "observations": [
+          "Sun is faceless; red ball, blue cup, green frog, black cat and pink flowers preserved.",
+          "Cover color exemplars agree with the seven unchanged pages; ordinary weather rainbow in final page is not an identity affiliation."
+        ]
+      }
+    },
+    {
+      "key": "my-body-cover",
+      "bookId": "first-facts-level-a-18-my-body",
+      "title": "My Body",
+      "page": "cover",
+      "target": "public/guided-reading/nonfiction/first-facts-level-a/book-18/cover.webp",
+      "selectedPath": ".artifacts/library-suitability-audit/shard-3/art-candidates/my-body-cover.png",
+      "expectedOriginalSha256": "6132d925dcfe5783706f5b100ec289c0bda137c1e637055d7b1e993414fbe7cb",
+      "expectedSelectedSha256": "2b7d8cc905807e5000bb3facc703a510ab7fa0ff849a263cdb94e7fcbb15f8f1",
+      "generationChain": [
+        {
+          "provider": "built-in image_gen",
+          "prompt": "Use case: precise-object-edit. Edit target: image1, the nonfiction My Body cover. Change ONLY the Sun in the upper-right background: remove its two brown eyes, both pink cheek circles and smiling mouth, fill the removed marks with the same uninterrupted yellow as its disk. Preserve the Sun disk/rays/placement and overlapping clouds. Preserve the child’s face, expression, skin, curly brown hair, striped orange-and-yellow shirt, blue overalls, red shoes, open arms and all fingers exactly. Preserve trees, path, grass, flowers, outlines, colors, composition and landscape aspect ratio. Do not change the child’s face. No new objects, lettering, symbols, watermarks or logos. The ordinary inanimate Sun must be faceless. Clean outlined cartoon and opaque background as input.",
+          "referencedImagePaths": [
+            "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/nonfiction/first-facts-level-a/book-18/cover.webp"
+          ],
+          "defaultGeneratedPath": "/Users/benjaminbowler/.codex/generated_images/01a1c3ee-e610-7d22-ad30-a2bee077e3d6/exec-ec24d1cb-658e-452a-a3ed-48cf84a03984.png",
+          "defaultGeneratedSha256": "2b7d8cc905807e5000bb3facc703a510ab7fa0ff849a263cdb94e7fcbb15f8f1",
+          "selectedCandidatePath": ".artifacts/library-suitability-audit/shard-3/art-candidates/my-body-cover.png",
+          "selectedCandidateSha256": "2b7d8cc905807e5000bb3facc703a510ab7fa0ff849a263cdb94e7fcbb15f8f1",
+          "inputReceipt": ".artifacts/library-suitability-audit/shard-3/art-candidates/receipts.json",
+          "inputReceiptSha256": "fc35c1126e4c720a081ba646f8f1403eacb476bf0b7e7b39207d520001dc4941"
+        }
+      ],
+      "candidateReview": {
+        "reviewer": "AI Codex child /root/present_download",
+        "humanReview": false,
+        "generatedDisplayInspected": true,
+        "verdict": "selected candidate for independent parent adjudication",
+        "observations": "Sun is faceless; other established subjects, composition and ordinary accepted details retained. No lettering or new objects."
+      },
+      "original": {
+        "gitRevision": "fe46cf529b0584e34aec88030471ba753e2eae58",
+        "gitPath": "public/guided-reading/nonfiction/first-facts-level-a/book-18/cover.webp",
+        "sha256": "6132d925dcfe5783706f5b100ec289c0bda137c1e637055d7b1e993414fbe7cb",
+        "bytes": 307034,
+        "width": 2752,
+        "height": 1536,
+        "recovery": "git show fe46cf529b0584e34aec88030471ba753e2eae58:public/guided-reading/nonfiction/first-facts-level-a/book-18/cover.webp"
+      },
+      "displayedText": "My Body",
+      "displayedTextSha256": "7a25baa8821c27f4e4fe7a3126c8828b25e12d5d6799f1d0bf25dabe5beef5d6",
+      "previousCard": {
+        "src": "/guided-reading/card-covers/339e55f22b82435ca56cde57.webp",
+        "sourceSha256": "6132d925dcfe5783706f5b100ec289c0bda137c1e637055d7b1e993414fbe7cb",
+        "deliverySha256": "339e55f22b82435ca56cde5784e81772e73ae4ff45338d5f893b56d20b4e3f7e",
+        "sourceWidth": 2752,
+        "sourceHeight": 1536,
+        "width": 512,
+        "height": 286,
+        "bytes": 37870
+      },
+      "output": {
+        "publicPath": "/guided-reading/nonfiction/first-facts-level-a/book-18/cover.webp",
+        "sha256": "26697fd9424b2500c95a1d66e7a0a7ed1bb7e2a88a019dafd0c24aaf3d70a88c",
+        "bytes": 187884,
+        "width": 1678,
+        "height": 937,
+        "format": "webp",
+        "encoding": {
+          "quality": 92,
+          "effort": 6,
+          "fit": "inside",
+          "withoutEnlargement": true,
+          "crop": false,
+          "distortion": false
+        }
+      },
+      "card": {
+        "src": "/guided-reading/card-covers/a73bf4b2d0b51390fbc04885.webp",
+        "sourceSha256": "26697fd9424b2500c95a1d66e7a0a7ed1bb7e2a88a019dafd0c24aaf3d70a88c",
+        "deliverySha256": "a73bf4b2d0b51390fbc04885fac102e97f3f80b5b57083c79b7a820fd2a056e6",
+        "sourceWidth": 1678,
+        "sourceHeight": 937,
+        "width": 512,
+        "height": 286,
+        "bytes": 37576
+      },
+      "finalReview": {
+        "status": "accepted",
+        "reviewer": "Codex AI subagent present_download",
+        "humanReview": false,
+        "fullSizeMethod": "Final installed WebP opened with view_image original; inspected subjects/background, anatomy, props, counts, style and framing.",
+        "sequenceMethod": "Complete ordered book including final cover/pages and unchanged current prose screened on saved labelled contact sheet; all changed assets separately inspected at native size.",
+        "observations": [
+          "Only Sun face removed; child face, two arms/hands, two legs/feet, clothes and framing retained.",
+          "Fits unchanged body-part/sensory-action sequence and ordinary body ownership statement."
+        ]
+      }
+    },
+    {
+      "key": "ocean-cover",
+      "bookId": "first-facts-a-08-animals-in-the-ocean",
+      "title": "Animals in the Ocean",
+      "page": "cover",
+      "target": "public/guided-reading/nonfiction/first-facts/book-08/cover.webp",
+      "selectedPath": ".artifacts/library-suitability-audit/shard-3/art-candidates/ocean-cover.png",
+      "expectedOriginalSha256": "bd5bfff0f8bb75bfc82d2c7c79ce9205799bc0f8d9e968d361f4f8df1c824342",
+      "expectedSelectedSha256": "6f253ad07f8bc6cbfc86cff5c9eb5251e81afacb19c5cf049a920304b3f1fcfe",
+      "generationChain": [
+        {
+          "provider": "built-in image_gen",
+          "prompt": "Use case: precise-object-edit. Edit target: image1, the nonfiction Animals in the Ocean cover. Correct ONLY the whale’s impossible accessories and spout: remove its orange hat entirely and remove all upward fountain jets/drops; restore a smooth natural blue whale head/back and the surrounding clear blue underwater background where those items were. The whale remains swimming fully underwater and emits NO spout, bubbles or water jets; whales breathe air at the surface, so no breathing is shown in this underwater view. Preserve the whale’s existing size, orientation, natural flippers and horizontal tail flukes, blue/white coloring and friendly cartoon expression. Preserve existing octopus with eight arms, all fish, crab, starfish, coral, seaweed, seabed, water surface, rays, composition and landscape aspect ratio. Keep other accepted details unchanged. No hats, clothes, humans, writing, labels, logos, flags, religious/political symbols or watermark. Clean continuous bold outlines and simple flat color/cel shading as original. Opaque underwater background.",
+          "referencedImagePaths": [
+            "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/nonfiction/first-facts/book-08/cover.webp"
+          ],
+          "defaultGeneratedPath": "/Users/benjaminbowler/.codex/generated_images/01a1c3ee-e610-7d22-ad30-a2bee077e3d6/exec-f3c81bfe-7c93-4eec-ac60-ba1369a05c2e.png",
+          "defaultGeneratedSha256": "6f253ad07f8bc6cbfc86cff5c9eb5251e81afacb19c5cf049a920304b3f1fcfe",
+          "selectedCandidatePath": ".artifacts/library-suitability-audit/shard-3/art-candidates/ocean-cover.png",
+          "selectedCandidateSha256": "6f253ad07f8bc6cbfc86cff5c9eb5251e81afacb19c5cf049a920304b3f1fcfe",
+          "inputReceipt": ".artifacts/library-suitability-audit/shard-3/art-candidates/receipts.json",
+          "inputReceiptSha256": "fc35c1126e4c720a081ba646f8f1403eacb476bf0b7e7b39207d520001dc4941"
+        }
+      ],
+      "candidateReview": {
+        "reviewer": "AI Codex child /root/present_download",
+        "humanReview": false,
+        "generatedDisplayInspected": true,
+        "verdict": "selected candidate for independent parent adjudication",
+        "observations": "Whale hat and underwater fountain removed. Whale remains underwater without exhalation. Other animals/composition retained; octopus eight arms visible. No text or new sensitive symbols."
+      },
+      "original": {
+        "gitRevision": "fe46cf529b0584e34aec88030471ba753e2eae58",
+        "gitPath": "public/guided-reading/nonfiction/first-facts/book-08/cover.webp",
+        "sha256": "bd5bfff0f8bb75bfc82d2c7c79ce9205799bc0f8d9e968d361f4f8df1c824342",
+        "bytes": 266040,
+        "width": 1376,
+        "height": 768,
+        "recovery": "git show fe46cf529b0584e34aec88030471ba753e2eae58:public/guided-reading/nonfiction/first-facts/book-08/cover.webp"
+      },
+      "displayedText": "Animals in the Ocean",
+      "displayedTextSha256": "0aa1e6eb155da4e99e3437c2e20b9a142352874f62fab43530ea918964ed4c79",
+      "previousCard": {
+        "src": "/guided-reading/card-covers/a053ccfa8d2c2ba003636df5.webp",
+        "sourceSha256": "bd5bfff0f8bb75bfc82d2c7c79ce9205799bc0f8d9e968d361f4f8df1c824342",
+        "deliverySha256": "a053ccfa8d2c2ba003636df51e29cf5f4c391008adbf56c3a70a4688fd665472",
+        "sourceWidth": 1376,
+        "sourceHeight": 768,
+        "width": 512,
+        "height": 286,
+        "bytes": 51842
+      },
+      "output": {
+        "publicPath": "/guided-reading/nonfiction/first-facts/book-08/cover.webp",
+        "sha256": "bffc61c5295df9a2e45589bb41bc76f02faf5a432f508245ad967140f76205e5",
+        "bytes": 216266,
+        "width": 1376,
+        "height": 768,
+        "format": "webp",
+        "encoding": {
+          "quality": 92,
+          "effort": 6,
+          "fit": "inside",
+          "withoutEnlargement": true,
+          "crop": false,
+          "distortion": false
+        }
+      },
+      "card": {
+        "src": "/guided-reading/card-covers/e0fc856876f8b3eb535e3384.webp",
+        "sourceSha256": "bffc61c5295df9a2e45589bb41bc76f02faf5a432f508245ad967140f76205e5",
+        "deliverySha256": "e0fc856876f8b3eb535e338498599c8b1d6d0ade6493c46dc2d24e0d2004a000",
+        "sourceWidth": 1376,
+        "sourceHeight": 768,
+        "width": 512,
+        "height": 286,
+        "bytes": 49866
+      },
+      "finalReview": {
+        "status": "accepted",
+        "reviewer": "Codex AI subagent present_download",
+        "humanReview": false,
+        "fullSizeMethod": "Final installed WebP opened with view_image original; inspected subjects/background, anatomy, props, counts, style and framing.",
+        "sequenceMethod": "Complete ordered book including final cover/pages and unchanged current prose screened on saved labelled contact sheet; all changed assets separately inspected at native size.",
+        "observations": [
+          "Whale hat and underwater fountain absent; whale remains underwater without breathing depicted.",
+          "Eight separately visible octopus arms retained; cover agrees with unchanged animal inquiry and surface-breathing whale page."
+        ]
+      }
+    },
+    {
+      "key": "plant-cover",
+      "bookId": "level-c-nonfiction-05-how-seeds-grow",
+      "title": "How a Flowering Plant Grows",
+      "page": "cover",
+      "target": "public/guided-reading/nonfiction/level-c/book-05/cover.webp",
+      "selectedPath": ".artifacts/library-suitability-audit/shard-3/art-candidates/plant-cover.png",
+      "expectedOriginalSha256": "9146060e3ea3acb52fa0c36c6f17da54b0c3c6c216bc06490ceaa1d071d3b6ad",
+      "expectedSelectedSha256": "411ea7c6fd06816550cff6babdf07bb0d0dcddd822d853b95ae910fc9cfb0abb",
+      "generationChain": [
+        {
+          "provider": "built-in image_gen",
+          "prompt": "Create one finished replacement cover illustration for an early-childhood ESL nonfiction reader titled How a Flowering Plant Grows. This is a picture-only cover, 16:9 landscape, no text, no numbers, no symbols or labels. Use bold clean clear 2D cartoon art across the entire image: crisp continuous black outlines, flat clean natural colors, very restrained cel shading, white/pale-sky background with a simple garden soil cross section. Show one coherent four-stage growth comparison from left to right: a large pale garden pea seed just starting a small downward root in soil; a small rooted sprout above soil with first leaves; a healthy pea vine with paired oval leaflets, curling tendrils and a few natural white pea flowers; then a mature pea vine with attached green pea pods, one naturally opened pod showing several round peas. Keep the plants recognisably the same kind, botanically plausible, progressively taller left to right, grounded in soil with roots below and green shoots above. A simple plain yellow Sun disk high in the sky may provide light but has NO face. Plants, flowers, seeds, Sun, clouds and scenery have NO faces, eyes, mouths or anthropomorphic features. No children or characters are needed. Clear large silhouettes, generous uncluttered framing, no arrows, decorative badges, lettering, logos, religion or political or identity emblems. Do not imitate a photograph or painterly texture. The nonfiction inquiry is seed, root, shoot, leaves, flowers, pods and new seeds; show growth and the completed seed cycle clearly.",
+          "referencedImagePaths": [],
+          "defaultGeneratedPath": "/Users/benjaminbowler/.codex/generated_images/01a1c3ed-c928-70e2-a423-68d0aaffd69c/exec-ef7c3db3-98c8-4e0d-8725-13a0e5585f26.png",
+          "defaultGeneratedSha256": "411ea7c6fd06816550cff6babdf07bb0d0dcddd822d853b95ae910fc9cfb0abb",
+          "selectedCandidatePath": ".artifacts/library-suitability-audit/shard-3/art-candidates/plant-cover.png",
+          "selectedCandidateSha256": "411ea7c6fd06816550cff6babdf07bb0d0dcddd822d853b95ae910fc9cfb0abb",
+          "inputReceipt": ".artifacts/library-suitability-audit/plant-gen-input.json",
+          "inputReceiptSha256": "9a0225f60d0056bf5f04b7cc9a8047aab1449b951e4326416d4ea7d1900ab7e7"
+        }
+      ],
+      "candidateReview": {
+        "reviewer": "AI Codex child /root/present_download",
+        "humanReview": false,
+        "originalFileInspected": true,
+        "supportingOriginals": [
+          {
+            "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/nonfiction/level-c/book-05/page-006.webp",
+            "sha256": "6764a59d0723b0447a6dc950ee54e20808b6d095e8610ceb97d99be684f07935"
+          },
+          {
+            "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/nonfiction/level-c/book-05/page-007.webp",
+            "sha256": "373bda77db9b1d4b74ce5bc55b1300aa95679bc5325b196315167e95a25e7d3e"
+          }
+        ],
+        "verdict": "selected candidate for independent parent adjudication",
+        "observations": "Four clear plant stages, connected roots/stems, natural leaf/flower/pod features, faceless Sun, no embedded numbers/labels/faces. General flowering legume/pea example suitable for generic inquiry; source p6 has bean-like red flowers while p7 has pea-like pods, so no exact whole-book cultivar claim is made. Illustrative stages are not asserted to be same-time physical plant."
+      },
+      "original": {
+        "gitRevision": "fe46cf529b0584e34aec88030471ba753e2eae58",
+        "gitPath": "public/guided-reading/nonfiction/level-c/book-05/cover.webp",
+        "sha256": "9146060e3ea3acb52fa0c36c6f17da54b0c3c6c216bc06490ceaa1d071d3b6ad",
+        "bytes": 232662,
+        "width": 1376,
+        "height": 768,
+        "recovery": "git show fe46cf529b0584e34aec88030471ba753e2eae58:public/guided-reading/nonfiction/level-c/book-05/cover.webp"
+      },
+      "displayedText": "How a Flowering Plant Grows",
+      "displayedTextSha256": "4288ea620f1104a0ee673ecbbd2887bdbcaf232bc8a8eeb43a4014915a4f3c17",
+      "previousCard": {
+        "src": "/guided-reading/card-covers/76020f55b2c98a8fcb3082fa.webp",
+        "sourceSha256": "9146060e3ea3acb52fa0c36c6f17da54b0c3c6c216bc06490ceaa1d071d3b6ad",
+        "deliverySha256": "76020f55b2c98a8fcb3082fa8af93ce69516c42933f94977be97938d32bdcd78",
+        "sourceWidth": 1376,
+        "sourceHeight": 768,
+        "width": 512,
+        "height": 286,
+        "bytes": 60060
+      },
+      "output": {
+        "publicPath": "/guided-reading/nonfiction/level-c/book-05/cover.webp",
+        "sha256": "2b900ac87adebd59a656ade8e583e8d8a529019594201e4b9f46525999791448",
+        "bytes": 154968,
+        "width": 1365,
+        "height": 768,
+        "format": "webp",
+        "encoding": {
+          "quality": 92,
+          "effort": 6,
+          "fit": "inside",
+          "withoutEnlargement": true,
+          "crop": false,
+          "distortion": false
+        }
+      },
+      "card": {
+        "src": "/guided-reading/card-covers/82dfced346cc4e1b89bcd09b.webp",
+        "sourceSha256": "2b900ac87adebd59a656ade8e583e8d8a529019594201e4b9f46525999791448",
+        "deliverySha256": "82dfced346cc4e1b89bcd09b811349f4d1ff372cd900d1b7fdf5ac5d2f361881",
+        "sourceWidth": 1365,
+        "sourceHeight": 768,
+        "width": 512,
+        "height": 288,
+        "bytes": 38564
+      },
+      "finalReview": {
+        "status": "accepted",
+        "reviewer": "Codex AI subagent present_download",
+        "humanReview": false,
+        "fullSizeMethod": "Final installed WebP opened with view_image original; inspected subjects/background, anatomy, props, counts, style and framing.",
+        "sequenceMethod": "Complete ordered book including final cover/pages and unchanged current prose screened on saved labelled contact sheet; all changed assets separately inspected at native size.",
+        "observations": [
+          "Four rooted flowering-legume stages with roots/shoots/leaves/flowers/pods/seeds, no faces/numbers/labels.",
+          "Fits general flowering-plant inquiry. Retained page6/7 source art is ambiguous bean/pea-like, so no whole-book cultivar claim is made."
+        ]
+      }
+    },
+    {
+      "key": "luna-page-04",
+      "bookId": "moonwood-tales-c-10",
+      "title": "What Luna Forgot",
+      "page": 4,
+      "target": "public/guided-reading/series/moonwood-tales/book-10/page-004.webp",
+      "selectedPath": ".artifacts/library-suitability-audit/shard-3/art-candidates/luna-page-04.png",
+      "expectedOriginalSha256": "3a3313c017478972253ac4b0bcbbdd340f56cd995a9620c3289b3f080e8933f9",
+      "expectedSelectedSha256": "e001dd9520e28518db4c34abe608cc63370a299ecf385f5ca00adfe0eafeecbf",
+      "generationChain": [
+        {
+          "provider": "built-in image_gen",
+          "prompt": "Use case: precise-object-edit. This is an edit target: the supplied complete page 4 illustration from the children's story What Luna Forgot. Make one very small localized correction only: remove the tiny round GOLD EYEGLASS FRAMES and connecting bridge from the OWL LUNA's face. Luna is the navy/slate owl with cream face/chest and naturally golden irises. The tiny gold rings low beside her orange beak are spectacles and must disappear. Restore the natural cream feathers and orange beak contours where the frames were. Preserve the owl's large golden eyes, black pupil/iris outlines, gaze, expression, beak, feather edges, natural wings, feet and pose exactly. CRITICAL: the brown MOLE BURROW also appears in this image. KEEP the mole's large round gold eyeglasses completely unchanged; only remove the OWL's spectacles. Preserve ALL other characters, objects, seed counts, box, list symbols, background, lighting, spatial composition, canvas proportions, crisp black outlines, flat bright colors and smooth cel shading. Do not redraw or restyle the scene, add objects, human hands, text, borders or watermarks. Keep the entire original landscape framing. Output the same complete page with only the owl's tiny spectacles removed.",
+          "referencedImagePaths": [
+            "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/series/moonwood-tales/book-10/page-004.webp"
+          ],
+          "defaultGeneratedPath": "/Users/benjaminbowler/.codex/generated_images/01a1c3ee-e610-7d22-ad30-a2bee077e3d6/exec-35fa21d2-1753-4493-be1c-8cb7e3c4fa29.png",
+          "defaultGeneratedSha256": "e001dd9520e28518db4c34abe608cc63370a299ecf385f5ca00adfe0eafeecbf"
+        }
+      ],
+      "candidateReview": {
+        "reviewer": "Codex AI subagent present_download",
+        "humanReview": false,
+        "originalOpened": true,
+        "fullSizeSelectedReview": "Saved 1672x941 PNG opened through view_image with original detail and inspected.",
+        "displaySizeReview": "Six-image sequence reviewed in derived 800px-wide preview (tool rendered 607px wide); no app/browser execution claimed.",
+        "decision": "accepted candidate for independent parent review",
+        "observations": [
+          "Owl tiny gold frames and bridge removed; golden eyes, beak and feathered wings remain.",
+          "Burrow large gold glasses preserved; list/pencil, Fern, root and tunnel retained."
+        ]
+      },
+      "original": {
+        "gitRevision": "fe46cf529b0584e34aec88030471ba753e2eae58",
+        "gitPath": "public/guided-reading/series/moonwood-tales/book-10/page-004.webp",
+        "sha256": "3a3313c017478972253ac4b0bcbbdd340f56cd995a9620c3289b3f080e8933f9",
+        "bytes": 310988,
+        "width": 1672,
+        "height": 941,
+        "recovery": "git show fe46cf529b0584e34aec88030471ba753e2eae58:public/guided-reading/series/moonwood-tales/book-10/page-004.webp"
+      },
+      "displayedText": "Fern checked the shaded garden while Burrow checked the cool tunnels. Neither place held the silver box. Luna crossed both places off her list.",
+      "displayedTextSha256": "daf5b312c4572a2f55609697f59da6a3642155e928a17bfb79fba80cc64f795f",
+      "output": {
+        "publicPath": "/guided-reading/series/moonwood-tales/book-10/page-004.webp",
+        "sha256": "dfbd342593c24ced35c015f42c0be1d5eccea815a82526e79d66b0c1ae95235e",
+        "bytes": 336526,
+        "width": 1672,
+        "height": 941,
+        "format": "webp",
+        "encoding": {
+          "quality": 92,
+          "effort": 6,
+          "fit": "inside",
+          "withoutEnlargement": true,
+          "crop": false,
+          "distortion": false
+        }
+      },
+      "finalReview": {
+        "status": "accepted",
+        "reviewer": "Codex AI subagent present_download",
+        "humanReview": false,
+        "fullSizeMethod": "Final installed WebP opened with view_image original; inspected subjects/background, anatomy, props, counts, style and framing.",
+        "sequenceMethod": "Complete ordered book including final cover/pages and unchanged current prose screened on saved labelled contact sheet; all changed assets separately inspected at native size.",
+        "observations": [
+          "Luna golden eyes and orange beak now unobstructed by tiny spectacles; natural wing anatomy retained.",
+          "Burrow gold glasses remain; list garden/tunnel symbols and two crosses, pencil, Fern and tunnel remain."
+        ]
+      }
+    },
+    {
+      "key": "luna-page-10",
+      "bookId": "moonwood-tales-c-10",
+      "title": "What Luna Forgot",
+      "page": 10,
+      "target": "public/guided-reading/series/moonwood-tales/book-10/page-010.webp",
+      "selectedPath": ".artifacts/library-suitability-audit/shard-3/art-candidates/luna-page-10.png",
+      "expectedOriginalSha256": "95ef076cb40cd652933303fa214104e146c8bff3f1e5a7cf8273b3d203a812a4",
+      "expectedSelectedSha256": "4cda9789fcd3e4979373b3d59615c7e65ee7297e79f91bc82a035f5bd61e8e6d",
+      "generationChain": [
+        {
+          "provider": "built-in image_gen",
+          "prompt": "Use case: precise-object-edit. This is an edit target: the supplied complete page 10 illustration from the children's story What Luna Forgot. Make one very small localized correction only: remove the tiny round GOLD EYEGLASS FRAMES and connecting bridge from the OWL LUNA's face. Luna is the navy/slate owl with cream face/chest and naturally golden irises. The tiny gold rings low beside her orange beak are spectacles and must disappear. Restore the natural cream feathers and orange beak contours where the frames were. Preserve the owl's large golden eyes, black pupil/iris outlines, gaze, expression, beak, feather edges, natural wings, feet and pose exactly.  Preserve ALL other characters, objects, seed counts, box, list symbols, background, lighting, spatial composition, canvas proportions, crisp black outlines, flat bright colors and smooth cel shading. Do not redraw or restyle the scene, add objects, human hands, text, borders or watermarks. Keep the entire original landscape framing. Output the same complete page with only the owl's tiny spectacles removed.",
+          "referencedImagePaths": [
+            "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/series/moonwood-tales/book-10/page-010.webp"
+          ],
+          "defaultGeneratedPath": "/Users/benjaminbowler/.codex/generated_images/01a1c3ee-e610-7d22-ad30-a2bee077e3d6/exec-93c5b95e-6c85-4a5d-910b-8e685f9ba86f.png",
+          "defaultGeneratedSha256": "4cda9789fcd3e4979373b3d59615c7e65ee7297e79f91bc82a035f5bd61e8e6d"
+        }
+      ],
+      "candidateReview": {
+        "reviewer": "Codex AI subagent present_download",
+        "humanReview": false,
+        "originalOpened": true,
+        "fullSizeSelectedReview": "Saved 1672x941 PNG opened through view_image with original detail and inspected.",
+        "displaySizeReview": "Six-image sequence reviewed in derived 800px-wide preview (tool rendered 607px wide); no app/browser execution claimed.",
+        "decision": "accepted candidate for independent parent review",
+        "observations": [
+          "Owl frames removed without losing golden eyes, beak or natural wings.",
+          "Open silver box retains twelve seeds in two rows of six; Fern and interior scene retained."
+        ]
+      },
+      "original": {
+        "gitRevision": "fe46cf529b0584e34aec88030471ba753e2eae58",
+        "gitPath": "public/guided-reading/series/moonwood-tales/book-10/page-010.webp",
+        "sha256": "95ef076cb40cd652933303fa214104e146c8bff3f1e5a7cf8273b3d203a812a4",
+        "bytes": 289174,
+        "width": 1672,
+        "height": 941,
+        "recovery": "git show fe46cf529b0584e34aec88030471ba753e2eae58:public/guided-reading/series/moonwood-tales/book-10/page-010.webp"
+      },
+      "displayedText": "Fern leaned closer as Luna lifted the lid. Twelve round seeds shone inside the box, bright as candle flames. Luna counted them once; none had cracked in the cold water.",
+      "displayedTextSha256": "4d6157931439811db3013f4461e48a94d7c09fc276f3e0f024daf40e00c22f42",
+      "output": {
+        "publicPath": "/guided-reading/series/moonwood-tales/book-10/page-010.webp",
+        "sha256": "a27fb39c105bafac95c8380ec3011fee845d4f140d4784777be5fe4e68c13b27",
+        "bytes": 316712,
+        "width": 1672,
+        "height": 941,
+        "format": "webp",
+        "encoding": {
+          "quality": 92,
+          "effort": 6,
+          "fit": "inside",
+          "withoutEnlargement": true,
+          "crop": false,
+          "distortion": false
+        }
+      },
+      "finalReview": {
+        "status": "accepted",
+        "reviewer": "Codex AI subagent present_download",
+        "humanReview": false,
+        "fullSizeMethod": "Final installed WebP opened with view_image original; inspected subjects/background, anatomy, props, counts, style and framing.",
+        "sequenceMethod": "Complete ordered book including final cover/pages and unchanged current prose screened on saved labelled contact sheet; all changed assets separately inspected at native size.",
+        "observations": [
+          "No owl glasses; natural eyes, beak and wing pose remain.",
+          "Open silver box contains twelve seeds as two rows of six. Fern and interior retained."
+        ]
+      }
+    },
+    {
+      "key": "luna-page-11",
+      "bookId": "moonwood-tales-c-10",
+      "title": "What Luna Forgot",
+      "page": 11,
+      "target": "public/guided-reading/series/moonwood-tales/book-10/page-011.webp",
+      "selectedPath": ".artifacts/library-suitability-audit/shard-3/art-candidates/luna-page-11.png",
+      "expectedOriginalSha256": "1861a28b9d0eaf3a08899b85e82bee21337dd76f2183061fc92c57425328e807",
+      "expectedSelectedSha256": "993439dd52653354d5128970448cf5dc3f32d03836dbc8d9b849d850b765cbdf",
+      "generationChain": [
+        {
+          "provider": "built-in image_gen",
+          "prompt": "Use case: precise-object-edit. This is an edit target: the supplied complete page 11 illustration from the children's story What Luna Forgot. Make one very small localized correction only: remove the tiny round GOLD EYEGLASS FRAMES and connecting bridge from the OWL LUNA's face. Luna is the navy/slate owl with cream face/chest and naturally golden irises. The tiny gold rings low beside her orange beak are spectacles and must disappear. Restore the natural cream feathers and orange beak contours where the frames were. Preserve the owl's large golden eyes, black pupil/iris outlines, gaze, expression, beak, feather edges, natural wings, feet and pose exactly.  Preserve ALL other characters, objects, seed counts, box, list symbols, background, lighting, spatial composition, canvas proportions, crisp black outlines, flat bright colors and smooth cel shading. Do not redraw or restyle the scene, add objects, human hands, text, borders or watermarks. Keep the entire original landscape framing. Output the same complete page with only the owl's tiny spectacles removed.",
+          "referencedImagePaths": [
+            "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/series/moonwood-tales/book-10/page-011.webp"
+          ],
+          "defaultGeneratedPath": "/Users/benjaminbowler/.codex/generated_images/01a1c3ee-e610-7d22-ad30-a2bee077e3d6/exec-b449aad3-ee61-49e1-b90e-114d206815d5.png",
+          "defaultGeneratedSha256": "993439dd52653354d5128970448cf5dc3f32d03836dbc8d9b849d850b765cbdf"
+        }
+      ],
+      "candidateReview": {
+        "reviewer": "Codex AI subagent present_download",
+        "humanReview": false,
+        "originalOpened": true,
+        "fullSizeSelectedReview": "Saved 1672x941 PNG opened through view_image with original detail and inspected.",
+        "displaySizeReview": "Six-image sequence reviewed in derived 800px-wide preview (tool rendered 607px wide); no app/browser execution claimed.",
+        "decision": "accepted candidate for independent parent review",
+        "observations": [
+          "Frames removed from upward-looking owl; natural eyes/beak/feather outlines retained.",
+          "Open box retains twelve seeds, tree/root/tunnel and framing unchanged in meaning."
+        ]
+      },
+      "original": {
+        "gitRevision": "fe46cf529b0584e34aec88030471ba753e2eae58",
+        "gitPath": "public/guided-reading/series/moonwood-tales/book-10/page-011.webp",
+        "sha256": "1861a28b9d0eaf3a08899b85e82bee21337dd76f2183061fc92c57425328e807",
+        "bytes": 283696,
+        "width": 1672,
+        "height": 941,
+        "recovery": "git show fe46cf529b0584e34aec88030471ba753e2eae58:public/guided-reading/series/moonwood-tales/book-10/page-011.webp"
+      },
+      "displayedText": "Luna looked up through Hollow Oak's old branches. She had saved the seeds to grow young trees beside them. Now twelve small lights waited in her open box.",
+      "displayedTextSha256": "8714c52b05ea3beeb1bf96a890723f527e9709c4384ee254dc7999183bdba28c",
+      "output": {
+        "publicPath": "/guided-reading/series/moonwood-tales/book-10/page-011.webp",
+        "sha256": "6666e909fb4f9ef6187bee94312f89a8c3ff096b3b16f5851f580d4000be141c",
+        "bytes": 299924,
+        "width": 1672,
+        "height": 941,
+        "format": "webp",
+        "encoding": {
+          "quality": 92,
+          "effort": 6,
+          "fit": "inside",
+          "withoutEnlargement": true,
+          "crop": false,
+          "distortion": false
+        }
+      },
+      "finalReview": {
+        "status": "accepted",
+        "reviewer": "Codex AI subagent present_download",
+        "humanReview": false,
+        "fullSizeMethod": "Final installed WebP opened with view_image original; inspected subjects/background, anatomy, props, counts, style and framing.",
+        "sequenceMethod": "Complete ordered book including final cover/pages and unchanged current prose screened on saved labelled contact sheet; all changed assets separately inspected at native size.",
+        "observations": [
+          "No owl glasses; upward gaze and natural face/wing anatomy preserved.",
+          "Open silver box retains twelve seeds; branches/root/tunnel establish the unchanged tree-planting motive."
+        ]
+      }
+    },
+    {
+      "key": "luna-page-12",
+      "bookId": "moonwood-tales-c-10",
+      "title": "What Luna Forgot",
+      "page": 12,
+      "target": "public/guided-reading/series/moonwood-tales/book-10/page-012.webp",
+      "selectedPath": ".artifacts/library-suitability-audit/shard-3/art-candidates/luna-page-12.png",
+      "expectedOriginalSha256": "940e86590687450dbfb285698afc3b26ef4e3b1ce30df29e35f817ee3060a3ef",
+      "expectedSelectedSha256": "757943c17fc949c5a849ed814365ac772522337cf3d802c8a8e4f62799950ce9",
+      "generationChain": [
+        {
+          "provider": "built-in image_gen",
+          "prompt": "Use case: precise-object-edit. This is an edit target: the supplied complete page 12 illustration from the children's story What Luna Forgot. Make one very small localized correction only: remove the tiny round GOLD EYEGLASS FRAMES and connecting bridge from the OWL LUNA's face. Luna is the navy/slate owl with cream face/chest and naturally golden irises. The tiny gold rings low beside her orange beak are spectacles and must disappear. Restore the natural cream feathers and orange beak contours where the frames were. Preserve the owl's large golden eyes, black pupil/iris outlines, gaze, expression, beak, feather edges, natural wings, feet and pose exactly.  Preserve ALL other characters, objects, seed counts, box, list symbols, background, lighting, spatial composition, canvas proportions, crisp black outlines, flat bright colors and smooth cel shading. Do not redraw or restyle the scene, add objects, human hands, text, borders or watermarks. Keep the entire original landscape framing. Output the same complete page with only the owl's tiny spectacles removed.",
+          "referencedImagePaths": [
+            "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/series/moonwood-tales/book-10/page-012.webp"
+          ],
+          "defaultGeneratedPath": "/Users/benjaminbowler/.codex/generated_images/01a1c3ee-e610-7d22-ad30-a2bee077e3d6/exec-cbed2e95-2217-4baf-a775-e28e275d026a.png",
+          "defaultGeneratedSha256": "757943c17fc949c5a849ed814365ac772522337cf3d802c8a8e4f62799950ce9"
+        }
+      ],
+      "candidateReview": {
+        "reviewer": "Codex AI subagent present_download",
+        "humanReview": false,
+        "originalOpened": true,
+        "fullSizeSelectedReview": "Saved 1672x941 PNG opened through view_image with original detail and inspected.",
+        "displaySizeReview": "Six-image sequence reviewed in derived 800px-wide preview (tool rendered 607px wide); no app/browser execution claimed.",
+        "decision": "accepted candidate for independent parent review",
+        "observations": [
+          "Owl frames removed; seed on extended natural wing and eleven seeds in box retained.",
+          "Fern receiving pose, bare planting patch, oak and framing retained."
+        ]
+      },
+      "original": {
+        "gitRevision": "fe46cf529b0584e34aec88030471ba753e2eae58",
+        "gitPath": "public/guided-reading/series/moonwood-tales/book-10/page-012.webp",
+        "sha256": "940e86590687450dbfb285698afc3b26ef4e3b1ce30df29e35f817ee3060a3ef",
+        "bytes": 305588,
+        "width": 1672,
+        "height": 941,
+        "recovery": "git show fe46cf529b0584e34aec88030471ba753e2eae58:public/guided-reading/series/moonwood-tales/book-10/page-012.webp"
+      },
+      "displayedText": "Luna set the open box on the ground outside Hollow Oak. She gave each helper a seed and pointed to a bare patch beneath the old branches.",
+      "displayedTextSha256": "a4b5d75254e8ee7a39b49c3aec11baccf9640c1a5ee7db902222d1e23130cad4",
+      "output": {
+        "publicPath": "/guided-reading/series/moonwood-tales/book-10/page-012.webp",
+        "sha256": "4a09b6427cf70c0dcd4436e33d946546fbe5dad571399c8b488d6e9c7518ff80",
+        "bytes": 325008,
+        "width": 1672,
+        "height": 941,
+        "format": "webp",
+        "encoding": {
+          "quality": 92,
+          "effort": 6,
+          "fit": "inside",
+          "withoutEnlargement": true,
+          "crop": false,
+          "distortion": false
+        }
+      },
+      "finalReview": {
+        "status": "accepted",
+        "reviewer": "Codex AI subagent present_download",
+        "humanReview": false,
+        "fullSizeMethod": "Final installed WebP opened with view_image original; inspected subjects/background, anatomy, props, counts, style and framing.",
+        "sequenceMethod": "Complete ordered book including final cover/pages and unchanged current prose screened on saved labelled contact sheet; all changed assets separately inspected at native size.",
+        "observations": [
+          "No owl glasses; one seed on extended natural wing plus eleven in open box retains total twelve.",
+          "Fern receiving pose, planting patch and oak setting preserve the handover beat."
+        ]
+      }
+    },
+    {
+      "key": "luna-page-13",
+      "bookId": "moonwood-tales-c-10",
+      "title": "What Luna Forgot",
+      "page": 13,
+      "target": "public/guided-reading/series/moonwood-tales/book-10/page-013.webp",
+      "selectedPath": ".artifacts/library-suitability-audit/shard-3/art-candidates/luna-page-13.png",
+      "expectedOriginalSha256": "1f90e8897c17e25b1c010b9d21a1374f1643a4b79009b3e2d6404d85cc374289",
+      "expectedSelectedSha256": "4c4f49b7e87f343d2bde926f547608cfe7a20f9b5170b350ba5c7f7838cfbff3",
+      "generationChain": [
+        {
+          "provider": "built-in image_gen",
+          "prompt": "Use case: precise-object-edit. This is an edit target: the supplied complete page 13 illustration from the children's story What Luna Forgot. Make one very small localized correction only: remove the tiny round GOLD EYEGLASS FRAMES and connecting bridge from the OWL LUNA's face. Luna is the navy/slate owl with cream face/chest and naturally golden irises. The tiny gold rings low beside her orange beak are spectacles and must disappear. Restore the natural cream feathers and orange beak contours where the frames were. Preserve the owl's large golden eyes, black pupil/iris outlines, gaze, expression, beak, feather edges, natural wings, feet and pose exactly. CRITICAL: the brown MOLE BURROW also appears in this image. KEEP the mole's large round gold eyeglasses completely unchanged; only remove the OWL's spectacles. Preserve ALL other characters, objects, seed counts, box, list symbols, background, lighting, spatial composition, canvas proportions, crisp black outlines, flat bright colors and smooth cel shading. Do not redraw or restyle the scene, add objects, human hands, text, borders or watermarks. Keep the entire original landscape framing. Output the same complete page with only the owl's tiny spectacles removed.",
+          "referencedImagePaths": [
+            "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/series/moonwood-tales/book-10/page-013.webp"
+          ],
+          "defaultGeneratedPath": "/Users/benjaminbowler/.codex/generated_images/01a1c3ee-e610-7d22-ad30-a2bee077e3d6/exec-5454d184-274e-4766-be10-1c4300a65451.png",
+          "defaultGeneratedSha256": "84cae7a99082f89548cb14d7296836e437ded87e1e1397749bb51f5f2e53489e"
+        },
+        {
+          "provider": "built-in image_gen",
+          "prompt": "Use case: precise-object-edit. Edit this entire supplied landscape illustration with one tiny correction only. The NAVY OWL standing in the middle still has a small white/gold circular spectacle ring at the lower inside edge of its LEFT-ON-SCREEN golden eye, just above and left of its orange beak. REMOVE that leftover tiny spectacle ring and any connecting wire completely; fill that tiny area with natural cream facial feathers/normal orange beak edge. This is NOT the large naturally golden iris, which must stay. The owl must have two large unobstructed golden eyes with black pupils and NO glasses, wires or little gold/white rings beside the beak. IMPORTANT: the BROWN MOLE kneeling to the owl's right must KEEP its own complete large round gold glasses. Preserve the mole exactly. Preserve all other scene pixels and subjects as closely as possible: all five characters, owl beak/gaze/pose/wing anatomy, twelve soil mounds, watering can/stream, oak doors/windows, sunset, full landscape canvas, clean cartoon outlines and flat cel colors. No text, new objects or redesign.",
+          "referencedImagePaths": [
+            "/Users/benjaminbowler/.codex/generated_images/01a1c3ee-e610-7d22-ad30-a2bee077e3d6/exec-5454d184-274e-4766-be10-1c4300a65451.png"
+          ],
+          "defaultGeneratedPath": "/Users/benjaminbowler/.codex/generated_images/01a1c3ee-e610-7d22-ad30-a2bee077e3d6/exec-41097377-d029-4b58-bc6e-34185b72395d.png",
+          "defaultGeneratedSha256": "4c4f49b7e87f343d2bde926f547608cfe7a20f9b5170b350ba5c7f7838cfbff3",
+          "reason": "One tiny spectacle ring remained beside owl beak; repaired with one targeted built-in edit."
+        }
+      ],
+      "candidateReview": {
+        "reviewer": "Codex AI subagent present_download",
+        "humanReview": false,
+        "originalOpened": true,
+        "fullSizeSelectedReview": "Saved 1672x941 PNG opened through view_image with original detail and inspected.",
+        "displaySizeReview": "Six-image sequence reviewed in derived 800px-wide preview (tool rendered 607px wide); no app/browser execution claimed.",
+        "decision": "accepted candidate for independent parent review",
+        "observations": [
+          "Initial output retained one tiny ring; targeted second built-in edit removes it.",
+          "Burrow gold glasses preserved; five cast members, twelve planting mounds and watering action retained."
+        ]
+      },
+      "original": {
+        "gitRevision": "fe46cf529b0584e34aec88030471ba753e2eae58",
+        "gitPath": "public/guided-reading/series/moonwood-tales/book-10/page-013.webp",
+        "sha256": "1f90e8897c17e25b1c010b9d21a1374f1643a4b79009b3e2d6404d85cc374289",
+        "bytes": 359394,
+        "width": 1672,
+        "height": 941,
+        "recovery": "git show fe46cf529b0584e34aec88030471ba753e2eae58:public/guided-reading/series/moonwood-tales/book-10/page-013.webp"
+      },
+      "displayedText": "Before sunset, the friends planted all twelve seeds in a wide ring around Hollow Oak. They covered each hole gently and watered the dark soil.",
+      "displayedTextSha256": "b1b292e71f18d904a78f233e31c8bc86da8554edc3ec15e87fdce8ac889597a5",
+      "output": {
+        "publicPath": "/guided-reading/series/moonwood-tales/book-10/page-013.webp",
+        "sha256": "7f5365fc89c35f13d6015981c0b15524e2bc2479aca876bdfec4348d7a5cede0",
+        "bytes": 379368,
+        "width": 1672,
+        "height": 941,
+        "format": "webp",
+        "encoding": {
+          "quality": 92,
+          "effort": 6,
+          "fit": "inside",
+          "withoutEnlargement": true,
+          "crop": false,
+          "distortion": false
+        }
+      },
+      "finalReview": {
+        "status": "accepted",
+        "reviewer": "Codex AI subagent present_download",
+        "humanReview": false,
+        "fullSizeMethod": "Final installed WebP opened with view_image original; inspected subjects/background, anatomy, props, counts, style and framing.",
+        "sequenceMethod": "Complete ordered book including final cover/pages and unchanged current prose screened on saved labelled contact sheet; all changed assets separately inspected at native size.",
+        "observations": [
+          "No owl spectacle remnants after targeted second edit. Burrow keeps large gold glasses.",
+          "Five cast members remain; twelve visible soil mounds and watering action preserve planting count and natural contact."
+        ]
+      }
+    },
+    {
+      "key": "luna-page-14",
+      "bookId": "moonwood-tales-c-10",
+      "title": "What Luna Forgot",
+      "page": 14,
+      "target": "public/guided-reading/series/moonwood-tales/book-10/page-014.webp",
+      "selectedPath": ".artifacts/library-suitability-audit/shard-3/art-candidates/luna-page-14.png",
+      "expectedOriginalSha256": "d603a5dca9f054cb5dc022c2e6b7c8c05ac0564294ef7d706471a6d697677e80",
+      "expectedSelectedSha256": "05e834b77baf12f6bb31b61cc06ed9bb9de0f2f4a5b92691edd6893cf8a1e97f",
+      "generationChain": [
+        {
+          "provider": "built-in image_gen",
+          "prompt": "Use case: precise-object-edit. This is an edit target: the supplied complete page 14 illustration from the children's story What Luna Forgot. Make one very small localized correction only: remove the tiny round GOLD EYEGLASS FRAMES and connecting bridge from the OWL LUNA's face. Luna is the navy/slate owl with cream face/chest and naturally golden irises. The tiny gold rings low beside her orange beak are spectacles and must disappear. Restore the natural cream feathers and orange beak contours where the frames were. Preserve the owl's large golden eyes, black pupil/iris outlines, gaze, expression, beak, feather edges, natural wings, feet and pose exactly.  Preserve ALL other characters, objects, seed counts, box, list symbols, background, lighting, spatial composition, canvas proportions, crisp black outlines, flat bright colors and smooth cel shading. Do not redraw or restyle the scene, add objects, human hands, text, borders or watermarks. Keep the entire original landscape framing. Output the same complete page with only the owl's tiny spectacles removed.",
+          "referencedImagePaths": [
+            "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/series/moonwood-tales/book-10/page-014.webp"
+          ],
+          "defaultGeneratedPath": "/Users/benjaminbowler/.codex/generated_images/01a1c3ee-e610-7d22-ad30-a2bee077e3d6/exec-0b9777c0-6d26-4024-b654-12ab625827d7.png",
+          "defaultGeneratedSha256": "05e834b77baf12f6bb31b61cc06ed9bb9de0f2f4a5b92691edd6893cf8a1e97f"
+        }
+      ],
+      "candidateReview": {
+        "reviewer": "Codex AI subagent present_download",
+        "humanReview": false,
+        "originalOpened": true,
+        "fullSizeSelectedReview": "Saved 1672x941 PNG opened through view_image with original detail and inspected.",
+        "displaySizeReview": "Six-image sequence reviewed in derived 800px-wide preview (tool rendered 607px wide); no app/browser execution claimed.",
+        "decision": "accepted candidate for independent parent review",
+        "observations": [
+          "Owl frames removed; golden eyes, beak, two wings/feet and settled pose preserved.",
+          "Dusk, twelve soil mounds, illuminated windows and complete landscape framing retained."
+        ]
+      },
+      "original": {
+        "gitRevision": "fe46cf529b0584e34aec88030471ba753e2eae58",
+        "gitPath": "public/guided-reading/series/moonwood-tales/book-10/page-014.webp",
+        "sha256": "d603a5dca9f054cb5dc022c2e6b7c8c05ac0564294ef7d706471a6d697677e80",
+        "bytes": 310676,
+        "width": 1672,
+        "height": 941,
+        "recovery": "git show fe46cf529b0584e34aec88030471ba753e2eae58:public/guided-reading/series/moonwood-tales/book-10/page-014.webp"
+      },
+      "displayedText": "Luna settled beside the last small mound. Above her, the old leaves rustled; below, twelve seeds rested in damp soil. She listened until the light left the clearing.",
+      "displayedTextSha256": "00a10daa0b4a71d169f0d4ff8aa10c20a1f3b5a75daf5345a9e25fc1cdf5cc1a",
+      "output": {
+        "publicPath": "/guided-reading/series/moonwood-tales/book-10/page-014.webp",
+        "sha256": "6f83751e8e4ae718b8aca1249d93a3a0d15670144d7a2ea0177040114510dab9",
+        "bytes": 342528,
+        "width": 1672,
+        "height": 941,
+        "format": "webp",
+        "encoding": {
+          "quality": 92,
+          "effort": 6,
+          "fit": "inside",
+          "withoutEnlargement": true,
+          "crop": false,
+          "distortion": false
+        }
+      },
+      "finalReview": {
+        "status": "accepted",
+        "reviewer": "Codex AI subagent present_download",
+        "humanReview": false,
+        "fullSizeMethod": "Final installed WebP opened with view_image original; inspected subjects/background, anatomy, props, counts, style and framing.",
+        "sequenceMethod": "Complete ordered book including final cover/pages and unchanged current prose screened on saved labelled contact sheet; all changed assets separately inspected at native size.",
+        "observations": [
+          "No owl glasses; natural slate owl, golden eyes, beak, wings and feet remain.",
+          "Twelve visible mounds, dusk progression, oak/windows and quiet settled ending preserved."
+        ]
+      }
+    },
+    {
+      "key": "school-note-page-08",
+      "bookId": "ab-c-01",
+      "title": "Aiden and Betty Start Grade 1",
+      "page": 8,
+      "target": "public/guided-reading/series/aiden-and-betty/book-01/page-008.webp",
+      "selectedPath": "/Users/benjaminbowler/.codex/generated_images/01a1c3ed-c928-70e2-a423-68d0aaffd69c/exec-1d6d52b9-80f3-4b05-b99b-efeede6af763.png",
+      "expectedOriginalSha256": "b11f90754a3e9235a94319a6ccaa1ca4683f9c50187121437005c11ff8301d38",
+      "expectedSelectedSha256": "ca8afe1659b95c0efa5e4c7cafe0796f8a01b96c86dc069843579fef7d3b7e69",
+      "generationChain": [
+        {
+          "provider": "built-in image_gen",
+          "prompt": "Edit the supplied finished early-reader page illustration. Preserve the exact two children and clothes, faces, normal anatomy, camera, classroom, table, lunchboxes, apple, bottle and food, clean crisp outlined flat-color cartoon style. Correct the sandwich/note action only. Aiden (blond boy, orange hoodie) is lifting ONE COMPLETE SANDWICH with both bread slices and filling together in his left hand, just above his open BLUE lunchbox, while retaining the ONE red apple in his right hand. Do not separate the bread slices or put any paper between bread and filling. A small rectangular white note lies flat ON THE BOTTOM OF THE LUNCHBOX underneath where the complete sandwich had rested. The note is now visible below the lifted intact sandwich. Print exactly this message on the note, in large plain dark handwriting across three short clear lines: Keep trying. / I love / you! The slashes mean line breaks, do not draw slashes. Keep all six words and punctuation legible, no invented words. Aiden smiles at Mom's encouraging note; Betty (brown bob, blue headband, teal shirt, white overalls) smiles beside him. Do not add any other lettering, labels, notes, hearts, hands, limbs, utensils or food. No text anywhere except those exact words on the single note. Keep scene geometry and all other details unchanged.",
+          "referencedImagePaths": [
+            "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/series/aiden-and-betty/book-01/page-008.webp"
+          ],
+          "defaultGeneratedPath": "/Users/benjaminbowler/.codex/generated_images/01a1c3ed-c928-70e2-a423-68d0aaffd69c/exec-1d6d52b9-80f3-4b05-b99b-efeede6af763.png",
+          "defaultGeneratedSha256": "ca8afe1659b95c0efa5e4c7cafe0796f8a01b96c86dc069843579fef7d3b7e69",
+          "inputReceipt": ".artifacts/library-suitability-audit/school-note-gen-input.json",
+          "inputReceiptSha256": "31ee007f659f942ebda0d6fa20617da3901fa482ee58ce6f016a5e084d11cb47"
+        }
+      ],
+      "candidateReview": {
+        "id": "ab-c-01",
+        "title": "Aiden and Betty Start Grade 1",
+        "page": 8,
+        "original": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/series/aiden-and-betty/book-01/page-008.webp",
+        "candidate": "/Users/benjaminbowler/.codex/generated_images/01a1c3ed-c928-70e2-a423-68d0aaffd69c/exec-1d6d52b9-80f3-4b05-b99b-efeede6af763.png",
+        "decision": "accept source candidate",
+        "exactText": "At lunch, Aiden found Mom’s note under his sandwich. It said, “Keep trying. I love you!” Aiden smiled.",
+        "checks": {
+          "wholeIntactSandwichRaised": true,
+          "singleApple": true,
+          "noteAtLunchboxBottom": true,
+          "noteOutsideBread": true,
+          "noteTextExactIgnoringLineBreaks": true,
+          "normalTwoArmsHands": true,
+          "establishedCastClothingAndClassroom": true
+        },
+        "observations": "Aiden holds a complete closed two-slice sandwich above the open blue lunchbox, with filling between its slices. One red apple is held in his other hand. Separate white note lies at the box bottom below the lifted sandwich, visibly reads Keep trying. I love you! across line breaks. Betty remains seated beside him. No extra arms, detached hands or food duplication seen. This repairs the original note lying between bread slices.",
+        "theme": "Ordinary parental encouragement in explicit Mom note; no newly introduced religious, political or sexual-identity reference.",
+        "method": "AI direct native inspection using view_image original for both original WebP and proposed native PNG",
+        "originalSha256": "b11f90754a3e9235a94319a6ccaa1ca4683f9c50187121437005c11ff8301d38",
+        "candidateSha256": "ca8afe1659b95c0efa5e4c7cafe0796f8a01b96c86dc069843579fef7d3b7e69"
+      },
+      "original": {
+        "gitRevision": "fe46cf529b0584e34aec88030471ba753e2eae58",
+        "gitPath": "public/guided-reading/series/aiden-and-betty/book-01/page-008.webp",
+        "sha256": "b11f90754a3e9235a94319a6ccaa1ca4683f9c50187121437005c11ff8301d38",
+        "bytes": 186306,
+        "width": 1376,
+        "height": 768,
+        "recovery": "git show fe46cf529b0584e34aec88030471ba753e2eae58:public/guided-reading/series/aiden-and-betty/book-01/page-008.webp"
+      },
+      "displayedText": "At lunch, Aiden found Mom’s note under his sandwich. It said, “Keep trying. I love you!” Aiden smiled.",
+      "displayedTextSha256": "f53867b56d76d092abfc2f7f71e2709ec307001997db6b60e9195da89ca7a3cf",
+      "output": {
+        "publicPath": "/guided-reading/series/aiden-and-betty/book-01/page-008.webp",
+        "sha256": "a6b9d6a4cab89972e526cdaf05afce965d0167e9b2a78a081f345f30c4a61ad2",
+        "bytes": 178750,
+        "width": 1376,
+        "height": 768,
+        "format": "webp",
+        "encoding": {
+          "quality": 92,
+          "effort": 6,
+          "fit": "inside",
+          "withoutEnlargement": true,
+          "crop": false,
+          "distortion": false
+        }
+      },
+      "finalReview": {
+        "status": "accepted",
+        "reviewer": "Codex AI subagent present_download",
+        "humanReview": false,
+        "fullSizeMethod": "Final installed WebP opened with view_image original; inspected subjects/background, anatomy, props, counts, style and framing.",
+        "sequenceMethod": "Complete ordered book including final cover/pages and unchanged current prose screened on saved labelled contact sheet; all changed assets separately inspected at native size.",
+        "observations": [
+          "One complete closed sandwich lifted above open blue box; separate note lies at box bottom under its former resting place; one apple remains in other hand.",
+          "Note reads exactly Keep trying. I love you! across three lines. Aiden/Betty, normal hands/arms, clothing, food and classroom retained; full thirteen-page school-worry arc remains coherent."
+        ]
+      }
+    },
+    {
+      "key": "big-small-cover",
+      "bookId": "first-facts-a-13-big-and-small",
+      "title": "Big and Small",
+      "page": "cover",
+      "target": "public/guided-reading/nonfiction/first-facts/book-13/cover.webp",
+      "selectedPath": "/Users/benjaminbowler/.codex/generated_images/01a1c3ed-c928-70e2-a423-68d0aaffd69c/exec-18d9c968-9bc9-4a2c-a15d-a91cc858a77e.png",
+      "expectedOriginalSha256": "99371487beca311af8c380ea68cf21e6fb4ea8e96a9b88f9249c628a75db16bd",
+      "expectedSelectedSha256": "3ff1a0a640d7ad91b303768919f38da4102d35e88253787a33ccee634f1606c1",
+      "generationChain": [
+        {
+          "provider": "built-in image_gen",
+          "prompt": "Edit this finished nonfiction cover with one correction only: remove the Sun's two eyes, mouth/smile and pink cheek spots, leaving a plain faceless yellow circular Sun with its existing orange rim and rays. Preserve ALL other image content exactly: big blue elephant, small gray mouse, their expressions, scale difference, positions, elephant orange bandana, grass, flowers, trees, sky, cloud silhouettes, path, birds, landscape framing and crisp clean outlined flat-color cartoon style. Do not change animal anatomy, add faces to other scenery, add lettering or symbols, or add/remove any other objects. Keep the same landscape canvas and composition. The result must be picture only, with no text, title, badges or watermark.",
+          "referencedImagePaths": [
+            "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/nonfiction/first-facts/book-13/cover.webp"
+          ],
+          "defaultGeneratedPath": "/Users/benjaminbowler/.codex/generated_images/01a1c3ed-c928-70e2-a423-68d0aaffd69c/exec-18d9c968-9bc9-4a2c-a15d-a91cc858a77e.png",
+          "defaultGeneratedSha256": "3ff1a0a640d7ad91b303768919f38da4102d35e88253787a33ccee634f1606c1",
+          "inputReceipt": ".artifacts/library-suitability-audit/big-small-gen-input.json",
+          "inputReceiptSha256": "bf087672a738b6fc05095d72eec279c58d937a30088a0afe9c0aa5bd7475ae92"
+        }
+      ],
+      "candidateReview": {
+        "id": "first-facts-a-13-big-and-small",
+        "title": "Big and Small",
+        "page": "cover",
+        "original": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/nonfiction/first-facts/book-13/cover.webp",
+        "candidate": "/Users/benjaminbowler/.codex/generated_images/01a1c3ed-c928-70e2-a423-68d0aaffd69c/exec-18d9c968-9bc9-4a2c-a15d-a91cc858a77e.png",
+        "decision": "accept source candidate",
+        "checks": {
+          "sunHasNoFace": true,
+          "largeElephantAndSmallMousePreserved": true,
+          "sharedGroundAndScaleComparison": true,
+          "sameBandanaFloraTreesBirdsClouds": true,
+          "noNewObjectOrTheme": true
+        },
+        "observations": "Sun is a plain yellow disk with orange outline/rays. Large blue elephant and much smaller gray mouse retain the same shared ground, side-by-side size evidence, friendly poses and established decorative orange bandana. Trees, flowers, birds, clouds and path remain semantically consistent. This is semantic visual preservation, not a claim that generated pixels outside the Sun are byte-identical or that the two files have identical resolution.",
+        "theme": "Ordinary object/animal size comparison. Existing small curved motifs on orange bandana are decoration; no flag, observance, advocacy or explicit identity theme introduced.",
+        "method": "AI direct native inspection using view_image original for both original WebP and proposed native PNG",
+        "originalSha256": "99371487beca311af8c380ea68cf21e6fb4ea8e96a9b88f9249c628a75db16bd",
+        "candidateSha256": "3ff1a0a640d7ad91b303768919f38da4102d35e88253787a33ccee634f1606c1"
+      },
+      "original": {
+        "gitRevision": "fe46cf529b0584e34aec88030471ba753e2eae58",
+        "gitPath": "public/guided-reading/nonfiction/first-facts/book-13/cover.webp",
+        "sha256": "99371487beca311af8c380ea68cf21e6fb4ea8e96a9b88f9249c628a75db16bd",
+        "bytes": 93426,
+        "width": 1376,
+        "height": 768,
+        "recovery": "git show fe46cf529b0584e34aec88030471ba753e2eae58:public/guided-reading/nonfiction/first-facts/book-13/cover.webp"
+      },
+      "displayedText": "Big and Small",
+      "displayedTextSha256": "620e30b3c02fded2fdcf484158d5582464cb71135f6de35aeaa9caab31e551ff",
+      "previousCard": {
+        "src": "/guided-reading/card-covers/80afdbc43f5535f38f75e277.webp",
+        "sourceSha256": "99371487beca311af8c380ea68cf21e6fb4ea8e96a9b88f9249c628a75db16bd",
+        "deliverySha256": "80afdbc43f5535f38f75e277fd862bb48d984e57c78a57f1de2e1eb4d9ed4d50",
+        "sourceWidth": 1376,
+        "sourceHeight": 768,
+        "width": 512,
+        "height": 286,
+        "bytes": 29496
+      },
+      "output": {
+        "publicPath": "/guided-reading/nonfiction/first-facts/book-13/cover.webp",
+        "sha256": "66671985f3984f5d87ebe363b5b262497855e306263f7b50cfe454d0f4652a42",
+        "bytes": 107834,
+        "width": 1376,
+        "height": 768,
+        "format": "webp",
+        "encoding": {
+          "quality": 92,
+          "effort": 6,
+          "fit": "inside",
+          "withoutEnlargement": true,
+          "crop": false,
+          "distortion": false
+        }
+      },
+      "card": {
+        "src": "/guided-reading/card-covers/ee055aa0abbb3f8b9212d41d.webp",
+        "sourceSha256": "66671985f3984f5d87ebe363b5b262497855e306263f7b50cfe454d0f4652a42",
+        "deliverySha256": "ee055aa0abbb3f8b9212d41d8f93bc7eca18f30ed37536c8651bb2653e5b8fb6",
+        "sourceWidth": 1376,
+        "sourceHeight": 768,
+        "width": 512,
+        "height": 286,
+        "bytes": 29528
+      },
+      "finalReview": {
+        "status": "accepted",
+        "reviewer": "Codex AI subagent present_download",
+        "humanReview": false,
+        "fullSizeMethod": "Final installed WebP opened with view_image original; inspected subjects/background, anatomy, props, counts, style and framing.",
+        "sequenceMethod": "Complete ordered book including final cover/pages and unchanged current prose screened on saved labelled contact sheet; all changed assets separately inspected at native size.",
+        "observations": [
+          "Sun face removed; large elephant and much smaller mouse share ground, with established animal identities, bandana and landscape preserved.",
+          "Fits unchanged relative-size comparison sequence."
+        ]
+      }
+    }
+  ],
+  "cards": {
+    "algorithm": "Exact512pxinside/WebP92/effort6 from tools/buildGuidedReadingCoverRenditions.mjs, scoped to six changed covers.",
+    "manifest": "src/data/generated/guidedReadingCoverRenditions.generated.js",
+    "manifestBeforeSha256": "7abf53080cbf05de61ad7211175573c07f6285c6718604b8c16cd7478082fbff",
+    "manifestAfterSha256": "3b6f0ef5f3f9570fa4b5d7c795057f547aa2bcf3bb83eab1fa262f1a2b5f87b0",
+    "changedSources": [
+      "/guided-reading/nonfiction/first-facts-level-a/book-01/cover.webp",
+      "/guided-reading/nonfiction/first-facts-level-a/book-18/cover.webp",
+      "/guided-reading/nonfiction/first-facts/book-08/cover.webp",
+      "/guided-reading/nonfiction/first-facts/book-13/cover.webp",
+      "/guided-reading/nonfiction/level-c/book-05/cover.webp",
+      "/guided-reading/regen/covers/gr-d-42-cover.webp"
+    ],
+    "unrelatedEntriesPreserved": true,
+    "entries": [
+      {
+        "source": "/guided-reading/regen/covers/gr-d-42-cover.webp",
+        "previous": {
+          "src": "/guided-reading/card-covers/4859efa0728daf15f730d6de.webp",
+          "sourceSha256": "d226136f306bb4b48c700a5548478a75f8e491ca25e48d4622906706e5d17dee",
+          "deliverySha256": "4859efa0728daf15f730d6de5f3db842d785d6dacea72182cbfa3beb1da467e5",
+          "sourceWidth": 864,
+          "sourceHeight": 1184,
+          "width": 374,
+          "height": 512,
+          "bytes": 44348
+        },
+        "current": {
+          "src": "/guided-reading/card-covers/c253e9350a1febfbbf842d16.webp",
+          "sourceSha256": "3b1a4272fb26594ba7513894350c8ec1b99b8c1ed4b0a22140d3c6cd632653ab",
+          "deliverySha256": "c253e9350a1febfbbf842d165288f7d9ad5b7f741f191f827ecec27c8d8a675e",
+          "sourceWidth": 864,
+          "sourceHeight": 1184,
+          "width": 374,
+          "height": 512,
+          "bytes": 52646
+        }
+      },
+      {
+        "source": "/guided-reading/nonfiction/first-facts-level-a/book-01/cover.webp",
+        "previous": {
+          "src": "/guided-reading/card-covers/25af4a6edadfb03936d101f6.webp",
+          "sourceSha256": "6521ffff3f523517ec803176b0e230cdb7c6334e1c1bd34dbc4ac8f32756df61",
+          "deliverySha256": "25af4a6edadfb03936d101f69a68bb7fb0b8e3496652a124cf7913139d6e7eab",
+          "sourceWidth": 2752,
+          "sourceHeight": 1536,
+          "width": 512,
+          "height": 286,
+          "bytes": 24642
+        },
+        "current": {
+          "src": "/guided-reading/card-covers/7632a7fec229ac4b2bba0e10.webp",
+          "sourceSha256": "d02d892aab04b6d500496843677261521eefd58868501d2e7d72be4faced0f3d",
+          "deliverySha256": "7632a7fec229ac4b2bba0e100cf09fdb7b806a71e930436a454b886968615e3a",
+          "sourceWidth": 1678,
+          "sourceHeight": 937,
+          "width": 512,
+          "height": 286,
+          "bytes": 23708
+        }
+      },
+      {
+        "source": "/guided-reading/nonfiction/first-facts-level-a/book-18/cover.webp",
+        "previous": {
+          "src": "/guided-reading/card-covers/339e55f22b82435ca56cde57.webp",
+          "sourceSha256": "6132d925dcfe5783706f5b100ec289c0bda137c1e637055d7b1e993414fbe7cb",
+          "deliverySha256": "339e55f22b82435ca56cde5784e81772e73ae4ff45338d5f893b56d20b4e3f7e",
+          "sourceWidth": 2752,
+          "sourceHeight": 1536,
+          "width": 512,
+          "height": 286,
+          "bytes": 37870
+        },
+        "current": {
+          "src": "/guided-reading/card-covers/a73bf4b2d0b51390fbc04885.webp",
+          "sourceSha256": "26697fd9424b2500c95a1d66e7a0a7ed1bb7e2a88a019dafd0c24aaf3d70a88c",
+          "deliverySha256": "a73bf4b2d0b51390fbc04885fac102e97f3f80b5b57083c79b7a820fd2a056e6",
+          "sourceWidth": 1678,
+          "sourceHeight": 937,
+          "width": 512,
+          "height": 286,
+          "bytes": 37576
+        }
+      },
+      {
+        "source": "/guided-reading/nonfiction/first-facts/book-08/cover.webp",
+        "previous": {
+          "src": "/guided-reading/card-covers/a053ccfa8d2c2ba003636df5.webp",
+          "sourceSha256": "bd5bfff0f8bb75bfc82d2c7c79ce9205799bc0f8d9e968d361f4f8df1c824342",
+          "deliverySha256": "a053ccfa8d2c2ba003636df51e29cf5f4c391008adbf56c3a70a4688fd665472",
+          "sourceWidth": 1376,
+          "sourceHeight": 768,
+          "width": 512,
+          "height": 286,
+          "bytes": 51842
+        },
+        "current": {
+          "src": "/guided-reading/card-covers/e0fc856876f8b3eb535e3384.webp",
+          "sourceSha256": "bffc61c5295df9a2e45589bb41bc76f02faf5a432f508245ad967140f76205e5",
+          "deliverySha256": "e0fc856876f8b3eb535e338498599c8b1d6d0ade6493c46dc2d24e0d2004a000",
+          "sourceWidth": 1376,
+          "sourceHeight": 768,
+          "width": 512,
+          "height": 286,
+          "bytes": 49866
+        }
+      },
+      {
+        "source": "/guided-reading/nonfiction/level-c/book-05/cover.webp",
+        "previous": {
+          "src": "/guided-reading/card-covers/76020f55b2c98a8fcb3082fa.webp",
+          "sourceSha256": "9146060e3ea3acb52fa0c36c6f17da54b0c3c6c216bc06490ceaa1d071d3b6ad",
+          "deliverySha256": "76020f55b2c98a8fcb3082fa8af93ce69516c42933f94977be97938d32bdcd78",
+          "sourceWidth": 1376,
+          "sourceHeight": 768,
+          "width": 512,
+          "height": 286,
+          "bytes": 60060
+        },
+        "current": {
+          "src": "/guided-reading/card-covers/82dfced346cc4e1b89bcd09b.webp",
+          "sourceSha256": "2b900ac87adebd59a656ade8e583e8d8a529019594201e4b9f46525999791448",
+          "deliverySha256": "82dfced346cc4e1b89bcd09b811349f4d1ff372cd900d1b7fdf5ac5d2f361881",
+          "sourceWidth": 1365,
+          "sourceHeight": 768,
+          "width": 512,
+          "height": 288,
+          "bytes": 38564
+        }
+      },
+      {
+        "source": "/guided-reading/nonfiction/first-facts/book-13/cover.webp",
+        "previous": {
+          "src": "/guided-reading/card-covers/80afdbc43f5535f38f75e277.webp",
+          "sourceSha256": "99371487beca311af8c380ea68cf21e6fb4ea8e96a9b88f9249c628a75db16bd",
+          "deliverySha256": "80afdbc43f5535f38f75e277fd862bb48d984e57c78a57f1de2e1eb4d9ed4d50",
+          "sourceWidth": 1376,
+          "sourceHeight": 768,
+          "width": 512,
+          "height": 286,
+          "bytes": 29496
+        },
+        "current": {
+          "src": "/guided-reading/card-covers/ee055aa0abbb3f8b9212d41d.webp",
+          "sourceSha256": "66671985f3984f5d87ebe363b5b262497855e306263f7b50cfe454d0f4652a42",
+          "deliverySha256": "ee055aa0abbb3f8b9212d41d8f93bc7eca18f30ed37536c8651bb2653e5b8fb6",
+          "sourceWidth": 1376,
+          "sourceHeight": 768,
+          "width": 512,
+          "height": 286,
+          "bytes": 29528
+        }
+      }
+    ],
+    "finalReview": {
+      "status": "accepted",
+      "humanReview": false,
+      "method": "All six final512pxWebPdeliveries opened with view_image original; uncropped subjects/composition retain canonical repair meaning."
+    }
+  },
+  "reviewsReferenced": [
+    {
+      "path": ".artifacts/library-suitability-audit/shard-2/final-art-candidate-adjudication.json",
+      "sha256": "042443e0c25494df45fc439e0641a421c6da2f5ba824ce9cb5df4b507688024e"
+    },
+    {
+      "path": ".artifacts/library-suitability-audit/shard-2/ocean-octopus-native-adjudication.json",
+      "sha256": "aae85af8ef65107e585720959ffb8118768adf9b62adce3cae59dffae645d8ff"
+    },
+    {
+      "path": ".artifacts/library-suitability-audit/shard-3/art-candidates/receipts.json",
+      "sha256": "fc35c1126e4c720a081ba646f8f1403eacb476bf0b7e7b39207d520001dc4941"
+    },
+    {
+      "path": ".artifacts/library-suitability-audit/shard-3/art-candidates/luna-receipts.json",
+      "sha256": "d9bccab8971c2b0b6de7e71d7ae1f34453d3d4e2ce96f3c1fe64f47613b5cf59"
+    }
+  ],
+  "limits": "No human review, listening, physical-device or hosted verification claimed; shared source/visual/cache/narration/index/review ledgers left to parent.",
+  "cleanup": {
+    "supersededCardPaths": [
+      "public/guided-reading/card-covers/4859efa0728daf15f730d6de.webp",
+      "public/guided-reading/card-covers/25af4a6edadfb03936d101f6.webp",
+      "public/guided-reading/card-covers/339e55f22b82435ca56cde57.webp",
+      "public/guided-reading/card-covers/a053ccfa8d2c2ba003636df5.webp",
+      "public/guided-reading/card-covers/76020f55b2c98a8fcb3082fa.webp",
+      "public/guided-reading/card-covers/80afdbc43f5535f38f75e277.webp"
+    ],
+    "status": "pending exact source-reference and supersession proof before disposal"
+  },
+  "reviewedAt": "2026-11-10T22:10:52.334Z",
+  "sequenceReview": {
+    "index": ".artifacts/library-suitability-audit/shard-3/installed-sequences/index.json",
+    "indexSha256": "f89415fdd8f6f2a87f7b4e929d31b6d529dbf30519363dbef360cbcfbfa014a4",
+    "books": 8,
+    "orderedStoryPages": 70,
+    "covers": 8,
+    "totalImagesScreened": 78,
+    "sheets": [
+      {
+        "bookId": "gr-d-42",
+        "path": ".artifacts/library-suitability-audit/shard-3/installed-sequences/gr-d-42.jpg",
+        "sha256": "116e5e568dea2a12cc04b82b848899518c91338c6fae7dcbe52da8b1bdb4cc2f",
+        "images": 7
+      },
+      {
+        "bookId": "first-facts-level-a-01-colors",
+        "path": ".artifacts/library-suitability-audit/shard-3/installed-sequences/first-facts-level-a-01-colors.jpg",
+        "sha256": "b425c255b4b4bf8951ba7d7c3eb20ff3237d29ff5363a366cdcedd1a446632a0",
+        "images": 8
+      },
+      {
+        "bookId": "first-facts-level-a-18-my-body",
+        "path": ".artifacts/library-suitability-audit/shard-3/installed-sequences/first-facts-level-a-18-my-body.jpg",
+        "sha256": "bbb227210441b317e4cebac952a2dcd9e1a69b00e132e60bbbafa1fe50246dc7",
+        "images": 8
+      },
+      {
+        "bookId": "first-facts-a-08-animals-in-the-ocean",
+        "path": ".artifacts/library-suitability-audit/shard-3/installed-sequences/first-facts-a-08-animals-in-the-ocean.jpg",
+        "sha256": "60b834839f189404883a8d373b07a86c8b8fa58515dd932f05af17536cb8144a",
+        "images": 9
+      },
+      {
+        "bookId": "first-facts-a-13-big-and-small",
+        "path": ".artifacts/library-suitability-audit/shard-3/installed-sequences/first-facts-a-13-big-and-small.jpg",
+        "sha256": "9c14654ae349846ca01b688e47bcb3c5ba77497f8dbd99dc7c0a34fc5cb92ac7",
+        "images": 7
+      },
+      {
+        "bookId": "level-c-nonfiction-05-how-seeds-grow",
+        "path": ".artifacts/library-suitability-audit/shard-3/installed-sequences/level-c-nonfiction-05-how-seeds-grow.jpg",
+        "sha256": "70c4a91ed68efc84c30aa8189a0d5b677bcfbe0a27337eab98767e03f9cbef68",
+        "images": 10
+      },
+      {
+        "bookId": "ab-c-01",
+        "path": ".artifacts/library-suitability-audit/shard-3/installed-sequences/ab-c-01.jpg",
+        "sha256": "38ab3476612ed86c8ff87bb6bc508ee92de4637ac5b58d3ff24edcb24cd0aa76",
+        "images": 14
+      },
+      {
+        "bookId": "moonwood-tales-c-10",
+        "path": ".artifacts/library-suitability-audit/shard-3/installed-sequences/moonwood-tales-c-10.jpg",
+        "sha256": "77d6b266ef55863520ab45e30415716833e4f8745d3acf9c9a87f3026f8a8ea5",
+        "images": 15
+      }
+    ],
+    "method": "AI direct original-detail sheet inspection; current full prose read alongside all ordered images. Not an all-native review of unchanged pages.",
+    "currentTextUnchanged": true
+  },
+  "requiredParentSynchronization": [
+    "School page8 embeddedImageText exact text Keep trying. I love you!",
+    "Shared app visual/cache/index/review ledgers must bind exact current output hashes; no source prose/title/audio changes required for these thirteen images."
+  ]
+}

@@ -2,27 +2,23 @@
   "bookId": "world-discovery-d-21",
   "slot": "cover",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-09T05:10:44.613Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-4ac7f4a1-f783-4ccf-ae7f-ba3092347591.png",
-  "sourceSha256": "13fceff8ee6d5375c0890ee37dd6ab6cdb663df90ec212e1ae259e2d665afb51",
+  "generatedAt": "2026-11-10T06:46:40.337Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1c3ef-11ed-7331-8274-1234bc3e482f/exec-b22d1c82-042c-4fb1-ad93-3d61e5a3613d.png",
+  "sourceSha256": "086a701c92b11d3b70ae64f14d16e256409c7e385ada51205951d29e27b7fc69",
   "output": "public/guided-reading/world-discovery/d-21/cover.webp",
-  "outputSha256": "e849be4c5fec53024c3149b7db1d178757dbb8f887de93a7aecbe8228153a1c9",
+  "outputSha256": "21da91ac71c36b8b73f5260b3d3a206a74c5ff352623f671caa4d1ecebc68b66",
   "width": 1536,
   "height": 1024,
-  "prompt": "Correct the first image's crane and container geometry only. The front cargo-door end spans from the leftmost top corner to the central top corner directly over the vertical line where the two-door end meets the long corrugated side. The near left lifting foot MUST sit exactly on that central corner, NOT over a point in the middle of the top edge of a cargo door. Move that foot and that end of the long near yellow rail rightward to the central top corner. Show the orange roof clearly as a narrow perspective parallelogram. Its four corners have four metal corner castings; make a rectangular yellow spreader directly over that same four-corner parallelogram, with one short vertical connector into each corner. The near rail spans the full corrugated long side between its two upper corners; the far rail is behind it, offset left in perspective by the width of the cargo-door end. The second image shows a physically clearer four-corner spreader for guidance. Preserve the port, moored ship, completely empty quay, single orange container hanging level with closed doors and one blue square on the LEFT cargo door, and clean outlined flat cartoon style. No people, lettering, extra markers, chains or changes to other objects. Do not repeat the erroneous middle-of-door attachment from the first image. One finished landscape 3:2 cover.",
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one explanatory comparison diagram. Allow only the distinct views, stages or comparison panels explicitly authored in this page's illustration brief, with their exact relationships and counts. No unrequested panels, insets, annotations or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Gasoline and Electric Cars; World Discovery; nonfiction.\nSetting: Ordinary contemporary civilian cars on a calm road and at separate safe service areas. Gasoline car is orange with dark gray roof and one rear exhaust pipe. All-electric car is teal with light gray roof and no exhaust pipe. Same proportions but different colors keep referents clear. Each car has four road wheels. Cutaways are explicitly diagrams; adults handle fuel and charging. No brands, flags or political messages.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Orange gasoline sedan, gray engine under front hood, fuel tank near rear and exhaust pipe at rear; Teal all-electric sedan, large flat battery beneath passenger floor and motor near rear axle, no fuel tank or exhaust; Unbranded fuel pump with hose and separate charging post with cable\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and specific stages explicitly required below; the declared diagram permits no other scenes or story events.\nDedicated cover art: Two-part comparison diagram shows complete orange gasoline car at left with a clean side cutaway exposing engine, fuel tank and drive connection; complete teal all-electric car at right with battery pack and motor. Match wheel geometry. Each system remains inside its own car. No words, numbers or arrows.\nDo not add events or stages beyond the authored diagram. Repeat a subject only when the authored comparison or cutaway requires it. No written title; the app renders live text.\nFraming clarification: Keep every entire aircraft/car and its required teaching parts completely within the inner 84 percent of the canvas, leaving at least 8 percent clear background margin on ALL sides. Nothing essential touches or approaches the picture edge.\nPhysical-logic clarification: The gasoline fuel tank has one THIN fuel line running to the FRONT engine. The exhaust is a DIFFERENT pipe, originating at the ENGINE and running underneath the car to ONE rear outlet. The exhaust never starts at or passes through the fuel tank. Mechanical drive connection is distinct from both the fuel line and exhaust. No pipe connects the two cars. The teal all-electric car has no exhaust outlet, no fuel tank and no combustion engine.",
   "references": [
     {
-      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-8cd7e30f-2bb8-40e4-9d52-8293ddbe15c2.png",
-      "sha256": "4fadd86c9e6ad07329d2dcca022bbb70751bc0db4a66ba5ed2fc9bcbc11b0528"
-    },
-    {
-      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-54cf0ecf-5828-4905-8a12-499200c482f2.png",
-      "sha256": "abdd92b6a52228fe5d32b594a36aceeac9ec107aa6cb6f384b791505d62627d2"
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-21-reference.webp",
+      "sha256": "12bdcf040d47f4dd39cd88921ed1aecf52635f88a3fbe71a8a71e715ad895ad4"
     }
   ],
   "manuscriptSource": {
-    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
-    "sha256": "4cd850616c2e31aecc557996032490d0fb984ea0f222fa11e0f2a878a417a9c7",
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/discovery-topic-revision/manuscripts",
+    "sha256": "7d1860e2dae10eae9a699a4df3ae5d6f56a9a9781a39f8c3d092049b64334db4",
     "isolated": true,
     "firstNumber": 21,
     "lastNumber": 30,
@@ -30,17 +26,26 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "date": "2026-11-09T14:07:15.492Z",
-    "sha256": "e849be4c5fec53024c3149b7db1d178757dbb8f887de93a7aecbe8228153a1c9",
-    "note": "Direct image inspection: corrected rectangular spreader now meets four roof corners, near foot at door/side junction; closed level container and single left-door blue marker preserved; empty quay beneath load, moored ship, no people or text.",
-    "reviewer": "/root/gap_taxonomy",
-    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
-    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+    "reviewedAt": "2026-11-10",
+    "sha256": "21da91ac71c36b8b73f5260b3d3a206a74c5ff352623f671caa4d1ecebc68b66",
+    "note": "Actual installed cover stacks two left-facing complete cutaway cars. Fuel tank is rear, engine front; teal battery lies under floor and electric motor is rear. Separate systems, no cross-car plumbing. Cover brief requires metadata-only reconciliation to this accepted layout. Producer independently inspected the final installed WebP natively; complete final sequence and relevant native diagrams were independently reviewed."
+  },
+  "promptProvenance": {
+    "status": "exact-submitted-prompt-recovered-from-completed-generation-event",
+    "evidenceFile": ".artifacts/discovery-topic-revision/d-cover-generation-event-recovery.json",
+    "rollout": "/Users/benjaminbowler/.codex/sessions/2026/11/10/rollout-2026-11-10T13-29-47-01a1c3ef-11ed-7331-8274-1234bc3e482f.jsonl",
+    "line": 487,
+    "generationId": "811126fb-7457-4f94-9f4f-6204c8e839a3",
+    "extensionId": "exec-b22d1c82-042c-4fb1-ad93-3d61e5a3613d",
+    "recoveredPromptSha256": "c558dc1bbee00bc054a28090e4795205c95cd6a1847d924efc9811d010b51b68",
+    "exactReconstructionEquality": true,
+    "referencesEqualGenerationEvent": true,
+    "sourceAndOutputHashesUnchanged": true
   },
   "reviewedManuscriptSource": {
     "bookId": "world-discovery-d-21",
     "path": "src/content/world-discovery/cohorts/21-30/level-d.json",
-    "sha256": "4cd850616c2e31aecc557996032490d0fb984ea0f222fa11e0f2a878a417a9c7",
-    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
+    "sha256": "98d098b7790b51f3544d7069a44403c5a1e9da9323808471ee96dc80f0033831",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json"
   }
 }

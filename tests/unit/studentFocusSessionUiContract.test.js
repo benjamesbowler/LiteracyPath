@@ -107,7 +107,8 @@ test("exact book focus resolves through the published entitled catalogue and fai
   assert.match(appSurface, /lockedBookId=\{assignedBookId\}/);
   assert.match(library, /filterPublishedGuidedReadingBooks\(runtimeBooks, quarantinedBookIds\)/);
   assert.match(library, /filterToEntitlement\(live, allowedBookIds/);
-  assert.match(library, /entitled\.filter\(book => book\.id === normalizedLockedBookId\)/);
+  assert.match(library, /entitled\.filter\(book => book\.id === normalizedLockedBookId && isGuidedReadingAssignmentCurrent\(book, lockedBookTitle\)\)/);
+  assert.match(appSurface, /lockedBookTitle=\{activeStudentFocus\?\.resolved_config\?\.book_title \|\| null\}/);
   assert.match(library, /exactBookLock \? normalizedLockedBookId : \(initialBookId \|\| ""\)/);
   assert.match(library, /data-assigned-content-unavailable=\{exactBookLock/);
 });

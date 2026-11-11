@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-11-11",
+  "priorFixtureSha256": "0da6a9a58e583affef1caf1796a1d715fa337f5f3acdb3b82de5040407e631b0",
+  "registration": "src/content/world-discovery/registrations/2026-11-11/01-10-grounding.json",
+  "completeBookReview": "source-art/world-discovery/remediation/2026-11-11/d04-complete-book-review.json",
+  "completeBookReviewSha256": "0c9dbf8e2b108cdb610f040e6dbeb4d817e010018ef469f59b0d38c0b1858192",
+  "scope": "Only D04 page 7/8 art and scene descriptions and their exact source/visual receipts. Prior order, all other runtime bindings and all audio/card/reference files and review rows remain frozen.",
+  "delta": {
+    "sourceFiles": {
+      "src/content/world-discovery/level-d.json": "aea1306338acd8ade81bf478fd409549fa0f312e5ff7628271d5670ac5e9c256",
+      "src/content/world-discovery/reviews.json": "d19bb2d71e7e5ac8fed71fc2ed5f38c3b9a4bad555791d54bd6d0dc0a8104b85"
+    },
+    "runtimeBindings": {
+      "world-discovery-d-04": "71b729741747ec4ea49c2978400b4db3303f4c0916a24ad91ca9b8d7d1c240b9"
+    },
+    "assets": {
+      "illustrations": {
+        "count": 490,
+        "pathAndByteManifestSha256": "506ab05d7f77e0c5ae0c259e82d73a276bccbddfbc40196c30840454082db0d1"
+      },
+      "receipts": {
+        "count": 540,
+        "pathAndByteManifestSha256": "cac6475a9d5c895b35988fde4ba7f678fb1c014875ddeb6ad730a5c445c7c471"
+      }
+    },
+    "sharedReviewRows": {
+      "appVisual": {
+        "count": 540,
+        "sha256": "bef2c7d4b78df3d6c921fba53f4d084073ccd7280e42fa29e26bf0006e342096"
+      },
+      "pageAlignment": {
+        "count": 440,
+        "sha256": "d8c6a2d71953dfec8b6f413c976ad1e61f4b9554bad84ee5fac400e6e849b626"
+      }
+    }
+  }
+}

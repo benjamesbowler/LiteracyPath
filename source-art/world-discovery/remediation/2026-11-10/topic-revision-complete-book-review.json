@@ -1,0 +1,476 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-11-10",
+  "scope": "Five authorized complete-topic replacements, with full exact prose, oral preparation/discussion, production references, covers and ordered final pages reviewed.",
+  "method": "Independent complete-manuscript review plus producer native image inspection and independent final ordered sequence/native teaching-diagram followups.",
+  "limits": "Automated exact-byte narration screening is separate from image/editorial review. No human listening, classroom or physical-device observation is claimed. Public level follows the independent manuscript review; production slots and public IDs remain stable.",
+  "books": [
+    {
+      "bookId": "world-discovery-b-21",
+      "title": "People Power",
+      "reviewedAt": "2026-11-10",
+      "reviewer": "Codex /root/book_audit, independent of B21 image production",
+      "method": "codex-independent-direct-ordered-sequence-plus-native-followup",
+      "textFingerprint": "fnv1a64:134409cd9ee3130c",
+      "sourceBookSha256": "664f916d1379302ae82b7a5dbf774413f4378508f9326855afd22b7b7086bbfc",
+      "fullTextPrepAndDiscussionReviewed": true,
+      "allReferencesCoversAndPagesReviewed": true,
+      "assets": [
+        {
+          "slot": "reference",
+          "path": "source-art/world-discovery/b-21-reference.webp",
+          "sha256": "7db119f20aa1a9ea4d31c6afe2936a22afb8809a8e7b6971e59fa9a04a85af67",
+          "note": "Three adult identities, safety gear and all three vehicles are locked consistently. The red bicycle has a chain and two road wheels; black ice skates have single steel blades; green rowboat has two pivoted oars. Multi-view reference is a production reference, not a reader page.",
+          "replaced": true
+        },
+        {
+          "slot": "cover",
+          "path": "public/guided-reading/world-discovery/b-21/cover.webp",
+          "sha256": "85b84a71ee380be02bc05f40dfa030537341ac02870cd78100d09237e4b373f4",
+          "note": "Authored three-way comparison shows cyclist, skater and rower on separate appropriate surfaces. The three human-powered activities are legible without lettering.",
+          "replaced": true
+        },
+        {
+          "slot": "page-01",
+          "path": "public/guided-reading/world-discovery/b-21/page-01.webp",
+          "sha256": "5aa08adfee1c06e7c9ff5fd098d0fafb93eb57633278b41ac53fba3cf525cfe4",
+          "note": "Same three activities introduce the question. Cyclist and skater move right; the rower faces left in a bow-right boat. Diagram panels are exactly the authored comparison.",
+          "replaced": true
+        },
+        {
+          "slot": "page-02",
+          "path": "public/guided-reading/world-discovery/b-21/page-02.webp",
+          "sha256": "50f8c74015488ac189085f7976472086360176ce3534f1eca195583c161f3cd8",
+          "note": "Pedals, front chainring, continuous chain and rear sprocket visibly connect to the back wheel. Rider, colors and foot placement are coherent; the image supports the pedal/chain sentence.",
+          "replaced": true
+        },
+        {
+          "slot": "page-03",
+          "path": "public/guided-reading/world-discovery/b-21/page-03.webp",
+          "sha256": "f4c740ae29f2fa4761ed83e8c570e209f4c988bef683d18cd37da77fa7069fa5",
+          "note": "Native inspection confirms repaired rear-wheel rotation arrow points up along the left side, correctly clockwise for rightward travel. Separate horizontal arrow points right. Chain, tire contact and rider remain coherent.",
+          "replaced": true
+        },
+        {
+          "slot": "page-04",
+          "path": "public/guided-reading/world-discovery/b-21/page-04.webp",
+          "sha256": "89945f5b27ab372a4ca8bd9f70990084c1f31cde91a8d1d7d6e2b87ff7b13b19",
+          "note": "One skate extends outward/sideways while the supporting skate points ahead. Both boots have single steel blades; separate knees, feet, arms and hands are plausible.",
+          "replaced": true
+        },
+        {
+          "slot": "page-05",
+          "path": "public/guided-reading/world-discovery/b-21/page-05.webp",
+          "sha256": "86ba8934bfe627306beb08c39f7bc985646a48a7e33bc2e1fc3b2bbc0ed8202b",
+          "note": "Skater changes to a glide with feet closer beneath the body, preserving blue helmet, orange jacket and green pants in same rink.",
+          "replaced": true
+        },
+        {
+          "slot": "page-06",
+          "path": "public/guided-reading/world-discovery/b-21/page-06.webp",
+          "sha256": "1a82f54fc473a3cd7c698de51c27a51f92cc0e6dfda4b5957d1188799fd6a3da",
+          "note": "Native inspection confirms bow right, rower facing left, two different oars pivoted on opposite gunwales, immersed broad blades and backward/left water arrows. Hands grip separate handles near the body. Oral and visual discussion targets are clearly present.",
+          "replaced": true
+        },
+        {
+          "slot": "page-07",
+          "path": "public/guided-reading/world-discovery/b-21/page-07.webp",
+          "sha256": "601f698e1c8680219136e64a73e4e4c2c59c170e203c8563a228cd517320587f",
+          "note": "Native inspection confirms the same bow-right boat and left-facing rower with both blades now above the water after the pull. The new recovery state is distinct from p6, and the boat remains on water.",
+          "replaced": true
+        },
+        {
+          "slot": "page-08",
+          "path": "public/guided-reading/world-discovery/b-21/page-08.webp",
+          "sha256": "42923a4e180f73ffc75f9b0b4d8d45ac0d84bcb4700fd0e565108394ba4a17c9",
+          "note": "Closing authored comparison returns to all three human efforts. Correct surfaces, appropriate gear and stable identities make the common people-power synthesis clear.",
+          "replaced": true
+        }
+      ],
+      "openFindings": [],
+      "note": "Exact current metadata is reconciled separately from original generation inputs. All original prompt/source/reference/manuscript receipts remain intact."
+    },
+    {
+      "bookId": "world-discovery-c-21",
+      "title": "Vehicles That Fly",
+      "reviewedAt": "2026-11-10",
+      "reviewer": "/root, independent of illustration production",
+      "method": "codex-independent-ordered-sequence-and-native-teaching-diagram-inspection",
+      "textFingerprint": "fnv1a64:29198ee65628b240",
+      "sourceBookSha256": "64fc91f6c01ea97064c24b464d0add6b505a38d410f33adf22efff79ac2710a6",
+      "fullTextPrepAndDiscussionReviewed": true,
+      "allReferencesCoversAndPagesReviewed": true,
+      "assets": [
+        {
+          "slot": "reference",
+          "path": "source-art/world-discovery/c-21-reference.webp",
+          "sha256": "038b76328ab4972cd0b5f6bc4d7d43d3baf0ba956735770c11eadc4cd918f3d1",
+          "note": "Aircraft and pilot design board; fixed-wing white/teal jet, four-bladed orange helicopter and yellow/blue balloon stay distinct.",
+          "replaced": true
+        },
+        {
+          "slot": "cover",
+          "path": "public/guided-reading/world-discovery/c-21/cover.webp",
+          "sha256": "d6a4b319448df57a626cf619436d051de381643cc8a4a89c99f0ee90c5b8f38e",
+          "note": "Three separate complete aircraft; distinct own spaces and consistent designs.",
+          "replaced": true
+        },
+        {
+          "slot": "page-01",
+          "path": "public/guided-reading/world-discovery/c-21/page-01.webp",
+          "sha256": "16d6ff8628ae1e28f5c6105d650cfe6df3f6c042d0cd81b9f77350db3c8c7c9f",
+          "note": "Opening contrasts the same three aircraft without mixing their components.",
+          "replaced": true
+        },
+        {
+          "slot": "page-02",
+          "path": "public/guided-reading/world-discovery/c-21/page-02.webp",
+          "sha256": "f68035dd5516bef2658bd49496694508aa0058bfc77e0eba281051d4e8c37ab1",
+          "note": "Incoming airflow is right-to-left relative to the right-facing jet, with downward trailing flow and upward wing lift; root inspected this teaching diagram natively.",
+          "replaced": true
+        },
+        {
+          "slot": "page-03",
+          "path": "public/guided-reading/world-discovery/c-21/page-03.webp",
+          "sha256": "1ef90b2bf3eb61dc5a49b1b61807a426e36fd6a5974e12dcf9f87a3eee496fbc",
+          "note": "Four main rotor blades meet one hub, with single tail rotor and rotation cue; helicopter remains grounded.",
+          "replaced": true
+        },
+        {
+          "slot": "page-04",
+          "path": "public/guided-reading/world-discovery/c-21/page-04.webp",
+          "sha256": "501a32b72774f3a5419d782b0cd4683de11ced46c3091bed1e7c2c3ae3c6e708",
+          "note": "Same helicopter directly above helipad, with vertical rise arrow and intact rotor/skids.",
+          "replaced": true
+        },
+        {
+          "slot": "page-05",
+          "path": "public/guided-reading/world-discovery/c-21/page-05.webp",
+          "sha256": "29675779a52a7b7b931b6380ee98a194705675a3e9e25f8ca39747214742c31b",
+          "note": "Pilot controls the contained burner beneath the balloon mouth; complete basket and envelope.",
+          "replaced": true
+        },
+        {
+          "slot": "page-06",
+          "path": "public/guided-reading/world-discovery/c-21/page-06.webp",
+          "sha256": "c824edeee084fce60d3aff5a6fbed6ba1eaa4c884fbfc75303bb1dcd8dfe80fe",
+          "note": "Balloon visibly higher above fields, ordinary pilot controls heat; abstract equal-volume particle diagram removed.",
+          "replaced": true
+        },
+        {
+          "slot": "page-07",
+          "path": "public/guided-reading/world-discovery/c-21/page-07.webp",
+          "sha256": "429a935397f78701a1765985f63210c600c4bfe80cf69c9d8c555249a2670c1b",
+          "note": "Right-pointing wind cue and extended windsock agree; no powered steering implied.",
+          "replaced": true
+        },
+        {
+          "slot": "page-08",
+          "path": "public/guided-reading/world-discovery/c-21/page-08.webp",
+          "sha256": "8e62267b455178370a96a9088b02c5674f3ebacaeab73e0c138e85aeb4204736",
+          "note": "Ending gathers fixed wing, spinning wing and heated balloon differences in distinct complete aircraft.",
+          "replaced": true
+        }
+      ],
+      "openFindings": [],
+      "note": "Exact current metadata is reconciled separately from original generation inputs. All original prompt/source/reference/manuscript receipts remain intact."
+    },
+    {
+      "bookId": "world-discovery-d-21",
+      "title": "Gasoline and Electric Cars",
+      "reviewedAt": "2026-11-10",
+      "reviewer": "/root, independent of illustration production",
+      "method": "codex-independent-ordered-sequence-and-native-teaching-diagram-inspection",
+      "textFingerprint": "fnv1a64:aa760a88909a5d93",
+      "sourceBookSha256": "98d098b7790b51f3544d7069a44403c5a1e9da9323808471ee96dc80f0033831",
+      "fullTextPrepAndDiscussionReviewed": true,
+      "allReferencesCoversAndPagesReviewed": true,
+      "assets": [
+        {
+          "slot": "reference",
+          "path": "source-art/world-discovery/d-21-reference.webp",
+          "sha256": "12bdcf040d47f4dd39cd88921ed1aecf52635f88a3fbe71a8a71e715ad895ad4",
+          "note": "Consistent adult driver identities, fixed orange gasoline/teal electric cars, separate service areas and ordinary complete car design reference.",
+          "replaced": true
+        },
+        {
+          "slot": "cover",
+          "path": "public/guided-reading/world-discovery/d-21/cover.webp",
+          "sha256": "21da91ac71c36b8b73f5260b3d3a206a74c5ff352623f671caa4d1ecebc68b66",
+          "note": "Actual installed cover stacks two left-facing complete cutaway cars. Fuel tank is rear, engine front; teal battery lies under floor and electric motor is rear. Separate systems, no cross-car plumbing. Cover brief requires metadata-only reconciliation to this accepted layout.",
+          "replaced": true
+        },
+        {
+          "slot": "page-01",
+          "path": "public/guided-reading/world-discovery/d-21/page-01.webp",
+          "sha256": "35de449858cd06abe6b46acb369576e61139080b3039e4cab494477ece97a3f7",
+          "note": "Same colors and adults travel right in spaced separate lanes; no race or premature cutaway.",
+          "replaced": true
+        },
+        {
+          "slot": "page-02",
+          "path": "public/guided-reading/world-discovery/d-21/page-02.webp",
+          "sha256": "245da6f6f9c1b081945517de77494a220f15bfcf70d320ca74e3a73026451ef1",
+          "note": "Fuel tank at rear feeds front engine through continuous fuel line; enclosed combustion inset correctly shows a piston and contained burning mixture.",
+          "replaced": true
+        },
+        {
+          "slot": "page-03",
+          "path": "public/guided-reading/world-discovery/d-21/page-03.webp",
+          "sha256": "ed7bfd2415e04f2e3cd8b50d9da038a388ca90bb8fe463f01281c7a2b5b486e3",
+          "note": "Native final inspection confirms crank/piston connection, engine through transmission and shaft to rear differential/hub; single clockwise arrow on driven rear wheel matches rightward travel. Fuel and exhaust lines remain separate.",
+          "replaced": true
+        },
+        {
+          "slot": "page-04",
+          "path": "public/guided-reading/world-discovery/d-21/page-04.webp",
+          "sha256": "e0b8b439c46ce8d84d41a3734fc0030ecadc8b71a10383b0b705d8203d98bf24",
+          "note": "Orange rear view has one exhaust outlet and limited symbolic gas lines, distinct from smoke or road danger.",
+          "replaced": true
+        },
+        {
+          "slot": "page-05",
+          "path": "public/guided-reading/world-discovery/d-21/page-05.webp",
+          "sha256": "74718625167d406920e0044d2a3770ae5f81f473b0be08c8baa834a1ee0c1e5b",
+          "note": "Teal cutaway shows underfloor battery connected electrically to rear motor and axle; no gasoline/exhaust system.",
+          "replaced": true
+        },
+        {
+          "slot": "page-06",
+          "path": "public/guided-reading/world-discovery/d-21/page-06.webp",
+          "sha256": "b187c341e851d5d451e2e5bf6152d897519759a80ae8edc2502b73364b737ee6",
+          "note": "Native teaching diagram inspection confirms motor/rear hub connection and clockwise rotation for rightward motion, with battery under cabin.",
+          "replaced": true
+        },
+        {
+          "slot": "page-07",
+          "path": "public/guided-reading/world-discovery/d-21/page-07.webp",
+          "sha256": "f2f78f6946f33f922b2d292b938c190e85bcb304d9c132618a4ce79c3f9e0fde",
+          "note": "Adult operates correctly seated rear filler nozzle; separate inset makes fuel entering tank concrete, no electric cable.",
+          "replaced": true
+        },
+        {
+          "slot": "page-08",
+          "path": "public/guided-reading/world-discovery/d-21/page-08.webp",
+          "sha256": "fe06f032a262d523f7cc3e0d71f5985129ef16f69f21f1ebb24077ba7e32c12f",
+          "note": "Adult plugs front-side charging connector, safe parked vehicle and cable to underfloor battery; no poured liquid.",
+          "replaced": true
+        },
+        {
+          "slot": "page-09",
+          "path": "public/guided-reading/world-discovery/d-21/page-09.webp",
+          "sha256": "21c20923477fa0b6c14be81c2005c9b98f1d3a3f19fb81f42ade19d125b7c2ef",
+          "note": "Teal plain rear bumper has no tailpipe; industrial emission comes from separate distant stack, avoiding false zero-total-pollution message.",
+          "replaced": true
+        },
+        {
+          "slot": "page-10",
+          "path": "public/guided-reading/world-discovery/d-21/page-10.webp",
+          "sha256": "46a7572c04b508ae57fb81bbb7fd3535bfe2e378e7a11eb5a2820ce25b1224d0",
+          "note": "Closing distinct orange and teal systems show rear stores/front engine versus floor battery/rear motor, both with rightward movement arrows and intact car geometry.",
+          "replaced": true
+        }
+      ],
+      "openFindings": [],
+      "note": "Exact current metadata is reconciled separately from original generation inputs. All original prompt/source/reference/manuscript receipts remain intact."
+    },
+    {
+      "bookId": "world-discovery-e-21",
+      "title": "Transport Through Time",
+      "reviewedAt": "2026-11-10",
+      "reviewer": "/root, independent of illustration production",
+      "method": "codex-independent-ordered-sequence-and-native-followup-inspection",
+      "textFingerprint": "fnv1a64:480212568e457313",
+      "sourceBookSha256": "d2b00cf5ebb83c26d8921703250179413a877c2f73e333ebcb39d3b45604dc4f",
+      "fullTextPrepAndDiscussionReviewed": true,
+      "allReferencesCoversAndPagesReviewed": true,
+      "assets": [
+        {
+          "slot": "reference",
+          "path": "source-art/world-discovery/e-21-reference.webp",
+          "sha256": "bcd9084f0fd6888f17aec2fe89d8d9237c31f3ae501978dc1610288aba71214c",
+          "note": "Historical and modern vehicle designs and ordinary adults lock consistent recurring visual subjects; no single worldwide adoption date implied.",
+          "replaced": true
+        },
+        {
+          "slot": "cover",
+          "path": "public/guided-reading/world-discovery/e-21/cover.webp",
+          "sha256": "dbe771b06ab16597e4adc53d9e6f366b9aede63537c167ff38bef43194d719c0",
+          "note": "Four separate historical transport panels in authored order: horse wagon, steam train, early open green car and modern twin-engine jet. Each has its own ground/rail/road/sky; no common race, arrows or written labels. Whole subjects contained.",
+          "replaced": true
+        },
+        {
+          "slot": "page-01",
+          "path": "public/guided-reading/world-discovery/e-21/page-01.webp",
+          "sha256": "4884a3002a30d3edfac8a713ffbb4aac28fdebf58cdcc57f1cb50e1b8ef6afff",
+          "note": "Three pre-motor comparison scenes: two adults carry baskets on foot; adult rides the bay horse with four coherent legs; two adults use two gripped, gunwale-supported oars in a wooden boat. No modern engines, wires, extra panels or text.",
+          "replaced": true
+        },
+        {
+          "slot": "page-02",
+          "path": "public/guided-reading/world-discovery/e-21/page-02.webp",
+          "sha256": "3c4748aa551c83417fbdd5efbc36b36ecc4529a46f92aa5e3b3668ea85dcdeee",
+          "note": "Stationary bay horse has four grounded legs and connected bridle/harness/shafts; gray driver offers hay from a bucket while two ordinary-clothed travelers sit safely in four-wheel wooden wagon. No movement or extra animal.",
+          "replaced": true
+        },
+        {
+          "slot": "page-03",
+          "path": "public/guided-reading/world-discovery/e-21/page-03.webp",
+          "sha256": "e4bcb73ecc43a49cd4c09f0a08fd5cf7560460beb1ea772e1a3bf3c11f83f946",
+          "note": "One integrated steam locomotive cutaway with rear firebox, boiler water around flues, steam space/pipe to front cylinder, horizontal guided piston rod and connecting rod to an offset crank. Three wheel crank pins share angular phase with straight coupling rod. Two brown coaches remain attached. No teaching arrows or disconnected fantasy plumbing.",
+          "replaced": true
+        },
+        {
+          "slot": "page-04",
+          "path": "public/guided-reading/world-discovery/e-21/page-04.webp",
+          "sha256": "f3ba08c0b93c39dcf6dfa4f9605e6bf4e4e7a77087a0e33b4b1fd778a54eed58",
+          "note": "Two authored comparison panels are side by side: driver and two travelers in horse wagon at left, black/red steam train with two occupied brown coaches at right. Ordinary historical clothing, complete limbs/vehicles and independent surfaces; no race diagram.",
+          "replaced": true
+        },
+        {
+          "slot": "page-05",
+          "path": "public/guided-reading/world-discovery/e-21/page-05.webp",
+          "sha256": "2837baede73ad0699a1e9a13cc3baafd8c8e69b291e644f525ec044a32b0e053",
+          "note": "Early green open motorcar has four wheels, visible engine in open-sided front compartment and gray-jacketed driver gripping steering wheel. Complete vehicle contained with road beneath; no modern car substituted.",
+          "replaced": true
+        },
+        {
+          "slot": "page-06",
+          "path": "public/guided-reading/world-discovery/e-21/page-06.webp",
+          "sha256": "6a9cdd7a070d5e253c99116a0607a147692ac9ef98eaa218a95d37c8d935e55d",
+          "note": "Exactly two comparison scenes: cream biplane over fields and modern white-teal twin-engine jet over ocean. Complete wings, tails and engines contained; no clock, speed values, finish line or extra journey state.",
+          "replaced": true
+        },
+        {
+          "slot": "page-07",
+          "path": "public/guided-reading/world-discovery/e-21/page-07.webp",
+          "sha256": "8d28be0b089c01448c1ba969c3cd9574de6c2319078eadfbda0afce17ac902db",
+          "note": "Modern white-blue train has one pantograph touching the overhead contact wire, seated passengers and separate fenced rails. Three complete ordinary cars wait on adjacent road at red traffic light. No pedestrian on tracks and no cropped wheels.",
+          "replaced": true
+        },
+        {
+          "slot": "page-08",
+          "path": "public/guided-reading/world-discovery/e-21/page-08.webp",
+          "sha256": "214830c90aebf9a1dfd4f5b98cabbebe274e6d79778546dffcf6d2ec6774785a",
+          "note": "Exactly three comparable independent scenes: horse wagon on road; complete modern electric train on rails with pantograph/wire contact; modern jet in sky. No shared race, finish line or numeric speed.",
+          "replaced": true
+        },
+        {
+          "slot": "page-09",
+          "path": "public/guided-reading/world-discovery/e-21/page-09.webp",
+          "sha256": "2b02c9624da89b650d54384762d0eb93aad909053d3d2e1fdf30962081af3ffa",
+          "note": "Exactly two journey stages: cream-shirt adult and small gray rolling suitcase on airport shuttle; same adult/clothing/suitcase waiting at gate with jet beyond glass. Corrected unwanted extra train/plane comparison and arrow. No additional stage.",
+          "replaced": true
+        },
+        {
+          "slot": "page-10",
+          "path": "public/guided-reading/world-discovery/e-21/page-10.webp",
+          "sha256": "875fee865b5fd69d3379d4d298a9da766de9a91c969773417273e30ccf7aaa20",
+          "note": "Exactly four present-day transport scenes: walker and helmeted cyclist; seated rower in plain blue buoyancy vest; helmeted horse rider on separate path; modern electric train and closed blue compact car on separate rail/road. Four-legged horse and complete vehicle silhouettes; corrected antique car.",
+          "replaced": true
+        }
+      ],
+      "openFindings": [],
+      "note": "Exact current metadata is reconciled separately from original generation inputs. All original prompt/source/reference/manuscript receipts remain intact."
+    },
+    {
+      "bookId": "world-discovery-e-22",
+      "title": "Different Countries, Different Places",
+      "reviewedAt": "2026-11-10",
+      "reviewer": "/root, independent of illustration production",
+      "method": "codex-independent-ordered-sequence-and-native-followup-inspection",
+      "textFingerprint": "fnv1a64:b8e30bde780d290a",
+      "sourceBookSha256": "d3b67d6c70cda202a99594710f903a9dc9ec37110031b15daf30f7eb0b2fb747",
+      "fullTextPrepAndDiscussionReviewed": true,
+      "allReferencesCoversAndPagesReviewed": true,
+      "assets": [
+        {
+          "slot": "reference",
+          "path": "source-art/world-discovery/e-22-reference.webp",
+          "sha256": "83582d8397835477531f768217b2f65fe5a1ab830c18b2b2b0c9172984c06dd1",
+          "note": "Geographic/style reference; extraneous wildlife and house types are production-only and excluded from all final reader scenes. Final maps and depicted geography were reviewed independently.",
+          "replaced": true
+        },
+        {
+          "slot": "cover",
+          "path": "public/guided-reading/world-discovery/e-22/cover.webp",
+          "sha256": "9e8325448ed87541fbb7223ac867a23b5e78c19bd116b3a290377ecc1a2da7bd",
+          "note": "Three separate landscape comparisons: broad Fuji cone/woodland, Nile green fields against dry plateau, and built-up Rio beach/green hills. Orientation map has exactly three dots. No animals, symbols or text.",
+          "replaced": true
+        },
+        {
+          "slot": "page-01",
+          "path": "public/guided-reading/world-discovery/e-22/page-01.webp",
+          "sha256": "21b3e81ec9a1364ff0315b7b77279439450258c250410bb4a350f639200cd9e0",
+          "note": "Map-only correction inspected; no transferred scenery or people. Three dots lie on Japanese island chain, northeast Africa west of Red Sea, and east-central South America. Three independent leaders terminate at empty circles. Distinct correct continental silhouettes.",
+          "replaced": true
+        },
+        {
+          "slot": "page-02",
+          "path": "public/guided-reading/world-discovery/e-22/page-02.webp",
+          "sha256": "81c07cb2159e5880402480cca7b08a51e800bd8da6a58fd5c87c1301b90e437b",
+          "note": "Japan main chain inspected: Hokkaido northeast, curved long Honshu, Shikoku south of southwest Honshu, Kyushu southwest, smaller southwestern islands. Repair added surrounding sea so complete islands remain within safe margins.",
+          "replaced": true
+        },
+        {
+          "slot": "page-03",
+          "path": "public/guided-reading/world-discovery/e-22/page-03.webp",
+          "sha256": "7201683dfe76cd61e661b52226b1e88120372df1e65ab7eba2cb54c587b94bb5",
+          "note": "Broad snowy Fuji cone, wooded lower slopes and one winding foreground path. No shrines, flags, text or people; no Alpine/jagged peak.",
+          "replaced": true
+        },
+        {
+          "slot": "page-04",
+          "path": "public/guided-reading/world-discovery/e-22/page-04.webp",
+          "sha256": "18a91e53317935db21a4bd1c117bde237afd243ce21ca0865a09796e963589d8",
+          "note": "Repair removed oversized foreground couple. Silver-green commuter train follows separate elevated rail route; road vehicles below and only small pedestrians on protected walkway. No signs, flags or landmarks.",
+          "replaced": true
+        },
+        {
+          "slot": "page-05",
+          "path": "public/guided-reading/world-discovery/e-22/page-05.webp",
+          "sha256": "fb6b6d5b784e5b2c73cdc0bf6fa0d7925a21add5d2796c85c859289eb808416f",
+          "note": "Dry tan plateau/ridges and low sand patches; no pyramids, camel, people, costume or monuments. Clean outlines, no transferred animals.",
+          "replaced": true
+        },
+        {
+          "slot": "page-06",
+          "path": "public/guided-reading/world-discovery/e-22/page-06.webp",
+          "sha256": "0da16c65e7747ffb9a237a42be3bf116765601bb094094bd386cf693ee6dd724",
+          "note": "Nile has green cultivated strips on both banks, low homes, separate road, connecting irrigation channel and dry tan plateau beyond. Ordinary adults stay on road. No monuments or costume.",
+          "replaced": true
+        },
+        {
+          "slot": "page-07",
+          "path": "public/guided-reading/world-discovery/e-22/page-07.webp",
+          "sha256": "4715d6f0aa19746190c80270c64ba44f8e9a0acd9b6b6746dee2bb675745a6a8",
+          "note": "Broad brown Amazon water with a narrower curving tributary, dense broadleaf forest on both banks. No wildlife, waterfall, temple or people added.",
+          "replaced": true
+        },
+        {
+          "slot": "page-08",
+          "path": "public/guided-reading/world-discovery/e-22/page-08.webp",
+          "sha256": "20e553102e6f5177a73ea714e2485362356d74a42131e6752ac497acb8452dfa",
+          "note": "Rio panorama has curved sandy beach, blue sea, ordinary coastal buildings and distinctive steep forested hills. No Christ statue, flags, carnival attire or lettering. Ordinary small pedestrians on promenade.",
+          "replaced": true
+        },
+        {
+          "slot": "page-09",
+          "path": "public/guided-reading/world-discovery/e-22/page-09.webp",
+          "sha256": "1da2c62b87eea4d11660386d556a570f5c21afc9d49f2a17916b4e6010e341f7",
+          "note": "Exactly three paired rows / six landscapes in authored order: Fuji and Tokyo, Western Desert and Nile fields, Amazon and Rio coast. Complete broad Fuji cone and no flags, religion, costume, added animal, text or extra comparison.",
+          "replaced": true
+        },
+        {
+          "slot": "page-10",
+          "path": "public/guided-reading/world-discovery/e-22/page-10.webp",
+          "sha256": "a008add7a8a62ac4aa04c9043c744420ab5febc5687f40d4cda2ac3815a4cd19",
+          "note": "One north-up world-outline map has exactly three dots on Japan/northeast Africa/east-central South America and three non-crossing leaders to three paired circles: Fuji/Tokyo, desert/Nile, Amazon/Rio. Complete diagram inside frame; no animals, extra dots, labels, symbols or flags.",
+          "replaced": true
+        }
+      ],
+      "openFindings": [],
+      "note": "Exact current metadata is reconciled separately from original generation inputs. All original prompt/source/reference/manuscript receipts remain intact."
+    }
+  ]
+}

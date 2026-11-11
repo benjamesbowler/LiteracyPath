@@ -1,3 +1,4 @@
+import { guidedReadingContentId, guidedReadingHistoryBook } from "./guidedReading/editions.js";
 import { APP_READING_LEVELS, appReadingLevelLabel, getPublicBookMetadata } from "./guidedReading/bookLevelMetadata.js";
 import {
   getGuidedReadingProgress,
@@ -165,13 +166,13 @@ export function collectGuidedReadingCompletionRecords({
     };
     const className = getClassName(student, classes);
     Object.entries(row.records || {}).forEach(([bookId, record]) => {
-      const book = bookById.get(bookId) || {};
+      const book = guidedReadingHistoryBook(bookById.get(guidedReadingContentId(bookId)) || {}, record, bookId);
       const progress = getGuidedReadingProgress(book, {
         ...record,
         bookId,
         studentId: row.studentId
       });
-      const metadata = getPublicBookMetadata(bookId);
+      const metadata = getPublicBookMetadata(book);
       const completed = Boolean(progress.completed);
       const readCount = Math.max(0, Number(progress.readCount || 0));
       // Rereads only make sense after a completion; partial reads of an

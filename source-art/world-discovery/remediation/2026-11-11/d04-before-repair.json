@@ -1,0 +1,290 @@
+{
+  "sourceBook": {
+    "id": "world-discovery-d-04",
+    "number": 4,
+    "title": "The Bag of Wind",
+    "topic": "fantasy",
+    "type": "fiction",
+    "appLevel": "D",
+    "level": "C",
+    "readingBandProfile": "standard",
+    "readingMode": "predictable-levelled",
+    "interestAge": "4–8",
+    "storyBibleReview": {
+      "kind": "fiction",
+      "canonIds": [
+        "WD-ZOE",
+        "WD-KIT"
+      ],
+      "storySpine": "Zoe wants to bring a red kite out of a low tree using a bag that stores wind, but her first gust wedges it farther in.",
+      "failedAttempt": "She releases a strong gust from below the kite; the wind drives the kite deeper into the branch fork.",
+      "resolution": "Zoe moves to the other side and releases a small stored puff through a narrow opening, lifting the kite toward Kit’s waiting hands.",
+      "magicRule": "The separate blue zip pouch stores wind caught from a real breeze while open and sealed by its zipper. Reopening releases the stored wind in the aimed direction; a small opening gives a small puff and closing preserves what remains. It creates no new wind, and no other object is enchanted."
+    },
+    "setting": "A fictional garden with a low forked apple tree, short lawn and low brick wall, windy afternoon. A removable blue zip pouch holds captured wind only in this story.",
+    "props": [
+      "Blue cloth zip pouch small enough for Zoe’s palm",
+      "Red diamond kite with one short white tail",
+      "Kite string and wooden spool",
+      "Low forked tree"
+    ],
+    "coverBrief": "Zoe aims a partly opened blue wind pouch toward a red kite caught in a low tree fork while Kit waits on the other side with both hands ready.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Zoe has a magic bag. Open it into the breeze, zip it shut, and the wind stays inside.",
+        "imageBrief": "Zoe holds the mouth of a blue pouch into a garden breeze; Kit watches beside the low apple tree. Exact continuity: Pouch separate from clothing; this is explicit fantasy; kite lies on grass.",
+        "imageAlt": "Zoe holds the mouth of a blue pouch into a garden breeze; Kit watches beside the low apple tree.",
+        "pageDescription": "Zoe holds the mouth of a blue pouch into a garden breeze; Kit watches beside the low apple tree.",
+        "state": "Pouch separate from clothing; this is explicit fantasy; kite lies on grass.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 2,
+        "text": "When Zoe opens the bag again, the saved wind rushes out. Kit’s loose kite lifts from the grass.",
+        "imageBrief": "A gust from the open pouch lifts the red kite a short distance while its spool rests on grass. Exact continuity: First demonstration empties pouch; kite has one short white tail and attached string.",
+        "imageAlt": "A gust from the open pouch lifts the red kite a short distance while its spool rests on grass.",
+        "pageDescription": "A gust from the open pouch lifts the red kite a short distance while its spool rests on grass.",
+        "state": "First demonstration empties pouch; kite has one short white tail and attached string.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 3,
+        "text": "The kite catches in the tree’s low fork. Kit pulls the string, but the red paper presses against a twig.",
+        "imageBrief": "Red kite is wedged between two low branches; Kit gently pulls its string from the ground. Exact continuity: Children remain grounded; kite not torn; pouch empty in Zoe’s hand.",
+        "imageAlt": "Red kite is wedged between two low branches; Kit gently pulls its string from the ground.",
+        "pageDescription": "Red kite is wedged between two low branches; Kit gently pulls its string from the ground.",
+        "state": "Children remain grounded; kite not torn; pouch empty in Zoe’s hand.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 4,
+        "text": "Zoe catches another gust in her bag. “I will blow it out,” she says, standing beneath the kite.",
+        "imageBrief": "Zoe stands beneath the trapped kite, holding the refilled blue pouch with its zipper now closed. Kit still holds the kite string taut from the ground. Exact continuity: Second stored gust; zipper closed after refilling; Kit has not yet stopped pulling; one moment after the catch.",
+        "imageAlt": "Zoe stands beneath the trapped kite, holding the refilled blue pouch with its zipper now closed. Kit still holds the kite string taut from the ground.",
+        "pageDescription": "Zoe stands beneath the trapped kite, holding the refilled blue pouch with its zipper now closed. Kit still holds the kite string taut from the ground.",
+        "state": "Second stored gust; zipper closed after refilling; Kit has not yet stopped pulling; one moment after the catch.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 5,
+        "text": "She opens the bag wide. Whoosh! The kite jumps higher and sticks deeper in the fork.",
+        "imageBrief": "An upward gust pushes the red kite farther into the same fork while Zoe holds the pouch below. Exact continuity: Failed attempt worsens wedge; kite still low enough to reach from opposite ground position.",
+        "imageAlt": "An upward gust pushes the red kite farther into the same fork while Zoe holds the pouch below.",
+        "pageDescription": "An upward gust pushes the red kite farther into the same fork while Zoe holds the pouch below.",
+        "state": "Failed attempt worsens wedge; kite still low enough to reach from opposite ground position.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 6,
+        "text": "Kit stops pulling. Zoe walks around the tree. From here, she can see a clear gap behind the kite.",
+        "imageBrief": "Zoe stands opposite her first position, looking through an open gap behind the red kite; Kit holds slack string. Exact continuity: No new magic; changed viewing angle reveals existing exit.",
+        "imageAlt": "Zoe stands opposite her first position, looking through an open gap behind the red kite; Kit holds slack string.",
+        "pageDescription": "Zoe stands opposite her first position, looking through an open gap behind the red kite; Kit holds slack string.",
+        "state": "No new magic; changed viewing angle reveals existing exit.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 7,
+        "text": "She fills the bag once more and points it through the gap. This time she opens only a tiny corner.",
+        "imageBrief": "Zoe aims the recharged pouch through the back of the fork, zipper open only a little. Exact continuity: Third gust stored; small opening releases part of it; pouch aimed outward through gap.",
+        "imageAlt": "Zoe aims the recharged pouch through the back of the fork, zipper open only a little.",
+        "pageDescription": "Zoe aims the recharged pouch through the back of the fork, zipper open only a little.",
+        "state": "Third gust stored; small opening releases part of it; pouch aimed outward through gap.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 8,
+        "text": "A little puff lifts one kite corner. Kit holds out his hands as Zoe lets a second puff escape.",
+        "imageBrief": "One red kite corner frees from the twig as Kit reaches from the clear side, feet on grass. Exact continuity: Two small releases from same third stored gust; no grabbing sharp twigs.",
+        "imageAlt": "One red kite corner frees from the twig as Kit reaches from the clear side, feet on grass.",
+        "pageDescription": "One red kite corner frees from the twig as Kit reaches from the clear side, feet on grass.",
+        "state": "Two small releases from same third stored gust; no grabbing sharp twigs.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 9,
+        "text": "The kite slides out into Kit’s hands. Its paper is bent, but there is no hole. Zoe shuts the bag.",
+        "imageBrief": "Kit catches the freed red kite with both hands while Zoe closes the zipper. Exact continuity: Kite intact but bent along one corner; string remains attached; remaining wind kept inside.",
+        "imageAlt": "Kit catches the freed red kite with both hands while Zoe closes the zipper.",
+        "pageDescription": "Kit catches the freed red kite with both hands while Zoe closes the zipper.",
+        "state": "Kite intact but bent along one corner; string remains attached; remaining wind kept inside.",
+        "embeddedImageText": ""
+      },
+      {
+        "pageNumber": 10,
+        "text": "Kit smooths the bent corner. “Save some wind for flying,” he says. Zoe gives the zipped bag a small pat.",
+        "imageBrief": "Kit smooths the red kite on the grass while Zoe pats her closed blue pouch beside him. Exact continuity: Resolved kite retrieval; bent corner being smoothed; stored puff retained, not a new power.",
+        "imageAlt": "Kit smooths the red kite on the grass while Zoe pats her closed blue pouch beside him.",
+        "pageDescription": "Kit smooths the red kite on the grass while Zoe pats her closed blue pouch beside him.",
+        "state": "Resolved kite retrieval; bent corner being smoothed; stored puff retained, not a new power.",
+        "embeddedImageText": ""
+      }
+    ],
+    "discussion": {
+      "oral": {
+        "prompt": "Why does Zoe’s smaller puff work after her large gust fails?",
+        "listenFor": "She changes position, uses the clear gap and releases less wind in the direction that frees the kite."
+      },
+      "visual": {
+        "page": 7,
+        "prompt": "Where is the opening that lets the kite escape?",
+        "lookFor": "The branch gap behind the kite aligns with the small outward puff."
+      }
+    },
+    "levelRationale": "App D tracks a seeded magical mechanism, failed force/direction choice, changed viewpoint and two controlled attempts. The concrete repeated pouch state supports a fair spatial inference.",
+    "languagePrep": [
+      {
+        "word": "gust",
+        "meaning": "a sudden strong rush of wind"
+      },
+      {
+        "word": "fork",
+        "meaning": "where one branch divides into two"
+      },
+      {
+        "word": "wedged",
+        "meaning": "stuck tightly in a narrow space"
+      }
+    ]
+  },
+  "sourceBookSha256": "276b1b7042e6da481cec4c0568940b0d78e77d21070e94f1bc0e54270b408f95",
+  "textFingerprint": "fnv1a64:babf401b100fca28",
+  "manifest": {
+    "schemaVersion": 1,
+    "targetBooks": 150,
+    "cohorts": [
+      {
+        "id": "01-10",
+        "index": 0,
+        "firstNumber": 1,
+        "lastNumber": 10,
+        "expectedBooks": 50,
+        "expectedPages": 440,
+        "active": true,
+        "sourceDir": "src/content/world-discovery",
+        "cardReview": "source-art/world-discovery/card-cover-review.json",
+        "narrationReview": "source-art/world-discovery/remediation/2026-11-09/01-10-narration-review.json",
+        "narrationInventory": "source-art/world-discovery/remediation/2026-11-09/01-10-narration-inventory-r2.json",
+        "registration": "src/content/world-discovery/registrations/2026-11-09/01-10-r2.json",
+        "maintenanceBaseline": {
+          "path": "source-art/world-discovery/remediation/2026-11-09/registered-audio-before.json",
+          "sha256": "2b32bf8bc8f17c70b3ba730b2647ac443d9052e3895a9267dcdc2f2e3ded7352"
+        },
+        "topicProfile": "original"
+      },
+      {
+        "id": "11-20",
+        "index": 1,
+        "firstNumber": 11,
+        "lastNumber": 20,
+        "expectedBooks": 50,
+        "expectedPages": 440,
+        "active": true,
+        "sourceDir": "src/content/world-discovery/cohorts/11-20",
+        "cardReview": "source-art/world-discovery/cohorts/11-20/card-cover-review.json",
+        "narrationReview": "source-art/world-discovery/remediation/2026-11-09/11-20-narration-review.json",
+        "narrationInventory": "source-art/world-discovery/remediation/2026-11-09/11-20-narration-inventory.json",
+        "registration": "src/content/world-discovery/registrations/2026-11-09/11-20.json",
+        "maintenanceBaseline": {
+          "path": "source-art/world-discovery/remediation/2026-11-09/registered-audio-before.json",
+          "sha256": "2b32bf8bc8f17c70b3ba730b2647ac443d9052e3895a9267dcdc2f2e3ded7352"
+        },
+        "topicProfile": "original"
+      },
+      {
+        "id": "21-30",
+        "index": 2,
+        "firstNumber": 21,
+        "lastNumber": 30,
+        "topicProfile": "nonfiction-discovery",
+        "expectedBooks": 50,
+        "expectedPages": 440,
+        "active": true,
+        "sourceDir": "src/content/world-discovery/cohorts/21-30",
+        "cardReview": "source-art/world-discovery/remediation/2026-11-10/21-30-topic-revision-card-cover-review.json",
+        "narrationReview": "source-art/world-discovery/remediation/2026-11-10/21-30-topic-revision-narration-review-r2.json",
+        "narrationInventory": "source-art/world-discovery/remediation/2026-11-10/21-30-topic-revision-narration-inventory-r2.json",
+        "registration": "src/content/world-discovery/registrations/2026-11-10/21-30-topic-revision-r2.json",
+        "maintenanceBaseline": {
+          "path": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-audio-before.json",
+          "sha256": "4ca4b36544febad7d0aaa8b7912d6b24144aa28bbd88bc41d0c783f6eb575796"
+        }
+      }
+    ]
+  },
+  "priorReceiptFiles": [
+    {
+      "path": "source-art/world-discovery/receipts/d-04-reference.json",
+      "sha256": "2ba3d65e121602a7f399032ae2b2fa75b753f9f8705981180a8e78f5845a480a",
+      "preservedPath": "source-art/world-discovery/remediation/2026-11-11/d04-prior-receipts/d-04-reference.json"
+    },
+    {
+      "path": "source-art/world-discovery/receipts/d-04-cover.json",
+      "sha256": "0c99213d3e8534f2a958153b0223b27bb651bb5931fb41514b6a9d17eff6d270",
+      "preservedPath": "source-art/world-discovery/remediation/2026-11-11/d04-prior-receipts/d-04-cover.json"
+    },
+    {
+      "path": "source-art/world-discovery/receipts/d-04-page-01.json",
+      "sha256": "17fd872995b9ff5f4c914c103e0d8daa7ae7c28fac203d9c987d81ed32c317c1",
+      "preservedPath": "source-art/world-discovery/remediation/2026-11-11/d04-prior-receipts/d-04-page-01.json"
+    },
+    {
+      "path": "source-art/world-discovery/receipts/d-04-page-02.json",
+      "sha256": "fa3e59f0fa2371c2f69e9f59058692b389f547d797644e27835533eaa13a6111",
+      "preservedPath": "source-art/world-discovery/remediation/2026-11-11/d04-prior-receipts/d-04-page-02.json"
+    },
+    {
+      "path": "source-art/world-discovery/receipts/d-04-page-03.json",
+      "sha256": "e40e41de3ad7bc8266710c188f0c3ecc0f41df9a09bd0a7b3384eb73b2e91748",
+      "preservedPath": "source-art/world-discovery/remediation/2026-11-11/d04-prior-receipts/d-04-page-03.json"
+    },
+    {
+      "path": "source-art/world-discovery/receipts/d-04-page-04.json",
+      "sha256": "60632e0c4002f1b4e10a250ca8195cd1bdbb9a645b95dd019a8df983bbb1009d",
+      "preservedPath": "source-art/world-discovery/remediation/2026-11-11/d04-prior-receipts/d-04-page-04.json"
+    },
+    {
+      "path": "source-art/world-discovery/receipts/d-04-page-05.json",
+      "sha256": "7640ecfa4cf0d15d1f6a45c96ee9829c1f2cdcd5366beb7ebc783d2182958dae",
+      "preservedPath": "source-art/world-discovery/remediation/2026-11-11/d04-prior-receipts/d-04-page-05.json"
+    },
+    {
+      "path": "source-art/world-discovery/receipts/d-04-page-06.json",
+      "sha256": "e7be6881af166966158cb9bf37d471f00a3df5b3dbfa46b75453928bc6e9c936",
+      "preservedPath": "source-art/world-discovery/remediation/2026-11-11/d04-prior-receipts/d-04-page-06.json"
+    },
+    {
+      "path": "source-art/world-discovery/receipts/d-04-page-07.json",
+      "sha256": "64a06bb08b09b72785fdbb3a0a82ccdbcbd14cc4b999279f6f3a0bb354c80a6b",
+      "preservedPath": "source-art/world-discovery/remediation/2026-11-11/d04-prior-receipts/d-04-page-07.json"
+    },
+    {
+      "path": "source-art/world-discovery/receipts/d-04-page-08.json",
+      "sha256": "075160d7db41c09386e1d4981217878705431c4ef036f20c1824d717ab99ce3f",
+      "preservedPath": "source-art/world-discovery/remediation/2026-11-11/d04-prior-receipts/d-04-page-08.json"
+    },
+    {
+      "path": "source-art/world-discovery/receipts/d-04-page-09.json",
+      "sha256": "0e85fd9eb71265cfa0b367bfbeacac017b5094d8131683e4ca77650ed40cb85f",
+      "preservedPath": "source-art/world-discovery/remediation/2026-11-11/d04-prior-receipts/d-04-page-09.json"
+    },
+    {
+      "path": "source-art/world-discovery/receipts/d-04-page-10.json",
+      "sha256": "e16096b73efefbe9254c1bce0577f2c75f15413cace2ce2428b6d4f4168926c5",
+      "preservedPath": "source-art/world-discovery/remediation/2026-11-11/d04-prior-receipts/d-04-page-10.json"
+    }
+  ],
+  "priorImages": [
+    {
+      "path": "public/guided-reading/world-discovery/d-04/page-07.webp",
+      "sha256": "72b842a46eecb9dbde52933ce74d1ea0c6433df3402fae9922ed8af2ced98c76",
+      "preservedPath": "source-art/world-discovery/remediation/2026-11-11/d04-generation-inputs/page-07-previous.webp"
+    },
+    {
+      "path": "public/guided-reading/world-discovery/d-04/page-08.webp",
+      "sha256": "58eb80ece8a79eb257ec8cba40dc23894c8c0508e4e26e6b40788b437648af41",
+      "preservedPath": "source-art/world-discovery/remediation/2026-11-11/d04-generation-inputs/page-08-previous.webp"
+    }
+  ]
+}

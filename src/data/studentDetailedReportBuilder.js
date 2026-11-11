@@ -1,3 +1,4 @@
+import { guidedReadingContentId, guidedReadingHistoryBook } from "../utils/guidedReading/editions.js";
 import { normalizeAssessmentAttempt } from "./assessmentHistoryStore.js";
 import {
   buildClassElFormalAssessmentReport,
@@ -294,12 +295,13 @@ function readGuidedReadingRecords({ teacherId = "", studentId = "" } = {}) {
 
 function buildGuidedReadingSection(records = {}) {
   const bookRows = Object.entries(records || {}).map(([bookId, record]) => {
-    const book = guidedReadingBooks.find(item => item.id === bookId) || {};
+    const book = guidedReadingHistoryBook(guidedReadingBooks.find(item => item.id === guidedReadingContentId(bookId)) || {}, record, bookId);
     const progress = getGuidedReadingProgress(book, { ...record, bookId });
     const summary = summarizeGuidedReadingRecord(record);
     return {
       bookId,
       title: book.title || record.title || bookId,
+      historicalEdition: Boolean(book.historicalEdition),
       level: book.level || record.level || "",
       series: book.seriesTitle || record.seriesTitle || "",
       type: book.type || record.type || "",

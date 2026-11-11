@@ -65,6 +65,16 @@ changed, what they did, what happened because of it and how it ended**.
 The nonfiction test is: a child should be able to say **what the book helped them find
 out, how the ideas were connected and what the ending helped them understand**.
 
+### 1.1 Library curriculum scope
+
+The owner's 11 November 2026 instruction excludes LGBTQI, sexual-orientation and
+gender-identity themes, religious topics, observances and symbols, and real
+political topics or ideological messaging from the library. Keep the focus on
+ordinary childhood, practical discovery, nature and clearly framed fiction.
+Review actual meaning and context: ordinary family appearance, friendship,
+pronouns, natural rainbows and generic story props do not establish those themes.
+The neutral-setting and symbol rules in Part II still govern illustrations.
+
 ---
 
 ## 2. The evidence behind the standard

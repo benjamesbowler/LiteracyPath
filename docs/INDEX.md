@@ -53,6 +53,7 @@ A dated document must never override current code.
 - [World Discovery](guided-reading/WORLD_DISCOVERY_CONTENT_BIBLE.md) — 150 locally registered books, including 50 new nonfiction inquiries, original cast, explicit topic profiles and complete factual/illustration/narration requirements; production deployment is a separate verification
 - [World Discovery cohort registration](guided-reading/WORLD_DISCOVERY_COHORT_REGISTRATION.md) — three locally active cohorts, exact source/media evidence, preservation of prior books and the remaining release requirements
 - [Complete Guided Reading ESL and image audit](guided-reading/WORLD_DISCOVERY_ESL_AUDIT_HANDOFF.md) — 397-book coverage, concrete ESL and continuity repairs, exact installed-image provenance and verification boundaries.
+- [World Discovery topic replacements](guided-reading/WORLD_DISCOVERY_TOPIC_REPLACEMENTS_2026-11-10.md) — five broader ESL discovery topics after a 447-book text audit, independent levels, exact media evidence and preserved edition history.
 - [App reading levels and text measures](guided-reading/READING_LEVELS_AND_TEXT_MEASURES.md) — single public A–H book system, calibrated full-text reviews, shared metadata and verified Lexile provenance
 - [Story and Story Quest bible](content/STORY_AND_STORY_QUEST_BIBLE.md)
 - [Story writing standard](content/STORY_BIBLE_PART_1_WRITING.md)

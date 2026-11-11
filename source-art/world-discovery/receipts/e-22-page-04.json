@@ -2,38 +2,42 @@
   "bookId": "world-discovery-e-22",
   "slot": "page-04",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-09T12:18:46.497Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-ce181d95-ed49-4d4d-8462-25804b8bac1f.png",
-  "sourceSha256": "554df0a0f48a95fc403438f0012cc13226f0e1857cb4a71c643ed75963673e8b",
+  "generatedAt": "2026-11-10T06:20:11.924Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1c3ee-e610-7d22-ad30-a2bee077e3d6/exec-e6c15669-ae8d-40ad-a028-3125f364c9d4.png",
+  "sourceSha256": "163403b792b7275c3bf000ea0dbd22231cef03781d98cc629dc5ee5c264d91a1",
   "output": "public/guided-reading/world-discovery/e-22/page-04.webp",
-  "outputSha256": "f20edafcaf2e7cffcca0f27ce1c9aae6e1f0bd0930501b4db4b460a7e0170e11",
+  "outputSha256": "18a91e53317935db21a4bd1c117bde237afd243ce21ca0865a09796e963589d8",
   "width": 1536,
   "height": 1024,
-  "prompt": "Use case: precise-object-edit. Keep exact supplied cartoon composition and every station, train, bus, fence, road and building unchanged. REMOVE ONLY the two smaller rear pedestrians at the LEFT (purple-jacket woman and dark-suit briefcase man), filling their positions with the existing road/pavement continuously. KEEP the single foreground woman with tan bag, safely walking on light paved sidewalk. Do not move her or add anyone. Preserve all vehicles, ground geometry, clean outlines, smooth flat colors and1536x1024 landscape. No texture, labels or lettering.",
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Different Countries, Different Places; World Discovery; nonfiction.\nSetting: Factual geographic tour of selected ordinary landscapes in Japan, Egypt and Brazil. No fictional child travels between pages; no suggestion that one climate, building or landscape represents all people in a country. Maps are simplified geographic aids, not political claims; show whole-country approximate outlines with no disputed detail, capitals, flags, national costumes, religious monuments or political buildings. Japan: island coastline, Mount Fuji lower wooded slopes, ordinary Tokyo railway street. Egypt: dry plateau and connected Nile-side irrigated farmland with ordinary homes. Brazil: Amazon waterway with rainforest and ordinary Rio coastline framed by forested hills; omit Christ statue. Small background adults wear ordinary contemporary clothing and are never cultural symbols.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Simplified world locator map with dots for Japan, Egypt and Brazil; Japan island coastline, wooded Mount Fuji slopes, ordinary Tokyo train; Egypt desert and Nile river fields; Brazil Amazon waterway and Rio coastal city\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 4. Printed prose (NOT text to put in art): Tokyo is in Japan too. Here, trains run between tall buildings and busy streets. One country has very different places.\nRequired illustration: Ordinary contemporary Tokyo urban scene from elevated pedestrian viewpoint. Unbranded silver commuter train follows elevated rails between tall modern buildings; road traffic and small casually dressed adults remain on correct surfaces. No flags, readable signs or religious landmarks.\nExact current state: Second Japan view contrasts urban setting with previous wooded mountain.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nFINAL QUALITY LOCK: Render 1536 by 1024 pixels, clean landscape 3:2. This is the finished page, not a reference sheet. Keep all essential subjects fully framed with 8 percent margin. Use plain ordinary clothes and exactly the subjects specified in this page. Do not transfer extraneous reference animals, poses or props into the picture. No national symbols, logos or written marks. Geography accuracy: the reference is an identity/style aid, not an authority for map locations or permission to add animals. No crane, camel, jaguar or any other animal anywhere in this book. No national, ethnic, religious or political symbols.\nCORRECTION TO THE GENERATED DRAFT (second reference): This is a wide city-and-train view. Remove the large prominent foreground couple entirely. The ONLY adults are very small ordinary background pedestrians on the protected right-hand elevated pavement, each no taller than 80 pixels on the 1024-pixel-high picture and with complete feet at least 100 pixels above the bottom. Preserve silver commuter train with green band on correct elevated parallel rails, city buildings and road traffic below, everyday clothing, no words or symbols. Show the entire focal train nose within the safe area. No human portrait or main protagonists.",
   "references": [
     {
-      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-9de706c2-46d9-402c-858f-bb434aa26177.png",
-      "sha256": "74c2b3b82fc8fb410265ce9e7ffeba50e77e52bd450e1f07a719066437e0b378"
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-22-reference.webp",
+      "sha256": "83582d8397835477531f768217b2f65fe5a1ab830c18b2b2b0c9172984c06dd1"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1c3ee-e610-7d22-ad30-a2bee077e3d6/exec-775b897f-4911-46b3-ab95-5de6c5894d2b.png",
+      "sha256": "1698de43f4a4e7b097678bb0c19eec01d790b9bf2da96459d695d0eec158a7f9"
     }
   ],
   "manuscriptSource": {
-    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
-    "sha256": "2aff8b9432244a41072eb7c7376c77e21594d83a655dfa83d99e44c528e86755",
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/discovery-topic-revision/manuscripts",
+    "sha256": "10f17301c0b54d74f0667c993770e82a84c710618d5e3fa02c5648e46692e76e",
     "isolated": true,
     "firstNumber": 21,
     "lastNumber": 30,
     "topicProfile": "nonfiction-discovery"
   },
   "visualReview": {
-    "sha256": "f20edafcaf2e7cffcca0f27ce1c9aae6e1f0bd0930501b4db4b460a7e0170e11",
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-09T12:18:46.499Z",
-    "note": "Direct native inspection: full teal train and blue bus grounded on separate rail/road routes, fence separation clear; single foreground commuter fully on light paved sidewalk. Two ambiguous curb-edge rear people removed. Train front and commuter safely inset; modern workplace/station architecture retained."
+    "reviewedAt": "2026-11-10",
+    "sha256": "18a91e53317935db21a4bd1c117bde237afd243ce21ca0865a09796e963589d8",
+    "note": "Repair removed oversized foreground couple. Silver-green commuter train follows separate elevated rail route; road vehicles below and only small pedestrians on protected walkway. No signs, flags or landmarks. Producer independently inspected the final installed WebP natively; complete final sequence and relevant native diagrams were independently reviewed."
   },
   "reviewedManuscriptSource": {
     "bookId": "world-discovery-e-22",
     "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
-    "sha256": "2aff8b9432244a41072eb7c7376c77e21594d83a655dfa83d99e44c528e86755",
-    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
+    "sha256": "d3b67d6c70cda202a99594710f903a9dc9ec37110031b15daf30f7eb0b2fb747",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json"
   }
 }

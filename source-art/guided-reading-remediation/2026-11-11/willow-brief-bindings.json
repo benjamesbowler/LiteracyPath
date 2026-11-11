@@ -1,0 +1,184 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-11",
+  "kind": "existing-image-brief-alignment",
+  "metadataAlignment": {
+    "path": "source-art/guided-reading-remediation/2026-11-11/metadata-alignment.json",
+    "sha256": "5b51754e1a07bd77e77ee4bdf21a5f8062a13ac8675152c2eeffed067770bb3c"
+  },
+  "evidence": "The earlier metadata alignment inspected these installed illustrations and recorded their exact artwork hashes. This update ties the current descriptive briefs to those same bytes and page text. The original generation prompts and review attribution remain in the media manifest and visual review.",
+  "newGenerationCalls": 0,
+  "newHumanInspections": 0,
+  "changedFiles": [
+    {
+      "path": "docs/guided-reading/willow-street-illustrated-media-manifest.json",
+      "beforeSha256": "e6481f5ad5669d2988ec13ba747eab0cd2ab7b9233ace026c6b82be558449ea8",
+      "afterSha256": "e39f763847db0af9981c7fed34cd69f2a39edc32ba1ba96de389f62388dffc4f",
+      "fields": [
+        "briefSha256"
+      ]
+    },
+    {
+      "path": "docs/guided-reading/willow-street-visual-review.json",
+      "beforeSha256": "7fe1ba6339e167e6162f20d76fcb536afae4bb6ab339ebf320e75c14d64a331e",
+      "afterSha256": "350b545546de9c00c5712b91c92ec3a757ec1177d8c041fcd76993c3061d90ff",
+      "fields": [
+        "visualBriefSha256",
+        "notes"
+      ]
+    }
+  ],
+  "scopeVerification": "Restoring the three recorded field values on each of the six paths reproduces both original documents byte for byte.",
+  "bindings": [
+    {
+      "bookId": "willow-street-drums-for-carnival",
+      "pageNumber": 3,
+      "path": "/guided-reading/willow-street/drums-for-carnival/page-03.webp",
+      "before": {
+        "brief": "Leo enthusiastically continues drumming while the group begins its answer; overlapping motion lines and concerned listening faces show the rhythm has become crowded without shaming him.",
+        "briefSha256": "770de6f70b3bd4d3126cc696e3bbd684ce4b5839f0bd1878e55655d19e873030",
+        "reviewNote": "Current manuscript and complete-book image sequence reviewed on 2026-11-09. The unchanged image retains its earlier native-detail inspection, preserved in previousVersions. This is not a claim that the image was generated from the revised text."
+      },
+      "after": {
+        "brief": "Leo strikes his small hand drum while Mr Baptiste is still playing the call on the large drum. The other two players pause and look concerned at the overlapping beats.",
+        "briefSha256": "87099832df97eee20012491d9ea2a4bb1c7eca4f8cb27c9d71b778ad30bafd31",
+        "reviewNote": "2026-11-11 brief alignment for the installed illustration. Leo strikes his hand drum during Mr Baptiste’s call. The other two players pause. The inspection date and generation record apply to the same installed image. The prior note and brief are recorded in source-art/guided-reading-remediation/2026-11-11/willow-brief-bindings.json."
+      },
+      "retained": {
+        "textSha256": "c954df208b22e65365fd6683f2e25d1cebea7c1e6a0ecfd5c910044427953512",
+        "imageSha256": "33d114569372e9d31716e4c00f8f9cda9cd4a9d617fdcf6415326e1aaaad47f1",
+        "sourceNativeSha256": "ca33a9dab5dd939fcd39e5dd25d404e457683fc78c4a1789259c0cf5bcd466f2",
+        "productionPromptSha256": "153c6401abee8136dc323586405818b9fcc5a2507a3f83d2d64190ea01f183ac",
+        "generatorProvenance": "self-created",
+        "sourceImageGenOutput": "exec-a5e3ec6a-7a81-45bd-bf33-c11d7baea215.png",
+        "reviewedAt": "2026-11-09",
+        "reviewer": "Codex team full-manuscript and whole-book image sequence review; native-detail evidence retained or replaced as recorded"
+      }
+    },
+    {
+      "bookId": "willow-street-drums-for-carnival",
+      "pageNumber": 4,
+      "path": "/guided-reading/willow-street/drums-for-carnival/page-04.webp",
+      "before": {
+        "brief": "The whole percussion circle becomes still as Mr Baptiste calmly repeats the call with a hand cue; Leo lowers his sticks and leans forward to listen closely.",
+        "briefSha256": "acd78d037f89c838a479e0a814b838f15c667b5173999699a8cc7d9fdfd656f7",
+        "reviewNote": "All nine native generated PNGs and nine full saved WebPs directly inspected, followed by complete cover-plus-eight-page ordered 390px sequence. Removed fringed multicolor waist sash only; Mr Baptiste wears plain teal shirt and cream trousers throughout. Leo remains child-sized in rust/cream stripes, navy trousers and red shoes. Four players, green hand drum, orange shaker, small Leo drum, adult barrel drum and two sticks remain coherent; premature response3, raised stop hand4, waiting5, soft/loud response6, group response7 and outdoor march8 survive at reader size. Plain activity bunting retained; no religious setting, clothing or identity flags. Full limbs, hands, props and quiet lower framing preserved. Exact current Drums Together manuscript reviewed."
+      },
+      "after": {
+        "brief": "Mr Baptiste holds one open hand up while his sticks rest together in his other hand. Leo and the other players stop and hold their instruments still.",
+        "briefSha256": "d53cb64dbf106a86a2b803b8f8f63af43228fe45e9e1218b99d944a34bc8b9f6",
+        "reviewNote": "2026-11-11 brief alignment for the installed illustration. Mr Baptiste raises an open hand. The players stop and hold their instruments still. The inspection date and generation record apply to the same installed image. The prior note and brief are recorded in source-art/guided-reading-remediation/2026-11-11/willow-brief-bindings.json."
+      },
+      "retained": {
+        "textSha256": "717377086558a9a2964193a1e4449447ad4a7c13c1ae8078aa3cfdf78e299cf0",
+        "imageSha256": "24a01832421f7d34e3902f6bf5664b2f15f9cc661706afd98f9b2c34491a04d7",
+        "sourceNativeSha256": "dd84be89324234f79828c8a831954e563452a3c31440a3b6b751edb92a680c7d",
+        "productionPromptSha256": "153c6401abee8136dc323586405818b9fcc5a2507a3f83d2d64190ea01f183ac",
+        "generatorProvenance": "self-created",
+        "sourceImageGenOutput": "exec-05cc3321-6eb3-4297-bece-e8dac46f4a3f.png",
+        "reviewedAt": "2026-10-30T05:11:12Z",
+        "reviewer": "Codex direct original-detail visual review"
+      }
+    },
+    {
+      "bookId": "willow-street-drums-for-carnival",
+      "pageNumber": 5,
+      "path": "/guided-reading/willow-street/drums-for-carnival/page-05.webp",
+      "before": {
+        "brief": "Mr Baptiste finishes the call and points to the group; Leo joins exactly as the answering beat starts, matching the neighbors' hand drums in coordinated motion.",
+        "briefSha256": "84228f8e80bb6da4abf06de617c38e1e6fa26d3770c002bc26cdd14f520b9c5f",
+        "reviewNote": "All nine native generated PNGs and nine full saved WebPs directly inspected, followed by complete cover-plus-eight-page ordered 390px sequence. Removed fringed multicolor waist sash only; Mr Baptiste wears plain teal shirt and cream trousers throughout. Leo remains child-sized in rust/cream stripes, navy trousers and red shoes. Four players, green hand drum, orange shaker, small Leo drum, adult barrel drum and two sticks remain coherent; premature response3, raised stop hand4, waiting5, soft/loud response6, group response7 and outdoor march8 survive at reader size. Plain activity bunting retained; no religious setting, clothing or identity flags. Full limbs, hands, props and quiet lower framing preserved. Exact current Drums Together manuscript reviewed."
+      },
+      "after": {
+        "brief": "Mr Baptiste plays the call on the large drum while Leo waits with one hand lifted away from his own drum. The other players listen without playing.",
+        "briefSha256": "f7df6e0c1cf8c9ef0604d78362bb62c2606f8478501bb685c869d3447f3544ae",
+        "reviewNote": "2026-11-11 brief alignment for the installed illustration. Mr Baptiste plays the call while Leo and the other players wait. The inspection date and generation record apply to the same installed image. The prior note and brief are recorded in source-art/guided-reading-remediation/2026-11-11/willow-brief-bindings.json."
+      },
+      "retained": {
+        "textSha256": "9e1626e5c7586cafb8dfcf6548e442b9542f358ca12eb10aff8511e2a0add39f",
+        "imageSha256": "17857f766f69534c4f2a9488aaa4eae8e5c49a559fc344d55eb43f11e707de66",
+        "sourceNativeSha256": "1992304a8aab7a517ea8479b7996da40de4d24a07bd7b02ac17d23008c1dcf08",
+        "productionPromptSha256": "153c6401abee8136dc323586405818b9fcc5a2507a3f83d2d64190ea01f183ac",
+        "generatorProvenance": "self-created",
+        "sourceImageGenOutput": "exec-48fcd5ab-9b3a-4a11-95fb-a50c20665b62.png",
+        "reviewedAt": "2026-10-30T05:11:12Z",
+        "reviewer": "Codex direct original-detail visual review"
+      }
+    },
+    {
+      "bookId": "willow-street-drums-for-carnival",
+      "pageNumber": 6,
+      "path": "/guided-reading/willow-street/drums-for-carnival/page-06.webp",
+      "before": {
+        "brief": "The percussion group follows two visible hand cues: a small low hand for soft playing and raised open hand for strong playing; Leo mirrors both dynamics attentively.",
+        "briefSha256": "aa5aea7a95aed3b8e25f729f3623d2dba3ec0cddb89f48b80db7e5d7ae9cde41",
+        "reviewNote": "Current manuscript and complete-book image sequence reviewed on 2026-11-09. The unchanged image retains its earlier native-detail inspection, preserved in previousVersions. This is not a claim that the image was generated from the revised text."
+      },
+      "after": {
+        "brief": "Leo and the other two players play the answering rhythm on their hand drums and shaker. Mr Baptiste watches with both sticks lifted clear of his drum.",
+        "briefSha256": "9cfdb6269311b1eee9b91e9bd65a4f6768881b7c96f5ab46aa689de217a49b68",
+        "reviewNote": "2026-11-11 brief alignment for the installed illustration. Leo and the other two players give the answering rhythm while Mr Baptiste holds his sticks clear of the drum. The inspection date and generation record apply to the same installed image. The prior note and brief are recorded in source-art/guided-reading-remediation/2026-11-11/willow-brief-bindings.json."
+      },
+      "retained": {
+        "textSha256": "ce141c93ed1c4b52afa213360c76bf4e0beeb11e0074fa35baefc23996ed5199",
+        "imageSha256": "41a29a9b691acf36d1f405646d4921e5fd79983da200011af2c3811b771556f4",
+        "sourceNativeSha256": "25eb2fe70d00209a54ea20d1a347a036c59797454d00dfdbe44929c23901902d",
+        "productionPromptSha256": "153c6401abee8136dc323586405818b9fcc5a2507a3f83d2d64190ea01f183ac",
+        "generatorProvenance": "self-created",
+        "sourceImageGenOutput": "exec-16ba1db4-dcb0-4888-a2b5-36badcc29fbf.png",
+        "reviewedAt": "2026-11-09",
+        "reviewer": "Codex team full-manuscript and whole-book image sequence review; native-detail evidence retained or replaced as recorded"
+      }
+    },
+    {
+      "bookId": "willow-street-the-lunchbox-mix-up",
+      "pageNumber": 2,
+      "path": "/guided-reading/willow-street/the-lunchbox-mix-up/page-02.webp",
+      "before": {
+        "brief": "Maya compares blank cream label patches on both open lunchbox lids. The blue cup stays inside her yellow box and the green apple inside Samir's green box; spoon and orange napkin stay together on the table. No readable lettering.",
+        "briefSha256": "786f08b4844cc0e133d72f5182e0c7e519ba28b417f0bb502f025c7779d2ea35",
+        "reviewNote": "All nine final WebPs inspected native plus ordered390: Maya one high puff mustard/teal/plum and Samir cobalt/charcoal remain consistent. Rectangular light-oak tables, sage chairs and tall windows persist; yellow/green lunchboxes keep owners; blue cup and green apple exchange once, silver spoon returns while orange napkin stays Samir side. Final lunch is correctly sorted. All essential faces/hands/feet/clues safely inset beyond8percent and clear cream footer retained."
+      },
+      "after": {
+        "brief": "Maya and Samir hold their open lunchboxes on the table. Samir's blue cup is inside Maya's yellow box, and her green apple is inside his green box. A spoon and orange napkin lie between them.",
+        "briefSha256": "b522a8847afa87ab548155a522bcdd039ff6699e2d2878d0a2405777387b9270",
+        "reviewNote": "2026-11-11 brief alignment for the installed illustration. Both boxes are open. Samir’s blue cup sits in Maya’s yellow box and her green apple sits in his green box. The inspection date and generation record apply to the same installed image. The prior note and brief are recorded in source-art/guided-reading-remediation/2026-11-11/willow-brief-bindings.json."
+      },
+      "retained": {
+        "textSha256": "dd2aa19f4f536afc1330c8321f56e039518a6101fca146094f057489b8ebc870",
+        "imageSha256": "26583032686b8491e41ce566f3338e48941b097f916499d019fe52ebadfc5add",
+        "sourceNativeSha256": "32417a10aa115d8a472378e4969c1f3114d6973c1ab7df6d2444f9bec2ef4c03",
+        "productionPromptSha256": "be066856014e8515ca32545c47f6f115150263184df257e6af9abb8afe280bdc",
+        "generatorProvenance": "self-created",
+        "sourceImageGenOutput": "exec-65df2841-2438-4a32-893b-b8dbffedc696.png",
+        "reviewedAt": "2026-10-30T05:11:12Z",
+        "reviewer": "Codex direct original-detail visual review"
+      }
+    },
+    {
+      "bookId": "willow-street-the-lunchbox-mix-up",
+      "pageNumber": 3,
+      "path": "/guided-reading/willow-street/the-lunchbox-mix-up/page-03.webp",
+      "before": {
+        "brief": "Samir points from the blank label on his open green box to Maya's green apple inside. Maya's open yellow box still contains the blue cup. Spoon and orange napkin remain on the table between them.",
+        "briefSha256": "4b03fc018bf38372dcefa595e4c27f566e825613865605cb80d23ff39d12c441",
+        "reviewNote": "All nine final WebPs inspected native plus ordered390: Maya one high puff mustard/teal/plum and Samir cobalt/charcoal remain consistent. Rectangular light-oak tables, sage chairs and tall windows persist; yellow/green lunchboxes keep owners; blue cup and green apple exchange once, silver spoon returns while orange napkin stays Samir side. Final lunch is correctly sorted. All essential faces/hands/feet/clues safely inset beyond8percent and clear cream footer retained."
+      },
+      "after": {
+        "brief": "Samir points to Maya's green apple inside his open green lunchbox. Maya's yellow lunchbox still contains his blue cup. A spoon and orange napkin remain on the table between them.",
+        "briefSha256": "f77c85ac826b963a81deb7d9dc24a552ecac01d1273222f8e4838531314258e9",
+        "reviewNote": "2026-11-11 brief alignment for the installed illustration. Samir points to Maya’s apple inside his green box. His blue cup is still in her yellow box, with a spoon and orange napkin between them. The inspection date and generation record apply to the same installed image. The prior note and brief are recorded in source-art/guided-reading-remediation/2026-11-11/willow-brief-bindings.json."
+      },
+      "retained": {
+        "textSha256": "bb23a11859a5f293b807425c49571fb8ed5b28d23ec5d70e03ef39f2830abab3",
+        "imageSha256": "44380fb230d1c7b22a53a3526b2ee1ef6c1a29511675da9e96e4511f8e9f0b30",
+        "sourceNativeSha256": "770ce93659cec04a2ccaebf26bbb9b62db002d98a67f3d99780cf55843f7ff7b",
+        "productionPromptSha256": "ffd0f071fca16d33022c2146f7ac630828924981ed91c9abe8c172dee3155104",
+        "generatorProvenance": "self-created",
+        "sourceImageGenOutput": "exec-297a55cd-9cab-4817-afc2-f182819a845d.png",
+        "reviewedAt": "2026-10-30T05:11:12Z",
+        "reviewer": "Codex direct original-detail visual review"
+      }
+    }
+  ]
+}

@@ -99,6 +99,15 @@
       "date": "2026-11-03",
       "method": "Actual generated comic panels inspected in labelled 900px-wide review sheets; Cycle 12 and corrected Cycle 27 also inspected individually.",
       "notes": "Clean outlined cartoon scene; ordered actions, named characters and essential props match the passage. No answer letters or story text embedded. Rendered fit checked separately in the Cycle Shorts browser suite."
+    },
+    "retainedImageReview": {
+      "date": "2026-11-11",
+      "reviewer": "Codex native-resolution visual inspection",
+      "sourceTextSha256": "9f92c70170c08c9478d2490d0130d60b1bb9c5d77dfe4226e385339ac27c3e8c",
+      "reviewedText": "Muddy’s red hat is in the mud. Muddy runs to it. “How do I get my hat?” Muddy asks. Muddy lifts it with a stick. The hat is back on Muddy.",
+      "reviewedTextSha256": "b212408d0eff315dd0a9067af6b32e57eb767447a2f44478939ced47cd6d3281",
+      "imageSha256": "c4c3f0334d77913da4bdaeccbf6ff339c69dbb7c75c851b1290c40a5d9523f38",
+      "notes": "Three panels show Muddy approaching the red hat in mud, lifting it with a stick and wearing it again. The attributed question clarifies the same character’s intent."
     }
   },
   "cycle-short-7": {
@@ -116,6 +125,15 @@
       "date": "2026-11-03",
       "method": "Actual generated comic panels inspected in labelled 900px-wide review sheets; Cycle 12 and corrected Cycle 27 also inspected individually.",
       "notes": "Clean outlined cartoon scene; ordered actions, named characters and essential props match the passage. No answer letters or story text embedded. Rendered fit checked separately in the Cycle Shorts browser suite."
+    },
+    "retainedImageReview": {
+      "date": "2026-11-11",
+      "reviewer": "Codex native-resolution visual inspection",
+      "sourceTextSha256": "3db1135192d32a12f1afb6b54ab4d756180b78f9070080186d5343764be67f60",
+      "reviewedText": "The tin fell into the mud. Muddy said the tin was stuck. Muddy pulled it with a stick. Out came the tin! Muddy put it on a log.",
+      "reviewedTextSha256": "825da987d3b8cbe976202e303b362c5277e94353edaa35b58e4c8b8e773424b3",
+      "imageSha256": "15e60c1fad55679d1793b196e99fa4f2f06b11fbbea5049815876b7396a7f924",
+      "notes": "Three panels show the tin stuck in mud, the hooked-stick rescue and the tin resting on a log. The revised past-tense verbs describe the same ordered actions."
     }
   },
   "cycle-short-8": {
@@ -337,6 +355,15 @@
       "date": "2026-11-03",
       "method": "Actual generated comic panels inspected in labelled 900px-wide review sheets; Cycle 12 and corrected Cycle 27 also inspected individually.",
       "notes": "Clean outlined cartoon scene; ordered actions, named characters and essential props match the passage. No answer letters or story text embedded. Rendered fit checked separately in the Cycle Shorts browser suite."
+    },
+    "retainedImageReview": {
+      "date": "2026-11-11",
+      "reviewer": "Codex native-resolution visual inspection",
+      "sourceTextSha256": "eab157a73ed16e26eeb31f5ee881e23564ccd54fbe9478c53108b2fae5f9a5de",
+      "reviewedText": "Muddy hears a buzz by the bell. Which bug is it? A bee lands on the bell. His friends may miss lunch. He waits for the bee to fly off. Then Muddy rings the bell for lunch.",
+      "reviewedTextSha256": "c630d9ce0823892b5ee99773c6cb72e13727bfdc69a188e0ccd6dc9d2dddd124",
+      "imageSha256": "cef623ae93f161fdc8d1568811495164fe55caebfd37e2fbd86b818e7182eb06",
+      "notes": "Three panels show one picnic bell, the bee landing on it, and Muddy ringing beside the picnic blanket after the bee leaves. The lunch concern gives him a reason to ring when the bell is clear."
     }
   },
   "cycle-short-26": {

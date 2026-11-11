@@ -2,33 +2,39 @@
   "bookId": "world-discovery-d-04",
   "slot": "page-07",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-07T05:57:57.169Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-56527786-1cd9-4646-8e95-f32734ff09fb.png",
-  "sourceSha256": "45bd7d10ee7a302a430660f2edb9ac49420b94107782e388a57c2c88703deb33",
+  "generatedAt": "2026-11-11",
+  "source": "source-art/world-discovery/remediation/2026-11-11/d04-generation-inputs/page-07-selected.png",
+  "sourceSha256": "e0005e8b63f03a3866179d7c9038ffa053c97f922f4c5510c567db25dbad22c4",
   "output": "public/guided-reading/world-discovery/d-04/page-07.webp",
-  "outputSha256": "72b842a46eecb9dbde52933ce74d1ea0c6433df3402fae9922ed8af2ced98c76",
+  "outputSha256": "f09799f3b38c84fb63b8674848f5024ca2142c649b1a06b64100ff424578aec7",
   "width": 1536,
   "height": 1024,
-  "prompt": "Edit this accepted page 5 illustration to show the next exact story moment. Preserve EXACT same tree U-fork geometry, raised red diamond kite, one white ribbon tail, characters' clothing/skin, garden and crisp outlined flat cartoon style. Zoe has WALKED AROUND to the BACK of this tree. Place her clearly BEHIND the trunk/left fork: her lower body is occluded by wood, her face and hands are visible in the OPEN AIR gap ABOVE the low left branch and just LEFT of the kite. Her arms reach into this OPEN AIR gap holding blue pouch BEHIND the kite. The pouch is zipped MOSTLY CLOSED with only a tiny corner open. One SMALL white puff goes sideways RIGHT directly from this opening across OPEN AIR to the BACK of the kite. No wind stroke may cross solid wood. Kit on right has both empty hands waiting, one spool now on grass with visibly slack string attached to kite. Kite remains in same raised location against right twig; not yet free. Both children stay on ground; no climbing, no duplicate props, no text. The back-of-tree position MUST differ clearly from the reference’s front-left position.",
+  "prompt": "Repair the supplied page illustration for The Bag of Wind, preserving the exact established two children, clothing and colors, blue zip pouch, red diamond kite with black spars and white tail/string, low apple tree, garden wall and clean bold outlined flat-color cartoon style. The sole major correction is unmistakable safe spatial framing: Zoe, the girl with dark skin, two dark hair puffs, yellow shirt and pink overalls, must be STANDING ON THE GRASS beside the left/back side of a LOW tree, with her COMPLETE body, two legs and both shoes visibly planted on grass left of the trunk. Her torso and head must not appear perched in the fork or emerging from the trunk. Lower the tree fork to the children's chest height and put Zoe beside it, not behind its trunk. She holds the same blue pouch with both normal hands and aims its zipper corner horizontally through an open gap behind the wedged red kite. Only a tiny white puff escapes that little opening. The kite remains caught by one small twig in this frame, not flying free. Kit, the black-haired boy in teal T-shirt and yellow shorts, stands on grass on the right ready to catch the kite; his two shoes and normal arms/hands are clear. Keep both children the same established height, perspective coherent, all essential bodies and props safely in frame, no text or added characters. The point of the story is walking around the tree and using a small sideways puff, not climbing. Show one coherent moment from a slightly wide view, full landscape composition, clean flat colors and crisp outlines everywhere, no painterly texture.",
   "references": [
     {
-      "path": "/Users/benjaminbowler/.codex/generated_images/01a1b3f0-239a-7721-982d-9c1412f89e70/exec-db6b9872-f7b8-4444-bd27-1c96df11203d.png",
-      "sha256": "e2f369f01ae38fb47ac2aa9985833d0dda24e6c006bbdbbb210f0b09f451df3e"
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/d-04/page-07.webp",
+      "sha256": "72b842a46eecb9dbde52933ce74d1ea0c6433df3402fae9922ed8af2ced98c76",
+      "preservedPath": "source-art/world-discovery/remediation/2026-11-11/d04-generation-inputs/page-07-previous.webp"
     }
   ],
+  "generationProvenance": "source-art/world-discovery/remediation/2026-11-11/d04-generation-provenance.json",
+  "supersedes": {
+    "path": "source-art/world-discovery/remediation/2026-11-11/d04-prior-receipts/d-04-page-07.json",
+    "sha256": "64a06bb08b09b72785fdbb3a0a82ccdbcbd14cc4b999279f6f3a0bb354c80a6b"
+  },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-09",
-    "sha256": "72b842a46eecb9dbde52933ce74d1ea0c6433df3402fae9922ed8af2ced98c76",
-    "note": "Viewed full-size: Zoe reaches through open air behind fork with mostly closed pouch, tiny corner puff aimed toward kite; Kit waits with empty hands, spool on ground; no wind-through-wood.",
-    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
+    "reviewedAt": "2026-11-11",
+    "sha256": "f09799f3b38c84fb63b8674848f5024ca2142c649b1a06b64100ff424578aec7",
+    "note": "Zoe complete with two feet on grass left/back of low tree, pouch separate and tiny opening/puff horizontal through open air, kite still snagged, Kit grounded and waiting; one tail/string/spool.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-11/d04-complete-book-review.json",
     "limits": "Direct agent image/sequence inspection; not physical classroom observation."
   },
   "reviewedManuscriptSource": {
     "path": "src/content/world-discovery/level-d.json",
     "bookId": "world-discovery-d-04",
-    "sha256": "276b1b7042e6da481cec4c0568940b0d78e77d21070e94f1bc0e54270b408f95",
-    "reviewedAt": "2026-11-09",
-    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
+    "sha256": "94bfa8da474e89a395d7d99e98695d9aba42b1d3a5736a0214c60d5e027ac27e",
+    "reviewedAt": "2026-11-11",
+    "evidence": "source-art/world-discovery/remediation/2026-11-11/d04-complete-book-review.json"
   }
 }

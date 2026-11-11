@@ -2,27 +2,23 @@
   "bookId": "world-discovery-b-21",
   "slot": "page-07",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-09T05:26:58.559Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-5d703e72-f73a-4ff4-b3b3-8261ddada895.png",
-  "sourceSha256": "ae9556c8609b9ebf3df0db72ebb3c576e371cbe311c17304dc35dc3d51038fb6",
+  "generatedAt": "2026-11-10T06:00:47.794Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1c3ed-c928-70e2-a423-68d0aaffd69c/exec-d1223f9f-8edb-4dee-9f3f-28f5a907bb46.png",
+  "sourceSha256": "63dd88752e948f5c4c490c20b4ad5d22996320be99ad044285140597836061db",
   "output": "public/guided-reading/world-discovery/b-21/page-07.webp",
-  "outputSha256": "600b79fc7768227e32bbe5fd3c3ef4c10243a41c48ab31a28e8a2573681816c0",
+  "outputSha256": "601f698e1c8680219136e64a73e4e4c2c59c170e203c8563a228cd517320587f",
   "width": 1536,
   "height": 1024,
-  "prompt": "Edit image one with one tiny horizontal repositioning: translate the WHOLE TRAIN only about 35 pixels right, without scaling and with NO change of vertical position. Keep its wheels firmly on the two existing rails at their current height. Keep the forklift and warehouse exactly fixed. Preserve THREE crates inside the red car, FOUR inside yellow and FOUR inside green; the twelfth crate stays on the forklift. No additional crates. The blue locomotive nose should be about 145 pixels from the left edge and the green rear about 125 pixels from the right edge. Every other detail remains unchanged. The second image is design reference only.\n\nUse case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Train for Heavy Loads; World Discovery; nonfiction.\nSetting: A short contemporary freight journey between two warehouses. No public access to tracks. Unbranded blue diesel-electric locomotive, followed by red, yellow and green enclosed boxcars in that fixed order. Adult railway workers have orange safety vests, blue trousers and hard hats.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One blue locomotive; Exactly three boxcars in red/yellow/green order; Gray steel couplers between all vehicles; Wooden crates secured inside the cars; One continuous pair of rails\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 7. Printed prose (NOT text to put in art): The train stops by another warehouse.\nWorkers take the boxes out.\nRequired illustration: At second warehouse the stopped cars have open side doors; an adult unloads a crate with appropriate pallet equipment.\nExact current state: All cars stationary; crates decrease only through unloading.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nAll color fills clean and smooth with no grain or stipple.",
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: People Power; World Discovery; nonfiction.\nSetting: Three factual adult demonstrations: a level traffic-free park cycle path, a quiet enclosed ice rink, and a calm lake. Cyclist: medium-brown skin, short straight black hair under a plain yellow helmet, teal jacket, navy pants, white shoes; red upright chain-driven bicycle. Skater: light-brown skin, short curly dark hair, blue helmet, orange jacket, dark-green pants, black ice skates with one metal blade each. Rower: deep-brown skin, close-cropped black hair, purple shirt, navy pants and orange life jacket; green broad stable rowboat with two tan oars pivoted in the gunwales. No motors, races, steep slopes, roads, cultural costumes, flags or logos.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Red pedal bicycle with two wheels, visible chain and rear sprocket; Black ice skates with single silver blades, not wheels; Green rowboat with bow pointing right, rower facing left, two tan pivoted oars; Cyclist/skater helmets and rower life jacket retained in every view\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 7. Printed prose (NOT text to put in art): The boat moves forward.\nThe rower lifts the blades.\nRequired illustration: Same boat farther to the right of a stationary shoreline tree. Rower keeps facing left and lifts both broad blades just clear of the water after the pull. Small wake trails left behind the stern. No standing or duplicated arms.\nExact current state: Recovery after the power stroke; boat advances bow-first.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.",
   "references": [
     {
-      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-a217dc7a-4682-40a7-890d-f10ea89173f8.png",
-      "sha256": "6a2548fc01f26cd8eefc82c76ae87afdf5354faf275d74c36ade480fae5ec634"
-    },
-    {
-      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/b-21-reference.webp",
-      "sha256": "7855ef43e8e33eeeed6375214c4aa318ef90c9ff4f2c415843cfbdb563694042"
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/b-21-reference.webp",
+      "sha256": "7db119f20aa1a9ea4d31c6afe2936a22afb8809a8e7b6971e59fa9a04a85af67"
     }
   ],
   "manuscriptSource": {
-    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
-    "sha256": "e2840abe2bce545cbddeb0319fa0aade90784202e01e047d8bcd74ba38ddbcbb",
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/discovery-topic-revision/manuscripts",
+    "sha256": "790ccfb000c5a7286216b9ebcfd42c3f0b6779fed339fbc569cddf6ee58d3e09",
     "isolated": true,
     "firstNumber": 21,
     "lastNumber": 30,
@@ -30,15 +26,14 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-09T05:27:12.353Z",
-    "sha256": "600b79fc7768227e32bbe5fd3c3ef4c10243a41c48ab31a28e8a2573681816c0",
-    "note": "Directly viewed native PNG and installed WebP. Stopped train has open red/yellow/green cars at the gray two-bay green-roof destination. Red car has three remaining crates, yellow and green each four, with the twelfth crate securely on the adult-operated forklift. Whole train lies inside safe margins and wheels contact rails.",
-    "limits": "Direct image inspection only; app display and independent sequence review follow separately."
+    "reviewedAt": "2026-11-10",
+    "sha256": "601f698e1c8680219136e64a73e4e4c2c59c170e203c8563a228cd517320587f",
+    "note": "Native inspection confirms the same bow-right boat and left-facing rower with both blades now above the water after the pull. The new recovery state is distinct from p6, and the boat remains on water. Producer independently inspected the final installed WebP natively; complete final sequence and relevant native diagrams were independently reviewed."
   },
   "reviewedManuscriptSource": {
     "bookId": "world-discovery-b-21",
     "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
-    "sha256": "6d40120e98f2ff48a5cf89a9eb34eb073cdc2b64b8c7787eb0d4ca5f64455114",
-    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
+    "sha256": "664f916d1379302ae82b7a5dbf774413f4378508f9326855afd22b7b7086bbfc",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json"
   }
 }

@@ -11,11 +11,12 @@ separate: full app, release and live-deployment verification remain required. Th
 [cohort registration contract](WORLD_DISCOVERY_COHORT_REGISTRATION.md) owns
 expansion paths, immutable-original checks and activation mechanics.
 
-The locally registered collection has thirty books at each public App level
-A, B, C, D and E. The first 100 books, in cohorts `01-10` and `11-20`, retain the original ten strands:
+The locally registered collection has thirty production slots in each band
+A, B, C, D and E. Public shelves follow exact-text editorial reviews, including
+after a replacement earns a different level. The first 100 books, in cohorts `01-10` and `11-20`, retain the original ten strands:
 identity, relationships, community, fantasy, geography, space, animals, life cycles,
 classification and caring for our world. Fantasy is explicitly fiction.
-The fifty books in `21-30` are all nonfiction and add ten books at each A–E level. Their
+The fifty books in `21-30` are all nonfiction and add ten production slots in each A–E band. Their
 explicit `nonfiction-discovery` topic profile broadens coverage; it does not
 reclassify the original books or permit a repeated inquiry with a new title.
 Information books use connected inquiries and
@@ -58,7 +59,7 @@ declare `topicProfile: "nonfiction-discovery"`; no profile is inferred from a
 folder name or a book's own claimed topic. All fifty `type` and
 `storyBibleReview.kind` values must be `nonfiction`.
 
-| Number at each A–E level | Exact topic |
+| Number in each A–E production band | Exact topic |
 | --- | --- |
 | 21 | transport |
 | 22 | geography |
@@ -75,8 +76,16 @@ Each book needs a distinct, concrete inquiry appropriate to its actual reading
 level, with checked primary factual sources and complete illustration/narration
 production. The original cast, neutral-setting restrictions, language limits,
 independent calibration, complete-book review and all release gates below remain
-unchanged. Broader human geography topics must respect those setting restrictions
-unless the user explicitly changes this authority. Existing subjects may supply
+unchanged. The owner's 10 November 2026 request explicitly includes different
+countries and transport through history. Supported nonfiction may therefore show
+real-country landscapes, ordinary contemporary life in those countries, and
+factual historical transport reconstructions. This exception does not change Kit
+and Zoe's identities or put them into fictional international or historical
+journeys. Show diversity within countries; do not treat one landscape, building
+or activity as a portrait of every person or place there. Keep the restrictions
+on flags, cultural costumes, religious and political settings. Cite checked
+primary sources for the places, historical order and mechanisms actually shown.
+Existing subjects may supply
 background, but the main inquiry must fill a documented gap or add a materially
 new explanation. A transit overview, for example, must not be a renamed version
 of the existing bicycle-brake or canal-lock books.
@@ -93,6 +102,9 @@ remain separate requirements.
 World: World Discovery, ordinary contemporary homes, school, park and community.
 No cultural costumes, flags, religious or political settings. Factual animals
 have natural anatomy and behavior. Facts never depend on the fantasy rules.
+The supported nonfiction location/history exception above permits real
+geographic views and historical transport scenes; it does not alter the
+recurring-cast world.
 
 - **WD-KIT / Kit**: human boy, about six, warm light-medium golden skin, short
   straight black hair with a side part, teal short-sleeved shirt, mustard shorts,
@@ -122,7 +134,14 @@ Each JSON array entry contains `id`, `number` (1–10 for the original set;
 `readingMode`, `interestAge`, `storyBibleReview`, `setting`, `props`,
 `coverBrief`, `pages`, `discussion`, `levelRationale`, and `languagePrep`.
 Use `standard`, `predictable-levelled`, and `4–8` for the three corresponding
-fields. Fiction review includes `kind`, `canonIds`, `storySpine`,
+fields. The legacy `appLevel` field identifies the original production band:
+it keeps the ID, folder, cohort membership, internal language limits and series
+order stable during repairs. The independently authored, exact-text
+`reviews.json` entry assigns the current public A–H level. A changed text must
+be reviewed afresh; neither its old shelf nor its production band forces the
+new assignment. A missing, invalid or stale review still fails closed.
+
+Fiction review includes `kind`, `canonIds`, `storySpine`,
 `failedAttempt`, `resolution`; nonfiction includes `kind`, `canonIds` (possibly
 empty), `topicQuestion`, `progression`, `synthesis`, `scienceSources` with exact
 URLs and supported claims. Any science in fiction also needs checked sources.
@@ -161,7 +180,8 @@ accurately; do not claim human listening, classroom or physical-device checks.
 
 The 150 locally registered books contain 1,320 reading pages and 150 covers,
 with 150 separate library-card renditions. World Discovery is a named child-library
-collection; public App levels A–E each contain thirty of its books locally. Teacher browsing, preview,
+collection; original production bands A–E each retain thirty slots. Public
+shelf totals follow the current independent reviews. Teacher browsing, preview,
 class reading, word help and oral/visual discussion use the existing reader.
 
 `source-art/world-discovery` retains the locked cast, per-book reference boards,

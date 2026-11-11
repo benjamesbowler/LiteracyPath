@@ -1,0 +1,533 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-11-11",
+  "scope": "Six Guided Reading books. Seven revised pages, the new Flappy title, and the missing word swapped.",
+  "provider": "Google Cloud Text-to-Speech",
+  "voiceName": "en-US-Chirp3-HD-Leda",
+  "languageCode": "en-US",
+  "sourceProposal": {
+    "path": ".artifacts/library-suitability-audit/proposed-book-text-repairs.json",
+    "sha256": "9c4ab496349bc5f54bfa84f2cf41190aa9652018e0fe1459264cc66fb4bb0153"
+  },
+  "production": {
+    "generator": "tools/generateGuidedReadingLedaGaps.mjs",
+    "inputs": [
+      {
+        "path": ".artifacts/library-suitability-audit/shard-3/narration/reviewed-manuscript.json",
+        "sha256": "43d20a19487ebcaba9f9ac8f917af15f51bd5514cd070e88309fa25b1ff91ae9"
+      },
+      {
+        "path": ".artifacts/library-suitability-audit/shard-3/narration/dry-run.json",
+        "sha256": "0f5eb82f03944d95523c1ae4ed8cb382d8214e23323d33158f09f3e58977014b"
+      },
+      {
+        "path": ".artifacts/library-suitability-audit/shard-3/narration/generated.json",
+        "sha256": "619ebc421735ab60e5b84097be73ce0e55dfdc0b3a9f44595268a13738f2b988"
+      }
+    ],
+    "synthesizedRequests": 9,
+    "reusedWordClips": 15,
+    "sourceEncoding": "Google LINEAR16 at 24000 Hz",
+    "deliveryEncoding": "FFmpeg loudnorm I=-24 TP=-2 LRA=7 and 15 ms fade in. libmp3lame at 128 kbps.",
+    "contentAddressing": "File suffix is first ten hexadecimal characters of SHA-256 of final MP3 bytes."
+  },
+  "automatedScreening": {
+    "method": "Full FFmpeg decode with finite speech-window signal and independent offline faster-whisper recognition without reference prompts.",
+    "recognizers": [
+      {
+        "report": ".artifacts/library-suitability-audit/shard-3/narration/screen-small.json",
+        "modelSha256": "62b2a45b05ee59acb4a5341b33ee35e041395d378d418a18acfe4c9e768ee37a",
+        "filesScreened": 9,
+        "exactNormalizedMatches": 8,
+        "recognitionDifferences": 1
+      },
+      {
+        "report": ".artifacts/library-suitability-audit/shard-3/narration/screen-tiny.json",
+        "modelSha256": "1a5afae06a4db91c975c9a9d78be5cc110ee4ea022ad57d55492e4550e936b2a",
+        "filesScreened": 9,
+        "exactNormalizedMatches": 5,
+        "recognitionDifferences": 4
+      }
+    ],
+    "humanListeningObserved": false
+  },
+  "entries": [
+    {
+      "kind": "page",
+      "bookId": "ab-c-09",
+      "pageNumber": 9,
+      "role": "guided_page",
+      "visibleText": "Mom had left a coin as a gift for his lost tooth. Aiden raced to thank her.",
+      "visibleTextSha256": "5e5c7de1dbab98b67559769cd7acc6695b39bf3df22f64f638152223e91b71b0",
+      "spokenText": "Mom had left a coin as a gift for his lost tooth. Aiden raced to thank her.",
+      "spokenTextSha256": "5e5c7de1dbab98b67559769cd7acc6695b39bf3df22f64f638152223e91b71b0",
+      "normalizedLookupText": "mom had left a coin as a gift for his lost tooth. aiden raced to thank her",
+      "audioPath": "/audio/production/en-US/guided_page/mom-had-left-a-coin-as-a-gift-for-his-lost-tooth-aiden-raced-to-thank-her-9dbc3d607c.mp3",
+      "audioSha256": "9dbc3d607ca2c71d3d51968ccb4fb52f8a104652e894a4549dace1ebd43dfec1",
+      "bytes": 70701,
+      "synthesisOutputPath": "/audio/production/en-US/guided_page/mom-had-left-a-coin-as-a-gift-for-his-lost-tooth-aiden-raced-to-thank-her-7a179ac49d.mp3",
+      "signal": {
+        "durationSeconds": 4.36,
+        "peakDbfs": -6.764600899861972,
+        "rmsDbfs": -24.11271682203565,
+        "leadingSilenceSeconds": 0,
+        "trailingSilenceSeconds": 0,
+        "longestInteriorSilenceSeconds": 0.45
+      },
+      "fullDecodePassed": true,
+      "unpromptedRecognition": {
+        "small": "Mom had left a coin as a gift for his lost tooth. Aiden raced to thank her.",
+        "tiny": "Mom had left a coin as a gift for his lost tooth. Eden raced to thank her."
+      },
+      "adjudication": "The small.en transcript matches the normalized spoken word sequence."
+    },
+    {
+      "kind": "page",
+      "bookId": "moonwood-tales-c-03",
+      "pageNumber": 10,
+      "role": "guided_page",
+      "visibleText": "On the way back, Stone held Burrow in one arm and gripped the rope with his free hand. Pip led them toward the bank where he and Stone had started.",
+      "visibleTextSha256": "224cdc4ed8b6463979ac7f19fb2e17287af1f94ec5747deebc022449e7abbb53",
+      "spokenText": "On the way back, Stone held Burrow in one arm and gripped the rope with his free hand. Pip led them toward the bank where he and Stone had started.",
+      "spokenTextSha256": "224cdc4ed8b6463979ac7f19fb2e17287af1f94ec5747deebc022449e7abbb53",
+      "normalizedLookupText": "on the way back, stone held burrow in one arm and gripped the rope with his free hand. pip led them toward the bank where he and stone had started",
+      "audioPath": "/audio/production/en-US/guided_page/on-the-way-back-stone-held-burrow-in-one-arm-and-gripped-the-rope-with-his-free-hand-pip-led-th-ff7f65a1a6.mp3",
+      "audioSha256": "ff7f65a1a60651660d181ee4d47a2f23390f5699c9ed824553475d3a15967458",
+      "bytes": 167853,
+      "synthesisOutputPath": "/audio/production/en-US/guided_page/on-the-way-back-stone-held-burrow-in-one-arm-and-gripped-the-rope-with-his-free-hand-pip-led-them-toward-the-bank-where-he-and-stone-had-started-8a6ae8694b.mp3",
+      "signal": {
+        "durationSeconds": 10.44,
+        "peakDbfs": -6.030811197361617,
+        "rmsDbfs": -26.156012266908874,
+        "leadingSilenceSeconds": 0.65,
+        "trailingSilenceSeconds": 0,
+        "longestInteriorSilenceSeconds": 0.5
+      },
+      "fullDecodePassed": true,
+      "unpromptedRecognition": {
+        "small": "On the way back, Stone held Burrow in one arm and gripped the rope with his free hand. Pip led them toward the bank where he and Stone had started.",
+        "tiny": "On the way back, Stone held burrow in one arm and gripped the rope with his free hand. Pip led them toward the bank where he and Stone had started."
+      },
+      "adjudication": "The small.en transcript matches the normalized spoken word sequence."
+    },
+    {
+      "kind": "page",
+      "bookId": "moonwood-tales-c-18",
+      "pageNumber": 11,
+      "role": "guided_page",
+      "visibleText": "Stone sat dripping beside Dewdrop as the fish swam in a circle nearby. His shoulders relaxed when he saw it swimming strongly, with no rocks blocking its path.",
+      "visibleTextSha256": "be2ad5c9d8080fb19207182d931d12b5c5d251d70258721fa4aca54102eaae7c",
+      "spokenText": "Stone sat dripping beside Dewdrop as the fish swam in a circle nearby. His shoulders relaxed when he saw it swimming strongly, with no rocks blocking its path.",
+      "spokenTextSha256": "be2ad5c9d8080fb19207182d931d12b5c5d251d70258721fa4aca54102eaae7c",
+      "normalizedLookupText": "stone sat dripping beside dewdrop as the fish swam in a circle nearby. his shoulders relaxed when he saw it swimming strongly, with no rocks blocking its path",
+      "audioPath": "/audio/production/en-US/guided_page/stone-sat-dripping-beside-dewdrop-as-the-fish-swam-in-a-circle-nearby-his-shoulders-relaxed-whe-ae6eba5eff.mp3",
+      "audioSha256": "ae6eba5effe4360d59082967654743e19f839cc9facdd4325cf371cc6b44bbd6",
+      "bytes": 160941,
+      "synthesisOutputPath": "/audio/production/en-US/guided_page/stone-sat-dripping-beside-dewdrop-as-the-fish-swam-in-a-circle-nearby-his-shoulders-relaxed-when-he-saw-it-swimming-strongly-with-no-rocks-blocking-its-path-1faa541036.mp3",
+      "signal": {
+        "durationSeconds": 10,
+        "peakDbfs": -8.100871731097017,
+        "rmsDbfs": -25.015313541436353,
+        "leadingSilenceSeconds": 0.05,
+        "trailingSilenceSeconds": 0.049999999999998934,
+        "longestInteriorSilenceSeconds": 0.6000000000000001
+      },
+      "fullDecodePassed": true,
+      "unpromptedRecognition": {
+        "small": "Stone sat dripping beside Dewdrop as the fish swam in a circle nearby. His shoulders relaxed when he saw it swimming strongly, with no rocks blocking its path.",
+        "tiny": "Stone sat dripping beside due drop as the fish swam in a circle nearby. His shoulders relaxed when he saw it swimming strongly, with no rocks blocking its path."
+      },
+      "adjudication": "The small.en transcript matches the normalized spoken word sequence."
+    },
+    {
+      "kind": "page",
+      "bookId": "moonwood-tales-c-34",
+      "pageNumber": 8,
+      "role": "guided_page",
+      "visibleText": "Fern packed strong woven root fiber and sticky glue into every part of the curved mold. Spark pressed it down. They left it beside the warm lanterns.",
+      "visibleTextSha256": "605cbcd55443673b6515b06c8d27b0a6d63f6ac7ea338c9442436075caa055db",
+      "spokenText": "Fern packed strong woven root fiber and sticky glue into every part of the curved mold. Spark pressed it down. They left it beside the warm lanterns.",
+      "spokenTextSha256": "605cbcd55443673b6515b06c8d27b0a6d63f6ac7ea338c9442436075caa055db",
+      "normalizedLookupText": "fern packed strong woven root fiber and sticky glue into every part of the curved mold. spark pressed it down. they left it beside the warm lanterns",
+      "audioPath": "/audio/production/en-US/guided_page/fern-packed-strong-woven-root-fiber-and-sticky-glue-into-every-part-of-the-curved-mold-spark-pr-eb44c0f35a.mp3",
+      "audioSha256": "eb44c0f35a66dc438ed375ca02e500c69c4e23cbe008b4e11d010300b3d2f874",
+      "bytes": 187821,
+      "synthesisOutputPath": "/audio/production/en-US/guided_page/fern-packed-strong-woven-root-fiber-and-sticky-glue-into-every-part-of-the-curved-mold-spark-pressed-it-down-they-left-it-beside-the-warm-lanterns-f9d64797ea.mp3",
+      "signal": {
+        "durationSeconds": 11.68,
+        "peakDbfs": -8.421826312381969,
+        "rmsDbfs": -25.660240882634014,
+        "leadingSilenceSeconds": 0.05,
+        "trailingSilenceSeconds": 0,
+        "longestInteriorSilenceSeconds": 0.15000000000000002
+      },
+      "fullDecodePassed": true,
+      "unpromptedRecognition": {
+        "small": "Fern-packed, strong, woven root fiber and sticky glue into every part of the curved mold. Spark pressed it down. They left it beside the warm lanterns.",
+        "tiny": "Fern packed strong woven root fiber and sticky glue into every part of the curved mold. Spark pressed it down. They left it beside the warm lanterns."
+      },
+      "adjudication": "The small.en transcript matches the normalized spoken word sequence."
+    },
+    {
+      "kind": "page",
+      "bookId": "moonwood-tales-c-34",
+      "pageNumber": 9,
+      "role": "guided_page",
+      "visibleText": "When the glue dried, Spark lifted a solid root-fiber hook from the mold. Its curve matched the good hook exactly. He carried it to the lowest rail.",
+      "visibleTextSha256": "9e068fccedce6084f90e693e5be45cbf64231c9aa85e2177465d3bd44d7f7b93",
+      "spokenText": "When the glue dried, Spark lifted a solid root-fiber hook from the mold. Its curve matched the good hook exactly. He carried it to the lowest rail.",
+      "spokenTextSha256": "9e068fccedce6084f90e693e5be45cbf64231c9aa85e2177465d3bd44d7f7b93",
+      "normalizedLookupText": "when the glue dried, spark lifted a solid root-fiber hook from the mold. its curve matched the good hook exactly. he carried it to the lowest rail",
+      "audioPath": "/audio/production/en-US/guided_page/when-the-glue-dried-spark-lifted-a-solid-root-fiber-hook-from-the-mold-its-curve-matched-the-go-06a9eba74b.mp3",
+      "audioSha256": "06a9eba74be388442e185c0ee0a41f73ec25937fa2aee0dd94efda1a8f3309ec",
+      "bytes": 165933,
+      "synthesisOutputPath": "/audio/production/en-US/guided_page/when-the-glue-dried-spark-lifted-a-solid-root-fiber-hook-from-the-mold-its-curve-matched-the-good-hook-exactly-he-carried-it-to-the-lowest-rail-79349f48c2.mp3",
+      "signal": {
+        "durationSeconds": 10.32,
+        "peakDbfs": -6.616291151206396,
+        "rmsDbfs": -25.23742602357362,
+        "leadingSilenceSeconds": 0,
+        "trailingSilenceSeconds": 0,
+        "longestInteriorSilenceSeconds": 0.25
+      },
+      "fullDecodePassed": true,
+      "unpromptedRecognition": {
+        "small": "When the glue dried, Spark lifted a solid root fiber hook from the mold. Its curve matched the good hook exactly. He carried it to the lowest rail.",
+        "tiny": "When the glue dried, spark lifted a solid root fiber hook from the mold. Its curve matched the good hook exactly. He carried it to the lowest rail."
+      },
+      "adjudication": "The small.en transcript matches the normalized spoken word sequence."
+    },
+    {
+      "kind": "page",
+      "bookId": "willow-street-the-lunchbox-mix-up",
+      "pageNumber": 2,
+      "role": "guided_page",
+      "visibleText": "Maya checks both boxes. The lunchboxes are not swapped.",
+      "visibleTextSha256": "9dd7738bf6474d977c683ea3fa279b5afd29d7b4dd00f2ade784ebaaa88925ff",
+      "spokenText": "Maya checks both boxes. The lunchboxes are not swapped.",
+      "spokenTextSha256": "9dd7738bf6474d977c683ea3fa279b5afd29d7b4dd00f2ade784ebaaa88925ff",
+      "normalizedLookupText": "maya checks both boxes. the lunchboxes are not swapped",
+      "audioPath": "/audio/production/en-US/guided_page/maya-checks-both-boxes-the-lunchboxes-are-not-swapped-932ddcfda2.mp3",
+      "audioSha256": "932ddcfda281f795d720e10f54400dce58e39d47fdaf9c075dc3c3ce28fe9cf6",
+      "bytes": 68013,
+      "synthesisOutputPath": "/audio/production/en-US/guided_page/maya-checks-both-boxes-the-lunchboxes-are-not-swapped-23a66736f3.mp3",
+      "signal": {
+        "durationSeconds": 4.2,
+        "peakDbfs": -5.380723711790046,
+        "rmsDbfs": -24.751324465540414,
+        "leadingSilenceSeconds": 0,
+        "trailingSilenceSeconds": 0,
+        "longestInteriorSilenceSeconds": 0.2
+      },
+      "fullDecodePassed": true,
+      "unpromptedRecognition": {
+        "small": "Maya checks both boxes. The lunch boxes are not swapped.",
+        "tiny": "Maya checks both boxes. The lunch boxes are not swapped."
+      },
+      "adjudication": "Both recognizers separated the compound lunchboxes. The spoken words match."
+    },
+    {
+      "kind": "page",
+      "bookId": "willow-street-the-lunchbox-mix-up",
+      "pageNumber": 3,
+      "role": "guided_page",
+      "visibleText": "Samir spots Maya’s green apple inside his own lunchbox.",
+      "visibleTextSha256": "8c1110ea7becc4c1690ee922cf68521525f2fd524511482dd56049c93cc2de7d",
+      "spokenText": "Samir spots Maya's green apple inside his own lunchbox.",
+      "spokenTextSha256": "171e16ad5722c9d97c63a46d5d1372225342dd0576ee9879bb527486d5aee7db",
+      "normalizedLookupText": "samir spots maya's green apple inside his own lunchbox",
+      "audioPath": "/audio/production/en-US/guided_page/samir-spots-maya-s-green-apple-inside-his-own-lunchbox-616d160a69.mp3",
+      "audioSha256": "616d160a693b429e1d71a3e251950a9ed311629c06831c2bef07b3e73d578636",
+      "bytes": 68781,
+      "synthesisOutputPath": "/audio/production/en-US/guided_page/samir-spots-maya-s-green-apple-inside-his-own-lunchbox-acca3b42a9.mp3",
+      "signal": {
+        "durationSeconds": 4.24,
+        "peakDbfs": -9.86891934668847,
+        "rmsDbfs": -24.82041675772647,
+        "leadingSilenceSeconds": 0.05,
+        "trailingSilenceSeconds": 0.13999999999999968,
+        "longestInteriorSilenceSeconds": 0.1
+      },
+      "fullDecodePassed": true,
+      "unpromptedRecognition": {
+        "small": "Samir spots Maya's green apple inside his own lunchbox.",
+        "tiny": "Samir spots Maya's green apple inside his own lunch box."
+      },
+      "adjudication": "The small.en transcript matches the normalized spoken word sequence."
+    },
+    {
+      "kind": "title",
+      "bookId": "dino-pals-14-what-is-flappy",
+      "pageNumber": null,
+      "role": "guided_page",
+      "visibleText": "Flappy Finds a Way",
+      "visibleTextSha256": "4865802c264518dda910a469ae4e641f351a9cee1d787dc300b3c21daeb787fb",
+      "spokenText": "Flappy Finds a Way",
+      "spokenTextSha256": "4865802c264518dda910a469ae4e641f351a9cee1d787dc300b3c21daeb787fb",
+      "normalizedLookupText": "flappy finds a way",
+      "audioPath": "/audio/production/en-US/guided_page/flappy-finds-a-way-7fac2d7db1.mp3",
+      "audioSha256": "7fac2d7db118c4e917afbd38ebe05e99a7f2670b6c0a54937647cf81ab85dc8f",
+      "bytes": 19629,
+      "synthesisOutputPath": "/audio/production/en-US/guided_page/flappy-finds-a-way-50d37ff9e4.mp3",
+      "signal": {
+        "durationSeconds": 1.16,
+        "peakDbfs": -10.05647085618779,
+        "rmsDbfs": -24.214976934249673,
+        "leadingSilenceSeconds": 0,
+        "trailingSilenceSeconds": 0,
+        "longestInteriorSilenceSeconds": 0
+      },
+      "fullDecodePassed": true,
+      "unpromptedRecognition": {
+        "small": "Flappy finds a way.",
+        "tiny": "Flappy finds a way."
+      },
+      "adjudication": "The small.en transcript matches the normalized spoken word sequence."
+    },
+    {
+      "kind": "word",
+      "bookId": null,
+      "pageNumber": null,
+      "role": "isolated_word",
+      "visibleText": "swapped",
+      "visibleTextSha256": "37e0d51511fee340586cfec5f4138944bc9c224bf2e678f2177c52c7bb0618e5",
+      "spokenText": "swapped",
+      "spokenTextSha256": "37e0d51511fee340586cfec5f4138944bc9c224bf2e678f2177c52c7bb0618e5",
+      "normalizedLookupText": "swapped",
+      "audioPath": "/audio/production/en-US/isolated_word/swapped-6a4c964bce.mp3",
+      "audioSha256": "6a4c964bce1bd3a5429479cce9fa8ecc097a0c1ef588c54ffedd2008d83571e4",
+      "bytes": 11949,
+      "synthesisOutputPath": "/audio/production/en-US/isolated_word/swapped-f963339c26.mp3",
+      "signal": {
+        "durationSeconds": 0.68,
+        "peakDbfs": -13.02860682643017,
+        "rmsDbfs": -26.60894848293299,
+        "leadingSilenceSeconds": 0,
+        "trailingSilenceSeconds": 0.030000000000000027,
+        "longestInteriorSilenceSeconds": 0.15000000000000002
+      },
+      "fullDecodePassed": true,
+      "unpromptedRecognition": {
+        "small": "Swapped.",
+        "tiny": "swapped."
+      },
+      "adjudication": "The small.en transcript matches the normalized spoken word sequence."
+    }
+  ],
+  "priorBindingsPreserved": 6163,
+  "historical": [
+    {
+      "bookId": "ab-c-09",
+      "pageNumber": 9,
+      "before": "By morning, a coin lay where the envelope had been. Aiden raced to show Mom.",
+      "recordings": [
+        {
+          "path": "/audio/production/en-US/guided_page/by-morning-a-coin-lay-where-the-envelope-had-been-aiden-raced-to-show-mom-c2d1b0aa7b.mp3",
+          "sha256": "a4d492504a377bd259104e40b0b50a742678f52ba936df9ef91173f7bdf0b573"
+        }
+      ]
+    },
+    {
+      "bookId": "moonwood-tales-c-03",
+      "pageNumber": 10,
+      "before": "On the way back, Stone held Burrow in one arm and gripped the rope with his free hand. Pip walked just ahead. Board by board, the far bank drew closer.",
+      "recordings": [
+        {
+          "path": "/audio/production/en-US/guided_page/on-the-way-back-stone-held-burrow-in-one-arm-and-gripped-the-rope-with-his-free-hand-pip-walked-just-ahead-board-by-board-the-far-bank-drew-closer-2a331c1197.mp3",
+          "sha256": "3eaa17d53a5272ecf36ef577f7800c2e3456287d3a58c28bd3373a3666e303ac"
+        }
+      ]
+    },
+    {
+      "bookId": "moonwood-tales-c-18",
+      "pageNumber": 11,
+      "before": "Stone sat dripping beside Dewdrop while the fish circled them once. His shoulders relaxed when he saw it swimming strongly, with no rocks blocking its path.",
+      "recordings": [
+        {
+          "path": "/audio/production/en-US/guided_page/stone-sat-dripping-beside-dewdrop-while-the-fish-circled-them-once-his-shoulders-relaxed-when-he-saw-it-swimming-strongly-with-no-rocks-blocking-its-path-bb5ed59836.mp3",
+          "sha256": "d2bab8b3ef084150ff75e8b3e0bb487bf5a6152be83a48271183073904173893"
+        }
+      ]
+    },
+    {
+      "bookId": "moonwood-tales-c-34",
+      "pageNumber": 8,
+      "before": "Fern packed strong woven root fiber into every part of the curved mold. Spark pressed the material down carefully. Then they left it beside the warm lanterns.",
+      "recordings": [
+        {
+          "path": "/audio/production/en-US/guided_page/fern-packed-strong-woven-root-fiber-into-every-part-of-the-curved-mold-spark-pressed-the-material-down-carefully-then-they-left-it-beside-the-warm-lanterns-7c80ab05e2.mp3",
+          "sha256": "198aecab3d952b82b72cb509104634e9b103d39d3fbd43282ead731e3d5e9a36"
+        }
+      ]
+    },
+    {
+      "bookId": "moonwood-tales-c-34",
+      "pageNumber": 9,
+      "before": "When the root fiber dried, Spark lifted a solid hook from the mold. Its curve matched the good hook exactly. He carried it to the lowest rail.",
+      "recordings": [
+        {
+          "path": "/audio/production/en-US/guided_page/when-the-root-fiber-dried-spark-lifted-a-solid-hook-from-the-mold-its-curve-matched-the-good-hook-exactly-he-carried-it-to-the-lowest-rail-0560f37572.mp3",
+          "sha256": "904bf91b6b86cd5cf14b55a5054835d6d80d38d36a61bd25568d4fca92d86209"
+        }
+      ]
+    },
+    {
+      "bookId": "willow-street-the-lunchbox-mix-up",
+      "pageNumber": 2,
+      "before": "Maya checks the labels on both lunchboxes.",
+      "recordings": [
+        {
+          "path": "/audio/production/en-US/guided_page/maya-checks-the-labels-on-both-lunchboxes-7812499939.mp3",
+          "sha256": "cdba2764c39689a53766d72a02a55d9c6c067f4e861158b3c2c193c35389eb9a"
+        }
+      ]
+    },
+    {
+      "bookId": "willow-street-the-lunchbox-mix-up",
+      "pageNumber": 3,
+      "before": "Samir checks the labels and spots Maya's green apple.",
+      "recordings": [
+        {
+          "path": "/audio/production/en-US/guided_page/samir-checks-the-labels-and-spots-maya-s-green-apple-b0023a1890.mp3",
+          "sha256": "50cb8a277ca26dfb39a270bb884d5fd73f5eb4e9078ffac321f59f02fddfedc9"
+        }
+      ]
+    },
+    {
+      "bookId": "dino-pals-14-what-is-flappy",
+      "pageNumber": null,
+      "before": "What is Flappy?",
+      "recordings": []
+    }
+  ],
+  "exactFrozenPageMappingsPreserved": true,
+  "repairRegistry": {
+    "path": "tools/guidedReadingRemediationAudioRepairs.mjs",
+    "sha256": "8b688e0aea40ed4caa424b255186aa86ea10a9b785a4686b5452a26f317e602d"
+  },
+  "guidedGapMapping": {
+    "path": "src/data/generated/guidedReadingLedaGaps.generated.js",
+    "sha256": "b17c0b9e1dfdad2d7a23203d191d0aaee50e7da5c5aec788d513f2933852fe9d"
+  },
+  "runtimeVerification": {
+    "guidedPagesResolved": 7,
+    "titleExactTextLookupResolved": 1,
+    "newWordResolved": 1,
+    "uniqueWordBindingsInRevisedText": 117,
+    "historicalPageBindingsResolved": 7,
+    "verifiedAt": "2026-11-10T22:57:09.299Z"
+  },
+  "cleanup": {
+    "removedTemporarySynthesisAliases": 9,
+    "removedDuplicateBytes": 921621,
+    "method": "Checked exact byte-identical final copies and absence of tracked files and active source, test, or operational references before removing each temporary synthesis alias.",
+    "aliases": [
+      {
+        "path": "public/audio/production/en-US/guided_page/mom-had-left-a-coin-as-a-gift-for-his-lost-tooth-aiden-raced-to-thank-her-7a179ac49d.mp3",
+        "bytes": 70701,
+        "retainedCopy": "public/audio/production/en-US/guided_page/mom-had-left-a-coin-as-a-gift-for-his-lost-tooth-aiden-raced-to-thank-her-9dbc3d607c.mp3",
+        "sha256": "9dbc3d607ca2c71d3d51968ccb4fb52f8a104652e894a4549dace1ebd43dfec1"
+      },
+      {
+        "path": "public/audio/production/en-US/guided_page/on-the-way-back-stone-held-burrow-in-one-arm-and-gripped-the-rope-with-his-free-hand-pip-led-them-toward-the-bank-where-he-and-stone-had-started-8a6ae8694b.mp3",
+        "bytes": 167853,
+        "retainedCopy": "public/audio/production/en-US/guided_page/on-the-way-back-stone-held-burrow-in-one-arm-and-gripped-the-rope-with-his-free-hand-pip-led-th-ff7f65a1a6.mp3",
+        "sha256": "ff7f65a1a60651660d181ee4d47a2f23390f5699c9ed824553475d3a15967458"
+      },
+      {
+        "path": "public/audio/production/en-US/guided_page/stone-sat-dripping-beside-dewdrop-as-the-fish-swam-in-a-circle-nearby-his-shoulders-relaxed-when-he-saw-it-swimming-strongly-with-no-rocks-blocking-its-path-1faa541036.mp3",
+        "bytes": 160941,
+        "retainedCopy": "public/audio/production/en-US/guided_page/stone-sat-dripping-beside-dewdrop-as-the-fish-swam-in-a-circle-nearby-his-shoulders-relaxed-whe-ae6eba5eff.mp3",
+        "sha256": "ae6eba5effe4360d59082967654743e19f839cc9facdd4325cf371cc6b44bbd6"
+      },
+      {
+        "path": "public/audio/production/en-US/guided_page/fern-packed-strong-woven-root-fiber-and-sticky-glue-into-every-part-of-the-curved-mold-spark-pressed-it-down-they-left-it-beside-the-warm-lanterns-f9d64797ea.mp3",
+        "bytes": 187821,
+        "retainedCopy": "public/audio/production/en-US/guided_page/fern-packed-strong-woven-root-fiber-and-sticky-glue-into-every-part-of-the-curved-mold-spark-pr-eb44c0f35a.mp3",
+        "sha256": "eb44c0f35a66dc438ed375ca02e500c69c4e23cbe008b4e11d010300b3d2f874"
+      },
+      {
+        "path": "public/audio/production/en-US/guided_page/when-the-glue-dried-spark-lifted-a-solid-root-fiber-hook-from-the-mold-its-curve-matched-the-good-hook-exactly-he-carried-it-to-the-lowest-rail-79349f48c2.mp3",
+        "bytes": 165933,
+        "retainedCopy": "public/audio/production/en-US/guided_page/when-the-glue-dried-spark-lifted-a-solid-root-fiber-hook-from-the-mold-its-curve-matched-the-go-06a9eba74b.mp3",
+        "sha256": "06a9eba74be388442e185c0ee0a41f73ec25937fa2aee0dd94efda1a8f3309ec"
+      },
+      {
+        "path": "public/audio/production/en-US/guided_page/maya-checks-both-boxes-the-lunchboxes-are-not-swapped-23a66736f3.mp3",
+        "bytes": 68013,
+        "retainedCopy": "public/audio/production/en-US/guided_page/maya-checks-both-boxes-the-lunchboxes-are-not-swapped-932ddcfda2.mp3",
+        "sha256": "932ddcfda281f795d720e10f54400dce58e39d47fdaf9c075dc3c3ce28fe9cf6"
+      },
+      {
+        "path": "public/audio/production/en-US/guided_page/samir-spots-maya-s-green-apple-inside-his-own-lunchbox-acca3b42a9.mp3",
+        "bytes": 68781,
+        "retainedCopy": "public/audio/production/en-US/guided_page/samir-spots-maya-s-green-apple-inside-his-own-lunchbox-616d160a69.mp3",
+        "sha256": "616d160a693b429e1d71a3e251950a9ed311629c06831c2bef07b3e73d578636"
+      },
+      {
+        "path": "public/audio/production/en-US/guided_page/flappy-finds-a-way-50d37ff9e4.mp3",
+        "bytes": 19629,
+        "retainedCopy": "public/audio/production/en-US/guided_page/flappy-finds-a-way-7fac2d7db1.mp3",
+        "sha256": "7fac2d7db118c4e917afbd38ebe05e99a7f2670b6c0a54937647cf81ab85dc8f"
+      },
+      {
+        "path": "public/audio/production/en-US/isolated_word/swapped-f963339c26.mp3",
+        "bytes": 11949,
+        "retainedCopy": "public/audio/production/en-US/isolated_word/swapped-6a4c964bce.mp3",
+        "sha256": "6a4c964bce1bd3a5429479cce9fa8ecc097a0c1ef588c54ffedd2008d83571e4"
+      }
+    ],
+    "removedScratch": [
+      {
+        "path": ".artifacts/library-suitability-audit/shard-3/narration/guided-gaps-before.js",
+        "bytes": 988022,
+        "sha256": "69eb834289ec7b0811fdbcfa3e94031c52898a18809a1a29e04791988d8a7125"
+      },
+      {
+        "path": ".artifacts/library-suitability-audit/shard-3/narration/install-screened-audio.mjs",
+        "bytes": 8099,
+        "sha256": "cb74c7d1293f98e05f329de5daee8ff11c8dd84aa0db342b9b30cdf11ddfb58c"
+      },
+      {
+        "path": ".artifacts/library-suitability-audit/shard-3/narration/verify-and-cleanup.mjs",
+        "bytes": 4456,
+        "sha256": "2b4f414e6b5d1b985590ec80d1eaf26c096d91a266c78134ab5f35dde572f456"
+      }
+    ]
+  },
+  "priorMappingRecovery": {
+    "gitRevision": "3b227884538862d8a7c1ceebe2616dc00403e11d",
+    "gitPath": "src/data/generated/guidedReadingLedaGaps.generated.js",
+    "sha256": "69eb834289ec7b0811fdbcfa3e94031c52898a18809a1a29e04791988d8a7125"
+  },
+  "verification": {
+    "exactPageProvenance": {
+      "report": ".artifacts/library-suitability-audit/shard-3/narration/provenance-check.json",
+      "reportSha256": "de3567881a043538a19e0571afd514b2ce020ecdee69db8cd57b58a2f084c0d3",
+      "books": 447,
+      "livePages": 3941,
+      "exactResolvedPages": 3941,
+      "rebuildFlags": 0,
+      "unresolvedNormalizedCollisions": 0,
+      "failures": 0,
+      "snapshotMatches": true
+    },
+    "scopedDryRun": {
+      "report": ".artifacts/library-suitability-audit/shard-3/narration/dry-run-final.json",
+      "newRequests": 0,
+      "reusedRecords": 24
+    },
+    "focusedUnitTests": {
+      "log": ".artifacts/library-suitability-audit/shard-3/narration/focused-tests.log",
+      "passed": 21,
+      "failed": 0
+    },
+    "readerAvailability": {
+      "log": ".artifacts/library-suitability-audit/shard-3/narration/reader-availability-tests.log",
+      "logSha256": "702df2554bc8a4066037ff1aae8c444006a1ddc429392a5a41bf7ade9095a3a0",
+      "passed": 5,
+      "failed": 0,
+      "newPathsPresent": 9
+    }
+  }
+}

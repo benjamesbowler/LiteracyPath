@@ -41,7 +41,9 @@ export function ReadingSessionRecoveryDialog({ session, onResume, onEnd, pending
             busyRef.current = true;
             setResuming(true); setMessage("");
             try { if (await onResume?.() === false) throw new Error("not_resumed"); }
-            catch { setMessage("The reading session could not reopen. Your session and pending changes are still here. Try continuing again."); }
+            catch (error) { setMessage(error?.code === "reading_edition_changed"
+              ? "This session uses an earlier edition of the book. End it and start a new group for the current edition. Your earlier reading changes are retained."
+              : "The reading session could not reopen. Your session and pending changes are still here. Try continuing again."); }
             finally { busyRef.current = false; setResuming(false); }
           }} type="button">
             {resuming ? "Opening reading…" : "Continue reading"}

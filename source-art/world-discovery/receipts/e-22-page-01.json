@@ -2,38 +2,42 @@
   "bookId": "world-discovery-e-22",
   "slot": "page-01",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-09T12:07:33.803Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-2f3babe9-b405-43ac-9e42-14e9b1c02234.png",
-  "sourceSha256": "23b6a11b4316b3fec5180d31adcb19ba27fa794c9515cc230315a08398f45b20",
+  "generatedAt": "2026-11-10T06:20:11.351Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1c3ee-e610-7d22-ad30-a2bee077e3d6/exec-58122ec0-032c-423b-8973-5930c38bc349.png",
+  "sourceSha256": "33b6d499cb5464ca8989d3ae87c409f202ccfdb378ee273069ce97d1f7b11af1",
   "output": "public/guided-reading/world-discovery/e-22/page-01.webp",
-  "outputSha256": "aadeed92255e4c6ff1c2e6646d879a3895df633d999ecab93f54427430cbc657",
+  "outputSha256": "21b3e81ec9a1364ff0315b7b77279439450258c250410bb4a350f639200cd9e0",
   "width": 1536,
   "height": 1024,
-  "prompt": "Use case: precise-object-edit. This supplied verified map is the exact geography base for a finished children's nonfiction page. Keep its entire coastline geometry, England green area and boundaries, gray neighboring land, light blue sea, scale, orientation and ALL THREE dot center positions EXACTLY unchanged. Keep canvas1536x1024 and existing map placement. Add ONLY the exact three place names in large clean dark sans-serif lettering with thin noncrossing leaders: orange southwest dot = Wells; purple dot just northeast = Lacock; teal eastern dot = Reading. Put Wells in the pale-blue clear area southwest of its orange dot with short leader, Lacock comfortably above its purple dot with short leader, Reading to the right of its teal dot on available green space with short leader. Leaders must terminate at the correct dot, not another place; keep names legible and well separated. Wells W-e-l-l-s; Lacock L-a-c-o-c-k; Reading R-e-a-d-i-n-g. Keep names/dots at least12 percent inside canvas. Do not add any city illustration, roads, other dots, invented borders, flags, symbols, legend, title or other lettering. Preserve exact geography instead of stylizing the shape. Clean flat colors and crisp edges, no texture or shading. No other changes.",
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one integrated explanatory diagram. Allow only the cutaways, insets, schematic elements or arrows explicitly authored in this page's illustration brief; keep them spatially connected to the subject they explain. No unrequested panels, insets, annotations or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Different Countries, Different Places; World Discovery; nonfiction.\nSetting: Factual geographic tour of selected ordinary landscapes in Japan, Egypt and Brazil. No fictional child travels between pages; no suggestion that one climate, building or landscape represents all people in a country. Maps are simplified geographic aids, not political claims; show whole-country approximate outlines with no disputed detail, capitals, flags, national costumes, religious monuments or political buildings. Japan: island coastline, Mount Fuji lower wooded slopes, ordinary Tokyo railway street. Egypt: dry plateau and connected Nile-side irrigated farmland with ordinary homes. Brazil: Amazon waterway with rainforest and ordinary Rio coastline framed by forested hills; omit Christ statue. Small background adults wear ordinary contemporary clothing and are never cultural symbols.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Simplified world locator map with dots for Japan, Egypt and Brazil; Japan island coastline, wooded Mount Fuji slopes, ordinary Tokyo train; Egypt desert and Nile river fields; Brazil Amazon waterway and Rio coastal city\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and specific stages explicitly required below; the declared diagram permits no other scenes or story events.\nPage 1. Printed prose (NOT text to put in art): A world map shows many countries. Are all places inside one country alike? Let’s look closely at three countries.\nRequired illustration: Simple world locator map, north up, with geographically correct continental silhouettes. Three dots only: Japan in east Asia, Egypt in northeast Africa, Brazil in eastern South America. Each dot has one leader line to a plain empty circular focus marker, no country names, political borders or invented land. Do not show Antarctica as an inhabited country.\nExact current state: Opening locates three selected countries; no travel time or universal-country claim.\nDo not add events or stages beyond the authored diagram. Repeat a subject only when the authored comparison or cutaway requires it. No written title; the app renders live text.\nFINAL QUALITY LOCK: Render 1536 by 1024 pixels, clean landscape 3:2. This is the finished page, not a reference sheet. Keep all essential subjects fully framed with 8 percent margin. Use plain ordinary clothes and exactly the subjects specified in this page. Do not transfer extraneous reference animals, poses or props into the picture. No national symbols, logos or written marks. Geography accuracy: the reference is an identity/style aid, not an authority for map locations or permission to add animals. No crane, camel, jaguar or any other animal anywhere in this book. No national, ethnic, religious or political symbols. Map-specific lock: standard accurate north-up world continental silhouettes, with clear eastern coast of Asia and distinct Japan offshore, northeast Africa adjoining the Mediterranean and Red Sea, eastern South America with Brazil. EXACTLY THREE red locator dots total. Japan dot ON its island chain around 137 E 36 N, never mainland China or Russia. Egypt dot in northeast Africa around 30 E 27 N, just SOUTH of Mediterranean and WEST of Red Sea, never central Africa or Ethiopia. Brazil dot in east-central South America around 52 W 14 S. Correct these locations even if the production reference board is imprecise. Dots are unlabelled. Each has one unambiguous leader line to its corresponding external circular focus marker. No extra dots, miniature maps or invented country borders.\nCORRECTION TO THE GENERATED DRAFT (second reference): Remove ALL the unrelated bottom-half landscape scenes and people. This page shows ONLY the single world locator map and exactly three empty circular focus markers joined by three leader lines. No country landscape vignettes, mountains, cities, trains, houses, forests, fields, rivers, people, animals or other objects outside the actual geographic map. Make the corrected oval world map centered and generously sized while its ENTIRE outer edge remains at least 130 pixels from left/right and 90 pixels from top/bottom. Blue ocean background only outside it. Keep the three geographically accurate dots and three empty white circles. Each line must start exactly at its country's dot. North up, no labels.",
   "references": [
     {
-      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/.artifacts/nonfiction-next-50/geography-reference/e22-locator.png",
-      "sha256": "a1326d92bd95e96db95b33c5285683ea7f465c271a1c040c0da0e66c822ae7ea"
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-22-reference.webp",
+      "sha256": "83582d8397835477531f768217b2f65fe5a1ab830c18b2b2b0c9172984c06dd1"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1c3ee-e610-7d22-ad30-a2bee077e3d6/exec-72c4466d-94b6-4445-b182-39ddc6ba1d8a.png",
+      "sha256": "5fbcc2a23223a0c9f4fd159eb2929fd519d1ee1118513a7cf965cd4d62aa42a7"
     }
   ],
   "manuscriptSource": {
-    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
-    "sha256": "2aff8b9432244a41072eb7c7376c77e21594d83a655dfa83d99e44c528e86755",
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/discovery-topic-revision/manuscripts",
+    "sha256": "10f17301c0b54d74f0667c993770e82a84c710618d5e3fa02c5648e46692e76e",
     "isolated": true,
     "firstNumber": 21,
     "lastNumber": 30,
     "topicProfile": "nonfiction-discovery"
   },
   "visualReview": {
-    "sha256": "aadeed92255e4c6ff1c2e6646d879a3895df633d999ecab93f54427430cbc657",
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-09T12:07:33.805Z",
-    "note": "Direct native inspection against verified locator: England outline and gray neighboring land preserved, all three colored dots remain at supplied positions; Wells label leader to orange southwest dot, Lacock to purple northeast dot, Reading to teal eastern dot. Exact names legible, noncrossing leaders and safe outer margins. No invented border or extra location."
+    "reviewedAt": "2026-11-10",
+    "sha256": "21b3e81ec9a1364ff0315b7b77279439450258c250410bb4a350f639200cd9e0",
+    "note": "Map-only correction inspected; no transferred scenery or people. Three dots lie on Japanese island chain, northeast Africa west of Red Sea, and east-central South America. Three independent leaders terminate at empty circles. Distinct correct continental silhouettes. Producer independently inspected the final installed WebP natively; complete final sequence and relevant native diagrams were independently reviewed."
   },
   "reviewedManuscriptSource": {
     "bookId": "world-discovery-e-22",
     "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
-    "sha256": "2aff8b9432244a41072eb7c7376c77e21594d83a655dfa83d99e44c528e86755",
-    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
+    "sha256": "d3b67d6c70cda202a99594710f903a9dc9ec37110031b15daf30f7eb0b2fb747",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json"
   }
 }

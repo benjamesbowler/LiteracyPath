@@ -2,38 +2,38 @@
   "bookId": "world-discovery-e-22",
   "slot": "page-03",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-09T12:11:35.634Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-0aff59e6-2d7d-4eff-974a-aa8c14ab3b81.png",
-  "sourceSha256": "2a34f567aa02695c19d2737e27f9abd61aa06a6ec935b03f1728324a84574dcc",
+  "generatedAt": "2026-11-10T06:04:38.766Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1c3ee-e610-7d22-ad30-a2bee077e3d6/exec-433bbd4d-1868-4f64-8ca0-d0f5c72539f5.png",
+  "sourceSha256": "190edda4293da339b48bcf839e1142f0e72d3f8a1455a366649c18bcece15ca9",
   "output": "public/guided-reading/world-discovery/e-22/page-03.webp",
-  "outputSha256": "9f88be7a899c87ef92f613347ed853c52ec22ef0d1abd232f94cdfe530675ac5",
+  "outputSha256": "7201683dfe76cd61e661b52226b1e88120372df1e65ab7eba2cb54c587b94bb5",
   "width": 1536,
   "height": 1024,
-  "prompt": "Use case: illustration-story. One finished landscape1536x1024 full-bleed flat children's nonfiction illustration. New camera viewpoint in the exact Lacock street design supplied. Show the SAME modest pale-stone groceries shop with muted terracotta roof, sage-green door RIGHT and shopfront trim, large plain window of bread, jars, apples, carrots and leafy vegetables. Widen to include connected ordinary stone homes and a black timber/cream cottage along a quiet road, showing shop among homes rather than isolated shop cutout. NO people needed for this page. Keep full shop door/window and main roof at least12 percent inside canvas; foreground pavement and quiet road continue naturally. No railway. No religious buildings or symbols, flags, logos, readable signs, letters/numbers or pseudo-writing. Smooth clean flat colors, continuous dark outlines, at most restrained cel shading, no grain or painterly texture. One coherent scene, not panels. This shows that this village has both homes and a shop.",
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Different Countries, Different Places; World Discovery; nonfiction.\nSetting: Factual geographic tour of selected ordinary landscapes in Japan, Egypt and Brazil. No fictional child travels between pages; no suggestion that one climate, building or landscape represents all people in a country. Maps are simplified geographic aids, not political claims; show whole-country approximate outlines with no disputed detail, capitals, flags, national costumes, religious monuments or political buildings. Japan: island coastline, Mount Fuji lower wooded slopes, ordinary Tokyo railway street. Egypt: dry plateau and connected Nile-side irrigated farmland with ordinary homes. Brazil: Amazon waterway with rainforest and ordinary Rio coastline framed by forested hills; omit Christ statue. Small background adults wear ordinary contemporary clothing and are never cultural symbols.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Simplified world locator map with dots for Japan, Egypt and Brazil; Japan island coastline, wooded Mount Fuji slopes, ordinary Tokyo train; Egypt desert and Nile river fields; Brazil Amazon waterway and Rio coastal city\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 3. Printed prose (NOT text to put in art): Near Mount Fuji, the land rises to a high peak. Paths lead through forests on the slopes below.\nRequired illustration: Wide daylight landscape with Mount Fuji’s distinct broad volcanic cone above wooded lower slopes. A single clear walking path curves through low forest in foreground. No shrine gate, temple, flags, souvenir text or people in traditional costume. Not a jungle or jagged Alpine peak.\nExact current state: First close view within Japan: mountain and forest.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nFINAL QUALITY LOCK: Render 1536 by 1024 pixels, clean landscape 3:2. This is the finished page, not a reference sheet. Keep all essential subjects fully framed with 8 percent margin. Use plain ordinary clothes and exactly the subjects specified in this page. Do not transfer extraneous reference animals, poses or props into the picture. No national symbols, logos or written marks. Geography accuracy: the reference is an identity/style aid, not an authority for map locations or permission to add animals. No crane, camel, jaguar or any other animal anywhere in this book. No national, ethnic, religious or political symbols.",
   "references": [
     {
-      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-8428c5df-3186-4e08-bf73-5d7b2a5a1c3d.png",
-      "sha256": "9a9dcea23ff23e7c23b61f59d87b23308cef3395dd0e362726a37645a96196b8"
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-22-reference.webp",
+      "sha256": "83582d8397835477531f768217b2f65fe5a1ab830c18b2b2b0c9172984c06dd1"
     }
   ],
   "manuscriptSource": {
-    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
-    "sha256": "2aff8b9432244a41072eb7c7376c77e21594d83a655dfa83d99e44c528e86755",
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/discovery-topic-revision/manuscripts",
+    "sha256": "10f17301c0b54d74f0667c993770e82a84c710618d5e3fa02c5648e46692e76e",
     "isolated": true,
     "firstNumber": 21,
     "lastNumber": 30,
     "topicProfile": "nonfiction-discovery"
   },
   "visualReview": {
-    "sha256": "9f88be7a899c87ef92f613347ed853c52ec22ef0d1abd232f94cdfe530675ac5",
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-09T12:11:35.635Z",
-    "note": "Direct native inspection: sage-green grocery shop with food window is integrated among ordinary stone and timber homes on coherent village street; shop fully inset, no humans or lettering, no rail/religious buildings. Clean smooth cartoon and visible adjoining residential uses."
+    "reviewedAt": "2026-11-10",
+    "sha256": "7201683dfe76cd61e661b52226b1e88120372df1e65ab7eba2cb54c587b94bb5",
+    "note": "Broad snowy Fuji cone, wooded lower slopes and one winding foreground path. No shrines, flags, text or people; no Alpine/jagged peak. Producer independently inspected the final installed WebP natively; complete final sequence and relevant native diagrams were independently reviewed."
   },
   "reviewedManuscriptSource": {
     "bookId": "world-discovery-e-22",
     "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
-    "sha256": "2aff8b9432244a41072eb7c7376c77e21594d83a655dfa83d99e44c528e86755",
-    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
+    "sha256": "d3b67d6c70cda202a99594710f903a9dc9ec37110031b15daf30f7eb0b2fb747",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json"
   }
 }

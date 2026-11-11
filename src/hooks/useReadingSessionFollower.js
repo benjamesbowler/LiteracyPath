@@ -59,7 +59,7 @@ export function useReadingSessionFollower({
       const session = data?.session || null;
       const resolved = resolveFollowerPage({ books, session, contentVersion });
       dispatch({ type: "session", session, ...resolved });
-      if (session && warmedSessionRef.current !== session.id) {
+      if (session && resolved.contentOk && warmedSessionRef.current !== session.id) {
         warmedSessionRef.current = session.id;
         const { readingSessionMediaUrls } = await import("../data/readingSession.js");
         void warmQuestOfflineAssets(

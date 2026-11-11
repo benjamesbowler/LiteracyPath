@@ -2,23 +2,27 @@
   "bookId": "world-discovery-e-21",
   "slot": "page-04",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-09T11:29:55.440Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-85e45f0b-86c2-484f-b685-ce2ac215ed20.png",
-  "sourceSha256": "d3daabc4e3b7d83fd53e5ab87308ee9932ac761a50cd2f729609b6a01713981d",
+  "generatedAt": "2026-11-10T09:44:45.624Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1c3ee-e610-7d22-ad30-a2bee077e3d6/exec-7b4a4c70-e46c-4520-8612-c51a6a44db1e.png",
+  "sourceSha256": "2b1e03c9b65ec2950e18fdc7417cdcb9caf7680cbc91869fc3ad7c8fd4d82aca",
   "output": "public/guided-reading/world-discovery/e-21/page-04.webp",
-  "outputSha256": "d006fccedc95a81a5ce568472c7739526754b62ca3fc8b1b6ef799ebbc51cd6d",
+  "outputSha256": "f3ba08c0b93c39dcf6dfa4f9605e6bf4e4e7a77087a0e33b4b1fd778a54eed58",
   "width": 1536,
   "height": 1024,
-  "prompt": "Make one finished 3:2 landscape children's nonfiction illustration in the exact flat 2D clean bold-outline style of the attached reference. Solid cheerful colors, no texture, gradients, 3D, collage, decorative frame or printed narration. Preserve exact Kit (teal shirt/yellow shorts), Zoe (yellow shirt/purple overalls/two hair puffs), adult (teal polo/navy trousers), yellow bus and white-blue enclosed ferry designs wherever shown. All essential subjects and diagram boundaries must sit at least 12 percent inside ALL four image edges; backgrounds may extend. A single wide side-view scene of ONE yellow bus driving right on the level deck of a gray road bridge over the turquoise river. Match the yellow bus design from reference: four square passenger windows, right-side front doorway and right-facing windscreen. Bridge deck continuously connects broad banks, with guardrails behind/below bus, bridge piers rise from water; bus tires visibly rest on road surface. Bus and bridge are framed widely with essential bus and bridge ends at least 15 percent inset. On upper left above the river place one small white round time badge containing ONLY a black simple bus pictogram and numeral 15. This badge denotes ride time only. No other text or number, no people, no extra vehicles, no reference-board map, no extra floating museum. Simple green banks and pale blue sky.",
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one explanatory comparison diagram. Allow only the distinct views, stages or comparison panels explicitly authored in this page's illustration brief, with their exact relationships and counts. No unrequested panels, insets, annotations or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Transport Through Time; World Discovery; nonfiction.\nSetting: A selected factual history followed by contemporary transport comparisons. Historical pictures are reconstructions, not a claim that all countries changed at once. Plain practical clothes only; no flags, religious buildings, political events or cultural costumes. Cart: brown wooden four-wheel wagon, one healthy bay horse and adult driver in plain gray shirt and dark trousers. Steam train: black early passenger steam locomotive with red wheels and two brown wooden coaches. Early motor car: dark-green open four-wheel gasoline car with adult driver. Early aircraft: plain cream single-propeller biplane. Modern train: white electric passenger train with blue band and overhead wire. Jet: white twin-engine passenger jet with teal tail. No named cast or brand logos.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Horse-drawn brown wagon; Early black steam train; Early dark-green motor car; Cream early propeller biplane; Modern white-blue electric train; Modern white-teal passenger jet\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and specific stages explicitly required below; the declared diagram permits no other scenes or story events.\nPage 4. Printed prose (NOT text to put in art): A steam train could carry many people farther in one day than a horse-drawn cart could usually travel.\nRequired illustration: Two-part historical comparison diagram: same wagon with two travelers on road at left; same locomotive with two occupied passenger coaches on rail at right. Distinct scenes, no racing side by side. Longer row of small identical sun-to-sunset time symbols is prohibited; use no numerical or proportional distance chart.\nExact current state: Compare carrying and travel potential; diagram is not a literal race or exact speed chart.\nDo not add events or stages beyond the authored diagram. Repeat a subject only when the authored comparison or cutaway requires it. No written title; the app renders live text.\nFINAL QUALITY LOCK: Render 1536 by 1024 pixels, clean landscape 3:2. This is the finished page, not a reference sheet. Keep all essential subjects fully framed with 8 percent margin. Use plain ordinary clothes and exactly the subjects specified in this page. Do not transfer extraneous reference animals, poses or props into the picture. No national symbols, logos or written marks. All wheels visibly contact their own road or rails. Train rails are a coherent parallel pair under the wheels. A locomotive has a plausible horizontal boiler, firebox, steam pipe, cylinder, piston and connecting rods only where explicitly requested. No fantasy plumbing, exposed loose hoses, melted wheels or floating mechanisms. Horses have exactly four natural legs; tack is coherent. Aircraft have exactly one fuselage, one tail and matching wings with correct attachment.\nLAYOUT REPAIR to LAST reference: preserve the content but arrange exactly TWO EQUAL VERTICAL comparison frames side by side, wagon on LEFT and steam train on RIGHT as authored. Left frame has same healthy bay horse, driver in gray and exactly two seated travelers in complete four-wheel brown wagon on road. Right frame has one complete black early locomotive with red wheels and exactly two complete occupied brown coaches on rails. Make each small enough to fit. Both full frames together lie within x140..1396 and y100..924. Separate landscapes and horizons, not one race. No top/bottom arrangement, symbols, arrows or text.",
   "references": [
     {
-      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be67-88dc-7cb2-8dde-45d9a0d15576/exec-f19cf581-712d-4140-8a59-22d724c3c433.png",
-      "sha256": "36c01933e6404087d4ae36493a91a089b9728237a85f267e6070eab50f9a75c7"
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-21-reference.webp",
+      "sha256": "bcd9084f0fd6888f17aec2fe89d8d9237c31f3ae501978dc1610288aba71214c"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1c3ee-e610-7d22-ad30-a2bee077e3d6/exec-246eac76-a491-435c-bde1-bbe3cc4e13c6.png",
+      "sha256": "d14bcdfbacbec5e1046af8526c52b993a3563529048c55a3046b641828626129"
     }
   ],
   "manuscriptSource": {
-    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
-    "sha256": "9421bb4bb1f97c822674b76871fc5ee9b7b4398f02e9bdb626223b2a8cf9283e",
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/discovery-topic-revision/manuscripts",
+    "sha256": "5476e5d3a4c300cd350ded4aee8195556e25aa6db8b5208012c7e1c76178cb6e",
     "isolated": true,
     "firstNumber": 21,
     "lastNumber": 30,
@@ -26,15 +30,14 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "date": "2026-11-09T11:31:58.778467+00:00",
-    "sha256": "d006fccedc95a81a5ce568472c7739526754b62ca3fc8b1b6ef799ebbc51cd6d",
-    "note": "One right-facing yellow bus has tires on gray road bridge. Bus and15 pictogram badge safely inset. Supporting bridge piers and river are contextual scenery; no misleading whole-journey total.",
-    "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
+    "reviewedAt": "2026-11-10",
+    "sha256": "f3ba08c0b93c39dcf6dfa4f9605e6bf4e4e7a77087a0e33b4b1fd778a54eed58",
+    "note": "Two authored comparison panels are side by side: driver and two travelers in horse wagon at left, black/red steam train with two occupied brown coaches at right. Ordinary historical clothing, complete limbs/vehicles and independent surfaces; no race diagram. Producer independently inspected the final installed WebP natively; complete final sequence and relevant native diagrams were independently reviewed."
   },
   "reviewedManuscriptSource": {
     "bookId": "world-discovery-e-21",
     "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
-    "sha256": "9421bb4bb1f97c822674b76871fc5ee9b7b4398f02e9bdb626223b2a8cf9283e",
-    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
+    "sha256": "d2b00cf5ebb83c26d8921703250179413a877c2f73e333ebcb39d3b45604dc4f",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json"
   }
 }

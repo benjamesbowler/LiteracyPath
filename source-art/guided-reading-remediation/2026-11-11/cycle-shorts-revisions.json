@@ -1,0 +1,303 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-11",
+  "kind": "cycle-short-wording-and-narration-revision",
+  "scope": "Cycles 6, 7 and 24 only. Original comic pixels and historical narration remain available at their original paths.",
+  "revisions": [
+    {
+      "cycle": 6,
+      "before": {
+        "title": "My Red Hat",
+        "text": "My red hat is in the mud. Muddy runs to it. How do I get my hat? Muddy lifts it with a stick. The hat is back on Muddy."
+      },
+      "after": {
+        "title": "My Red Hat",
+        "text": "Muddy’s red hat is in the mud. Muddy runs to it. “How do I get my hat?” Muddy asks. Muddy lifts it with a stick. The hat is back on Muddy.",
+        "wordCount": 31,
+        "focusExamples": [
+          "red",
+          "hat"
+        ],
+        "weeklySightWords": [
+          "do",
+          "my",
+          "to"
+        ]
+      },
+      "questionEvidenceChanges": [
+        {
+          "id": "cycle-short-6-q1",
+          "before": [
+            "My red hat is in the mud."
+          ],
+          "after": [
+            "Muddy’s red hat is in the mud."
+          ]
+        },
+        {
+          "id": "cycle-short-6-q2",
+          "before": [
+            "My red hat is in the mud."
+          ],
+          "after": [
+            "Muddy’s red hat is in the mud."
+          ]
+        }
+      ],
+      "retainedComic": {
+        "path": "/images/comprehension/cycle-shorts/cycle-short-6.webp",
+        "sha256": "c4c3f0334d77913da4bdaeccbf6ff339c69dbb7c75c851b1290c40a5d9523f38",
+        "originalGenerationTextSha256": "9f92c70170c08c9478d2490d0130d60b1bb9c5d77dfe4226e385339ac27c3e8c",
+        "originalGenerationPromptSha256": "3291e17c0e49c179e54944911e613d5e50837721b6cb0801e1184a0975108792",
+        "reviewedTextSha256": "b212408d0eff315dd0a9067af6b32e57eb767447a2f44478939ced47cd6d3281",
+        "note": "Three panels show Muddy approaching the red hat in mud, lifting it with a stick and wearing it again. The attributed question clarifies the same character’s intent."
+      },
+      "currentNarration": {
+        "path": "/audio/production/en-US/cycle-shorts/23ac82e48ed8f9ecf7f8.mp3",
+        "sha256": "42362b19515d63ced924e255396d8249dccc0e76e91d3ae3516dcbac4b801fc9",
+        "textSha256": "67f540d6e2580478584469f3721cc73ff2ab1fc3f7e1d6f4ca34350dbca54c4d",
+        "durationSeconds": 11.393875
+      },
+      "previousNarration": {
+        "path": "/audio/production/en-US/cycle-shorts/e3b5985e328510910fc1.mp3",
+        "sha256": "7ecc397410de0a824c34e2c04f4fb6e0fb01a17ae50066d1e565d0440aac9ecf",
+        "textSha256": "5c4d15497cdf28051700e5f00b06697f44e00c8fab997a88aab8b99f6b8a21f1"
+      }
+    },
+    {
+      "cycle": 7,
+      "before": {
+        "title": "The Tin in the Mud",
+        "text": "The tin fell into the mud. Muddy said the tin was stuck. Muddy pulls it with a stick. Out comes the tin! Muddy sets it on a log."
+      },
+      "after": {
+        "title": "The Tin in the Mud",
+        "text": "The tin fell into the mud. Muddy said the tin was stuck. Muddy pulled it with a stick. Out came the tin! Muddy put it on a log.",
+        "wordCount": 28,
+        "focusExamples": [
+          "tin",
+          "mud"
+        ],
+        "weeklySightWords": [
+          "into",
+          "said"
+        ]
+      },
+      "questionEvidenceChanges": [
+        {
+          "id": "cycle-short-7-q2",
+          "before": [
+            "Muddy pulls it with a stick."
+          ],
+          "after": [
+            "Muddy pulled it with a stick."
+          ]
+        },
+        {
+          "id": "cycle-short-7-q3",
+          "before": [
+            "Muddy sets it on a log."
+          ],
+          "after": [
+            "Muddy put it on a log."
+          ]
+        }
+      ],
+      "retainedComic": {
+        "path": "/images/comprehension/cycle-shorts/cycle-short-7.webp",
+        "sha256": "15e60c1fad55679d1793b196e99fa4f2f06b11fbbea5049815876b7396a7f924",
+        "originalGenerationTextSha256": "3db1135192d32a12f1afb6b54ab4d756180b78f9070080186d5343764be67f60",
+        "originalGenerationPromptSha256": "29d5c4de1b8bdfdc8178511f3c2d6a65c4c0d2d9cc33b625cac1e8784ea14392",
+        "reviewedTextSha256": "825da987d3b8cbe976202e303b362c5277e94353edaa35b58e4c8b8e773424b3",
+        "note": "Three panels show the tin stuck in mud, the hooked-stick rescue and the tin resting on a log. The revised past-tense verbs describe the same ordered actions."
+      },
+      "currentNarration": {
+        "path": "/audio/production/en-US/cycle-shorts/0c159f5c33bfd19b8923.mp3",
+        "sha256": "d0ac9f2fe2b7943433b0630297088e16e41ff98a663a895c69570a7490980d1c",
+        "textSha256": "925ecbf801d07e7d822df2a68ea200d824e5b1adfb9c79cbf246d6d810cefb45",
+        "durationSeconds": 12.754291666666667
+      },
+      "previousNarration": {
+        "path": "/audio/production/en-US/cycle-shorts/f71db277c858c83726ba.mp3",
+        "sha256": "b2eea3af4547bcd4d26b980c1a905f1b1ae1085d340c8d1657c8a6d5b55e86af",
+        "textSha256": "f3216bb0da27a5cc9effa2d3cf09bd2b629cc481501b4f17a560b77b75452e87"
+      }
+    },
+    {
+      "cycle": 24,
+      "before": {
+        "title": "Which Bell?",
+        "text": "Muddy hears a buzz by the bell. Which bug is it? A bee lands on the bell. Muddy will miss the picnic call. He waits for the bee to fly off. Then Muddy rings the bell for lunch."
+      },
+      "after": {
+        "title": "The Picnic Bell",
+        "text": "Muddy hears a buzz by the bell. Which bug is it? A bee lands on the bell. His friends may miss lunch. He waits for the bee to fly off. Then Muddy rings the bell for lunch.",
+        "wordCount": 37,
+        "focusExamples": [
+          "off",
+          "miss",
+          "buzz",
+          "bell"
+        ],
+        "weeklySightWords": [
+          "off",
+          "which"
+        ]
+      },
+      "questionEvidenceChanges": [],
+      "retainedComic": {
+        "path": "/images/comprehension/cycle-shorts/cycle-short-24.webp",
+        "sha256": "cef623ae93f161fdc8d1568811495164fe55caebfd37e2fbd86b818e7182eb06",
+        "originalGenerationTextSha256": "eab157a73ed16e26eeb31f5ee881e23564ccd54fbe9478c53108b2fae5f9a5de",
+        "originalGenerationPromptSha256": "ef5757bde1a7d0a0d07fd6ac77826bc455cbe12a3cd3534fe18f9f722614d3b1",
+        "reviewedTextSha256": "c630d9ce0823892b5ee99773c6cb72e13727bfdc69a188e0ccd6dc9d2dddd124",
+        "note": "Three panels show one picnic bell, the bee landing on it, and Muddy ringing beside the picnic blanket after the bee leaves. The lunch concern gives him a reason to ring when the bell is clear."
+      },
+      "currentNarration": {
+        "path": "/audio/production/en-US/cycle-shorts/dee50d8e10722cb0c299.mp3",
+        "sha256": "d4a97dae0398aba75b56103b41af7945e3114495da274bd2904be5864a5652a3",
+        "textSha256": "16f98a4940503b8dc6072593565a2e28051d89937cab13984c64659b0d1a1900",
+        "durationSeconds": 16.837208333333333
+      },
+      "previousNarration": {
+        "path": "/audio/production/en-US/cycle-shorts/009c53536b3713127d2d.mp3",
+        "sha256": "021ba6c638cf6393538746a54d9ce2d2b3ba9c0829ceffbf31a78c7d137e9a24",
+        "textSha256": "3c6fd93315d8afd5b94fc26ee871a69aace471d3938ccede6dd2580d073862b0"
+      }
+    }
+  ],
+  "provider": {
+    "service": "Google Cloud Text-to-Speech v1",
+    "voice": "en-US-Chirp3-HD-Leda",
+    "language": "en-US",
+    "successfulUtterances": {
+      "firstBatchTitlesAndBodies": 6,
+      "isolatedWords": 2,
+      "exactCycle7BodyRetries": 2,
+      "finalCycle7Body": 1
+    },
+    "passageAudioConfig": {
+      "audioEncoding": "LINEAR16",
+      "sampleRateHertz": 24000
+    },
+    "recipe": "leda-exact-segments-pause450-tail150-v2",
+    "sources": [
+      {
+        "lookupText": "cycle-short-6 title source",
+        "role": "title-source",
+        "text": "My Red Hat",
+        "localPath": ".artifacts/cycle-shorts/leda-source-cache/795265c7e98776948635defa5ae1944c1e9136c2dacbe4c00587c96bdcc2b4ef.wav",
+        "sha256": "ac3e56f38e59cd3c6e1a276af371474427d6e7448a064be98fc330f952fa706e"
+      },
+      {
+        "lookupText": "cycle-short-6 passage source",
+        "role": "passage-source",
+        "text": "Muddy’s red hat is in the mud. Muddy runs to it. “How do I get my hat?” Muddy asks. Muddy lifts it with a stick. The hat is back on Muddy.",
+        "localPath": ".artifacts/cycle-shorts/leda-source-cache/b212408d0eff315dd0a9067af6b32e57eb767447a2f44478939ced47cd6d3281.wav",
+        "sha256": "433cd4bf08712498468b1ce896884f68f798bba0497baf2c458acefd49b729df"
+      },
+      {
+        "lookupText": "cycle-short-7 title source",
+        "role": "title-source",
+        "text": "The Tin in the Mud",
+        "localPath": ".artifacts/cycle-shorts/leda-source-cache/b97a6baa28810492891280649a3147571bf805cc9743b449a68569860e6029a4.wav",
+        "sha256": "9b4685b9ef202c891943ff5a5a4c61288f9553dc26dde52ddcf1861d1231b992"
+      },
+      {
+        "lookupText": "cycle-short-7 passage source",
+        "role": "passage-source",
+        "text": "The tin fell into the mud. Muddy said the tin was stuck. Muddy pulled it with a stick. Out came the tin! Muddy put it on a log.",
+        "localPath": ".artifacts/cycle-shorts/leda-source-cache/825da987d3b8cbe976202e303b362c5277e94353edaa35b58e4c8b8e773424b3.wav",
+        "sha256": "cab4a3d0827e0488f1d8bc1884ccad8ffc727a4e6e13e9ea3170b49a48fe11e9"
+      },
+      {
+        "lookupText": "cycle-short-24 title source",
+        "role": "title-source",
+        "text": "The Picnic Bell",
+        "localPath": ".artifacts/cycle-shorts/leda-source-cache/aef6d0c92102f1eb66319c771252790a9bf21666228a4a880c7eb8ea1e373509.wav",
+        "sha256": "a844ee0486690218c2e1ebd8fdba556a787db9c709b06132358a9174c9015f4a"
+      },
+      {
+        "lookupText": "cycle-short-24 passage source",
+        "role": "passage-source",
+        "text": "Muddy hears a buzz by the bell. Which bug is it? A bee lands on the bell. His friends may miss lunch. He waits for the bee to fly off. Then Muddy rings the bell for lunch.",
+        "localPath": ".artifacts/cycle-shorts/leda-source-cache/c630d9ce0823892b5ee99773c6cb72e13727bfdc69a188e0ccd6dc9d2dddd124.wav",
+        "sha256": "e0ea58bb867b7d4e93683fef639922455931da21c497759c3e368fadc9eaa6c8"
+      }
+    ],
+    "isolatedWords": [
+      {
+        "word": "muddy's",
+        "path": "/audio/production/en-US/isolated_word/muddy-s-ea6115c64c.mp3",
+        "sha256": "95643f3cd0f099407b316ea245220f7776bd71a8b1c75cf547e7a820de2ade1d",
+        "durationSeconds": 1.1943333333333332,
+        "recognized": "Muddies.",
+        "matchesNormalizedText": false
+      },
+      {
+        "word": "asks",
+        "path": "/audio/production/en-US/isolated_word/asks-463bb1df7a.mp3",
+        "sha256": "86396fd19db405488fea101f3336988349a24c41dc89d2427d7cbaa9a8aef3f4",
+        "durationSeconds": 0.9943333333333333,
+        "recognized": "Asks",
+        "matchesNormalizedText": true
+      }
+    ],
+    "cycle7WordingAdjudication": {
+      "initialRevision": "The tin fell into the mud. Muddy said the tin was stuck. Muddy pulled it with a stick. Out came the tin! Muddy set it on a log.",
+      "firstTake": {
+        "sourceSha256": "161f4efd2d640486593c586d63c250bfa00aff69165ecb2c4301aa7ebb57bd56",
+        "assembledSha256": "25b18b7d73274b08af401551fd0725c326317cfcf92dddfabbfb321001d906cc",
+        "nearFullScaleSamples": 48,
+        "disposition": "Rejected after source signal screening."
+      },
+      "defaultRateRetry": {
+        "sourceSha256": "aa0451a115ae20edb89fab405c5fce5829bba407896c72e59234a21803663df5",
+        "assembledSha256": "1ba7cee856b692935ed8bfd9ae53a2f18380078b3994e70bf46d7134e7e1339e",
+        "nearFullScaleSamples": 0,
+        "sourceRecognition": "The tin fell into the mud. Muddy said the tin was stuck. Muddy pulled it with a stick. Out came the tin! Muddy said it on a log.",
+        "assembledRecognition": "The tin in the mud. The tin fell into the mud. Muddy said the tin was stuck. Muddy pulled it with a stick. Out came the tin! Muddy said it on a log.",
+        "disposition": "Clear signal. Independent offline recognition consistently read “set it” as “said it,” including a check of the final sentence alone."
+      },
+      "pacedRetry": {
+        "sourceSha256": "840ccff56f31ae21c5414a8c69ec8b000df58e66f93890088464c7a6e5422c4a",
+        "speakingRate": 0.85,
+        "nearFullScaleSamples": 7,
+        "disposition": "Rejected on source signal before speech recognition."
+      },
+      "delivered": {
+        "text": "The tin fell into the mud. Muddy said the tin was stuck. Muddy pulled it with a stick. Out came the tin! Muddy put it on a log.",
+        "sourceSha256": "cab4a3d0827e0488f1d8bc1884ccad8ffc727a4e6e13e9ea3170b49a48fe11e9",
+        "nearFullScaleSamples": 0,
+        "reason": "“Muddy put it on a log” keeps the story in past tense and describes the same action. The existing independent “said” example, question answers and comic are retained. Prompt-free recognition matched the complete revised body and assembled title-plus-body."
+      }
+    }
+  },
+  "verification": {
+    "unchangedPassages": 24,
+    "revisedQuestionEvidenceCount": 4,
+    "currentAudioClips": 336,
+    "unchangedCurrentClips": 333,
+    "exactHistoricalClips": 3,
+    "generatedComicsDecoded": 22,
+    "reusedPictureBindingsVerified": 5,
+    "focusedUnitTestsPassed": 8,
+    "browser": {
+      "viewport": "1024 × 768",
+      "byteBoundPlaybackChecks": 6,
+      "projectorEvidenceReveals": 9,
+      "evidence": ".artifacts/cycle-shorts/revision-browser-playback.json"
+    },
+    "speechScreen": {
+      "method": "FFmpeg full decode, 50ms speech-window signal, independent offline faster-whisper with no reference prompt",
+      "modelSha256": "62b2a45b05ee59acb4a5341b33ee35e041395d378d418a18acfe4c9e768ee37a",
+      "normalizedMatches": 10,
+      "screened": 11,
+      "evidence": ".artifacts/cycle-shorts/revision-asr-delivered.json",
+      "adjudication": "The isolated clip submitted as “muddy’s” was transcribed as “muddies,” its homophone. The recognizer transcribed the possessive correctly in the Cycle 6 passage context. All six passage source segments, all three complete tracks and “asks” match.",
+      "limitation": "The checks use automated decoding and speech recognition, plus browser playback and Codex visual inspection. There is no human listening, physical device or classroom-use evidence."
+    },
+    "finalSignalEvidence": ".artifacts/cycle-shorts/leda-audio-signal.json",
+    "preservationEvidence": ".artifacts/cycle-shorts/revision-preservation.json"
+  }
+}

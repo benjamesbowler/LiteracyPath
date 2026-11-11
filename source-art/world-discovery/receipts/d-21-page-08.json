@@ -2,23 +2,27 @@
   "bookId": "world-discovery-d-21",
   "slot": "page-08",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-09T05:25:06.604Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-52e83673-ee1f-408b-9454-722261a8fa39.png",
-  "sourceSha256": "9d8df77146e3843b0ab45a93c4f0c89a1e949e0d6844dcd4b1ff5d72a990019f",
+  "generatedAt": "2026-11-10T07:07:31.804Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1c3ef-11ed-7331-8274-1234bc3e482f/exec-4396adac-f3c3-49c4-8e54-fb79367dd91b.png",
+  "sourceSha256": "7d04a30f09edae499ec284216c3e849e20254ce18eee6651f1ae7b8b7a802dc3",
   "output": "public/guided-reading/world-discovery/d-21/page-08.webp",
-  "outputSha256": "fc40a7ca6b406535db276473869b4a2c682f0c6736b9c8815b6996aba9b8ddfc",
+  "outputSha256": "fe06f032a262d523f7cc3e0d71f5985129ef16f69f21f1ebb24077ba7e32c12f",
   "width": 1536,
   "height": 1024,
-  "prompt": "Edit ONLY the tractor unit in this image: add its missing rear axle and two visible corresponding rear tires immediately behind the cab, beneath the fuel-tank area at image right, supporting the tractor chassis and its coupling to the trailer. The tractor must have its existing front axle beneath the cab AND one separate rear axle behind the cab. Preserve the three existing trailer axles at image left. These are separate wheel groups on an articulated tractor and trailer, physically connected through the coupling. Do not move the container, crane, trailer frame, corner locks or any background object. Preserve doors at truck rear/image left, one blue marker only on left cargo door, inland location, level load and clean flat cartoon style. No other edits, no words. One landscape 3:2 image.",
+  "prompt": "Edit target Image 1 precisely. Preserve the woman, both hands/anatomy, connector contact at the front-side charge port, teal car, charging post, gray battery pack frame, wires and exact scene. Change ONLY the exposed battery cells from lime green to LIGHT BLUE, matching the established battery pack in this book. Keep no fuel tank, nozzle, flame or exhaust. Do not add any scene or human.\nInput image roles: Image 1 is the exact edit target. Image 2 is a supporting identity reference for body shapes/colors only. Preserve Image 1 outside the named changes.\nHARD scene isolation: EXACTLY ONE TEAL ALL-ELECTRIC CAR, ONE charging post and ONE adult woman with short brown hair, PLUM JACKET and DARK PANTS. NO orange car, no fuel pump, no gasoline nozzle, no liquid, no exhaust pipe. Connector at front-side electrical charge port with battery cutaway.\nUse case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one integrated explanatory diagram. Allow only the cutaways, insets, schematic elements or arrows explicitly authored in this page's illustration brief; keep them spatially connected to the subject they explain. No unrequested panels, insets, annotations or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Gasoline and Electric Cars; World Discovery; nonfiction.\nSetting: Ordinary contemporary civilian cars on a calm road and at separate safe service areas. Gasoline car is orange with dark gray roof and one rear exhaust pipe. All-electric car is teal with light gray roof and no exhaust pipe. Same proportions but different colors keep referents clear. Each car has four road wheels. Cutaways are explicitly diagrams; adults handle fuel and charging. No brands, flags or political messages.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Orange gasoline sedan, gray engine under front hood, fuel tank near rear and exhaust pipe at rear; Teal all-electric sedan, large flat battery beneath passenger floor and motor near rear axle, no fuel tank or exhaust; Unbranded fuel pump with hose and separate charging post with cable\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and specific stages explicitly required below; the declared diagram permits no other scenes or story events.\nPage 8. Printed prose (NOT text to put in art): When the electric car needs more energy, an adult plugs it into a charger. Electricity helps recharge its battery.\nRequired illustration: Teal car stationary at separate charging post. Adult driver light-brown skin, short brown hair, plum jacket and dark pants plugs a thick cable connector into front-side charge port. Small clean cutaway reveals battery under floor connected by cable; no liquid pours from charger and no gasoline nozzle.\nExact current state: Recharging from external electricity; only all-electric car shown.\nDo not add events or stages beyond the authored diagram. Repeat a subject only when the authored comparison or cutaway requires it. No written title; the app renders live text.\nFraming clarification: Keep every entire aircraft/car and its required teaching parts completely within the inner 84 percent of the canvas, leaving at least 8 percent clear background margin on ALL sides. Nothing essential touches or approaches the picture edge.\nHARD scene isolation: EXACTLY ONE TEAL ALL-ELECTRIC CAR, ONE charging post and ONE adult woman with short brown hair, PLUM JACKET and DARK PANTS. NO orange car, no fuel pump, no gasoline nozzle, no liquid, no exhaust pipe. Connector at front-side electrical charge port with battery cutaway.",
   "references": [
     {
-      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-5b94-7e41-9503-5126e504d3c3/exec-4f5dfbce-bb24-431d-a75c-fdd07b0961c4.png",
-      "sha256": "4553145b22aa565b097a075a4f482fcff138013fa6eeced4228957570c7b862d"
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/discovery-topic-revision/edit-inputs/d-21-page-08.png",
+      "sha256": "010e105cfff63f20c4cf8d21c07080aac25f2ec300d9f00d2a74a3e07dfa33e5"
+    },
+    {
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/d-21-reference.webp",
+      "sha256": "12bdcf040d47f4dd39cd88921ed1aecf52635f88a3fbe71a8a71e715ad895ad4"
     }
   ],
   "manuscriptSource": {
-    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
-    "sha256": "4cd850616c2e31aecc557996032490d0fb984ea0f222fa11e0f2a878a417a9c7",
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/discovery-topic-revision/manuscripts",
+    "sha256": "7d1860e2dae10eae9a699a4df3ae5d6f56a9a9781a39f8c3d092049b64334db4",
     "isolated": true,
     "firstNumber": 21,
     "lastNumber": 30,
@@ -26,17 +30,14 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "date": "2026-11-09T14:07:15.497Z",
-    "sha256": "fc40a7ca6b406535db276473869b4a2c682f0c6736b9c8815b6996aba9b8ddfc",
-    "note": "Direct image inspection: container lower corners now align vertically with trailer locks; rear doors left, cab right, restored tractor rear axle and three separate trailer axles, inland yard, closed left-door-marked container, no people below load. All D21 cover/page assets now installed; sequence cross-check still pending independent final review.",
-    "reviewer": "/root/gap_taxonomy",
-    "evidence": ".artifacts/nonfiction-next-50/media-de.json",
-    "limits": "Individual image inspection recorded from the exact-hash production inspection; independent sequence, reader, scorecards and audio reviewed separately."
+    "reviewedAt": "2026-11-10",
+    "sha256": "fe06f032a262d523f7cc3e0d71f5985129ef16f69f21f1ebb24077ba7e32c12f",
+    "note": "Adult plugs front-side charging connector, safe parked vehicle and cable to underfloor battery; no poured liquid. Producer independently inspected the final installed WebP natively; complete final sequence and relevant native diagrams were independently reviewed."
   },
   "reviewedManuscriptSource": {
     "bookId": "world-discovery-d-21",
     "path": "src/content/world-discovery/cohorts/21-30/level-d.json",
-    "sha256": "4cd850616c2e31aecc557996032490d0fb984ea0f222fa11e0f2a878a417a9c7",
-    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
+    "sha256": "98d098b7790b51f3544d7069a44403c5a1e9da9323808471ee96dc80f0033831",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json"
   }
 }

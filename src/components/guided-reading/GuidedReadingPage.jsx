@@ -1,3 +1,4 @@
+import { currentGuidedReadingRecord, getCurrentGuidedReadingRecord, guidedReadingProgressKey, guidedReadingContentId } from "../../utils/guidedReading/editions.js";
 import {lazy,Suspense} from "react";
 const CycleShortsLibrary = lazy(()=>import("./CycleShortsLibrary.jsx"));
 import "../../styles/book-levels.css";
@@ -628,7 +629,7 @@ export function GuidedReadingPage({
   const hopAndStopAvailable = hopAndStopPublished && !isStudentMode && !isReviewMode && !activeGroupSession;
   if (hopAndStopOpen && !hopAndStopAvailable) setHopAndStopOpen(false);
   const readAloudControlsEnabled = canUseGuidedReadingReadAloud(mode, sessionHost);
-  const selectedBook = useMemo(() => activeGroupSession && runtimeSelectedBook?.id === activeGroupSession.book_id
+  const selectedBook = useMemo(() => activeGroupSession && runtimeSelectedBook?.id === guidedReadingContentId(activeGroupSession.book_id)
     ? {
         ...runtimeSelectedBook,
         pages: (activeGroupSession.page_numbers || [])
@@ -654,7 +655,8 @@ export function GuidedReadingPage({
   const readingMeasure = getGuidedReadingMeasure(
     selectedBook?.level, selectedBook?.readingBandProfile, isPictureBookReader ? "picture-book" : "standard"
   );
-  const record = guidedReadingRecords[selectedBook?.id] || {
+  const savedCurrentRecord = getCurrentGuidedReadingRecord(selectedBook, guidedReadingRecords);
+  const record = Object.keys(savedCurrentRecord).length ? savedCurrentRecord : {
     bookId: selectedBook?.id,
     title: selectedBook?.title,
     type: selectedBook?.type,
@@ -712,7 +714,7 @@ export function GuidedReadingPage({
     : TEACHER_COPY.guidedReading.controls;
   const readerReturnLabel = returnLabel || (isStudentMode ? "Back to Books" : "Back to reading library");
   const changeInitialBook = useEffectEvent(bookId => changeBook(bookId, initialPageIndex));
-  const launchBookBookmark = useEffectEvent(book => guidedReadingBookmark(book, guidedReadingRecords[book.id]));
+  const launchBookBookmark = useEffectEvent(book => guidedReadingBookmark(book, getCurrentGuidedReadingRecord(book, guidedReadingRecords)));
   const stopCurrentPageAudio = useEffectEvent(() => stopPageAudio());
   const stopAllGuidedReadingAudio = useEffectEvent(() => {
     wordSupportPlaybackTokenRef.current += 1;
@@ -752,7 +754,7 @@ export function GuidedReadingPage({
 
   useEffect(() => {
     if (!activeGroupSession) return;
-    setSelectedBookId(activeGroupSession.book_id);
+    setSelectedBookId(guidedReadingContentId(activeGroupSession.book_id));
     setPageIndex(activeGroupSession.page_index || 0);
     setReaderOpen(true);
     setReaderInteractionMode("marking");
@@ -1038,8 +1040,8 @@ export function GuidedReadingPage({
   }, [readerOpen, scoreSummaryOpen, pageIndex, selectedBook?.pages?.length]);
 
   function getWorkingRecord() {
-    const externalRecord = guidedReadingRecords[selectedBook?.id] || record || {};
-    const draftRecord = recordDraftRef.current;
+    const externalRecord = getCurrentGuidedReadingRecord(selectedBook, guidedReadingRecords);
+    const draftRecord = currentGuidedReadingRecord(selectedBook, recordDraftRef.current);
     if (
       draftRecord?.bookId === selectedBook?.id &&
       draftRecord?.studentId === studentId
@@ -1067,7 +1069,7 @@ export function GuidedReadingPage({
       patch
     });
     recordDraftRef.current = nextRecord;
-    saveGuidedReadingRecord(selectedBook.id, nextRecord);
+    saveGuidedReadingRecord(guidedReadingProgressKey(selectedBook), nextRecord);
   }
 
   function touchBookProgress(nextPageIndex = pageIndex, patch = {}) {
@@ -1093,7 +1095,7 @@ export function GuidedReadingPage({
       }
     });
     recordDraftRef.current = nextRecord;
-    saveGuidedReadingRecord(selectedBook.id, nextRecord);
+    saveGuidedReadingRecord(guidedReadingProgressKey(selectedBook), nextRecord);
   }
 
   function recordGuidedPageVisit(nextPageIndex = pageIndex) {
@@ -1199,7 +1201,7 @@ export function GuidedReadingPage({
     const milestone = getGuidedReadingCompletionMilestone({
       book: selectedBook,
       levelBooks,
-      records: { ...guidedReadingRecords, [selectedBook.id]: { ...previous, ...completionPatch } }
+      records: { ...guidedReadingRecords, [guidedReadingProgressKey(selectedBook)]: { ...previous, ...completionPatch } }
     });
     if (milestone) {
       playCelebrationFanfare();
@@ -1215,7 +1217,7 @@ export function GuidedReadingPage({
     stopReaderAudio();
     setSelectedBookId(bookId);
     const nextBook = runtimeGuidedReadingBooks.find(item => item.id === bookId);
-    setPageIndex(guidedReadingBookmark(nextBook, guidedReadingRecords[bookId], requestedIndex));
+    setPageIndex(guidedReadingBookmark(nextBook, getCurrentGuidedReadingRecord(nextBook, guidedReadingRecords), requestedIndex));
     setShowSummary(false);
     setReaderOpen(true);
     setIsReaderFullscreen(isStudentMode);
@@ -1384,7 +1386,7 @@ export function GuidedReadingPage({
 
     stopPageAudio();
     if (!automatic) {
-      const previous = guidedReadingRecords[selectedBook.id] || record || {};
+      const previous = getCurrentGuidedReadingRecord(selectedBook, guidedReadingRecords);
       const previousStats = previous.pageStats || {};
       const pageKey = String(pageIndex + 1);
       const previousPageStats = previousStats[pageKey] || {};
@@ -1948,7 +1950,7 @@ export function GuidedReadingPage({
 
   const recordSummaries = summarizeGuidedReadingRecords(guidedReadingRecords);
   const completedLibraryBooks = runtimeGuidedReadingBooks
-    .filter(book => getGuidedReadingProgress(book, guidedReadingRecords[book.id]).completed)
+    .filter(book => getGuidedReadingProgress(book, getCurrentGuidedReadingRecord(book, guidedReadingRecords)).completed)
     .slice(0, 8);
   const libraryBack = !isStudentMode && typeof onBack === "function" ? (
     <nav className="ws-route-nav" aria-label="Book library navigation">
@@ -2167,7 +2169,7 @@ export function GuidedReadingPage({
             redesign removed — is not reachable from the child area. */}
         {isStudentMode && (() => {
           const booksRead = countBooksRead(guidedReadingRecords);
-          const prog = book => getGuidedReadingProgress(book, guidedReadingRecords[book.id]);
+          const prog = book => getGuidedReadingProgress(book, getCurrentGuidedReadingRecord(book, guidedReadingRecords));
           const selectedSeries = getGuidedReadingSeries(selectedLibraryType, runtimeGuidedReadingBooks)
             .find(item => item.id === selectedLibrarySeries);
           const orderedBooks = [...(selectedSeries?.books || [])].sort((a, b) => {
@@ -2269,7 +2271,7 @@ export function GuidedReadingPage({
                           {progress.completed && <span className="guided-child-read-tick" aria-label="Already read">✓</span>}
                           <span className="guided-shelf-card-cover"><GuidedBookCover book={book} showLevel={false} /></span>
                           <strong>{book.title}</strong>
-                          <small>{progress.completedPages > 0 && !progress.completed ? `Page ${guidedReadingBookmark(book, guidedReadingRecords[book.id]) + 1} of ${book.pages.length}` : `${book.pages.length} pages`}</small>
+                          <small>{progress.completedPages > 0 && !progress.completed ? `Page ${guidedReadingBookmark(book, getCurrentGuidedReadingRecord(book, guidedReadingRecords)) + 1} of ${book.pages.length}` : `${book.pages.length} pages`}</small>
                         </button>
                       );
                     })}
@@ -2358,7 +2360,7 @@ export function GuidedReadingPage({
             {availableLevels.map(level => {
               const books = getGuidedReadingLevelBooks(selectedLibraryType, level, runtimeGuidedReadingBooks, bookAnalyses);
               const completedCount = books.filter(book =>
-                getGuidedReadingProgress(book, guidedReadingRecords[book.id]).completed
+                getGuidedReadingProgress(book, getCurrentGuidedReadingRecord(book, guidedReadingRecords)).completed
               ).length;
 
               return (
@@ -2383,7 +2385,7 @@ export function GuidedReadingPage({
               <div className="guided-book-band" key={section.id}>
                 {section.label && <h3 className="guided-book-band-title">{section.label}</h3>}
                 {section.books.map(book => {
-              const progress = getGuidedReadingProgress(book, guidedReadingRecords[book.id]);
+              const progress = getGuidedReadingProgress(book, getCurrentGuidedReadingRecord(book, guidedReadingRecords));
               const hasStarted = Boolean(progress.lastReadAt || progress.completedPages > 0);
               const actionLabel = isClassMode ? "Preview" : progress.completed
                 ? "Read Again"

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { TeacherDialog } from "../teacher/ui/TeacherDialog.jsx";
 import { TeacherPageShell, TeacherPageHeader } from "../teacher/ui/TeacherPrimitives.jsx";
@@ -59,6 +59,24 @@ function DiagnosticSummary({ kind, items, entries, onRestart, onReturn }) {
   </TeacherPageShell>;
 }
 
+function DiagnosticResponseControls({ kind, task, label, observation, saving, errorTags, detailsOpen, onDetailsChange, onChange, onChoose, firstButtonRef }) {
+  return <section className="md-task-response" aria-label={label}>
+    <h3>{label}</h3>
+    {kind === "letter" && <p className="md-response-prompt">{task === "name" ? COPY.namePrompt : COPY.soundPrompt}</p>}
+    <div className="md-outcomes md-quick-outcomes" role="group" aria-label={label}>
+      {COPY.outcomes.slice(0, 2).map((choice, position) => <button ref={position === 0 ? firstButtonRef : undefined} key={choice.value} type="button" aria-pressed={observation.outcome === choice.value} disabled={saving} className={"md-outcome md-outcome-" + choice.value} onClick={() => onChoose(choice.value)}><span aria-hidden="true">{position === 0 ? "✓" : "×"}</span>{kind === "letter" ? position === 0 ? COPY.knows : COPY.doesNotKnow : choice.label}</button>)}
+    </div>
+    <details className="md-optional-detail" open={detailsOpen} onToggle={event => onDetailsChange(event.currentTarget.open)}>
+      <summary>{COPY.moreOptions}</summary>
+      <div className="md-outcomes md-other-outcomes" role="group" aria-label={label + " · " + COPY.moreOptions}>{COPY.outcomes.slice(2).map(choice => <button key={choice.value} type="button" aria-pressed={observation.outcome === choice.value} disabled={saving} className={"md-outcome md-outcome-" + choice.value} onClick={() => onChange({ outcome: choice.value, outcomeRecordedAt: new Date().toISOString() })}>{choice.label}</button>)}</div>
+      <label className="md-field"><span>{COPY.actual}</span><input value={observation.responseText} disabled={saving} onChange={event => onChange({ responseText: event.target.value })} placeholder={COPY.actualPlaceholder} maxLength={600} /><small>{COPY.optionalActual}</small></label>
+      <label className="md-checkbox"><input type="checkbox" checked={observation.selfCorrected} disabled={saving} onChange={event => onChange({ selfCorrected: event.target.checked })}/><span>{COPY.selfCorrected}</span></label>
+      <details className="md-error-details"><summary>{COPY.errorTypes}</summary><div>{errorTags.map(tag => <label className="md-checkbox" key={tag}><input type="checkbox" disabled={saving} checked={observation.errorTags.includes(tag)} onChange={event => onChange({ errorTags: event.target.checked ? [...observation.errorTags, tag] : observation.errorTags.filter(value => value !== tag) })}/><span>{COPY.errorLabels[tag]}</span></label>)}</div></details>
+      <label className="md-field"><span>{COPY.notes}</span><textarea value={observation.notes} disabled={saving} onChange={event => onChange({ notes: event.target.value })} placeholder={COPY.notePlaceholder} rows={2} maxLength={1000}/></label>
+    </details>
+  </section>;
+}
+
 function DiagnosticRunner({ kind, studentName, index, items, entries, onSave, onExit, onPrevious, onNavigate, onDraft }) {
   const tasks = kind === "letter" ? ["name", "sound"] : ["sound", "word"];
   const initial = diagnosticDraft(entries[index], kind);
@@ -67,6 +85,11 @@ function DiagnosticRunner({ kind, studentName, index, items, entries, onSave, on
   const [studentView, setStudentView] = useState(false);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
+  const [detailsOpen, setDetailsOpen] = useState(() => Object.fromEntries(tasks.map(name => [name, Boolean(
+    initial[name].responseText || initial[name].notes || initial[name].selfCorrected || initial[name].errorTags.length || ["no_response", "not_scorable", "not_administered"].includes(initial[name].outcome)
+  )])));
+  const firstButtonRef = useRef(null);
+  const saveInFlight = useRef(false);
   const task = tasks[taskIndex];
   const observation = draft[task];
   const item = items[index];
@@ -78,38 +101,60 @@ function DiagnosticRunner({ kind, studentName, index, items, entries, onSave, on
   const reviewCount = entries.length + (entries.length === 0 || isDiagnosticEntryComplete(entries.at(-1), kind) ? 1 : 0);
   const errorTags = kind === "letter" ? ["letter_confusion", "name_for_sound", "sound_for_name"] : ["vowel", "consonant", "omission", "addition", "substitution", "blending", "word_guess"];
 
+  useEffect(() => {
+    if (index > 0 && kind === "letter") firstButtonRef.current?.focus();
+  }, [index, kind]);
+
   function argumentsFor(next = draft) {
     return [next[tasks[0]].outcome, next[tasks[1]].outcome, Object.fromEntries(tasks.map(name => [name, next[name]]))];
   }
 
-  function updateObservation(patch) {
-    const nextObservation = { ...observation, ...patch };
+  function updateObservation(patch, name = task) {
+    const previous = draft[name];
+    const nextObservation = { ...previous, ...patch };
     if (["no_response", "not_administered"].includes(patch.outcome)) {
       nextObservation.responseText = "";
       nextObservation.selfCorrected = false;
       nextObservation.errorTags = [];
-    } else if (patch.responseText?.trim() && ["no_response", "not_administered"].includes(observation.outcome)) {
+    } else if (patch.responseText?.trim() && ["no_response", "not_administered"].includes(previous.outcome)) {
       nextObservation.outcome = "";
     }
-    const next = { ...draft, [task]: nextObservation };
+    const next = { ...draft, [name]: nextObservation };
     setDraft(next);
     setError("");
     onDraft?.(...argumentsFor(next));
+    return next;
   }
 
-  async function save(exit = false) {
-    const invalid = tasks.map(name => draft[name].outcome ? diagnosticObservationIssue(draft[name].outcome, draft[name]) : exit ? "" : diagnosticObservationIssue("", {})).find(Boolean);
-    if (invalid) { setError(invalid); return; }
+  async function save(exit = false, next = draft) {
+    if (saveInFlight.current) return;
+    const invalidTask = tasks.find(name => next[name].outcome ? diagnosticObservationIssue(next[name].outcome, next[name]) : !exit);
+    if (invalidTask) {
+      setError(diagnosticObservationIssue(next[invalidTask].outcome, next[invalidTask]));
+      if (next[invalidTask].outcome === "not_scorable") setDetailsOpen(previous => ({ ...previous, [invalidTask]: true }));
+      return;
+    }
     setSaving(true);
+    saveInFlight.current = true;
     setError("");
     try {
-      const saved = await (exit ? onExit : onSave)(...argumentsFor());
+      const saved = await (exit ? onExit : onSave)(...argumentsFor(next));
       if (saved === false) setError(COPY.saveError);
     } catch {
       setError(COPY.saveError);
     } finally {
       setSaving(false);
+      saveInFlight.current = false;
     }
+  }
+
+  function chooseOutcome(name, outcome) {
+    const next = updateObservation({ outcome, outcomeRecordedAt: new Date().toISOString() }, name);
+    if (kind === "letter" && index < items.length - 1 && !Object.values(detailsOpen).some(Boolean) && tasks.every(target => !diagnosticObservationIssue(next[target].outcome, next[target]))) void save(false, next);
+  }
+
+  function responseControls(name, focusFirst = false) {
+    return <DiagnosticResponseControls key={name} kind={kind} task={name} label={labels[name]} observation={draft[name]} saving={saving} errorTags={errorTags} detailsOpen={Boolean(detailsOpen[name])} onDetailsChange={open => setDetailsOpen(previous => ({ ...previous, [name]: open }))} onChange={patch => updateObservation(patch, name)} onChoose={outcome => chooseOutcome(name, outcome)} firstButtonRef={focusFirst ? firstButtonRef : undefined}/>;
   }
 
   async function navigate(target) {
@@ -121,33 +166,28 @@ function DiagnosticRunner({ kind, studentName, index, items, entries, onSave, on
   }
 
   return <>
-    <TeacherPageShell className="md-page" product="manual-diagnostic" intent="assessments" data-assessment-kind={kind}>
+    <TeacherPageShell className={"md-page" + (kind === "letter" ? " md-paired-letter" : "")} product="manual-diagnostic" intent="assessments" data-assessment-kind={kind}>
       <TeacherPageHeader eyebrow={COPY.teacherView + " · " + (studentName || COPY.unnamed)} title={kind === "letter" ? COPY.letterTitle : COPY.patternTitle} description={kind === "letter" ? COPY.letterDescription : COPY.patternDescription}>
         <button type="button" className="md-secondary" disabled={saving} onClick={() => save(true)}>{saving ? COPY.saving : COPY.saveExit}</button>
       </TeacherPageHeader>
       <div className="md-progress"><strong>{COPY.stage(index + 1, items.length)}</strong><span>{COPY.saved(completedCount, items.length)}</span><progress value={completedCount} max={items.length} aria-label={COPY.saved(completedCount, items.length)} /></div>
       <div className="md-workspace">
         <section className="md-stimulus-panel" aria-label={COPY.instruction}>
-          <div className="md-task-tabs" role="group" aria-label={COPY.taskStep(taskIndex + 1, tasks.length)}>{tasks.map((name, position) => <button type="button" key={name} aria-pressed={task === name} disabled={saving || (position === 1 && Boolean(diagnosticObservationIssue(draft[tasks[0]].outcome, draft[tasks[0]])))} onClick={() => { setTaskIndex(position); setError(""); }}><span>{position + 1}</span>{labels[name]}{draft[name].outcome && <span aria-label={COPY.recorded}>✓</span>}</button>)}</div>
-          <div className="md-stimulus"><p>{prompt}</p><div className={"md-glyph" + (kind === "pattern" && task === "word" ? " md-word" : "")}>{stimulus}</div><button type="button" className="md-secondary" onClick={() => setStudentView(true)}>{COPY.pupilView}</button></div>
-          <details className="md-guidance"><summary>{COPY.scoringGuide}</summary><p>{guidance}</p>{kind === "letter" && task === "sound" && <p>{COPY.soundVariants}</p>}{kind === "pattern" && task === "sound" && <p>{item.administrationNote}</p>}</details>
-          <p className="md-private-note">{COPY.supportNote}</p>
+          {kind !== "letter" && <div className="md-task-tabs" role="group" aria-label={COPY.taskStep(taskIndex + 1, tasks.length)}>{tasks.map((name, position) => <button type="button" key={name} aria-pressed={task === name} disabled={saving || (position === 1 && Boolean(diagnosticObservationIssue(draft[tasks[0]].outcome, draft[tasks[0]])))} onClick={() => { setTaskIndex(position); setError(""); }}><span>{position + 1}</span>{labels[name]}{draft[name].outcome && <span aria-label={COPY.recorded}>✓</span>}</button>)}</div>}
+          <div className="md-stimulus">{kind !== "letter" && <p>{prompt}</p>}<div className={"md-glyph" + (kind === "pattern" && task === "word" ? " md-word" : "")}>{stimulus}</div><button type="button" className="md-secondary" onClick={() => setStudentView(true)}>{COPY.pupilView}</button></div>
+          {kind !== "letter" && <details className="md-guidance"><summary>{COPY.scoringGuide}</summary><p>{guidance}</p>{task === "sound" && <p>{item.administrationNote}</p>}<p>{COPY.supportNote}</p></details>}
         </section>
         <section className="md-record-panel" aria-label={COPY.mark}>
-          <div className="md-record-heading"><p>{COPY.taskStep(taskIndex + 1, tasks.length)}</p><h3>{labels[task]}</h3></div>
-          <div className="md-outcomes" role="group" aria-label={labels[task]}>{COPY.outcomes.map(choice => <button key={choice.value} type="button" aria-pressed={observation.outcome === choice.value} disabled={saving} className={"md-outcome md-outcome-" + choice.value} onClick={() => updateObservation({ outcome: choice.value, outcomeRecordedAt: new Date().toISOString() })}>{choice.label}</button>)}</div>
-          <label className="md-field"><span>{COPY.actual}</span><input value={observation.responseText} disabled={saving} onChange={event => updateObservation({responseText:event.target.value})} placeholder={COPY.actualPlaceholder} maxLength={600} /><small>{COPY.optionalActual}</small></label>
-          <label className="md-checkbox"><input type="checkbox" checked={observation.selfCorrected} disabled={saving} onChange={event => updateObservation({selfCorrected:event.target.checked})}/><span>{COPY.selfCorrected}</span></label>
-          <details className="md-error-details"><summary>{COPY.errorTypes}</summary><div>{errorTags.map(tag => <label className="md-checkbox" key={tag}><input type="checkbox" disabled={saving} checked={observation.errorTags.includes(tag)} onChange={event => updateObservation({errorTags:event.target.checked ? [...observation.errorTags, tag] : observation.errorTags.filter(value => value !== tag)})}/><span>{COPY.errorLabels[tag]}</span></label>)}</div></details>
-          <label className="md-field"><span>{COPY.notes}</span><textarea value={observation.notes} disabled={saving} onChange={event => updateObservation({notes:event.target.value})} placeholder={COPY.notePlaceholder} rows={2} maxLength={1000}/></label>
+          {kind === "letter" ? <div className="md-paired-responses">{tasks.map((name, position) => responseControls(name, position === 0))}</div> : <><div className="md-record-heading"><p>{COPY.taskStep(taskIndex + 1, tasks.length)}</p></div>{responseControls(task)}</>}
           {error && <p className="md-error" role="alert">{error}</p>}
-          <div className="md-navigation"><button type="button" className="md-secondary" disabled={index === 0 || saving} onClick={() => navigate(index - 1)}>{COPY.previous}</button>{taskIndex === 0 ? <button type="button" className="md-primary" disabled={saving} onClick={() => { const issue=diagnosticObservationIssue(observation.outcome, observation); if(issue) setError(issue); else {setTaskIndex(1);setError("");} }}>{COPY.nextTask(labels[tasks[1]])}</button> : <button type="button" className="md-primary" disabled={saving} onClick={() => save()}>{saving ? COPY.saving : index === items.length - 1 ? COPY.finish : COPY.nextItem}</button>}</div>
+          <div className="md-navigation"><button type="button" className="md-secondary" disabled={index === 0 || saving} onClick={() => navigate(index - 1)}>{COPY.previous}</button>{kind !== "letter" && taskIndex === 0 ? <button type="button" className="md-primary" disabled={saving} onClick={() => { const issue=diagnosticObservationIssue(observation.outcome, observation); if(issue) setError(issue); else {setTaskIndex(1);setError("");} }}>{COPY.nextTask(labels[tasks[1]])}</button> : <button type="button" className="md-primary" disabled={saving} onClick={() => save()}>{saving ? COPY.saving : index === items.length - 1 ? COPY.finish : COPY.nextItem}</button>}</div>
         </section>
       </div>
+      {kind === "letter" && <details className="md-guidance"><summary>{COPY.scoringGuide}</summary><p>{COPY.nameGuide}</p><p>{COPY.soundGuide}</p><p>{COPY.soundVariants}</p><p>{COPY.supportNote}</p></details>}
       <details className="md-review"><summary>{COPY.review}</summary><p>{COPY.reviewHint}</p><div>{items.slice(0, Math.min(reviewCount, items.length)).map((target, position) => <button type="button" key={target.display || target.pattern} aria-current={index === position ? "step" : undefined} disabled={saving} onClick={() => navigate(position)}><strong>{target.display || target.pattern}</strong><span>{isDiagnosticEntryComplete(entries[position],kind) ? COPY.recorded : COPY.pending}</span></button>)}</div>{completedCount === items.length && <button type="button" className="md-secondary" disabled={saving} onClick={() => navigate(items.length)}>{COPY.reviewResults}</button>}</details>
       <p className="md-draft-note">{COPY.draftNote}</p>
     </TeacherPageShell>
-    {studentView && <PupilStimulus stimulus={stimulus} prompt={prompt} onClose={() => setStudentView(false)}/>}
+    {studentView && <PupilStimulus stimulus={stimulus} prompt={kind === "letter" ? COPY.pairedPrompt : prompt} onClose={() => setStudentView(false)}/>}
   </>;
 }
 

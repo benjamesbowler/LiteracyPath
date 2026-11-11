@@ -34,12 +34,12 @@ const drafts = [
   ['Why can Muddy not sit on the log?','It rolls',['It is wet','It is hot','It is too small'],[1,2]],
   ['Where does Muddy sit at the end?','On the mat',['On the log','In the mud','In a tin'],[3]]]],
  [6,'My Red Hat',['red','hat'],[
-  'My red hat is in the mud.','Muddy runs to it.','How do I get my hat?','Muddy lifts it with a stick.','The hat is back on Muddy.'],[
+  'Muddy’s red hat is in the mud.','Muddy runs to it.','“How do I get my hat?” Muddy asks.','Muddy lifts it with a stick.','The hat is back on Muddy.'],[
   ['Where is the hat at first?','In the mud',['On a log','In a box','In the pond'],[0]],
   ['What colour is the hat?','Red',['Blue','Green','Black'],[0]],
   ['How does Muddy lift the hat?','With a stick',['With a net','With a cup','With a fan'],[3]]]],
  [7,'The Tin in the Mud',['tin','mud'],[
-  'The tin fell into the mud.','Muddy said the tin was stuck.','Muddy pulls it with a stick.','Out comes the tin!','Muddy sets it on a log.'],[
+  'The tin fell into the mud.','Muddy said the tin was stuck.','Muddy pulled it with a stick.','Out came the tin!','Muddy put it on a log.'],[
   ['What fell into the mud?','A tin',['A hat','A mat','A fan'],[0]],
   ['How does Muddy pull it out?','With a stick',['With a hat','With a net','With a box'],[2]],
   ['Where is the tin at the end?','On a log',['In the mud','In a hut','On the mat'],[4]]]],
@@ -103,8 +103,8 @@ const drafts = [
   ['What colour is the cup?','Pink',['Red','Blue','Green'],[0]],
   ['Why does the sink fill up?','A leaf blocks the hole',['The cup is too big','The tap is off','The sink has a crack'],[3]],
   ['What does Muddy do?','Lifts out the leaf',['Adds more water','Gets another cup','Puts in a stick'],[4]]]],
- [24,'Which Bell?',['off','miss','buzz','bell'],[
-  'Muddy hears a buzz by the bell.','Which bug is it?','A bee lands on the bell.','Muddy will miss the picnic call.','He waits for the bee to fly off.','Then Muddy rings the bell for lunch.'],[
+ [24,'The Picnic Bell',['off','miss','buzz','bell'],[
+  'Muddy hears a buzz by the bell.','Which bug is it?','A bee lands on the bell.','His friends may miss lunch.','He waits for the bee to fly off.','Then Muddy rings the bell for lunch.'],[
   ['What makes the buzz?','A bee',['A duck','A hen','A mouse'],[2]],
   ['Where does the bee land?','On the bell',['On a cup','On a hat','On a log'],[2]],
   ['When does Muddy ring the bell?','After the bee flies off',['While the bee is on it','Before the bee lands','Before he hears a buzz'],[4,5]]]],
@@ -120,7 +120,7 @@ const drafts = [
   ['How much does each friend eat?','Half the apple',['A whole apple','Two apples','No apple'],[5]]]]
 ];
 
-const words = text => text.toLowerCase().match(/\b[a-z]+\b/g) || [];
+const words = text => text.toLowerCase().match(/\b[a-z]+(?:['’][a-z]+)*\b/g) || [];
 function curriculum(cycleNumber) { return getElSkillsBlockCycle(`cycle-${cycleNumber}`); }
 export function cycleShortLearningWords(passage, day = 'friday') {
  const days = ['monday','tuesday','wednesday','thursday','friday'];

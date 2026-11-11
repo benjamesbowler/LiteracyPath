@@ -1865,3 +1865,43 @@ and can be reproduced by repeating those requests. The receipt is
 `.artifacts/nonfiction-next-50/final-empty-file-cleanup.json`. No native media,
 historical review, selected source, protected animation root or current reader
 proof was removed; the task's recorded cleanup total remains 969,865,481 bytes.
+
+## Present, letter checks and discovery topic repair — 10 November 2026
+
+Five topic replacements retain exact original generation inputs, current
+complete-book reviews, prior release/card/audio evidence and the full manuscript
+audit. The source and checks are linked from the Guided Reading index. Historical
+reading evidence stays separate from new-topic progress; no learner records or
+hosted services were changed by local verification.
+
+Removed the task-created `LiteracyPath-present-assessment-ui` verification
+checkout and its local verification branch after all26 retained evidence files
+were copied and SHA-verified in the main checkout. Its sole test correction was
+transferred byte-identically, its commit remains in the release branch, and the
+shared `node_modules` target was preserved. Removed the closed browser cache,
+superseded one-time integration copies and verified unused draft outputs. These
+disposable artifacts are reproducible; original selected media, exact generation
+manuscripts and accepted QA evidence remain.
+
+Diagnostic trace ZIPs were CRC-checked and each extracted entry SHA-verified
+before only the redundant containers were removed. The extracted failure
+evidence remains distinct from final successful runs. Per-file cleanup and
+verification receipts are under `.artifacts/discovery-topic-revision/` and
+`.artifacts/requested-ui-release/`; no protected animation path was touched.
+
+The hygiene walker now appends large directory results iteratively, preserving
+the exact ordering, coverage, ignore rules and checks while avoiding JavaScript's
+argument-count limit at more than163,000 artifact entries. Current hygiene and
+the existing verification-runner tests were exercised after this change.
+
+### 11 November library audit
+
+Retired six superseded cover cards (248,258 bytes) after proving that their only
+remaining references were in the visual review ledger. Verified the replacement
+source and rendition hashes, the reader's actual requests, and the production
+package before removing the temporary transfer copies. The six old cards remain
+recoverable from commit `fe46cf529b0584e34aec88030471ba753e2eae58`. Removed one
+byte-identical duplicate plant cover candidate; its selected copy and original
+generation remain. The [audit](guided-reading/LIBRARY_SUITABILITY_AUDIT_2026-11-11.md)
+and exact media and historical provenance are retained. No protected path or
+hosted media was removed.

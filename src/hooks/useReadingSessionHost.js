@@ -1,5 +1,8 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
+  isReadingSessionCompatible,
+  readingSessionBook,
+  resumePreviousTopicReadingSession,
   endReadingSession,
   getReadingSessionPresence,
   saveReadingMarks,
@@ -97,6 +100,25 @@ export function pendingReadingChanges(session) {
   return ["pages", "marks"].reduce((count, kind) => count + readingQueueRecovery({ session, kind }).initialOperations.length, 0);
 }
 
+export async function recoverPreviousTopicReadingChanges({ client, session, storage, book }) {
+  await resumePreviousTopicReadingSession({ client, session, book });
+  for (const kind of ["pages", "marks"]) {
+    const queue = createReadingSessionRetryQueue({
+      ...readingQueueRecovery({ session, kind, storage }),
+      send: async payload => {
+        const result = kind === "pages"
+          ? await setReadingSessionPage({ client, sessionId: session.id, pageIndex: payload.pageIndex })
+          : await saveReadingMarks({ client, sessionId: session.id, studentId: payload.studentId, pageIndex: payload.pageIndex, marks: payload.marks, clientEventId: payload.clientEventId });
+        if (result?.ok !== true) throw new Error("Earlier reading changes are still waiting to save.");
+      }
+    });
+    try {
+      await queue.flush();
+      if (queue.snapshot().length) throw new Error("Earlier reading changes are still waiting to save.");
+    } finally { queue.dispose(); }
+  }
+}
+
 function eventId() {
   if (globalThis.crypto?.randomUUID) return globalThis.crypto.randomUUID();
   return `reading-mark-${Date.now()}-${Math.random().toString(36).slice(2)}`;
@@ -106,9 +128,10 @@ export function useReadingSessionHost({ client, initialSession, students = [], o
   const [sessionState, setSessionState] = useState({ id: "", pageIndex: null, ended: false });
   const session = useMemo(() => initialSession?.id && sessionState.id === initialSession.id && sessionState.ended
     ? null
-    : initialSession
+    : initialSession && isReadingSessionCompatible(initialSession)
       ? {
           ...initialSession,
+          book: initialSession.book || readingSessionBook(initialSession),
           page_index: sessionState.id === initialSession.id && sessionState.pageIndex !== null
             ? sessionState.pageIndex
             : initialSession.page_index
@@ -133,7 +156,7 @@ export function useReadingSessionHost({ client, initialSession, students = [], o
   useEffect(() => { marksRef.current = marksByStudent; }, [marksByStudent]);
 
   useEffect(() => {
-    if (!client || !initialSession?.id) return undefined;
+    if (!client || !initialSession?.id || !isReadingSessionCompatible(initialSession)) return undefined;
     turnQueueRef.current = createReadingSessionRetryQueue({
       ...readingQueueRecovery({ session: initialSession, kind: "pages" }),
       send: async ({ pageIndex }) => {
@@ -358,7 +381,7 @@ export function useReadingSessionHost({ client, initialSession, students = [], o
       const current = sessionRef.current;
       if (!current?.id) return false;
       try {
-        const result = await resumeReadingSession({ client, sessionId: current.id });
+        const result = await resumeReadingSession({ client, sessionId: current.id, session: current });
         if (result?.ok !== true || result.session?.id !== current.id || result.session?.teacher_id !== current.teacher_id) throw new Error("resume_unconfirmed");
         await Promise.all([turnQueueRef.current?.flush(), markQueueRef.current?.flush()]);
         return true;

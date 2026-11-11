@@ -1,3 +1,4 @@
+import { getCurrentGuidedReadingRecord, isGuidedReadingAssignmentCurrent } from "../utils/guidedReading/editions.js";
 import {lazy,Suspense} from "react";
 const CycleShortsLibrary = lazy(()=>import("./guided-reading/CycleShortsLibrary.jsx"));
 import "../styles/book-levels.css";
@@ -187,6 +188,7 @@ export function StudentBooksPage({
   initialBookId = "",
   focusLocked = false,
   lockedBookId = null,
+  lockedBookTitle = null,
   onLockedBookAvailabilityChange = null,
   onNavigate,
   onHome,
@@ -254,9 +256,9 @@ export function StudentBooksPage({
     const live = filterPublishedGuidedReadingBooks(runtimeBooks, quarantinedBookIds);
     const entitled = filterToEntitlement(live, allowedBookIds, { hasFullContent: !allowedBookIds });
     return exactBookLock
-      ? entitled.filter(book => book.id === normalizedLockedBookId)
+      ? entitled.filter(book => book.id === normalizedLockedBookId && isGuidedReadingAssignmentCurrent(book, lockedBookTitle))
       : entitled;
-  }, [allowedBookIds, books, exactBookLock, normalizedLockedBookId, quarantinedBookIds]);
+  }, [allowedBookIds, books, exactBookLock, normalizedLockedBookId, lockedBookTitle, quarantinedBookIds]);
 
   useEffect(() => {
     if (!exactBookLock || publicationStatus === "loading") return;
@@ -305,7 +307,7 @@ export function StudentBooksPage({
     || recommended[0]?.book || library[0] || null;
   const panelBook = continueRow?.book || firstBook;
   const panelProgress = continueRow?.progress
-    || (panelBook ? bookReadingProgress(panelBook, guidedReadingRecords[panelBook.id] || {}) : null);
+    || (panelBook ? bookReadingProgress(panelBook, getCurrentGuidedReadingRecord(panelBook, guidedReadingRecords)) : null);
   const resuming = Boolean(continueRow);
   const knowledgeJourneys = useMemo(() => KNOWLEDGE_JOURNEYS.filter(journey => knowledgeJourneyBooks(journey.id, library).length), [library]);
 
@@ -354,7 +356,8 @@ export function StudentBooksPage({
   }
 
   if (openBookId && renderReader && library.some(book => book.id === openBookId)) {
-    const saved = bookReadingProgress(library.find(book => book.id === openBookId), guidedReadingRecords[openBookId] || {});
+    const openBook = library.find(book => book.id === openBookId);
+    const saved = bookReadingProgress(openBook, getCurrentGuidedReadingRecord(openBook, guidedReadingRecords));
     return renderReader({ bookId: openBookId, books: library, initialPageIndex: saved.started ? saved.pageIndex : null, onExit: () => setOpenBookId("") });
   }
 

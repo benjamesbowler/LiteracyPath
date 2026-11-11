@@ -1,11 +1,11 @@
 {
   "schemaVersion": "2.0",
-  "auditDate": "2026-11-09",
+  "auditDate": "2026-11-11",
   "status": "complete",
   "gateSemantics": {
     "mode": "fail-closed",
     "rule": "Every active page must have an exact displayed-text hash, image path, image-file hash and approved/replace decision. Any changed text, path or image bytes invalidate this audit record and require re-audit.",
-    "releaseFingerprintSha256": "6bc1f95ed393972fbfcfab5fc5140da0086c9831ec78875b0c3665b38380edb6"
+    "releaseFingerprintSha256": "86dbfe20c22c33a1ae36816bf2c5d822b91c7baf82d57975166fd2ca5c86c0ba"
   },
   "scope": {
     "activeBooksAudited": 446,
@@ -455,7 +455,14 @@
     "On 2026-11-09, world-discovery-e-27 was re-audited against the current runtime text and every reviewed page image was hash-locked after full-book sequence, cover, character-continuity, anatomy, object-count, factual-safety, style and resolution checks.",
     "On 2026-11-09, world-discovery-e-28 was re-audited against the current runtime text and every reviewed page image was hash-locked after full-book sequence, cover, character-continuity, anatomy, object-count, factual-safety, style and resolution checks.",
     "On 2026-11-09, world-discovery-e-29 was re-audited against the current runtime text and every reviewed page image was hash-locked after full-book sequence, cover, character-continuity, anatomy, object-count, factual-safety, style and resolution checks.",
-    "On 2026-11-09, world-discovery-e-30 was re-audited against the current runtime text and every reviewed page image was hash-locked after full-book sequence, cover, character-continuity, anatomy, object-count, factual-safety, style and resolution checks."
+    "On 2026-11-09, world-discovery-e-30 was re-audited against the current runtime text and every reviewed page image was hash-locked after full-book sequence, cover, character-continuity, anatomy, object-count, factual-safety, style and resolution checks.",
+    "On 2026-11-10, world-discovery-b-21 was re-audited against the current runtime text and every reviewed page image was hash-locked after full-book sequence, cover, character-continuity, anatomy, object-count, factual-safety, style and resolution checks.",
+    "On 2026-11-10, world-discovery-c-21 was re-audited against the current runtime text and every reviewed page image was hash-locked after full-book sequence, cover, character-continuity, anatomy, object-count, factual-safety, style and resolution checks.",
+    "On 2026-11-10, world-discovery-d-21 was re-audited against the current runtime text and every reviewed page image was hash-locked after full-book sequence, cover, character-continuity, anatomy, object-count, factual-safety, style and resolution checks.",
+    "On 2026-11-10, world-discovery-e-21 was re-audited against the current runtime text and every reviewed page image was hash-locked after full-book sequence, cover, character-continuity, anatomy, object-count, factual-safety, style and resolution checks.",
+    "On 2026-11-10, world-discovery-e-22 was re-audited against the current runtime text and every reviewed page image was hash-locked after full-book sequence, cover, character-continuity, anatomy, object-count, factual-safety, style and resolution checks.",
+    "On 2026-11-11 the Dino Pals 14 title became Flappy Finds a Way. The ordered manuscript and every reading-page illustration were retained. The original-detail cover check confirmed that the existing cover contains no printed title.",
+    "On 2026-11-11 seven revised lines across five books were rebound to their existing illustrations after full-sequence review and original-detail checks of the affected pages. Per-page records retain prior text fingerprints and current image hashes."
   ],
   "issueCodeCounts": {
     "animal_welfare": 2,
@@ -597,11 +604,11 @@
       "displayedText": "At lunch, Aiden found Mom’s note under his sandwich. It said, “Keep trying. I love you!” Aiden smiled.",
       "imagePath": "/guided-reading/series/aiden-and-betty/book-01/page-008.webp",
       "textSha256": "f53867b56d76d092abfc2f7f71e2709ec307001997db6b60e9195da89ca7a3cf",
-      "imageSha256": "b11f90754a3e9235a94319a6ccaa1ca4683f9c50187121437005c11ff8301d38",
+      "imageSha256": "a6b9d6a4cab89972e526cdaf05afce965d0167e9b2a78a081f345f30c4a61ad2",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "November 9 complete 397-book reread and ordered cover/page review; final replacement WebPs inspected natively and rechecked in whole-book sequences. Evidence: source-art/guided-reading-remediation/2026-11-09 and source-art/world-discovery/remediation/2026-11-09; character identity, physical continuity, concrete ESL scene support, anatomy, object counts and factual detail checked. This is agent visual review, not classroom or physical-device observation."
+      "regenerationBrief": "11 November 2026: installed replacement natively inspected and checked in its complete ordered book sequence against the unchanged manuscript. See dated image repair provenance."
     },
     {
       "bookId": "ab-c-01",
@@ -2707,14 +2714,29 @@
       "title": "Aiden and Betty: New Teeth",
       "level": "E",
       "pageNumber": 9,
-      "displayedText": "By morning, a coin lay where the envelope had been. Aiden raced to show Mom.",
+      "displayedText": "Mom had left a coin as a gift for his lost tooth. Aiden raced to thank her.",
       "imagePath": "/guided-reading/series/aiden-and-betty/book-09/page-009.webp",
-      "textSha256": "bd06ecd123981ed6fa619a82fa88c6ad23c34ad04b9a33ff71680d932ef67f32",
+      "textSha256": "5e5c7de1dbab98b67559769cd7acc6695b39bf3df22f64f638152223e91b71b0",
       "imageSha256": "c47b619a6429ab4afa80b2d19ea6655ec0bc5e8e06c57a3d6436a30776a4b23a",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "November 9 complete 397-book reread and ordered cover/page review; final replacement WebPs inspected natively and rechecked in whole-book sequences. Evidence: source-art/guided-reading-remediation/2026-11-09 and source-art/world-discovery/remediation/2026-11-09; character identity, physical continuity, concrete ESL scene support, anatomy, object counts and factual detail checked. This is agent visual review, not classroom or physical-device observation."
+      "regenerationBrief": "November 9 complete 397-book reread and ordered cover/page review; final replacement WebPs inspected natively and rechecked in whole-book sequences. Evidence: source-art/guided-reading-remediation/2026-11-09 and source-art/world-discovery/remediation/2026-11-09; character identity, physical continuity, concrete ESL scene support, anatomy, object counts and factual detail checked. This is agent visual review, not classroom or physical-device observation.",
+      "editorialReview20261111": {
+        "reviewedAt": "2026-11-11",
+        "reviewer": "Codex independent wording review",
+        "method": "Complete ordered manuscript and illustration sequence reviewed, with the changed page examined at original detail.",
+        "notes": [
+          "Mom and Aiden are together in the morning scene, and the coin remains visible. The new line names the giver without adding an illustrated action."
+        ],
+        "priorFingerprint": {
+          "displayedText": "By morning, a coin lay where the envelope had been. Aiden raced to show Mom.",
+          "textSha256": "bd06ecd123981ed6fa619a82fa88c6ad23c34ad04b9a33ff71680d932ef67f32",
+          "imagePath": "/guided-reading/series/aiden-and-betty/book-09/page-009.webp",
+          "imageSha256": "c47b619a6429ab4afa80b2d19ea6655ec0bc5e8e06c57a3d6436a30776a4b23a",
+          "status": "approved"
+        }
+      }
     },
     {
       "bookId": "ab-c-09",
@@ -11462,7 +11484,7 @@
     },
     {
       "bookId": "dino-pals-14-what-is-flappy",
-      "title": "What is Flappy?",
+      "title": "Flappy Finds a Way",
       "level": "D",
       "pageNumber": 1,
       "displayedText": "Flappy flaps toward a branch, then lands in mud.",
@@ -11476,7 +11498,7 @@
     },
     {
       "bookId": "dino-pals-14-what-is-flappy",
-      "title": "What is Flappy?",
+      "title": "Flappy Finds a Way",
       "level": "D",
       "pageNumber": 2,
       "displayedText": "\"I have wings. Why can't I reach that branch?\"",
@@ -11490,7 +11512,7 @@
     },
     {
       "bookId": "dino-pals-14-what-is-flappy",
-      "title": "What is Flappy?",
+      "title": "Flappy Finds a Way",
       "level": "D",
       "pageNumber": 3,
       "displayedText": "Bossy flies overhead. Flappy flaps just as hard, but stays down.",
@@ -11524,7 +11546,7 @@
     },
     {
       "bookId": "dino-pals-14-what-is-flappy",
-      "title": "What is Flappy?",
+      "title": "Flappy Finds a Way",
       "level": "D",
       "pageNumber": 4,
       "displayedText": "Sunny studies the feathered wings. \"Try a jump,\" she says.",
@@ -11558,7 +11580,7 @@
     },
     {
       "bookId": "dino-pals-14-what-is-flappy",
-      "title": "What is Flappy?",
+      "title": "Flappy Finds a Way",
       "level": "D",
       "pageNumber": 5,
       "displayedText": "Flappy gives one angry squawk. A feather drifts down.",
@@ -11592,7 +11614,7 @@
     },
     {
       "bookId": "dino-pals-14-what-is-flappy",
-      "title": "What is Flappy?",
+      "title": "Flappy Finds a Way",
       "level": "D",
       "pageNumber": 6,
       "displayedText": "Flappy stamps. Small claws dig into the soft ground.",
@@ -11626,7 +11648,7 @@
     },
     {
       "bookId": "dino-pals-14-what-is-flappy",
-      "title": "What is Flappy?",
+      "title": "Flappy Finds a Way",
       "level": "D",
       "pageNumber": 7,
       "displayedText": "Those claws grip bark too. Flappy climbs and makes a nest.",
@@ -11660,7 +11682,7 @@
     },
     {
       "bookId": "dino-pals-14-what-is-flappy",
-      "title": "What is Flappy?",
+      "title": "Flappy Finds a Way",
       "level": "D",
       "pageNumber": 8,
       "displayedText": "An insect drifts past. Flappy spreads both wings and glides after it.",
@@ -11694,7 +11716,7 @@
     },
     {
       "bookId": "dino-pals-14-what-is-flappy",
-      "title": "What is Flappy?",
+      "title": "Flappy Finds a Way",
       "level": "D",
       "pageNumber": 9,
       "displayedText": "\"I climb up,\" Flappy tells Grumpy, \"and glide down!\"",
@@ -11728,7 +11750,7 @@
     },
     {
       "bookId": "dino-pals-14-what-is-flappy",
-      "title": "What is Flappy?",
+      "title": "Flappy Finds a Way",
       "level": "D",
       "pageNumber": 10,
       "displayedText": "Grumpy looks up. \"You built that nest.\"",
@@ -11742,7 +11764,7 @@
     },
     {
       "bookId": "dino-pals-14-what-is-flappy",
-      "title": "What is Flappy?",
+      "title": "Flappy Finds a Way",
       "level": "D",
       "pageNumber": 11,
       "displayedText": "\"I am Flappy,\" says Flappy. \"Watch this.\"",
@@ -11756,7 +11778,7 @@
     },
     {
       "bookId": "dino-pals-14-what-is-flappy",
-      "title": "What is Flappy?",
+      "title": "Flappy Finds a Way",
       "level": "D",
       "pageNumber": 12,
       "displayedText": "From the branch above, Flappy glides down into the nest.",
@@ -34245,9 +34267,9 @@
       "title": "Stone Crosses the Bridge",
       "level": "E",
       "pageNumber": 10,
-      "displayedText": "On the way back, Stone held Burrow in one arm and gripped the rope with his free hand. Pip walked just ahead. Board by board, the far bank drew closer.",
+      "displayedText": "On the way back, Stone held Burrow in one arm and gripped the rope with his free hand. Pip led them toward the bank where he and Stone had started.",
       "imagePath": "/guided-reading/series/moonwood-tales/book-03/page-010.webp",
-      "textSha256": "daa5aa7a39fe64a6e780dff9cbcdde1f1a6cb4108605bf749171bbe9910ce845",
+      "textSha256": "224cdc4ed8b6463979ac7f19fb2e17287af1f94ec5747deebc022449e7abbb53",
       "imageSha256": "68361135026060d613457de0e9d8c94535ea018fa949adf18ef40e767edacf22",
       "status": "approved",
       "issueCodes": [],
@@ -34270,6 +34292,21 @@
           "textSha256": "aab81a9f304c127cab4ee4f91eca30876a746cce2f51a883bbe84e86efd36d66",
           "imagePath": "/guided-reading/series/moonwood-tales/book-03/page-010.webp",
           "imageSha256": "07c505bb95dd3d333499e13e1bb34ca0cc2185b434c857d42b34dde2d0a7fe92",
+          "status": "approved"
+        }
+      },
+      "editorialReview20261111": {
+        "reviewedAt": "2026-11-11",
+        "reviewer": "Codex independent wording review",
+        "method": "Complete ordered manuscript and illustration sequence reviewed, with the changed page examined at original detail.",
+        "notes": [
+          "Pip walks ahead while Stone holds Burrow and grips the rope. The manuscript identifies the return destination as their starting bank."
+        ],
+        "priorFingerprint": {
+          "displayedText": "On the way back, Stone held Burrow in one arm and gripped the rope with his free hand. Pip walked just ahead. Board by board, the far bank drew closer.",
+          "textSha256": "daa5aa7a39fe64a6e780dff9cbcdde1f1a6cb4108605bf749171bbe9910ce845",
+          "imagePath": "/guided-reading/series/moonwood-tales/book-03/page-010.webp",
+          "imageSha256": "68361135026060d613457de0e9d8c94535ea018fa949adf18ef40e767edacf22",
           "status": "approved"
         }
       }
@@ -36152,11 +36189,11 @@
       "displayedText": "Fern checked the shaded garden while Burrow checked the cool tunnels. Neither place held the silver box. Luna crossed both places off her list.",
       "imagePath": "/guided-reading/series/moonwood-tales/book-10/page-004.webp",
       "textSha256": "daf5b312c4572a2f55609697f59da6a3642155e928a17bfb79fba80cc64f795f",
-      "imageSha256": "3a3313c017478972253ac4b0bcbbdd340f56cd995a9620c3289b3f080e8933f9",
+      "imageSha256": "dfbd342593c24ced35c015f42c0be1d5eccea815a82526e79d66b0c1ae95235e",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "November 9 complete 397-book reread and ordered cover/page review; final replacement WebPs inspected natively and rechecked in whole-book sequences. Evidence: source-art/guided-reading-remediation/2026-11-09 and source-art/world-discovery/remediation/2026-11-09; character identity, physical continuity, concrete ESL scene support, anatomy, object counts and factual detail checked. This is agent visual review, not classroom or physical-device observation."
+      "regenerationBrief": "11 November 2026: installed replacement natively inspected and checked in its complete ordered book sequence against the unchanged manuscript. See dated image repair provenance."
     },
     {
       "bookId": "moonwood-tales-c-10",
@@ -36266,11 +36303,11 @@
       "displayedText": "Fern leaned closer as Luna lifted the lid. Twelve round seeds shone inside the box, bright as candle flames. Luna counted them once; none had cracked in the cold water.",
       "imagePath": "/guided-reading/series/moonwood-tales/book-10/page-010.webp",
       "textSha256": "4d6157931439811db3013f4461e48a94d7c09fc276f3e0f024daf40e00c22f42",
-      "imageSha256": "95ef076cb40cd652933303fa214104e146c8bff3f1e5a7cf8273b3d203a812a4",
+      "imageSha256": "a27fb39c105bafac95c8380ec3011fee845d4f140d4784777be5fe4e68c13b27",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "November 9 complete 397-book reread and ordered cover/page review; final replacement WebPs inspected natively and rechecked in whole-book sequences. Evidence: source-art/guided-reading-remediation/2026-11-09 and source-art/world-discovery/remediation/2026-11-09; character identity, physical continuity, concrete ESL scene support, anatomy, object counts and factual detail checked. This is agent visual review, not classroom or physical-device observation.",
+      "regenerationBrief": "11 November 2026: installed replacement natively inspected and checked in its complete ordered book sequence against the unchanged manuscript. See dated image repair provenance.",
       "editorialReview20260922": {
         "reviewedAt": "2026-09-22",
         "reviewer": "Editorial repair team; agent visual review",
@@ -36300,11 +36337,11 @@
       "displayedText": "Luna looked up through Hollow Oak's old branches. She had saved the seeds to grow young trees beside them. Now twelve small lights waited in her open box.",
       "imagePath": "/guided-reading/series/moonwood-tales/book-10/page-011.webp",
       "textSha256": "8714c52b05ea3beeb1bf96a890723f527e9709c4384ee254dc7999183bdba28c",
-      "imageSha256": "1861a28b9d0eaf3a08899b85e82bee21337dd76f2183061fc92c57425328e807",
+      "imageSha256": "6666e909fb4f9ef6187bee94312f89a8c3ff096b3b16f5851f580d4000be141c",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "November 9 complete 397-book reread and ordered cover/page review; final replacement WebPs inspected natively and rechecked in whole-book sequences. Evidence: source-art/guided-reading-remediation/2026-11-09 and source-art/world-discovery/remediation/2026-11-09; character identity, physical continuity, concrete ESL scene support, anatomy, object counts and factual detail checked. This is agent visual review, not classroom or physical-device observation.",
+      "regenerationBrief": "11 November 2026: installed replacement natively inspected and checked in its complete ordered book sequence against the unchanged manuscript. See dated image repair provenance.",
       "editorialReview20260922": {
         "reviewedAt": "2026-09-22",
         "reviewer": "Editorial repair team; agent visual review",
@@ -36334,11 +36371,11 @@
       "displayedText": "Luna set the open box on the ground outside Hollow Oak. She gave each helper a seed and pointed to a bare patch beneath the old branches.",
       "imagePath": "/guided-reading/series/moonwood-tales/book-10/page-012.webp",
       "textSha256": "a4b5d75254e8ee7a39b49c3aec11baccf9640c1a5ee7db902222d1e23130cad4",
-      "imageSha256": "940e86590687450dbfb285698afc3b26ef4e3b1ce30df29e35f817ee3060a3ef",
+      "imageSha256": "4a09b6427cf70c0dcd4436e33d946546fbe5dad571399c8b488d6e9c7518ff80",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "November 9 complete 397-book reread and ordered cover/page review; final replacement WebPs inspected natively and rechecked in whole-book sequences. Evidence: source-art/guided-reading-remediation/2026-11-09 and source-art/world-discovery/remediation/2026-11-09; character identity, physical continuity, concrete ESL scene support, anatomy, object counts and factual detail checked. This is agent visual review, not classroom or physical-device observation.",
+      "regenerationBrief": "11 November 2026: installed replacement natively inspected and checked in its complete ordered book sequence against the unchanged manuscript. See dated image repair provenance.",
       "editorialReview20260922": {
         "reviewedAt": "2026-09-22",
         "reviewer": "Editorial repair team; agent visual review",
@@ -36378,11 +36415,11 @@
       "displayedText": "Before sunset, the friends planted all twelve seeds in a wide ring around Hollow Oak. They covered each hole gently and watered the dark soil.",
       "imagePath": "/guided-reading/series/moonwood-tales/book-10/page-013.webp",
       "textSha256": "b1b292e71f18d904a78f233e31c8bc86da8554edc3ec15e87fdce8ac889597a5",
-      "imageSha256": "1f90e8897c17e25b1c010b9d21a1374f1643a4b79009b3e2d6404d85cc374289",
+      "imageSha256": "7f5365fc89c35f13d6015981c0b15524e2bc2479aca876bdfec4348d7a5cede0",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "November 9 complete 397-book reread and ordered cover/page review; final replacement WebPs inspected natively and rechecked in whole-book sequences. Evidence: source-art/guided-reading-remediation/2026-11-09 and source-art/world-discovery/remediation/2026-11-09; character identity, physical continuity, concrete ESL scene support, anatomy, object counts and factual detail checked. This is agent visual review, not classroom or physical-device observation."
+      "regenerationBrief": "11 November 2026: installed replacement natively inspected and checked in its complete ordered book sequence against the unchanged manuscript. See dated image repair provenance."
     },
     {
       "bookId": "moonwood-tales-c-10",
@@ -36392,11 +36429,11 @@
       "displayedText": "Luna settled beside the last small mound. Above her, the old leaves rustled; below, twelve seeds rested in damp soil. She listened until the light left the clearing.",
       "imagePath": "/guided-reading/series/moonwood-tales/book-10/page-014.webp",
       "textSha256": "00a10daa0b4a71d169f0d4ff8aa10c20a1f3b5a75daf5345a9e25fc1cdf5cc1a",
-      "imageSha256": "d603a5dca9f054cb5dc022c2e6b7c8c05ac0564294ef7d706471a6d697677e80",
+      "imageSha256": "6f83751e8e4ae718b8aca1249d93a3a0d15670144d7a2ea0177040114510dab9",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "November 9 complete 397-book reread and ordered cover/page review; final replacement WebPs inspected natively and rechecked in whole-book sequences. Evidence: source-art/guided-reading-remediation/2026-11-09 and source-art/world-discovery/remediation/2026-11-09; character identity, physical continuity, concrete ESL scene support, anatomy, object counts and factual detail checked. This is agent visual review, not classroom or physical-device observation.",
+      "regenerationBrief": "11 November 2026: installed replacement natively inspected and checked in its complete ordered book sequence against the unchanged manuscript. See dated image repair provenance.",
       "editorialReview20260922": {
         "reviewedAt": "2026-09-22",
         "reviewer": "Editorial repair team; agent visual review",
@@ -38563,9 +38600,9 @@
       "title": "Stone and Dewdrop and the Stuck Fish",
       "level": "F",
       "pageNumber": 11,
-      "displayedText": "Stone sat dripping beside Dewdrop while the fish circled them once. His shoulders relaxed when he saw it swimming strongly, with no rocks blocking its path.",
+      "displayedText": "Stone sat dripping beside Dewdrop as the fish swam in a circle nearby. His shoulders relaxed when he saw it swimming strongly, with no rocks blocking its path.",
       "imagePath": "/guided-reading/series/moonwood-tales/book-18/page-011.webp",
-      "textSha256": "b28d0e633ab6825e9f197768742641f4540ee87f6a5fb5346b7b8a01938c6a87",
+      "textSha256": "be2ad5c9d8080fb19207182d931d12b5c5d251d70258721fa4aca54102eaae7c",
       "imageSha256": "7d247432ad7f10fc224cfadc8e3204e6a1686a562b19ede4b84f745338f56d0b",
       "status": "approved",
       "issueCodes": [],
@@ -38600,6 +38637,21 @@
         "reviewer": "Codex direct native and ordered sequence review",
         "note": "Relaxed wet giant and small seated Dewdrop retain poses; single freed silver fish swims with open path, clear drips/puddles. Clean outlined flat shapes.",
         "method": "Clean cartoon rendering and prior story repairs checked together; model review, no classroom or human-listening claim."
+      },
+      "editorialReview20261111": {
+        "reviewedAt": "2026-11-11",
+        "reviewer": "Codex independent wording review",
+        "method": "Complete ordered manuscript and illustration sequence reviewed, with the changed page examined at original detail.",
+        "notes": [
+          "Stone and Dewdrop are on the bank. The fish swims in the water nearby, with open water between it and the bank."
+        ],
+        "priorFingerprint": {
+          "displayedText": "Stone sat dripping beside Dewdrop while the fish circled them once. His shoulders relaxed when he saw it swimming strongly, with no rocks blocking its path.",
+          "textSha256": "b28d0e633ab6825e9f197768742641f4540ee87f6a5fb5346b7b8a01938c6a87",
+          "imagePath": "/guided-reading/series/moonwood-tales/book-18/page-011.webp",
+          "imageSha256": "7d247432ad7f10fc224cfadc8e3204e6a1686a562b19ede4b84f745338f56d0b",
+          "status": "approved"
+        }
       }
     },
     {
@@ -42235,23 +42287,38 @@
       "title": "Spark's Ten-Count Hook",
       "level": "G",
       "pageNumber": 8,
-      "displayedText": "Fern packed strong woven root fiber into every part of the curved mold. Spark pressed the material down carefully. Then they left it beside the warm lanterns.",
+      "displayedText": "Fern packed strong woven root fiber and sticky glue into every part of the curved mold. Spark pressed it down. They left it beside the warm lanterns.",
       "imagePath": "/guided-reading/series/moonwood-tales/book-34/page-008.webp",
-      "textSha256": "0c03ff9ba5ac88ef9bf812c168571d51b9bf013e32abb2e86a6c1b0e3bc40adf",
+      "textSha256": "605cbcd55443673b6515b06c8d27b0a6d63f6ac7ea338c9442436075caa055db",
       "imageSha256": "e5b78750803d2632711d24f20fd03ddf457a51bd310cf5b848eaffb74328482f",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "November 9 complete 397-book reread and ordered cover/page review; final replacement WebPs inspected natively and rechecked in whole-book sequences. Evidence: source-art/guided-reading-remediation/2026-11-09 and source-art/world-discovery/remediation/2026-11-09; character identity, physical continuity, concrete ESL scene support, anatomy, object counts and factual detail checked. This is agent visual review, not classroom or physical-device observation."
+      "regenerationBrief": "November 9 complete 397-book reread and ordered cover/page review; final replacement WebPs inspected natively and rechecked in whole-book sequences. Evidence: source-art/guided-reading-remediation/2026-11-09 and source-art/world-discovery/remediation/2026-11-09; character identity, physical continuity, concrete ESL scene support, anatomy, object counts and factual detail checked. This is agent visual review, not classroom or physical-device observation.",
+      "editorialReview20261111": {
+        "reviewedAt": "2026-11-11",
+        "reviewer": "Codex independent wording review",
+        "method": "Complete ordered manuscript and illustration sequence reviewed, with the changed page examined at original detail.",
+        "notes": [
+          "Fern packs the braided material into the clay mold and Spark presses it down beside a lit lantern. The prose supplies the binder in the material."
+        ],
+        "priorFingerprint": {
+          "displayedText": "Fern packed strong woven root fiber into every part of the curved mold. Spark pressed the material down carefully. Then they left it beside the warm lanterns.",
+          "textSha256": "0c03ff9ba5ac88ef9bf812c168571d51b9bf013e32abb2e86a6c1b0e3bc40adf",
+          "imagePath": "/guided-reading/series/moonwood-tales/book-34/page-008.webp",
+          "imageSha256": "e5b78750803d2632711d24f20fd03ddf457a51bd310cf5b848eaffb74328482f",
+          "status": "approved"
+        }
+      }
     },
     {
       "bookId": "moonwood-tales-c-34",
       "title": "Spark's Ten-Count Hook",
       "level": "G",
       "pageNumber": 9,
-      "displayedText": "When the root fiber dried, Spark lifted a solid hook from the mold. Its curve matched the good hook exactly. He carried it to the lowest rail.",
+      "displayedText": "When the glue dried, Spark lifted a solid root-fiber hook from the mold. Its curve matched the good hook exactly. He carried it to the lowest rail.",
       "imagePath": "/guided-reading/series/moonwood-tales/book-34/page-009.webp",
-      "textSha256": "33252594526a1c5514dd8e4e0fc5f7c54f759d3a11d1f265490826026163c3be",
+      "textSha256": "9e068fccedce6084f90e693e5be45cbf64231c9aa85e2177465d3bd44d7f7b93",
       "imageSha256": "b7e8b26cfe9e391f854403673c6d7be75d8d26afcfe332bf26c682fb14cfff32",
       "status": "approved",
       "issueCodes": [],
@@ -42274,6 +42341,21 @@
           "textSha256": "b0b8c6ae09fed79e4c403739c9c018f8540e05215c6c32e9e273b8fca997c3a0",
           "imagePath": "/guided-reading/series/moonwood-tales/book-34/page-009.webp",
           "imageSha256": "b4a646277ecb56facdc623a23e25b6d769fd88e380fa084e016eb5f4db0c3b30",
+          "status": "approved"
+        }
+      },
+      "editorialReview20261111": {
+        "reviewedAt": "2026-11-11",
+        "reviewer": "Codex independent wording review",
+        "method": "Complete ordered manuscript and illustration sequence reviewed, with the changed page examined at original detail.",
+        "notes": [
+          "Spark holds the solid braided hook outside the empty clay mold and walks toward the lantern rail. The prose explains why the hook now keeps its shape."
+        ],
+        "priorFingerprint": {
+          "displayedText": "When the root fiber dried, Spark lifted a solid hook from the mold. Its curve matched the good hook exactly. He carried it to the lowest rail.",
+          "textSha256": "33252594526a1c5514dd8e4e0fc5f7c54f759d3a11d1f265490826026163c3be",
+          "imagePath": "/guided-reading/series/moonwood-tales/book-34/page-009.webp",
+          "imageSha256": "b7e8b26cfe9e391f854403673c6d7be75d8d26afcfe332bf26c682fb14cfff32",
           "status": "approved"
         }
       }
@@ -52619,28 +52701,58 @@
       "title": "The Lunchbox Mix-Up",
       "level": "C",
       "pageNumber": 2,
-      "displayedText": "Maya checks the labels on both lunchboxes.",
+      "displayedText": "Maya checks both boxes. The lunchboxes are not swapped.",
       "imagePath": "/guided-reading/willow-street/the-lunchbox-mix-up/page-02.webp",
-      "textSha256": "dd2aa19f4f536afc1330c8321f56e039518a6101fca146094f057489b8ebc870",
+      "textSha256": "9dd7738bf6474d977c683ea3fa279b5afd29d7b4dd00f2ade784ebaaa88925ff",
       "imageSha256": "26583032686b8491e41ce566f3338e48941b097f916499d019fe52ebadfc5add",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "November 9 complete 397-book reread and ordered cover/page review; final replacement WebPs inspected natively and rechecked in whole-book sequences. Evidence: source-art/guided-reading-remediation/2026-11-09 and source-art/world-discovery/remediation/2026-11-09; character identity, physical continuity, concrete ESL scene support, anatomy, object counts and factual detail checked. This is agent visual review, not classroom or physical-device observation."
+      "regenerationBrief": "November 9 complete 397-book reread and ordered cover/page review; final replacement WebPs inspected natively and rechecked in whole-book sequences. Evidence: source-art/guided-reading-remediation/2026-11-09 and source-art/world-discovery/remediation/2026-11-09; character identity, physical continuity, concrete ESL scene support, anatomy, object counts and factual detail checked. This is agent visual review, not classroom or physical-device observation.",
+      "editorialReview20261111": {
+        "reviewedAt": "2026-11-11",
+        "reviewer": "Codex independent wording review",
+        "method": "Complete ordered manuscript and illustration sequence reviewed, with the changed page examined at original detail.",
+        "notes": [
+          "Maya points to the patch on her yellow box; Samir holds his green box. Both patches are blank. The cup and apple remain in the wrong boxes."
+        ],
+        "priorFingerprint": {
+          "displayedText": "Maya checks the labels on both lunchboxes.",
+          "textSha256": "dd2aa19f4f536afc1330c8321f56e039518a6101fca146094f057489b8ebc870",
+          "imagePath": "/guided-reading/willow-street/the-lunchbox-mix-up/page-02.webp",
+          "imageSha256": "26583032686b8491e41ce566f3338e48941b097f916499d019fe52ebadfc5add",
+          "status": "approved"
+        }
+      }
     },
     {
       "bookId": "willow-street-the-lunchbox-mix-up",
       "title": "The Lunchbox Mix-Up",
       "level": "C",
       "pageNumber": 3,
-      "displayedText": "Samir checks the labels and spots Maya's green apple.",
+      "displayedText": "Samir spots Maya’s green apple inside his own lunchbox.",
       "imagePath": "/guided-reading/willow-street/the-lunchbox-mix-up/page-03.webp",
-      "textSha256": "bb23a11859a5f293b807425c49571fb8ed5b28d23ec5d70e03ef39f2830abab3",
+      "textSha256": "8c1110ea7becc4c1690ee922cf68521525f2fd524511482dd56049c93cc2de7d",
       "imageSha256": "44380fb230d1c7b22a53a3526b2ee1ef6c1a29511675da9e96e4511f8e9f0b30",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "November 9 complete 397-book reread and ordered cover/page review; final replacement WebPs inspected natively and rechecked in whole-book sequences. Evidence: source-art/guided-reading-remediation/2026-11-09 and source-art/world-discovery/remediation/2026-11-09; character identity, physical continuity, concrete ESL scene support, anatomy, object counts and factual detail checked. This is agent visual review, not classroom or physical-device observation."
+      "regenerationBrief": "November 9 complete 397-book reread and ordered cover/page review; final replacement WebPs inspected natively and rechecked in whole-book sequences. Evidence: source-art/guided-reading-remediation/2026-11-09 and source-art/world-discovery/remediation/2026-11-09; character identity, physical continuity, concrete ESL scene support, anatomy, object counts and factual detail checked. This is agent visual review, not classroom or physical-device observation.",
+      "editorialReview20261111": {
+        "reviewedAt": "2026-11-11",
+        "reviewer": "Codex independent wording review",
+        "method": "Complete ordered manuscript and illustration sequence reviewed, with the changed page examined at original detail.",
+        "notes": [
+          "Samir points to Maya’s apple in his own green lunchbox. Maya holds her yellow box with the blue cup inside. The spoon stays beside the napkin."
+        ],
+        "priorFingerprint": {
+          "displayedText": "Samir checks the labels and spots Maya's green apple.",
+          "textSha256": "bb23a11859a5f293b807425c49571fb8ed5b28d23ec5d70e03ef39f2830abab3",
+          "imagePath": "/guided-reading/willow-street/the-lunchbox-mix-up/page-03.webp",
+          "imageSha256": "44380fb230d1c7b22a53a3526b2ee1ef6c1a29511675da9e96e4511f8e9f0b30",
+          "status": "approved"
+        }
+      }
     },
     {
       "bookId": "willow-street-the-lunchbox-mix-up",
@@ -58769,115 +58881,115 @@
     },
     {
       "bookId": "world-discovery-b-21",
-      "title": "A Train for Heavy Loads",
+      "title": "People Power",
       "level": "B",
       "pageNumber": 1,
-      "displayedText": "These heavy boxes need a ride.\nThey fill three train cars.",
+      "displayedText": "A bike, skates, and a rowboat move.\nWhat makes them go?",
       "imagePath": "/guided-reading/world-discovery/b-21/page-01.webp",
-      "textSha256": "6fbbd8da509c2667c4191ccc2cb002d9d118c9b8073a57ed15bbca07f4aae628",
-      "imageSha256": "e985d79aa9c1289681d4d47fc444af6a7b642e8af41a39ce584a88e6d2065218",
+      "textSha256": "3f90912d6e3a2887f2405b9515a992defbea7f19a37c5fd624ab23b454ccbe18",
+      "imageSha256": "5aa08adfee1c06e7c9ff5fd098d0fafb93eb57633278b41ac53fba3cf525cfe4",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Current complete ordered artwork review: source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-b-21. Every final image has current direct and independent inspection, source/byte binding and no open findings. Artwork evidence only; reader operation and human listening are separate."
+      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
     },
     {
       "bookId": "world-discovery-b-21",
-      "title": "A Train for Heavy Loads",
+      "title": "People Power",
       "level": "B",
       "pageNumber": 2,
-      "displayedText": "Each car has wheels.\nThe wheels rest on two rails.",
+      "displayedText": "The rider pushes the bike pedals.\nA chain turns the back wheel.",
       "imagePath": "/guided-reading/world-discovery/b-21/page-02.webp",
-      "textSha256": "f1aa6dcd09dd978a1d1e4e07280904a2a406ae81bf9b57ec64a1a75d194b52c2",
-      "imageSha256": "c40ec406dba52dc4795054e46c71c4e72e7efaa162155fbc2b6ff1bbf2cd05fe",
+      "textSha256": "ebb63e2c0ae4cee387037ba84058b7a70d42978d55c6144648e97120fc61ffa5",
+      "imageSha256": "50f8c74015488ac189085f7976472086360176ce3534f1eca195583c161f3cd8",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Current complete ordered artwork review: source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-b-21. Every final image has current direct and independent inspection, source/byte binding and no open findings. Artwork evidence only; reader operation and human listening are separate."
+      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
     },
     {
       "bookId": "world-discovery-b-21",
-      "title": "A Train for Heavy Loads",
+      "title": "People Power",
       "level": "B",
       "pageNumber": 3,
-      "displayedText": "Strong metal links join the cars.\nThese links are called couplers.",
+      "displayedText": "The back wheel pushes against the ground.\nThe bike rolls forward.",
       "imagePath": "/guided-reading/world-discovery/b-21/page-03.webp",
-      "textSha256": "d3bfbc41addcd7083cb98116040e9d61e6d4e14faa7432ae7f3bf4b8e6a32bfc",
-      "imageSha256": "bbb2b3c0a9373bd02848e4fcfe6c6543b5cf242e753252916ab4b90281e2b462",
+      "textSha256": "b78c14d2e5e4d6a8cd6e4c68c53be8343f2a12bcdde2f36f90da64f97f51e347",
+      "imageSha256": "f4c740ae29f2fa4761ed83e8c570e209f4c988bef683d18cd37da77fa7069fa5",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Current complete ordered artwork review: source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-b-21. Every final image has current direct and independent inspection, source/byte binding and no open findings. Artwork evidence only; reader operation and human listening are separate."
+      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
     },
     {
       "bookId": "world-discovery-b-21",
-      "title": "A Train for Heavy Loads",
+      "title": "People Power",
       "level": "B",
       "pageNumber": 4,
-      "displayedText": "An engine joins the front car.\nIt gives this train its power.",
+      "displayedText": "The skater pushes one foot sideways.\nThe other skate slides ahead.",
       "imagePath": "/guided-reading/world-discovery/b-21/page-04.webp",
-      "textSha256": "11770f6731670ce11d8bab0614170eed36732b2a6c734db76f0d4c222b21e53f",
-      "imageSha256": "9968888e3aa1cd3c2a781d603fe4837389bfa5c6a3c017dba50b4f3a1e13faf7",
+      "textSha256": "72bfb5b162527ccd777deb3ca82dffa550400e525eb3af5519fc44c944f010a1",
+      "imageSha256": "89945f5b27ab372a4ca8bd9f70990084c1f31cde91a8d1d7d6e2b87ff7b13b19",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Current complete ordered artwork review: source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-b-21. Every final image has current direct and independent inspection, source/byte binding and no open findings. Artwork evidence only; reader operation and human listening are separate."
+      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
     },
     {
       "bookId": "world-discovery-b-21",
-      "title": "A Train for Heavy Loads",
+      "title": "People Power",
       "level": "B",
       "pageNumber": 5,
-      "displayedText": "The engine pulls.\nThe linked cars move along the track.",
+      "displayedText": "Push, glide, push, glide.\nThe skater keeps moving.",
       "imagePath": "/guided-reading/world-discovery/b-21/page-05.webp",
-      "textSha256": "b3c27d8b940650c60345c87d609de6c2209d62af69eb0b3d1e6fe44d46959d34",
-      "imageSha256": "696f927c196b940f5fe60a778ada4803cde2b2eb0a0686d0cda8dd1cde2bd2d4",
+      "textSha256": "74e28ba21a7464e9d8b6478da3bf5fddc28736226a9a10abb41bed1c039002c0",
+      "imageSha256": "86ba8934bfe627306beb08c39f7bc985646a48a7e33bc2e1fc3b2bbc0ed8202b",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Current complete ordered artwork review: source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-b-21. Every final image has current direct and independent inspection, source/byte binding and no open findings. Artwork evidence only; reader operation and human listening are separate."
+      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
     },
     {
       "bookId": "world-discovery-b-21",
-      "title": "A Train for Heavy Loads",
+      "title": "People Power",
       "level": "B",
       "pageNumber": 6,
-      "displayedText": "The cars follow the same rails.\nTheir boxes travel together.",
+      "displayedText": "The rower pulls the oar handles.\nThe blades push water backward.",
       "imagePath": "/guided-reading/world-discovery/b-21/page-06.webp",
-      "textSha256": "26e018ba862585d34883526f88b6da4b11573625c764ab72226528a6a14a14e8",
-      "imageSha256": "dde3a6879e314f1669cc9b01f8fdc54ea3d1e0b7d08f292afce97ff3b110669f",
+      "textSha256": "1feba892ea931a1215c69204ab4579d021616d8641027ea458313e786ca2e6be",
+      "imageSha256": "1a82f54fc473a3cd7c698de51c27a51f92cc0e6dfda4b5957d1188799fd6a3da",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Current complete ordered artwork review: source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-b-21. Every final image has current direct and independent inspection, source/byte binding and no open findings. Artwork evidence only; reader operation and human listening are separate."
+      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
     },
     {
       "bookId": "world-discovery-b-21",
-      "title": "A Train for Heavy Loads",
+      "title": "People Power",
       "level": "B",
       "pageNumber": 7,
-      "displayedText": "The train stops by another warehouse.\nWorkers take the boxes out.",
+      "displayedText": "The boat moves forward.\nThe rower lifts the blades.",
       "imagePath": "/guided-reading/world-discovery/b-21/page-07.webp",
-      "textSha256": "99262027eaaa655ba633b7ff511d2ae906de31ec92c99a9f9e676680f2ca935c",
-      "imageSha256": "600b79fc7768227e32bbe5fd3c3ef4c10243a41c48ab31a28e8a2573681816c0",
+      "textSha256": "2adeccf9e984bcf0f173e9abdb304ece489bca78dcb9fab530879f8947e13f25",
+      "imageSha256": "601f698e1c8680219136e64a73e4e4c2c59c170e203c8563a228cd517320587f",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Current complete ordered artwork review: source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-b-21. Every final image has current direct and independent inspection, source/byte binding and no open findings. Artwork evidence only; reader operation and human listening are separate."
+      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
     },
     {
       "bookId": "world-discovery-b-21",
-      "title": "A Train for Heavy Loads",
+      "title": "People Power",
       "level": "B",
       "pageNumber": 8,
-      "displayedText": "One engine pulls three linked cars.\nMany boxes make one trip.",
+      "displayedText": "Legs push. Arms pull.\nPeople power all three rides.",
       "imagePath": "/guided-reading/world-discovery/b-21/page-08.webp",
-      "textSha256": "dc7194a56fb4fa25795679ff9310a50f46e177205b879ef075e9843e2bb4f65a",
-      "imageSha256": "1d624419ba29c224f23158e18f60b80a58c48780ba9af5abc43ba4e623348fac",
+      "textSha256": "b11bc996e6a737e472b1a332969b2fda355783a3e058e05f335d0da121be4cc1",
+      "imageSha256": "42923a4e180f73ffc75f9b0b4d8d45ac0d84bcb4700fd0e565108394ba4a17c9",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Current complete ordered artwork review: source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-b-21. Every final image has current direct and independent inspection, source/byte binding and no open findings. Artwork evidence only; reader operation and human listening are separate."
+      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
     },
     {
       "bookId": "world-discovery-b-22",
@@ -62129,115 +62241,115 @@
     },
     {
       "bookId": "world-discovery-c-21",
-      "title": "My Bag at the Airport",
+      "title": "Vehicles That Fly",
       "level": "C",
       "pageNumber": 1,
-      "displayedText": "Kit checks a blue bag at the airport. A worker adds a tag. Will the bag travel with him?",
+      "displayedText": "A plane, a helicopter, and a hot-air balloon all fly. What helps each one rise?",
       "imagePath": "/guided-reading/world-discovery/c-21/page-01.webp",
-      "textSha256": "46f935356ffb3004580519dd5d200df826f67960febb8de6d64a1494cc3802c1",
-      "imageSha256": "887dc3c93278da7b27043fc1716efdc34cf4332eae486afb060a1119783e6e4f",
+      "textSha256": "1fb16b66da4199ffbfb9dc7f9df84a8c2561661db0c8eabda9635e46ff26304c",
+      "imageSha256": "16d6ff8628ae1e28f5c6105d650cfe6df3f6c042d0cd81b9f77350db3c8c7c9f",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Current complete ordered artwork review: source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-c-21. Every final image has current direct and independent inspection, source/byte binding and no open findings. Artwork evidence only; reader operation and human listening are separate."
+      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
     },
     {
       "bookId": "world-discovery-c-21",
-      "title": "My Bag at the Airport",
+      "title": "Vehicles That Fly",
       "level": "C",
       "pageNumber": 2,
-      "displayedText": "The bag rides a moving belt through a scanner. Workers check bags before they can go onto the plane.",
+      "displayedText": "The plane moves forward. Air flows around its wings. The wings turn air downward, and the air pushes the plane up.",
       "imagePath": "/guided-reading/world-discovery/c-21/page-02.webp",
-      "textSha256": "a598d9f7ceea2061a1890a398cbcb2a47f2fb3e72f1f007fb653c9d1ac0aadff",
-      "imageSha256": "b375d7478a3c40fed1031b809bce1fcc141b58f44ead5c3590645bea45c4e6bc",
+      "textSha256": "e2edefed631624ac2c76bbe7fea1b8f25aa9f65b70662bbd6152bb4bb4894adf",
+      "imageSha256": "f68035dd5516bef2658bd49496694508aa0058bfc77e0eba281051d4e8c37ab1",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Current complete ordered artwork review: source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-c-21. Every final image has current direct and independent inspection, source/byte binding and no open findings. Artwork evidence only; reader operation and human listening are separate."
+      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
     },
     {
       "bookId": "world-discovery-c-21",
-      "title": "My Bag at the Airport",
+      "title": "Vehicles That Fly",
       "level": "C",
       "pageNumber": 3,
-      "displayedText": "A scanner reads the bag’s tag. The airport system sends it toward the right flight with other bags.",
+      "displayedText": "A helicopter has long blades above its body. These blades are wings that spin in a circle.",
       "imagePath": "/guided-reading/world-discovery/c-21/page-03.webp",
-      "textSha256": "775a4ad989064b625521d74676c99fe7ffd7cc81d286be1ba86b9aeac51f5494",
-      "imageSha256": "2d10e8dbbb818cc2bdde76fde8dcabc88a7a69d953254d85a6024e73b494c584",
+      "textSha256": "321d70c0023593224a6754599fea9c326b33e858750b314e04bd66dca623da77",
+      "imageSha256": "1ef90b2bf3eb61dc5a49b1b61807a426e36fd6a5974e12dcf9f87a3eee496fbc",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Current complete ordered artwork review: source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-c-21. Every final image has current direct and independent inspection, source/byte binding and no open findings. Artwork evidence only; reader operation and human listening are separate."
+      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
     },
     {
       "bookId": "world-discovery-c-21",
-      "title": "My Bag at the Airport",
+      "title": "Vehicles That Fly",
       "level": "C",
       "pageNumber": 4,
-      "displayedText": "A cart carries the bags to the plane. Workers load them into a space beneath the passenger floor.",
+      "displayedText": "The spinning blades lift the helicopter. It can rise straight up and stay above one spot.",
       "imagePath": "/guided-reading/world-discovery/c-21/page-04.webp",
-      "textSha256": "faf1f1ee1a2de4d14d1aa0362b6d4998df89858224ede19534442c307f848015",
-      "imageSha256": "26740be2a541aafd626ebec7792ba3803cf853816e781d90621eb58d9c3cf39c",
+      "textSha256": "f75944cdee94d701945091b494eb83631fb6f073e7b268d926c4deb56f521c8e",
+      "imageSha256": "501a32b72774f3a5419d782b0cd4683de11ced46c3091bed1e7c2c3ae3c6e708",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Current complete ordered artwork review: source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-c-21. Every final image has current direct and independent inspection, source/byte binding and no open findings. Artwork evidence only; reader operation and human listening are separate."
+      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
     },
     {
       "bookId": "world-discovery-c-21",
-      "title": "My Bag at the Airport",
+      "title": "Vehicles That Fly",
       "level": "C",
       "pageNumber": 5,
-      "displayedText": "Kit sits above. His bag rests below. Their different paths meet inside the same plane.",
+      "displayedText": "The balloon has no wings. A burner heats the air inside its large fabric bag.",
       "imagePath": "/guided-reading/world-discovery/c-21/page-05.webp",
-      "textSha256": "e80643eab2587594ef6be520979032fd2bc2f9b234aa502117eb203a1f970417",
-      "imageSha256": "64d3f1127a104aff1649bd49604ea7fd9f45525521e51ec51af09e8d36d368c7",
+      "textSha256": "f743386eb9c7d6c3b90fbb7d64f046367489855acd34250cfb2aa35d58a84179",
+      "imageSha256": "29675779a52a7b7b931b6380ee98a194705675a3e9e25f8ca39747214742c31b",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Current complete ordered artwork review: source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-c-21. Every final image has current direct and independent inspection, source/byte binding and no open findings. Artwork evidence only; reader operation and human listening are separate."
+      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
     },
     {
       "bookId": "world-discovery-c-21",
-      "title": "My Bag at the Airport",
+      "title": "Vehicles That Fly",
       "level": "C",
       "pageNumber": 6,
-      "displayedText": "After landing, workers unload the bags. The blue bag takes another cart ride into the airport.",
+      "displayedText": "The balloon rises as the air inside warms. To come down, the pilot lets the air cool.",
       "imagePath": "/guided-reading/world-discovery/c-21/page-06.webp",
-      "textSha256": "acc5aba06ba3385e35c313550e02527dec8073cbc2f628d29fe8202a739fd8db",
-      "imageSha256": "046dea1542f873b886cce9f0ebbecaca327156270b663f0c843d14dc9f13c2a1",
+      "textSha256": "32de9148ef1996bc674eaa2ad2bd2ef8bde009e8e7267c2b649d0a230cb24615",
+      "imageSha256": "c824edeee084fce60d3aff5a6fbed6ba1eaa4c884fbfc75303bb1dcd8dfe80fe",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Current complete ordered artwork review: source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-c-21. Every final image has current direct and independent inspection, source/byte binding and no open findings. Artwork evidence only; reader operation and human listening are separate."
+      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
     },
     {
       "bookId": "world-discovery-c-21",
-      "title": "My Bag at the Airport",
+      "title": "Vehicles That Fly",
       "level": "C",
       "pageNumber": 7,
-      "displayedText": "A moving belt brings the bags into the arrival hall. Kit spots the orange stripe beside the black handle.",
+      "displayedText": "The balloon drifts with the wind. Its pilot can make it rise or sink by changing the heat.",
       "imagePath": "/guided-reading/world-discovery/c-21/page-07.webp",
-      "textSha256": "66dd3a2db3c95361477f14acd3e7a03b7ac2dd5862830fffceb2406dc610c72d",
-      "imageSha256": "d9ac6feea79f62583c6a63f828fede8ce0ec75a92913c5c3eb8224e0190af47e",
+      "textSha256": "40ef6babf49e6d14aaf3364d8ecfbbe100d4443c97eb069c1422c72ef1de88fc",
+      "imageSha256": "429a935397f78701a1765985f63210c600c4bfe80cf69c9d8c555249a2670c1b",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Current complete ordered artwork review: source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-c-21. Every final image has current direct and independent inspection, source/byte binding and no open findings. Artwork evidence only; reader operation and human listening are separate."
+      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
     },
     {
       "bookId": "world-discovery-c-21",
-      "title": "My Bag at the Airport",
+      "title": "Vehicles That Fly",
       "level": "C",
       "pageNumber": 8,
-      "displayedText": "Kit collects his bag with his grown-up. The bag took another path, but it flew on their plane.",
+      "displayedText": "Wings lift planes and helicopters. Warm air helps lift a hot-air balloon. Different shapes use the air in different ways.",
       "imagePath": "/guided-reading/world-discovery/c-21/page-08.webp",
-      "textSha256": "e47e1bd40d1673ca8bf5213647878f74ac161fd690f5f5acb727e4407cbc60a7",
-      "imageSha256": "096b555197bf9bf907e4ae5352e578b2a230db71c3ce503b8ef31bb28d2200b1",
+      "textSha256": "ab06a360d4906429106a344523624f88d235484ee6acfb8da29ad1d15b167b3a",
+      "imageSha256": "8e62267b455178370a96a9088b02c5674f3ebacaeab73e0c138e85aeb4204736",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Current complete ordered artwork review: source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-c-21. Every final image has current direct and independent inspection, source/byte binding and no open findings. Artwork evidence only; reader operation and human listening are separate."
+      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
     },
     {
       "bookId": "world-discovery-c-22",
@@ -63759,11 +63871,11 @@
       "displayedText": "She fills the bag once more and points it through the gap. This time she opens only a tiny corner.",
       "imagePath": "/guided-reading/world-discovery/d-04/page-07.webp",
       "textSha256": "a47315aa2363a5cd9f1b08f14a0aa949ec2ed9cbda34740523e22b24975bf268",
-      "imageSha256": "72b842a46eecb9dbde52933ce74d1ea0c6433df3402fae9922ed8af2ced98c76",
+      "imageSha256": "f09799f3b38c84fb63b8674848f5024ca2142c649b1a06b64100ff424578aec7",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "November 9 complete 397-book reread and ordered cover/page review; final replacement WebPs inspected natively and rechecked in whole-book sequences. Evidence: source-art/guided-reading-remediation/2026-11-09 and source-art/world-discovery/remediation/2026-11-09; character identity, physical continuity, concrete ESL scene support, anatomy, object counts and factual detail checked. This is agent visual review, not classroom or physical-device observation."
+      "regenerationBrief": "11 November 2026: installed replacement natively inspected and checked in its complete ordered book sequence against the unchanged manuscript. See dated image repair provenance."
     },
     {
       "bookId": "world-discovery-d-04",
@@ -63773,11 +63885,11 @@
       "displayedText": "A little puff lifts one kite corner. Kit holds out his hands as Zoe lets a second puff escape.",
       "imagePath": "/guided-reading/world-discovery/d-04/page-08.webp",
       "textSha256": "4515ac7f2f83b85f0923970f5414ac194e2b9c2957e34809bf7e4ba56e24cd90",
-      "imageSha256": "58eb80ece8a79eb257ec8cba40dc23894c8c0508e4e26e6b40788b437648af41",
+      "imageSha256": "87ebba7dfcfdb47642ce66bf31161176eb818b7f32db821e4e74fc3caa2bac16",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "November 9 complete 397-book reread and ordered cover/page review; final replacement WebPs inspected natively and rechecked in whole-book sequences. Evidence: source-art/guided-reading-remediation/2026-11-09 and source-art/world-discovery/remediation/2026-11-09; character identity, physical continuity, concrete ESL scene support, anatomy, object counts and factual detail checked. This is agent visual review, not classroom or physical-device observation."
+      "regenerationBrief": "11 November 2026: installed replacement natively inspected and checked in its complete ordered book sequence against the unchanged manuscript. See dated image repair provenance."
     },
     {
       "bookId": "world-discovery-d-04",
@@ -66049,143 +66161,143 @@
     },
     {
       "bookId": "world-discovery-d-21",
-      "title": "A Container's Journey",
+      "title": "Gasoline and Electric Cars",
       "level": "D",
       "pageNumber": 1,
-      "displayedText": "These notebooks must travel a long way. Workers pack their boxes inside one large container.",
+      "displayedText": "Two cars roll along the same road. One uses gasoline. The other runs only on electricity. What turns their wheels?",
       "imagePath": "/guided-reading/world-discovery/d-21/page-01.webp",
-      "textSha256": "c8d3f0374cb566e4694d9e660c2c48b4c797955aa0db831a94eae8bd335ca528",
-      "imageSha256": "cbe743b739e65223a69687b770c8ced8d1c361522afa33b970dc6905e870abc0",
+      "textSha256": "33f7d55dc925d28b4925ac6c8a52469812c1455d47ba2b847fa1ce0301e0e365",
+      "imageSha256": "35de449858cd06abe6b46acb369576e61139080b3039e4cab494477ece97a3f7",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Current complete ordered artwork review: source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-d-21. Every final image has current direct and independent inspection, source/byte binding and no open findings. Artwork evidence only; reader operation and human listening are separate."
+      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
     },
     {
       "bookId": "world-discovery-d-21",
-      "title": "A Container's Journey",
+      "title": "Gasoline and Electric Cars",
       "level": "D",
       "pageNumber": 2,
-      "displayedText": "The doors close. The container keeps the boxes together while different vehicles carry them.",
+      "displayedText": "The gasoline car carries liquid fuel in a tank. Its engine burns small amounts of that fuel mixed with air.",
       "imagePath": "/guided-reading/world-discovery/d-21/page-02.webp",
-      "textSha256": "14f349c889c6e1ca35dc036bb3f5949e5410fcea9b5019e0a2d40d425aa35c9d",
-      "imageSha256": "bc5223aafc833b368dc0816cf2d10aab56c2b95dd1895078450abf4a0238e3eb",
+      "textSha256": "c1a71c9710ec73407a1994d34d198d19f87cd3a417bc797572191e789981e5d9",
+      "imageSha256": "245da6f6f9c1b081945517de77494a220f15bfcf70d320ca74e3a73026451ef1",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Current complete ordered artwork review: source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-d-21. Every final image has current direct and independent inspection, source/byte binding and no open findings. Artwork evidence only; reader operation and human listening are separate."
+      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
     },
     {
       "bookId": "world-discovery-d-21",
-      "title": "A Container's Journey",
+      "title": "Gasoline and Electric Cars",
       "level": "D",
       "pageNumber": 3,
-      "displayedText": "At the port, a crane lifts the whole container onto a ship. The boxes stay inside.",
+      "displayedText": "Parts move inside the engine. That movement passes through other parts of the car and turns its wheels.",
       "imagePath": "/guided-reading/world-discovery/d-21/page-03.webp",
-      "textSha256": "4d0db9c014e4263f099c5ca85972e4ba242dc0630078c73526804789da792c08",
-      "imageSha256": "64641646377ee7c8739fdae392af2ad38688123b1c1243e96dd4a4322852b77a",
+      "textSha256": "0b9e28787300a7c595de54ff306aad3753487f2a2eedac9429629bbcf9a6440d",
+      "imageSha256": "ed7bfd2415e04f2e3cd8b50d9da038a388ca90bb8fe463f01281c7a2b5b486e3",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Current complete ordered artwork review: source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-d-21. Every final image has current direct and independent inspection, source/byte binding and no open findings. Artwork evidence only; reader operation and human listening are separate."
+      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
     },
     {
       "bookId": "world-discovery-d-21",
-      "title": "A Container's Journey",
+      "title": "Gasoline and Electric Cars",
       "level": "D",
       "pageNumber": 4,
-      "displayedText": "The ship carries many containers across the sea. Our orange box travels among them.",
+      "displayedText": "After burning fuel, gases leave through an exhaust pipe. Some of these gases add pollution to the air.",
       "imagePath": "/guided-reading/world-discovery/d-21/page-04.webp",
-      "textSha256": "9a75e321e634b1a067047f62b79f2e26487c524e52ed51d360a71f9aacd0d153",
-      "imageSha256": "86d7c327c4dbc6d39b581cd15b4a5fa57bfea1fc343efc9082c66a85193c6968",
+      "textSha256": "4bfb405433e707bcdd2f6251f84d82be26232fe704d937cba1d37878b29f44a1",
+      "imageSha256": "e0b8b439c46ce8d84d41a3734fc0030ecadc8b71a10383b0b705d8203d98bf24",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Current complete ordered artwork review: source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-d-21. Every final image has current direct and independent inspection, source/byte binding and no open findings. Artwork evidence only; reader operation and human listening are separate."
+      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
     },
     {
       "bookId": "world-discovery-d-21",
-      "title": "A Container's Journey",
+      "title": "Gasoline and Electric Cars",
       "level": "D",
       "pageNumber": 5,
-      "displayedText": "At another port, a crane lifts the orange container from the ship. It still holds the same notebooks.",
+      "displayedText": "The all-electric car has a large battery. Stored energy in the battery supplies electricity to an electric motor.",
       "imagePath": "/guided-reading/world-discovery/d-21/page-05.webp",
-      "textSha256": "c1ef509d9918da4ceed8d69cbf9299112318039c24aa2e9e913f9789249bd632",
-      "imageSha256": "eb66b396830628079d19a8de8cf9dd3d790432f6c42c5e2eaa1ebfa4eed6afef",
+      "textSha256": "a653d94d3373446c6ac87ec35837e8ef855302a90a1615d59b97cbca476ed4c9",
+      "imageSha256": "74718625167d406920e0044d2a3770ae5f81f473b0be08c8baa834a1ee0c1e5b",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Current complete ordered artwork review: source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-d-21. Every final image has current direct and independent inspection, source/byte binding and no open findings. Artwork evidence only; reader operation and human listening are separate."
+      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
     },
     {
       "bookId": "world-discovery-d-21",
-      "title": "A Container's Journey",
+      "title": "Gasoline and Electric Cars",
       "level": "D",
       "pageNumber": 6,
-      "displayedText": "Workers place the container on a railcar. The train can carry it far from the coast.",
+      "displayedText": "The motor turns the wheels. This car does not need to burn gasoline as it drives along the road.",
       "imagePath": "/guided-reading/world-discovery/d-21/page-06.webp",
-      "textSha256": "c78e9fa7113d0548281d939a65d9e20de4d5e0a14f8b1e0778c84627b2e3953e",
-      "imageSha256": "582b69e7433ee642524552013ad91f6e7d18aabc62ab171a72572cb408e3b032",
+      "textSha256": "e604d2cf2b0580598c99311d04710d6f5d4cfaa39d2ac8ed9aac8eeb1e96b14a",
+      "imageSha256": "b187c341e851d5d451e2e5bf6152d897519759a80ae8edc2502b73364b737ee6",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Current complete ordered artwork review: source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-d-21. Every final image has current direct and independent inspection, source/byte binding and no open findings. Artwork evidence only; reader operation and human listening are separate."
+      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
     },
     {
       "bookId": "world-discovery-d-21",
-      "title": "A Container's Journey",
+      "title": "Gasoline and Electric Cars",
       "level": "D",
       "pageNumber": 7,
-      "displayedText": "The train follows its tracks to a freight yard. Here, the container changes vehicles again.",
+      "displayedText": "When the fuel tank is low, an adult stops at a pump. Liquid gasoline flows into the car’s tank.",
       "imagePath": "/guided-reading/world-discovery/d-21/page-07.webp",
-      "textSha256": "7b5b1b27d1c7a3f7f9c1edb4766ab2046b60dcfeb6b536c48350d7a9f1c1d0a5",
-      "imageSha256": "f746fb3fe41ef0b5ad3dd60ac13adf4071628bddbebecc815913f61663acb7cc",
+      "textSha256": "10bf84f4c569df2520b9df7615a8096f9a28a16355267b506e63b86c82c03271",
+      "imageSha256": "f2f78f6946f33f922b2d292b938c190e85bcb304d9c132618a4ce79c3f9e0fde",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Current complete ordered artwork review: source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-d-21. Every final image has current direct and independent inspection, source/byte binding and no open findings. Artwork evidence only; reader operation and human listening are separate."
+      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
     },
     {
       "bookId": "world-discovery-d-21",
-      "title": "A Container's Journey",
+      "title": "Gasoline and Electric Cars",
       "level": "D",
       "pageNumber": 8,
-      "displayedText": "A crane lowers the container onto a truck trailer. The driver can now take roads to the warehouse.",
+      "displayedText": "When the electric car needs more energy, an adult plugs it into a charger. Electricity helps recharge its battery.",
       "imagePath": "/guided-reading/world-discovery/d-21/page-08.webp",
-      "textSha256": "845d48efa6bdbe7f8bbd51429472208747848fbb7494a9e837a1b98f05ce45a2",
-      "imageSha256": "fc40a7ca6b406535db276473869b4a2c682f0c6736b9c8815b6996aba9b8ddfc",
+      "textSha256": "94c9baa9f09d39dd4b4f4830f38eaf44daaabd75f592bb50cde6be1103f81916",
+      "imageSha256": "fe06f032a262d523f7cc3e0d71f5985129ef16f69f21f1ebb24077ba7e32c12f",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Current complete ordered artwork review: source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-d-21. Every final image has current direct and independent inspection, source/byte binding and no open findings. Artwork evidence only; reader operation and human listening are separate."
+      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
     },
     {
       "bookId": "world-discovery-d-21",
-      "title": "A Container's Journey",
+      "title": "Gasoline and Electric Cars",
       "level": "D",
       "pageNumber": 9,
-      "displayedText": "At the warehouse, workers finally open the doors. They lift out the boxes of notebooks.",
+      "displayedText": "The electric car has no exhaust pipe. Making cars and producing their energy can still cause pollution.",
       "imagePath": "/guided-reading/world-discovery/d-21/page-09.webp",
-      "textSha256": "6efd07cee5fd8268c79a148134a6c3f40c470f35e7650df6fe5c452d91afb8cd",
-      "imageSha256": "a94ada7acc2e493ff780e979ba00d28dc1e98b9a5a94d4d782419132b126f8af",
+      "textSha256": "412cfa4929bd797416ca7ae38105440aab2dde1f6fc9186fffa51e28e3e6ea3d",
+      "imageSha256": "21c20923477fa0b6c14be81c2005c9b98f1d3a3f19fb81f42ade19d125b7c2ef",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Current complete ordered artwork review: source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-d-21. Every final image has current direct and independent inspection, source/byte binding and no open findings. Artwork evidence only; reader operation and human listening are separate."
+      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
     },
     {
       "bookId": "world-discovery-d-21",
-      "title": "A Container's Journey",
+      "title": "Gasoline and Electric Cars",
       "level": "D",
       "pageNumber": 10,
-      "displayedText": "Ship, train, then truck: three kinds of transport carried one container. The notebooks stayed packed through every change.",
+      "displayedText": "Fuel and an engine. A battery and a motor. Two different systems give these cars the power to move.",
       "imagePath": "/guided-reading/world-discovery/d-21/page-10.webp",
-      "textSha256": "ae1ff2c8464349fdbd176ab50735425f9ed362a3787afe80864e06509a00e1fa",
-      "imageSha256": "9b562cff6f94286b1b599fb90b8cd19c4fbd613066b8e432da7b32512280e183",
+      "textSha256": "2dd0984d9b63191814a0cbe80dddc30a860f85ac1fbcda226ca72916bead03de",
+      "imageSha256": "46a7572c04b508ae57fb81bbb7fd3535bfe2e378e7a11eb5a2820ce25b1224d0",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Current complete ordered artwork review: source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-d-21. Every final image has current direct and independent inspection, source/byte binding and no open findings. Artwork evidence only; reader operation and human listening are separate."
+      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
     },
     {
       "bookId": "world-discovery-d-22",
@@ -70249,283 +70361,283 @@
     },
     {
       "bookId": "world-discovery-e-21",
-      "title": "How Do We Choose a Ride?",
+      "title": "Transport Through Time",
       "level": "E",
       "pageNumber": 1,
-      "displayedText": "On this practice map, the museum stands across a river. Kit and Zoe compare three ways to get there.",
+      "displayedText": "Before motor vehicles existed, people walked, rode animals, and traveled in boats. How did new inventions change their journeys?",
       "imagePath": "/guided-reading/world-discovery/e-21/page-01.webp",
-      "textSha256": "154809019dbd02f689e19acc08ddd0f09651817d932f7044c7c96d2aa4f0e5e8",
-      "imageSha256": "097fbd43b38f6c57ecfa8aa8987e07aa761d7ec56755fad4c23bc1a1e129325d",
+      "textSha256": "833214fe657e7919dbf76a9deaa8f4dead220a9fd1cdf2acadcdb1d594d97bf2",
+      "imageSha256": "4884a3002a30d3edfac8a713ffbb4aac28fdebf58cdcc57f1cb50e1b8ef6afff",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Current complete ordered artwork review: source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-e-21. Every final image has current direct and independent inspection, source/byte binding and no open findings. Artwork evidence only; reader operation and human listening are separate."
+      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
     },
     {
       "bookId": "world-discovery-e-21",
-      "title": "How Do We Choose a Ride?",
+      "title": "Transport Through Time",
       "level": "E",
       "pageNumber": 2,
-      "displayedText": "They could walk over the footbridge. The whole walk would take twenty-five minutes.",
+      "displayedText": "A horse could pull a cart full of people or goods. Travelers still needed to feed and rest the horse.",
       "imagePath": "/guided-reading/world-discovery/e-21/page-02.webp",
-      "textSha256": "6d28ecf3fad108703be3a530eb544364b6f233eef232430fac1b7af575a1c2ca",
-      "imageSha256": "f97a308d2ad7abd5022682b94b1ba0d9239e7b5ac7ba098e78d0d9a91e41abf7",
+      "textSha256": "1fcb22e60c41c6f55ea5a140a75878b71a23e2c46660869cd9f2251a9010a326",
+      "imageSha256": "3c4748aa551c83417fbdd5efbc36b36ecc4529a46f92aa5e3b3668ea85dcdeee",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Current complete ordered artwork review: source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-e-21. Every final image has current direct and independent inspection, source/byte binding and no open findings. Artwork evidence only; reader operation and human listening are separate."
+      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
     },
     {
       "bookId": "world-discovery-e-21",
-      "title": "How Do We Choose a Ride?",
+      "title": "Transport Through Time",
       "level": "E",
       "pageNumber": 3,
-      "displayedText": "The bus must use the road bridge. Its route goes farther upstream before crossing the river.",
+      "displayedText": "Later, steam engines pulled trains along tracks. Burning fuel heated water, and steam helped turn the wheels.",
       "imagePath": "/guided-reading/world-discovery/e-21/page-03.webp",
-      "textSha256": "da7dda151ee624a87a872dc70a1a9ae1405623fd76148c49d6250dea3067f21f",
-      "imageSha256": "f7c8eab2205e2b89ce40d49a2418050689e26b9526d746966c96eea6efe4a88c",
+      "textSha256": "330f25c053a295495b863909934885e6e2fa1756b7b5baf7dbb20d992eb23b30",
+      "imageSha256": "e4bcb73ecc43a49cd4c09f0a08fd5cf7560460beb1ea772e1a3bf3c11f83f946",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Current complete ordered artwork review: source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-e-21. Every final image has current direct and independent inspection, source/byte binding and no open findings. Artwork evidence only; reader operation and human listening are separate."
+      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
     },
     {
       "bookId": "world-discovery-e-21",
-      "title": "How Do We Choose a Ride?",
+      "title": "Transport Through Time",
       "level": "E",
       "pageNumber": 4,
-      "displayedText": "The bus ride takes fifteen minutes. That sounds quicker, but the ride is only part of the journey.",
+      "displayedText": "A steam train could carry many people farther in one day than a horse-drawn cart could usually travel.",
       "imagePath": "/guided-reading/world-discovery/e-21/page-04.webp",
-      "textSha256": "66640d47b8dad11b968a92fb16f7b3b23f6b4ea2950d28582065873650cb3959",
-      "imageSha256": "d006fccedc95a81a5ce568472c7739526754b62ca3fc8b1b6ef799ebbc51cd6d",
+      "textSha256": "69f491d7b54d42ffd2dcd90717f5602e6296ee1f73a2bc77f36cd19e198ce0d4",
+      "imageSha256": "f3ba08c0b93c39dcf6dfa4f9605e6bf4e4e7a77087a0e33b4b1fd778a54eed58",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Current complete ordered artwork review: source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-e-21. Every final image has current direct and independent inspection, source/byte binding and no open findings. Artwork evidence only; reader operation and human listening are separate."
+      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
     },
     {
       "bookId": "world-discovery-e-21",
-      "title": "How Do We Choose a Ride?",
+      "title": "Transport Through Time",
       "level": "E",
       "pageNumber": 5,
-      "displayedText": "They must also walk for ten minutes altogether and wait ten minutes. The bus journey takes thirty-five minutes.",
+      "displayedText": "Motor cars brought another change. Their engines used fuel to move the wheels, so the cars did not need horses.",
       "imagePath": "/guided-reading/world-discovery/e-21/page-05.webp",
-      "textSha256": "226268e3aaa376df50c1885ad077d282485c5b83efa6321ada22caaedf18a276",
-      "imageSha256": "b2b76ffb7a01e20951dc1012bbd489a0d907ece38848ca957beb0df073ccaec3",
+      "textSha256": "36f4491f949147abe8bc55db16da169eb115e1cb4fe2f04c396c4f8b4de8827c",
+      "imageSha256": "2837baede73ad0699a1e9a13cc3baafd8c8e69b291e644f525ec044a32b0e053",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Current complete ordered artwork review: source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-e-21. Every final image has current direct and independent inspection, source/byte binding and no open findings. Artwork evidence only; reader operation and human listening are separate."
+      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
     },
     {
       "bookId": "world-discovery-e-21",
-      "title": "How Do We Choose a Ride?",
+      "title": "Transport Through Time",
       "level": "E",
       "pageNumber": 6,
-      "displayedText": "The ferry has a shorter crossing. Its ride takes only five minutes, but they must check its waiting time too.",
+      "displayedText": "Early airplanes carried people above the ground. Later, jet planes made long journeys across oceans much faster.",
       "imagePath": "/guided-reading/world-discovery/e-21/page-06.webp",
-      "textSha256": "379044d670aee8a2d85eb27b95b406eb36d59f6491dc808eba796e295bc063a7",
-      "imageSha256": "6f3b304ec3a2ef6dca76e2246d88a7c1f49e711645cb613fee63de7ff2e69b7f",
+      "textSha256": "899fa3eac1668b114adeb420b4e3f241712f1c930fbd31f92ca5d319b3c78df1",
+      "imageSha256": "6a9cdd7a070d5e253c99116a0607a147692ac9ef98eaa218a95d37c8d935e55d",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Current complete ordered artwork review: source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-e-21. Every final image has current direct and independent inspection, source/byte binding and no open findings. Artwork evidence only; reader operation and human listening are separate."
+      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
     },
     {
       "bookId": "world-discovery-e-21",
-      "title": "How Do We Choose a Ride?",
+      "title": "Transport Through Time",
       "level": "E",
       "pageNumber": 7,
-      "displayedText": "Here, walking takes five minutes altogether, waiting takes ten, and the ride takes five. The ferry journey takes twenty minutes.",
+      "displayedText": "Some modern trains run on electricity. They can carry many passengers quickly between stations without stopping in road traffic.",
       "imagePath": "/guided-reading/world-discovery/e-21/page-07.webp",
-      "textSha256": "e8aa4a83dc2d199f3deef78668a163e393b1f66e3b5db46430d2e6d8d1404e5d",
-      "imageSha256": "34ff2df056331113deab36d3375167a3d2aaab4aca6eb3f5811557fd127600a2",
+      "textSha256": "3c3dc379370a50342c2d580a8390daf0afe2d130e49395d94b3f6f13f3d6b010",
+      "imageSha256": "8d28be0b089c01448c1ba969c3cd9574de6c2319078eadfbda0afce17ac902db",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Current complete ordered artwork review: source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-e-21. Every final image has current direct and independent inspection, source/byte binding and no open findings. Artwork evidence only; reader operation and human listening are separate."
+      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
     },
     {
       "bookId": "world-discovery-e-21",
-      "title": "How Do We Choose a Ride?",
+      "title": "Transport Through Time",
       "level": "E",
       "pageNumber": 8,
-      "displayedText": "Twenty minutes is less than twenty-five or thirty-five. For this trip, the ferry gives them the quickest whole journey.",
+      "displayedText": "Compare a cart, a fast train, and a jet plane. For a long journey, their usual travel speeds are very different.",
       "imagePath": "/guided-reading/world-discovery/e-21/page-08.webp",
-      "textSha256": "47183610b12db22afacd0b528629e9dc99c18fb20201d1af9147de0985283ca9",
-      "imageSha256": "78df6acff864680115461f754db6d09b3b498132014228380197d8f5dd8ce810",
+      "textSha256": "5955dcac76d9172c82cbb844b5ef676e0cbbccd78ba1b45949309583ab2027d8",
+      "imageSha256": "214830c90aebf9a1dfd4f5b98cabbebe274e6d79778546dffcf6d2ec6774785a",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Current complete ordered artwork review: source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-e-21. Every final image has current direct and independent inspection, source/byte binding and no open findings. Artwork evidence only; reader operation and human listening are separate."
+      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
     },
     {
       "bookId": "world-discovery-e-21",
-      "title": "How Do We Choose a Ride?",
+      "title": "Transport Through Time",
       "level": "E",
       "pageNumber": 9,
-      "displayedText": "On another day, a longer wait could change their choice. They would need to check the times again.",
+      "displayedText": "A jet usually travels faster than a fast train. But reaching an airport and waiting can add hours to a journey.",
       "imagePath": "/guided-reading/world-discovery/e-21/page-09.webp",
-      "textSha256": "83498a862f976ed8a223a6ce5a70c65ad9aa59683d9932ad826e3d546a80e650",
-      "imageSha256": "a50f79942b74a64788a105f49b7e36c28aae1e48e08200b7a02338d2dd59f256",
+      "textSha256": "8e6c3d66c8106e48f1166911ccc655485e2e212ef48d8eaf1c2c701a835ed852",
+      "imageSha256": "2b02c9624da89b650d54384762d0eb93aad909053d3d2e1fdf30962081af3ffa",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Current complete ordered artwork review: source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-e-21. Every final image has current direct and independent inspection, source/byte binding and no open findings. Artwork evidence only; reader operation and human listening are separate."
+      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
     },
     {
       "bookId": "world-discovery-e-21",
-      "title": "How Do We Choose a Ride?",
+      "title": "Transport Through Time",
       "level": "E",
       "pageNumber": 10,
-      "displayedText": "They choose the ferry for this practice trip. They have compared the walking, waiting and riding before deciding.",
+      "displayedText": "New inventions added ways to travel. People still walk, cycle, row, and ride animals alongside today’s motor vehicles.",
       "imagePath": "/guided-reading/world-discovery/e-21/page-10.webp",
-      "textSha256": "fa347e1fb463aec394a7ab5a299c764b7c188f747651209c4e3b4abdfbfcbfd4",
-      "imageSha256": "fe8947bce60a4845b227c3ba563a26fc252d691bc272464d0a068c4661281ea5",
+      "textSha256": "52497bf3025b78b90cf58405c8c817747332b7f577089121c3e93e6c7b9a19d2",
+      "imageSha256": "875fee865b5fd69d3379d4d298a9da766de9a91c969773417273e30ccf7aaa20",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Current complete ordered artwork review: source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-e-21. Every final image has current direct and independent inspection, source/byte binding and no open findings. Artwork evidence only; reader operation and human listening are separate."
+      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
     },
     {
       "bookId": "world-discovery-e-22",
-      "title": "City, Town or Village?",
-      "level": "E",
+      "title": "Different Countries, Different Places",
+      "level": "D",
       "pageNumber": 1,
-      "displayedText": "Wells is a city. Reading is a town. Lacock is a village. These three places are all in England.",
+      "displayedText": "A world map shows many countries. Are all places inside one country alike? Let’s look closely at three countries.",
       "imagePath": "/guided-reading/world-discovery/e-22/page-01.webp",
-      "textSha256": "7335c825d4eeaa00b60e24daeee320e2a32c2959b7a78bdc289bf6b7c4f7638d",
-      "imageSha256": "aadeed92255e4c6ff1c2e6646d879a3895df633d999ecab93f54427430cbc657",
+      "textSha256": "238e1d7c38506c3e06577fe7383f5c56f3d41763bcc2442515cb4b7691deaa78",
+      "imageSha256": "21b3e81ec9a1364ff0315b7b77279439450258c250410bb4a350f639200cd9e0",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Current complete ordered artwork review: source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-e-22. Every final image has current direct and independent inspection, source/byte binding and no open findings. Artwork evidence only; reader operation and human listening are separate."
+      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
     },
     {
       "bookId": "world-discovery-e-22",
-      "title": "City, Town or Village?",
-      "level": "E",
+      "title": "Different Countries, Different Places",
+      "level": "D",
       "pageNumber": 2,
-      "displayedText": "Start in Lacock. Houses stand beside its streets, and people live there today. Its old buildings are still in use.",
+      "displayedText": "Japan is a country made of islands. Sea water lies around them, and mountains rise across much of the land.",
       "imagePath": "/guided-reading/world-discovery/e-22/page-02.webp",
-      "textSha256": "93a8103d21d0cdc6be8fd1aca6068aebde960d425d0fc88b0e19230034cf9510",
-      "imageSha256": "43e49ffb51e87bec0e2e798081f22c6d0294ad6fd27ba23aa99c8643449e6729",
+      "textSha256": "0479f28019cbfd15df93aa600e26c2c8e0fd323e31953bbd24c9a52e866ce635",
+      "imageSha256": "81c07cb2159e5880402480cca7b08a51e800bd8da6a58fd5c87c1301b90e437b",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Current complete ordered artwork review: source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-e-22. Every final image has current direct and independent inspection, source/byte binding and no open findings. Artwork evidence only; reader operation and human listening are separate."
+      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
     },
     {
       "bookId": "world-discovery-e-22",
-      "title": "City, Town or Village?",
-      "level": "E",
+      "title": "Different Countries, Different Places",
+      "level": "D",
       "pageNumber": 3,
-      "displayedText": "Lacock also has shops. A village can have places to buy things as well as places to live.",
+      "displayedText": "Near Mount Fuji, the land rises to a high peak. Paths lead through forests on the slopes below.",
       "imagePath": "/guided-reading/world-discovery/e-22/page-03.webp",
-      "textSha256": "dc638106a32349dfd9b47d50c91b6b2749a6c9480529476c063b5ce553540934",
-      "imageSha256": "9f88be7a899c87ef92f613347ed853c52ec22ef0d1abd232f94cdfe530675ac5",
+      "textSha256": "a055f429e037860116f895d84c0132120bc22da752f6df4ac66a9de56ff1caf9",
+      "imageSha256": "7201683dfe76cd61e661b52226b1e88120372df1e65ab7eba2cb54c587b94bb5",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Current complete ordered artwork review: source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-e-22. Every final image has current direct and independent inspection, source/byte binding and no open findings. Artwork evidence only; reader operation and human listening are separate."
+      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
     },
     {
       "bookId": "world-discovery-e-22",
-      "title": "City, Town or Village?",
-      "level": "E",
+      "title": "Different Countries, Different Places",
+      "level": "D",
       "pageNumber": 4,
-      "displayedText": "Now look at Reading. This town has many workplaces and busy routes for buses and trains.",
+      "displayedText": "Tokyo is in Japan too. Here, trains run between tall buildings and busy streets. One country has very different places.",
       "imagePath": "/guided-reading/world-discovery/e-22/page-04.webp",
-      "textSha256": "05303884d5134fe304ee65f2cc9d40f98f9aaf87e363f02de581e07488320cef",
-      "imageSha256": "f20edafcaf2e7cffcca0f27ce1c9aae6e1f0bd0930501b4db4b460a7e0170e11",
+      "textSha256": "6f3c538b2e3fb3502a84d545be1691db658d54b54bef3a5169eac546fadc3d90",
+      "imageSha256": "18a91e53317935db21a4bd1c117bde237afd243ce21ca0865a09796e963589d8",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Current complete ordered artwork review: source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-e-22. Every final image has current direct and independent inspection, source/byte binding and no open findings. Artwork evidence only; reader operation and human listening are separate."
+      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
     },
     {
       "bookId": "world-discovery-e-22",
-      "title": "City, Town or Village?",
-      "level": "E",
+      "title": "Different Countries, Different Places",
+      "level": "D",
       "pageNumber": 5,
-      "displayedText": "People travel into Reading to work. A town can be a busy place with many connections to other places.",
+      "displayedText": "Now look at Egypt. Much of this country is desert, where very little rain falls.",
       "imagePath": "/guided-reading/world-discovery/e-22/page-05.webp",
-      "textSha256": "c087aa32435b07e735174754fafd90a4c4d62080adc018665a94ebcd56b52dcb",
-      "imageSha256": "d35b5da49030d0490b48b67594eaa3a571a7bb915e2aa0de038f42bbbf5215c1",
+      "textSha256": "a1c4bd0ad3e711a68625fdfb2830d0d483de3d3be611aad69d9805dc05eeed03",
+      "imageSha256": "fb6b6d5b784e5b2c73cdc0bf6fa0d7925a21add5d2796c85c859289eb808416f",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Current complete ordered artwork review: source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-e-22. Every final image has current direct and independent inspection, source/byte binding and no open findings. Artwork evidence only; reader operation and human listening are separate."
+      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
     },
     {
       "bookId": "world-discovery-e-22",
-      "title": "City, Town or Village?",
-      "level": "E",
+      "title": "Different Countries, Different Places",
+      "level": "D",
       "pageNumber": 6,
-      "displayedText": "Wells has city status, although it is much smaller than Reading. The word city does not always mean the biggest place.",
+      "displayedText": "The Nile River crosses that dry land. Along its banks, water helps crops grow beside homes and roads.",
       "imagePath": "/guided-reading/world-discovery/e-22/page-06.webp",
-      "textSha256": "ccbb68b77ffe2ef378190216d964dd3c4825070d1a4a1163393f1d86478c8253",
-      "imageSha256": "13b928ce54bae85b2653e34f31a6f07198f6d83d392f3ce30b42adc512cf9d0d",
+      "textSha256": "242f3102448c9edfd11e19e29a01e8198f9b10a697cde79b858af5824c47f1a6",
+      "imageSha256": "0da16c65e7747ffb9a237a42be3bf116765601bb094094bd386cf693ee6dd724",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Current complete ordered artwork review: source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-e-22. Every final image has current direct and independent inspection, source/byte binding and no open findings. Artwork evidence only; reader operation and human listening are separate."
+      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
     },
     {
       "bookId": "world-discovery-e-22",
-      "title": "City, Town or Village?",
-      "level": "E",
+      "title": "Different Countries, Different Places",
+      "level": "D",
       "pageNumber": 7,
-      "displayedText": "In the United Kingdom, city status is a special title. A place does not gain it just by growing larger.",
+      "displayedText": "Brazil has a different large river: the Amazon. Thick rainforest grows beside many of its waterways.",
       "imagePath": "/guided-reading/world-discovery/e-22/page-07.webp",
-      "textSha256": "da168588f4c9127041640a3c48b1696d2a798057931517bf9d2b521fcc63df4f",
-      "imageSha256": "9ec507f3f71521fb11c38e602a460757d33cc9fbc6ec011cc5417fc4ec006b84",
+      "textSha256": "dc8761d723e713e891337fc52b13cd8e449c5df5d30eb1065ff95922873e92d7",
+      "imageSha256": "4715d6f0aa19746190c80270c64ba44f8e9a0acd9b6b6746dee2bb675745a6a8",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Current complete ordered artwork review: source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-e-22. Every final image has current direct and independent inspection, source/byte binding and no open findings. Artwork evidence only; reader operation and human listening are separate."
+      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
     },
     {
       "bookId": "world-discovery-e-22",
-      "title": "City, Town or Village?",
-      "level": "E",
+      "title": "Different Countries, Different Places",
+      "level": "D",
       "pageNumber": 8,
-      "displayedText": "Countries can use these names differently. A size chart may help compare places, but it does not explain every local name.",
+      "displayedText": "Brazil also has cities beside the sea. In Rio de Janeiro, buildings stand between green hills and sandy beaches.",
       "imagePath": "/guided-reading/world-discovery/e-22/page-08.webp",
-      "textSha256": "9eb55f81ea6d3e7f1c8e729c2b20881347f21fc8fc7f25f2ac72de2680e51f60",
-      "imageSha256": "b1220f160a1fc46d7938341151e321b1142594327e07a05c4e7324032c538de6",
+      "textSha256": "8272aee98d398dc48146f0b0a195d4d1daebaa13a4b2652a8e1dd90f5ca3730f",
+      "imageSha256": "20e553102e6f5177a73ea714e2485362356d74a42131e6752ac497acb8452dfa",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Current complete ordered artwork review: source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-e-22. Every final image has current direct and independent inspection, source/byte binding and no open findings. Artwork evidence only; reader operation and human listening are separate."
+      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
     },
     {
       "bookId": "world-discovery-e-22",
-      "title": "City, Town or Village?",
-      "level": "E",
+      "title": "Different Countries, Different Places",
+      "level": "D",
       "pageNumber": 9,
-      "displayedText": "These three places have homes and streets. Their buildings and transport can tell us more than the names alone.",
+      "displayedText": "A mountain, a desert, a forest, a city: a country can have different places inside it.",
       "imagePath": "/guided-reading/world-discovery/e-22/page-09.webp",
-      "textSha256": "912a276ea3059437a0d1aa84e63a146c34d01e046be2e5277e0be15910e5fd7b",
-      "imageSha256": "e534979d59d481e12e48758b29d30d31bafb19330a775af325a2f61af8d56ece",
+      "textSha256": "91a4aa5da2fa7fe29d779ebcd3126865c3b8207a77390daa425cd53157b2a05a",
+      "imageSha256": "1da2c62b87eea4d11660386d556a570f5c21afc9d49f2a17916b4e6010e341f7",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Current complete ordered artwork review: source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-e-22. Every final image has current direct and independent inspection, source/byte binding and no open findings. Artwork evidence only; reader operation and human listening are separate."
+      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
     },
     {
       "bookId": "world-discovery-e-22",
-      "title": "City, Town or Village?",
-      "level": "E",
+      "title": "Different Countries, Different Places",
+      "level": "D",
       "pageNumber": 10,
-      "displayedText": "When we visit a place, we can look closely. Where do people live, work, shop and travel?",
+      "displayedText": "Japan, Egypt, and Brazil each have many kinds of places. A country’s name tells only part of its story.",
       "imagePath": "/guided-reading/world-discovery/e-22/page-10.webp",
-      "textSha256": "6f9d5f6e2a7e594c8b38d6cd20b8bcad70960163184e41a7ced04564fab9a1a4",
-      "imageSha256": "49b68b711141840570f9b3a74c327e024db4e8bc4a12fd4574e9e08ab02ae971",
+      "textSha256": "12bb0dd521e9d661166b70ed1c0f46dabbc3aab7b7cbf269299b97a50463d025",
+      "imageSha256": "a008add7a8a62ac4aa04c9043c744420ab5febc5687f40d4cda2ac3815a4cd19",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Current complete ordered artwork review: source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-e-22. Every final image has current direct and independent inspection, source/byte binding and no open findings. Artwork evidence only; reader operation and human listening are separate."
+      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
     },
     {
       "bookId": "world-discovery-e-23",

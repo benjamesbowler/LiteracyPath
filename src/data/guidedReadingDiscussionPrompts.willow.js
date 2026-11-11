@@ -7,8 +7,8 @@ const record = (oralPrompt, listenFor, page, visualPrompt, lookFor) => Object.fr
 
 export const GUIDED_READING_DISCUSSION_PROMPTS_WILLOW = Object.freeze({
   "willow-street-the-lunchbox-mix-up": record(
-    "How do Maya and Samir check that their lunches are right?",
-    "They check the labels and return the swapped things. Maya spots the spoon left behind, and Samir returns it.",
+    "How do Maya and Samir put the right things back in their lunchboxes?",
+    "They keep their own boxes and return the blue cup and green apple. Maya spots the spoon left behind, and Samir returns it.",
     7,
     "Find Maya's apple and spoon. Find Samir's blue cup.",
     "Finds Maya's green apple and spoon together, plus Samir's blue cup and orange napkin."

@@ -488,7 +488,7 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_CORE = Object.freeze({
   "first-facts-a-04-what-is-weather": Object.freeze({
     oral: Object.freeze({
       prompt: "How can you tell the wind is blowing?",
-      listenFor: "Wind bends plants, thunder booms, lightning flashes, and Sun or snow changes temperature."
+      listenFor: "Wind bends the twigs and grass and carries loose leaves through the air."
     }),
     visual: Object.freeze({
       page: 3,

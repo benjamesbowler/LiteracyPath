@@ -1995,15 +1995,15 @@
       "audioSha256": "d5f5c2fe1ee0ad4771c8eddb97a631463699c50bd0db3cb6b85d2339de1c1794"
     },
     {
-      "text": "My Red Hat\n\nMy red hat is in the mud. Muddy runs to it. How do I get my hat? Muddy lifts it with a stick. The hat is back on Muddy.",
-      "textSha256": "5c4d15497cdf28051700e5f00b06697f44e00c8fab997a88aab8b99f6b8a21f1",
+      "text": "My Red Hat\n\nMuddy’s red hat is in the mud. Muddy runs to it. “How do I get my hat?” Muddy asks. Muddy lifts it with a stick. The hat is back on Muddy.",
+      "textSha256": "67f540d6e2580478584469f3721cc73ff2ab1fc3f7e1d6f4ca34350dbca54c4d",
       "segments": [
         "My Red Hat",
-        "My red hat is in the mud. Muddy runs to it. How do I get my hat? Muddy lifts it with a stick. The hat is back on Muddy."
+        "Muddy’s red hat is in the mud. Muddy runs to it. “How do I get my hat?” Muddy asks. Muddy lifts it with a stick. The hat is back on Muddy."
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/cycle-shorts/e3b5985e328510910fc1.mp3",
+      "audioPath": "/audio/production/en-US/cycle-shorts/23ac82e48ed8f9ecf7f8.mp3",
       "references": [
         {
           "passageId": "cycle-short-6",
@@ -2013,10 +2013,10 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-11-01T23:53:13.088Z",
+      "generatedAt": "2026-11-10T22:53:35.847Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "7ecc397410de0a824c34e2c04f4fb6e0fb01a17ae50066d1e565d0440aac9ecf"
+      "audioSha256": "42362b19515d63ced924e255396d8249dccc0e76e91d3ae3516dcbac4b801fc9"
     },
     {
       "text": "Where is the hat at first?",
@@ -2372,15 +2372,15 @@
       "audioSha256": "4c4039049143aecc595ca21ae94231fcb86fa563046ee4ed77af4fea0f2d25de"
     },
     {
-      "text": "The Tin in the Mud\n\nThe tin fell into the mud. Muddy said the tin was stuck. Muddy pulls it with a stick. Out comes the tin! Muddy sets it on a log.",
-      "textSha256": "f3216bb0da27a5cc9effa2d3cf09bd2b629cc481501b4f17a560b77b75452e87",
+      "text": "The Tin in the Mud\n\nThe tin fell into the mud. Muddy said the tin was stuck. Muddy pulled it with a stick. Out came the tin! Muddy put it on a log.",
+      "textSha256": "925ecbf801d07e7d822df2a68ea200d824e5b1adfb9c79cbf246d6d810cefb45",
       "segments": [
         "The Tin in the Mud",
-        "The tin fell into the mud. Muddy said the tin was stuck. Muddy pulls it with a stick. Out comes the tin! Muddy sets it on a log."
+        "The tin fell into the mud. Muddy said the tin was stuck. Muddy pulled it with a stick. Out came the tin! Muddy put it on a log."
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/cycle-shorts/f71db277c858c83726ba.mp3",
+      "audioPath": "/audio/production/en-US/cycle-shorts/0c159f5c33bfd19b8923.mp3",
       "references": [
         {
           "passageId": "cycle-short-7",
@@ -2390,10 +2390,10 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-11-01T23:53:13.099Z",
+      "generatedAt": "2026-11-10T23:40:13.689Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "b2eea3af4547bcd4d26b980c1a905f1b1ae1085d340c8d1657c8a6d5b55e86af"
+      "audioSha256": "d0ac9f2fe2b7943433b0630297088e16e41ff98a663a895c69570a7490980d1c"
     },
     {
       "text": "What fell into the mud?",
@@ -7320,15 +7320,15 @@
       "audioSha256": "646e52beb29983c4414b6ffb941a1161ba87adff6ac7a5cb398e6e485e143509"
     },
     {
-      "text": "Which Bell?\n\nMuddy hears a buzz by the bell. Which bug is it? A bee lands on the bell. Muddy will miss the picnic call. He waits for the bee to fly off. Then Muddy rings the bell for lunch.",
-      "textSha256": "3c6fd93315d8afd5b94fc26ee871a69aace471d3938ccede6dd2580d073862b0",
+      "text": "The Picnic Bell\n\nMuddy hears a buzz by the bell. Which bug is it? A bee lands on the bell. His friends may miss lunch. He waits for the bee to fly off. Then Muddy rings the bell for lunch.",
+      "textSha256": "16f98a4940503b8dc6072593565a2e28051d89937cab13984c64659b0d1a1900",
       "segments": [
-        "Which Bell?",
-        "Muddy hears a buzz by the bell. Which bug is it? A bee lands on the bell. Muddy will miss the picnic call. He waits for the bee to fly off. Then Muddy rings the bell for lunch."
+        "The Picnic Bell",
+        "Muddy hears a buzz by the bell. Which bug is it? A bee lands on the bell. His friends may miss lunch. He waits for the bee to fly off. Then Muddy rings the bell for lunch."
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/cycle-shorts/009c53536b3713127d2d.mp3",
+      "audioPath": "/audio/production/en-US/cycle-shorts/dee50d8e10722cb0c299.mp3",
       "references": [
         {
           "passageId": "cycle-short-24",
@@ -7338,10 +7338,10 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-11-01T23:53:13.165Z",
+      "generatedAt": "2026-11-10T22:53:35.848Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "021ba6c638cf6393538746a54d9ce2d2b3ba9c0829ceffbf31a78c7d137e9a24"
+      "audioSha256": "d4a97dae0398aba75b56103b41af7945e3114495da274bd2904be5864a5652a3"
     },
     {
       "text": "What makes the buzz?",
@@ -8598,6 +8598,80 @@
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
       "audioSha256": "ab164b67d1fe90990d8658ea8ef3917d34390d29bfcac5cd16aca9d83aedf649"
+    }
+  ],
+  "compatibilityClips": [
+    {
+      "text": "My Red Hat\n\nMy red hat is in the mud. Muddy runs to it. How do I get my hat? Muddy lifts it with a stick. The hat is back on Muddy.",
+      "textSha256": "5c4d15497cdf28051700e5f00b06697f44e00c8fab997a88aab8b99f6b8a21f1",
+      "segments": [
+        "My Red Hat",
+        "My red hat is in the mud. Muddy runs to it. How do I get my hat? Muddy lifts it with a stick. The hat is back on Muddy."
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/cycle-shorts/e3b5985e328510910fc1.mp3",
+      "references": [
+        {
+          "passageId": "cycle-short-6",
+          "sourceId": "cycle-short-6",
+          "role": "passage"
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-11-01T23:53:13.088Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "7ecc397410de0a824c34e2c04f4fb6e0fb01a17ae50066d1e565d0440aac9ecf"
+    },
+    {
+      "text": "The Tin in the Mud\n\nThe tin fell into the mud. Muddy said the tin was stuck. Muddy pulls it with a stick. Out comes the tin! Muddy sets it on a log.",
+      "textSha256": "f3216bb0da27a5cc9effa2d3cf09bd2b629cc481501b4f17a560b77b75452e87",
+      "segments": [
+        "The Tin in the Mud",
+        "The tin fell into the mud. Muddy said the tin was stuck. Muddy pulls it with a stick. Out comes the tin! Muddy sets it on a log."
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/cycle-shorts/f71db277c858c83726ba.mp3",
+      "references": [
+        {
+          "passageId": "cycle-short-7",
+          "sourceId": "cycle-short-7",
+          "role": "passage"
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-11-01T23:53:13.099Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "b2eea3af4547bcd4d26b980c1a905f1b1ae1085d340c8d1657c8a6d5b55e86af"
+    },
+    {
+      "text": "Which Bell?\n\nMuddy hears a buzz by the bell. Which bug is it? A bee lands on the bell. Muddy will miss the picnic call. He waits for the bee to fly off. Then Muddy rings the bell for lunch.",
+      "textSha256": "3c6fd93315d8afd5b94fc26ee871a69aace471d3938ccede6dd2580d073862b0",
+      "segments": [
+        "Which Bell?",
+        "Muddy hears a buzz by the bell. Which bug is it? A bee lands on the bell. Muddy will miss the picnic call. He waits for the bee to fly off. Then Muddy rings the bell for lunch."
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/cycle-shorts/009c53536b3713127d2d.mp3",
+      "references": [
+        {
+          "passageId": "cycle-short-24",
+          "sourceId": "cycle-short-24",
+          "role": "passage"
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-11-01T23:53:13.165Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "021ba6c638cf6393538746a54d9ce2d2b3ba9c0829ceffbf31a78c7d137e9a24"
     }
   ]
 }

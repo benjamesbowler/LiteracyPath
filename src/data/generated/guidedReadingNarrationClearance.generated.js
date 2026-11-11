@@ -471,7 +471,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-09::9": {
-    "displayedText": "By morning, a coin lay where the envelope had been. Aiden raced to show Mom.",
+    "displayedText": "Mom had left a coin as a gift for his lost tooth. Aiden raced to thank her.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-10::1": {
@@ -6799,7 +6799,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-03::10": {
-    "displayedText": "On the way back, Stone held Burrow in one arm and gripped the rope with his free hand. Pip walked just ahead. Board by board, the far bank drew closer.",
+    "displayedText": "On the way back, Stone held Burrow in one arm and gripped the rope with his free hand. Pip led them toward the bank where he and Stone had started.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-03::11": {
@@ -7543,7 +7543,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-18::11": {
-    "displayedText": "Stone sat dripping beside Dewdrop while the fish circled them once. His shoulders relaxed when he saw it swimming strongly, with no rocks blocking its path.",
+    "displayedText": "Stone sat dripping beside Dewdrop as the fish swam in a circle nearby. His shoulders relaxed when he saw it swimming strongly, with no rocks blocking its path.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-18::12": {
@@ -8271,11 +8271,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-34::8": {
-    "displayedText": "Fern packed strong woven root fiber into every part of the curved mold. Spark pressed the material down carefully. Then they left it beside the warm lanterns.",
+    "displayedText": "Fern packed strong woven root fiber and sticky glue into every part of the curved mold. Spark pressed it down. They left it beside the warm lanterns.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-34::9": {
-    "displayedText": "When the root fiber dried, Spark lifted a solid hook from the mold. Its curve matched the good hook exactly. He carried it to the lowest rail.",
+    "displayedText": "When the glue dried, Spark lifted a solid root-fiber hook from the mold. Its curve matched the good hook exactly. He carried it to the lowest rail.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-35::1": {
@@ -10283,11 +10283,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-the-lunchbox-mix-up::2": {
-    "displayedText": "Maya checks the labels on both lunchboxes.",
+    "displayedText": "Maya checks both boxes. The lunchboxes are not swapped.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-the-lunchbox-mix-up::3": {
-    "displayedText": "Samir checks the labels and spots Maya's green apple.",
+    "displayedText": "Samir spots Maya's green apple inside his own lunchbox.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-the-lunchbox-mix-up::4": {
@@ -12039,35 +12039,35 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-b-21::1": {
-    "displayedText": "These heavy boxes need a ride. They fill three train cars.",
+    "displayedText": "A bike, skates, and a rowboat move. What makes them go?",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-b-21::2": {
-    "displayedText": "Each car has wheels. The wheels rest on two rails.",
+    "displayedText": "The rider pushes the bike pedals. A chain turns the back wheel.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-b-21::3": {
-    "displayedText": "Strong metal links join the cars. These links are called couplers.",
+    "displayedText": "The back wheel pushes against the ground. The bike rolls forward.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-b-21::4": {
-    "displayedText": "An engine joins the front car. It gives this train its power.",
+    "displayedText": "The skater pushes one foot sideways. The other skate slides ahead.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-b-21::5": {
-    "displayedText": "The engine pulls. The linked cars move along the track.",
+    "displayedText": "Push, glide, push, glide. The skater keeps moving.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-b-21::6": {
-    "displayedText": "The cars follow the same rails. Their boxes travel together.",
+    "displayedText": "The rower pulls the oar handles. The blades push water backward.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-b-21::7": {
-    "displayedText": "The train stops by another warehouse. Workers take the boxes out.",
+    "displayedText": "The boat moves forward. The rower lifts the blades.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-b-21::8": {
-    "displayedText": "One engine pulls three linked cars. Many boxes make one trip.",
+    "displayedText": "Legs push. Arms pull. People power all three rides.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-b-22::1": {
@@ -12999,35 +12999,35 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-c-21::1": {
-    "displayedText": "Kit checks a blue bag at the airport. A worker adds a tag. Will the bag travel with him?",
+    "displayedText": "A plane, a helicopter, and a hot-air balloon all fly. What helps each one rise?",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-c-21::2": {
-    "displayedText": "The bag rides a moving belt through a scanner. Workers check bags before they can go onto the plane.",
+    "displayedText": "The plane moves forward. Air flows around its wings. The wings turn air downward, and the air pushes the plane up.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-c-21::3": {
-    "displayedText": "A scanner reads the bag's tag. The airport system sends it toward the right flight with other bags.",
+    "displayedText": "A helicopter has long blades above its body. These blades are wings that spin in a circle.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-c-21::4": {
-    "displayedText": "A cart carries the bags to the plane. Workers load them into a space beneath the passenger floor.",
+    "displayedText": "The spinning blades lift the helicopter. It can rise straight up and stay above one spot.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-c-21::5": {
-    "displayedText": "Kit sits above. His bag rests below. Their different paths meet inside the same plane.",
+    "displayedText": "The balloon has no wings. A burner heats the air inside its large fabric bag.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-c-21::6": {
-    "displayedText": "After landing, workers unload the bags. The blue bag takes another cart ride into the airport.",
+    "displayedText": "The balloon rises as the air inside warms. To come down, the pilot lets the air cool.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-c-21::7": {
-    "displayedText": "A moving belt brings the bags into the arrival hall. Kit spots the orange stripe beside the black handle.",
+    "displayedText": "The balloon drifts with the wind. Its pilot can make it rise or sink by changing the heat.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-c-21::8": {
-    "displayedText": "Kit collects his bag with his grown-up. The bag took another path, but it flew on their plane.",
+    "displayedText": "Wings lift planes and helicopters. Warm air helps lift a hot-air balloon. Different shapes use the air in different ways.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-c-22::1": {
@@ -14119,43 +14119,43 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-d-21::1": {
-    "displayedText": "These notebooks must travel a long way. Workers pack their boxes inside one large container.",
+    "displayedText": "Two cars roll along the same road. One uses gasoline. The other runs only on electricity. What turns their wheels?",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-d-21::10": {
-    "displayedText": "Ship, train, then truck: three kinds of transport carried one container. The notebooks stayed packed through every change.",
+    "displayedText": "Fuel and an engine. A battery and a motor. Two different systems give these cars the power to move.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-d-21::2": {
-    "displayedText": "The doors close. The container keeps the boxes together while different vehicles carry them.",
+    "displayedText": "The gasoline car carries liquid fuel in a tank. Its engine burns small amounts of that fuel mixed with air.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-d-21::3": {
-    "displayedText": "At the port, a crane lifts the whole container onto a ship. The boxes stay inside.",
+    "displayedText": "Parts move inside the engine. That movement passes through other parts of the car and turns its wheels.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-d-21::4": {
-    "displayedText": "The ship carries many containers across the sea. Our orange box travels among them.",
+    "displayedText": "After burning fuel, gases leave through an exhaust pipe. Some of these gases add pollution to the air.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-d-21::5": {
-    "displayedText": "At another port, a crane lifts the orange container from the ship. It still holds the same notebooks.",
+    "displayedText": "The all-electric car has a large battery. Stored energy in the battery supplies electricity to an electric motor.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-d-21::6": {
-    "displayedText": "Workers place the container on a railcar. The train can carry it far from the coast.",
+    "displayedText": "The motor turns the wheels. This car does not need to burn gasoline as it drives along the road.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-d-21::7": {
-    "displayedText": "The train follows its tracks to a freight yard. Here, the container changes vehicles again.",
+    "displayedText": "When the fuel tank is low, an adult stops at a pump. Liquid gasoline flows into the car's tank.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-d-21::8": {
-    "displayedText": "A crane lowers the container onto a truck trailer. The driver can now take roads to the warehouse.",
+    "displayedText": "When the electric car needs more energy, an adult plugs it into a charger. Electricity helps recharge its battery.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-d-21::9": {
-    "displayedText": "At the warehouse, workers finally open the doors. They lift out the boxes of notebooks.",
+    "displayedText": "The electric car has no exhaust pipe. Making cars and producing their energy can still cause pollution.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-d-22::1": {
@@ -15319,83 +15319,83 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-e-21::1": {
-    "displayedText": "On this practice map, the museum stands across a river. Kit and Zoe compare three ways to get there.",
+    "displayedText": "Before motor vehicles existed, people walked, rode animals, and traveled in boats. How did new inventions change their journeys?",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-e-21::10": {
-    "displayedText": "They choose the ferry for this practice trip. They have compared the walking, waiting and riding before deciding.",
+    "displayedText": "New inventions added ways to travel. People still walk, cycle, row, and ride animals alongside today's motor vehicles.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-e-21::2": {
-    "displayedText": "They could walk over the footbridge. The whole walk would take twenty-five minutes.",
+    "displayedText": "A horse could pull a cart full of people or goods. Travelers still needed to feed and rest the horse.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-e-21::3": {
-    "displayedText": "The bus must use the road bridge. Its route goes farther upstream before crossing the river.",
+    "displayedText": "Later, steam engines pulled trains along tracks. Burning fuel heated water, and steam helped turn the wheels.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-e-21::4": {
-    "displayedText": "The bus ride takes fifteen minutes. That sounds quicker, but the ride is only part of the journey.",
+    "displayedText": "A steam train could carry many people farther in one day than a horse-drawn cart could usually travel.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-e-21::5": {
-    "displayedText": "They must also walk for ten minutes altogether and wait ten minutes. The bus journey takes thirty-five minutes.",
+    "displayedText": "Motor cars brought another change. Their engines used fuel to move the wheels, so the cars did not need horses.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-e-21::6": {
-    "displayedText": "The ferry has a shorter crossing. Its ride takes only five minutes, but they must check its waiting time too.",
+    "displayedText": "Early airplanes carried people above the ground. Later, jet planes made long journeys across oceans much faster.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-e-21::7": {
-    "displayedText": "Here, walking takes five minutes altogether, waiting takes ten, and the ride takes five. The ferry journey takes twenty minutes.",
+    "displayedText": "Some modern trains run on electricity. They can carry many passengers quickly between stations without stopping in road traffic.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-e-21::8": {
-    "displayedText": "Twenty minutes is less than twenty-five or thirty-five. For this trip, the ferry gives them the quickest whole journey.",
+    "displayedText": "Compare a cart, a fast train, and a jet plane. For a long journey, their usual travel speeds are very different.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-e-21::9": {
-    "displayedText": "On another day, a longer wait could change their choice. They would need to check the times again.",
+    "displayedText": "A jet usually travels faster than a fast train. But reaching an airport and waiting can add hours to a journey.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-e-22::1": {
-    "displayedText": "Wells is a city. Reading is a town. Lacock is a village. These three places are all in England.",
+    "displayedText": "A world map shows many countries. Are all places inside one country alike? Let's look closely at three countries.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-e-22::10": {
-    "displayedText": "When we visit a place, we can look closely. Where do people live, work, shop and travel?",
+    "displayedText": "Japan, Egypt, and Brazil each have many kinds of places. A country's name tells only part of its story.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-e-22::2": {
-    "displayedText": "Start in Lacock. Houses stand beside its streets, and people live there today. Its old buildings are still in use.",
+    "displayedText": "Japan is a country made of islands. Sea water lies around them, and mountains rise across much of the land.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-e-22::3": {
-    "displayedText": "Lacock also has shops. A village can have places to buy things as well as places to live.",
+    "displayedText": "Near Mount Fuji, the land rises to a high peak. Paths lead through forests on the slopes below.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-e-22::4": {
-    "displayedText": "Now look at Reading. This town has many workplaces and busy routes for buses and trains.",
+    "displayedText": "Tokyo is in Japan too. Here, trains run between tall buildings and busy streets. One country has very different places.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-e-22::5": {
-    "displayedText": "People travel into Reading to work. A town can be a busy place with many connections to other places.",
+    "displayedText": "Now look at Egypt. Much of this country is desert, where very little rain falls.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-e-22::6": {
-    "displayedText": "Wells has city status, although it is much smaller than Reading. The word city does not always mean the biggest place.",
+    "displayedText": "The Nile River crosses that dry land. Along its banks, water helps crops grow beside homes and roads.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-e-22::7": {
-    "displayedText": "In the United Kingdom, city status is a special title. A place does not gain it just by growing larger.",
+    "displayedText": "Brazil has a different large river: the Amazon. Thick rainforest grows beside many of its waterways.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-e-22::8": {
-    "displayedText": "Countries can use these names differently. A size chart may help compare places, but it does not explain every local name.",
+    "displayedText": "Brazil also has cities beside the sea. In Rio de Janeiro, buildings stand between green hills and sandy beaches.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-e-22::9": {
-    "displayedText": "These three places have homes and streets. Their buildings and transport can tell us more than the names alone.",
+    "displayedText": "A mountain, a desert, a forest, a city: a country can have different places inside it.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-e-23::1": {

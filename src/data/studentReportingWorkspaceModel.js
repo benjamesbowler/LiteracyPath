@@ -1,3 +1,4 @@
+import { guidedReadingHistoryBook } from "../utils/guidedReading/editions.js";
 import { getPublicBookMetadata } from "../utils/guidedReading/bookLevelMetadata.js";
 import { buildLiteracyPracticeReport } from "../utils/literacyPracticeReport.js";
 import { LITERACY_PRACTICE_SKILLS } from "./literacyPracticeBank.js";
@@ -1070,8 +1071,9 @@ function guidedRowsFromRecords({ guidedReadingRecords = {}, studentId = "" } = {
   const books = [];
   const evidence = [];
   Object.entries(guidedReadingRecords || {}).forEach(([recordKey, rawRecord = {}]) => {
-    const bookId = rawRecord.bookId || recordKey;
-    const title = rawRecord.title || bookId;
+    const bookId = recordKey;
+    const historyBook = guidedReadingHistoryBook({}, rawRecord, recordKey);
+    const title = rawRecord.title || historyBook.title || bookId;
     const level = rawRecord.level || "";
     const wordMarks = [];
     const supportUseEvents = [];
@@ -1117,6 +1119,7 @@ function guidedRowsFromRecords({ guidedReadingRecords = {}, studentId = "" } = {
     books.push({
       bookId,
       title,
+      historicalEdition: Boolean(historyBook.historicalEdition),
       type: rawRecord.type || "",
       level,
       completed,
@@ -1149,6 +1152,7 @@ function guidedRowsFromPreparedRows({ guidedReadingRows = [], guidedReadingWordR
     type: row.type || "",
     level: row.level || "",
     sourceLevel: row.sourceLevel,
+    historicalEdition: Boolean(row.historicalEdition),
     completed: Boolean(row.completed),
     completedAt: row.completedAt || "",
     lastReadAt: row.lastReadAt || "",
@@ -1201,6 +1205,7 @@ function guidedRowsFromPreparedRows({ guidedReadingRows = [], guidedReadingWordR
         title: row.title || row.bookId || "Guided reading book",
         level: row.level || "",
         sourceLevel: row.sourceLevel,
+    historicalEdition: Boolean(row.historicalEdition),
         page: Number(row.page || 0),
         wordIndex: row.wordIndex ?? index,
         word: row.word,
@@ -1267,8 +1272,8 @@ function resolveCurrentGuidedWordEvidence(evidence = []) {
 
 // Saved letters belong to the source record's older placement system. Public
 // reports resolve current book complexity by ID without changing that evidence.
-function publicGuidedBookLevel(bookId, sourceLevel = "") {
-  const metadata = getPublicBookMetadata(bookId);
+function publicGuidedBookLevel(bookId, sourceLevel = "", record) {
+  const metadata = getPublicBookMetadata(guidedReadingHistoryBook({ id: bookId }, record || {}, bookId));
   return {
     sourceLevel,
     level: metadata.appReadingLevel || "",
@@ -1319,7 +1324,7 @@ export function buildGuidedReadingReportModel({
     };
   }).map(book => ({
     ...book,
-    ...publicGuidedBookLevel(book.bookId, book.sourceLevel ?? book.level)
+    ...publicGuidedBookLevel(book.bookId, book.sourceLevel ?? book.level, book.provenance?.rawRecord)
   })).sort((a, b) => (
     finiteTimestamp(b.lastReadAt) - finiteTimestamp(a.lastReadAt) || a.title.localeCompare(b.title)
   ));
@@ -1345,7 +1350,7 @@ export function buildGuidedReadingReportModel({
     ...row,
     details: {
       ...row.details,
-      ...publicGuidedBookLevel(row.details?.bookId, row.details?.sourceLevel ?? row.details?.level)
+      ...publicGuidedBookLevel(row.details?.bookId, row.details?.sourceLevel ?? row.details?.level, guidedReadingRecords?.[row.details?.bookId])
     }
   })));
   const allWordEvidence = rawEvidence.filter(row => row.sourceRecordType === "teacher_word_mark");

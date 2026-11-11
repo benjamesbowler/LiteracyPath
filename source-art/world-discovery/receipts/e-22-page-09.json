@@ -2,38 +2,42 @@
   "bookId": "world-discovery-e-22",
   "slot": "page-09",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-09T12:26:32.999Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-a1b1025f-1d86-400c-834f-0e140363b39d.png",
-  "sourceSha256": "326fc986828ec58d7f7a3e8911a36843796c0e1d7370e5d72ec503bdc2a62715",
+  "generatedAt": "2026-11-10T09:46:45.246Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1c3ee-e610-7d22-ad30-a2bee077e3d6/exec-d4cf08bf-6e44-40e7-9d13-e8ccc1f6047c.png",
+  "sourceSha256": "8ee14287fc651e63744198f6576066df8ddef657b003b17da6ba954b5ccf6af9",
   "output": "public/guided-reading/world-discovery/e-22/page-09.webp",
-  "outputSha256": "e534979d59d481e12e48758b29d30d31bafb19330a775af325a2f61af8d56ece",
+  "outputSha256": "1da2c62b87eea4d11660386d556a570f5c21afc9d49f2a17916b4e6010e341f7",
   "width": 1536,
   "height": 1024,
-  "prompt": "Use case: precise-object-edit. Preserve these exact THREE labeled place cards in side-by-side order, including exact words Wells, Reading, Lacock. Scale the ENTIRE card group uniformly DOWN25 percent and center on the same1536x1024 cream canvas. All outermost card edges need at least12 percent clear cream margin from every canvas edge. Do not crop, zoom individual pictures, change architecture, rearrange cards, add text or alter labels. Extend only plain cream background. Smooth flat colors and clean outlines, no grain or texture.",
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one explanatory comparison diagram. Allow only the distinct views, stages or comparison panels explicitly authored in this page's illustration brief, with their exact relationships and counts. No unrequested panels, insets, annotations or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Different Countries, Different Places; World Discovery; nonfiction.\nSetting: Factual geographic tour of selected ordinary landscapes in Japan, Egypt and Brazil. No fictional child travels between pages; no suggestion that one climate, building or landscape represents all people in a country. Maps are simplified geographic aids, not political claims; show whole-country approximate outlines with no disputed detail, capitals, flags, national costumes, religious monuments or political buildings. Japan: island coastline, Mount Fuji lower wooded slopes, ordinary Tokyo railway street. Egypt: dry plateau and connected Nile-side irrigated farmland with ordinary homes. Brazil: Amazon waterway with rainforest and ordinary Rio coastline framed by forested hills; omit Christ statue. Small background adults wear ordinary contemporary clothing and are never cultural symbols.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Simplified world locator map with dots for Japan, Egypt and Brazil; Japan island coastline, wooded Mount Fuji slopes, ordinary Tokyo train; Egypt desert and Nile river fields; Brazil Amazon waterway and Rio coastal city\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and specific stages explicitly required below; the declared diagram permits no other scenes or story events.\nPage 9. Printed prose (NOT text to put in art): A mountain, a desert, a forest, a city: a country can have different places inside it.\nRequired illustration: Three paired-picture comparison diagram, one pair per country. Japan pair repeats miniature mountain and Tokyo scenes; Egypt pair shows desert and Nile farms; Brazil pair shows Amazon forest and Rio coast. Each pair sits inside one simple separate frame; all six scenes distinct and legible. No flags, labels or mixed landmarks.\nExact current state: Within-country pairs prepare synthesis; no country reduced to a single view.\nDo not add events or stages beyond the authored diagram. Repeat a subject only when the authored comparison or cutaway requires it. No written title; the app renders live text.\nFINAL QUALITY LOCK: Render 1536 by 1024 pixels, clean landscape 3:2. This is the finished page, not a reference sheet. Keep all essential subjects fully framed with 8 percent margin. Use plain ordinary clothes and exactly the subjects specified in this page. Do not transfer extraneous reference animals, poses or props into the picture. No national symbols, logos or written marks. Geography accuracy: the reference is an identity/style aid, not an authority for map locations or permission to add animals. No crane, camel, jaguar or any other animal anywhere in this book. No national, ethnic, religious or political symbols.\n\nFRAMING REPAIR ONLY: preserve exactly these THREE horizontal paired-comparison rows, six scenes, in this order. Japan Fuji and Tokyo; Egypt desert and Nile; Brazil Amazon and Rio. Scale the WHOLE six-scene strip 18 percent smaller and center it in the 1536x1024 canvas; all authored panels and subjects inside x140..1396 and y100..924, with white margin. Preserve the six correct landscapes and no animals, flags, religion or text. No other change.",
   "references": [
     {
-      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-d0e99e99-870a-4e9f-8a80-60b20cdea7fc.png",
-      "sha256": "d7cc0916e54704b817c79fdc7dbed0e9befc532861209d458a1172d5ce9fe34d"
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-22-reference.webp",
+      "sha256": "83582d8397835477531f768217b2f65fe5a1ab830c18b2b2b0c9172984c06dd1"
+    },
+    {
+      "path": "/Users/benjaminbowler/.codex/generated_images/01a1c3ee-e610-7d22-ad30-a2bee077e3d6/exec-a3e45ad7-a514-433e-85f5-5f784f0e07bd.png",
+      "sha256": "ed1cb6e9766abbd311ea7b4d02a8d1fa1a778465153b6083f55fd10e3a41df04"
     }
   ],
   "manuscriptSource": {
-    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
-    "sha256": "2aff8b9432244a41072eb7c7376c77e21594d83a655dfa83d99e44c528e86755",
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/discovery-topic-revision/manuscripts",
+    "sha256": "10f17301c0b54d74f0667c993770e82a84c710618d5e3fa02c5648e46692e76e",
     "isolated": true,
     "firstNumber": 21,
     "lastNumber": 30,
     "topicProfile": "nonfiction-discovery"
   },
   "visualReview": {
-    "sha256": "e534979d59d481e12e48758b29d30d31bafb19330a775af325a2f61af8d56ece",
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-09T12:26:33.000Z",
-    "note": "Direct native inspection: exact three named cards Wells/Reading/Lacock, homes and streets in each, only Reading contains rail/station and bus. Wells bicycle and modest shop, Lacock timber/stone homes and shop. Full group inset17%+ horizontally and27% vertically; lettering clear."
+    "reviewedAt": "2026-11-10",
+    "sha256": "1da2c62b87eea4d11660386d556a570f5c21afc9d49f2a17916b4e6010e341f7",
+    "note": "Exactly three paired rows / six landscapes in authored order: Fuji and Tokyo, Western Desert and Nile fields, Amazon and Rio coast. Complete broad Fuji cone and no flags, religion, costume, added animal, text or extra comparison. Producer independently inspected the final installed WebP natively; complete final sequence and relevant native diagrams were independently reviewed."
   },
   "reviewedManuscriptSource": {
     "bookId": "world-discovery-e-22",
     "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
-    "sha256": "2aff8b9432244a41072eb7c7376c77e21594d83a655dfa83d99e44c528e86755",
-    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
+    "sha256": "d3b67d6c70cda202a99594710f903a9dc9ec37110031b15daf30f7eb0b2fb747",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json"
   }
 }

@@ -156,13 +156,14 @@ const aidenPagePath = (bookNumber, pageNumber) =>
 const aidenCoverPath = bookNumber =>
   seriesCoverPath("aiden-and-betty", bookNumber);
 
-const createAidenPage = ({ bookNumber, pageNumber, text, illustrationPrompt, narrationNeedsRebuild = false }) => ({
+const createAidenPage = ({ bookNumber, pageNumber, text, illustrationPrompt, embeddedImageText, narrationNeedsRebuild = false }) => ({
   pageNumber,
   text: normalizeReadingText(text),
   image: aidenPagePath(bookNumber, pageNumber),
   audio: seriesAudioPath("aiden-and-betty", bookNumber, pageNumber),
   words: words(text),
   illustrationPrompt,
+  ...(embeddedImageText ? { embeddedImageText } : {}),
   narrationNeedsRebuild,
   qaStatus: "approved",
   qaNotes: "Reviewed fiction page released for student Guided Reading.",
@@ -1707,7 +1708,7 @@ export const guidedReadingSeriesBooks = [
       {
         pageNumber: 2,
         text: "The sun is hot!",
-        illustrationPrompt: "Bob and Nan standing on the beach looking up at a huge bright sun, shielding their eyes and grinning."
+        illustrationPrompt: "Bob and Nan kneel with their spades and point to a low sand mound inside a rectangular outline for their fort. Their buckets sit beside them and the sea is behind."
       },
       {
         pageNumber: 3,
@@ -1722,17 +1723,17 @@ export const guidedReadingSeriesBooks = [
       {
         pageNumber: 5,
         text: "Bob got wet!",
-        illustrationPrompt: "Bob standing in the shallow sea, a wave just washing over his shoes. Mouth open in a gasp, then laughing."
+        illustrationPrompt: "A wave washes over the sand fort and breaks its walls and towers. Bob and Nan watch from the dry sand beside their buckets."
       },
       {
         pageNumber: 6,
         text: "Nan got wet!",
-        illustrationPrompt: "Nan splashing in the shallow sea, both arms out for balance, sea water splashing all around. Huge delighted grin."
+        illustrationPrompt: "Bob and Nan build a new sand fort on dry sand farther back from the sea. Bob uses his red spade while Nan tips sand from her yellow bucket."
       },
       {
         pageNumber: 7,
         text: "Bob and Nan had fun at the beach!",
-        illustrationPrompt: "Bob and Nan sitting on the sand at the water's edge. Sun lower now, sea sparkling. Happy, tired smiles."
+        illustrationPrompt: "The rebuilt sand fort stands dry farther back on the beach. Bob and Nan sit in front of it as small waves reach the shoreline and the Sun sets."
       }
     ]
   }),
@@ -1760,12 +1761,12 @@ export const guidedReadingSeriesBooks = [
       {
         pageNumber: 4,
         text: "Bob is sad.",
-        illustrationPrompt: "Bob's face with a slightly wobbly bottom lip, eyes wide, not crying but close. School gate visible ahead of him."
+        illustrationPrompt: "Bob pauses at the open classroom doorway with his blue backpack on. Nan waits just behind him while the teacher and children are visible inside."
       },
       {
         pageNumber: 5,
         text: "Nan is sad.",
-        illustrationPrompt: "Nan's face similarly worried, clutching Mom's hand tightly. Both are walking bravely forward."
+        illustrationPrompt: "Nan and Bob smile at each other beside the open classroom doorway. Their teacher smiles and gestures into the room."
       },
       {
         pageNumber: 6,
@@ -1775,7 +1776,7 @@ export const guidedReadingSeriesBooks = [
       {
         pageNumber: 7,
         text: "Bob and Nan had fun at school!",
-        illustrationPrompt: "End of the day. Bob and Nan running out of the school gate, huge grins, school bags bouncing. Mom waiting."
+        illustrationPrompt: "Bob and Nan draw side by side with crayons at a classroom table while their teacher helps two other children behind them."
       }
     ]
   }),
@@ -1846,17 +1847,17 @@ export const guidedReadingSeriesBooks = [
       {
         pageNumber: 3,
         text: "Bob rips it! It is a red bat!",
-        illustrationPrompt: "Bob tearing open the wrapping paper with delight, discovering a bright red cricket bat inside."
+        illustrationPrompt: "Bob and Nan tug at the intact red wrapping around the tall present. The blue ribbon stays tied and the bat is still hidden; Fluff watches beside them."
       },
       {
         pageNumber: 4,
         text: "Mom lit the candles.",
-        illustrationPrompt: "Mom lighting six candles on a large birthday cake while Bob and Nan watch eagerly."
+        illustrationPrompt: "Nan steadies the tall present while Bob leans back and pulls a strip of red wrapping paper. The paper starts to tear; Fluff watches nearby."
       },
       {
         pageNumber: 5,
         text: "Bob can see six big candles.",
-        illustrationPrompt: "Close up on Bob's face, lit by candlelight, eyes reflecting the six flames."
+        illustrationPrompt: "A red cricket bat is revealed upright in the opened present, with torn wrapping and blue ribbon around the box. Bob and Nan react with delight while Fluff watches."
       },
       {
         pageNumber: 6,
@@ -2085,7 +2086,7 @@ export const guidedReadingSeriesBooks = [
       { pageNumber: 10, text: `James chose a big slice of lemon cake with thick white icing. Anna chose a pink strawberry jam tart.`, illustrationPrompt: "James choosing lemon cake and Anna choosing a jam tart." },
       { pageNumber: 11, text: `At the till, Mom let James put the shopping on the belt. He was VERY careful with the eggs.`, illustrationPrompt: "James carefully placing eggs on the checkout belt." },
       { pageNumber: 12, text: `On the way home, the bread smelled so good. James started to reach into the bag. Anna gave him a look. He stopped.`, illustrationPrompt: "James reaching for bread while Anna gives him a warning look." },
-      { pageNumber: 13, text: `At home, Mom made lunch. After, they had their cakes. Chips ate the paper bag. "CHIPS!" they said. But they were laughing too hard to be cross.`, illustrationPrompt: "James and Anna laughing at the table while Chips eats the paper bag." }
+      { pageNumber: 13, text: `At home, Mom made lunch. After, they had their cakes. Chips ate the paper bag. "CHIPS!" they said. But they were laughing too hard to be cross.`, illustrationPrompt: "James and Anna sit at the kitchen table with cakes on plates while Mom washes at the sink. Chips stands beside a crumpled paper bag." }
     ]
   }),
   createJamesAndAnnaBook({
@@ -2154,7 +2155,7 @@ export const guidedReadingSeriesBooks = [
       { pageNumber: 9, text: `Chips had been quiet all morning. Then they found him — in the veggie patch, eating the bean plants.`, illustrationPrompt: "Chips in the middle of a vegetable patch, surrounded by half-eaten bean plants. He has a long green bean trailing from his mouth. He looks perfectly content and completely unsurprised to be found." },
       { pageNumber: 10, text: `"CHIPS!" said James and Anna together. Grandma came and looked. "He fits in very well here," she said.`, illustrationPrompt: "James and Anna pointing at Chips in the veggie patch. Grandma stands beside them, arms folded, smiling with genuine amusement rather than cross. Chips blinks." },
       { pageNumber: 11, text: `That evening, Grandma made soup from the garden and fried the eggs James had found. It was the best meal they had ever tasted.`, illustrationPrompt: "Kitchen scene: Grandma at the stove, stirring a pot of thick soup. James and Anna at the kitchen table, bowls in front of them, tasting with big happy expressions. Golden evening light." },
-      { pageNumber: 12, text: `They sat outside as the sun went down. Bess looked over her gate. Percy slept in the mud. Chips ate the fence post. It had been the best farm day ever.`, illustrationPrompt: "Golden sunset farm scene: James and Anna sitting on a fence rail with Grandma between them. Bess's head over the stable gate in the background. Percy a round pink lump asleep in the pen. Chips quietly chewing the fence post they are sitting on. Warm, perfect end-of-day light." }
+      { pageNumber: 12, text: `They sat outside as the sun went down. Bess looked over her gate. Percy slept in the mud. Chips ate the fence post. It had been the best farm day ever.`, illustrationPrompt: "James holds out hay beside Grandma and Anna. Chips turns away from the fence toward the hay as the three stand in the farmyard." }
     ]
   }),
   createJamesAndAnnaBook({
@@ -2222,7 +2223,7 @@ export const guidedReadingSeriesBooks = [
       { pageNumber: 10, text: `Dad got his old bike out and the three of them went for a long ride down to the duck pond.`, illustrationPrompt: "Dad, James and Anna cycling together along a summer lane — Dad in the middle, James left, Anna right. All three pedalling at a gentle pace. Trees, hedges, blue sky. Chips watches them go from the garden gate." },
       { pageNumber: 11, text: `They ate their sandwiches by the duck pond. Chips waited at home. Chips and bikes were definitely not a good idea.`, illustrationPrompt: "Dad, James and Anna sitting on the grass by the duck pond, sandwiches in hand, the bikes propped against a tree behind them. Ducks on the pond. A peaceful, perfect picnic. Back home: Chips visible in the garden, looking after them wistfully." },
       { pageNumber: 12, text: `On the way home, James and Anna raced. They crossed the gate post at exactly the same time. A perfect tie.`, illustrationPrompt: "James and Anna side by side, both leaning forward on their bikes, racing flat out. They cross a gate post at EXACTLY the same moment — shoulder to shoulder, wheel to wheel, both grinning." },
-      { pageNumber: 13, text: `That night their legs ached. But they were both smiling. "Same time tomorrow?" said James. Anna was already asleep.`, illustrationPrompt: "Bedtime: James's bedroom. James and Anna both in sleeping bags/beds, still in their helmets (they fell asleep like that). James turning to ask his question. Anna already completely, peacefully asleep. Their bikes propped against the wall. Warm lamplight." }
+      { pageNumber: 13, text: `That night their legs ached. But they were both smiling. "Same time tomorrow?" said James. Anna was already asleep.`, illustrationPrompt: "James turns toward Anna from his bed while Anna sleeps in the other bed. Both helmets rest on a bench beside the beds." }
     ]
   }),
   createJamesAndAnnaBook({
@@ -2238,7 +2239,7 @@ export const guidedReadingSeriesBooks = [
       { pageNumber: 3, text: `They packed their sleeping bags, a torch, a pack of cards, two books and lots of snacks.`, illustrationPrompt: "The tent is now up. James and Anna packing things through the small door — sleeping bags (green for James, purple for Anna), a yellow torch, cards, books, a bag of snacks. Very organized. Very excited." },
       { pageNumber: 4, text: `Chips was coming too. He had his own little blanket and his bell, which jingled every single time he moved.`, illustrationPrompt: "Chips inside the tent, looking very pleased to be included. A small blue blanket has been laid out for him. His bell jingles at the slightest movement. James and Anna squeeze in either side of him." },
       { pageNumber: 5, text: `Dad made a small camp fire in a safe metal dish. They toasted marshmallows on long sticks over the warm flames.`, illustrationPrompt: "The family sitting around a small, contained camp fire in a metal dish. Dad, James and Anna each hold long sticks with marshmallows toasting over the orange flames. Chips sits nearby, eyeing the marshmallow bag." },
-      { pageNumber: 6, text: `The marshmallow on Chips's stick got too close to the fire. It caught light. Chips ate the whole thing — stick and all.`, illustrationPrompt: "Chips's marshmallow is on fire at the end of his stick (someone held it for him). Chips is entirely unfazed. He leans forward and eats the burning marshmallow, stick and all, in one go. James and Anna watch with wide eyes." },
+      { pageNumber: 6, text: `The marshmallow on Chips's stick got too close to the fire. It caught light. Chips ate the whole thing — stick and all.`, illustrationPrompt: "Dad holds Chips back by his collar and lifts the hot marshmallow on its stick out of reach. James and Anna watch beside the camping fire." },
       { pageNumber: 7, text: `They played cards in the tent by torchlight. Chips ate two cards before they noticed. The game got harder after that.`, illustrationPrompt: "Inside the tent by torchlight. James, Anna and Chips play cards — the torch lights the scene from the center. Chips's jaw is working. Two card-shaped items are clearly being chewed. James counts his cards and notices something is wrong." },
       { pageNumber: 8, text: `At midnight, a fox barked in the lane. Chips went very still. James shone the torch outside. Nothing was there.`, illustrationPrompt: "Late at night in the tent. Chips is rigid, ears straight up, yellow eyes wide — on full alert. James holds the torch, its beam pointing out through the unzipped tent door into darkness. Anna watches, wide awake. The garden outside is dark and still." },
       { pageNumber: 9, text: `"What if it comes back?" said James. "Then we will scare it," said Anna. She picked up the air horn Dad had packed.`, illustrationPrompt: "Anna holds a small red air horn, expression completely calm and prepared. James looks at the air horn with a mixture of hope and apprehension. Chips has both ears pinned back — he senses what is coming." },
@@ -2264,8 +2265,8 @@ export const guidedReadingSeriesBooks = [
       { pageNumber: 5, text: `Everyone had their own desk. Aiden found one beside Betty. He ran his finger across the smooth top and felt, just slightly, that it might turn out to be all right.`, illustrationPrompt: "Close-up of Aiden at his desk beside Betty.", narrationNeedsRebuild: true },
       { pageNumber: 6, text: `The first lesson was handwriting — joined-up letters, which were completely new and seemed designed to be tricky. Aiden's pen slipped and he made a large blot right across the middle of the page. He went very red.`, illustrationPrompt: "Aiden staring at a large ink blot on his handwriting page." },
       { pageNumber: 7, text: `Betty leaned over and showed him her page quietly. Her joined-up writing was also not her best work. "Mine looks like a wonky caterpillar," she whispered. Aiden laughed before he could stop himself, and his face stopped being red.`, illustrationPrompt: "Betty showing Aiden her wonky handwriting while he laughs with relief." },
-      { pageNumber: 8, text: `At lunch, they sat together by the window. Aiden opened his lunchbox and found a small folded note from Mom tucked under his sandwich. It said: You've got this, star. He smiled all the way through his apple.`, illustrationPrompt: "Aiden reading Mom's note at lunch beside Betty." },
-      { pageNumber: 9, text: `After lunch came reading. Miss Okafor gave them word puzzles with story clues. Each one was a little harder than the last. Aiden's brain felt stretched in a new way. He discovered that this was not a bad feeling.`, illustrationPrompt: "Aiden concentrating on a reading puzzle with story clues.", narrationNeedsRebuild: true },
+      { pageNumber: 8, text: `At lunch, they sat together by the window. Aiden opened his lunchbox and found a small folded note from Mom tucked under his sandwich. It said: You've got this, star. He smiled all the way through his apple.`, illustrationPrompt: "Aiden lifts his whole sandwich from his blue lunchbox. Mom’s note lies beneath it and reads ‘Keep trying. I love you!’ Betty smiles beside him.", embeddedImageText: "Keep trying. I love you!" },
+      { pageNumber: 9, text: `After lunch came reading. Miss Okafor gave them word puzzles with story clues. Each one was a little harder than the last. Aiden's brain felt stretched in a new way. He discovered that this was not a bad feeling.`, illustrationPrompt: "Aiden studies a board of colored shape patterns at a classroom table.", narrationNeedsRebuild: true },
       { pageNumber: 10, text: `Betty answered three questions out loud and got them all right. Aiden raised his hand once, very carefully, and his answer was right too. Miss Okafor gave them each a gold star. Aiden held onto that moment for the rest of the day.`, illustrationPrompt: "Miss Okafor giving a gold star sticker to Aiden and Betty.", narrationNeedsRebuild: true },
       { pageNumber: 11, text: `Then there was Science — real Science, with a magnifying glass and a tray of soil and seeds. Aiden forgot to be nervous. He was too busy looking at a woodlouse through the magnifying glass and writing down exactly what he saw.`, illustrationPrompt: "Aiden absorbed in a science activity with a magnifying glass and notebook." },
       { pageNumber: 12, text: `At home time, Mom was waiting at the gate. She crouched down with an expectant look. "Well?" she said. They both started talking at exactly the same moment and didn't stop for ten minutes.`, illustrationPrompt: "Mom at the school gate as Aiden and Betty talk over each other." },
@@ -2703,9 +2704,9 @@ export const guidedReadingSeriesBooks = [
   }),
   createDinoPalsBook({
     id: "dino-pals-14-what-is-flappy",
-    title: "What is Flappy?",
+    title: "Flappy Finds a Way",
     bookNumber: 14,
-    theme: "identity and belonging",
+    theme: "finding a route by climbing and gliding",
     pages: [
       { pageNumber: 1, text: "Flappy woke up and tried to fly. Flappy got three wing-flaps up. Then landed in the mud." },
       { pageNumber: 2, text: "I should be able to fly, said Flappy. I have wings. You are also a dinosaur, said Grumpy. Dinosaurs do not fly." },

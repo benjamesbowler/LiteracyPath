@@ -2,38 +2,38 @@
   "bookId": "world-discovery-e-22",
   "slot": "page-06",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-09T12:18:46.632Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-65c6676b-ab4e-4b70-b8fe-92d986d3bcfe.png",
-  "sourceSha256": "9eaa3c5f160e91a67dd84f2029e12d291b3de4aac04844fc7ca76af8d7f33e74",
+  "generatedAt": "2026-11-10T06:12:37.065Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1c3ee-e610-7d22-ad30-a2bee077e3d6/exec-a1dd8520-6afe-4953-aa95-d190cee45a62.png",
+  "sourceSha256": "75321ffd54eb3faa7983e881e68107cdcee1c2826b79dc882bc49e3e5c0ba685",
   "output": "public/guided-reading/world-discovery/e-22/page-06.webp",
-  "outputSha256": "13b928ce54bae85b2653e34f31a6f07198f6d83d392f3ce30b42adc512cf9d0d",
+  "outputSha256": "0da16c65e7747ffb9a237a42be3bf116765601bb094094bd386cf693ee6dd724",
   "width": 1536,
   "height": 1024,
-  "prompt": "Use case: precise-object-edit. Keep this EXACT schematic comparison including every building, the Wells/Reading relative footprint sizes, same house scales, streets, colors and exact labels. Scale the ENTIRE artwork group including BOTH clusters and BOTH words down uniformly25 percent and center it on the same1536x1024 cream canvas. All complete clusters and labels must be at least12 percent inside every edge. Do not change individual building scale relative to each other, layout, proportions, text spelling or comparison. Extend only the plain cream background. No additional objects or text. Smooth flat colors with crisp outlines, no paper/grain texture.",
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one coherent scene and moment, no panels or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Different Countries, Different Places; World Discovery; nonfiction.\nSetting: Factual geographic tour of selected ordinary landscapes in Japan, Egypt and Brazil. No fictional child travels between pages; no suggestion that one climate, building or landscape represents all people in a country. Maps are simplified geographic aids, not political claims; show whole-country approximate outlines with no disputed detail, capitals, flags, national costumes, religious monuments or political buildings. Japan: island coastline, Mount Fuji lower wooded slopes, ordinary Tokyo railway street. Egypt: dry plateau and connected Nile-side irrigated farmland with ordinary homes. Brazil: Amazon waterway with rainforest and ordinary Rio coastline framed by forested hills; omit Christ statue. Small background adults wear ordinary contemporary clothing and are never cultural symbols.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Simplified world locator map with dots for Japan, Egypt and Brazil; Japan island coastline, wooded Mount Fuji slopes, ordinary Tokyo train; Egypt desert and Nile river fields; Brazil Amazon waterway and Rio coastal city\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and development stage required below.\nPage 6. Printed prose (NOT text to put in art): The Nile River crosses that dry land. Along its banks, water helps crops grow beside homes and roads.\nRequired illustration: Oblique daylight view of Nile in Egypt with a green cultivated strip along both riverbanks, ordinary low-rise homes and road beside fields, and tan dry plateau beyond. Irrigation channel connects river toward fields. No monuments or costume figures.\nExact current state: Second Egypt view explains and contrasts the watered river edge with dry surroundings.\nDo not add later events, duplicate props or a separate inset. No written title; the app renders live text.\nFINAL QUALITY LOCK: Render 1536 by 1024 pixels, clean landscape 3:2. This is the finished page, not a reference sheet. Keep all essential subjects fully framed with 8 percent margin. Use plain ordinary clothes and exactly the subjects specified in this page. Do not transfer extraneous reference animals, poses or props into the picture. No national symbols, logos or written marks. Geography accuracy: the reference is an identity/style aid, not an authority for map locations or permission to add animals. No crane, camel, jaguar or any other animal anywhere in this book. No national, ethnic, religious or political symbols.",
   "references": [
     {
-      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-2d82b80d-4580-47e8-93e0-2514c7ffec9b.png",
-      "sha256": "36f0ea5457f818337a3ed7a4bc7b2218a09348261614e401e1491b704c4b267b"
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/e-22-reference.webp",
+      "sha256": "83582d8397835477531f768217b2f65fe5a1ab830c18b2b2b0c9172984c06dd1"
     }
   ],
   "manuscriptSource": {
-    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
-    "sha256": "2aff8b9432244a41072eb7c7376c77e21594d83a655dfa83d99e44c528e86755",
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/discovery-topic-revision/manuscripts",
+    "sha256": "10f17301c0b54d74f0667c993770e82a84c710618d5e3fa02c5648e46692e76e",
     "isolated": true,
     "firstNumber": 21,
     "lastNumber": 30,
     "topicProfile": "nonfiction-discovery"
   },
   "visualReview": {
-    "sha256": "13b928ce54bae85b2653e34f31a6f07198f6d83d392f3ce30b42adc512cf9d0d",
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-09T12:18:46.633Z",
-    "note": "Direct native inspection: two schematic clusters use comparable house and road scales; Reading visibly spans much larger footprint than Wells, exact correct labels. Both entire clusters now around14%+ outer margins and text19% above bottom. No exact boundary/population or universal threshold implied."
+    "reviewedAt": "2026-11-10",
+    "sha256": "0da16c65e7747ffb9a237a42be3bf116765601bb094094bd386cf693ee6dd724",
+    "note": "Nile has green cultivated strips on both banks, low homes, separate road, connecting irrigation channel and dry tan plateau beyond. Ordinary adults stay on road. No monuments or costume. Producer independently inspected the final installed WebP natively; complete final sequence and relevant native diagrams were independently reviewed."
   },
   "reviewedManuscriptSource": {
     "bookId": "world-discovery-e-22",
     "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
-    "sha256": "2aff8b9432244a41072eb7c7376c77e21594d83a655dfa83d99e44c528e86755",
-    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
+    "sha256": "d3b67d6c70cda202a99594710f903a9dc9ec37110031b15daf30f7eb0b2fb747",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json"
   }
 }

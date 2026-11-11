@@ -1,3 +1,4 @@
+import { currentGuidedReadingRecord, getCurrentGuidedReadingRecord } from "../utils/guidedReading/editions.js";
 // Child library presentation follows the Reporting Bible and child surface rules.
 // The recommender owns teacher suitability; this module owns truthful saved
 // continuation, permitted cover sources and one paged shelf. Levels remain
@@ -108,6 +109,7 @@ export function bookCoverSrc(book = {}, isDeleted = () => false) {
  * page visit supplies it; the furthest page is only a legacy fallback.
  */
 export function bookReadingProgress(book = {}, record = {}) {
+  record = currentGuidedReadingRecord(book, record);
   const totalPages = (book?.pages || []).length || Number(record?.totalPages) || 0;
   const completedPages = Math.min(
     totalPages || Number.MAX_SAFE_INTEGER,
@@ -158,9 +160,9 @@ function readTime(record = {}) {
  */
 export function pickContinueBook({ books = [], records = {} } = {}) {
   const open = books
-    .map(book => ({ book, progress: bookReadingProgress(book, records[book.id] || {}) }))
+    .map(book => ({ book, progress: bookReadingProgress(book, getCurrentGuidedReadingRecord(book, records)) }))
     .filter(row => row.progress.started && !row.progress.completed)
-    .sort((a, b) => readTime(records[b.book.id] || {}) - readTime(records[a.book.id] || {}));
+    .sort((a, b) => readTime(getCurrentGuidedReadingRecord(b.book, records)) - readTime(getCurrentGuidedReadingRecord(a.book, records)));
   return open[0] || null;
 }
 
@@ -188,8 +190,8 @@ export function buildBookShelves({
     || String(a.title || "").localeCompare(String(b.title || ""));
   let pool = books.filter(book => book.id !== excludeBookId);
   if (mode === "read-again") {
-    pool = pool.filter(book => bookReadingProgress(book, records[book.id] || {}).completed)
-      .sort((a, b) => readTime(records[b.id]) - readTime(records[a.id]));
+    pool = pool.filter(book => bookReadingProgress(book, getCurrentGuidedReadingRecord(book, records)).completed)
+      .sort((a, b) => readTime(getCurrentGuidedReadingRecord(b, records)) - readTime(getCurrentGuidedReadingRecord(a, records)));
   } else {
     if (mode === "for-you") pool = pool.filter(book => matchesPublicBookLevel(book, level));
     if (mode === "together") pool = pool.filter(book => book.readingBandProfile === "extended"
@@ -204,7 +206,7 @@ export function buildBookShelves({
     id: "books", title,
     note: mode === "together" ? "Listen and read with a grown-up" : mode === "read-again" ? "Books you finished" : "Read a book",
     page: justRightPage, step: slots, total: pool.length, hasMore: pool.length > slots,
-    books: windowBooks(pool, justRightPage, slots).map(book => ({ book, progress: bookReadingProgress(book, records[book.id] || {}) }))
+    books: windowBooks(pool, justRightPage, slots).map(book => ({ book, progress: bookReadingProgress(book, getCurrentGuidedReadingRecord(book, records)) }))
   }];
 }
 

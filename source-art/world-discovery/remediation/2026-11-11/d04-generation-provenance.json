@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "authorization": "Owner requested library suitability audit and correction of ambiguous D04 child grounding; parent selected exact built-in image tool outputs. No new narration.",
+  "recordedAt": "2026-11-11",
+  "tool": "image_gen.imagegen",
+  "transparent_background": false,
+  "generations": [
+    {
+      "page": 7,
+      "selected": true,
+      "source": "/Users/benjaminbowler/.codex/generated_images/01a1c3ed-c928-70e2-a423-68d0aaffd69c/exec-eca106fb-d487-4afd-8cec-7a1c2e1ffa2b.png",
+      "referenced_image_paths": [
+        "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/d-04/page-07.webp"
+      ],
+      "prompt": "Repair the supplied page illustration for The Bag of Wind, preserving the exact established two children, clothing and colors, blue zip pouch, red diamond kite with black spars and white tail/string, low apple tree, garden wall and clean bold outlined flat-color cartoon style. The sole major correction is unmistakable safe spatial framing: Zoe, the girl with dark skin, two dark hair puffs, yellow shirt and pink overalls, must be STANDING ON THE GRASS beside the left/back side of a LOW tree, with her COMPLETE body, two legs and both shoes visibly planted on grass left of the trunk. Her torso and head must not appear perched in the fork or emerging from the trunk. Lower the tree fork to the children's chest height and put Zoe beside it, not behind its trunk. She holds the same blue pouch with both normal hands and aims its zipper corner horizontally through an open gap behind the wedged red kite. Only a tiny white puff escapes that little opening. The kite remains caught by one small twig in this frame, not flying free. Kit, the black-haired boy in teal T-shirt and yellow shorts, stands on grass on the right ready to catch the kite; his two shoes and normal arms/hands are clear. Keep both children the same established height, perspective coherent, all essential bodies and props safely in frame, no text or added characters. The point of the story is walking around the tree and using a small sideways puff, not climbing. Show one coherent moment from a slightly wide view, full landscape composition, clean flat colors and crisp outlines everywhere, no painterly texture.",
+      "originalToolOutput": "/Users/benjaminbowler/.codex/generated_images/01a1c3ed-c928-70e2-a423-68d0aaffd69c/exec-eca106fb-d487-4afd-8cec-7a1c2e1ffa2b.png",
+      "sourceSha256": "e0005e8b63f03a3866179d7c9038ffa053c97f922f4c5510c567db25dbad22c4",
+      "preservedSource": "source-art/world-discovery/remediation/2026-11-11/d04-generation-inputs/page-07-selected.png",
+      "references": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/d-04/page-07.webp",
+          "sha256": "72b842a46eecb9dbde52933ce74d1ea0c6433df3402fae9922ed8af2ced98c76",
+          "preservedPath": "source-art/world-discovery/remediation/2026-11-11/d04-generation-inputs/page-07-previous.webp"
+        }
+      ]
+    },
+    {
+      "page": 8,
+      "selected": false,
+      "rejection": "Unexpected printed caption band; selected correction below removes it.",
+      "source": "/Users/benjaminbowler/.codex/generated_images/01a1c3ed-c928-70e2-a423-68d0aaffd69c/exec-ee11ad09-4ceb-4f9b-96b9-f9945c5b6eca.png",
+      "referenced_image_paths": [
+        "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/d-04/page-08.webp",
+        "/Users/benjaminbowler/.codex/generated_images/01a1c3ed-c928-70e2-a423-68d0aaffd69c/exec-eca106fb-d487-4afd-8cec-7a1c2e1ffa2b.png"
+      ],
+      "prompt": "Edit target image1, page8 of The Bag of Wind. Reference image2 is the immediately previous repaired page7 and controls the low tree geometry and Zoe's grounded complete body. Preserve the same children/model/clothes, garden/wall/lowappletree, red kite and blue zip pouch, camera and bold clean flat-color outlined cartoon finish. Place Zoe fully visible standing on the GRASS LEFT of the trunk exactly as image2: two hair puffs, yellow T-shirt, magenta/pink overalls, two pink shoes visibly on grass, no climbing, no body emerging from the tree fork or hidden behind the trunk. She holds the blue pouch in both hands and releases a second small white puff horizontally through the clear gap. For this next story moment, ONE corner of the red kite has lifted free of its snag and the kite tilts/slides gently toward Kit at right, but it has not yet reached his hands. Kit stands on grass with both blue shoes visible, leaning forward with two normal open hands ready to catch. Retain one white kite tail and one slack white string leading to one spool on the lawn. No additional kite, duplicated body parts, writing, arrows or symbols. Keep the complete children, all hands, shoes, bag and kite comfortably in the landscape frame. The exact text is: A little puff lifts one kite corner. Kit holds out his hands as Zoe lets a second puff escape.",
+      "originalToolOutput": "/Users/benjaminbowler/.codex/generated_images/01a1c3ed-c928-70e2-a423-68d0aaffd69c/exec-ee11ad09-4ceb-4f9b-96b9-f9945c5b6eca.png",
+      "sourceSha256": "ab824efc3dbac0c625466663d1f6f50cf050582735f8e7d60acd472f8b7fc6f9",
+      "preservedSource": "source-art/world-discovery/remediation/2026-11-11/d04-generation-inputs/page-08-caption-rejected.png",
+      "references": [
+        {
+          "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/d-04/page-08.webp",
+          "sha256": "58eb80ece8a79eb257ec8cba40dc23894c8c0508e4e26e6b40788b437648af41",
+          "preservedPath": "source-art/world-discovery/remediation/2026-11-11/d04-generation-inputs/page-08-previous.webp"
+        },
+        {
+          "path": "/Users/benjaminbowler/.codex/generated_images/01a1c3ed-c928-70e2-a423-68d0aaffd69c/exec-eca106fb-d487-4afd-8cec-7a1c2e1ffa2b.png",
+          "sha256": "e0005e8b63f03a3866179d7c9038ffa053c97f922f4c5510c567db25dbad22c4"
+        }
+      ]
+    },
+    {
+      "page": 8,
+      "selected": true,
+      "source": "/Users/benjaminbowler/.codex/generated_images/01a1c3ed-c928-70e2-a423-68d0aaffd69c/exec-82ab6b7f-0e70-4db8-85eb-a73b1a03df1d.png",
+      "referenced_image_paths": [
+        "/Users/benjaminbowler/.codex/generated_images/01a1c3ed-c928-70e2-a423-68d0aaffd69c/exec-ee11ad09-4ceb-4f9b-96b9-f9945c5b6eca.png"
+      ],
+      "prompt": "Edit this illustration with one correction only. Remove the entire white caption band and ALL printed sentence lettering along the bottom. Extend the existing green grass seamlessly to the bottom edge so the full landscape canvas is only the picture, with NO text anywhere, NO white caption band and NO new labels. Preserve every other detail exactly: two children standing on grass with visible shoes, low apple tree, blue pouch with tiny horizontal puff, tilted red kite freeing from fork toward boy's open hands, white tail/string and single spool, background wall, crisp outlined flat-color cartoon style. Keep the existing positions/proportions and canvas dimensions. Do not write or reproduce any caption, title, explanation or watermark.",
+      "originalToolOutput": "/Users/benjaminbowler/.codex/generated_images/01a1c3ed-c928-70e2-a423-68d0aaffd69c/exec-82ab6b7f-0e70-4db8-85eb-a73b1a03df1d.png",
+      "sourceSha256": "e4ec986825f93e4742377084bc531e61a0252a6b3b75dec726c4a88024705c73",
+      "preservedSource": "source-art/world-discovery/remediation/2026-11-11/d04-generation-inputs/page-08-selected.png",
+      "references": [
+        {
+          "path": "/Users/benjaminbowler/.codex/generated_images/01a1c3ed-c928-70e2-a423-68d0aaffd69c/exec-ee11ad09-4ceb-4f9b-96b9-f9945c5b6eca.png",
+          "sha256": "ab824efc3dbac0c625466663d1f6f50cf050582735f8e7d60acd472f8b7fc6f9"
+        }
+      ]
+    }
+  ]
+}

@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import fs from "node:fs";
 import { fileURLToPath } from "node:url";
-import { readWorldDiscoveryMaintenanceAudio, validateWorldDiscoveryMaintenancePaths, prepareWorldDiscoveryMaintenanceWrites, requireWorldDiscoveryMaintenanceBaselinePreserved } from "../../tools/worldDiscoveryMaintenanceLib.mjs";
+import { readWorldDiscoveryMaintenanceAudio, validateWorldDiscoveryMaintenancePaths, prepareWorldDiscoveryMaintenanceWrites, requireWorldDiscoveryMaintenanceBaselinePreserved, requireWorldDiscoveryMaintenanceCardReview } from "../../tools/worldDiscoveryMaintenanceLib.mjs";
 import { repairWorldDiscoveryCohorts } from "../../tools/repairWorldDiscoveryCohorts.mjs";
 const hash = value => createHash("sha256").update(value).digest("hex");
 function example(change = () => {}) {
@@ -33,6 +33,18 @@ test("maintenance rejects changed baseline or historical receipt bytes", () => {
   const x = example();
   assert.throws(() => readWorldDiscoveryMaintenanceAudio({ ...x.cohort, maintenanceBaseline: { ...x.cohort.maintenanceBaseline, sha256: "0".repeat(64) } }, x), /baseline bytes changed/);
   assert.throws(() => readWorldDiscoveryMaintenanceAudio(x.cohort, { read: file => file.endsWith("before.json") ? x.bytes : Buffer.from("{}") }), /Historical World Discovery evidence changed/);
+});
+test("cover repairs use new dated cohort card evidence without repinning history", () => {
+  const current = { id: "21-30", cardReview: "source-art/world-discovery/cohorts/21-30/card-cover-review.json" };
+  assert.doesNotThrow(() => requireWorldDiscoveryMaintenanceCardReview(current, current));
+  assert.doesNotThrow(() => requireWorldDiscoveryMaintenanceCardReview(current, { ...current,
+    cardReview: "source-art/world-discovery/remediation/2026-11-10/21-30-topic-revision-card-cover-review.json" }));
+  for (const cardReview of [
+    "source-art/world-discovery/cohorts/21-30/replacement-card-cover-review.json",
+    "source-art/world-discovery/remediation/2026-11-10/11-20-topic-revision-card-cover-review.json",
+    "source-art/world-discovery/remediation/2026-11-10/21-30-../../replacement-card-cover-review.json",
+    "source-art/world-discovery/remediation/2026-11-10/21-30-unreviewed.json"
+  ]) assert.throws(() => requireWorldDiscoveryMaintenanceCardReview(current, { ...current, cardReview }));
 });
 test("later repairs cannot repin or relocate their registered historical audio baseline", () => {
   const { cohort } = example();

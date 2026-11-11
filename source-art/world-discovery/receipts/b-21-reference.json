@@ -2,18 +2,18 @@
   "bookId": "world-discovery-b-21",
   "slot": "reference",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-09T04:57:17.339Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-227ebacc-4ac1-41e3-ae2e-e63d2d372a36.png",
-  "sourceSha256": "43e0070eb5f57df946bd49d16f7a4dd314508b9bc9e33f7d291169729bec2ec4",
+  "generatedAt": "2026-11-10T05:42:33.590Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1c3ed-c928-70e2-a423-68d0aaffd69c/exec-aed99b95-ebf6-4c9d-88a9-e9f5b4843b14.png",
+  "sourceSha256": "cd303688a53712287c6f2f32506ecb5d376441ba44030113ffb20fa319bab1fd",
   "output": "source-art/world-discovery/b-21-reference.webp",
-  "outputSha256": "7855ef43e8e33eeeed6375214c4aa318ef90c9ff4f2c415843cfbdb563694042",
-  "width": 1672,
-  "height": 941,
-  "prompt": "Use case: illustration-story. PRODUCTION REFERENCE SHEET, landscape, not a finished book page. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: A Train for Heavy Loads; World Discovery; nonfiction.\nSetting: A short contemporary freight journey between two warehouses. No public access to tracks. Unbranded blue diesel-electric locomotive, followed by red, yellow and green enclosed boxcars in that fixed order. Adult railway workers have orange safety vests, blue trousers and hard hats.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): One blue locomotive; Exactly three boxcars in red/yellow/green order; Gray steel couplers between all vehicles; Wooden crates secured inside the cars; One continuous pair of rails\n Create a clean separated reference board on white: show the principal recurring props/animals in front, side and three-quarter views, their relative scale beside any named human cast, and a single simple location key showing the persistent setting and daylight/palette. The human character model sheet is a supporting identity reference, not content to copy wholesale. Show only the subjects this book requires. Use initial object states: Three loaded cars; doors open; locomotive not moving.. For orientation, the opening location/action is: Warehouse loading bay. Three open boxcars contain securely stacked wooden crates; fixed red/yellow/green order. Blue locomotive waits ahead.. Do not show a completed craft or later scene merely because the finished object is listed in design locks. No future story events, no captions. Reference-sheet override: any lettering requested by the opening page brief belongs only in that finished page. Keep this production reference board entirely unlabelled; no letters, numbers or pseudo-writing.\nFinish requirement: all fills are perfectly smooth, clean, flat vector-like color. Absolutely no paper grain, stipple, speckles, mottled paint, fuzzy edges or surface noise anywhere, including backgrounds. Clear crisp outlines and only a few flat cel-shadow shapes. Do not imitate texture from any supporting reference.",
+  "outputSha256": "7db119f20aa1a9ea4d31c6afe2936a22afb8809a8e7b6971e59fa9a04a85af67",
+  "width": 1536,
+  "height": 1024,
+  "prompt": "Use case: illustration-story. PRODUCTION REFERENCE SHEET, landscape, not a finished book page. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: People Power; World Discovery; nonfiction.\nSetting: Three factual adult demonstrations: a level traffic-free park cycle path, a quiet enclosed ice rink, and a calm lake. Cyclist: medium-brown skin, short straight black hair under a plain yellow helmet, teal jacket, navy pants, white shoes; red upright chain-driven bicycle. Skater: light-brown skin, short curly dark hair, blue helmet, orange jacket, dark-green pants, black ice skates with one metal blade each. Rower: deep-brown skin, close-cropped black hair, purple shirt, navy pants and orange life jacket; green broad stable rowboat with two tan oars pivoted in the gunwales. No motors, races, steep slopes, roads, cultural costumes, flags or logos.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): Red pedal bicycle with two wheels, visible chain and rear sprocket; Black ice skates with single silver blades, not wheels; Green rowboat with bow pointing right, rower facing left, two tan pivoted oars; Cyclist/skater helmets and rower life jacket retained in every view\n Create a clean separated reference board on white: show the principal recurring props/animals in front, side and three-quarter views, their relative scale beside any named human cast, and a single simple location key showing the persistent setting and daylight/palette. The human character model sheet is a supporting identity reference, not content to copy wholesale. Show only the subjects this book requires. Use initial object states: Opening comparison; three separate surfaces; all three are powered by people.. For orientation, the opening location/action is: Three-part comparison diagram: cyclist rides red bicycle to the right on a park path; skater glides to the right on ice; rower faces left in green boat moving bow-first to the right on water. Each person and vehicle complete and distinct. No arrows.. Do not show a completed craft or later scene merely because the finished object is listed in design locks. No future story events, no captions. Reference-sheet override: any lettering requested by the opening page brief belongs only in that finished page. Keep this production reference board entirely unlabelled; no letters, numbers or pseudo-writing.",
   "references": [],
   "manuscriptSource": {
-    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
-    "sha256": "e2840abe2bce545cbddeb0319fa0aade90784202e01e047d8bcd74ba38ddbcbb",
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/discovery-topic-revision/manuscripts",
+    "sha256": "790ccfb000c5a7286216b9ebcfd42c3f0b6779fed339fbc569cddf6ee58d3e09",
     "isolated": true,
     "firstNumber": 21,
     "lastNumber": 30,
@@ -21,15 +21,14 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-09T04:57:52.643859+00:00",
-    "sha256": "7855ef43e8e33eeeed6375214c4aa318ef90c9ff4f2c415843cfbdb563694042",
-    "note": "Directly inspected native source and installed WebP. Blue diesel locomotive, red/yellow/green boxcars, open loaded starting state, connected couplers, steel wheelsets on rails and consistent worker clothing are clear. Clean outlined cartoon shapes, no labels or logos. Turnarounds are reference views only; final page coupler/brake-hose geometry and freight-door state still require exact scene review.",
-    "limits": "Reference design inspection; no final page, app layout, or human-listening claim."
+    "reviewedAt": "2026-11-10",
+    "sha256": "7db119f20aa1a9ea4d31c6afe2936a22afb8809a8e7b6971e59fa9a04a85af67",
+    "note": "Three adult identities, safety gear and all three vehicles are locked consistently. The red bicycle has a chain and two road wheels; black ice skates have single steel blades; green rowboat has two pivoted oars. Multi-view reference is a production reference, not a reader page. Producer independently inspected the final installed WebP natively; complete final sequence and relevant native diagrams were independently reviewed."
   },
   "reviewedManuscriptSource": {
     "bookId": "world-discovery-b-21",
     "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
-    "sha256": "6d40120e98f2ff48a5cf89a9eb34eb073cdc2b64b8c7787eb0d4ca5f64455114",
-    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
+    "sha256": "664f916d1379302ae82b7a5dbf774413f4378508f9326855afd22b7b7086bbfc",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json"
   }
 }

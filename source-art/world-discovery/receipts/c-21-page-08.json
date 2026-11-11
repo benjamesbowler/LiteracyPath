@@ -2,27 +2,23 @@
   "bookId": "world-discovery-c-21",
   "slot": "page-08",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-09T13:01:53.993Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be69-c0c0-7751-9223-33b03526ec5b/exec-f840df2f-fe48-4fa8-b00d-80a839ea57c8.png",
-  "sourceSha256": "daac11edf5b174c49f09c2e29585c3dd9e09e724aa696eda94253a247cd7405a",
+  "generatedAt": "2026-11-10T06:07:33.526Z",
+  "source": "/Users/benjaminbowler/.codex/generated_images/01a1c3ef-11ed-7331-8274-1234bc3e482f/exec-7b6c4017-96a2-4787-acba-40e5d0b83c7a.png",
+  "sourceSha256": "e7470a4c4e6f1604f702b2010fc45b541612de7de453cb21491c9c729ca0238b",
   "output": "public/guided-reading/world-discovery/c-21/page-08.webp",
-  "outputSha256": "096b555197bf9bf907e4ae5352e578b2a230db71c3ce503b8ef31bb28d2200b1",
+  "outputSha256": "8e62267b455178370a96a9088b02c5674f3ebacaeab73e0c138e85aeb4204736",
   "width": 1536,
   "height": 1024,
-  "prompt": "Edit ONLY the distant background airport scene of the FIRST reference image. The SECOND reference only locks the established cast and props; keep their original relative scale. Kit and Zoe are equal height when both appear. REMOVE the entire passenger jet bridge/boarding tunnel that falsely meets the plane tail, replacing that structure with matching clear apron/terminal background. Keep the white airplane itself, its teal tail and nose-left orientation unchanged. Keep every foreground person, face, hand, blue luggage with orange stripe, handle, white tag, conveyor and all other foreground details exactly unchanged. Do not add a new bridge or doorway. Full-bleed smooth flat colors/crisp lines/no grain, same3:2 landscape.",
+  "prompt": "Use case: illustration-story. One finished landscape 3:2 full-bleed picture-book illustration, one explanatory comparison diagram. Allow only the distinct views, stages or comparison panels explicitly authored in this page's illustration brief, with their exact relationships and counts. No unrequested panels, insets, annotations or contact sheet. Bold clean clear 2D children's cartoon throughout, crisp continuous dark outlines, flat clean colors, restrained smooth cel shading, no painted or grainy texture, no gouache, no embossed relief, no 3D. Original friendly readable illustration. Ordinary neutral settings; no flags, religious/political symbols or costumes. No logos, text, letters, numbers, pseudo-writing, captions, watermarks or page borders. Natural anatomy and coherent hand/prop contact. Essential content at least 8 percent inside every edge.\n No named child cast: Kit and Zoe MUST NOT appear. Include unnamed human workers/adults ONLY when explicitly required by this particular scene; otherwise show only the natural subjects. Preserve exact reference identity and clothing.\nBook: Vehicles That Fly; World Discovery; nonfiction.\nSetting: Factual daylight aircraft views with no recurring children. Plane: plain white twin-engine passenger jet with teal tail, fixed wings and both engine nacelles under wings. Helicopter: orange civilian craft with a four-blade main rotor, enclosed cabin, tail rotor and two skids. Balloon: broad yellow fabric envelope with three blue vertical panels, dark burner frame, tan basket and one adult pilot wearing a plain gray jacket. Keep aircraft types distinct; safe separated flight areas; no flags, brands or military details.\nDesign locks for the book's recurring subjects/props (NOT a visibility list; never insert later objects/states prematurely): White passenger jet with teal tail; Orange four-blade helicopter; Yellow-and-blue hot-air balloon with burner and tan basket\n Input references lock identity, prop design and location; compose a NEW image for the exact scene, never reproduce the reference-board layout. The reference and overall prop list may contain finished objects and later story events: these are DESIGN REFERENCES ONLY, not permission to show them now. Show only the people, objects and specific stages explicitly required below; the declared diagram permits no other scenes or story events.\nPage 8. Printed prose (NOT text to put in art): Wings lift planes and helicopters. Warm air helps lift a hot-air balloon. Different shapes use the air in different ways.\nRequired illustration: Closing three-part comparison diagram with a large fixed plane wing at left, a helicopter main rotor above complete small helicopter at center, and a full balloon at right with contained flame at mouth. Each aircraft complete; do not combine parts into one imaginary machine. No arrows or labels.\nExact current state: Synthesis returns to three distinct structures and their interaction with air.\nDo not add events or stages beyond the authored diagram. Repeat a subject only when the authored comparison or cutaway requires it. No written title; the app renders live text.\nFraming clarification: Keep every entire aircraft/car and its required teaching parts completely within the inner 84 percent of the canvas, leaving at least 8 percent clear background margin on ALL sides. Nothing essential touches or approaches the picture edge.",
   "references": [
     {
-      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/public/guided-reading/world-discovery/c-21/page-08.webp",
-      "sha256": "95c6aeecc144cf32d4294dba3f1d387d1c083f534a3d184e7dd3c78d958dd0ad"
-    },
-    {
-      "path": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/source-art/world-discovery/c-21-reference.webp",
-      "sha256": "7b43aa2de357cf3abba0e67409cbcec8f0ad0a190ad2eac801aaa542875d9e54"
+      "path": "/Users/benjaminbowler/Projects/LiteracyPath/source-art/world-discovery/c-21-reference.webp",
+      "sha256": "038b76328ab4972cd0b5f6bc4d7d43d3baf0ba956735770c11eadc4cd918f3d1"
     }
   ],
   "manuscriptSource": {
-    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
-    "sha256": "adafabd724e58b7f6c3e03af760b56ae0cdebf5dbdc7ec8e6a3d11c2e19a0ce2",
+    "directory": "/Users/benjaminbowler/Projects/LiteracyPath/.artifacts/discovery-topic-revision/manuscripts",
+    "sha256": "5c87ee01b5617d2edff1107560ad70a54b675e564510c21acde971003db71f22",
     "isolated": true,
     "firstNumber": 21,
     "lastNumber": 30,
@@ -30,15 +26,14 @@
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-09T13:02:36.803779+00:00",
-    "sha256": "096b555197bf9bf907e4ae5352e578b2a230db71c3ce503b8ef31bb28d2200b1",
-    "note": "Native replacement and actual installed WebP directly viewed. Distant tail-connected jet bridge removed; clear aircraft and apron. Kit grips side handle, adult grips top handle of same tagged blue bag with orange stripe; natural hands and safe margins retained.",
-    "limits": "Independent sequence and reader review follow separately."
+    "reviewedAt": "2026-11-10",
+    "sha256": "8e62267b455178370a96a9088b02c5674f3ebacaeab73e0c138e85aeb4204736",
+    "note": "Ending gathers fixed wing, spinning wing and heated balloon differences in distinct complete aircraft. Producer independently inspected the final installed WebP natively; complete final sequence and relevant native diagrams were independently reviewed."
   },
   "reviewedManuscriptSource": {
     "bookId": "world-discovery-c-21",
     "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
-    "sha256": "d35c2646e023daa2322256d158452fa66e0c07c88e5e0aee3f35253a6d6154d0",
-    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
+    "sha256": "64fc91f6c01ea97064c24b464d0add6b505a38d410f33adf22efff79ac2710a6",
+    "evidence": "source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json"
   }
 }
