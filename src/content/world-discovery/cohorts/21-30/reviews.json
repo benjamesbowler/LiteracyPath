@@ -4264,153 +4264,177 @@
     }
   },
   "world-discovery-e-21": {
-    "title": "Transport Through Time",
-    "sourceCandidateLevel": "E",
     "appReadingLevel": "E",
-    "levelSystem": "literacy-guide-a-h-v1",
-    "reviewedAt": "2026-11-10",
+    "rationale": "Proposed public E: a sustained connected explanation shifts from past-tense examples to present systems and then conditional future possibilities. The reader links the same power-and-carrying inquiry across land, water and air; contrasts wires with stored battery energy and earlier muscle/wind; and interprets testing, must and could without treating a prototype as an inevitable future. Sentences remain short and explicit, with matched diagrams and oral preparation, so this is lower E rather than F. It is broader and more temporally integrated than D Gasoline and Electric Cars, while carrying fewer interacting forces and technical relations than E How Wings Lift a Plane. Production slot E is preserved independently of this fresh exact-text review.",
+    "reviewedAt": "2026-11-11",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:480212568e457313",
-    "reviewedTextHash": "sha256:97505c9dc052a0087abefb09ca2930451dd2bb08b4f0f7e356e4ba6417b7059b",
-    "manuscriptReviewStatus": "complete",
-    "reviewScope": "complete-book-editorial-and-media-review",
-    "rationale": "A sustained historical comparison changes time periods, power sources, carrying possibilities and ordinary travel speed, then qualifies the fastest-vehicle assumption using airport access/waiting. Past-tense history and present-tense comparison are explicitly bridged. This is a lower-E connected explanation: more temporal and cross-example integration than the D Container journey, while simpler than the arithmetic and changing-wait conditions of E Choose a Ride.",
+    "independentReviewer": "/root/transport_editor",
+    "independentReviewEvidence": {
+      "path": ".artifacts/transport-repair/editor-page7-this-approval.json",
+      "sha256": "d4a5ee08fde71d7a9f83fb1c912be86258f36e44a7384c4303b3401c33d5abb5",
+      "originalCompleteTextReview": {
+        "path": ".artifacts/transport-repair/editor-proposal.json",
+        "sha256": "4e60ed0067312d92bebaf115fe07445fc5cccff7717691a407f921c49d943652"
+      }
+    },
+    "reviewedTextFingerprint": "fnv1a64:ce203d3c00c38463",
     "dimensionObservations": {
-      "syntax": "Ten pages with temporal openings, subordinate/contrast clauses, comparatives and a past-to-present shift. Maximum 21 words per page; sentence lengths vary rather than repeating a single frame.",
-      "vocabulary": "Motor vehicles, horse-drawn cart, goods, steam engines, tracks, inventions, jets, stations, airport and journeys. Terms sit beside their transport function rather than an unexplained date list.",
-      "knowledge": "Successive inventions changed available choices and typical capabilities, but older forms continue. No claim says every person or place changed at the same time.",
-      "progression": "Walking/animal/boat travel leads to horse carts, steam rail, cars, flight and modern rail; the last comparison considers whole-journey time, then returns to coexistence.",
-      "inference": "Moderate. Readers retain differences across periods and revise speed-only comparison when access/waiting is introduced. The text supports that inference with explicit examples."
+      "syntax": "Ten short connected pages, each18–22words, using past/present tense, relative clauses, comparative could, and before/when conditions. Paired sentences stay explicit.",
+      "vocabulary": "Concrete vehicle nouns plus power, steam, propeller, battery, sensor and engineer receive pictured action or oral preparation. The technical terms are serving comparisons rather than inflating the level.",
+      "knowledge": "The same power-to-movement idea is supported across road, rail, water and air. Present electricity is compared with earlier muscle, wind and engines.",
+      "progression": "Past foundations1–2, engine applications3–5, present electric power6–7, supervised future-facing tests8–9, and comparison synthesis10.",
+      "inference": "The reader must integrate what changes and what remains common across periods, and distinguish possible wider future use from already-available designs. Most local cause is explicit, not hidden.",
+      "calibration": "Directly reread current D Gasoline and Electric Cars, D A Bridge Holds the Load, E When the Ground Shakes and E How Wings Lift a Plane. Proposed text has broader temporal integration than the Ds but lower within-page mechanism density than the latter Es."
     },
-    "metrics": {
-      "metricVersion": "1",
-      "pageCount": 10,
-      "wordCount": 190,
-      "uniqueWordCount": 122,
-      "uniqueWordRatio": 0.64,
-      "averageWordLength": 4.83,
-      "averageWordsPerPage": 19,
-      "minWordsPerPage": 17,
-      "maxWordsPerPage": 21,
-      "sentenceUnitCount": 19,
-      "averageWordsPerSentence": 10,
-      "maxWordsPerSentence": 18,
-      "repeatedSentenceUnitCount": 0,
-      "dominantTwoWordPageOpeningRatio": 0.1,
-      "dialoguePageCount": 0,
-      "questionPageCount": 1,
-      "illustratedPageCount": 0,
-      "independentlyDescribedPageCount": 10
-    },
-    "comparisons": [
-      {
-        "id": "world-discovery-d-21",
-        "title": "A Container's Journey",
-        "currentPublicLevel": "D",
-        "reviewedTextFingerprint": "fnv1a64:3dde59ce1f22685b"
-      },
-      {
-        "id": "world-discovery-e-21",
-        "title": "How Do We Choose a Ride?",
-        "currentPublicLevel": "E",
-        "reviewedTextFingerprint": "fnv1a64:8536590032aff0ef"
-      },
-      {
-        "id": "world-discovery-e-22",
-        "title": "City, Town or Village?",
-        "currentPublicLevel": "E",
-        "reviewedTextFingerprint": "fnv1a64:4a37c6e06f0dc7f2"
-      }
-    ],
-    "editorialScorecard": {
-      "authority": "docs/content/STORY_BIBLE_PART_1_WRITING.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-10",
-      "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:480212568e457313",
-      "categories": {
-        "character": {
-          "score": 4,
-          "evidence": "Horse care, fuel-heated steam, rail capacity, jet flight and airport waiting make the transport history particular rather than a list of named vehicles."
-        },
-        "goal": {
-          "score": 4,
-          "evidence": "How did new inventions change their journeys? links the historical examples to effects on travel from the opening."
-        },
-        "causality": {
-          "score": 4,
-          "evidence": "Power sources, capacity and typical speed explain changes; airport access/waiting adds a supported limit to judging by vehicle speed alone."
-        },
-        "obstacle": {
-          "score": 4,
-          "evidence": "The fastest-vehicle/whole-journey distinction introduces a meaningful qualification after the historical progression."
-        },
-        "agency": {
-          "score": 3,
-          "evidence": "Each invention adds a different capability before the final comparison; anticipation is conceptual rather than dramatic."
-        },
-        "ending": {
-          "score": 4,
-          "evidence": "The closing coexistence of walking, cycling, rowing and animal transport with motor vehicles prevents a misleading total-replacement ending."
-        },
-        "language": {
-          "score": 4,
-          "evidence": "Explicit temporal transitions support the past/present shifts and sustained comparison at lower E; the book earns its band through relationships, not dates or length alone."
-        },
-        "voice": {
-          "score": 3,
-          "evidence": "Concrete human journey details and varied transitions read naturally, with a useful direct comparison invitation."
-        },
-        "delight": {
-          "score": 3,
-          "evidence": "Recognizing familiar present-day travel inside a longer history and questioning speed-only choice offers worthwhile rereading; no classroom finding is claimed."
-        },
-        "canon": {
-          "score": 4,
-          "evidence": "The full production reference, cover and ordered page sequence were inspected; identities, recurring subjects and relevant physical mechanisms remain coherent. Exact per-image observations and hashes are in the complete-book review."
-        },
-        "illustration": {
-          "score": 4,
-          "evidence": "Every final page matches the exact concrete prose and authorized diagram state; meaningful mechanical/map/framing defects were repaired and the complete final sequence independently inspected."
-        },
-        "audio": {
-          "score": 3,
-          "evidence": "All 11 exact current title/page texts resolve to matching screened Leda clips, with full decode/signal and independent-recognition dispositions. Missing words and page-scoped clarity takes have separate exact-byte screening. Automated evidence supports current recordings; human listening and physical-device playback are not claimed."
-        }
-      },
-      "manuscriptSubtotal": 33,
-      "releaseTotal": 44,
-      "thresholdMet": true,
-      "openManuscriptDefects": [],
-      "openMediaDefects": [],
-      "mediaReviewEvidence": {
-        "completeBook": "source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json#world-discovery-e-21",
-        "automatedNarration": "source-art/world-discovery/remediation/2026-11-10/topic-revision-new-narration-review.json",
-        "automatedNarrationSha256": "30a2705085245a70b65230b1fb73b0273d0dc23256d70dc3c6156e97a390a1fa",
-        "additionalWordScreening": "source-art/world-discovery/remediation/2026-11-10/topic-revision-additional-word-review.json",
-        "additionalWordScreeningSha256": "0e1312f6c797d86b8576672450e80875aa314d6880bfeb9e30687d8643c5a45f",
-        "humanListeningObserved": false
-      }
-    },
-    "openManuscriptDefects": [],
+    "reviewScope": "complete-book-editorial-and-media-review",
+    "manuscriptReviewStatus": "complete",
     "mediaReviewStatus": {
       "visualContinuity": "direct-and-independent-sequence-reviewed",
       "imageTextMatch": "direct-and-independent-sequence-reviewed",
       "audio": "automated-exact-byte-screening-complete"
     },
     "sourceReview": {
-      "checkedAt": "2026-11-10",
-      "method": "primary-source-claim-verification-recorded-with-manuscript",
+      "checkedAt": "2026-11-11",
+      "method": "independent-primary-source-check-and-full-manuscript-editorial-review",
       "urls": [
         "https://www.eia.gov/kids/history-of-energy/timelines/transportation.php",
-        "https://blog.sciencemuseum.org.uk/top-5-things-to-see-at-the-science-museum-if-you-love-transport/",
-        "https://www.si.edu/spotlight/early-cars",
+        "https://www.ssgreatbritain.org/wp-content/uploads/2022/08/KS2-group-1.pdf",
+        "https://www.bristoldockyards.org/collection-stories/the-launch-of-the-ss-great-britain-1843",
         "https://airandspace.si.edu/jet-age",
-        "https://www.nms.ac.uk/discover-catalogue/the-worlds-first-passenger-jet-comet-4c",
-        "https://tfl.gov.uk/plan-a-journey/"
+        "https://www.networkrail.co.uk/rail-travel/delays-explained/overhead-line-equipment-failures/",
+        "https://afdc.energy.gov/vehicles/how-do-all-electric-cars-work",
+        "https://afdc.energy.gov/vehicles/electric-basics-ev",
+        "https://www.gov.uk/government/publications/battery-safety-for-e-cycle-users/battery-safety-for-e-cycle-users",
+        "https://www.richmond.gov.uk/services/roads_and_transport/vehicles/active_travel/cargo_bikes",
+        "https://www.luton.gov.uk/parking-streets-transport/travel-transport/cycling/e-cargo-bike-hire",
+        "https://www.nhtsa.gov/vehicle-safety/automated-vehicle-safety",
+        "https://www.nasa.gov/mission/eap/",
+        "https://www.nasa.gov/eap-faqs/",
+        "https://www.nasa.gov/aeronautics/nasas-solid-state-battery-research-exceeds-initial-goals-draws-interest/"
       ],
-      "assessment": "Horse-drawn carts and river boats carried people/goods before modern powered transport; steam vehicles and railways developed before widespread gasoline cars and passenger aircraft. The book gives a selected sequence, not a complete worldwide chronology or single-inventor claim. Puffing Billy dates from 1813–14; the Panhard motor car dates from 1894–95. These objects support the historical order of steam railway and early gasoline motor-car examples. Early cars used steam, gasoline and electric power. This manuscript does not suggest electric cars were invented only after modern gasoline cars. Jet engines enabled faster airliners and transformed long-distance air travel. The comparison is ordinary passenger jet cruise versus a passenger train, not a record-breaking race. The 1952 passenger jet was faster than earlier airliners. The book omits dates rather than presenting a false universal adoption date. Whole journey planning includes access and waiting as well as the riding stage. The manuscript gives no invented timetable or claim that air is always the quickest whole journey."
+      "assessment": {
+        "status": "primary-sources-opened-or-retrieved-in-this-review",
+        "checkedAt": "2026-11-11",
+        "uncertainty": "Resolved before generation: page5 now uses the source-supported larger/faster jet comparison and makes no days-versus-hours implication about propeller airliners.",
+        "recommendedPage5Alternative": "People took to the air in propeller planes. Later, passenger jets carried larger groups across oceans at higher speeds.",
+        "recommendedPage5AlternativeWords": 19,
+        "sourceBoundaries": [
+          "Historical objects/vehicles are selected reconstructions, not an exact worldwide timeline or record of every first inventor.",
+          "Some electric trains avoids false universal overhead-wire claim.",
+          "Automation and electric-aircraft capability are experimental/wider-use possibilities, not inevitable future adoption.",
+          "No lifecycle pollution, energy-efficiency, pricing, legal driving permission or maximum-speed claim is made."
+        ],
+        "rootApprovedFinalTextChanges": [
+          "Page1 Paddles→Oars to match the rowlocked-oar illustration brief.",
+          "Page5 replaced with the19word larger/faster passenger-jet comparison."
+        ]
+      }
     },
-    "releaseStatus": "editorial-media-reviewed-reader-release-gates-separate"
+    "openManuscriptDefects": [],
+    "releaseStatus": "editorial-media-reviewed-reader-release-gates-separate",
+    "textRevisionAssessment": "This points directly to the pictured blue e-bike, making the particular motor-assistance example more concrete for ESL. It preserves the same claim, sentence structure, word count and21word page pair; no plural generalization or new fact is introduced.",
+    "wordCount": 202,
+    "finalCompleteBookReview": {
+      "path": "source-art/world-discovery/remediation/2026-11-11/transport-complete-book-review.json",
+      "sha256": "f0826dba60cea6e99344f3fced6f9115c48f2f76502e4659c20a5869b5712110"
+    },
+    "editorialScorecard": {
+      "authority": "docs/content/STORY_BIBLE_PART_1_WRITING.md#9-editorial-scorecard",
+      "reviewedAt": "2026-11-11T03:28:14.115586+00:00",
+      "reviewer": "/root/transport_editor",
+      "bookId": "world-discovery-e-21",
+      "scope": "complete-book",
+      "reviewedTextFingerprint": "fnv1a64:ce203d3c00c38463",
+      "sourceBookSha256": "d005e0676eef7c8ed0183c85b2b3f6bca15ba1939cb71ebca672d6d06493b7ca",
+      "status": "independent-editorial-native-art-and-bounded-audio-review-clear",
+      "categories": {
+        "character": {
+          "score": 3,
+          "evidence": "Particular nonfiction subjects have stable purposes and designs: horse wagon, steam train, family car, group bus, goods truck, passenger/cargo ships, conventional and experimental aircraft. No invented child narrator or time-travel plot substitutes for the factual examples."
+        },
+        "goal": {
+          "score": 4,
+          "evidence": "Changing power and carrying possibilities connects land, water and air with what engineers are testing next. Page1 establishes muscle/wind; the ending returns to the same power/carrying relationship."
+        },
+        "causality": {
+          "score": 4,
+          "evidence": "Fuel heats boiler water; steam acts through the driving mechanism. Engine propellers reduce reliance on sailing wind. Wires/batteries supply electric motors. Suitable lighter aircraft batteries could improve payload/range possibilities. Each link is explicit and illustrated."
+        },
+        "obstacle": {
+          "score": 3,
+          "evidence": "Physical/design constraints supply informational development rather than fictional conflict. Future examples introduce safe guidance and battery weight as real constraints; pages no longer repeatedly compare a cart with a train."
+        },
+        "agency": {
+          "score": 3,
+          "evidence": "Human carrying purposes select different vehicle designs; engineers supervise a test car and weigh an aircraft battery. Actions are concrete, while the earlier passages appropriately remain comparative nonfiction."
+        },
+        "ending": {
+          "score": 4,
+          "evidence": "The final page synthesizes muscle/wind with engines/batteries and the continuing carrying job. Its art contrasts a horse wagon, current electric bus and aircraft still being tested, giving the earlier examples new shared meaning rather than promising vague improvement."
+        },
+        "language": {
+          "score": 3,
+          "evidence": "202 words over10 pages of18–22 words. Short paired sentences and explicit cause/comparison support ESL. Temporal shifts and propeller/sensor vocabulary still need oral preparation. This on page7 concretely identifies the pictured e-bike."
+        },
+        "voice": {
+          "score": 3,
+          "evidence": "Pulled, moved, turned, carried, pedals, testing and charge keep the prose active and concrete. Varied past/present/possible-future syntax replaces repeated broad praise or a bare vehicle catalogue. Voice is clear and functional rather than unusually lyrical."
+        },
+        "delight": {
+          "score": 3,
+          "evidence": "Recognizable old/current/tested machines, propeller/boiler cutaways, a cargo seat and battery weighing offer particular visual discoveries. This describes assessed affordances, not observed child enjoyment."
+        },
+        "canon": {
+          "score": 4,
+          "evidence": "Full native sequence confirms ordinary unnamed adults, no named Kit/Zoe historical cast, no flags/religious/political symbols or brands, and stable vehicle colors/design types. Future examples remain supervised prototypes without invented adoption dates."
+        },
+        "illustration": {
+          "score": 4,
+          "evidence": "Every12 current reference/cover/page assets and the actual512px card were directly opened. Literal subjects, surfaces and mechanisms match the final text. Repaired cover/page6/page8 remove the extra prototype car, train crop and unrelated test equipment. Reused pages2/5 fit their new text with truthful provenance."
+        },
+        "audio": {
+          "score": 3,
+          "evidence": "Directly checked both supplied current screening reports and rehashed all52 reported rows against actual public MP3 bytes. Selected43 rows cover all10 exact current pages and33 words;42 have an exact unprompted recognition match and one child apostrophe equivalence is documented. The9 additional existing word clips have exact recognition and zero unresolved findings. Integration reports complete required-set reconciliation against exact historical evidence; this score is bounded automated signal/recognition/byte evidence, not human listening or every-phoneme certification."
+        }
+      },
+      "total": 41,
+      "maximum": 48,
+      "minimumRequired": 38,
+      "minimumCategoryRequired": 3,
+      "audioEvidence": [
+        {
+          "path": ".artifacts/transport-repair/audio/selected-narration-review.json",
+          "sha256": "42a38bd14929a2557879f98971675f0ca5443a693260f74852135ab8f7b0c8ac",
+          "screenedRows": 43,
+          "summary": {
+            "filesScreened": 43,
+            "pageNarrations": 10,
+            "selectedWords": 33,
+            "anyModelExactNormalized": 42,
+            "orthographicEquivalence": 1,
+            "unresolved": 0,
+            "unacceptedAnAuditionsIncluded": 0
+          }
+        },
+        {
+          "path": ".artifacts/transport-repair/audio/additional-word-narration-review.json",
+          "sha256": "8c37afb52d4adea71b93953e7ee6270203b84d3decf511e328bb884aac5a0358",
+          "screenedRows": 9,
+          "summary": {
+            "selectedExistingWords": 9,
+            "anyModelExactNormalized": 9,
+            "unresolved": 0,
+            "newlySynthesized": 0,
+            "changedAudioFiles": 0
+          }
+        }
+      ],
+      "openFindings": [],
+      "limits": "No human listening, physical printing, classroom response or full renderedreader/live verification is claimed. Those release checks remain separate.",
+      "releaseTotal": 41,
+      "openManuscriptDefects": [],
+      "openMediaDefects": []
+    }
   },
   "world-discovery-e-22": {
     "title": "Different Countries, Different Places",

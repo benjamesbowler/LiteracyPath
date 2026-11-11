@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
+import { createHash } from "node:crypto";
 import test from "node:test";
 import { PDFDocument } from "pdf-lib";
 import sharp from "sharp";
@@ -37,6 +38,26 @@ test("the shared science read-aloud keeps its paragraph breaks on one printed pa
     readFont: file => readFile(new URL(`../../public${file}`, import.meta.url)),
     readPicture: () => picture
   });
+  const document = await PDFDocument.load(bytes);
+  assert.equal(document.getTitle(), book.title);
+  assert.equal(document.getPageCount(), book.pages.length + 2);
+});
+
+test("a replaced book prints its exact current full-resolution pictures through immutable delivery paths", async () => {
+  const book = getRuntimeGuidedReadingBooks().find(row => row.id === "world-discovery-e-21");
+  const requested = [];
+  const bytes = await createGuidedReadingBookPdf(book, {
+    readFont: file => readFile(new URL(`../../public${file}`, import.meta.url)),
+    readPicture: async src => {
+      const url = new URL(src, "https://literacy.guide");
+      assert.match(url.pathname, /\.[a-f0-9]{12}\.webp$/);
+      const source = await readFile(new URL(`../../public${url.pathname}`, import.meta.url));
+      assert.equal(createHash("sha256").update(source).digest("hex").slice(0, 12), url.searchParams.get("v"));
+      requested.push(src);
+      return sharp(source).jpeg().toBuffer();
+    }
+  });
+  assert.equal(requested.length, book.pages.length + 1, "one cover and every current story image are requested");
   const document = await PDFDocument.load(bytes);
   assert.equal(document.getTitle(), book.title);
   assert.equal(document.getPageCount(), book.pages.length + 2);

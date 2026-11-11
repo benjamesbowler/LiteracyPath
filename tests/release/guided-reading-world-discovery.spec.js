@@ -2,6 +2,7 @@ import { expect, test } from '@playwright/test';
 import { GUIDED_READING_WORLD_DISCOVERY_BOOKS as books, GUIDED_READING_WORLD_DISCOVERY_LEVEL_REVIEWS as levelReviews } from '../../src/data/guidedReadingWorldDiscoveryBooks.js';
 import { getRuntimeGuidedReadingBooks } from '../../src/utils/guidedReading/runtimeBooks.js';
 import { guidedReadingProgressKey } from '../../src/utils/guidedReading/editions.js';
+import { withRepairedGuidedReadingImageVersion } from '../../src/utils/guidedReading/mediaVersion.js';
 import { getGuidedReadingPageAudioPath, getGuidedReadingWordProductionAudioPath } from '../../src/utils/guidedReading/readAloudPolicy.js';
 import { appReadingLevelLabel } from '../../src/utils/guidedReading/bookTextAnalysis.js';
 import { STUDENT_DEVICE_PROFILES, STUDENT_MINIMUM_TARGET_PX } from '../../src/policy/studentDeviceMatrix.js';
@@ -40,7 +41,7 @@ async function expectPage(reader, book, index) {
   await expect(text).toHaveClass(/is-ready/);
   await expect.poll(async () => words(await text.innerText())).toEqual(words(book.pages[index].text));
   const image = reader.locator('.guided-page-image');
-  await expect.poll(() => image.getAttribute('src')).toContain(book.pages[index].image);
+  await expect(image).toHaveAttribute('src', withRepairedGuidedReadingImageVersion(book.pages[index].image, '20260603-continuity-1'));
   await expect.poll(() => image.evaluate(node => node.complete && node.naturalWidth >= 1000 && node.naturalHeight >= 650)).toBe(true);
   await expect(image).toHaveAttribute('alt', book.pages[index].imageAlt);
   await expectPrintedWordsVisible(reader);

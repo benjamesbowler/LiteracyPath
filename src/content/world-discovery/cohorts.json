@@ -50,10 +50,10 @@
       "expectedPages": 440,
       "active": true,
       "sourceDir": "src/content/world-discovery/cohorts/21-30",
-      "cardReview": "source-art/world-discovery/remediation/2026-11-10/21-30-topic-revision-card-cover-review.json",
-      "narrationReview": "source-art/world-discovery/remediation/2026-11-10/21-30-topic-revision-narration-review-r2.json",
-      "narrationInventory": "source-art/world-discovery/remediation/2026-11-10/21-30-topic-revision-narration-inventory-r2.json",
-      "registration": "src/content/world-discovery/registrations/2026-11-10/21-30-topic-revision-r2.json",
+      "cardReview": "source-art/world-discovery/remediation/2026-11-11/21-30-transport-card-cover-review.json",
+      "narrationReview": "source-art/world-discovery/remediation/2026-11-11/21-30-transport-narration-review.json",
+      "narrationInventory": "source-art/world-discovery/remediation/2026-11-11/21-30-transport-narration-inventory.json",
+      "registration": "src/content/world-discovery/registrations/2026-11-11/21-30-transport.json",
       "maintenanceBaseline": {
         "path": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-audio-before.json",
         "sha256": "4ca4b36544febad7d0aaa8b7912d6b24144aa28bbd88bc41d0c783f6eb575796"

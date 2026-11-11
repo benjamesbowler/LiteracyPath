@@ -3,7 +3,7 @@ import { withRepairedGuidedReadingImageVersion } from "./mediaVersion.js";
 
 // Call only after the book's approved/deleted source policy. A failed delivery
 // copy can still use that same canonical art, then the book's approved pages.
-// Reader images deliberately keep their full-resolution canonical paths.
+// Reader images deliberately keep the exact full-resolution source artwork.
 export function bookCoverDeliverySources(sources = [], renditions = GUIDED_READING_COVER_RENDITIONS) {
   return [...new Set(sources.flatMap(source => {
     const rendition = renditions[source];

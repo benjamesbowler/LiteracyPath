@@ -154,19 +154,19 @@ test("registration rechecks actual files and rejects a changed evidence receipt 
   const proof = result.entries[0].registration;
   assert.equal(proof.counts.illustrations, 490);
   assert.deepEqual(result.entries.slice(0, 2).map(entry => [entry.registration.cohortId, entry.registration.counts.audioFiles]), [["01-10", 1720], ["11-20", 1671]]);
-  const expectedAudioFiles = { "01-10": 1720, "11-20": 1671, "21-30": 1861 };
+  const expectedAudioFiles = { "01-10": 1720, "11-20": 1671, "21-30": 1863 };
   assert.deepEqual(result.entries.map(entry => [entry.registration.cohortId, entry.registration.counts.audioFiles]),
     manifest.cohorts.filter(cohort => cohort.active).map(cohort => [cohort.id, expectedAudioFiles[cohort.id]]));
   const nonfiction = result.entries.find(entry => entry.cohort.id === "21-30");
   if (manifest.cohorts[2].active) {
     assert.ok(nonfiction);
     assert.deepEqual(nonfiction.registration.counts, {
-      books: 50, pages: 440, illustrations: 490, cards: 50, references: 51, audioFiles: 1861, screenedClips: 575
+      books: 50, pages: 440, illustrations: 490, cards: 50, references: 51, audioFiles: 1863, screenedClips: 584
     });
     const inventory = JSON.parse(fs.readFileSync(new URL(`../../${nonfiction.cohort.narrationInventory}`, import.meta.url)));
-    assert.equal(inventory.required.length, 575);
-    assert.equal(inventory.reused.length, 1286);
-    assert.equal(new Set([...inventory.required, ...inventory.reused].map(row => row.audioPath)).size, 1861);
+    assert.equal(inventory.required.length, 584);
+    assert.equal(inventory.reused.length, 1279);
+    assert.equal(new Set([...inventory.required, ...inventory.reused].map(row => row.audioPath)).size, 1863);
     // Topic maintenance adds current consumers while every originally
     // published recording and its screening partition remain preserved.
     const originalRegistration = JSON.parse(fs.readFileSync(new URL("../../src/content/world-discovery/registrations/21-30.json", import.meta.url)));
@@ -175,6 +175,14 @@ test("registration rechecks actual files and rejects a changed evidence receipt 
     assert.equal(originalRegistration.counts.screenedClips, 1074);
     assert.equal(originalInventory.required.length, 1074);
     assert.equal(originalInventory.reused.length, 755);
+    // Keep the exact November 10 topic-maintenance partition as history too.
+    const november10Registration = JSON.parse(fs.readFileSync(new URL("../../src/content/world-discovery/registrations/2026-11-10/21-30-topic-revision-r2.json", import.meta.url)));
+    const november10Inventory = JSON.parse(fs.readFileSync(new URL("../../source-art/world-discovery/remediation/2026-11-10/21-30-topic-revision-narration-inventory-r2.json", import.meta.url)));
+    assert.equal(november10Registration.counts.audioFiles, 1861);
+    assert.equal(november10Registration.counts.screenedClips, 575);
+    assert.equal(november10Inventory.required.length, 575);
+    assert.equal(november10Inventory.reused.length, 1286);
+    assert.equal(new Set([...november10Inventory.required, ...november10Inventory.reused].map(row => row.audioPath)).size, 1861);
     const audioBytes = plan => [...plan.required, ...plan.reused]
       .map(row => [row.audioPath, row.audioSha256]).sort(([a], [b]) => a.localeCompare(b));
     const originalAudio = new Map(audioBytes(originalInventory));
@@ -185,12 +193,24 @@ test("registration rechecks actual files and rejects a changed evidence receipt 
       assert.equal(createHash("sha256").update(actualBytes).digest("hex"), audioSha256, `${audioPath}: original published bytes changed`);
       if (currentAudio.has(audioPath)) assert.equal(currentAudio.get(audioPath), audioSha256, `${audioPath}: shared recording hash changed`);
     }
-    const newToCohort = [...inventory.required, ...inventory.reused].filter(row => !originalAudio.has(row.audioPath));
-    assert.equal(newToCohort.length, 173);
-    assert.deepEqual(newToCohort.reduce((counts, row) => {
+    const november10Audio = new Map(audioBytes(november10Inventory));
+    for (const [audioPath, audioSha256] of november10Audio) {
+      const actualBytes = fs.readFileSync(new URL(`../../public${audioPath}`, import.meta.url));
+      assert.equal(createHash("sha256").update(actualBytes).digest("hex"), audioSha256, `${audioPath}: November 10 published bytes changed`);
+      if (currentAudio.has(audioPath)) assert.equal(currentAudio.get(audioPath), audioSha256, `${audioPath}: shared November 10 recording hash changed`);
+    }
+    const november10NewToCohort = [...november10Inventory.required, ...november10Inventory.reused].filter(row => !originalAudio.has(row.audioPath));
+    assert.equal(november10NewToCohort.length, 173);
+    assert.deepEqual(november10NewToCohort.reduce((counts, row) => {
       counts[row.kind] = (counts[row.kind] || 0) + 1;
       return counts;
     }, {}), { page_or_title: 51, word: 122 });
+    const newToCohort = [...inventory.required, ...inventory.reused].filter(row => !originalAudio.has(row.audioPath));
+    assert.equal(newToCohort.length, 177);
+    assert.deepEqual(newToCohort.reduce((counts, row) => {
+      counts[row.kind] = (counts[row.kind] || 0) + 1;
+      return counts;
+    }, {}), { page_or_title: 51, word: 126 });
     const replacementIds = new Set(["world-discovery-b-21", "world-discovery-c-21", "world-discovery-d-21", "world-discovery-e-21", "world-discovery-e-22"]);
     const replacementBooks = readWorldDiscoveryCohort(nonfiction.cohort).books.filter(book => replacementIds.has(book.id));
     assert.equal(replacementBooks.length, 5);

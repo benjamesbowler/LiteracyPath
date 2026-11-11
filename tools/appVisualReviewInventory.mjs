@@ -4,6 +4,7 @@ import path from "node:path";
 import { mediaQaReviewItems } from "../src/data/generated/mediaQaReviewItems.generated.js";
 import { storyQuests } from "../src/data/storyQuests.js";
 import { getRuntimeGuidedReadingBooks } from "../src/utils/guidedReading/runtimeBooks.js";
+import { withRepairedGuidedReadingImageVersion } from "../src/utils/guidedReading/mediaVersion.js";
 import {buildCyclePresentation,presentationCycleOptions,PRESENTATION_DAYS} from '../src/utils/present/presentationBuilder.js';
 import {GAME_LIST} from '../src/data/learnGamesData.js';
 import {LEARN_GAMES} from '../src/components/learn/games/games/index.js';
@@ -140,7 +141,16 @@ export function collectAppVisualReviewInventory(
   const byPath = collectRegistryRows(root);
   if (includeSourceLiterals) addSourceLiterals(root, byPath);
   if (includeRuntimeObjects) {
-    addRuntimeObjectImages(root, byPath, getRuntimeGuidedReadingBooks(), "runtime-guided-reading");
+    const guidedBooks = getRuntimeGuidedReadingBooks();
+    addRuntimeObjectImages(root, byPath, guidedBooks, "runtime-guided-reading");
+    // Catalogue paths retain their canonical QA identity. Include the actual
+    // immutable delivery copies too, so serving a new pathname cannot escape
+    // the same strict byte-bound visual inventory.
+    const guidedDeliveries = [...imageStrings(guidedBooks)]
+      .map(canonical => ({ canonical, delivery: cleanAssetPath(withRepairedGuidedReadingImageVersion(canonical)) }))
+      .filter(({ canonical, delivery }) => delivery !== canonical)
+      .map(({ delivery }) => delivery);
+    addRuntimeObjectImages(root, byPath, guidedDeliveries, "runtime-guided-reading-delivery");
     addRuntimeObjectImages(root, byPath, storyQuests, "runtime-story-quests");
     addRuntimeObjectImages(root, byPath, [HOP_AND_STOP_PAGES.map(page=>page.image),Object.keys(HOP_AND_STOP_ACTIONS).map(hopAndStopActionImage)], "runtime-hop-and-stop");
     addRuntimeObjectImages(root, byPath, collectPresentRuntimeImageBindings().map(row=>row.path), "runtime-present-document");

@@ -3,16 +3,16 @@ import { createHash } from "node:crypto";
 import fs from "node:fs";
 import test from "node:test";
 
-import { withRepairedGuidedReadingImageVersion as version } from "../../src/utils/guidedReading/mediaVersion.js";
+import { guidedReadingReplacementImagePath, withRepairedGuidedReadingImageVersion as version } from "../../src/utils/guidedReading/mediaVersion.js";
 import { GUIDED_READING_IMAGE_REVISIONS as revisions } from "../../src/data/generated/guidedReadingImageRevisions.generated.js";
 import { mergeWillowImageRevisions } from "../../tools/guidedReadingImageRevisionsLib.mjs";
 
-test("repaired reader images request current bytes without changing canonical paths", () => {
+test("repaired reader delivery preserves source identity and requests current bytes", () => {
   for (const [path, hash] of Object.entries(revisions)) {
     const bytes = fs.readFileSync(new URL("../../public" + path, import.meta.url));
     assert.equal(hash, createHash("sha256").update(bytes).digest("hex").slice(0, 12));
     const src = version(path + "?mode=reader&v=old#page");
-    assert.equal(src, path + "?mode=reader&v=" + hash + "#page");
+    assert.equal(src, guidedReadingReplacementImagePath(path, hash) + "?mode=reader&v=" + hash + "#page");
     assert.equal(version(src, "legacy"), src);
   }
   assert.equal(version("/guided-reading/unrelated.webp"), "/guided-reading/unrelated.webp");

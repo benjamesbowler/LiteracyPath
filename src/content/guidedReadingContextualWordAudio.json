@@ -1218,8 +1218,8 @@
     },
     {
       "bookId": "world-discovery-e-21",
-      "pageNumber": 3,
-      "pageText": "Later, steam engines pulled trains along tracks. Burning fuel heated water, and steam helped turn the wheels.",
+      "pageNumber": 2,
+      "pageText": "Steam changed travel. Burning fuel heated water, and steam turned train wheels. Trains could pull many carriages together.",
       "word": "steam",
       "pronunciation": "stiːm",
       "pronunciationEncoding": "PHONETIC_ENCODING_IPA",
@@ -1227,24 +1227,10 @@
       "audioPath": "/audio/production/en-US/isolated_word/steam-topic-clear-491c842d5a.mp3",
       "audioSha256": "491c842d5a29d308b7a2f98042233bfc17ac6ac92ea1aaf815484174e9851dfe",
       "status": "reviewed",
-      "reviewedAt": "2026-11-10",
-      "reviewNote": "Page-scoped clarity repair after two unprompted recognizers disagreed with the reused dictionary word. New explicit-IPA Leda take fully decodes with finite unclipped signal; at least one unprompted recognizer confirms the exact word. Automated evidence, not human listening. Shared dictionary default and published bytes remain unchanged.",
-      "reviewEvidence": "source-art/world-discovery/remediation/2026-11-10/topic-revision-additional-word-review.json"
-    },
-    {
-      "bookId": "world-discovery-e-21",
-      "pageNumber": 4,
-      "pageText": "A steam train could carry many people farther in one day than a horse-drawn cart could usually travel.",
-      "word": "steam",
-      "pronunciation": "stiːm",
-      "pronunciationEncoding": "PHONETIC_ENCODING_IPA",
-      "voiceName": "en-US-Chirp3-HD-Leda",
-      "audioPath": "/audio/production/en-US/isolated_word/steam-topic-clear-491c842d5a.mp3",
-      "audioSha256": "491c842d5a29d308b7a2f98042233bfc17ac6ac92ea1aaf815484174e9851dfe",
-      "status": "reviewed",
-      "reviewedAt": "2026-11-10",
-      "reviewNote": "Page-scoped clarity repair after two unprompted recognizers disagreed with the reused dictionary word. New explicit-IPA Leda take fully decodes with finite unclipped signal; at least one unprompted recognizer confirms the exact word. Automated evidence, not human listening. Shared dictionary default and published bytes remain unchanged.",
-      "reviewEvidence": "source-art/world-discovery/remediation/2026-11-10/topic-revision-additional-word-review.json"
+      "reviewedAt": "2026-11-11",
+      "reviewNote": "Authorized same-meaning page-context relocation for the structural transport repair. Retains the exact previously screened /stiːm/ Leda file and bytes; current page2 names steam heating water and turning train wheels. This does not claim new synthesis, new listening or a new pronunciation review.",
+      "reviewEvidence": "source-art/world-discovery/remediation/2026-11-10/topic-revision-additional-word-review.json",
+      "contextRevisionEvidence": "source-art/world-discovery/remediation/2026-11-11/transport-art-reuse.json"
     }
   ]
 }

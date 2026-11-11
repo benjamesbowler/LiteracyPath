@@ -1,0 +1,251 @@
+{
+  "schemaVersion": 1,
+  "cohortId": "21-30",
+  "reviewedAt": "2026-11-11",
+  "status": "automated-review-complete",
+  "scope": "Nine existing dictionary word clips newly required by the current transport inquiry but absent from the43-row selected review and current cohort historical screening: bicycle,charge,families,guide,lighter,sensors,shopping,trucks,turned. This supplements, and does not alter, the immutable43-row selected-output review.",
+  "method": "Full FFmpeg finite24kHz decode and50ms RMS/silence/clipping checks on each exact existing MP3; independent unprompted tiny.en andsmall.en recognition with250ms leading/500ms trailing recognition-only silence. No expected-text prompt, synthesis or audio-byte edit.",
+  "limitations": "Automated evidence, not human listening, every-phoneme certification, classroom or physical-device observation. Complete cohort required-set reconciliation remains the registration integrator’s responsibility.",
+  "sourceReports": [
+    {
+      "path": ".artifacts/transport-repair/audio/screen-additional-words-tiny.json",
+      "sha256": "48ba9cf38a4ea55e554a735bd70d39fbe653260e7258e8ee3097f9e54d23eada",
+      "modelSha256": "1a5afae06a4db91c975c9a9d78be5cc110ee4ea022ad57d55492e4550e936b2a"
+    },
+    {
+      "path": ".artifacts/transport-repair/audio/screen-additional-words-small.json",
+      "sha256": "b595845c943b8543c5bdebac9119c7a5d093c18d746d06e481084e55fbf31443",
+      "modelSha256": "62b2a45b05ee59acb4a5341b33ee35e041395d378d418a18acfe4c9e768ee37a"
+    }
+  ],
+  "sourceJobs": {
+    "path": ".artifacts/transport-repair/audio/additional-word-jobs.json",
+    "sha256": "d82094922eca5d02622e35f30278b8b9b37d676961271818f70299aeeb38159a"
+  },
+  "results": [
+    {
+      "audioPath": "/audio/production/en-US/isolated_word/bicycle-27d5bb2a3d.mp3",
+      "kind": "word",
+      "text": "bicycle",
+      "lookupText": "bicycle",
+      "audioSha256": "a210ebc12f0bf3ce003d073c877ebb5c2f893c779b60fa4e79fb1557abaa4640",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms the exact normalized isolated word. Entire existing MP3 decodes to finite unclipped signal; no synthesis or audio edit was performed. Automated evidence, not human listening or phoneme certification.",
+      "recognizerOutputs": [
+        "Bicycl.",
+        "BICYCLE"
+      ],
+      "sourceScreening": [
+        "screen-additional-words-tiny.json",
+        "screen-additional-words-small.json"
+      ],
+      "durationSeconds": 1.4523333333333333,
+      "peakDbfs": -15.56995692900616,
+      "rmsDbfs": -33.98502906679433,
+      "leadingSilenceSeconds": 0.05,
+      "trailingSilenceSeconds": 0.10233333333333317,
+      "longestInteriorSilenceSeconds": 0.2
+    },
+    {
+      "audioPath": "/audio/production/en-US/isolated_word/charge-83da186e64.mp3",
+      "kind": "word",
+      "text": "charge",
+      "lookupText": "charge",
+      "audioSha256": "eca88da18f969593586cecbf07956f6ef5bb94267f534c0706695db63463613c",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms the exact normalized isolated word. Entire existing MP3 decodes to finite unclipped signal; no synthesis or audio edit was performed. Automated evidence, not human listening or phoneme certification.",
+      "recognizerOutputs": [
+        "Charge.",
+        "Charge"
+      ],
+      "sourceScreening": [
+        "screen-additional-words-tiny.json",
+        "screen-additional-words-small.json"
+      ],
+      "durationSeconds": 0.7503333333333333,
+      "peakDbfs": -19.068372970969005,
+      "rmsDbfs": -34.14544462656454,
+      "leadingSilenceSeconds": 0.05,
+      "trailingSilenceSeconds": 0.05033333333333323,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "audioPath": "/audio/production/en-US/isolated_word/families-955dd8bfcf.mp3",
+      "kind": "word",
+      "text": "families",
+      "lookupText": "families",
+      "audioSha256": "3b6f5bd4e4c74d6c32392b7a3a237651a8b06994085508ced236392c4b0fa37c",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms the exact normalized isolated word. Entire existing MP3 decodes to finite unclipped signal; no synthesis or audio edit was performed. Automated evidence, not human listening or phoneme certification.",
+      "recognizerOutputs": [
+        "Families.",
+        "Families."
+      ],
+      "sourceScreening": [
+        "screen-additional-words-tiny.json",
+        "screen-additional-words-small.json"
+      ],
+      "durationSeconds": 1.2363333333333333,
+      "peakDbfs": -13.608223900964829,
+      "rmsDbfs": -28.030714016067265,
+      "leadingSilenceSeconds": 0.30000000000000004,
+      "trailingSilenceSeconds": 0.08633333333333315,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "audioPath": "/audio/production/en-US/isolated_word/guide-503c0aee20.mp3",
+      "kind": "word",
+      "text": "guide",
+      "lookupText": "guide",
+      "audioSha256": "ef7a5b48f82b79fdfb279c87de2810ae18be3de7db2e4ea3a1d24eeba5b3ba60",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms the exact normalized isolated word. Entire existing MP3 decodes to finite unclipped signal; no synthesis or audio edit was performed. Automated evidence, not human listening or phoneme certification.",
+      "recognizerOutputs": [
+        "Guide.",
+        "Guide"
+      ],
+      "sourceScreening": [
+        "screen-additional-words-tiny.json",
+        "screen-additional-words-small.json"
+      ],
+      "durationSeconds": 1.0203333333333333,
+      "peakDbfs": -11.488952848906507,
+      "rmsDbfs": -30.019505727737194,
+      "leadingSilenceSeconds": 0.15000000000000002,
+      "trailingSilenceSeconds": 0.12033333333333329,
+      "longestInteriorSilenceSeconds": 0.05
+    },
+    {
+      "audioPath": "/audio/production/en-US/isolated_word/lighter-3592b80bdc.mp3",
+      "kind": "word",
+      "text": "lighter",
+      "lookupText": "lighter",
+      "audioSha256": "92c25d0f6f116b89398a68f22d74d7fb058ed64aaf0851dc55a2db298a2f14a2",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms the exact normalized isolated word. Entire existing MP3 decodes to finite unclipped signal; no synthesis or audio edit was performed. Automated evidence, not human listening or phoneme certification.",
+      "recognizerOutputs": [
+        "Later.",
+        "lighter"
+      ],
+      "sourceScreening": [
+        "screen-additional-words-tiny.json",
+        "screen-additional-words-small.json"
+      ],
+      "durationSeconds": 0.5733333333333334,
+      "peakDbfs": -12.858368785121625,
+      "rmsDbfs": -25.100945493979356,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "audioPath": "/audio/production/en-US/isolated_word/sensors-04f70f26f4.mp3",
+      "kind": "word",
+      "text": "sensors",
+      "lookupText": "sensors",
+      "audioSha256": "f355dfe242a0f8dfd0897cb5acda1433416f7822979be4803701e4bafd956f18",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms the exact normalized isolated word. Entire existing MP3 decodes to finite unclipped signal; no synthesis or audio edit was performed. Automated evidence, not human listening or phoneme certification.",
+      "recognizerOutputs": [
+        "Sensors.",
+        "Sensors."
+      ],
+      "sourceScreening": [
+        "screen-additional-words-tiny.json",
+        "screen-additional-words-small.json"
+      ],
+      "durationSeconds": 1.0203333333333333,
+      "peakDbfs": -16.871346930562417,
+      "rmsDbfs": -30.707197229283196,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "audioPath": "/audio/production/en-US/isolated_word/shopping-eb7c6f1e50.mp3",
+      "kind": "word",
+      "text": "shopping",
+      "lookupText": "shopping",
+      "audioSha256": "e33fad28b50afa00f875fff107689626bd64195bea6b1eb0254b0734f6d8afe8",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms the exact normalized isolated word. Entire existing MP3 decodes to finite unclipped signal; no synthesis or audio edit was performed. Automated evidence, not human listening or phoneme certification.",
+      "recognizerOutputs": [
+        "shopping",
+        "Shopping?"
+      ],
+      "sourceScreening": [
+        "screen-additional-words-tiny.json",
+        "screen-additional-words-small.json"
+      ],
+      "durationSeconds": 0.8583333333333333,
+      "peakDbfs": -14.953595789648503,
+      "rmsDbfs": -25.930222219706017,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0.05833333333333324,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "audioPath": "/audio/production/en-US/isolated_word/trucks-f33859c2d1.mp3",
+      "kind": "word",
+      "text": "trucks",
+      "lookupText": "trucks",
+      "audioSha256": "397c25fda77face53132d342c0ab48f5f1a7db2268b766c5f3c659c277c61547",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms the exact normalized isolated word. Entire existing MP3 decodes to finite unclipped signal; no synthesis or audio edit was performed. Automated evidence, not human listening or phoneme certification.",
+      "recognizerOutputs": [
+        "Trucks.",
+        "Trucks"
+      ],
+      "sourceScreening": [
+        "screen-additional-words-tiny.json",
+        "screen-additional-words-small.json"
+      ],
+      "durationSeconds": 1.1533333333333333,
+      "peakDbfs": -5.321599162351935,
+      "rmsDbfs": -27.123440624332265,
+      "leadingSilenceSeconds": 0.45,
+      "trailingSilenceSeconds": 0.0033333333333331883,
+      "longestInteriorSilenceSeconds": 0.1
+    },
+    {
+      "audioPath": "/audio/production/en-US/isolated_word/turned-de083ff22a.mp3",
+      "kind": "word",
+      "text": "turned",
+      "lookupText": "turned",
+      "audioSha256": "07cf76fe3cb80a48e76a484890d8ff94aa78632089cf9512e11a40102720545b",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms the exact normalized isolated word. Entire existing MP3 decodes to finite unclipped signal; no synthesis or audio edit was performed. Automated evidence, not human listening or phoneme certification.",
+      "recognizerOutputs": [
+        "Turned.",
+        "Turned."
+      ],
+      "sourceScreening": [
+        "screen-additional-words-tiny.json",
+        "screen-additional-words-small.json"
+      ],
+      "durationSeconds": 1.4523333333333333,
+      "peakDbfs": -11.174251165697873,
+      "rmsDbfs": -25.15961195885449,
+      "leadingSilenceSeconds": 0.05,
+      "trailingSilenceSeconds": 0.1523333333333332,
+      "longestInteriorSilenceSeconds": 0.2
+    }
+  ],
+  "summary": {
+    "selectedExistingWords": 9,
+    "anyModelExactNormalized": 9,
+    "unresolved": 0,
+    "newlySynthesized": 0,
+    "changedAudioFiles": 0
+  },
+  "reviewer": "/root/image_cache_fix"
+}

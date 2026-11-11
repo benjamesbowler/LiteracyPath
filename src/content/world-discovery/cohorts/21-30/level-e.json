@@ -13,186 +13,249 @@
     "storyBibleReview": {
       "kind": "nonfiction",
       "canonIds": [],
-      "topicQuestion": "How have inventions changed the ways and speeds at which people travel?",
-      "progression": "Move from walking, animal transport and boats through a horse-drawn cart, steam trains, motor cars and aircraft; compare modern train and plane speed, distinguish travel speed from whole-journey time, and return to coexistence of older and newer ways.",
-      "synthesis": "Inventions added faster and different ways to travel without making all earlier forms disappear; speed during travel is only part of the time a journey takes.",
+      "topicQuestion": "How have changes in power changed vehicles on land, on water and in the air, and what are engineers testing next?",
+      "progression": "Begin with muscle and wind; follow steam and road/ship/air engines; compare present electric wires, stored batteries and pedal assistance; distinguish supervised automated-car and electric-aircraft tests from ordinary transport; synthesize changing power with the continuing task of carrying people and goods safely.",
+      "synthesis": "Vehicles now use a wider choice of power sources and designs across land, water and air. Future-facing prototypes still need testing for the same practical task: carrying people and goods safely.",
       "scienceSources": [
         {
-          "title": "U.S. Energy Information Administration: Transportation Timeline",
+          "title": "U.S. Energy Information Administration: Transportation timeline",
           "url": "https://www.eia.gov/kids/history-of-energy/timelines/transportation.php",
-          "evidence": "Horse-drawn carts and river boats carried people/goods before modern powered transport; steam vehicles and railways developed before widespread gasoline cars and passenger aircraft. The book gives a selected sequence, not a complete worldwide chronology or single-inventor claim.",
-          "checked": "2026-11-10"
+          "evidence": "Pages1–3: horse-drawn carts, river boats, steam railways, early motor cars and buses belong to a selected sequence of transport power. Historical sequence does not claim one worldwide adoption date or that each power system entirely replaced older ones.",
+          "checked": "2026-11-11"
         },
         {
-          "title": "Science Museum: Transport collection highlights",
-          "url": "https://blog.sciencemuseum.org.uk/top-5-things-to-see-at-the-science-museum-if-you-love-transport/",
-          "evidence": "Puffing Billy dates from 1813–14; the Panhard motor car dates from 1894–95. These objects support the historical order of steam railway and early gasoline motor-car examples.",
-          "checked": "2026-11-10"
+          "title": "SS Great Britain Trust: Engine-room learning sequence",
+          "url": "https://www.ssgreatbritain.org/wp-content/uploads/2022/08/KS2-group-1.pdf",
+          "evidence": "Pages2/4: burning fuel heats water; steam moves pistons and a wheel/shaft moves a propeller. The book simplifies energy-to-motion through the engine; the locomotive version must retain a coherent piston/rod/wheel image rather than fantasy plumbing.",
+          "checked": "2026-11-11"
         },
         {
-          "title": "Smithsonian: Early Cars: Fact Sheet for Kids",
-          "url": "https://www.si.edu/spotlight/early-cars",
-          "evidence": "Early cars used steam, gasoline and electric power. This manuscript does not suggest electric cars were invented only after modern gasoline cars.",
-          "checked": "2026-11-10"
+          "title": "SS Great Britain Trust: The launch of the SS Great Britain,1843",
+          "url": "https://www.bristoldockyards.org/collection-stories/the-launch-of-the-ss-great-britain-1843",
+          "evidence": "Page4: historical steam propulsion moved from paddle-wheel plans to screw propellers, supporting the selected engine-and-propeller example. Independence from waiting for sailing wind is the mechanical implication of an engine-powered propeller, not a claim ships ignore weather. Larger displayed ship capacity is an example comparison, not a universal ranking of all ships.",
+          "checked": "2026-11-11"
         },
         {
           "title": "Smithsonian National Air and Space Museum: The Jet Age",
           "url": "https://airandspace.si.edu/jet-age",
-          "evidence": "Jet engines enabled faster airliners and transformed long-distance air travel. The comparison is ordinary passenger jet cruise versus a passenger train, not a record-breaking race.",
-          "checked": "2026-11-10"
+          "evidence": "Page5: jet engines enabled larger and faster aircraft than piston-powered designs, changing long-distance air travel. The book shows an early small propeller aircraft and a large later passenger jet. No record-speed or universal journey-duration ranking is asserted.",
+          "checked": "2026-11-11"
         },
         {
-          "title": "National Museums Scotland: The world’s first passenger jet: Comet 4C",
-          "url": "https://www.nms.ac.uk/discover-catalogue/the-worlds-first-passenger-jet-comet-4c",
-          "evidence": "The 1952 passenger jet was faster than earlier airliners. The book omits dates rather than presenting a false universal adoption date.",
-          "checked": "2026-11-10"
+          "title": "Network Rail: Overhead line equipment",
+          "url": "https://www.networkrail.co.uk/rail-travel/delays-explained/overhead-line-equipment-failures/",
+          "evidence": "Page6: overhead wires supply electricity to electric trains. The manuscript says some electric trains because other systems use third rails or batteries.",
+          "checked": "2026-11-11"
         },
         {
-          "title": "Transport for London: Plan a Journey",
-          "url": "https://tfl.gov.uk/plan-a-journey/",
-          "evidence": "Whole journey planning includes access and waiting as well as the riding stage. The manuscript gives no invented timetable or claim that air is always the quickest whole journey.",
-          "checked": "2026-11-10"
+          "title": "U.S. Department of Energy Alternative Fuels Data Center: How do all-electric cars work?",
+          "url": "https://afdc.energy.gov/vehicles/how-do-all-electric-cars-work",
+          "evidence": "Page6: a traction battery supplies electricity to a motor that drives wheels; recharging supplies the battery. The image must show an electric car rather than imply its ordinary small starter battery propels a gasoline car.",
+          "checked": "2026-11-11"
+        },
+        {
+          "title": "U.S. Department of Energy: All-electric vehicles",
+          "url": "https://afdc.energy.gov/vehicles/electric-basics-ev",
+          "evidence": "Page6: all-electric vehicles include battery-powered passenger and transit applications. The car and bus shown are battery-electric examples, not a statement that every bus uses a battery.",
+          "checked": "2026-11-11"
+        },
+        {
+          "title": "UK Department for Transport: Battery safety for e-cycle users",
+          "url": "https://www.gov.uk/government/publications/battery-safety-for-e-cycle-users/battery-safety-for-e-cycle-users",
+          "evidence": "Page7: an electrically assisted pedal cycle uses an electric motor to help the rider pedal. Adult rider only; no legal age or local-road-rule claims are taught.",
+          "checked": "2026-11-11"
+        },
+        {
+          "title": "London Borough of Richmond upon Thames: Cargo bikes",
+          "url": "https://www.richmond.gov.uk/services/roads_and_transport/vehicles/active_travel/cargo_bikes",
+          "evidence": "Page7: cargo bicycles are designed to carry loads such as shopping or children. The illustration must use an actual child-seat/footrest/restraint arrangement, not a loose child or groceries piled onto an ordinary saddle.",
+          "checked": "2026-11-11"
+        },
+        {
+          "title": "Luton Borough Council: E-cargo bike hire",
+          "url": "https://www.luton.gov.uk/parking-streets-transport/travel-transport/cycling/e-cargo-bike-hire",
+          "evidence": "Page7: cargo-bike designs have higher carrying capacity in different wheel/loading arrangements and can add electric assistance; supports distinct pedal-assist/cargo designs rather than claiming one exact bicycle fits every load.",
+          "checked": "2026-11-11"
+        },
+        {
+          "title": "NHTSA: Automated vehicle safety",
+          "url": "https://www.nhtsa.gov/vehicle-safety/automated-vehicle-safety",
+          "evidence": "Page8: automated systems use sensors and computing and are under testing, development and validation. Wider safe use remains a development aim. The book makes no consumer self-driving promise and the supervised track image must not show a child alone in an unattended car.",
+          "checked": "2026-11-11"
+        },
+        {
+          "title": "NASA: Electrified Aircraft Propulsion",
+          "url": "https://www.nasa.gov/mission/eap/",
+          "evidence": "Page9: NASA and partners use concept vehicles, component/full-powertrain testing, ground testbeds and flight demonstrations to develop electrified aircraft. An experimental design is not a guaranteed future airliner.",
+          "checked": "2026-11-11"
+        },
+        {
+          "title": "NASA: EAP frequently asked questions",
+          "url": "https://www.nasa.gov/eap-faqs/",
+          "evidence": "Page9: lighter, safer and more efficient battery technologies are under development for aircraft; supports weight as a design constraint, not a claimed finished product.",
+          "checked": "2026-11-11"
+        },
+        {
+          "title": "NASA: Solid-state battery research",
+          "url": "https://www.nasa.gov/aeronautics/nasas-solid-state-battery-research-exceeds-initial-goals-draws-interest/",
+          "evidence": "Page9: research seeks lighter batteries for electric aircraft. Carrying capacity and range are aircraft-design consequences, phrased as could rather than a guaranteed improvement in every design. No exact battery capability, launch date or certified safety claim is taught.",
+          "checked": "2026-11-11"
         }
       ]
     },
-    "setting": "A selected factual history followed by contemporary transport comparisons. Historical pictures are reconstructions, not a claim that all countries changed at once. Plain practical clothes only; no flags, religious buildings, political events or cultural costumes. Cart: brown wooden four-wheel wagon, one healthy bay horse and adult driver in plain gray shirt and dark trousers. Steam train: black early passenger steam locomotive with red wheels and two brown wooden coaches. Early motor car: dark-green open four-wheel gasoline car with adult driver. Early aircraft: plain cream single-propeller biplane. Modern train: white electric passenger train with blue band and overhead wire. Jet: white twin-engine passenger jet with teal tail. No named cast or brand logos.",
+    "setting": "A selected past-to-present comparison of transport power followed by clearly supervised prototypes for future use. Historical pictures are reconstructions, not one universal worldwide timeline. Plain practical clothing and neutral locations only; no flags, religious/political symbols, brands or named child cast. Past examples: a bay horse with brown wooden wagon, a wooden rowing boat and cream-sailed wooden boat, black steam locomotive with red wheels and brown coaches, early dark-green motor car, blue motor bus and red goods truck, cream propeller biplane. Present examples: white passenger ferry, blue-hulled container ship, white-and-teal passenger jet, white-and-blue electric train, blue battery car, teal electric bus, blue pedal-assist bicycle and orange cargo bicycle. Prototypes: white car with teal trim and mounted camera/roof sensor on closed test track; white-and-orange small electric propeller aircraft in a test hangar. Prototypes have adult supervision; their illustration is not a forecast that this exact design will be adopted.",
     "props": [
-      "Horse-drawn brown wagon",
-      "Early black steam train",
-      "Early dark-green motor car",
-      "Cream early propeller biplane",
-      "Modern white-blue electric train",
-      "Modern white-teal passenger jet"
+      "Bay horse and brown wooden wagon",
+      "Wooden rowing boat with two coherent oars",
+      "Small wooden sailing boat with cream sail",
+      "Black steam locomotive with red wheels and two brown coaches",
+      "Early dark-green car, blue bus and red goods truck",
+      "White passenger ferry and blue-hulled container ship",
+      "Cream biplane and white teal-tail passenger jet",
+      "White-blue electric train, blue battery car and teal electric bus",
+      "Blue electric bicycle and orange cargo bicycle with empty child seat",
+      "White teal-trim camera-and-sensor test car",
+      "White-orange small experimental electric propeller aircraft",
+      "Closed battery modules, workshop scale, trolley and chargers"
     ],
-    "coverBrief": "Four-part historical comparison diagram from left to right: horse-drawn wagon, early steam train, early motor car, modern passenger jet. Each vehicle stands or travels on its correct separate surface, with generous whitespace and no shared-scale claim. No dates, labels, flags or arrows.",
+    "coverBrief": "Three wide, clearly separated time comparisons in one dedicated landscape cover: LEFT a bay horse pulls a brown wagon on a dirt road beside a small cream-sailed boat on its own water strip; CENTER a modern teal electric bus and white teal-tail jet occupy separate road and sky surfaces; RIGHT a white-and-orange small experimental electric aircraft stands at a hangar with an adult engineer checking a closed battery module beside it. Preserve full vehicle silhouettes and correct separate surfaces. The future-facing example is visibly supervised development, not fantasy transport. No title, dates, labels, flags, symbols, brands or contact-sheet reference poses.",
     "coverImageLayout": "comparison-diagram",
     "pages": [
       {
         "pageNumber": 1,
-        "text": "Before motor vehicles existed, people walked, rode animals, and traveled in boats. How did new inventions change their journeys?",
-        "imageBrief": "Three-part historical comparison diagram: adults carry baskets while walking along a path at left; adult rides a horse at center; two adults row a small wooden boat on river at right. Plain practical clothing; separate valid surfaces, not one unsafe mixed path. No engines or modern wires.",
-        "imageAlt": "People walk with baskets, ride a horse, and row a boat in three separate scenes.",
-        "pageDescription": "People walk with baskets, ride a horse, and row a boat in three separate scenes.",
-        "state": "Opening selected pre-motor travel methods, not one universal place or date.",
+        "text": "Long ago, animals pulled carts on land. Oars and sails moved boats across water. Journeys depended on muscle or wind.",
+        "imageBrief": "Three clearly separated historical transport scenes in reading order, all fully framed: UPPER LEFT a healthy bay horse in coherent harness pulls a brown wooden wagon with an adult driver and two seated passengers along a dirt road; UPPER RIGHT an adult in a small wooden rowing boat moves two oars that pivot in opposite-side rowlocks on calm river water; LOWER WIDE PANEL a modest single-masted wooden sailing boat with a filled cream sail and an adult sailor moves on open water. Each scene has its own correct ground or water surface. Plain practical historical clothing, no engines, dates, named cast, flags or symbols. Show actual cart, paddle/oar and sail mechanisms rather than a route board or generic modern children.",
+        "imageAlt": "A horse pulls a wagon on a road. A person rows a small boat, and a sail moves another boat across water.",
+        "pageDescription": "A horse pulls a wagon on a road. A person rows a small boat, and a sail moves another boat across water.",
+        "state": "Historical examples establish the initial power sources: animal or human muscle and wind. These methods coexist with later vehicles; no universal replacement date is claimed.",
         "embeddedImageText": "",
         "imageLayout": "comparison-diagram"
       },
       {
         "pageNumber": 2,
-        "text": "A horse could pull a cart full of people or goods. Travelers still needed to feed and rest the horse.",
-        "imageBrief": "Historical reconstruction: one bay horse rests beside stationary brown wagon on firm level road. Adult driver offers hay from a small bucket at horse’s head; two travelers sit safely in wagon. Tack and traces connect realistically, all four horse legs clear. No contemporary car.",
-        "imageAlt": "A horse rests beside a loaded wooden wagon while its driver offers food.",
-        "pageDescription": "A horse rests beside a loaded wooden wagon while its driver offers food.",
-        "state": "Animal transport depends on a living animal needing care and rest.",
-        "embeddedImageText": ""
-      },
-      {
-        "pageNumber": 3,
-        "text": "Later, steam engines pulled trains along tracks. Burning fuel heated water, and steam helped turn the wheels.",
-        "imageBrief": "Early steam passenger train on rails. A single integrated cutaway in black locomotive shows small enclosed firebox beneath a water-filled boiler; steam pipe leads to piston and connecting rod by red driving wheel. Two brown coaches behind. No text, open fire beside passengers or floating pipes.",
-        "imageAlt": "A steam train pulls wooden coaches. A cutaway shows a fire heating water and a pipe leading toward the driving wheels.",
-        "pageDescription": "A steam train pulls wooden coaches. A cutaway shows a fire heating water and a pipe leading toward the driving wheels.",
-        "state": "Steam locomotive and its energy-to-wheel mechanism introduced.",
+        "text": "Steam changed travel. Burning fuel heated water, and steam turned train wheels. Trains could pull many carriages together.",
+        "imageBrief": "Early black steam locomotive with red driving wheels pulls two brown passenger coaches on one coherent pair of rails. One integrated side cutaway shows an enclosed firebox beneath water in a horizontal boiler; the steam pipe leads to a piston and connecting rod beside the driving wheel. No loose hoses, open fire near people, floating mechanism or text. The cutaway is part of the same locomotive, not another separate engine.",
+        "imageAlt": "A cutaway in a steam locomotive shows a fire heating water and a pipe leading to the driving mechanism. Two coaches follow.",
+        "pageDescription": "A cutaway in a steam locomotive shows a fire heating water and a pipe leading to the driving mechanism. Two coaches follow.",
+        "state": "Burning fuel heats water in a boiler; steam acts through a mechanism that turns wheels and can pull coupled coaches.",
         "embeddedImageText": "",
         "imageLayout": "integrated-diagram"
       },
       {
+        "pageNumber": 3,
+        "text": "Engines also powered cars, buses, and trucks. Families could ride in cars while buses carried groups and trucks moved goods.",
+        "imageBrief": "Three equally sized separated road-transport views: LEFT an early dark-green four-wheel open motor car carrying an adult driver and two seated family passengers; CENTER an early blue enclosed motor bus with one adult driver and several visibly seated passengers; RIGHT a red early motor truck with a closed cab and a securely loaded wooden goods bed. Each vehicle is on its own firm road; all wheels contact the road. Coherent early twentieth-century-style examples, no dates, logos, number plates or horse. Do not depict a race or imply equal vehicle capacity.",
+        "imageAlt": "An early motor car carries a family, a bus carries a group, and a truck carries goods on three separate roads.",
+        "pageDescription": "An early motor car carries a family, a bus carries a group, and a truck carries goods on three separate roads.",
+        "state": "Engines extend powered movement to road vehicles with different passenger and goods capacity.",
+        "embeddedImageText": "",
+        "imageLayout": "comparison-diagram"
+      },
+      {
         "pageNumber": 4,
-        "text": "A steam train could carry many people farther in one day than a horse-drawn cart could usually travel.",
-        "imageBrief": "Two-part historical comparison diagram: same wagon with two travelers on road at left; same locomotive with two occupied passenger coaches on rail at right. Distinct scenes, no racing side by side. Longer row of small identical sun-to-sunset time symbols is prohibited; use no numerical or proportional distance chart.",
-        "imageAlt": "A small horse-drawn wagon and a steam train with passenger coaches are compared side by side.",
-        "pageDescription": "A small horse-drawn wagon and a steam train with passenger coaches are compared side by side.",
-        "state": "Compare carrying and travel potential; diagram is not a literal race or exact speed chart.",
+        "text": "At sea, engines turned propellers. Ships could move without waiting for wind, and larger ships carried more people or goods.",
+        "imageBrief": "Three separated sea-transport views: LEFT the modest historical cream-sailed wooden boat from page1; CENTER a modern white passenger ferry with seated passengers visible through large windows; RIGHT a large blue-hulled cargo ship with securely stacked rectangular containers. For the ferry and cargo ship only, a single small connected underwater side cutaway reveals the attached propeller at each stern, with a coherent shaft into its own hull. No exposed propeller above water, split ship, ship on road or unsafe loose stacks. The modern ships illustrate carrying people or goods without relying on a sail. No labels, flags or brands.",
+        "imageAlt": "A sailing boat, passenger ferry and container ship travel in separate sea scenes. Cutaways show propellers beneath the two engine-powered ships.",
+        "pageDescription": "A sailing boat, passenger ferry and container ship travel in separate sea scenes. Cutaways show propellers beneath the two engine-powered ships.",
+        "state": "Engine-driven propellers reduce dependence on sailing wind, while ship forms distinguish passenger and cargo capacity.",
         "embeddedImageText": "",
         "imageLayout": "comparison-diagram"
       },
       {
         "pageNumber": 5,
-        "text": "Motor cars brought another change. Their engines used fuel to move the wheels, so the cars did not need horses.",
-        "imageBrief": "Early dark-green open motor car travels on a clear firm road. Adult driver in plain gray jacket and dark trousers holds wheel; simple engine visible under open-sided front hood, no horse or carriage traces. Preserve early four-wheel vehicle proportions.",
-        "imageAlt": "An adult drives an early green motor car along a road. No horse pulls it.",
-        "pageDescription": "An adult drives an early green motor car along a road. No horse pulls it.",
-        "state": "A motor vehicle supplies its own mechanical movement.",
-        "embeddedImageText": ""
+        "text": "People took to the air in propeller planes. Later, passenger jets carried larger groups across oceans at higher speeds.",
+        "imageBrief": "Two clearly separated aircraft scenes: LEFT a cream early single-propeller biplane flying over fields; RIGHT a white modern twin-engine passenger jet with teal tail flying above the ocean. Each aircraft has one fuselage, correctly attached wings, one tail and complete tips. They are examples from different periods and different scales, not flying in formation. No countries, routes, time claims, writing or logos in the art.",
+        "imageAlt": "An early propeller biplane flies above fields. A modern passenger jet flies above the ocean in a separate scene.",
+        "pageDescription": "An early propeller biplane flies above fields. A modern passenger jet flies above the ocean in a separate scene.",
+        "state": "Early propeller flight and later passenger jets extend travel into the air and shorten many long ocean journeys.",
+        "embeddedImageText": "",
+        "imageLayout": "comparison-diagram"
       },
       {
         "pageNumber": 6,
-        "text": "Early airplanes carried people above the ground. Later, jet planes made long journeys across oceans much faster.",
-        "imageBrief": "Two-part historical comparison diagram: cream propeller biplane flying low above fields at left; modern white teal-tailed passenger jet above ocean at right. Separate sky scenes, distinct scales, no implication the planes fly in formation. No dates or brands.",
-        "imageAlt": "An early propeller airplane flies above fields. A modern passenger jet flies above the sea in a separate scene.",
-        "pageDescription": "An early propeller airplane flies above fields. A modern passenger jet flies above the sea in a separate scene.",
-        "state": "Aircraft and later jet power extend travel above land and sea.",
+        "text": "Today, some electric trains take power from wires. Some cars and buses carry batteries instead. Their electric motors turn the wheels.",
+        "imageBrief": "Three connected comparison views of modern electric transport: LEFT a white-and-blue electric passenger train on a coherent pair of fenced rails, its pantograph touching one overhead supply wire; CENTER a closed blue battery-electric car safely parked at a charging point, with one connected cable and a single integrated side cutaway showing its flat underfloor battery pack connected to a small drive motor; RIGHT a teal battery-electric bus parked at a depot charger with its own connected cable. Keep every complete vehicle inside its frame, car and bus on roads and train only on rails. No fuel nozzle, extra battery train, labels or text.",
+        "imageAlt": "An electric train touches an overhead wire. A battery car and an electric bus connect to separate chargers.",
+        "pageDescription": "An electric train touches an overhead wire. A battery car and an electric bus connect to separate chargers.",
+        "state": "Present-day electrification supplies train power from wires and car/bus motor power from stored battery energy.",
         "embeddedImageText": "",
         "imageLayout": "comparison-diagram"
       },
       {
         "pageNumber": 7,
-        "text": "Some modern trains run on electricity. They can carry many passengers quickly between stations without stopping in road traffic.",
-        "imageBrief": "Modern white-blue passenger train on fenced electrified rail line with one pantograph touching overhead wire. Coaches carry seated people. Nearby road separated by fence shows stationary cars at traffic lights. No train on road, no pedestrians on tracks.",
-        "imageAlt": "An electric passenger train moves on its own tracks beside a road where cars wait at a light.",
-        "pageDescription": "An electric passenger train moves on its own tracks beside a road where cars wait at a light.",
-        "state": "Modern electric rail differs from steam and follows a separated route.",
-        "embeddedImageText": ""
+        "text": "This electric bicycle adds motor power when its rider pedals. A cargo bike has space for shopping or a child's seat.",
+        "imageBrief": "Two separated modern bicycle views: LEFT a helmeted adult in plain clothes pedals a blue step-through electric bicycle on a cycle path; a compact battery and small crank-drive motor are attached realistically to the frame. RIGHT an orange two-wheel long-tail cargo bicycle is safely stationary beside the path, with a clearly attached empty child seat with straps and footrests on its extended rear rack and a secured shopping bag in its front carrier. Show complete bicycle wheels, chains, pedals and sensible frame geometry. The child seat is empty, no child riding an adult electric bicycle and no unsafe stacked load. No logos or text.",
+        "imageAlt": "An adult pedals an electric bicycle. A separate cargo bicycle has shopping space and an empty child seat.",
+        "pageDescription": "An adult pedals an electric bicycle. A separate cargo bicycle has shopping space and an empty child seat.",
+        "state": "Electric assistance extends a muscle-powered vehicle, while a cargo-bike design adapts carrying space to a different transport job.",
+        "embeddedImageText": "",
+        "imageLayout": "comparison-diagram"
       },
       {
         "pageNumber": 8,
-        "text": "Compare a cart, a fast train, and a jet plane. For a long journey, their usual travel speeds are very different.",
-        "imageBrief": "Three-part comparison diagram in ascending usual cruise-speed order: horse wagon on its road at left, modern electric train on tracks at center and passenger jet in open sky at right. Use separate equal-sized frames and no numeric speedometer, shared finish line, race or scaled travel-distance claim.",
-        "imageAlt": "A horse-drawn cart, a modern train and a passenger jet are shown on their separate routes.",
-        "pageDescription": "A horse-drawn cart, a modern train and a passenger jet are shown on their separate routes.",
-        "state": "Qualitative speed comparison among selected examples; no exact speed or race claim.",
-        "embeddedImageText": "",
-        "imageLayout": "comparison-diagram"
+        "text": "Engineers are testing cars that use cameras and sensors to guide them. They must work safely before more people can use them.",
+        "imageBrief": "A plain white prototype passenger car with a teal trim is on a closed, fenced test track. A small camera behind the windshield and one compact roof sensor are visibly mounted on this same car. An adult safety driver wearing a seat belt sits at the steering wheel; a separate adult engineer in ordinary work clothes monitors a plain laptop from behind a protective barrier outside the lane. Orange cones define the empty test lane. This is supervised testing, not an unattended family car on a public street. No named cast, false sensor light rays, futuristic hover wheels, street crowds or text.",
+        "imageAlt": "An engineer monitors a camera-and-sensor car on a fenced test track. A safety driver sits at the steering wheel.",
+        "pageDescription": "An engineer monitors a camera-and-sensor car on a fenced test track. A safety driver sits at the steering wheel.",
+        "state": "Prototype automated driving is being tested under supervision. Safe wider use is a goal, not a guaranteed present capability.",
+        "embeddedImageText": ""
       },
       {
         "pageNumber": 9,
-        "text": "A jet usually travels faster than a fast train. But reaching an airport and waiting can add hours to a journey.",
-        "imageBrief": "Integrated two-part journey diagram: adult with small suitcase travels on shuttle bus toward distant airport terminal at left; same adult sits waiting safely at departure gate at right, passenger jet visible through window. No printed clock digits or fake timetable. Plain ordinary clothes; no flags or brands.",
-        "imageAlt": "A traveler rides toward an airport, then waits in a departure lounge before boarding a plane.",
-        "pageDescription": "A traveler rides toward an airport, then waits in a departure lounge before boarding a plane.",
-        "state": "Whole-journey time includes access and waiting, distinct from cruise speed.",
-        "embeddedImageText": "",
-        "imageLayout": "comparison-diagram"
+        "text": "Engineers also test electric aircraft. Lighter batteries could help these planes carry more people farther before they need to charge.",
+        "imageBrief": "A small white-and-orange experimental electric propeller aircraft stands completely on its landing gear at a test hangar. One nose-mounted electric motor and propeller, one fuselage, a correctly attached pair of wings and one tail are coherent and fully framed. An adult engineer in plain work clothes weighs one compact rectangular battery module on a low workshop scale beside the parked plane; a second closed matching battery module rests on a trolley. A charging cable is connected to the aircraft on the other side, clear of the propellers and walking area. This is a plausible test aircraft, not a guaranteed future airliner or a vehicle already carrying crowds. No labels, digits, logos or open unsafe electrical parts.",
+        "imageAlt": "An engineer weighs a battery beside a parked experimental electric plane. The aircraft is connected to a charger.",
+        "pageDescription": "An engineer weighs a battery beside a parked experimental electric plane. The aircraft is connected to a charger.",
+        "state": "Experimental electric flight introduces battery weight as a design constraint. Lighter suitable batteries could improve payload/range; no date or inevitable adoption is promised.",
+        "embeddedImageText": ""
       },
       {
         "pageNumber": 10,
-        "text": "New inventions added ways to travel. People still walk, cycle, row, and ride animals alongside today’s motor vehicles.",
-        "imageBrief": "Closing comparison diagram of four clearly separated everyday scenes: pedestrian and cyclist on park path; adult rows on calm water; adult on horse along a rural bridleway; modern train and car on separate track and road. Each user appropriately equipped. No one shares unsafe surfaces or races.",
-        "imageAlt": "People walk, cycle, row and ride a horse. A car and train travel on their own routes in separate scenes.",
-        "pageDescription": "People walk, cycle, row and ride a horse. A car and train travel on their own routes in separate scenes.",
-        "state": "Synthesis: older and newer forms coexist today; no claim of universal replacement.",
+        "text": "From muscle and wind to engines and batteries, power has changed vehicles. Future designs must still carry people and goods safely.",
+        "imageBrief": "Three clearly separated comparison scenes answering the book's progression: LEFT the bay horse pulls the brown wagon along a dirt road; CENTER the teal modern electric bus stands at its depot charger with a properly connected cable; RIGHT the white-and-orange experimental electric aircraft is parked at its test hangar while the same engineer checks a closed battery module on a trolley beside it. Give each scene its own appropriate surface and complete safely framed subjects. Keep the prototype visibly in testing rather than carrying public passengers. This final comparison shows muscle-powered travel, present electric transport, and a design still being developed. No generic park collage, road map, speed race, floating vehicle, text, arrows, flags or logos.",
+        "imageAlt": "A horse-drawn wagon, a present-day electric bus and an experimental electric aircraft appear in separate scenes. An engineer checks the aircraft battery.",
+        "pageDescription": "A horse-drawn wagon, a present-day electric bus and an experimental electric aircraft appear in separate scenes. An engineer checks the aircraft battery.",
+        "state": "Closing synthesis compares earlier power, current battery power and a tested design: changing the power system does not remove the basic job of carrying people or goods safely.",
         "embeddedImageText": "",
         "imageLayout": "comparison-diagram"
       }
     ],
     "discussion": {
       "oral": {
-        "prompt": "How did inventions change travel? Why do people still use older ways?",
-        "listenFor": "Engines, trains and aircraft added choices and often greater speed or carrying ability. Walking, cycling, rowing and animal transport still suit some journeys and activities."
+        "prompt": "Choose a vehicle from the past, one used today and one being tested. What gives each one power? What job does each vehicle do?",
+        "listenFor": "Examples can connect muscle/wind to cart or boat, fuel and steam/engines to train/car/ship/aircraft, electricity to train/car/bus/e-bike, and testing to automated guidance or suitable lighter aircraft batteries. A prototype is not promised to become everybody's next vehicle."
       },
       "visual": {
         "page": 9,
-        "prompt": "What parts of this journey happen before the plane flies?",
-        "lookFor": "The traveler goes to the airport and waits there. These steps take time too."
+        "prompt": "Why is this plane at a test hangar? What is the engineer checking beside it?",
+        "lookFor": "The plane is an experimental design. The engineer is checking a battery's weight; suitable lighter batteries could leave more carrying capacity or support longer journeys. The image is testing, not ordinary passenger service."
       }
     },
-    "levelRationale": "A sustained historical comparison changes time periods, power sources, carrying possibilities and ordinary travel speed, then qualifies the fastest-vehicle assumption using airport access/waiting. Past-tense history and present-tense comparison are explicitly bridged. This is a lower-E connected explanation: more temporal and cross-example integration than the D Container journey, while simpler than the arithmetic and changing-wait conditions of E Choose a Ride.",
+    "levelRationale": "Proposed public E: a sustained connected explanation shifts from past-tense examples to present systems and then conditional future possibilities. The reader links the same power-and-carrying inquiry across land, water and air; contrasts wires with stored battery energy and earlier muscle/wind; and interprets testing, must and could without treating a prototype as an inevitable future. Sentences remain short and explicit, with matched diagrams and oral preparation, so this is lower E rather than F. It is broader and more temporally integrated than D Gasoline and Electric Cars, while carrying fewer interacting forces and technical relations than E How Wings Lift a Plane. Production slot E is preserved independently of this fresh exact-text review.",
     "languagePrep": [
       {
-        "word": "transport",
-        "meaning": "ways of carrying people or things between places"
+        "word": "vehicle",
+        "meaning": "something used to carry people or things between places"
+      },
+      {
+        "word": "power",
+        "meaning": "the energy that makes a machine move or work"
       },
       {
         "word": "steam",
         "meaning": "water in its gas form"
       },
       {
-        "word": "invention",
-        "meaning": "something new that people design and make"
+        "word": "propeller",
+        "meaning": "a turning set of blades that pushes air or water"
       },
       {
-        "word": "journey",
-        "meaning": "a trip from one place to another"
+        "word": "sensor",
+        "meaning": "a part that detects something around a machine"
+      },
+      {
+        "word": "engineer",
+        "meaning": "a person who designs and tests machines or structures"
       }
     ]
   },

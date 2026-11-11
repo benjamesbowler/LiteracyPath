@@ -75,6 +75,10 @@ record five broader ESL discovery manuscripts and their exact current media
 reviews. [Edition history](BOOK_EDITION_HISTORY.md) preserves prior results and
 starts separate progress for those replacement topics.
 
+The [Transport Through Time repair](TRANSPORT_THROUGH_TIME_REPAIR_2026-11-11.md)
+adds the requested past, present and future vehicle coverage and prevents an
+older offline image cache from substituting pictures from the previous text.
+
 The [11 November library suitability audit](LIBRARY_SUITABILITY_AUDIT_2026-11-11.md)
 covers the active catalogue and Cycle Shorts, and records the illustration,
 wording and matching narration repairs.

@@ -14525,8 +14525,8 @@
       }
     ],
     "graph": {
-      "count": 1559,
-      "sha256": "ffffdfb0a8a16d3c95223704689700db76db8f6f3c6b6ead60b38082370126a3",
+      "count": 1560,
+      "sha256": "9d9cf4b4ef218dfdd618fdb6b25b3e9eaf920432d3a2ceacbfb7bf6b77f54355",
       "modules": [
         "demos/sound-seekers/assets/audio/brook-complete.mp3",
         "demos/sound-seekers/assets/audio/brook.mp3",
@@ -15272,8 +15272,8 @@
         "src/content/world-discovery/level-d.json",
         "src/content/world-discovery/level-e.json",
         "src/content/world-discovery/registrations/2026-11-09/11-20.json",
-        "src/content/world-discovery/registrations/2026-11-10/21-30-topic-revision-r2.json",
         "src/content/world-discovery/registrations/2026-11-11/01-10-grounding.json",
+        "src/content/world-discovery/registrations/2026-11-11/21-30-transport.json",
         "src/content/world-discovery/reviews.json",
         "src/copy/benchmarkRunnerCopy.js",
         "src/copy/childCopy.js",
@@ -15364,6 +15364,7 @@
         "src/data/generated/guidedReadingBookIndex.generated.js",
         "src/data/generated/guidedReadingCoverRenditions.generated.js",
         "src/data/generated/guidedReadingImageRevisions.generated.js",
+        "src/data/generated/guidedReadingImmutableDeliveryPaths.generated.js",
         "src/data/generated/guidedReadingLedaGaps.generated.js",
         "src/data/generated/guidedReadingNarrationClearance.generated.js",
         "src/data/generated/guidedReadingNarrationProvenance.generated.js",
@@ -16089,8 +16090,8 @@
         "src/utils/workshopObjects.js"
       ],
       "edges": {
-        "count": 3704,
-        "sha256": "1a3f25872a95d81c55482ceb9667c58b0e9d798f2ca1818798ddd5e6cb0ab19a"
+        "count": 3706,
+        "sha256": "1fca8bbaa3552c43626965082cad6a54ac8b672fb58374c56036f6daa00eec47"
       },
       "issues": [],
       "dynamic": []
@@ -16639,8 +16640,8 @@
       }
     },
     "runtimeSources": {
-      "count": 1748,
-      "sha256": "5e779f8bee1a5a5ba7106b38a5351001d61f3ea05c811a829c1b96b0beafcb07",
+      "count": 1750,
+      "sha256": "5309808966655e677eed384df6baf307252abfc1bf46a8aa52f45160c2b28775",
       "files": [
         {
           "path": "demos/sound-seekers/chapter.config.mjs",
@@ -18536,7 +18537,7 @@
         },
         {
           "path": "src/components/PresentPage.jsx",
-          "sha256": "a79a7d75c67f3a3c6d80be18c7cbefcf79ae985bfb196706e60f135369daf50b"
+          "sha256": "531cf72686b7a3fd1cd875a6dabf6405324257eac289640ebc760b8b63adbdf9"
         },
         {
           "path": "src/components/progress/IndependentProgressCheckPage.jsx",
@@ -19040,7 +19041,7 @@
         },
         {
           "path": "src/content/appVisualAssetReviews.generated.js",
-          "sha256": "cac48542269fa17294cd508bceaed765e74c0bec18d3c53dda50775146fcb371"
+          "sha256": "c6556e2313d1a780c0898b742ae8f1438e2b84da6d9715e840e27cb7b175f817"
         },
         {
           "path": "src/content/assessments/curriculumReleaseBoard.generated.js",
@@ -19180,7 +19181,7 @@
         },
         {
           "path": "src/content/guidedReadingContextualWordAudio.json",
-          "sha256": "18d582ba11556fcce7e23d771310a33ec06b67012c8c5ff445e16ba0493f8eb3"
+          "sha256": "b56d177d969bef5ad1a23cc02b30f8565b88f2a2f61f3be51d1174f7d868657d"
         },
         {
           "path": "src/content/guidedReadingHumanFictionRewrites.js",
@@ -19260,7 +19261,7 @@
         },
         {
           "path": "src/content/storyContentReviews.js",
-          "sha256": "6eceab970338aeea0a3aa4f2438e1bec8871464fbccfec6806b442e44947b5ed"
+          "sha256": "1a46c18195490e1106a795cf870d2b3e3f234a889ad301c065ea8aeaa1b60ec0"
         },
         {
           "path": "src/content/storyQuestNarrationManifest.generated.json",
@@ -19280,7 +19281,7 @@
         },
         {
           "path": "src/content/world-discovery/cohorts.json",
-          "sha256": "a389e55f5e8c19bd2cf0c711dcb65e50d99e02e03fba45de8d42e65acda12347"
+          "sha256": "177e678a3fd088e406f4e9f168585d701ee0c2719dafbfb80f40af183c17fc00"
         },
         {
           "path": "src/content/world-discovery/cohorts/11-20/level-a.json",
@@ -19324,11 +19325,11 @@
         },
         {
           "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
-          "sha256": "1f8dd699cfc9bcb0313d752eba9d944cff611e06145af1ec025c31f8f26636a6"
+          "sha256": "412021864e040266c29e777325b5b21ed9da0ca4ba961479c51073674a31651d"
         },
         {
           "path": "src/content/world-discovery/cohorts/21-30/reviews.json",
-          "sha256": "383e06a243b50c991dc78c3074bbc26ea887be775ce34b16fd3f5ac94c72f5bb"
+          "sha256": "f5eab48eef92c3540264d7f8a0bd02ffad22e3099edc0cebf275e6c6a0f2f7ae"
         },
         {
           "path": "src/content/world-discovery/level-a.json",
@@ -19385,6 +19386,10 @@
         {
           "path": "src/content/world-discovery/registrations/2026-11-11/01-10-grounding.json",
           "sha256": "e00d0ce0b569220c95f0b99cc385eb6feb9a91e7fe76f37bbbc1e331bdf48d18"
+        },
+        {
+          "path": "src/content/world-discovery/registrations/2026-11-11/21-30-transport.json",
+          "sha256": "f7e5e9c45e5e59a97cf858445dcd8e2432e2d2a5c4b84234df0e4e7e3c42db2f"
         },
         {
           "path": "src/content/world-discovery/registrations/21-30.json",
@@ -19760,19 +19765,19 @@
         },
         {
           "path": "src/data/generated/audioFilePaths.generated.js",
-          "sha256": "f131c048b18806a7986f875ea7dbcea055593cec2dc6c5d1d3db9e2a61f00d52"
+          "sha256": "752b06a8628aa93ff810ef7ca54ff0c88c26a6b8c247a65685afaa5146c6979e"
         },
         {
           "path": "src/data/generated/audioGuidedReadingPaths.generated.js",
-          "sha256": "0d65d87642667378b01c8cb7942d0e8cabd83221c314f04fae86feb9b8a498d2"
+          "sha256": "20ebb285446c932d4c3d2c02a212c0107e8dec210758915a27cda2c8bacf057a"
         },
         {
           "path": "src/data/generated/audioPhonemePaths.generated.js",
-          "sha256": "b422a2f6ef0771e47b72919666a794d23195888b1cfd9dfbf931164810790d36"
+          "sha256": "928db03b8bb4ab285f1c04fb1d12708ab13ddda36d0efe131f818bdd57b11f88"
         },
         {
           "path": "src/data/generated/audioQuestPaths.generated.js",
-          "sha256": "bdada3b05a00a6275c7eaa7f7189810f544d321f4731ef609b3e60fbc63a0613"
+          "sha256": "b576926c6332c3f895a05a64766fc8fce881c0b9df32221cbcf1fb4c18b91361"
         },
         {
           "path": "src/data/generated/cyclePracticeInstructionAudio.generated.js",
@@ -19780,31 +19785,35 @@
         },
         {
           "path": "src/data/generated/guidedReadingBookIndex.generated.js",
-          "sha256": "af0dd7ce9060c3257cdcf6b950aa09d4445bfb9f5e1d113a65bdd096792874fd"
+          "sha256": "e580108a90595037aed73f42046ac54a043987df140b1928e9b0bcac0882ab10"
         },
         {
           "path": "src/data/generated/guidedReadingCoverRenditions.generated.js",
-          "sha256": "3b6f0ef5f3f9570fa4b5d7c795057f547aa2bcf3bb83eab1fa262f1a2b5f87b0"
+          "sha256": "702cc104d16a9517b6195276ac8f38058ec41d44ce5968b938b1aeb3f0d53543"
         },
         {
           "path": "src/data/generated/guidedReadingImageRevisions.generated.js",
-          "sha256": "eb10f6d0dba2020b09f1892e546cb5c25867cfa787ee92d073185090e38d01c2"
+          "sha256": "534e6ffe0c03230d6cf28c834f0a0f637affaf5068ddef501dfdd6ad8e0725d9"
+        },
+        {
+          "path": "src/data/generated/guidedReadingImmutableDeliveryPaths.generated.js",
+          "sha256": "90fe510af3dcc05fce0d6f4ebe74b32c6588446f5306b19aa106bbc3d10a5f57"
         },
         {
           "path": "src/data/generated/guidedReadingLedaGaps.generated.js",
-          "sha256": "b17c0b9e1dfdad2d7a23203d191d0aaee50e7da5c5aec788d513f2933852fe9d"
+          "sha256": "7f85d7e89b276e595c18f9e38cd7e429c472ca1f4f6f08a2be7ffe1f5895af0b"
         },
         {
           "path": "src/data/generated/guidedReadingNarrationClearance.generated.js",
-          "sha256": "eb2757a8150f492b5c4f56a1c3f023b75305e2b2ecebf9932345065d093440de"
+          "sha256": "ed46133838eb9253d5e0b2176bfc4cdd0d0f27e82fe6e892aa90c9167227a83f"
         },
         {
           "path": "src/data/generated/guidedReadingNarrationProvenance.generated.js",
-          "sha256": "2acf128725329c80e4ff52d26ef98b56649cf43190c93344fd9146c2328bc057"
+          "sha256": "76786611d7d3e6d7a37ef8dae9fd8e63b7aa65fadad17ad4ebaf663dd424bf68"
         },
         {
           "path": "src/data/generated/guidedReadingTextAnalysis.generated.js",
-          "sha256": "5508a568b62476f201773789ec52521399f3c46d78c24629f18901171a641868"
+          "sha256": "a339c16e29500e667555eb37de65dddc24141f9abb72aef032ad8c23014cdc14"
         },
         {
           "path": "src/data/generated/hfwCuratedSentences.generated.js",
@@ -19928,7 +19937,7 @@
         },
         {
           "path": "src/data/generated/worldDiscoveryCohorts.generated.js",
-          "sha256": "73743dfb8824447974c4ecfbcce068e773aea054a2465da459d9674d1c7ac8f9"
+          "sha256": "f5ea84e3ea1b1d256ea3b56cd760da7fbe288834ca9f08ffdbe1a3373ccd2834"
         },
         {
           "path": "src/data/guardianPortalApi.js",
@@ -22768,7 +22777,7 @@
         },
         {
           "path": "src/utils/guidedReading/coverRenditions.js",
-          "sha256": "967d2137132a619ec00f3cfe1eeb8b660436f4bdff37f0689b9df84e233ac5c0"
+          "sha256": "4cc85b0ee70b1e03a5b70ccba3f8c014701cbd1a99cab80c987cbf201a9b9f9f"
         },
         {
           "path": "src/utils/guidedReading/decodableScope.js",
@@ -22788,7 +22797,7 @@
         },
         {
           "path": "src/utils/guidedReading/mediaVersion.js",
-          "sha256": "8fa324c9d163897c37b53ee834578c4c746f6a9fb87b0301fedc231f88adf9a8"
+          "sha256": "e415318d3a41dee3e7756bab9790fe945349591c5d7fc27fd53153d0528a2db3"
         },
         {
           "path": "src/utils/guidedReading/normalizeReadableBook.js",
@@ -23060,7 +23069,7 @@
         },
         {
           "path": "src/utils/present/powerPointPackage.js",
-          "sha256": "91a450b40948cd06f85ebfa00f91fb0206b654d4c1587e4d3c2dce55633b9e2d"
+          "sha256": "25cf44a28cdf2f430c58a5f37f1f385d86987db7c73a6a0a755a5aca9fec0b58"
         },
         {
           "path": "src/utils/present/presentationActivities.js",
@@ -23088,11 +23097,11 @@
         },
         {
           "path": "src/utils/present/presentationPowerPoint.js",
-          "sha256": "2f998e19341133bacda4e215a29ecb10c56f6017de82e6cbaf8620a3e075ad86"
+          "sha256": "f51d7f52c21b5544c9bf4f04b8012a26df938b71decbfc2a9b41da1730db27a7"
         },
         {
           "path": "src/utils/present/presentationPowerPointPlan.js",
-          "sha256": "99163ae55ef7218c10a7daa89b1ded3b8b9c706a59649eb70b0f1cbd7dcd7621"
+          "sha256": "1f0d87658f2a8f1ff342d48c1359d1aa8b844f0181f0de2d1579ec11d2e290cc"
         },
         {
           "path": "src/utils/present/presentationSentenceRounds.js",
@@ -23651,7 +23660,7 @@
       },
       {
         "path": "tools/appVisualReviewInventory.mjs",
-        "sha256": "c5413977848832336c4dae9292b802d92b711de1b86667382c0b5f6ac8a14765"
+        "sha256": "a99228bcd1a5d60dd8f5eabbcb238e5d6e0dacdc921d3073f60605bfc34ee85c"
       },
       {
         "path": "tools/checkAppVisualReview.mjs",

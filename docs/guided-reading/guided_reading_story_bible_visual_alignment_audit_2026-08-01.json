@@ -5,7 +5,7 @@
   "gateSemantics": {
     "mode": "fail-closed",
     "rule": "Every active page must have an exact displayed-text hash, image path, image-file hash and approved/replace decision. Any changed text, path or image bytes invalidate this audit record and require re-audit.",
-    "releaseFingerprintSha256": "86dbfe20c22c33a1ae36816bf2c5d822b91c7baf82d57975166fd2ca5c86c0ba"
+    "releaseFingerprintSha256": "6d1cc19b1ef3e69167c4772171fc853261a6131d4d3fef4dca64ce85ecb9813b"
   },
   "scope": {
     "activeBooksAudited": 446,
@@ -462,7 +462,8 @@
     "On 2026-11-10, world-discovery-e-21 was re-audited against the current runtime text and every reviewed page image was hash-locked after full-book sequence, cover, character-continuity, anatomy, object-count, factual-safety, style and resolution checks.",
     "On 2026-11-10, world-discovery-e-22 was re-audited against the current runtime text and every reviewed page image was hash-locked after full-book sequence, cover, character-continuity, anatomy, object-count, factual-safety, style and resolution checks.",
     "On 2026-11-11 the Dino Pals 14 title became Flappy Finds a Way. The ordered manuscript and every reading-page illustration were retained. The original-detail cover check confirmed that the existing cover contains no printed title.",
-    "On 2026-11-11 seven revised lines across five books were rebound to their existing illustrations after full-sequence review and original-detail checks of the affected pages. Per-page records retain prior text fingerprints and current image hashes."
+    "On 2026-11-11 seven revised lines across five books were rebound to their existing illustrations after full-sequence review and original-detail checks of the affected pages. Per-page records retain prior text fingerprints and current image hashes.",
+    "On 2026-11-11, world-discovery-e-21 was re-audited against the current runtime text and every reviewed page image was hash-locked after full-book sequence, cover, character-continuity, anatomy, object-count, factual-safety, style and resolution checks."
   ],
   "issueCodeCounts": {
     "animal_welfare": 2,
@@ -70364,140 +70365,140 @@
       "title": "Transport Through Time",
       "level": "E",
       "pageNumber": 1,
-      "displayedText": "Before motor vehicles existed, people walked, rode animals, and traveled in boats. How did new inventions change their journeys?",
+      "displayedText": "Long ago, animals pulled carts on land. Oars and sails moved boats across water. Journeys depended on muscle or wind.",
       "imagePath": "/guided-reading/world-discovery/e-21/page-01.webp",
-      "textSha256": "833214fe657e7919dbf76a9deaa8f4dead220a9fd1cdf2acadcdb1d594d97bf2",
-      "imageSha256": "4884a3002a30d3edfac8a713ffbb4aac28fdebf58cdcc57f1cb50e1b8ef6afff",
+      "textSha256": "2faca9ead471daa8084dc7320b8c8e5206bef1d3403107b2bb78a9024015c121",
+      "imageSha256": "361612edeffd44b1cac54d87185b073e4aee9dc39ebbf85aba1863a6502ded9e",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
+      "regenerationBrief": "Independent transport_editor full ordered native reference/cover/page and exact512px card review is bound in source-art/world-discovery/remediation/2026-11-11/transport-complete-book-review.json (SHA f0826dba60cea6e99344f3fced6f9115c48f2f76502e4659c20a5869b5712110). All10 exact final This page texts, actual installed image bytes, briefs/states and teaching support were reviewed; no open native-art findings. Existing-art reuse and generation evidence are preserved separately. This records direct native review only; rendered reader, PDF, deployed delivery, human listening and physical-device evidence remain separate."
     },
     {
       "bookId": "world-discovery-e-21",
       "title": "Transport Through Time",
       "level": "E",
       "pageNumber": 2,
-      "displayedText": "A horse could pull a cart full of people or goods. Travelers still needed to feed and rest the horse.",
+      "displayedText": "Steam changed travel. Burning fuel heated water, and steam turned train wheels. Trains could pull many carriages together.",
       "imagePath": "/guided-reading/world-discovery/e-21/page-02.webp",
-      "textSha256": "1fcb22e60c41c6f55ea5a140a75878b71a23e2c46660869cd9f2251a9010a326",
-      "imageSha256": "3c4748aa551c83417fbdd5efbc36b36ecc4529a46f92aa5e3b3668ea85dcdeee",
+      "textSha256": "0df6d88370544205748355bafc1d0066ac54c392d7df2ee53a789337b3be517a",
+      "imageSha256": "e4bcb73ecc43a49cd4c09f0a08fd5cf7560460beb1ea772e1a3bf3c11f83f946",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
+      "regenerationBrief": "Independent transport_editor full ordered native reference/cover/page and exact512px card review is bound in source-art/world-discovery/remediation/2026-11-11/transport-complete-book-review.json (SHA f0826dba60cea6e99344f3fced6f9115c48f2f76502e4659c20a5869b5712110). All10 exact final This page texts, actual installed image bytes, briefs/states and teaching support were reviewed; no open native-art findings. Existing-art reuse and generation evidence are preserved separately. This records direct native review only; rendered reader, PDF, deployed delivery, human listening and physical-device evidence remain separate."
     },
     {
       "bookId": "world-discovery-e-21",
       "title": "Transport Through Time",
       "level": "E",
       "pageNumber": 3,
-      "displayedText": "Later, steam engines pulled trains along tracks. Burning fuel heated water, and steam helped turn the wheels.",
+      "displayedText": "Engines also powered cars, buses, and trucks. Families could ride in cars while buses carried groups and trucks moved goods.",
       "imagePath": "/guided-reading/world-discovery/e-21/page-03.webp",
-      "textSha256": "330f25c053a295495b863909934885e6e2fa1756b7b5baf7dbb20d992eb23b30",
-      "imageSha256": "e4bcb73ecc43a49cd4c09f0a08fd5cf7560460beb1ea772e1a3bf3c11f83f946",
+      "textSha256": "c418a8c0bbbb79eb1b1e415069e3de54c5bed1228ca359ce23d6b1e9b1f433cd",
+      "imageSha256": "5331dbba86b19c427d5c1d43c592077b08b4ccc7faf0a61814a9cebf2fa0c33b",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
+      "regenerationBrief": "Independent transport_editor full ordered native reference/cover/page and exact512px card review is bound in source-art/world-discovery/remediation/2026-11-11/transport-complete-book-review.json (SHA f0826dba60cea6e99344f3fced6f9115c48f2f76502e4659c20a5869b5712110). All10 exact final This page texts, actual installed image bytes, briefs/states and teaching support were reviewed; no open native-art findings. Existing-art reuse and generation evidence are preserved separately. This records direct native review only; rendered reader, PDF, deployed delivery, human listening and physical-device evidence remain separate."
     },
     {
       "bookId": "world-discovery-e-21",
       "title": "Transport Through Time",
       "level": "E",
       "pageNumber": 4,
-      "displayedText": "A steam train could carry many people farther in one day than a horse-drawn cart could usually travel.",
+      "displayedText": "At sea, engines turned propellers. Ships could move without waiting for wind, and larger ships carried more people or goods.",
       "imagePath": "/guided-reading/world-discovery/e-21/page-04.webp",
-      "textSha256": "69f491d7b54d42ffd2dcd90717f5602e6296ee1f73a2bc77f36cd19e198ce0d4",
-      "imageSha256": "f3ba08c0b93c39dcf6dfa4f9605e6bf4e4e7a77087a0e33b4b1fd778a54eed58",
+      "textSha256": "e50527a74e9d996abeabc079d5b25e4280eb3b0417c3b7c132b50b1852f34cc1",
+      "imageSha256": "7934251e5585292bdd832c580ada630b816e42fbe70151c39cad5054b778aab4",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
+      "regenerationBrief": "Independent transport_editor full ordered native reference/cover/page and exact512px card review is bound in source-art/world-discovery/remediation/2026-11-11/transport-complete-book-review.json (SHA f0826dba60cea6e99344f3fced6f9115c48f2f76502e4659c20a5869b5712110). All10 exact final This page texts, actual installed image bytes, briefs/states and teaching support were reviewed; no open native-art findings. Existing-art reuse and generation evidence are preserved separately. This records direct native review only; rendered reader, PDF, deployed delivery, human listening and physical-device evidence remain separate."
     },
     {
       "bookId": "world-discovery-e-21",
       "title": "Transport Through Time",
       "level": "E",
       "pageNumber": 5,
-      "displayedText": "Motor cars brought another change. Their engines used fuel to move the wheels, so the cars did not need horses.",
+      "displayedText": "People took to the air in propeller planes. Later, passenger jets carried larger groups across oceans at higher speeds.",
       "imagePath": "/guided-reading/world-discovery/e-21/page-05.webp",
-      "textSha256": "36f4491f949147abe8bc55db16da169eb115e1cb4fe2f04c396c4f8b4de8827c",
-      "imageSha256": "2837baede73ad0699a1e9a13cc3baafd8c8e69b291e644f525ec044a32b0e053",
+      "textSha256": "c4a5aa2703e81d53d65a8d1d68409f37dcd53c1ba0e69943817aef8848ffcace",
+      "imageSha256": "6a9cdd7a070d5e253c99116a0607a147692ac9ef98eaa218a95d37c8d935e55d",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
+      "regenerationBrief": "Independent transport_editor full ordered native reference/cover/page and exact512px card review is bound in source-art/world-discovery/remediation/2026-11-11/transport-complete-book-review.json (SHA f0826dba60cea6e99344f3fced6f9115c48f2f76502e4659c20a5869b5712110). All10 exact final This page texts, actual installed image bytes, briefs/states and teaching support were reviewed; no open native-art findings. Existing-art reuse and generation evidence are preserved separately. This records direct native review only; rendered reader, PDF, deployed delivery, human listening and physical-device evidence remain separate."
     },
     {
       "bookId": "world-discovery-e-21",
       "title": "Transport Through Time",
       "level": "E",
       "pageNumber": 6,
-      "displayedText": "Early airplanes carried people above the ground. Later, jet planes made long journeys across oceans much faster.",
+      "displayedText": "Today, some electric trains take power from wires. Some cars and buses carry batteries instead. Their electric motors turn the wheels.",
       "imagePath": "/guided-reading/world-discovery/e-21/page-06.webp",
-      "textSha256": "899fa3eac1668b114adeb420b4e3f241712f1c930fbd31f92ca5d319b3c78df1",
-      "imageSha256": "6a9cdd7a070d5e253c99116a0607a147692ac9ef98eaa218a95d37c8d935e55d",
+      "textSha256": "b09e9901a6450e10d0a2ebe6ccf1c11823f5410af4e023478b86d83ed7a8714f",
+      "imageSha256": "ffeda31e73c43fce9cdbb9941014f7ef1061a2b3729511624887232dfc452a3f",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
+      "regenerationBrief": "Independent transport_editor full ordered native reference/cover/page and exact512px card review is bound in source-art/world-discovery/remediation/2026-11-11/transport-complete-book-review.json (SHA f0826dba60cea6e99344f3fced6f9115c48f2f76502e4659c20a5869b5712110). All10 exact final This page texts, actual installed image bytes, briefs/states and teaching support were reviewed; no open native-art findings. Existing-art reuse and generation evidence are preserved separately. This records direct native review only; rendered reader, PDF, deployed delivery, human listening and physical-device evidence remain separate."
     },
     {
       "bookId": "world-discovery-e-21",
       "title": "Transport Through Time",
       "level": "E",
       "pageNumber": 7,
-      "displayedText": "Some modern trains run on electricity. They can carry many passengers quickly between stations without stopping in road traffic.",
+      "displayedText": "This electric bicycle adds motor power when its rider pedals. A cargo bike has space for shopping or a child's seat.",
       "imagePath": "/guided-reading/world-discovery/e-21/page-07.webp",
-      "textSha256": "3c3dc379370a50342c2d580a8390daf0afe2d130e49395d94b3f6f13f3d6b010",
-      "imageSha256": "8d28be0b089c01448c1ba969c3cd9574de6c2319078eadfbda0afce17ac902db",
+      "textSha256": "7e26c8c1ae48ef670fd32c24cd1f7bfd20101a90408fe27e645f45f2508a587a",
+      "imageSha256": "03c430a44debe3055c1e115f2c8fc7a24aebef8cf8e7a9a95179cc228ee1cc8a",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
+      "regenerationBrief": "Independent transport_editor full ordered native reference/cover/page and exact512px card review is bound in source-art/world-discovery/remediation/2026-11-11/transport-complete-book-review.json (SHA f0826dba60cea6e99344f3fced6f9115c48f2f76502e4659c20a5869b5712110). All10 exact final This page texts, actual installed image bytes, briefs/states and teaching support were reviewed; no open native-art findings. Existing-art reuse and generation evidence are preserved separately. This records direct native review only; rendered reader, PDF, deployed delivery, human listening and physical-device evidence remain separate."
     },
     {
       "bookId": "world-discovery-e-21",
       "title": "Transport Through Time",
       "level": "E",
       "pageNumber": 8,
-      "displayedText": "Compare a cart, a fast train, and a jet plane. For a long journey, their usual travel speeds are very different.",
+      "displayedText": "Engineers are testing cars that use cameras and sensors to guide them. They must work safely before more people can use them.",
       "imagePath": "/guided-reading/world-discovery/e-21/page-08.webp",
-      "textSha256": "5955dcac76d9172c82cbb844b5ef676e0cbbccd78ba1b45949309583ab2027d8",
-      "imageSha256": "214830c90aebf9a1dfd4f5b98cabbebe274e6d79778546dffcf6d2ec6774785a",
+      "textSha256": "f25f3a2f7de58d832c86044dd86765ae2b926b724c56e2c5fd7287fd5730e1ea",
+      "imageSha256": "bfe65f369fe5dbecf843a575b1f0167a97804e8824083c4af5362f14e72ab3b5",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
+      "regenerationBrief": "Independent transport_editor full ordered native reference/cover/page and exact512px card review is bound in source-art/world-discovery/remediation/2026-11-11/transport-complete-book-review.json (SHA f0826dba60cea6e99344f3fced6f9115c48f2f76502e4659c20a5869b5712110). All10 exact final This page texts, actual installed image bytes, briefs/states and teaching support were reviewed; no open native-art findings. Existing-art reuse and generation evidence are preserved separately. This records direct native review only; rendered reader, PDF, deployed delivery, human listening and physical-device evidence remain separate."
     },
     {
       "bookId": "world-discovery-e-21",
       "title": "Transport Through Time",
       "level": "E",
       "pageNumber": 9,
-      "displayedText": "A jet usually travels faster than a fast train. But reaching an airport and waiting can add hours to a journey.",
+      "displayedText": "Engineers also test electric aircraft. Lighter batteries could help these planes carry more people farther before they need to charge.",
       "imagePath": "/guided-reading/world-discovery/e-21/page-09.webp",
-      "textSha256": "8e6c3d66c8106e48f1166911ccc655485e2e212ef48d8eaf1c2c701a835ed852",
-      "imageSha256": "2b02c9624da89b650d54384762d0eb93aad909053d3d2e1fdf30962081af3ffa",
+      "textSha256": "b5a150b3854b79dc4b9e83c8b3558d51eee52b2ee96381c70c1fd321abcd521d",
+      "imageSha256": "d7e8ca1ac71357bf0dd20f177a5ad656bee91e1b79a949725e98f6b485a770ef",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
+      "regenerationBrief": "Independent transport_editor full ordered native reference/cover/page and exact512px card review is bound in source-art/world-discovery/remediation/2026-11-11/transport-complete-book-review.json (SHA f0826dba60cea6e99344f3fced6f9115c48f2f76502e4659c20a5869b5712110). All10 exact final This page texts, actual installed image bytes, briefs/states and teaching support were reviewed; no open native-art findings. Existing-art reuse and generation evidence are preserved separately. This records direct native review only; rendered reader, PDF, deployed delivery, human listening and physical-device evidence remain separate."
     },
     {
       "bookId": "world-discovery-e-21",
       "title": "Transport Through Time",
       "level": "E",
       "pageNumber": 10,
-      "displayedText": "New inventions added ways to travel. People still walk, cycle, row, and ride animals alongside today’s motor vehicles.",
+      "displayedText": "From muscle and wind to engines and batteries, power has changed vehicles. Future designs must still carry people and goods safely.",
       "imagePath": "/guided-reading/world-discovery/e-21/page-10.webp",
-      "textSha256": "52497bf3025b78b90cf58405c8c817747332b7f577089121c3e93e6c7b9a19d2",
-      "imageSha256": "875fee865b5fd69d3379d4d298a9da766de9a91c969773417273e30ccf7aaa20",
+      "textSha256": "b5723a1a10fdd44217b73e72f0db3b2f9db9b4bf7a5a3b69cb62cbf309960878",
+      "imageSha256": "d32deac6e4772673bfa6f6bcdb34fa30d0c750bb0116757d79d7dfa3687fbe4f",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "2026-11-10 authorized whole-topic replacement; exact current complete prose, production reference, cover and every ordered page independently inspected. Exact asset hashes/observations: source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json. No human listening, classroom or physical-device claim."
+      "regenerationBrief": "Independent transport_editor full ordered native reference/cover/page and exact512px card review is bound in source-art/world-discovery/remediation/2026-11-11/transport-complete-book-review.json (SHA f0826dba60cea6e99344f3fced6f9115c48f2f76502e4659c20a5869b5712110). All10 exact final This page texts, actual installed image bytes, briefs/states and teaching support were reviewed; no open native-art findings. Existing-art reuse and generation evidence are preserved separately. This records direct native review only; rendered reader, PDF, deployed delivery, human listening and physical-device evidence remain separate."
     },
     {
       "bookId": "world-discovery-e-22",
