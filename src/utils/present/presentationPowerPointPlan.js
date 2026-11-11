@@ -73,8 +73,14 @@ export function buildPresentationPowerPointPlan(deck, document) {
       [...String(source.modelText || source.target)].forEach((letter, index) => {
         const group = section.querySelectorAll('[data-writing-letter]')[index];
         const paths = [...group.querySelectorAll('.p-ink-stroke')].map(node => node.getAttribute('d'));
-        const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="500" height="700" viewBox="0 0 100 140"><rect width="100" height="140" fill="white"/><path d="M0 20H100 M0 70H100 M0 120H100" fill="none" stroke="#B9C2D2" stroke-width="1"/>${paths.map(path => `<path d="${path}" fill="none" stroke="#18263E" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>`).join('')}</svg>`;
-        push(source, `letter${index}`, { ...base, main: true, text: letter, images: [{ src: `data:image/svg+xml;base64,${btoa(svg)}`, label: `Formation model for ${letter}` }], prompt: 'Watch the teacher model the strokes. Air-write or trace on your palm. PowerPoint’s pen can model on the screen.', audio: source.audioRoles.filter(item => item.src).map(item => ({ src: item.src, label: 'Hear instructions' })) });
+        const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="500" height="700" viewBox="0 0 100 140"><rect width="100" height="140" fill="white"/><path d="M0 20H100 M0 70H100 M0 120H100" fill="none" stroke="#B9C2D2" stroke-width="1"/>${paths.map(path => `<path d="${path}" fill="none" stroke="#8796B1" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>`).join('')}</svg>`;
+        push(source, `letter${index}`, {
+          ...base, main: true, formation: true,
+          title: `Trace ${letter === letter.toUpperCase() ? 'uppercase' : 'lowercase'} ${letter}`,
+          images: [{ src: `data:image/svg+xml;base64,${btoa(svg)}`, label: `Formation model for ${letter}` }],
+          prompt: 'In Slide Show, choose Pen under Pointer Options and trace the letter. Switch back to the arrow to click Next.',
+          audio: source.audioRoles.filter(item => item.src).map(item => ({ src: item.src, label: 'Hear instructions' }))
+        });
       });
     } else {
       const text = [...section.querySelectorAll('.p-letter, .p-sight, .p-hfw-example, .p-shared-sentence, .p-title, .p-phase, .p-blurb, .p-short-story, .p-language-stem, .p-phoneme, .p-tile-btn, .p-made, .p-tile, .p-response')].filter(node => !node.closest('.p-answer')).map(clean).filter(Boolean).join('\n') || source.storyText || (section.querySelector('[data-reveal-toggle]') ? '' : source.target);

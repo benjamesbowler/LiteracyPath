@@ -131,8 +131,15 @@ export async function createPresentationPowerPoint(cycleId, { day, signal, onPro
       const correct = item.feedback !== 'incorrect';
       putText(slide, item.feedback === 'revealed' ? 'Revealed' : correct ? '✓ Correct. Read it together.' : '× Try again. Explain and repair.', 0.5, 0.78, 12.3, 0.5, { size: 42, color: correct ? '137333' : 'B3261E', bold: true });
     }
-    if (item.cards) {
-      item.cards.forEach((card, i) => button(slide, card.label, card.target, 0.9 + i % 4 * 3.1, 1.4 + Math.floor(i / 4) * 1.55, 2.85, 1.3, card.matched ? 'E6F4EA' : card.revealed ? 'E9EDF9' : BLUE, card.revealed ? INK : 'FFFFFF'));
+    if (item.formation) {
+      const picture = item.images[0];
+      const data = pictures.get(cacheKey(picture.src));
+      const h = 4.8, w = h * data.width / data.height;
+      slide.addImage({ data: data.data, x: (W - w) / 2, y: 1.05, w, h, altText: picture.label });
+    } else if (item.cards) {
+      const width = 2.85, gap = 0.25;
+      const left = (W - 4 * width - 3 * gap) / 2;
+      item.cards.forEach((card, i) => button(slide, card.label, card.target, left + i % 4 * (width + gap), 1.4 + Math.floor(i / 4) * 1.55, width, 1.3, card.matched ? 'E6F4EA' : card.revealed ? 'E9EDF9' : BLUE, card.revealed ? INK : 'FFFFFF'));
     } else {
       const images = (item.images || []).filter(image => image.src);
       const hasPicture = images.length > 0;
@@ -155,7 +162,12 @@ export async function createPresentationPowerPoint(cycleId, { day, signal, onPro
     const buttons = item.buttons || [];
     const columns = Math.min(buttons.length, buttons.length > 4 ? 4 : 3), rows = Math.ceil(buttons.length / (columns || 1));
     const buttonW = Math.min(3.75, (12 - (columns - 1) * 0.2) / (columns || 1));
-    buttons.forEach((control, i) => button(slide, control.label, control.target, (W - columns * buttonW - (columns - 1) * 0.2) / 2 + i % columns * (buttonW + 0.2), 5.58 - (rows - 1 - Math.floor(i / columns)) * 0.61, buttonW, 0.53));
+    buttons.forEach((control, i) => {
+      const row = Math.floor(i / columns);
+      const countInRow = Math.min(columns, buttons.length - row * columns);
+      const left = (W - countInRow * buttonW - (countInRow - 1) * 0.2) / 2;
+      button(slide, control.label, control.target, left + i % columns * (buttonW + 0.2), 5.58 - (rows - 1 - row) * 0.61, buttonW, 0.53);
+    });
     putText(slide, item.prompt, 0.6, 6.16, 12.1, 0.53, { size: 29, teacher: true, color: MUTED });
     const audio = (item.audio || []).filter(cue => cue.src);
     // Each native speaker object contains its recording bytes. No URLs or
