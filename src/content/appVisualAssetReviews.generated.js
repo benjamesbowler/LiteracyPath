@@ -6,7 +6,7 @@ export const appVisualAssetReview = {
   "reviewedBy": "codex-direct-visual-audit",
   "status": "complete",
   "scope": {
-    "imageCount": 12693,
+    "imageCount": 12760,
     "sources": [
       "runtime-media-registry",
       "source-literals",
@@ -14,7 +14,7 @@ export const appVisualAssetReview = {
     ],
     "method": "Every displayable inventory path inspected in indexed full-aspect sheets; all book pages and covers compared in ordered sequences; flagged images opened natively. All repaired bytes checked against final visual receipts, all shared card derivatives independently re-reviewed. Retained held sources have separately verified current non-display purposes; no pixel approval.",
     "heldSourceCount": 458,
-    "directlyReviewedImageCount": 12235
+    "directlyReviewedImageCount": 12302
   },
   "assets": [
     {
@@ -6492,6 +6492,12 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-10-30"
     },
     {
+      "path": "/guided-reading/card-covers/f6940011f5e23fce457c1d4e.webp",
+      "sha256": "f6940011f5e23fce457c1d4e2d629f2054ed79e7ef51f755a24cefb366f1bb8b",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
+    },
+    {
       "path": "/guided-reading/card-covers/f72009166408ff4e84c24e6a.webp",
       "sha256": "f72009166408ff4e84c24e6a2e07ef27c1d35f54e4eea68e8329ce5c28d3be6c",
       "status": "approved",
@@ -8286,6 +8292,12 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-10-29"
     },
     {
+      "path": "/guided-reading/nonfiction/first-facts-level-a/book-01/cover.d02d892aab04.webp",
+      "sha256": "d02d892aab04b6d500496843677261521eefd58868501d2e7d72be4faced0f3d",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
+    },
+    {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-01/cover.webp",
       "sha256": "d02d892aab04b6d500496843677261521eefd58868501d2e7d72be4faced0f3d",
       "status": "approved",
@@ -9096,6 +9108,12 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-11-05"
     },
     {
+      "path": "/guided-reading/nonfiction/first-facts-level-a/book-18/cover.26697fd9424b.webp",
+      "sha256": "26697fd9424b2500c95a1d66e7a0a7ed1bb7e2a88a019dafd0c24aaf3d70a88c",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
+    },
+    {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-18/cover.webp",
       "sha256": "26697fd9424b2500c95a1d66e7a0a7ed1bb7e2a88a019dafd0c24aaf3d70a88c",
       "status": "approved",
@@ -9591,6 +9609,12 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-10-30"
     },
     {
+      "path": "/guided-reading/nonfiction/first-facts/book-08/cover.bffc61c5295d.webp",
+      "sha256": "bffc61c5295df9a2e45589bb41bc76f02faf5a432f508245ad967140f76205e5",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
+    },
+    {
       "path": "/guided-reading/nonfiction/first-facts/book-08/cover.webp",
       "sha256": "bffc61c5295df9a2e45589bb41bc76f02faf5a432f508245ad967140f76205e5",
       "status": "approved",
@@ -9832,6 +9856,12 @@ export const appVisualAssetReview = {
       "sha256": "75a117731647ef5e1fd4b02eae240f0f51cc49ee0bc246829f5a6fc7ca1e2802",
       "status": "approved",
       "reviewedAt": "2026-10-30"
+    },
+    {
+      "path": "/guided-reading/nonfiction/first-facts/book-13/cover.66671985f398.webp",
+      "sha256": "66671985f3984f5d87ebe363b5b262497855e306263f7b50cfe454d0f4652a42",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-13/cover.webp",
@@ -10638,6 +10668,12 @@ export const appVisualAssetReview = {
       "path": "/guided-reading/nonfiction/level-c/book-04/page-009.webp",
       "sha256": "3bc9d23e841b91e055f270fcff11449f24dc1bc79a5f72a48083901b1ddfd6ad",
       "status": "approved"
+    },
+    {
+      "path": "/guided-reading/nonfiction/level-c/book-05/cover.2b900ac87ade.webp",
+      "sha256": "2b900ac87adebd59a656ade8e583e8d8a529019594201e4b9f46525999791448",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
     },
     {
       "path": "/guided-reading/nonfiction/level-c/book-05/cover.webp",
@@ -11851,6 +11887,12 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-10-28"
     },
     {
+      "path": "/guided-reading/regen/covers/gr-d-42-cover.3b1a4272fb26.webp",
+      "sha256": "3b1a4272fb26594ba7513894350c8ec1b99b8c1ed4b0a22140d3c6cd632653ab",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
+    },
+    {
       "path": "/guided-reading/regen/covers/gr-d-42-cover.webp",
       "sha256": "3b1a4272fb26594ba7513894350c8ec1b99b8c1ed4b0a22140d3c6cd632653ab",
       "status": "approved",
@@ -12777,6 +12819,12 @@ export const appVisualAssetReview = {
       "path": "/guided-reading/series/aiden-and-betty/book-01/page-007.webp",
       "sha256": "49a31381d4c9508d436f2d55559b6ac56f4575fdece1741c61f60d4e816a313d",
       "status": "approved"
+    },
+    {
+      "path": "/guided-reading/series/aiden-and-betty/book-01/page-008.a6b9d6a4cab8.webp",
+      "sha256": "a6b9d6a4cab89972e526cdaf05afce965d0167e9b2a78a081f345f30c4a61ad2",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-01/page-008.webp",
@@ -19338,6 +19386,12 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-11-01"
     },
     {
+      "path": "/guided-reading/series/moonwood-tales/book-10/page-004.dfbd342593c2.webp",
+      "sha256": "dfbd342593c24ced35c015f42c0be1d5eccea815a82526e79d66b0c1ae95235e",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
+    },
+    {
       "path": "/guided-reading/series/moonwood-tales/book-10/page-004.webp",
       "sha256": "dfbd342593c24ced35c015f42c0be1d5eccea815a82526e79d66b0c1ae95235e",
       "status": "approved",
@@ -19374,10 +19428,22 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-11-01"
     },
     {
+      "path": "/guided-reading/series/moonwood-tales/book-10/page-010.a27fb39c105b.webp",
+      "sha256": "a27fb39c105bafac95c8380ec3011fee845d4f140d4784777be5fe4e68c13b27",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
+    },
+    {
       "path": "/guided-reading/series/moonwood-tales/book-10/page-010.webp",
       "sha256": "a27fb39c105bafac95c8380ec3011fee845d4f140d4784777be5fe4e68c13b27",
       "status": "approved",
       "reviewedAt": "2026-11-10"
+    },
+    {
+      "path": "/guided-reading/series/moonwood-tales/book-10/page-011.6666e909fb4f.webp",
+      "sha256": "6666e909fb4f9ef6187bee94312f89a8c3ff096b3b16f5851f580d4000be141c",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-10/page-011.webp",
@@ -19386,16 +19452,34 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-11-10"
     },
     {
+      "path": "/guided-reading/series/moonwood-tales/book-10/page-012.4a09b6427cf7.webp",
+      "sha256": "4a09b6427cf70c0dcd4436e33d946546fbe5dad571399c8b488d6e9c7518ff80",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
+    },
+    {
       "path": "/guided-reading/series/moonwood-tales/book-10/page-012.webp",
       "sha256": "4a09b6427cf70c0dcd4436e33d946546fbe5dad571399c8b488d6e9c7518ff80",
       "status": "approved",
       "reviewedAt": "2026-11-10"
     },
     {
+      "path": "/guided-reading/series/moonwood-tales/book-10/page-013.7f5365fc89c3.webp",
+      "sha256": "7f5365fc89c35f13d6015981c0b15524e2bc2479aca876bdfec4348d7a5cede0",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
+    },
+    {
       "path": "/guided-reading/series/moonwood-tales/book-10/page-013.webp",
       "sha256": "7f5365fc89c35f13d6015981c0b15524e2bc2479aca876bdfec4348d7a5cede0",
       "status": "approved",
       "reviewedAt": "2026-11-10"
+    },
+    {
+      "path": "/guided-reading/series/moonwood-tales/book-10/page-014.6f83751e8e4a.webp",
+      "sha256": "6f83751e8e4ae718b8aca1249d93a3a0d15670144d7a2ea0177040114510dab9",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-10/page-014.webp",
@@ -26051,10 +26135,22 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-11-07"
     },
     {
+      "path": "/guided-reading/world-discovery/b-21/cover.85b84a71ee38.webp",
+      "sha256": "85b84a71ee380be02bc05f40dfa030537341ac02870cd78100d09237e4b373f4",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
+    },
+    {
       "path": "/guided-reading/world-discovery/b-21/cover.webp",
       "sha256": "85b84a71ee380be02bc05f40dfa030537341ac02870cd78100d09237e4b373f4",
       "status": "approved",
       "reviewedAt": "2026-11-10"
+    },
+    {
+      "path": "/guided-reading/world-discovery/b-21/page-01.5aa08adfee1c.webp",
+      "sha256": "5aa08adfee1c06e7c9ff5fd098d0fafb93eb57633278b41ac53fba3cf525cfe4",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
     },
     {
       "path": "/guided-reading/world-discovery/b-21/page-01.webp",
@@ -26063,10 +26159,22 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-11-10"
     },
     {
+      "path": "/guided-reading/world-discovery/b-21/page-02.50f8c7401548.webp",
+      "sha256": "50f8c74015488ac189085f7976472086360176ce3534f1eca195583c161f3cd8",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
+    },
+    {
       "path": "/guided-reading/world-discovery/b-21/page-02.webp",
       "sha256": "50f8c74015488ac189085f7976472086360176ce3534f1eca195583c161f3cd8",
       "status": "approved",
       "reviewedAt": "2026-11-10"
+    },
+    {
+      "path": "/guided-reading/world-discovery/b-21/page-03.f4c740ae29f2.webp",
+      "sha256": "f4c740ae29f2fa4761ed83e8c570e209f4c988bef683d18cd37da77fa7069fa5",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
     },
     {
       "path": "/guided-reading/world-discovery/b-21/page-03.webp",
@@ -26075,10 +26183,22 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-11-10"
     },
     {
+      "path": "/guided-reading/world-discovery/b-21/page-04.89945f5b27ab.webp",
+      "sha256": "89945f5b27ab372a4ca8bd9f70990084c1f31cde91a8d1d7d6e2b87ff7b13b19",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
+    },
+    {
       "path": "/guided-reading/world-discovery/b-21/page-04.webp",
       "sha256": "89945f5b27ab372a4ca8bd9f70990084c1f31cde91a8d1d7d6e2b87ff7b13b19",
       "status": "approved",
       "reviewedAt": "2026-11-10"
+    },
+    {
+      "path": "/guided-reading/world-discovery/b-21/page-05.86ba8934bfe6.webp",
+      "sha256": "86ba8934bfe627306beb08c39f7bc985646a48a7e33bc2e1fc3b2bbc0ed8202b",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
     },
     {
       "path": "/guided-reading/world-discovery/b-21/page-05.webp",
@@ -26087,16 +26207,34 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-11-10"
     },
     {
+      "path": "/guided-reading/world-discovery/b-21/page-06.1a82f54fc473.webp",
+      "sha256": "1a82f54fc473a3cd7c698de51c27a51f92cc0e6dfda4b5957d1188799fd6a3da",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
+    },
+    {
       "path": "/guided-reading/world-discovery/b-21/page-06.webp",
       "sha256": "1a82f54fc473a3cd7c698de51c27a51f92cc0e6dfda4b5957d1188799fd6a3da",
       "status": "approved",
       "reviewedAt": "2026-11-10"
     },
     {
+      "path": "/guided-reading/world-discovery/b-21/page-07.601f698e1c86.webp",
+      "sha256": "601f698e1c8680219136e64a73e4e4c2c59c170e203c8563a228cd517320587f",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
+    },
+    {
       "path": "/guided-reading/world-discovery/b-21/page-07.webp",
       "sha256": "601f698e1c8680219136e64a73e4e4c2c59c170e203c8563a228cd517320587f",
       "status": "approved",
       "reviewedAt": "2026-11-10"
+    },
+    {
+      "path": "/guided-reading/world-discovery/b-21/page-08.42923a4e180f.webp",
+      "sha256": "42923a4e180f73ffc75f9b0b4d8d45ac0d84bcb4700fd0e565108394ba4a17c9",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
     },
     {
       "path": "/guided-reading/world-discovery/b-21/page-08.webp",
@@ -27671,10 +27809,22 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-11-07"
     },
     {
+      "path": "/guided-reading/world-discovery/c-21/cover.d6a4b319448d.webp",
+      "sha256": "d6a4b319448df57a626cf619436d051de381643cc8a4a89c99f0ee90c5b8f38e",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
+    },
+    {
       "path": "/guided-reading/world-discovery/c-21/cover.webp",
       "sha256": "d6a4b319448df57a626cf619436d051de381643cc8a4a89c99f0ee90c5b8f38e",
       "status": "approved",
       "reviewedAt": "2026-11-10"
+    },
+    {
+      "path": "/guided-reading/world-discovery/c-21/page-01.16d6ff8628ae.webp",
+      "sha256": "16d6ff8628ae1e28f5c6105d650cfe6df3f6c042d0cd81b9f77350db3c8c7c9f",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
     },
     {
       "path": "/guided-reading/world-discovery/c-21/page-01.webp",
@@ -27683,10 +27833,22 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-11-10"
     },
     {
+      "path": "/guided-reading/world-discovery/c-21/page-02.f68035dd5516.webp",
+      "sha256": "f68035dd5516bef2658bd49496694508aa0058bfc77e0eba281051d4e8c37ab1",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
+    },
+    {
       "path": "/guided-reading/world-discovery/c-21/page-02.webp",
       "sha256": "f68035dd5516bef2658bd49496694508aa0058bfc77e0eba281051d4e8c37ab1",
       "status": "approved",
       "reviewedAt": "2026-11-10"
+    },
+    {
+      "path": "/guided-reading/world-discovery/c-21/page-03.1ef90b2bf3eb.webp",
+      "sha256": "1ef90b2bf3eb61dc5a49b1b61807a426e36fd6a5974e12dcf9f87a3eee496fbc",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
     },
     {
       "path": "/guided-reading/world-discovery/c-21/page-03.webp",
@@ -27695,10 +27857,22 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-11-10"
     },
     {
+      "path": "/guided-reading/world-discovery/c-21/page-04.501a32b72774.webp",
+      "sha256": "501a32b72774f3a5419d782b0cd4683de11ced46c3091bed1e7c2c3ae3c6e708",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
+    },
+    {
       "path": "/guided-reading/world-discovery/c-21/page-04.webp",
       "sha256": "501a32b72774f3a5419d782b0cd4683de11ced46c3091bed1e7c2c3ae3c6e708",
       "status": "approved",
       "reviewedAt": "2026-11-10"
+    },
+    {
+      "path": "/guided-reading/world-discovery/c-21/page-05.29675779a52a.webp",
+      "sha256": "29675779a52a7b7b931b6380ee98a194705675a3e9e25f8ca39747214742c31b",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
     },
     {
       "path": "/guided-reading/world-discovery/c-21/page-05.webp",
@@ -27707,16 +27881,34 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-11-10"
     },
     {
+      "path": "/guided-reading/world-discovery/c-21/page-06.c824edeee084.webp",
+      "sha256": "c824edeee084fce60d3aff5a6fbed6ba1eaa4c884fbfc75303bb1dcd8dfe80fe",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
+    },
+    {
       "path": "/guided-reading/world-discovery/c-21/page-06.webp",
       "sha256": "c824edeee084fce60d3aff5a6fbed6ba1eaa4c884fbfc75303bb1dcd8dfe80fe",
       "status": "approved",
       "reviewedAt": "2026-11-10"
     },
     {
+      "path": "/guided-reading/world-discovery/c-21/page-07.429a935397f7.webp",
+      "sha256": "429a935397f78701a1765985f63210c600c4bfe80cf69c9d8c555249a2670c1b",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
+    },
+    {
       "path": "/guided-reading/world-discovery/c-21/page-07.webp",
       "sha256": "429a935397f78701a1765985f63210c600c4bfe80cf69c9d8c555249a2670c1b",
       "status": "approved",
       "reviewedAt": "2026-11-10"
+    },
+    {
+      "path": "/guided-reading/world-discovery/c-21/page-08.8e62267b4551.webp",
+      "sha256": "8e62267b455178370a96a9088b02c5674f3ebacaeab73e0c138e85aeb4204736",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
     },
     {
       "path": "/guided-reading/world-discovery/c-21/page-08.webp",
@@ -28451,10 +28643,22 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-11-07"
     },
     {
+      "path": "/guided-reading/world-discovery/d-04/page-07.f09799f3b38c.webp",
+      "sha256": "f09799f3b38c84fb63b8674848f5024ca2142c649b1a06b64100ff424578aec7",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
+    },
+    {
       "path": "/guided-reading/world-discovery/d-04/page-07.webp",
       "sha256": "f09799f3b38c84fb63b8674848f5024ca2142c649b1a06b64100ff424578aec7",
       "status": "approved",
       "reviewedAt": "2026-11-10"
+    },
+    {
+      "path": "/guided-reading/world-discovery/d-04/page-08.87ebba7dfcfd.webp",
+      "sha256": "87ebba7dfcfdb47642ce66bf31161176eb818b7f32db821e4e74fc3caa2bac16",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
     },
     {
       "path": "/guided-reading/world-discovery/d-04/page-08.webp",
@@ -29531,10 +29735,22 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-11-07"
     },
     {
+      "path": "/guided-reading/world-discovery/d-21/cover.21da91ac71c3.webp",
+      "sha256": "21da91ac71c36b8b73f5260b3d3a206a74c5ff352623f671caa4d1ecebc68b66",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
+    },
+    {
       "path": "/guided-reading/world-discovery/d-21/cover.webp",
       "sha256": "21da91ac71c36b8b73f5260b3d3a206a74c5ff352623f671caa4d1ecebc68b66",
       "status": "approved",
       "reviewedAt": "2026-11-10"
+    },
+    {
+      "path": "/guided-reading/world-discovery/d-21/page-01.35de449858cd.webp",
+      "sha256": "35de449858cd06abe6b46acb369576e61139080b3039e4cab494477ece97a3f7",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
     },
     {
       "path": "/guided-reading/world-discovery/d-21/page-01.webp",
@@ -29543,10 +29759,22 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-11-10"
     },
     {
+      "path": "/guided-reading/world-discovery/d-21/page-02.245da6f6f9c1.webp",
+      "sha256": "245da6f6f9c1b081945517de77494a220f15bfcf70d320ca74e3a73026451ef1",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
+    },
+    {
       "path": "/guided-reading/world-discovery/d-21/page-02.webp",
       "sha256": "245da6f6f9c1b081945517de77494a220f15bfcf70d320ca74e3a73026451ef1",
       "status": "approved",
       "reviewedAt": "2026-11-10"
+    },
+    {
+      "path": "/guided-reading/world-discovery/d-21/page-03.ed7bfd2415e0.webp",
+      "sha256": "ed7bfd2415e04f2e3cd8b50d9da038a388ca90bb8fe463f01281c7a2b5b486e3",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
     },
     {
       "path": "/guided-reading/world-discovery/d-21/page-03.webp",
@@ -29555,10 +29783,22 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-11-10"
     },
     {
+      "path": "/guided-reading/world-discovery/d-21/page-04.e0b8b439c46c.webp",
+      "sha256": "e0b8b439c46ce8d84d41a3734fc0030ecadc8b71a10383b0b705d8203d98bf24",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
+    },
+    {
       "path": "/guided-reading/world-discovery/d-21/page-04.webp",
       "sha256": "e0b8b439c46ce8d84d41a3734fc0030ecadc8b71a10383b0b705d8203d98bf24",
       "status": "approved",
       "reviewedAt": "2026-11-10"
+    },
+    {
+      "path": "/guided-reading/world-discovery/d-21/page-05.74718625167d.webp",
+      "sha256": "74718625167d406920e0044d2a3770ae5f81f473b0be08c8baa834a1ee0c1e5b",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
     },
     {
       "path": "/guided-reading/world-discovery/d-21/page-05.webp",
@@ -29567,10 +29807,22 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-11-10"
     },
     {
+      "path": "/guided-reading/world-discovery/d-21/page-06.b187c341e851.webp",
+      "sha256": "b187c341e851d5d451e2e5bf6152d897519759a80ae8edc2502b73364b737ee6",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
+    },
+    {
       "path": "/guided-reading/world-discovery/d-21/page-06.webp",
       "sha256": "b187c341e851d5d451e2e5bf6152d897519759a80ae8edc2502b73364b737ee6",
       "status": "approved",
       "reviewedAt": "2026-11-10"
+    },
+    {
+      "path": "/guided-reading/world-discovery/d-21/page-07.f2f78f6946f3.webp",
+      "sha256": "f2f78f6946f33f922b2d292b938c190e85bcb304d9c132618a4ce79c3f9e0fde",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
     },
     {
       "path": "/guided-reading/world-discovery/d-21/page-07.webp",
@@ -29579,16 +29831,34 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-11-10"
     },
     {
+      "path": "/guided-reading/world-discovery/d-21/page-08.fe06f032a262.webp",
+      "sha256": "fe06f032a262d523f7cc3e0d71f5985129ef16f69f21f1ebb24077ba7e32c12f",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
+    },
+    {
       "path": "/guided-reading/world-discovery/d-21/page-08.webp",
       "sha256": "fe06f032a262d523f7cc3e0d71f5985129ef16f69f21f1ebb24077ba7e32c12f",
       "status": "approved",
       "reviewedAt": "2026-11-10"
     },
     {
+      "path": "/guided-reading/world-discovery/d-21/page-09.21c20923477f.webp",
+      "sha256": "21c20923477fa0b6c14be81c2005c9b98f1d3a3f19fb81f42ade19d125b7c2ef",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
+    },
+    {
       "path": "/guided-reading/world-discovery/d-21/page-09.webp",
       "sha256": "21c20923477fa0b6c14be81c2005c9b98f1d3a3f19fb81f42ade19d125b7c2ef",
       "status": "approved",
       "reviewedAt": "2026-11-10"
+    },
+    {
+      "path": "/guided-reading/world-discovery/d-21/page-10.46a7572c04b5.webp",
+      "sha256": "46a7572c04b508ae57fb81bbb7fd3535bfe2e378e7a11eb5a2820ce25b1224d0",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
     },
     {
       "path": "/guided-reading/world-discovery/d-21/page-10.webp",
@@ -31511,70 +31781,142 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-11-07"
     },
     {
-      "path": "/guided-reading/world-discovery/e-21/cover.webp",
-      "sha256": "dbe771b06ab16597e4adc53d9e6f366b9aede63537c167ff38bef43194d719c0",
+      "path": "/guided-reading/world-discovery/e-21/cover.85af5c918ef6.webp",
+      "sha256": "85af5c918ef606f96a020f28001aa6c549da400ebed1103d1e1deb1caff085d3",
       "status": "approved",
-      "reviewedAt": "2026-11-10"
+      "reviewedAt": "2026-11-11"
+    },
+    {
+      "path": "/guided-reading/world-discovery/e-21/cover.webp",
+      "sha256": "85af5c918ef606f96a020f28001aa6c549da400ebed1103d1e1deb1caff085d3",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
+    },
+    {
+      "path": "/guided-reading/world-discovery/e-21/page-01.361612edeffd.webp",
+      "sha256": "361612edeffd44b1cac54d87185b073e4aee9dc39ebbf85aba1863a6502ded9e",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
     },
     {
       "path": "/guided-reading/world-discovery/e-21/page-01.webp",
-      "sha256": "4884a3002a30d3edfac8a713ffbb4aac28fdebf58cdcc57f1cb50e1b8ef6afff",
+      "sha256": "361612edeffd44b1cac54d87185b073e4aee9dc39ebbf85aba1863a6502ded9e",
       "status": "approved",
-      "reviewedAt": "2026-11-10"
+      "reviewedAt": "2026-11-11"
+    },
+    {
+      "path": "/guided-reading/world-discovery/e-21/page-02.e4bcb73ecc43.webp",
+      "sha256": "e4bcb73ecc43a49cd4c09f0a08fd5cf7560460beb1ea772e1a3bf3c11f83f946",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
     },
     {
       "path": "/guided-reading/world-discovery/e-21/page-02.webp",
-      "sha256": "3c4748aa551c83417fbdd5efbc36b36ecc4529a46f92aa5e3b3668ea85dcdeee",
+      "sha256": "e4bcb73ecc43a49cd4c09f0a08fd5cf7560460beb1ea772e1a3bf3c11f83f946",
       "status": "approved",
-      "reviewedAt": "2026-11-10"
+      "reviewedAt": "2026-11-11"
+    },
+    {
+      "path": "/guided-reading/world-discovery/e-21/page-03.5331dbba86b1.webp",
+      "sha256": "5331dbba86b19c427d5c1d43c592077b08b4ccc7faf0a61814a9cebf2fa0c33b",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
     },
     {
       "path": "/guided-reading/world-discovery/e-21/page-03.webp",
-      "sha256": "e4bcb73ecc43a49cd4c09f0a08fd5cf7560460beb1ea772e1a3bf3c11f83f946",
+      "sha256": "5331dbba86b19c427d5c1d43c592077b08b4ccc7faf0a61814a9cebf2fa0c33b",
       "status": "approved",
-      "reviewedAt": "2026-11-10"
+      "reviewedAt": "2026-11-11"
+    },
+    {
+      "path": "/guided-reading/world-discovery/e-21/page-04.7934251e5585.webp",
+      "sha256": "7934251e5585292bdd832c580ada630b816e42fbe70151c39cad5054b778aab4",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
     },
     {
       "path": "/guided-reading/world-discovery/e-21/page-04.webp",
-      "sha256": "f3ba08c0b93c39dcf6dfa4f9605e6bf4e4e7a77087a0e33b4b1fd778a54eed58",
+      "sha256": "7934251e5585292bdd832c580ada630b816e42fbe70151c39cad5054b778aab4",
       "status": "approved",
-      "reviewedAt": "2026-11-10"
+      "reviewedAt": "2026-11-11"
+    },
+    {
+      "path": "/guided-reading/world-discovery/e-21/page-05.6a9cdd7a070d.webp",
+      "sha256": "6a9cdd7a070d5e253c99116a0607a147692ac9ef98eaa218a95d37c8d935e55d",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
     },
     {
       "path": "/guided-reading/world-discovery/e-21/page-05.webp",
-      "sha256": "2837baede73ad0699a1e9a13cc3baafd8c8e69b291e644f525ec044a32b0e053",
+      "sha256": "6a9cdd7a070d5e253c99116a0607a147692ac9ef98eaa218a95d37c8d935e55d",
       "status": "approved",
-      "reviewedAt": "2026-11-10"
+      "reviewedAt": "2026-11-11"
+    },
+    {
+      "path": "/guided-reading/world-discovery/e-21/page-06.ffeda31e73c4.webp",
+      "sha256": "ffeda31e73c43fce9cdbb9941014f7ef1061a2b3729511624887232dfc452a3f",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
     },
     {
       "path": "/guided-reading/world-discovery/e-21/page-06.webp",
-      "sha256": "6a9cdd7a070d5e253c99116a0607a147692ac9ef98eaa218a95d37c8d935e55d",
+      "sha256": "ffeda31e73c43fce9cdbb9941014f7ef1061a2b3729511624887232dfc452a3f",
       "status": "approved",
-      "reviewedAt": "2026-11-10"
+      "reviewedAt": "2026-11-11"
+    },
+    {
+      "path": "/guided-reading/world-discovery/e-21/page-07.03c430a44deb.webp",
+      "sha256": "03c430a44debe3055c1e115f2c8fc7a24aebef8cf8e7a9a95179cc228ee1cc8a",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
     },
     {
       "path": "/guided-reading/world-discovery/e-21/page-07.webp",
-      "sha256": "8d28be0b089c01448c1ba969c3cd9574de6c2319078eadfbda0afce17ac902db",
+      "sha256": "03c430a44debe3055c1e115f2c8fc7a24aebef8cf8e7a9a95179cc228ee1cc8a",
       "status": "approved",
-      "reviewedAt": "2026-11-10"
+      "reviewedAt": "2026-11-11"
+    },
+    {
+      "path": "/guided-reading/world-discovery/e-21/page-08.bfe65f369fe5.webp",
+      "sha256": "bfe65f369fe5dbecf843a575b1f0167a97804e8824083c4af5362f14e72ab3b5",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
     },
     {
       "path": "/guided-reading/world-discovery/e-21/page-08.webp",
-      "sha256": "214830c90aebf9a1dfd4f5b98cabbebe274e6d79778546dffcf6d2ec6774785a",
+      "sha256": "bfe65f369fe5dbecf843a575b1f0167a97804e8824083c4af5362f14e72ab3b5",
       "status": "approved",
-      "reviewedAt": "2026-11-10"
+      "reviewedAt": "2026-11-11"
+    },
+    {
+      "path": "/guided-reading/world-discovery/e-21/page-09.d7e8ca1ac713.webp",
+      "sha256": "d7e8ca1ac71357bf0dd20f177a5ad656bee91e1b79a949725e98f6b485a770ef",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
     },
     {
       "path": "/guided-reading/world-discovery/e-21/page-09.webp",
-      "sha256": "2b02c9624da89b650d54384762d0eb93aad909053d3d2e1fdf30962081af3ffa",
+      "sha256": "d7e8ca1ac71357bf0dd20f177a5ad656bee91e1b79a949725e98f6b485a770ef",
       "status": "approved",
-      "reviewedAt": "2026-11-10"
+      "reviewedAt": "2026-11-11"
+    },
+    {
+      "path": "/guided-reading/world-discovery/e-21/page-10.d32deac6e477.webp",
+      "sha256": "d32deac6e4772673bfa6f6bcdb34fa30d0c750bb0116757d79d7dfa3687fbe4f",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
     },
     {
       "path": "/guided-reading/world-discovery/e-21/page-10.webp",
-      "sha256": "875fee865b5fd69d3379d4d298a9da766de9a91c969773417273e30ccf7aaa20",
+      "sha256": "d32deac6e4772673bfa6f6bcdb34fa30d0c750bb0116757d79d7dfa3687fbe4f",
       "status": "approved",
-      "reviewedAt": "2026-11-10"
+      "reviewedAt": "2026-11-11"
+    },
+    {
+      "path": "/guided-reading/world-discovery/e-22/cover.9e8325448ed8.webp",
+      "sha256": "9e8325448ed87541fbb7223ac867a23b5e78c19bd116b3a290377ecc1a2da7bd",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
     },
     {
       "path": "/guided-reading/world-discovery/e-22/cover.webp",
@@ -31583,10 +31925,22 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-11-10"
     },
     {
+      "path": "/guided-reading/world-discovery/e-22/page-01.21b3e81ec9a1.webp",
+      "sha256": "21b3e81ec9a1364ff0315b7b77279439450258c250410bb4a350f639200cd9e0",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
+    },
+    {
       "path": "/guided-reading/world-discovery/e-22/page-01.webp",
       "sha256": "21b3e81ec9a1364ff0315b7b77279439450258c250410bb4a350f639200cd9e0",
       "status": "approved",
       "reviewedAt": "2026-11-10"
+    },
+    {
+      "path": "/guided-reading/world-discovery/e-22/page-02.81c07cb2159e.webp",
+      "sha256": "81c07cb2159e5880402480cca7b08a51e800bd8da6a58fd5c87c1301b90e437b",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
     },
     {
       "path": "/guided-reading/world-discovery/e-22/page-02.webp",
@@ -31595,10 +31949,22 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-11-10"
     },
     {
+      "path": "/guided-reading/world-discovery/e-22/page-03.7201683dfe76.webp",
+      "sha256": "7201683dfe76cd61e661b52226b1e88120372df1e65ab7eba2cb54c587b94bb5",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
+    },
+    {
       "path": "/guided-reading/world-discovery/e-22/page-03.webp",
       "sha256": "7201683dfe76cd61e661b52226b1e88120372df1e65ab7eba2cb54c587b94bb5",
       "status": "approved",
       "reviewedAt": "2026-11-10"
+    },
+    {
+      "path": "/guided-reading/world-discovery/e-22/page-04.18a91e533179.webp",
+      "sha256": "18a91e53317935db21a4bd1c117bde237afd243ce21ca0865a09796e963589d8",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
     },
     {
       "path": "/guided-reading/world-discovery/e-22/page-04.webp",
@@ -31607,10 +31973,22 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-11-10"
     },
     {
+      "path": "/guided-reading/world-discovery/e-22/page-05.fb6b6d5b784e.webp",
+      "sha256": "fb6b6d5b784e5b2c73cdc0bf6fa0d7925a21add5d2796c85c859289eb808416f",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
+    },
+    {
       "path": "/guided-reading/world-discovery/e-22/page-05.webp",
       "sha256": "fb6b6d5b784e5b2c73cdc0bf6fa0d7925a21add5d2796c85c859289eb808416f",
       "status": "approved",
       "reviewedAt": "2026-11-10"
+    },
+    {
+      "path": "/guided-reading/world-discovery/e-22/page-06.0da16c65e774.webp",
+      "sha256": "0da16c65e7747ffb9a237a42be3bf116765601bb094094bd386cf693ee6dd724",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
     },
     {
       "path": "/guided-reading/world-discovery/e-22/page-06.webp",
@@ -31619,10 +31997,22 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-11-10"
     },
     {
+      "path": "/guided-reading/world-discovery/e-22/page-07.4715d6f0aa19.webp",
+      "sha256": "4715d6f0aa19746190c80270c64ba44f8e9a0acd9b6b6746dee2bb675745a6a8",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
+    },
+    {
       "path": "/guided-reading/world-discovery/e-22/page-07.webp",
       "sha256": "4715d6f0aa19746190c80270c64ba44f8e9a0acd9b6b6746dee2bb675745a6a8",
       "status": "approved",
       "reviewedAt": "2026-11-10"
+    },
+    {
+      "path": "/guided-reading/world-discovery/e-22/page-08.20e553102e6f.webp",
+      "sha256": "20e553102e6f5177a73ea714e2485362356d74a42131e6752ac497acb8452dfa",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
     },
     {
       "path": "/guided-reading/world-discovery/e-22/page-08.webp",
@@ -31631,10 +32021,22 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-11-10"
     },
     {
+      "path": "/guided-reading/world-discovery/e-22/page-09.1da2c62b87ee.webp",
+      "sha256": "1da2c62b87eea4d11660386d556a570f5c21afc9d49f2a17916b4e6010e341f7",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
+    },
+    {
       "path": "/guided-reading/world-discovery/e-22/page-09.webp",
       "sha256": "1da2c62b87eea4d11660386d556a570f5c21afc9d49f2a17916b4e6010e341f7",
       "status": "approved",
       "reviewedAt": "2026-11-10"
+    },
+    {
+      "path": "/guided-reading/world-discovery/e-22/page-10.a008add7a8a6.webp",
+      "sha256": "a008add7a8a62ac4aa04c9043c744420ab5febc5687f40d4cda2ac3815a4cd19",
+      "status": "approved",
+      "reviewedAt": "2026-11-11"
     },
     {
       "path": "/guided-reading/world-discovery/e-22/page-10.webp",

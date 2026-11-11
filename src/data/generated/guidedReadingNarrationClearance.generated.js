@@ -15319,43 +15319,43 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-e-21::1": {
-    "displayedText": "Before motor vehicles existed, people walked, rode animals, and traveled in boats. How did new inventions change their journeys?",
+    "displayedText": "Long ago, animals pulled carts on land. Oars and sails moved boats across water. Journeys depended on muscle or wind.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-e-21::10": {
-    "displayedText": "New inventions added ways to travel. People still walk, cycle, row, and ride animals alongside today's motor vehicles.",
+    "displayedText": "From muscle and wind to engines and batteries, power has changed vehicles. Future designs must still carry people and goods safely.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-e-21::2": {
-    "displayedText": "A horse could pull a cart full of people or goods. Travelers still needed to feed and rest the horse.",
+    "displayedText": "Steam changed travel. Burning fuel heated water, and steam turned train wheels. Trains could pull many carriages together.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-e-21::3": {
-    "displayedText": "Later, steam engines pulled trains along tracks. Burning fuel heated water, and steam helped turn the wheels.",
+    "displayedText": "Engines also powered cars, buses, and trucks. Families could ride in cars while buses carried groups and trucks moved goods.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-e-21::4": {
-    "displayedText": "A steam train could carry many people farther in one day than a horse-drawn cart could usually travel.",
+    "displayedText": "At sea, engines turned propellers. Ships could move without waiting for wind, and larger ships carried more people or goods.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-e-21::5": {
-    "displayedText": "Motor cars brought another change. Their engines used fuel to move the wheels, so the cars did not need horses.",
+    "displayedText": "People took to the air in propeller planes. Later, passenger jets carried larger groups across oceans at higher speeds.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-e-21::6": {
-    "displayedText": "Early airplanes carried people above the ground. Later, jet planes made long journeys across oceans much faster.",
+    "displayedText": "Today, some electric trains take power from wires. Some cars and buses carry batteries instead. Their electric motors turn the wheels.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-e-21::7": {
-    "displayedText": "Some modern trains run on electricity. They can carry many passengers quickly between stations without stopping in road traffic.",
+    "displayedText": "This electric bicycle adds motor power when its rider pedals. A cargo bike has space for shopping or a child's seat.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-e-21::8": {
-    "displayedText": "Compare a cart, a fast train, and a jet plane. For a long journey, their usual travel speeds are very different.",
+    "displayedText": "Engineers are testing cars that use cameras and sensors to guide them. They must work safely before more people can use them.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-e-21::9": {
-    "displayedText": "A jet usually travels faster than a fast train. But reaching an airport and waiting can add hours to a journey.",
+    "displayedText": "Engineers also test electric aircraft. Lighter batteries could help these planes carry more people farther before they need to charge.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "world-discovery-e-22::1": {

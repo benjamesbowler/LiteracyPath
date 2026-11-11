@@ -19,7 +19,7 @@ import c2c from "../../content/world-discovery/cohorts/21-30/level-c.json" with 
 import c2d from "../../content/world-discovery/cohorts/21-30/level-d.json" with { type: "json" };
 import c2e from "../../content/world-discovery/cohorts/21-30/level-e.json" with { type: "json" };
 import c2reviews from "../../content/world-discovery/cohorts/21-30/reviews.json" with { type: "json" };
-import c2registration from "../../content/world-discovery/registrations/2026-11-10/21-30-topic-revision-r2.json" with { type: "json" };
+import c2registration from "../../content/world-discovery/registrations/2026-11-11/21-30-transport.json" with { type: "json" };
 export const WORLD_DISCOVERY_REGISTERED_COHORTS = Object.freeze([
   { id: "01-10", books: [...c0a, ...c0b, ...c0c, ...c0d, ...c0e], reviews: c0reviews, registration: c0registration },
   { id: "11-20", books: [...c1a, ...c1b, ...c1c, ...c1d, ...c1e], reviews: c1reviews, registration: c1registration },

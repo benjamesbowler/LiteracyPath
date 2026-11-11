@@ -4,7 +4,7 @@ export const GUIDED_READING_NARRATION_PROVENANCE = Object.freeze({
   "auditedAudioHashMismatchCount": 0,
   "auditedPageAudioTextMismatchCount": 0,
   "auditedWordSequenceMismatchCount": 0,
-  "corpusSha256": "2c34a4229525efca3415c590fe827d7f04d495240a90eacce5252ee3b78808b0",
+  "corpusSha256": "bb319bc1f59cc48bab0a9c4ab6abbc76a1025f1637af22a9364d8d3733aff104",
   "exactPageAudioByText": Object.freeze({
   "The bun is hot.": "/audio/production/en-US/guided_page/the-bun-is-hot-44b1eb534f.mp3"
 }),

@@ -1,0 +1,1060 @@
+{
+  "schemaVersion": 1,
+  "cohortId": "21-30",
+  "reviewedAt": "2026-11-11",
+  "status": "automated-review-complete",
+  "scope": "Exactly43 selected current transport-repair outputs for the This variant:10 page narrations and33 selected word clips. Unchanged title/common-word evidence and the complete cohort inventory are separate. This audio review does not approve or publish a manuscript.",
+  "method": "Full FFmpeg finite24kHz decode,50ms RMS/silence/clipping checks; unprompted base.en on original43 jobs, independent tiny.en/small.en on all8 original differences, then independent tiny.en/small.en on the revised p7 and actual resolved This word. Recognition-only padding:250ms before and500ms after. No reference prompt or expected text was supplied to recognizers.",
+  "limitations": "Automated evidence, not human listening, auditory-identity certification, physical-device or classroom acceptance. Childs/child’s is an explicitly reviewed apostrophe-only transcription difference. None of the three unclear An auditions is accepted or included. Reader playback and editorial approval remain separate.",
+  "sourceReports": [
+    {
+      "path": ".artifacts/transport-repair/audio/screen-base.json",
+      "sha256": "f663e8aea18fd2a1efde41ea09f8558f63df56cb21ab61c447e6da425259ca16",
+      "modelSha256": "2a166925539a16005f14ff328359f9b9adb9dc4fb631bb3b227526862e93e2ef"
+    },
+    {
+      "path": ".artifacts/transport-repair/audio/screen-tiny.json",
+      "sha256": "54e5fa29f650977811ed02fce641b0dcaef5b1b2836c6e2a4c93877b1f83883d",
+      "modelSha256": "1a5afae06a4db91c975c9a9d78be5cc110ee4ea022ad57d55492e4550e936b2a"
+    },
+    {
+      "path": ".artifacts/transport-repair/audio/screen-second.json",
+      "sha256": "4271a590fed8e37a5a21ba565934797e571f2bf0b5cab31bf1349faaaaa643ed",
+      "modelSha256": "62b2a45b05ee59acb4a5341b33ee35e041395d378d418a18acfe4c9e768ee37a"
+    },
+    {
+      "path": ".artifacts/transport-repair/audio/screen-p7-this-tiny.json",
+      "sha256": "6b93017655bb9493120b020bd93613f34a9c6f72b852ab8b648f418c93cce9e0",
+      "modelSha256": "1a5afae06a4db91c975c9a9d78be5cc110ee4ea022ad57d55492e4550e936b2a"
+    },
+    {
+      "path": ".artifacts/transport-repair/audio/screen-p7-this-small.json",
+      "sha256": "07bb2206b1432e9fd772ffc616065ef677ef548d6643bd5fbe9640443d850300",
+      "modelSha256": "62b2a45b05ee59acb4a5341b33ee35e041395d378d418a18acfe4c9e768ee37a"
+    },
+    {
+      "path": ".artifacts/transport-repair/audio/screen-this-word-tiny.json",
+      "sha256": "8c432f961ebc7188000e8acbca97862d27ef9fdb8c7c493541d49724bc225772",
+      "modelSha256": "1a5afae06a4db91c975c9a9d78be5cc110ee4ea022ad57d55492e4550e936b2a"
+    },
+    {
+      "path": ".artifacts/transport-repair/audio/screen-this-word-small.json",
+      "sha256": "3ad8c3615ab587579fa5c24db2ddecf004e4423644fa2abdfe2c02430b4843f7",
+      "modelSha256": "62b2a45b05ee59acb4a5341b33ee35e041395d378d418a18acfe4c9e768ee37a"
+    }
+  ],
+  "synthesisEvidence": [
+    {
+      "path": ".artifacts/transport-repair/audio/generation.json",
+      "sha256": "a75244c5f9dc1558d68a152fb3ffe5584f33b6234501d2185281f404ba0406f2"
+    },
+    {
+      "path": ".artifacts/transport-repair/audio/p7-this-generation.json",
+      "sha256": "2d00c06e1f9f1878322b63067dd0dc1d2430b508b79f8572af439004b995f333"
+    },
+    {
+      "path": ".artifacts/transport-repair/audio/p7-this-manuscript.json",
+      "sha256": "313de80d2acd6b96dbf66ceb4054f795a45c65abaa0be87b0b8e59322ff2eb6a"
+    }
+  ],
+  "excludedPriorPaths": [
+    {
+      "audioPath": "/audio/production/en-US/guided_page/an-electric-bicycle-adds-motor-power-when-its-rider-pedals-a-cargo-bike-has-space-for-shopping-or-a-child-s-seat-881e7f93ff.mp3",
+      "reason": "Replaced by exact current This page narration."
+    },
+    {
+      "audioPath": "/audio/production/en-US/isolated_word/an-0d3081606d.mp3",
+      "reason": "Not used in the This variant; remained ambiguous in independent recognition."
+    }
+  ],
+  "results": [
+    {
+      "kind": "page_or_title",
+      "text": "At sea, engines turned propellers. Ships could move without waiting for wind, and larger ships carried more people or goods.",
+      "lookupText": "At sea, engines turned propellers. Ships could move without waiting for wind, and larger ships carried more people or goods.",
+      "audioPath": "/audio/production/en-US/guided_page/at-sea-engines-turned-propellers-ships-could-move-without-waiting-for-wind-and-larger-ships-carried-more-people-or-goods-8f56d8a0d4.mp3",
+      "audioSha256": "542f3ba4ff13a29a3b374f945d1ccf703cda5857f6583e818dc4745a1b527565",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite unclipped signal; this is automated evidence, not human listening or phoneme certification.",
+      "recognizerOutputs": [
+        "At sea, engines turned propellers. Ships could move without waiting for wind, and larger ships carried more people or goods."
+      ],
+      "sourceScreening": [
+        "screen-base.json"
+      ],
+      "durationSeconds": 9.2,
+      "peakDbfs": -8.354676655682647,
+      "rmsDbfs": -24.679151104633185,
+      "leadingSilenceSeconds": 0.2,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.5
+    },
+    {
+      "kind": "page_or_title",
+      "text": "Engineers also test electric aircraft. Lighter batteries could help these planes carry more people farther before they need to charge.",
+      "lookupText": "Engineers also test electric aircraft. Lighter batteries could help these planes carry more people farther before they need to charge.",
+      "audioPath": "/audio/production/en-US/guided_page/engineers-also-test-electric-aircraft-lighter-batteries-could-help-these-planes-carry-more-people-farther-before-they-need-to-charge-39db447325.mp3",
+      "audioSha256": "65bd2ffc218735ffe4efbc23d442695faf4a3d872fd969a617030e42a3c6ba7d",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite unclipped signal; this is automated evidence, not human listening or phoneme certification. Raw differences remain recorded. Confirmation comes from screen-tiny.json, screen-second.json.",
+      "recognizerOutputs": [
+        "Engineers also test electric aircraft. Lighter batteries could help these planes carry more people farther before they need to charge. charge. .",
+        "Engineers also test electric aircraft. Lighter batteries could help these planes carry more people farther before they need to charge.",
+        "Engineers also test electric aircraft. Lighter batteries could help these planes carry more people farther before they need to charge."
+      ],
+      "sourceScreening": [
+        "screen-base.json",
+        "screen-tiny.json",
+        "screen-second.json"
+      ],
+      "durationSeconds": 8.08,
+      "peakDbfs": -5.408552769999498,
+      "rmsDbfs": -24.123747201288197,
+      "leadingSilenceSeconds": 0.15000000000000002,
+      "trailingSilenceSeconds": 0.1299999999999999,
+      "longestInteriorSilenceSeconds": 0.15000000000000002
+    },
+    {
+      "kind": "page_or_title",
+      "text": "Engineers are testing cars that use cameras and sensors to guide them. They must work safely before more people can use them.",
+      "lookupText": "Engineers are testing cars that use cameras and sensors to guide them. They must work safely before more people can use them.",
+      "audioPath": "/audio/production/en-US/guided_page/engineers-are-testing-cars-that-use-cameras-and-sensors-to-guide-them-they-must-work-safely-before-more-people-can-use-them-20a1a0899f.mp3",
+      "audioSha256": "19fab95a8ff6e359423adf0fa9c5e41a453d486ba31f81ba249924f2bf05e0ad",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite unclipped signal; this is automated evidence, not human listening or phoneme certification.",
+      "recognizerOutputs": [
+        "Engineers are testing cars that use cameras and sensors to guide them. They must work safely before more people can use them."
+      ],
+      "sourceScreening": [
+        "screen-base.json"
+      ],
+      "durationSeconds": 8.24,
+      "peakDbfs": -7.086122568415309,
+      "rmsDbfs": -25.126094472467276,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.15000000000000002
+    },
+    {
+      "kind": "page_or_title",
+      "text": "Engines also powered cars, buses, and trucks. Families could ride in cars while buses carried groups and trucks moved goods.",
+      "lookupText": "Engines also powered cars, buses, and trucks. Families could ride in cars while buses carried groups and trucks moved goods.",
+      "audioPath": "/audio/production/en-US/guided_page/engines-also-powered-cars-buses-and-trucks-families-could-ride-in-cars-while-buses-carried-groups-and-trucks-moved-goods-3df71d4900.mp3",
+      "audioSha256": "cb0c1020d0c91451e45dbb157c4057a3b402a0037db32fa081856ad7c91e88c7",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite unclipped signal; this is automated evidence, not human listening or phoneme certification.",
+      "recognizerOutputs": [
+        "Engines also powered cars, buses, and trucks. Families could ride in cars while buses carried groups and trucks moved goods. . . . . ."
+      ],
+      "sourceScreening": [
+        "screen-base.json"
+      ],
+      "durationSeconds": 8.76,
+      "peakDbfs": -6.556274536002386,
+      "rmsDbfs": -24.788311406333776,
+      "leadingSilenceSeconds": 0.15000000000000002,
+      "trailingSilenceSeconds": 0.009999999999999787,
+      "longestInteriorSilenceSeconds": 0.1
+    },
+    {
+      "kind": "page_or_title",
+      "text": "From muscle and wind to engines and batteries, power has changed vehicles. Future designs must still carry people and goods safely.",
+      "lookupText": "From muscle and wind to engines and batteries, power has changed vehicles. Future designs must still carry people and goods safely.",
+      "audioPath": "/audio/production/en-US/guided_page/from-muscle-and-wind-to-engines-and-batteries-power-has-changed-vehicles-future-designs-must-still-carry-people-and-goods-safely-1fce98c635.mp3",
+      "audioSha256": "75ae7d712222e602bed2f64ddfc731e1577c381cd44ad7a85cf79d159fc39d84",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite unclipped signal; this is automated evidence, not human listening or phoneme certification.",
+      "recognizerOutputs": [
+        "From muscle and wind to engines and batteries, power has changed vehicles. Future designs must still carry people and goods safely."
+      ],
+      "sourceScreening": [
+        "screen-base.json"
+      ],
+      "durationSeconds": 8.88,
+      "peakDbfs": -8.270035092088458,
+      "rmsDbfs": -25.501285402937306,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0.23000000000000043,
+      "longestInteriorSilenceSeconds": 0.4
+    },
+    {
+      "kind": "page_or_title",
+      "text": "Long ago, animals pulled carts on land. Oars and sails moved boats across water. Journeys depended on muscle or wind.",
+      "lookupText": "Long ago, animals pulled carts on land. Oars and sails moved boats across water. Journeys depended on muscle or wind.",
+      "audioPath": "/audio/production/en-US/guided_page/long-ago-animals-pulled-carts-on-land-oars-and-sails-moved-boats-across-water-journeys-depended-on-muscle-or-wind-70de3314cd.mp3",
+      "audioSha256": "bbafaf96f8640b1319ddf247804bda97865a9cfb7b8f7930f43942f9a0af06d2",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite unclipped signal; this is automated evidence, not human listening or phoneme certification. Raw differences remain recorded. Confirmation comes from screen-tiny.json, screen-second.json.",
+      "recognizerOutputs": [
+        "Long ago, animals pulled carts on land. Oars and sails moved boats across water. Journeys depended on muscle or wind. and",
+        "Long ago, animals pulled carts on land. Oars and sails moved boats across water, journeys depended on muscle or wind.",
+        "Long ago, animals pulled carts on land. Oars and sails moved boats across water. Journeys depended on muscle or wind."
+      ],
+      "sourceScreening": [
+        "screen-base.json",
+        "screen-tiny.json",
+        "screen-second.json"
+      ],
+      "durationSeconds": 10.6,
+      "peakDbfs": -8.485114745152416,
+      "rmsDbfs": -24.69773471324213,
+      "leadingSilenceSeconds": 0.25,
+      "trailingSilenceSeconds": 0.14999999999999858,
+      "longestInteriorSilenceSeconds": 0.5
+    },
+    {
+      "kind": "page_or_title",
+      "text": "People took to the air in propeller planes. Later, passenger jets carried larger groups across oceans at higher speeds.",
+      "lookupText": "People took to the air in propeller planes. Later, passenger jets carried larger groups across oceans at higher speeds.",
+      "audioPath": "/audio/production/en-US/guided_page/people-took-to-the-air-in-propeller-planes-later-passenger-jets-carried-larger-groups-across-oceans-at-higher-speeds-ec2cd8eef8.mp3",
+      "audioSha256": "f2652855e5fb1daf7b1351af8d412efacb13b569b48d63d8ec92877d84e95765",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite unclipped signal; this is automated evidence, not human listening or phoneme certification.",
+      "recognizerOutputs": [
+        "People took to the air in propeller planes. Later, passenger jets carried larger groups across oceans at higher speeds."
+      ],
+      "sourceScreening": [
+        "screen-base.json"
+      ],
+      "durationSeconds": 7.44,
+      "peakDbfs": -7.330826395889304,
+      "rmsDbfs": -24.720641376132132,
+      "leadingSilenceSeconds": 0.05,
+      "trailingSilenceSeconds": 0.13999999999999968,
+      "longestInteriorSilenceSeconds": 0.15000000000000002
+    },
+    {
+      "kind": "page_or_title",
+      "text": "Steam changed travel. Burning fuel heated water, and steam turned train wheels. Trains could pull many carriages together.",
+      "lookupText": "Steam changed travel. Burning fuel heated water, and steam turned train wheels. Trains could pull many carriages together.",
+      "audioPath": "/audio/production/en-US/guided_page/steam-changed-travel-burning-fuel-heated-water-and-steam-turned-train-wheels-trains-could-pull-many-carriages-together-0bf266a64e.mp3",
+      "audioSha256": "a0ad241788a488dd9fe115a1be97dc81d83517b0f3eb2e26d08ad0cda7e83340",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite unclipped signal; this is automated evidence, not human listening or phoneme certification. Raw differences remain recorded. Confirmation comes from screen-tiny.json, screen-second.json.",
+      "recognizerOutputs": [
+        "steam change travel burning fuel heated water and steam turn train wheels trains could pull many carriages together",
+        "Steam changed travel, burning fuel heated water, and steam turned train wheels. Trains could pull many carriages together.",
+        "Steam changed travel, burning fuel heated water and steam turned train wheels. Trains could pull many carriages together."
+      ],
+      "sourceScreening": [
+        "screen-base.json",
+        "screen-tiny.json",
+        "screen-second.json"
+      ],
+      "durationSeconds": 7.96,
+      "peakDbfs": -8.961003916140463,
+      "rmsDbfs": -24.661679088215692,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.25
+    },
+    {
+      "kind": "page_or_title",
+      "text": "This electric bicycle adds motor power when its rider pedals. A cargo bike has space for shopping or a child's seat.",
+      "lookupText": "This electric bicycle adds motor power when its rider pedals. A cargo bike has space for shopping or a child's seat.",
+      "audioPath": "/audio/production/en-US/guided_page/this-electric-bicycle-adds-motor-power-when-its-rider-pedals-a-cargo-bike-has-space-for-shopping-or-a-child-s-seat-3509be60e2.mp3",
+      "audioSha256": "1982eb66e275adf028b44d2219a6966929b3f4c5fc7a8b7953a8992075bbea9e",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "Unprompted offline recognition confirms every normalized printed word. The new page is exact in small.en; tiny.en writes it’s for its, an apostrophe-only distinction. The isolated This word is exact in both tiny.en and small.en. Full decode/signal evidence is automated, not human listening or phoneme certification.",
+      "recognizerOutputs": [
+        "This electric bicycle adds motor power when it's rider pedals. A cargo bike has space for shopping or a child's seat.",
+        "This electric bicycle adds motor power when its rider pedals. A cargo bike has space for shopping or a child's seat."
+      ],
+      "sourceScreening": [
+        "screen-p7-this-tiny.json",
+        "screen-p7-this-small.json"
+      ],
+      "durationSeconds": 8.08,
+      "peakDbfs": -6.507158292119014,
+      "rmsDbfs": -24.809307360990545,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0.1299999999999999,
+      "longestInteriorSilenceSeconds": 0.2
+    },
+    {
+      "kind": "page_or_title",
+      "text": "Today, some electric trains take power from wires. Some cars and buses carry batteries instead. Their electric motors turn the wheels.",
+      "lookupText": "Today, some electric trains take power from wires. Some cars and buses carry batteries instead. Their electric motors turn the wheels.",
+      "audioPath": "/audio/production/en-US/guided_page/today-some-electric-trains-take-power-from-wires-some-cars-and-buses-carry-batteries-instead-their-electric-motors-turn-the-wheels-a3bc97dae7.mp3",
+      "audioSha256": "81fb9ea41a6e0d72433759812ad8e7bfca3452580b9d540e42ceccf5d3ac8e50",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite unclipped signal; this is automated evidence, not human listening or phoneme certification.",
+      "recognizerOutputs": [
+        "Today, some electric trains take power from wires. Some cars and buses carry batteries instead. Their electric motors turn the wheels."
+      ],
+      "sourceScreening": [
+        "screen-base.json"
+      ],
+      "durationSeconds": 8.56,
+      "peakDbfs": -8.809658758378315,
+      "rmsDbfs": -24.516082687712455,
+      "leadingSilenceSeconds": 0.05,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.1
+    },
+    {
+      "kind": "word",
+      "text": "aircraft",
+      "lookupText": "aircraft",
+      "audioPath": "/audio/production/en-US/isolated_word/aircraft-18e149573b.mp3",
+      "audioSha256": "c259d745e57fe61b72ff433b920f2bcea318e2db75eae729b73d7b2ee85ad98f",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite unclipped signal; this is automated evidence, not human listening or phoneme certification.",
+      "recognizerOutputs": [
+        "aircraft"
+      ],
+      "sourceScreening": [
+        "screen-base.json"
+      ],
+      "durationSeconds": 1.08,
+      "peakDbfs": -6.253689758483728,
+      "rmsDbfs": -25.734888233590468,
+      "leadingSilenceSeconds": 0.05,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "batteries",
+      "lookupText": "batteries",
+      "audioPath": "/audio/production/en-US/isolated_word/batteries-33daa6c303.mp3",
+      "audioSha256": "fe7ec525a57acbd8d9016b9f7ecfa65befb223684e7d3731bec946524b82e581",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite unclipped signal; this is automated evidence, not human listening or phoneme certification.",
+      "recognizerOutputs": [
+        "Batteries."
+      ],
+      "sourceScreening": [
+        "screen-base.json"
+      ],
+      "durationSeconds": 0.84,
+      "peakDbfs": -13.029315675360007,
+      "rmsDbfs": -24.814844793280336,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0.039999999999999925,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "Burning",
+      "lookupText": "Burning",
+      "audioPath": "/audio/production/en-US/isolated_word/burning-ced09ddfca.mp3",
+      "audioSha256": "d7e626b05d621b98e3a16bdc77b55c3c56534eaf5d7f6546ea186a9458d55862",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite unclipped signal; this is automated evidence, not human listening or phoneme certification.",
+      "recognizerOutputs": [
+        "burning"
+      ],
+      "sourceScreening": [
+        "screen-base.json"
+      ],
+      "durationSeconds": 1.04,
+      "peakDbfs": -7.676575921746204,
+      "rmsDbfs": -25.68534828779456,
+      "leadingSilenceSeconds": 0.1,
+      "trailingSilenceSeconds": 0.14,
+      "longestInteriorSilenceSeconds": 0.15000000000000002
+    },
+    {
+      "kind": "word",
+      "text": "cameras",
+      "lookupText": "cameras",
+      "audioPath": "/audio/production/en-US/isolated_word/cameras-0e6f3ae653.mp3",
+      "audioSha256": "e73262a11611a0f2568a806dc0583dc4a2b2cb362928df1d51cfcd252a7fd039",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite unclipped signal; this is automated evidence, not human listening or phoneme certification.",
+      "recognizerOutputs": [
+        "cameras"
+      ],
+      "sourceScreening": [
+        "screen-base.json"
+      ],
+      "durationSeconds": 0.84,
+      "peakDbfs": -11.795175458797223,
+      "rmsDbfs": -24.974228435276004,
+      "leadingSilenceSeconds": 0.05,
+      "trailingSilenceSeconds": 0.039999999999999925,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "cargo",
+      "lookupText": "cargo",
+      "audioPath": "/audio/production/en-US/isolated_word/cargo-f103332061.mp3",
+      "audioSha256": "17f5e6b2ba0f26de100701b4c1599644de268b1db1d3be03da88e0d08686d065",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite unclipped signal; this is automated evidence, not human listening or phoneme certification.",
+      "recognizerOutputs": [
+        "Cargo //"
+      ],
+      "sourceScreening": [
+        "screen-base.json"
+      ],
+      "durationSeconds": 0.84,
+      "peakDbfs": -10.002727197092927,
+      "rmsDbfs": -24.567038540191547,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0.08999999999999997,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "carriages",
+      "lookupText": "carriages",
+      "audioPath": "/audio/production/en-US/isolated_word/carriages-65eb23570b.mp3",
+      "audioSha256": "47cf6ef52d3aac7e998610c5f1ea4fc433254568fb07cce8f3a11a3b3e7feaa9",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite unclipped signal; this is automated evidence, not human listening or phoneme certification.",
+      "recognizerOutputs": [
+        "Carriages"
+      ],
+      "sourceScreening": [
+        "screen-base.json"
+      ],
+      "durationSeconds": 1.48,
+      "peakDbfs": -8.443004687909063,
+      "rmsDbfs": -26.901871121621397,
+      "leadingSilenceSeconds": 0.05,
+      "trailingSilenceSeconds": 0.029999999999999805,
+      "longestInteriorSilenceSeconds": 0.05
+    },
+    {
+      "kind": "word",
+      "text": "carts",
+      "lookupText": "carts",
+      "audioPath": "/audio/production/en-US/isolated_word/carts-05aa50c02d.mp3",
+      "audioSha256": "2ed6b204ca88ac74cc5a7d5575028de1e8926e0efdc35a73bf030d7718366995",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite unclipped signal; this is automated evidence, not human listening or phoneme certification.",
+      "recognizerOutputs": [
+        "Carts."
+      ],
+      "sourceScreening": [
+        "screen-base.json"
+      ],
+      "durationSeconds": 0.68,
+      "peakDbfs": -8.555823907802335,
+      "rmsDbfs": -25.54335932417822,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "child's",
+      "lookupText": "child's",
+      "audioPath": "/audio/production/en-US/isolated_word/child-s-992ed3e9e0.mp3",
+      "audioSha256": "5af8512b23a04d515dd654ed5857927d2a2df2f0462b1807bee769e0f3f41aca",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "reviewed-recognition-equivalent",
+      "reviewNote": "All three recognizers write Childs, differing from child’s only in apostrophe spelling. Apostrophes do not add a spoken sound; no word or suffix substitution is present in the reported transcription. Entire MP3 decodes to finite unclipped signal. This is automated orthographic-discrepancy evidence, not human listening or phoneme certification.",
+      "recognizerOutputs": [
+        "Childs...",
+        "Childs.",
+        "Childs"
+      ],
+      "sourceScreening": [
+        "screen-base.json",
+        "screen-tiny.json",
+        "screen-second.json"
+      ],
+      "durationSeconds": 1.28,
+      "peakDbfs": -10.070605257738023,
+      "rmsDbfs": -27.998845914279467,
+      "leadingSilenceSeconds": 0.7000000000000001,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "depended",
+      "lookupText": "depended",
+      "audioPath": "/audio/production/en-US/isolated_word/depended-86e034adfa.mp3",
+      "audioSha256": "ef178da9e38d520eeb4ee4e144a5b1748e4a86a5cae91e0eef6def2f3726240f",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite unclipped signal; this is automated evidence, not human listening or phoneme certification.",
+      "recognizerOutputs": [
+        "Depended"
+      ],
+      "sourceScreening": [
+        "screen-base.json"
+      ],
+      "durationSeconds": 1.36,
+      "peakDbfs": -10.05460980781287,
+      "rmsDbfs": -25.739690073705646,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0.010000000000000009,
+      "longestInteriorSilenceSeconds": 0.05
+    },
+    {
+      "kind": "word",
+      "text": "designs",
+      "lookupText": "designs",
+      "audioPath": "/audio/production/en-US/isolated_word/designs-a31f4f9e8c.mp3",
+      "audioSha256": "5d15fe43ad6c6b7c272be563bf9b0fb6365ca912e89958d55c17ef7b7afe0c90",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite unclipped signal; this is automated evidence, not human listening or phoneme certification.",
+      "recognizerOutputs": [
+        "designs."
+      ],
+      "sourceScreening": [
+        "screen-base.json"
+      ],
+      "durationSeconds": 1.0,
+      "peakDbfs": -10.705170552953952,
+      "rmsDbfs": -25.112393098493065,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "Engineers",
+      "lookupText": "Engineers",
+      "audioPath": "/audio/production/en-US/isolated_word/engineers-2add10c6a2.mp3",
+      "audioSha256": "509278fd9a0a7546a62808c79c67f7e50410640955dd1f734bbef89b2d24019b",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite unclipped signal; this is automated evidence, not human listening or phoneme certification.",
+      "recognizerOutputs": [
+        "engineers"
+      ],
+      "sourceScreening": [
+        "screen-base.json"
+      ],
+      "durationSeconds": 1.12,
+      "peakDbfs": -11.457559124334919,
+      "rmsDbfs": -25.36346487857181,
+      "leadingSilenceSeconds": 0.35000000000000003,
+      "trailingSilenceSeconds": 0.020000000000000018,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "Engines",
+      "lookupText": "Engines",
+      "audioPath": "/audio/production/en-US/isolated_word/engines-bd765021a3.mp3",
+      "audioSha256": "c6dcac2f7abc9739e82cc868008adbbe42aa47a80668810b8a3e440e684d5119",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite unclipped signal; this is automated evidence, not human listening or phoneme certification.",
+      "recognizerOutputs": [
+        "Engines"
+      ],
+      "sourceScreening": [
+        "screen-base.json"
+      ],
+      "durationSeconds": 1.32,
+      "peakDbfs": -9.862841779335016,
+      "rmsDbfs": -26.303796818036975,
+      "leadingSilenceSeconds": 0.35000000000000003,
+      "trailingSilenceSeconds": 0.07000000000000006,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "farther",
+      "lookupText": "farther",
+      "audioPath": "/audio/production/en-US/isolated_word/farther-7687bbc2cf.mp3",
+      "audioSha256": "c72ec8faff1b21b20134af6960677c635c9d9dbda7fd152875a092f17ac27c01",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite unclipped signal; this is automated evidence, not human listening or phoneme certification.",
+      "recognizerOutputs": [
+        "farther"
+      ],
+      "sourceScreening": [
+        "screen-base.json"
+      ],
+      "durationSeconds": 0.76,
+      "peakDbfs": -10.099107189031551,
+      "rmsDbfs": -26.723882737404473,
+      "leadingSilenceSeconds": 0.1,
+      "trailingSilenceSeconds": 0.05999999999999994,
+      "longestInteriorSilenceSeconds": 0.1
+    },
+    {
+      "kind": "word",
+      "text": "fuel",
+      "lookupText": "fuel",
+      "audioPath": "/audio/production/en-US/isolated_word/fuel-b376d344fd.mp3",
+      "audioSha256": "a0c15a06d2c9a24e3cefbf31b3e3a23075fe1bf7c4197826f1169554015bb101",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite unclipped signal; this is automated evidence, not human listening or phoneme certification.",
+      "recognizerOutputs": [
+        "Fuel."
+      ],
+      "sourceScreening": [
+        "screen-base.json"
+      ],
+      "durationSeconds": 0.72,
+      "peakDbfs": -13.825356629307983,
+      "rmsDbfs": -24.716137629784875,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "Future",
+      "lookupText": "Future",
+      "audioPath": "/audio/production/en-US/isolated_word/future-b94dec30da.mp3",
+      "audioSha256": "fe3e9dbdacd8bb07023baf4d97afdd0e7d55f5b578a1158311363ed5116b8cc1",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite unclipped signal; this is automated evidence, not human listening or phoneme certification.",
+      "recognizerOutputs": [
+        "future"
+      ],
+      "sourceScreening": [
+        "screen-base.json"
+      ],
+      "durationSeconds": 1.16,
+      "peakDbfs": -12.034923194451908,
+      "rmsDbfs": -25.83343359962843,
+      "leadingSilenceSeconds": 0.2,
+      "trailingSilenceSeconds": 0.10999999999999988,
+      "longestInteriorSilenceSeconds": 0.1
+    },
+    {
+      "kind": "word",
+      "text": "goods",
+      "lookupText": "goods",
+      "audioPath": "/audio/production/en-US/isolated_word/goods-666b0e382b.mp3",
+      "audioSha256": "609ddc4b6fb4f9ce96f93f13dcdda7ba6b8a58e0cb52765ac6fc57b7ddfa0796",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite unclipped signal; this is automated evidence, not human listening or phoneme certification.",
+      "recognizerOutputs": [
+        "Goods"
+      ],
+      "sourceScreening": [
+        "screen-base.json"
+      ],
+      "durationSeconds": 1.04,
+      "peakDbfs": -8.160911565558896,
+      "rmsDbfs": -26.15205874611331,
+      "leadingSilenceSeconds": 0.2,
+      "trailingSilenceSeconds": 0.08999999999999997,
+      "longestInteriorSilenceSeconds": 0.05
+    },
+    {
+      "kind": "word",
+      "text": "jets",
+      "lookupText": "jets",
+      "audioPath": "/audio/production/en-US/isolated_word/jets-6246a9b883.mp3",
+      "audioSha256": "47b9752a2bde7cf8938a74804b7d37b3bb55aefb7cdf3506e1494c2cecee98dc",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite unclipped signal; this is automated evidence, not human listening or phoneme certification.",
+      "recognizerOutputs": [
+        "Jets"
+      ],
+      "sourceScreening": [
+        "screen-base.json"
+      ],
+      "durationSeconds": 1.0,
+      "peakDbfs": -8.594310681904563,
+      "rmsDbfs": -27.172337513511245,
+      "leadingSilenceSeconds": 0.2,
+      "trailingSilenceSeconds": 0.09999999999999998,
+      "longestInteriorSilenceSeconds": 0.1
+    },
+    {
+      "kind": "word",
+      "text": "Journeys",
+      "lookupText": "Journeys",
+      "audioPath": "/audio/production/en-US/isolated_word/journeys-d7a0cab7ab.mp3",
+      "audioSha256": "80ee1902842f5a680e5cc5e92959b599623c3a0f5393271b4f182735a777f578",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite unclipped signal; this is automated evidence, not human listening or phoneme certification. Raw differences remain recorded. Confirmation comes from screen-second.json.",
+      "recognizerOutputs": [
+        "Juries",
+        "juries",
+        "Journeys"
+      ],
+      "sourceScreening": [
+        "screen-base.json",
+        "screen-tiny.json",
+        "screen-second.json"
+      ],
+      "durationSeconds": 1.4,
+      "peakDbfs": -8.218621656284828,
+      "rmsDbfs": -26.26339868413278,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.05
+    },
+    {
+      "kind": "word",
+      "text": "motor",
+      "lookupText": "motor",
+      "audioPath": "/audio/production/en-US/isolated_word/motor-8130be372a.mp3",
+      "audioSha256": "1ab6417b28dab523f6a1744b39aa3d1e334089943648ce6ca041c9f044a7be0d",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite unclipped signal; this is automated evidence, not human listening or phoneme certification.",
+      "recognizerOutputs": [
+        "Motor"
+      ],
+      "sourceScreening": [
+        "screen-base.json"
+      ],
+      "durationSeconds": 0.64,
+      "peakDbfs": -8.26361227191425,
+      "rmsDbfs": -24.055052288873,
+      "leadingSilenceSeconds": 0.05,
+      "trailingSilenceSeconds": 0.08999999999999997,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "motors",
+      "lookupText": "motors",
+      "audioPath": "/audio/production/en-US/isolated_word/motors-9aec0896a7.mp3",
+      "audioSha256": "8ceb51a79aab7cfc341d11a05b28d003e8eb8df9f4d2eae929ba4e7377b0d71f",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite unclipped signal; this is automated evidence, not human listening or phoneme certification.",
+      "recognizerOutputs": [
+        "Motors"
+      ],
+      "sourceScreening": [
+        "screen-base.json"
+      ],
+      "durationSeconds": 1.32,
+      "peakDbfs": -8.640451133871093,
+      "rmsDbfs": -24.92136129104891,
+      "leadingSilenceSeconds": 0.05,
+      "trailingSilenceSeconds": 0.11999999999999988,
+      "longestInteriorSilenceSeconds": 0.1
+    },
+    {
+      "kind": "word",
+      "text": "muscle",
+      "lookupText": "muscle",
+      "audioPath": "/audio/production/en-US/isolated_word/muscle-4f7143c07a.mp3",
+      "audioSha256": "a5cac03d7ef588312a3dfa1e369ebacbdf6d447658977377be9c2718833f6286",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite unclipped signal; this is automated evidence, not human listening or phoneme certification.",
+      "recognizerOutputs": [
+        "muscle"
+      ],
+      "sourceScreening": [
+        "screen-base.json"
+      ],
+      "durationSeconds": 0.96,
+      "peakDbfs": -9.946069110172076,
+      "rmsDbfs": -25.837867571630298,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.1
+    },
+    {
+      "kind": "word",
+      "text": "Oars",
+      "lookupText": "Oars",
+      "audioPath": "/audio/production/en-US/isolated_word/oars-aa1fed484d.mp3",
+      "audioSha256": "c0edbb753b4d6c503971693bcd685021757d862c08977b1d0cccd1667188e95f",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite unclipped signal; this is automated evidence, not human listening or phoneme certification. Raw differences remain recorded. Confirmation comes from screen-second.json.",
+      "recognizerOutputs": [
+        "Ours.",
+        "Ours!",
+        "oars"
+      ],
+      "sourceScreening": [
+        "screen-base.json",
+        "screen-tiny.json",
+        "screen-second.json"
+      ],
+      "durationSeconds": 0.88,
+      "peakDbfs": -9.671228008951354,
+      "rmsDbfs": -24.855114927697205,
+      "leadingSilenceSeconds": 0.05,
+      "trailingSilenceSeconds": 0.13,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "pedals",
+      "lookupText": "pedals",
+      "audioPath": "/audio/production/en-US/isolated_word/pedals-65302bbbab.mp3",
+      "audioSha256": "7e077f0d4fbdac9ed6ffbe8dc838da27b47d8dbcbce6f2983a38e4225ecaa69c",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite unclipped signal; this is automated evidence, not human listening or phoneme certification. Raw differences remain recorded. Confirmation comes from screen-tiny.json.",
+      "recognizerOutputs": [
+        "petals",
+        "Pedals.",
+        "Petals"
+      ],
+      "sourceScreening": [
+        "screen-base.json",
+        "screen-tiny.json",
+        "screen-second.json"
+      ],
+      "durationSeconds": 1.0,
+      "peakDbfs": -10.469758134613498,
+      "rmsDbfs": -25.226441521201195,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "powered",
+      "lookupText": "powered",
+      "audioPath": "/audio/production/en-US/isolated_word/powered-b7868f7870.mp3",
+      "audioSha256": "3c69af1f7791106f8167f60443adfdda6d17ba013ce3643531b0c5f89e2b159b",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite unclipped signal; this is automated evidence, not human listening or phoneme certification.",
+      "recognizerOutputs": [
+        "powered"
+      ],
+      "sourceScreening": [
+        "screen-base.json"
+      ],
+      "durationSeconds": 0.76,
+      "peakDbfs": -10.579627048962688,
+      "rmsDbfs": -26.083693101649065,
+      "leadingSilenceSeconds": 0.1,
+      "trailingSilenceSeconds": 0.05999999999999994,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "propeller",
+      "lookupText": "propeller",
+      "audioPath": "/audio/production/en-US/isolated_word/propeller-e9ff54ba4e.mp3",
+      "audioSha256": "c624d3f036117d29c211542f21a16408d5c144c2170065a2d88c7000aca1a871",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite unclipped signal; this is automated evidence, not human listening or phoneme certification.",
+      "recognizerOutputs": [
+        "Propeller"
+      ],
+      "sourceScreening": [
+        "screen-base.json"
+      ],
+      "durationSeconds": 0.96,
+      "peakDbfs": -7.915197329297574,
+      "rmsDbfs": -25.756852057706435,
+      "leadingSilenceSeconds": 0.1,
+      "trailingSilenceSeconds": 0.10999999999999988,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "propellers",
+      "lookupText": "propellers",
+      "audioPath": "/audio/production/en-US/isolated_word/propellers-ee7097f8a2.mp3",
+      "audioSha256": "484a586c53df53057d1dcf28dc69a76e58968f20294ce66c8f1717a4836fdba8",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite unclipped signal; this is automated evidence, not human listening or phoneme certification.",
+      "recognizerOutputs": [
+        "Propellers"
+      ],
+      "sourceScreening": [
+        "screen-base.json"
+      ],
+      "durationSeconds": 1.48,
+      "peakDbfs": -10.267387599406115,
+      "rmsDbfs": -26.90858574683864,
+      "leadingSilenceSeconds": 0.65,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "rider",
+      "lookupText": "rider",
+      "audioPath": "/audio/production/en-US/isolated_word/rider-1d6fb0b936.mp3",
+      "audioSha256": "553f949b60224a3222e1b7cfd9d532dcb76c2d94c4ab0669f032315d3db3be49",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite unclipped signal; this is automated evidence, not human listening or phoneme certification.",
+      "recognizerOutputs": [
+        "Rider"
+      ],
+      "sourceScreening": [
+        "screen-base.json"
+      ],
+      "durationSeconds": 1.32,
+      "peakDbfs": -8.759066468431795,
+      "rmsDbfs": -27.86890731439366,
+      "leadingSilenceSeconds": 0.7000000000000001,
+      "trailingSilenceSeconds": 0.11999999999999988,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "Ships",
+      "lookupText": "Ships",
+      "audioPath": "/audio/production/en-US/isolated_word/ships-2f25c4c04a.mp3",
+      "audioSha256": "9533b52b8ce2581842c2660fe5ecff8dc3e7d904baf82352d0a2d56e0afb6e3e",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite unclipped signal; this is automated evidence, not human listening or phoneme certification.",
+      "recognizerOutputs": [
+        "ships"
+      ],
+      "sourceScreening": [
+        "screen-base.json"
+      ],
+      "durationSeconds": 0.84,
+      "peakDbfs": -9.71886520768763,
+      "rmsDbfs": -26.7691150782738,
+      "leadingSilenceSeconds": 0.05,
+      "trailingSilenceSeconds": 0.039999999999999925,
+      "longestInteriorSilenceSeconds": 0.05
+    },
+    {
+      "kind": "word",
+      "text": "speeds",
+      "lookupText": "speeds",
+      "audioPath": "/audio/production/en-US/isolated_word/speeds-8c0af03135.mp3",
+      "audioSha256": "0b575af920f926e1a851c9e254795f1602b2fa422d010d1370755bdfbc963afb",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite unclipped signal; this is automated evidence, not human listening or phoneme certification.",
+      "recognizerOutputs": [
+        "Speeds."
+      ],
+      "sourceScreening": [
+        "screen-base.json"
+      ],
+      "durationSeconds": 0.88,
+      "peakDbfs": -15.121142298990883,
+      "rmsDbfs": -26.108309207816912,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0.07999999999999996,
+      "longestInteriorSilenceSeconds": 0.05
+    },
+    {
+      "kind": "word",
+      "text": "testing",
+      "lookupText": "testing",
+      "audioPath": "/audio/production/en-US/isolated_word/testing-840111bada.mp3",
+      "audioSha256": "c9f6136427c75e9e1209438a0b49cf55ad9e25718b7657d8a72e8d68b0e559f7",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite unclipped signal; this is automated evidence, not human listening or phoneme certification.",
+      "recognizerOutputs": [
+        "Testing."
+      ],
+      "sourceScreening": [
+        "screen-base.json"
+      ],
+      "durationSeconds": 0.8,
+      "peakDbfs": -7.731551611711742,
+      "rmsDbfs": -25.5432545785547,
+      "leadingSilenceSeconds": 0.05,
+      "trailingSilenceSeconds": 0.050000000000000044,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "This",
+      "lookupText": "This",
+      "audioPath": "/audio/production/en-US/isolated_word/this-15a4b52837.mp3",
+      "audioSha256": "9c99a1f0d6fee092cc0d33eaa1b33c57cacbe36d2dc48a60f0fa0850605cc89d",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "Unprompted offline recognition confirms every normalized printed word. The new page is exact in small.en; tiny.en writes it’s for its, an apostrophe-only distinction. The isolated This word is exact in both tiny.en and small.en. Full decode/signal evidence is automated, not human listening or phoneme certification.",
+      "recognizerOutputs": [
+        "This",
+        "This"
+      ],
+      "sourceScreening": [
+        "screen-this-word-tiny.json",
+        "screen-this-word-small.json"
+      ],
+      "durationSeconds": 1.0743333333333334,
+      "peakDbfs": -9.72594287492724,
+      "rmsDbfs": -25.845552400364884,
+      "leadingSilenceSeconds": 0.75,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "vehicles",
+      "lookupText": "vehicles",
+      "audioPath": "/audio/production/en-US/isolated_word/vehicles-8127668b09.mp3",
+      "audioSha256": "29c539894d7bf3008b93258904e0b5c60b353265a4889098328bef3b884ff48b",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite unclipped signal; this is automated evidence, not human listening or phoneme certification.",
+      "recognizerOutputs": [
+        "vehicles"
+      ],
+      "sourceScreening": [
+        "screen-base.json"
+      ],
+      "durationSeconds": 1.36,
+      "peakDbfs": -9.481515912411421,
+      "rmsDbfs": -26.315470335224724,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0,
+      "longestInteriorSilenceSeconds": 0.0
+    },
+    {
+      "kind": "word",
+      "text": "wires",
+      "lookupText": "wires",
+      "audioPath": "/audio/production/en-US/isolated_word/wires-a6bb2daa8c.mp3",
+      "audioSha256": "32bd0d3f9a246ea78c9e2659b021710d73c8b6f4f62fd8f0a9e19dd0632b1c3d",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "decision": "independent-recognizer-match",
+      "reviewNote": "At least one unprompted offline recognizer confirms every normalized printed word. Entire MP3 decodes to finite unclipped signal; this is automated evidence, not human listening or phoneme certification.",
+      "recognizerOutputs": [
+        "Wires."
+      ],
+      "sourceScreening": [
+        "screen-base.json"
+      ],
+      "durationSeconds": 0.84,
+      "peakDbfs": -11.875801509137716,
+      "rmsDbfs": -25.32831339321905,
+      "leadingSilenceSeconds": 0.0,
+      "trailingSilenceSeconds": 0.039999999999999925,
+      "longestInteriorSilenceSeconds": 0.0
+    }
+  ],
+  "summary": {
+    "filesScreened": 43,
+    "pageNarrations": 10,
+    "selectedWords": 33,
+    "anyModelExactNormalized": 42,
+    "orthographicEquivalence": 1,
+    "unresolved": 0,
+    "unacceptedAnAuditionsIncluded": 0
+  },
+  "reviewer": "/root/image_cache_fix"
+}

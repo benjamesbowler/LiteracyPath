@@ -4,7 +4,6 @@ import { fileURLToPath } from "node:url";
 import { createHash } from "node:crypto";
 import sharp from "sharp";
 
-import { getRuntimeGuidedReadingBooks } from "../src/utils/guidedReading/runtimeBooks.js";
 import { bookCoverSources } from "../src/policy/childLibraryPolicy.js";
 import { GUIDED_READING_COVER_RENDITIONS, GUIDED_READING_COVER_ENCODING } from "../src/data/generated/guidedReadingCoverRenditions.generated.js";
 import worldDiscoveryCohorts from "../src/content/world-discovery/cohorts.json" with { type: "json" };
@@ -22,7 +21,7 @@ if (args.length && (args.length !== 2 || args[0] !== "--world-discovery-cohort")
 const cohort = args.length ? worldDiscoveryCohorts.cohorts.find(row => row.id === args[1] && row.index > 0) : null;
 if (args.length && !cohort) throw Error("Select a declared expansion cohort; original card evidence is immutable");
 const selectedSources = cohort ? readWorldDiscoveryCohort(cohort).books.map(book => `/guided-reading/world-discovery/${book.id.replace("world-discovery-", "")}/cover.webp`)
-  : getRuntimeGuidedReadingBooks().map(book => bookCoverSources(book)[0]).filter(Boolean);
+  : (await import("../src/utils/guidedReading/runtimeBooks.js")).getRuntimeGuidedReadingBooks().map(book => bookCoverSources(book)[0]).filter(Boolean);
 const sources = [...new Set(selectedSources)].sort();
 const outputDirectory = path.join(root, "public/guided-reading/card-covers");
 await fs.mkdir(outputDirectory, { recursive: true });

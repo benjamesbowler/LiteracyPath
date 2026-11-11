@@ -1905,3 +1905,23 @@ byte-identical duplicate plant cover candidate; its selected copy and original
 generation remain. The [audit](guided-reading/LIBRARY_SUITABILITY_AUDIT_2026-11-11.md)
 and exact media and historical provenance are retained. No protected path or
 hosted media was removed.
+
+## Transport manuscript and cached-image repair — 11 November 2026
+
+The [transport repair](guided-reading/TRANSPORT_THROUGH_TIME_REPAIR_2026-11-11.md)
+retains the selected native illustrations, exact original generation inputs,
+reviewed reuses, independent manuscript/card reviews, narration screening and
+supported dated registration. The immutable delivery files are byte-identical
+copies of accepted full-resolution images and remain active runtime inputs.
+
+Removed eleven superseded unpublished image aliases (2,524,024 bytes),
+reproducible speech-screening environments/model caches (1,369,323,264 logical
+bytes), and four unbound new audio files (211,603 bytes). These are three rejected
+article auditions and the superseded unpublished page recording. The owning
+producer retired only the superseded new mapping; all previously published
+recordings and 6,172 historical default bindings remain unchanged. Screening
+results and diagnostic evidence remain under `.artifacts/transport-repair/`.
+The old aliases can be recovered exactly from the prior Git source images;
+environments can be recreated from retained versions/hashes. The rejected audio
+is excluded from delivery; resynthesis is not bitwise recovery. Protected work
+and unrelated worktrees were not touched.

@@ -3,6 +3,7 @@ import { PRODUCT_NAME } from "../src/data/teacherBrand.js";
 import { LITERACY_MOCK_VERSION, LITERACY_MOCK_VERSIONS } from "../src/policy/literacyMockVersions.js";
 import { CAMPAIGN_OFFLINE_AUDIO_PREFIXES } from "../src/features/soundSeekers/rounded/campaignAudioCatalog.js";
 import { REPAIRED_IMAGE_REVISIONS } from "../src/data/generated/repairedImageRevisions.generated.js";
+import { GUIDED_READING_IMAGE_REVISIONS } from "../src/data/generated/guidedReadingImageRevisions.generated.js";
 
 function collectChunkClosure(bundle, seeds, { includeDynamic = false } = {}) {
   const selected = new Set();
@@ -43,6 +44,7 @@ const SHELL_PREFIX = "lp-shell-";
 const SHELL_CACHE = SHELL_PREFIX + BUILD_ID;
 const QUEST_MEDIA_CACHE = "lp-quest-media-v1";
 const REPAIRED_IMAGE_REVISIONS = ${JSON.stringify(REPAIRED_IMAGE_REVISIONS)};
+const GUIDED_READING_IMAGE_REVISIONS = ${JSON.stringify(GUIDED_READING_IMAGE_REVISIONS)};
 const PRECACHE = ${JSON.stringify(precache)};
 const QUEST_EXECUTABLE_ASSETS = ${JSON.stringify(questAssets)};
 const MOCK_EXECUTABLE_ASSETS = ${JSON.stringify(mockAssets)};
@@ -65,8 +67,12 @@ function isQuestMedia(pathname) {
 }
 
 function repairedImageUrl(url) {
-  const revision = REPAIRED_IMAGE_REVISIONS[url.pathname];
-  if (revision) url.searchParams.set("v", revision);
+  // Existing quarantined repairs must replace their rejected bytes even for
+  // older clients. Other book revisions belong to the requesting manuscript;
+  // an installed worker must not downgrade a newer book's explicit version.
+  const forcedRevision = REPAIRED_IMAGE_REVISIONS[url.pathname];
+  const revision = forcedRevision || GUIDED_READING_IMAGE_REVISIONS[url.pathname];
+  if (revision && (forcedRevision || !url.searchParams.has("v"))) url.searchParams.set("v", revision);
   return url;
 }
 
@@ -145,7 +151,9 @@ async function cacheFirst(request, cacheName) {
 
 async function questMediaResponse(request) {
   const cache = await caches.open(QUEST_MEDIA_CACHE);
-  const cached = await cache.match(request, { ignoreSearch: true });
+  // A caller's explicit revision is part of its content identity, including
+  // newer revisions that this installed worker does not yet know about.
+  const cached = await cache.match(request, { ignoreSearch: !new URL(request.url).searchParams.has("v") });
   // A complete response warmed earlier is safe to serve to a media element
   // while offline. Otherwise forward byte-range requests without caching: a
   // 206 response cannot be stored in CacheStorage.
@@ -172,7 +180,7 @@ self.addEventListener("fetch", event => {
   }
   // A previous canonical response must never mask reviewed replacement bytes.
   // This also covers game/worksheet renderers that retain canonical URLs.
-  if (REPAIRED_IMAGE_REVISIONS[url.pathname]) {
+  if (REPAIRED_IMAGE_REVISIONS[url.pathname] || GUIDED_READING_IMAGE_REVISIONS[url.pathname]) {
     event.respondWith(cacheFirst(new Request(repairedImageUrl(url), request), QUEST_MEDIA_CACHE));
     return;
   }
@@ -246,7 +254,7 @@ self.addEventListener("message", event => {
         await cache.put(url.href, response);
         completed += 1;
       } catch {
-        const existing = await cache.match(url.href, { ignoreSearch: !REPAIRED_IMAGE_REVISIONS[url.pathname] });
+        const existing = await cache.match(url.href, { ignoreSearch: !url.searchParams.has("v") });
         if (existing) completed += 1;
         else failed += 1;
       }

@@ -1,0 +1,235 @@
+{
+  "schemaVersion": 1,
+  "status": "independent-complete-editorial-and-native-media-review-clear",
+  "reviewedAt": "2026-11-11T03:28:14.115909+00:00",
+  "reviewer": "/root/transport_editor",
+  "books": [
+    {
+      "bookId": "world-discovery-e-21",
+      "id": "world-discovery-e-21",
+      "title": "Transport Through Time",
+      "sourceBookSha256": "d005e0676eef7c8ed0183c85b2b3f6bca15ba1939cb71ebca672d6d06493b7ca",
+      "manuscriptSourceSha256": "d005e0676eef7c8ed0183c85b2b3f6bca15ba1939cb71ebca672d6d06493b7ca",
+      "textFingerprint": "fnv1a64:ce203d3c00c38463",
+      "reviewedTextFingerprint": "fnv1a64:ce203d3c00c38463",
+      "reviewedAt": "2026-11-11",
+      "fullTextPrepAndDiscussionReviewed": true,
+      "allReferencesCoversAndPagesReviewed": true,
+      "method": "Independent full ordered native asset inspection against all10 exact final page strings, briefs/states, reader descriptions, oral preparation and discussion. Every12asset was opened directly with view_image; native output observations are distinct from renderedreader or physicaldevice checks.",
+      "assets": [
+        {
+          "slot": "reference",
+          "path": "source-art/world-discovery/e-21-reference.webp",
+          "sha256": "7f2f00b67a86368f12450fee92cd81755de798e8ebdb992bc1d59594da01649b",
+          "note": "Production-only reference board directly viewed. Distinct historical/current/prototype vehicles, named design colors and ordinary adult identities are separated; no named Kit/Zoe cast or false storypage use. The white/orange experimental plane uses one nose propeller. This is design reference, not a published reader page."
+        },
+        {
+          "slot": "cover",
+          "path": "public/guided-reading/world-discovery/e-21/cover.webp",
+          "sha256": "85af5c918ef606f96a020f28001aa6c549da400ebed1103d1e1deb1caff085d3",
+          "note": "Dedicated past/present/tested comparison directly viewed. Horsewagon and sailboat occupy appropriate surfaces at left; current electricbus and jet are distinct center examples; right hangar shows one experimental electricplane and engineer checking closed battery modules. The unrequested prototypecar is gone. Complete principal vehicle silhouettes remain visible, with no printed labels or flags."
+        },
+        {
+          "slot": "page-01",
+          "path": "public/guided-reading/world-discovery/e-21/page-01.webp",
+          "sha256": "361612edeffd44b1cac54d87185b073e4aee9dc39ebbf85aba1863a6502ded9e",
+          "note": "Three authored historical methods are clear in cart upperleft, rowboat upperright and sailboat below. A healthy four-legged horse pulls a coherent wagon with seated people; the rower grips two rowlocked oars with blades at the water; the cream sail is attached to one mast on its own boat. This matches Oars in the exact text; no prior routeboard remains."
+        },
+        {
+          "slot": "page-02",
+          "path": "public/guided-reading/world-discovery/e-21/page-02.webp",
+          "sha256": "e4bcb73ecc43a49cd4c09f0a08fd5cf7560460beb1ea772e1a3bf3c11f83f946",
+          "note": "Reused steam illustration directly viewed against the NEW page2 text. One black locomotive on coherent rails pulls two coupled brown coaches. Its integrated boiler cutaway shows enclosed fire beneath water, steam route to a cylinder and a connecting rod at the driving wheels. Full vehicle/coach geometry is visible; no invented detached hose mechanism. Reuse retains original production provenance."
+        },
+        {
+          "slot": "page-03",
+          "path": "public/guided-reading/world-discovery/e-21/page-03.webp",
+          "sha256": "5331dbba86b19c427d5c1d43c592077b08b4ccc7faf0a61814a9cebf2fa0c33b",
+          "note": "Three early road-vehicle examples are readable on their separate roads: a darkgreen car with a family, blue bus carrying seated group and red truck with secured goods. Complete wheels contact each road and vehicle capacities have distinct pictured purposes. No repeated train/cart race or motorcart with a pulling horse."
+        },
+        {
+          "slot": "page-04",
+          "path": "public/guided-reading/world-discovery/e-21/page-04.webp",
+          "sha256": "7934251e5585292bdd832c580ada630b816e42fbe70151c39cad5054b778aab4",
+          "note": "Sailboat, white passengerferry and blue container ship are distinct sea examples with coherent hull/water contact. Two attached magnified callouts point to the poweredships and show engine/shaft/propeller arrangements at their sterns. The passenger/cargo distinction is visible; the sailboat retains its wind-based mechanism. No wheels or impossible mixed road/sea surface."
+        },
+        {
+          "slot": "page-05",
+          "path": "public/guided-reading/world-discovery/e-21/page-05.webp",
+          "sha256": "6a9cdd7a070d5e253c99116a0607a147692ac9ef98eaa218a95d37c8d935e55d",
+          "note": "Reused aircraft illustration directly viewed against the revised larger/faster comparison. Early small cream biplane over fields and later white teal-tail passengerjet over ocean occupy separate scenes. Wingtip, propeller, engines, tails and complete fuselages are framed. This is a period/design comparison, not a race or invented exact speed/duration chart."
+        },
+        {
+          "slot": "page-06",
+          "path": "public/guided-reading/world-discovery/e-21/page-06.webp",
+          "sha256": "ffeda31e73c43fce9cdbb9941014f7ef1061a2b3729511624887232dfc452a3f",
+          "note": "Repaired electric comparison directly viewed: entire two-car train including rear end is within its panel on rails; pantograph collector visibly meets the overhead contactwire. Blue batterycar and teal batterybus connect to separate chargers on firm ground. The car cutaway distinguishes underfloor stored battery energy from a small drive motor. Earlier tailcrop/contact ambiguity is repaired."
+        },
+        {
+          "slot": "page-07",
+          "path": "public/guided-reading/world-discovery/e-21/page-07.webp",
+          "sha256": "03c430a44debe3055c1e115f2c8fc7a24aebef8cf8e7a9a95179cc228ee1cc8a",
+          "note": "Exact This sentence points to the blue e-bike being pedaled by a helmeted adult; battery and crank motor are visible, with coherent frame, chain, pedals, two natural legs and complete wheels. Separate orange longtail cargo bicycle stands securely with shoppingbasket and an empty restrained childseat with support/footrest structure. No loose passenger or impossible cargoload."
+        },
+        {
+          "slot": "page-08",
+          "path": "public/guided-reading/world-discovery/e-21/page-08.webp",
+          "sha256": "bfe65f369fe5dbecf843a575b1f0167a97804e8824083c4af5362f14e72ab3b5",
+          "note": "Repaired prototypecar testing scene directly viewed. White/teal car has windshieldcamera and roofsensor, seated belted safety driver, complete wheels and a fenced cone-defined track. Engineer monitors laptop behind a barrier. The unrelated battery stack, trolley, scale and chargers from the first candidate are removed; the picture now supports supervised camera/sensor testing without implying an unattended consumer car."
+        },
+        {
+          "slot": "page-09",
+          "path": "public/guided-reading/world-discovery/e-21/page-09.webp",
+          "sha256": "d7e8ca1ac71357bf0dd20f177a5ad656bee91e1b79a949725e98f6b485a770ef",
+          "note": "One white/orange experimental plane with a single nose-mounted electricpropeller stands on its landing gear at a hangar. Both wings/tail attach coherently. Engineer places one closed battery module on a scale; another rests on a trolley; charging cable attaches to the plane clear of its propeller. The scene concretely shows battery testing, not a guaranteed future airliner carrying public passengers."
+        },
+        {
+          "slot": "page-10",
+          "path": "public/guided-reading/world-discovery/e-21/page-10.webp",
+          "sha256": "d32deac6e4772673bfa6f6bcdb34fa30d0c750bb0116757d79d7dfa3687fbe4f",
+          "note": "Final triptych returns to the same inquiry: horsewagon at left, present electricbus connected to a charger center, and experimental white/orange electricplane with engineer checking closed battery modules at a testhangar right. Test equipment remains in the already-authored testing context; no extra prototypecar or unrelated new transport stage. Appropriate separate surfaces and full principal vehicle silhouettes support earlier/current/still-tested comparison rather than a generic parkcollage."
+        }
+      ],
+      "completeTextObservations": "The202word manuscript links muscle/wind to steam and engine-driven road/sea/air examples, then present electricity/pedal assistance, supervised automation and electricaircraft testing, and a specific comparison ending. Each page adds a different relation or transport purpose. Exact This wording on page7 is approved independently and allotherpage strings match the approved editorial proposal except the already-approved Oars/largerjet corrections.",
+      "teachingSupportObservations": "Oral preparation defines vehicle,power,steam,propeller,sensor and engineer. Oral discussion asks the learner to select past/current/tested examples and identify power/job; visual discussion uses the actual page9 scale/battery test. No scored comprehension or decodable claim is introduced.",
+      "sequenceObservations": "Vehicle designs, colors, correct physical surfaces and unnamed adult style are consistent within their meaningful examples. Changing the energy source and carrying purpose organizes the broad road/rail/water/air coverage. Prototypes remain visibly supervised; no exact future adoption date or universal replacement claim.",
+      "independentPublicLevel": {
+        "appReadingLevel": "E",
+        "rationale": "LowerE: sustained temporal shifts and conditional future reasoning across several explicitly linked power/carrying comparisons. This points more clearly to the pictured particular e-bike without changing conceptual demand. Specialist vocabulary alone is not the leveling reason; this is an editorial estimate, not publisher or Lexile certification."
+      },
+      "openFindings": [],
+      "pendingReleaseChecks": [
+        "Rendered reader/PDF and deployed delivery verification remain root tasks."
+      ],
+      "audioBoundary": "Current selected43 and additional9 screening reports have zero unresolved findings and all52 reported row hashes match actual public bytes. Required-set/historical reconciliation is performed by integration; no human listening or every-phoneme certification is claimed.",
+      "editorialScorecard": {
+        "authority": "docs/content/STORY_BIBLE_PART_1_WRITING.md#9-editorial-scorecard",
+        "reviewedAt": "2026-11-11T03:28:14.115586+00:00",
+        "reviewer": "/root/transport_editor",
+        "bookId": "world-discovery-e-21",
+        "scope": "complete-book",
+        "reviewedTextFingerprint": "fnv1a64:ce203d3c00c38463",
+        "sourceBookSha256": "d005e0676eef7c8ed0183c85b2b3f6bca15ba1939cb71ebca672d6d06493b7ca",
+        "status": "independent-editorial-native-art-and-bounded-audio-review-clear",
+        "categories": {
+          "character": {
+            "score": 3,
+            "evidence": "Particular nonfiction subjects have stable purposes and designs: horse wagon, steam train, family car, group bus, goods truck, passenger/cargo ships, conventional and experimental aircraft. No invented child narrator or time-travel plot substitutes for the factual examples."
+          },
+          "goal": {
+            "score": 4,
+            "evidence": "Changing power and carrying possibilities connects land, water and air with what engineers are testing next. Page1 establishes muscle/wind; the ending returns to the same power/carrying relationship."
+          },
+          "causality": {
+            "score": 4,
+            "evidence": "Fuel heats boiler water; steam acts through the driving mechanism. Engine propellers reduce reliance on sailing wind. Wires/batteries supply electric motors. Suitable lighter aircraft batteries could improve payload/range possibilities. Each link is explicit and illustrated."
+          },
+          "obstacle": {
+            "score": 3,
+            "evidence": "Physical/design constraints supply informational development rather than fictional conflict. Future examples introduce safe guidance and battery weight as real constraints; pages no longer repeatedly compare a cart with a train."
+          },
+          "agency": {
+            "score": 3,
+            "evidence": "Human carrying purposes select different vehicle designs; engineers supervise a test car and weigh an aircraft battery. Actions are concrete, while the earlier passages appropriately remain comparative nonfiction."
+          },
+          "ending": {
+            "score": 4,
+            "evidence": "The final page synthesizes muscle/wind with engines/batteries and the continuing carrying job. Its art contrasts a horse wagon, current electric bus and aircraft still being tested, giving the earlier examples new shared meaning rather than promising vague improvement."
+          },
+          "language": {
+            "score": 3,
+            "evidence": "202 words over10 pages of18\u201322 words. Short paired sentences and explicit cause/comparison support ESL. Temporal shifts and propeller/sensor vocabulary still need oral preparation. This on page7 concretely identifies the pictured e-bike."
+          },
+          "voice": {
+            "score": 3,
+            "evidence": "Pulled, moved, turned, carried, pedals, testing and charge keep the prose active and concrete. Varied past/present/possible-future syntax replaces repeated broad praise or a bare vehicle catalogue. Voice is clear and functional rather than unusually lyrical."
+          },
+          "delight": {
+            "score": 3,
+            "evidence": "Recognizable old/current/tested machines, propeller/boiler cutaways, a cargo seat and battery weighing offer particular visual discoveries. This describes assessed affordances, not observed child enjoyment."
+          },
+          "canon": {
+            "score": 4,
+            "evidence": "Full native sequence confirms ordinary unnamed adults, no named Kit/Zoe historical cast, no flags/religious/political symbols or brands, and stable vehicle colors/design types. Future examples remain supervised prototypes without invented adoption dates."
+          },
+          "illustration": {
+            "score": 4,
+            "evidence": "Every12 current reference/cover/page assets and the actual512px card were directly opened. Literal subjects, surfaces and mechanisms match the final text. Repaired cover/page6/page8 remove the extra prototype car, train crop and unrelated test equipment. Reused pages2/5 fit their new text with truthful provenance."
+          },
+          "audio": {
+            "score": 3,
+            "evidence": "Directly checked both supplied current screening reports and rehashed all52 reported rows against actual public MP3 bytes. Selected43 rows cover all10 exact current pages and33 words;42 have an exact unprompted recognition match and one child apostrophe equivalence is documented. The9 additional existing word clips have exact recognition and zero unresolved findings. Integration reports complete required-set reconciliation against exact historical evidence; this score is bounded automated signal/recognition/byte evidence, not human listening or every-phoneme certification."
+          }
+        },
+        "total": 41,
+        "maximum": 48,
+        "minimumRequired": 38,
+        "minimumCategoryRequired": 3,
+        "audioEvidence": [
+          {
+            "path": ".artifacts/transport-repair/audio/selected-narration-review.json",
+            "sha256": "42a38bd14929a2557879f98971675f0ca5443a693260f74852135ab8f7b0c8ac",
+            "screenedRows": 43,
+            "summary": {
+              "filesScreened": 43,
+              "pageNarrations": 10,
+              "selectedWords": 33,
+              "anyModelExactNormalized": 42,
+              "orthographicEquivalence": 1,
+              "unresolved": 0,
+              "unacceptedAnAuditionsIncluded": 0
+            }
+          },
+          {
+            "path": ".artifacts/transport-repair/audio/additional-word-narration-review.json",
+            "sha256": "8c37afb52d4adea71b93953e7ee6270203b84d3decf511e328bb884aac5a0358",
+            "screenedRows": 9,
+            "summary": {
+              "selectedExistingWords": 9,
+              "anyModelExactNormalized": 9,
+              "unresolved": 0,
+              "newlySynthesized": 0,
+              "changedAudioFiles": 0
+            }
+          }
+        ],
+        "openFindings": [],
+        "limits": "No human listening, physical printing, classroom response or full renderedreader/live verification is claimed. Those release checks remain separate."
+      },
+      "audioEvidence": [
+        {
+          "path": ".artifacts/transport-repair/audio/selected-narration-review.json",
+          "sha256": "42a38bd14929a2557879f98971675f0ca5443a693260f74852135ab8f7b0c8ac",
+          "screenedRows": 43,
+          "summary": {
+            "filesScreened": 43,
+            "pageNarrations": 10,
+            "selectedWords": 33,
+            "anyModelExactNormalized": 42,
+            "orthographicEquivalence": 1,
+            "unresolved": 0,
+            "unacceptedAnAuditionsIncluded": 0
+          }
+        },
+        {
+          "path": ".artifacts/transport-repair/audio/additional-word-narration-review.json",
+          "sha256": "8c37afb52d4adea71b93953e7ee6270203b84d3decf511e328bb884aac5a0358",
+          "screenedRows": 9,
+          "summary": {
+            "selectedExistingWords": 9,
+            "anyModelExactNormalized": 9,
+            "unresolved": 0,
+            "newlySynthesized": 0,
+            "changedAudioFiles": 0
+          }
+        }
+      ]
+    }
+  ],
+  "historicalReviewInputs": [
+    ".artifacts/transport-repair/editor-proposal.json",
+    ".artifacts/transport-repair/editor-page7-this-approval.json",
+    ".artifacts/transport-repair/editorial-brief-revision-approval.json"
+  ],
+  "limits": "This is direct AI editorial/visual review of the12 exact installed assets. It is not independent human listening, physical printing, classroom testing, or a review of every rendered screenshot."
+}
