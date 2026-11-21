@@ -6,7 +6,7 @@ import { encodeProgressStorage, decodeProgressStorage } from '../../../utils/pro
 // protected campaign key prevents older v3 clients overwriting its codec.
 import { localProgressStorageKey, localProgressStorageKeyForRow } from '../../../utils/progressKeys.js';
 import { CAMPAIGN_VERSION, CAMPAIGN_STAGES, CAMPAIGN_MISSIONS } from './content/campaign.js';
-import { MECHANICS, publicBeat } from './engine/challenges.js';
+import { MECHANICS, publicBeat } from './engine/challengeView.js';
 import { normalizeCampaignProgress, mergeCampaignProgress, mergeCheckpoint, CAMPAIGN_PROGRESS_VERSION } from './engine/campaignProgress.js';
 import { campaignParticipationCache } from '../rounded/campaignSummary.js';
 

@@ -16,21 +16,13 @@ import { INITIAL_SOUND_TARGET_IDS } from '../../content/teachTargetMetadata.js';
 //   • decoding items are never solvable from a picture
 
 import { createRng, hashSeed } from "./rng.js";
+import { MECHANICS } from "./challengeView.js";
 import {
   decodableWordsThrough, heartWordsKnownThrough, isSoundDistinct, phonemeAudio, soundLabel,
   targetAudio, targetInfo, targetsThrough, unitsFor, wordAudio, wordImage, teachingAnchorImage
 } from "./lexicon.js";
 
-export const MECHANICS = Object.freeze({
-  SIGNPOST: "sound_signpost",
-  ECHO_HUNT: "echo_hunt",
-  SOUND_SORT: "sound_sort",
-  WORD_FORGE: "word_forge",
-  BLEND_BRIDGE: "blend_bridge",
-  HEART_LANTERN: "heart_lantern",
-  GATE_RIDDLE: "gate_riddle",
-  STORY_BRIDGE: "story_bridge"
-});
+export { MECHANICS, publicBeat } from "./challengeView.js";
 
 export const DOMAINS = Object.freeze({
   P2G: "phoneme_to_grapheme",
@@ -537,18 +529,4 @@ export function buildStoryBridge({ stopId, story, ordinal = 0 }) {
     key: { choiceId: correct.id },
     seed: rng.next()
   };
-}
-
-// ── Public projection ───────────────────────────────────────────────────────
-const FORBIDDEN = /answer|correct|expected|evidence|score/i;
-
-export function publicBeat(beat) {
-  if (!beat) return null;
-  const rest = { ...beat };
-  delete rest.key;
-  const json = JSON.stringify(rest.view);
-  if (FORBIDDEN.test(Object.keys(rest.view).join(" ")) || /"(expected|correct|answerId)":/.test(json)) {
-    throw new Error(`Beat ${beat.id} leaks answer information into its view`);
-  }
-  return rest;
 }

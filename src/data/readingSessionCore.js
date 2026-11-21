@@ -1,4 +1,3 @@
-import { GUIDED_READING_BOOK_INDEX } from "./generated/guidedReadingBookIndex.generated.js";
 import { guidedReadingContentId, guidedReadingEdition, guidedReadingProgressKey } from "../utils/guidedReading/editions.js";
 // Shared reading remains compatible across ordinary web app deployments. Bump
 // this only for a breaking change to the frozen-session/follower contract.
@@ -9,25 +8,31 @@ export function readingSessionContentVersion(book = {}, base = READING_SESSION_C
   return edition ? `${base}:${edition}` : base;
 }
 
-export function readingSessionBook(session, books = GUIDED_READING_BOOK_INDEX) {
+export function readingSessionBook(session, books) {
   return books.find(book => book.id === guidedReadingContentId(session?.book_id)) || null;
 }
 
-export function isReadingSessionCompatible(session, book = readingSessionBook(session), base = READING_SESSION_CONTENT_VERSION) {
+export async function loadReadingSessionBook(session) {
+  const { GUIDED_READING_BOOK_INDEX } = await import("./generated/guidedReadingBookIndex.generated.js");
+  return readingSessionBook(session, GUIDED_READING_BOOK_INDEX);
+}
+
+export function isReadingSessionCompatible(session, book, base = READING_SESSION_CONTENT_VERSION) {
   if (!session) return false;
   return session.content_version === readingSessionContentVersion(book || {}, base)
     && session.book_id === (book ? guidedReadingProgressKey(book) : session.book_id);
 }
 
-export function isPreviousTopicReadingSession(session, book = readingSessionBook(session)) {
+export function isPreviousTopicReadingSession(session, book) {
   return Boolean(book && guidedReadingEdition(book) && session?.book_id === book.id
     && session.content_version === READING_SESSION_CONTENT_VERSION);
 }
 
 // Recovery only: replay exact unsent operations against their original frozen
 // session. This does not open the new manuscript or adopt its word indices.
-export async function resumePreviousTopicReadingSession({ client, session, book = readingSessionBook(session) }) {
-  if (!isPreviousTopicReadingSession(session, book)) throw new Error("Not a previous-topic reading session.");
+export async function resumePreviousTopicReadingSession({ client, session, book }) {
+  const currentBook = book === undefined ? await loadReadingSessionBook(session) : book;
+  if (!isPreviousTopicReadingSession(session, currentBook)) throw new Error("Not a previous-topic reading session.");
   const result = await callReadingRpc(client, "teacher_resume_reading_session", { p_session_id: session.id });
   if (result?.ok !== true || ["id", "teacher_id", "class_id", "book_id", "content_version"].some(key => result.session?.[key] !== session[key])) {
     throw new Error("The earlier reading session could not be confirmed. Pending changes are retained.");
@@ -114,8 +119,8 @@ export function getStudentReadingSession({
 }
 
 export async function resumeReadingSession({ client, sessionId, session }) {
-  if (session && !isReadingSessionCompatible(session)) throw Object.assign(new Error("This session uses an older book edition. Start a new reading group for the current book."), { code: "reading_edition_changed" });
+  if (session && !isReadingSessionCompatible(session, await loadReadingSessionBook(session))) throw Object.assign(new Error("This session uses an older book edition. Start a new reading group for the current book."), { code: "reading_edition_changed" });
   const result = await callReadingRpc(client, "teacher_resume_reading_session", { p_session_id: sessionId });
-  if (result?.ok === true && !isReadingSessionCompatible(result.session)) throw Object.assign(new Error("This session uses an older book edition. Start a new reading group for the current book."), { code: "reading_edition_changed" });
+  if (result?.ok === true && !isReadingSessionCompatible(result.session, await loadReadingSessionBook(result.session))) throw Object.assign(new Error("This session uses an older book edition. Start a new reading group for the current book."), { code: "reading_edition_changed" });
   return result;
 }

@@ -74,9 +74,9 @@ test("the shelf applies the entitlement slice after the publication allowlist", 
   assert.match(booksPage, /hasFullContent: !allowedBookIds/);
 });
 
-test("a full-content session passes no allowed list, so nothing changes for it", () => {
-  assert.match(appSurface, /trySession \? sampleBookIds\(GUIDED_READING_BOOK_INDEX\) : null/);
-  assert.match(appSurface, /allowedBookIds=\{sampleBookIdSet\}/);
+test("the Books route calculates the sample entitlement only when requested", () => {
+  assert.match(booksPage, /sampleAccess \? sampleBookIds\(GUIDED_READING_BOOK_INDEX\) : suppliedBookIds/);
+  assert.match(appSurface, /sampleAccess=\{Boolean\(trySession\)\}/);
   assert.match(appSurface, /sampleLimitCopy=\{trySession \? SAMPLE_LIMIT_COPY : null\}/);
 });
 

@@ -1,13 +1,12 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Howl, Howler } from "howler";
 import { AUDIO_PHONEME_PATHS } from "../data/generated/audioPhonemePaths.generated.js";
+import { phonicsPlayback } from "../utils/audio/phonicsPlayback.js";
 
 const soundCache = new Map();
 const failedSources = new Set();
 const GENERATED_PHONEME_PREFIX = "generated:phoneme:";
 const MAX_SOUND_CACHE_ENTRIES = 24;
-let playbackRequest = 0;
-let activePlayback = null;
 
 export function hasPhonicsAudioSource(src) {
   return Boolean(
@@ -57,7 +56,7 @@ function isLongAudioSource(src = "") {
 
 function evictOldestHowlIfNeeded() {
   while (soundCache.size > MAX_SOUND_CACHE_ENTRIES) {
-    const [oldestSrc, oldestHowl] = [...soundCache].find(([, howl]) => howl !== activePlayback?.howl) || [];
+    const [oldestSrc, oldestHowl] = [...soundCache].find(([, howl]) => howl !== phonicsPlayback.active?.howl) || [];
     if (!oldestSrc) return;
     soundCache.delete(oldestSrc);
     failedSources.delete(oldestSrc);
@@ -132,8 +131,8 @@ export function usePhonicsAudio(src) {
 // so sequential phonics never advances on a fixed timer and never hangs after
 // a newer cue takes the voice.
 export function playPhonicsAudio(src, { onStart, onFinish, onHowl } = {}) {
-  const request = ++playbackRequest;
-  activePlayback?.cancel("superseded");
+  const request = ++phonicsPlayback.request;
+  phonicsPlayback.active?.cancel("superseded");
   Howler.stop();
   if (!hasPhonicsAudioSource(src) || Howler._muted || Howler.volume() === 0) {
     onFinish?.("unavailable");
@@ -150,7 +149,7 @@ export function playPhonicsAudio(src, { onStart, onFinish, onHowl } = {}) {
       settled = true;
       clearTimeout(startupTimer);
       for (const [event, handler] of listeners) howl?.off(event, handler);
-      if (activePlayback?.request === request) activePlayback = null;
+      if (phonicsPlayback.active?.request === request) phonicsPlayback.active = null;
       if (status !== "ended") howl?.stop(soundId ?? undefined);
       onFinish?.(status);
       resolve(status);
@@ -161,7 +160,7 @@ export function playPhonicsAudio(src, { onStart, onFinish, onHowl } = {}) {
       settle(audible() ? "ended" : "unavailable");
     };
     const ownsSound = id => id == null || soundId === null || id === soundId;
-    const onStop = id => { if (ownsSound(id)) settle(request === playbackRequest ? "stopped" : "superseded"); };
+    const onStop = id => { if (ownsSound(id)) settle(request === phonicsPlayback.request ? "stopped" : "superseded"); };
     const onLoadError = () => { if (settled) return; failedSources.add(src); settle("unavailable"); };
     const onPlayError = () => settle("blocked");
     const onPlay = id => {
@@ -183,24 +182,15 @@ export function playPhonicsAudio(src, { onStart, onFinish, onHowl } = {}) {
       onHowl?.(howl);
       // Listen before play so a synchronous failure cannot strand its caller.
       for (const [event, handler] of listeners) howl.on(event, handler);
-      activePlayback = { request, howl, cancel };
+      phonicsPlayback.active = { request, howl, cancel };
       startupTimer = setTimeout(() => settle("unavailable"), 10000);
       soundId = howl.play();
       if (soundId === null || soundId === undefined) settle("unavailable");
     } catch { settle("unavailable"); }
   });
   promise.cancel = cancel;
-  promise.isCurrent = () => request === playbackRequest;
+  promise.isCurrent = () => request === phonicsPlayback.request;
   return promise;
-}
-
-export function stopPhonicsAudio() {
-  playbackRequest += 1;
-  activePlayback?.cancel("stopped");
-  Howler.stop();
-  if (typeof window !== "undefined" && window.speechSynthesis) {
-    window.speechSynthesis.cancel();
-  }
 }
 
 export function preloadPhonicsAudio(src) {

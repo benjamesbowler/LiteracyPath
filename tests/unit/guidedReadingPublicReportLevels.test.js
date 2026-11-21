@@ -166,7 +166,7 @@ test("App reading export exercises A-H counts, pending completions and every boo
   const workbook = new ExcelJS.Workbook();
   let message = "";
   const run = vm.runInNewContext(`(${source.slice(node.start, node.end)})`, {
-    APP_READING_LEVELS, getPublicBookMetadata,
+    importWithRetry: async () => ({ APP_READING_LEVELS, getPublicBookMetadata }),
     loadGuidedReadingBooksModule: async () => readingModule,
     createExcelWorkbook: async () => workbook,
     guidedReadingRecords: records, studentName: "Reader", studentId: "s1",

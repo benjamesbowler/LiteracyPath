@@ -101,7 +101,7 @@ test("a failed review requires a repair note before any write", async () => {
 test("every Guided Reading entry path receives the quarantine blocklist", () => {
   assert.match(
     appSurfaceSource,
-    /setReadingFollowerBooks\(filterPublishedGuidedReadingBooks\(/
+    /filterPublishedGuidedReadingBooks\(\s*module\.getRuntimeGuidedReadingBooks\(\), quarantinedReadingBookIds/
   );
   assert.match(appSurfaceSource, /<StudentBooksPage[\s\S]*?quarantinedBookIds=\{quarantinedReadingBookIds\}/);
   assert.match(appSurfaceSource, /renderReader=\{\(\{ bookId, books, initialPageIndex, onExit \}\)[\s\S]*?<GuidedReadingPage[\s\S]*?books=\{books\}/);

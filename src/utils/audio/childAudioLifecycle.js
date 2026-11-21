@@ -1,7 +1,7 @@
 import { stopCueAudio } from "./cuePlayer.js";
 import { cancelGameSfx } from "./gameSfx.js";
 import { stopGameAmbience, stopGameMusic } from "./gameMusic.js";
-import { stopPhonicsAudio } from "../../hooks/usePhonicsAudio.js";
+import { stopPhonicsAudio } from "./phonicsPlayback.js";
 import { stopQuestActionSfx } from "../questActionAudio.js";
 
 export const STOP_CHILD_AUDIO_EVENT = "lp-stop-child-audio";

@@ -7,6 +7,7 @@ import { fileURLToPath } from "node:url";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const distDir = path.join(repoRoot, "dist");
+const publicDir = path.join(repoRoot, "public");
 const analysisPath = path.join(distDir, "bundle-analysis.json");
 const artifactDir = path.join(repoRoot, ".artifacts", "audits");
 const shellBudgets = Object.freeze({
@@ -26,10 +27,12 @@ const mimeTypes = Object.freeze({
   ".mp3": "audio/mpeg",
   ".png": "image/png",
   ".svg": "image/svg+xml",
+  ".webp": "image/webp",
   ".webmanifest": "application/manifest+json; charset=utf-8",
   ".woff2": "font/woff2"
 });
 const forbiddenModuleFragments = Object.freeze([
+  "/src/data/generated/audioPhonemePaths.generated.js",
   "/src/data/generated/runtimeShards/",
   "/src/data/generated/languageSkillQuestions.generated.js",
   "/src/data/generated/skillLevelGapQuestions.generated.js",
@@ -65,6 +68,13 @@ function safeBuiltPath(requestUrl) {
   const candidate = path.resolve(distDir, relative);
   if (!candidate.startsWith(`${distDir}${path.sep}`) && candidate !== distDir) return null;
   if (fs.existsSync(candidate) && fs.statSync(candidate).isFile()) return candidate;
+  // The deployment serves pruned shared media from the CDN. Use its source
+  // copy locally so asset sizes and failures are measured as media, not HTML.
+  if (/^(?:audio|images|guided-reading|game-assets|media)\//.test(relative)) {
+    const source = path.resolve(publicDir, relative);
+    if (source.startsWith(`${publicDir}${path.sep}`) && fs.existsSync(source) && fs.statSync(source).isFile()) return source;
+  }
+  if (path.extname(pathname)) return null;
   return path.join(distDir, "index.html");
 }
 
@@ -240,6 +250,11 @@ if (!fs.existsSync(analysisPath)) {
 
 const analysis = JSON.parse(fs.readFileSync(analysisPath, "utf8"));
 const forbiddenFiles = forbiddenChunkFiles(analysis);
+// Learner Home needs the compact index for recommendations, so the offline
+// Home cache may retain it. Signed-out visitors don't need that index.
+const bookIndexFiles = new Set(analysis.chunks.filter(chunk => chunk.modules.some(module =>
+  module.id.replaceAll("\\", "/").endsWith("/src/data/generated/guidedReadingBookIndex.generated.js")
+)).map(chunk => path.basename(chunk.fileName)));
 const soundKeysFiles = soundKeysEntryFiles(analysis);
 const server = await startServer();
 let browser;
@@ -252,7 +267,7 @@ try {
   const failures = [...offline.failures];
   for (const [surface, requests] of Object.entries({ student, teacher })) {
     const badRequests = requests.filter(request =>
-      forbiddenFiles.has(path.basename(request.path))
+      forbiddenFiles.has(path.basename(request.path)) || bookIndexFiles.has(path.basename(request.path))
     );
     if (badRequests.length) {
       failures.push(

@@ -48,7 +48,8 @@ import { isGuidedReadingAssetDeleted } from "../data/deletedMediaManifest.js";
 import { recommendBooksForStudent } from "../utils/guidedReading/recommendBooksForStudent.js";
 import { getRuntimeGuidedReadingBooks } from "../utils/guidedReading/runtimeBooks.js";
 import { filterPublishedGuidedReadingBooks } from "../policy/guidedReadingApprovalPolicy.js";
-import { filterToEntitlement } from "../policy/freeTierContent.js";
+import { filterToEntitlement, sampleBookIds } from "../policy/freeTierContent.js";
+import { GUIDED_READING_BOOK_INDEX } from "../data/generated/guidedReadingBookIndex.generated.js";
 import { speakStudentRailLabel } from "../policy/studentRailPolicy.js";
 import { studentBookPanelAudioText } from "../copy/studentNavigationCopy.js";
 import {
@@ -177,7 +178,8 @@ export function StudentBooksPage({
   books = null,
   quarantinedBookIds = null,
   // The sample plan's book ids, or null for an account that sees everything.
-  allowedBookIds = null,
+  allowedBookIds: suppliedBookIds = null,
+  sampleAccess = false,
   // Shown where the shelf stops. Null for a full-content account, which is why
   // an existing child never sees an explanation for a limit they do not have.
   sampleLimitCopy = null,
@@ -201,6 +203,10 @@ export function StudentBooksPage({
   // which is where they left from.
   renderReader
 }) {
+  const allowedBookIds = useMemo(
+    () => sampleAccess ? sampleBookIds(GUIDED_READING_BOOK_INDEX) : suppliedBookIds,
+    [sampleAccess, suppliedBookIds]
+  );
   const exactBookLock = lockedBookId !== null;
   const normalizedLockedBookId = exactBookLock ? String(lockedBookId || "").trim() : "";
   const [hopAndStopOpen, setHopAndStopOpen] = useState(false);
