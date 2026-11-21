@@ -104,7 +104,7 @@ for (const [difficulty, level] of [['easy', 6], ['medium', 4], ['hard', 9], ['ha
   if (level === 9) {
     await expect.poll(() => page.evaluate(scope => JSON.parse(localStorage.getItem(scope)).games['sentence-express'].plays, scope)).toBe(1);
     const replay = page.getByRole('button',{name:'Replay level',exact:true});
-    const next = page.getByRole('button',{name:'Next level',exact:true});
+    const next = page.getByRole('button',{name:'Next line',exact:true});
     await expect(next).toBeFocused();
     await page.screenshot({path:test.info().outputPath('sentence-express-complete.png')});
     await expect(page.locator('.lg-game-player-header')).toHaveAttribute('inert','');
