@@ -151,12 +151,12 @@ test('wrong coupling recovers; uncoupling and reload retain the exact partial tr
  await page.getByRole('button',{name:'Send the train!',exact:false}).click();
  await expect(page.locator('.sx-stage')).toHaveAttribute('data-phase','depart');await page.reload();
  await continueSavedRailway(page);
- await expect(page.locator('.sx-stage')).toHaveAttribute('data-phase','shunt');
- await page.getByRole('button',{name:'Send the train!',exact:false}).click();
- await expect(page.locator('.sx-stage')).toHaveAttribute('data-phase','depart');
-
+ await expect(page.getByRole('button',{name:'Send the train!',exact:false})).toHaveCount(0);
  await expect(page.locator('.sx-stage')).toHaveAttribute('data-train-id','easy-l0-t1');
- const snapshot=await page.evaluate(()=>JSON.parse(localStorage.getItem('literacy-guide-sentence-express:fullscreen-overlay-preview:easy')));expect(snapshot.express).toBe(0);expect(snapshot.trainIndex).toBe(1);
+ const snapshot = await page.evaluate(() => window.__arcadePreviewSnapshot({ history: true }));
+ expect(snapshot.physical.express).toBe(0);
+ expect(snapshot.physical.trainIndex).toBe(1);
+ expect(snapshot.practice.evidence.sends).toHaveLength(1);
 });
 
 test('the complete easy railway reaches all ten stations, keeps totals through reload, and starts a fresh replay', async ({page})=>{
