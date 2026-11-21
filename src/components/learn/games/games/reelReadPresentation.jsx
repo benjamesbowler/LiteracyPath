@@ -41,7 +41,7 @@ export default function ReelReadPresentation({ difficulty='easy', sessionSeed=0,
     const current=createReelReadEngine(mount.current,{difficulty,sessionSeed,journey,startLevel,progressScopeKey,
       getSound:()=>sound.current,onHud:setHud,onDelivery:setDelivery,onChoicePositions:rows=>{
         for(const row of rows){const button=map.get(row.id);if(!button)continue;
-          button.style.transform=`translate(${row.labelX-52}px,${row.labelY-16}px)`;
+          button.style.transform=`translate(${row.labelX}px,${row.labelY}px) translate(-50%, -50%)`;
           button.style.visibility=row.visible?'visible':'hidden';}
       },onScoreUpdate:score=>callbacks.current.onScoreUpdate?.(score),
       onProgressUpdate:(done,total)=>callbacks.current.onProgressUpdate?.(done,total),

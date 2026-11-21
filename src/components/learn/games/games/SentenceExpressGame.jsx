@@ -950,7 +950,7 @@ export default function SentenceExpressGame({
               <BellIcon /><span>{isSoundEnabled ? "Hear how" : "Sound off"}</span>
             </button>
           </div>
-          <div className="sx-workbench">
+          <div className="sx-workbench" role="group" aria-label="Train workbench">
             {needsEngine ? (
               <div className="sx-engineshed" role="group" aria-label="Choose an engine">
                 {train.engine.options.map(option => (

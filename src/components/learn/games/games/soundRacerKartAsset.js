@@ -43,6 +43,7 @@ export function createRacerKart({ world = 'meadow' } = {}) {
   const actions = new Map();
   const wheels = [];
   const steeringBones = [];
+  const authoredPoses = new Map();
   const loader = new GLTFLoader();
   const ready = loader.loadAsync(RACER_KART_URLS[world] || RACER_KART_URL).catch(async () => {
     // This separately loaded recovery payload is the exact same GLB export,
@@ -72,6 +73,9 @@ export function createRacerKart({ world = 'meadow' } = {}) {
         // runtime world choice selects geometry and UV art, never a recolour.
       }
     });
+    for (const node of [chassis, ...wheels, ...steeringBones].filter(Boolean)) {
+      authoredPoses.set(node, { position: node.position.clone(), quaternion: node.quaternion.clone() });
+    }
     root.add(model);
     mixer = new THREE.AnimationMixer(model);
     for (const clip of gltf.animations) {
@@ -105,7 +109,15 @@ export function createRacerKart({ world = 'meadow' } = {}) {
       active?.fadeOut(.12);
       active = next;
     }
+    // PropertyMixer skips unchanged keyed values. Remove our previous visual
+    // offsets first or static authored channels accumulate lean/steer every frame.
+    for (const [node, pose] of authoredPoses) {
+      node.position.copy(pose.position); node.quaternion.copy(pose.quaternion);
+    }
     mixer.update(dt);
+    for (const [node, pose] of authoredPoses) {
+      pose.position.copy(node.position); pose.quaternion.copy(node.quaternion);
+    }
     posePhase=Math.min(.999,active.time/active.getClip().duration);
     elapsed += dt;
     if (chassis && !state.reducedMotion) {
@@ -132,6 +144,7 @@ export function createRacerKart({ world = 'meadow' } = {}) {
     actions.clear();
     wheels.length = 0;
     steeringBones.length = 0;
+    authoredPoses.clear();
     return primaryRelease;
   }
   function dispose() {
@@ -141,7 +154,7 @@ export function createRacerKart({ world = 'meadow' } = {}) {
   function snapshot() {
     root.updateMatrixWorld(true);
     const joints = {};
-    for (const name of ["head", "chest", "handL", "handR", "rollfrontL", "rollfrontR", "rollrearL", "rollrearR"]) {
+    for (const name of ["chassis", "steerfrontL", "steerfrontR", "head", "chest", "handL", "handR", "rollfrontL", "rollfrontR", "rollrearL", "rollrearR"]) {
       const node = model?.getObjectByName(name);
       if (node) joints[name] = { position: node.getWorldPosition(new THREE.Vector3()).toArray(), quaternion: node.getWorldQuaternion(new THREE.Quaternion()).toArray() };
     }

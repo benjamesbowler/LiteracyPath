@@ -1,3 +1,4 @@
+import { createTowerTumbleRenderMotion } from './towerTumbleRenderMotion.js';
 import { physicalPalArtDelivery } from '../shared/physicalPalArt.js';
 import { createArcadeRenderGate } from '../shared/arcadeFramePolicy.js';
 import { useEffect, useMemo, useRef, useState } from 'react';
@@ -13,7 +14,7 @@ import { loadThree } from '../shared/threeShell.js';
 import { createTowerCanvasWorld as canvasWorld, createTowerThreeWorld as threeWorld } from './towerTumbleWorld.js';
 import { loadTowerTumbleSceneKit } from './towerTumbleSceneKit.js';
 import { physicalThemeForDifficulty } from '../shared/physicalArcadeThemes.js';
-import { createQuestFrameBudgetState, sampleQuestFrameBudget } from '../../../../utils/questPerformance.js';
+import { createArcadeFrameBudgetState, sampleQuestFrameBudget } from '../../../../utils/questPerformance.js';
 import './TowerTumbleGame.css';
 
 const SIMULATION_STEP=1/60,MAX_SIMULATION_ACCUMULATOR=.12;
@@ -51,11 +52,11 @@ export default function TowerTumbleGame({difficulty='easy',sessionSeed=0,journey
     let raf=0,last=performance.now(),elapsed=0,rescueTime=0,lastPublish=0,lastSave=0,lastBarrel=0,smash=0,impactAge=1,shaken=-1,struck=-1,autoRoute=null,completeSent=false;
     let barrels=[],voiceTicket=0,renderMode='loading',nudgeAt=0,simulationRemainder=0,motorVelocity=0;
     const movement=createTowerTumbleMotor(),input=createTowerTumbleInput();
-    let frameBudget=createQuestFrameBudgetState('low'),pendingInputAt=null;
-    let steadyBudget=createQuestFrameBudgetState('low');
+    let frameBudget=createArcadeFrameBudgetState('low'),pendingInputAt=null;
+    let steadyBudget=createArcadeFrameBudgetState('low');
     const steadySegments=[];
     const beginSteadySegment=()=>{
-      const quality=world?.profile?.().quality||'low';steadyBudget=createQuestFrameBudgetState({high:'rich',medium:'balanced',low:'low','2d':'pixel'}[quality]);
+      const quality=world?.profile?.().quality||'low';steadyBudget=createArcadeFrameBudgetState({high:'rich',medium:'balanced',low:'low','2d':'pixel'}[quality]);
       steadySegments.push({quality,renderer:renderMode,startElapsed:elapsed,frames:0,totalMs:0,maxMs:0,samples:[]});
     };
     const steadyProfile=()=>steadySegments.map(({samples,totalMs,...segment})=>({
@@ -132,7 +133,7 @@ export default function TowerTumbleGame({difficulty='easy',sessionSeed=0,journey
       state.roundId=round().roundId;geometry=towerTumbleGeometry(round().tower,journey?.index||0,difficulty,state.index);rescueTime=0;barrels=[];struck=-1;shaken=-1;impactAge=1;autoRoute=null;lastBarrel=elapsed;input.clear();movement.clear();
       pictureDelivery.current='pending';setPictureFailed(false);world?.rebuild?.(round(),geometry,state);persist(true);publish();void replay();
     };
-    const pauseUpdate=()=>{enginePaused=playerPaused||hidden;input.clear();movement.clear();pendingInputAt=null;nudgeAt=0;autoRoute=null;simulationRemainder=0;motorVelocity=0;last=performance.now();setPaused(enginePaused);if(enginePaused){voice.pause();cancelGameSfx();persist();}else{voice.resume();const playArea=field.current?.closest('.lg-game-player-main')||field.current;if(!playArea?.contains(document.activeElement))field.current?.focus({preventScroll:true});}};
+    const pauseUpdate=()=>{renderMotion.reset();enginePaused=playerPaused||hidden;input.clear();movement.clear();pendingInputAt=null;nudgeAt=0;autoRoute=null;simulationRemainder=0;motorVelocity=0;last=performance.now();setPaused(enginePaused);if(enginePaused){voice.pause();cancelGameSfx();persist();}else{voice.resume();const playArea=field.current?.closest('.lg-game-player-main')||field.current;if(!playArea?.contains(document.activeElement))field.current?.focus({preventScroll:true});}};
     const snapshot=()=>({game:'tower-tumble',world:theme.id,hero:theme.hero,index:state.index,unitIndex:state.unitIndex,phase:state.phase,position:{x:state.actor.x,y:state.actor.y},choices:[...round().choices],bricks:round().bricks.map(b=>({...b})),geometry:structuredClone(geometry),scenery:{openedShortcuts:[...state.broken],collected:[...state.collected]},paused:enginePaused,score:state.score,mistakes:state.mistakes,delivery:state.delivery,hintUsed:state.hintUsed,supportReasons:[...state.supportReasons],evidence:structuredClone(state.evidence),elapsed,rescueTime,renderer:renderMode,lives:state.lives,immunity:state.immunity,barrels:barrels.map(b=>({...b})),hazardsResting:state.access&&!autoRoute,assist:state.assist,access:state.access,animation:{strikeSecondsRemaining:smash,impactAge,struckBrick:round().bricks[struck]?.id||null},simulation:{kind:'fixed-step',stepSeconds:SIMULATION_STEP,remainderSeconds:simulationRemainder},
       motion:{grounded:state.actor.grounded,verticalVelocity:state.actor.vy,...movement.inspect()},
       performance:{...metrics,qualityChanges:[...metrics.qualityChanges],frameWindows:[...metrics.frameWindows],steadyState:steadyProfile(),averageFrameMs:metrics.frames?metrics.frameMsTotal/metrics.frames:null,averageInputMs:metrics.inputSamples?metrics.inputMsTotal/metrics.inputSamples:null,current:world?.profile?.()||null}});
@@ -159,12 +160,15 @@ export default function TowerTumbleGame({difficulty='easy',sessionSeed=0,journey
     const visibility=()=>{hidden=document.hidden;pauseUpdate();};
     const query=window.matchMedia?.('(prefers-reduced-motion: reduce)'),motion=event=>{reduced=event.matches;};
     document.addEventListener('keydown',keyDown);document.addEventListener('keyup',keyUp);window.addEventListener('blur',blur);document.addEventListener('visibilitychange',visibility);query?.addEventListener('change',motion);
-    const fallback=()=>{if(disposed)return;world?.dispose();world=canvasWorld(mount.current,theme,sceneKit);frameBudget=createQuestFrameBudgetState('2d');renderMode='drawing';beginSteadySegment();setRendererMode('drawing');};
+    const fallback=()=>{if(disposed)return;world?.dispose();world=canvasWorld(mount.current,theme,sceneKit);frameBudget=createArcadeFrameBudgetState('2d');renderMode='drawing';beginSteadySegment();setRendererMode('drawing');};
     const renderGate=createArcadeRenderGate();
+    const renderMotion=createTowerTumbleRenderMotion();
+    const motionData=()=>({state,barrels,elapsed,smash,impactAge,rescueProgress:Math.min(1,rescueTime/2)});
     const resize=()=>{world?.resize();renderGate.invalidate();};const observer=new ResizeObserver(resize);observer.observe(mount.current);
     const loop=now=>{
-      if(disposed)return;raf=requestAnimationFrame(loop);const frameMs=now-last;last=now;
+      if(disposed)return;raf=requestAnimationFrame(loop);const frameMs=Math.max(0,now-last);last=Math.max(last,now);
       let velocity=enginePaused?0:motorVelocity;
+      if(enginePaused||state.saveError)renderMotion.reset();
       if(!enginePaused&&state.phase!=='complete'){
         metrics.frames++;metrics.frameMsTotal+=frameMs;metrics.maxFrameMs=Math.max(metrics.maxFrameMs,frameMs);
         const budget=sampleQuestFrameBudget(frameBudget,frameMs);
@@ -180,6 +184,7 @@ export default function TowerTumbleGame({difficulty='easy',sessionSeed=0,journey
         // collisions always advance in the same 60 Hz simulation steps.
         simulationRemainder=Math.min(MAX_SIMULATION_ACCUMULATOR,simulationRemainder+Math.max(0,frameMs)/1000);
         while(simulationRemainder>=SIMULATION_STEP&&state.phase!=='complete'){
+          renderMotion.capture(motionData());
           simulationRemainder-=SIMULATION_STEP;const dt=SIMULATION_STEP;
         elapsed+=dt;if(nudgeAt&&elapsed>=nudgeAt){input.releaseSource('nudge');nudgeAt=0;}smash=Math.max(0,smash-dt);impactAge+=dt;if(state.phase==='playing')state.immunity=Math.max(0,state.immunity-dt);
         const lift=3+Math.sin(elapsed*.7)*3;
@@ -219,11 +224,11 @@ export default function TowerTumbleGame({difficulty='easy',sessionSeed=0,journey
       }
       const art=world?.profile?.();
       const revision=`${renderMode}:${JSON.stringify(art?.art)}:${JSON.stringify(art?.heroActions)}:${JSON.stringify(physicalPalArtDelivery(theme.id))}`;
-      if(renderGate.shouldRender(enginePaused,revision))world?.draw({dt:enginePaused?0:Math.min(.1,Math.max(0,frameMs)/1000),state,geometry,round:round(),barrels,lift:3+Math.sin(elapsed*.7)*3,elapsed,smash,velocity,reduced,rescueProgress:Math.min(1,rescueTime/2),shaken,struck,impactAge});
+      if(renderGate.shouldRender(enginePaused,revision))world?.draw(renderMotion.sample({...motionData(),dt:enginePaused?0:Math.min(.1,Math.max(0,frameMs)/1000),geometry,round:round(),velocity,reduced,shaken,struck},simulationRemainder/SIMULATION_STEP,enginePaused||state.saveError));
       const rendered=world?.profile?.();if(rendered){metrics.drawCallsPeak=Math.max(metrics.drawCallsPeak,rendered.drawCalls||0);metrics.trianglesPeak=Math.max(metrics.trianglesPeak,rendered.triangles||0);}
       if(!enginePaused&&pendingInputAt!==null){const latency=performance.now()-pendingInputAt;metrics.inputSamples++;metrics.inputMsTotal+=latency;metrics.maxInputMs=Math.max(metrics.maxInputMs,latency);pendingInputAt=null;}
     };
-    Promise.all([loadThree(),loadTowerTumbleSceneKit(theme.id)]).then(([THREE,kit])=>{sceneKit=kit;if(disposed)return;try{world=threeWorld(THREE,mount.current,fallback,theme,sceneKit);world.rebuild(round(),geometry,state);frameBudget=createQuestFrameBudgetState({high:'rich',medium:'balanced',low:'low'}[world.profile().quality]);renderMode='3d';beginSteadySegment();setRendererMode('3d');}catch{fallback();}raf=requestAnimationFrame(loop);}).catch(async()=>{sceneKit=await loadTowerTumbleSceneKit(theme.id);if(disposed)return;fallback();raf=requestAnimationFrame(loop);});
+    Promise.all([loadThree(),loadTowerTumbleSceneKit(theme.id)]).then(async([THREE,kit])=>{sceneKit=kit;if(disposed)return;try{world=threeWorld(THREE,mount.current,fallback,theme,sceneKit);world.rebuild(round(),geometry,state);const candidate=world,warmup=await candidate.warm?.();if(disposed)return;if(world===candidate){if(['failed','timeout','partial'].includes(warmup?.status))fallback();else{frameBudget=createArcadeFrameBudgetState({high:'rich',medium:'balanced',low:'low'}[world.profile().quality]);renderMode='3d';beginSteadySegment();setRendererMode('3d');}}}catch{fallback();}last=performance.now();simulationRemainder=0;renderMotion.reset();raf=requestAnimationFrame(loop);}).catch(async()=>{sceneKit=await loadTowerTumbleSceneKit(theme.id);if(disposed)return;fallback();last=performance.now();raf=requestAnimationFrame(loop);});
     handlers.current.onSessionStart?.();
     handlers.current.onEngineReady?.({pause:api.pause,resume:api.resume,markSupported:api.markSupported,inspect:api.inspect,...(import.meta.env.DEV?{debugSnapshot:api.debugSnapshot}:{})});
     handlers.current.onScoreUpdate?.(state.score);handlers.current.onProgressUpdate?.(state.evidence.completions.length,rounds.length);

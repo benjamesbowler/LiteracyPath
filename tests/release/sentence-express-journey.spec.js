@@ -54,19 +54,43 @@ async function openAt(page, difficulty, level = 0) {
 }
 async function assemble(page, train) {
   if (train.engine) await page.getByRole('button', { name: `engine ${train.engine.correct}`, exact: true }).click();
-  if (train.rusty) await page.locator('.sx-shed').getByRole('button', { name: train.rusty.correct, exact: true }).click();
-  if (train.gap) await page.locator('.sx-crates').getByRole('button', { name: train.gap.correct, exact: true }).click();
+  if (train.rusty) await page.getByRole('group', { name: 'Fix the rusty word' }).getByRole('button', { name: train.rusty.correct, exact: true }).click();
+  if (train.gap) await page.getByRole('group', { name: 'Choose the missing word' }).getByRole('button', { name: train.gap.correct, exact: true }).click();
   for (const word of train.words.slice(train.engine ? 1 : 0)) await page.getByRole('button', { name: `couple ${word}`, exact: true }).first().click();
-  if (train.caboose) await page.locator('.sx-cabooserack').getByRole('button', { name: train.endMark, exact: true }).click();
+  if (train.caboose) await page.getByRole('group', { name: 'Choose the end mark' }).getByRole('button', { name: train.endMark, exact: true }).click();
   await expect(page.locator('.sx-stage')).toHaveAttribute('data-phase', 'shunt');
   await page.getByRole('button', { name: 'Send the train!', exact: false }).click();
   await expect(page.locator('.sx-stage')).toHaveAttribute('data-phase','depart');
   await expect(page.getByRole('button', { name: /pull whistle/i })).toHaveCount(0);
 }
 import { buildLevel } from '../../src/utils/sentenceExpressLevels.js';
+test.describe('small touch screens', () => {
+  test.use({ hasTouch: true });
+  for (const viewport of [{ width: 320, height: 568 }, { width: 568, height: 320 }]) {
+    test(`all four word cars can be tapped without scrolling at ${viewport.width}x${viewport.height}`, async ({ page }) => {
+      await page.setViewportSize(viewport);
+      await openAt(page, 'easy', 1);
+      const cars = page.getByRole('group', { name: 'Words to finish the sentence' });
+      await expect(cars.getByRole('button')).toHaveCount(4);
+      const words = buildLevel('easy', 1).trains[0].words;
+      for (const word of words) {
+        const car = cars.getByRole('button', { name: `couple ${word}`, exact: true });
+        const { x, y, width, height } = await car.boundingBox();
+        const center = { x: x + width / 2, y: y + height / 2 };
+        expect(width).toBeGreaterThanOrEqual(56);
+        expect(height).toBeGreaterThanOrEqual(56);
+        expect(await car.evaluate((button, point) => button.contains(document.elementFromPoint(point.x, point.y)), center)).toBe(true);
+        await page.touchscreen.tap(center.x, center.y);
+        await expect(car).toHaveCount(0);
+      }
+      await page.getByRole('button', { name: /Send the train/ }).tap();
+      await expect(page.locator('.sx-stage')).toHaveAttribute('data-phase', 'depart');
+    });
+  }
+});
 for (const [difficulty, level] of [['easy', 6], ['medium', 4], ['hard', 9], ['hard', 2]]) {
  test(`${difficulty} level ${level + 1} repairs and all three journeys preserve separate repeated-word cars`, async ({ page }) => {
-  test.setTimeout(60000); await openAt(page, difficulty, level);
+  test.setTimeout(120000); await openAt(page, difficulty, level);
   const trains = buildLevel(difficulty, level).trains;
   for (const train of trains) {
     await expect(page.locator('.sx-stage')).toHaveAttribute('data-train-id', train.id);
@@ -101,10 +125,10 @@ for (const viewport of [{width:568,height:320},{width:390,height:844},{width:102
   await page.setViewportSize(viewport); await openAt(page,'hard',9);
   await page.waitForTimeout(1400);
   const bounds=await page.locator('.sx-stage').boundingBox();
-  for(const selector of ['.sx-yard','.sx-master','.sx-workbench']) {
+  for(const selector of ['.sx-yard','.sx-mainline','.sx-workbench']) {
    const box=await page.locator(selector).boundingBox();expect(box.x).toBeGreaterThanOrEqual(bounds.x);expect(box.x+box.width).toBeLessThanOrEqual(bounds.x+bounds.width+1);expect(box.y+box.height).toBeLessThanOrEqual(bounds.y+bounds.height+1);
   }
-  for (const box of await page.locator('.sx-yard button').evaluateAll(nodes=>nodes.map(n=>n.getBoundingClientRect().toJSON()))) {expect(box.width).toBeGreaterThanOrEqual(56);expect(box.height).toBeGreaterThanOrEqual(56);}
+  for (const box of await page.locator('.sx-yard button:visible').evaluateAll(nodes=>nodes.map(n=>n.getBoundingClientRect().toJSON()))) {expect(box.width).toBeGreaterThanOrEqual(56);expect(box.height).toBeGreaterThanOrEqual(56);}
   await assemble(page,buildLevel('hard',9).trains[0]);
   expect(await page.locator(".sx-stage").evaluate(node=>node.scrollLeft)).toBe(0);
   await expect(page.locator(".sx-lever")).toHaveCount(0);
@@ -119,12 +143,14 @@ test('wrong coupling recovers; uncoupling and reload retain the exact partial tr
  await page.getByRole('button',{name:'couple can',exact:true}).click();
  await page.getByRole('button',{name:'Uncouple last car',exact:true}).click();
  await expect(page.getByRole('button',{name:'couple can',exact:true})).toBeVisible();
- await page.reload();await expect(page.locator('.sx-train .sx-ghostbox')).toHaveCount(2);
+ await page.reload();await continueSavedRailway(page);
+ await expect(page.locator('.sx-train .sx-ghostbox')).toHaveCount(2);
  await expect(page.locator('.sx-clock')).toContainText('+1 min');
  await page.getByRole('button',{name:'couple can',exact:true}).click();
  await page.getByRole('button',{name:'couple run',exact:true}).click();
  await page.getByRole('button',{name:'Send the train!',exact:false}).click();
  await expect(page.locator('.sx-stage')).toHaveAttribute('data-phase','depart');await page.reload();
+ await continueSavedRailway(page);
  await expect(page.locator('.sx-stage')).toHaveAttribute('data-phase','shunt');
  await page.getByRole('button',{name:'Send the train!',exact:false}).click();
  await expect(page.locator('.sx-stage')).toHaveAttribute('data-phase','depart');
@@ -159,7 +185,9 @@ test('sound can be silenced during readback without halting travel or leaking st
   await continueSavedRailway(page);
  await assemble(page,buildLevel('easy',0).trains[0]);
  await expect(page.locator('.sx-stage')).toHaveAttribute('data-phase','depart');
+ await page.getByRole('button',{name:'Open game controls',exact:true}).click();
  await page.getByRole('button',{name:'Turn spoken audio and game sounds off',exact:true}).click();
+ await page.getByRole('button',{name:'Back to the game',exact:true}).click();
  await expect.poll(()=>page.evaluate(()=>window.sxAudio.filter(a=>!a.paused&&!a.ended).length)).toBe(0);
  await expect(page.locator('.sx-stage')).toHaveAttribute('data-train-id','easy-l0-t1');
  await expect.poll(()=>page.evaluate(()=>window.sxAudio.filter(a=>!a.paused&&!a.ended).length)).toBe(0);

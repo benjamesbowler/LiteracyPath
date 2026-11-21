@@ -5,11 +5,11 @@ export const ROCKET_COURIER_URL = '/game-assets/arcade-blender/rocket-courier.gl
 
 // A mounted game owns its geometry/materials. A late load is disposed and cannot
 // reattach after exit; the existing complete craft covers loading and failure.
-export function attachRocketCourier(parent, { onReady } = {}) {
+export function attachRocketCourier(parent, { onReady, isCurrent = () => true } = {}) {
   let disposed = false;
   let model = null;
   const ready = new GLTFLoader().loadAsync(ROCKET_COURIER_URL).then(gltf => {
-    if (disposed) { disposeObject(gltf.scene); return false; }
+    if (disposed || !isCurrent()) { disposeObject(gltf.scene); return false; }
     model = gltf.scene;
     model.name = 'BlenderRocketCourier';
     model.traverse(node => {

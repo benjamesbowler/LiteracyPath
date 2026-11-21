@@ -46,7 +46,7 @@
 }
 @media(max-height:450px) and (min-width:500px){
  .gg-world-choice{padding-left:6px;padding-right:6px}
- .gg-game-hud [data-gg-panel=center]{top:80px!important;left:8px!important;right:auto!important;transform:none!important;width:300px!important;padding:6px 8px!important}
+ .gg-game-hud [data-gg-panel=center]{top:70px!important;left:8px!important;right:auto!important;transform:none!important;width:300px!important;padding:6px 8px!important}
  .gg-game-hud [data-gg-panel=left]{left:50%!important;bottom:12px!important;transform:translateX(-50%);padding:4px 8px!important;min-width:0!important}
  .gg-game-hud [data-gg-controls=right]{display:flex!important;grid-template-columns:none;grid-template-rows:none}
  .gg-game-hud [data-gg=coach]{left:auto;right:8px;bottom:auto;top:86px;transform:none;width:230px;max-width:40vw}

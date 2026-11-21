@@ -1,4 +1,5 @@
 import { withRepairedImageVersion } from '../../../../utils/repairedImageVersion.js';
+import { createWordBridgeMotion } from './wordBridgeMotion.js';
 import { arcadePixelRatio } from '../shared/arcadeRenderBudget.js';
 import { phonicsTargetHint } from "../../../../utils/phonicsTargetPresentation.js";
 import { createLearningDwell, LEARNING_PACE } from "../../../../utils/learningPace.js";
@@ -322,8 +323,11 @@ function startGame(mount, opts) {
   let H = 0;
   let idleFrameDrawn = false;
   const DPR = arcadePixelRatio(2);
+  const presentation = createWordBridgeMotion();
+  let renderedCamera = 0, renderAlpha = 1;
 
   function resize() {
+    presentation.reset();
     idleFrameDrawn = false;
     W = mount.clientWidth || 640;
     H = mount.clientHeight || 460;
@@ -437,6 +441,7 @@ function startGame(mount, opts) {
   const keys = { left: false, right: false, action: false };
   let actionConsumed = false;
   let actionQueued = false;
+  let pendingNudge = 0;
   let running = false;
   let paused = false;
   let saveHeld = false, pendingPracticeSnapshot = null, pendingCompletion = false, hiddenPause = false, sincePracticeSave = 0;
@@ -552,7 +557,7 @@ function startGame(mount, opts) {
       if(!keys.left)renderMetrics.input(performance.now());
       e.preventDefault();
       keys.left = true;
-      if (!e.repeat && builder) builder.x = clamp(builder.x - 12, 18, worldWidth - 18);
+      if (!e.repeat && builder) pendingNudge -= 12;
       moveTargetX = null;
       pendingTapAction = null;
     }
@@ -560,7 +565,7 @@ function startGame(mount, opts) {
       if(!keys.right)renderMetrics.input(performance.now());
       e.preventDefault();
       keys.right = true;
-      if (!e.repeat && builder) builder.x = clamp(builder.x + 12, 18, worldWidth - 18);
+      if (!e.repeat && builder) pendingNudge += 12;
       moveTargetX = null;
       pendingTapAction = null;
     }
@@ -611,7 +616,7 @@ function startGame(mount, opts) {
 
   function setTouch(btn, key) {
     let armedPointerId = null;
-    const nudge = () => { if (builder && key !== "action") builder.x = clamp(builder.x + (key === "left" ? -12 : 12), 18, worldWidth - 18); };
+    const nudge = () => { if (builder && key !== "action") pendingNudge += key === "left" ? -12 : 12; };
     btn.addEventListener("keydown", event => {
       if (!isActionKey(event.key) || event.repeat || !keysActive()) return;
       event.preventDefault();renderMetrics.input(performance.now());
@@ -650,6 +655,7 @@ function startGame(mount, opts) {
       btn.style.transform = "";
     });
     btn.addEventListener("pointercancel", () => {
+      pendingNudge = 0;
       keys[key] = false;
       armedPointerId = null;
       btn.style.transform = "";
@@ -670,7 +676,7 @@ function startGame(mount, opts) {
   function canvasIntentAt(event) {
     if (phase !== "PLAYING" || !builder) return;
     const rect = cv.getBoundingClientRect();
-    const x = event.clientX - rect.left + cameraX;
+    const x = event.clientX - rect.left + renderedCamera;
     const y = event.clientY - rect.top;
     const tileIx = hitTestTile(x, y);
     const slot = hitTestSlot(x, y);
@@ -703,7 +709,7 @@ function startGame(mount, opts) {
     if (!canvasPointerIntent || canvasPointerIntent.pointerId !== event.pointerId) return;
     event.preventDefault();
     const rect = cv.getBoundingClientRect();
-    const x = event.clientX - rect.left + cameraX;
+    const x = event.clientX - rect.left + renderedCamera;
     const y = event.clientY - rect.top;
     const intent = canvasPointerIntent;
     canvasPointerIntent = null;
@@ -916,6 +922,8 @@ function startGame(mount, opts) {
   }
 
   function startStage() {
+    presentation.reset();
+    pendingNudge = 0;
     stageIdx = stageQueue.peek();
     if (stageIdx == null) {
       finishGame();
@@ -1223,6 +1231,8 @@ function startGame(mount, opts) {
     }
 
     if (phase === "PLAYING") {
+      builder.x = clamp(builder.x + pendingNudge, 18, worldWidth - 18);
+      pendingNudge = 0;
       builder.anim += dt;
       builder.vx = 0;
       if (keys.left) builder.vx = -builder.speed;
@@ -1320,7 +1330,7 @@ function startGame(mount, opts) {
   }
 
   function drawSky() {
-    if (authoredView.drawBackground(ctx, W, H, cameraX)) return;
+    if (authoredView.drawBackground(ctx, W, H, renderedCamera)) return;
     if (imageReady(sceneAssets.background)) {
       const alignX = world === "moonwood" ? 0.5 : 0.58;
       drawCoverImage(ctx, sceneAssets.background.image, 0, 0, W, H, alignX, 0.5);
@@ -2051,8 +2061,9 @@ function startGame(mount, opts) {
   function drawBuilder(now) {
     graphicsRecoveryContact=null;
     if (!builder) return;
-    const walking = Math.abs(builder.vx) > 8 && phase === "PLAYING";
-    const x = builder.x;
+    const drawnBuilder = presentation.actor(builder, renderAlpha);
+    const walking = Math.abs(drawnBuilder.vx) > 8 && phase === "PLAYING";
+    const x = drawnBuilder.x;
 
     ctx.fillStyle = "rgba(0,0,0,.25)";
     ctx.beginPath();
@@ -2060,7 +2071,7 @@ function startGame(mount, opts) {
     ctx.fill();
 
     const drawH = clamp(H * .24, 80, 158), footY = GROUND_Y - 1;
-    const visibleCarry=builder.carrying||(!reduceMotion?constructionPiece:null);
+    const visibleCarry=drawnBuilder.carrying||(!reduceMotion?constructionPiece:null);
     const drawHeld = (surface, carried) => {
       const sample=constructionMotion?.physicalId===carried.physicalId?wordBridgeConstructionSample(constructionMotion,surface,{reducedMotion:reduceMotion}):null;
       const shown=sample?.surface||surface;
@@ -2071,9 +2082,9 @@ function startGame(mount, opts) {
       ctx.restore();
       return{surface:shown,attachedToMeasuredPalms:sample?sample.attachedToMeasuredPalms:true,physicalId:carried.physicalId};
     };
-    if (authoredView.drawHero(ctx, { x, footY, height: drawH, time: builder.anim, moving: walking,
+    if (authoredView.drawHero(ctx, { x, footY, height: drawH, time: drawnBuilder.anim, moving: walking,
       carrying: visibleCarry, reaching: Boolean(wobbleT > 0)||Boolean(constructionMotion&&constructionMotion.elapsed<constructionMotion.duration*.5),
-      celebrating: !visibleCarry&&(phase === 'PALS_CROSSING' || phase === 'LEVEL_COMPLETE'), mirror: builder.facing < 0 }, drawHeld)) return;
+      celebrating: !visibleCarry&&(phase === 'PALS_CROSSING' || phase === 'LEVEL_COMPLETE'), mirror: drawnBuilder.facing < 0 }, drawHeld)) return;
 
     // Original older helper images stay retained as source/provenance. A
     // single-pose image with an unregistered hand cannot replace this live grip.
@@ -2082,12 +2093,12 @@ function startGame(mount, opts) {
     const art=authoredView.inspect();
     const recoveryRepresentation=wordBridgeRecoveryRepresentation(art);
     if (recoveryRepresentation) {
-      const placement = { world, x, y: footY, height: drawH, time: now, moving: walking, direction: builder.facing < 0 ? 'left' : 'right', action: visibleCarry ? 'carry' : 'walk' };
+      const placement = { world, x, y: footY, height: drawH, time: now, moving: walking, direction: drawnBuilder.facing < 0 ? 'left' : 'right', action: visibleCarry ? 'carry' : 'walk' };
       const pose = physicalPalFallbackPose(placement), hand = pose.handSockets.rightHand || pose.handSockets.leftHand;
       let shown=null;
       if (visibleCarry && hand) {
         const surface=wordBridgeSingleHandSurface({sockets:{forehand:hand}},{width:visibleCarry.w,height:visibleCarry.h,
-          aspectRatio:authoredView.propAspect('plank'),facing:builder.facing});
+          aspectRatio:authoredView.propAspect('plank'),facing:drawnBuilder.facing});
         if(surface)shown=drawHeld(surface,visibleCarry);
       }
       drawPhysicalPalFallback(ctx, placement);
@@ -2141,12 +2152,13 @@ function startGame(mount, opts) {
     for (let i = 0; i < pals.length; i += 1) {
       const isCrossing = pals[i].state === "walking";
       if (crossingOnly !== isCrossing) continue;
-      drawPal(pals[i], i, now);
+      drawPal(presentation.actor(pals[i], renderAlpha), i, now);
     }
   }
 
   function drawEffects() {
-    for (const p of particles) {
+    for (const source of particles) {
+      const p = presentation.actor(source, renderAlpha);
       const alpha = clamp(p.life / p.ttl, 0, 1);
       ctx.fillStyle = p.color.replace(")", `,${alpha})`).replace("rgb(", "rgba(");
       if (!ctx.fillStyle.startsWith("rgba")) ctx.fillStyle = p.color;
@@ -2157,7 +2169,8 @@ function startGame(mount, opts) {
       ctx.globalAlpha = 1;
     }
 
-    for (const f of floats) {
+    for (const source of floats) {
+      const f = presentation.actor(source, renderAlpha);
       const alpha = clamp(f.life / f.ttl, 0, 1);
       ctx.globalAlpha = alpha;
       ctx.fillStyle = f.color;
@@ -2209,18 +2222,20 @@ function startGame(mount, opts) {
   function render() {
     idleFrameDrawn = paused || saveHeld;
     syncHearControl();
-    const now = sceneTime;
+    const view = presentation.view(cameraX, sceneTime, renderAlpha);
+    renderedCamera = view.cameraX;
+    const now = view.sceneTime;
     ctx.clearRect(0, 0, W, H);
     if (!currentLevel || !builder) return;
     drawSky();
     drawMountains();
     const workshopSize = Math.min(300, H * .57);
     if (authoredView.inspect().delivery.horizon !== 'delivered') {
-      blenderWorld.drawLandscape(ctx,{width:W,height:H,ground:GROUND_Y,camera:cameraX,time:now,world,variation:opts.journey?.variation,reducedMotion:reduceMotion});
-      blenderWorld.draw(ctx, gap.x - workshopSize - 90 - cameraX, GROUND_Y - workshopSize * .89 - 28, workshopSize, workshopSize, now, { reducedMotion: reduceMotion });
+      blenderWorld.drawLandscape(ctx,{width:W,height:H,ground:GROUND_Y,camera:renderedCamera,time:now,world,variation:opts.journey?.variation,reducedMotion:reduceMotion});
+      blenderWorld.draw(ctx, gap.x - workshopSize - 90 - renderedCamera, GROUND_Y - workshopSize * .89 - 28, workshopSize, workshopSize, now, { reducedMotion: reduceMotion });
     }
     ctx.save();
-    ctx.translate(-cameraX, 0);
+    ctx.translate(-renderedCamera, 0);
     drawHazard(now);
     drawGround(now);
     drawPals(now, false);
@@ -2247,16 +2262,19 @@ function startGame(mount, opts) {
       return;
     }
     rafId = requestAnimationFrame(loop);
-    const dt = Math.max(0, Math.min(((ts - last) || 16) / 1000, .2));
-    last = ts;
+    const dt = Math.max(0, Math.min((ts - last) / 1000, .2));
+    // A queued pre-resume frame cannot rewind time or invent a 16ms step.
+    last = Math.max(last, ts);
     if (paused || saveHeld) stepRemainder = 0;
     else {
       stepRemainder = Math.min(.2, stepRemainder + dt);
       for (let steps = 0; stepRemainder + 1e-9 >= 1 / 60 && steps < 12; steps++) {
+        presentation.capture(cameraX, sceneTime, [builder, ...pals, ...particles, ...floats].filter(Boolean));
         update(1 / 60); stepRemainder = Math.max(0, stepRemainder - 1 / 60);
         if (paused || !running) { stepRemainder = 0; break; }
       }
     }
+    renderAlpha = paused || saveHeld ? 1 : stepRemainder * 60;
     const renderStart=performance.now();
     if (!document.hidden && ((!paused && !saveHeld) || !idleFrameDrawn)) render();
     const submittedAt=performance.now();
@@ -2264,6 +2282,7 @@ function startGame(mount, opts) {
   }
 
   function clearHeldControls() {
+    pendingNudge = 0;
     keys.left = false; keys.right = false; keys.action = false; actionQueued = false; actionConsumed = false;
     moveTargetX = null; pendingTapAction = null; targetedAction = null; canvasPointerIntent = null;
   }
@@ -2279,6 +2298,7 @@ function startGame(mount, opts) {
   }
 
   function resume() {
+    presentation.reset();
     if (!paused || onboarding) return;
     paused = false;
     stepRemainder = 0;
@@ -2358,6 +2378,7 @@ function startGame(mount, opts) {
   window.addEventListener('blur',persistPractice);document.addEventListener('visibilitychange',onVisibility);
 
   const snapshot = () => structuredClone({ phase, paused, saveHeld, stageIdx, wordsDone, levelMistakes, cameraX, worldWidth, W, H,
+    presentation: { cameraX: renderedCamera, alpha: renderAlpha, builder: builder ? { x: presentation.actor(builder, renderAlpha).x } : null },
     builder, slots, tiles, pals, controls: { ...keys, actionQueued },
     constructionMotion:constructionMotion?{...constructionMotion,slotOrder:constructionSlot}:null,
     simulation: { fixedStep: 1 / 60, remainder: stepRemainder },rendering:renderMetrics.snapshot(),

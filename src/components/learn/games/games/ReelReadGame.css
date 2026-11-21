@@ -17,7 +17,7 @@
 .rr-catch-slots i{font-style:normal;font-size:13px}
 .rr-slot-mark{display:none}
 .rr-cue small{display:block;margin-top:3px;font-size:16px;line-height:18px;font-weight:900}
-.rr-fish-control{position:absolute;z-index:3;left:0;top:0;width:104px;height:64px;padding:0;background:transparent;border:0;opacity:1;border-radius:18px;visibility:hidden}
+.rr-fish-control{position:absolute;z-index:3;left:0;top:0;width:112px;height:64px;padding:0;background:transparent;border:0;opacity:1;border-radius:18px;visibility:hidden}
 .rr-fish-control:focus-visible{outline-offset:0!important;background:#ffffff18}
 .rr-steer{position:absolute;z-index:5;left:max(8px,env(safe-area-inset-left));bottom:max(8px,env(safe-area-inset-bottom));display:flex;gap:8px}
 .rr-steer button,.rr-cast{display:flex;align-items:center;justify-content:center;min-width:72px;min-height:72px;border:2px solid #8cacf0;border-radius:15px;background:linear-gradient(#f5f8ff,#d8e5ff);color:#173e99;box-shadow:0 4px 0 #305dc1,0 7px 14px #17356738}

@@ -1,3 +1,4 @@
+import { warmArcadeScene } from '../shared/arcadeSceneWarmup.js';
 import { arcadePixelRatio } from '../shared/arcadeRenderBudget.js';
 import { useEffect, useRef, useState } from "react";
 import {
@@ -21,7 +22,7 @@ import { playCueAudio, stopCueAudio } from "../../../../utils/audio/cuePlayer.js
 import { onsetGrapheme } from "../../../elQuest/elQuestEngine.js";
 import { getLedaInstructionAudioPath } from "../../../../data/ledaProductionAudio.js";
 import { loadThree, createRenderer, createScene, createPerspectiveCamera, attachResize, createFrameLoop, attachContextLossGuard, attachSwipeSteer, prefersReducedMotion, detectQualityTier, applyQualityTier, shadowMapForTier, particleCountForTier, QUALITY_TIERS, disposeRenderer, disposeObject, setTextureSrgb } from "../shared/threeShell.js";
-import { sampleCircuitPath, offsetCircuitPoint, createKart, stepKart, chasePose, createRacerFixedStepper, racerDriveSpeed, classifyRacerContact } from "../../../../utils/soundRacerPhysics.js";
+import { sampleCircuitPath, offsetCircuitPoint, createKart, stepKart, chasePose, createRacerFixedStepper, interpolateRacerKart, racerDriveSpeed, classifyRacerContact } from "../../../../utils/soundRacerPhysics.js";
 import { laneDirectionForKey } from "../shared/premiumGameStandard.js";
 import { createArcadePremiumRenderPipeline } from "../shared/arcadePremiumRender.js";
 
@@ -492,6 +493,8 @@ function startGame(THREE, mount, opts) {
   let playerZ = 0;
   let lateralOffset = 0;
   let kart = null;
+  let previousKart = null;
+  let visualKart = null;
   const heldSteering = new Map();
   const brakeHolds = new Set();
   let steeringPulse = 0;
@@ -513,6 +516,7 @@ function startGame(THREE, mount, opts) {
   let disposed = false;
   let assetsLoading = false;
   let loadGeneration = 0;
+  let warmupReceipt = null;
   let pendingOpeningCue = false;
   let hasLaneIntent = false;
   let targetDelivery = "pending";
@@ -556,7 +560,7 @@ function startGame(THREE, mount, opts) {
     primaryReleaseReceipt={generation:loadGeneration,model,scenery,groups,fog,canvasScene:canvasPresentation.snapshot().sceneDelivery,canvasDriver:canvasPresentation.snapshot().originalAthlete.delivery};
   }
   function switchToCanvas(reason){
-    if(canvasReady)return canvasReady;graphicsLoading=true;clearControls();physicsClock.reset();frameTelemetry.reset();detachContextGuard();premiumRender.destroy();
+    if(canvasReady)return canvasReady;graphicsLoading=true;clearControls();physicsClock.reset();previousKart=kart;visualKart=kart;frameTelemetry.reset();detachContextGuard();premiumRender.destroy();
     const generation=loadGeneration;detachSwipeSteer();presentationHost.switchCanvas(reason);renderer.setPixelRatio(arcadePixelRatio(1.5));renderer.setSize(width(),height(),false);
     // Keep the primary's authored grading. Recovery avoids a full-viewport
     // blend group over its independently rendered, already coloured artwork.
@@ -566,14 +570,14 @@ function startGame(THREE, mount, opts) {
     graphicsNotice.hidden=false;graphicsNotice.textContent='Getting your kart ready…';
     canvasReady=canvasPresentation.ready.then(ready=>{
       if(generation!==loadGeneration)return false;
-      physicsClock.reset();last=performance.now();pausedFrameRendered=false;
+      physicsClock.reset();previousKart=kart;visualKart=kart;last=performance.now();pausedFrameRendered=false;
       if(ready){releasePrimaryOwners();graphicsLoading=false;graphicsNotice.hidden=true;graphicsNotice.textContent='';}
       else{graphicsNotice.textContent='Your kart is not ready yet. ';const retry=document.createElement('button');retry.type='button';retry.textContent='Try again';retry.style.cssText='min-width:56px;min-height:56px;margin-top:8px;background:#f3f5ff;color:#18263e;border:2px solid #3454c8;border-radius:12px;touch-action:manipulation';retry.onclick=()=>{canvasPresentation.dispose();canvasPresentation=null;canvasReady=null;switchToCanvas(reason);};graphicsNotice.appendChild(retry);}return ready;
     });return canvasReady;
   }
   function renderPresentation(dt){
     if(presentationHost.mode!=='canvas')return premiumRender.render(dt);
-    if(canvasPresentation&&kart)canvasPresentation.draw({kart,pose:racerKart.presentationPose(),dt,gates:gateObjects});return 'canvas';
+    if(canvasPresentation&&kart)canvasPresentation.draw({kart:visualKart || kart,pose:racerKart.presentationPose(),dt,gates:gateObjects});return 'canvas';
   }
   const textureCanvasCache = new Map();
   // Bests are per-student (scoped by the signed-in session), not per-device:
@@ -1127,7 +1131,7 @@ function startGame(THREE, mount, opts) {
     moonFog?.detach(gateGroup);
     disposeOwnedSportsWordGates(gateGroup,gateObjects);
     gateObjects=saved.gates.map(gate=>({...makeGateObject(gate),resolved:gate.resolved,hintShown:gate.hintShown}));
-    kart={...saved.kart};playerZ=kart.progress;lateralOffset=kart.lateral;speed=kart.speed;
+    kart={...saved.kart};previousKart=visualKart=kart;playerZ=kart.progress;lateralOffset=kart.lateral;speed=kart.speed;
     laneIx=lateralOffset< -1.5?0:lateralOffset>1.5?2:1;
     checkpointIndex=Math.max(0,Math.min(track.checkpoints.length-1,Math.floor(playerZ/(track.totalLength/3))));
     timeMs=saved.timeMs;score=saved.score;levelStartScore=saved.levelStartScore;
@@ -1145,7 +1149,7 @@ function startGame(THREE, mount, opts) {
     canvasPresentation?.dispose();canvasPresentation=null;canvasReady=null;graphicsLoading=presentationHost.mode==='canvas';
     cancelRecordedCue(overlayCueTimer);
     overlayCueTimer = null;
-    physicsClock.reset();
+    physicsClock.reset();previousKart=kart;visualKart=kart;
     assetsLoading = true;
     const generation = ++loadGeneration;
     hasLaneIntent = false;
@@ -1161,6 +1165,7 @@ function startGame(THREE, mount, opts) {
     gateObjects = track.gates.map(makeGateObject);
     playerZ = 0;
     kart = createKart(track.path);
+    previousKart = visualKart = kart;
     const initialCamera = chasePose(kart);
     camera.position.set(initialCamera.x, initialCamera.y, initialCamera.z);
     camera.lookAt(initialCamera.lookX, initialCamera.lookY, initialCamera.lookZ);
@@ -1168,7 +1173,7 @@ function startGame(THREE, mount, opts) {
     brakeHolds.clear();
     steeringPulseT = 0;
     gateVoice?.abort();
-    for (const gate of track.gates.filter(gate => gate.word).slice(0, 6)) preloadWordAudio(gate.word);
+    for (const gate of track.gates.filter(gate => gate.word).slice(0, 6)) preloadWordAudio(gate.word, { enabled: opts.getSound ? opts.getSound() : opts.isSoundEnabled !== false });
     laneIx = 1;
     lateralOffset = LANES[laneIx];
 
@@ -1200,8 +1205,20 @@ function startGame(THREE, mount, opts) {
       if(presentationHost.mode!=='canvas'&&moonFog?.snapshot().delivery==='unavailable'){
         graphicsNotice.hidden=false;graphicsNotice.textContent='Watch out for the moon fog.';
       }
+      if (presentationHost.mode !== 'canvas') {
+        premiumRender.prepareObject(scene);
+        updateShip(0);
+        warmupReceipt = { status: 'pending' };
+        warmupReceipt = await warmArcadeScene({ renderer, scene, camera,
+          isCurrent: () => !disposed && generation === loadGeneration && presentationHost.mode !== 'canvas',
+          renderFrame: () => renderPresentation(0) });
+        if (disposed || generation !== loadGeneration) return;
+        if (['failed', 'timeout', 'partial'].includes(warmupReceipt.status)) await switchToCanvas('scene-warmup-failed');
+      }
+      if (disposed || generation !== loadGeneration) return;
       assetsLoading = false;
-      physicsClock.reset();
+      last = performance.now();
+      physicsClock.reset();previousKart=kart;visualKart=kart;
       savedRunning = true;
       running = !paused;
       if(!sessionStarted){sessionStarted=true;opts.onSessionStart?.();}
@@ -1322,7 +1339,7 @@ function startGame(THREE, mount, opts) {
     // after two misses made the game catch the word by itself.
     const lane = Math.floor(Math.random() * LANES.length);
     const gate = { kind: "word", word, correct: true, lane, z, catchup: true, tries };
-    preloadWordAudio(word);
+    preloadWordAudio(word, { enabled: opts.getSound ? opts.getSound() : opts.isSoundEnabled !== false });
     // Catch-up gates wrap onto the same circuit; the road length never changes.
     gateObjects.push(makeGateObject(gate));
   }
@@ -1649,7 +1666,7 @@ function startGame(THREE, mount, opts) {
       const distance = obj.z - playerZ;
       if (obj.word && !obj.prewarmed && distance > 0 && distance < VIEW_DISTANCE) {
         obj.prewarmed = true;
-        preloadWordAudio(obj.word);
+        preloadWordAudio(obj.word, { enabled: opts.getSound ? opts.getSound() : opts.isSoundEnabled !== false });
       }
       if (distance < -3 || distance > VIEW_DISTANCE) {
         obj.mesh.visible = false;
@@ -1702,19 +1719,21 @@ function startGame(THREE, mount, opts) {
     if (playerZ >= track.raceLength && checkpointIndex === track.checkpoints.length - 1 && wordsCorrect >= track.needed) completeLevel();
   }
 
-  function updateShip(dt) {
+  function updateShip(dt, pose = visualKart || kart) {
     if (!ship) return;
     if (!kart) return;
-    ship.position.set(kart.x, kart.y, kart.z);
-    keyLight.position.set(kart.x - 8, kart.y + 14, kart.z + 8);
-    keyLight.target.position.set(kart.x, kart.y, kart.z);
+    ship.position.set(pose.x, pose.y, pose.z);
+    keyLight.position.set(pose.x - 8, pose.y + 14, pose.z + 8);
+    keyLight.target.position.set(pose.x, pose.y, pose.z);
     keyLight.target.updateMatrixWorld();
-    ship.rotation.y = -kart.heading;
-    ship.rotation.z = kart.bank || 0;
-    const ahead = sampleCircuitPath(track.path, kart.progress + 1);
-    const behind = sampleCircuitPath(track.path, kart.progress - 1);
+    // Yaw owns the road heading; slope and bank act in the kart local frame.
+    ship.rotation.order = "YXZ";
+    ship.rotation.y = -pose.heading;
+    ship.rotation.z = pose.bank || 0;
+    const ahead = sampleCircuitPath(track.path, pose.progress + 1);
+    const behind = sampleCircuitPath(track.path, pose.progress - 1);
     ship.rotation.x = Math.atan2(ahead.y - behind.y, 2);
-    racerKart?.update(dt, { steering: kart.steering, speed: running ? kart.speed : 0, recovered: kart.recovered, reducedMotion: reduceMotion, braking: brakeHolds.size > 0, complete: !running && overlayActive });
+    racerKart?.update(dt, { steering: pose.steering, speed: running ? kart.speed : 0, recovered: kart.recovered, reducedMotion: reduceMotion, braking: brakeHolds.size > 0, complete: !running && overlayActive });
     hud.dataset.soundRacerAsset = ship.userData.assetState;
     hud.dataset.soundRacerDriver = ship.userData.driverState;
     brakeControl.dataset.pressed = brakeHolds.size ? "true" : "false";
@@ -1756,23 +1775,25 @@ function startGame(THREE, mount, opts) {
   let celebrationT = 0;
   let frameCount = 0;
   function tick(now) {
-    const cpuStart=performance.now(),rawFrameMs=(now-last)||16;
+    const cpuStart=performance.now(),rawFrameMs=Math.max(0,now-last);
     frameCount += 1;
-    const { steps: frameSteps, elapsed: dt } = physicsClock.advance(((now - last) || 16) / 1000);
-    last = now;
+    const { steps: frameSteps, elapsed: dt, remainder } = physicsClock.advance(rawFrameMs / 1000);
+    // A queued rAF timestamp can precede the wall-clock warmup completion.
+    // Do not move the clock backwards and manufacture a catch-up step.
+    last = Math.max(last, now);
     if (!opts.getSound?.()) gateVoice?.abort();
     hud.dataset.soundRacerLoading = String(assetsLoading);
     if (assetsLoading||graphicsLoading) {
       frameTelemetry.reset();
-      physicsClock.reset();
-      updateShip(0);
-      renderPresentation(0);
+      physicsClock.reset();previousKart=kart;visualKart=kart;
+      // The accessible loading HUD stays painted while uploads/shaders warm.
+      // Rendering here would force first-use compilation before warmup completes.
       return;
     }
     if (paused || document.hidden || (overlayActive && !running)) {
       frameTelemetry.reset();
       if(document.hidden)clearControls();
-      physicsClock.reset();
+      physicsClock.reset();previousKart=kart;visualKart=kart;
       if (!paused && overlayActive && celebrationT > 0) {
         celebrationT = Math.max(0, celebrationT - dt);
         racerKart?.update(dt, { complete: true, reducedMotion: reduceMotion });
@@ -1826,6 +1847,7 @@ function startGame(THREE, mount, opts) {
       shakeT = Math.max(0, shakeT - dt);
       steeringPulseT = Math.max(0, steeringPulseT - dt);
       const steer = heldSteering.size ? [...heldSteering.values()].at(-1) : steeringPulseT > 0 ? steeringPulse : 0;
+      previousKart = kart;
       kart = stepKart(track.path, kart, { steer, speed, brake: brakeHolds.size > 0, roadAssist: true }, dt);
       playerZ = kart.progress;
       lateralOffset = kart.lateral;
@@ -1853,16 +1875,17 @@ function startGame(THREE, mount, opts) {
       if(timeMs-lastSavedTime>=5000)saveCurrentRace();
     }
 
+      visualKart = interpolateRacerKart(previousKart, kart, remainder * 60);
       updateAtmosphere(now);
-      updateShip(frameSteps.length / 60);
+      updateShip(dt);
       updateBursts(dt);
       if (kart) {
         // An overhead sign between the kart and its chase camera must not
         // become a full-screen billboard immediately after crossing the line.
         const lapPosition = ((playerZ % track.totalLength) + track.totalLength) % track.totalLength;
         sceneryGroup.userData.finishSign.visible = lapPosition > 12;
-        const pose = chasePose(kart);
-        const follow = Math.min(1, dt * 8);
+        const pose = chasePose(visualKart);
+        const follow = 1 - Math.exp(-dt * 8);
         camera.position.x += (pose.x - camera.position.x) * follow;
         camera.position.y += (pose.y - camera.position.y) * follow;
         camera.position.z += (pose.z - camera.position.z) * follow;
@@ -1871,7 +1894,7 @@ function startGame(THREE, mount, opts) {
 
     const wantedFov = roadFov() + (boostT > 0 && !reduceMotion ? 9 : 0);
     if (Math.abs(fov - wantedFov) > 0.1) {
-      fov += (wantedFov - fov) * Math.min(1, dt * 5);
+      fov += (wantedFov - fov) * (1 - Math.exp(-dt * 5));
       camera.fov = fov;
       camera.updateProjectionMatrix();
     }
@@ -1893,6 +1916,7 @@ function startGame(THREE, mount, opts) {
   }
 
   if (import.meta.env.DEV) Object.defineProperty(mount, "racerInspection", { configurable: true, get: () => ({
+    warmup: warmupReceipt ? {...warmupReceipt} : null,
     frames: frameCount, tier: qualityTier, renderCalls: renderer.info.render.calls, triangles: renderer.info.render.triangles,
     performance:{...frameTelemetry.snapshot(),requestedRendererFallback:requestedRendererFallback?{...requestedRendererFallback}:null},
     presentation:{...presentationHost.snapshot(),canvas:canvasPresentation?.snapshot()||null,primaryOwnersReleased,primaryReleaseReceipt:primaryReleaseReceipt?structuredClone(primaryReleaseReceipt):null,
@@ -1901,6 +1925,7 @@ function startGame(THREE, mount, opts) {
     geometries: renderer.info.memory.geometries, textures: renderer.info.memory.textures,
     kart: racerKart?.snapshot(), scenery: structuredClone(racerScenery?.root.userData || null),moonFog:moonFog?.snapshot()||null,
     camera:{position:camera.position.toArray(),matrix:camera.matrixWorld.toArray(),projection:camera.projectionMatrix.toArray()},
+    motion:{previous:previousKart?{...previousKart}:null,visual:visualKart?{...visualKart}:null,shipQuaternion:ship?.quaternion.toArray()},
     progress: kart?.progress, aimLateral: kart?.aimLateral, speed: kart?.speed, steering: kart?.steering, running, paused,
     timeMs, raceLength: track?.raceLength, laps: track?.laps, checkpointIndex, assetsLoading, hasLaneIntent,shield,obstaclesHit,
     targetDelivery,targetReceipt:structuredClone(targetReceipt),evidence:structuredClone(evidence),supportReasons:[...supportReasons],restoredSession,
@@ -1948,7 +1973,7 @@ function startGame(THREE, mount, opts) {
     saveCurrentRace();
     clearControls();
     frameTelemetry.reset();
-    physicsClock.reset();
+    physicsClock.reset();previousKart=kart;visualKart=kart;
     if (paused) return;
     paused = true;
     pausedFrameRendered = false;
@@ -1961,7 +1986,7 @@ function startGame(THREE, mount, opts) {
     if (disposed || !paused || introActive) return;
     paused = false;
     pausedFrameRendered = false;
-    physicsClock.reset();
+    physicsClock.reset();previousKart=kart;visualKart=kart;
     last = performance.now();
     if (savedRunning) running = true;
   }
