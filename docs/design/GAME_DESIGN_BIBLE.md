@@ -96,8 +96,10 @@ linguistic action records actual cue delivery and support at activation.
 Following the owner's 4 October play review, fresh Builder islands start with
 clear building banks and a small upstream crossing. Children create the houses,
 gardens and fences themselves. Required reading landmarks remain; existing
-saved builds are preserved. Rotate, Undo and View remain available in Pieces
-while the main view shows the essential movement and placement actions.
+saved builds are preserved. New sessions open on the editable island with
+direct tap-to-build and Remove, visible Undo and optional word kits. See the
+[Burrow Builders implementation](BURROW_BUILDERS_IMPLEMENTATION.md) for the
+construction, interaction and save contracts.
 
 Each addition follows the canonical difficulty worlds: Easy uses Meadow Pals
 with Bouncy, Medium uses Dino Pals with Chompy, and Hard uses Moonwood with Pip.

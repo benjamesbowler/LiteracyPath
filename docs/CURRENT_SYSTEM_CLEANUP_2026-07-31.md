@@ -1,5 +1,13 @@
 # Current system cleanup — 31 July 2026
 
+## Burrow Builders construction redesign
+
+The [Burrow Builders implementation](design/BURROW_BUILDERS_IMPLEMENTATION.md)
+records the current tap-to-build, optional word-kit and save behavior. Both
+renderers share a guarded pointer handler. The game retains its original
+terrain, characters and textures. The student-support audio registry adds
+one existing recorded control instruction.
+
 ## Complete Guided Reading ESL remediation — 9 November 2026
 
 The [audit handoff](guided-reading/WORLD_DISCOVERY_ESL_AUDIT_HANDOFF.md) now

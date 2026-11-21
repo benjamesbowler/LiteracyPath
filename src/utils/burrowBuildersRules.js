@@ -149,7 +149,8 @@ export function placeBurrowPart(world, { type = world.selectedPart, x = world.se
   const base = Math.max(0, terrain.height);
   const level = y ?? (type === 'channel' ? base : cell.length ? Math.max(base, ...cell.map(block => Math.ceil(block.y + BLOCK_HEIGHT[block.type]))) : base);
   if (!Number.isInteger(level) || level < base || level > 4 || cell.some(block => block.y === level)) return { world, changed: false, reason: 'Pick up a piece or choose a lower cell.' };
-  if (terrain.water && !['wood', 'stone', 'bridge', 'dam', 'channel'].includes(type)) return { world, changed: false, reason: 'Build a crossing first.' };
+  const foundation = cell.some(block => ['wood', 'stone', 'bridge', 'dam'].includes(block.type) && block.y === 0);
+  if (terrain.water && !foundation && !['wood', 'stone', 'bridge', 'dam', 'channel'].includes(type)) return { world, changed: false, reason: 'Build a crossing first.' };
   if (type === 'channel' && terrain.height > 0) return { world, changed: false, reason: 'Dig a channel on the low ground.' };
   if (type === 'dam' && (level !== 0 || terrain.height > 0)) return { world, changed: false, reason: 'Put a dam on the low stream bed. Pick up a crossing first.' };
   const material = type === 'stone' ? 'stone' : 'wood';
@@ -211,22 +212,49 @@ export function commitBurrowResponse(evidence, mission, selected, slot, context 
       completions: completed ? [...evidence.completions, mission.roundId] : evidence.completions } };
 }
 
-export function installBurrowKit(world, mission) {
-  let next = world;
+// A completed word adds one whole construction, or leaves the island intact.
+// Returning the outcome lets the controller celebrate the word truthfully even
+// when an existing sculpture leaves no room for its kit.
+export function installBurrowKitResult(world, mission) {
   const clearCells = Array.from({ length: 121 }, (_, index) => ({ x: index % 11, z: Math.floor(index / 11) }))
-    .filter(cell => terrainAt(cell.x, cell.z)?.water === false && !terrainAt(cell.x, cell.z)?.scenery && !world.blocks.some(block => block.x === cell.x && block.z === cell.z))
+    .filter(cell => terrainAt(cell.x, cell.z, world.islandId)?.water === false && !terrainAt(cell.x, cell.z, world.islandId)?.scenery && !world.blocks.some(block => block.x === cell.x && block.z === cell.z))
     .sort((a, b) => Math.hypot(a.x - world.selection.x, a.z - world.selection.z) - Math.hypot(b.x - world.selection.x, b.z - world.selection.z));
+  let plans;
   if (mission.part === 'bridge') {
-    for (const x of [4, 5, 6]) next = placeBurrowPart(next, { type: 'bridge', x, z: 5, y: 0, kit: true }).world;
+    plans = Array.from({ length: 11 }, (_, z) => z)
+      .sort((a, b) => Math.abs(a - world.selection.z) - Math.abs(b - world.selection.z))
+      .map(z => [4, 5, 6].map(x => ({ type: 'bridge', x, z, y: 0 })));
   } else if (mission.part === 'roof') {
-    const origin = clearCells.find(cell => [[0, 0], [1, 0], [0, 1], [1, 1]].every(([dx, dz]) => terrainAt(cell.x + dx, cell.z + dz)?.water === false && !terrainAt(cell.x + dx, cell.z + dz)?.scenery && terrainAt(cell.x + dx, cell.z + dz).height === terrainAt(cell.x, cell.z).height
-      && !world.blocks.some(block => block.x === cell.x + dx && block.z === cell.z + dz)));
-    if (origin) {
+    plans = clearCells.filter(cell => [[0, 0], [1, 0], [0, 1], [1, 1]].every(([dx, dz]) => terrainAt(cell.x + dx, cell.z + dz)?.water === false && !terrainAt(cell.x + dx, cell.z + dz)?.scenery && terrainAt(cell.x + dx, cell.z + dz).height === terrainAt(cell.x, cell.z).height
+      && !world.blocks.some(block => block.x === cell.x + dx && block.z === cell.z + dz))).map(origin => {
       const y = terrainAt(origin.x, origin.z).height;
-      for (const dx of [0, 1]) next = placeBurrowPart(next, { type: 'wood', x: origin.x + dx, z: origin.z + 1, y, kit: true }).world;
-      next = placeBurrowPart(next, { type: 'bed', x: origin.x, z: origin.z, y, kit: true }).world;
-      for (const [dx, dz] of [[0, 0], [1, 0], [0, 1], [1, 1]]) next = placeBurrowPart(next, { type: 'roof', x: origin.x + dx, z: origin.z + dz, y: y + 1, kit: true }).world;
+      return [
+        ...[0, 1].map(dx => ({ type: 'wood', x: origin.x + dx, z: origin.z + 1, y })),
+        { type: 'bed', x: origin.x, z: origin.z, y },
+        ...[[0, 0], [1, 0], [0, 1], [1, 1]].map(([dx, dz]) => ({ type: 'roof', x: origin.x + dx, z: origin.z + dz, y: y + 1 })),
+      ];
+    });
+  } else plans = clearCells.map(cell => [{ type: mission.part, ...cell }]);
+
+  for (const plan of plans) {
+    let next = world, changed = false, blocked = false;
+    for (const piece of plan) {
+      const existing = next.blocks.filter(block => block.x === piece.x && block.z === piece.z);
+      // Reuse an existing single bridge deck, but never build a kit through a
+      // child's tower or fence. Try another complete crossing instead.
+      if (mission.part === 'bridge' && existing.length) {
+        if (existing.length === 1 && existing[0].type === 'bridge' && existing[0].y === 0) continue;
+        blocked = true; break;
+      }
+      const placed = placeBurrowPart(next, { ...piece, kit: true });
+      if (!placed.changed) { blocked = true; break; }
+      next = placed.world; changed = true;
     }
-  } else if (clearCells.length) next = placeBurrowPart(next, { type: mission.part, ...clearCells[0], kit: true }).world;
-  return next;
+    if (!blocked && changed) return { world: { ...next, undo: withUndo(world, next.blocks, next.materials).undo }, changed: true, reason: '' };
+  }
+  return { world, changed: false, reason: 'Word complete! Make room on the island for more building.' };
+}
+
+export function installBurrowKit(world, mission) {
+  return installBurrowKitResult(world, mission).world;
 }

@@ -2,7 +2,7 @@
 export const ARCADE_GUIDE_EXAMPLES = Object.freeze({
   'tower-tumble': { kind: 'jump', instruction: 'Pick letters in order to build each word.', target: 'Picture + audio', pieces: ['?', '?', '?'], steps: ['Look at the picture and hear the word.', 'Use the ladders and Jump to reach a brick.', 'Smash each needed sound part. A fall keeps your correct parts.'] },
   'rally-pals': { kind: 'aim', instruction: 'Follow the sound.', target: 'Picture + audio', pieces: ['?', '?', '?'], steps: ['Hear the cue before the untimed serve.', 'Choose a court zone and Swing; your aim makes the sound choice.', 'Move, return and Lob during the rally. A missed ball is a motor miss.'] },
-  'burrow-builders': { kind: 'place', instruction: 'Pick letters in order to build each word.', target: 'Picture + audio', pieces: ['?', '?', '?'], steps: ['Look at the blueprint picture and hear its word.', 'Place the sound parts in spoken order; mistakes can be repaired.', 'Use ordinary blocks to extend, reshape and decorate your island.'] },
+  'burrow-builders': { kind: 'place', instruction: 'Choose a piece, then tap the island to build.', target: 'Your island', pieces: ['Wood', 'Stone', 'Bridge'], steps: ['Choose a pictured piece and tap where it belongs.', 'Use Remove to lift a piece, or Undo to repair your last edit.', 'Open Word kits. Hear the picture word and choose its sounds to build a useful structure.'] },
   'drum-trail': { kind: 'choose', frameMilliseconds: 1600, instruction: 'Listen to the word. Choose the crossing with that many syllables.', target: 'rabbit', pieces: ['1 drum', '2 drums', '3 drums'], matchedIndex: 1, steps: ['This example uses rabbit. Listen to the whole word.', 'Rabbit has two spoken parts: rab-bit.', 'Choose the crossing with two drums. Your own word may need a different count.'] },
   'lantern-lagoon': { kind: 'choose', frameMilliseconds: 2400, instruction: 'Read or listen to the sentence. Light the matching scene.', target: 'The cat is on the mat.', pieces: ['cat in a box', 'cat on a mat', 'cat by a log'], matchedIndex: 1, steps: ['This example says: The cat is on the mat.', 'Compare all three scenes with the sentence.', 'Light the cat on the mat. Your own sentence may describe another scene.'] },
   'rocket-run': { kind: 'steer', target: 's', pieces: ['sun', 'fish', 'cat'], steps: ['Look for the beginning sound: s.', 'Steer left or right toward sun.', 'Catch sun. It begins with s.'] },
@@ -22,9 +22,9 @@ export const ARCADE_GUIDE_EXAMPLES = Object.freeze({
 
 export function arcadeGuideForGame(game, { difficulty } = {}) {
   if (game?.id === 'burrow-builders' && difficulty === 'hard') return {
-    kind: 'place', instruction: 'Read the plan and choose a place to build.',
-    target: 'Read the plan', pieces: ['1', '2', '3'],
-    steps: ['Read the building instruction.', 'Compare the three marked places and build where the plan says.', 'Use ordinary blocks to extend, reshape and decorate your island.']
+    kind: 'place', instruction: 'Choose a piece, then tap the island to build.',
+    target: 'Your island', pieces: ['Wood', 'Stone', 'Bridge'],
+    steps: ['Choose a pictured piece and tap where it belongs.', 'Use Remove to lift a piece, or Undo to repair your last edit.', 'Open Word kits. Read the plan, compare the three marked places and build where it says.']
   };
   const example = ARCADE_GUIDE_EXAMPLES[game?.id];
   return example ? { ...example, instruction: example.instruction || game.description } : null;

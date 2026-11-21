@@ -110,7 +110,7 @@ immediately. Missing review metadata is not a publication queue.
 - [Letter Leap platforming implementation](design/LETTER_LEAP_IMPLEMENTATION.md) — three authored platform worlds, persistent individual pickups, complete spelling trails and scoped recovery
 - [Tower Tumble implementation](design/TOWER_TUMBLE_IMPLEMENTATION.md) — scaffold physics, nine rescues, authored content, resume validation and named checks
 - [Rally Pals implementation](design/RALLY_PALS_IMPLEMENTATION.md) — continuous tennis, match/co-op/target modes, themed courts and bounded evidence
-- [Burrow Builders implementation](design/BURROW_BUILDERS_IMPLEMENTATION.md) — editable islands, bridges, water flow, shelter, growing gardens and themed free building
+- [Burrow Builders implementation](design/BURROW_BUILDERS_IMPLEMENTATION.md) — tap-to-build islands, optional word kits, camera controls, accessible map and save recovery
 - [Meadow Pals animation production bible](design/ANIMATION_PRODUCTION_BIBLE.md)
 - [Student emphasis budget](design/STUDENT_EMPHASIS_BUDGET.md)
 - [Little Literacy Guides design system](LITTLE_LITERACY_GUIDES_DESIGN_SYSTEM.md) — includes the shared Woodland activity presentation for assessments, Adventure Map, Cycle Practice and Letters

@@ -25,9 +25,9 @@ const mechanics = {
     promise: 'Create and revisit an editable island in the selected Pal world, with useful bridges, houses, gardens, channels, dams and freely available ordinary building pieces.',
     construct: 'Easy and Medium use ordered word encoding from blueprint picture/audio; Hard uses literal spatial reading instructions.',
     motor: 'Walking, camera orientation, cell selection, rotating, placing, picking up and reshaping world blocks.',
-    movement: 'Continuous island exploration and snapped world placement modify actual bounded terrain. A completed blueprint supplies a functional structure kit; Free Build is available immediately and preserves the unfinished blueprint.',
-    camera: 'Comfortable three-quarter construction framing with fixed selectable angles and a semantic overhead cell view.',
-    route: 'Three selectable bounded islands retain editable constructions. Bridges affect traversal, channels and dams change water flow, gardens grow, and roofs shelter beds from rain. Creative edits retain undo.',
+    movement: 'New sessions open in free building: choose a pictured piece and tap to place, or select Remove and tap to lift it. Walking follows screen directions. Word kits preserve the unfinished blueprint and supply a functional structure; ordinary construction is unlimited in either mode.',
+    camera: 'Comfortable three-quarter construction framing with quick piece choices, collapsed secondary tools, fixed selectable angles and a semantic overhead cell view. The overhead view selects cells before explicit placement; direct world taps require a complete uncancelled tap.',
+    route: 'Three selectable bounded islands retain editable constructions. Bridges affect traversal, channels and dams change water flow, gardens grow, and roofs shelter beds from rain. Creative edits retain visible undo; a whole earned kit installs atomically and undoes as one edit.',
     art: 'Original stepped voxel islands and construction sites; meadow homes with Bouncy, fern/fossil/thatch settlements with Chompy, and pine/mushroom/lantern villages with Pip.',
     unit: 'tests/unit/burrowBuildersRules.test.js', browser: 'tests/release/burrow-builders.spec.js'
   }

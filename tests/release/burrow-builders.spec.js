@@ -4,16 +4,32 @@ import { buildBurrowMissions, createBurrowWorld, terrainAt, placeBurrowPart } fr
 import { validBurrowWorld } from '../../src/utils/burrowBuildersSession.js';
 
 const snapshot = page => page.evaluate(() => window.__arcadePreviewSnapshot?.());
-async function open(page, difficulty = 'easy', sound = false) {
+async function open(page, difficulty = 'easy', sound = false, { build = false } = {}) {
   await page.goto(`/preview/game-overlay.html?game=burrow-builders&difficulty=${difficulty}&sound=${sound ? 1 : 0}&music=0`);
   await expect(page.locator('.burrow-builders').or(page.getByRole('button', { name: 'Continue', exact: true }))).toBeVisible({ timeout: 20000 });
   if (await page.getByRole('button', { name: 'Continue', exact: true }).isVisible()) await page.getByRole('button', { name: 'Continue', exact: true }).click();
   await expect(page.locator('.burrow-builders')).toBeVisible();
   await expect.poll(async () => (await snapshot(page))?.phase).toBe('ready');
+  // New islands start with direct construction. Legacy learning coverage enters
+  // the optional word-kit activity explicitly, as a child does.
+  if (!build && (await snapshot(page)).freeBuilding) await page.getByRole('button', { name: 'Word kits', exact: true }).click();
+}
+async function place(page) {
+  const button = page.getByRole('button', { name: 'Place selected building piece', exact: true });
+  if (await button.isVisible()) await button.click();
+  else { await page.locator('.burrow-builders').focus(); await page.keyboard.press('e'); }
+}
+async function pickup(page) {
+  const button = page.getByRole('button', { name: 'Pick up selected piece or nearby supplies', exact: true });
+  if (await button.isVisible()) await button.click();
+  else { await page.locator('.burrow-builders').focus(); await page.keyboard.press('Backspace'); }
 }
 const chunk = (page, value) => page.getByRole('button', { name: `Place ${value} block on the blueprint`, exact: true });
 async function grid(page, x, z) {
-  if (!await page.getByRole('combobox', { name: 'Cell column', exact: true }).isVisible()) await page.getByRole('button', { name: 'Open overhead accessible build view', exact: true }).click();
+  if (!await page.getByRole('combobox', { name: 'Cell column', exact: true }).isVisible()) {
+    await page.getByRole('button', { name: 'Open island tools', exact: true }).click();
+    await page.getByRole('button', { name: 'Open overhead accessible build view', exact: true }).click();
+  }
   await page.getByRole('combobox', { name: 'Cell row', exact: true }).selectOption({ value: String(z) });
   await page.getByRole('combobox', { name: 'Cell column', exact: true }).selectOption({ value: String(x) });
 }
@@ -26,7 +42,11 @@ async function drawerTool(page, name) {
   await page.getByRole('button', { name, exact: true }).click();
   await page.getByRole('button', { name: 'Close building choices', exact: true }).click();
 }
-const undo = page => drawerTool(page, 'Undo this edit');
+const undo = page => page.getByRole('button', { name: 'Undo this edit', exact: true }).click();
+async function islands(page) {
+  await page.getByRole('button', { name: 'Open island tools', exact: true }).click();
+  await page.getByRole('button', { name: 'Choose island or blueprint', exact: true }).click();
+}
 
 for (const [name, width, height] of [['phone',320,568], ['short',568,320], ['tablet',1024,768], ['portrait',768,1024], ['desktop',1280,900]]) {
   test(`Burrow ${name}: real world, hidden spelling cue, readable action targets and keyboard/touch movement`, async ({ page }, testInfo) => {
@@ -35,7 +55,7 @@ for (const [name, width, height] of [['phone',320,568], ['short',568,320], ['tab
     const initial = await snapshot(page), mission = buildBurrowMissions('easy', initial.seed, 0)[initial.cursor];
     expect(initial.world.blocks).toHaveLength(3); expect(initial.world.blocks.every(block => block.type === 'bridge' && block.z === 3)).toBe(true);
     expect(initial.evidence.firstResponses).toHaveLength(0); expect(initial.evidence.completions).toHaveLength(0);
-    await expect(page.locator('.burrow-builders__tools button')).toHaveCount(1);
+    await expect(page.getByRole('button', { name: 'Choose building piece', exact: true })).toBeVisible();
     expect(await page.locator('.burrow-builders__cue').innerText()).not.toContain(mission.word);
     await expect(page.getByRole('img', { name: 'Building picture. Hear its word.', exact: true })).toBeVisible();
     await expect(page.locator('.burrow-builders__slots span')).toHaveCount(3);
@@ -70,22 +90,24 @@ for (const [name, width, height] of [['phone',320,568], ['short',568,320], ['tab
     const metricsPath = testInfo.outputPath(`${name}-frame-input.json`); await fs.writeFile(metricsPath, JSON.stringify(measurement, null, 2));
     await testInfo.attach(`${name}-frame-input`, { path: metricsPath, contentType: 'application/json' }); expect(errors).toEqual([]);
     if (name === 'phone') {
-      await page.getByRole('button', { name: 'Enter free building now', exact: true }).click();
+      await page.getByRole('button', { name: 'Free build', exact: true }).click();
       expect((await snapshot(page)).freeBuilding).toBe(true); await page.screenshot({ path: testInfo.outputPath('phone-free-world.png') });
     }
   });
 }
 
-test('two wrong placements keep stable choices and accepted chunks; partial help and actual delivery freeze supported repair', async ({ page }) => {
+test('two wrong placements keep stable choices and accepted chunks; partial help and actual delivery freeze supported repair', async ({ page }, testInfo) => {
   await open(page, 'medium', true); const initial = await snapshot(page), mission = buildBurrowMissions('medium', initial.seed, 0)[0], wrong = mission.choices.find(c => c !== mission.chunks[0]);
   await expect.poll(async () => (await snapshot(page)).delivery).toBe('delivered');
   await chunk(page, wrong).click(); await expect(page.locator('.burrow-builders__hint')).toHaveCount(0);
   await chunk(page, wrong).click(); await expect(page.locator('.burrow-builders__hint')).toBeVisible();
+  await page.screenshot({ path: testInfo.outputPath('supported-retry.png') });
   expect((await snapshot(page)).choices).toEqual(initial.choices); expect((await snapshot(page)).score).toBe(0);
   await chunk(page, mission.chunks[0]).click(); const repaired = await snapshot(page);
   expect(repaired.chunks).toEqual([mission.chunks[0]]); expect(repaired.evidence.firstResponses[0].correct).toBe(false);
   expect(repaired.evidence.assistedRetries.at(-1).independentPractice).toBe(false); expect(repaired.evidence.assistedRetries.at(-1).modelUsed).toBe(true);
   expect(repaired.evidence.firstResponses[0].deliveryAtResponse).toBe('delivered'); expect(repaired.evidence.firstResponses[0].wordVisible).toBe(false);
+  await page.screenshot({ path: testInfo.outputPath('repaired-first-sound.png') });
 });
 
 test('a small-screen touch swipe reveals the remaining grapheme blocks without answering a blueprint', async ({ page }) => {
@@ -168,11 +190,11 @@ test('action sounds follow real construction and learning while teaching, sound-
   await expect.poll(async () => (await snapshot(page)).delivery).toBe('delivered');
   await page.getByRole('button', { name: 'Hear the building word again', exact: true }).click();
   await expect.poll(async () => (await snapshot(page)).actionAudio.teachingBusy).toBe(true);
-  await page.getByRole('button', { name: 'Place selected building piece', exact: true }).click();
+  await place(page);
   expect((await snapshot(page)).actionAudio.suppressed['teaching-priority']).toBeGreaterThan(0);
-  await page.getByRole('button', { name: 'Enter free building now', exact: true }).click();
-  await grid(page, 3, 5); await page.getByRole('button', { name: 'Place selected building piece', exact: true }).click();
-  await page.getByRole('button', { name: 'Pick up selected piece or nearby supplies', exact: true }).click();
+  await page.getByRole('button', { name: 'Free build', exact: true }).click();
+  await grid(page, 3, 5); await place(page);
+  await pickup(page);
   await undo(page);
   let requested = (await snapshot(page)).actionAudio.requested;
   expect(requested.place).toBe(1); expect(requested.pickup).toBe(1); expect(requested.recovery).toBe(1);
@@ -183,14 +205,14 @@ test('action sounds follow real construction and learning while teaching, sound-
   await page.getByRole('button', { name: 'Open game controls', exact: true }).click();
   await page.getByRole('button', { name: 'Turn spoken audio and game sounds off', exact: true }).click();
   await page.getByRole('button', { name: 'Back to the game', exact: true }).click();
-  await page.getByRole('button', { name: 'Place selected building piece', exact: true }).click();
+  await place(page);
   expect((await snapshot(page)).actionAudio.requested).toEqual(requested);
   expect((await snapshot(page)).actionAudio.suppressed['sound-disabled']).toBeGreaterThan(0);
   await page.getByRole('button', { name: 'Open game controls', exact: true }).click();
   await page.getByRole('button', { name: 'Turn spoken audio and game sounds on', exact: true }).click();
   await page.getByRole('button', { name: 'Back to the game', exact: true }).click();
-  await page.getByRole('button', { name: 'Return to current blueprint', exact: true }).click();
   await page.getByRole('button', { name: 'Return to world view', exact: true }).click();
+  await page.getByRole('button', { name: 'Word kits', exact: true }).click();
   for (const [cursor, mission] of missions.entries()) {
     await expect.poll(async () => (await snapshot(page)).cursor).toBe(cursor);
     await expect.poll(async () => (await snapshot(page)).delivery).toBe('delivered');
@@ -218,10 +240,10 @@ test('action sounds follow real construction and learning while teaching, sound-
 });
 
 test('arbitrary stacks, rotated pieces and a traversable stream crossing are saved, editable and locally undoable without learning points', async ({ page }, testInfo) => {
-  await open(page); const initialBlocks = (await snapshot(page)).world.blocks.length; await grid(page, 3, 5); await page.getByRole('button', { name: 'Place selected building piece', exact: true }).click();
-  await drawerTool(page, 'Turn carried piece'); await page.getByRole('button', { name: 'Place selected building piece', exact: true }).click();
+  await open(page); const initialBlocks = (await snapshot(page)).world.blocks.length; await grid(page, 3, 5); await place(page);
+  await drawerTool(page, 'Turn carried piece'); await place(page);
   let state = await snapshot(page); expect(state.world.blocks.filter(b => b.x === 3 && b.z === 5).map(b => b.y)).toEqual([0, 1]); expect(state.world.blocks.find(b => b.x === 3 && b.z === 5 && b.y === 1).rotation).toBe(1); expect(state.score).toBe(0);
-  await part(page, 'Bridge'); await grid(page, 5, 5); await page.getByRole('button', { name: 'Place selected building piece', exact: true }).click();
+  await part(page, 'Bridge'); await grid(page, 5, 5); await place(page);
   state = await snapshot(page); expect(state.world.blocks.some(b => b.type === 'bridge' && b.x === 5)).toBe(true);
   const withBridge = state.world;
   const walkUntil = async (key, axis, limit, greater) => {
@@ -245,13 +267,13 @@ test('arbitrary stacks, rotated pieces and a traversable stream crossing are sav
 test('held wrong answer, cue order and three different island builds survive reload in the existing learner scope', async ({ page }) => {
   await open(page); const initial = await snapshot(page), mission = buildBurrowMissions('easy', initial.seed, 0)[0];
   await chunk(page, mission.choices.find(c => c !== mission.chunks[0])).click();
-  await page.getByRole('button', { name: 'Place selected building piece', exact: true }).click();
-  await page.getByRole('button', { name: 'Choose island or blueprint', exact: true }).click(); await page.getByRole('button', { name: /River Workshop/ }).click();
-  await page.getByRole('button', { name: 'Place selected building piece', exact: true }).click();
+  await place(page);
+  await islands(page); await page.getByRole('button', { name: /River Workshop/ }).click();
+  await place(page);
   await page.reload(); await page.getByRole('button', { name: 'Continue', exact: true }).click(); await expect(page.locator('.burrow-builders')).toBeVisible();
   let state = await snapshot(page); expect(state.islandId).toBe('river'); expect(state.world.blocks).toHaveLength(initial.world.blocks.length + 1); expect(state.choices).toEqual(initial.choices); expect(state.evidence.firstResponses[0].correct).toBe(false);
   expect(state.cursor).toBe(0); expect(state.seed).toBe(initial.seed);
-  await page.getByRole('button', { name: 'Choose island or blueprint', exact: true }).click(); await page.getByRole('button', { name: /Meadow Homes/ }).click();
+  await islands(page); await page.getByRole('button', { name: /Meadow Homes/ }).click();
   expect((await snapshot(page)).world.blocks).toHaveLength(initial.world.blocks.length + 1);
   const keys = await page.evaluate(() => Object.keys(localStorage).filter(k => /burrow|world-build|voxel/.test(k))); expect(keys).toEqual([]);
 });
@@ -262,27 +284,27 @@ test('Free Build is immediately available, preserves the unfinished blueprint an
   await page.evaluate(() => { const view = window.__arcadePreviewSnapshot(); view.world.player.x = 999; view.world.blocks.length = 0; view.evidence.completions.push('forged'); view.choices.length = 0; view.supportReasons.push('forged'); });
   const unmodified = await snapshot(page); expect(unmodified.world.player).toEqual(initial.world.player); expect(unmodified.world.blocks.map(block => ({ ...block, growth: 0 }))).toEqual(initial.world.blocks.map(block => ({ ...block, growth: 0 }))); expect(unmodified.evidence).toEqual(initial.evidence); expect(unmodified.choices).toEqual(initial.choices); expect(unmodified.supportReasons).toEqual(initial.supportReasons);
   await chunk(page, mission.chunks[0]).click(); const held = await snapshot(page);
-  await page.getByRole('button', { name: 'Enter free building now', exact: true }).click();
+  await page.getByRole('button', { name: 'Free build', exact: true }).click();
   expect((await snapshot(page)).freeBuilding).toBe(true); await expect(page.locator('.burrow-builders__rack')).toHaveCount(0);
-  await page.getByRole('button', { name: 'Place selected building piece', exact: true }).click();
+  await place(page);
   let state = await snapshot(page); expect(state.world.materials.wood).toBe(held.world.materials.wood); expect(state.evidence).toEqual(held.evidence);
   await page.reload(); await page.getByRole('button', { name: 'Continue', exact: true }).click(); await expect(page.locator('.burrow-builders')).toBeVisible();
   expect((await snapshot(page)).freeBuilding).toBe(true);
-  await page.getByRole('button', { name: 'Return to current blueprint', exact: true }).click();
+  await page.getByRole('button', { name: 'Word kits', exact: true }).click();
   state = await snapshot(page); expect(state.cursor).toBe(held.cursor); expect(state.chunks).toEqual(held.chunks); expect(state.choices).toEqual(held.choices); expect(state.score).toBe(0);
   expect(state.cursor).toBe(0); expect(state.seed).toBe(initial.seed);
 });
 
 test('free building has growing gardens, roof-protected beds and editable water dams/channels with undo', async ({ page }, testInfo) => {
-  await open(page); const initialBeds = (await snapshot(page)).shelteredBeds; await page.getByRole('button', { name: 'Enter free building now', exact: true }).click();
-  await grid(page, 3, 5); await part(page, 'Garden'); await page.getByRole('button', { name: 'Place selected building piece', exact: true }).click();
+  await open(page); const initialBeds = (await snapshot(page)).shelteredBeds; await page.getByRole('button', { name: 'Free build', exact: true }).click();
+  await grid(page, 3, 5); await part(page, 'Garden'); await place(page);
   await expect.poll(async () => (await snapshot(page)).world.blocks.find(b => b.type === 'garden' && b.x === 3 && b.z === 5)?.growth).toBeGreaterThan(0);
-  await grid(page, 2, 4); await part(page, 'Sleep spot'); await page.getByRole('button', { name: 'Place selected building piece', exact: true }).click();
-  expect((await snapshot(page)).shelteredBeds).toBe(initialBeds); await part(page, 'Roof'); await page.getByRole('button', { name: 'Place selected building piece', exact: true }).click();
+  await grid(page, 2, 4); await part(page, 'Sleep spot'); await place(page);
+  expect((await snapshot(page)).shelteredBeds).toBe(initialBeds); await part(page, 'Roof'); await place(page);
   expect((await snapshot(page)).shelteredBeds).toBe(initialBeds + 1);
-  const originalWater = (await snapshot(page)).wetCells; await grid(page, 4, 5); await part(page, 'Channel'); await page.getByRole('button', { name: 'Place selected building piece', exact: true }).click();
+  const originalWater = (await snapshot(page)).wetCells; await grid(page, 4, 5); await part(page, 'Channel'); await place(page);
   const channelWater = (await snapshot(page)).wetCells; expect(channelWater).toBeGreaterThan(originalWater);
-  await grid(page, 5, 2); await part(page, 'Dam'); await page.getByRole('button', { name: 'Place selected building piece', exact: true }).click();
+  await grid(page, 5, 2); await part(page, 'Dam'); await place(page);
   const damWater = (await snapshot(page)).wetCells; expect(damWater).toBeLessThan(originalWater);
   await undo(page); const restored = await snapshot(page); expect(restored.wetCells).toBeGreaterThan(originalWater);
   expect((await snapshot(page)).evidence.completions).toHaveLength(0); expect((await snapshot(page)).score).toBe(0);
@@ -299,7 +321,7 @@ test('a substantial valid saved sculpture retains responsive input, editable blo
     fixture = placeBurrowPart(fixture, { type: (x + z) % 6 === 0 ? 'stone' : 'wood', x, z, free: true }).world;
   }
   expect(fixture.blocks).toHaveLength(150); expect(validBurrowWorld(fixture, 'meadow')).toBeTruthy();
-  await open(page); await page.getByRole('button', { name: 'Enter free building now', exact: true }).click();
+  await open(page); await page.getByRole('button', { name: 'Free build', exact: true }).click();
   // Run after the old page's owned unload save, before the new app loads.
   // This injects validated artwork only, leaving seed/answers/evidence untouched.
   await page.addInitScript(world => {
@@ -318,7 +340,7 @@ test('a substantial valid saved sculpture retains responsive input, editable blo
   });
   await expect.poll(async () => (await snapshot(page)).world.player.x).toBeGreaterThan(initial.world.player.x);
   const layersBefore=(await snapshot(page)).rendering.layerUpdates;
-  await grid(page, 3, 9); await page.getByRole('button', { name: 'Place selected building piece', exact: true }).click(); expect((await snapshot(page)).world.blocks).toHaveLength(151);
+  await grid(page, 3, 9); await place(page); expect((await snapshot(page)).world.blocks).toHaveLength(151);
   await undo(page); expect((await snapshot(page)).world.blocks).toHaveLength(150);
   await page.getByRole('button', { name: 'Return to world view', exact: true }).click();
   if(initial.rendering.renderer==='webgl'){
@@ -342,7 +364,7 @@ test('Meadow, Dino and Moonwood have different canonical pals, scenery and indep
       const state = await snapshot(page); expect(state.theme).toBe(theme); expect(state.hero).toBe(hero);
       await expect(page.locator('.burrow-builders__world canvas')).toBeVisible();
       await expect.poll(async () => (await snapshot(page)).rendering.frames).toBeGreaterThan(15);
-      await page.getByRole('button', { name: 'Choose island or blueprint', exact: true }).click(); await page.getByRole('button', { name: new RegExp(island) }).click();
+      await islands(page); await page.getByRole('button', { name: new RegExp(island) }).click();
       expect((await snapshot(page)).islandId).toBe('river'); await page.screenshot({ path: testInfo.outputPath(`${difficulty}-${theme}-world.png`) });
       expect((await snapshot(page)).world.blocks).toHaveLength(3);
       await page.locator('.burrow-builders__world canvas').evaluate(canvas => canvas.dispatchEvent(new Event('webglcontextlost')));
@@ -360,12 +382,13 @@ test('short landscape keeps each whole builder and carried piece clear of the pi
     const context = await browser.newContext({ viewport: { width: 568, height: 320 } }), page = await context.newPage();
     try {
       await open(page, difficulty);
-      if (difficulty === 'hard') await page.getByRole('button', { name: 'Enter free building now', exact: true }).click();
+      if (difficulty === 'hard') await page.getByRole('button', { name: 'Free build', exact: true }).click();
       for (const renderer of ['webgl', 'canvas']) {
         if (renderer === 'canvas') await page.locator('.burrow-builders__world canvas').evaluate(canvas => canvas.dispatchEvent(new Event('webglcontextlost')));
         await expect.poll(async () => (await snapshot(page)).rendering.renderer).toBe(renderer);
         await expect.poll(async () => (await snapshot(page)).rendering.authoredPal).toBe('delivered');
         await expect.poll(async () => (await snapshot(page)).rendering.palActions?.tools).toBe('delivered');
+        await expect(page.getByText('Loading game...', { exact: true })).toHaveCount(0);
         await page.screenshot({ path: testInfo.outputPath(`${difficulty}-${renderer}-short-opening.png`) });
         await page.keyboard.down('ArrowDown'); await page.waitForTimeout(80); await page.keyboard.up('ArrowDown');
         const state = await snapshot(page), frame = await page.locator('.burrow-builders__world canvas').boundingBox(), pal = state.rendering.palBounds;
@@ -373,7 +396,7 @@ test('short landscape keeps each whole builder and carried piece clear of the pi
         expect(pal).toBeTruthy(); expect(pal.y + frame.y).toBeGreaterThanOrEqual(0);
         for (const r of rects) {
           const overlaps = pal.x + frame.x < r.x + r.width && pal.x + frame.x + pal.width > r.x && pal.y + frame.y < r.y + r.height && pal.y + frame.y + pal.height > r.y;
-          expect(overlaps, `${difficulty}/${renderer} whole Pal overlaps ${r.className}`).toBe(false);
+          expect(overlaps, `${difficulty}/${renderer} whole Pal ${JSON.stringify(pal)} overlaps ${JSON.stringify(r)}`).toBe(false);
         }
         expect(state.rendering.workbenchBricks?.every(brick => brick.y > 180)).toBe(true);
         await page.screenshot({ path: testInfo.outputPath(`${difficulty}-${renderer}-short-carry.png`) });
@@ -394,11 +417,12 @@ for (const difficulty of ['easy', 'medium', 'hard']) test(`complete ${difficulty
     if (mission.kind === 'spelling') for (const value of mission.chunks) await chunk(page, value).click();
     else { const index = mission.choices.findIndex(c => c.x === mission.correct.x && c.z === mission.correct.z); await page.getByRole('button', { name: `Build at place ${index + 1}, column ${mission.correct.x + 1}, row ${mission.correct.z + 1}`, exact: true }).click(); }
     await expect.poll(async () => (await snapshot(page)).evidence.completions.length).toBe(i + 1);
+    if (i === 0) await page.screenshot({ path: testInfo.outputPath(`${difficulty}-first-kit-built.png`) });
   }
   await expect.poll(async () => (await snapshot(page)).phase).toBe('creative');
   const completed = await snapshot(page); if (difficulty === 'hard') { expect(completed.evidence.firstResponses.every(row => row.independentPractice && row.construct === 'literal-spatial-reading-comprehension')).toBe(true); } expect(completed.score).toBe(180); expect(completed.evidence.completions).toHaveLength(6); expect(completed.world.blocks.length).toBeGreaterThan(5);
-  await expect(page.locator('.burrow-builders__rack')).toHaveCount(0); await expect(page.getByText('Free build', { exact: true })).toBeVisible();
-  const wood = completed.world.materials.wood; await grid(page, 3, 9); await part(page, 'Wood'); await page.getByRole('button', { name: 'Place selected building piece', exact: true }).click();
+  await expect(page.locator('.burrow-builders__rack')).toHaveCount(0); await expect(page.locator('.burrow-builders__cue')).toContainText('Tap the island to build.');
+  const wood = completed.world.materials.wood; await grid(page, 3, 9); await part(page, 'Wood'); await place(page);
   const after = await snapshot(page); expect(after.world.materials.wood).toBe(wood); expect(after.score).toBe(180); expect(after.evidence.completions).toHaveLength(6);
   await page.getByRole('button', { name: 'Return to world view', exact: true }).click(); await page.screenshot({ path: testInfo.outputPath(`${difficulty}-free-build.png`) });
 });
@@ -416,7 +440,7 @@ for (const [name, width, height] of [['wide',1280,900], ['short',568,320], ['pho
       return { canvas: rect(document.querySelector('.burrow-builders__world canvas')), hud: [...document.querySelectorAll(selectors)].filter(element => element.checkVisibility()).map(element => ({ kind: element.className || element.getAttribute('aria-label'), ...rect(element) })) };
     });
     expect(await page.locator('.burrow-builders__cue strong').innerText()).toBe(mission.instruction);
-    expect(await page.locator('.burrow-builders__message').innerText()).not.toMatch(/Hear|picture word|next sound/i);
+    expect(await page.locator('.burrow-builders__message:visible, .burrow-builders__reading-feedback:visible').innerText()).not.toMatch(/Hear|picture word|next sound/i);
     expect(state.world.camera).toBe(0);
     const markers = state.rendering.readingPlaces.map(place => ({ ...place, x: place.x + geometry.canvas.x, y: place.y + geometry.canvas.y }));
     for (const marker of markers) {
@@ -441,7 +465,7 @@ for (const [name, width, height] of [['wide',1280,900], ['short',568,320], ['pho
 });
 
 test('pause, hidden tab, pointer release and WebGL loss preserve construction and a functional accessible fallback', async ({ page }) => {
-  await open(page); await page.getByRole('button', { name: 'Place selected building piece', exact: true }).click();
+  await open(page); await place(page);
   const before = await snapshot(page); await page.getByRole('button', { name: 'Pause Burrow Builders', exact: true }).click();
   await expect.poll(async () => (await snapshot(page)).paused).toBe(true); await page.keyboard.down('ArrowDown'); await page.waitForTimeout(160); await page.keyboard.up('ArrowDown');
   expect((await snapshot(page)).world.player).toEqual(before.world.player); await page.getByRole('button', { name: 'Resume game', exact: true }).click();
@@ -451,7 +475,7 @@ test('pause, hidden tab, pointer release and WebGL loss preserve construction an
   await expect.poll(async () => (await snapshot(page)).paused).toBe(false);
   await page.locator('.burrow-builders__world canvas').evaluate(canvas => canvas.dispatchEvent(new Event('webglcontextlost')));
   await expect.poll(async () => (await snapshot(page)).rendering.renderer).toBe('canvas'); await expect(page.locator('canvas[data-renderer="authored-canvas"]')).toBeVisible(); expect((await snapshot(page)).fallback).toBe(true); await expect(page.locator('.burrow-builders__map')).toHaveCount(0);
-  await grid(page, 3, 8); await page.getByRole('button', { name: 'Place selected building piece', exact: true }).click(); expect((await snapshot(page)).world.blocks).toHaveLength(before.world.blocks.length + 1);
+  await grid(page, 3, 8); await place(page); expect((await snapshot(page)).world.blocks).toHaveLength(before.world.blocks.length + 1);
 });
 
 test('failed picture and audio remain uncued and supported, while failed local saves remain recoverable', async ({ page }) => {
@@ -487,17 +511,17 @@ for (const [name, width, height] of [['desktop', 1280, 900], ['tablet', 768, 102
 
 test('placement ghost agrees with water, stacked pieces and undo, survives resume and Canvas fallback', async ({ page }, testInfo) => {
   test.setTimeout(60000);
-  await open(page); await page.getByRole('button', { name: 'Enter free building now', exact: true }).click();
+  await open(page); await page.getByRole('button', { name: 'Free build', exact: true }).click();
   await grid(page, 5, 5); await part(page, 'Bridge');
   await page.getByRole('button', { name: 'Return to world view', exact: true }).click();
   await expect.poll(async () => (await snapshot(page)).rendering.placementPreview?.valid).toBe(true);
   const ready = await snapshot(page); expect(ready.rendering.placementPreview.y).toBe(0);
   await page.screenshot({ path: testInfo.outputPath('bridge-water-ghost.png') });
-  await page.getByRole('button', { name: 'Place selected building piece', exact: true }).click();
+  await place(page);
   await expect.poll(async () => (await snapshot(page)).world.blocks.length).toBe(ready.world.blocks.length + 1);
   await expect.poll(async () => (await snapshot(page)).rendering.placementPreview?.y).toBe(1);
-  await page.getByRole('button', { name: 'Choose building piece', exact: true }).click(); await page.getByRole('button', { name: 'Undo this edit', exact: true }).click();
-  await page.getByRole('button', { name: 'Bridge', exact: true }).click();
+  await undo(page);
+  await part(page, 'Bridge');
   expect((await snapshot(page)).world.blocks).toEqual(ready.world.blocks);
   await part(page, 'Roof');
   await expect.poll(async () => (await snapshot(page)).rendering.placementPreview?.valid).toBe(false);
@@ -506,7 +530,7 @@ test('placement ghost agrees with water, stacked pieces and undo, survives resum
   await expect.poll(async () => (await snapshot(page)).rendering.renderer).toBe('canvas');
   await expect.poll(async () => (await snapshot(page)).rendering.placementPreview?.valid).toBe(false);
   await page.screenshot({ path: testInfo.outputPath('canvas-blocked-roof-ghost.png') });
-  await part(page, 'Bridge'); await page.getByRole('button', { name: 'Place selected building piece', exact: true }).click();
+  await part(page, 'Bridge'); await place(page);
   const placed = await snapshot(page); expect(placed.evidence.firstResponses).toHaveLength(0);
   await page.reload(); await page.getByRole('button', { name: 'Continue', exact: true }).click();
   await expect.poll(async () => (await snapshot(page))?.world.blocks).toEqual(placed.world.blocks);
@@ -522,4 +546,155 @@ test('missing thumbnails retain named selectable pieces without broken image ico
   await page.screenshot({ path: testInfo.outputPath('missing-thumbnails.png') });
   await drawer.getByRole('button', { name: 'Bridge', exact: true }).click();
   expect((await snapshot(page)).world.selectedPart).toBe('bridge');
+});
+
+for (const [name, width, height] of [['phone', 320, 568], ['short', 568, 320], ['tablet', 1024, 768], ['portrait', 768, 1024], ['desktop', 1280, 900]]) {
+  test(`build-first opening keeps construction reachable and learning optional on ${name}`, async ({ page }, testInfo) => {
+    await page.setViewportSize({ width, height });
+    await open(page, 'easy', false, { build: true });
+    const initial = await snapshot(page);
+    expect(initial.freeBuilding).toBe(true);
+    expect(initial.evidence.firstResponses).toHaveLength(0);
+    await expect(page.locator('.burrow-builders__rack')).toHaveCount(0);
+    await expect(page.getByRole('button', { name: 'Word kits', exact: true })).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Choose building piece', exact: true })).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Use remove tool', exact: true })).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Undo this edit', exact: true })).toBeVisible();
+    const controls = await page.locator('.burrow-builders button:visible').evaluateAll(buttons => buttons.map(button => {
+      const r = button.getBoundingClientRect(), center = document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2);
+      return { name: button.getAttribute('aria-label') || button.textContent, width: r.width, height: r.height, x: r.x, y: r.y, right: r.right, bottom: r.bottom, reachable: button.contains(center) };
+    }));
+    for (const control of controls) {
+      expect(control.width, control.name).toBeGreaterThanOrEqual(56);
+      expect(control.height, control.name).toBeGreaterThanOrEqual(56);
+      expect(control.x, control.name).toBeGreaterThanOrEqual(0);
+      expect(control.y, control.name).toBeGreaterThanOrEqual(0);
+      expect(control.right, control.name).toBeLessThanOrEqual(width + 1);
+      expect(control.bottom, control.name).toBeLessThanOrEqual(height + 1);
+      expect(control.reachable, control.name).toBe(true);
+    }
+    await expect.poll(async () => (await snapshot(page)).rendering.authoredPal).toBe('delivered');
+    await page.screenshot({ path: testInfo.outputPath(`${name}-build-first.png`) });
+    await place(page);
+    const built = await snapshot(page);
+    expect(built.world.blocks.length).toBe(initial.world.blocks.length + 1);
+    expect(built.world.materials).toEqual(initial.world.materials);
+    expect(built.score).toBe(0);
+    expect(built.evidence).toEqual(initial.evidence);
+    await undo(page);
+    expect((await snapshot(page)).world.blocks).toEqual(initial.world.blocks);
+    await page.getByRole('button', { name: 'Word kits', exact: true }).click();
+    await expect(page.locator('.burrow-builders__rack')).toBeVisible();
+    expect((await snapshot(page)).freeBuilding).toBe(false);
+  });
+}
+
+test('piece and island drawers own input and Escape returns focus without editing the world', async ({ page }) => {
+  await open(page, 'easy', false, { build: true });
+  const initial = await snapshot(page);
+  for (const button of ['Choose building piece', 'Open island tools']) {
+    await page.getByRole('button', { name: button, exact: true }).click();
+    const dialog = page.locator('.burrow-builders [role=dialog]');
+    await expect(dialog).toBeVisible();
+    await dialog.locator('button:enabled').last().focus();
+    await page.keyboard.press('Tab');
+    await expect(dialog.locator('button:enabled').first()).toBeFocused();
+    await page.keyboard.press('Shift+Tab');
+    await expect(dialog.locator('button:enabled').last()).toBeFocused();
+    await page.keyboard.down('ArrowDown'); await page.waitForTimeout(120); await page.keyboard.up('ArrowDown');
+    await page.keyboard.press('e'); await page.keyboard.press('Backspace');
+    const protectedState = await snapshot(page);
+    expect(protectedState.world.player).toEqual(initial.world.player);
+    expect(protectedState.world.blocks).toEqual(initial.world.blocks);
+    expect(protectedState.evidence).toEqual(initial.evidence);
+    await page.keyboard.press('Escape');
+    await expect(dialog).toHaveCount(0);
+    await expect(page.locator('.burrow-builders')).toBeFocused();
+  }
+  await page.keyboard.press('ArrowDown');
+  const walked = await snapshot(page);
+  expect(walked.world.player.z).toBeGreaterThan(initial.world.player.z);
+  expect(walked.world.selection).toEqual({ x: 2, z: 6 });
+  await page.keyboard.press('e');
+  expect((await snapshot(page)).world.blocks).toContainEqual({ type: 'wood', x: 2, z: 6, y: 0, rotation: 0 });
+  expect((await snapshot(page)).evidence).toEqual(initial.evidence);
+});
+
+for (const renderer of ['webgl', 'canvas']) test(`direct ${renderer} taps build and remove with undo while drags and cancelled touches do not edit`, async ({ page }, testInfo) => {
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await open(page, 'easy', false, { build: true });
+  const canvas = page.locator('.burrow-builders__world canvas');
+  if (renderer === 'canvas') await canvas.evaluate(node => node.dispatchEvent(new Event('webglcontextlost')));
+  await testInfo.attach('initial-rendering', { body: JSON.stringify((await snapshot(page)).rendering, null, 2), contentType: 'application/json' });
+  await expect.poll(async () => (await snapshot(page)).rendering.renderer).toBe(renderer);
+  await expect.poll(async () => (await snapshot(page)).rendering.selectedCellScreen?.x).toBeGreaterThan(0);
+  const initial = await snapshot(page);
+  await page.getByRole('button', { name: 'Build with Stone', exact: true }).click();
+  expect((await snapshot(page)).world.selectedPart).toBe('stone');
+  const point = (await snapshot(page)).rendering.selectedCellScreen;
+  await canvas.click({ position: point });
+  await expect.poll(async () => (await snapshot(page)).world.blocks.length).toBe(initial.world.blocks.length + 1);
+  const built = await snapshot(page);
+  expect(built.world.blocks.at(-1).type).toBe('stone');
+  expect(built.world.materials).toEqual(initial.world.materials);
+  expect(built.evidence).toEqual(initial.evidence);
+  await page.screenshot({ path: testInfo.outputPath(`${renderer}-direct-build.png`) });
+  await undo(page);
+  expect((await snapshot(page)).world.blocks).toEqual(initial.world.blocks);
+  await page.getByRole('button', { name: 'Build with Wood', exact: true }).click();
+  await expect.poll(async () => (await snapshot(page)).rendering.placementPreview?.y).toBe(0);
+  await canvas.click({ position: (await snapshot(page)).rendering.selectedCellScreen });
+  await expect.poll(async () => (await snapshot(page)).world.blocks.length).toBe(initial.world.blocks.length + 1);
+  await page.getByRole('button', { name: 'Use remove tool', exact: true }).click();
+  await canvas.click({ position: (await snapshot(page)).rendering.selectedCellScreen });
+  await expect.poll(async () => (await snapshot(page)).world.blocks.length).toBe(initial.world.blocks.length);
+  await undo(page);
+  expect((await snapshot(page)).world.blocks.length).toBe(initial.world.blocks.length + 1);
+  await page.getByRole('button', { name: 'Use build tool', exact: true }).click();
+  const protectedState = await snapshot(page), frame = await canvas.boundingBox(), target = protectedState.rendering.selectedCellScreen;
+  const x = frame.x + target.x, y = frame.y + target.y;
+  await page.mouse.move(x, y); await page.mouse.down(); await page.mouse.move(x + 35, y + 20, { steps: 3 }); await page.mouse.up();
+  expect((await snapshot(page)).world.blocks).toEqual(protectedState.world.blocks);
+  const client = await page.context().newCDPSession(page);
+  await client.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x, y }] });
+  await client.send('Input.dispatchTouchEvent', { type: 'touchCancel', touchPoints: [] });
+  expect((await snapshot(page)).world.blocks).toEqual(protectedState.world.blocks);
+  // A real touch then uses the same rule as mouse, without a separate Place tap.
+  await client.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x, y }] });
+  await client.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+  await expect.poll(async () => (await snapshot(page)).world.blocks.length).toBe(protectedState.world.blocks.length + 1);
+  const saved = await snapshot(page);
+  expect(saved.score).toBe(0); expect(saved.evidence.firstResponses).toHaveLength(0);
+  await page.reload(); await page.getByRole('button', { name: 'Continue', exact: true }).click();
+  await expect.poll(async () => (await snapshot(page))?.world.blocks).toEqual(saved.world.blocks);
+  expect((await snapshot(page)).freeBuilding).toBe(true);
+});
+
+test('choosing a kit leaves Remove mode and a failed drawer save keeps recovery reachable', async ({ page }) => {
+  await open(page, 'easy', false, { build: true });
+  await page.getByRole('button', { name: 'Use remove tool', exact: true }).click();
+  await islands(page);
+  await page.getByRole('dialog', { name: 'Islands and blueprints', exact: true }).getByRole('button', { name: /Kit 2/ }).click();
+  expect((await snapshot(page)).cursor).toBe(1);
+  expect((await snapshot(page)).freeBuilding).toBe(false);
+  await expect(page.getByRole('button', { name: 'Use build tool', exact: true })).toHaveAttribute('aria-pressed', 'true');
+  expect((await snapshot(page)).evidence.firstResponses).toHaveLength(0);
+  await page.getByRole('button', { name: 'Free build', exact: true }).click();
+  await page.getByRole('button', { name: 'Choose building piece', exact: true }).click();
+  await page.evaluate(() => {
+    window.__burrowOriginalSet = Storage.prototype.setItem;
+    Storage.prototype.setItem = function(key, value) {
+      if (key.startsWith('literacy-guide-learn-games:')) throw new Error('quota');
+      return window.__burrowOriginalSet.call(this, key, value);
+    };
+  });
+  await page.getByRole('dialog', { name: 'Building pieces', exact: true }).getByRole('button', { name: 'Stone', exact: true }).click();
+  await expect(page.locator('.burrow-builders [role=dialog]')).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'Try saving again', exact: true })).toBeVisible();
+  expect((await snapshot(page)).saveError).toBe(true);
+  await page.evaluate(() => { Storage.prototype.setItem = window.__burrowOriginalSet; });
+  await page.getByRole('button', { name: 'Try saving again', exact: true }).click();
+  await expect.poll(async () => (await snapshot(page)).saveError).toBe(false);
+  expect((await snapshot(page)).world.selectedPart).toBe('stone');
+  expect((await snapshot(page)).evidence.firstResponses).toHaveLength(0);
 });

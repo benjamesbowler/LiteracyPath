@@ -1,7 +1,5 @@
 # Burrow Builders implementation
 
-Status: implemented and locally verified at the retained source revision below;
-shared release verification remains with the parent workstream.
 Content version: `BURROW_BUILDERS_CONTENT_VERSION` in `src/data/arcadeContentVersions.js`.
 
 ## Play and learning
@@ -28,13 +26,16 @@ sit near the island edges, but retain their original gathered-receipt keys so
 previously collected materials cannot respawn after this presentation change.
 Dams must reach the low stream bed; an elevated barrier cannot drain water below.
 
-Free Build is selectable immediately. Ordinary materials are unlimited there,
-while the unfinished learning blueprint, accepted units, choice order and
-response evidence remain intact. Returning to that blueprint resumes its next
-sound. The editable island has a finite capacity of 180 placed pieces, five
-placement levels and sixteen undo entries. Each of the three selectable islands
-has its own retained structure and supplies. Starting a fresh learning outing
-carries validated worlds forward without copying answers or credit.
+New sessions open in Free Build. Pick a pictured piece and tap the island to
+place it, or choose Remove and tap to lift it. Undo reverses the last edit.
+Wood, Stone and Bridge are one-tap choices, with all pieces available from
+the Pieces drawer. Ordinary materials are unlimited in both modes. Word kits
+are optional, and switching modes preserves the unfinished blueprint, accepted
+units, choice order and response evidence. Existing sessions retain their mode.
+The editable island holds up to 180 placed pieces across five placement levels,
+with sixteen undo entries. Each island saves its structures and supplies
+independently. A fresh learning outing carries the worlds forward and starts
+new learning evidence.
 
 Each outing has six blueprints. Easy encodes the CVC building nouns `hut`,
 `log`, `box`, `pot`, `mat` and `bed`; medium encodes `shed`, `shop`, `rock`,
@@ -45,9 +46,11 @@ units remain visible on the physical foundation rail. Two incorrect literacy
 attempts reveal only the shared partial spelling hint. The construction menu
 calls its bed piece a "Sleep spot" so it cannot reveal the easy spelling cue.
 
-The final correct unit automatically crafts a useful construction kit. A
-completed shelter contains a roof-protected bed; a crossing changes the stream's
-traversability. Hard uses six literal spatial reading instructions and three
+The final correct unit automatically crafts a construction kit. A completed
+shelter contains a roof-protected bed, and a crossing makes the stream
+traversable. A kit installs as one undoable edit and leaves existing builds
+intact. If no suitable space remains, the word still counts and the game says
+that the build needs room. Hard uses six literal spatial reading instructions and three
 equally styled, numbered construction places. The printed instruction is
 legitimate reading material. An unmarked placement is a motor action, not an
 incorrect reading response. The camera remains fixed for those instructions so
@@ -86,10 +89,11 @@ The shared Pal art API supplies the canonical character's directional animation.
 The builder carries an actual selected piece attached to its hand socket. The
 camera follows the builder during ordinary construction and remains fixed for
 literal spatial reading. The world fills the viewport behind floating blue/white
-picture/audio, island and construction controls. The opening asks one short
-action, "Listen. Pick each sound.", with a compact kit counter. Redundant initial
-feedback and material/shelter/island status are omitted; real wrong, correct,
-recovery and save feedback remains visible. Texture load failure retains
+picture/audio, island and construction controls. The opening asks the child to
+tap the island to build, with the current piece and island piece count visible.
+Word kits show their own instruction and kit progress. Construction feedback,
+learning responses and recovery messages appear when they are relevant.
+Texture load failure retains
 material fallbacks and the same saved construction; diagnostics expose actual
 texture and Pal-art delivery separately from learning cue delivery.
 
@@ -100,23 +104,24 @@ terrain and shelter, an inhabited worksite and flowing water. The retained
 verification below exercises the complete rebuilt game; generated assets alone
 do not establish that result.
 
-Use arrows or WASD to walk, E/Space to place, Backspace to pick up and Q to
-turn a piece. Held touch controls support the same walking actions and release
+Use arrows or WASD to walk and aim at the next cell in Free Build, E/Space to
+place, Backspace to pick up and Q to turn a piece. Held touch controls support
+the same walking actions and release
 on pointer-up, cancellation, lost capture, blur, pause and page hiding. Camera
 changes preserve screen-relative movement and billboard the visible glyphs.
-Native workbench actions perform the same construction/learning action as
-selecting the physical world brick.
+Native workbench actions perform the same construction and learning action as
+tapping the physical world brick. Both renderers require a complete tap on
+the playfield. Dragging, a cancelled touch, or releasing a touch that began
+on another control leaves the world intact.
 
-The overhead build view provides named cells and independent row/column
-selectors. Primary actions and exposed native cell targets retain the 56px
-floor and spacing. Roomy tablet motor controls are 72px or larger. On small
-screens secondary rotation, undo and camera tools remain in the piece drawer.
-There is one visible Pieces button on every viewport. Choosing a part closes
-the drawer and returns the child to the island. Rotate, undo, camera tools and
-material counts remain available there; islands and unfinished blueprints retain
-their own drawer. Essential
-walking, audio, response, Place and Pick up controls retain their native target
-sizes.
+The overhead build view provides named cells and independent row and column
+selectors. It uses explicit Place and Pick up buttons so a map tap can select
+a cell without editing it. Primary actions and exposed native cell targets
+retain the 56px floor and spacing. Roomy tablet motor controls are 72px or
+larger. Undo stays visible. The Island tools drawer contains the map, camera,
+rotation and island selector. Dialogs clear held movement and restore focus
+on close. Essential walking, audio and response controls retain their native
+target sizes.
 GPU failure, context loss, or the shared frame budget reaching its final 2D tier switches to an authored isometric Canvas renderer in `burrowBuildersCanvasWorld.js`. It projects the same bounded terrain, every saved piece and growth/flow/shelter effect, supplies, cottage, original tree/horizon art and shared directional Pal. Tight cached object layers are composed into two depth banks around the character, preserving occlusion as the guide walks behind real structures. The banks repaint only after an edit/growth beat or a crossed object-depth boundary; steady play submits a handful of image layers while retaining every editable piece. Reading-place labels remain in front of canopies at their truthful world positions. Physical grapheme and cell hit regions call the existing controller; the named overhead construction view remains optional. Walking, curriculum, learning evidence, undo and saves retain their existing ownership. Reduced motion removes rain and decorative
 character motion, retaining the same action and feedback rules.
 
