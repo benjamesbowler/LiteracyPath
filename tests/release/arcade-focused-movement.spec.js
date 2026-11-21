@@ -22,6 +22,9 @@ for (const game of games) test(`${game.id}: focused pad, arrows, brief taps and 
   await page.goto(`/preview/game-overlay.html?game=${game.id}&sound=0&music=0`);
   const world=page.locator(game.selector);
   await expect(world).toBeVisible({timeout:20000});
+  if (game.id === 'star-gallery') {
+    await expect(page.getByText('Getting your grove ready…', { exact: true })).toBeHidden({ timeout: 30000 });
+  }
   const read=()=>world.evaluate(game.read);
   const left=page.locator(game.control);
   await expect(left).toBeEnabled({ timeout: 30000 });
