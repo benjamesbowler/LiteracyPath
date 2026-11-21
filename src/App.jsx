@@ -1,4 +1,3 @@
-import { APP_READING_LEVELS, getPublicBookMetadata } from "./utils/guidedReading/bookLevelMetadata.js";
 import { preparedClassCode } from "./policy/preparedClassEntry.js";
 import { assessmentBankWarmupAllowed } from "./policy/assessmentWarmup.js";
 import ProgressSyncNotice from "./components/ProgressSyncNotice.jsx";
@@ -2451,6 +2450,10 @@ export default function App() {
 
   async function exportReadingReport() {
     try {
+      const [booksModule, { APP_READING_LEVELS, getPublicBookMetadata }] = await Promise.all([
+        loadGuidedReadingBooksModule(),
+        importWithRetry(() => import("./utils/guidedReading/bookLevelMetadata.js"))
+      ]);
       const {
         formatGuidedReadingType,
         getGuidedReadingProgress,
@@ -2458,7 +2461,7 @@ export default function App() {
         getGuidedReadingWordStatusRows,
         summarizeGuidedReadingProgress,
         summarizeGuidedReadingRecords
-      } = await loadGuidedReadingBooksModule();
+      } = booksModule;
       const workbook = await createExcelWorkbook();
       const savedProgress = summarizeGuidedReadingProgress(guidedReadingRecords);
       const knownIds = new Set(savedProgress.rows.map(row => row.bookId));

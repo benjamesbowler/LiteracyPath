@@ -4,7 +4,6 @@ import { createRoot } from 'react-dom/client'
 import './styles/fonts.js'
 import './index.css'
 import App from './App.jsx'
-import { ParentApp } from './components/family/ParentApp.jsx'
 import './features/soundkeys/home.css'
 // Imported AFTER App so these rules land last in the cascade: the child-facing
 // wide-layout + vibrant reskin layer always wins.
@@ -61,6 +60,9 @@ window.addEventListener('vite:preloadError', event => {
 })
 
 const rootPath = window.location.pathname.replace(/\/$/, '').replace(/^(\/(?:parent|soundkeys))\.html$/, '$1')
+const LazyParentApp = lazyWithRetry(() => import('./components/family/ParentApp.jsx').then(module => ({
+  default: module.ParentApp
+})))
 const LazySoundKeysApp = lazyWithRetry(() => import('./features/soundkeys/SoundKeysApp.jsx').then(module => ({
   default: module.SoundKeysApp
 })))
@@ -71,16 +73,14 @@ function SoundKeysLoadingFallback() {
   </main>
 }
 
-const Root = rootPath === '/parent'
-    ? ParentApp
-    : App
-
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ErrorBoundary logLabel="App root crashed" fallback={<AppCrashFallback />}>
       {rootPath === '/soundkeys'
         ? <Suspense fallback={<SoundKeysLoadingFallback />}><LazySoundKeysApp /></Suspense>
-        : <Root />}
+        : rootPath === '/parent'
+          ? <Suspense fallback={<main aria-busy="true" role="status">Loading family access…</main>}><LazyParentApp /></Suspense>
+          : <App />}
     </ErrorBoundary>
   </StrictMode>,
 )

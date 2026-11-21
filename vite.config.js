@@ -21,6 +21,62 @@ const appReleaseId = (
   || 'local-unversioned'
 ).slice(0, 120)
 
+// These small modules are already shared by the sign-in shells. Grouping
+// them avoids a request for each policy and keeps their dependencies separate.
+const shellSupportModules = new Set([
+  'accessibility/learnerAccessibility.js',
+  'appState/appRuntimeServices.js',
+  'appState/appViewHelpers.js',
+  'components/AuthPage.jsx',
+  'components/RouteLoadingFallback.jsx',
+  'components/SchoolNameInput.jsx',
+  'components/SymbolPasswordPad.jsx',
+  'components/reports/LearningEvidenceProfile.jsx',
+  'components/teacher/sessions/TeacherSessionFrame.jsx',
+  'components/teacher/teacherCycleReference.js',
+  'components/teacher/ui/TeacherDialog.jsx',
+  'copy/childCopy.js',
+  'copy/teacherCopy.js',
+  'data/arcadeContentVersions.js',
+  'data/creatureParts.js',
+  'data/deletedMediaManifest.js',
+  'data/elDecodingMicrophases.js',
+  'data/readingSessionCore.js',
+  'data/skillTemplateRouting.js',
+  'data/studentFocusSessionCore.js',
+  'data/symbolPasswordIcons.js',
+  'policy/childTrailPolicy.js',
+  'policy/cyclePracticePolicy.js',
+  'policy/elPlacementPolicy.js',
+  'policy/guidedReadingApprovalPolicy.js',
+  'policy/learningPolicy.js',
+  'policy/learningResponsePolicy.js',
+  'policy/letterPractice.js',
+  'policy/literacyMockVersions.js',
+  'policy/outcomeIndependence.js',
+  'policy/progressTestPolicy.js',
+  'policy/studentFocusAssignments.js',
+  'questionRepeatGuards.js',
+  'utils/adventureMapProgress.js',
+  'utils/adventureStationIds.js',
+  'utils/audio/cuePlayer.js',
+  'utils/audio/gameMusic.js',
+  'utils/audio/gameSfx.js',
+  'utils/audio/phonicsPlayback.js',
+  'utils/csvCell.js',
+  'utils/guidedReading/editions.js',
+  'utils/lazyWithRetry.js',
+  'utils/learningEvidenceInsights.js',
+  'utils/learningResponseAdapters.js',
+  'utils/learningResponseState.js',
+  'utils/letterPracticeProgress.js',
+  'utils/palWorlds.js',
+  'utils/practiceCompletionRecords.js',
+  'utils/repairedImageVersion.js',
+  'utils/teacherLaunchContext.js',
+  'utils/teacherSessionModel.js'
+])
+
 function bundleAnalysisPlugin() {
   return {
     name: 'literacy-path-bundle-analysis',
@@ -156,6 +212,20 @@ export default defineConfig({
       output: {
         codeSplitting: {
           groups: [
+            {
+              name: 'shell-support',
+              test: id => shellSupportModules.has(id.split('/src/').at(-1)),
+              priority: 1,
+              includeDependenciesRecursively: false
+            },
+            {
+              // Shared book metadata and edition helpers are also used by the
+              // shell. Keep them independent of the full reading catalogue.
+              name: 'guided-reading-runtime',
+              test: /\/src\/data\/guidedReadingBooks\.js$/,
+              priority: 1,
+              includeDependenciesRecursively: false
+            },
             {
               // Claim import-free metadata before catalogue groups capture
               // their dependencies. MAP must not download Guided Reading
@@ -352,9 +422,6 @@ export default defineConfig({
               }
               if (id.includes('/src/content/guidedReadingWorldFictionRewrites')) {
                 return 'guided-reading-world-fiction-rewrites'
-              }
-              if (id.includes('/src/data/guidedReadingBooks')) {
-                return 'guided-reading-runtime'
               }
               // Keep the large Guided Reading catalogues independently cacheable.
               // The runtime combines them for product behavior, but a child should

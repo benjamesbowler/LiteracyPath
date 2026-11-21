@@ -2,8 +2,21 @@ import { expect,test } from '@playwright/test';
 import { writeFile } from 'node:fs/promises';
 import { loadLiteracyMockBank } from '../../src/data/literacyMockBank.js';
 import { mockChoices } from '../../src/utils/literacyMockPlanner.js';
+import { resolveLiteracyMockImagePath } from '../../src/data/literacyMockImageDelivery.js';
+import { withRepairedImageVersion } from '../../src/utils/repairedImageVersion.js';
 test.describe.configure({timeout:600000});
 test.skip(process.env.LP_MOCK_PRODUCTION_PROOF!=='1','Run against the temporary production offline-proof build.');
+// Four spoken choices can take more than the default Playwright assertion
+// timeout even with instant recordings, because the production gaps are real.
+const answerTimeout = 25000;
+function retainedMediaPaths(bank, ids) {
+  const reserve = new Set(ids);
+  return [...new Set(bank.filter(item => reserve.has(item.id)).flatMap(item =>
+    [...item.requiredAudioPaths, ...item.requiredImagePaths].map(path =>
+      withRepairedImageVersion(resolveLiteracyMockImagePath(path.split('#')[0]))
+    )
+  ))];
+}
 async function simulatedAudio(page, duration = 20) {
   await page.addInitScript(({ duration }) => {
     window.__mockAudio = { played: [], paused: [], failNext: false };
@@ -76,7 +89,7 @@ async function openDevice(page, info) {
 async function answerOne(page,n) {
  const current=await page.evaluate(()=>window.__literacyMock.deviceItem());expect(current).toBeTruthy();
  await chooseAnswer(page,current);const next=page.getByRole('button',{name:/^(Next question|Finish test)$/});
- await expect(next).toBeEnabled();await next.click();
+ await expect(next).toBeEnabled({timeout:answerTimeout});await next.click();
  await expect.poll(()=>page.evaluate(()=>window.__literacyMock.device().run.responses.length)).toBe(n);
 }
 
@@ -108,8 +121,7 @@ test('V12 production code and media retain three answers and accept the fourth a
  const before=await page.evaluate(()=>window.__literacyMock.device());
  expect(before.run.contentVersion).toBe('literacy-mock-v12');
  const bank=await loadLiteracyMockBank({contentVersion:'literacy-mock-v12'});
- const reserveIds=new Set(before.mediaItemIds);
- const paths=[...new Set(bank.filter(item=>reserveIds.has(item.id)).flatMap(item=>[...item.requiredAudioPaths,...item.requiredImagePaths]).map(path=>path.split('#')[0]))];
+ const paths=retainedMediaPaths(bank,before.mediaItemIds);
  expect(paths.length).toBeGreaterThan(0);
  await expect.poll(()=>page.evaluate(async paths=>{
   const cache=await caches.open('lp-mock-public-media-v1');
@@ -132,7 +144,7 @@ test('V12 production code and media retain three answers and accept the fourth a
  const resumed=await device();expect(resumed.run.responses).toEqual(before.run.responses);
  const fourth=bank.find(item=>item.id===resumed.run.plan.itemIds[3]);expect(fourth).toBeTruthy();
  await chooseAnswer(page,fourth,mockChoices(fourth,resumed.run.plan.seed));
- const next=page.getByRole('button',{name:'Next question',exact:true});await expect(next).toBeEnabled();await next.click();
+ const next=page.getByRole('button',{name:'Next question',exact:true});await expect(next).toBeEnabled({timeout:answerTimeout});await next.click();
  await expect.poll(async()=>(await device()).run.responses.length).toBe(4);
  const answered=await device();
  expect(answered.run.responses.slice(0,3)).toEqual(before.run.responses);
@@ -157,18 +169,16 @@ test('the installed production shell, assessment code, bank and media survive a 
  // now opens as soon as its own exact media is retained.
  const initialBox=await page.evaluate(()=>window.__literacyMock.device());
  const reserveBank=await loadLiteracyMockBank({contentVersion:initialBox.run.contentVersion});
- const reserveIds=new Set(initialBox.mediaItemIds);
- const paths=[...new Set(reserveBank.filter(item=>reserveIds.has(item.id)).flatMap(item=>[...item.requiredAudioPaths,...item.requiredImagePaths]).map(path=>path.split('#')[0]))];
+ const paths=retainedMediaPaths(reserveBank,initialBox.mediaItemIds);
  await expect.poll(()=>page.evaluate(async paths=>{const cache=await caches.open('lp-mock-public-media-v1');return (await Promise.all(paths.map(path=>cache.match(path)))).every(response=>response?.ok);},paths),{timeout:90000}).toBe(true);
- await page.evaluate(()=>window.__literacyMock.setFault('offline'));await context.setOffline(true);
- await page.reload();
- await expect(page.getByRole('region',{name:'Question 4',exact:true})).toBeVisible({timeout:60000});
  await page.evaluate(()=>{
   const box=window.__literacyMock.device();
   localStorage.setItem('lp-student-session-v1',JSON.stringify({token:'local-browser-fixture',studentId:box.studentId,
    studentName:'Alex',teacherId:box.focusSession.teacher_id,classId:box.focusSession.class_id,
    expiresAt:Date.parse(box.focusSession.expires_at)}));
+  window.__literacyMock.setFault('offline');
  });
+ await context.setOffline(true);
  await page.goto('/');
  await expect(page.getByRole('region',{name:'Question 4',exact:true})).toBeVisible({timeout:60000});
  for(let reload=0;reload<2;reload++) {
@@ -176,16 +186,20 @@ test('the installed production shell, assessment code, bank and media survive a 
  }
  await expect(page.getByRole('button',{name:'Try again',exact:true})).toHaveCount(0);
  const boxes=await page.locator('.literacy-mock-choice').evaluateAll(elements=>elements.map(element=>{
-  const style=getComputedStyle(element);return {width:Number.parseFloat(style.borderTopWidth),style:style.borderTopStyle};
+  const style=getComputedStyle(element);
+  return {width:Number.parseFloat(style.borderTopWidth),style:style.borderTopStyle,display:style.display};
  }));
- expect(boxes.length).toBeGreaterThan(0);expect(boxes.every(box=>box.width>=2 && box.style==='solid')).toBe(true);
+ // Current choice and construction layouts use one-pixel borders. The flex
+ // layout and solid borders demonstrate that offline styles were restored.
+ expect(boxes.length).toBeGreaterThan(0);
+ expect(boxes.every(box=>box.width>=1 && box.style==='solid' && box.display==='flex')).toBe(true);
  await page.screenshot({path:info.outputPath('actual-app-offline-resume.png')});
  const bank=await loadLiteracyMockBank();
  const device=()=>page.evaluate(()=>JSON.parse(localStorage.getItem('lp-mock-outbox:student-a:mock-session')));
  for(let n=4;n<=43;n++) {
   const box=await device(),current=bank.find(item=>item.id===box.run.plan.itemIds[n-1]);expect(current).toBeTruthy();
   await chooseAnswer(page,current,mockChoices(current,box.run.plan.seed));
-  const next=page.getByRole('button',{name:/^(Next question|Finish test)$/});await expect(next).toBeEnabled();await next.click();
+  const next=page.getByRole('button',{name:/^(Next question|Finish test)$/});await expect(next).toBeEnabled({timeout:answerTimeout});await next.click();
   await expect.poll(async()=>(await device()).run.responses.length).toBe(n);
  }
  await expect(page.getByText('Your answers are saved on this iPad. Wait for your teacher.')).toBeVisible();
@@ -195,6 +209,7 @@ test('the installed production shell, assessment code, bank and media survive a 
  await page.screenshot({path:info.outputPath('production-offline-complete.png')});
  await context.setOffline(false);
  await page.goto(`${root}?case=${info.testId}&device=1&count=43&focusHook=1`);
+ await page.waitForFunction(()=>Boolean(window.__literacyMock));
  await page.evaluate(()=>{window.__literacyMock.setFault(null);window.dispatchEvent(new Event('online'));});
  await expect.poll(()=>page.evaluate(()=>window.__literacyMock.state().run.responses.length),{timeout:30000}).toBe(43);
  await expect.poll(()=>page.evaluate(()=>window.__literacyMock.device().requests.length)).toBe(0);

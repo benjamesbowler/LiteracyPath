@@ -231,7 +231,8 @@ export function StudentEntryPage({ onStudent, onTeacher, onTry }) {
         </div>
         <ul className="lp-landing-world-grid">
           {WORLD_CARDS.map(world => (
-            <li key={world.id} className="lp-landing-world" style={{ backgroundImage: `url(${withRepairedImageVersion(world.panorama)})` }}>
+            <li key={world.id} className="lp-landing-world">
+              <img className="lp-landing-panorama" src={withRepairedImageVersion(world.panorama)} alt="" loading="lazy" decoding="async" />
               <span className="lp-landing-world-band">
                 <img src={withRepairedImageVersion(world.emblem)} alt="" loading="lazy" decoding="async" />
                 {world.band}
@@ -296,13 +297,14 @@ export function StudentEntryPage({ onStudent, onTeacher, onTry }) {
           </ul>
         </div>
         <div className="lp-landing-safe-art" aria-hidden="true">
-          <img src={withRepairedImageVersion("/images/pals/poses/dino-read.webp")} alt="" />
-          <img src={withRepairedImageVersion("/images/pals/poses/moonwood-celebrate.webp")} alt="" />
+          <img src={withRepairedImageVersion("/images/pals/poses/dino-read.webp")} alt="" loading="lazy" decoding="async" />
+          <img src={withRepairedImageVersion("/images/pals/poses/moonwood-celebrate.webp")} alt="" loading="lazy" decoding="async" />
         </div>
       </section>
 
       {/* ── Final call to action ──────────────────────────────────────── */}
       <section className="lp-landing-final" aria-labelledby="landing-final-title">
+        <img className="lp-landing-panorama" src={withRepairedImageVersion("/images/pals/moonwood-panorama.webp")} alt="" loading="lazy" decoding="async" />
         <h2 id="landing-final-title">Choose your space and start today.</h2>
         <p>One platform, with the right experience for every reader and teacher.</p>
         <div className="lp-landing-final-actions">

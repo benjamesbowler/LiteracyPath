@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   isReadingSessionCompatible,
-  readingSessionBook,
   resumePreviousTopicReadingSession,
   endReadingSession,
   getReadingSessionPresence,
@@ -128,10 +127,9 @@ export function useReadingSessionHost({ client, initialSession, students = [], o
   const [sessionState, setSessionState] = useState({ id: "", pageIndex: null, ended: false });
   const session = useMemo(() => initialSession?.id && sessionState.id === initialSession.id && sessionState.ended
     ? null
-    : initialSession && isReadingSessionCompatible(initialSession)
+    : initialSession && isReadingSessionCompatible(initialSession, initialSession.book)
       ? {
           ...initialSession,
-          book: initialSession.book || readingSessionBook(initialSession),
           page_index: sessionState.id === initialSession.id && sessionState.pageIndex !== null
             ? sessionState.pageIndex
             : initialSession.page_index
@@ -156,7 +154,7 @@ export function useReadingSessionHost({ client, initialSession, students = [], o
   useEffect(() => { marksRef.current = marksByStudent; }, [marksByStudent]);
 
   useEffect(() => {
-    if (!client || !initialSession?.id || !isReadingSessionCompatible(initialSession)) return undefined;
+    if (!client || !initialSession?.id || !isReadingSessionCompatible(initialSession, initialSession.book)) return undefined;
     turnQueueRef.current = createReadingSessionRetryQueue({
       ...readingQueueRecovery({ session: initialSession, kind: "pages" }),
       send: async ({ pageIndex }) => {

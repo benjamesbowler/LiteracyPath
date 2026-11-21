@@ -14,7 +14,7 @@ import {
 export function useReadingSessionFollower({
   client,
   token = "",
-  books = [],
+  loadBooks,
   enabled = true,
   contentVersion = READING_SESSION_CONTENT_VERSION
 }) {
@@ -27,6 +27,7 @@ export function useReadingSessionFollower({
   const stoppedRef = useRef(false);
   const pollingRef = useRef(false);
   const pollRef = useRef(null);
+  const pollGeneration = useRef(0);
   const warmedSessionRef = useRef("");
   const wakeLockRef = useRef(null);
 
@@ -45,6 +46,8 @@ export function useReadingSessionFollower({
 
   const poll = useCallback(async () => {
     if (stoppedRef.current || pollingRef.current || document.hidden || !enabled || !token) return;
+    const generation = pollGeneration.current;
+    const isCurrent = () => !stoppedRef.current && generation === pollGeneration.current;
     pollingRef.current = true;
     window.clearTimeout(timerRef.current);
     try {
@@ -57,11 +60,15 @@ export function useReadingSessionFollower({
       });
       if (data?.ok === false) throw new Error(data.error || "reading_session_poll_failed");
       const session = data?.session || null;
+      if (!isCurrent()) return;
+      const books = session ? await loadBooks() : [];
+      if (!isCurrent()) return;
       const resolved = resolveFollowerPage({ books, session, contentVersion });
       dispatch({ type: "session", session, ...resolved });
       if (session && resolved.contentOk && warmedSessionRef.current !== session.id) {
-        warmedSessionRef.current = session.id;
         const { readingSessionMediaUrls } = await import("../data/readingSession.js");
+        if (!isCurrent()) return;
+        warmedSessionRef.current = session.id;
         void warmQuestOfflineAssets(
           readingSessionMediaUrls(resolved.book, session.page_numbers),
           { chapterId: `reading-${session.id}` }
@@ -70,6 +77,7 @@ export function useReadingSessionFollower({
       }
       timerRef.current = window.setTimeout(() => void pollRef.current?.(), 1000);
     } catch {
+      if (!isCurrent()) return;
       const failureCount = stateRef.current.failureCount + 1;
       dispatch({ type: "failure" });
       timerRef.current = window.setTimeout(
@@ -78,10 +86,12 @@ export function useReadingSessionFollower({
       );
     } finally {
       pollingRef.current = false;
+      if (!stoppedRef.current && !isCurrent()) void pollRef.current?.();
     }
-  }, [books, client, contentVersion, enabled, requestWakeLock, token]);
+  }, [client, contentVersion, enabled, loadBooks, requestWakeLock, token]);
 
   useEffect(() => {
+    pollGeneration.current += 1;
     pollRef.current = poll;
   }, [poll]);
 

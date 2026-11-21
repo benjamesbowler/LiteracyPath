@@ -11,9 +11,8 @@ import { ErrorBoundary } from "./ErrorBoundary.jsx";
 import { SchoolNameInput } from "./SchoolNameInput.jsx";
 import { StudentEntryPage } from "./StudentEntryPage.jsx";
 import { TryModePage, TryModeEndPage } from "./TryModePage.jsx";
-import { SAMPLE_LIMIT_COPY, sampleBookIds } from "../policy/freeTierContent.js";
+import { SAMPLE_LIMIT_COPY } from "../policy/freeTierContent.js";
 import { can } from "../policy/entitlementPolicy.js";
-import { GUIDED_READING_BOOK_INDEX } from "../data/generated/guidedReadingBookIndex.generated.js";
 import { StudentLoginFlow } from "./StudentLoginFlow.jsx";
 import { RouteLoadingFallback as LazyPageFallback } from "./RouteLoadingFallback.jsx";
 import {
@@ -71,8 +70,8 @@ import { worldForScope } from "../utils/palWorlds.js";
 import { useReadingSessionFollower } from "../hooks/useReadingSessionFollower.js";
 import { useReadingSessionHost, pendingReadingChanges, recoverPreviousTopicReadingChanges } from "../hooks/useReadingSessionHost.js";
 import { useStudentFocusSessionHost } from "../hooks/useStudentFocusSessionHost.js";
-import { endReadingSession, resumeReadingSession, isPreviousTopicReadingSession } from "../data/readingSessionCore.js";
-import { lazyWithRetry } from "../utils/lazyWithRetry.js";
+import { endReadingSession, resumeReadingSession, isPreviousTopicReadingSession, loadReadingSessionBook } from "../data/readingSessionCore.js";
+import { importWithRetry, lazyWithRetry } from "../utils/lazyWithRetry.js";
 import { teacherCycleOptions } from "./teacher/teacherCycleReference.js";
 import { confirmTeacherCycle, readTeacherCycleState, resolveTeacherCycleContext } from "../utils/teacherCycleContext.js";
 import { STUDENT_FOCUS_TARGETS } from "../policy/studentFocusTargets.js";
@@ -290,7 +289,6 @@ export function AppSurface({ surface }) {
   const [readingRecoveryError, setReadingRecoveryError] = useState(false);
   const [readingRecoveryRetry, setReadingRecoveryRetry] = useState(0);
   const abandonedSessionCheckedForRef = useRef("");
-  const [readingFollowerBooks, setReadingFollowerBooks] = useState([]);
   const [adminConfirmError, setAdminConfirmError] = useState("");
   const [guidedReadingReviewState, setGuidedReadingReviewState] = useState({
     error: null,
@@ -366,20 +364,6 @@ export function AppSurface({ surface }) {
     ? "unavailable"
     : guidedReadingReviewState.status;
 
-  /**
-   * The sample entitlement's allowed book ids, or null when this session sees
-   * everything.
-   *
-   * Null rather than "the full set" on purpose: `filterToEntitlement` takes a
-   * full-content flag and returns the SAME ARRAY untouched, so no account that
-   * exists today travels a new code path because a sample plan was added for
-   * somebody else.
-   */
-  const sampleBookIdSet = useMemo(
-    () => (trySession ? sampleBookIds(GUIDED_READING_BOOK_INDEX) : null),
-    [trySession]
-  );
-
   const reviewGuidedReadingBook = useCallback(async review => {
     if (!isAdmin) return { ok: false, error: new Error("App admin access is required.") };
     const { saveGuidedReadingBookReview } = await import("../data/guidedReadingPublication.js");
@@ -400,19 +384,21 @@ export function AppSurface({ surface }) {
     return result;
   }, [isAdmin, teacherId]);
 
-  useEffect(() => {
-    if (sessionMode !== "student" || !studentSession?.token) return undefined;
-    let active = true;
-    import("../utils/guidedReading/runtimeBooks.js").then(module => {
-      if (active) {
-        setReadingFollowerBooks(filterPublishedGuidedReadingBooks(
-          module.getRuntimeGuidedReadingBooks(),
-          quarantinedReadingBookIds
-        ));
-      }
-    });
-    return () => { active = false; };
-  }, [quarantinedReadingBookIds, sessionMode, studentSession?.token]);
+  const loadReadingFollowerBooks = useMemo(() => {
+    let booksPromise;
+    return function loadBooks() {
+      booksPromise ??= importWithRetry(() => import("../utils/guidedReading/runtimeBooks.js"), {
+        reloadOnFailure: false,
+        notifyOnFailure: false
+      }).then(module => filterPublishedGuidedReadingBooks(
+        module.getRuntimeGuidedReadingBooks(), quarantinedReadingBookIds
+      )).catch(error => {
+        booksPromise = undefined;
+        throw error;
+      });
+      return booksPromise;
+    };
+  }, [quarantinedReadingBookIds]);
 
   function handleReadingSessionEnded(completed) {
     setActiveReadingSession(null);
@@ -429,8 +415,8 @@ export function AppSurface({ surface }) {
   const readingFollower = useReadingSessionFollower({
     client: isSupabaseConfigured ? supabase : null,
     token: studentSession?.token || "",
-    books: readingFollowerBooks,
-    enabled: sessionMode === "student" && readingFollowerBooks.length > 0
+    loadBooks: loadReadingFollowerBooks,
+    enabled: isSupabaseConfigured && sessionMode === "student" && quarantinedReadingBookIds !== null
   });
   const studentFocusHost = useStudentFocusSessionHost({
     client: isSupabaseConfigured ? supabase : null,
@@ -2112,7 +2098,7 @@ export function AppSurface({ surface }) {
             <StudentBooksPage
               key={`${studentId}:${isAssignedBook ? activeStudentFocus.id : "library"}`}
               quarantinedBookIds={quarantinedReadingBookIds}
-              allowedBookIds={sampleBookIdSet}
+              sampleAccess={Boolean(trySession)}
               sampleLimitCopy={trySession ? SAMPLE_LIMIT_COPY : null}
               studentName={studentName}
               progressScopeKey={childProgressScopeKey}
@@ -2689,14 +2675,16 @@ export function AppSurface({ surface }) {
         onResume={async () => {
           const session = abandonedReadingSession;
           if (!await selectTeacherClass(session.class_id)) throw new Error("The session's students could not be loaded.");
-          if (isPreviousTopicReadingSession(session) && pendingReadingChanges(session) > 0) {
-            await recoverPreviousTopicReadingChanges({ client: supabase, session });
+          const book = await loadReadingSessionBook(session);
+          if (isPreviousTopicReadingSession(session, book) && pendingReadingChanges(session) > 0) {
+            await recoverPreviousTopicReadingChanges({ client: supabase, session, book });
             setAbandonedReadingSession({ ...session });
           }
           const result = await resumeReadingSession({ client: supabase, sessionId: session.id, session });
           if (result?.ok !== true || result.session?.id !== session.id || result.session?.teacher_id !== teacherId || result.session?.class_id !== session.class_id) throw new Error("The reading session could not be resumed.");
+          const resumedBook = await loadReadingSessionBook(result.session);
           setAbandonedReadingSession(null);
-          setActiveReadingSession(result.session);
+          setActiveReadingSession({ ...result.session, book: resumedBook });
           setGuidedInitialBookId(guidedReadingContentId(session.book_id));
           goToTeacherIntent(APP_VIEWS.TEACHER_GUIDED_READING, { classId: session.class_id, learnerId: "", bookId: guidedReadingContentId(session.book_id), readingSession: session.id });
         }}

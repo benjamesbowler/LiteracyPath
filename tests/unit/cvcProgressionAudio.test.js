@@ -56,8 +56,10 @@ function audioHarness() {
     unload() { this.unloaded = true; this.stop(); }
     volume() { return 1; }
   }
-  const source = readFileSync(new URL("../../src/hooks/usePhonicsAudio.js", import.meta.url), "utf8")
-    .replace(/^import .*;\n/gm, "").replace(/export /g, "");
+  const source = ["../../src/utils/audio/phonicsPlayback.js", "../../src/hooks/usePhonicsAudio.js"]
+    .map(path => readFileSync(new URL(path, import.meta.url), "utf8")
+      .replace(/^import .*;\n/gm, "").replace(/export /g, ""))
+    .join("\n");
   // Evaluate the shipped imperative player with only its media/timer dependencies replaced.
   const api = new Function("Howl", "Howler", "AUDIO_PHONEME_PATHS", "setTimeout", "clearTimeout",
     `${source}\nreturn {playPhonicsAudio, stopPhonicsAudio, preloadPhonicsAudio};`)(
