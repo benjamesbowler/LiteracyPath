@@ -21,10 +21,10 @@ export const ARCADE_PREMIUM_PROFILES = Object.freeze({
     completionTitle: "Match complete", rewardLabel: "sound serves"
   }),
   "burrow-builders": Object.freeze({
-    completionPresentation: "engine", version: "1.0", mission: "Craft useful structures and build your own island.",
+    completionPresentation: "engine", version: "1.0", mission: "Choose a piece and tap the island to build.",
     objective: "Encode heard blueprint words and apply reading instructions; building artistry and motor placement are separate from literacy evidence.",
-    action: "Place the next sound part to craft a structure, then build with the blocks.",
-    controls: Object.freeze(["Arrows or WASD: move; E: place; Backspace: pick up; Q: rotate", "Touch: choose a large grid cell, then Place or Pick up; ordinary blocks are unlimited"]),
+    action: "Tap to build or remove. Open Word kits to spell a picture word or follow a reading plan and add a useful structure.",
+    controls: Object.freeze(["Arrows or WASD: move; E: place; Backspace: pick up; Q: rotate", "Touch: choose a pictured piece, then tap the island; Remove lifts a piece and Undo repairs your last edit. Word kits practise spelling and reading."]),
     retry: "Lift the mistaken piece and try again. Correct pieces and your island stay saved; two wrong attempts permit partial help.",
     completionTitle: "Island ready", rewardLabel: "blueprints built"
   }),

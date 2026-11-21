@@ -315,6 +315,7 @@ export function GamePlayer({
   useEffect(() => {
     const onKeyDown = event => {
       if (event.key !== "Tab") return;
+      if (!blockingDialogRef.current && event.target?.closest('[data-game-owned-dialog]')) return;
       const scope = blockingDialogRef.current || playerRef.current;
       if (!scope) return;
       const focusable = [...scope.querySelectorAll(
@@ -352,6 +353,8 @@ export function GamePlayer({
         return;
       }
       if (startLevel === null) return;
+      // A game-owned modal handles its own Escape without also opening Quit.
+      if (event.target?.closest('[data-game-owned-dialog]')) return;
       if (showTools) setShowTools(false);
       else if (showPause) setShowPause(false);
       else if (showGuide) setShowGuide(false);

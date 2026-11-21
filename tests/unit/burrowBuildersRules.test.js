@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { buildBurrowMissions, createBurrowWorld, walkingHeight, moveBurrowPlayer, placeBurrowPart, pickupBurrowPart,
-  undoBurrowEdit, installBurrowKit, newBurrowEvidence, commitBurrowResponse, terrainAt, MAX_BUILD_BLOCKS,
+  undoBurrowEdit, installBurrowKit, installBurrowKitResult, newBurrowEvidence, commitBurrowResponse, terrainAt, MAX_BUILD_BLOCKS,
   growBurrowGardens, burrowShelteredBeds, burrowWaterCells, effectiveBurrowTerrain } from '../../src/utils/burrowBuildersRules.js';
 
 for (const difficulty of ['easy', 'medium', 'hard']) test(`${difficulty} supplies six distinct fresh blueprints and stable choices`, () => {
@@ -178,4 +178,97 @@ test('literal spatial reading remains a textual construct when image and word au
   assert.equal(result.correct, true); assert.equal(result.evidence.firstResponses[0].construct, 'literal-spatial-reading-comprehension');
   assert.equal(result.evidence.firstResponses[0].independentPractice, true); assert.equal(result.evidence.firstResponses[0].stimulusDelivered, false);
   assert.deepEqual(result.evidence.firstResponses[0].supportReasons, []);
+});
+
+test('a real water foundation supports decoration and shelter, while open water still needs a crossing', () => {
+  const empty = createBurrowWorld();
+  for (const type of ['roof', 'window', 'garden', 'bed', 'gate']) {
+    assert.equal(placeBurrowPart(empty, { type, x: 5, z: 5, free: true }).changed, false);
+    const crossing = placeBurrowPart(empty, { type: 'bridge', x: 5, z: 5, free: true }).world;
+    const decoration = placeBurrowPart(crossing, { type, x: 5, z: 5, free: true });
+    assert.equal(decoration.changed, true, `${type} can be placed on the built crossing`);
+    assert.equal(decoration.block.y, 1);
+    assert.deepEqual(undoBurrowEdit(decoration.world).blocks, crossing.blocks);
+  }
+  let world = placeBurrowPart(empty, { type: 'bridge', x: 5, z: 5, free: true }).world;
+  world = placeBurrowPart(world, { type: 'bed', x: 5, z: 5, free: true }).world;
+  world = placeBurrowPart(world, { type: 'roof', x: 5, z: 5, free: true }).world;
+  assert.equal(burrowShelteredBeds(world).length, 1);
+});
+
+test('a completed shelter installs atomically and one undo restores the prior sculpture', () => {
+  const mission = buildBurrowMissions('easy', 70).find(item => item.part === 'roof');
+  const world = placeBurrowPart(createBurrowWorld(), { type: 'garden', x: 3, z: 5 }).world;
+  const before = structuredClone(world), result = installBurrowKitResult(world, mission);
+  assert.equal(result.changed, true);
+  assert.equal(result.world.blocks.length, world.blocks.length + 7);
+  assert.equal(result.world.undo.length, world.undo.length + 1);
+  assert.deepEqual(result.world.materials, world.materials);
+  assert.deepEqual(world, before, 'planning and installation do not mutate the prior world');
+  assert.deepEqual(result.world.blocks.slice(0, world.blocks.length), world.blocks);
+  const undone = undoBurrowEdit(result.world);
+  assert.deepEqual(undone.blocks, world.blocks);
+  assert.deepEqual(undone.materials, world.materials);
+  assert.deepEqual(undone.undo, world.undo);
+  assert.notEqual(walkingHeight(undone, Math.round(undone.player.x), Math.round(undone.player.z)), null);
+});
+
+test('bridge kits choose a complete nearby crossing without disturbing an occupied site', () => {
+  const mission = buildBurrowMissions('easy', 70).find(item => item.part === 'bridge');
+  const world = placeBurrowPart(createBurrowWorld(), { type: 'wood', x: 4, z: 5 }).world;
+  const result = installBurrowKitResult(world, mission);
+  assert.equal(result.changed, true);
+  assert.deepEqual(result.world.blocks[0], world.blocks[0]);
+  assert.ok(result.world.blocks.filter(block => block.type === 'bridge').every(block => block.z === 4));
+  assert.equal(result.world.blocks.filter(block => block.type === 'bridge').length, 3);
+  assert.notEqual(walkingHeight(result.world, 5, 4), null);
+  assert.deepEqual(undoBurrowEdit(result.world).blocks, world.blocks);
+});
+
+test('a nearly full island never gets a truncated kit or consumes undo history', () => {
+  const mission = buildBurrowMissions('easy', 70).find(item => item.part === 'roof');
+  let world = createBurrowWorld();
+  for (let layer = 0; layer < 5; layer++) for (let z = 0; z < 11; z++) for (let x = 0; x < 11; x++) {
+    if ((x === 1 || x === 2) && (z === 6 || z === 7)) continue;
+    if (world.blocks.length < MAX_BUILD_BLOCKS - 3) world = placeBurrowPart(world, { type: 'wood', x, z, free: true }).world;
+  }
+  assert.equal(world.blocks.length, MAX_BUILD_BLOCKS - 3);
+  assert.equal(world.blocks.some(block => (block.x === 1 || block.x === 2) && (block.z === 6 || block.z === 7)), false);
+  const before = structuredClone(world), result = installBurrowKitResult(world, mission);
+  assert.equal(result.changed, false);
+  assert.equal(result.world, world);
+  assert.match(result.reason, /Make room/);
+  assert.deepEqual(world, before);
+  assert.equal(installBurrowKit(world, mission), world, 'legacy callers retain the same atomic result');
+});
+
+for (const difficulty of ['easy', 'medium', 'hard']) test(`${difficulty} completes every kit with isolated literacy credit across fresh mission orders`, () => {
+  for (const seed of [0, 42, 991]) {
+    let world = createBurrowWorld('meadow', { starter: true }), evidence = newBurrowEvidence(), score = 0;
+    for (const mission of buildBurrowMissions(difficulty, seed)) {
+      const answers = mission.kind === 'reading' ? [mission.correct] : mission.chunks;
+      for (const [slot, answer] of answers.entries()) {
+        const result = commitBurrowResponse(evidence, mission, answer, slot, { delivery: 'delivered', pictureDelivery: 'delivered' });
+        assert.equal(result.correct, true);
+        evidence = result.evidence; score += result.awarded;
+        if (slot < answers.length - 1) assert.equal(result.awarded, 0);
+      }
+      const oldBlocks = [...world.blocks], oldMaterials = { ...world.materials };
+      const construction = mission.kind === 'reading'
+        ? placeBurrowPart(world, { type: mission.part, ...mission.correct, kit: true })
+        : installBurrowKitResult(world, mission);
+      assert.equal(construction.changed, true, `${difficulty} seed ${seed}: ${mission.id} builds a useful kit`);
+      world = construction.world;
+      assert.deepEqual(world.blocks.slice(0, oldBlocks.length), oldBlocks);
+      assert.deepEqual(world.materials, oldMaterials);
+      assert.notEqual(walkingHeight(world, Math.round(world.player.x), Math.round(world.player.z)), null);
+      const motorUndo = undoBurrowEdit(world);
+      assert.deepEqual(motorUndo.blocks, oldBlocks, 'one undo removes this kit without undoing earlier kits');
+      const repeated = commitBurrowResponse(evidence, mission, answers.at(-1), answers.length - 1, { delivery: 'delivered', pictureDelivery: 'delivered' });
+      assert.equal(repeated.awarded, 0, 'revisiting a kit cannot manufacture another completion');
+    }
+    assert.equal(score, 180);
+    assert.equal(evidence.completions.length, 6);
+    assert.equal(evidence.assistedRetries.length, 0);
+  }
 });

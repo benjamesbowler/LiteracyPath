@@ -1,3 +1,4 @@
+import { bindBurrowTap } from './burrowPointerInput.js';
 import { burrowPlacementPreview } from './burrowPresentation.js';
 import { createArcadeRenderGate } from '../shared/arcadeFramePolicy.js';
 import { effectiveBurrowTerrain, terrainAt, walkingHeight, burrowWaterCells, burrowShelteredBeds, BUILD_SUPPLY_PILES } from '../../../../utils/burrowBuildersRules.js';
@@ -8,9 +9,15 @@ import { drawPhysicalPalArt, physicalPalFrame, preloadPhysicalPalArt, physicalPa
 // pixels and hit regions; construction, clocks, curriculum and saves stay in
 // the existing controller. Tight cached object layers keep large sculptures
 // cheap while still allowing the moving guide to pass behind their real walls.
+export const BURROW_CAMERA_BEARING = Math.atan2(11, 12);
+export function burrowCameraTargetY(width, height, reading) {
+  if (!reading && height < 460 && width >= 360) return 3.45;
+  return width < 500 ? 1.4 : -.4;
+}
+
 export function createBurrowProjection(width, height, camera = 0, reading = false) {
   const aspect = width / height, span = height < 460 && width >= 360 ? 13 : aspect < .9 ? 14.8 / aspect : reading ? 11.6 : 11.4;
-  const angle = Math.atan2(11, 12) + camera * Math.PI / 2, lookY = !reading && height < 460 && width >= 360 ? 2.8 : width < 500 ? 1.4 : -.4;
+  const angle = BURROW_CAMERA_BEARING + camera * Math.PI / 2, lookY = burrowCameraTargetY(width, height, reading);
   const pitch = Math.atan2((reading ? 12 : 10) - lookY, Math.hypot(11, 12)), scale = height / span;
   const project = (x, y, z) => ({ x: width / 2 - (reading && height < 460 && width >= 500 ? 9 : 0) + (x * Math.cos(angle) - z * Math.sin(angle)) * scale,
     y: height / 2 - (reading && width < 500 ? 20 : 0) - ((y - lookY) * Math.cos(pitch) - (x * Math.sin(angle) + z * Math.cos(angle)) * Math.sin(pitch)) * scale });
@@ -148,7 +155,7 @@ export function createBurrowCanvasWorld(mount, { state, api, diagnostics, reduce
       hitRegions.push({ polygon: hull(vertices), cell: { x: block.x, z: block.z }, depth: p.depth(block.x - 5, block.z - 5) + block.y * .01 });
     }
     for (const [x, z] of [[8, 3], [8, 5], [0, 3], [10, 8]]) {
-      const data = foliage[theme.id], image = imageBank.get(`${theme.id}-foliage`), y = terrainAt(x, z, world.islandId)?.height || 0, q = project(x - 5, y, z - 5), treeHeight = (x === 10 ? 2.3 : 3.1) * p.scale, treeWidth = treeHeight * data.tree[2] / data.tree[3];
+      const data = foliage[theme.id], image = imageBank.get(`${theme.id}-foliage`), y = terrainAt(x, z, world.islandId)?.height || 0, q = project(x - 5, y, z - 5), treeHeight = (x === 10 ? 1.72 : 2.32) * p.scale, treeWidth = treeHeight * data.tree[2] / data.tree[3];
       add(`${key}:tree:${x}:${z}`, x - 5, z - 5, draw => { draw.fillStyle = '#35462b33'; draw.beginPath(); draw.ellipse(q.x, q.y, p.scale * .5, p.scale * .16, 0, 0, Math.PI * 2); draw.fill(); if (image) draw.drawImage(image, ...data.tree, q.x - treeWidth / 2, q.y - treeHeight, treeWidth, treeHeight); else { draw.fillStyle = theme.foliage; draw.beginPath(); draw.ellipse(q.x, q.y - treeHeight * .65, treeWidth / 2, treeHeight * .35, 0, 0, Math.PI * 2); draw.fill(); } }, { left: q.x - treeWidth / 2 - 3, top: q.y - treeHeight - 3, right: q.x + treeWidth / 2 + 3, bottom: q.y + p.scale * .18 }, used);
     }
     add(`${key}:cottage`, -4, -3, draw => {
@@ -186,10 +193,10 @@ export function createBurrowCanvasWorld(mount, { state, api, diagnostics, reduce
     for (const [id, layer] of sprites) if (!used.has(id)) { layer.canvas.width = layer.canvas.height = 0; sprites.delete(id); }
   }
   const select = event => {
-    if (api.current?.isPaused?.()) return; const rect = canvas.getBoundingClientRect(), point = { x: event.clientX - rect.left, y: event.clientY - rect.top };
-    for (const region of [...hitRegions].reverse()) if (inside(point, region.polygon)) { region.chunk ? api.current?.buildChunk(region.chunk) : api.current?.selectCell(region.cell); break; }
+    if (api.current?.isWorldInputBlocked?.()) return; const rect = canvas.getBoundingClientRect(), point = { x: event.clientX - rect.left, y: event.clientY - rect.top };
+    for (const region of [...hitRegions].reverse()) if (inside(point, region.polygon)) { region.chunk ? api.current?.buildChunk(region.chunk) : api.current?.activateCell(region.cell); break; }
   };
-  const observer = new ResizeObserver(resize); observer.observe(mount); resize(); canvas.addEventListener('pointerup', select);
+  const observer = new ResizeObserver(resize); observer.observe(mount); resize(); const unbindTap = bindBurrowTap(canvas, select, () => !api.current?.isWorldInputBlocked?.());
   preloadPhysicalPalArt(physicalThemeForDifficulty(state().difficulty).id, { actions: ['tools'] }).then(image => { if (alive) palLoaded = Boolean(image); });
   loadArt(state().difficulty).then(images => { if (!alive) { for (const image of images.values()) if (image) image.src = ''; return; } imageBank = images; assetLoads++; revision++; lastKey = ''; });
   const tick = time => {
@@ -229,10 +236,10 @@ export function createBurrowCanvasWorld(mount, { state, api, diagnostics, reduce
     for (const item of overlays) ctx.drawImage(item.sprite.canvas, item.sprite.x, item.sprite.y);
     const free = current.phase === 'creative' || current.freeBuilding, reading = current.difficulty === 'hard' && !free, mode = `${free}:${reading}`;
     if (!previewWorld || previewWorld.blocks !== world.blocks || previewWorld.materials !== world.materials || previewWorld.selection.x !== world.selection.x || previewWorld.selection.z !== world.selection.z || previewWorld.selectedPart !== world.selectedPart || previewWorld.rotation !== world.rotation || previewWorld.islandId !== world.islandId || Math.round(previewWorld.player.x) !== Math.round(world.player.x) || Math.round(previewWorld.player.z) !== Math.round(world.player.z) || previewMode !== mode) {
-      previewResult = burrowPlacementPreview(world, { free, reading }); previewWorld = world; previewMode = mode;
+      previewResult = burrowPlacementPreview(world, { free: true, reading }); previewWorld = world; previewMode = mode;
     }
     const selection = world.selection, sy = previewResult.y, outline = [[-.52, -.52], [.52, -.52], [.52, .52], [-.52, .52]].map(([dx, dz]) => p.project(selection.x - 5 + dx, sy + .07, selection.z - 5 + dz));
-    ctx.save(); ctx.globalAlpha = .64; part(ctx, p, imageBank, { ...selection, y: sy, type: world.selectedPart, rotation: previewResult.rotation }, currentTheme); ctx.restore();
+    if (!reading && api.current?.toolMode?.() !== 'remove') { ctx.save(); ctx.globalAlpha = .64; part(ctx, p, imageBank, { ...selection, y: sy, type: world.selectedPart, rotation: previewResult.rotation }, currentTheme); ctx.restore(); }
     polygon(ctx, outline); ctx.fillStyle = previewResult.valid === false ? '#e9c9e855' : '#fff0af55'; ctx.fill(); ctx.strokeStyle = '#fff9dc'; ctx.lineWidth = 5; ctx.stroke(); ctx.strokeStyle = '#203644'; ctx.lineWidth = 2; ctx.stroke();
     const angle = previewResult.rotation * Math.PI / 2, projectMarker = (x, z) => p.project(selection.x - 5 + x * Math.cos(angle) + z * Math.sin(angle), sy + .1, selection.z - 5 + z * Math.cos(angle) - x * Math.sin(angle));
     polygon(ctx, [[-.13, -.37], [.13, -.37], [0, -.57]].map(([x, z]) => projectMarker(x, z))); ctx.fillStyle = '#203644'; ctx.fill();
@@ -253,6 +260,8 @@ export function createBurrowCanvasWorld(mount, { state, api, diagnostics, reduce
       measured.artAssets = Object.fromEntries([...imageBank].map(([id, image]) => [id, image ? 'delivered' : 'unavailable'])); measured.decodedImages = [...imageBank.values()].filter(Boolean).length; measured.cachedLayers = sprites.size + 3; measured.cachedDepthBanks = 2; measured.cacheRebuilds = rebuilds; measured.assetLoads = assetLoads;
       const mission = api.current?.mission?.();
       measured.workbenchBricks = mission?.kind === 'spelling' && current.phase !== 'creative' && !current.freeBuilding ? mission.choices.map((chunk, index) => ({ chunk, ...p.project(-3.9 + index % 3 * .7, .88, 3.5 + Math.floor(index / 3) * .7), cursor: current.cursor })) : [];
+      const selectionHeight = Math.max(terrainAt(world.selection.x, world.selection.z)?.height || 0, ...world.blocks.filter(block => block.x === world.selection.x && block.z === world.selection.z).map(block => block.y + (['wood', 'stone', 'dam', 'gate'].includes(block.type) ? 1 : .2)));
+      measured.selectedCellScreen = p.project(world.selection.x - 5, selectionHeight + .06, world.selection.z - 5);
       measured.readingPlaces = mission?.kind === 'reading' && current.phase !== 'creative' && !current.freeBuilding ? mission.choices.map((cell, index) => ({ index: index + 1, cell: { ...cell }, ...p.project(cell.x - 5, Math.max(0, terrainAt(cell.x, cell.z)?.height || 0) + .45, cell.z - 5), radius: Math.max(12, p.scale * .24), diameter: Math.max(24, p.scale * .48), fontPx: Math.max(13, p.scale * .3), shape: 'circle', cursor: current.cursor })) : [];
       measured.renderMs.push(performance.now() - began); if (oldTime) measured.frameMs.push(time - oldTime); measured.renderMs = measured.renderMs.slice(-180); measured.frameMs = measured.frameMs.slice(-180);
       if (measured.frames > 180) { measured.steadyRenderMs.push(performance.now() - began); if (oldTime) measured.steadyFrameMs.push(time - oldTime); measured.steadyRenderMs = measured.steadyRenderMs.slice(-180); measured.steadyFrameMs = measured.steadyFrameMs.slice(-180); }
@@ -260,5 +269,5 @@ export function createBurrowCanvasWorld(mount, { state, api, diagnostics, reduce
     oldTime = api.current?.isPaused?.() ? 0 : time;
   };
   frame = requestAnimationFrame(tick);
-  return () => { alive = false; cancelAnimationFrame(frame); observer.disconnect(); canvas.removeEventListener('pointerup', select); canvas.width = canvas.height = behind.width = behind.height = front.width = front.height = 0; canvas.remove(); background?.canvas && (background.canvas.width = background.canvas.height = 0); for (const layer of sprites.values()) layer.canvas.width = layer.canvas.height = 0; sprites.clear(); for (const image of imageBank.values()) if (image) image.src = ''; imageBank.clear(); };
+  return () => { alive = false; cancelAnimationFrame(frame); observer.disconnect(); unbindTap(); canvas.width = canvas.height = behind.width = behind.height = front.width = front.height = 0; canvas.remove(); background?.canvas && (background.canvas.width = background.canvas.height = 0); for (const layer of sprites.values()) layer.canvas.width = layer.canvas.height = 0; sprites.clear(); for (const image of imageBank.values()) if (image) image.src = ''; imageBank.clear(); };
 }

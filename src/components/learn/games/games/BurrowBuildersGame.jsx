@@ -1,3 +1,4 @@
+import { bindBurrowTap, cancelBurrowTap } from './burrowPointerInput.js';
 import { burrowStructureChanged, burrowPlacementPreview, burrowThumbnailPath } from './burrowPresentation.js';
 import { withRepairedImageVersion } from '../../../../utils/repairedImageVersion.js';
 import { RALLY_PALS_WORLD_ART } from '../../../../data/generated/rallyPalsArt.generated.js';
@@ -8,9 +9,9 @@ import { Howler } from 'howler';
 import { playCorrectChime, playSoftBuzz, playPopSound, playTapSound, playWhoosh, playStarChime, playCelebrationFanfare, cancelGameSfx } from '../../../../utils/audio/gameSfx.js';
 import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
 import { partMesh, compactScenery } from './burrowPartMeshes.js';
-import { ArrowCounterClockwise, ArrowDown, ArrowLeft, ArrowRight, ArrowUp, Cube, Hand, Hammer, SpeakerHigh, Tree, ArrowsClockwise, GridFour, X } from '@phosphor-icons/react';
+import { ArrowCounterClockwise, ArrowDown, ArrowLeft, ArrowRight, ArrowUp, Cube, Hand, Hammer, SpeakerHigh, Tree, ArrowsClockwise, GridFour, BookOpen, X } from '@phosphor-icons/react';
 import { buildBurrowMissions, BURROW_BUILDERS_VERSION, BUILD_ISLANDS, BUILD_PARTS, BUILD_SUPPLY_PILES, createBurrowWorld, terrainAt, walkingHeight,
-  moveBurrowPlayer, placeBurrowPart, pickupBurrowPart, undoBurrowEdit, newBurrowEvidence, commitBurrowResponse, installBurrowKit } from '../../../../utils/burrowBuildersRules.js';
+  moveBurrowPlayer, placeBurrowPart, pickupBurrowPart, undoBurrowEdit, newBurrowEvidence, commitBurrowResponse, installBurrowKitResult } from '../../../../utils/burrowBuildersRules.js';
 import { effectiveBurrowTerrain, burrowShelteredBeds, growBurrowGardens, burrowWaterCells } from '../../../../utils/burrowBuildersRules.js';
 import { loadBurrowSession, loadBurrowSavedWorlds, saveBurrowSession } from '../../../../utils/burrowBuildersSession.js';
 import { phonicsTargetHint } from '../../../../utils/phonicsTargetPresentation.js';
@@ -19,9 +20,10 @@ import { loadThree, createRenderer, disposeObject, disposeRenderer, detectQualit
 import { createPalFigure, animatePalFigure, createWorldTree, createGraphemeTexture, createWoodMaterial } from '../shared/physicalArcadeWorld.js';
 import { physicalThemeForDifficulty } from '../shared/physicalArcadeThemes.js';
 import { createQuestFrameBudgetState, sampleQuestFrameBudget } from '../../../../utils/questPerformance.js';
-import { createBurrowCanvasWorld } from './burrowBuildersCanvasWorld.js';
+import { BURROW_CAMERA_BEARING, burrowCameraTargetY, createBurrowCanvasWorld } from './burrowBuildersCanvasWorld.js';
 import './BurrowBuildersGame.css';
 
+const QUICK_PARTS = Object.freeze(['wood', 'stone', 'bridge']);
 const PART_NAMES = { wood: 'Wood', stone: 'Stone', bridge: 'Bridge', roof: 'Roof', window: 'Window', garden: 'Garden', gate: 'Gate', bed: 'Sleep spot', channel: 'Channel', dam: 'Dam' };
 const BURROW_ART = '/game-assets/physical-arcade/burrow-builders';
 const BURROW_ART_PATHS = Object.fromEntries(['grass', 'plank', 'stone', 'soil', 'shingle'].map(id => [id, `${BURROW_ART}/materials/${id}-albedo-v1.webp`]));
@@ -67,7 +69,7 @@ function initialGame(missions, difficulty, seed, journeyIndex, scope, startLevel
   const cursor = Math.min(missions.length - 1, Math.max(0, startLevel));
   const retainedWorlds = loadBurrowSavedWorlds(scope, difficulty);
   return { version: BURROW_BUILDERS_VERSION, difficulty, seed, journeyIndex, cursor, phase: 'ready', islandId: BUILD_ISLANDS[journeyIndex % 3].id,
-    worlds: Object.fromEntries(BUILD_ISLANDS.map(island => [island.id, { ...(retainedWorlds?.[island.id] || createBurrowWorld(island.id, { starter: true })), ...(difficulty === 'hard' ? { selectedPart: missions[cursor].part, camera: 0 } : {}) }])), chunks: [], mistakes: 0, freeBuilding: false, supportReasons: resumed || cursor ? ['resume-without-support-history'] : [],
+    worlds: Object.fromEntries(BUILD_ISLANDS.map(island => [island.id, retainedWorlds?.[island.id] || createBurrowWorld(island.id, { starter: true })])), chunks: [], mistakes: 0, freeBuilding: true, supportReasons: resumed || cursor ? ['resume-without-support-history'] : [],
     delivery: 'pending', pictureDelivery: 'pending', score: 0, evidence: newBurrowEvidence(), saveError: false, message: '' };
 }
 
@@ -102,7 +104,7 @@ function BuildWorld({ stateRef, apiRef, diagnosticsRef, revision, fallback, onFa
   useEffect(() => {
     const mount = mountRef.current; if (!mount) return;
     if (fallback) return createBurrowCanvasWorld(mount, { state: () => stateRef.current, api: apiRef, diagnostics: diagnosticsRef, reducedMotion, loadArt: loadBurrowArt, foliage: BURROW_FOLIAGE });
-    let renderer, scene, camera, THREE, frame, observer, alive = true, worldGroup, actor, actorShadow, preview, rayTargets = [], labels = [], lastWorld = null, lastCue = '', gardenMeshes = [], bedMeshes = [], rain, reduced = reducedMotion, imageBank = new Map();
+    let renderer, scene, camera, THREE, frame, observer, unbindTap, alive = true, worldGroup, actor, actorShadow, preview, rayTargets = [], labels = [], lastWorld = null, lastCue = '', gardenMeshes = [], bedMeshes = [], rain, reduced = reducedMotion, imageBank = new Map();
     const gpuTextures = new Map();
     // Decoded source pixels and their GPU texture have engine lifetime. World
     // rebuilds own geometry/materials, but must not upload the same large atlas
@@ -300,8 +302,8 @@ function BuildWorld({ stateRef, apiRef, diagnosticsRef, revision, fallback, onFa
           const [left, top, width, height] = foliage.tree; texture.wrapS = texture.wrapT = THREE.ClampToEdgeWrapping;
           texture.repeat.set(width / foliage.size[0], height / foliage.size[1]); texture.offset.set(left / foliage.size[0], 1 - (top + height) / foliage.size[1]);
           tree = new THREE.Sprite(resources.get('authored-tree', () => new THREE.SpriteMaterial({ map: texture, alphaTest: .04, transparent: true, depthWrite: false, toneMapped: false })));
-          const treeHeight = x === 10 ? 2.3 : 3.1; tree.scale.set(treeHeight * width / height, treeHeight, 1); tree.center.set(.5, 0);
-        } else tree = createWorldTree(THREE, { world: theme.id, height: 2.3, variant: BUILD_ISLANDS.indexOf(island) });
+          const treeHeight = x === 10 ? 1.72 : 2.32; tree.scale.set(treeHeight * width / height, treeHeight, 1); tree.center.set(.5, 0);
+        } else tree = createWorldTree(THREE, { world: theme.id, height: 1.72, variant: BUILD_ISLANDS.indexOf(island) });
         tree.position.set(x - 5, terrainAt(x, z, world.islandId)?.height || 0, z - 5); worldGroup.add(tree);
         const shade = new THREE.Mesh(resources.get('tree-contact', () => new THREE.CircleGeometry(.65, 16)), resources.get('tree-contact-material', () => new THREE.MeshBasicMaterial({ color: '#34412d', transparent: true, opacity: .18, depthWrite: false })));
         shade.rotation.x = -Math.PI / 2; shade.position.set(x - 5, (terrainAt(x, z, world.islandId)?.height || 0) + .057, z - 5); worldGroup.add(shade);
@@ -364,12 +366,12 @@ function BuildWorld({ stateRef, apiRef, diagnosticsRef, revision, fallback, onFa
       renderer.setSize(width, height);
     };
     const select = event => {
-      if (!ray.value || apiRef.current?.isPaused?.()) return;
+      if (!ray.value || apiRef.current?.isWorldInputBlocked?.()) return;
       const rect = mount.getBoundingClientRect(); pointer.value.set((event.clientX - rect.left) / rect.width * 2 - 1, 1 - (event.clientY - rect.top) / rect.height * 2);
       ray.value.setFromCamera(pointer.value, camera);
       const intersection = ray.value.intersectObjects(rayTargets)[0], hit = intersection?.object;
       if (hit?.userData.chunk) apiRef.current?.buildChunk(hit.userData.chunk);
-      else { const cell = hit?.userData.cell || hit?.userData.cells?.[intersection.instanceId]; if (cell) apiRef.current?.selectCell(cell); }
+      else { const cell = hit?.userData.cell || hit?.userData.cells?.[intersection.instanceId]; if (cell) apiRef.current?.activateCell(cell); }
     };
     loadThree().then(async module => {
       if (!alive) return; THREE = module; imageBank = await loadBurrowArt(state().difficulty); if (!alive) { for (const image of imageBank.values()) if (image) image.src = ''; imageBank.clear(); return; }
@@ -387,7 +389,7 @@ function BuildWorld({ stateRef, apiRef, diagnosticsRef, revision, fallback, onFa
         const rim = new THREE.DirectionalLight('#c6e8ff', .8); rim.position.set(8, 6, -8); scene.add(rim);
         ray.value = new THREE.Raycaster(); pointer.value = new THREE.Vector2(); billboardNormal = new THREE.Vector3();
         observer = new ResizeObserver(resize); observer.observe(mount); resize();
-        renderer.domElement.addEventListener('pointerup', select);
+        unbindTap = bindBurrowTap(renderer.domElement, select, () => !apiRef.current?.isWorldInputBlocked?.());
         renderer.domElement.addEventListener('webglcontextlost', lost);
         makeWorld(state().worlds[state().islandId]);
         let previousFrame = 0,visualTime=0,cameraHeight=null;
@@ -414,16 +416,17 @@ function BuildWorld({ stateRef, apiRef, diagnosticsRef, revision, fallback, onFa
           actor.position.set(world.player.x - 5, height + .12, world.player.z - 5);
           actorShadow.position.set(world.player.x - 5, height + .035, world.player.z - 5); actorShadow.visible = !renderer.shadowMap.enabled;
           actor.rotation.y = actor.userData.authoredPal?.delivery === 'delivered' ? 0 : apiRef.current?.facing?.() || 0;
-          const angle = (world.camera % 4) * Math.PI / 2, distance = 12, viewAngle = Math.atan2(11, 12) + angle, facing = apiRef.current?.facing?.() || 0;
+          const angle = (world.camera % 4) * Math.PI / 2, distance = 12, viewAngle = BURROW_CAMERA_BEARING + angle, facing = apiRef.current?.facing?.() || 0;
           const relative = facing - viewAngle, side = Math.sin(relative), front = Math.cos(relative);
           actor.userData.artDirection = Math.abs(side) > Math.abs(front) ? side > 0 ? 'right' : 'left' : front > 0 ? 'front' : 'back';
           const previewReading = current.difficulty === 'hard' && current.phase !== 'creative' && !current.freeBuilding;
           const mode = `${current.phase === 'creative' || current.freeBuilding}:${previewReading}`;
           if (!previewWorld || previewWorld.blocks !== world.blocks || previewWorld.materials !== world.materials || previewWorld.selection.x !== world.selection.x || previewWorld.selection.z !== world.selection.z || previewWorld.selectedPart !== world.selectedPart || previewWorld.rotation !== world.rotation || previewWorld.islandId !== world.islandId || Math.round(previewWorld.player.x) !== Math.round(world.player.x) || Math.round(previewWorld.player.z) !== Math.round(world.player.z) || previewMode !== mode) {
-            previewResult = burrowPlacementPreview(world, { free: current.phase === 'creative' || current.freeBuilding, reading: previewReading }); previewWorld = world; previewMode = mode;
+            previewResult = burrowPlacementPreview(world, { free: true, reading: previewReading }); previewWorld = world; previewMode = mode;
           }
           preview.position.set(previewResult.x - 5, previewResult.y + .08, previewResult.z - 5);
           preview.material.color.set(previewResult.valid === false ? '#e9c9e8' : '#fff4ab');
+          preview.userData.ghost.visible = !previewReading && apiRef.current?.toolMode?.() !== 'remove';
           preview.userData.ghost.rotation.y = previewResult.rotation * Math.PI / 2;
           preview.userData.direction.rotation.y = previewResult.rotation * Math.PI / 2;
           preview.userData.blocked.visible = previewResult.valid === false;
@@ -437,7 +440,7 @@ function BuildWorld({ stateRef, apiRef, diagnosticsRef, revision, fallback, onFa
           const focusY=cameraHeight;
           camera.position.set(focusX + Math.sin(angle) * distance + Math.cos(angle) * 11, (reading ? 12 : 10) + focusY, focusZ + Math.cos(angle) * distance - Math.sin(angle) * 11);
           if (camera.userData.burrowReading !== reading) resize();
-          const lookY = !reading && mount.clientHeight < 460 && mount.clientWidth >= 360 ? 2.8 : mount.clientWidth < 500 ? 1.4 : -.4;
+          const lookY = burrowCameraTargetY(mount.clientWidth, mount.clientHeight, reading);
           camera.lookAt(focusX, lookY + focusY, focusZ); camera.getWorldDirection(billboardNormal).negate();
           animatePalFigure(actor, reduced ? 0 : visualTime, !apiRef.current?.isPaused?.() && apiRef.current?.moving?.(), { action: current.phase === 'celebrating' ? 'celebrate' : 'carry' });
           if (actor.userData.authoredPal?.delivery === 'delivered') for (const hand of Object.values(actor.userData.artHands || {})) { hand.position.applyQuaternion(camera.quaternion); hand.quaternion.copy(camera.quaternion); }
@@ -464,6 +467,10 @@ function BuildWorld({ stateRef, apiRef, diagnosticsRef, revision, fallback, onFa
               const point = sprite.getWorldPosition(new THREE.Vector3()).project(camera), unit = mount.clientHeight / (camera.top - camera.bottom), width = sprite.scale.x * actor.scale.x * unit, height = sprite.scale.y * actor.scale.y * unit;
               measurements.palBounds = { x: (point.x + 1) * mount.clientWidth / 2 - sprite.center.x * width, y: (1 - point.y) * mount.clientHeight / 2 - (1 - sprite.center.y) * height, width, height };
             }
+            const selectedTerrain = terrainAt(world.selection.x, world.selection.z);
+            const selectedHeight = Math.max(selectedTerrain?.height || 0, ...world.blocks.filter(block => block.x === world.selection.x && block.z === world.selection.z).map(block => block.y + (['wood', 'stone', 'dam', 'gate'].includes(block.type) ? 1 : .2)));
+            const selectedPoint = new THREE.Vector3(world.selection.x - 5, selectedHeight + .06, world.selection.z - 5).project(camera);
+            measurements.selectedCellScreen = { x: (selectedPoint.x + 1) * mount.clientWidth / 2, y: (1 - selectedPoint.y) * mount.clientHeight / 2 };
             measurements.artAssets = Object.fromEntries([...imageBank].map(([id, image]) => [id, image ? 'delivered' : 'unavailable']));
             measurements.workbenchBricks = labels.filter(label => label.userData.chunk).map(label => { const point = label.position.clone().project(camera); return { chunk: label.userData.chunk, x: (point.x + 1) * mount.clientWidth / 2, y: (1 - point.y) * mount.clientHeight / 2, cursor: current.cursor }; });
             measurements.readingPlaces = reading ? labels.filter(label => label.userData.cell).map((label, index) => {
@@ -498,12 +505,12 @@ function BuildWorld({ stateRef, apiRef, diagnosticsRef, revision, fallback, onFa
           }
           previousFrame = apiRef.current?.isPaused?.() ? 0 : time;
         }; frame = requestAnimationFrame(tick);
-      } catch { onFallback(true); }
+      } catch (error) { diagnosticsRef.current.fallbackReason = String(error?.message || error).slice(0, 240); onFallback(true); }
     });
     function lost() { apiRef.current?.releaseInput?.(); onFallback(true); }
     return () => {
       alive = false; cancelAnimationFrame(frame); observer?.disconnect();
-      renderer?.domElement?.removeEventListener('pointerup', select); renderer?.domElement?.removeEventListener('webglcontextlost', lost);
+      unbindTap?.(); renderer?.domElement?.removeEventListener('webglcontextlost', lost);
       if (scene) { detachAssetMaps(scene); disposeObject(scene); }
       for (const texture of gpuTextures.values()) texture.dispose(); gpuTextures.clear(); disposeRenderer(renderer, { forceContextLoss: true });
       for (const image of imageBank.values()) if (image) image.src = ''; imageBank.clear();
@@ -517,8 +524,10 @@ export default function BurrowBuildersGame({ difficulty = 'easy', sessionSeed = 
   const journeyIndex = journey?.index || 0;
   const missions = useMemo(() => buildBurrowMissions(difficulty, sessionSeed, journeyIndex), [difficulty, sessionSeed, journeyIndex]);
   const [game, setGame] = useState(() => initialGame(missions, difficulty, sessionSeed, journeyIndex, progressScopeKey, startLevel, resumedCheckpoint));
+  const editMode = game.editMode || 'build';
   const [paused, setPaused] = useState(false), [drawer, setDrawer] = useState(null), [fallback, setFallback] = useState(false), [imageFailed, setImageFailed] = useState(false), [buildView, setBuildView] = useState(false);
   const [reducedMotion] = useState(() => window.matchMedia?.('(prefers-reduced-motion: reduce)').matches || false);
+  const drawerRef = useRef(null), dialogRef = useRef(null);
   const stateRef = useRef(game), apiRef = useRef(null), rootRef = useRef(null), pictureRef = useRef(null), callbacks = useRef({}), fallbackRef = useRef(false), soundRef = useRef(isSoundEnabled);
   const diagnosticsRef = useRef({ frames: 0, drawCalls: 0, frameMs: [], renderMs: [], steadyFrameMs: [], steadyRenderMs: [] });
   useEffect(() => { callbacks.current = { onScoreUpdate, onProgressUpdate, onCheckpoint, onComplete, onResultReady, onSessionStart, onEngineReady, onRequestReplay, onRequestNextLevel }; },
@@ -535,18 +544,32 @@ export default function BurrowBuildersGame({ difficulty = 'easy', sessionSeed = 
       const effects = { place: playPopSound, pickup: playTapSound, recovery: playWhoosh, correct: playCorrectChime, retry: playSoftBuzz, kit: playStarChime, complete: playCelebrationFanfare };
       requestedSfx[kind] = Math.min(999, (requestedSfx[kind] || 0) + 1); effects[kind]?.();
     };
-    let generation = 0, simulationFrame, simulationLast = 0, growthElapsed = 0, growthSaveElapsed = 0, overhead = false;
+    let generation = 0, simulationFrame, simulationLast = 0, growthElapsed = 0, growthSaveElapsed = 0, growthDirty = false, overhead = false;
     const currentMission = () => missions[state.cursor], world = () => state.worlds[state.islandId];
     const isPaused = () => pauseRequested || hidden;
-    const publish = next => { state = next; stateRef.current = next; if (!disposed) setGame({ ...next }); };
+    let tool = 'build';
+    const isWorldInputBlocked = () => isPaused() || Boolean(drawerRef.current);
+    const publish = next => {
+      state = next; stateRef.current = next;
+      if (!disposed) {
+        setGame({ ...next });
+        if (next.saveError) {
+          drawerRef.current = null; setDrawer(null);
+          requestAnimationFrame(() => { if (!disposed) rootRef.current?.querySelector('.burrow-builders__save-error button')?.focus(); });
+        }
+      }
+    };
+    const setEditMode = value => publish({ ...state, editMode: value });
     const persist = () => {
       clearTimeout(saveTimer);
+      saveTimer = null;
       const saved = saveBurrowSession(progressScopeKey, difficulty, {
         version: BURROW_BUILDERS_VERSION, difficulty, seed: sessionSeed, journeyIndex, cursor: state.cursor, phase: state.phase,
         islandId: state.islandId, worlds: state.worlds, chunks: state.chunks, mistakes: state.mistakes, supportReasons: state.supportReasons,
         freeBuilding: Boolean(state.freeBuilding), delivery: state.delivery, score: state.score, evidence: state.evidence,
       });
-      if (!saved.localSaved) publish({ ...state, saveError: true, message: 'Your island is still here. Try saving again before leaving.' });
+      if (saved.localSaved) { growthDirty = false; growthSaveElapsed = 0; }
+      else publish({ ...state, saveError: true, message: 'Your island is still here. Try saving again before leaving.' });
       return saved.localSaved;
     };
     const checkpoint = () => { try { callbacks.current.onCheckpoint?.(state.cursor, missions.length); } catch { publish({ ...state, saveError: true }); } };
@@ -578,13 +601,13 @@ export default function BurrowBuildersGame({ difficulty = 'easy', sessionSeed = 
         publish({ ...state, phase: 'creative', freeBuilding: true, message: 'All six blueprints built! Free build: every ordinary piece is unlimited.' }); persist(); announceResult(); return;
       }
       const cursor = missions.findIndex(mission => !state.evidence.completions.includes(mission.roundId));
-      const nextWorld = difficulty === 'hard' ? { ...world(), selectedPart: missions[cursor].part, camera: 0 } : world();
+      const nextWorld = difficulty === 'hard' && !state.freeBuilding ? { ...world(), selectedPart: missions[cursor].part, camera: 0 } : world();
       publish({ ...state, cursor, phase: 'ready', chunks: [], worlds: { ...state.worlds, [state.islandId]: nextWorld }, mistakes: 0, supportReasons: [], delivery: 'pending', pictureDelivery: 'pending', message: state.freeBuilding ? 'Keep creating. Your next blueprint is kept for you.' : 'A fresh blueprint is ready. Your island stays just as you built it.' });
       setImageFailed(false); persist(); checkpoint(); replay();
     };
     const armAdvance = () => { advanceRemaining ||= 1050; advanceStarted = performance.now(); advanceTimer = setTimeout(advance, advanceRemaining); };
     const response = selected => {
-      if (disposed || isPaused() || state.phase !== 'ready' || state.freeBuilding || state.saveError) return;
+      if (disposed || isWorldInputBlocked() || state.phase !== 'ready' || state.freeBuilding || state.saveError) return;
       const mission = currentMission(), slot = mission.kind === 'spelling' ? state.chunks.length : 0;
       const result = commitBurrowResponse(state.evidence, mission, selected, slot, { delivery: state.delivery, pictureDelivery: state.pictureDelivery,
         supportReasons: state.supportReasons, modelUsed: Boolean(phonicsTargetHint(mission.word, state.mistakes)) });
@@ -593,20 +616,23 @@ export default function BurrowBuildersGame({ difficulty = 'easy', sessionSeed = 
         const selectedText = typeof selected === 'string' ? `The ${selected} block` : 'That place';
         publish({ ...state, mistakes: Math.min(999, state.mistakes + 1), evidence: result.evidence,
           supportReasons: [...new Set([...state.supportReasons, 'contrast-feedback', ...(mission.kind === 'spelling' && state.mistakes + 1 >= 2 ? ['partial-spelling-hint'] : [])])],
-          message: mission.kind === 'spelling' ? `${selectedText} does not fit this sound. Hear the word and repair this slot.` : 'That place does not match the instruction. Look at the pond, house or trees and try another place.' });
+          message: mission.kind === 'spelling' ? `${selectedText} does not fit this sound. Hear the word and repair this slot.` : 'That place does not fit. Check the landmark in the plan.' });
         persist(); if (mission.kind === 'reading') actionSfx('retry'); replay(); return;
       }
       const chunks = mission.kind === 'spelling' ? [...state.chunks, selected] : [];
-      const complete = result.evidence.completions.includes(mission.roundId), nextWorld = complete ? (mission.kind === 'reading'
-        ? placeBurrowPart({ ...world(), selection: selected }, { type: mission.part, kit: true }).world : installBurrowKit(world(), mission)) : world();
+      const complete = result.evidence.completions.includes(mission.roundId);
+      const construction = complete ? (mission.kind === 'reading'
+        ? placeBurrowPart({ ...world(), selection: selected }, { type: mission.part, kit: true }) : installBurrowKitResult(world(), mission)) : null;
+      const nextWorld = construction?.world || world();
       publish({ ...state, chunks, evidence: result.evidence, score: state.score + result.awarded, phase: complete ? 'celebrating' : 'ready',
-        worlds: { ...state.worlds, [state.islandId]: nextWorld }, message: complete ? 'Blueprint built! Your new piece is part of the island.' : 'That sound fits. Build the next sound.' });
+        worlds: { ...state.worlds, [state.islandId]: nextWorld }, message: complete ? construction.changed ? 'Kit complete! Look for your new build on the island.' : construction.reason || 'Kit complete! Make some space to keep building.' : 'That sound fits. Build the next sound.' });
       actionSfx(complete ? result.evidence.completions.length === missions.length ? 'complete' : 'kit' : 'correct');
       const saved = persist(); checkpoint(); callbacks.current.onScoreUpdate?.(state.score); callbacks.current.onProgressUpdate?.(state.evidence.completions.length, missions.length);
       if (complete && saved) armAdvance();
     };
     const chooseMission = cursor => {
       if (isPaused() || state.saveError || !Number.isInteger(cursor) || cursor < 0 || cursor >= missions.length || state.evidence.completions.includes(missions[cursor].roundId)) return;
+      tool = 'build'; setEditMode('build');
       // Revisiting an unfinished blueprint never resets incorrect first responses.
       const previous = [...state.evidence.firstResponses, ...state.evidence.assistedRetries].filter(row => row.roundId === missions[cursor].roundId);
       const retried = previous.length > 0, retainedChunks = [];
@@ -619,7 +645,7 @@ export default function BurrowBuildersGame({ difficulty = 'easy', sessionSeed = 
       publish({ ...state, cursor, phase: 'ready', freeBuilding: false, worlds: { ...state.worlds, [state.islandId]: nextWorld }, chunks: retainedChunks, mistakes: retainedMistakes, supportReasons: retried ? ['revisited-blueprint', ...(missions[cursor].kind === 'spelling' && retainedMistakes >= 2 ? ['partial-spelling-hint'] : [])] : [], delivery: 'pending', pictureDelivery: 'pending', message: missions[cursor].kind === 'reading' ? 'Read this plan. Choose the numbered place that fits.' : 'This blueprint is ready. Hear its picture word.' });
       setImageFailed(false); persist(); checkpoint(); replay(); setDrawer(null); rootRef.current?.focus();
     };
-    const releaseInput = () => { keys.clear(); moving = false; persist(); };
+    const releaseInput = () => { cancelBurrowTap(rootRef.current?.querySelector('canvas')); keys.clear(); moving = false; persist(); };
     const updatePause = () => {
       releaseInput(); setPaused(isPaused());
       if (isPaused()) { cancelGameSfx(); voice.pause(); if (advanceTimer) { clearTimeout(advanceTimer); advanceTimer = null; advanceRemaining = Math.max(1, advanceRemaining - (performance.now() - advanceStarted)); } }
@@ -627,54 +653,76 @@ export default function BurrowBuildersGame({ difficulty = 'easy', sessionSeed = 
     };
     const api = {
       pause() { pauseRequested = true; updatePause(); }, resume() { pauseRequested = false; updatePause(); const playArea = rootRef.current?.closest('.lg-game-player-main') || rootRef.current; if (!playArea?.contains(document.activeElement)) rootRef.current?.focus(); }, markSupported,
-      mission: currentMission, isPaused, moving: () => moving, facing: () => facing, releaseInput,
+      mission: currentMission, isPaused, isWorldInputBlocked, toolMode: () => tool, moving: () => moving, facing: () => facing, releaseInput,
       buildChunk: response,
+      tool(value) { if (!['build', 'remove'].includes(value) || isWorldInputBlocked()) return; tool = value; setEditMode(value); releaseInput(); rootRef.current?.focus(); },
+      activateCell(position) {
+        if (isWorldInputBlocked() || state.saveError || state.phase === 'celebrating' || !terrainAt(position.x, position.z, state.islandId)) return;
+        const reading = currentMission().kind === 'reading' && !state.freeBuilding && state.phase !== 'creative';
+        if (tool === 'remove' && !reading) api.pickup(position);
+        else api.place(position);
+      },
       selectCell(position) {
-        if (isPaused() || state.saveError || !terrainAt(position.x, position.z)) return;
+        if (isWorldInputBlocked() || state.saveError || !terrainAt(position.x, position.z)) return;
         updateWorld({ ...world(), selection: position }, currentMission().kind === 'reading' && state.phase === 'ready' && !state.freeBuilding ? 'Selected place. Read the plan, then place your piece.' : `Selected cell ${position.x + 1}, ${position.z + 1}. Place or pick up a piece.`);
       },
-      selectPart(type) { if (!BUILD_PARTS.includes(type) || isPaused()) return; updateWorld({ ...world(), selectedPart: type }, currentMission().kind === 'reading' && !state.freeBuilding ? 'Read the plan. Choose its numbered place.' : `${PART_NAMES[type]} selected. Choose a cell and place it.`); setDrawer(null); rootRef.current?.focus(); },
-      place() {
-        if (isPaused() || state.saveError) return;
+      selectPart(type) { if (!BUILD_PARTS.includes(type) || isPaused() || state.saveError) return; tool = 'build'; setEditMode('build'); updateWorld({ ...world(), selectedPart: type }, currentMission().kind === 'reading' && !state.freeBuilding ? 'Read the plan. Choose its numbered place.' : `${PART_NAMES[type]} ready. Tap the island to build.`); setDrawer(null); rootRef.current?.focus(); },
+      place(position = world().selection) {
+        if (isWorldInputBlocked() || state.saveError || state.phase === 'celebrating') return;
         if (state.phase === 'ready' && !state.freeBuilding && currentMission().kind === 'reading') {
-          if (!currentMission().choices.some(cell => cell.x === world().selection.x && cell.z === world().selection.z)) publish({ ...state, message: 'Choose one of the three numbered places for this blueprint.' });
-          else response(world().selection); return;
+          if (!currentMission().choices.some(cell => cell.x === position.x && cell.z === position.z)) publish({ ...state, message: 'Choose one of the three numbered places for this blueprint.' });
+          else response(position);
+          return;
         }
-        const result = placeBurrowPart(world(), { free: state.phase === 'creative' || state.freeBuilding }); if (result.changed) actionSfx('place'); updateWorld(result.world, result.changed ? result.gateOpened !== undefined ? `Gate ${result.gateOpened ? 'opened' : 'closed'}.` : world().selectedPart === 'dam' ? 'Dam built. It stops the shallow water.' : world().selectedPart === 'channel' ? 'Channel dug. Connect it to the stream to bring water here.' : `${PART_NAMES[world().selectedPart]} placed. You can change it any time.` : result.reason);
+        const result = placeBurrowPart({ ...world(), selection: position }, { free: true }); if (result.changed) actionSfx('place'); updateWorld(result.world, result.changed ? result.gateOpened !== undefined ? `Gate ${result.gateOpened ? 'opened' : 'closed'}.` : world().selectedPart === 'dam' ? 'Dam built. It stops the shallow water.' : world().selectedPart === 'channel' ? 'Channel dug. Connect it to the stream to bring water here.' : `${PART_NAMES[world().selectedPart]} placed. You can change it any time.` : result.reason);
       },
-      pickup() { if (isPaused() || state.saveError) return; const result = pickupBurrowPart(world()); if (result.changed) actionSfx('pickup'); updateWorld(result.world, result.changed ? result.gathered ? 'Supplies gathered. Keep building!' : 'Piece picked up. Its materials are back.' : result.reason); },
+      pickup(position = world().selection) { if (isWorldInputBlocked() || state.saveError) return; const result = pickupBurrowPart({ ...world(), selection: position }); if (result.changed) actionSfx('pickup'); updateWorld(result.world, result.changed ? result.gathered ? 'Supplies gathered. Keep building!' : 'Piece removed. Undo brings it back.' : result.reason); },
       undo() { if (!isPaused() && !state.saveError && world().undo.length) { actionSfx('recovery'); updateWorld(undoBurrowEdit(world()), 'Last edit undone. Your blueprint progress is safe.'); } },
-      rotate() { if (!isPaused()) updateWorld({ ...world(), rotation: (world().rotation + 1) % 4 }, 'Piece turned one quarter.'); },
-      camera() { if (!isPaused() && !(difficulty === 'hard' && state.phase !== 'creative' && !state.freeBuilding)) updateWorld({ ...world(), camera: (world().camera + 1) % 4 }, 'Island view turned.'); },
+      rotate() { if (!isPaused() && !state.saveError) updateWorld({ ...world(), rotation: (world().rotation + 1) % 4 }, 'Piece turned one quarter.'); },
+      camera() { if (!isPaused() && !state.saveError && !(difficulty === 'hard' && state.phase !== 'creative' && !state.freeBuilding)) updateWorld({ ...world(), camera: (world().camera + 1) % 4 }, 'Island view turned.'); },
       freeBuild() {
-        if (isPaused() || state.saveError || state.phase === 'creative') return;
+        if (isWorldInputBlocked() || state.saveError || state.phase === 'creative') return;
+        tool = 'build'; setEditMode('build');
         releaseInput(); generation++; teachingTicket = 0; voice.cancel(); cancelGameSfx();
         const freeBuilding = !state.freeBuilding, nextWorld = !freeBuilding && difficulty === 'hard' ? { ...world(), camera: 0, selectedPart: currentMission().part } : world();
         publish({ ...state, freeBuilding, worlds: { ...state.worlds, [state.islandId]: nextWorld }, message: freeBuilding ? 'Place a piece. Your blueprint is kept.' : currentMission().kind === 'reading' ? 'Your plan is kept. Read it and choose a numbered place.' : 'Your blueprint is kept. Carry on from the next sound.' });
         persist(); if (!freeBuilding) replay(); rootRef.current?.focus();
       },
       island(id) {
-        if (!BUILD_ISLANDS.some(item => item.id === id) || isPaused()) return;
+        if (!BUILD_ISLANDS.some(item => item.id === id) || isPaused() || state.saveError) return;
         releaseInput();
         const nextWorld = difficulty === 'hard' && state.phase !== 'creative' && !state.freeBuilding ? { ...state.worlds[id], selectedPart: currentMission().part, camera: 0 } : state.worlds[id];
         publish({ ...state, islandId: id, worlds: { ...state.worlds, [id]: nextWorld }, message: 'Your other island is ready. Every build is kept.' });
         persist(); setDrawer(null); rootRef.current?.focus();
       },
-      press(key) { if (isPaused()) return; keys.add(key); api.step(.08); }, release(key) { keys.delete(key); moving = Boolean(keys.size); persist(); },
+      press(key) { if (isWorldInputBlocked()) return; keys.add(key); api.step(.08); }, release(key) { keys.delete(key); moving = Boolean(keys.size); persist(); },
       step(dt) {
-        if (isPaused() || state.saveError) { moving = false; return; }
-        growthElapsed += dt; growthSaveElapsed += dt;
+        if (isWorldInputBlocked() || state.saveError) { moving = false; return; }
+        growthElapsed += dt;
+        if (growthDirty) growthSaveElapsed += dt;
         if (growthElapsed >= .5) {
           const grown = growBurrowGardens(world(), growthElapsed); growthElapsed = 0;
-          if (grown !== world()) publish({ ...state, worlds: { ...state.worlds, [state.islandId]: grown } });
-          if (growthSaveElapsed >= 2) { growthSaveElapsed = 0; persist(); }
+          if (grown !== world()) {
+            growthDirty = true;
+            publish({ ...state, worlds: { ...state.worlds, [state.islandId]: grown } });
+          }
+          if (growthDirty && growthSaveElapsed >= 2) persist();
         }
         let dx = (keys.has('right') ? 1 : 0) - (keys.has('left') ? 1 : 0), dz = (keys.has('down') ? 1 : 0) - (keys.has('up') ? 1 : 0);
         moving = Boolean(dx || dz); if (!moving) return;
-        if (!overhead) { const angle = world().camera * Math.PI / 2, oldX = dx; dx = oldX * Math.cos(angle) + dz * Math.sin(angle); dz = dz * Math.cos(angle) - oldX * Math.sin(angle); }
+        if (!overhead) { const angle = BURROW_CAMERA_BEARING + world().camera * Math.PI / 2, oldX = dx; dx = oldX * Math.cos(angle) + dz * Math.sin(angle); dz = dz * Math.cos(angle) - oldX * Math.sin(angle); }
         facing = Math.atan2(dx, dz); const distance = 2.8 * dt / Math.max(1, Math.hypot(dx, dz));
         let next = moveBurrowPlayer(world(), dx * distance, dz * distance);
         if (next === world()) next = moveBurrowPlayer(world(), dx * distance, 0);
+        if (!overhead && (state.freeBuilding || state.phase === 'creative')) {
+          const across = Math.abs(dx) >= Math.abs(dz);
+          const target = {
+            x: Math.round(next.player.x) + (across ? Math.sign(dx) : 0),
+            z: Math.round(next.player.z) + (across ? 0 : Math.sign(dz))
+          };
+          if (terrainAt(target.x, target.z, state.islandId) &&
+              (target.x !== next.selection.x || target.z !== next.selection.z)) next = { ...next, selection: target };
+        }
         const updated = { ...state, worlds: { ...state.worlds, [state.islandId]: next } }; state = updated; stateRef.current = updated;
         if (performance.now() - publishAt > 80) { publish(updated); publishAt = performance.now(); }
         if (!saveTimer) saveTimer = setTimeout(() => { saveTimer = null; persist(); }, 900);
@@ -689,16 +737,16 @@ export default function BurrowBuildersGame({ difficulty = 'easy', sessionSeed = 
         const measured = diagnosticsRef.current;
         const mean = values => values.length ? values.reduce((total, value) => total + value, 0) / values.length : 0;
         const p95 = values => values.length ? [...values].sort((a, b) => a - b)[Math.floor((values.length - 1) * .95)] : 0;
-        return structuredClone({ gameId: 'burrow-builders', phase: state.phase, seed: sessionSeed, cursor: state.cursor, paused: isPaused(), score: state.score,
+        return structuredClone({ gameId: 'burrow-builders', phase: state.phase, seed: sessionSeed, cursor: state.cursor, paused: isPaused(), tool, menuOpen: Boolean(drawerRef.current), score: state.score,
         actionAudio: { requested: { ...requestedSfx }, suppressed: { ...suppressedSfx }, teachingBusy: Boolean(teachingTicket) },
         evidence: state.evidence, choices: currentMission().choices, chunks: state.chunks, mistakes: state.mistakes, supportReasons: state.supportReasons,
         delivery: state.delivery, pictureDelivery: state.pictureDelivery, islandId: state.islandId, freeBuilding: Boolean(state.freeBuilding), world: world(),
         theme: physicalThemeForDifficulty(difficulty).id, hero: physicalThemeForDifficulty(difficulty).hero, characterId: physicalThemeForDifficulty(difficulty).characterId,
         rendering: { layerUpdates: measured.layerUpdates, frames: measured.frames, drawCalls: measured.drawCalls, textures: measured.textures || 0, geometries: measured.geometries || 0,
           quality: measured.quality, renderer: measured.renderer || 'webgl', software: Boolean(measured.software), pixelRatio: measured.pixelRatio,
-          transition: measured.transition, priorGl: measured.priorGl, canvasDraws: measured.canvasDraws, projectedObjects: measured.projectedObjects, cachedDepthBanks: measured.cachedDepthBanks, decodedImages: measured.decodedImages, cachedLayers: measured.cachedLayers, cacheRebuilds: measured.cacheRebuilds, assetLoads: measured.assetLoads,
+          transition: measured.transition, fallbackReason: measured.fallbackReason, priorGl: measured.priorGl, canvasDraws: measured.canvasDraws, projectedObjects: measured.projectedObjects, cachedDepthBanks: measured.cachedDepthBanks, decodedImages: measured.decodedImages, cachedLayers: measured.cachedLayers, cacheRebuilds: measured.cacheRebuilds, assetLoads: measured.assetLoads,
           authoredPal: measured.authoredPal, palActions: measured.palActions, palBounds: measured.palBounds, artAssets: measured.artAssets,
-          placementPreview: measured.placementPreview,
+          placementPreview: measured.placementPreview, selectedCellScreen: measured.selectedCellScreen,
           readingPlaces: measured.readingPlaces?.map(place => ({ ...place, cell: { ...place.cell } })),
           workbenchBricks: measured.workbenchBricks,
           meanFrameMs: mean(measured.frameMs), p95FrameMs: p95(measured.frameMs), meanRenderMs: mean(measured.renderMs), p95RenderMs: p95(measured.renderMs),
@@ -723,11 +771,11 @@ export default function BurrowBuildersGame({ difficulty = 'easy', sessionSeed = 
     const keyMap = { ArrowLeft: 'left', a: 'left', A: 'left', ArrowRight: 'right', d: 'right', D: 'right', ArrowUp: 'up', w: 'up', W: 'up', ArrowDown: 'down', s: 'down', S: 'down' };
     const keyDown = event => {
       const dialog = event.target?.closest('[role="dialog"]');
-      if (disposed || isPaused() || event.target?.closest('input,select,textarea') || (dialog && !dialog.contains(rootRef.current))) return;
+      if (disposed || isWorldInputBlocked() || event.target?.closest('input,select,textarea') || (dialog && !dialog.contains(rootRef.current))) return;
       const direction = keyMap[event.key];
       if (direction) { event.preventDefault(); if (!keys.has(direction)) api.press(direction); return; }
       if (event.target?.closest('button')) return;
-      if (event.key === 'e' || event.key === 'E' || event.code === 'Space') { event.preventDefault(); if (!event.repeat) api.place(); }
+      if (event.key === 'e' || event.key === 'E' || event.code === 'Space') { event.preventDefault(); if (!event.repeat) { if (tool === 'remove') api.pickup(); else api.place(); } }
       if (event.key === 'Backspace') { event.preventDefault(); if (!event.repeat) api.pickup(); }
       if (event.key === 'q' || event.key === 'Q') { event.preventDefault(); if (!event.repeat) api.rotate(); }
     };
@@ -755,29 +803,52 @@ export default function BurrowBuildersGame({ difficulty = 'easy', sessionSeed = 
   }, [creative, isReading, imageFailed, mission.image, game.cursor, game.phase]);
   const onFallback = useMemo(() => value => { fallbackRef.current = value; setFallback(value); setBuildView(false); }, []);
 
-  return <div ref={rootRef} className={`burrow-builders ${creative ? 'burrow-builders--creative' : ''}`} tabIndex={-1} aria-label="Burrow Builders playfield" data-game-phase={game.phase} data-world-theme={theme.id} data-character-id={theme.characterId} data-spelling-rack={!creative && !isReading} data-reading-plan={!creative && isReading}>
+  const openDrawer = kind => { if (stateRef.current.saveError) { rootRef.current?.querySelector('.burrow-builders__save-error button')?.focus(); return; } drawerRef.current = kind; apiRef.current?.releaseInput(); if (!stateRef.current.saveError) setDrawer(kind); };
+  const closeDrawer = () => { drawerRef.current = null; setDrawer(null); rootRef.current?.focus(); };
+  useEffect(() => {
+    drawerRef.current = drawer;
+    if (!drawer || stateRef.current.saveError) return;
+    apiRef.current?.releaseInput();
+    if (stateRef.current.saveError) return;
+    const dialog = dialogRef.current;
+    dialog?.querySelector('button')?.focus();
+    const trap = event => {
+      if (event.key === 'Escape') { event.preventDefault(); event.stopPropagation(); drawerRef.current = null; setDrawer(null); rootRef.current?.focus(); }
+      if (event.key !== 'Tab' || !dialog) return;
+      const controls = [...dialog.querySelectorAll('button:not(:disabled),select:not(:disabled),[tabindex="0"]')].filter(element => element.checkVisibility());
+      const first = controls[0], last = controls.at(-1);
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
+      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
+    };
+    dialog?.addEventListener('keydown', trap);
+    return () => dialog?.removeEventListener('keydown', trap);
+  }, [drawer]);
+
+  return <div ref={rootRef} className={`burrow-builders ${creative ? 'burrow-builders--creative' : ''}`} tabIndex={-1} aria-label="Burrow Builders playfield" data-game-phase={game.phase} data-world-theme={theme.id} data-character-id={theme.characterId} data-spelling-rack={!creative && !isReading} data-reading-plan={!creative && isReading} data-build-view={buildView} data-edit-mode={editMode}>
+    <div className="burrow-builders__play" inert={Boolean(drawer)}>
     <header className="burrow-builders__hud" data-picture-prompt={!creative && !isReading}>
       {!creative && !isReading && <div className="burrow-builders__picture">
         {imageFailed || !mission.image ? <span>Picture unavailable<br />Tap Hear</span> : <img ref={pictureRef} src={mission.image} alt="Building picture. Hear its word." onLoad={() => apiRef.current?.pictureDelivered()} onError={() => setImageFailed(true)} />}
       </div>}
       <div className="burrow-builders__cue">
-        <strong>{creative ? 'Free build' : isReading ? mission.instruction : <><span className="burrow-builders__full-cue">Listen. Pick each sound.</span><span className="burrow-builders__compact-cue">Pick each sound.</span></>}</strong>
+        <strong>{creative ? editMode === 'remove' ? 'Tap a piece to remove it.' : 'Tap the island to build.' : isReading ? mission.instruction : <><span className="burrow-builders__full-cue">Listen. Pick each sound.</span><span className="burrow-builders__compact-cue">Pick each sound.</span></>}</strong>
         {!creative && !isReading && <div className="burrow-builders__slots" aria-label="Blueprint sound slots">{mission.chunks.map((_, index) => <span key={index} aria-label={`Sound slot ${index + 1}${game.chunks[index] ? `: ${game.chunks[index]}` : ': empty'}`}>{game.chunks[index] || '·'}</span>)}</div>}
-        <small>{creative ? 'Place a piece. Make it yours.' : `${game.evidence.completions.length} of ${missions.length} kits built`}</small>
+        <small>{creative ? `${PART_NAMES[world.selectedPart]} · ${world.blocks.length} pieces on your island` : `${game.evidence.completions.length} of ${missions.length} kits built`}</small>
+        {!creative && isReading && <p className="burrow-builders__reading-feedback" role="status" hidden={!game.message}>{game.message}</p>}
       </div>
       <div className="burrow-builders__audio">
         {!creative && !isReading && <button type="button" onClick={() => apiRef.current?.replay()} aria-label="Hear the building word again"><SpeakerHigh size={26} /><span>Hear</span></button>}
       </div>
     </header>
     <div className="burrow-builders__utility">
-        <button type="button" onClick={() => { apiRef.current?.releaseInput(); setDrawer('islands'); }} aria-label="Choose island or blueprint"><Tree size={25} /><span>Islands</span></button>
-        <button type="button" onClick={() => { apiRef.current?.releaseInput(); setBuildView(value => !value); }} aria-label={buildView ? 'Return to world view' : 'Open overhead accessible build view'} aria-pressed={buildView}><GridFour size={24} /></button>
-        {game.phase === 'creative' ? <button type="button" disabled={paused || game.saveError} onClick={() => setDrawer('islands')} aria-label="Choose another building outing"><ArrowCounterClockwise size={23} /><span>New trail</span></button> : <button type="button" onClick={() => apiRef.current?.freeBuild()} aria-pressed={Boolean(game.freeBuilding)} aria-label={game.freeBuilding ? 'Return to current blueprint' : 'Enter free building now'}><Cube size={23} /><span>{game.freeBuilding ? 'Blueprint' : 'Free build'}</span></button>}
+      {game.phase === 'creative' ? <button type="button" onClick={() => openDrawer('islands')} aria-label="Choose another building outing"><BookOpen size={25} /><span>More kits</span></button> : <button type="button" onClick={() => apiRef.current?.freeBuild()}>{creative ? <BookOpen size={25} /> : <Cube size={25} />}<span>{creative ? 'Word kits' : 'Free build'}</span></button>}
+      <button type="button" onClick={() => openDrawer('tools')} aria-label="Open island tools"><Tree size={25} /><span>Island</span></button>
     </div>
     <div className="burrow-builders__scene">
       <BuildWorld stateRef={stateRef} apiRef={apiRef} diagnosticsRef={diagnosticsRef} revision={game.score + world.blocks.length} fallback={fallback} onFallback={onFallback} reducedMotion={reducedMotion} />
       {buildView && <section className="burrow-builders__map" aria-label="Overhead accessible build view">
-        <p>Overhead map. Top is behind; left and right follow this map.</p>
+        <div className="burrow-builders__map-top"><p>{isReading && !creative ? <>{mission.instruction}<br />↑ Behind · ← Left</> : 'Choose a square, then Place or Pick up.'}</p><button type="button" onClick={() => openDrawer('parts')} aria-label="Choose building piece">Pieces</button><button type="button" onClick={() => setBuildView(false)} aria-label="Return to world view">Done</button></div>
+        {game.message && <p className="burrow-builders__map-feedback" role="status">{game.message}</p>}
         <div className="burrow-builders__grid" role="group" aria-label="Island construction cells">
           {Array.from({ length: 121 }, (_, index) => { const x = index % 11, z = Math.floor(index / 11), terrain = effectiveBurrowTerrain(world, x, z), placed = world.blocks.filter(block => block.x === x && block.z === z), top = placed.at(-1);
             return terrain ? <button type="button" key={index} className={`${terrain.water ? 'water' : 'land'} ${world.selection.x === x && world.selection.z === z ? 'selected' : ''}`}
@@ -801,18 +872,20 @@ export default function BurrowBuildersGame({ difficulty = 'easy', sessionSeed = 
         <MoveButton direction="down" label="Walk down" Icon={ArrowDown} apiRef={apiRef} />
         <MoveButton direction="right" label="Walk right" Icon={ArrowRight} apiRef={apiRef} />
       </div>
-      <div className="burrow-builders__tools" role="group" aria-label="Construction tools">
-        <button type="button" onClick={() => { apiRef.current?.releaseInput(); setDrawer('parts'); }} aria-label="Choose building piece"><PartThumbnail key={`${theme.id}:${world.selectedPart}`} theme={theme.id} type={world.selectedPart} /><span>Pieces</span></button>
+      <div className="burrow-builders__tools" role="group" aria-label="Building pieces">
+        {creative && QUICK_PARTS.map(type => <button type="button" key={type} aria-label={`Build with ${PART_NAMES[type]}`} aria-pressed={world.selectedPart === type && editMode === 'build'} onClick={() => apiRef.current?.selectPart(type)}><PartThumbnail theme={theme.id} type={type} /><span>{PART_NAMES[type]}</span></button>)}
+        <button type="button" onClick={() => openDrawer('parts')} aria-label="Choose building piece"><PartThumbnail key={`${theme.id}:${world.selectedPart}`} theme={theme.id} type={world.selectedPart} /><span>Pieces</span></button>
       </div>
-      <div className="burrow-builders__actions" role="group" aria-label="Place and pick up">
-        <button type="button" className="burrow-builders__place" onClick={() => apiRef.current?.place()} disabled={game.saveError || paused} aria-label={isReading && !creative ? 'Build instruction piece at selected place' : 'Place selected building piece'}><Hammer size={28} /><span>Place</span></button>
-        <button type="button" onClick={() => apiRef.current?.pickup()} disabled={game.saveError || paused} aria-label="Pick up selected piece or nearby supplies"><Hand size={28} /><span>Pick up</span></button>
+      <div className="burrow-builders__actions" role="group" aria-label="Construction tools">
+        {buildView ? <><button type="button" className="burrow-builders__place" onClick={() => apiRef.current?.place()} disabled={game.saveError || paused} aria-label={isReading && !creative ? 'Build instruction piece at selected place' : 'Place selected building piece'}><Hammer size={26} /><span>Place</span></button><button type="button" onClick={() => apiRef.current?.pickup()} disabled={game.saveError || paused} aria-label="Pick up selected piece or nearby supplies"><Hand size={26} /><span>Pick up</span></button></> : <><button type="button" onClick={() => apiRef.current?.tool('build')} aria-label="Use build tool" aria-pressed={editMode === 'build'} disabled={paused || game.saveError}><Hammer size={26} /><span>Build</span></button><button type="button" onClick={() => apiRef.current?.tool('remove')} aria-label="Use remove tool" aria-pressed={editMode === 'remove'} disabled={paused || game.saveError || isReading && !creative}><Hand size={26} /><span>Remove</span></button></>}
+        <button type="button" onClick={() => apiRef.current?.undo()} disabled={!world.undo.length || paused || game.saveError} aria-label="Undo this edit"><ArrowCounterClockwise size={26} /><span>Undo</span></button>
       </div>
     </footer>
-    {drawer && <section className="burrow-builders__drawer" role="dialog" aria-label={drawer === 'parts' ? 'Building pieces' : 'Islands and blueprints'}>
-      <button className="burrow-builders__close" type="button" onClick={() => { setDrawer(null); rootRef.current?.focus(); }} aria-label="Close building choices"><X size={25} /></button>
-      {drawer === 'parts' ? <><h2>Choose a piece</h2><p>{creative ? 'Ordinary blocks are unlimited. Keep creating.' : `${world.materials.wood} wood · ${world.materials.stone} stone. Pick up a supply pile for more.`}</p><div className="burrow-builders__part-list">{BUILD_PARTS.map(type => <button key={type} type="button" aria-label={PART_NAMES[type]} aria-pressed={world.selectedPart === type} onClick={() => apiRef.current?.selectPart(type)}><PartThumbnail key={`${theme.id}:${type}`} theme={theme.id} type={type} /><span>{PART_NAMES[type]}</span>{world.selectedPart === type && <span className="burrow-builders__part-selected" aria-hidden="true">✓</span>}</button>)}</div><div className="burrow-builders__drawer-tools"><button type="button" onClick={() => apiRef.current?.rotate()} aria-label="Turn carried piece"><ArrowsClockwise size={24} /><span>Rotate<small className="burrow-builders__turn">Turn {world.rotation + 1} of 4</small></span></button><button type="button" disabled={!world.undo.length} onClick={() => apiRef.current?.undo()} aria-label="Undo this edit"><ArrowCounterClockwise size={24} /> Undo</button><button type="button" disabled={isReading && !creative} onClick={() => apiRef.current?.camera()} aria-label="Turn camera view"><GridFour size={24} /> View</button></div></> : <><h2>Choose an island</h2><div className="burrow-builders__island-list">{BUILD_ISLANDS.map(island => <button key={island.id} type="button" aria-pressed={game.islandId === island.id} onClick={() => apiRef.current?.island(island.id)}>{islandName(difficulty, island.id)}<small>{game.worlds[island.id].blocks.length} placed pieces</small></button>)}</div>{game.phase === 'creative' && <div className="burrow-builders__drawer-tools"><button type="button" disabled={paused || game.saveError} onClick={() => callbacks.current.onRequestNextLevel?.()} aria-label="Start the next building outing">Next trail</button><button type="button" disabled={paused || game.saveError} onClick={() => callbacks.current.onRequestReplay?.()} aria-label="Replay building blueprints with fresh choices">Fresh blueprints</button></div>}<h3>Choose any blueprint</h3><div className="burrow-builders__blueprints">{missions.map((item, index) => <button key={item.roundId} type="button" disabled={game.evidence.completions.includes(item.roundId)} onClick={() => apiRef.current?.chooseMission(index)}>{item.image ? <img src={item.image} alt="Blueprint picture" /> : <span>{PART_NAMES[item.part]}</span>}<small>{game.evidence.completions.includes(item.roundId) ? 'Built ✓' : `Blueprint ${index + 1}`}</small></button>)}</div></>}
-    </section>}
+    </div>
+    {drawer && <div className="burrow-builders__scrim" onClick={event => { if (event.target === event.currentTarget) closeDrawer(); }}><section ref={dialogRef} className="burrow-builders__drawer" data-game-owned-dialog="true" role="dialog" aria-modal="true" aria-label={drawer === 'parts' ? 'Building pieces' : drawer === 'tools' ? 'Island tools' : 'Islands and blueprints'}>
+      <button className="burrow-builders__close" type="button" onClick={closeDrawer} aria-label="Close building choices"><X size={25} /></button>
+      {drawer === 'parts' ? <><h2>What will you build?</h2><p>Every piece is unlimited. Choose one, then tap the island.</p><div className="burrow-builders__part-list">{BUILD_PARTS.map(type => <button key={type} type="button" aria-label={PART_NAMES[type]} aria-pressed={world.selectedPart === type} onClick={() => apiRef.current?.selectPart(type)}><PartThumbnail key={`${theme.id}:${type}`} theme={theme.id} type={type} /><span>{PART_NAMES[type]}</span>{world.selectedPart === type && <span className="burrow-builders__part-selected" aria-hidden="true">✓</span>}</button>)}</div><div className="burrow-builders__drawer-tools"><button type="button" onClick={() => apiRef.current?.rotate()} aria-label="Turn carried piece"><ArrowsClockwise size={24} /><span>Rotate<small className="burrow-builders__turn">Turn {world.rotation + 1} of 4</small></span></button></div></> : drawer === 'tools' ? <><h2>Your island</h2><p>Build a home, bridge the water or plant a garden.</p><div className="burrow-builders__drawer-tools"><button type="button" onClick={() => { closeDrawer(); setBuildView(value => !value); }} aria-label={buildView ? 'Return to world view' : 'Open overhead accessible build view'}><GridFour size={24} />{buildView ? 'World view' : 'Overhead map'}</button><button type="button" onClick={() => setDrawer('islands')} aria-label="Choose island or blueprint"><Tree size={24} /> Islands & kits</button><button type="button" onClick={() => apiRef.current?.rotate()} aria-label="Turn carried piece"><ArrowsClockwise size={24} /> Rotate piece <small>Turn {world.rotation + 1} of 4</small></button><button type="button" disabled={isReading && !creative} onClick={() => apiRef.current?.camera()} aria-label="Turn camera view"><GridFour size={24} /> Turn view</button></div><p className="burrow-builders__key-help">Walk: arrow keys or WASD. Place: Space or E. Turn piece: Q. Remove: Backspace.</p></> : <><h2>Choose an island</h2><div className="burrow-builders__island-list">{BUILD_ISLANDS.map(island => <button key={island.id} type="button" aria-pressed={game.islandId === island.id} onClick={() => apiRef.current?.island(island.id)}>{islandName(difficulty, island.id)}<small>{game.worlds[island.id].blocks.length} placed pieces</small></button>)}</div>{game.phase === 'creative' && <div className="burrow-builders__drawer-tools"><button type="button" disabled={paused || game.saveError} onClick={() => callbacks.current.onRequestNextLevel?.()} aria-label="Start the next building outing">Next trail</button><button type="button" disabled={paused || game.saveError} onClick={() => callbacks.current.onRequestReplay?.()} aria-label="Replay building blueprints with fresh choices">Fresh kits</button></div>}<h3>{isReading ? 'Reading kits' : 'Word kits'}</h3><div className="burrow-builders__blueprints">{missions.map((item, index) => <button key={item.roundId} type="button" disabled={game.evidence.completions.includes(item.roundId)} onClick={() => apiRef.current?.chooseMission(index)}>{item.image ? <img src={item.image} alt="Blueprint picture" /> : <span>{PART_NAMES[item.part]}</span>}<small>{game.evidence.completions.includes(item.roundId) ? 'Built ✓' : `Kit ${index + 1}`}</small></button>)}</div></>}
+    </section></div>}
     {game.saveError && <div className="burrow-builders__save-error" role="alert"><p>Your build is still here. Saving needs another try.</p><button type="button" onClick={() => apiRef.current?.retrySave()}>Try saving again</button></div>}
     {paused && <div className="burrow-builders__paused" aria-live="polite">Your island is resting.</div>}
   </div>;

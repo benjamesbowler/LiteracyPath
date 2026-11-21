@@ -6,6 +6,7 @@ export const STUDENT_SUPPORT_AUDIO = Object.freeze({
   "climb up, then jump to a word that starts with the sound": "/audio/production/en-US/instruction/climb-up-then-jump-to-a-word-that-starts-with-the-sound-28d807baa86c.mp3",
   "listen to the word. choose the crossing with that many syllables": "/audio/production/en-US/instruction/listen-to-the-word-choose-the-crossing-with-that-many-syllables-a706680ce001.mp3",
   "read or listen to the sentence. light the matching scene": "/audio/production/en-US/instruction/read-or-listen-to-the-sentence-light-the-matching-scene-e17edb45acde.mp3",
+  "choose a piece, then tap the island to build": "/audio/production/en-US/instruction/choose-a-piece-then-tap-the-island-to-build-422f57f6ac5d.mp3",
   "your teacher chose this game": "/audio/production/en-US/instruction/your-teacher-chose-this-game-3d99fec7207a.mp3",
   "try a beginning-sound game for this cycle": "/audio/production/en-US/instruction/try-a-beginning-sound-game-for-this-cycle-5a75cd2c44eb.mp3",
   "try a word game for your reading practice": "/audio/production/en-US/instruction/try-a-word-game-for-your-reading-practice-77884d5b6b19.mp3",
@@ -18,9 +19,6 @@ export const STUDENT_SUPPORT_AUDIO = Object.freeze({
   "practise: build short vowel words": "/audio/production/en-US/instruction/practise-build-short-vowel-words-86c47a2ee267.mp3",
   "practise: recognize high-frequency words": "/audio/production/en-US/instruction/practise-recognize-high-frequency-words-0f63aacb855e.mp3",
   "practise: word families": "/audio/production/en-US/instruction/practise-word-families-c8860287ba37.mp3",
-  "practise: hear and sort beginning sounds": "/audio/production/en-US/instruction/practise-hear-and-sort-beginning-sounds-38ef86720821.mp3",
-  "practise: spell words letter by letter": "/audio/production/en-US/instruction/practise-spell-words-letter-by-letter-ab181ce0140a.mp3",
-  "practise: fast word recognition": "/audio/production/en-US/instruction/practise-fast-word-recognition-97dcadde652b.mp3",
   "practise: sentence order": "/audio/production/en-US/instruction/practise-sentence-order-3d1f14d4bd7b.mp3",
   "practise: capitals, punctuation, best word": "/audio/production/en-US/instruction/practise-capitals-punctuation-best-word-5844c47f32f4.mp3",
   "practise: match words by beginning sound": "/audio/production/en-US/instruction/practise-match-words-by-beginning-sound-e9671c77a4ba.mp3",
@@ -125,6 +123,16 @@ export const STUDENT_SUPPORT_AUDIO_METADATA = Object.freeze({
     "aiGenerated": true,
     "sha256": "e3f2f43265857eb40a603ba7255ca908ec8c4b386483b659b78e9145bb43dda8",
     "durationSeconds": 4.053333,
+    "humanListening": "unknown"
+  },
+  "choose a piece, then tap the island to build": {
+    "text": "Choose a piece, then tap the island to build.",
+    "audio": "/audio/production/en-US/instruction/choose-a-piece-then-tap-the-island-to-build-422f57f6ac5d.mp3",
+    "voice": "en-US-Chirp3-HD-Leda",
+    "provider": "Google Cloud Text-to-Speech",
+    "aiGenerated": true,
+    "sha256": "d8d19326543affbff4602c1273bea08430f84ec5142cff7e733c5b0ca84b3e6d",
+    "durationSeconds": 2.661338,
     "humanListening": "unknown"
   },
   "your teacher chose this game": {
@@ -245,36 +253,6 @@ export const STUDENT_SUPPORT_AUDIO_METADATA = Object.freeze({
     "aiGenerated": true,
     "sha256": "70ded0e154c91ca56b9b5e26027770378f64df40b9209a011b68d61ba8841fb3",
     "durationSeconds": 3.299342,
-    "humanListening": "unknown"
-  },
-  "practise: hear and sort beginning sounds": {
-    "text": "Practise: hear and sort beginning sounds.",
-    "audio": "/audio/production/en-US/instruction/practise-hear-and-sort-beginning-sounds-38ef86720821.mp3",
-    "voice": "en-US-Chirp3-HD-Leda",
-    "provider": "Google Cloud Text-to-Speech",
-    "aiGenerated": true,
-    "sha256": "afebff8aadffffb6eef47cc2428abb15fe0309e7fea1bdc184f4abe76bbbe69a",
-    "durationSeconds": 3.415329,
-    "humanListening": "unknown"
-  },
-  "practise: spell words letter by letter": {
-    "text": "Practise: spell words letter by letter.",
-    "audio": "/audio/production/en-US/instruction/practise-spell-words-letter-by-letter-ab181ce0140a.mp3",
-    "voice": "en-US-Chirp3-HD-Leda",
-    "provider": "Google Cloud Text-to-Speech",
-    "aiGenerated": true,
-    "sha256": "9d51e6646f78482b9ad05d2fca61877a67714a97e129c99f896cdd553eb46a9a",
-    "durationSeconds": 2.719342,
-    "humanListening": "unknown"
-  },
-  "practise: fast word recognition": {
-    "text": "Practise: fast word recognition.",
-    "audio": "/audio/production/en-US/instruction/practise-fast-word-recognition-97dcadde652b.mp3",
-    "voice": "en-US-Chirp3-HD-Leda",
-    "provider": "Google Cloud Text-to-Speech",
-    "aiGenerated": true,
-    "sha256": "c33f6911bd28bfc6e65950cef95c1b3f1fc7cb1d67f7617aa89e7e72ad07503e",
-    "durationSeconds": 2.951338,
     "humanListening": "unknown"
   },
   "practise: sentence order": {
