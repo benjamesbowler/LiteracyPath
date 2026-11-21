@@ -618,7 +618,8 @@ button.sx-carbox:active { transform: translateY(2px); }
 .sx-step { display: block; color: #65513c; font-size: 13px; font-weight: 650; }
 .sx-objective { color: #172f38; font-size: clamp(22px, 2.8vw, 30px); line-height: 1.2; font-weight: 800; margin: 4px 0 0; text-wrap: balance; }
 .sx-yard .sx-hint { color: #933819; font-size: 17px; font-weight: 650; line-height: 1.2; margin: 4px 0 0; }
-.sx-workbench { display: flex; align-items: center; justify-content: safe center; padding: 8px 4px; gap: 12px; overflow: auto; }
+.sx-workbench { display: flex; align-items: safe center; justify-content: safe center; padding: 8px 4px; gap: 12px; overflow: auto; }
+.lg-game-player .sx-workbench button { touch-action: pan-x pan-y; }
 .sx-stage[data-task="engine"] .sx-yard { grid-template-rows: auto auto; align-content: center; row-gap: 20px; }
 .sx-engineshed { display: flex; align-items: center; justify-content: center; gap: clamp(16px, 5vw, 64px); }
 .sx-engineshed .sx-carbox.sx-kind-engine { width: clamp(148px, 23vw, 240px); height: clamp(104px, 16vw, 170px); min-width: 0; border: 3px solid #bb9460; border-radius: 16px; background: #fffdf0; box-shadow: 0 4px 0 #aa804b; }
@@ -812,4 +813,35 @@ button.sx-carbox:active { transform: translateY(2px); }
   .lg-game-player[data-authored-art] .sx-stage[data-phase="tally"] {
     grid-template-rows: 70px minmax(0, 1fr) 0;
   }
+  .sx-spurcars { gap: 6px; }
+  .sx-spurcars .sx-carbox {
+    width: clamp(92px, calc(var(--car-length, 106px) - 14px), 172px);
+    min-width: 92px;
+    height: 56px;
+  }
+  .sx-spurcars .sx-carword { font-size: 20px; }
+  .sx-repairbench { flex-wrap: nowrap; gap: 8px; }
+  .sx-repairbench > .sx-carbox { height: 56px; }
+  .sx-repairbench .sx-optionrow { flex-wrap: nowrap; gap: 6px; }
+}
+
+@container (max-width: 450px) and (min-height: 431px) {
+  .lg-game-player[data-authored-art] .sx-stage[data-task="build"] {
+    grid-template-rows: 104px minmax(80px, 1fr) minmax(min(286px, calc(100cqh - 184px)), .85fr);
+  }
+  .sx-stage[data-task="build"] .sx-sentence-cue .sx-replay { display: none; }
+  .sx-stage[data-task="build"] .sx-objective { font-size: 20px; }
+  .sx-stage[data-task="build"] .sx-workbench {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    padding-block: 4px;
+  }
+  .sx-spurcars {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4px 6px;
+  }
+  .sx-spurcars:has(> :nth-child(5)) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .sx-spurcars .sx-carbox { width: 100%; min-width: 0; height: 64px; }
+  .sx-spurcars .sx-carword { font-size: clamp(16px, 5.5cqw, 22px); }
 }

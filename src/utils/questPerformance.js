@@ -209,6 +209,18 @@ export function createQuestFrameBudgetState(tierId = "rich") {
   };
 }
 
+// Arcade scenes have already prepared their assets/shaders before sampling.
+// Preserve the established 60Hz observation durations when a slow device
+// delivers fewer frames, rather than making poor cadence prolong its own gate.
+// Legacy Quest owners retain their original frame-count windows unchanged.
+export function createArcadeFrameBudgetState(tierId = "rich") {
+  return { ...createQuestFrameBudgetState(tierId), timeBoundedWindows: true, warmupFrameMs: 0 };
+}
+
+function resetFrameBudget(state, tierId) {
+  return state.timeBoundedWindows ? createArcadeFrameBudgetState(tierId) : createQuestFrameBudgetState(tierId);
+}
+
 function frameSignal(state, type, extra = {}) {
   return {
     type,
@@ -240,8 +252,12 @@ export function sampleQuestFrameBudget(previous, frameMs) {
   const observedDuration = Math.min(250, duration);
   const longFrame = observedDuration >= 34 ? 1 : 0;
   state.severeFrameStreak = observedDuration >= SEVERE_FRAME_MS ? state.severeFrameStreak + 1 : 0;
-  if (state.warmupFrames < FRAME_WARMUP) {
+  const warming = state.warmupFrames < FRAME_WARMUP && (
+    !state.timeBoundedWindows || state.warmupFrameMs < FRAME_WARMUP * (1000 / 60)
+  );
+  if (warming) {
     state.warmupFrames += 1;
+    if (state.timeBoundedWindows) state.warmupFrameMs += observedDuration;
     if (state.severeFrameStreak < SEVERE_FRAME_STREAK) return null;
   }
 
@@ -259,11 +275,15 @@ export function sampleQuestFrameBudget(previous, frameMs) {
       toTier,
       reason: "sustained-severe-frames"
     });
-    return { state: createQuestFrameBudgetState(toTier), signal };
+    return { state: resetFrameBudget(state, toTier), signal };
   }
 
   const policy = QUEST_FRAME_POLICY[state.tierId];
-  if (policy && state.decisionFrames >= policy.minimumFrames) {
+  const decisionReady = policy && (state.decisionFrames >= policy.minimumFrames || (
+    state.timeBoundedWindows && state.decisionFrames >= SEVERE_FRAME_STREAK &&
+    state.decisionFrameMs >= policy.minimumFrames * (1000 / 60)
+  ));
+  if (decisionReady) {
     const average = state.decisionFrameMs / state.decisionFrames;
     const longRatio = state.decisionLongFrames / state.decisionFrames;
     if (average > policy.averageLimit && longRatio > policy.longFrameLimit) {
@@ -272,7 +292,7 @@ export function sampleQuestFrameBudget(previous, frameMs) {
         fromTier: state.tierId,
         toTier
       });
-      return { state: createQuestFrameBudgetState(toTier), signal };
+      return { state: resetFrameBudget(state, toTier), signal };
     }
     state.decisionFrames = 0;
     state.decisionFrameMs = 0;

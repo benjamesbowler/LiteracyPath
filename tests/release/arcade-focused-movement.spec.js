@@ -7,11 +7,24 @@ const games = [
 ];
 for (const game of games) test(`${game.id}: focused pad, arrows, brief taps and pause all retain movement`, async ({page},info) => {
   test.setTimeout(60000);
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  // Exercise the real fallback directly so software WebGL cannot replace the
+  // focused pad halfway through a key hold on the test runner.
+  if (game.id === 'grammar-grind') {
+    await page.addInitScript(() => {
+      const getContext = HTMLCanvasElement.prototype.getContext;
+      HTMLCanvasElement.prototype.getContext = function (kind, ...args) {
+        if (kind === 'webgl' || kind === 'webgl2') return null;
+        return getContext.call(this, kind, ...args);
+      };
+    });
+  }
   await page.goto(`/preview/game-overlay.html?game=${game.id}&sound=0&music=0`);
   const world=page.locator(game.selector);
   await expect(world).toBeVisible({timeout:20000});
   const read=()=>world.evaluate(game.read);
   const left=page.locator(game.control);
+  await expect(left).toBeEnabled({ timeout: 30000 });
   await left.focus();
   let before=await read();
   await page.keyboard.down('ArrowLeft');
@@ -28,6 +41,8 @@ for (const game of games) test(`${game.id}: focused pad, arrows, brief taps and 
   await right.click();
   await expect.poll(read).not.toBe(before);
   const help=page.getByRole('button',{name:/Open .* mission guide/});
+  const tools=page.getByRole('button',{name:'Open game controls',exact:true});
+  if (await tools.isVisible()) await tools.click();
   await help.click();
   before=await read();
   await page.keyboard.press('ArrowLeft');

@@ -4,7 +4,18 @@ for (const game of ['star-gallery', 'grammar-grind']) {
   for (const viewport of [{ width: 844, height: 390 }, { width: 390, height: 844 }, { width: 568, height: 320 }]) {
     test(`${game} keeps its prompt and loaded pictures clear of movement at ${viewport.width}`, async ({ page }) => {
       await page.setViewportSize(viewport);
+      await page.emulateMedia({ reducedMotion: 'reduce' });
+      if (game === 'star-gallery') {
+        await page.addInitScript(() => {
+          localStorage.setItem('literacy-guide-learn-games:fullscreen-overlay-preview', JSON.stringify({
+            games: { 'star-gallery': { checkpoints: { easy: { level: 0, totalLevels: 10, sessionSeed: 0 } } } }
+          }));
+        });
+      }
       await page.goto(`/preview/game-overlay.html?game=${game}&sound=1&music=0`);
+      if (game === 'star-gallery') {
+        await page.getByRole('button', { name: 'Continue', exact: true }).click();
+      }
       const panel = page.locator(game === 'star-gallery' ? '[data-role="prompt-panel"]' : '[data-gg-panel="center"]');
       await expect(panel).toBeVisible();
       if (game === 'star-gallery') {

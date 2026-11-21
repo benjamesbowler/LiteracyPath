@@ -1,3 +1,4 @@
+import { warmArcadeScene } from '../shared/arcadeSceneWarmup.js';
 import { createArcadeRenderGate } from '../shared/arcadeFramePolicy.js';
 import { createBlenderLandmarks } from '../shared/arcadeBlenderLandmarks.js';
 import { GAME_RECOVERY_URLS, loadGameRecoveryBytes } from '../../../../utils/gameRecoveryAssets.js';
@@ -34,12 +35,13 @@ export default function WordClimbScene({ world, difficulty="easy", renderMetrics
   const [status, setStatus] = useState("loading");
   const [rendererMode,setRendererMode] = useState("three");
   const qualityHistory=useRef([]);
+  const warmupRecovery=useRef(null);
   useEffect(() => {
     const host = mount.current;
     if(rendererMode==="canvas"){
       let disposed=false,ready=false;
       const owner=createWordClimbCanvasWorld(host,world,difficulty,{renderMetrics,onReady:()=>{if(!disposed&&!ready){ready=true;setStatus("canvas");}}});
-      if(import.meta.env.DEV&&window.location.pathname==="/preview/game-overlay.html")host.__wordClimbVisual=()=>({...owner.inspect(),quality:{tier:'canvas',transitions:structuredClone(qualityHistory.current)}});
+      if(import.meta.env.DEV&&window.location.pathname==="/preview/game-overlay.html")host.__wordClimbVisual=()=>({...owner.inspect(),warmup:warmupRecovery.current,quality:{tier:'canvas',transitions:structuredClone(qualityHistory.current)}});
       return()=>{disposed=true;delete host.__wordClimbVisual;owner.dispose();};
     }
     const renderGate=createArcadeRenderGate();
@@ -47,6 +49,7 @@ export default function WordClimbScene({ world, difficulty="easy", renderMetrics
     const renderBudget=createWordClimbRenderBudget(detectQualityTier());
     host.dataset.quality=renderBudget.tier;
     let renderer, kit, foreground, model, mixer, frame, observer, gripHand, registered, canonicalRecovery, activeRegistered, disposed = false, pendingReady = false, last = null, activeClip = null;
+    let warmupReceipt=null,warming=false,warmed=false,sceneRevision=0;
     let width = 1, height = 1, viewWidth = 1, cameraOffset=0, summitTime=0;
     let legacyDelivery='not-requested',legacyRepresentation=null;
     queueMicrotask(()=>{if(!disposed)setStatus("loading");});
@@ -84,8 +87,14 @@ export default function WordClimbScene({ world, difficulty="easy", renderMetrics
     const atlas=WORD_CLIMB_ATLASES[heroId];
     if(atlas){registered=createWordClimbRegisteredActor(THREE,atlas,{movementAtlas:WORD_CLIMB_MOVEMENT_ATLASES[heroId],onDelivery:value=>{host.dataset.registeredClimber=value;}});registered.root.scale.setScalar(2.56/atlas.nominalHeight);hero.add(registered.root);host.dataset.registeredClimber=registered.delivery();}
     function resize() {
-      renderGate.invalidate();
-      width = Math.max(1,host.clientWidth);height = Math.max(1,host.clientHeight);
+      const nextWidth=Math.max(1,host.clientWidth),nextHeight=Math.max(1,host.clientHeight);
+      // ResizeObserver delivers an initial notification after explicit setup.
+      // Rebuilding the entire authored climb at identical dimensions doubles
+      // geometry work and texture ownership during the first loading frames.
+      if(kit&&nextWidth===width&&nextHeight===height)return;
+      sceneRevision++;warmed=false;warming=false;warmupReceipt=null;renderGate.invalidate();
+      queueMicrotask(()=>{if(!disposed)setStatus("loading");});
+      width=nextWidth;height=nextHeight;
       const metrics=climbViewportMetrics(width,height);viewWidth=metrics.viewWidth;cameraOffset=metrics.cameraOffset;
       renderer.setSize(width,height,false);camera.left=-viewWidth/2;camera.right=viewWidth/2;camera.top=metrics.viewHeight;camera.updateProjectionMatrix();
       if(kit){scene.remove(kit);disposeObject(kit);}
@@ -141,7 +150,26 @@ export default function WordClimbScene({ world, difficulty="easy", renderMetrics
     }
     if(registered)registered.ready.then(delivered=>{if(disposed)return;if(delivered)pendingReady=true;else loadCanonicalRecovery();});
     else loadCanonicalRecovery();
+    async function prepareScene(){
+      if(warming||warmed||disposed||!(pendingReady||activeRegistered||model))return;
+      warming=true;const revision=sceneRevision,currentKit=kit;
+      const current=()=>!disposed&&revision===sceneRevision&&!renderer.getContext().isContextLost();
+      await Promise.all([scenery.ready,currentKit.userData.ready]);
+      if(!current())return;
+      registered?.update(world);canonicalRecovery?.update(world);
+      warmupReceipt=await warmArcadeScene({renderer,scene,camera,isCurrent:current,
+        extraTextures:[...(registered?.warmupTextures()||[]),...(canonicalRecovery?.warmupTextures()||[])]});
+      if(!current())return;
+      warming=false;
+      if(['partial','failed','timeout'].includes(warmupReceipt.status)){
+        warmupRecovery.current={...warmupReceipt};
+        setRendererMode('canvas');return;
+      }
+      if(warmupReceipt.status==='cancelled')return;
+      warmed=true;pendingReady=true;last=null;renderGate.invalidate();
+    }
     function tick(time){
+      if(!warmed){void prepareScene();frame=requestAnimationFrame(tick);return;}
       const frozen=world.paused||document.hidden;
       const revision=`${scenery.delivery()}:${registered?.delivery()}:${canonicalRecovery?.delivery()}:${legacyDelivery}:${pendingReady}:${landmarks?.root.userData.assetState}`;
       if(!renderGate.shouldRender(frozen,revision)){last=null;frame=requestAnimationFrame(tick);return;}
@@ -214,7 +242,7 @@ export default function WordClimbScene({ world, difficulty="easy", renderMetrics
     renderer.domElement.addEventListener("webglcontextlost",contextLost);
     frame=requestAnimationFrame(tick);
     if(import.meta.env.DEV&&window.location.pathname==="/preview/game-overlay.html")host.__wordClimbVisual=()=>structuredClone({actor:(activeRegistered||registered)?.inspect()||null,originalDelivery:registered?.delivery()||'not-requested',recoveryDelivery:canonicalRecovery?.delivery()||'not-requested',legacyDelivery,representation:activeRegistered?activeRegistered.inspect().representation:model?.visible?legacyRepresentation:'loading',hand:(activeRegistered?.contactWorld("grip",handPoint)||gripHand?.getWorldPosition(handPoint))?.toArray()||null,
-      heroOrigin:hero.position.toArray(),heroScale:hero.scale.toArray(),contacts:Object.fromEntries(["feet","bootLeft","bootRight","grip","lowerHand"].map(name=>[name,activeRegistered?.contactWorld(name,handPoint)?.toArray()||null])),vineVisible:vine.visible,vineVertices:vine.geometry.attributes.position?.count||0,scenery:scenery.inspect(),drawCalls:renderer.info.render.calls,renderer:"three",quality:{...renderBudget.inspect(),transitions:structuredClone(qualityHistory.current)},rendering:renderMetrics?.snapshot()||null});
+      heroOrigin:hero.position.toArray(),heroScale:hero.scale.toArray(),contacts:Object.fromEntries(["feet","bootLeft","bootRight","grip","lowerHand"].map(name=>[name,activeRegistered?.contactWorld(name,handPoint)?.toArray()||null])),vineVisible:vine.visible,vineVertices:vine.geometry.attributes.position?.count||0,scenery:scenery.inspect(),drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,renderer:"three",sceneBuilds:sceneRevision,warmup:warmupReceipt,quality:{...renderBudget.inspect(),transitions:structuredClone(qualityHistory.current)},rendering:renderMetrics?.snapshot()||null});
     return()=>{disposed=true;cancelAnimationFrame(frame);observer?.disconnect();renderer.domElement.removeEventListener("webglcontextlost",contextLost);mixer?.stopAllAction();delete host.__wordClimbVisual;registered?.dispose();canonicalRecovery?.dispose();scenery.dispose();vineOwner.dispose();landmarks?.dispose();disposeObject(scene);disposeRenderer(renderer,{forceContextLoss:true});};
   },[world,difficulty,rendererMode,renderMetrics]);
   return <div ref={mount} className="wc-scene" data-wc-scene={status} aria-hidden="true" />;

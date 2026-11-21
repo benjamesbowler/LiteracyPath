@@ -136,7 +136,13 @@ export default function SoundKeysGame({ difficulty = "easy", sessionSeed = 0, jo
     const keyIndex = all.indexOf(token);
     if (keyIndex < 0) return;
     held.current.set(id, token); setPressed([...held.current.values()]);
-    if (keyIndex >= 0 && source !== 'pointer') { s.bank = Math.floor(keyIndex / 8); setBank(s.bank); }
+    const nextBank = Math.floor(keyIndex / 8);
+    if (source !== 'pointer' && nextBank !== s.bank) {
+      const activeKey = field.current?.querySelector('.soundkeys-keyboard :focus');
+      if (activeKey) field.current.focus({ preventScroll: true });
+      s.bank = nextBank;
+      setBank(nextBank);
+    }
     s.lastPress = { token, index: Math.max(0, keyIndex) % 8, at: (performance.now() - s.epoch) / 1000, source, knownKey: keyIndex >= 0 };
     if (soundRef.current && audible) {
       instrument.current ||= createSoundKeysInstrument();

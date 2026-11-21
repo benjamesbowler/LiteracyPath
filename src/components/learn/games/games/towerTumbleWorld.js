@@ -1,8 +1,10 @@
+import { warmArcadeScene } from '../shared/arcadeSceneWarmup.js';
+import { waitPhysicalGameAssets, physicalGameActionTextures } from './physicalGameWarmup.js';
 import { arcadeDampingFactor } from '../shared/arcadeFramePolicy.js';
 import { arcadePixelRatio } from '../shared/arcadeRenderBudget.js';
 import { createRenderer, disposeObject, disposeRenderer, attachContextLossGuard, detectQualityTier } from '../shared/threeShell.js';
 import { createPalFigure, animatePalFigure, createWorldTree, createWoodMaterial, createGraphemeTexture } from '../shared/physicalArcadeWorld.js';
-import { physicalPalFrame } from '../shared/physicalPalArt.js';
+import { physicalPalFrame, preloadPhysicalPalArt } from '../shared/physicalPalArt.js';
 import { towerTumbleHammerAngle, TOWER_TUMBLE_STRIKE_SECONDS, TOWER_TUMBLE_CONTACT_SECONDS } from '../../../../utils/towerTumbleRules.js';
 import { TOWER_TUMBLE_SCENE_KIT, cropTowerArt, towerArtTexture, towerBrickCanvas, drawTowerPal } from './towerTumbleSceneKit.js';
 
@@ -187,6 +189,7 @@ export function createTowerCanvasWorld(mount,theme,kit) {
 }
 
 function createTowerSourceWorld(THREE,mount,onLoss,theme) {
+  let disposed=false,warmup=null;
   const tier=detectQualityTier();
   const renderer=createRenderer(THREE,{pixelRatioCap:tier==='low'?1:1.5,toneMappingExposure:1.18,shadowMap:tier==='high'});
   const gl=renderer.getContext(),debug=gl.getExtension('WEBGL_debug_renderer_info');
@@ -313,10 +316,10 @@ function createTowerSourceWorld(THREE,mount,onLoss,theme) {
   const resize=()=>{const width=Math.max(1,mount.clientWidth),height=Math.max(1,mount.clientHeight),aspect=width/height;
     const halfWidth=aspect<1?9.1:Math.max(9.3,aspect*1.05);viewHalfHeight=halfWidth/aspect;camera.left=-halfWidth;camera.right=halfWidth;camera.top=viewHalfHeight;camera.bottom=-viewHalfHeight;camera.updateProjectionMatrix();renderer.setPixelRatio(arcadePixelRatio(currentTier==='low'?1:1.5, width, height)*(software&&width>650?.8:1));renderer.setSize(width,height);};resize();
   const detach=attachContextLossGuard(renderer,{onLost:onLoss});
-  return {resize,rebuild,
-    profile:()=>({quality:currentTier,software:Boolean(software),drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,geometries:renderer.info.memory.geometries,textures:renderer.info.memory.textures,pixelRatio:renderer.getPixelRatio()}),
+  return {resize,rebuild,warm:async()=>{const ready=await waitPhysicalGameAssets([preloadPhysicalPalArt(theme.id,{actions:['tools','tennis']})],()=>!disposed);if(!ready)return warmup={status:disposed?'cancelled':'timeout'};return warmup=await warmArcadeScene({renderer,scene,camera,extraTextures:physicalGameActionTextures(scene),isCurrent:()=>!disposed,renderFrame:()=>renderer.render(scene,camera)});},
+    profile:()=>({warmup,quality:currentTier,software:Boolean(software),drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,geometries:renderer.info.memory.geometries,textures:renderer.info.memory.textures,pixelRatio:renderer.getPixelRatio()}),
     lowerQuality(next){currentTier=next==='rich'?'high':next==='balanced'?'medium':'low';renderer.shadowMap.enabled=false;if(currentTier==='low')for(const item of decorations)item.object.visible=item.retain;resize();},
-    dispose(){detach();disposeObject(scene);disposeRenderer(renderer,{forceContextLoss:true});},draw(data){
+    dispose(){disposed=true;detach();disposeObject(scene);disposeRenderer(renderer,{forceContextLoss:true});},draw(data){
     const {state,geometry,lift,barrels,elapsed,smash,reduced,rescueProgress}=data;
     const sourceOpacity=state.immunity>0?(reduced?.65:.65+Math.sin(elapsed*Math.PI*2)*.15):1;figure.traverse(node=>{if(node.isMesh)for(const mat of(Array.isArray(node.material)?node.material:[node.material])){mat.transparent=true;mat.opacity=sourceOpacity;}});
     figure.position.set(state.actor.x,state.actor.y+.09,1);figure.rotation.y=figure.userData.authoredPal?.delivery==='delivered'?0:state.actor.facing*.95;animatePalFigure(figure,elapsed,Math.abs(data.velocity)>.05 || state.actor.climbing,{direction:state.actor.climbing?'back':state.actor.facing<0?'left':'right'});
@@ -335,6 +338,7 @@ function createTowerSourceWorld(THREE,mount,onLoss,theme) {
 // Authored diorama layers replace the visible source shapes. Collision remains
 // in towerTumbleRules; these physical meshes and animated cutouts follow it.
 export function createTowerThreeWorld(THREE,mount,onLoss,theme,kit) {
+  let disposed=false,warmup=null;
   if(!kit?.materials&&!kit?.props&&!kit?.landscape)return createTowerSourceWorld(THREE,mount,onLoss,theme);
   const tier=detectQualityTier(),renderer=createRenderer(THREE,{pixelRatioCap:tier==='low'?1:1.5,toneMappingExposure:1,shadowMap:tier==='high'});
   const context=renderer.getContext(),debug=context.getExtension('WEBGL_debug_renderer_info');
@@ -523,9 +527,9 @@ export function createTowerThreeWorld(THREE,mount,onLoss,theme,kit) {
     }
   };resize();
   const detach=attachContextLossGuard(renderer,{onLost:onLoss});
-  return {resize,rebuild,profile:()=>({quality,software:Boolean(software),drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,geometries:renderer.info.memory.geometries,textures:renderer.info.memory.textures,pixelRatio:renderer.getPixelRatio(),art:{...kit.delivery,hero:hero?.userData.authoredPal?.delivery||'unavailable',heroActions:{...hero?.userData.authoredPal?.actionDelivery},heroPose:{atlas:hero?.userData.authoredPal?.atlas,action:hero?.userData.authoredPal?.action,direction:hero?.userData.authoredPal?.direction},resident:resident?.userData.authoredPal?.delivery||'unavailable'},sceneStyle:'authored-physical-diorama'}),
+  return {resize,rebuild,warm:async()=>{const ready=await waitPhysicalGameAssets([preloadPhysicalPalArt(theme.id,{actions:['tools','tennis']})],()=>!disposed);if(!ready)return warmup={status:disposed?'cancelled':'timeout'};return warmup=await warmArcadeScene({renderer,scene,camera,extraTextures:physicalGameActionTextures(scene),isCurrent:()=>!disposed,renderFrame:()=>renderer.render(scene,camera)});},profile:()=>({warmup,quality,software:Boolean(software),drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,geometries:renderer.info.memory.geometries,textures:renderer.info.memory.textures,pixelRatio:renderer.getPixelRatio(),art:{...kit.delivery,hero:hero?.userData.authoredPal?.delivery||'unavailable',heroActions:{...hero?.userData.authoredPal?.actionDelivery},heroPose:{atlas:hero?.userData.authoredPal?.atlas,action:hero?.userData.authoredPal?.action,direction:hero?.userData.authoredPal?.direction},resident:resident?.userData.authoredPal?.delivery||'unavailable'},sceneStyle:'authored-physical-diorama'}),
     lowerQuality(next){quality=next==='rich'?'high':next==='balanced'?'medium':'low';renderer.shadowMap.enabled=false;for(const item of decorations)item.mesh.visible=quality!=='low'||item.retain;resize();},
-    dispose(){detach();disposeObject(scene);disposeRenderer(renderer,{forceContextLoss:true});},
+    dispose(){disposed=true;detach();disposeObject(scene);disposeRenderer(renderer,{forceContextLoss:true});},
     draw(data){
       const {state,geometry,elapsed,smash,reduced,rescueProgress,barrels}=data;
       hero.position.set(state.actor.x,state.actor.y+.08,2.05);

@@ -160,6 +160,35 @@ const reelViewports = [
   { width: 768, height: 1024 }, { width: 1024, height: 768 },
   { width: 1366, height: 768 }, { width: 1440, height: 900 },
 ];
+test.describe('moving fish on small touch screens', () => {
+  test.use({ hasTouch: true });
+  for (const viewport of [{ width: 320, height: 568 }, { width: 568, height: 320 }]) {
+    test(`tap targets follow the fish plaques at ${viewport.width}x${viewport.height}`, async ({ page }) => {
+      await page.setViewportSize(viewport);
+      await openReel(page, 'easy', { sound: false });
+      const target = await page.waitForFunction(() => {
+        const { fish } = window.__arcadePreviewSnapshot();
+        for (const row of fish) {
+          if (!row.visible) continue;
+          const button = document.querySelector(`[data-reel-fish="${row.id}"]`);
+          if (!button || !button.checkVisibility({ visibilityProperty: true })) continue;
+          const { x, y, width, height } = button.getBoundingClientRect();
+          const dx = Math.abs(x + width / 2 - row.labelX);
+          const dy = Math.abs(y + height / 2 - row.labelY);
+          if (width >= 56 && height >= 56 && dx < 4 && dy < 4
+              && button === document.elementFromPoint(row.labelX, row.labelY)) {
+            return { id: row.id, x: row.labelX, y: row.labelY };
+          }
+        }
+        return null;
+      });
+      const { id, x, y } = await target.jsonValue();
+      await page.touchscreen.tap(x, y);
+      await expect.poll(async () => (await readReel(page)).performance.motorAim.last?.selectedId).toBe(id);
+    });
+  }
+});
+
 for (const [index, viewport] of reelViewports.entries()) {
   test(`Reel and Read audio-picture cue and controls fit ${viewport.width}x${viewport.height}`, async ({ page }, info) => {
     test.setTimeout(60000);

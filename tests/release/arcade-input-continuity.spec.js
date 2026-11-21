@@ -11,6 +11,8 @@ for (const game of GAME_LIST.filter(game => game.surfaces?.includes('arcade'))) 
     await expect(page.locator('.lg-game-loading')).toHaveCount(0, { timeout: 40_000 });
     const playfield = page.locator('.lg-game-player-main');
     await expect(playfield).toBeFocused();
+    const tools = page.getByRole('button', { name: 'Open game controls', exact: true });
+    if (await tools.isVisible()) await tools.click();
     await page.getByRole('button', { name: `Open ${game.title} mission guide`, exact: true }).click();
     await page.getByRole('button', { name: 'Keep playing', exact: true }).click();
     await expect(playfield).toBeFocused();
@@ -24,11 +26,14 @@ for (const game of GAME_LIST.filter(game => game.surfaces?.includes('arcade'))) 
   });
 }
 
-test('Rhyme Pop keeps keyboard aiming after sound control focus and resolves actual word shots', async ({ page }, testInfo) => {
+test('Rhyme Pop restores keyboard aiming after closing game controls and resolves actual word shots', async ({ page }, testInfo) => {
   test.setTimeout(60_000);
   await page.goto('/preview/game-overlay.html?game=rhyme-pop&sound=0&music=0');
   await expect.poll(() => page.evaluate(() => window.__arcadePreviewSnapshot?.()?.bubbles?.length)).toBeGreaterThan(0);
-  await page.getByRole('button', { name: 'Turn music on', exact: true }).focus();
+  const tools = page.getByRole('button', { name: 'Open game controls', exact: true });
+  await tools.click();
+  await page.getByRole('button', { name: 'Back to the game', exact: true }).click();
+  await expect(page.locator('.lg-game-player-main')).toBeFocused();
   await page.keyboard.press('ArrowRight');
   await expect.poll(() => page.evaluate(() => window.__arcadePreviewSnapshot().keyboardBubbleId)).toBeTruthy();
   await page.locator('.lg-game-player-main').focus();
@@ -70,14 +75,21 @@ test('Sound Safari retains net movement after header focus and completes ordered
 });
 
 test('SoundKeys accepts letter typing after a touch key has focus and advances without confirmation', async ({ page }, testInfo) => {
+  await page.addInitScript(() => {
+    localStorage.setItem('literacy-guide-learn-games:fullscreen-overlay-preview', JSON.stringify({
+      games: { soundkeys: { checkpoints: { easy: { level: 0, totalLevels: 24, sessionSeed: 11 } } } }
+    }));
+  });
   await page.goto('/preview/game-overlay.html?game=soundkeys&sound=0&music=0');
+  await page.getByRole('button', { name: 'Continue', exact: true }).click();
   const stage = page.locator('.sk-stage');
-  await expect(stage).toBeVisible();
-  const id = await stage.getAttribute('data-target');
-  const tokens = await page.evaluate(async id => (await import('/src/features/soundkeys/content.js')).SOUNDKEY_WORDS.find(word => word.id === id).tokens, id);
-  // Focus the instrument exactly as a preceding pointer tap would leave it.
+  await expect(stage).toHaveAttribute('data-target', 'hut');
+  // H starts in the second bank and T brings the player back to the first.
   await page.locator('.soundkeys-keyboard button').first().focus();
-  for (const token of tokens) await page.keyboard.press(token);
+  await page.keyboard.press('h');
+  await expect(stage).toBeFocused();
+  await page.keyboard.press('u');
+  await page.keyboard.press('t');
   await expect(stage).toHaveAttribute('data-round', '1');
   await page.screenshot({ path: testInfo.outputPath('soundkeys.png') });
 });
