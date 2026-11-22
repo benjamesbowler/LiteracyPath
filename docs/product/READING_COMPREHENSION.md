@@ -16,6 +16,12 @@ its existing destinations. A focused teacher assignment keeps its current
 content/exit restrictions; the comprehension doorway is hidden while locked.
 The new teacher hash is `#teacher/teach/comprehension`, scoped to the class.
 
+The learner catalogue offers the complete bank in viewport-sized pages.
+**Find a story** opens title, phonics, focus and length filters without taking
+space away from the visible cards. Returning from a passage restores the
+learner's catalogue page and filters. The teacher catalogue keeps all matching
+passages available together for group checks and print selection.
+
 ## Modes and evidence
 
 - **Whole group:** four visible A–D choices, optional group selection and
@@ -116,6 +122,11 @@ evidence pages. Complete content must remain reachable without scrolling or
 clipping. Desktop offers separate story/question Leda controls; compact views
 use the active reading/question context. Visible A–D letters match narration.
 Teacher notes remain outside the shared lesson stage.
+
+The learner Cycle Shorts catalogue uses the same fitted cards and opens the
+paged lesson directly. Its week-specific marks, reading support and questions
+are available in the lesson. Teacher catalogue and presentation routes retain
+their class controls and private answer reveals.
 
 Each passage has its own black-and-white raster illustration: one spatial scene
 or a three-panel first/next/last comic, chosen for that story. Pictures can be

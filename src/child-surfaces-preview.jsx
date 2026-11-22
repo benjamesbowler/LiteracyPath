@@ -182,6 +182,7 @@ function PreviewShell({ active, children, focusLocked = false, headerActions = n
       tabs={focusLocked ? [] : undefined}
       headerActions={headerActions}
       immersive={immersive}
+      nativeViewport={active === "stories"}
     >
       {children}
     </StudentGlassShell>
@@ -314,11 +315,15 @@ function Surface() {
           studentName="Aaron"
           progressScopeKey={PREVIEW_SCOPE}
           renderQuest={({ questId, onExit }) => (
-            <LearnAreaPage
-              progressScopeKey={PREVIEW_SCOPE}
-              launchQuestId={questId}
-              onExitLibrary={onExit}
-            />
+            <PreviewShell active="stories">
+              <div className="learn-fullscreen-frame student-surface-frame student-surface-story">
+                <LearnAreaPage
+                  progressScopeKey={PREVIEW_SCOPE}
+                  launchQuestId={questId}
+                  onExitLibrary={onExit}
+                />
+              </div>
+            </PreviewShell>
           )}
         />
       );

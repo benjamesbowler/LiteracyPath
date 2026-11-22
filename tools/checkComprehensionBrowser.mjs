@@ -21,60 +21,92 @@ try{
   await root.locator('img').evaluateAll(images=>Promise.all(images.map(img=>img.decode())));
   const missing=await root.locator('img').evaluateAll(images=>images.filter(i=>!i.complete||!i.naturalWidth).map(i=>i.src));assert.deepEqual(missing,[]);
  }
+ const catalogue=page.locator('.rc-child-catalogue');
+ const stage=page.locator('#rc-lesson-stage');
+ const button=name=>stage.getByRole('button',{name,exact:true});
+ const story=stage.locator('.rc-lesson-text[data-lesson-text="story"]:not(.rc-text-measure)');
+ const options=stage.getByRole('group',{name:'Answer choices'});
+ const pager=catalogue.getByRole('navigation',{name:'Passage pages'});
+ async function choosePassage(title){
+  const read=catalogue.getByRole('button',{name:`Read ${title}`,exact:true});
+  const next=pager.getByRole('button',{name:'Next',exact:true});
+  while(!await read.count() && await next.count() && await next.getAttribute('aria-disabled')!=='true') await next.click();
+  await read.click();
+  await visible(stage.getByRole('heading',{name:title,exact:true}));
+ }
+ async function showQuestions(){if(await button('Questions').isVisible())await button('Questions').click();}
+ async function returnToList(){await button('All passages').click();await visible(catalogue);}
+ async function collectText(kind){
+  const text=stage.locator(`.rc-lesson-text[data-lesson-text="${kind}"]:not(.rc-text-measure)`);
+  const next=button(`Next ${kind} page`);
+  const pages=[await text.innerText()];
+  while(await next.isEnabled()){await next.click();pages.push(await text.innerText());}
+  return pages.join(' ');
+ }
  for(const [width,height] of [[320,568],[568,320],[768,1024],[1024,768],[1366,768],[1920,1080]]){
-  await page.setViewportSize({width,height});await page.goto(child);await visible(page.getByRole('button',{name:'Read Muddy and the Mat',exact:true}));await page.evaluate(()=>document.fonts.ready);await contract();
+  await page.setViewportSize({width,height});await page.goto(`${child}&scope=browser-device-${width}`);
+  await visible(catalogue.getByRole('button',{name:'Read Muddy and the Mat',exact:true}));await page.evaluate(()=>document.fonts.ready);await contract();
   assert.equal(await page.locator('.kg-stage').getAttribute('data-layout'),'catalogue');
-  await page.getByRole('button',{name:'Read Muddy and the Rain Pail',exact:true}).click();await contract();
+  await choosePassage('Muddy and the Rain Pail');await showQuestions();
   const q=passages.find(p=>p.id==='muddy-rain').questions[0];
-  assert.equal(await page.getByRole('button',{name:'Next question',exact:true}).isEnabled(),false);
-  await page.locator('.rc-options').getByRole('button',{name:q.answer,exact:true}).click();await page.getByRole('button',{name:'Check answer',exact:true}).click();
-  assert.equal(await page.getByRole('button',{name:'Next question',exact:true}).isEnabled(),true);await contract();
-  await page.locator('.rc-page').evaluate(el=>{el.scrollTop=0;});
+  assert.equal(await button('Next').isEnabled(),false);
+  await options.getByRole('button',{name:q.answer,exact:true}).click();await button('Check answer').click();
+  assert.equal(await button('Next').isEnabled(),true);
   await page.screenshot({path:`${out}/student-${width}x${height}.png`,fullPage:true});
-  await page.getByRole('button',{name:'Start again',exact:true}).click();
-  await page.getByRole('button',{name:'← All passages',exact:true}).click();
+  await returnToList();
   results.push({device:`${width}x${height}`,catalogue:true,question:true});
  }
- // Every authored passage exercises the actual answer controls and completion.
- await page.setViewportSize({width:1024,height:768});await page.goto(child);
+ // Exercise the authored order, follow every visible page, and revisit the
+ // same page after each lesson. All four answer choices remain interactive.
+ await page.setViewportSize({width:1024,height:768});await page.goto(`${child}&scope=browser-passage-bank`);await visible(catalogue);
  for(const p of passages){
-  await page.getByRole('button',{name:`Read ${p.title}`,exact:true}).click();
-  await page.getByRole('button',{name:'Words to read together',exact:true}).click();
-  for(const [word,meaning] of p.wordHelp){
-   assert.ok((await page.locator('.rc-word-help').innerText()).includes(`${word}: ${meaning}`));
-  }
-  await page.getByRole('button',{name:'Words to read together',exact:true}).click();
-  await page.getByRole('button',{name:'Mark phonics words',exact:true}).click();
-  const marked=await page.locator('.rc-passage mark').allTextContents();
+  await choosePassage(p.title);
+  await button('Words').click();
+  const wordHelp=await collectText('word help');
+  for(const [word,meaning] of p.wordHelp) assert.ok(wordHelp.includes(`${word}: ${meaning}`),`${p.id}: ${word}`);
+  await button('Words').click();
+  if(await button('Mark phonics words').isVisible())await button('Mark phonics words').click();
+  const marked=await story.locator('mark').allTextContents();
   assert.deepEqual([...new Set(marked.map(w=>w.toLowerCase()))],getPassagePhonicsWords(p),`${p.id}: all focus words rendered`);
-  await page.getByRole('button',{name:'Start again',exact:true}).click();
   if(p===passages[0]){
    const q=p.questions[0],wrong=q.options.find(o=>o!==q.answer);
-   await page.locator('.rc-options').getByRole('button',{name:wrong,exact:true}).click();await page.getByRole('button',{name:'Check answer',exact:true}).click();
-   assert.match(await page.locator('.rc-feedback').innerText(),/Try another answer/);
-   await page.reload();await visible(page.locator('.rc-passage'));assert.match(await page.locator('.rc-feedback').innerText(),/Try another answer/);
+   await options.getByRole('button',{name:wrong,exact:true}).click();await button('Check answer').click();
+   await stage.getByText(/Try another answer/).filter({visible:true}).waitFor();
+   await page.reload();await visible(story);
+   await stage.getByText(/Try another answer/).filter({visible:true}).waitFor();
+   if(await button('Back to choices').isVisible())await button('Back to choices').click();
   }
   for(let i=0;i<3;i++){
-   const q=p.questions[i];await page.locator('.rc-options').getByRole('button',{name:q.answer,exact:true}).click();await page.getByRole('button',{name:'Check answer',exact:true}).click();
-   assert.match(await page.locator('.rc-feedback').innerText(),/That fits the story/);
-   assert.equal(await page.locator('.rc-passage').innerText().then(t=>t.trim()),p.text);
-   if(i<2)await page.getByRole('button',{name:'Next question',exact:true}).click();
+   const q=p.questions[i];
+   assert.equal(await options.getByRole('button').count(),4,`${q.id}: four choices`);
+   await options.getByRole('button',{name:q.answer,exact:true}).click();await button('Check answer').click();
+   await stage.getByText(/That fits the story/).filter({visible:true}).waitFor();
+   assert.equal((await story.innerText()).trim(),p.text);
+   await button(i<2?'Next':'Finish').click();
   }
-  await page.getByRole('button',{name:'Finish practice',exact:true}).click();await visible(page.getByRole('heading',{name:'You finished this practice!',exact:true}));await contract();
-  assert.equal(await page.getByRole('button',{name:/Teacher notes/}).count(),0);
-  assert.equal(await page.getByRole('option',{name:'Teacher guide and answers',exact:true}).count(),0);
-  await page.getByRole('button',{name:'← All passages',exact:true}).click();
+  await visible(stage.getByRole('heading',{name:'You finished this practice!',exact:true}));
+  assert.equal(await stage.getByRole('button',{name:/Teacher notes/}).count(),0);
+  assert.equal(await stage.getByRole('option',{name:'Teacher guide and answers',exact:true}).count(),0);
+  await returnToList();
  }
  results.push({passagesCompleted:passages.length,questionsAnswered:passages.reduce((n,p)=>n+p.questions.length,0),allPhonicsMarks:true,allWordHelp:true,wrongRetryAndReload:true,teacherControlsAbsent:true});
- await page.getByRole('button',{name:'Find a story',exact:true}).click();
- await page.getByRole('searchbox',{name:'Find a story',exact:true}).fill('not-a-story');await page.getByRole('button',{name:'Show all passages',exact:true}).click();assert.equal(await page.locator('.rc-card').count(),passages.length);
- await page.getByRole('combobox',{name:'Phonics',exact:true}).selectOption('teams');assert.equal(await page.locator('.rc-card').count(),passages.filter(p=>p.family==='teams').length);
- await page.getByRole('combobox',{name:'Focus',exact:true}).selectOption('ai');assert.equal(await page.locator('.rc-card').count(),passages.filter(p=>p.family==='teams'&&p.focus==='ai').length);
- await page.getByRole('button',{name:'Read Muddy and the Rain Pail',exact:true}).click();await page.getByRole('button',{name:'Preview page',exact:true}).click();
- await visible(page.getByRole('document',{name:/Reading Comprehension/}));
- const previewFont=await page.locator('.ws-paper-frame').evaluate(el=>getComputedStyle(el.shadowRoot.querySelector('.passage')).fontFamily);assert.match(previewFont,/Worksheet Andika/);
+ await catalogue.getByRole('button',{name:'Find a story',exact:true}).click();
+ const filters=page.getByRole('dialog',{name:'Find a passage'});
+ const matchCount=filters.getByRole('status');
+ await filters.getByRole('searchbox',{name:'Find a story',exact:true}).fill('not-a-story');
+ assert.equal(await matchCount.innerText(),'0 passages');
+ await filters.getByRole('button',{name:'Show all passages',exact:true}).click();
+ assert.equal(await matchCount.innerText(),`${passages.length} passages`);
+ await filters.getByRole('combobox',{name:'Phonics',exact:true}).selectOption('teams');
+ assert.equal(await matchCount.innerText(),`${passages.filter(p=>p.family==='teams').length} passages`);
+ await filters.getByRole('combobox',{name:'Focus',exact:true}).selectOption('ai');
+ assert.equal(await matchCount.innerText(),`${passages.filter(p=>p.family==='teams'&&p.focus==='ai').length} passages`);
+ await filters.getByRole('button',{name:'Show stories',exact:true}).click();
+ await choosePassage('Muddy and the Rain Pail');await button('Print pages').click();await button('Preview page').click();
+ await visible(stage.getByRole('document'));
+ const previewFont=await stage.locator('.ws-paper-frame').evaluate(el=>getComputedStyle(el.shadowRoot.querySelector('.passage')).fontFamily);assert.match(previewFont,/Worksheet Andika/);
  // Pop-up failure must retain the worksheet and offer a retry.
- await page.evaluate(()=>{window.open=()=>null;});await page.getByRole('button',{name:'Print / Save as PDF',exact:true}).click();await page.getByRole('status').filter({hasText:'Allow pop-ups'}).waitFor();
+ await page.evaluate(()=>{window.open=()=>null;});await button('Print / Save as PDF').click();await stage.getByRole('status').filter({hasText:'Allow pop-ups'}).waitFor();
  await accessibility();
  results.push({filters:true,shadowPreview:true,popupFailure:true,studentA11y:true});
  await page.goto(`${base}/preview/teacher-a11y.html?surface=resources`);

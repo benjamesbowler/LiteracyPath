@@ -1,5 +1,9 @@
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import { MotionConfig } from "framer-motion";
+import { useChildPages } from "../../../hooks/useChildPages.js";
+import { useChildBrowseMedia, useCompactChildBrowse } from "../../../hooks/useCompactChildBrowse.js";
+import { getAllLetters } from "../../../data/phonicsLessons.js";
+import { cvcWordFamilies } from "../../../data/cvcWordFamilies.js";
 import "../../activities/woodland-activity.css";
 import "./woodland-letters.css";
 import "./cvc/word-workshop.css";
@@ -17,6 +21,7 @@ import { lazyWithRetry } from "../../../utils/lazyWithRetry";
 const GameArcadeHub = lazyWithRetry(() => import("../games/GameArcadeHub").then(module => ({
   default: module.GameArcadeHub
 })));
+const ALPHABET = getAllLetters();
 
 function getInitialIsland() {
   try {
@@ -79,6 +84,17 @@ function PhonicsLearnContent({
   const [progress, setProgress] = useState(() => loadPhonicsProgress(progressScopeKey));
   const [letterRecords, setLetterRecords] = useState(() => loadPhonicsProgressRecords(progressScopeKey));
   const [cvcProgress, setCvcProgress] = useState(() => loadCvcProgress(progressScopeKey));
+  const pickerRef = useRef(null);
+  const shortLandscape = useCompactChildBrowse();
+  const narrowLandscape = useChildBrowseMedia("(max-width: 470px) and (orientation: landscape)");
+  const shortPhone = useChildBrowseMedia("(max-width: 650px) and (max-height: 520px)");
+  const phonicsPages = useChildBrowseMedia("(max-width: 650px) and (max-height: 710px), (max-height: 510px)");
+  const compactWordPages = useChildBrowseMedia("(max-width: 650px), (max-height: 550px)");
+  const shortWordPages = useChildBrowseMedia("(max-height: 650px)");
+  const letterPageSize = shortLandscape ? (narrowLandscape ? 8 : 12) : shortPhone ? 8 : phonicsPages ? 12 : ALPHABET.length;
+  const familyPageSize = compactWordPages ? (shortLandscape || shortWordPages ? 2 : 4) : cvcWordFamilies.length;
+  const letters = useChildPages(ALPHABET, letterPageSize);
+  const families = useChildPages(cvcWordFamilies, familyPageSize);
 
   const letterPractice = Object.fromEntries(Object.entries(letterRecords).map(([letter, record]) => [letter, getLetterPracticeProgress(record)]));
   const practiceStatuses = Object.fromEntries(Object.entries(letterPractice).map(([letter, practice]) => [letter, practice.status]));
@@ -133,8 +149,14 @@ function PhonicsLearnContent({
   }
 
   function handleBack() {
+    const target = activeLetter || activeFamily?.id;
+    if (activeLetter) letters.setPageIndex(Math.floor(ALPHABET.indexOf(activeLetter) / letterPageSize));
+    if (activeFamily) families.setPageIndex(Math.floor(cvcWordFamilies.indexOf(activeFamily) / familyPageSize));
     setActiveLetter(null);
     setActiveFamily(null);
+    if (target) requestAnimationFrame(() => {
+      pickerRef.current?.querySelector(`[data-picker-key="${CSS.escape(target)}"]`)?.focus({ preventScroll: true });
+    });
   }
 
   function handleIslandClick(island) {
@@ -191,7 +213,7 @@ function PhonicsLearnContent({
   }
 
   return (
-    <div className="phonics-island-view woodland-activity woodland-letters woodland-letters-picker">
+    <div ref={pickerRef} className="phonics-island-view woodland-activity woodland-letters woodland-letters-picker">
       <div className="phonics-island-switcher" aria-label="Choose Learn area" data-child-choices="">
         <button
           className={`phonics-island-card ${activeIsland === "letters" ? "active" : ""}`}
@@ -223,11 +245,13 @@ function PhonicsLearnContent({
 
       {activeIsland === "words" ? (
         <WorkshopFamilyPicker
+          pages={families}
           progress={cvcProgress}
           onSelectFamily={handleSelectFamily}
         />
       ) : (
         <PhonicsAlphabetPicker
+          pages={letters}
           progress={practiceStatuses}
           rounds={letterPractice}
           teachingCycleId={teachingCycleId}

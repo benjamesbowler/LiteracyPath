@@ -178,6 +178,39 @@
   gap: 15px;
 }
 
+.kg-stage .kg-quests[data-quest-shelf-paged] .kg-quest-region {
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 8px;
+}
+
+.kg-stage .kg-quest-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  min-width: 0;
+  color: #18263E;
+  font: 700 15px/1.2 var(--kg-font-body);
+}
+
+.kg-stage .kg-quest-pagination button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  min-width: 56px;
+  height: 56px;
+  padding: 0 8px;
+  border: 1px solid #929DAF;
+  border-radius: 12px;
+  background: #fff;
+  color: #18263E;
+  cursor: pointer;
+}
+
+.kg-stage .kg-quest-pagination button:disabled { opacity: .45; }
+.kg-stage .kg-quest-pagination button .kg-icon { width: 25px; height: 25px; }
+
 /* Five stories should read as one featured invitation plus four reachable
    alternatives. The featured card owns a 2x2 footprint, so the final row is
    intentionally composed rather than leaving a dead bento gap. */
@@ -520,6 +553,112 @@
     margin: 8px 8px 8px 0;
     padding: 6px;
     font-size: 12px;
+  }
+}
+
+/* Compact shelves expose one complete story at a time. The art gives up
+   space before the child's title, audio control or page arrows. */
+.kg-stage .kg-quests[data-quest-shelf="compact"] {
+  grid-template-rows: auto minmax(0, 1fr);
+  height: 100%;
+  min-height: 0;
+  padding: 6px;
+  gap: 8px;
+}
+
+.kg-stage .kg-quests[data-quest-shelf="compact"] .kg-quest-grid {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+  gap: 0;
+}
+
+.kg-stage .kg-quests[data-quest-shelf="compact"] .kg-quest-card:first-child {
+  grid-column: auto;
+  grid-row: auto;
+}
+
+.kg-stage .kg-quests[data-quest-shelf="compact"] .kg-quest-card {
+  position: relative;
+  grid-template-rows: minmax(0, 1fr);
+}
+
+.kg-stage .kg-quests[data-quest-shelf="compact"] .kg-quest-open {
+  grid-template-rows: minmax(0, 1fr) auto;
+}
+
+.kg-stage .kg-quests[data-quest-shelf="compact"] .kg-quest-art {
+  aspect-ratio: auto;
+}
+
+.kg-stage .kg-quests[data-quest-shelf="compact"] .kg-quest-foot { padding-inline-end: 64px; }
+.kg-stage .kg-quests[data-quest-shelf="compact"] .kg-quest-card > .kg-quest-listen {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  width: 48px;
+  height: 48px;
+  margin: 0;
+  padding: 0;
+}
+.kg-stage .kg-quests[data-quest-shelf="compact"] .kg-quest-synopsis-label { display: none; }
+
+@media (max-height: 480px) and (orientation: landscape) {
+  .kg-stage .kg-quests[data-quest-shelf="compact"][data-quest-shelf-paged] .kg-quest-region {
+    grid-template-columns: 56px minmax(0, 1fr) 56px;
+    grid-template-rows: minmax(0, 1fr);
+    gap: 6px;
+  }
+
+  .kg-stage .kg-quests[data-quest-shelf="compact"][data-quest-shelf-paged] .kg-quest-grid {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .kg-stage .kg-quests[data-quest-shelf="compact"] .kg-quest-pagination {
+    display: grid;
+    grid-area: 1 / 1 / 2 / -1;
+    grid-template-columns: 56px minmax(0, 1fr) 56px;
+    gap: 6px;
+    pointer-events: none;
+  }
+  .kg-stage .kg-quests[data-quest-shelf="compact"] .kg-quest-pagination button {
+    grid-row: 1;
+    align-self: center;
+    width: 56px;
+    padding: 0;
+    pointer-events: auto;
+  }
+  .kg-stage .kg-quests[data-quest-shelf="compact"] .kg-quest-pagination button span { display: none; }
+  .kg-stage .kg-quests[data-quest-shelf="compact"] .kg-quest-previous { grid-column: 1; }
+  .kg-stage .kg-quests[data-quest-shelf="compact"] .kg-quest-next { grid-column: 3; }
+  .kg-stage .kg-quests[data-quest-shelf="compact"] .kg-quest-pagination output {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    clip-path: inset(50%);
+    overflow: hidden;
+  }
+
+  .kg-stage .kg-quests[data-quest-shelf="compact"] .kg-quest-card {
+    grid-template-columns: minmax(0, 1fr) 56px;
+    grid-template-rows: minmax(0, 1fr);
+  }
+  .kg-stage .kg-quests[data-quest-shelf="compact"] .kg-quest-open {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    grid-template-rows: minmax(0, 1fr);
+  }
+  .kg-stage .kg-quests[data-quest-shelf="compact"] .kg-quest-foot {
+    align-self: center;
+    padding: 4px 8px;
+  }
+  .kg-stage .kg-quests[data-quest-shelf="compact"] .kg-quest-title { font-size: 16px; }
+  .kg-stage .kg-quests[data-quest-shelf="compact"] .kg-quest-note { font-size: 12px; }
+  .kg-stage .kg-quests[data-quest-shelf="compact"] .kg-quest-reading-note { margin-top: 2px; }
+  .kg-stage .kg-quests[data-quest-shelf="compact"] .kg-quest-card > .kg-quest-listen {
+    position: static;
+    width: 48px;
+    height: 56px;
+    align-self: center;
   }
 }
 

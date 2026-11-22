@@ -1,9 +1,8 @@
-/* The open Words family collection owns one scroll area.
-   Its picker owns one vertical scroll; Letter/game activities keep their own frames. */
+/* Word families share one visible page of selectable cards at a time. */
 .kg-stage .student-surface-phonics:has(.cvc-picker) :is(.phonics-learn-page, .phonics-tab-shell) { height: 100%; min-height: 0; overflow: hidden; }
 .kg-stage .student-surface-phonics .phonics-island-view:has(.cvc-picker) { display: flex; flex-direction: column; height: 100%; min-height: 0; max-width: none; padding: 10px; gap: 8px; overflow: hidden; background: #F7F8FA; }
 .kg-stage .student-surface-phonics .phonics-island-view:has(.cvc-picker) .phonics-island-switcher { flex-shrink: 0; }
-.kg-stage .student-surface-phonics .cvc-picker { display: flex; flex: 1; align-items: stretch; min-height: 0; max-width: none; padding: 4px; gap: 12px; overflow: auto; overscroll-behavior: contain; }
+.kg-stage .student-surface-phonics .cvc-picker { display: flex; flex: 1; align-items: stretch; min-height: 0; max-width: none; padding: 4px; gap: 12px; overflow: clip; }
 .kg-stage .student-surface-phonics .cvc-picker-hero { justify-content: start; gap: 12px; }
 .kg-stage .student-surface-phonics .cvc-picker-hero .cvc-blendy { width: 56px; }
 .student-mode-app .kg-stage .student-surface-phonics .cvc-picker .cvc-picker-hero h1 { margin: 0; color: #18263E; font: 750 28px/1.15 var(--lp-font-letter, 'Fredoka', sans-serif); }
@@ -12,8 +11,7 @@
 .kg-stage .student-surface-phonics .cvc-family-card { min-height: 170px; border-radius: 16px; padding: 10px; color: #18263E; box-shadow: none; }
 .kg-stage .student-surface-phonics .cvc-family-card:is(.completed, .inprogress) { background: #E9EDF9; border-color: #3454C8; }
 .kg-stage .student-surface-phonics .cvc-family-rime { font-family: var(--lp-font-letter, 'Fredoka', sans-serif); font-size: 34px; }
-@media (max-width: 820px) { .kg-stage .student-surface-phonics .cvc-family-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 400px) { .kg-stage .student-surface-phonics .cvc-family-grid { grid-template-columns: 1fr; } }
+@media (max-width: 650px) { .kg-stage .student-surface-phonics .cvc-family-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
 /* Open word families: a picture row and one clear action per card. */
 .kg-stage .student-surface-phonics .cvc-picker { flex-direction: column; }
@@ -39,3 +37,47 @@
 .kg-stage .student-surface-phonics .cvc-family-state {padding-top:0;}
 
 .cvc-picker-progress { margin: 0; color: #5C677A; font: 600 13px/1.3 var(--kg-font-body); }
+
+.kg-stage .student-surface-phonics .cvc-picker[data-paged] {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto auto;
+  gap: 6px;
+  align-items: start;
+}
+.kg-stage .student-surface-phonics .cvc-picker[data-paged] .cvc-family-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+}
+.kg-stage .student-surface-phonics .cvc-picker[data-paged] .cvc-family-card {
+  min-height: 0;
+  padding: 6px;
+}
+.kg-stage .student-surface-phonics .phonics-island-view:has(.cvc-picker[data-paged]) .phonics-island-switcher {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+}
+.kg-stage .student-surface-phonics .cvc-picker[data-paged] .cvc-family-rime { font-size: 25px; line-height: 1; }
+.kg-stage .student-surface-phonics .cvc-picker[data-paged] .cvc-family-thumb { height: clamp(34px, 8vw, 60px); }
+.kg-stage .student-surface-phonics .cvc-picker[data-paged] .cvc-family-examples { font-size: 13px; }
+@media (max-height: 430px) and (orientation: landscape) {
+  .kg-stage .student-surface-phonics .phonics-island-view:has(.cvc-picker[data-paged]) {
+    display: grid;
+    grid-template-columns: 116px minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr);
+    padding: 5px;
+    gap: 6px;
+  }
+  .kg-stage .student-surface-phonics .phonics-island-view:has(.cvc-picker[data-paged]) .phonics-island-switcher { display: grid; grid-template-columns: 1fr; align-content: start; gap: 6px; }
+  .kg-stage .student-surface-phonics .cvc-picker[data-paged] { height: 100%; gap: 4px; }
+  .kg-stage .student-surface-phonics .cvc-picker[data-paged] .cvc-picker-hero { padding: 0; }
+  .kg-stage .student-surface-phonics .cvc-picker[data-paged] .cvc-picker-hero > div { display: flex; align-items: center; gap: 8px; }
+  .student-mode-app .kg-stage .student-surface-phonics .cvc-picker[data-paged] .cvc-picker-hero h1 { font-size: 21px; }
+  .kg-stage .student-surface-phonics .cvc-picker[data-paged] .cvc-picker-hero p { margin: 0; font-size: 12px; line-height: 1.2; }
+  .kg-stage .student-surface-phonics .cvc-picker[data-paged] .cvc-family-card { display: grid; grid-template-columns: auto 1fr; gap: 3px 6px; padding: 5px; align-items: center; }
+  .kg-stage .student-surface-phonics .cvc-picker[data-paged] .cvc-family-images { min-width: 0; }
+  .kg-stage .student-surface-phonics .cvc-picker[data-paged] .cvc-family-thumb { flex: 1 1 0; width: auto; }
+  .kg-stage .student-surface-phonics .cvc-picker[data-paged] .cvc-family-examples { grid-column: 1 / -1; }
+  .kg-stage .student-surface-phonics .cvc-picker[data-paged] .cvc-family-state { grid-column: 1 / -1; }
+  .kg-stage .student-surface-phonics .cvc-picker[data-paged] .cvc-family-thumb { height: 28px; }
+}

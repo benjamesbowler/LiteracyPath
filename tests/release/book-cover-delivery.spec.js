@@ -7,27 +7,43 @@ import { expectVisibleImagesReady } from "./support/visualReadiness.js";
 const library = getRuntimeGuidedReadingBooks();
 const pathname = source => new URL(source, "https://literacy.guide").pathname;
 
+async function findBookCard(page, book) {
+  await page.getByRole("button", { name: "Find a book", exact: true }).click();
+  const finder = page.getByRole("dialog", { name: "Find a book" });
+  await finder.getByRole("button", { name: "Find by title", exact: true }).click();
+  await finder.getByRole("searchbox", { name: "Book title", exact: true }).fill(book.title);
+  await finder.getByRole("button", { name: /^See [1-9]\d* books?$/ }).click();
+  const card = page.locator(`.kg-book-card[data-book-id="${book.id}"]`);
+  await expect(card).toBeInViewport({ ratio: 1 });
+  return card;
+}
+
 test("large child book galleries decode canonical card artwork and retain full reader images", async ({ page }, info) => {
   await page.setViewportSize({ width: 1920, height: 1080 });
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/preview/child-surfaces.html?surface=reading-library");
-  const cards = page.locator(".kg-book-card");
-  await expect(cards).toHaveCount(library.length);
-  // Keep the real, parallel decode gate: source-only/lazy-decode workarounds
-  // still failed here with valid original multi-megapixel covers.
-  await expectVisibleImagesReady(page, "full projector book gallery");
-  for (const id of ["ab-c-09", "ab-c-07"]) {
+  const shelf = page.locator(".kg-books");
+  const cards = shelf.locator(".kg-book-card");
+  await expect(shelf).toHaveAttribute("data-book-count", String(library.length));
+  await expect(cards.first()).toBeInViewport({ ratio: 1 });
+  await expectVisibleImagesReady(page, "first projector book page");
+  await page.screenshot({ path: info.outputPath("projector-book-gallery.png") });
+  const next = shelf.getByRole("navigation", { name: "Books pages" }).getByRole("button", { name: "Next", exact: true });
+  await expect(next).toBeInViewport({ ratio: 1 });
+  await next.click();
+  await expect(shelf).toHaveAttribute("data-book-page", "2");
+  await expectVisibleImagesReady(page, "next projector book page");
+  await expect(cards.last().locator(".kg-book-cover-frame")).toHaveAttribute("data-book-cover-state", "ready");
+
+  for (const id of ["ab-c-07", "ab-c-09"]) {
     const book = library.find(item => item.id === id);
     const source = bookCoverSources(book)[0];
-    const cover = page.locator(`.kg-book-card[data-book-id="${id}"] .kg-book-cover-frame`);
+    const card = await findBookCard(page, book);
+    const cover = card.locator(".kg-book-cover-frame");
     await expect(cover).toHaveAttribute("data-book-cover-state", "ready");
     await expect(cover.locator("img")).toHaveAttribute("src", GUIDED_READING_COVER_RENDITIONS[source].src);
     expect(await cover.locator("img").evaluate(image => Math.max(image.naturalWidth, image.naturalHeight))).toBeLessThanOrEqual(512);
   }
-  await page.screenshot({ path: info.outputPath("projector-book-gallery.png") });
-  await cards.last().scrollIntoViewIfNeeded();
-  await expectVisibleImagesReady(page, "last books in the complete gallery");
-  await expect(cards.last().locator(".kg-book-cover-frame")).toHaveAttribute("data-book-cover-state", "ready");
   const book = library.find(item => item.id === "ab-c-09");
   await page.locator(`.kg-book-card[data-book-id="${book.id}"]`).click();
   const illustration = page.locator(".guided-reader-shell.fullscreen .guided-page-image");
@@ -51,8 +67,7 @@ test("failed card delivery retries its own canonical cover then its own approved
     return route.continue();
   });
   await page.goto("/preview/child-surfaces.html?surface=reading-library");
-  const card = page.locator(`.kg-book-card[data-book-id="${book.id}"]`);
-  await card.scrollIntoViewIfNeeded();
+  const card = await findBookCard(page, book);
   const cover = card.locator(".kg-book-cover-frame");
   await expect(cover).toHaveAttribute("data-book-cover-state", "ready");
   expect(pathname(await cover.locator("img").getAttribute("src"))).toBe(sources[1]);
@@ -71,8 +86,7 @@ test("unavailable card art keeps its own title fallback and the book remains ope
     return source === rendition || sources.has(source) ? route.abort() : route.continue();
   });
   await page.goto("/preview/child-surfaces.html?surface=reading-library");
-  const card = page.locator(`.kg-book-card[data-book-id="${book.id}"]`);
-  await card.scrollIntoViewIfNeeded();
+  const card = await findBookCard(page, book);
   const cover = card.locator(".kg-book-cover-frame");
   await expect(cover).toHaveAttribute("data-book-cover-state", "fallback");
   await expect(cover.locator("img")).toHaveCount(0);

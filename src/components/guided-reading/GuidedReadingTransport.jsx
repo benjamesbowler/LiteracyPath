@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { BookOpen, CaretLeft, CaretRight, Check, DotsThree, Pause, Play, SpeakerHigh, Stop, X } from "@phosphor-icons/react";
 import BookDiscussionPanel from "./BookDiscussionPanel.jsx";
 import { appReadingLevelLabel } from "../../utils/guidedReading/bookTextAnalysis.js";
@@ -8,9 +8,13 @@ export default function GuidedReadingTransport({
   title, pageIndex, pageCount, readerCopy, audio, onPrevious, onNext, onFinish,
   isReviewMode, isFullscreen, onToggleFullscreen, onClose, lineFocusEnabled,
   onToggleLineFocus, discussion, onGoToPage, returnLabel, onAssignStudentBook = null,
-  bookAnalysis = null
+  bookAnalysis = null, student = false
 }) {
   const optionsRef = useRef(null);
+  const detailsTrigger = useRef(null);
+  const detailsBack = useRef(null);
+  const [showBookDetails, setShowBookDetails] = useState(false);
+  const [detailsPage, setDetailsPage] = useState("level");
   const lastPage = pageIndex === pageCount - 1;
   const pageLabel = audio.wholeBook ? readerCopy.stopBook : audio.loading
     ? readerCopy.loadingPage
@@ -39,6 +43,26 @@ export default function GuidedReadingTransport({
       document.removeEventListener("pointerdown", closeOptions);
     };
   }, []);
+
+  function showDetails(open) {
+    setShowBookDetails(open);
+    if (open) setDetailsPage("level");
+    requestAnimationFrame(() => (open ? detailsBack : detailsTrigger).current?.focus({ preventScroll: true }));
+  }
+
+  const bookDetails = bookAnalysis && <section className="guided-transport-book-details" aria-label="About this book" data-details-page={detailsPage}>
+    <strong>About this book</strong>
+    <div className="guided-transport-level-notes">
+      <p>{appReadingLevelLabel(bookAnalysis.appReadingLevel)}. App levels describe the text, not a child’s reading ability.</p>
+      <p>{bookAnalysis.rationale}</p>
+      {bookAnalysis.metrics && <p>{bookAnalysis.metrics.pageCount} reading pages · {bookAnalysis.metrics.wordCount} words</p>}
+    </div>
+    <p className="guided-transport-measure-notes"><strong>{bookAnalysis.lexile.label}</strong>. {bookAnalysis.lexile.status === "measured"
+      ? [bookAnalysis.lexile.provider && `Measured by ${bookAnalysis.lexile.provider}.`,
+        bookAnalysis.lexile.measuredAt && `Measurement date: ${bookAnalysis.lexile.measuredAt}.`,
+        bookAnalysis.lexile.receiptReference && `Reference: ${bookAnalysis.lexile.receiptReference}.`].filter(Boolean).join(" ")
+      : "An authorized Lexile measurement for this book’s current text has not been recorded. App levels are editorial estimates, not Lexile measures."}</p>
+  </section>;
 
   return (
     <header className="guided-transport" aria-label="Book controls">
@@ -97,9 +121,18 @@ export default function GuidedReadingTransport({
         </button>
       </div>
       <div className="guided-reader-secondary-controls" role="group" aria-label="Reader view controls">
-        <details className="guided-transport-options" ref={optionsRef}>
+        <details className={`guided-transport-options${student ? " guided-transport-options--student" : ""}`} ref={optionsRef}
+          onToggle={event => { if (!event.currentTarget.open) setShowBookDetails(false); }}>
           <summary aria-label="More reader controls"><DotsThree aria-hidden="true" /><span className="guided-transport-label">More</span></summary>
           <div className="guided-transport-options-panel">
+            {student && showBookDetails ? <>
+              <div className="guided-transport-detail-links" role="group" aria-label="About this book controls">
+                <button ref={detailsBack} className="lp-button lp-button-secondary" onClick={() => showDetails(false)} type="button">Back to reader tools</button>
+                <button className="lp-button lp-button-secondary guided-detail-tab" aria-pressed={detailsPage === "level"} onClick={() => setDetailsPage("level")} type="button">Book level</button>
+                <button className="lp-button lp-button-secondary guided-detail-tab" aria-pressed={detailsPage === "measure"} onClick={() => setDetailsPage("measure")} type="button">Text measure</button>
+              </div>
+              {bookDetails}
+            </> : <>
             {audio.enabled && <button aria-label={bookLabel} className="lp-button lp-button-secondary" disabled={!audio.bookAvailable || (audio.loading && !audio.wholeBook)} onClick={() => {
               optionsRef.current.open = false;
               optionsRef.current.querySelector("summary")?.focus();
@@ -120,17 +153,8 @@ export default function GuidedReadingTransport({
               optionsRef.current.querySelector("summary")?.focus();
               onGoToPage(pageNumber);
             }} />}
-            {bookAnalysis && <section className="guided-transport-book-details" aria-label="About this book">
-              <strong>About this book</strong>
-              <p>{appReadingLevelLabel(bookAnalysis.appReadingLevel)}. App levels describe the text, not a child’s reading ability.</p>
-              <p>{bookAnalysis.rationale}</p>
-              {bookAnalysis.metrics && <p>{bookAnalysis.metrics.pageCount} reading pages · {bookAnalysis.metrics.wordCount} words</p>}
-              <p><strong>{bookAnalysis.lexile.label}</strong>. {bookAnalysis.lexile.status === "measured"
-                ? [bookAnalysis.lexile.provider && `Measured by ${bookAnalysis.lexile.provider}.`,
-                  bookAnalysis.lexile.measuredAt && `Measurement date: ${bookAnalysis.lexile.measuredAt}.`,
-                  bookAnalysis.lexile.receiptReference && `Reference: ${bookAnalysis.lexile.receiptReference}.`].filter(Boolean).join(" ")
-                : "An authorized Lexile measurement for this book’s current text has not been recorded. App levels are editorial estimates, not Lexile measures."}</p>
-            </section>}
+            {student && bookAnalysis ? <button ref={detailsTrigger} className="lp-button lp-button-secondary" onClick={() => showDetails(true)} type="button">About this book</button> : bookDetails}
+            </>}
           </div>
         </details>
         <button aria-label={returnLabel} className="lp-button lp-button-secondary guided-return-control" onClick={isFullscreen ? onToggleFullscreen : onClose} type="button">

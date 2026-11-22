@@ -90,6 +90,9 @@
   .kg-stage .kg-map--atlas .kg-atlas-pal { width: 44px; height: 46px; }
   .kg-stage .kg-map--atlas .kg-atlas-heading .kg-title { font-size: 23px; line-height: 1.1; }
   .kg-stage .kg-map--atlas .kg-atlas-heading .kg-body { font-size: 13px; margin-top: 2px; max-width: none; }
+  .kg-stage .kg-map--atlas .kg-atlas-heading .kg-map-headline {
+    position: static; width: auto; height: auto; overflow: visible; clip-path: none; white-space: normal;
+  }
   .kg-stage .kg-map--atlas .kg-atlas-world { display: none; }
   .kg-stage .kg-map--atlas .kg-atlas-continue { bottom: 6px; right: 8px; width: min(290px, 52%); }
   .kg-stage .kg-map--atlas .kg-atlas-continue-button { min-height: 68px; padding: 8px 10px; gap: 8px; border-radius: 18px; }

@@ -1,6 +1,9 @@
 import "../../../styles/child-browse.css";
 import { ARCADE_JOURNEYS, completedArcadeChapters } from "../../../utils/arcadeJourneys.js";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { useChildPages } from "../../../hooks/useChildPages.js";
+import { useChildBrowseMedia, useCompactChildBrowse } from "../../../hooks/useCompactChildBrowse.js";
+import ChildPageControls from "../../ChildPageControls.jsx";
 import { GAME_LIST, gameMenuGroup } from "../../../data/learnGamesData";
 import { filterSample } from "../../../policy/freeTierContent.js";
 import { worldForDifficulty, worldStyle } from "../../../utils/palWorlds.js";
@@ -126,6 +129,13 @@ function GameArcadeContent({
   const personalRecords = allGames.map(game => ({ game, record: getLearnGameProgress(progress, game.id) }))
     .filter(({ record }) => record.plays > 0 || record.stars > 0 || record.highScore > 0 || record.checkpoints?.[progress.difficulty])
     .sort((a, b) => String(b.record.lastPlayedAt || "").localeCompare(String(a.record.lastPlayedAt || "")));
+  const compactGallery = useChildBrowseMedia("(max-width: 650px), (max-height: 500px)");
+  const shortLandscape = useCompactChildBrowse();
+  const compactOrder = compactGallery && recommendedGame
+    ? [recommendedGame, ...allGames.filter(game => game.id !== recommendedGame.id)]
+    : allGames;
+  const gallery = useChildPages(compactOrder, compactGallery ? (shortLandscape ? 2 : 4) : Math.max(1, allGames.length));
+  const records = useChildPages(personalRecords, shortLandscape ? 1 : compactGallery ? 2 : 4);
 
   function gameTile(game) {
     return <button key={game.id} type="button" className={`lg-game-tile${game.id === recommendedGame?.id ? " is-recommended" : ""}`} data-game-id={game.id} data-game-section={gameMenuGroup(game)}
@@ -164,7 +174,7 @@ function GameArcadeContent({
 
   return (
     <section className="lg-arcade lg-simple-arcade" aria-labelledby="lg-arcade-title" data-pal-world={world.id} style={worldStyle(world)}>
-      <div className="lg-arcade-scrollbody">
+      <div className="lg-arcade-scrollbody" data-paged={gallery.pageCount > 1 ? "" : undefined}>
         <div className="lg-arcade-topband">
           <div><h1 id="lg-arcade-title" className="lg-arcade-8bit" data-child-title="">{exactGameLock ? "Your game" : "Games"}</h1>
             <p className="lg-arcade-instruction" data-child-instruction="">{exactGameLock ? "Play the game your teacher chose." : "Choose any game to play."}</p></div>
@@ -189,8 +199,8 @@ function GameArcadeContent({
             {arcadeRecommendationAudioPath(recommendation.reason) && <button type="button" className="lg-menu-secondary" onClick={() => { stopCueAudio(); playCueAudio(arcadeRecommendationAudioPath(recommendation.reason)); }}>Hear why</button>}</details>}
         </section>}
         <section className="lg-game-choice-area" aria-label="Choose a game">
-          <div className="lg-game-tilegrid" id="lg-arcade-catalogue" role="group" aria-label="All available games" data-child-choices="">
-            {[
+          <div className={compactGallery ? "lg-game-tilegrid lg-game-paged-grid" : "lg-game-tilegrid"} id="lg-arcade-catalogue" role="group" aria-label="All available games" data-child-choices="">
+            {compactGallery ? gallery.visibleItems.map(gameTile) : [
               { id: "arcade", title: "Arcade", description: "Move, aim and build while you learn.", games: allGames.filter(game => gameMenuGroup(game) === "arcade") },
               { id: "phonics", title: "Phonics games", description: "Listen, look and practise.", games: allGames.filter(game => gameMenuGroup(game) === "phonics") }
             ].filter(group => group.games.length).map(group => <section key={group.id} className="lg-game-section" style={{
@@ -206,6 +216,7 @@ function GameArcadeContent({
           </div>
           {allGames.length === 0 && <p role="status">No games are available here. Ask your teacher for help.</p>}
         </section>
+        <ChildPageControls label="Game pages" pageIndex={gallery.pageIndex} pageCount={gallery.pageCount} onPageChange={gallery.setPageIndex} />
         <p className="lg-arcade-played" data-child-progress="">{exactGameLock ? "Your teacher’s game" : `${totals.tried} games tried · ${allGames.length} games to choose from`}</p>
       </div>
       {showProgress && !exactGameLock && <section ref={progressPanelRef} id="lg-personal-progress" className="lg-personal-progress" role="dialog" aria-modal="true" aria-labelledby="lg-personal-progress-title"
@@ -220,12 +231,13 @@ function GameArcadeContent({
         }}>
         <button ref={progressCloseRef} type="button" className="lg-menu-secondary" onClick={closeProgress}>Close my progress</button>
         <h2 id="lg-personal-progress-title">My game progress</h2><p>These are your own game records. {totals.tried} games tried.</p>
-        {personalRecords.length === 0 ? <p role="status">Play a game to start your journey.</p> : <ul aria-label="Your recent games">{personalRecords.map(({ game, record }) => <li key={game.id}>
+        {personalRecords.length === 0 ? <p role="status">Play a game to start your journey.</p> : <ul aria-label="Your recent games">{records.visibleItems.map(({ game, record }) => <li key={game.id}>
           <strong>{game.title}</strong><span>Personal best: {record.highScore || 0} game points</span><span>{record.plays || 0} times played</span>
           <span>{Math.max(0, Math.min(3, record.stars || 0))} of 3 game stars</span>
           {ARCADE_JOURNEYS[game.id] && <span>{completedArcadeChapters(record, progress.difficulty).length} of {ARCADE_JOURNEYS[game.id].chapterCount} outings finished</span>}
           {record.checkpoints?.[progress.difficulty] && <span>Your place is saved.</span>}
         </li>)}</ul>}
+        <ChildPageControls label="Game progress pages" pageIndex={records.pageIndex} pageCount={records.pageCount} onPageChange={records.setPageIndex} />
       </section>}
       {displayedActiveGame && (
         <GamePlayer

@@ -1357,6 +1357,7 @@ export function AppSurface({ surface }) {
           />
         ) : null}
         contentScrolls={contentScrolls}
+        nativeViewport={activeId === "stories"}
         immersive={learnFullscreen || appView === APP_VIEWS.CYCLE_PRACTICE}
       >
         {content}

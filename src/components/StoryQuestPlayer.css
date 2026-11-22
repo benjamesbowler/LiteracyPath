@@ -350,14 +350,15 @@
 }
 
 
-/* The story has one flow. Small screens scroll the whole reader, never a tiny
-   text box, so type and picture details do not shrink to satisfy a height. */
+/* Allocate space from the child shell, including its header and navigation. */
 .story-quest-active-page,
-.story-quest-active-page * { box-sizing: border-box; }
-.story-quest-active-page.learn-area-page,
-.student-mode-app .student-surface-story .story-quest-active-page.learn-area-page {
-  height: 100%; min-height: 0; overflow: auto; padding: 12px;
-  container-type: inline-size;
+.story-quest-reader,
+.story-quest-reader * { box-sizing: border-box; }
+.story-quest-active-page.learn-area-page.story-quest-learn-page,
+.student-mode-app .student-surface-story .story-quest-active-page.learn-area-page.story-quest-learn-page,
+.student-mode-app .kg-stage .student-surface-story .story-quest-active-page.learn-area-page.story-quest-learn-page {
+  width: 100%; height: 100%; min-height: 0; max-height: none; margin: 0;
+  overflow: clip; padding: clamp(4px, 1vw, 12px);
 }
 .student-surface-story:has(.story-quest-active-page) > .learn-fullscreen-toggle { display: none; }
 .story-quest-reader {
@@ -365,17 +366,22 @@
   --quest-accent: #3454C8;
   --quest-tint: #E9EDF9;
   --quest-line: #929DAF;
-  display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px;
-  width: min(100%, 1200px); height: auto; min-height: 0; margin: 0 auto;
-  padding: 18px; overflow: visible; background: #fffdf7;
-  border: 1px solid #e4e1d4; border-radius: 24px;
+  position: relative;
+  display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr);
+  gap: 8px; container: quest-reader / size;
+  width: 100%; max-width: 1440px; height: 100%; min-height: 0; margin: 0 auto;
+  padding: clamp(8px, 1.2vw, 18px); overflow: clip; background: #fffdf7;
+  border: 1px solid #e4e1d4; border-radius: 18px;
   color: #18263E; font-family: var(--lp-font-reading, Andika, sans-serif);
 }
+.story-quest-spread { display: grid; min-height: 0; min-width: 0; gap: 8px; }
+.story-quest-art-column, .story-quest-copy-column { display: contents; }
 .story-quest-reader .story-quest-header {
   display: flex; align-items: center; gap: 12px; min-width: 0;
   grid-column: 1 / -1;
 }
 .story-quest-heading { flex: 1; min-width: 0; }
+.story-quest-header-audio { display: none; }
 .story-quest-reader .story-quest-header h1 {
   margin: 0; font-size: clamp(18px, 2.2vw, 26px); line-height: 1.25; color: #18263E;
 }
@@ -417,11 +423,11 @@
   to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
 }
 .story-quest-reader .story-quest-image {
-  display: block; width: 100%; height: auto; max-height: 60vh;
+  display: block; width: 100%; height: 100%; max-height: none;
   object-fit: contain; border: 0; border-radius: 18px;
 }
 .story-quest-reader .story-quest-image-placeholder {
-  width: 100%; aspect-ratio: 16 / 9; display: grid; place-items: center;
+  width: 100%; height: 100%; display: grid; place-items: center; padding: 8px; text-align: center;
   color: #18263E; background: #F7F8FA; border-radius: 18px;
 }
 .story-quest-reader .story-quest-read-row { display: grid; gap: 10px; min-width: 0; align-content: center; }
@@ -433,11 +439,11 @@
 .story-quest-keyboard-hint { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .story-quest-reader .story-quest-text p {
   margin: 0; font-family: var(--lp-font-reading, Andika, sans-serif);
-  font-size: clamp(24px, 2.4vw, 28px); font-weight: 500; line-height: 1.6;
+  font-size: clamp(24px, 2.4cqw, 32px); font-weight: 500; line-height: 1.4;
   text-align: left; letter-spacing: 0; word-spacing: 0;
 }
 .story-quest-reader .story-quest-word {
-  display: inline-block; min-width: 44px; min-height: 44px; margin: 0; padding: 4px 1px;
+  display: inline-block; min-width: 44px; min-height: 44px; margin: 0; padding: 0 1px;
   border: 0; border-radius: 5px; background: transparent; box-shadow: none;
   font: inherit; color: inherit; letter-spacing: inherit; cursor: pointer;
   vertical-align: baseline; white-space: nowrap;
@@ -482,7 +488,6 @@
 }
 .story-quest-play-action[aria-pressed="true"] > svg { color: inherit; }
 .story-quest-play-feedback:empty { display: none; }
-.story-quest-play-feedback { scroll-margin-block: 8px; }
 .story-quest-play-reveal {
   padding: 3px 0 0; border-top: 1px solid var(--quest-line);
   font-size: 16px; font-weight: 600; line-height: 1.42;
@@ -497,7 +502,7 @@
   from { transform: scale(.55) rotate(-20deg); opacity: 0; }
   to { transform: scale(1) rotate(0); opacity: 1; }
 }
-.story-quest-reader .story-quest-decision { display: grid; gap: 10px; min-width: 0; align-content: end; }
+.story-quest-reader .story-quest-decision { display: grid; gap: 6px; min-width: 0; align-content: end; }
 .story-quest-decision-heading { display: flex; align-items: center; gap: 10px; }
 .story-quest-reader .story-quest-choice-prompt { flex: 1; margin: 0; font: 600 18px/1.4 var(--lp-font-ui); color: #18263E; }
 .story-quest-reader .story-quest-choice-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
@@ -505,7 +510,7 @@
 .story-quest-choice { display: flex; min-width: 0; gap: 5px; }
 .story-quest-reader .story-quest-choice-button {
   display: flex; align-items: center; justify-content: center; gap: 8px;
-  flex: 1; min-width: 0; min-height: 60px; padding: 12px 16px;
+  flex: 1; min-width: 0; min-height: 48px; padding: 6px 12px;
   border: 2px solid #929DAF; border-radius: 16px;
   background: linear-gradient(180deg, #fff 0%, #F7F8FA 100%); color: #172033;
   font: 750 19px/1.3 var(--lp-font-ui); text-align: center; cursor: pointer;
@@ -533,15 +538,6 @@
   flex: 0 0 48px; display: grid; place-items: center; min-width: 48px; min-height: 48px;
   padding: 8px; border: 1px solid #E9EDF9; border-radius: 14px; color: #18263E; background: #F7F8FA; cursor: pointer;
 }
-.story-quest-reader .story-quest-previous {
-  justify-self: start; min-height: 44px; padding: 8px 2px; border: 0;
-  background: transparent; color: #5C677A; font: 600 14px/1.3 var(--lp-font-ui); cursor: pointer;
-}
-.story-quest-reader:has(.story-quest-play) .story-quest-previous {
-  display: inline-flex; align-items: center; gap: 6px; justify-self: start;
-  min-height: 44px; padding: 8px 4px; border: 0;
-  background: transparent; color: var(--quest-ink); font: 700 14px/1.3 var(--lp-font-ui); cursor: pointer;
-}
 .story-quest-ending-label { display: flex; align-items: center; gap: 9px; color: var(--quest-ink); }
 .story-quest-ending-label h2 { margin: 0; font: 800 clamp(21px, 2vw, 27px)/1.2 var(--lp-font-ui); }
 .story-quest-endings { min-width: 0; margin-top: 5px; padding-top: 10px; border-top: 1px solid var(--quest-line); }
@@ -554,87 +550,132 @@
 }
 .story-quest-endings img { width: 36px; aspect-ratio: 1; border-radius: 6px; object-fit: cover; }
 .story-quest-reader button:disabled { opacity: .55; cursor: default; }
+
 .story-quest-reader.fullscreen, .story-quest-reader:fullscreen {
   position: fixed; inset: 0; width: 100%; max-width: none; height: 100dvh;
-  grid-auto-rows: max-content; align-content: start;
-  overflow: auto; z-index: 1000; border-radius: 0; padding: max(18px, env(safe-area-inset-top)) max(18px, env(safe-area-inset-right)) max(18px, env(safe-area-inset-bottom)) max(18px, env(safe-area-inset-left));
+  z-index: 1000; border-radius: 0;
+  padding: max(8px, env(safe-area-inset-top)) max(8px, env(safe-area-inset-right))
+    max(8px, env(safe-area-inset-bottom)) max(8px, env(safe-area-inset-left));
 }
-@container (min-width: 880px) {
-  .story-quest-reader { grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: 20px; }
-  .story-quest-reader .story-quest-image-stage { grid-row: 2 / 4; align-self: center; }
-  .story-quest-reader .story-quest-read-row { grid-column: 2; }
-  .story-quest-reader .story-quest-decision { grid-column: 2; }
+.kg-stage:has(.story-quest-reader.fullscreen) > :is(.kg-header, .kg-tabbar) { visibility: hidden; }
+.story-quest-word-dialog {
+  width: min(440px, calc(100% - 20px)); max-height: calc(100dvh - 24px); padding: 0;
+  border: 1px solid var(--quest-line); border-radius: 14px; color: var(--quest-ink); background: #fff;
+}
+.story-quest-word-dialog::backdrop { background: #18263e70; }
+.story-quest-reader .story-quest-audio-error {
+  position: absolute; inset: 60px 10px auto; z-index: 2; margin: 0; padding: 6px;
+  border-radius: 6px; background: #fff; color: #18263e;
+  font: 600 14px/1.25 var(--lp-font-ui); pointer-events: none; text-align: center;
+}
+.story-quest-panes {
+  display: flex; gap: 4px; min-width: 0; align-self: end;
+}
+.story-quest-panes button {
+  flex: 1; min-width: 0; min-height: 44px; padding: 4px;
+  border-radius: 10px; border: 1px solid var(--quest-line);
+  background: #fff; color: var(--quest-ink); font: 750 14px/1.2 var(--lp-font-ui); cursor: pointer;
+}
+.story-quest-panes button[aria-pressed="true"] { background: var(--quest-tint); border-color: var(--quest-accent); }
+.story-quest-panes .story-quest-pane-next { background: var(--quest-accent); color: #fff; }
+.story-quest-panes .story-quest-pane-next[aria-pressed="true"] { background: #2844A9; color: #fff; }
+
+/* Compact panes expose their next step directly. Only the current panel takes up
+   space, while the illustration remains a full, uncropped view. */
+.story-quest-reader[data-pane] .story-quest-spread { grid-template-rows: minmax(0, 1fr); align-items: center; }
+.story-quest-reader[data-pane="explore"] .story-quest-spread { grid-template-rows: minmax(0, 1fr) auto; align-items: stretch; }
+.story-quest-reader:not([data-pane="read"]) .story-quest-read-row,
+.story-quest-reader:not([data-pane="explore"]) .story-quest-play,
+.story-quest-reader:not([data-pane="choices"]) .story-quest-decision,
+.story-quest-reader:not([data-pane="endings"]) .story-quest-endings { display: none; }
+.story-quest-reader:where(:not([data-pane="picture"]):not([data-pane="explore"])) .story-quest-image-stage { display: none; }
+.story-quest-reader .story-quest-play-detail { display: block; }
+.story-quest-play-reveal:has(.story-quest-play-detail) > svg { display: none; }
+.story-quest-reader .story-quest-play,
+.story-quest-reader .story-quest-decision { margin: 0; }
+.story-quest-reader .story-quest-choice-grid { gap: 6px; }
+.story-quest-reader .story-quest-choice-button { font-size: 16px; overflow-wrap: anywhere; }
+.story-quest-reader .story-quest-image-stage { height: 100%; }
+.story-quest-reader .story-quest-read-row { gap: 6px; }
+
+@container quest-reader (max-width: 470px) {
+  .story-quest-reader .story-quest-header { gap: 6px; }
+  .story-quest-reader .story-quest-header h1 { font-size: 17px; }
+  .story-quest-reader .story-quest-header :is(.lp-button, summary.lp-button) { padding-inline: 8px; }
+  .story-quest-reader .story-quest-play { padding-inline: 8px; }
   .story-quest-reader .story-quest-choice-grid { grid-template-columns: minmax(0, 1fr); }
-  .story-quest-reader:has(.story-quest-play) .story-quest-image-stage { grid-row: 2; align-self: end; }
-  .story-quest-reader .story-quest-play { grid-column: 1; grid-row: 3; }
-  .story-quest-reader:has(.story-quest-play) .story-quest-decision { grid-row: 3; align-content: start; }
 }
-@media (max-width: 879px), (max-height: 580px) {
-  .story-quest-play-detail { display: block; }
-  .story-quest-play-reveal:has(.story-quest-play-detail) > svg { display: none; }
+@container quest-reader (max-width: 470px) or (max-height: 640px) {
+  /* Keep the reading targets large without stretching the prose into the controls. */
+  .kg-stage .story-quest-reader[data-pane] .story-quest-word {
+    min-width: 44px !important;
+    min-height: 44px !important;
+  }
+}
+@container quest-reader (max-height: 370px) {
+  .story-quest-reader[data-pane] :is(button, summary),
+  .kg-stage .story-quest-reader[data-pane] :is(button, summary) {
+    min-width: 44px !important; min-height: 44px !important;
+  }
+  .story-quest-reader .story-quest-header { gap: 6px; }
+  .story-quest-reader[data-pane="read"] .story-quest-header-audio { display: block; }
+  .story-quest-inline-audio { display: none; }
+  .story-quest-reader .story-quest-audio-button { padding: 8px; }
+  .story-quest-audio-label, .story-quest-word-hint { display: none; }
+  .story-quest-reader .story-quest-play { padding-block: 5px; gap: 4px; }
+  .story-quest-reader .story-quest-play-detail { flex-basis: 36px; height: 36px; }
+}
+@container quest-reader (min-width: 480px) and (max-height: 370px) {
+  .story-quest-reader .story-quest-play { grid-template-columns: minmax(0, 1fr) minmax(0, 1.75fr); }
+  .story-quest-play-head > svg { display: none; }
+  .story-quest-play-feedback { grid-column: 1 / -1; }
+}
+@container quest-reader (min-width: 475px) and (min-height: 400px) {
+  .story-quest-reader[data-pane] .story-quest-spread { grid-template: minmax(0, 1fr) / minmax(0, .64fr) minmax(0, 1fr); }
+  .story-quest-reader[data-pane] .story-quest-image-stage { display: flex; align-self: stretch; }
+  .story-quest-reader[data-pane="picture"] .story-quest-read-row { display: grid; }
+  .story-quest-picture-tab { display: none; }
+}
+@container quest-reader (min-width: 820px) and (min-height: 455px) {
+  /* The picture and story columns have independent height allocations. */
+  .story-quest-reader[data-pane] .story-quest-spread {
+    grid-template: minmax(0, 1fr) / minmax(0, 1.25fr) minmax(0, 1fr); gap: 16px; align-items: stretch;
+  }
+  .story-quest-art-column { display: grid; min-height: 0; min-width: 0; grid-template-rows: minmax(0, 1fr) auto; gap: 8px; }
+  .story-quest-copy-column { display: grid; min-height: 0; min-width: 0; align-content: center; gap: 8px; }
+  .story-quest-reader[data-pane] :is(.story-quest-read-row, .story-quest-play, .story-quest-decision, .story-quest-endings) { display: grid; }
+  .story-quest-reader .story-quest-play-detail, .story-quest-panes { display: none; }
+  .story-quest-play-reveal:has(.story-quest-play-detail) > svg { display: block; }
+  .story-quest-reader .story-quest-choice-grid { grid-template-columns: minmax(0, 1fr); }
+  .story-quest-reader-complete .story-quest-choice-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 440px), (max-height: 420px) {
+  /* The reader's own Back control stays available in the phone layout. */
+  .kg-viewport:has(.story-quest-reader) .kg-stage > :is(.kg-header, .kg-tabbar) { display: none; }
 }
 @media (max-width: 600px) {
-  .story-quest-active-page.learn-area-page,
-  .student-mode-app .student-surface-story .story-quest-active-page.learn-area-page { padding: 6px; }
-  .story-quest-reader { padding: 12px; gap: 12px; border-radius: 18px; }
-  .story-quest-reader .story-quest-header { gap: 8px; }
-  .story-quest-reader .story-quest-header h1 { font-size: 18px; }
-  .story-quest-reader .story-quest-text p { font-size: 24px; }
-  .story-quest-reader .story-quest-choice-grid { grid-template-columns: minmax(0, 1fr); gap: 9px; }
-  .story-quest-reader .story-quest-image { max-height: none; }
-  .story-quest-reader .story-quest-play { padding-inline: 8px; }
-  .story-quest-reader .story-quest-play-action { gap: 5px; padding-inline: 7px; }
-  .learn-story-level-grid, .learn-story-level-selector { grid-template-columns: minmax(0, 1fr); }
-  .story-quest-continue-strip { grid-template-columns: minmax(0, 1fr); }
+  .learn-story-level-grid, .learn-story-level-selector, .story-quest-continue-strip { grid-template-columns: minmax(0, 1fr); }
 }
 .student-mode-app .lp-rail-shell .learn-fullscreen-frame.student-surface-frame.student-surface-story {
-  height: 100%; min-height: 0; overflow: hidden;
+  height: 100%; min-height: 0; overflow: clip;
 }
-.app.teacher-child-preview:has(.student-surface-story) { height: 100dvh; overflow: hidden; }
+.app.teacher-child-preview:has(> .student-surface-story) {
+  display: flex; flex-direction: column; height: 100dvh; min-height: 0; overflow: clip;
+}
+.app.teacher-child-preview:has(.story-quest-active-page) { position: fixed; inset: 0; z-index: 100; width: 100%; }
+.lg-app-shell:has(.teacher-child-preview .story-quest-active-page) > .lg-sidebar,
+.lg-content-area:has(> .teacher-child-preview .story-quest-active-page) > :not(.app) { visibility: hidden; }
+.app.teacher-child-preview > .learn-fullscreen-frame.student-surface-story {
+  flex: 1 1 0; height: auto; min-height: 0; max-height: 100%; padding: 0;
+}
+@media (max-width: 440px), (max-height: 450px) {
+  .app.teacher-child-preview:has(.story-quest-active-page) > .teacher-student-preview-banner { display: none; }
+  .story-quest-preview-reader .story-quest-position { display: inline; }
+  .story-quest-preview-reader .story-quest-preview-badge {
+    margin: 0 0 0 5px; padding: 0 3px; border: 0; font-size: 11px; white-space: nowrap;
+  }
+}
 
-/* Full screen gives the picture every remaining pixel. Short early-reader
-   lines fit below it; longer prose keeps a separate reading column. */
-@media (min-width: 700px) and (min-height: 600px) {
-  .story-quest-reader.fullscreen, .story-quest-reader:fullscreen {
-    grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
-    grid-template-rows: auto minmax(0, 1fr) auto;
-    align-content: stretch; gap: 14px; overflow: hidden;
-  }
-  .story-quest-reader.fullscreen .story-quest-image-stage,
-  .story-quest-reader:fullscreen .story-quest-image-stage { grid-column: 1; grid-row: 2 / 4; height: 100%; align-self: stretch; }
-  .story-quest-reader.fullscreen .story-quest-image,
-  .story-quest-reader:fullscreen .story-quest-image { width: 100%; height: 100%; max-height: none; object-fit: contain; }
-  .story-quest-reader.fullscreen .story-quest-read-row,
-  .story-quest-reader:fullscreen .story-quest-read-row { grid-column: 2; grid-row: 2; min-height: 0; overflow: auto; align-content: center; }
-  .story-quest-reader.fullscreen .story-quest-decision,
-  .story-quest-reader:fullscreen .story-quest-decision { grid-column: 2; grid-row: 3; }
-  .story-quest-reader:is(.fullscreen, :fullscreen)[data-text-layout="short"] {
-    grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(160px, 1fr) auto auto; overflow: auto;
-  }
-  .story-quest-reader:is(.fullscreen, :fullscreen)[data-text-layout="short"] .story-quest-image-stage { grid-column: 1; grid-row: 2; }
-  .story-quest-reader:is(.fullscreen, :fullscreen)[data-text-layout="short"] .story-quest-read-row {
-    grid-column: 1; grid-row: 3; display: flex; align-items: center; justify-content: center; gap: 18px; flex-wrap: wrap; overflow: visible;
-  }
-  .story-quest-reader:is(.fullscreen, :fullscreen)[data-text-layout="short"] .story-quest-text p { font-size: clamp(28px, 2.4vw, 42px); }
-  .story-quest-reader:is(.fullscreen, :fullscreen)[data-text-layout="short"] .story-quest-decision { grid-column: 1; grid-row: 4; }
-  .story-quest-reader:is(.fullscreen, :fullscreen)[data-text-layout="short"] .story-quest-choice-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .story-quest-reader:is(.fullscreen, :fullscreen)[data-text-layout="short"] .story-quest-choice-grid.single { grid-template-columns: minmax(0, 1fr); }
-  .story-quest-reader:is(.fullscreen, :fullscreen):has(.story-quest-play)[data-text-layout="short"] {
-    grid-template-rows: auto minmax(160px, 1fr) auto auto auto;
-  }
-  .story-quest-reader:is(.fullscreen, :fullscreen):has(.story-quest-play)[data-text-layout="short"] .story-quest-play { grid-column: 1; grid-row: 4; }
-  .story-quest-reader:is(.fullscreen, :fullscreen):has(.story-quest-play)[data-text-layout="short"] .story-quest-decision { grid-row: 5; }
-}
-@media (min-width: 850px) and (min-height: 600px) {
-  .story-quest-reader:is(.fullscreen, :fullscreen):has(.story-quest-play)[data-text-layout="short"] {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-template-rows: auto minmax(160px, 1fr) auto auto;
-  }
-  .story-quest-reader:is(.fullscreen, :fullscreen):has(.story-quest-play)[data-text-layout="short"]
-    :is(.story-quest-image-stage, .story-quest-read-row) { grid-column: 1 / -1; }
-  .story-quest-reader:is(.fullscreen, :fullscreen):has(.story-quest-play)[data-text-layout="short"]
-    .story-quest-decision { grid-column: 2; grid-row: 4; }
-}
 @media (prefers-reduced-motion: reduce) {
   .story-quest-reader .story-quest-image-stage,
   .story-quest-play-reveal > svg,

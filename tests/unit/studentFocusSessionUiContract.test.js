@@ -86,7 +86,9 @@ test("student focus mode removes escape navigation from the shared shell and lib
   assert.match(appSurface, /tabs=\{isStudentFocusLocked \? \[\] : STUDENT_TAB_BAR\}/);
   assert.match(appSurface, /showGrownUps=\{!isStudentFocusLocked\}/);
   assert.match(library, /tabs=\{focusLocked \? \[\] : undefined\}/);
-  assert.match(library, /\{!focusLocked && onOpenStoryQuests && <button[\s\S]*onClick=\{onOpenStoryQuests\}/);
+  assert.match(library, /onStoryQuests=\{!focusLocked \? onOpenStoryQuests : null\}/);
+  assert.match(library, /onCycleShorts=\{!focusLocked && !exactBookLock \?/);
+  assert.match(library, /\{!focusLocked && !exactBookLock && onOpenComprehension && <button/);
 });
 
 test("independent assessment saves neutral feedback without revealing correctness", () => {

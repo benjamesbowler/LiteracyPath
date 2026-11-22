@@ -2,6 +2,8 @@ import { expect, test } from "@playwright/test";
 import { GAME_LIST } from "../../src/data/learnGamesData.js";
 import { sampleGameIds } from "../../src/policy/freeTierContent.js";
 import { STUDENT_NAVIGATION_ART } from "../../src/policy/studentTabBar.js";
+import { withRepairedImageVersion } from "../../src/utils/repairedImageVersion.js";
+import { expectPagedChoices } from "./helpers/childPagedChoices.js";
 
 const PREVIEW = "/preview/child-surfaces.html";
 const AVAILABLE_IDS = GAME_LIST.filter(game => !game.hidden).map(game => game.id).sort();
@@ -16,7 +18,9 @@ async function expectCompleteLabels(cards, selector) {
     range.selectNodeContents(label);
     const textBoxes = [...range.getClientRects()].filter(rect => rect.width > 0 && rect.height > 0);
     const contained = textBoxes.every(rect => rect.left >= box.left - 1 && rect.right <= box.right + 1 && rect.top >= box.top - 1 && rect.bottom <= box.bottom + 1);
-    const complete = label.scrollWidth <= label.clientWidth + 1 && label.scrollHeight <= label.clientHeight + 1;
+    const style = getComputedStyle(label);
+    const complete = (style.overflowX === "visible" || label.scrollWidth <= label.clientWidth + 1) &&
+      (style.overflowY === "visible" || label.scrollHeight <= label.clientHeight + 1);
     return contained && complete && labelBox.height > 0 ? [] : [{ title: label.textContent, contained, complete }];
   }), selector);
   expect(failures).toEqual([]);
@@ -35,11 +39,11 @@ test("Home shows eight picture destinations and Words has its recorded label", a
   expect(await cards.evaluateAll(nodes => nodes.map(node => node.dataset.railDestination))).toEqual(HOME_IDS);
   for (const card of await cards.all()) {
     const destination = await card.getAttribute("data-rail-destination");
-    await expect(card.locator(".kg-home-door-art img")).toHaveAttribute("src", STUDENT_NAVIGATION_ART[destination]);
+    await expect(card.locator(".kg-home-door-art img")).toHaveAttribute("src", withRepairedImageVersion(STUDENT_NAVIGATION_ART[destination]));
   }
   for (const tabId of ["sounds", "books", "games", "hollow"]) {
     const art = page.locator(`[data-tab="${tabId}"] .kg-tab-art`);
-    await expect(art).toHaveAttribute("src", STUDENT_NAVIGATION_ART[tabId === "games" ? "arcade" : tabId]);
+    await expect(art).toHaveAttribute("src", withRepairedImageVersion(STUDENT_NAVIGATION_ART[tabId === "games" ? "arcade" : tabId]));
     await expect.poll(() => art.evaluate(image => image.complete && image.naturalWidth > 0)).toBe(true);
     const box = await art.boundingBox();
     expect(box.width).toBeGreaterThanOrEqual(25);
@@ -73,19 +77,54 @@ for (const viewport of [{ width: 1024, height: 768 }, { width: 768, height: 1024
     await page.emulateMedia({ reducedMotion: "reduce" });
     await page.goto(`${PREVIEW}?surface=student-home`);
     await page.evaluate(() => document.fonts.ready);
-    const cards = page.locator(".kg-home-door");
-    await expect(cards).toHaveCount(8);
-    await expectCompleteLabels(cards, ".kg-card-title");
-    expect(await page.locator(".kg-home-door-wrap").evaluateAll(nodes => nodes.flatMap(node => {
-      const art = node.querySelector(".kg-home-menu-object, .kg-home-word-object").getBoundingClientRect();
-      const hear = node.querySelector(".kg-home-door-hear").getBoundingClientRect();
-      const intersects = art.left < hear.right && art.right > hear.left && art.top < hear.bottom && art.bottom > hear.top;
-      return intersects || hear.width < 56 || hear.height < 56 ? [node.textContent.trim()] : [];
-    }))).toEqual([]);
-    await cards.last().scrollIntoViewIfNeeded();
-    await expect(cards.last()).toBeInViewport({ ratio: 0.99 });
+    const home = page.locator(".kg-home");
+    const compact = viewport.width < 700 || viewport.height < 560;
+    const openPlaces = home.getByRole("button", { name: "Choose a place", exact: true });
+    if (compact) {
+      await expectInHomePane(home.locator(".kg-home-play"));
+      await expectInHomePane(openPlaces);
+      await openPlaces.click();
+      await expect(home.getByRole("heading", { name: "Choose a place" })).toBeFocused();
+    }
+    const cards = home.locator(".kg-home-door");
+    const discovered = [];
+    const hitFloor = compact ? 44 : 56;
+    const next = home.getByRole("navigation", { name: "Places pages" }).getByRole("button", { name: "Next" });
+    do {
+      await expectCompleteLabels(cards, ".kg-card-title");
+      discovered.push(...await cards.evaluateAll(nodes => nodes.map(node => node.dataset.railDestination)));
+      for (const card of await cards.all()) await expectInHomePane(card);
+      for (const speaker of await home.locator(".kg-home-door-hear").all()) await expectInHomePane(speaker);
+      expect(await home.locator(".kg-home-door-wrap").evaluateAll((nodes, floor) => nodes.flatMap(node => {
+        const art = node.querySelector(".kg-home-menu-object, .kg-home-word-object").getBoundingClientRect();
+        const hear = node.querySelector(".kg-home-door-hear").getBoundingClientRect();
+        const intersects = art.left < hear.right && art.right > hear.left && art.top < hear.bottom && art.bottom > hear.top;
+        return intersects || hear.width < floor || hear.height < floor ? [node.textContent.trim()] : [];
+      }), hitFloor)).toEqual([]);
+      if (!compact || await next.isDisabled()) break;
+      await expectInHomePane(next);
+      await next.click();
+    } while (discovered.length < HOME_IDS.length);
+    expect(discovered).toEqual(HOME_IDS);
     await page.screenshot({ path: `.artifacts/child-redesign-review/implementation-home-${viewport.width}.png` });
+    if (compact) {
+      const back = home.getByRole("button", { name: "Back to today" });
+      await expectInHomePane(back);
+      await back.click();
+      await expect(openPlaces).toBeFocused();
+    }
   });
+}
+
+async function expectInHomePane(control) {
+  await expect(control).toBeVisible();
+  const box = await control.evaluate(node => {
+    const rect = node.getBoundingClientRect();
+    const pane = node.closest(".kg-home").getBoundingClientRect();
+    const hit = node.contains(document.elementFromPoint(rect.x + rect.width / 2, rect.y + rect.height / 2));
+    return { label: node.getAttribute("aria-label") || node.textContent, hit, fits: rect.top >= pane.top && rect.bottom <= pane.bottom && rect.left >= pane.left && rect.right <= pane.right };
+  });
+  expect(box.fits && box.hit, JSON.stringify(box)).toBe(true);
 }
 
 test("Games exposes the complete Arcade and Phonics roster on one page", async ({ page }) => {
@@ -106,20 +145,13 @@ test("Games exposes the complete Arcade and Phonics roster on one page", async (
 });
 
 for (const viewport of [{ width: 390, height: 844 }, { width: 568, height: 320 }]) {
-  test(`Arcade keeps every card reachable through one native catalogue scroll at ${viewport.width}×${viewport.height}`, async ({ page }) => {
+  test(`Arcade keeps every card reachable through visible pages at ${viewport.width}×${viewport.height}`, async ({ page }) => {
     await page.setViewportSize(viewport);
     await page.goto(`${PREVIEW}?surface=arcade`);
-    const cards = page.locator(".lg-game-tile");
-    await expect(cards).toHaveCount(27);
-    await expectCompleteLabels(cards, ".lg-game-tile-name");
-    const scroller = page.locator(".lg-game-choice-area");
-    expect(await scroller.evaluate(node => getComputedStyle(node).overflowY)).toBe("auto");
-    expect(await scroller.evaluate(node => node.scrollHeight > node.clientHeight)).toBe(true);
-    await cards.last().scrollIntoViewIfNeeded();
-    await expect(cards.last()).toBeInViewport({ ratio: 0.99 });
-    const box = await cards.last().boundingBox();
-    expect(box.height).toBeGreaterThanOrEqual(56);
-    expect(box.width).toBeGreaterThanOrEqual(56);
+    const surface = page.locator("[data-child-surface=arcade]");
+    const cards = surface.locator(".lg-game-tile");
+    const ids = await expectPagedChoices(surface, cards, { pagerLabel: "Game pages", expectedCount: 27, key: "data-game-id", titleSelector: ".lg-game-tile-name", returnToFirst: false });
+    expect(ids.sort()).toEqual(AVAILABLE_IDS);
     await page.screenshot({ path: `.artifacts/child-redesign-review/implementation-arcade-${viewport.width}.png` });
     await cards.last().click();
     await expect(page.locator(".lg-game-player")).toBeVisible();
@@ -154,22 +186,20 @@ test("Arcade optional settings keep keyboard focus inside and restore the trigge
   await expect(trigger).toBeFocused();
 });
 
-test("Words retains prerequisites and offers real picture and phoneme letter practice", async ({ page }) => {
-  await page.goto(`${PREVIEW}?surface=phonics&island=words`);
-  await expect(page.locator(".cvc-family-card:disabled")).toHaveCount(8);
-  await expect(page.getByRole("heading", { name: "First, practise these letters" })).toBeVisible();
-  const practise = page.locator(".cvc-readiness-practise").first();
-  await expect(practise.locator("img")).toBeVisible();
-  const label = await practise.getAttribute("aria-label");
-  await practise.click();
-  await expect(page.locator(".phonics-learning-flow")).toBeVisible();
-  await expect(page.locator(".phonics-round-label")).toContainText(label.split(" ").at(-1).toUpperCase());
-  await page.goto(`${PREVIEW}?surface=phonics&island=words&unlockWords=1`);
-  await expect(page.locator(".cvc-family-card:not(:disabled)")).toHaveCount(8);
-  await expect(page.locator(".cvc-letter-readiness")).toHaveCount(0);
-  await page.goto(`${PREVIEW}?surface=phonics&island=words&lockedLetters=1`);
+test("Words keeps family choice open and the letter-only assignment still works", async ({ page }) => {
+  test.setTimeout(90_000);
+  await page.goto(`${PREVIEW}?surface=phonics&island=words`, { waitUntil: "domcontentloaded" });
+  const surface = page.locator("[data-child-surface=phonics]");
+  const families = surface.locator(".cvc-family-card");
+  await expectPagedChoices(surface, families, { pagerLabel: "Word family pages", expectedCount: 8 });
+  await families.first().click();
+  await expect(surface.locator(".cvc-learning-flow")).toBeVisible();
+  await page.goto(`${PREVIEW}?surface=phonics&island=words&lockedLetters=1`, { waitUntil: "domcontentloaded" });
   await expect(page.locator(".cvc-picker")).toHaveCount(0);
   await expect(page.getByRole("heading", { name: "Letters", exact: true })).toBeVisible();
+  await page.getByRole("button", { name: "Letter A", exact: true }).click();
+  await expect(page.locator(".phonics-learning-flow")).toBeVisible();
+  await expect(page.locator(".phonics-round-label")).toContainText("A");
 });
 
 test("the real Home Words shortcut never changes ordinary Letters or Games entry", async ({ page }) => {

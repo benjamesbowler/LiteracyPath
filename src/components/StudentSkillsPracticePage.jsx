@@ -23,6 +23,9 @@ import { buildLiteracyExposureIndex, getLiteracyExposure, readLiteracyExposures,
 import { clearAssessmentDrafts } from "./assessment/useAssessmentDraft.js";
 import { LearningTeachingCard } from "./learning/LearningTeachingCard.jsx";
 import { withRepairedImageVersion } from "../utils/repairedImageVersion.js";
+import ChildPageControls from "./ChildPageControls.jsx";
+import { useChildPages } from "../hooks/useChildPages.js";
+import { useChildBrowseMedia, useCompactChildBrowse } from "../hooks/useCompactChildBrowse.js";
 
 const GROUPS = [
   { id: "early_phonics", title: "Listen to sounds", image: "/images/navigation/ui/sounds-icon.webp" },
@@ -69,6 +72,8 @@ function StudentSkillsPracticeSession({ progressScopeKey, onExit, studentName = 
   const [plan, setPlan] = useState([]);
   const [status, setStatus] = useState("map");
   const [group, setGroup] = useState(() => getAssessmentSkillGroup(loadSkillsPracticeSession(progressScopeKey)?.skillId || skillTree[0].id));
+  const [browseView, setBrowseView] = useState("play");
+  const [reportQuestionId, setReportQuestionId] = useState("");
   const [chosenSkill, setChosenSkill] = useState(() => loadSkillsPracticeSession(progressScopeKey)?.skillId || skillTree[0].id);
   const [harder, setHarder] = useState(() => loadSkillsPracticeSession(progressScopeKey)?.level === 2);
   const [feedback, setFeedback] = useState(null);
@@ -79,6 +84,7 @@ function StudentSkillsPracticeSession({ progressScopeKey, onExit, studentName = 
   const [teachingRevision, setTeachingRevision] = useState(0);
   const [record, setRecord] = useState(() => loadSkillsPracticeProgress(progressScopeKey));
   const [resume, setResume] = useState(() => loadSkillsPracticeSession(progressScopeKey));
+  const browseRef = useRef(null);
   const stateRef = useRef(null);
   const bankRef = useRef([]);
   const preparation = useRef({ request: 0, focus: null, id: null });
@@ -93,6 +99,12 @@ function StudentSkillsPracticeSession({ progressScopeKey, onExit, studentName = 
   const report = buildSkillsPracticeReport({ practiceRecord: record });
   const allGroups = GROUPS.filter(item => skillTree.some(skill => getAssessmentSkillGroup(skill.id) === item.id));
   const groupSkills = skillTree.filter(skill => getAssessmentSkillGroup(skill.id) === group);
+  const compactBrowse = useChildBrowseMedia("(max-width: 700px), (max-height: 840px), (max-width: 1080px) and (max-height: 900px)");
+  const shortBrowse = useCompactChildBrowse();
+  const smallSkillPage = useChildBrowseMedia("(max-width: 400px) and (max-height: 650px)");
+  const skillPages = useChildPages(groupSkills, compactBrowse ? (shortBrowse ? 3 : smallSkillPage ? 2 : 4) : groupSkills.length || 1, group);
+  const hasCompactReport = !program && compactBrowse && status === "play" && episode?.phase === "answer" && !feedback;
+  const reportOpen = hasCompactReport && reportQuestionId === currentQuestion?.id;
 
   useEffect(() => {
     owner.current.active = true;
@@ -641,7 +653,30 @@ function StudentSkillsPracticeSession({ progressScopeKey, onExit, studentName = 
   function leaveTrail() {
     if (!recordUnanswered()) { setMessage("Try again to save your practice before leaving."); return; }
     setRecord(loadSkillsPracticeProgress(progressScopeKey));
+    setReportQuestionId("");
+    if (!program && compactBrowse) setBrowseView("skills");
     stopCueAudio(); owner.current.request++; setFeedback(null); setStatus("map");
+  }
+
+  function pickArea(area) {
+    stopCueAudio();
+    owner.current.request++;
+    setSkillPreview("");
+    setGroup(area);
+    setChosenSkill(skillTree.find(skill => getAssessmentSkillGroup(skill.id) === area).id);
+    setResume(null);
+    setBrowseView("skills");
+    if (compactBrowse) requestAnimationFrame(() => browseRef.current?.querySelector(".skills-practice-browse h2")?.focus({ preventScroll: true }));
+  }
+
+  function pickSkill(id) {
+    stopCueAudio();
+    owner.current.request++;
+    setSkillPreview("");
+    setChosenSkill(id);
+    setResume(null);
+    setBrowseView("play");
+    if (compactBrowse) requestAnimationFrame(() => browseRef.current?.querySelector(".skills-practice-main")?.focus({ preventScroll: true }));
   }
 
   async function replayWorkedModel() {
@@ -685,12 +720,18 @@ function StudentSkillsPracticeSession({ progressScopeKey, onExit, studentName = 
   }
 
   if (status === "play" || status === "save-error") return (
-    <div className={program ? "skills-practice-play literacy-practice-play" : "skills-practice-play"} data-skills-practice-ready={readyQuestion === currentQuestion?.id} onPointerDownCapture={capturePress} onClickCapture={gateInput}>
+    <div className={program ? "skills-practice-play literacy-practice-play" : "skills-practice-play"} data-skills-practice-ready={readyQuestion === currentQuestion?.id}
+      data-compact-report={hasCompactReport ? "" : undefined} data-report-open={reportOpen ? "" : undefined}
+      onPointerDownCapture={capturePress} onClickCapture={gateInput}>
       <div className="skills-practice-tools">
         <button type="button" onClick={leaveTrail}>{program ? "Take a break" : "Choose a skill"}</button>
         {status === "save-error" ? <button type="button" className="skills-practice-main" onClick={retryLearningSave}>Try saving again</button>
           : <>{!program?.feedbackOnly && <button type="button" disabled={Boolean(feedback) || episode?.phase !== "answer"} onClick={showHelp}>Show me</button>}
             {session?.practiceAdministration !== "rehearsal" && <button type="button" disabled={Boolean(feedback) || episode?.phase !== "answer"} onClick={() => answer(null, "no_response")}>I don't know yet</button>}</>}
+        {hasCompactReport && <button type="button" className="skills-practice-report-toggle" aria-expanded={reportOpen}
+          aria-label={reportOpen ? "Back to question" : "Report a problem"} onClick={() => setReportQuestionId(reportOpen ? "" : currentQuestion.id)}>
+          {reportOpen ? "Back to question" : "Report"}
+        </button>}
       </div>
       {program && episode?.phase === "answer" && !feedback && <p className="literacy-practice-response-status" role="status">{readyQuestion === currentQuestion?.id ? "Choose, check, then move on." : "Listen first. Then choose your answer."}</p>}
       {["teaching", "finish_teaching"].includes(episode?.phase) && message && <p className="literacy-practice-notice" role="status">{message}</p>}
@@ -710,11 +751,17 @@ function StudentSkillsPracticeSession({ progressScopeKey, onExit, studentName = 
   if (program) return program.renderHome({ onPrepare: preparePractice, status, record, resume, message, session, onStart: (focus = "all") => startPractice(null, focus), onResume: () => startPractice(resume), onExit });
 
   return (
-    <main className="skills-practice-map" data-child-surface="skills-practice">
+    <main ref={browseRef} className="skills-practice-map" data-child-surface="skills-practice" data-browse-view={compactBrowse ? browseView : undefined}>
       <header><div><h1 data-child-title="">Skills trail</h1>
         <p data-child-instruction="">Choose a skill, then play a short trail.</p>
         <p className="skills-practice-progress" data-child-progress="">{report.answered} {report.answered === 1 ? "question" : "questions"} tried · {report.skills.length} {report.skills.length === 1 ? "skill" : "skills"} explored</p>
       </div><button type="button" onClick={onExit}>Home</button></header>
+      {compactBrowse && <nav className="skills-practice-browse-nav" aria-label="Skills trail views" data-child-choices="">
+        <button type="button" aria-pressed={browseView === "play"} onClick={() => setBrowseView("play")}>Selected skill</button>
+        <button type="button" aria-pressed={browseView === "areas"} onClick={() => setBrowseView("areas")}>Skill areas</button>
+        <button type="button" aria-pressed={browseView === "skills"} onClick={() => setBrowseView("skills")}>Choose a skill</button>
+      </nav>}
+      {(!compactBrowse || browseView === "play") && <div className="skills-practice-launch">
       <section className="skills-practice-start" aria-label="Your selected skill">
         <img className="skills-practice-launch-picture" src={withRepairedImageVersion(GROUPS.find(item => item.id === group)?.image)} alt="" />
         <div className="skills-practice-selected"><span>{resume ? "Your saved trail" : "Ready to play"}</span>
@@ -728,16 +775,21 @@ function StudentSkillsPracticeSession({ progressScopeKey, onExit, studentName = 
       </section>
       {status === "complete" && <p className="skills-practice-notice" role="status">You finished this trail! Choose any skill to play again.</p>}
       {(status === "error" || message) && <p className="skills-practice-notice" role="alert">{message}</p>}
+      </div>}
+      {(!compactBrowse || browseView === "areas") && <section className="skills-practice-browse">
       <h2 className="skills-practice-section-title">Choose an area</h2>
       <div className="skills-practice-groups" role="group" aria-label="Skill areas" data-child-choices="">
-        {allGroups.map(item => <button type="button" key={item.id} aria-pressed={item.id === group} onClick={() => { stopCueAudio(); owner.current.request++; setSkillPreview(""); setGroup(item.id); setChosenSkill(skillTree.find(skill => getAssessmentSkillGroup(skill.id) === item.id).id); setResume(null); }}><img src={withRepairedImageVersion(item.image)} alt="" /><span>{item.title}</span></button>)}
-      </div>
-      <h2 className="skills-practice-section-title">Choose a skill</h2>
+        {allGroups.map(item => <button type="button" key={item.id} aria-pressed={item.id === group} onClick={() => pickArea(item.id)}><img src={withRepairedImageVersion(item.image)} alt="" /><span>{item.title}</span></button>)}
+      </div></section>}
+      {(!compactBrowse || browseView === "skills") && <section className="skills-practice-browse">
+      <h2 className="skills-practice-section-title" tabIndex={-1}>Choose a skill</h2>
       <section className="skills-practice-stops" aria-label="Choose a skill">
-        {groupSkills.map(skill => <button type="button" key={skill.id} aria-pressed={skill.id === chosenSkill} onClick={() => { stopCueAudio(); owner.current.request++; setSkillPreview(""); setChosenSkill(skill.id); setResume(null); }}>
+        {skillPages.visibleItems.map(skill => <button type="button" key={skill.id} aria-pressed={skill.id === chosenSkill} onClick={() => pickSkill(skill.id)}>
           <img className="skills-practice-stop-picture" src={withRepairedImageVersion(GROUPS.find(item => item.id === group).image)} alt="" /><strong>{skill.label}</strong><small>{report.skills.find(row => row.skillId === skill.id)?.responses.filter(response => response.responseStatus === "answered").length || 0} questions tried</small>{skill.id === chosenSkill && <Check className="skills-practice-selected-check" aria-hidden="true" size={22} />}
         </button>)}
       </section>
+      <ChildPageControls label="Skill pages" pageIndex={skillPages.pageIndex} pageCount={skillPages.pageCount} onPageChange={skillPages.setPageIndex} />
+      </section>}
     </main>
   );
 }

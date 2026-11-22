@@ -49,6 +49,8 @@ async function audio(page) {
 async function startSkills(page) {
   await audio(page);
   await page.goto(skillsUrl);
+  const skillsChooser = page.getByRole("navigation", { name: "Skills trail views" }).getByRole("button", { name: "Choose a skill" });
+  if (await skillsChooser.isVisible()) await skillsChooser.click();
   await page.locator(".skills-practice-stops").getByRole("button", { name: /^Initial Sounds/ }).click();
   await page.locator("[data-child-primary]").click();
   await expect(page.locator('[data-skills-practice-ready="true"]')).toBeVisible();

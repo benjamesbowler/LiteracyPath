@@ -176,17 +176,21 @@ test("Linux visual baselines have an isolated reviewed refresh workflow", () => 
   assert.match(workflow, /workflow_dispatch:/);
   assert.match(workflow, /authenticated-missing/);
   assert.match(workflow, /if: inputs.scope == 'phonics-overhaul'[\s\S]*phonics-building-overhaul\.spec\.js/);
-  assert.match(workflow, /Install Supabase CLI\n\s+if:.*inputs.scope != 'phonics-overhaul'/);
+  const installCondition = workflow.match(/Install Supabase CLI\n\s+id: audit-supabase-cli\n\s+if: ([^\n]+)/)?.[1];
+  assert.ok(installCondition);
+  for (const scope of ["phonics-overhaul", "phonics-menu", "reader-skills-insights", "child-one-screen"]) {
+    assert.ok(installCondition.includes(`inputs.scope != '${scope}'`));
+  }
+  assert.match(workflow, /Stop local Supabase\n\s+if: always\(\).*steps\.audit-supabase-cli\.outcome == 'success'/);
   assert.match(workflow, /supabase db reset --local --no-seed/);
   assert.match(workflow, /npm run seed:audit-school/);
   assert.equal(workflow.match(/--update-snapshots=all/g)?.length, 21);
   assert.match(workflow, /inputs\.ipad_assessment_only && inputs\.scope != 'ui-chrome'/);
   assert.match(workflow, /inputs\.ipad_assessment_only[\s\S]*student-emphasis-budget\.spec\.js[\s\S]*ipad-assessment-clarity\.spec\.js[\s\S]*literacy-mock-offline\.spec\.js/);
   assert.match(workflow, /if: inputs.scope == 'phonics-menu'[\s\S]*--grep 'A3\.6 \(phonics\|arcade\) passes'[\s\S]*phonics-free-choice\.spec\.js/);
-  assert.match(workflow, /Install Supabase CLI\n\s+if:.*inputs.scope != 'phonics-menu'/);
   assert.match(workflow, /if: inputs.scope == 'skills-trail'[\s\S]*home-open-gallery\.spec\.js[\s\S]*skills-practice\.spec\.js/);
   assert.match(workflow, /if: inputs.scope == 'reader-skills-insights'[\s\S]*guided-reading-measure\.spec\.js[\s\S]*admin-usage-insights\.spec\.js/);
-  assert.match(workflow, /Install Supabase CLI\n\s+if:.*inputs.scope != 'reader-skills-insights'/);
+  assert.match(workflow, /if: inputs.scope == 'child-one-screen'[\s\S]*--update-snapshots=changed[\s\S]*story-quest-one-screen\.spec\.js[\s\S]*books-viewport\.spec\.js/);
   assert.match(workflow, /if: inputs.scope == 'app-simplification'[\s\S]*teacher-action-layout\.spec\.js/);
   assert.match(
     workflow,

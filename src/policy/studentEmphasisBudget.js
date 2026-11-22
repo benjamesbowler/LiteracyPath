@@ -21,12 +21,12 @@ export const STUDENT_EMPHASIS_ROUTES = Object.freeze([
   Object.freeze({
     id: "phonics",
     primaryCue: "Choose any letter to play",
-    treatment: "The complete alphabet chooser is the primary action area. All 26 letters remain equally available, with one clear instruction and no promoted recommendation or reveal gate."
+    treatment: "The alphabet chooser is the primary action area. All 26 letters remain equally available with one clear instruction and visible page controls on smaller screens."
   }),
   Object.freeze({
     id: "arcade",
     primaryCue: "Play next|Carry on",
-    treatment: "The recommended game's actual card carries the single next-game badge. The full entitled source catalogue stays visible together, with native vertical scrolling on smaller screens. Settings and personal progress are optional utilities; sample and teacher assignment restrictions remain intact."
+    treatment: "The recommended game's card carries the single next-game badge. The complete eligible catalogue fits together on larger screens and uses visible page controls on smaller screens. Settings and personal progress remain optional."
   }),
   Object.freeze({
     id: "adventure-map",
@@ -41,7 +41,7 @@ export const STUDENT_EMPHASIS_ROUTES = Object.freeze([
   Object.freeze({
     id: "skills-practice",
     primaryCue: "Play|Carry on",
-    treatment: "One named Play or Carry on action stays in the initial usable pane and remains sticky while the child explores. Five pictured area choices and their complete skill lists use quieter selected-location cues and native vertical scrolling. Hear this skill, harder questions, progress and navigation stay subordinate."
+    treatment: "One named Play or Carry on action leads the selected skill pane. On smaller screens, labelled controls open the five pictured areas or the current area's paged skill list. Audio, difficulty and progress stay subordinate."
   }),
   Object.freeze({
     id: "sound-seekers",

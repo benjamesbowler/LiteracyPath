@@ -8,7 +8,7 @@ const words = text => String(text).match(/[A-Za-z0-9]+(?:['’][A-Za-z0-9]+)*(?:
 
 // These longer prose books exposed a sibling defect to beginner word targets:
 // the help card consumed the right-hand text column on a 568x320 phone.
-for (const bookId of ['moonwood-tales-c-15', 'moonwood-tales-c-24', 'bright-ideas-18']) {
+for (const bookId of ['moonwood-tales-c-15', 'moonwood-tales-c-24', 'bright-ideas-18', 'bright-ideas-20']) {
   for (const reducedMotion of ['no-preference', 'reduce']) {
     test(`${bookId} keeps the whole page visible through all word-help stages (${reducedMotion})`, async ({ page }, info) => {
       const book = books.find(row => row.id === bookId);

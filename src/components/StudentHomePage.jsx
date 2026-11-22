@@ -72,6 +72,8 @@ import {
   speakStudentRailLabel
 } from "../policy/studentRailPolicy.js";
 import StudentGlassShell from "./StudentGlassShell.jsx";
+import ChildPageControls from "./ChildPageControls.jsx";
+import { useChildMediaQuery, useChildPages } from "../hooks/useChildPages.js";
 import ChildHomeMusicControl from "./ChildHomeMusicControl.jsx";
 import {
   StudentHelpReminder,
@@ -602,6 +604,27 @@ export function StudentHomePage({
     cardState: statefulActivities.find(activity => activity.id === door.activityId)?.cardState
   }));
   const doors = selectStudentRailItems(doorways, { active: "home", reducedChoiceMode });
+  const compactHome = useChildMediaQuery("(max-width: 699px), (max-height: 559px)");
+  const shortHome = useChildMediaQuery("(max-height: 430px) and (orientation: landscape)");
+  const [homePane, setHomePane] = useState("today");
+  const homePaneHeading = useRef(null);
+  const choosePlace = useRef(null);
+  const showPlaces = compactHome && homePane === "places";
+  const { visibleItems: visibleDoors, pageIndex, pageCount, setPageIndex } = useChildPages(
+    doors, compactHome ? shortHome ? 3 : 4 : Math.max(1, doors.length), reducedChoiceMode
+  );
+
+  function openHomePane(pane) {
+    setHomePane(pane);
+    requestAnimationFrame(() => (pane === "places" ? homePaneHeading : choosePlace).current?.focus({ preventScroll: true }));
+  }
+
+  const optionalHomeActions = (
+    <div className="kg-home-optional-actions">
+      {transferMission && <button type="button" className="kg-home-guide-choice" onClick={() => setOpenTransferMission(transferMission)}>Try a new challenge</button>}
+      {!companion && <button ref={companionTriggerRef} type="button" className="kg-home-guide-choice" onClick={() => setCompanionPickerOpen(true)}>Choose your Guide</button>}
+    </div>
+  );
   // "Icons only" is a real preference slot on the student profile, read here so
   // the doorway notes can be hidden for a pre-reader. Nothing writes it yet —
   // no teacher control ships for it — so it is off for every child today.
@@ -765,7 +788,7 @@ export function StudentHomePage({
       scopeKey={progressScopeKey}
       active="home"
       onNavigate={goToTab}
-      onHome={() => setAccountOpen(false)}
+      onHome={() => { setAccountOpen(false); setHomePane("today"); }}
       onHelp={studentGuideEnabled ? openWelcomeGuide : undefined}
       onGrownUps={() => setAccountOpen(open => !open)}
       headerActions={<ChildHomeMusicControl key={progressScopeKey} scopeKey={progressScopeKey} />}
@@ -773,11 +796,12 @@ export function StudentHomePage({
       <div
         className="kg-screen kg-screen--home kg-home"
         data-child-surface="student-home"
+        data-home-pane={compactHome ? homePane : undefined}
         data-recommendation-policy={recommendation.policyId}
         data-recommendation-version={recommendation.policyVersion}
         data-recommendation-source={recommendation.source}
       >
-        <div className="kg-home-feature">
+        <div className="kg-home-feature" hidden={showPlaces}>
         <section className="kg-home-continue" aria-labelledby="kg-home-hero-title">
           <div className="kg-home-continue-copy">
             <span className="kg-home-eyebrow" data-child-instruction="" data-learning-state-label="">{heroInstruction}</span>
@@ -805,7 +829,7 @@ export function StudentHomePage({
             }}><SpeakerGlyph /></button>
           </div>
         </section>
-          {onOpenRewards && !reducedChoiceMode && <section className="kg-home-hollow" aria-label="My Hollow">
+          {onOpenRewards && !reducedChoiceMode && !compactHome && <section className="kg-home-hollow" aria-label="My Hollow">
             <img src={withRepairedImageVersion(STUDENT_NAVIGATION_ART.hollow)} alt="" />
             <div><h2>My Hollow</h2><p>Your Guide, your friends, your place.</p></div>
             <button type="button" className="kg-home-guide-choice" onClick={onOpenRewards}>Open my Hollow</button>
@@ -815,16 +839,27 @@ export function StudentHomePage({
           data-mission-hero-owns-next={plan.heroOwnsNext ? "true" : "false"} data-read-state={homeProgress.ok ? "ready" : "unreadable"}>
           {homeProgress.ok ? plan.summary : "We could not open today’s progress. Try again soon."}
         </p>
-        <section className="kg-home-explore" aria-labelledby="kg-home-explore-title">
+        {compactHome && !showPlaces && (
+          <div className="kg-home-today-actions">
+            <button ref={choosePlace} type="button" className="kg-home-guide-choice kg-home-open-places" onClick={() => openHomePane("places")} data-child-choices="">
+              Choose a place
+            </button>
+            {(transferMission || !companion) && optionalHomeActions}
+          </div>
+        )}
+        <section className="kg-home-explore" aria-labelledby="kg-home-explore-title" hidden={compactHome && !showPlaces}>
           <div className="kg-home-explore-head">
-            <h2 id="kg-home-explore-title">Choose a place</h2>
+            {showPlaces ? <>
+              <button type="button" className="kg-home-guide-choice" onClick={() => openHomePane("today")}>Back to today</button>
+              <h1 id="kg-home-explore-title" ref={homePaneHeading} data-child-title="" data-child-instruction="" tabIndex={-1}>Choose a place</h1>
+            </> : <h2 id="kg-home-explore-title">Choose a place</h2>}
             <button type="button" className="kg-speaker kg-home-explore-hear" aria-label="Hear the places" onClick={() => hear([
-              "Or go anywhere you like.", ...doors.map(door => door.id === "skills" ? STUDENT_HOME_COPY.skillsDescription : door.title)
+              "Or go anywhere you like.", ...visibleDoors.map(door => door.id === "skills" ? STUDENT_HOME_COPY.skillsDescription : door.title)
             ])}><SpeakerGlyph size={22} /></button>
           </div>
           <div className="kg-home-doors" data-child-choices="" data-choice-mode={reducedChoiceMode ? "reduced" : "full"}
             data-home-destination-count={doors.length}>
-            {doors.map(door => <div className="kg-home-door-wrap" key={door.id}>
+            {visibleDoors.map(door => <div className="kg-home-door-wrap" key={door.id}>
               <button type="button" className="kg-home-door" onClick={door.go}
                 data-rail-destination={door.id} data-home-priority="choice"
                 data-child-emphasis="choice" data-learning-state={door.cardState?.label || "New"}
@@ -836,17 +871,15 @@ export function StudentHomePage({
                     {door.id === "phonics" && <span className="kg-home-letter-glyphs"><span>a</span><span>b</span><span>c</span></span>}
                   </span>
                 </span>
-                <span className="kg-home-door-foot"><strong className="kg-card-title">{door.title}</strong>{!iconsOnly && <small>{door.note}</small>}
+                <span className="kg-home-door-foot"><strong className="kg-card-title">{door.title}</strong>{!iconsOnly && <small className="kg-home-door-note">{door.note}</small>}
                   {visibleDoorState(door.cardState) && <small className="kg-home-door-state" data-learning-state-label="">{visibleDoorState(door.cardState)}</small>}
                 </span>
               </button>
               <button type="button" className="kg-speaker kg-home-door-hear" aria-label={door.id === "skills" ? "Hear about Skills trail" : `Hear ${door.title}`} onClick={() => hear(door.hearLines)}><SpeakerGlyph size={20} /></button>
             </div>)}
           </div>
-          <div className="kg-home-optional-actions">
-            {transferMission && <button type="button" className="kg-home-guide-choice" onClick={() => setOpenTransferMission(transferMission)}>Try a new challenge</button>}
-            {!companion && <button ref={companionTriggerRef} type="button" className="kg-home-guide-choice" onClick={() => setCompanionPickerOpen(true)}>Choose your Guide</button>}
-          </div>
+          <ChildPageControls pageIndex={pageIndex} pageCount={pageCount} onPageChange={setPageIndex} label="Places pages" />
+          {!compactHome && optionalHomeActions}
         </section>
 
         <span className="kg-speech" role="status" aria-live="polite">{speechStatus}</span>

@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import { showStoryQuestCard } from "./helpers/storyQuestShelf.js";
 
 function captureAudioPlayback() {
   const BrowserAudio = window.Audio;
@@ -64,7 +65,8 @@ test("Story Quest word taps repeat the word; spelling is an explicit separate ch
   await page.addInitScript(captureAudioPlayback);
   await page.goto("/preview/child-surfaces.html?surface=story-quests");
   await page.getByRole("button", { name: "Dino", exact: true }).click();
-  await page.locator(".kg-quest-open").filter({ hasText: "Shy’s Snail Trail" }).click();
+  const card = await showStoryQuestCard(page, page.locator(".kg-quest-open").filter({ hasText: "Shy’s Snail Trail" }));
+  await card.click();
 
   const reader = page.locator(".story-quest-reader");
   const word = reader.getByRole("button", { name: "Hear snail", exact: true });
@@ -74,7 +76,7 @@ test("Story Quest word taps repeat the word; spelling is an explicit separate ch
     .toContain("/audio/production/en-US/isolated_word/");
 
   const wholeWord = await page.evaluate(() => window.__childReadingAudioSources.at(-1));
-  await word.click();
+  await reader.getByRole("button", { name: "Hear the word", exact: true }).click();
   await expect.poll(() => page.evaluate(() => window.__childReadingAudioSources.at(-1))).toBe(wholeWord);
   expect(await page.evaluate(() => window.__childReadingAudioSources.some(src => src.includes("/letter_name/")))).toBe(false);
   await reader.getByRole("button", { name: "Hear the letters", exact: true }).click();

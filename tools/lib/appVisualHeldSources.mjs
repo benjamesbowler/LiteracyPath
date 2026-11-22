@@ -6,7 +6,7 @@ import {execFileSync} from 'node:child_process';
 import {pathToFileURL} from 'node:url';
 import {collectAppVisualSourceGraph} from './appVisualSourceGraph.mjs';
 import {collectPresentRuntimeImageBindings} from '../appVisualReviewInventory.mjs';
-import {collectHistoricalReviewSourceState,checkHistoricalReviewSourceRole,heldAdministrativeBindingRole,HISTORICAL_REVIEW_KINDS,HISTORICAL_REVIEW_SOURCE_COHORT} from './appVisualHistoricalReviewSources.mjs';
+import {collectHistoricalReviewSourceState,checkHistoricalReviewSourceRole,heldAdministrativeBindingRole,HISTORICAL_REVIEW_KINDS,HISTORICAL_REVIEW_SOURCE_COHORT,HISTORICAL_REVIEW_SOURCES} from './appVisualHistoricalReviewSources.mjs';
 
 const hash=value=>createHash('sha256').update(value).digest('hex');
 const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
@@ -126,7 +126,9 @@ export async function collectAppVisualHeldSourceProof(root,assets,inventory){
     finite=JSON.parse(fs.readFileSync(output,'utf8'));
   }finally{fs.rmSync(temp,{recursive:true,force:true});}
   errors.push(...finite.errors);
-  if(finite.historicalBranches.length!==15||finite.coverage.length<50)errors.push('incomplete accepted-history/finite consumer coverage');
+  const expectedMapBranches=HISTORICAL_REVIEW_SOURCES.expectedQuestionDomainKinds.filter(kind=>kind.startsWith('accepted-historical-map:'));
+  const auditedMapBranches=finite.historicalBranches.map(({version,mixed})=>`accepted-historical-map:${version}:mixed=${mixed}`).sort();
+  if(!same(auditedMapBranches,expectedMapBranches)||finite.coverage.length<50)errors.push('incomplete accepted-history/finite consumer coverage');
   const assetPaths=new Set(assets.map(a=>a.path)),byPath=new Map(inventory.map(row=>[row.path,row]));
   const needsAdministrativeProof=assets.some(a=>HISTORICAL_REVIEW_KINDS.includes(a.kind))||finite.allFiniteImageBindings.some(r=>assetPaths.has(r.path)&&r.surface==='Admin Media QA actual all-row thumbnail selector');
   const historicalReviewState=needsAdministrativeProof?await collectHistoricalReviewSourceState(root,finite):null;

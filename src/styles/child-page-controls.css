@@ -1,0 +1,40 @@
+.child-page-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(4px, 2vw, 12px);
+  min-width: 0;
+  min-height: 44px;
+  color: #18263e;
+  font: 750 13px/1.25 var(--lp-font-ui, system-ui, sans-serif);
+}
+
+.child-page-controls button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 4px 10px;
+  border: 1.5px solid #3454c8;
+  border-radius: 12px;
+  background: #fff;
+  color: #2844a9;
+  font: inherit;
+  white-space: nowrap;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.child-page-controls button[aria-disabled="true"] {
+  border-color: #929daf;
+  background: #f7f8fa;
+  color: #5c677a;
+  cursor: default;
+}
+
+.child-page-controls button:focus-visible {
+  outline: 3px solid #3454c8;
+  outline-offset: 2px;
+}

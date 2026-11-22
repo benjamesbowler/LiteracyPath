@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import { readBookShelf } from "./helpers/bookShelf.js";
 import { getRuntimeGuidedReadingBooks } from "../../src/utils/guidedReading/runtimeBooks.js";
 import { getGuidedReadingPageAudioPath, getGuidedReadingWordProductionAudioPath } from "../../src/utils/guidedReading/readAloudPolicy.js";
 import { expectPrintedWordsVisible } from "./helpers/guidedReadingGeometry.js";
@@ -86,9 +87,9 @@ test("Small Steps opens in phonics order from the actual child shelf", async ({ 
   await page.goto("/preview/child-surfaces.html?surface=reading-library");
   await page.getByRole("navigation", { name: "Book pictures" }).getByRole("button", { name: "Small Steps", exact: true }).click();
   const cards = page.locator("button[data-book-id^='small-steps-']");
-  await expect(cards).toHaveCount(20);
-  expect(await cards.evaluateAll(elements => elements.map(element => element.dataset.bookId))).toEqual(books.map(book => book.id));
   await expect(cards.first()).toContainText("Try the words");
+  expect((await readBookShelf(page)).map(book => book.id)).toEqual(books.map(book => book.id));
+  await expect(cards.last()).toBeInViewport({ ratio: 1 });
   await cards.last().click();
   const reader = page.getByRole("region", { name: "A Bell in a Mess full-screen reader" });
   await expect(reader).toBeVisible();

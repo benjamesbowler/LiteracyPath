@@ -26,10 +26,13 @@ import { hollowRoomViewBox } from "../utils/hollowRoomViewport.js";
 import { hollowDecorationAnchor, hollowDecorationBox } from "../data/hollowArtworkRegistration.js";
 import { withRepairedImageVersion } from '../utils/repairedImageVersion.js';
 import { companionFigurePlan, companionFullArtworkPath, hollowItemArtworkPath } from '../data/companionArtwork.js';
+import ChildPageControls from "./ChildPageControls.jsx";
+import { useChildPages } from "../hooks/useChildPages.js";
+import { useChildBrowseMedia, useCompactChildBrowse } from "../hooks/useCompactChildBrowse.js";
 
 // My Hollow - Rewards V2. The entry camera fills the stage with uniform art
 // scaling while keeping every saved display spot visible.
-// The full owned collections and shop use natural cards and native scrolling.
+// The full owned collections and shop use fitted pages of natural cards.
 // The Decorate view moves sideways between rooms (the main hollow, each owned
 // expansion, and the next locked one). Earnings are derived
 // (hollowEconomy.js); only spending is stored.
@@ -233,6 +236,9 @@ export function HollowPage({ studentName, progressScopeKey = "default", onOpenBo
   // Admin-placed spot positions (Admin → Hollow Spots). Cached first so the
   // room never renders with the wrong spots for a frame, then refreshed.
   const [spotOverride, setSpotOverride] = useState(() => getCachedHollowOverride());
+  const compact = useCompactChildBrowse();
+  const narrow = useChildBrowseMedia("(max-width: 640px)");
+  const wide = useChildBrowseMedia("(min-width: 1100px)");
 
   useEffect(() => {
     if (!hatched) return;
@@ -495,12 +501,8 @@ export function HollowPage({ studentName, progressScopeKey = "default", onOpenBo
 
   function renderPicker() {
     if (!pickingSpot) return null;
-    const style = {
-      left: `${Math.min(70, Math.max(16, pickingSpot.x))}%`,
-      top: pickingSpot.y > 50 ? `${pickingSpot.y - 32}%` : `${pickingSpot.y + 20}%`
-    };
     return (
-      <div ref={pickerRef} className="hollow-picker" style={style} role="dialog" aria-label="Choose something to place" onKeyDown={event => { if (event.key === "Escape") closePlacementPicker(); }}>
+      <div ref={pickerRef} className="hollow-picker" role="dialog" aria-label="Choose something to place" onKeyDown={event => { if (event.key === "Escape") closePlacementPicker(); }}>
         {placeable.length === 0
           ? <div className="hollow-picker-empty">
               <ItemArt id={welcomeEggWaiting ? "egg-welcome" : everydayHollow[0]?.id || "egg-welcome"} size={52} />
@@ -508,22 +510,33 @@ export function HollowPage({ studentName, progressScopeKey = "default", onOpenBo
               <button type="button" className="hollow-buy" onClick={followEmptyAction} data-child-primary="" data-child-emphasis="primary"><span data-child-emphasis-cue="">{welcomeEggWaiting ? "Open your gift" : "Visit the Market"}</span></button>
               <button type="button" className="hollow-pick hollow-hear" aria-label="Hear what to do next" onClick={hearNextAction}><SpeakerHigh size={22} aria-hidden="true" /></button>
             </div>
-          : placeable.map((item, index) => (
-            <button key={item.id} type="button" className="hollow-pick" title={item.name} onClick={() => placeItem(pickingSpot.id, item.id)}
-              {...(index === 0 ? { "data-child-primary": "", "data-child-emphasis": "primary" } : {})}>
-              <ItemArt id={item.id} size={52} />
-              <span data-child-emphasis-cue={index === 0 ? "" : undefined}>{item.name}</span>
-            </button>
-          ))}
+          : <div className="hollow-placement-choices">{placementPages.visibleItems.map((item, index) => (
+              <button key={item.id} type="button" className="hollow-pick" title={item.name} onClick={() => placeItem(pickingSpot.id, item.id)}
+                {...(index === 0 ? primaryProps : {})}>
+                <ItemArt id={item.id} size={52} />
+                <span data-child-emphasis-cue={index === 0 ? "" : undefined}>{item.name}</span>
+              </button>
+            ))}
+          </div>}
+        <ChildPageControls pageIndex={placementPages.pageIndex} pageCount={placementPages.pageCount} onPageChange={placementPages.setPageIndex} label="Decoration pages" />
         <button type="button" className="hollow-pick cancel" aria-label="Close placement choices" onClick={closePlacementPicker}>✕</button>
       </div>
     );
   }
 
   const visibleBeasties = hollow.beasties;
-  const feedNext = visibleBeasties.find(b => b.growth.next && hollow.berries > 0);
-  const foodNext = onOpenBooks && hollow.berries < 1 ? visibleBeasties.find(b => b.growth.next) : null;
-  const instruction = tab === "market" ? "Choose something for your Hollow."
+  const marketPages = useChildPages(marketItems, compact ? 3 : narrow ? 2 : wide ? 8 : 6, `${tab}:${shelf}`);
+  const beastiePages = useChildPages(welcomeEggWaiting ? [WELCOME_EGG, ...visibleBeasties] : visibleBeasties, compact || narrow ? 1 : wide ? 3 : 2, `${tab}:${welcomeEggWaiting}`);
+  const gearPages = useChildPages(hollow.ownedGear, compact || narrow ? 2 : wide ? 6 : 4, tab);
+  const guidePages = useChildPages(COMPANIONS, compact ? 3 : narrow ? 2 : 6, `${tab}:${guidePickerOpen}`);
+  const placementPages = useChildPages(placeable, compact || narrow ? 2 : 3, pickingSpot?.id);
+  const giftOnPage = beastiePages.visibleItems.includes(WELCOME_EGG);
+  const growingBeastie = !giftOnPage && beastiePages.visibleItems.find(b => b.growth?.next);
+  const feedNext = hollow.berries > 0 && growingBeastie;
+  const foodNext = onOpenBooks && hollow.berries < 1 && growingBeastie;
+  const affordable = marketItems.some(item => canBuy(hollow, item.id).ok);
+  const nextWare = marketPages.visibleItems.find(item => canBuy(hollow, item.id).ok)?.id;
+  const instruction = tab === "market" ? affordable ? "Choose something for your Hollow." : "Read and play to earn coins."
     : tab === "pal" ? (companion ? "Tap your gear to wear it." : "Choose your Guide.")
     : tab === "beasties" ? (welcomeEggWaiting ? "Tap the egg to meet your first friend." : "Feed your friends to help them grow.")
     : decorating ? (replacementSpotId ? "Tap a decoration to make space." : recommendedSpotId ? "Tap a blue spot to place your decoration." : "Choose a decoration for your Hollow.")
@@ -543,16 +556,22 @@ export function HollowPage({ studentName, progressScopeKey = "default", onOpenBo
       data-locked-item-card={verdict.reason === "coins" ? "hollow-market" : undefined}
       disabled={!verdict.ok} onClick={() => buy(item.id)} {...(primary ? primaryProps : {})}>
       <ItemArt id={item.id} size={76} />
-      <strong>{item.name}</strong>
-      <CoinPrice verdict={verdict} price={item.price} />
-      {primary && <span data-child-emphasis-cue="">{shelf === "eggs" ? "Hatch an egg" : "Choose this"}</span>}
+      <span className="hollow-ware-copy">
+        <strong>{item.name}</strong>
+        <CoinPrice verdict={verdict} price={item.price} />
+        {primary && <span data-child-emphasis-cue="">{shelf === "eggs" ? "Hatch an egg" : "Choose this"}</span>}
+      </span>
     </button>;
   }
 
   return (
-    <main className="hollow-page hollow-simple" data-pal-world={activeTheme.id} data-child-surface="my-hollow" data-hollow-view={tab === "hollow" ? decorating ? "room" : "entry" : "collection"}>
+    <main className="hollow-page hollow-simple" data-pal-world={activeTheme.id} data-child-surface="my-hollow" data-hollow-section={tab} data-hollow-view={tab === "hollow" ? decorating ? "room" : "entry" : "collection"}>
       <header className="hollow-topbar">
-        {(tab !== "hollow" || decorating) && <button type="button" className="hollow-back" onClick={goHome}>← My Hollow</button>}
+        {(tab !== "hollow" || decorating) && <button type="button" className="hollow-back" onClick={goHome}
+          aria-label={tab === "market" && !nextWare ? "Back to my Hollow" : undefined}
+          {...(tab === "market" && !nextWare ? primaryProps : {})}>
+          <span data-child-emphasis-cue={tab === "market" && !nextWare ? "" : undefined}>← My Hollow</span>
+        </button>}
         <h1 className="hollow-title" data-child-title="">{title}</h1>
         <span className="hollow-progress" data-child-progress="">{hollow.beasties.length} {hollow.beasties.length === 1 ? "friend" : "friends"} at home</span>
         {tab === "market" && <span className="hollow-wallet" aria-label={`${hollow.coins} coins`}><CoinIcon size={22} /> <strong>{hollow.coins}</strong></span>}
@@ -586,7 +605,6 @@ export function HollowPage({ studentName, progressScopeKey = "default", onOpenBo
             {room.tint && <span className="hollow-room-tint" style={{ background: room.tint }} aria-hidden="true" />}
             <span className="hollow-room-name">{room.name}</span>
             {room.spots.filter(spot => hollow.slots[spot.spotId] || placeable.length > 0).map(renderSpot)}
-            {renderPicker()}
           </div> : <div className="hollow-room locked" style={{ backgroundImage: room.image }}><div className="hollow-room-lock">
             <h2>{room.name}</h2><p>More space for your decorations.</p>
             <button type="button" className="hollow-buy" disabled={!canBuy(hollow, room.expansion.id).ok} onClick={() => buy(room.expansion.id)}>
@@ -594,6 +612,7 @@ export function HollowPage({ studentName, progressScopeKey = "default", onOpenBo
             </button>
           </div></div>}
           </div>
+          {room.kind === "open" && renderPicker()}
           {room.kind === "open" && <div className="hollow-room-tools">
             <button type="button" className="hollow-world-button" onClick={() => setPickingWorld(v => !v)}>Change world</button>
           </div>}
@@ -616,48 +635,52 @@ export function HollowPage({ studentName, progressScopeKey = "default", onOpenBo
             <div className="hollow-pal-stage"><PalFigure companion={companion} equipped={hollow.equipped} /><h2>{companion?.name || "Choose a Guide"}</h2>
               <button type="button" className="hollow-change-guide" onClick={() => { setGuideNotice(""); setGuidePickerOpen(v => !v); }}>{companion ? "Change Guide" : "Choose Guide"}</button>
             </div>
-            <div className="hollow-gear-grid">
-              {hollow.ownedGear.map(gear => <button key={gear.id} type="button" className={`hollow-gear${hollow.equipped[gear.slot] === gear.id ? " worn" : ""}`} onClick={() => toggleGear(gear)}>
-                <ItemArt id={gear.id} size={64} /><strong>{gear.name}</strong><em>{hollow.equipped[gear.slot] === gear.id ? "Wearing ✓" : GEAR_SLOT_LABELS[gear.slot]}</em>
-              </button>)}
+            <div className="hollow-owned-gear">
+              <div className="hollow-gear-grid">
+                {gearPages.visibleItems.map(gear => <button key={gear.id} type="button" className={`hollow-gear${hollow.equipped[gear.slot] === gear.id ? " worn" : ""}`} onClick={() => toggleGear(gear)}>
+                  <ItemArt id={gear.id} size={64} /><strong>{gear.name}</strong><em>{hollow.equipped[gear.slot] === gear.id ? "Wearing ✓" : GEAR_SLOT_LABELS[gear.slot]}</em>
+                </button>)}
+              </div>
+              <ChildPageControls pageIndex={gearPages.pageIndex} pageCount={gearPages.pageCount} onPageChange={gearPages.setPageIndex} label="Gear pages" />
               <button type="button" className="hollow-buy" {...primaryProps} onClick={() => { setTab("market"); setShelf("gear"); }}><span data-child-emphasis-cue="">Find Guide gear</span></button>
             </div>
           </div>
           {guidePickerOpen && <section className="hollow-guide-picker" role="dialog" aria-label="Choose a Little Literacy Guide">
             <header><div><h2>Choose your Guide</h2><p>{companion ? `Changing costs ${guideChangeCost} stars. You have ${guideStarsAvailable}.` : "Your first Guide is free."}</p></div><button type="button" onClick={() => setGuidePickerOpen(false)} aria-label="Close guide choices">×</button></header>
-            <div>{COMPANIONS.map(item => { const current = companion?.id === item.id; return <button key={item.id} type="button" className={current ? "active" : ""}
+            <div>{guidePages.visibleItems.map(item => { const current = companion?.id === item.id; return <button key={item.id} type="button" className={current ? "active" : ""}
               disabled={!current && guideStarsAvailable < guideChangeCost} onClick={() => chooseGuide(item.id)}>
               <img src={item.image} alt="" /><strong>{item.name}</strong><em>{current ? "Your Guide" : guideChangeCost ? `★ ${guideChangeCost}` : "Free"}</em></button>; })}</div>
+            <ChildPageControls pageIndex={guidePages.pageIndex} pageCount={guidePages.pageCount} onPageChange={guidePages.setPageIndex} label="Guide pages" />
           </section>}
           {guideNotice && <p role="status">{guideNotice}</p>}
         </div>}
 
         {tab === "beasties" && <div className="hollow-panel">
-          {welcomeEggWaiting && <div className="hollow-next-card hollow-gift"><ItemArt id="egg-welcome" size={100} /><div><h2>A gift for you</h2>
-            <button type="button" className="hollow-buy" onClick={() => grant(WELCOME_EGG)} {...primaryProps}><span data-child-emphasis-cue="">Open your gift</span></button></div></div>}
           <div className="hollow-beastie-grid">
-            {visibleBeasties.map(b => <div key={b.id} className="hollow-beastie">
-              <ItemArt id={b.id} stage={b.growth.stage} size={100} /><strong>{b.name}</strong>
+            {beastiePages.visibleItems.map(b => b.id === WELCOME_EGG.id ? <div key={b.id} className="hollow-next-card hollow-gift"><ItemArt id="egg-welcome" size={100} /><div><h2>A gift for you</h2>
+              <button type="button" className="hollow-buy" onClick={() => grant(WELCOME_EGG)} {...primaryProps}><span data-child-emphasis-cue="">Open your gift</span></button></div></div> : <div key={b.id} className="hollow-beastie">
+              <ItemArt id={b.id} stage={b.growth.stage} size={100} /><div className="hollow-beastie-info"><strong>{b.name}</strong>
               <em>{b.growth.next ? `${b.growth.feedsToNext} feeds to grow` : "Fully grown!"}</em>
               <span className="hollow-meter" role="progressbar" aria-label={`${b.name} growth`} aria-valuemin={0} aria-valuemax={8} aria-valuenow={Math.min(8, b.growth.feeds)}><span style={{ width: `${Math.min(100, b.growth.feeds / 8 * 100)}%` }} /></span>
-              {b.growth.next && <button type="button" className="hollow-buy" disabled={hollow.berries < 1} onClick={() => feed(b.id)} {...(!welcomeEggWaiting && feedNext?.id === b.id ? primaryProps : {})}>
+              </div>
+              <div className="hollow-beastie-food">{b.growth.next && <button type="button" className="hollow-buy" disabled={hollow.berries < 1} onClick={() => feed(b.id)} {...(feedNext?.id === b.id ? primaryProps : {})}>
                 <span data-child-emphasis-cue="">Feed {b.name}</span><BerryIcon size={18} /></button>}
               {b.growth.next && hollow.berries < 1 && <div className="hollow-feed-help"><small>Read a book to earn food.</small>
-                {onOpenBooks && <button type="button" className="hollow-back hollow-read-for-food" {...(!welcomeEggWaiting && foodNext?.id === b.id ? primaryProps : {})} onClick={onOpenBooks}><BookOpenText size={24} aria-hidden="true" /> <span data-child-emphasis-cue="">Go to Books</span></button>}
-              </div>}
+                {onOpenBooks && <button type="button" className="hollow-back hollow-read-for-food" {...(foodNext?.id === b.id ? primaryProps : {})} onClick={onOpenBooks}><BookOpenText size={24} aria-hidden="true" /> <span data-child-emphasis-cue="">Go to Books</span></button>}
+              </div>}</div>
             </div>)}
           </div>
-          {!welcomeEggWaiting && <div className="hollow-beastie-actions">
-            <button type="button" className={feedNext || foodNext ? "hollow-back" : "hollow-buy"} {...(!feedNext && !foodNext ? primaryProps : {})} onClick={() => { setTab("market"); setShelf("eggs"); }}><span data-child-emphasis-cue="">Find another friend</span></button>
-          </div>}
+          <div className="hollow-beastie-actions">
+            {!welcomeEggWaiting && <button type="button" className={feedNext || foodNext ? "hollow-back" : "hollow-buy"} {...(!feedNext && !foodNext ? primaryProps : {})} onClick={() => { setTab("market"); setShelf("eggs"); }}><span data-child-emphasis-cue="">Find another friend</span></button>}
+            <ChildPageControls pageIndex={beastiePages.pageIndex} pageCount={beastiePages.pageCount} onPageChange={beastiePages.setPageIndex} label="Beastie pages" />
+          </div>
         </div>}
 
         {tab === "market" && <div className="hollow-panel hollow-market">
           <nav className="hollow-shelf-tabs" aria-label="Shop shelves">{MARKET_SHELVES.map(s => <button key={s.id} type="button" className={`hollow-shelf-tab${shelf === s.id ? " active" : ""}`} aria-pressed={shelf === s.id} onClick={() => setShelf(s.id)}><ItemArt id={{ home: "hollow-glow-jar", gear: "gear-trail-boots", eggs: "egg-bronze", caravan: "hollow-star-banner" }[s.id]} size={36} />{s.label}</button>)}</nav>
           {shelf === "caravan" && <p className="hollow-hint">{season.name} specials · {season.daysLeft} days left</p>}
-          <div className="hollow-market-grid">{marketItems.map(item => renderWare(item, item.id === marketItems.find(i => canBuy(hollow, i.id).ok)?.id))}</div>
-          <p className="hollow-hint">Read and play to earn coins.</p>
-          {!marketItems.some(i => canBuy(hollow, i.id).ok) && <button type="button" className="hollow-buy" {...primaryProps} onClick={goHome}><span data-child-emphasis-cue="">Back to my Hollow</span></button>}
+          <div className="hollow-market-grid">{marketPages.visibleItems.map(item => renderWare(item, item.id === nextWare))}</div>
+          <ChildPageControls pageIndex={marketPages.pageIndex} pageCount={marketPages.pageCount} onPageChange={marketPages.setPageIndex} label="Shop pages" />
         </div>}
       </section>
       <p className="sr-only" role="status">{speechStatus} {notice}</p>

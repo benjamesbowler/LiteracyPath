@@ -15,6 +15,7 @@ on:
           - ui-chrome
           - app-simplification
           - child-redesign
+          - child-one-screen
           - cycle-shorts
           - reader-skills-insights
           - hollow-blue-ui
@@ -87,7 +88,8 @@ jobs:
       - name: Install Playwright Chromium
         run: npx playwright install --with-deps chromium
       - name: Install Supabase CLI
-        if: inputs.scope != 'cycle-shorts' && inputs.scope != 'ui-chrome' && inputs.scope != 'child-redesign' && inputs.scope != 'reader-skills-insights' && inputs.scope != 'hollow-blue-ui' && inputs.scope != 'assessment-blue-ui' && inputs.scope != 'phonics-overhaul' && inputs.scope != 'skills-trail' && inputs.scope != 'phonics-menu'
+        id: audit-supabase-cli
+        if: inputs.scope != 'cycle-shorts' && inputs.scope != 'ui-chrome' && inputs.scope != 'child-redesign' && inputs.scope != 'child-one-screen' && inputs.scope != 'reader-skills-insights' && inputs.scope != 'hollow-blue-ui' && inputs.scope != 'assessment-blue-ui' && inputs.scope != 'phonics-overhaul' && inputs.scope != 'skills-trail' && inputs.scope != 'phonics-menu'
         uses: supabase/setup-cli@v2
         with:
           version: 2.109.1
@@ -97,7 +99,7 @@ jobs:
         id: teacher-audit-stack
         run: node tools/prepareTeacherSimplicitySupabase.mjs
       - name: Start and seed isolated audit database
-        if: inputs.scope != 'cycle-shorts' && inputs.scope != 'ui-chrome' && inputs.scope != 'child-redesign' && inputs.scope != 'reader-skills-insights' && inputs.scope != 'hollow-blue-ui' && inputs.scope != 'assessment-blue-ui' && inputs.scope != 'phonics-overhaul' && inputs.scope != 'skills-trail' && inputs.scope != 'phonics-menu'
+        if: inputs.scope != 'cycle-shorts' && inputs.scope != 'ui-chrome' && inputs.scope != 'child-redesign' && inputs.scope != 'child-one-screen' && inputs.scope != 'reader-skills-insights' && inputs.scope != 'hollow-blue-ui' && inputs.scope != 'assessment-blue-ui' && inputs.scope != 'phonics-overhaul' && inputs.scope != 'skills-trail' && inputs.scope != 'phonics-menu'
         env:
           AUDIT_SCOPE: ${{ inputs.scope }}
         run: |
@@ -122,7 +124,7 @@ jobs:
             echo "LP_AUDIT_TEACHER_PASSWORD=$audit_password"
           } >> "$GITHUB_ENV"
       - name: Seed deterministic audit school
-        if: inputs.scope != 'cycle-shorts' && inputs.scope != 'ui-chrome' && inputs.scope != 'child-redesign' && inputs.scope != 'reader-skills-insights' && inputs.scope != 'hollow-blue-ui' && inputs.scope != 'assessment-blue-ui' && inputs.scope != 'phonics-overhaul' && inputs.scope != 'skills-trail' && inputs.scope != 'phonics-menu'
+        if: inputs.scope != 'cycle-shorts' && inputs.scope != 'ui-chrome' && inputs.scope != 'child-redesign' && inputs.scope != 'child-one-screen' && inputs.scope != 'reader-skills-insights' && inputs.scope != 'hollow-blue-ui' && inputs.scope != 'assessment-blue-ui' && inputs.scope != 'phonics-overhaul' && inputs.scope != 'skills-trail' && inputs.scope != 'phonics-menu'
         run: npm run seed:audit-school
       - name: Refresh every reviewed Linux baseline
         if: inputs.scope == 'all'
@@ -320,6 +322,37 @@ jobs:
             tests/release/assessment-media-evidence.spec.js \
             tests/release/skills-practice.spec.js \
             --project=desktop --workers=1
+      - name: Review fitted child activities and catalogues on Linux
+        if: inputs.scope == 'child-one-screen'
+        env:
+          VERIFY_ONLY: ${{ inputs.verify_only }}
+        run: |
+          visual_specs=(
+            tests/release/student-device-matrix.spec.js
+            tests/release/key-route-visuals.spec.js
+            tests/release/student-emphasis-budget.spec.js
+          )
+          child_routes='student-home|reading-library|story-quests|phonics|arcade|adventure-map|skills-practice|sound-seekers|my-hollow|reading-comprehension'
+          visual_routes="A3.6 ($child_routes) passes|A3.6 Story Quest (fullscreen|shelf and reader)|A3.9 ($child_routes) keeps one strongest|A3.2 (Student Home|Guided Reading|Learn|Sound Seekers|My Hollow) matches"
+          snapshot_args=()
+          if [[ "$VERIFY_ONLY" != "true" ]]; then
+            snapshot_args+=(--update-snapshots=changed)
+          fi
+          npx playwright test "${visual_specs[@]}" --project=desktop --workers=2 --timeout=90000 --grep "$visual_routes" "${snapshot_args[@]}"
+          npx playwright test \
+            tests/release/story-quest-one-screen.spec.js \
+            tests/release/story-quest-shelf-viewport.spec.js \
+            tests/release/reading-comprehension-viewport.spec.js \
+            tests/release/cvc-hear-viewport.spec.js \
+            tests/release/cvc-build-magic-viewport.spec.js \
+            tests/release/hollow-room-viewport.spec.js \
+            tests/release/hollow-simple-flows.spec.js \
+            tests/release/child-adventure-entry-viewport.spec.js \
+            tests/release/learning-catalogue-viewport.spec.js \
+            tests/release/home-open-gallery.spec.js \
+            tests/release/books-viewport.spec.js \
+            tests/release/cycle-shorts.spec.js \
+            --project=desktop --workers=2 --timeout=90000
       - name: Verify open phonics choices, hidden targets and aligned game menus
         if: inputs.scope == 'phonics-menu'
         run: |
@@ -445,7 +478,7 @@ jobs:
         if: always() && inputs.scope == 'teacher-simplicity' && steps.teacher-audit-stack.outcome == 'success'
         run: node tools/prepareTeacherSimplicitySupabase.mjs --stop
       - name: Stop local Supabase
-        if: always() && inputs.scope != 'teacher-simplicity' && inputs.scope != 'cycle-shorts' && inputs.scope != 'ui-chrome' && inputs.scope != 'child-redesign' && inputs.scope != 'reader-skills-insights' && inputs.scope != 'hollow-blue-ui' && inputs.scope != 'assessment-blue-ui' && inputs.scope != 'phonics-overhaul' && inputs.scope != 'skills-trail' && inputs.scope != 'phonics-menu'
+        if: always() && inputs.scope != 'teacher-simplicity' && steps.audit-supabase-cli.outcome == 'success'
         run: supabase stop --no-backup
 
   phonics-regression:

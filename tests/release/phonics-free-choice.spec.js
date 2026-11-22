@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { WORKSHOP_OBJECTS } from '../../src/utils/workshopObjects.js';
 import { phonicsTargetHint } from '../../src/utils/phonicsTargetPresentation.js';
+import { expectPagedChoices } from './helpers/childPagedChoices.js';
 
 const noTarget = async (stage,target) => expect(await stage.innerText()).not.toMatch(new RegExp(`\\b${target}\\b`,'i'));
 for(const game of ['cvc-word-builder','blend-and-build','letter-garden']) {
@@ -40,24 +41,28 @@ for(const [name,width,height] of [['desktop',1366,900],['tablet',1024,768],['pho
     await page.setViewportSize({width,height});
     await page.goto('/preview/child-surfaces.html?surface=phonics');
     const letters=page.locator('.phonics-letter-grid button');
-    await expect(letters).toHaveCount(26);
-    for(const letter of await letters.all()) await expect(letter).toBeEnabled();
+    const phonics = page.locator('[data-child-surface=phonics]');
+    await expectPagedChoices(phonics, letters, { pagerLabel: "Letter pages", expectedCount: 26, returnToFirst: false });
     const letterBoxes=await letters.evaluateAll(nodes=>nodes.map(n=>n.getBoundingClientRect().toJSON()));
     if(width>500) for(const box of letterBoxes) {expect(box.y).toBeGreaterThanOrEqual(0);expect(box.y+box.height).toBeLessThanOrEqual(height);}
     const progressBox=await page.locator('.phonics-alphabet-progress').boundingBox();
     expect(progressBox.y).toBeGreaterThanOrEqual(Math.max(...letterBoxes.map(box=>box.y+box.height))-1);
     await letters.last().click();await expect(page.locator('.phonics-learning-flow')).toBeVisible();
     await page.goto('/preview/child-surfaces.html?surface=phonics&island=words');
-    const families=page.locator('.cvc-family-card');await expect(families).toHaveCount(8);
-    for(const card of await families.all()) await expect(card).toBeEnabled();
+    const families=page.locator('.cvc-family-card');
+    await expectPagedChoices(phonics, families, { pagerLabel: "Word family pages", expectedCount: 8, returnToFirst: false });
     await families.last().click();await expect(page.locator('.cvc-learning-flow')).toBeVisible();
     await page.goto('/preview/child-surfaces.html?surface=arcade');
-    await expect(page.getByRole('heading',{name:'Arcade',exact:true}).last()).toBeVisible();
-    await expect(page.getByRole('heading',{name:'Phonics games',exact:true})).toBeVisible();
-    const icons=page.locator('.lg-game-section-grid img');await expect(icons).toHaveCount(27);
-    await expect.poll(()=>icons.evaluateAll(nodes=>nodes.filter(img=>img.complete&&img.naturalWidth>0).length)).toBe(27);
-    await expect(page.locator('[data-game-section="arcade"]')).toHaveCount(16);
-    await expect(page.locator('[data-game-section="phonics"]')).toHaveCount(11);
+    const arcade = page.locator('[data-child-surface=arcade]');
+    await expectPagedChoices(arcade, arcade.locator(".lg-game-tile"), { pagerLabel: "Game pages", expectedCount: 27, key: "data-game-id", titleSelector: ".lg-game-tile-name" });
+    if (width > 650) {
+      await expect(page.getByRole('heading',{name:'Arcade',exact:true}).last()).toBeVisible();
+      await expect(page.getByRole('heading',{name:'Phonics games',exact:true})).toBeVisible();
+      const icons=page.locator('.lg-game-section-grid img');await expect(icons).toHaveCount(27);
+      await expect.poll(()=>icons.evaluateAll(nodes=>nodes.filter(img=>img.complete&&img.naturalWidth>0).length)).toBe(27);
+      await expect(page.locator('[data-game-section="arcade"]')).toHaveCount(16);
+      await expect(page.locator('[data-game-section="phonics"]')).toHaveCount(11);
+    }
     await page.screenshot({path:`.artifacts/phonics-menu/menu-${name}.png`,fullPage:true});
   });
 }

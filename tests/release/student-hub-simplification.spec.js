@@ -186,25 +186,24 @@ for (const viewport of [{ width: 1366, height: 768 }, { width: 1024, height: 768
     expect(peers).toEqual([]);
   });
 
-  test(`Books keep the full gallery, truthful art and optional discovery at ${viewport.width}x${viewport.height}`, async ({ page }, testInfo) => {
+  test(`Books keep every title reachable with truthful art and optional discovery at ${viewport.width}x${viewport.height}`, async ({ page }, testInfo) => {
     await page.emulateMedia({ reducedMotion: "reduce" });
     await page.setViewportSize(viewport);
     await page.goto("/preview/child-surfaces.html?surface=reading-library", { waitUntil: "domcontentloaded" });
     await expect(page.locator("[data-child-primary]")).toBeVisible({ timeout: 90_000 });
-    await expect(page.locator(".kg-book-card")).toHaveCount(getRuntimeGuidedReadingBooks().length);
-    await page.locator(".kg-book-card").first().scrollIntoViewIfNeeded();
+    await expect(page.locator(".kg-books")).toHaveAttribute("data-book-count", String(getRuntimeGuidedReadingBooks().length));
+    await expect(page.locator(".kg-book-card").first()).toBeInViewport({ ratio: 1 });
     await expect(page.locator('.kg-book-card [data-book-cover-state="ready"]').first()).toBeVisible();
     await expect.poll(() => page.locator('.kg-book-card [data-book-cover-state="ready"] > img').evaluateAll(images => images.every(image => {
       const box = image.getBoundingClientRect();
       return image.naturalWidth > 0 && box.width > 0 && box.height > 0 && getComputedStyle(image).opacity === "1";
     }))).toBe(true);
-    await expect(page.locator('[data-book-cover-state="ready"] .kg-book-cover-fallback-art')).toHaveCount(0);
+    await expect(page.locator('[data-book-cover-state="ready"] .kg-book-cover-fallback-art:visible')).toHaveCount(0);
     expect(await page.locator(".kg-main").evaluate(element => ({ x: element.scrollWidth - element.clientWidth, y: element.scrollHeight - element.clientHeight }))).toEqual({ x: 0, y: 0 });
-    expect(await page.locator(".kg-books").evaluate(element => ({ y: getComputedStyle(element).overflowY, page: document.documentElement.scrollHeight <= innerHeight + 1 }))).toEqual({ y: "auto", page: true });
+    expect(await page.locator(".kg-books").evaluate(element => ({ y: getComputedStyle(element).overflowY, page: document.documentElement.scrollHeight <= innerHeight + 1 }))).toEqual({ y: "clip", page: true });
     await page.screenshot({ path: testInfo.outputPath("hub.png") });
     await expect(page.locator(".kg-single-shelf")).toHaveCount(1);
-    await expect(page.getByRole("button", { name: "More books", exact: true })).toHaveCount(0);
-    await expect(page.getByRole("navigation", { name: "Book pictures" }).getByRole("button", { name: "Facts", exact: true })).toBeVisible();
+    await expect(page.getByRole("navigation", { name: "Books pages" }).getByRole("button", { name: "Next", exact: true })).toBeInViewport({ ratio: 1 });
     await expect(page.locator('[data-book-cover-state="ready"]').first()).toBeVisible();
     await page.getByRole("button", { name: "Find a book", exact: true }).click();
     await page.getByLabel("Friends or topic", { exact: true }).selectOption("dino-pals");
