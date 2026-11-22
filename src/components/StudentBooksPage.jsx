@@ -209,6 +209,7 @@ export function StudentBooksPage({
   const [openBookId, setOpenBookId] = useState(
     exactBookLock ? normalizedLockedBookId : (initialBookId || "")
   );
+  const [openBookFromShelf, setOpenBookFromShelf] = useState(false);
   const [cycleShortsOpen,setCycleShortsOpen] = useState(false);
   const [speechStatus, setSpeechStatus] = useState("");
   const [showDiscovery, setShowDiscovery] = useState(false);
@@ -241,6 +242,7 @@ export function StudentBooksPage({
     returnToBook.current = recommendedBook
       ? ".kg-continue [data-child-primary]"
       : `[data-book-id="${CSS.escape(bookId)}"]`;
+    setOpenBookFromShelf(!recommendedBook);
     setOpenBookId(bookId);
   }
   function closeDiscovery() {
@@ -376,7 +378,7 @@ export function StudentBooksPage({
     const openBook = library.find(book => book.id === openBookId);
     const saved = bookReadingProgress(openBook, getCurrentGuidedReadingRecord(openBook, guidedReadingRecords));
     return renderReader({ bookId: openBookId, books: library, initialPageIndex: saved.started ? saved.pageIndex : null, onExit: () => {
-      if (returnToBook.current?.startsWith("[data-book-id=")) {
+      if (openBookFromShelf) {
         const index = shelf.books.findIndex(row => row.book.id === openBookId);
         if (index >= 0) setPageIndex(Math.floor(index / pageSize));
       }

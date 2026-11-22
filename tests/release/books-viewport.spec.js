@@ -82,8 +82,9 @@ for (const profile of STUDENT_DEVICE_PROFILES) {
     const textMeasure = tools.getByRole("button", { name: "Text measure", exact: true });
     if (await textMeasure.isVisible()) await textMeasure.click();
     await expect(tools.getByRole("region", { name: "About this book" }).locator("p").last()).toBeInViewport({ ratio: 1 });
-    await page.keyboard.press("Escape");
-    await expect(more).toBeFocused();
+    await expect(more).toBeInViewport({ ratio: 1 });
+    await more.click();
+    await expect(tools).not.toBeVisible();
     await reader.getByRole("button", { name: "Back to Books", exact: true }).click();
     await expect(card).toBeFocused();
     await expect(card.locator(".kg-book-title")).toHaveText("Emperor Penguins and Their Relatives");
@@ -99,6 +100,30 @@ test("visible Book page controls reach each eligible book once", async ({ page }
   const eligible = getRuntimeGuidedReadingBooks().map(book => book.id);
   expect(reached.toSorted()).toEqual(eligible.toSorted());
   expect(await page.locator(".kg-books").evaluate(node => node.scrollTop)).toBe(0);
+});
+
+test("Back to Books restores the exact card when reading in a resized browser", async ({ page }) => {
+  test.setTimeout(90_000);
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.addInitScript(() => { HTMLElement.prototype.requestFullscreen = () => Promise.reject(new Error("Fullscreen unavailable")); });
+  await page.goto("/preview/child-surfaces.html?surface=reading-library", { waitUntil: "domcontentloaded" });
+  const shelf = page.locator(".kg-books");
+  await shelf.getByRole("button", { name: "Find a book", exact: true }).click();
+  await page.getByLabel("Friends or topic", { exact: true }).selectOption("small-steps");
+  await page.getByRole("button", { name: "Back to shelf", exact: true }).click();
+  const second = shelf.locator(".kg-book-card").nth(1);
+  await expect(second).toBeInViewport({ ratio: 1 });
+  const id = await second.getAttribute("data-book-id");
+  await second.click();
+  const reader = page.locator(".guided-reader-shell.fullscreen");
+  await expect(reader).toBeVisible();
+  await page.setViewportSize({ width: 320, height: 568 });
+  await reader.getByRole("button", { name: "Back to Books", exact: true }).click();
+  const returned = shelf.locator(`[data-book-id="${id}"]`);
+  await expect(shelf).toHaveAttribute("data-book-page", "2");
+  await expect(shelf.locator(".kg-book-filter-state")).toHaveText("Small Steps");
+  await expect(returned).toBeInViewport({ ratio: 1 });
+  await expect(returned).toBeFocused();
 });
 
 for (const { width, height, keyboardHeight } of [

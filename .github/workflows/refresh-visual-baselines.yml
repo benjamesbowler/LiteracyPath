@@ -332,7 +332,7 @@ jobs:
             tests/release/student-emphasis-budget.spec.js
           )
           child_routes='student-home|reading-library|story-quests|phonics|arcade|adventure-map|skills-practice|sound-seekers|my-hollow|reading-comprehension'
-          visual_routes="A3.6 ($child_routes) passes|A3.6 Story Quest fullscreen|A3.9 ($child_routes) keeps one strongest|A3.2 (Student Home|Guided Reading|Learn|Sound Seekers|My Hollow) matches"
+          visual_routes="A3.6 ($child_routes) passes|A3.6 Story Quest (fullscreen|shelf and reader)|A3.9 ($child_routes) keeps one strongest|A3.2 (Student Home|Guided Reading|Learn|Sound Seekers|My Hollow) matches"
           snapshot_args=()
           if [[ "$VERIFY_ONLY" != "true" ]]; then
             snapshot_args+=(--update-snapshots=changed)

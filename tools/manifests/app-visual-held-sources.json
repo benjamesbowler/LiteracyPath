@@ -14525,8 +14525,8 @@
       }
     ],
     "graph": {
-      "count": 1577,
-      "sha256": "4553bd16aad16acca2dfa2a71c3cc9b49d85a72b0aceb2d1f9019caf0760fea0",
+      "count": 1588,
+      "sha256": "0732ed1720fb41f7d35d6ff862ff3bcc19a8a4ec5899dda8609515a6acc54b66",
       "modules": [
         "demos/sound-seekers/assets/audio/brook-complete.mp3",
         "demos/sound-seekers/assets/audio/brook.mp3",
@@ -14798,6 +14798,7 @@
         "src/components/AppSurface.jsx",
         "src/components/AuthPage.jsx",
         "src/components/ChildHomeMusicControl.jsx",
+        "src/components/ChildPageControls.jsx",
         "src/components/ErrorBoundary.jsx",
         "src/components/FinishedReportPage.jsx",
         "src/components/HollowPage.jsx",
@@ -14864,6 +14865,7 @@
         "src/components/comprehension/ComprehensionPage.jsx",
         "src/components/comprehension/comprehension.css",
         "src/components/comprehension/lessonPaging.js",
+        "src/components/comprehension/usePassageCatalogueSize.js",
         "src/components/cycle-practice/CycleActivityRenderer.jsx",
         "src/components/cycle-practice/CyclePracticePage.jsx",
         "src/components/cycle-practice/CycleTraceActivity.jsx",
@@ -14895,6 +14897,7 @@
         "src/components/guided-reading/BookPdfDownload.jsx",
         "src/components/guided-reading/BookReadingGuide.jsx",
         "src/components/guided-reading/BuddyReaderBar.jsx",
+        "src/components/guided-reading/ChildBookDiscovery.jsx",
         "src/components/guided-reading/CycleShortsLibrary.jsx",
         "src/components/guided-reading/DecodableBookGuide.jsx",
         "src/components/guided-reading/GuidedReadingPage.jsx",
@@ -15391,10 +15394,12 @@
         "src/data/generated/ledaRuntimeSupplement.generated.js",
         "src/data/generated/ledaWordAudio.generated.js",
         "src/data/generated/literacyMockAudioV11.generated.js",
+        "src/data/generated/literacyMockClassPractice.generated.js",
         "src/data/generated/literacyMockRuntimeAudio.generated.js",
         "src/data/generated/literacyMockRuntimeV10.generated.js",
         "src/data/generated/literacyMockRuntimeV11.generated.js",
         "src/data/generated/literacyMockRuntimeV12.generated.js",
+        "src/data/generated/literacyMockRuntimeV13.generated.js",
         "src/data/generated/literacyMockV1.generated.js",
         "src/data/generated/literacyMockV2.generated.js",
         "src/data/generated/literacyMockV3.generated.js",
@@ -15493,6 +15498,7 @@
         "src/data/literacyMockPhonicsCapacityV11.js",
         "src/data/literacyMockPhonicsDepth.js",
         "src/data/literacyMockPhonicsLaddersV4.js",
+        "src/data/literacyMockPracticePartition.js",
         "src/data/literacyMockPrintCapacity.js",
         "src/data/literacyMockReadingCapacityEvidence.js",
         "src/data/literacyMockReadingCapacityForms.js",
@@ -15511,11 +15517,13 @@
         "src/data/literacyMockSoundTransformationsV10.js",
         "src/data/literacyMockSpatialCapacity.js",
         "src/data/literacyMockTaskCeilings.js",
+        "src/data/literacyMockTeacherStatus.js",
         "src/data/literacyMockTutorialV8.js",
         "src/data/literacyMockV10.js",
         "src/data/literacyMockV11.js",
         "src/data/literacyMockV11AudioHistory.js",
         "src/data/literacyMockV12.js",
+        "src/data/literacyMockV13.js",
         "src/data/literacyMockV4.js",
         "src/data/literacyMockV5.js",
         "src/data/literacyMockV6.js",
@@ -15702,6 +15710,8 @@
         "src/features/soundkeys/soundkeys.css",
         "src/hooks/readingSessionFollowerState.js",
         "src/hooks/readingSessionMarkTarget.js",
+        "src/hooks/useChildPages.js",
+        "src/hooks/useCompactChildBrowse.js",
         "src/hooks/useLearningResult.js",
         "src/hooks/useMockAudio.js",
         "src/hooks/usePhonicsAudio.js",
@@ -15784,6 +15794,7 @@
         "src/styles/buddy-reader.css",
         "src/styles/child-browse.css",
         "src/styles/child-hub-shell.css",
+        "src/styles/child-page-controls.css",
         "src/styles/comic-theme.css",
         "src/styles/cycle-practice.css",
         "src/styles/el-assessment-hub.css",
@@ -16107,8 +16118,8 @@
         "src/utils/workshopObjects.js"
       ],
       "edges": {
-        "count": 3745,
-        "sha256": "d3a4c5a4b6d99f593b8a99d9f93c274fb58b449ca54b427c84e75ddba7fb15fd"
+        "count": 3796,
+        "sha256": "4ec29501bea73be7a663ba400ec9878651feeddac1c0a12628543b018bc78a46"
       },
       "issues": [],
       "dynamic": []
@@ -16361,16 +16372,16 @@
     },
     "finite": {
       "allBindings": {
-        "count": 95705,
-        "sha256": "4cb0f41f9e965086c24259911570b711597a65051d63133809540e4119fe04c4"
+        "count": 101989,
+        "sha256": "cc5d79097e9a95d8a4c580ca2b32f95c12b7319c114f2d74dfdbc059e4cbb427"
       },
       "positiveBindings": {
-        "count": 76776,
-        "sha256": "6a7084893116f9212fbbfd5ac7dccc72feecb53a1f38a141168a44d9994b4aab"
+        "count": 83060,
+        "sha256": "6b83729d62eee73d26eb9a6b027d0d0e0ea58a5cfa225b4405d345c3aa7f4d6d"
       },
       "coverage": {
         "count": 65,
-        "sha256": "73d742c6bbbb21bc13ff8ff7044579944d58e27d4a5c4e3af7ca6e18e8efc864",
+        "sha256": "8059802b2fb74289ca4ecaf314bbd201b37660204bca8b10c23569a15195d9a4",
         "surfaces": [
           "Admin Media QA historical and current review thumbnails",
           "Adventure exact picture pools/foils/compounds; LETTER_EXAMPLES sound-only and HFW matching text-only",
@@ -16440,8 +16451,8 @@
         ]
       },
       "historicalBranches": {
-        "count": 15,
-        "sha256": "f37fd3c5c838c2b9156f4e2f104209c65652d2e00adefa885109a74664ae9f6a",
+        "count": 17,
+        "sha256": "21531301fccdbba60821b1db7c88e8e7a8fd4e1f2df479365a0bc3263a35ba9c",
         "branches": [
           {
             "version": "literacy-mock-v1",
@@ -16498,6 +16509,22 @@
             "eligible": 2834,
             "withdrawn": 5,
             "uniqueImages": 334
+          },
+          {
+            "version": "literacy-mock-v13",
+            "mixed": false,
+            "total": 10985,
+            "eligible": 10599,
+            "withdrawn": 386,
+            "uniqueImages": 606
+          },
+          {
+            "version": "literacy-mock-v13",
+            "mixed": true,
+            "total": 2212,
+            "eligible": 2208,
+            "withdrawn": 4,
+            "uniqueImages": 284
           },
           {
             "version": "literacy-mock-v2",
@@ -16567,14 +16594,14 @@
       },
       "evaluator": {
         "path": "tools/auditFiniteImageBindings.mjs",
-        "sha256": "a33ef1c8a82c1701a27f40123a8312d3afe64eb006ce9f12576fbd0720dd9530",
+        "sha256": "436b63e65fff6bc9f9a4be4016a0cde7c492b47a2e6243b57d917c675336865b",
         "validatorPath": "tools/lib/inactiveImageRetirement.mjs",
         "validatorSha256": "2036e5ece62b6a5305adf252e34124fb9d821f83ea2ead95348ed8710b59406e"
       }
     },
     "historicalAdministrativeSources": {
       "cohort": "tools/manifests/app-visual-historical-review-sources.json",
-      "cohortSha256": "cce7ff7add2b1e0b1c41f0993e5c9b3ee72be08d3cc44eb46e9820c534eecf53",
+      "cohortSha256": "0ac54ef37dab5bf18a295180e0f3ba6ae4a81d5b50bef1ced84fb253d239fe57",
       "sourcePins": [
         {
           "path": "src/components/admin/MediaQaReviewPage.jsx",
@@ -16646,8 +16673,8 @@
         }
       ],
       "questionDomains": {
-        "count": 78,
-        "sha256": "c4f8fd89cfb42d68cfb367a863bf9c717a746635d70f15e267c84f63446c31cd"
+        "count": 80,
+        "sha256": "974aa2009b22db770b63b195ddc6bbbb555b8d03d5ee8e1d11f54c7890bd3f02"
       },
       "mergedQaRows": 14557,
       "errors": [],
@@ -16657,8 +16684,8 @@
       }
     },
     "runtimeSources": {
-      "count": 1772,
-      "sha256": "1172dff9be8bc6fd414a3885188cb0a946d7f3a01a33befbecb30fa4021d7fbb",
+      "count": 1782,
+      "sha256": "3fe4a52ddf8e1fa24f1bf57ba04f31a974440261e23c0a4d4f22e88470b2bb68",
       "files": [
         {
           "path": "demos/sound-seekers/chapter.config.mjs",
@@ -17038,7 +17065,7 @@
         },
         {
           "path": "src/child-surfaces-preview.jsx",
-          "sha256": "0219119ba50c4499e5158c15fb9deb669fa7eb069347274c93d323afec121cf2"
+          "sha256": "6f42d62676423a078109dcd7b162c1cef9d74ca9b521abf1b20213ff4591e3cf"
         },
         {
           "path": "src/components/action-songs/HopAndStopLibraryCard.jsx",
@@ -17118,7 +17145,7 @@
         },
         {
           "path": "src/components/AppSurface.jsx",
-          "sha256": "0abd624a1f7565b4954db54323feb2185f3bf1831a1310ac155142e2596f8187"
+          "sha256": "75893b52ed3e8ec40cb1dfc22ca2f7fcf384808cd82dbf34e2d4293fdd01c05c"
         },
         {
           "path": "src/components/assessment/assessment-start-guide.css",
@@ -17213,20 +17240,28 @@
           "sha256": "1056116f8e7bbbaeb5d38c9b77fbfe546495c171f27cc2f02b5c7203fab46ec3"
         },
         {
+          "path": "src/components/ChildPageControls.jsx",
+          "sha256": "679bf7bcb05238f2c414ec513836d7799a941f4ae030f2c68b4b80527c3a7c6e"
+        },
+        {
           "path": "src/components/comprehension/comprehension.css",
-          "sha256": "e7dfd794ca463116455776d628166a351b8ca0e3244af685c5457cee1962d292"
+          "sha256": "64e1cbaca04e79108d7cbf91ed0742aefb7180b0500f568e80f3298551e9f4d8"
         },
         {
           "path": "src/components/comprehension/ComprehensionLesson.jsx",
-          "sha256": "28feb54cf19c6e50b7a89d881c29c0d2ecb3d3ec9b0fa3bee40029eb978242e8"
+          "sha256": "4a624f5a36232eff141b6b993b6e16961bb05e77ce2b5e48ab91f58094ac6633"
         },
         {
           "path": "src/components/comprehension/ComprehensionPage.jsx",
-          "sha256": "793a79319e3410bf34491e2d354b8fc78d86049609f5981dd0286247f64e8a6a"
+          "sha256": "27c53767ffebd6cb3e961b25e2e11be02a91b933a2995a28944bd04470ce13ef"
         },
         {
           "path": "src/components/comprehension/lessonPaging.js",
           "sha256": "3e1f8bf4eefdb18fe9b1ab82466703fa3a178bd6604d4a669be584681a0ef945"
+        },
+        {
+          "path": "src/components/comprehension/usePassageCatalogueSize.js",
+          "sha256": "a3260dba35a55e07259a879d1e20dad44ba4dcca9923d9b022e951375e9c38c0"
         },
         {
           "path": "src/components/cycle-practice/cycle-trace.css",
@@ -17361,8 +17396,12 @@
           "sha256": "623e9593df06b1da794cf8edea3bd1f0e34716b434f703b508b7ccf2e19d947f"
         },
         {
+          "path": "src/components/guided-reading/ChildBookDiscovery.jsx",
+          "sha256": "7b304638dd2914af4dae956bad9326d4d591800de4d892094d2f420895a74658"
+        },
+        {
           "path": "src/components/guided-reading/CycleShortsLibrary.jsx",
-          "sha256": "0dabdc4b2bd59107f6e791286bad870da158538e5ad6b6c62317fce6147b3c09"
+          "sha256": "3b7150e518846fd37d06ac580c557255e4a1c82dafe612d656d46b79a20a5864"
         },
         {
           "path": "src/components/guided-reading/DecodableBookGuide.jsx",
@@ -17370,15 +17409,15 @@
         },
         {
           "path": "src/components/guided-reading/GuidedReadingPage.jsx",
-          "sha256": "61c3ef1fe7306f8d45e3531e74870d4e74a47d1dc039e17594dcb997a19b74a3"
+          "sha256": "4d5d238e33f09e693768acb8f97823c4d07dd25e59c5bd854b1c14b11c690516"
         },
         {
           "path": "src/components/guided-reading/guidedReadingTransport.css",
-          "sha256": "c4f3a39b07c9d27bdbadf46440d207c61b6a8e2b022c8d389f498f64dc57f1f4"
+          "sha256": "986c96539f41986e4f3875759c6ba411b8620bf4f17b40ce6ac7d7af0b0a24c4"
         },
         {
           "path": "src/components/guided-reading/GuidedReadingTransport.jsx",
-          "sha256": "21efc031daef658d4f1335fccfb9c57ac61eb2c27c3139592e18a941b3fa3d98"
+          "sha256": "89028214a786565ac64da4403ee75a9981f6ecc4fb6ad226a22089013879dc23"
         },
         {
           "path": "src/components/guided-reading/ImmersiveReader.jsx",
@@ -17406,7 +17445,7 @@
         },
         {
           "path": "src/components/HollowPage.jsx",
-          "sha256": "0c4e91b8b797b7668a77979fd34be43c8a505ef42064bf495d537a010d523347"
+          "sha256": "a340a04982e180f85a208bd6ca93edb3193ba9c2c6e9083acc17818144e36f58"
         },
         {
           "path": "src/components/learn/games/arcadeLearningContext.js",
@@ -17418,7 +17457,7 @@
         },
         {
           "path": "src/components/learn/games/GameArcadeHub.jsx",
-          "sha256": "5a7a128c2ebc61c8d942602080aa9bdece986d2bc84801b8222edf878a363faf"
+          "sha256": "e45b185b79ab60a376485eca910adc501e054a9c582595a7d50c3e099fd27cb7"
         },
         {
           "path": "src/components/learn/games/GamePlayer.jsx",
@@ -18538,7 +18577,7 @@
         },
         {
           "path": "src/components/learn/phonics/cvc/CvcLearningFlow.jsx",
-          "sha256": "b3a3412c4af504c3b2793646092793a32e1bee6e63635594077a10b1fe4c02a3"
+          "sha256": "57288079095e0bba41da39eadeea7ea1b2e2bc2f028a1c6c5172f5c91dff580b"
         },
         {
           "path": "src/components/learn/phonics/cvc/StepBuildWord.jsx",
@@ -18546,7 +18585,7 @@
         },
         {
           "path": "src/components/learn/phonics/cvc/StepHearWord.jsx",
-          "sha256": "f4cd7b063d95906a98a222b42d2520c75283f97474997f3f0352e801d91d833d"
+          "sha256": "3251d5e73678fa9923b8f50a344e0ee47d8bdbc6e7df5fc6afeb0e8c42fa6c88"
         },
         {
           "path": "src/components/learn/phonics/cvc/StepWordMagic.jsx",
@@ -18554,11 +18593,11 @@
         },
         {
           "path": "src/components/learn/phonics/cvc/word-workshop.css",
-          "sha256": "b90891f21db869b3863da2054f78c7cc15729bea9cba2312dd73a9206a0c1055"
+          "sha256": "e5058a1160765d08347b5d6774a6aaf3ce1636503380d4bb617e0501f055c44b"
         },
         {
           "path": "src/components/learn/phonics/cvc/WorkshopFamilyPicker.jsx",
-          "sha256": "7ca78cc5729fad6b4d0d703873dc6f68755d6fd2dfac385a9ea71e5e68d094c0"
+          "sha256": "14f78f8a5bba836362c04c33388a127ff7501e631542f1efa34f2dd93f6555db"
         },
         {
           "path": "src/components/learn/phonics/LearningPracticeTask.jsx",
@@ -18574,7 +18613,7 @@
         },
         {
           "path": "src/components/learn/phonics/PhonicsAlphabetPicker.jsx",
-          "sha256": "b690b9a60e0aa0348389085c6edc0bd8336b812b3b64c4826b37124797fff55b"
+          "sha256": "e7062be6888fd8e66a7b4d286b21966fc06510f96e7cc4e29283cdd28dc828a5"
         },
         {
           "path": "src/components/learn/phonics/PhonicsLearningFlow.jsx",
@@ -18582,7 +18621,7 @@
         },
         {
           "path": "src/components/learn/phonics/PhonicsLearnTab.jsx",
-          "sha256": "25e9c43313557fc0fd249d7ace0eb80908f374288e8d25cb99583681090d3deb"
+          "sha256": "b7f5d3516add11554da059026f26dba9dfe6840a6c7e71a710473b2cacf26c4f"
         },
         {
           "path": "src/components/learn/phonics/usePhonicsCompletion.js",
@@ -18626,7 +18665,7 @@
         },
         {
           "path": "src/components/progress/LiteracyMockPage.jsx",
-          "sha256": "9f3be5a6509d8615aa856beb21bd2a66b1267324e2048c4d5fee16d0dcf2ae72"
+          "sha256": "de04b0424337dc9126822af8d7694111dbf2a21488abc1a2042e54530491eb41"
         },
         {
           "path": "src/components/progress/LiteracyMockPassage.jsx",
@@ -18634,11 +18673,11 @@
         },
         {
           "path": "src/components/progress/LiteracyMockQuestion.jsx",
-          "sha256": "9edb7431adf30b6a653bba803be6548dfc21e7fc449c8cd0f021ffa2dce2afd5"
+          "sha256": "54cfd733bd4c78fbb64871278e8988ec8a7b592c1f4effe71bee06ee6ffa2292"
         },
         {
           "path": "src/components/progress/LiteracyMockReport.jsx",
-          "sha256": "a5a722ece6dcf8d1106c3a5cace4db25f3a5c28c1898daa3e394c30066d459cc"
+          "sha256": "77d2e27d24439ed2c27b8af6369e08373ccad9d7e8e3d698d4d09e085028dbcc"
         },
         {
           "path": "src/components/progress/LiteracyPracticeControls.jsx",
@@ -18662,7 +18701,7 @@
         },
         {
           "path": "src/components/progress/TeacherLiteracyMockPanel.jsx",
-          "sha256": "24843e7c2b8b1e1fb73022c8be98558bc14c778c4a70549da769bc509f112208"
+          "sha256": "40442567b1b3c964b93f9484dfd963dc1f0f47f837aa1cbc4687edbed880e3aa"
         },
         {
           "path": "src/components/ProgressSyncNotice.jsx",
@@ -18850,11 +18889,11 @@
         },
         {
           "path": "src/components/StoryQuestPlayer.css",
-          "sha256": "36cc32e774f06f6e2bc6dc40c96c017b2ade52978a29ee3720c65905e80d1b70"
+          "sha256": "2ded288934c9c79d05c43f1cf8efbf1929777b325b729ca54ecb6a879577ae00"
         },
         {
           "path": "src/components/StoryQuestPlayer.jsx",
-          "sha256": "6a66413d9ca92a3bf452edb6ea9bc2f1bdb4f24f8d508dd92647550c7ddd07b3"
+          "sha256": "d06ce4f64a07f891aebacbccb1041e267e28cb94cd9b4ff913035b3d5a08b31a"
         },
         {
           "path": "src/components/StoryQuestSpeaker.jsx",
@@ -18882,7 +18921,7 @@
         },
         {
           "path": "src/components/StudentBooksPage.jsx",
-          "sha256": "62931864ba9caa286993d21cb549b6be9ec0ca641a01ee24ecd457c15efd47cb"
+          "sha256": "51d041145faed538fe7fb11ee387a82ae855ba1b0d91ac41efacd94e2c2b9e3f"
         },
         {
           "path": "src/components/StudentEntryPage.jsx",
@@ -18894,7 +18933,7 @@
         },
         {
           "path": "src/components/StudentHomePage.jsx",
-          "sha256": "22ea5df6fb1dc1424f9c174c802aae29c3a55e26defb2a13e0040b65c950eaa2"
+          "sha256": "41dad5a7ca6c7ca48a9cd62dc9c7cb03f711593260227b316156a23a63fc74d0"
         },
         {
           "path": "src/components/StudentLoginFlow.jsx",
@@ -18918,7 +18957,7 @@
         },
         {
           "path": "src/components/StudentSkillsPracticePage.jsx",
-          "sha256": "cb56da86583b4d834d1a3de8e8d627f984d8aa92703c2d6d1bfb090246d45486"
+          "sha256": "1b5edefa22175b65a4a0fc89575d2af8c71463756ba3c394ce0478fb8e172aa9"
         },
         {
           "path": "src/components/StudentSoundTrailPage.jsx",
@@ -18926,7 +18965,7 @@
         },
         {
           "path": "src/components/StudentStoryQuestsPage.jsx",
-          "sha256": "fdbb1adda6346da9db9992b14edcf43628aef0cdf56b3ee01b5bb50753cceee6"
+          "sha256": "bee1705d4e6748163890b728e4945d31621bb46c48d20cede155d61f45b71cc1"
         },
         {
           "path": "src/components/StudentWelcomeGuide.jsx",
@@ -19006,7 +19045,7 @@
         },
         {
           "path": "src/components/teacher/TeacherIntentPage.jsx",
-          "sha256": "ab363a1e3548465af3e95db40af0099aac05ae5827fab98cf7e56782de67937b"
+          "sha256": "88ae47b4b70f98dd8f82aa1b457aa22442abcdfd19525bbd0b52f73c4ea8bb90"
         },
         {
           "path": "src/components/teacher/teacherPagination.js",
@@ -19030,7 +19069,7 @@
         },
         {
           "path": "src/components/teacher/TeacherWholeClassPractice.jsx",
-          "sha256": "8f7d3d1ad1a23a1ac8c6838204690322e6fe50af8aa29b95af4e280e1b913000"
+          "sha256": "3d96571fade4952fb99f74a372ec4d71e98c597cb4467201298828acbb96b99c"
         },
         {
           "path": "src/components/teacher/TeacherWorkflowHelp.jsx",
@@ -19618,7 +19657,7 @@
         },
         {
           "path": "src/data/boundaries/classes.js",
-          "sha256": "b3a4851d9388985d75faf91afebc50d3b326e4cf612736a70df0b11935f2c14a"
+          "sha256": "d0209fe2049d41a510ef3a4ad2cd126d2e4cff6853f47fd5f24b88d9f939aef6"
         },
         {
           "path": "src/data/boundaries/client.js",
@@ -19634,7 +19673,7 @@
         },
         {
           "path": "src/data/boundaries/facade.js",
-          "sha256": "2a84e3d1805146c0f82a16615716e67b1c321bbbe05cf8742536be82148e89d5"
+          "sha256": "cb7b7d6f3e3e24b19e885d4f6cdec7023f687e1954aa28e4365a6a70e867db66"
         },
         {
           "path": "src/data/boundaries/guardians.js",
@@ -19945,6 +19984,10 @@
           "sha256": "4c1fa53fdccf1713f1a1b70de11f3710301724943274ac328391dd894be7988f"
         },
         {
+          "path": "src/data/generated/literacyMockClassPractice.generated.js",
+          "sha256": "d61d8c6a5fc22a267229050f673cdea2a033f2744ec87c2ed42cafecb19554a1"
+        },
+        {
           "path": "src/data/generated/literacyMockRuntimeAudio.generated.js",
           "sha256": "2402cdf307a3f8603d0bff67d0cf46b9f291e4e35a45a38e7e5ba428de79fbde"
         },
@@ -19959,6 +20002,10 @@
         {
           "path": "src/data/generated/literacyMockRuntimeV12.generated.js",
           "sha256": "e08598668d9ee3b3cc4b25c1dd79865d5df7dce9e9473099b08f48f4b1491630"
+        },
+        {
+          "path": "src/data/generated/literacyMockRuntimeV13.generated.js",
+          "sha256": "e195cee9f57600386f941d544cbee1ee523ed8e5c56c08c010ee369a94bc5c49"
         },
         {
           "path": "src/data/generated/literacyMockV1.generated.js",
@@ -20246,7 +20293,7 @@
         },
         {
           "path": "src/data/literacyMockBank.js",
-          "sha256": "2983a2510232e7f355b2a37840b58285095d8daf3f34b32fddcc4069550fbcd3"
+          "sha256": "f820e6b87a84611fbe710f60b9b1029f875ed37865ce61e6c31bbc14e2656f6a"
         },
         {
           "path": "src/data/literacyMockBeginnerReadingV12.js",
@@ -20389,6 +20436,10 @@
           "sha256": "6be8e7a006dbd79e5b0892233cace14c0ef906dc8579e1a6e05c783510ac000a"
         },
         {
+          "path": "src/data/literacyMockPracticePartition.js",
+          "sha256": "ff21bfdf13e15ea8108b68627e801f08be1fc5494f39d867db764a0a2a4e523f"
+        },
+        {
           "path": "src/data/literacyMockPrintCapacity.js",
           "sha256": "6f73a2fa3aff0b55174725048553b9655b49c7d14a54b217494d77c5bd47a1c2"
         },
@@ -20434,15 +20485,15 @@
         },
         {
           "path": "src/data/literacyMockRuntimeBank.js",
-          "sha256": "a691d2c6fe47ae157504a40438184e1fc60334bd10b6190c0ed644ca89866bfc"
+          "sha256": "cb7abc70fd75bbda5dc209715c8e3fca9c299be500dea866daead1058009dc92"
         },
         {
           "path": "src/data/literacyMockRuntimeContract.js",
-          "sha256": "28e81720e9436c95af0e4d76c95d4cddb90ec23607348d0b8004c52c79a4a6ed"
+          "sha256": "99f35e7495141e7defd4ddf98efde92cc3e92f4b5b2fc583df8b32fa5e9cef35"
         },
         {
           "path": "src/data/literacyMockSessionCore.js",
-          "sha256": "e5449248288c47fd730589c37472ab9acac874d41484dea97aa23afcae8bd0a2"
+          "sha256": "9e92589226beba7109efadc5a99b82c5e4a868f37aa5c45b34456112a63fabd2"
         },
         {
           "path": "src/data/literacyMockSkillsSourceHistory.js",
@@ -20459,6 +20510,10 @@
         {
           "path": "src/data/literacyMockTaskCeilings.js",
           "sha256": "e89ef43f63718f6c386a277d4faaf71a2008d104313f5077248f0af250135a45"
+        },
+        {
+          "path": "src/data/literacyMockTeacherStatus.js",
+          "sha256": "dd326a7cf52cac7dd56a77e5234558cc37e98fdeacdabbf11d7413bd98cae2da"
         },
         {
           "path": "src/data/literacyMockTutorialV8.js",
@@ -20479,6 +20534,10 @@
         {
           "path": "src/data/literacyMockV12.js",
           "sha256": "e7a9fd59f049b4997bf2ae8f250e746dab5eb021636e7b37d1af43251676564c"
+        },
+        {
+          "path": "src/data/literacyMockV13.js",
+          "sha256": "93c813a484de3d3a9542b636bafaea8fa910dc9d4f35086197583cda3e334b06"
         },
         {
           "path": "src/data/literacyMockV4.js",
@@ -21426,7 +21485,7 @@
         },
         {
           "path": "src/features/soundSeekers/rounded/rounded-campaign.css",
-          "sha256": "e55c7edca98c9de3c6d2057638d453b678635749ee33b9191289850d1d0a8912"
+          "sha256": "1d8462863651cc5447e1cb0616a26a62a423a84a0a9844729a9cc91e76f7a66b"
         },
         {
           "path": "src/features/soundSeekers/rounded/RoundedCampaign.jsx",
@@ -21821,6 +21880,10 @@
           "sha256": "de3642a8423346d9d2a3b4a085573c652e285e5515bf9701a053167dc9b32f5d"
         },
         {
+          "path": "src/hooks/useChildPages.js",
+          "sha256": "7e8f0a42f564b6ba26de61bf30020154b73a0bcf53f75f5b9870e7e4f1791af5"
+        },
+        {
           "path": "src/hooks/useCompactChildBrowse.js",
           "sha256": "c01b037c233d7b258f2f9b1929a377b32af33d9c7169cb3a53ba9f50c61ac5f2"
         },
@@ -21830,7 +21893,7 @@
         },
         {
           "path": "src/hooks/useMockAudio.js",
-          "sha256": "a732d36ee1308665c96a5e45cb621af9fafe585768411f67f4c26d9acc19a16a"
+          "sha256": "a3b0eaa42e7991cc0a2fa7e66450b3c8c67d15ed5f4ec51b29e1418c2f7fd2b1"
         },
         {
           "path": "src/hooks/usePhonicsAudio.js",
@@ -21986,11 +22049,11 @@
         },
         {
           "path": "src/policy/literacyMockAdaptivePolicy.js",
-          "sha256": "8f110b9d23803d64a240008c837c32387326b35f34308f861e1bb878793e582e"
+          "sha256": "b6ca17d8fe5e443cb8bc96c46dd229b50d66a820406e9493b7024ff894a945dd"
         },
         {
           "path": "src/policy/literacyMockBeginnerVocabulary.js",
-          "sha256": "eb189bad1f230da5a2d578af8bf3cce6dabd2576ff8a6ec35e8352443cd10fa8"
+          "sha256": "dcd52b412dbcef6217f7dfc82f9599f2f222fa7abbfe69799bdefbd9976b9459"
         },
         {
           "path": "src/policy/literacyMockBlueprint.js",
@@ -21998,7 +22061,7 @@
         },
         {
           "path": "src/policy/literacyMockBoundaryPolicy.js",
-          "sha256": "e2eed194dd56f477c4130fbbab1334d267ee92e51928eacecf6b23f94069715a"
+          "sha256": "9226bdf84718f6c6f32da2e9cf33df43f6ee135cf35fe5a21c7aeaf02d4ae134"
         },
         {
           "path": "src/policy/literacyMockBoundaryV9.js",
@@ -22038,7 +22101,7 @@
         },
         {
           "path": "src/policy/literacyMockQuestionLimit.js",
-          "sha256": "33dc2e14fc6d1cfeb0b5ce3e88413ab1b616b98cf0a7a48548ae256c9023fae8"
+          "sha256": "5a8a8e92be1358f6dcf4a8b25dcd722db67decb908f1846fe3de89f8d4e710dc"
         },
         {
           "path": "src/policy/literacyMockRhymeDemandReview.js",
@@ -22050,7 +22113,7 @@
         },
         {
           "path": "src/policy/literacyMockVersions.js",
-          "sha256": "04934f854e1df2e56925ba2690c94d63a35d559252fc896eb278f6b470a0bcc2"
+          "sha256": "2d1d66b583dd9ff772a7e9d6161272097e17b6f5a5d35fe91c657b8c076ab9f0"
         },
         {
           "path": "src/policy/literacyPracticePolicy.js",
@@ -22106,7 +22169,7 @@
         },
         {
           "path": "src/policy/studentEmphasisBudget.js",
-          "sha256": "0129f4e502f091fd00b68fea4a0db9171710356d2acd3d10164a66e95cfaac57"
+          "sha256": "1d4bc6591ab5520ceb693d9039b5b6f8199157b4bb8ad489633b746845b4b634"
         },
         {
           "path": "src/policy/studentFocusAssignments.js",
@@ -22190,7 +22253,7 @@
         },
         {
           "path": "src/styles/adventure-map-atlas.css",
-          "sha256": "94318c64bc4f9b357ff342df82e0cc6b731ac79a6524972eb0ec9038437bc70c"
+          "sha256": "ae8b93416e6cfa515ee26fffdd192d6f31c9c5c58a9873425798413f8e964cf9"
         },
         {
           "path": "src/styles/adventure-simple-games.css",
@@ -22218,7 +22281,7 @@
         },
         {
           "path": "src/styles/books-gallery.css",
-          "sha256": "b25ecb027d1d7cd576a64945e98f194fb18410965148357db7776748a79c27e4"
+          "sha256": "59dcb97810638d4bd800f883e0a6a16ac62743d3f2e470991811df620745e81c"
         },
         {
           "path": "src/styles/buddy-reader.css",
@@ -22226,11 +22289,15 @@
         },
         {
           "path": "src/styles/child-browse.css",
-          "sha256": "7b504475da2a9a283b963e6467264ab8c3a78c1ee11fa55c451395b6b76900e4"
+          "sha256": "ea76817916562df6f7973a89c67762ede65e17eac099c28ebaebebb38cb314aa"
         },
         {
           "path": "src/styles/child-hub-shell.css",
           "sha256": "50a2474724b5d1e1117b80049bffe9eae3562455fb1a49a96dd6917e0a99e4af"
+        },
+        {
+          "path": "src/styles/child-page-controls.css",
+          "sha256": "e805d87fef3445c80bfde404cd8f4b31d3b90055cd4a2f0ded72f9f0384541dd"
         },
         {
           "path": "src/styles/comic-theme.css",
@@ -22254,7 +22321,7 @@
         },
         {
           "path": "src/styles/hollow.css",
-          "sha256": "981bb6b0c3483d5cf99c89b1fa5e2417ca194522e7695472f1206e682797d671"
+          "sha256": "5da3903bab40225834268e1c0649870fcaca26bc809ef8212bf75e42099b07e6"
         },
         {
           "path": "src/styles/home-sage.css",
@@ -22270,11 +22337,11 @@
         },
         {
           "path": "src/styles/kids-home.css",
-          "sha256": "dc35c63896549e901a1e40f645915baa6f40ce7f6191b6bbddeb7197764bbff1"
+          "sha256": "16c9f17394dd85cdbb2b2d7254cfb2fb28132c789d78245bdbaf952a2f08b41d"
         },
         {
           "path": "src/styles/kids-library.css",
-          "sha256": "d01f37808f986927aeeae279bab7ad1b4b8f090ce3564c44994e519697219e35"
+          "sha256": "7362a8ad96640eb1ba05a8a9c06cfc0508df1293c917ab70a2bc11445dabf2c2"
         },
         {
           "path": "src/styles/kids-trail.css",
@@ -22306,7 +22373,7 @@
         },
         {
           "path": "src/styles/literacy-mock.css",
-          "sha256": "d133fd19ccba122977f950c256ad82fa02fd5defd8d063f47a03f631e6e076ba"
+          "sha256": "d79335b781c84a41e31c7636dccb579923f67045e1e099b98a475f911133ac0c"
         },
         {
           "path": "src/styles/literacy-practice.css",
@@ -22346,7 +22413,7 @@
         },
         {
           "path": "src/styles/phonics.css",
-          "sha256": "035f3e9b2f248f34c593e2aedf76be69daf86ad24e2dfcebfb9df77d3eacc0d0"
+          "sha256": "279d23e64808ec23a04a96b046fec3e1896cd5b7d0058e6fec7ffd92e88d4a03"
         },
         {
           "path": "src/styles/present.css",
@@ -22394,7 +22461,7 @@
         },
         {
           "path": "src/styles/skills-practice.css",
-          "sha256": "741ab69ac77fcf8f797a39b8b56c45032eb8087c9e20d0ae3831cd14424c86cc"
+          "sha256": "8f438279cec9488f20a74acac6a3c10d07a5c5d0289c122e66ea4d216f7222ef"
         },
         {
           "path": "src/styles/student-reports.css",
@@ -23022,11 +23089,11 @@
         },
         {
           "path": "src/utils/literacyMockBoundaryPlanner.js",
-          "sha256": "1b57062a27e349064d92be67d0902a4854e69d2f95927cd2302c47fae009ac76"
+          "sha256": "6d9d31d432fa47c85753179850a42b13a72b9f912a8f6696ec9c393494fa3146"
         },
         {
           "path": "src/utils/literacyMockCollectionNotice.js",
-          "sha256": "9688385fe3b72d2331a63d3f727b475dc87c0bc10d26c821fa8a2981090d698c"
+          "sha256": "0d8583e08fee619732867d971f5d21bde5e93bf3707f1c4d10d4df40fcf68524"
         },
         {
           "path": "src/utils/literacyMockConditions.js",
@@ -23034,19 +23101,19 @@
         },
         {
           "path": "src/utils/literacyMockNarration.js",
-          "sha256": "f6e55cb47992aef4ff66f45a53e1c7db95b72f233a994ae6da3f98e784722182"
+          "sha256": "4a84d45974d1eb782f2cdf471b8de08f995bb25221c6061f719e3e1df41269e9"
         },
         {
           "path": "src/utils/literacyMockOfflineMedia.js",
-          "sha256": "7c911442dca627aa617dd914dc105bed782c78a303b0035a891da73a1d3bc222"
+          "sha256": "eb4f532ca9b7b59c34e4a26ef6366cc7b3199c7acf38f4a0b77360e0f05dc269"
         },
         {
           "path": "src/utils/literacyMockOutbox.js",
-          "sha256": "ee12a26fecf6623df5a4084a5eacb0b38072b4785f80067af586dbcce58f6358"
+          "sha256": "2d8480a737924d3afcbe0bba7c125f075a5722458cdd2e7b4c5137dabe562bc9"
         },
         {
           "path": "src/utils/literacyMockPlanner.js",
-          "sha256": "bb2ba0adec61db9800324f8a58939fd012d9e83ac6696749c117d7f726dc9981"
+          "sha256": "ebf373d314e754dde0df655681238c99932c7583dd78aeaf2b903dc4c4563503"
         },
         {
           "path": "src/utils/literacyMockReadiness.js",
@@ -23054,7 +23121,7 @@
         },
         {
           "path": "src/utils/literacyMockReport.js",
-          "sha256": "fac897da31e6eaaeaccc0d3ee1a6d96b51bf2930e27cdb9bd8950350ae295e99"
+          "sha256": "e8bfb45908a635f9117c6338c102565a85bd34ea17f6d361525d7157adffc939"
         },
         {
           "path": "src/utils/literacyMockResponse.js",
@@ -23070,7 +23137,7 @@
         },
         {
           "path": "src/utils/literacyMockWorkingSummary.js",
-          "sha256": "e54238a10c224794a697a13f8122e2910c5194293b05170fae5cb0717b031d31"
+          "sha256": "8c045148fe7199e9952d4cb8b86a03ae594b76c0900799549443479736030edd"
         },
         {
           "path": "src/utils/literacyPracticeAssignment.js",
@@ -23757,7 +23824,7 @@
       },
       {
         "path": "tools/lib/appVisualHeldSources.mjs",
-        "sha256": "8f7b011aa856aef10a499e2934c9d9707044865bbf2d099d1a9950923f2fa8d3"
+        "sha256": "07958558a24f3f850c0fbdf06dbd3cad4d7f69f6c71a636c6aed9fbd63778bed"
       },
       {
         "path": "tools/lib/appVisualSourceGraph.mjs",
@@ -23773,7 +23840,7 @@
       },
       {
         "path": "tools/auditFiniteImageBindings.mjs",
-        "sha256": "a33ef1c8a82c1701a27f40123a8312d3afe64eb006ce9f12576fbd0720dd9530"
+        "sha256": "436b63e65fff6bc9f9a4be4016a0cde7c492b47a2e6243b57d917c675336865b"
       },
       {
         "path": "tools/lib/inactiveImageRetirement.mjs",
@@ -23785,7 +23852,7 @@
       },
       {
         "path": "tools/manifests/app-visual-historical-review-sources.json",
-        "sha256": "cce7ff7add2b1e0b1c41f0993e5c9b3ee72be08d3cc44eb46e9820c534eecf53"
+        "sha256": "0ac54ef37dab5bf18a295180e0f3ba6ae4a81d5b50bef1ced84fb253d239fe57"
       }
     ],
     "policies": [
@@ -23795,7 +23862,7 @@
       },
       {
         "path": "src/policy/literacyMockVersions.js",
-        "sha256": "04934f854e1df2e56925ba2690c94d63a35d559252fc896eb278f6b470a0bcc2"
+        "sha256": "2d1d66b583dd9ff772a7e9d6161272097e17b6f5a5d35fe91c657b8c076ab9f0"
       },
       {
         "path": "src/data/assessmentImageStyleBlocklist.js",
