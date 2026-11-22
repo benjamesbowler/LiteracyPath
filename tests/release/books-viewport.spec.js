@@ -102,6 +102,32 @@ test("visible Book page controls reach each eligible book once", async ({ page }
   expect(await page.locator(".kg-books").evaluate(node => node.scrollTop)).toBe(0);
 });
 
+test("guest Books opens the selected reader from the main app and returns focus", async ({ page }) => {
+  test.setTimeout(90_000);
+  await page.setViewportSize({ width: 320, height: 568 });
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("/", { waitUntil: "domcontentloaded" });
+  await page.getByRole("button", { name: "Try for free", exact: true }).click();
+  await page.getByRole("button", { name: "Start playing", exact: true }).click();
+  const chooser = page.getByRole("dialog", { name: "Choose your Little Literacy Guide" });
+  if (await chooser.isVisible()) {
+    await chooser.getByRole("button", { name: "Fluff Bob and Nan" }).click();
+  }
+  await page.getByRole("navigation", { name: "Where to go" }).getByRole("button", { name: "Books", exact: true }).click();
+  const shelf = page.locator(".kg-books");
+  const card = shelf.locator(".kg-book-card").first();
+  await expect(card).toBeInViewport({ ratio: 1 });
+  const title = await card.locator(".kg-book-title").textContent();
+  await card.click();
+  const reader = page.locator(".guided-reader-shell.fullscreen");
+  await expect(reader).toBeVisible();
+  await expect(reader.getByText(title, { exact: true }).first()).toBeVisible();
+  const back = reader.getByRole("button", { name: "Back to Books", exact: true });
+  await expect(back).toBeInViewport({ ratio: 1 });
+  await back.click();
+  await expect(card).toBeFocused();
+});
+
 test("Back to Books restores the exact card when reading in a resized browser", async ({ page }) => {
   test.setTimeout(90_000);
   await page.setViewportSize({ width: 390, height: 844 });

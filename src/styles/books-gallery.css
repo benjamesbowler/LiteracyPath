@@ -14,6 +14,7 @@
 .kg-stage .kg-books.kg-books > * { flex: 0 0 auto; min-width: 0; }
 .kg-stage .kg-books[data-large-labels] :is(.kg-book-picture-topics, .kg-book-levels) { display: none; }
 .kg-stage .kg-books[data-large-labels] .kg-comprehension-door { flex-basis: auto; width: auto; padding-inline: 8px; }
+.kg-stage .kg-books[data-large-labels] .kg-picture-shelf > .kg-book-card:only-child { grid-column: 1 / -1; }
 .kg-stage .kg-books .kg-books-head { display: flex; align-items: center; flex-wrap: nowrap; min-height: 56px; height: auto; gap: 12px; overflow: visible; }
 .kg-stage .kg-books .kg-books-head > div:first-child { min-width: 0; flex: 1; }
 .kg-stage .kg-books .kg-books-head .kg-title { font-size: 26px; }

@@ -731,10 +731,12 @@ export function GuidedReadingPage({
 
   useEffect(() => {
     if (!initialBookId || initialBookHandledRef.current) return;
-    initialBookHandledRef.current = true;
     const target = runtimeGuidedReadingBooks.find(book => book.id === initialBookId);
     if (!target) return;
-    const timer = window.setTimeout(() => changeInitialBook(initialBookId), 0);
+    const timer = window.setTimeout(() => {
+      initialBookHandledRef.current = true;
+      changeInitialBook(initialBookId);
+    }, 0);
     return () => window.clearTimeout(timer);
   }, [initialBookId, runtimeGuidedReadingBooks]);
 

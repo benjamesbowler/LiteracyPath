@@ -4,7 +4,14 @@ test("a short fullscreen book uses desktop height for its uncropped illustration
   await page.setViewportSize({ width: 1920, height: 1080 });
   await page.addInitScript(() => { HTMLElement.prototype.requestFullscreen = () => Promise.reject(new Error("Fullscreen declined")); });
   await page.goto("/preview/child-surfaces.html?surface=reading-library");
-  await page.locator('[data-book-id="dino-pals-16-chompy-and-grumpys-day-out"]').click();
+  await page.getByRole("button", { name: "Find a book", exact: true }).click();
+  const finder = page.getByRole("dialog", { name: "Find a book" });
+  await finder.getByRole("button", { name: "Find by title", exact: true }).click();
+  await finder.getByRole("searchbox", { name: "Book title", exact: true }).fill("Chompy and Grumpy's Day Out");
+  await finder.getByRole("button", { name: "See 1 book", exact: true }).click();
+  const card = page.locator('[data-book-id="dino-pals-16-chompy-and-grumpys-day-out"]');
+  await expect(card).toBeInViewport({ ratio: 1 });
+  await card.click();
   const reader = page.locator(".guided-reader-shell");
   const spread = reader.locator(".guided-page-layout");
   await expect(reader).toHaveClass(/fullscreen/);

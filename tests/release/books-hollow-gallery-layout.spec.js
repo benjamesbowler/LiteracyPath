@@ -353,8 +353,14 @@ for (const viewport of [{ width: 1366, height: 768 }, { width: 320, height: 568 
   });
 }
 
-for (const surface of ["student-home", "reading-library", "my-hollow"]) {
-  test(`${surface} retains complete card and navigation glyphs at 200% text`, async ({ page }, testInfo) => {
+for (const { surface, title } of [
+  { surface: "student-home" },
+  { surface: "reading-library", title: "Emperor Penguins and Their Relatives" },
+  { surface: "reading-library", title: "Honeybees and Pollination" },
+  { surface: "my-hollow" }
+]) {
+  test(`${surface} retains complete card and navigation glyphs at 200% text${title ? ` for ${title}` : ""}`, async ({ page }, testInfo) => {
+    if (title) test.setTimeout(90_000);
     await page.setViewportSize({ width: 1024, height: 768 });
     await page.addInitScript(scope => localStorage.setItem(`lp-hollow:${scope}`, JSON.stringify({ purchases: [
       { id: "welcome", item: "egg-welcome", cost: 0, at: "2026-09-01T00:00:00Z" },
@@ -362,6 +368,11 @@ for (const surface of ["student-home", "reading-library", "my-hollow"]) {
     ], feeds: [], chests: [], layout: { slots: {}, equipped: {} } })), scope);
     await page.goto(`/preview/child-surfaces.html?surface=${surface}`);
     if (surface === "my-hollow") await page.getByRole("button", { name: "Beasties", exact: true }).click();
+    if (title) {
+      await findBooksByTitle(page, title);
+      await expect(page.locator(".kg-book-card .kg-book-title")).toHaveText(title);
+      await expect(page.locator(".kg-book-card .kg-book-cover")).toHaveAttribute("data-book-cover-state", "ready");
+    }
     await page.evaluate(() => document.fonts.ready);
     const enlarged = await enlargeText(page);
     expect(enlarged.length).toBeGreaterThan(20);
@@ -374,8 +385,9 @@ for (const surface of ["student-home", "reading-library", "my-hollow"]) {
     }))), null, 2)), contentType: "application/json" });
     expect(await cardContentFailures(cards)).toEqual([]);
     const labels = surface === "student-home" ? cards.locator(".kg-card-title") : surface === "reading-library"
-      ? cards.filter({ has: page.locator(".kg-book-title", { hasText: /Emperor Penguins and Their Relatives|Honeybees and Pollination/ }) }).locator(".kg-book-title")
+      ? cards.locator(".kg-book-title")
       : cards.locator("strong");
+    if (title) await expect(labels).toBeInViewport({ ratio: 1 });
     await expectTextInkPainted(labels);
     await expectControlPainted(cards.last());
     await expectTextInkPainted(page.locator(".kg-tab-label"));
