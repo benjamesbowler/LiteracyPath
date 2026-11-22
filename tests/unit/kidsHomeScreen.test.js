@@ -111,7 +111,7 @@ test("a progress read that failed never renders as an empty-data claim", () => {
   assert.match(source, /We could not open today/);
 });
 
-test("every destination is visible on ordinary Home without a disclosure", () => {
+test("every destination stays available from the Home picture menu", () => {
   const doorways = [...code.matchAll(/\{ id: "([a-z-]+)", activityId: /g)].map(match => match[1]);
   assert.deepEqual(doorways, ["map", "books", "stories", "arcade", "phonics", "words", "sounds"]);
   assert.match(code, /id: onOpenSkillsPractice \? "skills" : "hollow"/);
@@ -141,7 +141,7 @@ test("the pre-reader affordances survive: speaker buttons and tap-to-hear", () =
   assert.match(code, /speakStudentRailLabel\(lines, window\)/);
   // The old rail spoke one destination per button; the section speaker queues
   // every visible doorway with its canonical name or exact recorded description.
-  assert.match(code, /\.\.\.doors\.map\(door => door\.id === "skills" \? STUDENT_HOME_COPY\.skillsDescription : door\.title\)/);
+  assert.match(code, /\.\.\.visibleDoors\.map\(door => door\.id === "skills" \? STUDENT_HOME_COPY\.skillsDescription : door\.title\)/);
   assert.match(code, /"Hear about Skills trail" : `Hear \$\{door\.title\}`/);
   assert.match(code, /hear\(door\.hearLines\)/);
   assert.match(code, /aria-live="polite"/);

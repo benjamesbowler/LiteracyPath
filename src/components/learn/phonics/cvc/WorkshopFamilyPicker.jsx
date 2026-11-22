@@ -1,17 +1,18 @@
 import { cvcWordFamilies } from "../../../../data/cvcWordFamilies.js";
+import ChildPageControls from "../../../ChildPageControls.jsx";
 import { WordImage } from "../components/WordImage.jsx";
 import { makeCvcWordModels } from "./cvcHelpers.js";
 
-export function WorkshopFamilyPicker({ progress = {}, onSelectFamily }) {
+export function WorkshopFamilyPicker({ pages, progress = {}, onSelectFamily }) {
   const completedCount = cvcWordFamilies.filter(family => progress[family.id] === "completed").length;
-  return <section className="cvc-picker" aria-labelledby="word-workshop-title">
+  return <section className="cvc-picker" aria-labelledby="word-workshop-title" data-paged={pages.pageCount > 1 ? "" : undefined}>
     <header className="cvc-picker-hero"><div><h1 id="word-workshop-title" data-child-title="">Words</h1><p data-child-instruction="">Choose any word family. Listen, build and change words.</p></div></header>
     <div className="cvc-family-grid" role="group" aria-label="All word families" data-child-choices="" data-child-primary="">
-      {cvcWordFamilies.map(family => {
+      {pages.visibleItems.map(family => {
         const status = progress[family.id] || "default";
         const label = status === "completed" ? "Complete" : status === "inprogress" ? "Try again" : "Play";
         const words = makeCvcWordModels(family.buildWords.slice(0, 3), family);
-        return <button key={family.id} type="button" className={`cvc-family-card ${status}`} onClick={() => onSelectFamily(family)} aria-label={`${family.rime} word family, ${label}`} data-child-emphasis="choice">
+        return <button key={family.id} data-picker-key={family.id} type="button" className={`cvc-family-card ${status}`} onClick={() => onSelectFamily(family)} aria-label={`${family.rime} word family, ${label}`} data-child-emphasis="choice">
           <span className="cvc-family-rime">-{family.rime}</span>
           <span className="cvc-family-images" aria-hidden="true">{words.map(model => <span className="cvc-family-thumb" key={model.word}><WordImage src={model.image} word={model.word} /></span>)}</span>
           <span className="cvc-family-examples">{family.buildWords.join(" · ")}</span>
@@ -19,6 +20,7 @@ export function WorkshopFamilyPicker({ progress = {}, onSelectFamily }) {
         </button>;
       })}
     </div>
+    <ChildPageControls label="Word family pages" pageIndex={pages.pageIndex} pageCount={pages.pageCount} onPageChange={pages.setPageIndex} />
     <p className="cvc-picker-progress" data-child-progress="">{completedCount} of {cvcWordFamilies.length} word families complete</p>
   </section>;
 }

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
 
 import { useStoryQuestAudio } from "../utils/useStoryQuestAudio.js";
 import { storyQuestInvitation } from "../data/storyQuestReaderCopy.js";
@@ -27,15 +27,26 @@ const WORLD_DOTS = {
   dino: "var(--kg-world-dino)",
   moonwood: "var(--kg-world-moonwood)"
 };
+const COMPACT_SHELF_QUERY = "(max-width: 700px), (max-height: 560px)";
+
+function isCompactShelf() {
+  return window.matchMedia(COMPACT_SHELF_QUERY).matches;
+}
+
+function subscribeToShelfViewport(listener) {
+  const query = window.matchMedia(COMPACT_SHELF_QUERY);
+  query.addEventListener("change", listener);
+  return () => query.removeEventListener("change", listener);
+}
 
 function hideOnError(event) {
   event.currentTarget.style.display = "none";
 }
 
-function BackGlyph() {
+function ShelfArrow({ forward = false }) {
   return (
     <svg className="kg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-      <path d="M15 6l-6 6 6 6" />
+      <path d={forward ? "M9 6l6 6-6 6" : "M15 6l-6 6 6 6"} />
     </svg>
   );
 }
@@ -93,14 +104,25 @@ export function StudentStoryQuestsPage({
     [quests, read.progress, readingLevel]
   );
   const [world, setWorld] = useState(reachedWorld);
+  const [shelfPage, setShelfPage] = useState(0);
+  const compactShelf = useSyncExternalStore(subscribeToShelfViewport, isCompactShelf, () => false);
 
   const cards = useMemo(() => buildQuestGrid({
     quests,
     progress: read.progress,
     world,
     readingLevel,
-    slots: QUEST_GRID_SLOTS
+    slots: quests.length
   }), [quests, read.progress, readingLevel, world]);
+  const cardsPerPage = compactShelf ? 1 : QUEST_GRID_SLOTS;
+  const shelfPageCount = Math.ceil(cards.length / cardsPerPage);
+  const visiblePage = Math.max(0, Math.min(shelfPage, shelfPageCount - 1));
+  const visibleCards = cards.slice(visiblePage * cardsPerPage, (visiblePage + 1) * cardsPerPage);
+
+  function changeShelfPage(nextPage) {
+    narration.stop();
+    setShelfPage(nextPage);
+  }
 
   if (playingId && renderQuest) {
     return renderQuest({
@@ -125,6 +147,8 @@ export function StudentStoryQuestsPage({
         className="kg-screen kg-quests"
         data-child-surface="story-quests"
         data-read-state={read.ok ? "ready" : "unreadable"}
+        data-quest-shelf={compactShelf ? "compact" : "grid"}
+        data-quest-shelf-paged={shelfPageCount > 1 || undefined}
       >
         <div className="kg-quests-head">
           <button
@@ -133,12 +157,12 @@ export function StudentStoryQuestsPage({
             onClick={onBackToBooks}
             aria-label="Back to Books"
           >
-            <BackGlyph />
+            <ShelfArrow />
           </button>
           <h1 className="kg-title" data-child-title="">Story Quests</h1>
           <button className="kg-quest-listen" type="button" aria-label="Hear how Story Quests work" onClick={() => narration.play("You choose what happens")}><StoryQuestSpeaker /><span className="kg-quest-hear-label">Hear</span></button>
-          <span className="kg-pill kg-quests-pill" data-child-instruction="">
-            {read.ok ? "You choose what happens" : "We could not open your stories"}
+          <span className="kg-pill kg-quests-pill" data-child-instruction="" role={narration.status ? "status" : undefined}>
+            {narration.status || (read.ok ? "You choose what happens" : "We could not open your stories")}
           </span>
           <span className="kg-spacer" />
           {/* THE WORLD FILTER, WHICH IS ALSO THE OLD LEVEL FILTER. The shelf
@@ -153,7 +177,11 @@ export function StudentStoryQuestsPage({
                 type="button"
                 className={`kg-segment${entry.id === world ? " is-active" : ""}`}
                 aria-pressed={entry.id === world}
-                onClick={() => { setWorld(entry.id); narration.play(entry.label); }}
+                onClick={() => {
+                  if (entry.id !== world) setShelfPage(0);
+                  setWorld(entry.id);
+                  narration.play(entry.label);
+                }}
               >
                 <span
                   className="kg-segment-dot"
@@ -168,50 +196,76 @@ export function StudentStoryQuestsPage({
 
         {/* The section is where the child's state is shown (every badge); the
             grid inside it is the set of choices. */}
-        {narration.status && <p role="status">{narration.status}</p>}
         <section className="kg-quest-region" aria-label="Your stories" data-child-progress="">
           {cards.length
             ? (
-              <div className="kg-quest-grid" data-child-choices="">
-                {cards.map((card, index) => (
-                  <article
-                    key={card.id}
-                    className={`kg-glass kg-glass--tinted kg-quest-card${index === 0 ? " kg-quest-card--pick" : ""}`}
-                    data-quest-state={card.state}
-                    data-quest-world={card.world}
-                  >
-                    <button {...(index === 0
-                      ? { "data-child-primary": "", "data-child-emphasis": "primary" }
-                      : { "data-child-emphasis": "choice" })} className="kg-quest-open" type="button" onClick={() => { narration.stop(); setPlayingId(card.id); }} aria-label={`${card.state === "carry-on" ? "Continue" : "Open"} ${card.fullTitle}`}>
-                    <span className="kg-quest-art">
-                      <img
-                        src={card.art}
-                        alt=""
-                        loading={index < 3 ? "eager" : "lazy"}
-                        decoding="async"
-                        onError={hideOnError}
-                      />
-                      <span
-                        className={`kg-quest-badge kg-quest-badge--${card.state}`}
-                      >
-                        {card.badge}
+              <>
+                <div className="kg-quest-grid" data-child-choices="">
+                  {visibleCards.map((card, index) => (
+                    <article
+                      key={card.id}
+                      className={`kg-glass kg-glass--tinted kg-quest-card${index === 0 ? " kg-quest-card--pick" : ""}`}
+                      data-quest-state={card.state}
+                      data-quest-world={card.world}
+                    >
+                      <button {...(index === 0
+                        ? { "data-child-primary": "", "data-child-emphasis": "primary" }
+                        : { "data-child-emphasis": "choice" })} className="kg-quest-open" type="button" onClick={() => { narration.stop(); setPlayingId(card.id); }} aria-label={`${card.state === "carry-on" ? "Continue" : "Open"} ${card.fullTitle}`}>
+                      <span className="kg-quest-art">
+                        <img
+                          src={card.art}
+                          alt=""
+                          loading={index < 3 ? "eager" : "lazy"}
+                          decoding="async"
+                          onError={hideOnError}
+                        />
+                        <span
+                          className={`kg-quest-badge kg-quest-badge--${card.state}`}
+                        >
+                          {card.badge}
+                        </span>
                       </span>
-                    </span>
-                    <span className="kg-quest-foot">
-                      <strong className="kg-quest-title">{card.title}</strong>
-                      <small className="kg-quest-note">{card.state === "carry-on" ? card.note : quests.find(quest => quest.id === card.id)?.childSynopsis || card.note}</small>
-                      {card.readingNote && <small className="kg-quest-reading-note">{card.readingNote}</small>}
-                      {index === 0 && (
-                        <small className="kg-quest-action" data-child-emphasis-cue="">
-                          {card.state === "carry-on" ? "Continue" : card.state === "done" ? "Read again" : "Start story"}
-                        </small>
-                      )}
-                    </span>
+                      <span className="kg-quest-foot">
+                        <strong className="kg-quest-title">{card.title}</strong>
+                        <small className="kg-quest-note">{card.state === "carry-on" ? card.note : quests.find(quest => quest.id === card.id)?.childSynopsis || card.note}</small>
+                        {card.readingNote && <small className="kg-quest-reading-note">{card.readingNote}</small>}
+                        {index === 0 && (
+                          <small className="kg-quest-action" data-child-emphasis-cue="">
+                            {card.state === "carry-on" ? "Continue" : card.state === "done" ? "Read again" : "Start story"}
+                          </small>
+                        )}
+                      </span>
+                      </button>
+                      <button className="kg-quest-listen" type="button" aria-label={`Hear about ${card.fullTitle}`} onClick={() => narration.play(storyQuestInvitation(quests.find(quest => quest.id === card.id)))}><StoryQuestSpeaker /> <span className="kg-quest-synopsis-label">Hear this story</span></button>
+                    </article>
+                  ))}
+                </div>
+                {shelfPageCount > 1 && (
+                  <nav className="kg-quest-pagination" aria-label="More stories in this world">
+                    <button
+                      type="button"
+                      className="kg-quest-previous"
+                      aria-label="Previous stories"
+                      disabled={visiblePage === 0}
+                      onClick={() => changeShelfPage(visiblePage - 1)}
+                    >
+                      <ShelfArrow />
+                      <span>Previous</span>
                     </button>
-                    <button className="kg-quest-listen" type="button" aria-label={`Hear about ${card.fullTitle}`} onClick={() => narration.play(storyQuestInvitation(quests.find(quest => quest.id === card.id)))}><StoryQuestSpeaker /> Hear this story</button>
-                  </article>
-                ))}
-              </div>
+                    <output aria-live="polite">{visiblePage + 1} of {shelfPageCount}</output>
+                    <button
+                      type="button"
+                      className="kg-quest-next"
+                      aria-label="Next stories"
+                      disabled={visiblePage + 1 === shelfPageCount}
+                      onClick={() => changeShelfPage(visiblePage + 1)}
+                    >
+                      <ShelfArrow forward />
+                      <span>Next</span>
+                    </button>
+                  </nav>
+                )}
+              </>
             )
             : (
               <div className="kg-glass kg-glass--strong kg-library-empty" role="status">

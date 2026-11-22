@@ -1,5 +1,5 @@
-/* My Hollow (Rewards V2): fitted decoration rooms and natural-height
-   collections. Each collection panel owns its vertical scrolling.
+/* My Hollow (Rewards V2): fitted decoration rooms and complete,
+   viewport-sized collection pages in the child shell.
    Loaded after comic-theme.css in main.jsx so these rules win inside
    .hollow-page only. */
 
@@ -71,8 +71,7 @@
 }
 .hollow-stage > * { flex: 1; min-width: 0; }
 
-/* My Guide / Beasties / Market scroll inside the shell, leaving navigation
-   available while the full owned collection or shop is browsed. */
+/* My Guide, Beasties and Market share the collection panel. */
 .hollow-panel {
   display: flex;
   flex-direction: column;
@@ -781,4 +780,196 @@ main.hollow-page button.hollow-spot:is(:hover, :focus, :focus-visible, :active):
   .kg-stage .hollow-page.hollow-simple[data-hollow-view="room"] { overflow-y: auto; overscroll-behavior: contain; }
   .kg-stage .hollow-simple[data-hollow-view="room"] .hollow-stage { flex: 0 0 480px; min-height: 480px; }
   .kg-stage .hollow-simple[data-hollow-view="room"] .hollow-room-frame { min-height: 480px; }
+}
+
+@media (max-width: 640px), (orientation: landscape) and (max-height: 430px) {
+  .kg-stage:has(.hollow-simple[data-hollow-view="room"]) > .kg-header { display: none; }
+  .kg-stage .hollow-page.hollow-simple[data-hollow-view="room"] {
+    --kg-physical-hit: 44px;
+    overflow: clip;
+  }
+  .kg-stage .hollow-simple[data-hollow-view="room"] :is(.hollow-topbar, .hollow-instruction-row) {
+    gap: 8px; min-height: 0; padding: 2px 8px;
+  }
+  .kg-stage .hollow-simple[data-hollow-view="room"] .hollow-stage { flex: 1; min-height: 0; }
+  .kg-stage .hollow-simple[data-hollow-view="room"] .hollow-room-frame {
+    grid-template: minmax(0, 1fr) auto / minmax(0, 1fr) auto;
+    min-height: 0;
+  }
+  .kg-stage .hollow-simple[data-hollow-view="room"] .hollow-room-pan { grid-column: 1 / -1; overflow-y: hidden; }
+  .kg-stage .hollow-simple[data-hollow-view="room"] .hollow-room { min-width: max(100%, 400px); }
+  .kg-stage .hollow-simple[data-hollow-view="room"] .hollow-room-tools {
+    position: static; grid-column: 2; grid-row: 2; padding: 2px 8px;
+  }
+  .kg-stage .hollow-simple[data-hollow-view="room"] .hollow-room-navigation {
+    grid-column: 1; grid-row: 2; justify-self: start; gap: 8px; margin: 0; padding: 2px 8px;
+  }
+  .kg-stage .hollow-simple[data-hollow-view="room"] :is(.hollow-back, .hollow-hear, .hollow-buy, .hollow-world-button, .hollow-room-navigation button) {
+    min-height: 44px; padding: 4px 8px; font-size: 15px;
+  }
+  .kg-stage .hollow-simple[data-hollow-view="room"] .hollow-world-pop {
+    inset: auto 6px 49px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
+    align-items: center; gap: 4px; padding: 4px;
+  }
+  .kg-stage .hollow-simple[data-hollow-view="room"] .hollow-world-thumb img { width: 100%; height: 30px; }
+}
+
+@media (max-width: 640px) and (orientation: portrait) {
+  .kg-stage .hollow-simple[data-hollow-view="room"] .hollow-topbar { display: flex; }
+  .kg-stage .hollow-simple[data-hollow-view="room"] .hollow-progress { margin-left: auto; }
+  .kg-stage .hollow-simple[data-hollow-view="room"] .hollow-instruction-row p { font-size: 14px; }
+  .kg-stage .hollow-simple[data-hollow-view="room"] .hollow-room-navigation { gap: 4px; padding-inline: 4px; }
+  .kg-stage .hollow-simple[data-hollow-view="room"] .hollow-room-navigation button { width: 44px; }
+  .kg-stage .hollow-simple[data-hollow-view="room"] .hollow-room-tools { padding-inline: 4px; }
+}
+
+@media (orientation: landscape) and (max-height: 430px) {
+  .kg-stage:has(.hollow-simple[data-hollow-view="entry"]) > .kg-header { display: none; }
+  .kg-stage .hollow-page.hollow-simple[data-hollow-view="entry"] {
+    grid-template-rows: auto auto minmax(0, 1fr);
+    overflow: clip;
+  }
+  .kg-stage .hollow-simple[data-hollow-view="entry"] :is(.hollow-stage, .hollow-overview) { min-height: 0; }
+}
+
+/* Collections keep the shell and every card action in the same viewport. */
+.kg-stage .hollow-page.hollow-simple[data-hollow-view="collection"] {
+  --kg-physical-hit: 44px;
+  overflow: clip;
+}
+.kg-stage .hollow-simple[data-hollow-view="collection"] .hollow-stage { flex: 1; min-height: 0; }
+.kg-stage .hollow-simple[data-hollow-view="collection"] .hollow-panel {
+  overflow: clip;
+  gap: 8px;
+}
+.kg-stage .hollow-simple .hollow-market-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.kg-stage .hollow-simple .hollow-market .hollow-ware { padding: 8px; gap: 4px; align-items: center; }
+.hollow-ware-copy { display: grid; align-items: start; justify-items: center; gap: 2px; min-width: 0; }
+.kg-stage .hollow-simple .hollow-ware-copy .hollow-price { margin: 0; padding: 2px 0; line-height: 1.25; }
+.kg-stage .hollow-simple .hollow-ware-copy [data-child-emphasis-cue] { padding: 3px 8px; font-size: 13px; }
+.kg-stage .hollow-simple .hollow-market .hollow-hint { margin: 0; font-size: 13px; }
+.kg-stage .hollow-simple .hollow-market .child-page-controls { margin-top: auto; }
+.kg-stage .hollow-simple .hollow-owned-gear { display: grid; gap: 6px; min-width: 0; align-content: start; }
+.kg-stage .hollow-simple .hollow-gear-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
+.kg-stage .hollow-simple .hollow-guide-picker {
+  position: absolute; inset: 4px 8px; width: auto; max-width: 740px; margin-inline: auto;
+  display: grid; grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: 8px; padding: 10px; overflow: clip;
+}
+.kg-stage .hollow-simple .hollow-guide-picker > div {
+  grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; align-items: stretch;
+}
+.kg-stage .hollow-simple .hollow-guide-picker > div > button {
+  min-height: 44px; justify-content: center; padding: 5px; gap: 3px;
+}
+.kg-stage .hollow-simple .hollow-guide-picker img {
+  width: min(80px, 100%); height: min(80px, 13vh); object-fit: contain;
+}
+.kg-stage .hollow-simple .hollow-guide-picker > header > button { width: 44px; height: 44px; }
+.kg-stage .hollow-simple .hollow-beastie-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.kg-stage .hollow-simple .hollow-beastie-info { display: grid; gap: 4px; width: 100%; text-align: center; justify-items: center; }
+.kg-stage .hollow-simple .hollow-beastie-info .hollow-meter { width: min(100%, 160px); }
+.kg-stage .hollow-simple .hollow-beastie-food { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; width: 100%; }
+.kg-stage .hollow-simple .hollow-beastie-food:empty { display: none; }
+.kg-stage .hollow-simple .hollow-beastie-actions {
+  display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; margin-top: auto;
+}
+.kg-stage .hollow-simple .hollow-hatched-notice {
+  bottom: auto; top: 4px; right: 8px; left: auto; gap: 6px; padding: 4px 6px;
+}
+.kg-stage .hollow-simple .hollow-hatched-notice .hollow-art { width: 34px !important; height: 34px !important; }
+.kg-stage .hollow-simple .hollow-picker {
+  --kg-physical-hit: 44px;
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: max-content;
+  max-width: calc(100% - 12px); padding: 6px; padding-top: 50px; gap: 4px;
+  display: grid; place-items: center;
+}
+.kg-stage .hollow-simple .hollow-picker .cancel { position: absolute; top: 3px; right: 3px; }
+.hollow-placement-choices { display: flex; justify-content: center; align-items: stretch; gap: 6px; min-width: 0; }
+.kg-stage .hollow-placement-choices .hollow-pick { min-width: 0; flex: 1; padding: 4px; }
+
+@media (min-width: 1100px) {
+  .kg-stage .hollow-simple .hollow-market-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .kg-stage .hollow-simple :is(.hollow-gear-grid, .hollow-beastie-grid) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .kg-stage .hollow-simple[data-hollow-view="collection"] :is(.hollow-topbar, .hollow-instruction-row) {
+    display: flex; gap: 5px; padding: 2px 6px; min-height: 0;
+  }
+  .kg-stage .hollow-simple[data-hollow-view="collection"] .hollow-title { font-size: 18px; }
+  .kg-stage .hollow-simple[data-hollow-view="collection"] .hollow-progress { margin-left: auto; font-size: 12px; }
+  .kg-stage .hollow-simple[data-hollow-view="collection"] :is(.hollow-back,.hollow-hear,.hollow-change-guide,.hollow-shelf-tab,.hollow-buy) {
+    min-height: 44px; padding: 4px 6px; font-size: 14px;
+  }
+  .kg-stage .hollow-simple[data-hollow-view="collection"] .hollow-panel { padding: 6px; gap: 6px; }
+  .kg-stage .hollow-simple .hollow-market-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .kg-stage .hollow-simple .hollow-shelf-tabs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 5px; }
+  .kg-stage .hollow-simple .hollow-shelf-tab .hollow-art,
+  .kg-stage .hollow-simple .hollow-market .hollow-ware .hollow-art { width: 42px !important; height: 42px !important; }
+  .kg-stage .hollow-simple .hollow-shelf-tab .hollow-art { width: 26px !important; height: 26px !important; }
+  .kg-stage .hollow-simple .hollow-beastie-grid { grid-template-columns: minmax(0, 1fr); }
+  .kg-stage .hollow-simple .hollow-beastie .hollow-art { width: 62px !important; height: 62px !important; }
+  .kg-stage .hollow-simple .hollow-beastie { padding: 6px; gap: 4px; }
+  .kg-stage .hollow-simple .hollow-beastie-actions { gap: 4px; }
+  .kg-stage .hollow-simple .hollow-beastie-actions:has(.child-page-controls) { justify-content: stretch; }
+  .kg-stage .hollow-simple .hollow-beastie-actions:has(.child-page-controls) > * { flex: 1; }
+  .kg-stage .hollow-simple .hollow-pal-row { gap: 6px; }
+  .kg-stage .hollow-simple .hollow-pal-stage { padding: 5px; gap: 4px; }
+  .kg-stage .hollow-simple .hollow-pal-stage h2 { font-size: 17px; }
+  .kg-stage .hollow-simple .hollow-pal-figure { width: min(84px, 24vh); }
+  .kg-stage .hollow-simple .hollow-gear { padding: 4px; gap: 2px; }
+  .kg-stage .hollow-simple .hollow-gear .hollow-art { width: 40px !important; height: 40px !important; }
+  .kg-stage .hollow-simple .hollow-guide-picker > div { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) and (orientation: portrait) {
+  .kg-stage .hollow-simple .hollow-pal-stage {
+    display: grid;
+    grid-template: "figure name" auto "figure action" auto / 84px minmax(0, 1fr);
+    justify-items: start;
+    align-items: center;
+    gap: 3px 10px;
+  }
+  .kg-stage .hollow-simple .hollow-pal-stage .hollow-pal-figure { grid-area: figure; }
+  .kg-stage .hollow-simple .hollow-pal-stage h2 { grid-area: name; }
+  .kg-stage .hollow-simple .hollow-pal-stage .hollow-change-guide { grid-area: action; }
+}
+@media (orientation: landscape) and (max-height: 430px) {
+  .kg-stage:has(.hollow-simple[data-hollow-view="collection"]) > .kg-header { display: none; }
+  .kg-stage .hollow-page.hollow-simple[data-hollow-view="collection"] {
+    display: grid; grid-template: auto minmax(0, 1fr) / minmax(0, 1fr) auto;
+  }
+  .kg-stage .hollow-simple[data-hollow-view="collection"] .hollow-stage { grid-column: 1 / -1; }
+  .kg-stage .hollow-simple[data-hollow-view="collection"] :is(.hollow-topbar, .hollow-instruction-row) {
+    display: flex; align-items: center; gap: 6px; min-height: 0; padding: 2px 6px;
+    border-bottom: 1px solid #DFE3EB; font-size: 14px;
+  }
+  .kg-stage .hollow-simple[data-hollow-view="collection"] :is(.hollow-back,.hollow-hear,.hollow-change-guide,.hollow-shelf-tab,.hollow-buy) {
+    min-height: 44px; padding: 4px 6px; font-size: 14px;
+  }
+  .kg-stage .hollow-simple[data-hollow-view="collection"] .hollow-panel { padding: 6px; gap: 6px; }
+  .kg-stage .hollow-simple[data-hollow-view="collection"] .hollow-instruction-row p { max-width: 180px; font-size: 13px; line-height: 1.3; }
+  .kg-stage .hollow-simple[data-hollow-view="collection"] .hollow-notice { display: none; }
+  .kg-stage .hollow-simple .hollow-shelf-tabs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 5px; }
+  .kg-stage .hollow-simple .hollow-market-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 5px; }
+  .kg-stage .hollow-simple .hollow-market .hollow-ware {
+    flex-direction: row; align-items: center; justify-content: flex-start; padding: 4px; gap: 4px;
+  }
+  .kg-stage .hollow-simple .hollow-market .hollow-ware strong { font-size: 14px; text-align: left; }
+  .kg-stage .hollow-simple .hollow-market .hollow-ware-copy { flex: 1; justify-items: start; }
+  .kg-stage .hollow-simple .hollow-market .hollow-ware .hollow-art { width: 32px !important; height: 32px !important; }
+  .kg-stage .hollow-simple .hollow-market .hollow-price { font-size: 12px; }
+  .kg-stage .hollow-simple .hollow-market .hollow-price > span { min-width: 0; white-space: normal; text-align: left; }
+  .kg-stage .hollow-simple .hollow-market .hollow-hint { font-size: 11px; line-height: 1.2; }
+  .kg-stage .hollow-simple .hollow-beastie { flex-direction: row; justify-content: center; }
+  .kg-stage .hollow-simple .hollow-beastie .hollow-art { width: 62px !important; height: 62px !important; }
+  .kg-stage .hollow-simple .hollow-beastie-grid { grid-template-columns: minmax(0, 1fr); }
+  .kg-stage .hollow-simple .hollow-beastie :is(.hollow-beastie-info,.hollow-beastie-food) { flex: 1; min-width: 0; }
+  .kg-stage .hollow-simple .hollow-beastie-food { display: grid; justify-content: stretch; }
+  .kg-stage .hollow-simple .hollow-pal-row { grid-template-columns: minmax(135px, .6fr) minmax(0, 1fr); gap: 6px; }
+  .kg-stage .hollow-simple .hollow-pal-stage { padding: 5px; gap: 4px; }
+  .kg-stage .hollow-simple .hollow-pal-figure { width: min(84px, 24vh); }
+  .kg-stage .hollow-simple .hollow-guide-picker > div { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .kg-stage .hollow-simple .hollow-guide-picker img { height: min(48px, 10vh); }
+  .kg-stage .hollow-simple .hollow-picker { padding-top: 4px; padding-right: 54px; }
+  .kg-stage .hollow-simple .hollow-picker .hollow-art { width: 32px !important; height: 32px !important; }
 }

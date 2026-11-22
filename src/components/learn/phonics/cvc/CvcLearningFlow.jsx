@@ -38,7 +38,7 @@ export function CvcLearningFlow({ family, initialStep = 1, onBack, onComplete, o
 
   if (session.recoveryIssue) return <div role="alert"><h2>Your saved practice is kept safe.</h2><p>This version cannot open it. Ask a grown-up to update the app, then carry on.</p><button type="button" onClick={onBack}>Back to words</button></div>;
   return (
-    <div className="phonics-learning-flow cvc-learning-flow kg-child-flow">
+    <div className="phonics-learning-flow cvc-learning-flow kg-child-flow" data-cvc-step={currentStep}>
       <div className="phonics-flow-header kg-child-flow__header">
         <button className="phonics-back-button" onClick={() => { if (!saveFailed) onBack(); }} type="button">
           Back to words

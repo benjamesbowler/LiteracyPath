@@ -127,7 +127,7 @@ test("a full room keeps the bought decoration selected while making space", asyn
 });
 
 for (const viewport of [{ width: 390, height: 844 }, { width: 844, height: 390 }, { width: 1194, height: 834 }]) {
-  test(`the full collection stays available through native scrolling at ${viewport.width}x${viewport.height}`, async ({ page }) => {
+  test(`the full collection stays available in visible pages at ${viewport.width}x${viewport.height}`, async ({ page }) => {
     await page.setViewportSize(viewport);
     await page.addInitScript(({ scope }) => {
       localStorage.setItem(`lp-hollow:${scope}`, JSON.stringify({
@@ -139,20 +139,29 @@ for (const viewport of [{ width: 390, height: 844 }, { width: 844, height: 390 }
     await page.goto(route);
     await page.getByRole("button", { name: "Beasties", exact: true }).click();
     const friends = page.locator(".hollow-beastie");
-    await expect(friends).toHaveCount(5);
-    await expect(page.getByRole("button", { name: "More friends", exact: true })).toHaveCount(0);
+    const pager = page.getByRole("navigation", { name: "Beastie pages" });
+    const next = pager.getByRole("button", { name: "Next", exact: true });
+    const allFriends = [];
+    for (;;) {
+      allFriends.push(...await friends.locator("strong").allTextContents());
+      for (const button of await friends.getByRole("button", { name: /^Feed / }).all()) {
+        await expect(button).toBeInViewport({ ratio: .99 });
+      }
+      if (await next.getAttribute("aria-disabled") === "true") break;
+      await expect(next).toBeInViewport({ ratio: .99 });
+      await next.click();
+    }
+    expect(allFriends).toHaveLength(5);
     const lastFeed = friends.last().getByRole("button", { name: /^Feed / });
-    await lastFeed.scrollIntoViewIfNeeded();
     await expect(lastFeed).toBeInViewport({ ratio: 1 });
     const before = (await ledger(page)).feeds.length;
     await lastFeed.click();
     expect((await ledger(page)).feeds).toHaveLength(before + 1);
-    await expect(friends).toHaveCount(5);
     const scroll = await page.locator(".hollow-simple").evaluate(root => {
       const panel = root.querySelector(".hollow-panel");
       return { page: document.documentElement.scrollHeight <= innerHeight + 1, top: Math.max(root.scrollTop, panel.scrollTop) };
     });
     expect(scroll.page).toBe(true);
-    if (viewport.width <= 600 || viewport.height <= 430) expect(scroll.top).toBeGreaterThan(0);
+    expect(scroll.top).toBe(0);
   });
 }

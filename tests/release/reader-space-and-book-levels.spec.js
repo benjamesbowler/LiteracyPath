@@ -1,30 +1,38 @@
 import { expect, test } from "@playwright/test";
 import { getRuntimeGuidedReadingBooks } from "../../src/utils/guidedReading/runtimeBooks.js";
 import { getBookTextAnalysis } from "../../src/utils/guidedReading/bookTextAnalysis.js";
+import { showStoryQuestCard } from "./helpers/storyQuestShelf.js";
 
 for (const viewport of [{ width: 1920, height: 1080 }, { width: 1024, height: 768 }, { width: 768, height: 1024 }]) {
   test(`fullscreen story spends its space on the illustration at ${viewport.width}x${viewport.height}`, async ({ page }, info) => {
     await page.setViewportSize(viewport);
     await page.addInitScript(() => { HTMLElement.prototype.requestFullscreen = () => Promise.reject(new Error("Unsupported")); });
     await page.goto("/preview/child-surfaces.html?surface=story-quests");
-    await page.locator(".kg-quest-open").filter({ hasText: "The Flying Map" }).click();
+    await (await showStoryQuestCard(page, page.locator(".kg-quest-open").filter({ hasText: "The Flying Map" }))).click();
     const reader = page.locator(".story-quest-reader");
     await reader.locator('summary[aria-label="More story controls"]').click();
     await reader.getByRole("button", { name: "Full screen", exact: true }).click();
     await expect(reader).toHaveClass(/fullscreen/);
+    await expect.poll(() => reader.locator(".story-quest-image").evaluate(image => image.complete && image.naturalWidth > 0)).toBe(true);
     const geometry = await reader.evaluate(el => {
       const image = el.querySelector(".story-quest-image"), imageBox = image.getBoundingClientRect();
       const ratio = Math.min(imageBox.width / image.naturalWidth, imageBox.height / image.naturalHeight);
-      const text = el.querySelector(".story-quest-text").getBoundingClientRect(), decision = el.querySelector(".story-quest-decision").getBoundingClientRect();
-      return { paintedHeight: image.naturalHeight * ratio, maximumUncroppedHeight: imageBox.width * image.naturalHeight / image.naturalWidth, bottom: decision.bottom, textTop: text.top, imageBottom: imageBox.bottom, overflowX: document.documentElement.scrollWidth > innerWidth };
+      const text = el.querySelector(".story-quest-text").getBoundingClientRect();
+      return {
+        paintedHeight: image.naturalHeight * ratio,
+        maximumUncroppedHeight: imageBox.width * image.naturalHeight / image.naturalWidth,
+        textFits: text.top >= 0 && text.bottom <= innerHeight && text.left >= 0 && text.right <= innerWidth,
+        overlaps: text.left < imageBox.right && text.right > imageBox.left && text.top < imageBox.bottom && text.bottom > imageBox.top,
+        overflowX: document.documentElement.scrollWidth > innerWidth
+      };
     });
     // A landscape illustration on a portrait screen is bounded by its width.
     // Require the large-screen height benefit up to that uncropped limit.
     expect(geometry.paintedHeight).toBeGreaterThan(Math.min(viewport.height * .44, geometry.maximumUncroppedHeight * .95));
-    expect(geometry.bottom).toBeLessThanOrEqual(viewport.height);
-    expect(geometry.textTop).toBeGreaterThanOrEqual(geometry.imageBottom - 1);
+    expect(geometry.textFits).toBe(true);
+    expect(geometry.overlaps).toBe(false);
     expect(geometry.overflowX).toBe(false);
-    await expect(reader.getByRole("button", { name: "Next", exact: true })).toBeInViewport();
+    await expect(reader.getByRole("button", { name: "Next", exact: true })).toBeInViewport({ ratio: 1 });
     await page.screenshot({ path: info.outputPath("fullscreen-story.png") });
     await reader.getByRole("button", { name: "Next", exact: true }).click();
     await expect(reader.locator(".story-quest-position")).toHaveText("Scene 2");
@@ -67,13 +75,16 @@ test("children can browse every reviewed app level and still open the real reade
     await picker.getByRole("button", { name: `App level ${level}`, exact: true }).click();
     const cards = page.locator(".kg-book-card");
     const expected = library.filter(book => getBookTextAnalysis(book).appReadingLevel === level);
-    await expect(cards).toHaveCount(expected.length);
-    expect(await cards.locator("[data-book-level]").allTextContents()).toEqual(expected.map(() => `App level ${level}`));
+    await expect(page.locator(".kg-books")).toHaveAttribute("data-book-count", String(expected.length));
+    const visibleLabels = await cards.locator("[data-book-level]").allTextContents();
+    expect(visibleLabels.length).toBeGreaterThan(0);
+    expect(visibleLabels.every(label => label === `App level ${level}`)).toBe(true);
     expect((await cards.allTextContents()).join(" ")).not.toContain("Lexile");
     await cards.first().click();
     const reader = page.locator(".guided-reader-shell.fullscreen");
     await expect(reader).toBeVisible();
     await reader.getByLabel("More reader controls", { exact: true }).click();
+    await reader.getByRole("button", { name: "About this book", exact: true }).click();
     await expect(reader.getByRole("region", { name: "About this book", exact: true })).toContainText(`App level ${level}`);
     await page.keyboard.press("Escape");
     await reader.getByRole("button", { name: "Back to Books", exact: true }).click();
@@ -86,17 +97,29 @@ for (const viewport of [{ width: 320, height: 568 }, { width: 568, height: 320 }
     const book = getRuntimeGuidedReadingBooks().find(item => getBookTextAnalysis(item).appReadingLevel === "H");
     const analysis = getBookTextAnalysis(book);
     await page.goto("/preview/child-surfaces.html?surface=reading-library");
-    await page.getByRole("navigation", { name: "Book levels", exact: true }).getByRole("button", { name: "App level H", exact: true }).click();
+    await page.getByRole("button", { name: "Find a book", exact: true }).click();
+    await page.getByLabel("Book level", { exact: true }).selectOption("H");
+    await page.getByRole("button", { name: "Find by title", exact: true }).click();
+    await page.getByRole("searchbox", { name: "Book title", exact: true }).fill(book.title);
+    await page.getByRole("button", { name: "See 1 book", exact: true }).click();
     await page.locator(`.kg-book-card[data-book-id="${book.id}"]`).click();
     const reader = page.locator(".guided-reader-shell.fullscreen");
     const about = reader.getByRole("region", { name: "About this book", exact: true });
     await expect(about).not.toBeVisible();
     const more = reader.getByLabel("More reader controls", { exact: true });
     await more.click();
+    const showDetails = reader.getByRole("button", { name: "About this book", exact: true });
+    await expect(showDetails).toBeInViewport({ ratio: 1 });
+    await showDetails.click();
     await expect(about).toContainText("App level H");
     await expect(about).toContainText(analysis.rationale);
+    await expect(about.getByText(analysis.rationale, { exact: true })).toBeInViewport({ ratio: 1 });
+    const textMeasure = reader.getByRole("button", { name: "Text measure", exact: true });
+    if (await textMeasure.isVisible()) {
+      await expect(textMeasure).toBeInViewport({ ratio: 1 });
+      await textMeasure.click();
+    }
     const measurement = about.locator("p").last();
-    await measurement.scrollIntoViewIfNeeded();
     await expect(measurement).toContainText(analysis.lexile.label);
     await expect(measurement).toContainText("editorial estimates, not Lexile measures");
     await expect(measurement).toBeInViewport({ ratio: 1 });

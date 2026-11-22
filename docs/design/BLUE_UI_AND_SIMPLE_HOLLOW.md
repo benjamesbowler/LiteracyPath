@@ -32,16 +32,18 @@ button and immediately reveals the owned friend. Later visits give Decorate
 the primary emphasis. The room camera fills the available area using uniform
 scaling: it may crop decorative edges, but must keep every authored display
 spot and its entire saved decoration visible. Source art and shelf coordinates
-remain aligned. Short screens can scroll within Hollow without covering the
-room with controls. The Beasties doorway is the
+remain aligned. Short screens keep the room controls separate from the art.
+The Beasties doorway is the
 permanent home of the owned collection; it replaces the duplicated room nook.
 Do not display a wall of unowned silhouettes.
 
 Show coins in the shop, berries with feeding, and stars/cost when changing the
 Guide. Hide the global reward wallet while Hollow is open. Shop entry starts
 with ordinary decorations, sorted affordable first, then price; special seasonal
-stock is an explicit shelf. Each selected shop or Beasties shelf shows its complete
-collection with natural card height and a single native scroll when needed. Buying a decoration opens placement; choosing a spot saves it
+stock is an explicit shelf. Shop stock, Beasties, owned gear, Guide choices and
+placeable decorations appear in viewport-sized pages with visible Previous and
+Next controls as needed. Cards keep their full art, status and available actions.
+Buying a decoration opens placement; choosing a spot saves it
 immediately. Buying gear equips it immediately; tapping owned gear can remove
 or replace it. Feeding saves immediately. The hatch message dismisses itself
 and never blocks the next task.

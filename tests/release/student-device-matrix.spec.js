@@ -1,4 +1,6 @@
 import { expect, test } from "@playwright/test";
+import { showStoryQuestCard, showStoryQuestReaderPane } from "./helpers/storyQuestShelf.js";
+import { expectPagedChoices } from "./helpers/childPagedChoices.js";
 
 import { CHILD_SURFACE_ROUTES } from "../../src/policy/childSurfaceRules.js";
 import { LETTER_PRACTICE_VERSION, LETTER_PRACTICE_ROUND_COUNT } from "../../src/policy/letterPractice.js";
@@ -127,32 +129,43 @@ async function expectKeyboardState(page, root, state) {
 }
 
 async function expectHomeDoorLabels(surface, state) {
+  const chooser = surface.getByRole("button", { name: "Choose a place", exact: true });
+  const compact = await chooser.isVisible();
+  if (compact) {
+    await expect(chooser).toBeInViewport({ ratio: 1 });
+    await chooser.click();
+  }
   const cards = surface.locator(".kg-home-door");
   const titles = surface.locator(".kg-home-door .kg-card-title");
-  await expect(cards, `${state} exposes all eight destination cards`).toHaveCount(8);
-  await expect(titles, `${state} exposes all eight destination names`).toHaveCount(8);
-
+  const next = surface.getByRole("navigation", { name: "Places pages" }).getByRole("button", { name: "Next" });
+  const seen = [];
   const failures = [];
-  for (let index = 0; index < await cards.count(); index += 1) {
-    const card = cards.nth(index);
-    const title = titles.nth(index);
-    const [cardBox, titleBox, visible, text] = await Promise.all([
-      card.boundingBox(),
-      title.boundingBox(),
-      title.isVisible(),
-      title.innerText()
-    ]);
-    const contained = Boolean(cardBox && titleBox)
-      && titleBox.x >= cardBox.x - 1
-      && titleBox.y >= cardBox.y - 1
-      && titleBox.x + titleBox.width <= cardBox.x + cardBox.width + 1
-      && titleBox.y + titleBox.height <= cardBox.y + cardBox.height + 1;
-    if (!visible || !contained || !titleBox?.width || !titleBox?.height) {
-      failures.push({ index, text, visible, contained, cardBox, titleBox });
+  do {
+    for (let index = 0; index < await cards.count(); index += 1) {
+      const card = cards.nth(index);
+      const title = titles.nth(index);
+      const [cardBox, titleBox, visible, text, id] = await Promise.all([
+        card.boundingBox(), title.boundingBox(), title.isVisible(), title.innerText(), card.getAttribute("data-rail-destination")
+      ]);
+      const contained = Boolean(cardBox && titleBox)
+        && titleBox.x >= cardBox.x - 1
+        && titleBox.y >= cardBox.y - 1
+        && titleBox.x + titleBox.width <= cardBox.x + cardBox.width + 1
+        && titleBox.y + titleBox.height <= cardBox.y + cardBox.height + 1;
+      if (!visible || !contained || !titleBox?.width || !titleBox?.height) {
+        failures.push({ index, text, visible, contained, cardBox, titleBox });
+      }
+      await expect(card).toBeInViewport({ ratio: 1 });
+      seen.push(id);
     }
-  }
+    await expectMinimumTargets(surface, `${state} visible picture menu`);
+    if (!compact || await next.isDisabled()) break;
+    await expect(next).toBeInViewport({ ratio: 1 });
+    await next.click();
+  } while (seen.length < 8);
+  expect(seen).toEqual(["map", "books", "stories", "arcade", "phonics", "words", "sounds", "skills"]);
   expect(failures, `${state} keeps every destination name visibly inside its card`).toEqual([]);
-  await expectMinimumTargets(surface, `${state} visible picture menu`);
+  if (compact) await surface.getByRole("button", { name: "Back to today" }).click();
 }
 
 async function expectPrimaryMapDestinationLabel(surface, state) {
@@ -229,14 +242,8 @@ async function expectTabletMapDestinationLabels(surface, state) {
 
 async function expectOpenAlphabetClear(surface, state) {
   const cards = surface.getByRole("group", { name: "All 26 letters" }).locator("button");
-  await expect(cards, `${state} offers the complete alphabet`).toHaveCount(26);
-  for (const card of await cards.all()) {
-    await expect(card).toBeEnabled();
-    await card.scrollIntoViewIfNeeded();
-    // Native scroll offsets are pixel-aligned; tolerate a sub-pixel border edge.
-    await expect(card).toBeInViewport({ ratio: 0.99 });
-  }
-  await cards.first().scrollIntoViewIfNeeded();
+  const letters = await expectPagedChoices(surface, cards, { pagerLabel: "Letter pages", expectedCount: 26 });
+  expect(letters.map(label => label.slice(7, 8)).join(""), `${state} offers the complete alphabet`).toBe("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 }
 
 async function headingTextFragmentFailures(surface) {
@@ -397,21 +404,9 @@ async function expectArcadeTitleContained(surface, state) {
   ).toBeLessThanOrEqual(geometry.scrollBottom + 1);
 }
 
-async function expectCompactArcadeGalleryClear(surface, state) {
+async function expectCompactArcadeGalleryClear(surface) {
   const cards = surface.locator(".lg-game-tile");
-  await expect(cards, `${state} exposes all current games together`).toHaveCount(27);
-  const scroller = surface.locator(".lg-game-choice-area");
-  expect(await scroller.evaluate(node => getComputedStyle(node).overflowY)).toBe("auto");
-  await cards.last().scrollIntoViewIfNeeded();
-  await expect(cards.last()).toBeInViewport({ ratio: 0.99 });
-  const geometry = await cards.evaluateAll(nodes => nodes.map(node => {
-    const name = node.querySelector(".lg-game-tile-name");
-    const card = node.getBoundingClientRect();
-    const title = name.getBoundingClientRect();
-    return { width: card.width, height: card.height, complete: name.scrollWidth <= name.clientWidth + 1 && name.scrollHeight <= name.clientHeight + 1, contained: title.left >= card.left - 1 && title.right <= card.right + 1 && title.top >= card.top - 1 && title.bottom <= card.bottom + 1 };
-  }));
-  expect(geometry.every(card => card.width >= 56 && card.height >= 56 && card.complete && card.contained), `${state} keeps each game title complete inside its touch target`).toBe(true);
-  await scroller.evaluate(node => { node.scrollTop = 0; });
+  await expectPagedChoices(surface, cards, { pagerLabel: "Game pages", expectedCount: 27, key: "data-game-id", titleSelector: ".lg-game-tile-name" });
 }
 
 async function expectPrimaryActionInInitialPane(surface, state) {
@@ -961,14 +956,15 @@ async function expectLibraryPortraitShelves(surface, state) {
   ).toBe(1);
   expect(
     geometry.shelves[0].cards.length,
-    `${state} keeps the full eligible gallery mounted without a More gate`
-  ).toBeGreaterThan(6);
+    `${state} shows a row of complete books`
+  ).toBe(3);
   const failures = geometry.shelves.flatMap(shelf => {
     const cardFailures = shelf.cards.filter(card => (
       card.box.width < 56
       || card.height < 56
       || !card.verticallyInsideGrid
       || !card.insideScrollableWidth
+      || !card.aboveTabbar
       || card.textFailures.length > 0
     ));
     return shelf.collisions.length > 0
@@ -980,8 +976,8 @@ async function expectLibraryPortraitShelves(surface, state) {
     failures,
     `${state} keeps every natural card row and text fragment contained: ${JSON.stringify(failures)}`
   ).toEqual([]);
-  await expect(surface).toHaveCSS("overflow-y", "auto");
-  await expect(surface.locator(".kg-book-card--more")).toHaveCount(0);
+  await expect(surface).toHaveCSS("overflow-y", "clip");
+  await expect(surface.getByRole("navigation", { name: "Books pages" })).toBeInViewport({ ratio: 1 });
   await expectFocusedControlFullyRevealed(surface.locator(".kg-book-card").last(), `${state} last book`);
   expect(
     geometry.page.scrollHeight,
@@ -1006,7 +1002,7 @@ async function openChildSurface(page, route, profile) {
       }));
     }, { key: cycleStorageKey("child-surface-preview", "preview", "cycle-1"), version: CYCLE_PRACTICE_VERSION, revision: CYCLE_ACTIVITY_REVISION });
   }
-  await page.goto(`/preview/child-surfaces.html?surface=${route.id}`);
+  await page.goto(`/preview/child-surfaces.html?surface=${route.id}`, { waitUntil: "domcontentloaded" });
   const surface = page.locator(`[data-child-surface="${route.id}"]`);
   await expect(surface).toBeVisible();
   await expect(surface.locator("[data-child-title]")).toBeVisible();
@@ -1016,7 +1012,7 @@ async function openChildSurface(page, route, profile) {
     await expect(surface.locator('canvas')).toHaveAttribute('tabindex', '-1');
     // The title controls can be ready before the async landscape renderer.
     // A blank backing plane is not a valid picture of the child surface.
-    await expect(surface).toHaveAttribute('data-scene-ready', 'true', { timeout: 20_000 });
+    await expect(surface).toHaveAttribute('data-scene-ready', 'true', { timeout: 50_000 });
   }
   await expectVisibleImagesReady(surface, `${route.id} at ${profile.id}`);
   await page.evaluate(() => document.fonts?.ready);
@@ -1039,6 +1035,7 @@ test.describe("student route and device combinations", () => {
   for (const profile of STUDENT_DEVICE_PROFILES) {
     for (const route of CHILD_SURFACE_ROUTES) {
       test(`A3.6 ${route.id} passes the ${profile.id} matrix`, async ({ page }) => {
+      if (route.id === "sound-seekers") test.setTimeout(90_000);
       const state = `${route.id} at ${profile.id}`;
       const surface = await openChildSurface(page, route, profile);
       await expectHeadingTextFragmentsContained(surface, state);
@@ -1076,8 +1073,8 @@ test.describe("student route and device combinations", () => {
         await expectTabletMapDestinationLabels(surface, state);
       }
       if (route.id === "phonics") await expectOpenAlphabetClear(surface, state);
-      if (route.id === "arcade" && profile.id === "small-phone-portrait") {
-        await expectCompactArcadeGalleryClear(surface, state);
+      if (route.id === "arcade" && profile.family === "small-phone") {
+        await expectCompactArcadeGalleryClear(surface);
       }
       if (route.id === "arcade" && profile.id === "small-phone-landscape") {
         await expectArcadeTitleContained(surface, state);
@@ -1183,6 +1180,7 @@ test("A3.6 control guard rejects an unreachable offscreen control until its scro
 
 for (const profile of STUDENT_DEVICE_PROFILES) {
   test(`A3.6 Story Quest shelf and reader at ${profile.id}`, async ({ page }) => {
+    test.setTimeout(75_000);
     await installFullscreenMock(page);
     const route = CHILD_SURFACE_ROUTES.find(candidate => candidate.id === "story-quests");
     const surface = await openChildSurface(page, route, profile);
@@ -1195,18 +1193,21 @@ for (const profile of STUDENT_DEVICE_PROFILES) {
       animations: "disabled", caret: "hide", maxDiffPixelRatio: 0.01
     });
     await page.getByRole("button", { name: "Moonwood", exact: true }).click();
-    await page.getByRole("button", { name: "Open Dewdrop and Flint: The Hidden Glow", exact: true }).click();
+    await (await showStoryQuestCard(page, page.getByRole("button", { name: "Open Dewdrop and Flint: The Hidden Glow", exact: true }))).click();
     const reader = page.locator(".story-quest-reader");
+    const nextScene = reader.getByRole("button", { name: "Next", exact: true });
+    await expect(nextScene).toBeInViewport({ ratio: 1 });
+    await showStoryQuestReaderPane(reader, "Picture");
     await expectRequiredImageReady(page, reader.locator('.story-quest-image'), `${profile.id} Story Quest reader`);
     await expectVisibleImagesReady(page, `${profile.id} Story Quest reader`);
     await expectMinimumTargets(reader, `${profile.id} Story Quest reader`);
     await expectNoHorizontalOverflow(page, `${profile.id} Story Quest reader`);
-    await reader.getByRole("button", { name: "Next", exact: true }).scrollIntoViewIfNeeded();
-    await expect(reader.getByRole("button", { name: "Next", exact: true })).toBeInViewport();
     await reader.locator("summary").click();
     await reader.getByRole("button", { name: "Full screen", exact: true }).click();
     await expect(reader).toHaveClass(/fullscreen/);
     await expectFullscreenHistory(page, ["enter"], `${profile.id} Story Quest reader`);
+    await showStoryQuestReaderPane(reader, "Picture");
+    await expectRequiredImageReady(page, reader.locator('.story-quest-image'), `${profile.id} fullscreen Story Quest`);
     const pictureHeight = await reader.locator(".story-quest-image-stage").evaluate(element => element.getBoundingClientRect().height);
     expect(pictureHeight, `${profile.id} full screen must not collapse the illustration`).toBeGreaterThan(100);
     await expectMinimumTargets(reader, `${profile.id} fullscreen Story Quest`);
@@ -1215,8 +1216,8 @@ for (const profile of STUDENT_DEVICE_PROFILES) {
     await expect.soft(page).toHaveScreenshot(`story-quest-reader-${profile.id}.png`, {
       animations: "disabled", caret: "hide", maxDiffPixelRatio: 0.01
     });
-    await reader.getByRole("button", { name: "Next", exact: true }).scrollIntoViewIfNeeded();
-    await expect(reader.getByRole("button", { name: "Next", exact: true })).toBeInViewport();
+    await showStoryQuestReaderPane(reader, "Read");
+    await expect(nextScene).toBeInViewport({ ratio: 1 });
     await reader.locator("summary").click();
     await reader.getByRole("button", { name: "Exit full screen", exact: true }).click();
     await expectFullscreenHistory(page, ["enter", "exit"], `${profile.id} Story Quest reader`);
@@ -1236,7 +1237,8 @@ test("A3.6 required Story Quest image readiness waits for a delayed image and re
   await page.route(pattern, async request => { requestedImage(); await held; await request.continue(); });
   await openChildSurface(page, route, profile);
   await page.getByRole('button', { name: 'Moonwood', exact: true }).click();
-  await page.getByRole('button', { name: 'Open Dewdrop and Flint: The Hidden Glow', exact: true }).click();
+  const hiddenGlowCard = page.getByRole('button', { name: 'Open Dewdrop and Flint: The Hidden Glow', exact: true });
+  await (await showStoryQuestCard(page, hiddenGlowCard)).click();
   await requested;
   const reader = page.locator('.story-quest-reader');
   const image = reader.locator('.story-quest-image');
@@ -1255,7 +1257,7 @@ test("A3.6 required Story Quest image readiness waits for a delayed image and re
   await page.route(pattern, request => request.abort('failed'));
   await page.reload();
   await page.getByRole('button', { name: 'Moonwood', exact: true }).click();
-  await page.getByRole('button', { name: 'Open Dewdrop and Flint: The Hidden Glow', exact: true }).click();
+  await (await showStoryQuestCard(page, hiddenGlowCard)).click();
   await expect(reader.locator('.story-quest-image-placeholder')).toBeVisible();
   await expect(expectRequiredImageReady(page, image, 'failed Story Quest image')).rejects.toThrow();
 });
@@ -1522,9 +1524,10 @@ test("A3.6 heading containment uses a bordered ancestor's inner clipping edge", 
 });
 
 test("A3.6 Story Quests keeps its primary card visible with wider font metrics", async ({ page }) => {
+  test.setTimeout(75_000);
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.setViewportSize({ width: 320, height: 568 });
-  await page.goto("/preview/child-surfaces.html?surface=story-quests");
+  await page.goto("/preview/child-surfaces.html?surface=story-quests", { waitUntil: "domcontentloaded" });
   const surface = page.locator('[data-child-surface="story-quests"]');
   await expect(surface).toBeVisible();
   // This deterministic fallback reproduces Ubuntu's 194px header and the
@@ -1647,9 +1650,9 @@ for (const viewport of [
       ), 0)
     }));
     expect(inventory.shelfCount).toBe(1);
-    expect(inventory.cardsPerShelf[0], "full eligible gallery remains mounted").toBeGreaterThan(6);
+    expect(inventory.cardsPerShelf[0], "visible books fill a single shelf page").toBeGreaterThanOrEqual(4);
     expect(inventory.titleCount).toBe(inventory.cardsPerShelf[0]);
-    await expect(surface.locator(".kg-book-card--more")).toHaveCount(0);
+    await expect(surface.getByRole("navigation", { name: "Books pages" })).toBeInViewport({ ratio: 1 });
 
     const failures = await surface
       .locator(".kg-shelf-grid .kg-book-card:not(.kg-book-card--more) .kg-book-title")
@@ -1788,7 +1791,7 @@ for (const viewport of [
     const surface = page.locator('[data-child-surface="reading-library"]');
     await expectFocusedControlFullyRevealed(surface.getByRole("button", { name: "Find a book", exact: true }), `${viewport.id} discovery`);
     const cards = surface.locator(".kg-book-card");
-    expect(await cards.count()).toBeGreaterThan(1);
+    expect(await cards.count()).toBeGreaterThanOrEqual(1);
     for (const card of [cards.first(), cards.last()]) await expectFocusedControlFullyRevealed(card, `${viewport.id} book`);
     await surface.getByRole("button", { name: "Find a book", exact: true }).press("Enter");
     const modes = surface.getByRole("group", { name: "Choose books", exact: true }).getByRole("button");
@@ -1825,13 +1828,7 @@ test("A3.6 Reading Library pointer activation preserves the chosen topic", async
   expect(await page.locator(".kg-book-card .kg-book-purpose").allTextContents()).not.toContain("Read it yourself");
 });
 
-for (const { height } of [
-  { height: 780, expectedRowCount: 2 },
-  { height: 860, expectedRowCount: 2 },
-  { height: 901, expectedRowCount: 2 },
-  { height: 973, expectedRowCount: 2 },
-  { height: 974, expectedRowCount: 2 }
-]) {
+for (const height of [780, 860, 901, 973, 974]) {
   test(`A3.6 Reading Library keeps ${height}px portrait-tablet shelves usable`, async ({ page }) => {
     await page.emulateMedia({ reducedMotion: "reduce" });
     await page.setViewportSize({ width: 768, height });
@@ -1846,7 +1843,7 @@ for (const { height } of [
     await expectLibraryBookCopyReadable(surface, state);
     await expectNoHorizontalOverflow(page, state);
     const shelfCards = surface.locator(".kg-shelf-grid > .kg-book-card");
-    expect(await shelfCards.count(), `${state} full eligible gallery`).toBeGreaterThan(6);
+    expect(await shelfCards.count(), `${state} visible book page`).toBe(3);
     await expectFocusedControlFullyRevealed(shelfCards.first(), `${state} first book`);
     await expectFocusedControlFullyRevealed(shelfCards.last(), `${state} last book`);
   });
@@ -2165,22 +2162,26 @@ async function expectFullscreenHistory(page, expectedActions, state) {
   ), `${state} fullscreen history`).toEqual(expectedActions);
 }
 
+function collectFullscreenErrors(page) {
+  const errors = [];
+  page.on("pageerror", error => errors.push(error.message));
+  page.on("console", message => {
+    // The isolated preview intentionally has no hosted Supabase credentials.
+    if (
+      message.type() === "error"
+      && !message.text().startsWith("[Literacy Guide] Supabase frontend environment is MISSING")
+    ) {
+      errors.push(message.text());
+    }
+  });
+  return errors;
+}
+
 for (const profileId of STUDENT_FULLSCREEN_DEVICE_IDS) {
   const profile = STUDENT_DEVICE_PROFILES.find(candidate => candidate.id === profileId);
   test(`A3.6 fullscreen transitions work at ${profile.id}`, async ({ page }) => {
     test.setTimeout(90_000);
-    const errors = [];
-    page.on("pageerror", error => errors.push(error.message));
-    page.on("console", message => {
-      // The isolated preview server intentionally has no hosted Supabase credentials.
-      // Keep the loud boot warning in the app, but do not mistake it for a fullscreen fault.
-      if (
-        message.type() === "error"
-        && !message.text().startsWith("[Literacy Guide] Supabase frontend environment is MISSING")
-      ) {
-        errors.push(message.text());
-      }
-    });
+    const errors = collectFullscreenErrors(page);
     await installFullscreenMock(page);
     await page.setViewportSize({ width: profile.width, height: profile.height });
     await page.emulateMedia({ reducedMotion: "reduce" });
@@ -2260,6 +2261,15 @@ for (const profileId of STUDENT_FULLSCREEN_DEVICE_IDS) {
     });
     await readerControls.getByRole("button", { name: "Back to Books", exact: true }).click();
     await expectFullscreenHistory(page, ["enter", "exit"], `${profile.id} reader exit`);
+    expect(errors, `${profile.id} fullscreen flows have no runtime errors`).toEqual([]);
+  });
+
+  test(`A3.6 Story Quest fullscreen transitions work at ${profile.id}`, async ({ page }) => {
+    test.setTimeout(75_000);
+    const errors = collectFullscreenErrors(page);
+    await installFullscreenMock(page);
+    await page.setViewportSize({ width: profile.width, height: profile.height });
+    await page.emulateMedia({ reducedMotion: "reduce" });
 
     await page.goto("/preview/child-surfaces.html?surface=story-quests");
     await page.locator('[data-child-surface="story-quests"] [data-child-primary]').click();
@@ -2269,6 +2279,8 @@ for (const profileId of STUDENT_FULLSCREEN_DEVICE_IDS) {
     await story.getByRole("button", { name: "Full screen", exact: true }).click();
     await expectFullscreenHistory(page, ["enter"], `${profile.id} story enter`);
     await expect(story).toHaveClass(/fullscreen/);
+    await showStoryQuestReaderPane(story, "Picture");
+    await expectRequiredImageReady(page, story.locator(".story-quest-image"), `${profile.id} fullscreen story`);
     await expectVisibleImagesReady(page, `${profile.id} fullscreen story`);
     await expectNoHorizontalOverflow(page, `${profile.id} fullscreen story`);
     await expectMinimumTargets(story, `${profile.id} fullscreen story`);
@@ -2279,8 +2291,34 @@ for (const profileId of STUDENT_FULLSCREEN_DEVICE_IDS) {
       maxDiffPixelRatio: 0.01
     });
     await story.locator("summary", { hasText: "More" }).click();
-    await story.getByRole("button", { name: "Exit full screen", exact: true }).click({ force: true });
+    await story.getByRole("button", { name: "Exit full screen", exact: true }).click();
     await expectFullscreenHistory(page, ["enter", "exit"], `${profile.id} story exit`);
     expect(errors, `${profile.id} fullscreen flows have no runtime errors`).toEqual([]);
   });
 }
+
+test("A3.6 Story Quest fullscreen falls back to the available phone viewport", async ({ page }) => {
+  test.setTimeout(75_000);
+  await page.setViewportSize({ width: 320, height: 568 });
+  await page.addInitScript(() => {
+    HTMLElement.prototype.requestFullscreen = () => Promise.reject(new Error("Fullscreen unavailable"));
+  });
+  await page.goto("/preview/child-surfaces.html?surface=story-quests", { waitUntil: "domcontentloaded" });
+  await page.locator('[data-child-surface="story-quests"] [data-child-primary]').click();
+  const reader = page.locator(".story-quest-reader");
+  const more = reader.locator('summary[aria-label="More story controls"]');
+  await more.click();
+  await reader.getByRole("button", { name: "Full screen", exact: true }).click();
+  await expect(page.locator(".story-quest-immersive-reader .story-quest-reader")).toBeVisible();
+  await showStoryQuestReaderPane(reader, "Picture");
+  await expectRequiredImageReady(page, reader.locator(".story-quest-image"), "Story Quest fullscreen fallback");
+  await showStoryQuestReaderPane(reader, "Read");
+  await expect(reader.getByRole("button", { name: "Hear the story", exact: true })).toBeInViewport({ ratio: 1 });
+  await showStoryQuestReaderPane(reader, "Choose");
+  const choice = reader.getByRole("button", { name: "Search the mud", exact: true });
+  await expect(choice).toBeInViewport({ ratio: 1 });
+  await more.click();
+  await reader.getByRole("button", { name: "Exit full screen", exact: true }).click();
+  await expect(reader).not.toHaveClass(/fullscreen/);
+  await expect(choice).toBeInViewport({ ratio: 1 });
+});

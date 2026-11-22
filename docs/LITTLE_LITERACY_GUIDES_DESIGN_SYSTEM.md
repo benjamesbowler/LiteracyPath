@@ -134,10 +134,9 @@ current production scenes when they exist.
 ## Child catalogue and learning layout policy
 
 Home, Books, Arcade, Hollow collections and Words use the real visual viewport
-at scale 1, compact shell chrome and natural card rows. One native collection
-scroller keeps every eligible choice reachable. All eight Home destinations
-are visible by default; Arcade has no More gate or text pager. Learning engines
-can retain bounded authored canvases with compensated physical touch targets.
+at scale 1. Keep the active task, complete card labels and tap targets in the
+pane. Use visible page controls when a collection needs more space. Learning
+engines can retain bounded authored canvases with compensated physical touch targets.
 [Child surface rules](design/CHILD_SURFACE_RULES.md) are the current authority.
 
 ## Asset plan

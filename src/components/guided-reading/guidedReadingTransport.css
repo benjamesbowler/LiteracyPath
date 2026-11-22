@@ -229,6 +229,24 @@
   font-size: 14px;
 }
 
+.guided-transport-options--student .guided-transport-options-panel {
+  max-height: none;
+  overflow: clip;
+  gap: 6px;
+  padding: 8px;
+}
+
+@media (max-width: 640px) {
+  .guided-reader-shell.picture-book .guided-transport-options--student .guided-transport-options-panel {
+    right: 4px;
+    width: min(540px, calc(100vw - 12px));
+  }
+  .guided-reader-shell.picture-book .guided-transport-options--student .guided-transport-options-panel button {
+    font-size: 14px;
+    padding: 4px 8px;
+  }
+}
+
 .guided-transport-book-details {
   flex-basis: 100%;
   min-width: 0;
@@ -240,6 +258,20 @@
 }
 
 .guided-transport-book-details p { margin: 8px 0 0; }
+
+.guided-transport-detail-links { display: flex; flex-wrap: wrap; gap: 6px; }
+.guided-reader-shell.picture-book .guided-transport-detail-links .guided-detail-tab { display: none !important; }
+
+@media (orientation: landscape) and (max-height: 430px) {
+  .guided-reader-shell.picture-book .guided-transport-detail-links .guided-detail-tab { display: inline-flex !important; }
+  .guided-transport-options--student .guided-transport-book-details {
+    padding-top: 4px;
+    line-height: 1.25;
+  }
+  .guided-transport-options--student [data-details-page="level"] .guided-transport-measure-notes,
+  .guided-transport-options--student [data-details-page="measure"] .guided-transport-level-notes { display: none; }
+  .guided-transport-options--student .guided-transport-book-details p { margin-top: 3px; }
+}
 
 .guided-transport-options-panel .guided-reading-discussion {
   width: 100%;
@@ -417,6 +449,9 @@
      Reserve three fifths for text while containing the whole illustration. */
   .guided-reading-reader-open .guided-reader-shell.picture-book .guided-page-layout {
     grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  }
+  .student-guided-reading-page.guided-reading-reader-open .guided-reader-shell.picture-book .guided-page-layout[data-text-layout="long"] {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
   }
   .guided-reading-reader-open .guided-reader-shell.picture-book .guided-page-reading {
     /* The text's own padding supplies the inset; empty optional-tool rows

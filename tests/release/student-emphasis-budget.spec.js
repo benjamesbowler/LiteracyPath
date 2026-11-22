@@ -7,6 +7,7 @@ import {
 import { expectVisibleImagesReady } from "./support/visualReadiness.js";
 import { cycleStorageKey } from "../../src/components/cycle-practice/cyclePracticeState.js";
 import { CYCLE_PRACTICE_VERSION, CYCLE_ACTIVITY_REVISION } from "../../src/policy/cyclePracticePolicy.js";
+import { expectPagedChoices } from "./helpers/childPagedChoices.js";
 
 async function waitForPrimaryMedia(primary) {
   const image = primary.locator("img").first();
@@ -47,11 +48,10 @@ for (const viewport of STUDENT_EMPHASIS_VIEWPORTS) {
       await expect(primary).toHaveCount(1);
       await expect(primary).toBeVisible();
       if (route.id === "phonics") {
-        // CHILD_SURFACE_RULES makes the complete free-choice alphabet its
-        // primary area; no letter is promoted over the other 25 choices.
+        // The free-choice alphabet remains the primary area on every page.
         await expect(primary).toHaveAttribute("role", "group");
         await expect(primary).toHaveAccessibleName("All 26 letters");
-        await expect(primary.getByRole("button")).toHaveCount(26);
+        await expectPagedChoices(surface, primary.getByRole("button"), { pagerLabel: "Letter pages", expectedCount: 26 });
       } else await expect(primary).toHaveAttribute("data-child-emphasis", "primary");
       await expect(cue).toHaveCount(1);
       await expect(cue).toBeVisible();
@@ -140,11 +140,7 @@ test("A3.9 Phonics keeps its free-choice instruction and complete alphabet clear
   await expect(surface.locator('[data-child-instruction]')).toBeInViewport();
   const alphabet = surface.getByRole('group', {name:'All 26 letters',exact:true});
   await expect(alphabet).toHaveAttribute('data-child-primary', '');
-  const letters=alphabet.getByRole('button');await expect(letters).toHaveCount(26);
-  for(let index=0;index<26;index++) {
-    const letter=letters.nth(index);await expect(letter).toBeEnabled();await letter.scrollIntoViewIfNeeded();
-    await expect(letter).toBeInViewport();
-    const box=await letter.boundingBox();expect(box.width).toBeGreaterThanOrEqual(44);expect(box.height).toBeGreaterThanOrEqual(44);
-    await expect(letter).toHaveAttribute('data-child-emphasis','choice');
-  }
+  const letters=alphabet.getByRole('button');
+  await expectPagedChoices(surface, letters, { pagerLabel: "Letter pages", expectedCount: 26 });
+  for (const letter of await letters.all()) await expect(letter).toHaveAttribute('data-child-emphasis','choice');
 });

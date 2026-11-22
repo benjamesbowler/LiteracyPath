@@ -136,10 +136,12 @@ test("Story Quests appears in both child navigation sources with a real story ic
   );
 });
 
-test("small-screen Story Quest reading preserves type through whole-reader scrolling", () => {
-  assert.match(playerStyles, /font-size: 24px/);
+test("small-screen Story Quest reading preserves type through named panes", () => {
+  assert.match(playerStyles, /font-size: clamp\(24px,/);
   assert.match(playerStyles, /max-height: none/);
-  assert.match(playerStyles, /overflow: auto/);
+  assert.match(playerStyles, /container: quest-reader \/ size/);
+  assert.match(playerSource, /aria-label="This scene"/);
+  assert.doesNotMatch(playerSource, /scrollIntoView|scrollTo\(/);
 });
 
 test("teacher Story Quest preview is named before launch and never persists preview activity", () => {
@@ -157,7 +159,7 @@ test("teacher Story Quest preview is named before launch and never persists prev
     "preview activity must not enter local or cloud persistence"
   );
   assert.match(learnAreaSource, /This is a clean practice preview\./);
-  assert.match(playerSource, /Student progress is not saved/);
+  assert.match(playerSource, /Read-only preview/);
   assert.match(
     appRootSource,
     /!studentPreview[\s\S]*?STUDENT_PREVIEW_VIEWS\.has\(appView\)[\s\S]*?configureProgressSync\(\{\s*mode: "teacher"[\s\S]*?setStudentPreview\(null\)/,
@@ -165,7 +167,7 @@ test("teacher Story Quest preview is named before launch and never persists prev
   );
   assert.match(
     playerStyles,
-    /\.app\.teacher-child-preview:has\(\.student-surface-story\)[\s\S]*?height:\s*100dvh;[\s\S]*?overflow:\s*hidden;/,
+    /\.app\.teacher-child-preview:has\(> \.student-surface-story\)[\s\S]*?height:\s*100dvh;[\s\S]*?overflow:\s*clip;/,
     "the protection banner and reader must share one viewport"
   );
 });

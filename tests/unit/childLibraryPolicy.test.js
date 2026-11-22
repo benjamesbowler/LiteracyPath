@@ -48,6 +48,7 @@ import { APP_READING_LEVELS, getPublicBookMetadata } from "../../src/utils/guide
 import { recommendBooksForStudent } from "../../src/utils/guidedReading/recommendBooksForStudent.js";
 
 const booksPageSource = readFileSync("src/components/StudentBooksPage.jsx", "utf8");
+const bookDiscoverySource = readFileSync("src/components/guided-reading/ChildBookDiscovery.jsx", "utf8");
 const questsPageSource = readFileSync("src/components/StudentStoryQuestsPage.jsx", "utf8");
 const libraryStyles = readFileSync("src/styles/kids-library.css", "utf8");
 const appSource = readFileSync("src/components/AppSurface.jsx", "utf8");
@@ -356,8 +357,9 @@ test("both screens keep the capabilities the shelf pages they replace had", () =
   assert.match(code(booksPageSource), /getBookTextAnalysis/);
   assert.doesNotMatch(code(booksPageSource), /guidedReadingLevelLabel|C Standard/);
   assert.match(booksPageSource, /Find a book/);
-  assert.match(booksPageSource, /Stories or facts/);
-  assert.match(booksPageSource, /Friends or topic/);
+  assert.match(booksPageSource, /<ChildBookDiscovery/);
+  assert.match(bookDiscoverySource, /Stories or facts/);
+  assert.match(bookDiscoverySource, /Friends or topic/);
   assert.match(questsPageSource, /aria-label="Story worlds"/);
   // The reader and the player are handed in, never reimplemented.
   assert.match(booksPageSource, /renderReader\(\{ bookId: openBookId[\s\S]*?initialPageIndex: saved.started \? saved.pageIndex : null/);
@@ -374,8 +376,7 @@ test("a read that failed never renders as a child who has read nothing", () => {
 });
 
 test("Story Quests retain their bounded world grid; Books use their separate catalogue", () => {
-  // Books are now a native continuous gallery. Story Quests still own their
-  // paged world geometry; don't accidentally apply the gallery to that route.
+  // Story Quests own their world geometry. Books page their own cover gallery.
   assert.match(libraryStyles, /\.kg-quests \{[\s\S]*?grid-template-rows: auto minmax\(0, 1fr\);/);
   assert.match(libraryStyles, /\.kg-quest-grid \{[\s\S]*?grid-template-columns: repeat\(3, minmax\(0, 1fr\)\);[\s\S]*?grid-template-rows: repeat\(2, minmax\(0, 1fr\)\);/);
   // The button-content trap kids-home.css records: `.app button` centres its

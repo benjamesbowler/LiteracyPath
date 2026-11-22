@@ -7,6 +7,7 @@ import { getGuidedReadingPageAudioPath, getGuidedReadingWordProductionAudioPath 
 import { appReadingLevelLabel } from '../../src/utils/guidedReading/bookTextAnalysis.js';
 import { STUDENT_DEVICE_PROFILES, STUDENT_MINIMUM_TARGET_PX } from '../../src/policy/studentDeviceMatrix.js';
 import { expectPrintedWordsVisible } from './helpers/guidedReadingGeometry.js';
+import { readBookShelf } from './helpers/bookShelf.js';
 import cohortManifest from '../../src/content/world-discovery/cohorts.json' with { type: 'json' };
 import { GUIDED_READING_CONTEXTUAL_WORD_AUDIO } from '../../src/data/guidedReadingContextualWordAudio.js';
 
@@ -185,19 +186,17 @@ test('World Discovery child library has every declared ordered cover and public 
   await page.getByRole('button', { name: 'Find a book', exact: true }).click();
   await page.getByLabel('Friends or topic', { exact: true }).selectOption('world-discovery');
   await page.getByRole('button', { name: 'Back to shelf', exact: true }).click();
-  const cards = page.locator("button[data-book-id^='world-discovery-']");
-  await expect(cards).toHaveCount(expectedBooks);
-  expect(await cards.evaluateAll(nodes => nodes.map(node => node.dataset.bookId))).toEqual(books.map(book => book.id));
+  await expect(page.locator('.kg-books')).toHaveAttribute('data-book-count', String(expectedBooks));
+  expect((await readBookShelf(page)).map(book => book.id)).toEqual(books.map(book => book.id));
   for (const level of ['A', 'B', 'C', 'D', 'E']) {
     await page.getByRole('navigation', { name: 'Book levels' }).getByRole('button', { name: appReadingLevelLabel(level), exact: true }).click();
-    await expect(cards).toHaveCount(publicLevelBooks(level).length);
-    expect(await cards.evaluateAll(nodes => nodes.map(node => node.dataset.bookId))).toEqual(publicLevelBooks(level).map(book => book.id));
-    for (const card of await cards.all()) {
-      await card.scrollIntoViewIfNeeded();
-      await expect.poll(() => card.locator('img').first().evaluate(node => node.complete && node.naturalWidth > 0)).toBe(true);
-      await expect(card).toBeInViewport();
-    }
-    await cards.first().scrollIntoViewIfNeeded();
+    const choices = await readBookShelf(page, async cards => {
+      for (const card of await cards.all()) {
+        await expect(card.locator('[data-book-cover-state]')).toHaveAttribute('data-book-cover-state', 'ready');
+        await expect(card).toBeInViewport({ ratio: 1 });
+      }
+    });
+    expect(choices.map(book => book.id)).toEqual(publicLevelBooks(level).map(book => book.id));
     await page.screenshot({ path: info.outputPath(`shelf-${level}.png`) });
   }
 });

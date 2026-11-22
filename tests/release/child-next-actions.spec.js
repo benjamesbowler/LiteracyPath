@@ -1,6 +1,7 @@
 import { expect, test } from "@playwright/test";
 import { STUDENT_DEVICE_PROFILES, STUDENT_MINIMUM_TARGET_PX } from "../../src/policy/studentDeviceMatrix.js";
 import { STUDENT_SUPPORT_AUDIO } from "../../src/data/generated/studentSupportAudio.generated.js";
+import { expectPagedChoices } from "./helpers/childPagedChoices.js";
 
 async function hydrateHollow(page, owned) {
   await page.evaluate(ownsJar => {
@@ -25,17 +26,7 @@ for (const device of STUDENT_DEVICE_PROFILES) {
       await page.screenshot({ path: testInfo.outputPath(`${surface}-${device.id}.png`) });
       if (surface === "phonics") {
         const letters = root.getByRole("group", { name: "All 26 letters" }).locator("button");
-        await expect(letters).toHaveCount(26);
-        for (const card of await letters.all()) {
-          await expect(card).toBeEnabled(); await card.scrollIntoViewIfNeeded();
-          // Native scrolling can land within one physical pixel of a rounded edge.
-          await expect(card).toBeInViewport({ratio: .99});
-          const box = await card.boundingBox();
-          expect(box.y).toBeGreaterThanOrEqual(-1);
-          expect(box.y + box.height).toBeLessThanOrEqual(device.height + 1);
-          expect(box.width).toBeGreaterThanOrEqual(STUDENT_MINIMUM_TARGET_PX);
-          expect(box.height).toBeGreaterThanOrEqual(STUDENT_MINIMUM_TARGET_PX);
-        }
+        await expectPagedChoices(root, letters, { pagerLabel: "Letter pages", expectedCount: 26, returnToFirst: false });
         expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBe(0);
         await letters.last().click();
         await expect(page.locator(".phonics-trace-pad")).toBeVisible();

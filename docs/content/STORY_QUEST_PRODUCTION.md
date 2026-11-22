@@ -51,13 +51,17 @@ previous exposure/completion remains history, not a mastery claim.
 - When replay can uncover an unseen ending or an unvisited scene, the reader
   offers a return to an earlier decision on the current route. Endings and
   explored scenes accumulate separately from the current route checkpoint.
-- Full screen uses its remaining height for the complete illustration. Short
-  passages sit below it above the path controls; longer passages use a separate
-  column at roomy widths. Menu controls never reduce the picture to a fixed
-  viewport-height cap.
-- Small displays may scroll the complete reader to preserve readable type and
-  the entire illustration. They must not crop essential evidence, shrink prose,
-  or trap text in an internal scroll box. The shelf keeps its existing paged hub.
+- Fit the active quest in the actual pane between the app header and
+  navigation. On roomy displays the uncropped illustration and exploration
+  controls share one column, with reading and path choices in the other.
+- On smaller panes, visible Read, Picture, Explore, Choose and Endings controls
+  open the applicable panels. A single Next action remains directly available.
+  Preserve readable prose, touch targets and the complete illustration. Word
+  help opens over the page and clue feedback stays in its panel. No active
+  scene, choice or ending requires vertical scrolling.
+- Every world cover stays reachable through visible shelf page controls when
+  the complete gallery cannot fit. Verify each state before interacting, with
+  the learner header and navigation present at the supported viewports.
 - Playback is optional, interruptible and stops on exit. Music does not start.
 
 ## Media and verification

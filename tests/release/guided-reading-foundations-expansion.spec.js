@@ -7,6 +7,7 @@ import { declaredNextStepsLessons } from '../../src/data/nextStepsPhonicsLessons
 import { guidedReadingBookModeLabel } from '../../src/policy/guidedReadingCatalogPolicy.js';
 import { getBookTextAnalysis, appReadingLevelLabel } from '../../src/utils/guidedReading/bookTextAnalysis.js';
 import { expectPrintedWordsVisible } from './helpers/guidedReadingGeometry.js';
+import { readBookShelf } from './helpers/bookShelf.js';
 
 const all = [...next, ...bright];
 const selectedIds = process.env.LP_FOUNDATIONS_BOOK_IDS?.split(',').filter(Boolean);
@@ -273,17 +274,14 @@ for(const [slug,title,collection] of [['next-steps','Next Steps',next],['bright-
     await page.getByRole('button',{name:'Find a book',exact:true}).click();
     await page.getByLabel('Friends or topic',{exact:true}).selectOption(slug);
     await page.getByRole('button',{name:'Back to shelf',exact:true}).click();
-    const cards=page.locator(`button[data-book-id^='${slug}-']`);
-    await expect(cards).toHaveCount(collection.length);
-    expect(await cards.evaluateAll(nodes=>nodes.map(node=>node.dataset.bookId))).toEqual(collection.map(book=>book.id));
     await page.screenshot({path:info.outputPath('collection-order.png')});
+    expect((await readBookShelf(page)).map(book=>book.id)).toEqual(collection.map(book=>book.id));
     for(const level of [...new Set(collection.map(book=>book.appLevel))]){
       await page.getByRole('navigation',{name:'Book levels'}).getByRole('button',{name:appReadingLevelLabel(level),exact:true}).click();
       const expected=collection.filter(book=>book.appLevel===level).map(book=>book.id);
-      await expect(cards).toHaveCount(expected.length);
-      expect(await cards.evaluateAll(nodes=>nodes.map(node=>node.dataset.bookId))).toEqual(expected);
-      const labels=await cards.locator('[data-book-level]').evaluateAll(nodes=>nodes.map(node=>node.dataset.bookLevel));
-      expect(labels).toEqual(expected.map(()=>level));
+      const choices=await readBookShelf(page);
+      expect(choices.map(book=>book.id)).toEqual(expected);
+      expect(choices.map(book=>book.level)).toEqual(expected.map(()=>level));
     }
   });
 }

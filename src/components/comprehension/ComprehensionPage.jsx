@@ -14,6 +14,9 @@ import { readPractice, reducePractice, savePractice, practiceQuestion } from '..
 import { buildComprehensionDocument, openComprehensionPrint, teachingPrompts } from '../../content/comprehension/print.js';
 import { TeacherPageShell, TeacherPageHeader } from '../teacher/ui/TeacherPrimitives.jsx';
 import { WorksheetPreview } from '../WorksheetPreview.jsx';
+import ChildPageControls from '../ChildPageControls.jsx';
+import { useChildPages } from '../../hooks/useChildPages.js';
+import { usePassageCatalogueSize } from './usePassageCatalogueSize.js';
 import './comprehension.css';
 
 function useComprehensionAudio(ownerKey){
@@ -44,7 +47,8 @@ export default function ComprehensionPage({ teacher=false, scope='', groupScope=
  const [focus,setFocus]=useState('all');
  const [length,setLength]=useState('all');
  const [search,setSearch]=useState('');
- const [filtersOpen,setFiltersOpen]=useState(false);
+ const filtersDialog=useRef(null);
+ const pageSize=usePassageCatalogueSize();
  const [batch,setBatch]=useState([]);
  const [completionFilter,setCompletionFilter]=useState('all');
  const [collection,setCollection]=useState('all');
@@ -66,6 +70,9 @@ export default function ComprehensionPage({ teacher=false, scope='', groupScope=
  const p=passageById(selectedId);
  const catalogueHeading=useRef(null);
  const visible=useMemo(()=>COMPREHENSION_PASSAGES.filter(p=>(!teacher||collection==='all'||COMPREHENSION_EXPANSION_IDS.includes(p.id))&&(!teacher||completionFilter==='all'||(completionFilter==='completed'?groupChecks.completed.includes(p.id):!groupChecks.completed.includes(p.id)))&&(family==='all'||p.family===family)&&(focus==='all'||p.focus===focus)&&(length==='all'||(length==='short'?p.wordCount<=45:p.wordCount>45))&&`${p.title} ${p.focus} ${p.character}`.toLowerCase().includes(search.trim().toLowerCase())),[family,focus,length,search,teacher,completionFilter,groupChecks.completed,collection]);
+ const {visibleItems,pageIndex,pageCount,setPageIndex}=useChildPages(visible,pageSize,JSON.stringify([family,focus,length,search]));
+ const countLabel=`${visible.length} ${visible.length===1?'passage':'passages'}`;
+ function resetFilters(){setFamily('all');setFocus('all');setLength('all');setSearch('');setCompletionFilter('all');setCollection('all');}
  function choose(id){setSelectedId(id);setNote('');try{storage()?.setItem(selectionKey(scope),id);}catch{/* in-memory access remains available */}}
  function backToList(){choose('');requestAnimationFrame(()=>catalogueHeading.current?.focus());}
  async function print(ids,variant){
@@ -74,38 +81,51 @@ export default function ComprehensionPage({ teacher=false, scope='', groupScope=
   catch(error){setNote(error.message||'The print pages could not open. Check your connection, then try again.');}
   finally{setBusy(false);}
  }
+ const filterFields=<>
+  <label>Find a story<input type="search" value={search} onChange={e=>setSearch(e.target.value)} placeholder="Title or character"/></label>
+  <label>Phonics<select value={family} onChange={e=>{setFamily(e.target.value);setFocus('all');}}><option value="all">All patterns</option>{COMPREHENSION_FAMILIES.map(f=><option key={f.id} value={f.id}>{f.label}</option>)}</select></label>
+  <label>Focus<select value={focus} onChange={e=>setFocus(e.target.value)}><option value="all">All focuses</option>{[...new Set(COMPREHENSION_PASSAGES.filter(p=>family==='all'||p.family===family).map(p=>p.focus))].map(f=><option key={f}>{f}</option>)}</select></label>
+  <label>Length<select value={length} onChange={e=>setLength(e.target.value)}><option value="all">All lengths</option><option value="short">Shorter · up to 45 words</option><option value="more">More reading · 46+ words</option></select></label>
+ </>;
  const Shell=teacher?TeacherPageShell:'section';
  return <Shell {...(teacher?{product:'comprehension',intent:'resources'}:{'data-child-surface':'reading-comprehension','data-learning-lane':'language_and_meaning'})} className={`rc-page${!teacher&&!p?" rc-child-catalogue":""}`}>
   <nav aria-label="Reading comprehension navigation"><button className="rc-back" onClick={p?backToList:onBack}>← {p?'All passages':teacher?'Back to Teach':'Back to Books'}</button></nav>
   {teacher?<TeacherPageHeader eyebrow="Teaching resources" title="Reading Comprehension" description="One passage for reading together, group work and practice."/>:<header className="rc-heading">{!p?<h1 ref={catalogueHeading} tabIndex={-1} data-child-title="">Reading Comprehension</h1>:<p>Reading Comprehension</p>}<p data-child-instruction="">{p?'Read the story. Choose an answer and check it.':'Pick a story. Read it and find the answers.'}</p></header>}
   {teacher&&<h1 className="rc-sr-only" ref={catalogueHeading} tabIndex={-1}>Reading Comprehension passages</h1>}
   {teacher&&<p className="rc-group-status" role="status">{groupChecks.status==='needs-class'?'Select a class to keep whole-group completion checks.':groupChecks.status==='unavailable'?'Whole-group checks stay on this page. This browser could not save or load them for your next visit.':groupChecks.status==='invalid'?'Some saved whole-group checks could not be read. Check those passages again.':'Tick the sheets your whole group has done. Checks are saved for this class on this browser.'}</p>}
-  {p?<PassageWorkspace key={`${scope}:${p.id}`} passage={p} teacher={teacher} scope={scope||'temporary'} print={print} busy={busy} groupCompleted={groupChecks.completed.includes(p.id)} onGroupCompleted={completed=>setGroupCompleted(p.id,completed)} groupCompletionDisabled={!groupCompletionPrefix(groupScope)} groupCompletionSaved={groupChecks.status!=='unavailable'}/>:<>
-   {!teacher&&<button className="rc-find-toggle" aria-expanded={filtersOpen} onClick={()=>setFiltersOpen(!filtersOpen)}>{filtersOpen?"Hide search":"Find a story"}</button>}
-   {(teacher||filtersOpen)&&<section className="rc-filters" aria-label="Find a passage">
-    <label>Find a story<input type="search" value={search} onChange={e=>setSearch(e.target.value)} placeholder="Title or character"/></label>
-    <label>Phonics<select value={family} onChange={e=>{setFamily(e.target.value);setFocus('all');}}><option value="all">All patterns</option>{COMPREHENSION_FAMILIES.map(f=><option key={f.id} value={f.id}>{f.label}</option>)}</select></label>
-    <label>Focus<select value={focus} onChange={e=>setFocus(e.target.value)}><option value="all">All focuses</option>{[...new Set(COMPREHENSION_PASSAGES.filter(p=>family==='all'||p.family===family).map(p=>p.focus))].map(f=><option key={f}>{f}</option>)}</select></label>
-    <label>Length<select value={length} onChange={e=>setLength(e.target.value)}><option value="all">All lengths</option><option value="short">Shorter · up to 45 words</option><option value="more">More reading · 46+ words</option></select></label>
-    {teacher&&<label>Collection<select value={collection} onChange={e=>setCollection(e.target.value)}><option value="all">All passages</option><option value="expansion">New 100</option></select></label>}
-    {teacher&&<label>Whole group<select value={completionFilter} onChange={e=>setCompletionFilter(e.target.value)}><option value="all">All sheets</option><option value="todo">To do</option><option value="completed">Completed</option></select></label>}
-   </section>}
+  {p?<PassageWorkspace key={`${scope}:${p.id}`} passage={p} teacher={teacher} scope={scope||'temporary'} print={print} busy={busy} printNote={note} onBackToPassages={teacher?undefined:backToList} groupCompleted={groupChecks.completed.includes(p.id)} onGroupCompleted={completed=>setGroupCompleted(p.id,completed)} groupCompletionDisabled={!groupCompletionPrefix(groupScope)} groupCompletionSaved={groupChecks.status!=='unavailable'}/>:<>
+   {teacher?<section className="rc-filters" aria-label="Find a passage">
+    {filterFields}
+    <label>Collection<select value={collection} onChange={e=>setCollection(e.target.value)}><option value="all">All passages</option><option value="expansion">New 100</option></select></label>
+    <label>Whole group<select value={completionFilter} onChange={e=>setCompletionFilter(e.target.value)}><option value="all">All sheets</option><option value="todo">To do</option><option value="completed">Completed</option></select></label>
+   </section>:<>
+    <button className="rc-find-toggle" type="button" aria-haspopup="dialog" onClick={()=>filtersDialog.current.showModal()}>Find a story</button>
+    <dialog className="rc-search-dialog" ref={filtersDialog} aria-label="Find a passage">
+     <header className="rc-search-heading">
+      <p className="rc-search-count" role="status">{countLabel}</p>
+      <button type="button" className="rc-primary" onClick={()=>filtersDialog.current.close()}>Show stories</button>
+      <button type="button" onClick={resetFilters}>Show all passages</button>
+     </header>
+     <div className="rc-filters">{filterFields}</div>
+    </dialog>
+   </>}
    {teacher&&<p className="rc-note">Choose a pattern your readers have learned. Preview each passage’s support words before independent reading.</p>}
-   <p className="rc-count" role="status" data-child-progress="">{visible.length} {visible.length===1?'passage':'passages'}</p>
-   {!visible.length&&<div className="rc-panel"><p>No passages match these choices.</p><button className="rc-primary" data-child-primary="" onClick={()=>{setFamily('all');setFocus('all');setLength('all');setSearch('');setCompletionFilter('all');setCollection('all');}}>Show all passages</button></div>}
+   <p className="rc-count" role="status" data-child-progress="">{countLabel}</p>
+   {!visible.length&&<div className="rc-panel rc-catalogue-empty" data-child-choices={teacher?undefined:""}><p>No passages match these choices.</p><button className="rc-primary" data-child-primary="" onClick={resetFilters}>Show all passages</button></div>}
    {teacher&&<section className="rc-panel rc-batch" aria-label="Print selected passages"><h2>Print pack · {batch.length} selected</h2><p>Selections stay in your pack when you change filters.</p><div className="rc-actions"><button disabled={!visible.length||visible.every(p=>batch.includes(p.id))} onClick={()=>setBatch(ids=>[...new Set([...ids,...visible.map(p=>p.id)])])}>Select shown</button><button disabled={!batch.length||busy} onClick={()=>print(batch,'choice')}>Print multiple-choice sheets</button><button disabled={!batch.length||busy} onClick={()=>print(batch,'worksheet')}>Print written-answer sheets</button><button disabled={!batch.length||busy} onClick={()=>print(batch,'pair')}>Print with drawing pages</button><button disabled={!batch.length||busy} onClick={()=>print(batch,'picture')}>Print picture stories</button><button disabled={!batch.length||busy} onClick={()=>print(batch,'teacher')}>Print teacher guides</button><button disabled={!batch.length} onClick={()=>setBatch([])}>Clear selection</button></div></section>}
-   <div className="rc-catalogue" role="group" aria-label="Choose a passage" data-child-choices="">{visible.map((p,index)=><article className="rc-card" key={p.id} data-group-completed={teacher&&groupChecks.completed.includes(p.id)?'true':undefined}>
+   {(teacher||visible.length>0)&&<div className="rc-catalogue" role="group" aria-label="Choose a passage" data-child-choices="">{(teacher?visible:visibleItems).map((p,index)=><article className="rc-card" key={p.id} data-group-completed={teacher&&groupChecks.completed.includes(p.id)?'true':undefined}>
     <button className="rc-card-open" data-child-primary={!teacher&&index===0?"":undefined} data-child-emphasis={!teacher&&index===0?"primary":undefined} onClick={()=>choose(p.id)} aria-label={`Read ${p.title}`}><img src={`/images/worksheets/${p.character}-colouring.webp`} alt=""/><span className="rc-card-copy"><span className="rc-focus">{p.focus}</span><strong data-child-emphasis-cue={!teacher&&index===0?"":undefined}>{p.title}</strong><span>{p.wordCount} words · {titleCase(p.character)}</span></span></button>
     {teacher&&<label className="rc-group-check"><input type="checkbox" aria-label={`Whole group completed: ${p.title}`} checked={groupChecks.completed.includes(p.id)} disabled={!groupCompletionPrefix(groupScope)} onChange={e=>setGroupCompleted(p.id,e.target.checked)}/> Whole group completed</label>}
     {teacher&&<label className="rc-batch-choice"><input type="checkbox" checked={batch.includes(p.id)} onChange={e=>setBatch(ids=>e.target.checked?[...ids,p.id]:ids.filter(id=>id!==p.id))}/> Add to print pack</label>}
-   </article>)}</div>
+   </article>)}</div>}
+   {!teacher&&<ChildPageControls pageIndex={pageIndex} pageCount={pageCount} onPageChange={setPageIndex} label="Passage pages"/>}
 
   </>}
   <p className="rc-status" role="status" aria-live="polite">{note}</p>
  </Shell>;
 }
 
-export function PassageWorkspace({passage:p,teacher,scope,print,busy,printable=true,groupCompleted,onGroupCompleted,groupCompletionDisabled,groupCompletionSaved=true}){
+export function PassageWorkspace({passage:p,teacher,scope,print,busy,printNote,printable=true,onBackToPassages,backLabel,groupCompleted,onGroupCompleted,groupCompletionDisabled,groupCompletionSaved=true}){
  const [mode,setMode]=useState(teacher?'whole':'student');
  const [lessonOpen,setLessonOpen]=useState(false);
  const [picturesShown,setPicturesShown]=useState(true);
@@ -135,10 +155,11 @@ export function PassageWorkspace({passage:p,teacher,scope,print,busy,printable=t
  const exactWords=new Set(p.cycleNumber?cycleShortLearningWords(p):getPassagePhonicsWords(p));
  const sentenceText=(sentence,index)=><span key={index} className={reveal&&teacher&&mode!=='student'&&q.evidence.includes(sentence)?'rc-evidence':''}>{sentence.split(/(\b[a-zA-Z]+\b)/).map((word,i)=>highlight&&exactWords.has(word.toLowerCase())?p.cycleNumber?<strong key={i} data-phonics-word={word.toLowerCase()}>{word}</strong>:<mark key={i} data-phonics-word={word.toLowerCase()}>{word}</mark>:word)}{' '}</span>;
  async function enterLesson(){flushSync(()=>setLessonOpen(true));await requestBrowserFullscreen(document.getElementById('rc-lesson-stage'));}
- function exitLesson(){stopAudio('Audio stopped.');if(getBrowserFullscreenElement(document)===document.getElementById('rc-lesson-stage'))void exitBrowserFullscreen(document);setLessonOpen(false);}
+ function exitLesson(){stopAudio('Audio stopped.');if(getBrowserFullscreenElement(document)===document.getElementById('rc-lesson-stage'))void exitBrowserFullscreen(document);if(onBackToPassages)onBackToPassages();else setLessonOpen(false);}
  const childVariant=printVariant==='pair'?'choice':printVariant;
  const previewDoc=preview?buildComprehensionDocument({passageIds:[p.id],variant:childVariant}):null;
- return <><div className={`rc-workspace rc-mode-${mode}`} hidden={lessonOpen}>
+ const printPanel=printable&&<section className="rc-print rc-panel" aria-label="Printable worksheets"><h2>Read, write and colour</h2>{!onBackToPassages&&<p>Black-and-white pages with character outlines, handwriting lines and space to draw.</p>}<div className="rc-actions"><label>Page<select value={printVariant} onChange={e=>setPrintVariant(e.target.value)}><option value="choice">Read and choose · multiple choice</option><option value="picture">Picture story</option><option value="worksheet">Read and write answers</option><option value="extension">Draw, retell and find words</option><option value="pair">Multiple choice and drawing pages</option>{teacher&&<option value="teacher">Teacher guide and answers</option>}</select></label><button disabled={busy} onClick={()=>print([p.id],printVariant)}>Print / Save as PDF</button><button aria-expanded={preview} onClick={()=>setPreview(!preview)}>{preview?'Hide preview':'Preview page'}</button></div>{previewDoc&&<div className="rc-preview">{printVariant==='pair'&&<p>Showing the reading sheet. Choose the drawing page above to preview it.</p>}<WorksheetPreview html={previewDoc.html} title={previewDoc.title}/></div>}</section>;
+ return <>{!onBackToPassages&&<div className={`rc-workspace rc-mode-${mode}`} hidden={lessonOpen}>
   <header className="rc-story-heading"><div><p className="rc-focus">{p.focus} · {p.wordCount} words</p><h1 ref={heading} tabIndex={-1} data-child-title={teacher?undefined:""}>{p.title}</h1></div><img src={`/images/worksheets/${p.character}-colouring.webp`} alt={`${titleCase(p.character)}, the character in this story`}/></header>
   <div className="rc-workspace-actions"><button className="rc-fullscreen-entry" onClick={enterLesson}>Full screen</button>{teacher&&onGroupCompleted&&<label className="rc-group-check"><input type="checkbox" aria-label={`Whole group completed: ${p.title}`} checked={groupCompleted} disabled={groupCompletionDisabled} onChange={e=>onGroupCompleted(e.target.checked)}/> Whole group completed</label>}</div>
   {teacher&&<div className="rc-modes" role="group" aria-label="Teaching mode">{[['whole','Whole group'],['small','Small group'],['student','Student practice']].map(([id,label])=><button key={id} aria-pressed={mode===id} onClick={()=>changeMode(id)}>{label}</button>)}</div>}
@@ -166,6 +187,6 @@ export function PassageWorkspace({passage:p,teacher,scope,print,busy,printable=t
    </section>
   </div>
   {!saved&&<p role="status">Progress is available while this page stays open. This browser could not keep it for reload.</p>}
-  {printable&&<section className="rc-print rc-panel" aria-label="Printable worksheets"><h2>Read, write and colour</h2><p>Black-and-white pages with character outlines, handwriting lines and space to draw.</p><div className="rc-actions"><label>Page<select value={printVariant} onChange={e=>setPrintVariant(e.target.value)}><option value="choice">Read and choose · multiple choice</option><option value="picture">Picture story</option><option value="worksheet">Read and write answers</option><option value="extension">Draw, retell and find words</option><option value="pair">Multiple choice and drawing pages</option>{teacher&&<option value="teacher">Teacher guide and answers</option>}</select></label><button disabled={busy} onClick={()=>print([p.id],printVariant)}>Print / Save as PDF</button><button aria-expanded={preview} onClick={()=>setPreview(!preview)}>{preview?'Hide preview':'Preview page'}</button></div>{previewDoc&&<div className="rc-preview">{printVariant==='pair'&&<p>Showing the reading sheet. Choose the drawing page above to preview it.</p>}<WorksheetPreview html={previewDoc.html} title={previewDoc.title}/></div>}</section>}
- </div>{lessonOpen&&<ComprehensionLesson passage={p} teacher={teacher} mode={mode} groupCompleted={groupCompleted} onGroupCompleted={onGroupCompleted} groupCompletionDisabled={groupCompletionDisabled} groupCompletionSaved={groupCompletionSaved} q={q} questionIndex={questionIndex} selection={selection} response={response} checked={checked} reveal={reveal} showComplete={showComplete} practice={practice} highlight={highlight} audioNote={audioNote} saved={saved} pictures={picturesShown} onPictureToggle={()=>setPicturesShown(!picturesShown)} onExit={exitLesson} onStoryAudio={()=>playAudio(resolveComprehensionPassageAudio(p))} onQuestionAudio={()=>playAudio(resolveComprehensionQuestionAudio(q))} onStop={()=>stopAudio('Audio stopped.')} onHighlight={()=>setHighlight(!highlight)} onRead={index=>update({type:'read',index})} onSelect={option=>{setSelection(option);setChecked(false);}} onCheck={()=>{stopAudio();update({type:'answer',questionId:q.id,value:selection});setChecked(true);}} onReveal={()=>{stopAudio();setReveal(!reveal);}} onNext={nextQuestion} onFinish={()=>{stopAudio();setShowComplete(true);}} onReset={()=>{update({type:'reset'});setShowComplete(false);nextQuestion(0);}} learningWords={[...exactWords].map(w=>p.cycleNumber&&w==='i'?'I':w)} renderText={value=>value.split(/(?<=[.!?])\s+/).map(sentenceText)}/>}</>;
+  {printPanel}
+ </div>}{(lessonOpen||onBackToPassages)&&<ComprehensionLesson passage={p} teacher={teacher} mode={mode} groupCompleted={groupCompleted} onGroupCompleted={onGroupCompleted} groupCompletionDisabled={groupCompletionDisabled} groupCompletionSaved={groupCompletionSaved} q={q} questionIndex={questionIndex} selection={selection} response={response} checked={checked} reveal={reveal} showComplete={showComplete} practice={practice} highlight={highlight} audioNote={audioNote} saved={saved} pictures={picturesShown} onPictureToggle={()=>setPicturesShown(!picturesShown)} onExit={exitLesson} backToPassages={Boolean(onBackToPassages)} backLabel={backLabel} printPanel={onBackToPassages?printPanel:null} onPrintDrawing={onBackToPassages&&printable?()=>print([p.id],'extension'):null} printBusy={busy} printNote={onBackToPassages?printNote:undefined} onStoryAudio={()=>playAudio(resolveComprehensionPassageAudio(p))} onQuestionAudio={()=>playAudio(resolveComprehensionQuestionAudio(q))} onStop={()=>stopAudio('Audio stopped.')} onHighlight={()=>setHighlight(!highlight)} onRead={index=>update({type:'read',index})} onSelect={option=>{setSelection(option);setChecked(false);}} onCheck={()=>{stopAudio();update({type:'answer',questionId:q.id,value:selection});setChecked(true);}} onReveal={()=>{stopAudio();setReveal(!reveal);}} onNext={nextQuestion} onFinish={()=>{stopAudio();setShowComplete(true);}} onReset={()=>{update({type:'reset'});setShowComplete(false);nextQuestion(0);}} learningWords={[...exactWords].map(w=>p.cycleNumber&&w==='i'?'I':w)} renderText={value=>value.split(/(?<=[.!?])\s+/).map(sentenceText)}/>}</>;
 }

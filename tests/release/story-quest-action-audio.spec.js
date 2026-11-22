@@ -2,6 +2,7 @@ import { expect, test } from "@playwright/test";
 import { getStoryQuestLedaAudioPath } from "../../src/data/storyQuestLedaAudio.js";
 import { storyQuestPlayText } from "../../src/data/storyQuestReaderCopy.js";
 import { getStoryQuestById } from "../../src/data/storyQuests.js";
+import { showStoryQuestCard, showStoryQuestReaderPane } from "./helpers/storyQuestShelf.js";
 
 test("scene actions and their Leda recordings play independently of path selection", async ({ page }) => {
   test.setTimeout(120_000);
@@ -27,10 +28,12 @@ test("scene actions and their Leda recordings play independently of path selecti
 
   await page.goto("/preview/child-surfaces.html?surface=story-quests");
   await page.getByRole("button", { name: "Moonwood", exact: true }).click();
-  await page.locator(".kg-quest-open").filter({ hasText: quest.shortTitle }).click();
+  const card = await showStoryQuestCard(page, page.locator(".kg-quest-open").filter({ hasText: quest.shortTitle }));
+  await card.click();
   const reader = page.locator(".story-quest-reader");
   await reader.getByRole("button", { name: "Next", exact: true }).click();
   await expect(reader).toHaveAttribute("data-page-id", scene.id);
+  await showStoryQuestReaderPane(reader, "Explore");
   const exploration = reader.getByRole("region", { name: "Explore the scene", exact: true });
   const audioStarted = path => page.evaluate(path => window.__sceneAudio.some(audio => (
     new URL(audio.src).pathname === path && audio.currentTime > 0 && !audio.error
@@ -56,6 +59,7 @@ test("scene actions and their Leda recordings play independently of path selecti
   await expect(exploration.getByText(otherAction.reveal, { exact: true })).toBeVisible();
   await expect(reader).toHaveAttribute("data-page-id", scene.id);
 
+  await showStoryQuestReaderPane(reader, "Choose");
   await reader.getByRole("button", { name: scene.choices[0].label, exact: true }).click();
   await expect(reader).toHaveAttribute("data-page-id", scene.choices[0].nextPageId);
 });

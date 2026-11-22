@@ -36,6 +36,23 @@
 .rc-game :is(.rc-header, .rc-objective, .rc-dialog) :is(h1, h2, h3) { font-family: inherit; }
 .rc-game :is(.rc-dialog, .rc-objective, .rc-title, .rc-explore-footer) :is(small, .rc-save, .rc-eyebrow) { color: var(--lp-ink-soft); }
 .rc-game .rc-primary { background: var(--lp-sage); color: var(--lp-white); border-color: transparent; }
+@media (max-width: 430px) and (min-height: 501px) {
+  .rc-game .rc-title {
+    display: grid;
+    grid-template-columns: 64px minmax(0, 1fr);
+    align-items: center;
+    gap: 6px 8px;
+    padding: 12px;
+    overflow: clip;
+  }
+  .rc-game .rc-title > img { grid-area: 1 / 1 / 3; width: 56px; height: 64px; justify-self: center; }
+  .rc-game .rc-title > .rc-eyebrow { grid-area: 1 / 2; margin: 0; font-size: 12px; }
+  .rc-game .rc-title > h1 { grid-area: 2 / 2; margin: 0; font-size: 26px; }
+  .rc-game .rc-title > :is([data-child-instruction], .rc-primary, [data-child-choices]) { grid-column: 1 / -1; margin: 0; }
+  .rc-game .rc-title > [data-child-choices] > button { margin: 0; padding-inline: 8px; }
+  .rc-game .rc-title > .rc-save { grid-area: 6 / 2; margin: 0; }
+  .rc-game .rc-title > .rc-home { grid-area: 6 / 1; min-height: 44px; padding: 6px; margin: 0; }
+}
 .rc-world-marker > img { width: 48px; height: 48px; object-fit: contain; pointer-events: none; }
 .rc-journey { margin: 12px 0; border: var(--lp-border); border-radius: var(--lp-radius-card); background: var(--lp-cream); }
 .rc-journey > summary { display: flex; align-items: center; min-height: 56px; padding: 10px 14px; font-weight: 750; cursor: pointer; }

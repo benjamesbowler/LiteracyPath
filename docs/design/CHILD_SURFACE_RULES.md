@@ -26,30 +26,28 @@ card fits the initial usable pane; optional search remains secondary.
 
 - Home, Books, Arcade, Hollow collections and Words use native visual-viewport
   geometry at scale 1. Shell identity and bottom navigation remain stable.
-  Each collection owns one visible vertical scroll area when needed. The body
-  and shell do not overflow horizontally; content is never silently clipped.
+  A child can see the current task, complete labels and tap targets in the
+  usable pane. Collections that exceed it use visible Previous and Next
+  controls with a page count. Search and support can use their own named panes.
 - Home exposes eight picture destinations: Map, Books, Stories, Arcade,
-  Letters, Words, Sounds and Hollow. An optional reduced-choice accessibility
-  setting remains an explicit learner preference, not the default.
-- Arcade opens on the complete eligible game roster. Recommendation is an
-  in-card cue; progress and settings are optional utilities. No More gate,
-  category knowledge or text pager is needed to find another game. Picture
-  cards grow with the available gallery width and height, keeping full artwork
-  above complete names. All 24 games and both section headings fit without
-  scrolling on laptop and tablet viewports. Small phones retain one continuous
-  scroll area to preserve readable names and the child touch-target floor.
-- Books opens on a compact exact-book continuation and a continuous eligible
-  cover gallery with complete titles and picture categories. Detailed filters
-  can be an optional sheet; opening them must not shrink the gallery cards.
+  Letters, Words, Sound Seekers and Skills trail. Small screens open the
+  picture menu from Choose a place. My Hollow is available in the bottom rail.
+  Reduced choices remain an explicit learner preference.
+- Arcade offers the complete eligible game roster. Recommendation is an
+  in-card cue. Progress and settings are optional utilities. Picture cards
+  keep full artwork above complete names. Smaller viewports page through the
+  same games and preserve the physical touch-target floor.
+- Books opens on a compact exact-book continuation and the eligible cover
+  gallery with complete titles and visible page controls. Find a book opens
+  its own panel with search and filters.
 - Every catalogue card contains its full art, title, price/status and action.
   Natural row heights grow with text. Whole creatures/objects remain visible;
   intentional cover/thumbnail cropping is restricted to their art frames.
 - Learning engines may retain a bounded authored canvas when all required
-  controls fit. Letters shows all 26 freely selectable letters in one grid with Complete or
-  Try again statuses. Small screens retain a continuous scroll path when the
-  touch floor prevents fitting every card; no alphabet paging or reveal gate.
-  Words offers every family without prerequisite locks. Story Quests retains
-  its paged world grid. Viewport
+  controls fit. Letters offers all 26 freely selectable letters with Complete
+  or Try again statuses. On smaller screens the letter grid has visible pages.
+  Words gives access to every family in the chooser. Story Quests uses a paged
+  world grid and fits every active scene in the reader. Viewport
   scaling must compensate touch floors and use Safari's visible viewport.
 - The Adventure Map is a forward journey, not a level picker. A new child
   starts at Meadow cycle 1, then progresses through Meadow, Dino and Moonwood.
@@ -140,9 +138,10 @@ contract mounts the real component for all nine child rows and requires the
 route root, all five visible regions, exactly one `h1`, exactly one primary
 action, and zero page errors. The ship checks distinguish native catalogues from bounded learning activities.
 They check the actual painted art, text, prices and controls, row intersections,
-clipping ancestors, keyboard focus and last-card reachability. Native catalogue
-scrolling is intentional; zero body scrolling alone does not establish fit.
-The device matrix includes 320×568, 568×320, 768×1024, 1024×768, 1366×768 and
+clipping ancestors, keyboard focus and last-card reachability. A body with
+zero scrolling can still hide controls inside a clipped pane.
+For each fitted page, measure visible artwork, labels and tap targets before
+clicking. The device matrix includes 320×568, 568×320, 768×1024, 1024×768, 1366×768 and
 1920×1080. Physical iPad and classroom/listening observations remain separate
 from emulation and automated ordering evidence.
 

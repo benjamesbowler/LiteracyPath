@@ -1669,3 +1669,291 @@
   .phonics-step-tracer .phonics-step-actions .phonics-button { width: auto; min-width: 56px; flex: 1; padding-inline: 6px; }
   .phonics-step-tracer .phonics-step-status p { font-size: 1rem; line-height: 1.2; }
 }
+
+.cvc-hear-picture-audio {
+  display: none;
+}
+
+@media (max-width: 600px), (max-height: 500px) and (orientation: landscape) {
+  .kg-stage .student-surface-phonics .cvc-learning-flow[data-cvc-step="1"] {
+    height: calc(var(--kg-visible-height, 100dvh) - var(--kg-header-height) - var(--kg-tabbar-height) - 20px);
+    gap: 4px;
+  }
+
+  .kg-stage .student-surface-phonics [data-cvc-step="1"] .phonics-flow-header {
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 10px;
+    min-height: 44px;
+  }
+
+  .kg-stage .student-surface-phonics [data-cvc-step="1"] .phonics-flow-header > div {
+    grid-column: 2;
+    width: min(100%, 250px);
+    min-width: 0;
+  }
+
+  .kg-stage .student-surface-phonics [data-cvc-step="1"] .phonics-back-button {
+    min-height: 44px;
+    padding: 6px 10px;
+    font-size: .82rem;
+  }
+
+  [data-cvc-step="1"] .phonics-progress-step {
+    flex: 1;
+    min-width: 0;
+    gap: 3px;
+  }
+
+  [data-cvc-step="1"] .phonics-progress-segment {
+    flex: 1;
+    width: auto;
+    min-width: 6px;
+    height: 8px;
+  }
+
+  [data-cvc-step="1"] .phonics-progress-star {
+    font-size: 1.05rem;
+  }
+
+  .kg-stage .student-surface-phonics .cvc-hear-step.kg-child-flow__content[data-learning-object="cvc-hear"] {
+    grid-template-areas: "heading" "picture" "letters" "actions";
+    grid-template-rows: auto minmax(48px, 1fr) auto auto;
+    align-items: center;
+    gap: 4px 8px;
+    padding: 4px;
+  }
+
+  [data-cvc-step="1"] .cvc-step-heading {
+    grid-area: heading;
+    gap: 2px;
+    text-align: center;
+  }
+
+  .kg-stage .student-surface-phonics [data-cvc-step="1"] .cvc-step-heading h2 {
+    font-size: 1.25rem;
+  }
+
+  .kg-stage .student-surface-phonics [data-cvc-step="1"] .cvc-step-heading p {
+    margin: 0;
+    font-size: .85rem;
+    line-height: 1.2;
+  }
+
+  .kg-stage .student-surface-phonics [data-cvc-step="1"] .cvc-word-picture-button {
+    position: relative;
+    grid-area: picture;
+    width: auto;
+    height: 100%;
+    min-width: 44px;
+    min-height: 44px;
+    max-height: 140px;
+    padding: 4px;
+    border-radius: 16px;
+  }
+
+  .cvc-hear-step .cvc-hear-picture-audio {
+    position: absolute;
+    inset: 4px 4px auto auto;
+    display: block;
+    width: 16px;
+    height: 16px;
+    color: var(--kg-accent);
+    pointer-events: none;
+  }
+
+  [data-cvc-step="1"] .cvc-letter-row {
+    grid-area: letters;
+    flex-wrap: nowrap;
+    gap: 8px;
+  }
+
+  .kg-stage .student-surface-phonics [data-cvc-step="1"] .cvc-sound-tile {
+    width: 52px;
+    height: 48px;
+    border-radius: 12px;
+    font-size: 1.75rem;
+  }
+
+  .kg-stage .student-surface-phonics [data-cvc-step="1"] .cvc-step-actions {
+    grid-area: actions;
+    min-height: 0;
+    flex-wrap: nowrap;
+    gap: 8px;
+  }
+
+  .kg-stage .student-surface-phonics [data-cvc-step="1"] .cvc-step-actions button {
+    width: auto;
+    min-width: 88px;
+    min-height: 44px;
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-size: .9rem;
+  }
+
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .kg-stage .student-surface-phonics .cvc-hear-step.kg-child-flow__content[data-learning-object="cvc-hear"] {
+    grid-template-areas: "heading letters" "picture actions";
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    grid-template-rows: auto minmax(44px, 1fr);
+  }
+}
+
+@media (max-width: 600px), (max-height: 500px) and (orientation: landscape) {
+  .kg-stage .student-surface-phonics:has(.cvc-learning-flow:is([data-cvc-step="2"], [data-cvc-step="3"], [data-cvc-step="celebration"])) :is(.phonics-learn-page, .phonics-tab-shell) {
+    height: 100%;
+    min-height: 0;
+    overflow: clip;
+  }
+
+  .kg-stage .student-surface-phonics .cvc-learning-flow:is([data-cvc-step="2"], [data-cvc-step="3"], [data-cvc-step="celebration"]) {
+    height: 100%;
+    min-height: 0;
+    gap: 4px;
+  }
+
+  .kg-stage .cvc-learning-flow:is([data-cvc-step="2"], [data-cvc-step="3"]) .phonics-flow-header {
+    grid-template-columns: auto minmax(0, 1fr);
+    min-height: 44px;
+    gap: 8px;
+  }
+
+  .kg-stage .cvc-learning-flow:is([data-cvc-step="2"], [data-cvc-step="3"]) .phonics-flow-header > div {
+    grid-column: 2;
+    width: min(100%, 230px);
+    min-width: 0;
+  }
+
+  .cvc-learning-flow:is([data-cvc-step="2"], [data-cvc-step="3"]) .phonics-progress-step {
+    flex: 1;
+    min-width: 0;
+    gap: 3px;
+  }
+
+  .cvc-learning-flow:is([data-cvc-step="2"], [data-cvc-step="3"]) .phonics-progress-segment {
+    flex: 1;
+    width: auto;
+    min-width: 6px;
+    height: 8px;
+  }
+
+  .cvc-learning-flow:is([data-cvc-step="2"], [data-cvc-step="3"]) .phonics-progress-star { font-size: 1.05rem; }
+
+  .kg-stage .student-surface-phonics :is(.cvc-build-step, .cvc-magic-step).kg-child-flow__content {
+    display: grid;
+    grid-template: auto minmax(0, 1fr) / minmax(0, 1fr);
+    align-items: start;
+    gap: 4px;
+    padding: 4px;
+    overflow: clip;
+  }
+
+  .student-mode-app .kg-stage :is(.cvc-build-step, .cvc-magic-step) > :is(p, h2) {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .kg-stage :is(.cvc-build-step, .cvc-magic-step) .learning-teaching-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    gap: 6px;
+    width: min(100%, 540px);
+    margin: 0 auto;
+    padding: 8px;
+    overflow: clip;
+  }
+
+  .student-mode-app .kg-stage :is(.cvc-build-step, .cvc-magic-step) .learning-teaching-card :is(p, h2) { margin: 0; }
+  .student-mode-app .kg-stage :is(.cvc-build-step, .cvc-magic-step) .learning-teaching-card h2 { font-size: 21px; line-height: 1.2; }
+  .kg-stage :is(.cvc-build-step, .cvc-magic-step) .learning-teaching-kicker,
+  .kg-stage :is(.cvc-build-step, .cvc-magic-step) .learning-teaching-card p[role="status"] { font-size: 13px; line-height: 1.2; }
+
+  .kg-stage :is(.cvc-build-step, .cvc-magic-step) .learning-practice-stimulus {
+    display: flex;
+    min-width: 0;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 3px 6px;
+  }
+
+  .kg-stage :is(.cvc-build-step, .cvc-magic-step) .learning-teaching-picture { width: 68px; height: 68px; }
+  .kg-stage :is(.cvc-build-step, .cvc-magic-step) .learning-teaching-passage { padding: 4px 10px; font-size: 20px; }
+  .kg-stage :is(.cvc-build-step, .cvc-magic-step) .phonics-target-hint { flex-basis: 100%; font-size: 13px; }
+  .kg-stage :is(.cvc-build-step, .cvc-magic-step) .learning-teaching-replay { padding: 4px 10px; font-size: 14px; }
+
+  .kg-stage :is(.cvc-build-step, .cvc-magic-step) .learning-guided-parts {
+    --kg-physical-hit: 44px;
+    width: 100%;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(44px, 60px);
+    grid-template-rows: auto;
+    gap: 4px;
+  }
+
+  .kg-stage :is(.cvc-build-step, .cvc-magic-step) .learning-teaching-card button.learning-guided-action {
+    min-width: 44px;
+    min-height: 44px;
+    margin: 0;
+    padding: 3px;
+    font-size: 25px;
+  }
+
+  .kg-stage .student-surface-phonics .cvc-learning-flow[data-cvc-step="celebration"] {
+    position: relative;
+    height: calc(var(--kg-visible-height, 100dvh) - var(--kg-header-height) - var(--kg-tabbar-height) - 20px);
+  }
+  .kg-stage .cvc-learning-flow[data-cvc-step="celebration"] .phonics-flow-header { visibility: hidden; }
+  .kg-stage .cvc-learning-flow[data-cvc-step="celebration"] .phonics-celebration-overlay {
+    position: absolute;
+    padding: 6px;
+    background: transparent;
+  }
+  .kg-stage .cvc-learning-flow[data-cvc-step="celebration"] .phonics-celebration-card {
+    padding: 12px;
+    border-radius: 16px;
+    border: 1px solid #DFE3EB;
+    box-shadow: none;
+  }
+  .kg-stage .cvc-learning-flow[data-cvc-step="celebration"] .phonics-celebration-stars { font-size: 28px; }
+  .student-mode-app .kg-stage .cvc-learning-flow[data-cvc-step="celebration"] .phonics-celebration-card h2 {
+    color: var(--kg-ink);
+    font-size: 25px;
+    line-height: 1.2;
+  }
+  .kg-stage .cvc-learning-flow[data-cvc-step="celebration"] .phonics-celebration-card p { margin: 4px 0 10px; font-size: 15px; }
+  .kg-stage .cvc-learning-flow[data-cvc-step="celebration"] .phonics-celebration-actions { flex-direction: row; gap: 6px; }
+  .kg-stage .cvc-learning-flow[data-cvc-step="celebration"] .phonics-celebration-actions button {
+    flex: 1;
+    min-width: 44px;
+    padding: 4px 7px;
+    font-size: 14px;
+  }
+}
+
+@media (max-height: 430px) and (orientation: landscape) {
+  .kg-stage:has(.cvc-learning-flow:is([data-cvc-step="2"], [data-cvc-step="3"], [data-cvc-step="celebration"])) > .kg-header { display: none; }
+  .kg-stage :is(.cvc-build-step, .cvc-magic-step) .learning-teaching-card {
+    --kg-physical-hit: 44px;
+    grid-template-columns: 108px minmax(0, 1fr);
+    grid-template-rows: auto auto auto minmax(0, auto);
+    align-items: center;
+    gap: 4px 8px;
+  }
+  .kg-stage :is(.cvc-build-step, .cvc-magic-step) .learning-teaching-kicker { display: none; }
+  .kg-stage :is(.cvc-build-step, .cvc-magic-step) .learning-practice-stimulus { grid-area: 1 / 1 / 4 / 2; }
+  .kg-stage :is(.cvc-build-step, .cvc-magic-step) .learning-teaching-replay { grid-area: 4 / 1; align-self: start; }
+  .kg-stage :is(.cvc-build-step, .cvc-magic-step) .learning-teaching-card h2 { grid-area: 1 / 2; }
+  .kg-stage .cvc-build-step .learning-teaching-card p[aria-label="Built parts"] { grid-area: 2 / 2; }
+  .kg-stage :is(.cvc-build-step, .cvc-magic-step) .learning-guided-parts { grid-area: 3 / 2; }
+  .kg-stage :is(.cvc-build-step, .cvc-magic-step) .learning-teaching-card p[role="status"] { grid-area: 4 / 2; }
+  .kg-stage .cvc-magic-step .learning-guided-parts { grid-area: 2 / 2 / 4 / 3; }
+  .kg-stage .cvc-magic-step .learning-practice-stimulus { grid-area: 1 / 1 / 3 / 2; }
+  .kg-stage .cvc-magic-step .learning-teaching-replay { grid-area: 3 / 1; }
+  .kg-stage .cvc-magic-step .learning-teaching-picture { width: 46px; height: 46px; }
+}

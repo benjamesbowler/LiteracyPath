@@ -1,5 +1,6 @@
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { SpeakerHigh } from "@phosphor-icons/react";
 import PhonicsButton from "../components/PhonicsButton";
 import { WordImage } from "../components/WordImage";
 import { getLetterSoundCue, cvcStepEvidence, playCvcSoundSequence, useCvcSoundCue, useCvcWordModels } from "./cvcHelpers";
@@ -69,11 +70,15 @@ const StepHearWord = memo(function StepHearWord({ family, onComplete }) {
 
   if (!currentWord) return null;
 
+  const audioFailed = delivery === "unavailable" || delivery === "interrupted";
+
   return (
     <motion.div className="phonics-step cvc-step cvc-hear-step kg-child-flow__content" data-learning-object="cvc-hear" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, x: -80 }}>
       <div className="cvc-step-heading">
         <h2>Listen to the Word</h2>
-        <p>Hear each sound join to make a word.</p>
+        <p role={audioFailed ? "status" : undefined}>
+          {audioFailed ? "Sound stopped. Try again, or keep going." : "Hear each sound join to make a word."}
+        </p>
       </div>
 
       <motion.button
@@ -84,6 +89,7 @@ const StepHearWord = memo(function StepHearWord({ family, onComplete }) {
         aria-label={`Hear ${currentWord.word}`}
       >
         <WordImage src={currentWord.image} word={currentWord.word} priority />
+        <SpeakerHigh className="cvc-hear-picture-audio" aria-hidden="true" />
       </motion.button>
 
       <div className="cvc-letter-row cvc-letter-row-squeeze" aria-label={`Sounds in ${currentWord.word}`} role="group">
@@ -106,9 +112,8 @@ const StepHearWord = memo(function StepHearWord({ family, onComplete }) {
 
       <div className="cvc-step-actions">
         <button className="cvc-speaker-button" onClick={() => { void runSoundOut(); }} type="button" aria-label="Sound out the word">
-          Audio
+          Sound out
         </button>
-        {["unavailable", "interrupted"].includes(delivery) && <p role="status">The sound did not finish. Retry Audio, or continue with picture support.</p>}
         <AnimatePresence>
           <motion.span initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>
               <PhonicsButton onClick={handleNext}>{isLastWord ? "Continue" : "Next Word"}</PhonicsButton>

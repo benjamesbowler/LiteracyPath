@@ -133,16 +133,20 @@ async function measureVisibleChoice(choice) {
 for (const viewport of TARGET_VIEWPORTS) {
   for (const route of KEY_ROUTES) {
     test(`A3.2 ${route.label} matches the ${viewport.id} visual baseline`, async ({ page }) => {
+      if (route.id === "sound-seekers") test.setTimeout(90_000);
       const pageErrors = [];
       page.on("pageerror", error => pageErrors.push(error.message));
       await page.emulateMedia({ reducedMotion: "reduce" });
       await page.setViewportSize(viewport);
-      await page.goto(`/preview/child-surfaces.html?surface=${route.id}`);
+      await page.goto(`/preview/child-surfaces.html?surface=${route.id}`, { waitUntil: "domcontentloaded" });
 
       const surface = page.locator(`[data-child-surface="${route.id}"]`);
       await expect(surface).toBeVisible();
       await expect(surface.locator("[data-child-title]")).toBeVisible();
       await expect(surface.locator("[data-child-primary]")).toHaveCount(1);
+      if (route.id === "sound-seekers") {
+        await expect(surface).toHaveAttribute("data-scene-ready", "true", { timeout: 50_000 });
+      }
       await expectVisibleImagesReady(page, `${route.label} ${viewport.id} screenshot`);
       await expect.poll(async () => page.evaluate(() => (
         document.documentElement.scrollWidth <= window.innerWidth

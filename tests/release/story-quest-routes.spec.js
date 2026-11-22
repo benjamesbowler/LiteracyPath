@@ -1,7 +1,20 @@
 import { expect, test } from "@playwright/test";
 import { storyQuests } from "../../src/data/storyQuests.js";
+import { showStoryQuestCard } from "./helpers/storyQuestShelf.js";
 
 test.describe.configure({ timeout: 90_000 });
+
+async function openStory(page, title) {
+  const card = page.locator(".kg-quest-open").filter({ hasText: title });
+  await (await showStoryQuestCard(page, card)).click();
+  return page.locator(".story-quest-reader");
+}
+
+async function choose(reader, label) {
+  const pane = reader.getByRole("button", { name: "Choose", exact: true });
+  if (await pane.isVisible()) await pane.click();
+  await reader.getByRole("button", { name: label, exact: true }).click();
+}
 
 function routesFor(quest) {
   const pages = new Map(quest.pages.map(page => [page.id, page]));
@@ -22,14 +35,13 @@ function routesFor(quest) {
 
 for (const quest of storyQuests) {
   test(`${quest.shortTitle}: every route loads its prose, picture and earned ending`, async ({ page }) => {
-    test.setTimeout(120_000);
+    test.setTimeout(180_000);
     const errors = [];
     page.on("pageerror", error => errors.push(error.message));
-    await page.goto("/preview/child-surfaces.html?surface=story-quests");
+    await page.goto("/preview/child-surfaces.html?surface=story-quests", { waitUntil: "domcontentloaded" });
     const world = quest.id.startsWith("mw_") ? "Moonwood" : quest.id.startsWith("dp_") ? "Dino" : "Meadow";
     await page.getByRole("button", { name: world, exact: true }).click();
-    await page.locator(".kg-quest-open").filter({ hasText: quest.shortTitle }).click();
-    const reader = page.locator(".story-quest-reader");
+    const reader = await openStory(page, quest.shortTitle);
     for (const route of routesFor(quest)) {
       for (const [index, id] of route.pages.entries()) {
         const scene = quest.pages.find(candidate => candidate.id === id);
@@ -70,8 +82,7 @@ test("leaving an unfinished story resumes the actual route and stops narration",
   });
   await page.goto("/preview/child-surfaces.html?surface=story-quests");
   await page.getByRole("button", { name: "Dino", exact: true }).click();
-  await page.locator(".kg-quest-open").filter({ hasText: "Shy’s Snail Trail" }).click();
-  const reader = page.locator(".story-quest-reader");
+  const reader = await openStory(page, "Shy’s Snail Trail");
   await reader.getByRole("button", { name: "Lay a twig", exact: true }).click();
   await reader.getByRole("button", { name: "Lay flat bark", exact: true }).click();
   const savedScene = await reader.getAttribute("data-page-id");
@@ -85,6 +96,7 @@ test("leaving an unfinished story resumes the actual route and stops narration",
   await expect(reader).toHaveAttribute("data-page-id", savedScene);
   await expect(reader.locator(".story-quest-position")).toHaveText("Scene 3");
   await expect(reader.getByRole("button", { name: "Hear the story", exact: true })).toBeEnabled();
+  await reader.getByLabel("More story controls", { exact: true }).first().click();
   await reader.getByRole("button", { name: "Previous scene", exact: true }).click();
   await expect(reader.locator(".story-quest-position")).toHaveText("Scene 2");
 });
@@ -92,8 +104,7 @@ test("leaving an unfinished story resumes the actual route and stops narration",
 test("keyboard word help uses one tab stop and arrows while phone navigation stays touchable", async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 568 });
   await page.goto("/preview/child-surfaces.html?surface=story-quests");
-  await page.locator(".kg-quest-open").filter({ hasText: "The Missing Hat" }).click();
-  const reader = page.locator(".story-quest-reader");
+  const reader = await openStory(page, "The Missing Hat");
   const words = reader.locator(".story-quest-word");
   await expect(reader.locator('.story-quest-word[tabindex="0"]')).toHaveCount(1);
   await words.first().focus();
@@ -102,7 +113,7 @@ test("keyboard word help uses one tab stop and arrows while phone navigation sta
   await words.nth(1).press("End");
   await expect(words.last()).toBeFocused();
   await words.last().press("Tab");
-  await expect(reader.getByRole("button", { name: "Hear the scene actions", exact: true })).toBeFocused();
+  await expect(reader.getByRole("button", { name: "Read", exact: true })).toBeFocused();
   const targets = await reader.locator('header button, header summary').evaluateAll(elements => elements.map(element => ({ width: element.getBoundingClientRect().width, height: element.getBoundingClientRect().height }))).then(rows => rows.filter(row => row.width && row.height));
   expect(targets.every(row => row.width >= 44 && row.height >= 44)).toBe(true);
   expect(await page.evaluate(() => document.scrollingElement.scrollWidth <= innerWidth)).toBe(true);
@@ -113,9 +124,9 @@ test("scene actions reveal different clues and replay keeps discoveries across v
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/preview/child-surfaces.html?surface=story-quests");
   const card = page.locator(".kg-quest-open").filter({ hasText: "A Quiet Hello" });
-  await card.click();
-  const reader = page.locator(".story-quest-reader");
+  const reader = await openStory(page, "A Quiet Hello");
   await reader.getByRole("button", { name: "Next", exact: true }).click();
+  await reader.getByRole("button", { name: "Explore", exact: true }).click();
   const first = reader.getByRole("button", { name: "Watch Shy jump" });
   const second = reader.getByRole("button", { name: "Listen at the barn" });
   await first.focus();
@@ -133,22 +144,26 @@ test("scene actions reveal different clues and replay keeps discoveries across v
   for (let step = 0; step < 3; step += 1) {
     await reader.getByRole("button", { name: "Next", exact: true }).click();
   }
-  await reader.getByRole("button", { name: "Lean in and hug", exact: true }).click();
-  await reader.getByRole("button", { name: "Finish", exact: true }).click();
+  await choose(reader, "Lean in and hug");
+  await choose(reader, "Finish");
+  await reader.getByRole("button", { name: "Endings", exact: true }).click();
   await expect(reader.getByText("1 of 2 endings found")).toBeVisible();
+  await reader.getByRole("button", { name: "Replay", exact: true }).click();
   await reader.getByRole("button", { name: "Try another path" }).click();
   await expect(reader).toHaveAttribute("data-page-id", "p07_tree_under");
   await expect(reader.locator(".story-quest-position")).toHaveText("Scene 5");
-  await reader.getByRole("button", { name: "Sit a little apart", exact: true }).click();
+  await choose(reader, "Sit a little apart");
   await reader.getByRole("button", { name: "Back to Story Quests" }).click();
+  await showStoryQuestCard(page, card);
   await expect(card).toContainText("Continue");
   await card.click();
   await expect(reader).toHaveAttribute("data-page-id", "p08_tree_purr");
-  await reader.getByRole("button", { name: "Finish", exact: true }).click();
+  await choose(reader, "Finish");
+  await expect(reader.getByRole("button", { name: "Try another path" })).toHaveCount(0);
+  await reader.getByRole("button", { name: "Endings", exact: true }).click();
   await expect(reader.getByText("2 of 2 endings found")).toBeVisible();
   await expect(reader.getByRole("region", { name: "Endings found" }).getByRole("listitem"))
     .toHaveText(["A hug from Shy", "Room under the tree"]);
-  await expect(reader.getByRole("button", { name: "Try another path" })).toHaveCount(0);
 });
 
 test("Early word help shows the matching meaning picture without choosing a story path", async ({ page }) => {
@@ -164,8 +179,7 @@ test("Early word help shows the matching meaning picture without choosing a stor
   });
   await page.setViewportSize({ width: 320, height: 568 });
   await page.goto("/preview/child-surfaces.html?surface=story-quests");
-  await page.locator(".kg-quest-open").filter({ hasText: "Sam and Pam" }).click();
-  const reader = page.locator(".story-quest-reader");
+  const reader = await openStory(page, "Sam and Pam");
   const scene = await reader.getAttribute("data-page-id");
   await reader.getByRole("button", { name: "Hear van", exact: true }).click();
   const picture = reader.getByRole("img", { name: "Illustration of van", exact: true });

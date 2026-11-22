@@ -7,8 +7,13 @@ test("the complete Books entry opens the actual song and leaving stops playback"
     json: { schemaVersion: 1, id: "hop-and-stop", status: "complete", verifiedMedia: HOP_AND_STOP_REQUIRED_MEDIA }
   }));
   await page.goto("/preview/child-surfaces.html?surface=reading-library");
+  const openReading = async () => {
+    await page.getByRole("button", { name: "Find a book", exact: true }).click();
+    await page.getByRole("button", { name: "More reading", exact: true }).click();
+  };
+  await openReading();
   const open = page.getByRole("button", { name: "Open song and story", exact: true });
-  await open.scrollIntoViewIfNeeded();
+  await expect(open).toBeInViewport({ ratio: 1 });
   await page.screenshot({ path: `.artifacts/hop-and-stop/books-${testInfo.project.name}.png` });
   await open.click();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
@@ -23,13 +28,16 @@ test("the complete Books entry opens the actual song and leaving stops playback"
   await page.getByRole("button", { name: "Choose an activity", exact: true }).click();
   expect(await page.evaluate(() => window.__hopVideoForExitCheck.paused)).toBe(true);
   await page.getByRole("button", { name: "Back to Books", exact: true }).click();
-  await expect(page.getByRole("button", { name: "Open song and story", exact: true })).toBeVisible();
+  await openReading();
+  await expect(open).toBeVisible();
 });
 
 test("a missing publication receipt keeps the unfinished unit out of Books", async ({ page }) => {
   await page.route("**/action-songs/hop-and-stop/release.json", route => route.fulfill({ status: 404, body: "Not released" }));
   await page.goto("/preview/child-surfaces.html?surface=reading-library");
   await expect(page.getByRole("heading", { name: "Books", exact: true })).toBeVisible();
+  await page.getByRole("button", { name: "Find a book", exact: true }).click();
+  await page.getByRole("button", { name: "More reading", exact: true }).click();
   await expect(page.getByRole("button", { name: "Open song and story", exact: true })).toHaveCount(0);
 });
 
