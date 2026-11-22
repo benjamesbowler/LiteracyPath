@@ -40,7 +40,7 @@
       },
       {
         "pageNumber": 2,
-        "text": "Now she wants everyone to see the bubbles, but she does not want to show the worried picture beside them.",
+        "text": "Now she wants everyone to see the bubbles. She covers the part that shows how scared she felt.",
         "imageBrief": "Zoe points to the bubble half while placing her other hand lightly over the worried half.",
         "imageAlt": "Zoe points to the bubble half while placing her other hand lightly over the worried half.",
         "pageDescription": "Zoe points to the bubble half while placing her other hand lightly over the worried half.",
@@ -76,7 +76,7 @@
       },
       {
         "pageNumber": 6,
-        "text": "Kit puts down his hand. “Which part do you want us to see?” Zoe points to the swimmer in the water.",
+        "text": "Kit lowers his hand. “Which part do you want us to see?” Zoe points to the swimmer in the water.",
         "imageBrief": "Kit's hands relaxed at sides; Zoe points clearly to the happy swimmer on right half.",
         "imageAlt": "Kit's hands relaxed at sides; Zoe points clearly to the happy swimmer on right half.",
         "pageDescription": "Kit's hands relaxed at sides; Zoe points clearly to the happy swimmer on right half.",
@@ -94,7 +94,7 @@
       },
       {
         "pageNumber": 8,
-        "text": "The new swimmer has a wide smile. This time, there is no other picture waiting to unfold behind it.",
+        "text": "Zoe draws the swimmer blowing bubbles on a fresh sheet. She gives the swimmer a big smile.",
         "imageBrief": "Zoe adds a smile to the new bubble-blowing swimmer; one uncreased half-sheet visible.",
         "imageAlt": "Zoe adds a smile to the new bubble-blowing swimmer; one uncreased half-sheet visible.",
         "pageDescription": "Zoe adds a smile to the new bubble-blowing swimmer; one uncreased half-sheet visible.",
@@ -123,7 +123,7 @@
     "discussion": {
       "oral": {
         "prompt": "Why does Zoe make a new drawing instead of throwing the first one away?",
-        "listenFor": "She still values the full memory but chooses to share only one part. The new sheet lets her share pride without sharing the private worry."
+        "listenFor": "Zoe wants to show the drawing of her bubbles. She keeps the picture of her scared face in her own folder."
       },
       "visual": {
         "page": 9,
@@ -251,7 +251,7 @@
       },
       {
         "pageNumber": 9,
-        "text": "Kit reaches from the other side and lifts out the piece. He gives it to Zoe instead of hiding it again.",
+        "text": "Kit reaches from the other side and lifts out the piece. He holds it out to Zoe on his palm.",
         "imageBrief": "Kit retrieves piece from the nearer open side and offers it flat on his palm to Zoe.",
         "imageAlt": "Kit retrieves piece from the nearer open side and offers it flat on his palm to Zoe.",
         "pageDescription": "Kit retrieves piece from the nearer open side and offers it flat on his palm to Zoe.",
@@ -260,7 +260,7 @@
       },
       {
         "pageNumber": 10,
-        "text": "Zoe fits the sail into the gap. Kit waits while she presses it flat. This surprise is over; the boat is whole.",
+        "text": "Zoe fits the sail piece into the gap and presses it flat. At last, the whole boat is there.",
         "imageBrief": "Zoe presses final sail piece into its matching top-row space while Kit watches with hands resting openly.",
         "imageAlt": "Zoe presses final sail piece into its matching top-row space while Kit watches with hands resting openly.",
         "pageDescription": "Zoe presses final sail piece into its matching top-row space while Kit watches with hands resting openly.",
@@ -393,7 +393,7 @@
       },
       {
         "pageNumber": 7,
-        "text": "The caretaker takes their plan to the school. Later, workers put up a shade cover beside the young tree.",
+        "text": "The caretaker shows their plan to the school staff. Later, workers put up a shade cover beside the young tree.",
         "imageBrief": "Completed four-post canopy installation with two adult workers checking secured bases; children observe from doorway.",
         "imageAlt": "Completed four-post canopy installation with two adult workers checking secured bases; children observe from doorway.",
         "pageDescription": "Completed four-post canopy installation with two adult workers checking secured bases; children observe from doorway.",
@@ -411,7 +411,7 @@
       },
       {
         "pageNumber": 9,
-        "text": "The tree will need time to grow a wider crown. The cover gives shade while the school cares for it.",
+        "text": "The tree needs time to grow more branches. For now, the cover keeps the bench in shade.",
         "imageBrief": "Caretaker waters young tree at base; children sit on shaded bench in background.",
         "imageAlt": "Caretaker waters young tree at base; children sit on shaded bench in background.",
         "pageDescription": "Caretaker waters young tree at base; children sit on shaded bench in background.",
@@ -450,8 +450,8 @@
         "meaning": "a place where something blocks direct sunlight"
       },
       {
-        "word": "crown",
-        "meaning": "the branches and leaves at the top of a tree"
+        "word": "caretaker",
+        "meaning": "someone who looks after the school and its yard"
       }
     ]
   },
@@ -488,7 +488,7 @@
     "pages": [
       {
         "pageNumber": 1,
-        "text": "Kit’s paint hides things when dry. He wipes a hidden corner clean with a wet cloth. Yellow shows again.",
+        "text": "Kit’s paint hides things when dry. He wipes away the paint with a wet cloth. A yellow corner appears.",
         "imageBrief": "Kit wipes a small painted corner of yellow tray, revealing yellow beneath; paint pot, water cup and cloth beside it.",
         "imageAlt": "Kit wipes a small painted corner of yellow tray, revealing yellow beneath; paint pot, water cup and cloth beside it.",
         "pageDescription": "Kit wipes a small painted corner of yellow tray, revealing yellow beneath; paint pot, water cup and cloth beside it.",
@@ -698,7 +698,7 @@
       },
       {
         "pageNumber": 6,
-        "text": "Later, more ice melted at the glacier's front than arrived from higher up. The end of the glacier grew shorter.",
+        "text": "More ice melted at the glacier’s front than arrived from above. The glacier still flowed downhill, but its front moved higher.",
         "imageBrief": "Glacier front now farther uphill, with wet exposed bedrock and emerging meltwater below.",
         "imageAlt": "Glacier front now farther uphill, with wet exposed bedrock and emerging meltwater below.",
         "pageDescription": "Glacier front now farther uphill, with wet exposed bedrock and emerging meltwater below.",
@@ -1195,7 +1195,7 @@
       },
       {
         "pageNumber": 7,
-        "text": "By late summer, many earlier travelers are gone. Their descendants feed in meadows far from the winter forest.",
+        "text": "By late summer, many earlier travelers are gone. Younger butterflies feed in meadows far from the winter forest.",
         "imageBrief": "Late-summer monarch feeding at northern meadow flower.",
         "imageAlt": "Late-summer monarch feeding at northern meadow flower.",
         "pageDescription": "Late-summer monarch feeding at northern meadow flower.",
@@ -1250,8 +1250,8 @@
         "meaning": "a group born at about the same stage in a family"
       },
       {
-        "word": "descendants",
-        "meaning": "children, grandchildren, and later family of a living thing"
+        "word": "fir",
+        "meaning": "a tree with needles on its branches"
       },
       {
         "word": "milkweed",

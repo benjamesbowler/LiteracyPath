@@ -14525,8 +14525,8 @@
       }
     ],
     "graph": {
-      "count": 1560,
-      "sha256": "9d9cf4b4ef218dfdd618fdb6b25b3e9eaf920432d3a2ceacbfb7bf6b77f54355",
+      "count": 1576,
+      "sha256": "4490f27a6af91e9c88ab291bdd49ce60e70d48f1e8cb9d686ddc4b2c70ae5511",
       "modules": [
         "demos/sound-seekers/assets/audio/brook-complete.mp3",
         "demos/sound-seekers/assets/audio/brook.mp3",
@@ -14968,6 +14968,7 @@
         "src/components/learn/games/games/adventureWorldModel.js",
         "src/components/learn/games/games/burrowBuildersCanvasWorld.js",
         "src/components/learn/games/games/burrowPartMeshes.js",
+        "src/components/learn/games/games/burrowPointerInput.js",
         "src/components/learn/games/games/burrowPresentation.js",
         "src/components/learn/games/games/factoryParcelDelivery.js",
         "src/components/learn/games/games/index.js",
@@ -14976,6 +14977,7 @@
         "src/components/learn/games/games/letterLeapCue.js",
         "src/components/learn/games/games/letterLeapLearning.js",
         "src/components/learn/games/games/letterLeapMetrics.js",
+        "src/components/learn/games/games/letterLeapMotion.js",
         "src/components/learn/games/games/letterLeapSceneKit.js",
         "src/components/learn/games/games/letterLeapSession.js",
         "src/components/learn/games/games/moonFogAsset.js",
@@ -14986,12 +14988,16 @@
         "src/components/learn/games/games/phonicsBuildingRounds.js",
         "src/components/learn/games/games/phonicsPlayModel.js",
         "src/components/learn/games/games/phonicsSession.js",
+        "src/components/learn/games/games/physicalGameWarmup.js",
         "src/components/learn/games/games/racerCanvasWorldArt.js",
         "src/components/learn/games/games/racerGroundOcclusion.js",
         "src/components/learn/games/games/racerSamplingDiagnostic.js",
+        "src/components/learn/games/games/rallyPalsFrameBudget.js",
+        "src/components/learn/games/games/rallyPalsRenderMotion.js",
         "src/components/learn/games/games/reelReadArtData.js",
         "src/components/learn/games/games/reelReadEngine.js",
         "src/components/learn/games/games/reelReadPresentation.jsx",
+        "src/components/learn/games/games/reelReadRenderMotion.js",
         "src/components/learn/games/games/reelReadWorld.js",
         "src/components/learn/games/games/rhymePopArtData.js",
         "src/components/learn/games/games/rhymePopEngine.js",
@@ -15027,10 +15033,12 @@
         "src/components/learn/games/games/soundSafariLearning.js",
         "src/components/learn/games/games/soundSafariPracticeSession.js",
         "src/components/learn/games/games/soundSafariRecoveryArt.js",
+        "src/components/learn/games/games/soundSafariRenderMotion.js",
         "src/components/learn/games/games/soundSafariSimulation.js",
         "src/components/learn/games/games/soundSafariToolGeometry.js",
         "src/components/learn/games/games/spellSkateAuthoredWorld.js",
         "src/components/learn/games/games/spellSkatePark.js",
+        "src/components/learn/games/games/spellSkateRenderMotion.js",
         "src/components/learn/games/games/spellSkaterAsset.js",
         "src/components/learn/games/games/sportsCanvasRenderer.js",
         "src/components/learn/games/games/sportsDirectionalArt.js",
@@ -15060,6 +15068,7 @@
         "src/components/learn/games/games/starGallerySceneryData.js",
         "src/components/learn/games/games/starGalleryStepper.js",
         "src/components/learn/games/games/starGallerySurfaceProjection.js",
+        "src/components/learn/games/games/towerTumbleRenderMotion.js",
         "src/components/learn/games/games/towerTumbleSceneKit.js",
         "src/components/learn/games/games/towerTumbleWorld.js",
         "src/components/learn/games/games/usePhonicsMotion.js",
@@ -15070,6 +15079,7 @@
         "src/components/learn/games/games/wordBridgeContent.js",
         "src/components/learn/games/games/wordBridgeCue.js",
         "src/components/learn/games/games/wordBridgeLearning.js",
+        "src/components/learn/games/games/wordBridgeMotion.js",
         "src/components/learn/games/games/wordBridgePieceOwnership.js",
         "src/components/learn/games/games/wordBridgePose.js",
         "src/components/learn/games/games/wordBridgePracticeSession.js",
@@ -15080,8 +15090,10 @@
         "src/components/learn/games/games/wordClimbCanvasBark.js",
         "src/components/learn/games/games/wordClimbCanvasWorld.js",
         "src/components/learn/games/games/wordClimbCue.js",
+        "src/components/learn/games/games/wordClimbInput.js",
         "src/components/learn/games/games/wordClimbJourney.js",
         "src/components/learn/games/games/wordClimbLearning.js",
+        "src/components/learn/games/games/wordClimbMotion.js",
         "src/components/learn/games/games/wordClimbPacedRoute.js",
         "src/components/learn/games/games/wordClimbPracticeSession.js",
         "src/components/learn/games/games/wordClimbRecoveryArt.js",
@@ -15110,9 +15122,11 @@
         "src/components/learn/games/shared/arcadeGuideExamples.js",
         "src/components/learn/games/shared/arcadeLandscapeSprites.js",
         "src/components/learn/games/shared/arcadeMissionHud.css",
+        "src/components/learn/games/shared/arcadeMotion.js",
         "src/components/learn/games/shared/arcadePremiumProfiles.js",
         "src/components/learn/games/shared/arcadePremiumRender.js",
         "src/components/learn/games/shared/arcadeRenderBudget.js",
+        "src/components/learn/games/shared/arcadeSceneWarmup.js",
         "src/components/learn/games/shared/arcadeWorldSurfaces.js",
         "src/components/learn/games/shared/blenderWorldVignette.css",
         "src/components/learn/games/shared/canvasUtils.js",
@@ -15271,9 +15285,9 @@
         "src/content/world-discovery/level-c.json",
         "src/content/world-discovery/level-d.json",
         "src/content/world-discovery/level-e.json",
-        "src/content/world-discovery/registrations/2026-11-09/11-20.json",
-        "src/content/world-discovery/registrations/2026-11-11/01-10-grounding.json",
-        "src/content/world-discovery/registrations/2026-11-11/21-30-transport.json",
+        "src/content/world-discovery/registrations/2026-11-22/01-10-reading-quality.json",
+        "src/content/world-discovery/registrations/2026-11-22/11-20-reading-quality.json",
+        "src/content/world-discovery/registrations/2026-11-22/21-30-reading-quality.json",
         "src/content/world-discovery/reviews.json",
         "src/copy/benchmarkRunnerCopy.js",
         "src/copy/childCopy.js",
@@ -15671,6 +15685,7 @@
         "src/features/soundSeekers/v3/engine/campaignPlayTime.js",
         "src/features/soundSeekers/v3/engine/campaignProgress.js",
         "src/features/soundSeekers/v3/engine/campaignSoundPictures.js",
+        "src/features/soundSeekers/v3/engine/challengeView.js",
         "src/features/soundSeekers/v3/engine/challenges.js",
         "src/features/soundSeekers/v3/engine/lexicon.js",
         "src/features/soundSeekers/v3/engine/progress.js",
@@ -15847,6 +15862,7 @@
         "src/utils/audio/cuePlayer.js",
         "src/utils/audio/gameMusic.js",
         "src/utils/audio/gameSfx.js",
+        "src/utils/audio/phonicsPlayback.js",
         "src/utils/audio/playOwnedClip.js",
         "src/utils/audio/rhymePopCueQueue.js",
         "src/utils/audio/rhythmClock.js",
@@ -16090,23 +16106,23 @@
         "src/utils/workshopObjects.js"
       ],
       "edges": {
-        "count": 3706,
-        "sha256": "1fca8bbaa3552c43626965082cad6a54ac8b672fb58374c56036f6daa00eec47"
+        "count": 3740,
+        "sha256": "919463c2595453b9124418d8da88ce26f6d7c13d3621d192a4cdc13737c3339a"
       },
       "issues": [],
       "dynamic": []
     },
     "runtimeBooks": {
       "count": 4388,
-      "sha256": "e888b9c5eb0f08ccf958065cd0105a670ef2d37106912e13842244ef78197d37",
+      "sha256": "c57cbc1a3e4a58e068c72cea997d5a20bdc604608f53efb58eadc6be752da8cd",
       "books": 447,
       "bindings": {
         "count": 447,
-        "sha256": "57ff8072235349db1f3e4c2d674b0634c5e1977ba70c5b1f7853d9b86c3c9cc0"
+        "sha256": "088a0f3c6538dac0e054098922b7f87c7e1d028989c48d8ab786d6c503af99cb"
       },
       "publicIndexBindings": {
         "count": 447,
-        "sha256": "b2e3bd4b612d55c0cbfbc2b49204d398483ea8d37777dacec8357c6611b779af"
+        "sha256": "685f83bcdc2721c894b562949151b95521ad4174c0adba81c4bddbaace8d7751"
       }
     },
     "dynamicArtworkLoaders": {
@@ -16640,8 +16656,8 @@
       }
     },
     "runtimeSources": {
-      "count": 1750,
-      "sha256": "5309808966655e677eed384df6baf307252abfc1bf46a8aa52f45160c2b28775",
+      "count": 1771,
+      "sha256": "797da99a02a8126acade65e00429c5b79a958bfa9659e19c49f01c18c720f2ec",
       "files": [
         {
           "path": "demos/sound-seekers/chapter.config.mjs",
@@ -16889,7 +16905,7 @@
         },
         {
           "path": "src/App.jsx",
-          "sha256": "47b340d2b5994132140727e13aa576fba4c51122fe05e0783fd669cee06a2d38"
+          "sha256": "63060efdc6154ddaccb97ed7023a488614fd611d150cebe9e40e19b626bc7eaa"
         },
         {
           "path": "src/appState/accountAccessCheck.js",
@@ -17101,7 +17117,7 @@
         },
         {
           "path": "src/components/AppSurface.jsx",
-          "sha256": "3a9fd6697eea40c249afe25d04d91a06181f297d1f7984ab3fa36f663daef307"
+          "sha256": "0abd624a1f7565b4954db54323feb2185f3bf1831a1310ac155142e2596f8187"
         },
         {
           "path": "src/components/assessment/assessment-start-guide.css",
@@ -17405,7 +17421,7 @@
         },
         {
           "path": "src/components/learn/games/GamePlayer.jsx",
-          "sha256": "b5098ae02a39bda6c6918e20582658f21a34ce70da00b3768784be6c979ed79f"
+          "sha256": "ee5a6f4c13b591b48ce38f7ced2eea106b12acb8fa670690c7344e9f346e8ab1"
         },
         {
           "path": "src/components/learn/games/games/AdventureGame.jsx",
@@ -17445,19 +17461,23 @@
         },
         {
           "path": "src/components/learn/games/games/burrowBuildersCanvasWorld.js",
-          "sha256": "f25fe4263684523926fe6320ed97105a60193fbb4cdb04428d56527b2a96e906"
+          "sha256": "cc9e0cc2b260af6c310a42a7d1857e811fe857cfd0e78f7ea16eceebb127a215"
         },
         {
           "path": "src/components/learn/games/games/BurrowBuildersGame.css",
-          "sha256": "749c39a1f7c81c086fabc4e6d2106911bb8f4f773babf85e4b8698618dbee77a"
+          "sha256": "6e745537ff84353fba914e9e00e20bf966e1984aecceb61203088909d28e70bb"
         },
         {
           "path": "src/components/learn/games/games/BurrowBuildersGame.jsx",
-          "sha256": "13e55c5958acf885beddc137d66775c23e735461117f3fbf58f9908a567a3f76"
+          "sha256": "56c95a814887b697f41c7f28594ee417f55b0c9e4e62216ff92eff633c5f6d9c"
         },
         {
           "path": "src/components/learn/games/games/burrowPartMeshes.js",
           "sha256": "a51b37ab5b6d7a58070e85c6da3cf9fac4ad871ade556f91e5c9b0f418628fac"
+        },
+        {
+          "path": "src/components/learn/games/games/burrowPointerInput.js",
+          "sha256": "f8b22804a0455a68525e6965fcd00f879f0b72f8ebc62f48505bf318b695c044"
         },
         {
           "path": "src/components/learn/games/games/burrowPresentation.js",
@@ -17481,7 +17501,7 @@
         },
         {
           "path": "src/components/learn/games/games/GrammarGrindGame.jsx",
-          "sha256": "424e800c83146a080f3178feca036948c74f741f4dc3c54d3766c0368ca6f56a"
+          "sha256": "da965e56ae25e14e59c5854a2b021868d2206388ff5bbe5d279da4dff8ee1647"
         },
         {
           "path": "src/components/learn/games/games/index.js",
@@ -17517,7 +17537,7 @@
         },
         {
           "path": "src/components/learn/games/games/LetterLeapGame.jsx",
-          "sha256": "c7a9ba11bf1bd7ae8b41dc6306e30872e684b1b75cc9a3c1602a7940a2e1af7b"
+          "sha256": "b4181ae8bc9b26fbe2482a1f3644d68155023460e13b3cb5c297f9c057e0d1bb"
         },
         {
           "path": "src/components/learn/games/games/letterLeapLearning.js",
@@ -17526,6 +17546,10 @@
         {
           "path": "src/components/learn/games/games/letterLeapMetrics.js",
           "sha256": "ee1e92119047794fb3c271633c419c838a8dbda343fc9e45dcce3004cf48d001"
+        },
+        {
+          "path": "src/components/learn/games/games/letterLeapMotion.js",
+          "sha256": "c6cccedc737e77caf4637a09fd2f312af9d9b1731353a1533bad62d42f1cdc85"
         },
         {
           "path": "src/components/learn/games/games/letterLeapSceneKit.js",
@@ -17576,12 +17600,16 @@
           "sha256": "c2c799c883d0451942c5a2eb1548bfa3a3adddc35d56c846af822329dd5a1356"
         },
         {
+          "path": "src/components/learn/games/games/physicalGameWarmup.js",
+          "sha256": "884807ec15c8679611fbbef97974aee01283244799cc7c25fe34101ff2a584e3"
+        },
+        {
           "path": "src/components/learn/games/games/PopTheWord.jsx",
           "sha256": "18dd9617f7bd39bc102512edefb1084bd8ed8662008beace3b2c2498c538fbc6"
         },
         {
           "path": "src/components/learn/games/games/Ps1ArcadeGame.jsx",
-          "sha256": "b9ef5604709a880d4c5f36fb69e25c59abd616a8e17588c578a35923a5234a80"
+          "sha256": "a819812a94a79dd21e9a7d8fd482c09728618762530cfbc38d9e433ef2db6da3"
         },
         {
           "path": "src/components/learn/games/games/racerCanvasWorldArt.js",
@@ -17600,12 +17628,20 @@
           "sha256": "7fd1a0012099eeabc54c1254f5b0e8eb3cc100dded2f8bc9ade56e018202f689"
         },
         {
+          "path": "src/components/learn/games/games/rallyPalsFrameBudget.js",
+          "sha256": "1fc08187e6cc351c03b422d210391ad26b20cd50c7c61115df38ff8c4e45d35d"
+        },
+        {
           "path": "src/components/learn/games/games/RallyPalsGame.css",
           "sha256": "8d51af8e4e7d459a218a58d19513ff384e01baf77a161684e37941d65524a325"
         },
         {
           "path": "src/components/learn/games/games/RallyPalsGame.jsx",
-          "sha256": "fe35d50c5dc902b0d3a41faeaea7fad5bbf7309dbb0c09e0aa858745e315a178"
+          "sha256": "d9a1ee643d6ae207c0b60d2ac8e63d39d73b72032ac4698f35dbd76adf1b6d0b"
+        },
+        {
+          "path": "src/components/learn/games/games/rallyPalsRenderMotion.js",
+          "sha256": "c11ffbae6e504c976b1c6f7bc9a3a6361128b9c7c12cec605a744707d9487833"
         },
         {
           "path": "src/components/learn/games/games/ReadingRace.jsx",
@@ -17621,11 +17657,11 @@
         },
         {
           "path": "src/components/learn/games/games/reelReadEngine.js",
-          "sha256": "d8e5add955d9c5b091bcd681e88696486f1319072b26cdc8938f065722bc4561"
+          "sha256": "5b5b1c2545d9921b6ae6df1c19a0b93b882c1dd97200e4d974a6179102a84bd9"
         },
         {
           "path": "src/components/learn/games/games/ReelReadGame.css",
-          "sha256": "1413d894f2e886e2be7bb5a60e45e9ea677b3011f6a60d446724bf9e317e601a"
+          "sha256": "f0e92ec343656ce623e8eef4d24d401d41c5fe60e0ac2f72dc1a06d37d43a6ce"
         },
         {
           "path": "src/components/learn/games/games/ReelReadGame.jsx",
@@ -17633,7 +17669,11 @@
         },
         {
           "path": "src/components/learn/games/games/reelReadPresentation.jsx",
-          "sha256": "2c2f125d420a1359bd0f0fb5db7e66e06525ecbe0ab357092d0d309a8827c823"
+          "sha256": "8344b53ff98fd9055d662984b9c0a745e352569c743f5bdc137d78e820d2bcde"
+        },
+        {
+          "path": "src/components/learn/games/games/reelReadRenderMotion.js",
+          "sha256": "b7ddac6c100def5e02bdca034e912431589d721c1de0c17639789d4f435a2ae8"
         },
         {
           "path": "src/components/learn/games/games/reelReadWorld.js",
@@ -17665,7 +17705,7 @@
         },
         {
           "path": "src/components/learn/games/games/rocketCourierAsset.js",
-          "sha256": "9190593c82dd0ffd84d61e8010c66ad0fae8f2bba6aa37eeff45efe3fe3eb35a"
+          "sha256": "8f7ffe34dadc0867dcb0035952dd20b9e44813c87d9590fa23849e0eaf94c529"
         },
         {
           "path": "src/components/learn/games/games/rocketRunCraftAnatomy.js",
@@ -17701,7 +17741,7 @@
         },
         {
           "path": "src/components/learn/games/games/RocketRunGame.jsx",
-          "sha256": "761f109499b15a4f90f789241ac9b922f8cf1627bdb3425ae75d748bee32fe60"
+          "sha256": "450d1b641b1eaa2aaf4eadf5c2178f6ccbc36333a14c5c2259ffdace52d0f066"
         },
         {
           "path": "src/components/learn/games/games/rocketRunPresentation.jsx",
@@ -17753,7 +17793,7 @@
         },
         {
           "path": "src/components/learn/games/games/SentenceExpressGame.jsx",
-          "sha256": "49caf863f64920832015ba04d6410e1d8d31cf4e662e8dd958887fa1d2a33d4e"
+          "sha256": "88788bdd4db72167d7e3b6fb2c57783a52035bce9ddde39c60e0914e9ea7c44a"
         },
         {
           "path": "src/components/learn/games/games/sentenceExpressInstructions.js",
@@ -17845,7 +17885,7 @@
         },
         {
           "path": "src/components/learn/games/games/SoundKeysGame.jsx",
-          "sha256": "dbc4b44a67604434ef3d3e2183209e1d2f874ac2c4b48e9fa0abdd10795be3b8"
+          "sha256": "21e5dc5a3400f56cf89bf4aacf853d3bd7fcae96b6a52c7cc7f68a4deb4e06cd"
         },
         {
           "path": "src/components/learn/games/games/soundKeysWorld.js",
@@ -17857,11 +17897,11 @@
         },
         {
           "path": "src/components/learn/games/games/SoundRacerGame.jsx",
-          "sha256": "8dc011fe150177d558e3f6b455468fddc21f5814738aaeb480e6c9e007113b2f"
+          "sha256": "d253c3b9ab0d2f55e10140ae899b3d362d1aab86396e5bd6cb833a2cfd3774cd"
         },
         {
           "path": "src/components/learn/games/games/soundRacerKartAsset.js",
-          "sha256": "341991889e81d1b8fdb2d8046589112b8a27e2f1f7631e3236f25f05359a6ce5"
+          "sha256": "cbd2c4cdac79b36be4025d0e97c374b7bc7ca672efde868bb169e37dedac9e98"
         },
         {
           "path": "src/components/learn/games/games/soundRacerScenery.js",
@@ -17869,7 +17909,7 @@
         },
         {
           "path": "src/components/learn/games/games/SoundSafariArcadeGame.jsx",
-          "sha256": "ed99c3c4054a5c60c1d7aab14fce30afbba78294c99bc0b8730c28e2f7191ce6"
+          "sha256": "29dab012d48650d32e47e98c2f5bfb12e7d7e03eee859140d22208c332f19b76"
         },
         {
           "path": "src/components/learn/games/games/soundSafariArt.generated.js",
@@ -17908,6 +17948,10 @@
           "sha256": "ff0895e2b820e44fe34784c9f6a8a02316bd889efd2cb5e6674fa326569fb6ca"
         },
         {
+          "path": "src/components/learn/games/games/soundSafariRenderMotion.js",
+          "sha256": "134c868626241da123c3b8106f43371a802dee21c40b0baa2064d8a34a73e5bc"
+        },
+        {
           "path": "src/components/learn/games/games/soundSafariSimulation.js",
           "sha256": "a238502600ce516d69d101ebb101db25127c4f5b8ebc569a512c8fae26764110"
         },
@@ -17925,15 +17969,19 @@
         },
         {
           "path": "src/components/learn/games/games/spellSkatePark.js",
-          "sha256": "fbc6c745a6c7cc69ba9cc3aabadf80942fd0762eec0b7d8d1d837150d76b2dfc"
+          "sha256": "4c09db18619e99509e34d60535abc3b1c6a4c1b72aefc524c0df083e2490d143"
         },
         {
           "path": "src/components/learn/games/games/spellSkaterAsset.js",
           "sha256": "f72971e198dda1a4bd0728099252c9e2d57b5264fc1335cb1ef79da1b7a38303"
         },
         {
+          "path": "src/components/learn/games/games/spellSkateRenderMotion.js",
+          "sha256": "1c4ddbc14ef22bdd8d6e3ed711a5196f038169b51d44b376c689562cc25033da"
+        },
+        {
           "path": "src/components/learn/games/games/SpellSkateWorld.css",
-          "sha256": "e1413a6030e3726c7601367f26d2922f33176c6ef66c68767c36643dd080546d"
+          "sha256": "3c173be2565389c40a84c1d76c13914f1ee765e28dbc523fad1d6aa69eac807c"
         },
         {
           "path": "src/components/learn/games/games/sportsCanvasRenderer.js",
@@ -17981,7 +18029,7 @@
         },
         {
           "path": "src/components/learn/games/games/StarGalleryArcadeGame.jsx",
-          "sha256": "66deea03ff371fd041adcd481c03c49f81316b2c621a57655891631603108be8"
+          "sha256": "8e1bedfa5d7944ed7698fd54aefaafbc52c29e8bd79f124a91afba7a94fe21e4"
         },
         {
           "path": "src/components/learn/games/games/starGalleryArt.generated.js",
@@ -18065,7 +18113,11 @@
         },
         {
           "path": "src/components/learn/games/games/TowerTumbleGame.jsx",
-          "sha256": "328f704a1bf7c93c9236eac438089179606d1097f3fc8a39d8644fc476aee825"
+          "sha256": "cc78d9049e70f4ca4654dac9b1847c64c6b42189006806dfdb0f1b5617802e4f"
+        },
+        {
+          "path": "src/components/learn/games/games/towerTumbleRenderMotion.js",
+          "sha256": "c2873fa2607f7755ca6bd64e64d7c2caceda120e4f854be20e3e01c582a1a0ec"
         },
         {
           "path": "src/components/learn/games/games/towerTumbleSceneKit.js",
@@ -18073,7 +18125,7 @@
         },
         {
           "path": "src/components/learn/games/games/towerTumbleWorld.js",
-          "sha256": "08dcc8b585a790d6a43b6ddc4b4f5e5d62dd57d8d22ee8fa94a585f3f7835357"
+          "sha256": "40f12eba936e3ef8fd7b70d3a4afa7256ec870215d3e990e0fd71499554d4852"
         },
         {
           "path": "src/components/learn/games/games/usePhonicsMotion.js",
@@ -18109,11 +18161,15 @@
         },
         {
           "path": "src/components/learn/games/games/WordBridgeGame.jsx",
-          "sha256": "35361d33cb0642c2415587bb69e809b7a0ecf8e8dde95e09ad2ff950035fedaf"
+          "sha256": "4457a4dc86983e8fdaf7e915939f10bc5bd31a089386c246a7170791ac99741c"
         },
         {
           "path": "src/components/learn/games/games/wordBridgeLearning.js",
           "sha256": "68d3bb26286c49e5fdbe6c39fd37868bc060644221a5facb8ddb3e04cfff3030"
+        },
+        {
+          "path": "src/components/learn/games/games/wordBridgeMotion.js",
+          "sha256": "ef1df04f5b2d3d8ad2758710e6ed5bb3417f55389b550ddadde1928cd7f5c90b"
         },
         {
           "path": "src/components/learn/games/games/wordBridgePieceOwnership.js",
@@ -18161,7 +18217,11 @@
         },
         {
           "path": "src/components/learn/games/games/WordClimbGame.jsx",
-          "sha256": "5766eaf2c0548c942fb10e3cc8435da02697447c657c8adc91c69186bea7ad08"
+          "sha256": "c2e72a2c9392806469893ab90cc5b4cf9e7ab6b522a55a33fae1a116775f930c"
+        },
+        {
+          "path": "src/components/learn/games/games/wordClimbInput.js",
+          "sha256": "47a38384c1c2651f176f3f1bb063f6ef36b64fd910f9a24001437669e83319b9"
         },
         {
           "path": "src/components/learn/games/games/wordClimbJourney.js",
@@ -18170,6 +18230,10 @@
         {
           "path": "src/components/learn/games/games/wordClimbLearning.js",
           "sha256": "55df0ac3673347023cb0d08fe99b6a7a2c88e5406349dd894b16354478b24937"
+        },
+        {
+          "path": "src/components/learn/games/games/wordClimbMotion.js",
+          "sha256": "d3adf932bf75a315a252add293c1dd1a00ae8b6077dae52df365c513b541537d"
         },
         {
           "path": "src/components/learn/games/games/wordClimbPacedRoute.js",
@@ -18185,19 +18249,19 @@
         },
         {
           "path": "src/components/learn/games/games/wordClimbRegisteredActor.js",
-          "sha256": "ac8860fded26207e711d8832a8b6133e2ca4aa6427b75ec6e57f0acd14fa2116"
+          "sha256": "32f7260001a92c237e5e262b57913fc741b0991223c9ef6979fc1fdbd0677ec6"
         },
         {
           "path": "src/components/learn/games/games/wordClimbRenderBudget.js",
-          "sha256": "9d1a4e393a75317f658fbdba88bd165e89fd39b0c3f9a55bdb0c01f00f0d427b"
+          "sha256": "2049fe678226a1d303b3ae4177672d80da7e5d45890fa2db7654562d9e7d5842"
         },
         {
           "path": "src/components/learn/games/games/WordClimbScene.jsx",
-          "sha256": "03c866fe8ca6fa4e4656e8e4f93380d314c637d0d61ee729d0d28847c0dccd80"
+          "sha256": "9abd2ba8e49fada675ae8d29c42596eb07f51b0c20b0f04c478d4597d0a676de"
         },
         {
           "path": "src/components/learn/games/games/wordClimbSceneKit.js",
-          "sha256": "6acb6a84e0335f8cb521e68b0ec79cd5d126b165705d094a42e2ec3798c97a09"
+          "sha256": "497db6b130bba17a5e7931935cf0c7aed451c57848d8a3d4de6aa5bddc8f14f6"
         },
         {
           "path": "src/components/learn/games/games/wordClimbScenery.generated.js",
@@ -18213,7 +18277,7 @@
         },
         {
           "path": "src/components/learn/games/games/wordClimbStepper.js",
-          "sha256": "5bff6e10197a3ee899cbae6f6bb5d150833e0523738497511a72711a98c401a4"
+          "sha256": "769a29f3521d708cc6c06928273e2af82b5ae4871b14fb6d6636f1184c9fa7d3"
         },
         {
           "path": "src/components/learn/games/games/wordClimbView.js",
@@ -18261,7 +18325,7 @@
         },
         {
           "path": "src/components/learn/games/shared/arcadeGuideExamples.js",
-          "sha256": "0f4c04d07130ca164ec4d351faaf3e713de8b481f47dc0d9e614a2dd8130fde0"
+          "sha256": "11b32df129441246589b781083d7d3112e1a5aeef05681a127b1c0a0fc1e0ab6"
         },
         {
           "path": "src/components/learn/games/shared/arcadeJourneyBriefs.js",
@@ -18276,8 +18340,12 @@
           "sha256": "20e1a7eb987edfb53d56923170fb363df3218e103bf50c73670b9b3dd9753b08"
         },
         {
+          "path": "src/components/learn/games/shared/arcadeMotion.js",
+          "sha256": "c400b14ae28fe456c66617790d588bf58d476c2cf03c6788b2359584ac05bb66"
+        },
+        {
           "path": "src/components/learn/games/shared/arcadePremiumProfiles.js",
-          "sha256": "d177fe1e51d04b04d8d6d49e9ab7262f21a3ab8572b025195922f6c4e0678561"
+          "sha256": "3307202b2503727ae29b8260b3b3e7309233169084f4d15898f92c662f2e1bd1"
         },
         {
           "path": "src/components/learn/games/shared/arcadePremiumRender.js",
@@ -18286,6 +18354,10 @@
         {
           "path": "src/components/learn/games/shared/arcadeRenderBudget.js",
           "sha256": "46f7d625cf06abc17e29ac79f7a4c8946732f3c07b113d290c747cde2a30c9a1"
+        },
+        {
+          "path": "src/components/learn/games/shared/arcadeSceneWarmup.js",
+          "sha256": "33b031960aa44b7f6f256e79ec2e30ace76776f96743f17704d05b4dac1ee86c"
         },
         {
           "path": "src/components/learn/games/shared/arcadeVerticalSliceBriefs.js",
@@ -18341,7 +18413,7 @@
         },
         {
           "path": "src/components/learn/games/shared/physicalArcadeBriefs.js",
-          "sha256": "c07d189fdea1e67480e75bf24fb93a7f261b736384267530135490fa2881b0fb"
+          "sha256": "1a481be68308252e79804223bf14b3e50b257f9f3e2332cb2bb3f68b786ed8e4"
         },
         {
           "path": "src/components/learn/games/shared/physicalArcadeThemes.js",
@@ -18809,11 +18881,11 @@
         },
         {
           "path": "src/components/StudentBooksPage.jsx",
-          "sha256": "386f1a73cce691c2b359cc6ba911ae00968dbcd1275e16590e8a711939e49a49"
+          "sha256": "62931864ba9caa286993d21cb549b6be9ec0ca641a01ee24ecd457c15efd47cb"
         },
         {
           "path": "src/components/StudentEntryPage.jsx",
-          "sha256": "3a51b788111142ea5ac820f4f8a4512bba0dc3d3426111b7bd8959dd5035aa54"
+          "sha256": "234a51fb293d956b78d83b00a045bbd7ddb87bed4fec046fcb49761f39e66e22"
         },
         {
           "path": "src/components/StudentGlassShell.jsx",
@@ -19041,7 +19113,7 @@
         },
         {
           "path": "src/content/appVisualAssetReviews.generated.js",
-          "sha256": "c6556e2313d1a780c0898b742ae8f1438e2b84da6d9715e840e27cb7b175f817"
+          "sha256": "58402c9dbaff825ed7f69560d43ec41cf805e6d254a5c326b81855d57562b867"
         },
         {
           "path": "src/content/assessments/curriculumReleaseBoard.generated.js",
@@ -19153,19 +19225,19 @@
         },
         {
           "path": "src/content/cycle-shorts/audio.generated.js",
-          "sha256": "380c9dbcd870e2d2039f7e098881c3d1d2234aabc72f455a0fbecf984812e67e"
+          "sha256": "cf46b3de3b4d6129542fbd86bb52e1caf8af369e83404a69e263eebab47a6c37"
         },
         {
           "path": "src/content/cycle-shorts/audioManifest.generated.json",
-          "sha256": "372a6431510caff31a6fdfcd9701fe9f01ab7781021ab0df2d9c62c650293622"
+          "sha256": "25d89d653677556c64a9a15c49783106e1c4cc08a262b274bb9cd1308187483b"
         },
         {
           "path": "src/content/cycle-shorts/passages.js",
-          "sha256": "77546fe8d0c80e42013b716902142485c058d14114f36adde20f9fb838b0b1e8"
+          "sha256": "ac6c49c5814bcf3a72d0ab1ec9ad1f1e8347d991c661d7fdd9eec86653297925"
         },
         {
           "path": "src/content/cycle-shorts/pictures.generated.js",
-          "sha256": "a56fcc9cb948ecba3978b684bc186f0e1e4f9d203fb8dd7528be20deb1321c1d"
+          "sha256": "4a8b6cbadc11d5e679f4620b534e5762f2846a4c0d352f18bd790018f35f85c8"
         },
         {
           "path": "src/content/cycle-shorts/pictures.js",
@@ -19181,11 +19253,11 @@
         },
         {
           "path": "src/content/guidedReadingContextualWordAudio.json",
-          "sha256": "b56d177d969bef5ad1a23cc02b30f8565b88f2a2f61f3be51d1174f7d868657d"
+          "sha256": "e456be561b282e0981be968d91e6b25af7b32a72abb6b1a3f9fc22d4c0ab5cef"
         },
         {
           "path": "src/content/guidedReadingHumanFictionRewrites.js",
-          "sha256": "bb762f4c8561abfe516d97ae012b5e7a0d5467a1898b60f85b7c211c9cd51672"
+          "sha256": "f1f8c721bdb1c042578a1731151d624b13afae066bbc70f169aa4e79c73efa80"
         },
         {
           "path": "src/content/guidedReadingIllustrationDescriptions.js",
@@ -19193,11 +19265,11 @@
         },
         {
           "path": "src/content/guidedReadingStoryBibleRewrites.js",
-          "sha256": "813640166fc8b4a16b26710f359fcbaebdcb973b7d1c5502a0f1ba8ba29fe661"
+          "sha256": "f77002c2b30effc22a0d5254fdb23e81755e2123bfe026c881bf760afe7f9646"
         },
         {
           "path": "src/content/guidedReadingWorldFictionRewrites.js",
-          "sha256": "98133fa8ba95ba785f4424ea79535f0873e224f5ab32070157eee7e21f3b84e2"
+          "sha256": "2094e830ca5278b7ff88bc4df1e4255242c694328b156c81b14b03cc31d41b60"
         },
         {
           "path": "src/content/illustrationStyle.js",
@@ -19261,7 +19333,7 @@
         },
         {
           "path": "src/content/storyContentReviews.js",
-          "sha256": "1a46c18195490e1106a795cf870d2b3e3f234a889ad301c065ea8aeaa1b60ec0"
+          "sha256": "e0f04ef74491bffac1fd034879f2415b92c0849b20b557b6bed090819b96b98b"
         },
         {
           "path": "src/content/storyQuestNarrationManifest.generated.json",
@@ -19281,75 +19353,75 @@
         },
         {
           "path": "src/content/world-discovery/cohorts.json",
-          "sha256": "177e678a3fd088e406f4e9f168585d701ee0c2719dafbfb80f40af183c17fc00"
+          "sha256": "dd189be36586fbd7bf5b12bcb18b64af5c7ef4a9f16527c1c9a683551d196994"
         },
         {
           "path": "src/content/world-discovery/cohorts/11-20/level-a.json",
-          "sha256": "1b695ce3f0ce12d4ad208b8a1e0337f3890b9a3fafb47ae003478cc5ce590931"
+          "sha256": "2fcb25678dc05ae20881d37f828a1242617f8e9f84a225db0148b0e465aa94f7"
         },
         {
           "path": "src/content/world-discovery/cohorts/11-20/level-b.json",
-          "sha256": "5de7f67b72cd7478b7c7f69eb9002b68767f79d8f018deb8d2bcb627497e4da7"
+          "sha256": "6ed490625338bde84a94816d4588050282ca625088d739e1409aa999341568e5"
         },
         {
           "path": "src/content/world-discovery/cohorts/11-20/level-c.json",
-          "sha256": "3e59ec0ece34ddb0cb788c012600e25f01c6a0a91f7eee677689fb29e8cb40a9"
+          "sha256": "2520afa5deed546e450f21fdb50243863790ae0337d21d6e0ac9e39733464b78"
         },
         {
           "path": "src/content/world-discovery/cohorts/11-20/level-d.json",
-          "sha256": "fad1681e0b870a7c70400b75eb82c1f7245b0b921733afbe77e882ec92b1a731"
+          "sha256": "a0aaaa541df520653d6a4049d2a9ee50c2c7918d2e2506e60040853e3ccb53d4"
         },
         {
           "path": "src/content/world-discovery/cohorts/11-20/level-e.json",
-          "sha256": "f33accf9701982db97f1645f7ec75839b2d7f0fb792a0dfbe4f870a2ffb30a8b"
+          "sha256": "3508e58da4310b0aee7d069615ecc132fb3b4140d5618d851ccc7472c4985761"
         },
         {
           "path": "src/content/world-discovery/cohorts/11-20/reviews.json",
-          "sha256": "7560d4f37e6790372130cae59be5caa8a544a522c5b137a32107c765c981e4f6"
+          "sha256": "0fdbd67a5fd2e03728ef3a277723b1b11eb5b782a26440176b50d16112ead7fc"
         },
         {
           "path": "src/content/world-discovery/cohorts/21-30/level-a.json",
-          "sha256": "a1fd0cfd21dda64d430596b4e6e278faf10058b7f9ebeaee4e54229b0c881e6d"
+          "sha256": "238da6e337ed4b870c1e5a7b05fb55e9c62af3fde6f4529cd9884cc8f149d613"
         },
         {
           "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
-          "sha256": "76023eeb604e85b24d947020c0a9860af37cbe1dfc47402b4e112ea903d893bc"
+          "sha256": "255a60926f97b3eef25485de4b983b6ff1bc17be4027ccd0a5f648410029d4f7"
         },
         {
           "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
-          "sha256": "dc1411b31eb45eb141ffc797d3ce526f9f0461ebb8c6d3910bbdb6428bbf0d59"
+          "sha256": "5ce1aa3b1a1327fa17f8dfaecc5a771925bd1f52296deee5c77e3e52efc1af98"
         },
         {
           "path": "src/content/world-discovery/cohorts/21-30/level-d.json",
-          "sha256": "82f21f89157d6efa60427f33aae18641b9f6bf29090440f69aa53252b013ba07"
+          "sha256": "6281c7f655d22bdb0a9cc53d2c083d4943e0d10f9964779d68bb4ea64db72274"
         },
         {
           "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
-          "sha256": "412021864e040266c29e777325b5b21ed9da0ca4ba961479c51073674a31651d"
+          "sha256": "49a1b6fc6ed527a038082b7b1f56d525671713b8c889f5ef5175a818cbafea3f"
         },
         {
           "path": "src/content/world-discovery/cohorts/21-30/reviews.json",
-          "sha256": "f5eab48eef92c3540264d7f8a0bd02ffad22e3099edc0cebf275e6c6a0f2f7ae"
+          "sha256": "0f2fa5f9bc01c2e2c3a7713cbd7a9ab298435bc010ffb64cfa4b1e5a6e9e991d"
         },
         {
           "path": "src/content/world-discovery/level-a.json",
-          "sha256": "ee8fa899dab0a71a4b44b3c25bc26165edde8b4ef03442df0fd39d8fee05c2b0"
+          "sha256": "133a209db3d56066dd7ee33d7a6a7bebb3324b0aa09b8d80ef8d62c4677fa936"
         },
         {
           "path": "src/content/world-discovery/level-b.json",
-          "sha256": "91c8b17ded00778d1f185f4faf447735fa1f9a40d4b1c53e9efb43d7a0403af1"
+          "sha256": "a40b206856f697c42ffbe350a33fd9337ed9247bb97a69129cc55b5dabd813ae"
         },
         {
           "path": "src/content/world-discovery/level-c.json",
-          "sha256": "b8116d802d5a4d79ad841dc4b12debf2ad2df7d96cdf3ef899a5589725ad3621"
+          "sha256": "4dcd3a3ecd9a6a76a7960c3ed5b1bb063e9c88a797530532815bf7a56fdbbefc"
         },
         {
           "path": "src/content/world-discovery/level-d.json",
-          "sha256": "aea1306338acd8ade81bf478fd409549fa0f312e5ff7628271d5670ac5e9c256"
+          "sha256": "b9471fe2b43e681728740a2fba4def143a557a71a9ece4d2c791387415683293"
         },
         {
           "path": "src/content/world-discovery/level-e.json",
-          "sha256": "5b39a5a4e2dbf6979ca3c652485e59793605783740c37b1b9981a1ae8cd25439"
+          "sha256": "cbd74c0485d8c2a1654c1990b08796c4fae39e4f5a52c33d2752039207c9c50d"
         },
         {
           "path": "src/content/world-discovery/registrations/01-10.json",
@@ -19392,12 +19464,32 @@
           "sha256": "f7e5e9c45e5e59a97cf858445dcd8e2432e2d2a5c4b84234df0e4e7e3c42db2f"
         },
         {
+          "path": "src/content/world-discovery/registrations/2026-11-22/01-10-reading-quality.json",
+          "sha256": "60f6fecefdf767f4bc5b0167bbf28a5ed72b1fb87cd816d2a22dc45b9ecf0f27"
+        },
+        {
+          "path": "src/content/world-discovery/registrations/2026-11-22/01-10-wardrobe.json",
+          "sha256": "2d6c94bbcacc1aa20e315155bfa22875b2491cea573b2fad71139e19ca3cc8ae"
+        },
+        {
+          "path": "src/content/world-discovery/registrations/2026-11-22/11-20-reading-quality.json",
+          "sha256": "394114219d00d34006d9a46e9189d01aa8559c428eff5c6e7b8c4f43b6ac9c75"
+        },
+        {
+          "path": "src/content/world-discovery/registrations/2026-11-22/21-30-level-and-fold.json",
+          "sha256": "49b0c609ca5a6ad14f445ad9ef644ee625a8fe0eb8c1efe499d895c44e727491"
+        },
+        {
+          "path": "src/content/world-discovery/registrations/2026-11-22/21-30-reading-quality.json",
+          "sha256": "ab4f3f6e871c7f7e4acfadc43c503a301343fccb1ae646045f1e4b63fe16a0ee"
+        },
+        {
           "path": "src/content/world-discovery/registrations/21-30.json",
           "sha256": "0c89dbf266b163bb33560d91693883858eacb8cfb11851cebf56e52b08ccef09"
         },
         {
           "path": "src/content/world-discovery/reviews.json",
-          "sha256": "d19bb2d71e7e5ac8fed71fc2ed5f38c3b9a4bad555791d54bd6d0dc0a8104b85"
+          "sha256": "5febebacd271e0651349cc79aa056006444b3e98a66743c6f86c170535dec708"
         },
         {
           "path": "src/copy/benchmarkRunnerCopy.js",
@@ -19765,19 +19857,19 @@
         },
         {
           "path": "src/data/generated/audioFilePaths.generated.js",
-          "sha256": "752b06a8628aa93ff810ef7ca54ff0c88c26a6b8c247a65685afaa5146c6979e"
+          "sha256": "b15653d4cd3b25ce8e410ffc89e58be451b728b044f6ff5820121102aae7f5ef"
         },
         {
           "path": "src/data/generated/audioGuidedReadingPaths.generated.js",
-          "sha256": "20ebb285446c932d4c3d2c02a212c0107e8dec210758915a27cda2c8bacf057a"
+          "sha256": "8d4513eea4b8617709d4d6301d28052be7b0aeee2545f765da2cb2572de7f966"
         },
         {
           "path": "src/data/generated/audioPhonemePaths.generated.js",
-          "sha256": "928db03b8bb4ab285f1c04fb1d12708ab13ddda36d0efe131f818bdd57b11f88"
+          "sha256": "da5092d528f52b0bd85063419b4e21df598b6580e6e7b71958fab026533fd03d"
         },
         {
           "path": "src/data/generated/audioQuestPaths.generated.js",
-          "sha256": "b576926c6332c3f895a05a64766fc8fce881c0b9df32221cbcf1fb4c18b91361"
+          "sha256": "6f816142bb6f681dfd69f517c313fc9fa2971ff7792a6e9fe10d0d8c6b6ccf03"
         },
         {
           "path": "src/data/generated/cyclePracticeInstructionAudio.generated.js",
@@ -19785,7 +19877,7 @@
         },
         {
           "path": "src/data/generated/guidedReadingBookIndex.generated.js",
-          "sha256": "e580108a90595037aed73f42046ac54a043987df140b1928e9b0bcac0882ab10"
+          "sha256": "8dad6ba88745bf8ea87dde82cca7054d22e9b9b888c146cd71b44d72cd0e0041"
         },
         {
           "path": "src/data/generated/guidedReadingCoverRenditions.generated.js",
@@ -19793,27 +19885,27 @@
         },
         {
           "path": "src/data/generated/guidedReadingImageRevisions.generated.js",
-          "sha256": "534e6ffe0c03230d6cf28c834f0a0f637affaf5068ddef501dfdd6ad8e0725d9"
+          "sha256": "607ad7d81c509dea55bf94a65c5d661c3bf2e3bd937d8f6796913b41dcbb9c1e"
         },
         {
           "path": "src/data/generated/guidedReadingImmutableDeliveryPaths.generated.js",
-          "sha256": "90fe510af3dcc05fce0d6f4ebe74b32c6588446f5306b19aa106bbc3d10a5f57"
+          "sha256": "c8e4023a8e22a460da39848d8353bdc743b0fc259ea9ec46c5d5d47c91ffdf6c"
         },
         {
           "path": "src/data/generated/guidedReadingLedaGaps.generated.js",
-          "sha256": "7f85d7e89b276e595c18f9e38cd7e429c472ca1f4f6f08a2be7ffe1f5895af0b"
+          "sha256": "c0e8cee29409d4bdc646e10845660f6a20906a83a23effcdce6e8d9bb2d15323"
         },
         {
           "path": "src/data/generated/guidedReadingNarrationClearance.generated.js",
-          "sha256": "ed46133838eb9253d5e0b2176bfc4cdd0d0f27e82fe6e892aa90c9167227a83f"
+          "sha256": "73f9f87f7180200b1b31d79cbd82615bd194ab3abc9823da624dfd7cc730b15b"
         },
         {
           "path": "src/data/generated/guidedReadingNarrationProvenance.generated.js",
-          "sha256": "76786611d7d3e6d7a37ef8dae9fd8e63b7aa65fadad17ad4ebaf663dd424bf68"
+          "sha256": "589908fd50ba59305301ac11765b75f04fa24bfb32b1fa89c6d61231e4c59cf2"
         },
         {
           "path": "src/data/generated/guidedReadingTextAnalysis.generated.js",
-          "sha256": "a339c16e29500e667555eb37de65dddc24141f9abb72aef032ad8c23014cdc14"
+          "sha256": "e4c350ed73c571c3acc3c1a9b0e729721badafb5fa350359eb7b0163a89cddb2"
         },
         {
           "path": "src/data/generated/hfwCuratedSentences.generated.js",
@@ -19929,7 +20021,7 @@
         },
         {
           "path": "src/data/generated/studentSupportAudio.generated.js",
-          "sha256": "0859eaf13fdd7a5a10e838bf646b8669e1c0e15eef26e6e841f673124be7e779"
+          "sha256": "4b844b6da92022d7a8b815a76e5b4369d869e2cc8d58c73922b0fc4d9689d748"
         },
         {
           "path": "src/data/generated/vocabularyRuntime.generated.js",
@@ -19937,7 +20029,7 @@
         },
         {
           "path": "src/data/generated/worldDiscoveryCohorts.generated.js",
-          "sha256": "f5ea84e3ea1b1d256ea3b56cd760da7fbe288834ca9f08ffdbe1a3373ccd2834"
+          "sha256": "7742a20f00d3574942ebbeba5d45e7a6dd03129003324bc2bad759d866063cd8"
         },
         {
           "path": "src/data/guardianPortalApi.js",
@@ -19953,7 +20045,7 @@
         },
         {
           "path": "src/data/guidedReadingBridgeBooks.js",
-          "sha256": "03459643480700a1d361922b97c2f1b3b15c66b7c4fdb07699d22f80d7a1d7d7"
+          "sha256": "5d7b636dcc7145f4020b4eae8ca9c77254d5c205b6f3a91785ea2e1633ca788b"
         },
         {
           "path": "src/data/guidedReadingBridgeBooks.manifest.js",
@@ -19961,7 +20053,7 @@
         },
         {
           "path": "src/data/guidedReadingBrightIdeasBooks.js",
-          "sha256": "aa1b10aa31d9a64ab623e3c2af403370a0f968e7b24d31490ecd031338d4836b"
+          "sha256": "3acfd5464f81bbf4e64c0a58bed0032378138e085d1d88f09e09588459e1302f"
         },
         {
           "path": "src/data/guidedReadingContextualWordAudio.js",
@@ -19993,7 +20085,7 @@
         },
         {
           "path": "src/data/guidedReadingLevelReviews.js",
-          "sha256": "dbc0c31d27af12b36178acbbd5bf6716def03ebec82ec332fd4b4f9768d68191"
+          "sha256": "f5929ab4ec7d2582eacc9239845ce1b7ef8189adeb09a78cc3e2648ca3acd8e5"
         },
         {
           "path": "src/data/guidedReadingLexileMeasures.js",
@@ -20001,7 +20093,7 @@
         },
         {
           "path": "src/data/guidedReadingNextStepsBooks.js",
-          "sha256": "70b8bbc59373ac1542d080e215d433f013d503bf3287608eda8f57b0748c38b1"
+          "sha256": "300eff93bd7528e8d2e971f96dcfe8734f1e924246fe3e4ecfcf1128d85916d5"
         },
         {
           "path": "src/data/guidedReadingPublication.js",
@@ -20017,11 +20109,11 @@
         },
         {
           "path": "src/data/guidedReadingSeriesBooks.js",
-          "sha256": "28519465652fea2219aa0548c756768d419a12fe7e9e5932bfbb8e87f6665e33"
+          "sha256": "c14ba1bff9bbe058a2cf0781c6ddfdddd714f4b00892008a37a90aabdea9e3d5"
         },
         {
           "path": "src/data/guidedReadingSmallStepsBooks.js",
-          "sha256": "54baf1755d41ac77f41a2aee7181b176ee77a932f15c27416601e6a592d3da56"
+          "sha256": "b65f9f4c85731d38d514e3c3624b258e7d864e49d079afcea9c0009ee5c57029"
         },
         {
           "path": "src/data/guidedReadingSmallStepsDescriptions.js",
@@ -20033,7 +20125,7 @@
         },
         {
           "path": "src/data/guidedReadingWorldExpansionBooks.js",
-          "sha256": "f7042c5008a00753b6447bcd74d65d8ae6ecc73a13a2d7c4eefb5deb22f0c2bc"
+          "sha256": "66b0a5865264c1a48047d8bcde94c7c2ae8a240a481b543b8bbe2408a48e0218"
         },
         {
           "path": "src/data/guidedStoryBooks.js",
@@ -20637,7 +20729,7 @@
         },
         {
           "path": "src/data/readingSessionCore.js",
-          "sha256": "dcfdbbd8f519195d94703eb28523e8549ad6fca29ef811356e317c6fe599aed2"
+          "sha256": "33a47f5332928c3e460cbeb89f12d3cb57dc12b507c75ea37a12c9ed72f5faf3"
         },
         {
           "path": "src/data/reportAudienceTemplates.js",
@@ -21449,7 +21541,7 @@
         },
         {
           "path": "src/features/soundSeekers/v3/campaignStorage.js",
-          "sha256": "8107e627bb3646f9ccd850abd0704e374610fde91e1320a19dca5322b69e5b6b"
+          "sha256": "629465370b5243974d512a6f7e9a1c245c27229925369edaad0fd214f5d4e550"
         },
         {
           "path": "src/features/soundSeekers/v3/content/activityAreas.js",
@@ -21565,7 +21657,11 @@
         },
         {
           "path": "src/features/soundSeekers/v3/engine/challenges.js",
-          "sha256": "0ca8f2760aa7607af6bc04448e14b2c8c3be18fce9a949011a671e83c0d1387e"
+          "sha256": "62e736e7a58047f3a4a2bf61d58da03af5a5094220fd60914e0ba377eb536052"
+        },
+        {
+          "path": "src/features/soundSeekers/v3/engine/challengeView.js",
+          "sha256": "7d0ff51531291bcacf52d0c5aa2f41005fbda4d89540f00dbc2b4a2ba48c5417"
         },
         {
           "path": "src/features/soundSeekers/v3/engine/exploration.js",
@@ -21737,15 +21833,15 @@
         },
         {
           "path": "src/hooks/usePhonicsAudio.js",
-          "sha256": "da33a02cc4d18527b9e4f1ac139efae375e6b03eb4177313c96c448b03bd7637"
+          "sha256": "988217ab22e0c4302471f368227798a433b58fc1514e00566b74bb2db5b8066a"
         },
         {
           "path": "src/hooks/useReadingSessionFollower.js",
-          "sha256": "c90499158e3b773b1c69f6abdc1c8f5256758424fc6dc1ae5a4c3d737ce9dccc"
+          "sha256": "0979c72b59841e30d2638d918aa83e63a113c8452847b2a56f306cb919c68e09"
         },
         {
           "path": "src/hooks/useReadingSessionHost.js",
-          "sha256": "d6e72272a1c7b4eee41a9925d808aaf6f04fdabcf8f71d4fdb65935913dff640"
+          "sha256": "1ac47376ed65e4e45e5d87d9928b7caca9a9b1166c47835b2ccbc63e160f179c"
         },
         {
           "path": "src/hooks/useReducedMotion.js",
@@ -21773,7 +21869,7 @@
         },
         {
           "path": "src/main.jsx",
-          "sha256": "d70b0fd74eddb6f4817b1dd1616a07a7430c3a786b76d673d06e9bfd7ced71ed"
+          "sha256": "4cf7ccdfd225580e7f91ff10ff35be495d38b1145d3c9813c60c5035395e1b41"
         },
         {
           "path": "src/masterySystem.js",
@@ -22185,7 +22281,7 @@
         },
         {
           "path": "src/styles/landing.css",
-          "sha256": "38121a98e6b5cff68746d9032bc5abc52ff7b8284f4831165cde92de047384fd"
+          "sha256": "719c7db16e2d0bbd667c7383b8adb9cac61e179edce50037925d5304cd5bcd23"
         },
         {
           "path": "src/styles/learn-games.css",
@@ -22289,7 +22385,7 @@
         },
         {
           "path": "src/styles/sentence-express.css",
-          "sha256": "c2fa684c4596515bdea3adf9a0aee410f1f5e2cb9a91cebfc978012d43968eb3"
+          "sha256": "17e0669377856e89f89e783c3533ffb1bd75725ab8b8034bbf05429901aafa40"
         },
         {
           "path": "src/styles/skills-block-quest.css",
@@ -22461,7 +22557,7 @@
         },
         {
           "path": "src/utils/audio/childAudioLifecycle.js",
-          "sha256": "d03f1c9814f69b9a8ef25ddfc51d1b0ad5f25fb8a0de6467ab223f5aa53869a6"
+          "sha256": "a43dccffc5cfcbd2651b969f52ade8039e997e68bbe44264ed33726b83ced497"
         },
         {
           "path": "src/utils/audio/cuePlayer.js",
@@ -22474,6 +22570,10 @@
         {
           "path": "src/utils/audio/gameSfx.js",
           "sha256": "250809eb95830ddae3d979d1226c7646c36e5f5fa5bde42a889c1a85a2728120"
+        },
+        {
+          "path": "src/utils/audio/phonicsPlayback.js",
+          "sha256": "9c1fe864e5f371df436c4984bb91d49e18f8595b2bb129a30d841c991c2a2cdb"
         },
         {
           "path": "src/utils/audio/playOwnedClip.js",
@@ -22529,7 +22629,7 @@
         },
         {
           "path": "src/utils/burrowBuildersRules.js",
-          "sha256": "8da8619f09bf52f588046f79680a0c4da238bb94a1ee7c91e2901f85ce36f29c"
+          "sha256": "336ef7af0d7c0aea3c390c28e10b4bc186c7210fbd7053f8d097ce386ffeebf5"
         },
         {
           "path": "src/utils/burrowBuildersSession.js",
@@ -22877,7 +22977,7 @@
         },
         {
           "path": "src/utils/learnGamesAudio.js",
-          "sha256": "943ff05cccbe0af632926048099ee35db64e8471ae060fba875b3eab8a9af746"
+          "sha256": "96a060d00129377f7b4fc91cd9f10f243d20e0b1addc856d656f258c80688735"
         },
         {
           "path": "src/utils/learnGamesProgress.js",
@@ -23193,7 +23293,7 @@
         },
         {
           "path": "src/utils/questPerformance.js",
-          "sha256": "1df3123426a7d27826777fd743f37073ccf45b4d3e05c0969de390f6cae4c50f"
+          "sha256": "d8f412d0397ac2e06e15639a50c2867677231e2f524f5a46e5a71749dfa7cc7a"
         },
         {
           "path": "src/utils/questPhysicalMechanics.js",
@@ -23417,7 +23517,7 @@
         },
         {
           "path": "src/utils/soundRacerPhysics.js",
-          "sha256": "e056c9a560aafe89bd544855bdb5b270daf33dbe74e876fcb8d2ec2876956704"
+          "sha256": "210c2f3071d608fe07d36c33e5cb6ad85e6e3e9fc5559108353993f562d3dd7d"
         },
         {
           "path": "src/utils/soundRacerPractice.js",
@@ -23461,7 +23561,7 @@
         },
         {
           "path": "src/utils/sportsArcadePerformance.js",
-          "sha256": "a07ff80c6d8c887824a709fe20cfcf004ca022c1564679ea1eecd00ba69448a7"
+          "sha256": "a8c172fde4ce4d8e4aa6a319f9478697120b9f626750132039af8230d301221a"
         },
         {
           "path": "src/utils/starGalleryRounds.js",

@@ -31,9 +31,10 @@
     "note": "Authored three-way comparison shows cyclist, skater and rower on separate appropriate surfaces. The three human-powered activities are legible without lettering. Producer independently inspected the final installed WebP natively; complete final sequence and relevant native diagrams were independently reviewed."
   },
   "reviewedManuscriptSource": {
-    "bookId": "world-discovery-b-21",
     "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
-    "sha256": "664f916d1379302ae82b7a5dbf774413f4378508f9326855afd22b7b7086bbfc",
-    "evidence": "source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json"
+    "bookId": "world-discovery-b-21",
+    "sha256": "f06cd2eb787de93f0689f9fabe266a205dd054479e0dbdc3cf423be22c1a6df5",
+    "reviewedAt": "2026-11-22",
+    "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json"
   }
 }

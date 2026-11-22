@@ -68,7 +68,7 @@
       "sha256": "26583032686b8491e41ce566f3338e48941b097f916499d019fe52ebadfc5add",
       "width": 1365,
       "height": 768,
-      "textSha256": "9dd7738bf6474d977c683ea3fa279b5afd29d7b4dd00f2ade784ebaaa88925ff",
+      "textSha256": "c2ffddea1575626b39baa7f651d9d1a6ac89bfda8f8ae39a0ef59610ca256823",
       "briefSha256": "b522a8847afa87ab548155a522bcdd039ff6699e2d2878d0a2405777387b9270",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
@@ -106,6 +106,14 @@
           "Maya points to the patch on her yellow box; Samir holds his green box. Both patches are blank. The cup and apple remain in the wrong boxes."
         ],
         "priorTextSha256": "dd2aa19f4f536afc1330c8321f56e039518a6101fca146094f057489b8ebc870"
+      },
+      "editorialReview20261122": {
+        "reviewedAt": "2026-11-22",
+        "method": "The changed line was compared with the installed artwork in the ordered book sequence.",
+        "notes": [
+          "Gives visible color cues for each owner before the contents are exchanged."
+        ],
+        "priorTextSha256": "9dd7738bf6474d977c683ea3fa279b5afd29d7b4dd00f2ade784ebaaa88925ff"
       }
     },
     {
@@ -146,7 +154,7 @@
       "sha256": "a07bb1a4aa8b70d926af10779a9e8570b7d788858b605a45669236fe3df3510e",
       "width": 1365,
       "height": 768,
-      "textSha256": "1ede808e18edc70b42f8241a7f7589687c03871091239eb28b3e27c0060b7936",
+      "textSha256": "8a82861ed3b5b744613068f82db050df1305a7e2cdd09dc156de542c78b9ce38",
       "briefSha256": "a3eba2f7a2b1b77b48c80502293c9eda1a83fdeb72313525204ac858eababbce",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
@@ -160,7 +168,15 @@
       "sourceImageGenOutput": "exec-3d359dda-15e8-4b91-bc76-4f8bd09bc4d9.png",
       "cacheVersion": "a07bb1a4aa8b",
       "sourceNativeSha256": "43b371acc63e7090cf8366785fa477c077839b31c43928b2bab9dd95abb9267d",
-      "productionPrompt": "Edit this exact clean flat outlined cartoon only to correct classroom table geometry. The foreground table must be one RECTANGULAR light oak school table, straight long front edge, straight side edges, FOUR right angle corners, four grey metal legs. It must not be oval, round, octagonal or have clipped corners. Preserve the current safely inset characters, hands, correct lunch props, outfits, positions, proportions and wide framing. Remove the small wall noticeboard with grey markings at left completely, leave plain cream wall. Preserve the simultaneous exchange: Maya left extends ONE blue cup to Samir right; Samir extends ONE green apple to Maya; empty yellow lunchbox remains left and empty green lunchbox remains right; ONE silver spoon and folded orange napkin stay on Samir side. Keep sage chairs and tall windows, crisp bold outlines, uniform solid fills, one simple hard edge cel shadow, plain cream lower 22% footer. No lettering or invented detail."
+      "productionPrompt": "Edit this exact clean flat outlined cartoon only to correct classroom table geometry. The foreground table must be one RECTANGULAR light oak school table, straight long front edge, straight side edges, FOUR right angle corners, four grey metal legs. It must not be oval, round, octagonal or have clipped corners. Preserve the current safely inset characters, hands, correct lunch props, outfits, positions, proportions and wide framing. Remove the small wall noticeboard with grey markings at left completely, leave plain cream wall. Preserve the simultaneous exchange: Maya left extends ONE blue cup to Samir right; Samir extends ONE green apple to Maya; empty yellow lunchbox remains left and empty green lunchbox remains right; ONE silver spoon and folded orange napkin stay on Samir side. Keep sage chairs and tall windows, crisp bold outlines, uniform solid fills, one simple hard edge cel shadow, plain cream lower 22% footer. No lettering or invented detail.",
+      "editorialReview20261122": {
+        "reviewedAt": "2026-11-22",
+        "method": "The changed line was compared with the installed artwork in the ordered book sequence.",
+        "notes": [
+          "Names exactly what the children exchange and the object they missed."
+        ],
+        "priorTextSha256": "1ede808e18edc70b42f8241a7f7589687c03871091239eb28b3e27c0060b7936"
+      }
     },
     {
       "bookId": "willow-street-the-lunchbox-mix-up",
@@ -1344,7 +1360,7 @@
       "sha256": "d4f809132f29bbc5f85564371a502af180e1a8bfae36357421b8ca8a3307bb3e",
       "width": 1365,
       "height": 768,
-      "textSha256": "51311c638b90e7ce5b0818cfd763b1c9999f4ca95d4f8c7c8ae451d52b813d6b",
+      "textSha256": "b9bea9de21d84ce2c35b02614b07275bc34e803ed81e325109bd9a037044e4fd",
       "briefSha256": "ffcb6eebade81d222cff0fe8a07028508210cd1d575883ec3a9adc8342a68ae0",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
@@ -1381,7 +1397,15 @@
       },
       "cacheVersion": "d4f809132f29",
       "sourceNativeSha256": "2f84fbb057c2e98cd8419cbbd5ef71c6c8b76ab6ead2bb0610672c072dea1648",
-      "productionPrompt": "Edit ONLY the GOLD DOOR HARDWARE on redbrick library door at farLEFT: remove the EXTRA gold handle on the LEFT edge of thatblue door. Keep ONLY ONE gold handle on itsRIGHTedge. It is ONE singleleafbluewooddoor inbrickARCH, notdouble. Keep all otherpixels/framing/people, ONELeo muddyshoe,4drystones/nocones,3railgreen gate, currentwideframing/puddle/creamstrip unchanged."
+      "productionPrompt": "Edit ONLY the GOLD DOOR HARDWARE on redbrick library door at farLEFT: remove the EXTRA gold handle on the LEFT edge of thatblue door. Keep ONLY ONE gold handle on itsRIGHTedge. It is ONE singleleafbluewooddoor inbrickARCH, notdouble. Keep all otherpixels/framing/people, ONELeo muddyshoe,4drystones/nocones,3railgreen gate, currentwideframing/puddle/creamstrip unchanged.",
+      "editorialReview20261122": {
+        "reviewedAt": "2026-11-22",
+        "method": "The changed line was compared with the installed artwork in the ordered book sequence.",
+        "notes": [
+          "Removes a singular pronoun with a potentially confusing referent and names who tests the route."
+        ],
+        "priorTextSha256": "51311c638b90e7ce5b0818cfd763b1c9999f4ca95d4f8c7c8ae451d52b813d6b"
+      }
     },
     {
       "bookId": "willow-street-the-puddle-plan",
@@ -4034,7 +4058,7 @@
       "sha256": "d7b534d9b64c3d34a80cf8e43bfa273a3e9decbee93476c1762f7af62bb7e1b5",
       "width": 1365,
       "height": 768,
-      "textSha256": "8a4a257652543f5c316219109f98446815fd6906f03fb1b3b440f7ce6937c4f7",
+      "textSha256": "a63cde081fc1b6b20f07587c16aeccad82c2b974a7c4f5b5c7e8c4e8c90c897f",
       "briefSha256": "69c8d47514d0ed12fc8964a9e51762e37a993b8c711736d2b65043150b5ca0f2",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
@@ -4048,7 +4072,15 @@
       "sourceImageGenOutput": "exec-aa77d107-7371-4dea-bf97-874c105a9012.png",
       "cacheVersion": "d7b534d9b64c",
       "sourceNativeSha256": "30a3ac4736a4ebb247dd75a1acf7be2aa0d333a65831f633312f6871c128718d",
-      "productionPrompt": "Edit this exact clean cartoon page. Keep the board resting on exactly TWO books BLUE above GREEN and its lower end RIGHT, still untaped. Add exactly ONE small red hatchback toy car parked on the floor LEFT of the books, safely clear of the adult's hands. No car on the board. Preserve the same child and adult identities, outfits, expressions, kitchen or playroom geography, wide camera and all existing safe margins. Bold smooth dark outlines, bright SOLID FLAT FILLS and at most one hard-edge cel shadow. No paper, denim or wood grain, no embossed texture. Keep every essential head, hand, foot and story prop within the central 80% of the canvas with at least 8% breathing room on all sides; the lower 22% cream reading panel stays quiet and empty. No image text, letters, numerals, watermark, or faces on inanimate scenery. One coherent illustration, not a collage.\n"
+      "productionPrompt": "Edit this exact clean cartoon page. Keep the board resting on exactly TWO books BLUE above GREEN and its lower end RIGHT, still untaped. Add exactly ONE small red hatchback toy car parked on the floor LEFT of the books, safely clear of the adult's hands. No car on the board. Preserve the same child and adult identities, outfits, expressions, kitchen or playroom geography, wide camera and all existing safe margins. Bold smooth dark outlines, bright SOLID FLAT FILLS and at most one hard-edge cel shadow. No paper, denim or wood grain, no embossed texture. Keep every essential head, hand, foot and story prop within the central 80% of the canvas with at least 8% breathing room on all sides; the lower 22% cream reading panel stays quiet and empty. No image text, letters, numerals, watermark, or faces on inanimate scenery. One coherent illustration, not a collage.\n",
+      "editorialReview20261122": {
+        "reviewedAt": "2026-11-22",
+        "method": "The changed line was compared with the installed artwork in the ordered book sequence.",
+        "notes": [
+          "Describes the visible raised end and creates a slope."
+        ],
+        "priorTextSha256": "8a4a257652543f5c316219109f98446815fd6906f03fb1b3b440f7ce6937c4f7"
+      }
     },
     {
       "bookId": "willow-street-build-a-cardboard-ramp",
@@ -4126,7 +4158,7 @@
       "sha256": "e2d3e7148dd791bc7fc318e6c32c48ec94df41dd084262a1f044996cb3312b72",
       "width": 1365,
       "height": 768,
-      "textSha256": "70c30afe545059e2d3a667b12a9616de043342399f5782b44a22181992ec6900",
+      "textSha256": "84febb753824da25a42dd812aa71f154d173cb35c3866af8f06c8585dc4b2faa",
       "briefSha256": "b1daae2fddfa00ab60d1cc789b778d5f5fa9aa70d6143c0696a3bc4de43deb44",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
@@ -4140,7 +4172,15 @@
       "sourceImageGenOutput": "exec-ec238174-bcd5-4d6a-bf17-e7060a3b8ae8.png",
       "cacheVersion": "e2d3e7148dd7",
       "sourceNativeSha256": "01487bbd0284c49205b4597569ee9e8a5a10edfca665f6295b24d1d6b2e21fd7",
-      "productionPrompt": "Edit this exact clean cartoon page. Correct the measurement clue. The stopped red toy hatchback faces RIGHT, its FRONT bumper is its RIGHTMOST point. Keep the BLUE first-stop tape nearer the ramp LEFT of the car. Move the YELLOW second-stop tape to align directly BESIDE the RIGHT FRONT BUMPER, at the RIGHTMOST front of the red car. No marker at the rear bumper. Exactly THREE support books BLUE above GREEN above YELLOW. Exactly one blue marker and one yellow marker, yellow farther RIGHT. Preserve the same child and adult identities, outfits, expressions, kitchen or playroom geography, wide camera and all existing safe margins. Bold smooth dark outlines, bright SOLID FLAT FILLS and at most one hard-edge cel shadow. No paper, denim or wood grain, no embossed texture. Keep every essential head, hand, foot and story prop within the central 80% of the canvas with at least 8% breathing room on all sides; the lower 22% cream reading panel stays quiet and empty. No image text, letters, numerals, watermark, or faces on inanimate scenery. One coherent illustration, not a collage.\n"
+      "productionPrompt": "Edit this exact clean cartoon page. Correct the measurement clue. The stopped red toy hatchback faces RIGHT, its FRONT bumper is its RIGHTMOST point. Keep the BLUE first-stop tape nearer the ramp LEFT of the car. Move the YELLOW second-stop tape to align directly BESIDE the RIGHT FRONT BUMPER, at the RIGHTMOST front of the red car. No marker at the rear bumper. Exactly THREE support books BLUE above GREEN above YELLOW. Exactly one blue marker and one yellow marker, yellow farther RIGHT. Preserve the same child and adult identities, outfits, expressions, kitchen or playroom geography, wide camera and all existing safe margins. Bold smooth dark outlines, bright SOLID FLAT FILLS and at most one hard-edge cel shadow. No paper, denim or wood grain, no embossed texture. Keep every essential head, hand, foot and story prop within the central 80% of the canvas with at least 8% breathing room on all sides; the lower 22% cream reading panel stays quiet and empty. No image text, letters, numerals, watermark, or faces on inanimate scenery. One coherent illustration, not a collage.\n",
+      "editorialReview20261122": {
+        "reviewedAt": "2026-11-22",
+        "method": "The changed line was compared with the installed artwork in the ordered book sequence.",
+        "notes": [
+          "Makes the second test reproducible and keeps the ramp secured before release."
+        ],
+        "priorTextSha256": "70c30afe545059e2d3a667b12a9616de043342399f5782b44a22181992ec6900"
+      }
     },
     {
       "bookId": "willow-street-build-a-cardboard-ramp",

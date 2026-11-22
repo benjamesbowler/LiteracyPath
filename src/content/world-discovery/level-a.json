@@ -219,7 +219,7 @@
       },
       {
         "pageNumber": 8,
-        "text": "Two red pictures hang together.",
+        "text": "The pictures hang side by side.",
         "imageBrief": "Both children look at their separate pictures clipped side by side to a low string: exactly one kite and one balloon. Crayon on table below.",
         "imageAlt": "The red kite and red balloon pictures hang side by side.",
         "pageDescription": "The red kite and red balloon pictures hang side by side.",
@@ -245,8 +245,8 @@
         "meaning": "with nothing drawn on it"
       },
       {
-        "word": "together",
-        "meaning": "beside one another here"
+        "word": "side by side",
+        "meaning": "next to each other"
       }
     ]
   },
@@ -863,7 +863,7 @@
       },
       {
         "pageNumber": 5,
-        "text": "A leaf shades the snail.",
+        "text": "The snail rests under a leaf.",
         "imageBrief": "One green leaf moves over the snail and casts a clear shadow across it, without hitting or crushing it. Head begins to shorten.",
         "imageAlt": "A leaf casts a shadow over the snail.",
         "pageDescription": "A leaf casts a shadow over the snail.",

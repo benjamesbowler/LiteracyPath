@@ -1,0 +1,30 @@
+{
+  "reviewedAt": "2026-11-22",
+  "bookId": "james-and-anna-05-tree-house",
+  "pageNumber": 8,
+  "text": "Dad cuts the wood for the window. James and Anna watch.",
+  "previousImage": {
+    "publicPath": "/guided-reading/series/james-and-anna/book-05/page-008.webp",
+    "sha256": "a7ae1dfb7d8a6e8e484583187b7711de9b2eff40322c501efd6900a56848774f"
+  },
+  "source": {
+    "tool": "Built-in ImageGen",
+    "selectedSource": "exec-4635f3a3-9807-4588-8a60-5f43f48d6dcb.png",
+    "imageSha256": "9f2eb9a6792775655bae2a7ce655b0a69aa3095791e8072ef55182b3fcc98c00",
+    "initialPrompt": "Use case: precise-object-edit. Replacement for a children's guided reading picture-book illustration. Edit the supplied landscape reference of James, Anna and Dad building a backyard tree house, retaining the bright clean flat-color 2D cartoon finish, continuous dark ink outlines, character designs, clothes, daylight, broad old oak, fence and partially built tree house. One child-clear new story beat: Dad cuts one board for the tree house window while James and Anna watch a few steps away. Dad alone operates the existing unpowered silver hand saw, gripping its brown handle with his dominant hand; his free hand is well away from the cutting area. The board lies horizontally on two stable wooden sawhorses, secured with a visible clamp; the end being cut overhangs outside the support. James is the short freckled child with curly red hair, green and white striped T-shirt and dark shorts. Anna is the same height, warm brown skin, dark hair in two bunches with yellow ties, yellow star T-shirt and purple trousers. Both children watch together from one side at a safe distance; their hands never touch the board, saw, or sawhorses. Dad keeps the same curly red hair, gray short-sleeve shirt, tan trousers, and adult build. Show the entire action in one uncluttered 16:9 wide view with exact anatomy and readable grips; no extra hands/tools/people, pseudo-text, logos, lettering, brush grain, or watermark. The original foreground arrangement can move to make the safe action clear.",
+    "finalPrompt": "Use case: precise-object-edit. Keep this wide existing 2D children's-book picture, characters, hands, stance, placements, saw, board, trees and palette. Correct one mechanical detail only. The single blue C-clamp now pinches the board in the open gap between two sawhorses. Move the clamp right so it visibly secures the board TO the top crossbeam of the right-hand wooden sawhorse. The clamp's upper screw pad touches the top of the board and the fixed jaw catches clearly underneath that sawhorse's top crossbeam. Remove the original misplaced blue clamp completely. The board still has two stable sawhorse supports, and Dad's saw cuts the board outside the left support. Dad alone uses the saw, exactly as in the input. James and Anna keep both hands behind their backs a few steps away. Keep bright clean flat-color 2D line art, wide 16:9 composition, natural hands, and no text."
+  },
+  "output": {
+    "publicPath": "/guided-reading/series/james-and-anna/book-05/page-008-dad-cuts-df7581588218.webp",
+    "sha256": "df75815882185ebe50bed5f60202682b07a7fa12b390ebca5e86328d91b73bd8",
+    "width": 1672,
+    "height": 941,
+    "byteLength": 266448,
+    "encoder": "cwebp -q 89 -m 6"
+  },
+  "finalReview": {
+    "status": "accepted",
+    "reason": "The native prior image shows young James operating the saw with his fingers beside its teeth and no stable board supports. The replacement shows Dad alone with a supported and secured board. James and Anna stay back from the blade.",
+    "continuity": "The same three people, clothing, yard, daylight, fence, oak and unpainted tree house carry through the preceding and following pages. The adult holds the saw handle and cuts at the board overhang outside the left sawhorse. The blue clamp holds the board against the right sawhorse."
+  }
+}

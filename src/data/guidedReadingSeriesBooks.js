@@ -90,10 +90,10 @@ const jamesPagePath = (bookNumber, pageNumber) =>
 const jamesCoverPath = bookNumber =>
   seriesCoverPath("james-and-anna", bookNumber);
 
-const createJamesPage = ({ bookNumber, pageNumber, text, illustrationPrompt }) => ({
+const createJamesPage = ({ bookNumber, pageNumber, text, illustrationPrompt, image = jamesPagePath(bookNumber, pageNumber) }) => ({
   pageNumber,
   text: normalizeReadingText(text),
-  image: jamesPagePath(bookNumber, pageNumber),
+  image,
   audio: seriesAudioPath("james-and-anna", bookNumber, pageNumber),
   words: words(text),
   illustrationPrompt,
@@ -137,8 +137,8 @@ const createJamesAndAnnaBook = ({
   targetPatterns,
   theme,
   characterReference: {
-    james: "James is 5-6 with brown skin, close-cropped black hair, a green-and-white striped T-shirt, blue shorts, white socks, and red trainers.",
-    anna: "Anna is 5-6 with light skin, chestnut-brown hair in two bunches, a yellow pinafore dress over a white top, white socks, and red shoes.",
+    james: "James is 5-6 with fair skin, curly red hair, a green-and-white striped T-shirt, navy shorts, white socks, and red sneakers.",
+    anna: "Anna is 5-6 with warm medium-brown skin, dark hair in two high pigtails with yellow ties, a yellow star T-shirt, purple pants, and purple sneakers.",
     chips: "Chips is a small white goat with big brown patches, yellow eyes, short horns, floppy ears, and a blue collar with a blue bell. Chips appears from book 2 onward only where the text says so.",
     zim: "Zim is a tiny lime-green alien with three large black eyes, stick limbs, one antenna, and a wide grin. Zim appears only in book 1."
   },
@@ -2127,7 +2127,7 @@ export const guidedReadingSeriesBooks = [
       { pageNumber: 5, text: `Dad did the tricky high bits — the tall planks and the big nails. James and Anna passed the tools and held the wood still.`, illustrationPrompt: "Dad on a ladder while James and Anna help with tools and wood." },
       { pageNumber: 6, text: `BANG! BANG! BANG! went the hammer. WHIRR! went the drill. The frame went up bit by bit.`, illustrationPrompt: "Action scene as the tree house frame goes up." },
       { pageNumber: 7, text: `Next came the floor — flat planks, all in a row. "Walk on it!" said Dad. They did. It held firm!`, illustrationPrompt: "James and Anna testing the new tree house floor." },
-      { pageNumber: 8, text: `Then they made the walls and cut a little door. James helped saw a window hole with a small hand saw.`, illustrationPrompt: "James helping saw a window hole with Dad guiding." },
+      { pageNumber: 8, text: "Dad cuts the wood for the window. James and Anna watch.", image: "/guided-reading/series/james-and-anna/book-05/page-008-dad-cuts-df7581588218.webp", illustrationPrompt: "Dad saws a board held by a clamp on two sawhorses. James and Anna stand back and watch." },
       { pageNumber: 9, text: `Now for the best bit — the paint! James chose blue for the walls. Anna chose yellow for the door. Chips chewed the lid off the paint tin.`, illustrationPrompt: "James painting blue walls, Anna painting the yellow door, Chips taking the paint lid." },
       { pageNumber: 10, text: `When the paint was dry, Anna cut a red star from felt and glued it on the flag. James fixed the flag to a long stick and tied it to the roof.`, illustrationPrompt: "Anna making the flag while James ties it to the roof." },
       { pageNumber: 11, text: `The tree house was done! Blue walls, a yellow door, a red star flag and a rope ladder all the way to the ground.`, illustrationPrompt: "Wide shot of the finished blue and yellow tree house." },

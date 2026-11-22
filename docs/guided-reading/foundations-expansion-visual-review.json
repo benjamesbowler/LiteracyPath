@@ -1708,15 +1708,23 @@
       "bookId": "bright-ideas-04",
       "title": "Dot’s Paper Chain",
       "pageNumber": 6,
-      "displayedText": "She opens each ring and links it.",
-      "textSha256": "a96f4ed90f06da9e4ddb45d8f6038f221dd025443abf82f1597c03118a8a8bb3",
+      "displayedText": "Dot opens a ring.\nShe links it to the chain.",
+      "textSha256": "53c2257b65fae586d1cd6381cc3ab2ae7da81d5fdf35d88c926c8facf1a0c6ba",
       "visualBriefSha256": "dd7b593e2dbe68654fed1f7cd2f1cad81d7193307ef3e43527d2f20e146d4d6d",
       "sequenceReview": "Cover and all8 pages independently compared in ordered sequence. Eight red/blue rings remain separate until threaded and joined, five theneight form chain across playhouse window; extra yellow strip becomes wrist ring. Same playroom, glue stick, children, table and color sequence.",
       "independentSequenceEvidence": ".artifacts/guided-reading-expansion-50-2026-10-28/root-bright-early-independent-review.json",
       "producerNativeReviewed": true,
       "orderedSequenceReviewed": true,
       "independentOrderedSequenceReviewed": true,
-      "currentStyleAccepted": true
+      "currentStyleAccepted": true,
+      "editorialReview20261122": {
+        "reviewedAt": "2026-11-22",
+        "method": "The changed line was compared with the installed artwork in the ordered book sequence.",
+        "notes": [
+          "Makes clear that each opened ring links to an existing chain. The drawing shows several links already joined."
+        ],
+        "priorTextSha256": "a96f4ed90f06da9e4ddb45d8f6038f221dd025443abf82f1597c03118a8a8bb3"
+      }
     },
     {
       "path": "/guided-reading/bright-ideas/book-04/page-07.webp",
@@ -1968,15 +1976,23 @@
       "bookId": "bright-ideas-05",
       "title": "Hooks and Loops",
       "pageNumber": 7,
-      "displayedText": "Many little catches hold the strap shut.",
-      "textSha256": "d6ae46f55a0aac45cf63aac4f463fa14081991843cbf5863cce58f679a97b789",
+      "displayedText": "The little hooks keep the strap closed.",
+      "textSha256": "a96a0cd3c0a835430d49cf019bf34dddc7404c2400ea11d01a42dab86476e8e7",
       "visualBriefSha256": "c70dea395f0f61fd0a909470e20efb47a80b5658474ac96bf5da1e4eb98cdd8f",
       "sequenceReview": "Cover and all10 pages independently compared after22-book5/6 style corrections. Same blue bag/red strap, hook-only and loop-only magnified diagrams, hooked closed and bending-release states; green book inserted9 and bag closes10. Required hook/loop learning detail preserved while window, plant, wall and bench use clear flat outlined shapes.",
       "independentSequenceEvidence": ".artifacts/guided-reading-expansion-50-2026-10-28/root-bright-early-independent-review.json",
       "producerNativeReviewed": true,
       "orderedSequenceReviewed": true,
       "independentOrderedSequenceReviewed": true,
-      "currentStyleAccepted": true
+      "currentStyleAccepted": true,
+      "editorialReview20261122": {
+        "reviewedAt": "2026-11-22",
+        "method": "The changed line was compared with the installed artwork in the ordered book sequence.",
+        "notes": [
+          "Names the hooks in the mechanism and avoids a confusing shift from the verb catch to a count noun."
+        ],
+        "priorTextSha256": "d6ae46f55a0aac45cf63aac4f463fa14081991843cbf5863cce58f679a97b789"
+      }
     },
     {
       "path": "/guided-reading/bright-ideas/book-05/page-08.webp",
@@ -3060,15 +3076,23 @@
       "bookId": "bright-ideas-09",
       "title": "How Much Rain?",
       "pageNumber": 5,
-      "displayedText": "Here is an example after one shower.\nThe gauge holds five millimeters of rain.",
-      "textSha256": "e8921660c33c44e2612631e72d3b5a67bf7a1eebae4345abca0a9e3eae998753",
+      "displayedText": "After the first shower, the water reaches the five-millimeter mark.",
+      "textSha256": "c8ee137d5b1e562b71664b8a163917d0c82ad4d6b421d0eeb71603e69b42b8f2",
       "visualBriefSha256": "18cc7ee7b39da74f2516eb8a16b5ffa329117bb3cdddea61cf36add36b9e703e",
       "sequenceReview": "Cover and all10 pages independently compared. Same removable open measuring tube and fixedpost. Accurate equallyspaced15/10/5/0scale, zero at innerfloor, water5thenemptiedfromloweredopenrim, water10thencomparisonwithfirstrecord5. Page9empty reset explanation; page10closedclipboard/roofdripsremote. No funnel or invented thirdmeasurement.",
       "independentSequenceEvidence": ".artifacts/guided-reading-expansion-50-2026-10-28/root-bright-early-independent-review.json",
       "producerNativeReviewed": true,
       "orderedSequenceReviewed": true,
       "independentOrderedSequenceReviewed": true,
-      "currentStyleAccepted": true
+      "currentStyleAccepted": true,
+      "editorialReview20261122": {
+        "reviewedAt": "2026-11-22",
+        "method": "The changed line was compared with the installed artwork in the ordered book sequence.",
+        "notes": [
+          "Connects the measurement to a visible mark on the gauge."
+        ],
+        "priorTextSha256": "e8921660c33c44e2612631e72d3b5a67bf7a1eebae4345abca0a9e3eae998753"
+      }
     },
     {
       "path": "/guided-reading/bright-ideas/book-09/page-06.webp",
@@ -3086,15 +3110,23 @@
       "bookId": "bright-ideas-09",
       "title": "How Much Rain?",
       "pageNumber": 6,
-      "displayedText": "Dot records five. Then she empties the gauge.\nThe next shower needs an empty start.",
-      "textSha256": "09a1f6aef183776f58624d2658d17dbbd1f3e1cb61cae7732afca90b1f1ab569",
+      "displayedText": "Dot writes down five and empties the gauge.\nNow it is ready for the next shower.",
+      "textSha256": "6817ca5998992abcbd17eccedec770a5aab5428b9f2b4cbdbd6182bf6e6790f3",
       "visualBriefSha256": "9faaebda139a05c4b15215a9d0491f1767704404b369b17a1318fb2acc92e111",
       "sequenceReview": "Cover and all10 pages independently compared. Same removable open measuring tube and fixedpost. Accurate equallyspaced15/10/5/0scale, zero at innerfloor, water5thenemptiedfromloweredopenrim, water10thencomparisonwithfirstrecord5. Page9empty reset explanation; page10closedclipboard/roofdripsremote. No funnel or invented thirdmeasurement.",
       "independentSequenceEvidence": ".artifacts/guided-reading-expansion-50-2026-10-28/root-bright-early-independent-review.json",
       "producerNativeReviewed": true,
       "orderedSequenceReviewed": true,
       "independentOrderedSequenceReviewed": true,
-      "currentStyleAccepted": true
+      "currentStyleAccepted": true,
+      "editorialReview20261122": {
+        "reviewedAt": "2026-11-22",
+        "method": "The changed line was compared with the installed artwork in the ordered book sequence.",
+        "notes": [
+          "States the action and its purpose in natural, spoken language."
+        ],
+        "priorTextSha256": "09a1f6aef183776f58624d2658d17dbbd1f3e1cb61cae7732afca90b1f1ab569"
+      }
     },
     {
       "path": "/guided-reading/bright-ideas/book-09/page-07.webp",
@@ -3112,15 +3144,23 @@
       "bookId": "bright-ideas-09",
       "title": "How Much Rain?",
       "pageNumber": 7,
-      "displayedText": "After the next shower, the example gauge holds ten millimeters.\nDot records ten.",
-      "textSha256": "2c392cbcfeb922feb32400525e167d8c1946cf272fe70ae393a80cf6c42e4484",
+      "displayedText": "After the next shower, the water reaches ten millimeters.\nDot writes down ten.",
+      "textSha256": "84302d7c1a336f7e57a9404af05ac98fd765998fad1226550a7e7c65a1f73f6e",
       "visualBriefSha256": "5075e6c774764e25a009f3e4e868e5773727621cbe276928e666f539d932c88d",
       "sequenceReview": "Cover and all10 pages independently compared. Same removable open measuring tube and fixedpost. Accurate equallyspaced15/10/5/0scale, zero at innerfloor, water5thenemptiedfromloweredopenrim, water10thencomparisonwithfirstrecord5. Page9empty reset explanation; page10closedclipboard/roofdripsremote. No funnel or invented thirdmeasurement.",
       "independentSequenceEvidence": ".artifacts/guided-reading-expansion-50-2026-10-28/root-bright-early-independent-review.json",
       "producerNativeReviewed": true,
       "orderedSequenceReviewed": true,
       "independentOrderedSequenceReviewed": true,
-      "currentStyleAccepted": true
+      "currentStyleAccepted": true,
+      "editorialReview20261122": {
+        "reviewedAt": "2026-11-22",
+        "method": "The changed line was compared with the installed artwork in the ordered book sequence.",
+        "notes": [
+          "Uses the same measurement frame for the second reading."
+        ],
+        "priorTextSha256": "2c392cbcfeb922feb32400525e167d8c1946cf272fe70ae393a80cf6c42e4484"
+      }
     },
     {
       "path": "/guided-reading/bright-ideas/book-09/page-08.webp",
@@ -4048,15 +4088,23 @@
       "bookId": "bright-ideas-12",
       "title": "From Sand to a Bottle",
       "pageNumber": 10,
-      "displayedText": "Heating and cooling in this careful way reduce stresses in the glass.\nThe process is called annealing.",
-      "textSha256": "1b213d684f8a25744321656823759883d5e3fbf81e6cfb3e24cc1a2cccfb3eea",
+      "displayedText": "The bottles cool slowly in the oven. This helps keep the glass from cracking. This step is called annealing.",
+      "textSha256": "2fd36a636dfd2e7c8b623ea361f4180b1d29487d2024b1c26ebe69f4fefe4e4d",
       "visualBriefSha256": "9092e859fa9258c8721594f0d57d42b50195cfe38788b002d4237d4980fff6f6",
       "sequenceReview": "Complete13 current cover-to-end sequence visually checked after4 source+installed native repairs. Recipe/cullet mixing, enclosed furnace/molten state, single cut gob, closed mold/air-hollowing, progressive annealing, inspection/reject and final bottle/glass states retained. All backgrounds sharp clean cartoon.",
       "independentSequenceEvidence": ".artifacts/guided-reading-expansion-50-2026-10-28/bright-six-peer-review-middle.json",
       "producerNativeReviewed": true,
       "orderedSequenceReviewed": true,
       "independentOrderedSequenceReviewed": true,
-      "currentStyleAccepted": true
+      "currentStyleAccepted": true,
+      "editorialReview20261122": {
+        "reviewedAt": "2026-11-22",
+        "method": "The changed line was compared with the installed artwork in the ordered book sequence.",
+        "notes": [
+          "Defines annealing through the controlled cooling shown on the page."
+        ],
+        "priorTextSha256": "1b213d684f8a25744321656823759883d5e3fbf81e6cfb3e24cc1a2cccfb3eea"
+      }
     },
     {
       "path": "/guided-reading/bright-ideas/book-12/page-11.webp",
@@ -4100,15 +4148,23 @@
       "bookId": "bright-ideas-12",
       "title": "From Sand to a Bottle",
       "pageNumber": 12,
-      "displayedText": "The bottle has been mixed, melted, shaped, cooled, and checked.\nNow it can hold a drink.",
-      "textSha256": "82aacc711951f14f48a95b21b29e9cb4e42bdc4646f9909bf57e0cabdd69d96f",
+      "displayedText": "The melted glass took the shape of the mold.\nNow the cool, clear bottle can hold a drink.",
+      "textSha256": "c31e53b1d71aa9f1b4264742a9939e332c9d6234d1fcada900648f1e3eaf5abf",
       "visualBriefSha256": "4913f03881002398ae3c54e103c1d51e9eabdca4e6a3fefa751e5f22a86c03f1",
       "sequenceReview": "Complete13 current cover-to-end sequence visually checked after4 source+installed native repairs. Recipe/cullet mixing, enclosed furnace/molten state, single cut gob, closed mold/air-hollowing, progressive annealing, inspection/reject and final bottle/glass states retained. All backgrounds sharp clean cartoon.",
       "independentSequenceEvidence": ".artifacts/guided-reading-expansion-50-2026-10-28/bright-six-peer-review-middle.json",
       "producerNativeReviewed": true,
       "orderedSequenceReviewed": true,
       "independentOrderedSequenceReviewed": true,
-      "currentStyleAccepted": true
+      "currentStyleAccepted": true,
+      "editorialReview20261122": {
+        "reviewedAt": "2026-11-22",
+        "method": "The changed line was compared with the installed artwork in the ordered book sequence.",
+        "notes": [
+          "Distinguishes the ingredients that are mixed from the material molded into a finished bottle."
+        ],
+        "priorTextSha256": "82aacc711951f14f48a95b21b29e9cb4e42bdc4646f9909bf57e0cabdd69d96f"
+      }
     },
     {
       "path": "/guided-reading/bright-ideas/book-13/cover.webp",
@@ -4230,15 +4286,23 @@
       "bookId": "bright-ideas-13",
       "title": "The Octopus in the Rocks",
       "pageNumber": 4,
-      "displayedText": "Paler patches spread across its skin.\nThe animal has not become a different octopus.",
-      "textSha256": "e8c16e6dc79903136e11e07e534d1781a806015f551dc397f20b656d0665cdc1",
+      "displayedText": "Paler patches spread across its skin.\nThey help it blend with the sand.",
+      "textSha256": "3f2fbe279df7bb4f3abefba27399fdfba6390341aaa86e63b549354a44f2d3c3",
       "visualBriefSha256": "bea90f3304301ebebe5fa67a2144ad7d161db775ccf573e180988a522252f8dd",
       "sequenceReview": "Complete13-asset sequence compared against frozen text; native checks of exposed arms/paired suckers, stretched-vs-small color-sac schematics and camouflaged habitat. Same natural octopus/rock layout, pale-sand color transition, diagram scale, bumpier skin and rock return/factual payoff coherent. Hidden/overlapping rear arm bases plausible; no magic invisibility or extra body. Entire rocks/sand/water/kelp use crisp bounded outlined flat/cel shapes.",
       "independentSequenceEvidence": ".artifacts/guided-reading-expansion-50-2026-10-28/bright-six-peer-review-middle.json",
       "producerNativeReviewed": true,
       "orderedSequenceReviewed": true,
       "independentOrderedSequenceReviewed": true,
-      "currentStyleAccepted": true
+      "currentStyleAccepted": true,
+      "editorialReview20261122": {
+        "reviewedAt": "2026-11-22",
+        "method": "The changed line was compared with the installed artwork in the ordered book sequence.",
+        "notes": [
+          "Replaces an abstract negative with the purpose of the visible change."
+        ],
+        "priorTextSha256": "e8c16e6dc79903136e11e07e534d1781a806015f551dc397f20b656d0665cdc1"
+      }
     },
     {
       "path": "/guided-reading/bright-ideas/book-13/page-05.webp",
@@ -4906,15 +4970,23 @@
       "bookId": "bright-ideas-15",
       "title": "A Footprint Becomes a Fossil",
       "pageNumber": 4,
-      "displayedText": "Our print holds its shape.\nLater, a gentle layer of sand or mud covers it without washing it away.",
-      "textSha256": "3c9c4253a7f71945e0f8d36e1af5562984a04ac39d3cd801296f3866537eb439",
+      "displayedText": "Later, sand or mud settles over the print.\nThe print holds its shape under the new layer.",
+      "textSha256": "0bf59d4af4a95a83d024bda33f7013e6fc518b39d4594910fb71c5362191777b",
       "visualBriefSha256": "c479b6fe6f7f6dc7822816ec48a93e0de5b4789d73172d3c5e3c88890427e904",
       "sequenceReview": "Complete15-asset sequence compared against frozen text; native infill, buried interface and trackway examined. Three-toed opening impression, substrate alternatives, gentle infill, layered preservation, geological time, exposure, scientist photography/scale, plausible trackway and uncertainty about exact species/color all remain clear. Same trace/three toes and flat outlined soil/rocks/vegetation throughout; no dinosaur alive in present or skeleton inserted.",
       "independentSequenceEvidence": ".artifacts/guided-reading-expansion-50-2026-10-28/bright-six-peer-review-middle.json",
       "producerNativeReviewed": true,
       "orderedSequenceReviewed": true,
       "independentOrderedSequenceReviewed": true,
-      "currentStyleAccepted": true
+      "currentStyleAccepted": true,
+      "editorialReview20261122": {
+        "reviewedAt": "2026-11-22",
+        "method": "The changed line was compared with the installed artwork in the ordered book sequence.",
+        "notes": [
+          "Names the material and the physical action that preserves the mark."
+        ],
+        "priorTextSha256": "3c9c4253a7f71945e0f8d36e1af5562984a04ac39d3cd801296f3866537eb439"
+      }
     },
     {
       "path": "/guided-reading/bright-ideas/book-15/page-05.webp",
@@ -5218,15 +5290,23 @@
       "bookId": "bright-ideas-16",
       "title": "How a Lock Lifts a Boat",
       "pageNumber": 1,
-      "displayedText": "A red boat reaches a higher stretch of canal.\nIt cannot float uphill through the air. What can lift it?",
-      "textSha256": "5e9a2e00dccda5397e2ae1a99c1b8ffd99818d52e1f540e49f0eebcbb1b49ad1",
+      "displayedText": "A red boat reaches the end of the lower canal.\nHow can it reach the higher water?",
+      "textSha256": "9008e2cabaddbe8261239ac29a11843d32dc9a7fc97fbcca4a970c7050758f09",
       "visualBriefSha256": "495a40839826f244d26a896a51190cd24e8c4c4486e74854b1110e5169387335",
       "sequenceReview": "Complete15-asset sequence compared against frozen text; native small-passage/boat-gate distinction, matched upper exit levels and separate ascending/descending diagrams examined. Red boat stays right-facing/afloat and same scale; lower entry closes, upper small passages raise chamber, equalization precedes upper boat gate opening. Separate blue down example drains left with boat gates shut. Allwater/earth/hedge/gates/operator use clean outlined flat shapes.",
       "independentSequenceEvidence": ".artifacts/guided-reading-expansion-50-2026-10-28/bright-six-peer-review-middle.json",
       "producerNativeReviewed": true,
       "orderedSequenceReviewed": true,
       "independentOrderedSequenceReviewed": true,
-      "currentStyleAccepted": true
+      "currentStyleAccepted": true,
+      "editorialReview20261122": {
+        "reviewedAt": "2026-11-22",
+        "method": "The changed line was compared with the installed artwork in the ordered book sequence.",
+        "notes": [
+          "Locates the boat in the lower water before posing the problem."
+        ],
+        "priorTextSha256": "5e9a2e00dccda5397e2ae1a99c1b8ffd99818d52e1f540e49f0eebcbb1b49ad1"
+      }
     },
     {
       "path": "/guided-reading/bright-ideas/book-16/page-02.webp",
@@ -5282,29 +5362,36 @@
     },
     {
       "path": "/guided-reading/bright-ideas/book-16/page-04.webp",
-      "imageSha256": "f16ebb835cc77a7a1b96932f294c055220ccd74c43bb8ed137a157d390054d63",
+      "imageSha256": "6ea953ec06e2ac2ef4961c577992d3d267a0e9cc0b47166b31f95cf98c3f9a1e",
       "width": 1536,
       "height": 1024,
-      "sourceImageGenOutput": "exec-fc8adc9c-6bd7-4d2c-8399-18fff9049037.png",
-      "sourceSha256": "eb85ba33f181a205155ff567a07804c53b937adf6d9fdc450003dfaaffb4a4f0",
-      "sourceHashVerifiedAgainstPriorReceipt": true,
+      "sourceImageGenOutput": "exec-c556b1f7-5874-4840-a2b8-a85193367c13.png",
+      "sourceSha256": "333ea57504a465b2b6ecf85fe52e34329b6905bd15123d8b83f121ff4c985f01",
       "status": "approved",
-      "reviewedAt": "2026-10-29",
-      "reviewer": "Codex producer native inspection and independent ordered sequence review",
-      "notes": "Native diagram review: clean outlined cartoon, left low/right high, same red right-facing boat, separate blue downward example, boat floats on chamber surface, gates and controlled passages follow stage. Corrected p10 submerged boat and p11 dry chamber before acceptance.",
-      "provenanceReceipt": ".artifacts/guided-reading-expansion-50-2026-10-28/art-bright-ideas-11-20.json",
+      "reviewedAt": "2026-11-22",
+      "reviewer": "Codex native and ordered sequence review",
+      "notes": "The lower gate appeared to span the entry while the boat was already inside. The entry now shares the low water with the chamber and the narrow jamb recedes to the far wall at the same position as the gates on pages 3 and 5. The upper gate still holds back the higher water.",
+      "provenanceReceipt": "source-art/guided-reading-remediation/2026-11-22/canal-lock-diagram-repairs.json",
       "bookId": "bright-ideas-16",
       "title": "How a Lock Lifts a Boat",
       "pageNumber": 4,
       "displayedText": "The lower gates open, and the boat enters.\nThe boat still floats at the lower height.",
       "textSha256": "ea3e95bf23ed5c5fbfc55ff86a85be75a39427a950b2e8ff4b6e8f1fa67135e3",
-      "visualBriefSha256": "a1692c69a2e839ec75f617be20971d60ca7a17502336f0b96bf6e354944b0893",
+      "visualBriefSha256": "9e0b147317f1a808a7198de1950e5b694c3c7d98c246a439a01f89801e970802",
       "sequenceReview": "Complete15-asset sequence compared against frozen text; native small-passage/boat-gate distinction, matched upper exit levels and separate ascending/descending diagrams examined. Red boat stays right-facing/afloat and same scale; lower entry closes, upper small passages raise chamber, equalization precedes upper boat gate opening. Separate blue down example drains left with boat gates shut. Allwater/earth/hedge/gates/operator use clean outlined flat shapes.",
       "independentSequenceEvidence": ".artifacts/guided-reading-expansion-50-2026-10-28/bright-six-peer-review-middle.json",
       "producerNativeReviewed": true,
       "orderedSequenceReviewed": true,
       "independentOrderedSequenceReviewed": true,
-      "currentStyleAccepted": true
+      "currentStyleAccepted": true,
+      "imageRepair20261122": {
+        "priorImageSha256": "f16ebb835cc77a7a1b96932f294c055220ccd74c43bb8ed137a157d390054d63",
+        "priorVisualBriefSha256": "a1692c69a2e839ec75f617be20971d60ca7a17502336f0b96bf6e354944b0893",
+        "priorProvenanceReceipt": ".artifacts/guided-reading-expansion-50-2026-10-28/art-bright-ideas-11-20.json",
+        "priorSourceImageGenOutput": "exec-fc8adc9c-6bd7-4d2c-8399-18fff9049037.png",
+        "priorSourceSha256": "eb85ba33f181a205155ff567a07804c53b937adf6d9fdc450003dfaaffb4a4f0",
+        "notes": "The lower gate appeared to span the entry while the boat was already inside. The entry now shares the low water with the chamber and the narrow jamb recedes to the far wall at the same position as the gates on pages 3 and 5. The upper gate still holds back the higher water."
+      }
     },
     {
       "path": "/guided-reading/bright-ideas/book-16/page-05.webp",
@@ -5464,29 +5551,36 @@
     },
     {
       "path": "/guided-reading/bright-ideas/book-16/page-11.webp",
-      "imageSha256": "6e92a653403a4fb5736cb80422035647aaf89c20b424d2d90f30535e9851bb2f",
+      "imageSha256": "ee8182256c49f1f097aad8d66861c64b33cd0f81339e69994faf736c05432b4f",
       "width": 1536,
       "height": 1024,
-      "sourceImageGenOutput": "exec-762ceec3-f1d9-4c53-b7cb-81afbe457264.png",
-      "sourceSha256": "ebfc748a6f7642f62d5b35fb4f15bb67a2484d5477ed42dabe9c4285342ee1b3",
-      "sourceHashVerifiedAgainstPriorReceipt": true,
+      "sourceImageGenOutput": "exec-1e12e69f-f9b2-4e0c-bccf-29a6b9a4446e.png",
+      "sourceSha256": "92838c11a14bf8d55d87564de8f894e43867f1fd61c4d0814a5f7fa7dd91e23e",
       "status": "approved",
-      "reviewedAt": "2026-10-29",
-      "reviewer": "Codex producer native inspection and independent ordered sequence review",
-      "notes": "Native diagram review: clean outlined cartoon, left low/right high, same red right-facing boat, separate blue downward example, boat floats on chamber surface, gates and controlled passages follow stage. Corrected p10 submerged boat and p11 dry chamber before acceptance.",
-      "provenanceReceipt": ".artifacts/guided-reading-expansion-50-2026-10-28/art-bright-ideas-11-20.json",
+      "reviewedAt": "2026-11-22",
+      "reviewer": "Codex native and ordered sequence review",
+      "notes": "The upper gate appeared to span the exit after the red boat passed it. The open exit now shares the high water with the chamber at the elevation established on page 10. The lower gate stays closed and the operator stands on the towpath.",
+      "provenanceReceipt": "source-art/guided-reading-remediation/2026-11-22/canal-lock-diagram-repairs.json",
       "bookId": "bright-ideas-16",
       "title": "How a Lock Lifts a Boat",
       "pageNumber": 11,
       "displayedText": "The boat moves out onto the higher water.\nThe lower gates remain shut behind the chamber.",
       "textSha256": "b11da1e25fc3b38ce88d342bd31235e7d0f1a78117a9137e9d51e84c000cc594",
-      "visualBriefSha256": "28ca4850f167062bf29e097528a3ef7bfc548184552c33fd6cb62ee013082b80",
+      "visualBriefSha256": "db8c21b6174130c7a1f555c410dfe1fb8587e455db80eef5f9652635a9c7ce4c",
       "sequenceReview": "Complete15-asset sequence compared against frozen text; native small-passage/boat-gate distinction, matched upper exit levels and separate ascending/descending diagrams examined. Red boat stays right-facing/afloat and same scale; lower entry closes, upper small passages raise chamber, equalization precedes upper boat gate opening. Separate blue down example drains left with boat gates shut. Allwater/earth/hedge/gates/operator use clean outlined flat shapes.",
       "independentSequenceEvidence": ".artifacts/guided-reading-expansion-50-2026-10-28/bright-six-peer-review-middle.json",
       "producerNativeReviewed": true,
       "orderedSequenceReviewed": true,
       "independentOrderedSequenceReviewed": true,
-      "currentStyleAccepted": true
+      "currentStyleAccepted": true,
+      "imageRepair20261122": {
+        "priorImageSha256": "6e92a653403a4fb5736cb80422035647aaf89c20b424d2d90f30535e9851bb2f",
+        "priorVisualBriefSha256": "28ca4850f167062bf29e097528a3ef7bfc548184552c33fd6cb62ee013082b80",
+        "priorProvenanceReceipt": ".artifacts/guided-reading-expansion-50-2026-10-28/art-bright-ideas-11-20.json",
+        "priorSourceImageGenOutput": "exec-762ceec3-f1d9-4c53-b7cb-81afbe457264.png",
+        "priorSourceSha256": "ebfc748a6f7642f62d5b35fb4f15bb67a2484d5477ed42dabe9c4285342ee1b3",
+        "notes": "The upper gate appeared to span the exit after the red boat passed it. The open exit now shares the high water with the chamber at the elevation established on page 10. The lower gate stays closed and the operator stands on the towpath."
+      }
     },
     {
       "path": "/guided-reading/bright-ideas/book-16/page-12.webp",
@@ -8520,15 +8614,23 @@
       "bookId": "next-steps-08",
       "title": "Is It a Cat?",
       "pageNumber": 1,
-      "displayedText": "I see a cat in a box.",
-      "textSha256": "a801669ec4e3b7f970e385f7d2d67483a712b942a70a52b942a424c5a15968b7",
+      "displayedText": "Is it a cat in the box?",
+      "textSha256": "5d410cfa76748dd277a4b6aa58d0840bac34565d0ac969d0a046cee3e449edb0",
       "visualBriefSha256": "4d672ba45db7378fa2c7995ed47808981f6fb42adaa01b45dcb77b3409b35ef3",
       "sequenceReview": "Nine native assets and both sheets viewed. Hat folds/lining create cat-like silhouette without animal eyes/paws; box motionless through tap, blank loop tag revealed/tugged, tan hat unfolded then worn, real single Cat only final rug. Natural hands/body and crisp bounded foliage behind window glare; no fuzzy painterly background.",
       "independentSequenceEvidence": ".artifacts/guided-reading-expansion-50-2026-10-28/next-steps-01-15-peer-review-middle.json",
       "producerNativeReviewed": true,
       "orderedSequenceReviewed": true,
       "independentOrderedSequenceReviewed": true,
-      "currentStyleAccepted": true
+      "currentStyleAccepted": true,
+      "editorialReview20261122": {
+        "reviewedAt": "2026-11-22",
+        "method": "The changed line was compared with the installed artwork in the ordered book sequence.",
+        "notes": [
+          "Poses the uncertain identity as a question. The viewpoint character sees a tan shape and investigates."
+        ],
+        "priorTextSha256": "a801669ec4e3b7f970e385f7d2d67483a712b942a70a52b942a424c5a15968b7"
+      }
     },
     {
       "path": "/guided-reading/next-steps/book-08/page-02.webp",
@@ -9742,15 +9844,23 @@
       "bookId": "next-steps-13",
       "title": "Is This a Win?",
       "pageNumber": 4,
-      "displayedText": "“Your cap is not on the mat.”",
-      "textSha256": "7f90049872fa9ea8ca7e1ce2332cf6da13f96c97cec2bcf05eb5b7d87e75de73",
+      "displayedText": "“Set your cap on the mat.”",
+      "textSha256": "30b31ee6d801a4af9a625b45fe4d0a2143f83dd3e7ecd24553310bc74d67224d",
       "visualBriefSha256": "66c4e48f651b8d17738092fc3d537891d633a5cf662cfd29edb1e9830432258f",
       "sequenceReview": "Nine native assets and both ordered sheets viewed. Exactly tan/red toy bottle caps, stationary white cup and thin blue mat; incorrect short start is clear, reset shares mat, tan remains while red reaches cup, retrieval leaves fair result visible. Natural hands/full trousers; smooth flat room/floor, crisp bounded window greenery and plant.",
       "independentSequenceEvidence": ".artifacts/guided-reading-expansion-50-2026-10-28/next-steps-01-15-peer-review-middle.json",
       "producerNativeReviewed": true,
       "orderedSequenceReviewed": true,
       "independentOrderedSequenceReviewed": true,
-      "currentStyleAccepted": true
+      "currentStyleAccepted": true,
+      "editorialReview20261122": {
+        "reviewedAt": "2026-11-22",
+        "method": "The changed line was compared with the installed artwork in the ordered book sequence.",
+        "notes": [
+          "Turns the negative location into the actual rule needed to understand the replay and winning result."
+        ],
+        "priorTextSha256": "7f90049872fa9ea8ca7e1ce2332cf6da13f96c97cec2bcf05eb5b7d87e75de73"
+      }
     },
     {
       "path": "/guided-reading/next-steps/book-13/page-05.webp",
@@ -9898,15 +10008,23 @@
       "bookId": "next-steps-14",
       "title": "Fan the Ship",
       "pageNumber": 1,
-      "displayedText": "My ship is on the rim.",
-      "textSha256": "c8abc47234d1a2e6aa0200a584d3fcd4a8afd631cef3e1bf466832400fea6037",
+      "displayedText": "My ship is on the tub rim.",
+      "textSha256": "8209273cf216913cfce71fd79e0575ff2364c8739a9efbf96f62d2fd231470ce",
       "visualBriefSha256": "4531a3bcc8be6773c81f13f62d6d551aa1f4b4563745d3f0674e4bf59b803225",
       "sequenceReview": "Nine native assets and both ordered sheets viewed. One blue/white/orange ship stays dry on broad rim through repeated fanning, then placed into shallow water and received in turn. Same single fan explicitly offered then Dad-held; no sail/motor/arrows. Natural seated limbs/hands; clear flat patio, outlined fence and crisp bounded garden clusters/ripples.",
       "independentSequenceEvidence": ".artifacts/guided-reading-expansion-50-2026-10-28/next-steps-01-15-peer-review-middle.json",
       "producerNativeReviewed": true,
       "orderedSequenceReviewed": true,
       "independentOrderedSequenceReviewed": true,
-      "currentStyleAccepted": true
+      "currentStyleAccepted": true,
+      "editorialReview20261122": {
+        "reviewedAt": "2026-11-22",
+        "method": "The changed line was compared with the installed artwork in the ordered book sequence.",
+        "notes": [
+          "Introduces the tub as the referent for rim from the first page. The book shifts the toy from the rim into water."
+        ],
+        "priorTextSha256": "c8abc47234d1a2e6aa0200a584d3fcd4a8afd631cef3e1bf466832400fea6037"
+      }
     },
     {
       "path": "/guided-reading/next-steps/book-14/page-02.webp",
@@ -10704,15 +10822,23 @@
       "bookId": "next-steps-17",
       "title": "A Tall Wall",
       "pageNumber": 5,
-      "displayedText": "I set a cup\non top of the gap.",
-      "textSha256": "c53a1ef6686cb594de18c8ad0badee9226d451036c1160d3e48129848c1d3bde",
+      "displayedText": "I set a cup\non top of the cups.",
+      "textSha256": "d902dc228260a901024e4662219a4e8d14b790f69b488f0bb2e741317684f4cc",
       "visualBriefSha256": "29008527f85fee84e2e137d63a72d2e19a112a5d2938ec078af347c5814eefe7",
       "sequenceReview": "Native7 plus ordered sequence. Correct physical alternating orientations preserve tall unstable wall versus wide stable pyramid. Exactly3 identical cups, Dot only, fixed rectangular green mat. Window foliage uses a few flat silhouettes rather than painted/patchy texture; room and foreground clean.",
       "independentSequenceEvidence": ".artifacts/guided-reading-expansion-50-2026-10-28/next-steps-16-30-peer-review-first.json",
       "producerNativeReviewed": true,
       "orderedSequenceReviewed": true,
       "independentOrderedSequenceReviewed": true,
-      "currentStyleAccepted": true
+      "currentStyleAccepted": true,
+      "editorialReview20261122": {
+        "reviewedAt": "2026-11-22",
+        "method": "The changed line was compared with the installed artwork in the ordered book sequence.",
+        "notes": [
+          "Describes the cup resting on the two supports in the drawing. A gap has no surface to rest on."
+        ],
+        "priorTextSha256": "c53a1ef6686cb594de18c8ad0badee9226d451036c1160d3e48129848c1d3bde"
+      }
     },
     {
       "path": "/guided-reading/next-steps/book-17/page-06.webp",
@@ -12420,15 +12546,23 @@
       "bookId": "next-steps-25",
       "title": "What Am I?",
       "pageNumber": 8,
-      "displayedText": "\"Dad!\" Dad says, \"I am up!\"\nSam is not up.",
-      "textSha256": "7c1fb012f7d7d1d1dbd76f47ffba3167bcfc945bcf794e54bc01f880dfdc5cd2",
+      "displayedText": "“Dad!” I nod at Sam.\nDad gets up. “That is me!”",
+      "textSha256": "3efe9e5a9d98c91402647dc2ff94228ee0ceaefc3ad861c46e6c6d3851b27459",
       "visualBriefSha256": "c689bd0e02a6df21f583fd9270dc55b27f3380a8bf9e0011a7462fc1dc868433",
       "sequenceReview": "Native9 plus sequence. Rag first ambiguous then hen action clarifies; pretend Dad-cat/red ball and gentle beard pat; Sam takes established blue cup/felt beard to imitate resting Dad. Rag/ball stay on mat and felt leaves table only at imitation. Upright Dad versus reclining Sam makes last joke readable. Clean outlines/flat room.",
       "independentSequenceEvidence": ".artifacts/guided-reading-expansion-50-2026-10-28/next-steps-16-30-peer-review-first.json",
       "producerNativeReviewed": true,
       "orderedSequenceReviewed": true,
       "independentOrderedSequenceReviewed": true,
-      "currentStyleAccepted": true
+      "currentStyleAccepted": true,
+      "editorialReview20261122": {
+        "reviewedAt": "2026-11-22",
+        "method": "The changed line was compared with the installed artwork in the ordered book sequence.",
+        "notes": [
+          "Places the guess with the narrator and links the final joke to the person Sam was copying."
+        ],
+        "priorTextSha256": "7c1fb012f7d7d1d1dbd76f47ffba3167bcfc945bcf794e54bc01f880dfdc5cd2"
+      }
     },
     {
       "path": "/guided-reading/next-steps/book-26/cover.webp",

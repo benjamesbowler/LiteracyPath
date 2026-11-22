@@ -322,5 +322,22 @@ export const WORLD_DISCOVERY_AUDIO_REPAIRS = Object.freeze({
     "pronunciationEncoding": "PHONETIC_ENCODING_IPA",
     "pronunciationSource": "https://docs.cloud.google.com/text-to-speech/docs/chirp3-hd#custom-pronunciations",
     "reviewEvidence": "Exact-text Leda with explicit IPA; full decode, finite signal and two unprompted speech screens. Individual dispositions and residual recognition ambiguity: source-art/world-discovery/narration-review.json. Automated evidence, not human listening."
+  },
+  "isolated_word:worn": {
+    "role": "isolated_word",
+    "normalizedLookupText": "worn",
+    "spokenText": "Worn.",
+    "voiceName": "en-US-Chirp3-HD-Leda",
+    "audioPath": "/audio/production/en-US/isolated_word/worn-81b4f3ab1f.mp3",
+    "audioSha256": "81b4f3ab1f7316e618f1dae70c6d55e08eb32a9c716c85151277db452ebe5676",
+    "reviewedAt": "2026-11-22",
+    "pronunciations": [
+      {
+        "phrase": "worn",
+        "pronunciation": "wɔːrn",
+        "phoneticEncoding": "PHONETIC_ENCODING_IPA"
+      }
+    ],
+    "reviewEvidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/01-10-narration-review.json records the exact Leda clip, matching unprompted local speech recognition, and complete decoded signal. Rendered with an explicit IPA clarification."
   }
 });

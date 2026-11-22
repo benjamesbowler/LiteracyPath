@@ -138,11 +138,20 @@ test("failed warmup does not report old unversioned pictures as ready for a new 
   }
 });
 
-test("five replaced books and all15 accepted sibling repairs deliver exact full-resolution reviewed bytes", async () => {
+test("five replaced books and the accepted sibling repairs deliver exact full-resolution reviewed bytes", async () => {
   const rows = await buildGuidedReadingReplacementImages({ check: true });
   const additional = await reviewedSiblingImageDeliveries();
-  assert.equal(additional.length, 15);
-  assert.equal(rows.length, 66);
+  assert.equal(additional.length, 20);
+  assert.equal(rows.length, 71);
+  for (const repairedPath of [
+    "/guided-reading/bright-ideas/book-16/page-04.webp",
+    "/guided-reading/bright-ideas/book-16/page-11.webp",
+    "/guided-reading/nonfiction/first-facts-level-a/book-20/page-002.webp",
+    "/guided-reading/regen/pages/gr-d-43-page-04.webp",
+    "/guided-reading/world-discovery/a-29/page-06.webp",
+    "/guided-reading/world-discovery/d-04/page-07.webp",
+    "/guided-reading/world-discovery/d-04/page-08.webp"
+  ]) assert.ok(additional.some(row => row.path === repairedPath), repairedPath);
   const topicRows = rows.filter(row => !additional.some(image => image.path === row.canonical));
   assert.equal(topicRows.length, 51);
   assert.equal(new Set(topicRows.map(row => row.canonical.split("/").at(-2))).size, 5);

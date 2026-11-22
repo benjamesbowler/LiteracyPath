@@ -337,7 +337,7 @@
       },
       {
         "pageNumber": 5,
-        "text": "A van carries this group to Zoe’s area.",
+        "text": "A van takes the mail\nto Zoe’s town.",
         "imageBrief": "The worker slides an open gray mail tray into the plain van. The focal cream letter with its green stamp is visible among the mail; the tray lid rests separately beside it and has not been closed yet. Continuity: The same group is loaded for transport; no claim all letters use this exact route.",
         "imageAlt": "An open gray mail tray holding the cream letter with its green stamp is loaded into a plain van; the separate lid rests beside the tray.",
         "pageDescription": "An open gray mail tray holding the cream letter with its green stamp is loaded into a plain van; the separate lid rests beside the tray.",
@@ -355,7 +355,7 @@
       },
       {
         "pageNumber": 7,
-        "text": "The carrier puts the letter through Zoe’s door.",
+        "text": "The carrier slips the letter\nthrough Zoe’s mail slot.",
         "imageBrief": "Close view of the same carrier placing the cream envelope through the mail slot in the blue door. Continuity: Same letter delivered through slot; no second copy in carrier’s hand.",
         "imageAlt": "Close view of the same carrier placing the cream envelope through the mail slot in the blue door.",
         "pageDescription": "Close view of the same carrier placing the cream envelope through the mail slot in the blue door.",
@@ -375,7 +375,7 @@
     "discussion": {
       "oral": {
         "prompt": "What helped the letter reach the right home?",
-        "listenFor": "The address guided sorting and the carrier’s final delivery. Several jobs connected Kit’s picture to Zoe."
+        "listenFor": "Workers sorted the mail by address. The carrier used the address to bring Kit’s picture to Zoe’s home."
       },
       "visual": {
         "page": 8,
@@ -981,7 +981,7 @@
       },
       {
         "pageNumber": 2,
-        "text": "A small hopper comes out.\nIt has no long wings.",
+        "text": "A young grasshopper comes out.\nIt has no long wings yet.",
         "imageBrief": "One tiny grasshopper nymph emerges through the soil just above the opened pod; small grass blades and the same ground profile preserve location. Continuity: Hatching follows page 1; six legs, two antennae, large rear jumping legs and no full wings.",
         "imageAlt": "One tiny grasshopper nymph emerges through the soil just above the opened pod; small grass blades and the same ground profile preserve location.",
         "pageDescription": "One tiny grasshopper nymph emerges through the soil just above the opened pod; small grass blades and the same ground profile preserve location.",
@@ -1045,8 +1045,8 @@
     ],
     "discussion": {
       "oral": {
-        "prompt": "How does the small hopper become able to fly?",
-        "listenFor": "It feeds and grows through molts; wing pads develop into usable wings after the final shed."
+        "prompt": "How does the young grasshopper grow wings?",
+        "listenFor": "It eats and grows. It sheds its old skin as it gets bigger, and its wings spread after the last shed."
       },
       "visual": {
         "page": 5,
@@ -1145,7 +1145,7 @@
       },
       {
         "pageNumber": 4,
-        "text": "Now she holds thick card.\nA dark patch shows on the screen.",
+        "text": "Now she holds up thick paper.\nA dark patch shows on the screen.",
         "imageBrief": "The thick card occupies the light path and blocks its center, producing a defined dark patch on the white screen. Continuity: Opaque card blocks visible light; room remains lit enough to see children and equipment.",
         "imageAlt": "The thick card occupies the light path and blocks its center, producing a defined dark patch on the white screen.",
         "pageDescription": "The thick card occupies the light path and blocks its center, producing a defined dark patch on the white screen.",
@@ -1154,7 +1154,7 @@
       },
       {
         "pageNumber": 5,
-        "text": "Zoe puts the card in one group.\nIt blocks the light.",
+        "text": "Zoe puts the thick paper aside.\nIt blocks the light.",
         "imageBrief": "Zoe lays the card alone on the left of the table. Plastic and wax paper remain to the right beside the switched-off flashlight. Continuity: Two provisional groups will form; only one card; no labels needed.",
         "imageAlt": "Zoe lays the card alone on the left of the table. Plastic and wax paper remain to the right beside the switched-off flashlight.",
         "pageDescription": "Zoe lays the card alone on the left of the table. Plastic and wax paper remain to the right beside the switched-off flashlight.",
@@ -1197,7 +1197,7 @@
       "visual": {
         "page": 4,
         "prompt": "What makes the dark patch on the screen?",
-        "lookFor": "The card blocks light in that part of the beam; the screen itself has not been painted."
+        "lookFor": "The thick paper stops light from reaching that part of the screen."
       }
     },
     "levelRationale": "Candidate B: Concrete testing verbs and familiar clear/blurred/no-view language carry the grouping; technical transparent/translucent/opaque terms are not required in the printed B text.",

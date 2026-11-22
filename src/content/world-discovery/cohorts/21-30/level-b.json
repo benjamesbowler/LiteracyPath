@@ -121,7 +121,7 @@
       },
       {
         "pageNumber": 8,
-        "text": "Legs push. Arms pull.\nPeople power all three rides.",
+        "text": "Legs push. Arms pull.\nPeople make all three go.",
         "imageBrief": "Closing three-part comparison diagram in the same left-to-right order as opening, with new poses: cyclist pressing pedal, skater starting a sideways push and rower starting a pull. Keep path, ice and lake separate. The effort in legs or arms is visible; no motors, labels or arrows.",
         "imageAlt": "The cyclist pushes the pedals, the skater pushes against the ice, and the rower pulls the oars.",
         "pageDescription": "The cyclist pushes the pedals, the skater pushes against the ice, and the rower pulls the oars.",
@@ -132,8 +132,8 @@
     ],
     "discussion": {
       "oral": {
-        "prompt": "What makes all three rides move?",
-        "listenFor": "People use their legs or arms. The bicycle, skates and oars pass those pushes and pulls to the ground, ice or water."
+        "prompt": "How do people move the bike, skates, and boat?",
+        "listenFor": "People push with their feet to pedal or skate. The rower pulls the oar handles to push water backward."
       },
       "visual": {
         "page": 6,
@@ -255,7 +255,7 @@
       },
       {
         "pageNumber": 7,
-        "text": "Five names mark different ocean regions.\nWater can move between them.",
+        "text": "There are five names on the map.\nWater moves from one part to another.",
         "imageBrief": "Single accurate world map integrates the completed route across named ocean regions, with no separating colored barriers.",
         "imageAlt": "A world map labels the Atlantic, Southern, Indian, Pacific and Arctic Oceans. An orange route stays in blue water and continues across the map’s edges.",
         "pageDescription": "A world map labels the Atlantic, Southern, Indian, Pacific and Arctic Oceans. An orange route stays in blue water and continues across the map’s edges.",
@@ -276,7 +276,7 @@
     "discussion": {
       "oral": {
         "prompt": "Why do five ocean names not mean five separate pools?",
-        "listenFor": "Their waters connect; the names identify different regions."
+        "listenFor": "The names mark different parts of the same ocean. Water moves from one part to another."
       },
       "visual": {
         "page": 4,
@@ -291,8 +291,8 @@
         "meaning": "the huge area of salty water on Earth"
       },
       {
-        "word": "region",
-        "meaning": "one part of a larger place"
+        "word": "connected",
+        "meaning": "joined together"
       },
       {
         "word": "globe",
@@ -659,7 +659,7 @@
       },
       {
         "pageNumber": 5,
-        "text": "Zoe holds a card before the mirror.\nThe bright spot disappears.",
+        "text": "Zoe blocks the light with a card.\nThe bright spot disappears.",
         "imageBrief": "Opaque blue card intercepts flashlight light before mirror; flashlight spot now on card and screen dark.",
         "imageAlt": "Zoe holds a blue card between the flashlight and mirror. A bright spot appears on the card; the white screen has none.",
         "pageDescription": "Zoe holds a blue card between the flashlight and mirror. A bright spot appears on the card; the white screen has none.",
@@ -919,7 +919,7 @@
       },
       {
         "pageNumber": 2,
-        "text": "A grown-up heats pasteurized milk.\nThe milk is hot now.",
+        "text": "A grown-up heats milk in a pot.\nThe milk is hot now.",
         "imageBrief": "Adult cook heats saucepan on back burner; handles turned inward, children distant.",
         "imageAlt": "An adult heats milk in a saucepan on a back burner. The children watch from a separate counter.",
         "pageDescription": "An adult heats milk in a saucepan on a back burner. The children watch from a separate counter.",
@@ -974,7 +974,7 @@
       },
       {
         "pageNumber": 8,
-        "text": "The cloth holds the cheese.\nThe bowl holds the drained whey.",
+        "text": "The cloth holds the cheese.\nThe bowl holds the whey.",
         "imageBrief": "Final intact draining setup displays the two outcomes, white curds above and pale liquid below.",
         "imageAlt": "The cloth-lined strainer holds white cheese above a glass bowl of pale yellow whey.",
         "pageDescription": "The cloth-lined strainer holds white cheese above a glass bowl of pale yellow whey.",
@@ -1060,7 +1060,7 @@
       },
       {
         "pageNumber": 2,
-        "text": "The giraffe lifts its head.\nIts long neck brings the leaves closer.",
+        "text": "The giraffe lifts its head.\nIts long neck helps it reach high.",
         "imageBrief": "Same giraffe raises neck toward target branch without unnatural stretching.",
         "imageAlt": "The giraffe raises its long neck and brings its mouth close to the leafy twig.",
         "pageDescription": "The giraffe raises its long neck and brings its mouth close to the leafy twig.",
@@ -1125,7 +1125,7 @@
     "discussion": {
       "oral": {
         "prompt": "What helped the giraffe after its head reached the twig?",
-        "listenFor": "Its flexible tongue and lips grasped the leaves."
+        "listenFor": "The giraffe bends its tongue around the leaves. Its lips help pull the leaves into its mouth."
       },
       "visual": {
         "page": 5,
@@ -1251,7 +1251,7 @@
       },
       {
         "pageNumber": 8,
-        "text": "The book is six cubes wide.\nEvery part of the width is covered.",
+        "text": "The book is six cubes wide.\nThe cubes reach from edge to edge.",
         "imageBrief": "Kit and Zoe look at completed measurement; same book, six touching cubes, aligned ends.",
         "imageAlt": "Kit and Zoe look at six touching cubes spanning the blue book’s full width.",
         "pageDescription": "Kit and Zoe look at six touching cubes spanning the blue book’s full width.",

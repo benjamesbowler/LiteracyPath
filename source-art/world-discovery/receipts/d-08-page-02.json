@@ -22,8 +22,8 @@
   "reviewedManuscriptSource": {
     "path": "src/content/world-discovery/level-d.json",
     "bookId": "world-discovery-d-08",
-    "sha256": "3a25b145cd58db709fdda3e16fd040625c66d2bdf4e3ff3064d53907a957aa0f",
-    "reviewedAt": "2026-11-09",
-    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
+    "sha256": "91c6843292d4a6a9cf426bdc5dd38fb53cd34e4ace73049de01aaba3c1c5860f",
+    "reviewedAt": "2026-11-22",
+    "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/01-10-complete-book-review.json"
   }
 }

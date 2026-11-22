@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 1,
+  "scope": "Exact first-fifty preservation after audited ESL, factual and visual alignment text corrections",
+  "priorFixtureSha256": "c60b07f73d25d8657ea7dcd7c9b21f9ab2ab1273a6fe8cbf6c1da4d8c98fa35c",
+  "completeBookReview": "source-art/world-discovery/remediation/2026-11-22/reading-quality/01-10-complete-book-review.json",
+  "completeBookReviewSha256": "79f05445d9e56328dbcbf2cf07bda8ad17c93bc3b2f2501f26c286ad42c59790",
+  "registration": "src/content/world-discovery/registrations/2026-11-22/01-10-reading-quality.json",
+  "registrationSha256": "60f6fecefdf767f4bc5b0167bbf28a5ed72b1fb87cd816d2a22dc45b9ecf0f27",
+  "changedBooks": {
+    "world-discovery-a-02": [
+      8
+    ],
+    "world-discovery-a-07": [
+      5
+    ],
+    "world-discovery-b-03": [
+      5
+    ],
+    "world-discovery-c-03": [
+      4,
+      5
+    ],
+    "world-discovery-c-05": [
+      5
+    ],
+    "world-discovery-c-06": [
+      8
+    ],
+    "world-discovery-d-02": [
+      8
+    ],
+    "world-discovery-d-07": [
+      5,
+      8
+    ],
+    "world-discovery-d-08": [
+      1
+    ],
+    "world-discovery-e-01": [
+      9
+    ],
+    "world-discovery-e-02": [
+      9
+    ],
+    "world-discovery-e-03": [
+      4
+    ],
+    "world-discovery-e-04": [
+      1,
+      5,
+      10
+    ],
+    "world-discovery-e-05": [
+      10
+    ],
+    "world-discovery-e-07": [
+      2,
+      6
+    ],
+    "world-discovery-e-08": [
+      5,
+      6,
+      10
+    ],
+    "world-discovery-e-09": [
+      5,
+      7
+    ],
+    "world-discovery-e-10": [
+      8
+    ]
+  },
+  "delta": {
+    "sourceFiles": {
+      "src/content/world-discovery/level-a.json": "133a209db3d56066dd7ee33d7a6a7bebb3324b0aa09b8d80ef8d62c4677fa936",
+      "src/content/world-discovery/level-b.json": "a40b206856f697c42ffbe350a33fd9337ed9247bb97a69129cc55b5dabd813ae",
+      "src/content/world-discovery/level-c.json": "4dcd3a3ecd9a6a76a7960c3ed5b1bb063e9c88a797530532815bf7a56fdbbefc",
+      "src/content/world-discovery/level-d.json": "b9471fe2b43e681728740a2fba4def143a557a71a9ece4d2c791387415683293",
+      "src/content/world-discovery/level-e.json": "cbd74c0485d8c2a1654c1990b08796c4fae39e4f5a52c33d2752039207c9c50d",
+      "src/content/world-discovery/reviews.json": "5febebacd271e0651349cc79aa056006444b3e98a66743c6f86c170535dec708"
+    },
+    "runtimeBindings": {
+      "world-discovery-a-02": "d8482ff7c695a3a34bafc3b792bb472e1a1fd9fd165a97c50198215c0d30a9b3",
+      "world-discovery-a-07": "3282f5780de175ad9460929c06460cba342c23852988e05a09ce639eaf6fba39",
+      "world-discovery-b-03": "4b10219a699c380895acede4f1bfb5f0432b2c9e822497d4ad6f19e1eaa5cee9",
+      "world-discovery-c-03": "e88adff267243663b335b804c67b2876d942bffbc2804f61ab92001864d9ead9",
+      "world-discovery-c-05": "99d86b6070fe5bba570275d97e59d883ffcdd7f10803138a6b47410091aa0746",
+      "world-discovery-c-06": "c180a25c16845c6dd4f4d049736f0e9a58837e7895bb633d36857eac700d19e2",
+      "world-discovery-d-02": "a9a58080ebb70f8bc6d9e49fb532db34fef4148123c10f876344bbf3ee08b16b",
+      "world-discovery-d-07": "3542ada0b2eabc48189e2cdc010b275f4a4a4a82c8fd9efb5ed94fffe50a493e",
+      "world-discovery-d-08": "b4740c4361ad4bb75f7058b20443575e89741457156fd425bd749f8cf630e6ef",
+      "world-discovery-e-01": "b6257d4a6ebd53ce005b0779cc0cf9932559b6d3281434718ceb105c51fcb705",
+      "world-discovery-e-02": "c239d4de4876ad79142260941c8cba9307640e596fc796291d3bff1ac7d77151",
+      "world-discovery-e-03": "d24f374f20d9ed74d1c7948c6ea3fe5f61b472b12fc899e60bf7b24c02cd64f6",
+      "world-discovery-e-04": "6bdef24d63e574a8f34940032cf882adce269c5db3457561e95a6ae050091e05",
+      "world-discovery-e-05": "1078af8db388ac5a33a43776397d050abfa3fbadf7ab458e9bf5408c7a138f4e",
+      "world-discovery-e-07": "147d9abcfc79dd64e4a63fc2812b4973470a049404b6e2018ed659e1886fd035",
+      "world-discovery-e-08": "e6f4592a72e222488036d1157d47638f4f0e7069b84d06337e70a50bdb625730",
+      "world-discovery-e-09": "72d77212643e03810eeb897c87c5627d3c7a7e8db9c7ac6514391c825d0f3df1",
+      "world-discovery-e-10": "07e03f728a548e9ba8c83e9505b30b80dae72abaa10c26ca0a8b292268599da4"
+    },
+    "assets": {
+      "pageAudio": {
+        "count": 490,
+        "pathAndByteManifestSha256": "f54de32c3ffa1b8cefb7adc64029142ff062e96de9c54c68cbd3d9b20915caf7"
+      },
+      "wordAudio": {
+        "count": 1212,
+        "pathAndByteManifestSha256": "f13069ca131519645467f1005cf684988d221c99ab525b09e50bcb0c59a0f052"
+      },
+      "receipts": {
+        "count": 540,
+        "pathAndByteManifestSha256": "9a5b212afb96527dc6f8d0b86a4835c2647a16b7f51d4e7436a74efe1ed3693e"
+      }
+    },
+    "sharedReviewRows": {
+      "narrationClearance": {
+        "count": 440,
+        "sha256": "4aa47e51f59c7ec6a96d7b975393140cba5f41cc049638e0ab0d89ff41673b02"
+      },
+      "pageAlignment": {
+        "count": 440,
+        "sha256": "63823705f04e0f03652d7a787657ed851d68be4aaeed48eb541d5598d1ff3640"
+      }
+    }
+  }
+}

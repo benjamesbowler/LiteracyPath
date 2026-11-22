@@ -38,8 +38,8 @@
   "reviewedManuscriptSource": {
     "path": "src/content/world-discovery/cohorts/11-20/level-b.json",
     "bookId": "world-discovery-b-19",
-    "sha256": "7dd89cf131c734afd0d2e036abbc3fbc93949fee06e26bc1700a9044fad6647d",
-    "reviewedAt": "2026-11-09",
-    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
+    "sha256": "568c1416b548137386ef2eee8fa869ea06044783ebcdd95dd99a06799d483ec0",
+    "reviewedAt": "2026-11-22",
+    "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json"
   }
 }

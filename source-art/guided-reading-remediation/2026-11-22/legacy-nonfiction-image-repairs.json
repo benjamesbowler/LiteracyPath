@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "bookId": "gr-d-43",
+      "pageNumber": 4,
+      "brief": "Preserve the camera, character, stripe colors, braid, basin and empty mirror from page three. Replace the glass with a single blue toothbrush with bristles contacting the front teeth. Keep the free hand at her side or the basin. Use crisp outlined flat cartoon art.",
+      "source": {
+        "path": "source-art/guided-reading-remediation/2026-11-22/healthy-habits-04.png",
+        "sha256": "1565142008217747d7aad5d6df34a2144dfd7f5362bc6e74289f817d38d64df4",
+        "generator": "Built-in ImageGen"
+      },
+      "output": {
+        "publicPath": "/guided-reading/regen/pages/gr-d-43-page-04.webp",
+        "previousSha256": "1599b38447063092ea85ca2526d29e3da72846e25bf48eab941177dd00e8a70f",
+        "sha256": "dd171a5b3cadd8dc610f620c9f8f4be2fbda93b906d3b99e84392bc9d65cf56b",
+        "width": 1451,
+        "height": 1084,
+        "encoding": {
+          "quality": 88,
+          "effort": 6
+        }
+      },
+      "finalReview": {
+        "status": "accepted",
+        "reviewedAt": "2026-11-22",
+        "method": "Native illustration and ordered neighboring-page comparison",
+        "notes": "The child brushes with one blue toothbrush. The empty mirror matches the camera and bathroom on the preceding page; her braid, colors, sink, soap pump, towel and window remain consistent."
+      }
+    },
+    {
+      "bookId": "first-facts-level-a-20-space",
+      "pageNumber": 2,
+      "brief": "Single wide nonfiction illustration of a round gold Sun on a dark blue space field, with short rays and a few simple orange highlights. Use crisp flat cartoon artwork. Exclude exaggerated loops, rings, faces, other planets and lettering.",
+      "source": {
+        "path": "source-art/guided-reading-remediation/2026-11-22/first-facts-space-02.png",
+        "sha256": "cb2b88359644d1f60efeab0f4275278649905be35e2d64370e4318c23b46498b",
+        "generator": "Built-in ImageGen"
+      },
+      "output": {
+        "publicPath": "/guided-reading/nonfiction/first-facts-level-a/book-20/page-002.webp",
+        "previousSha256": "bddbe5cca7cdb1a2c35366e4bba01eddc64a2b1e908d974ed8cbafe14fafddd1",
+        "sha256": "b5c6f2ac275f1a152fe7fcb8fabf7ab05baed078872030a3bf2e8c27fb981641",
+        "width": 1672,
+        "height": 941,
+        "encoding": {
+          "quality": 88,
+          "effort": 6
+        }
+      },
+      "finalReview": {
+        "status": "accepted",
+        "reviewedAt": "2026-11-22",
+        "method": "Native illustration and ordered neighboring-page comparison",
+        "notes": "The large gold disk and short rays read as the Sun without the two exaggerated loops of the superseded illustration. The navy space field and palette match the neighboring celestial pictures."
+      }
+    }
+  ]
+}

@@ -257,12 +257,12 @@ const books = [
     pages: [
       ["Woolly wants to make a cloud.", "Woolly studies a clean low wooden board with a simple cloud shape laid in loose shed wool."],
       ["She gathers tufts of soft wool.", "Woolly gathers only loose shed wool into a small neat pile; her coat remains full."],
-      ["Whoosh! Wind blows it all off.", "A breeze lifts the loose wool pieces away from the bare board in different directions."],
+      ["Wind blows wool off the board.", "A breeze lifts the loose wool pieces away from the bare board in different directions."],
       ["Woolly chases the loose wool.", "Woolly trots after the last drifting pieces beside the barn."],
       ["Muddy spreads mud on the board.", "Muddy uses one hoof to spread a thin even mud layer over the same board."],
       ["Woolly pats the wool down.", "Woolly presses the recovered wool pieces into a clear cloud silhouette on wet mud."],
       ["The sun dries the wet mud.", "Warm sunshine dries the board while every wool piece remains fixed in place."],
-      ["Her cloud stays put.", "Woolly and Muddy view the finished tactile cloud picture standing firmly by the barn."]
+      ["The cloud stays on the board.", "Woolly and Muddy view the finished tactile cloud picture standing firmly by the barn."]
     ]
   },
   {
@@ -301,7 +301,7 @@ const books = [
       ["Three loops pull tight.", "Three distinct red loops cinch tightly around three separate roots."],
       ["Cuddly follows the yarn back.", "Cuddly walks along the yarn from its free end toward the nearest root."],
       ["She frees each loop.", "Cuddly lifts the last of three loosened loops safely over its root."],
-      ["Cuddly rolls yarn into a ball.", "Cuddly rolls the fully free red strand into one neat round ball."],
+      ["Cuddly wraps it into a ball.", "Cuddly rolls the fully free red strand into one neat round ball."],
       ["Cuddly pats her ball of yarn.", "Cuddly gives the finished yarn ball one playful paw tap beside clear untangled roots."]
     ]
   },
@@ -341,7 +341,7 @@ const books = [
       ["Tiny pushes with both paws.", "Tiny braces both paws against the berry while it remains blocked by the root."],
       ["Whoops! It rolls back downhill.", "The berry rolls a short safe distance backward as Tiny steps aside."],
       ["Tiny props it with a pebble.", "Tiny places one flat pebble behind the berry to prevent another rollback."],
-      ["He turns it. It rolls past!", "Tiny rotates the oval berry so its narrow end faces the root gap."],
+      ["Tiny turns the berry. It fits!", "Tiny rotates the oval berry so its narrow end faces the root gap."],
       ["Tiny rolls the berry home!", "Tiny and the giant berry arrive home beside the big oak before dusk."]
     ]
   },
@@ -381,7 +381,7 @@ const books = [
       ["Grumpy drags lunch into the shade.", "Grumpy pulls the same basket into the shadow's new position."],
       ["Soon the shade moves again.", "The shadow edge moves past a second time while Grumpy watches closely."],
       ["The trunk is in the shade.", "Grumpy pauses beside the shaded trunk; the stone marks lie beyond the moving edge of shade."],
-      ["Grumpy pulls lunch beside the trunk.", "Grumpy pulls his closed basket close to the trunk, away from the outer stone marks."],
+      ["Grumpy moves lunch by the tree.", "Grumpy pulls his closed basket close to the trunk, away from the outer stone marks."],
       ["Grumpy eats in the cool shade.", "Grumpy rests beside his open lunch basket in the cool shade close to the trunk."]
     ]
   },
@@ -400,7 +400,7 @@ const books = [
       ["Giggly pulls even faster.", "Giggly increases speed while the damaged wheel jolts the cart more sharply."],
       ["Flowers bounce onto soft grass.", "All eight pots tumble safely onto grass without breaking while the cart stops."],
       ["Giggly stops. What went wrong?", "Giggly pauses beside the broken wheel and studies its flat edge."],
-      ["A round slice of wood fits.", "Giggly aligns one smooth round wood slice on the empty axle."],
+      ["Giggly fits the new wheel.", "Giggly aligns one smooth round wood slice on the empty axle."],
       ["Giggly puts the flowers back.", "The repaired round wheel turns smoothly with all eight pots upright again."],
       ["All eight flowers arrive!", "Giggly arrives at the red barn with eight intact flowers and the round wheel visible."]
     ]
@@ -409,16 +409,16 @@ const books = [
   {
     world: "dino", bookNumber: 21, id: "dino-pals-21-fancys-moonleaf-arch", title: "Fancy's Moonleaf Arch",
     theme: "building a stable decorative arch with flat stones", cast: ["fancy", "grumpy", "wiggly"], canonIds: ["DINO-FANCY", "DINO-GRUMPY", "DINO-WIGGLY"], location: "Big Flat Rock beside the long meadow before sunset",
-    storyPromise: "Fancy must finish a moonleaf arch before sunset, but its round foundation stones roll in the breeze.",
+    storyPromise: "Fancy must finish a moonleaf arch before sunset, but the branches shake in the wind and roll the round foundation stones.",
     storySpine: "Fancy's tall arch topples from rolling stones, so she rebuilds a lower curve on flat stones with Wiggly and Grumpy.",
-    failedAttempt: "A breeze rolls the three round base stones and collapses the first tall arch.", turningPoint: "Fancy studies the fallen parts and chooses stable shapes rather than greater height.",
+    failedAttempt: "Wind shakes the branches, rolling the three round base stones and collapsing the first tall arch.", turningPoint: "Fancy studies the fallen parts and chooses stable shapes rather than greater height.",
     resolution: "Flat stones, a low branch curve and secure knots hold the arch.", landing: "Sunset shines through the sturdy purple-leaf opening.",
     duplicateAudit: "Distinct from tree-house construction and Fancy's sail repair: this plot tests foundation shape and arch stability.",
     targetSkills: ["stability", "collaboration"], sightWords: ["the", "one", "three", "she", "with", "every"],
     pages: [
       ["Fancy wants a moonleaf arch before sunset.", "Fancy arranges purple moon-shaped leaves and long branches beside Big Flat Rock; sun is lowering."],
       ["She balances long branches on three round stones.", "Three visibly round base stones support a tall narrow branch arch while Fancy adjusts it."],
-      ["Whoosh! The breeze rolls the stones. The arch falls.", "Wind rolls the round stones apart and the branches fall harmlessly onto grass."],
+      ["Whoosh! Wind shakes the branches. The stones roll. The arch falls.", "The branches shake in the wind, the round stones roll apart, and the arch falls against the grass."],
       ["Fancy studies the pieces. The round stones roll.", "Fancy crouches thoughtfully beside separated leaves, branches and rolling stones."],
       ["Grumpy brings three flat stones. They stay still.", "Low heavy Grumpy pushes three broad flat stones into a stable row."],
       ["Wiggly bends two branches into a low curve.", "Pale-blue Wiggly uses his long body carefully to bend two branches over the bases."],
@@ -456,14 +456,14 @@ const books = [
     duplicateAudit: "Distinct from high-branch flight and general storm preparation: the engine is aerodynamic drag and reshaping one delivery object.",
     targetSkills: ["air-resistance", "delivery"], sightWords: ["the", "one", "before", "he", "with", "under"],
     pages: [
-      ["Rain is falling. Flappy brings a fern for the roof.", "Flappy holds one very broad fern near the stream as rain falls beneath dark clouds."],
+      ["Rain is falling. Flappy brings a fern to cover the cave entrance.", "Flappy holds one very broad fern near the stream as rain falls beneath dark clouds."],
       ["He grips the middle and glides low.", "Flappy launches into a plausible low glide holding the fern's center."],
       ["Whoosh! Wind catches both sides. Flappy spins around.", "A crosswind turns the open leaf and Flappy in one controlled airborne half-circle."],
       ["Flappy lands. He cannot see past the fern.", "Flappy stands safely while the broad fern blocks most of his forward view."],
       ["He rolls the wide fern into a narrow bundle.", "Flappy rolls the same intact fern lengthwise into a tight narrow cylinder."],
       ["Wiggly ties it with one long grass loop.", "Wiggly secures the rolled fern with one visible long grass tie."],
       ["The rolled fern hangs below. Flappy glides straight to Cozy Cave.", "Flappy makes a straight low glide with the narrow bundle hanging beneath him."],
-      ["Rain patters on their new roof. Not a drop gets inside!", "The opened fern forms a small awning at Cozy Cave. Flappy and Wiggly stand dry beneath it while rain continues beyond the entrance."]
+      ["Rain taps the fern over the cave entrance. Not a drop gets inside!", "The opened fern forms a small awning at Cozy Cave. Flappy and Wiggly stand dry beneath it while rain continues beyond the entrance."]
     ]
   },
   {
@@ -481,7 +481,7 @@ const books = [
       ["Clatter! One turn sends every bowl downhill.", "All four bowls roll harmlessly apart on grass after Clumsy turns."],
       ["Clumsy follows. Where does each bowl stop?", "Clumsy observes four bowls stopped at different terrain features down the slope."],
       ["The big bowl lands on Big Flat Rock.", "The widest bowl sits on top of Big Flat Rock."],
-      ["Roots stop the small bowls. At last, they stop rolling.", "The smaller bowls nest securely in separate shallow spaces between roots."],
+      ["The small bowls bump into roots and stop.", "The smaller bowls nest securely in separate shallow spaces between roots."],
       ["Clumsy brings them back, one at a time.", "Clumsy carefully carries a single water-filled bowl low and level."],
       ["This time he sets them on flat ground. Ready for the games!", "Four filled bowls stand in a row on flat ground, ready for the games."]
     ]
@@ -540,9 +540,9 @@ const books = [
       ["Zippy hops from stone to stone without a splash.", "Zippy crosses the regular gaps easily with his rainbow scarf fixed in place."],
       ["Grumpy reaches the middle. He cannot step farther.", "Low heavy Grumpy pauses safely on a broad middle stone before a gap too wide for him."],
       ["Zippy waits on the bank. Grumpy stares at the gap.", "Zippy waits on the far bank while Grumpy looks at the gap ahead of his stone."],
-      ["Bossy watches Grumpy step. He needs the stones much closer.", "Bossy records measured test steps from differently sized Pals on her carried clipboard."],
+      ["Bossy watches Grumpy step. Grumpy needs the stones closer together.", "Bossy records measured test steps from differently sized Pals on her carried clipboard."],
       ["They add close stones, a branch, and a path along the edge.", "Three clearly different routes use close stones, one stable branch and the shallow edge."],
-      ["Bossy draws all three paths on his clipboard.", "Bossy's leaf clipboard carries three simple non-letter route diagrams matching the crossings."],
+      ["Bossy draws all three paths on the clipboard.", "Bossy's leaf clipboard carries three simple non-letter route diagrams matching the crossings."],
       ["Grumpy steps across. Zippy hops. No one splashes!", "Grumpy, Zippy and other varied Pals use different dry routes successfully."],
     ]
   },

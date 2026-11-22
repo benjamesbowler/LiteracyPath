@@ -103,7 +103,7 @@
       },
       {
         "pageNumber": 9,
-        "text": "Kit holds up his sunny picture. Zoe holds up her rainy one. Neither asks the other to change it.",
+        "text": "Kit holds up his sunny picture. Zoe lifts her rainy picture beside it.",
         "imageBrief": "Both hold their separate finished pictures at equal height and look across at each other's sheet.",
         "imageAlt": "Both hold their separate finished pictures at equal height and look across at each other's sheet.",
         "pageDescription": "Both hold their separate finished pictures at equal height and look across at each other's sheet.",
@@ -123,7 +123,7 @@
     "discussion": {
       "oral": {
         "prompt": "Why does Zoe take the paper sun off her picture?",
-        "listenFor": "Her favorite part was jumping in the puddle made by rain. Kit's different preference does not have to change her own remembered choice."
+        "listenFor": "Rain made the big puddle Zoe liked to jump in. Kit can draw his sunny day while Zoe draws her rainy day."
       },
       "visual": {
         "page": 8,
@@ -523,7 +523,7 @@
       },
       {
         "pageNumber": 5,
-        "text": "Kit closes his fingers around the air. On the wall, the shadow's fist passes right through the fan.",
+        "text": "Kit grabs at the air. On the wall, the shadow’s fist passes right through the fan.",
         "imageBrief": "Kit closes empty hand while flat shadow overlaps the real fan without contact.",
         "imageAlt": "Kit closes empty hand while flat shadow overlaps the real fan without contact.",
         "pageDescription": "Kit closes empty hand while flat shadow overlaps the real fan without contact.",
@@ -584,7 +584,7 @@
       "visual": {
         "page": 8,
         "prompt": "What new shape appears on the wall, and what makes it appear?",
-        "lookFor": "A dark semicircular fan joins the hand's silhouette because Kit now holds the real red fan."
+        "lookFor": "A fan-shaped shadow appears above the giant hand because Kit now holds the real red fan."
       }
     },
     "levelRationale": "Candidate D: the concrete failed grasp leads to a supported inference about one established magical rule. Ten short dialogue/action beats retain clear object identity and end with a visible comic payoff. Independent placement remains pending.",
@@ -852,7 +852,7 @@
       },
       {
         "pageNumber": 6,
-        "text": "Some sunlight passes through the air around Earth. This filtered light can still reach the Moon.",
+        "text": "Sunlight passes through the air around Earth. More red light than blue reaches the Moon.",
         "imageBrief": "Diagram shows a few red-orange light paths skimming Earth's atmosphere and bending toward Moon inside shadow.",
         "imageAlt": "Diagram shows a few red-orange light paths skimming Earth's atmosphere and bending toward Moon inside shadow.",
         "pageDescription": "Diagram shows a few red-orange light paths skimming Earth's atmosphere and bending toward Moon inside shadow.",
@@ -880,7 +880,7 @@
       },
       {
         "pageNumber": 9,
-        "text": "This change happens over hours. The Moon's usual phases change across many nights as it travels around Earth.",
+        "text": "The eclipse takes only a few hours. The Moon’s usual phases change across many nights.",
         "imageBrief": "Two clearly separate framed diagrams: a short eclipse sequence above, a simple month-view phase sequence below.",
         "imageAlt": "Two clearly separate framed diagrams: a short eclipse sequence above, a simple month-view phase sequence below.",
         "pageDescription": "Two clearly separate framed diagrams: a short eclipse sequence above, a simple month-view phase sequence below.",
@@ -921,8 +921,8 @@
         "meaning": "send light back from a surface"
       },
       {
-        "word": "filtered",
-        "meaning": "changed while passing through something"
+        "word": "phases",
+        "meaning": "the shapes of the bright part of the Moon that we see across the month"
       }
     ]
   },
@@ -1044,7 +1044,7 @@
       },
       {
         "pageNumber": 9,
-        "text": "When the wings lift, their thin surfaces move together. Each clear patch belongs to a complete wing.",
+        "text": "When the butterfly lifts a wing, its clear middle lifts with its brown edge.",
         "imageBrief": "Butterfly begins lifting its wings at the flower perch, with coherent joined wing geometry.",
         "imageAlt": "Butterfly begins lifting its wings at the flower perch, with coherent joined wing geometry.",
         "pageDescription": "Butterfly begins lifting its wings at the flower perch, with coherent joined wing geometry.",
@@ -1501,7 +1501,7 @@
       },
       {
         "pageNumber": 6,
-        "text": "The path is brighter now. Less light reaches the hedge and the upstairs window.",
+        "text": "The path is easier to see. Less light reaches the hedge and the upstairs window.",
         "imageBrief": "Repeat opening viewpoint with path clearly lit, hedge/window darkened and shield visible.",
         "imageAlt": "Repeat opening viewpoint with path clearly lit, hedge/window darkened and shield visible.",
         "pageDescription": "Repeat opening viewpoint with path clearly lit, hedge/window darkened and shield visible.",
@@ -1548,7 +1548,7 @@
     "discussion": {
       "oral": {
         "prompt": "What changes when a shield is fitted, even if the bulb stays the same?",
-        "listenFor": "The direction and spill of the light change; useful light can reach the path without so much going upward or onto the window."
+        "listenFor": "The shield keeps some light from reaching the hedge and window. The path is easier to see without so much glare."
       },
       "visual": {
         "page": 6,

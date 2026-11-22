@@ -1716,15 +1716,15 @@
       "audioSha256": "cae77dbf6ca024799804f51bfdbe5cf343e0ad69a0118eb7d4241658a980e164"
     },
     {
-      "text": "The Log\n\nMuddy sits on a log. The log rolls. No, Muddy cannot sit on it. So Muddy lets it go and sits on the mat.",
-      "textSha256": "0ed03d5c44d24ab2083e5739a75e2a9eec5ff1379a0e5421ce165f6b50eb79b6",
+      "text": "The Log\n\nMuddy sits on a log. The log rolls. Muddy gets off. Muddy sits on the mat.",
+      "textSha256": "44c34b223ec026bb467a03816672cdc347e1f88d5bdbea012b40a9936410f804",
       "segments": [
         "The Log",
-        "Muddy sits on a log. The log rolls. No, Muddy cannot sit on it. So Muddy lets it go and sits on the mat."
+        "Muddy sits on a log. The log rolls. Muddy gets off. Muddy sits on the mat."
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/cycle-shorts/734b033257c86b35f921.mp3",
+      "audioPath": "/audio/production/en-US/cycle-shorts/0bf1b894d471d8863cf1.mp3",
       "references": [
         {
           "passageId": "cycle-short-5",
@@ -1734,10 +1734,10 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-11-01T23:53:13.084Z",
+      "generatedAt": "2026-11-22T01:45:37.009Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "6c5216a344145b99cb28221fa7dcbe771f6ec665e2020ba7a4f4321040fcfa7e"
+      "audioSha256": "c806601397a498b8ee8c7383192f20459f572b6b275d90659f6392d3f54670a1"
     },
     {
       "text": "What does Muddy sit on first?",
@@ -1787,14 +1787,14 @@
       "audioSha256": "8ef2fc0089fbf8120d85eac6cfaf34ae6920d56412339777ecfbe0ec40b812de"
     },
     {
-      "text": "Why can Muddy not sit on the log?",
-      "textSha256": "18a9d85f04172e52bed82a34eb55471f86e1ec01be819f0d6814b4f37f874a70",
+      "text": "Why does Muddy get off the log?",
+      "textSha256": "3211951e846d0c14072a111bcd20f49d88ddc3f8aaa7e70a9e58bfc408baffd2",
       "segments": [
-        "Why can Muddy not sit on the log?"
+        "Why does Muddy get off the log?"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/cycle-shorts/8a859643030f435a4f04.mp3",
+      "audioPath": "/audio/production/en-US/cycle-shorts/59a2bc9dd71114f52e51.mp3",
       "references": [
         {
           "passageId": "cycle-short-5",
@@ -1804,10 +1804,10 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-11-01T23:53:13.084Z",
+      "generatedAt": "2026-11-22T01:45:37.009Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "f3d003e7b10052fb8713ccfb9989ef57f396e872fa835a3ade9d016ac0bbfc55"
+      "audioSha256": "62a6cc09a1eaa6ff564373b913a9178506aa1f826f48a50b999caf066351e20c"
     },
     {
       "text": "It rolls",
@@ -1995,15 +1995,15 @@
       "audioSha256": "d5f5c2fe1ee0ad4771c8eddb97a631463699c50bd0db3cb6b85d2339de1c1794"
     },
     {
-      "text": "My Red Hat\n\nMuddy’s red hat is in the mud. Muddy runs to it. “How do I get my hat?” Muddy asks. Muddy lifts it with a stick. The hat is back on Muddy.",
-      "textSha256": "67f540d6e2580478584469f3721cc73ff2ab1fc3f7e1d6f4ca34350dbca54c4d",
+      "text": "My Red Hat\n\nMuddy’s red hat is in the mud. Muddy runs to it. “How do I get my hat?” Muddy asks. Muddy lifts it with a stick. Muddy puts his hat back on.",
+      "textSha256": "af90fc800ea7ee9916452e8375c840e729aabb6196b360f0b22b5568547c202b",
       "segments": [
         "My Red Hat",
-        "Muddy’s red hat is in the mud. Muddy runs to it. “How do I get my hat?” Muddy asks. Muddy lifts it with a stick. The hat is back on Muddy."
+        "Muddy’s red hat is in the mud. Muddy runs to it. “How do I get my hat?” Muddy asks. Muddy lifts it with a stick. Muddy puts his hat back on."
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/cycle-shorts/23ac82e48ed8f9ecf7f8.mp3",
+      "audioPath": "/audio/production/en-US/cycle-shorts/71e00cdf23240fbbb0b8.mp3",
       "references": [
         {
           "passageId": "cycle-short-6",
@@ -2013,10 +2013,10 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-11-10T22:53:35.847Z",
+      "generatedAt": "2026-11-22T01:45:37.009Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "42362b19515d63ced924e255396d8249dccc0e76e91d3ae3516dcbac4b801fc9"
+      "audioSha256": "7a3bcfa66f3b91246903a4e60e3f98af7e37e63023bff58c0f022b00a3c07e8d"
     },
     {
       "text": "Where is the hat at first?",
@@ -2473,14 +2473,14 @@
       "audioSha256": "47772539fdc412e6a9e01be229696e3ec9de6169516300348d09cdd5014b8678"
     },
     {
-      "text": "How does Muddy pull it out?",
-      "textSha256": "707c2a2fcecaf3e3b81518f7cc41dccecbb9030a9da71ababf8a0ecc508cdc27",
+      "text": "How did Muddy pull it out?",
+      "textSha256": "842a5f8b33dd78efb2b9682ce1248f1689ba8a3349e4fc09cfa7616a8d8b4fbc",
       "segments": [
-        "How does Muddy pull it out?"
+        "How did Muddy pull it out?"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/cycle-shorts/6d8ad0da0cb40fd8d925.mp3",
+      "audioPath": "/audio/production/en-US/cycle-shorts/ca055e3b9242a9220230.mp3",
       "references": [
         {
           "passageId": "cycle-short-7",
@@ -2490,10 +2490,10 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-11-01T23:53:13.100Z",
+      "generatedAt": "2026-11-22T01:45:37.009Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "13e9a3e63cc1bce25172d5036b5f222edb179401e6ee357e29104e2e922100f0"
+      "audioSha256": "ec9934161dbd93be4257ee641313a96126e5e3afbfc020486dca49976e12bcb0"
     },
     {
       "text": "With a hat",
@@ -2834,15 +2834,15 @@
       "audioSha256": "2f6af16ef42b6fb3133b12de59004f4cc297e9fc2c7cf02dada75e9c80aa2ffe"
     },
     {
-      "text": "A Quilt for Splashy\n\nSplashy has a quilt. She tugs it up. It slips off. Muddy lifts it for her. He tucks it in. Sit with me, said Muddy.",
-      "textSha256": "8943b1d3ca00a938da9e41fe844286d53e05dff7802545735f737e5fcf85fdb0",
+      "text": "A Quilt for Splashy\n\nSplashy has a quilt. She tugs it up. It slips off. Muddy lifts it for her. He tucks the quilt around her. “Sit with me,” says Muddy.",
+      "textSha256": "8c58bf674c15514787609fe7513fd7ba3da89169c52f5b827477dd6a01476a31",
       "segments": [
         "A Quilt for Splashy",
-        "Splashy has a quilt. She tugs it up. It slips off. Muddy lifts it for her. He tucks it in. Sit with me, said Muddy."
+        "Splashy has a quilt. She tugs it up. It slips off. Muddy lifts it for her. He tucks the quilt around her. “Sit with me,” says Muddy."
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/cycle-shorts/3368e02ed6d948fcfe83.mp3",
+      "audioPath": "/audio/production/en-US/cycle-shorts/703dae46e4aefbdd302d.mp3",
       "references": [
         {
           "passageId": "cycle-short-9",
@@ -2852,10 +2852,10 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-11-01T23:53:13.100Z",
+      "generatedAt": "2026-11-22T01:45:37.010Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "8c664e59b13756decf6499c0aeeb667d3ce0722c29a25ea853760924fca5afcf"
+      "audioSha256": "853b90154e55890056586a0fa998a9598779ff7d66240a8e7398ecfdf66abfda"
     },
     {
       "text": "What does Splashy have?",
@@ -3036,14 +3036,14 @@
       "audioSha256": "79f35a0bc426d44d6022ce3cf69622e3a5131d9cf0bac4c5710129d58746410e"
     },
     {
-      "text": "Who tucks the quilt in?",
-      "textSha256": "3f8224bb72870436f748d24f9658755f8425949cd62f45cc7767d1173f1bb909",
+      "text": "Who tucks the quilt around Splashy?",
+      "textSha256": "65b0e27392ce99b4b4bc6a094034d49bdeedccfae905aa09d05ca922f1ae3327",
       "segments": [
-        "Who tucks the quilt in?"
+        "Who tucks the quilt around Splashy?"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/cycle-shorts/3523c512f3af14107160.mp3",
+      "audioPath": "/audio/production/en-US/cycle-shorts/0d1d82682600d493c14e.mp3",
       "references": [
         {
           "passageId": "cycle-short-9",
@@ -3053,10 +3053,10 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-11-01T23:53:13.102Z",
+      "generatedAt": "2026-11-22T01:45:37.010Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "5defb5d7b4cad8f786398f8d66f92c4fc8aa443315769e078028d803dd5fbe1e"
+      "audioSha256": "a7d1780e75f7e1f5ae85c82debd4d02eb07d0daf30cd53d717f16d4cadcdf8ed"
     },
     {
       "text": "Woolly",
@@ -3085,15 +3085,15 @@
       "audioSha256": "f886fc7d5113e2f5522041a64c89bc8d1fddc601e419c5b2de4b07917c4c7dd0"
     },
     {
-      "text": "Can You Get the Cap?\n\nMuddy and Splashy are at the pond. A cap is on a log. Can you get it, Splashy? Splashy swims as Muddy holds the log. Splashy gets the cap.",
-      "textSha256": "3b61fee01381484fd40e2699a9cb031cfc4ab8acabb4c43a3d0cd4b197a3ed7e",
+      "text": "Can You Get the Cap?\n\nMuddy and Splashy are at the pond. A cap is on a log. “Can you get it, Splashy?” asks Muddy. Splashy swims as Muddy holds the log. Splashy gets the cap.",
+      "textSha256": "9c29e0d6ca8b87a08d99ed365215eca0222a7cd83c689c82df4ffa2913263022",
       "segments": [
         "Can You Get the Cap?",
-        "Muddy and Splashy are at the pond. A cap is on a log. Can you get it, Splashy? Splashy swims as Muddy holds the log. Splashy gets the cap."
+        "Muddy and Splashy are at the pond. A cap is on a log. “Can you get it, Splashy?” asks Muddy. Splashy swims as Muddy holds the log. Splashy gets the cap."
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/cycle-shorts/14ac8fda3df59ab23066.mp3",
+      "audioPath": "/audio/production/en-US/cycle-shorts/cff46f54de89d383c124.mp3",
       "references": [
         {
           "passageId": "cycle-short-10",
@@ -3103,10 +3103,10 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-11-01T23:53:13.103Z",
+      "generatedAt": "2026-11-22T01:45:37.010Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "7577e3cd9d08814bf02e6be8204c3f280c6d1ce71a29582fd78524bdeba4af55"
+      "audioSha256": "8ce5b8310facfba9544b7ffbc5db67ae22d0c9ab37818264382bef111a5fce40"
     },
     {
       "text": "Where are Muddy and Splashy?",
@@ -3358,15 +3358,15 @@
       "audioSha256": "f1d773227d8eef5a37109d824415b883013e84e9fbd2ab9685db07505c48bf4c"
     },
     {
-      "text": "The Box\n\nMuddy the pig was in a box. The box tips on its side. Muddy yells for help. Splashy lifts the lid. Now I can see the sun, said Muddy.",
-      "textSha256": "c8e399f9bb0130e15f2b6d48b67dc156b22b379e13106963726df766767be10d",
+      "text": "The Box\n\nMuddy the pig is in a box. The box tips on its side. Muddy yells for help. Splashy lifts the lid. “Now I can see the sun,” says Muddy.",
+      "textSha256": "0bcbbcf4e3a4fe6c7b0ca0c5dba0752cda8b1585cb081dddefaaa3eb194acf1b",
       "segments": [
         "The Box",
-        "Muddy the pig was in a box. The box tips on its side. Muddy yells for help. Splashy lifts the lid. Now I can see the sun, said Muddy."
+        "Muddy the pig is in a box. The box tips on its side. Muddy yells for help. Splashy lifts the lid. “Now I can see the sun,” says Muddy."
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/cycle-shorts/3a7886bb779827de04e8.mp3",
+      "audioPath": "/audio/production/en-US/cycle-shorts/cdfa0d20a3694c71dd82.mp3",
       "references": [
         {
           "passageId": "cycle-short-11",
@@ -3376,20 +3376,20 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-11-01T23:53:13.109Z",
+      "generatedAt": "2026-11-22T01:45:37.010Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "0080feb732fdcb1d2675b077c8d9ecf610db94d2a3e3cc4cd02b4bd3c411e2cd"
+      "audioSha256": "caa0a8fafa7666c726d8059377c416fd033cac42a45bc1e8b701185823a91e07"
     },
     {
-      "text": "Where was Muddy?",
-      "textSha256": "17fc34a01ab997687aac20ffb6567c2cb3b2ea0a75309585da23fe28c7c76de2",
+      "text": "Where is Muddy at first?",
+      "textSha256": "d04023c74ad464b549bae29436b88ca73b399d0c9e8ef26b465ea21779bea31d",
       "segments": [
-        "Where was Muddy?"
+        "Where is Muddy at first?"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/cycle-shorts/b4b18422045521eff7b2.mp3",
+      "audioPath": "/audio/production/en-US/cycle-shorts/53400caafd7f444fcd95.mp3",
       "references": [
         {
           "passageId": "cycle-short-11",
@@ -3399,10 +3399,10 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-11-01T23:53:13.109Z",
+      "generatedAt": "2026-11-22T01:45:37.010Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "3a349008dd3bfcb57e12d2e0ab6705ef2fd3550b5e80a86485ab5e1048762405"
+      "audioSha256": "7064abc343942d90869502a6d01888c77fee3b3bf6f9a5424f6828076234caee"
     },
     {
       "text": "In a tub",
@@ -3649,15 +3649,15 @@
       "audioSha256": "a6ea9c17325204073ed16c0aceb0b713c083964d01e570b815defb58cd9b619c"
     },
     {
-      "text": "A Vest for Muddy\n\nMuddy has a red vest for the farm picnic. It will not fit. Is it for me or for Tiny? Tiny puts on the vest. It fits Tiny!",
-      "textSha256": "ea15e7d90e3e3fc1920841ec8a9f237c07c6d8fc222c8881a217ad1f614a2812",
+      "text": "A Vest for Muddy\n\nMuddy has a red vest for the farm picnic. It will not fit. “Is it for me or for Tiny?” asks Muddy. Tiny puts on the vest. It fits Tiny!",
+      "textSha256": "ae0ec5b881f00b8903f64e92acff15228441bf60fa431d9b44091c07ee4c78c4",
       "segments": [
         "A Vest for Muddy",
-        "Muddy has a red vest for the farm picnic. It will not fit. Is it for me or for Tiny? Tiny puts on the vest. It fits Tiny!"
+        "Muddy has a red vest for the farm picnic. It will not fit. “Is it for me or for Tiny?” asks Muddy. Tiny puts on the vest. It fits Tiny!"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/cycle-shorts/c1a2f1921c86e6ed786e.mp3",
+      "audioPath": "/audio/production/en-US/cycle-shorts/1c89b2e1776397496e41.mp3",
       "references": [
         {
           "passageId": "cycle-short-12",
@@ -3667,10 +3667,10 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-11-01T23:53:13.113Z",
+      "generatedAt": "2026-11-22T01:45:37.010Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "16f8c0bd4da8597a28eeae6caeae7bc019beb047f14d55a8b40c0dafd800983d"
+      "audioSha256": "4397066bedcdf1017bf5029d0ffe5ca256095342084f3480f948f2edaa7f0f74"
     },
     {
       "text": "What colour is the vest?",
@@ -3838,15 +3838,15 @@
       "audioSha256": "48ec41071816c8bd8e3e478c61d9c4f55f0dd6eb818b141e46bb9f1e21e91d83"
     },
     {
-      "text": "The Jam Jar\n\nMuddy has jam in his picnic kit. The zip is stuck. Clucky gets her peg. She lifts the zip with the peg. Now Muddy can get the jam.",
-      "textSha256": "c60b1a93e8676e778ac77255d525840d4ed38ca2655ca4a2561d396c15b03528",
+      "text": "The Jam Jar\n\nMuddy has jam in his picnic kit. The bag’s zip is stuck. Clucky gets her peg. She pulls the zip with the peg. Now Muddy can get the jam.",
+      "textSha256": "aa9bd556b8036539d7d0b68b05a91107471cd1bf0f6ce04129a853c03e40f07c",
       "segments": [
         "The Jam Jar",
-        "Muddy has jam in his picnic kit. The zip is stuck. Clucky gets her peg. She lifts the zip with the peg. Now Muddy can get the jam."
+        "Muddy has jam in his picnic kit. The bag’s zip is stuck. Clucky gets her peg. She pulls the zip with the peg. Now Muddy can get the jam."
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/cycle-shorts/fe00b56958ed8654f789.mp3",
+      "audioPath": "/audio/production/en-US/cycle-shorts/1a04f22bde0c8d684fbe.mp3",
       "references": [
         {
           "passageId": "cycle-short-13",
@@ -3856,10 +3856,10 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-11-01T23:53:13.140Z",
+      "generatedAt": "2026-11-22T01:45:37.010Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "bbfc069c5d15e1da6a73fe89da451a15a76a865f948fb79b8fe5b992c6db82b9"
+      "audioSha256": "64e86236b2fdc99d91a28099e2ce3025056997284b3968b1632af357b8dee3e1"
     },
     {
       "text": "What is in the picnic kit?",
@@ -4158,14 +4158,14 @@
       "audioSha256": "c47756cebb5b517f2802bdf9b1a5283a6b8dc46f39a7e3b67392c5b0aedd3103"
     },
     {
-      "text": "Lifts the zip with a peg",
-      "textSha256": "c2de76b2fb68fa5faba7397cdd66213074e550c2b38ae8f56d16df9b0adbf25e",
+      "text": "Pulls the zip with a peg",
+      "textSha256": "e4c93dda0a36af475eb5a25246dc86f21c8b048560f534406125ad1da51b927d",
       "segments": [
-        "Lifts the zip with a peg"
+        "Pulls the zip with a peg"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/cycle-shorts/a3699cf66e737e8310e7.mp3",
+      "audioPath": "/audio/production/en-US/cycle-shorts/8fee9edf314ce1e916d6.mp3",
       "references": [
         {
           "passageId": "cycle-short-13",
@@ -4176,10 +4176,10 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-11-01T23:53:13.140Z",
+      "generatedAt": "2026-11-22T01:45:37.010Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "91dc2b27209793da4eb55ae34dbc9921e3de773a5e594de46db8a295358b8c03"
+      "audioSha256": "4f8c4c37fa454eddfe36ad20fbc5ecff02cb2d6f38a95b4ed927a23518d6203e"
     },
     {
       "text": "Cuts the kit",
@@ -4611,15 +4611,15 @@
       "audioSha256": "ae038d253a58472cc4a7b9c933a125847f6fc3b33db30f228e3c92b4076be681"
     },
     {
-      "text": "The Thin Stick\n\nMuddy and Brave the chick look for a shell. The shell is in a thin crack by the pond. Muddy cannot reach it. Brave lifts it with a thin stick. Good work, Brave, said Muddy.",
-      "textSha256": "e4b2f863f5a67c557bd1660e8a2ed230d21404f99e59ab6170d6512b7288a610",
+      "text": "The Thin Stick\n\nMuddy and Brave the chick look for a shell. The shell is in a narrow crack by the pond. Muddy cannot reach it. Brave lifts it with a thin stick. “Good work, Brave!” says Muddy.",
+      "textSha256": "f77df6f477643c29ce8572d2010adc446751864b8a52517ca078f62194a3d092",
       "segments": [
         "The Thin Stick",
-        "Muddy and Brave the chick look for a shell. The shell is in a thin crack by the pond. Muddy cannot reach it. Brave lifts it with a thin stick. Good work, Brave, said Muddy."
+        "Muddy and Brave the chick look for a shell. The shell is in a narrow crack by the pond. Muddy cannot reach it. Brave lifts it with a thin stick. “Good work, Brave!” says Muddy."
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/cycle-shorts/84a71ec277a425c008b3.mp3",
+      "audioPath": "/audio/production/en-US/cycle-shorts/166ebded2800d884e92c.mp3",
       "references": [
         {
           "passageId": "cycle-short-15",
@@ -4629,10 +4629,10 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-11-01T23:53:13.144Z",
+      "generatedAt": "2026-11-22T01:45:37.010Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "7b21de7acced26f21ea71502e6a62d2b6160c260660f0b1e5d7726ae4322c723"
+      "audioSha256": "ca1251d8f451f69321472369169e49792570b39c07c37fc8dcd1dbf6400f6c0d"
     },
     {
       "text": "What are Muddy and Brave looking for?",
@@ -4884,15 +4884,15 @@
       "audioSha256": "e15ef777835c0072ca42706f03524a0afa1ed3a916b48824264b71d08adace15"
     },
     {
-      "text": "The Ball by the Wall\n\nMuddy has a ball. They all watch it roll to the wall. The ball is stuck in a gap. Try this, says Splashy. Muddy pushes a stick into the gap. Out pops the ball onto the mat!",
-      "textSha256": "985e5b6f44923fd3deee986159ed31a749f90b2d0abad9f1175b8a7a972fc850",
+      "text": "The Ball by the Wall\n\nMuddy has a ball. Muddy and Splashy watch it roll to the wall. The ball is stuck in a gap. “Try this,” says Splashy. Muddy pushes a stick into the gap. Out pops the ball onto the mat!",
+      "textSha256": "4adcf71b8b09de663b86bff37b00300608f7b92c775d190280821cf6058012d9",
       "segments": [
         "The Ball by the Wall",
-        "Muddy has a ball. They all watch it roll to the wall. The ball is stuck in a gap. Try this, says Splashy. Muddy pushes a stick into the gap. Out pops the ball onto the mat!"
+        "Muddy has a ball. Muddy and Splashy watch it roll to the wall. The ball is stuck in a gap. “Try this,” says Splashy. Muddy pushes a stick into the gap. Out pops the ball onto the mat!"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/cycle-shorts/f4d9f046656162e947bb.mp3",
+      "audioPath": "/audio/production/en-US/cycle-shorts/853127ca2910814b7668.mp3",
       "references": [
         {
           "passageId": "cycle-short-16",
@@ -4902,10 +4902,10 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-11-01T23:53:13.147Z",
+      "generatedAt": "2026-11-22T01:45:37.010Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "ec5a949f39f6be5de37246bfa1f3221b461fa4d276a44e9529f36f9f9ed48631"
+      "audioSha256": "d51161cbe0bbb3141c3b8a1b53dbcd717dadf0067fe40e2fb7f1f50f52427694"
     },
     {
       "text": "What rolls to the wall?",
@@ -6654,15 +6654,15 @@
       "audioSha256": "c55c849a6bd856a37ee5c761d9e77a557076179d9da134d123868fd1618afea5"
     },
     {
-      "text": "The Pink Cup\n\nMuddy has a pink cup. It goes under the tap by the barn. Why does the sink fill up? A leaf blocks the hole. Muddy lifts out the leaf. The water goes down and the sink is empty.",
-      "textSha256": "fae81d542d2b1b08a311010318514a7b746b0067a4a91635c6ff2bd028a71e66",
+      "text": "The Pink Cup\n\nMuddy has a pink cup. Muddy puts it under the tap by the barn. Why does the sink fill up? A leaf blocks the hole. Muddy lifts out the leaf. The water goes down and the sink is empty.",
+      "textSha256": "09f2d4e6233dcaa95abe499225d959a7d594523ba66849ab12a77319831cc63a",
       "segments": [
         "The Pink Cup",
-        "Muddy has a pink cup. It goes under the tap by the barn. Why does the sink fill up? A leaf blocks the hole. Muddy lifts out the leaf. The water goes down and the sink is empty."
+        "Muddy has a pink cup. Muddy puts it under the tap by the barn. Why does the sink fill up? A leaf blocks the hole. Muddy lifts out the leaf. The water goes down and the sink is empty."
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/cycle-shorts/947fbab3c857b268af41.mp3",
+      "audioPath": "/audio/production/en-US/cycle-shorts/f2b143fd64e77996bf1c.mp3",
       "references": [
         {
           "passageId": "cycle-short-22",
@@ -6672,10 +6672,10 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-11-01T23:53:13.158Z",
+      "generatedAt": "2026-11-22T01:45:37.010Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "29a8f2a022308169e057d94e680e91e7782ac7011b4bf76fafdc58b83162a94e"
+      "audioSha256": "8a050bcbb292284a36b6327546b59fa1a62ff7650f75bf6f823f0eea84836482"
     },
     {
       "text": "What colour is the cup?",
@@ -7320,15 +7320,15 @@
       "audioSha256": "646e52beb29983c4414b6ffb941a1161ba87adff6ac7a5cb398e6e485e143509"
     },
     {
-      "text": "The Picnic Bell\n\nMuddy hears a buzz by the bell. Which bug is it? A bee lands on the bell. His friends may miss lunch. He waits for the bee to fly off. Then Muddy rings the bell for lunch.",
-      "textSha256": "16f98a4940503b8dc6072593565a2e28051d89937cab13984c64659b0d1a1900",
+      "text": "The Picnic Bell\n\nMuddy hears a buzz by the bell. “Which bug is it?” asks Muddy. A bee lands on the bell. Muddy must ring the bell or his friends may miss lunch. He waits for the bee to fly off. Then Muddy rings the bell for lunch.",
+      "textSha256": "0d04d2b97522ac6032c4107b26b8b1081588428188f8a09ef341c22839c351b4",
       "segments": [
         "The Picnic Bell",
-        "Muddy hears a buzz by the bell. Which bug is it? A bee lands on the bell. His friends may miss lunch. He waits for the bee to fly off. Then Muddy rings the bell for lunch."
+        "Muddy hears a buzz by the bell. “Which bug is it?” asks Muddy. A bee lands on the bell. Muddy must ring the bell or his friends may miss lunch. He waits for the bee to fly off. Then Muddy rings the bell for lunch."
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/cycle-shorts/dee50d8e10722cb0c299.mp3",
+      "audioPath": "/audio/production/en-US/cycle-shorts/e92810cca1a6fdb65c20.mp3",
       "references": [
         {
           "passageId": "cycle-short-24",
@@ -7338,10 +7338,10 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-11-10T22:53:35.848Z",
+      "generatedAt": "2026-11-22T01:45:37.010Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "d4a97dae0398aba75b56103b41af7945e3114495da274bd2904be5864a5652a3"
+      "audioSha256": "85217668810f025bad1e817b703f98b07b2404afa1d3335e5eb7969c3bb670ba"
     },
     {
       "text": "What makes the buzz?",
@@ -7939,15 +7939,15 @@
       "audioSha256": "d91522c270f0bc7c4bd7df6dd43403ccb5a84038f423a67aa31ca85f10f8615b"
     },
     {
-      "text": "Try My Way\n\nMy hat is stuck by the pond, said Muddy. Why not try a stick, said Splashy. The stick is too short. Muddy finds a longer stick by the barn. This time the stick reaches the hat. Muddy lifts the hat onto the grass.",
-      "textSha256": "247bb5640e3b34beb60db80b26809e590723177b05a8ec9708a67d9b23ee7f0c",
+      "text": "Try My Way\n\n“My hat is stuck by the pond,” says Muddy. “Why not try a stick?” says Splashy. The stick is too short. Muddy finds a longer stick by the barn. This time the stick reaches the hat. Muddy lifts the hat onto the grass.",
+      "textSha256": "b94b73841f8058df035f2cfb9ff191ca78f83c03358046b8f33d62c7e83f9e28",
       "segments": [
         "Try My Way",
-        "My hat is stuck by the pond, said Muddy. Why not try a stick, said Splashy. The stick is too short. Muddy finds a longer stick by the barn. This time the stick reaches the hat. Muddy lifts the hat onto the grass."
+        "“My hat is stuck by the pond,” says Muddy. “Why not try a stick?” says Splashy. The stick is too short. Muddy finds a longer stick by the barn. This time the stick reaches the hat. Muddy lifts the hat onto the grass."
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/cycle-shorts/17e03fa262e65da6c2df.mp3",
+      "audioPath": "/audio/production/en-US/cycle-shorts/7b14d70c465cbdb9f1d2.mp3",
       "references": [
         {
           "passageId": "cycle-short-26",
@@ -7957,10 +7957,10 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-11-01T23:53:13.188Z",
+      "generatedAt": "2026-11-22T01:45:37.010Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "aec4234883ae34a4e81680d9c1746846e9945eaef86c59b8245bf71f6c870ee6"
+      "audioSha256": "90df2c7415af21f6ec4396bddb1cd20fa80a18d5da598146e66b0be6be3a73a7"
     },
     {
       "text": "A bell",
@@ -8672,6 +8672,410 @@
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
       "audioSha256": "021ba6c638cf6393538746a54d9ce2d2b3ba9c0829ceffbf31a78c7d137e9a24"
+    },
+    {
+      "text": "The Log\n\nMuddy sits on a log. The log rolls. No, Muddy cannot sit on it. So Muddy lets it go and sits on the mat.",
+      "textSha256": "0ed03d5c44d24ab2083e5739a75e2a9eec5ff1379a0e5421ce165f6b50eb79b6",
+      "segments": [
+        "The Log",
+        "Muddy sits on a log. The log rolls. No, Muddy cannot sit on it. So Muddy lets it go and sits on the mat."
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/cycle-shorts/734b033257c86b35f921.mp3",
+      "references": [
+        {
+          "passageId": "cycle-short-5",
+          "sourceId": "cycle-short-5",
+          "role": "passage"
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-11-01T23:53:13.084Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "6c5216a344145b99cb28221fa7dcbe771f6ec665e2020ba7a4f4321040fcfa7e"
+    },
+    {
+      "text": "Why can Muddy not sit on the log?",
+      "textSha256": "18a9d85f04172e52bed82a34eb55471f86e1ec01be819f0d6814b4f37f874a70",
+      "segments": [
+        "Why can Muddy not sit on the log?"
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/cycle-shorts/8a859643030f435a4f04.mp3",
+      "references": [
+        {
+          "passageId": "cycle-short-5",
+          "sourceId": "cycle-short-5-q2",
+          "role": "question-prompt"
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-11-01T23:53:13.084Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "f3d003e7b10052fb8713ccfb9989ef57f396e872fa835a3ade9d016ac0bbfc55"
+    },
+    {
+      "text": "My Red Hat\n\nMuddy’s red hat is in the mud. Muddy runs to it. “How do I get my hat?” Muddy asks. Muddy lifts it with a stick. The hat is back on Muddy.",
+      "textSha256": "67f540d6e2580478584469f3721cc73ff2ab1fc3f7e1d6f4ca34350dbca54c4d",
+      "segments": [
+        "My Red Hat",
+        "Muddy’s red hat is in the mud. Muddy runs to it. “How do I get my hat?” Muddy asks. Muddy lifts it with a stick. The hat is back on Muddy."
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/cycle-shorts/23ac82e48ed8f9ecf7f8.mp3",
+      "references": [
+        {
+          "passageId": "cycle-short-6",
+          "sourceId": "cycle-short-6",
+          "role": "passage"
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-11-10T22:53:35.847Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "42362b19515d63ced924e255396d8249dccc0e76e91d3ae3516dcbac4b801fc9"
+    },
+    {
+      "text": "How does Muddy pull it out?",
+      "textSha256": "707c2a2fcecaf3e3b81518f7cc41dccecbb9030a9da71ababf8a0ecc508cdc27",
+      "segments": [
+        "How does Muddy pull it out?"
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/cycle-shorts/6d8ad0da0cb40fd8d925.mp3",
+      "references": [
+        {
+          "passageId": "cycle-short-7",
+          "sourceId": "cycle-short-7-q2",
+          "role": "question-prompt"
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-11-01T23:53:13.100Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "13e9a3e63cc1bce25172d5036b5f222edb179401e6ee357e29104e2e922100f0"
+    },
+    {
+      "text": "A Quilt for Splashy\n\nSplashy has a quilt. She tugs it up. It slips off. Muddy lifts it for her. He tucks it in. Sit with me, said Muddy.",
+      "textSha256": "8943b1d3ca00a938da9e41fe844286d53e05dff7802545735f737e5fcf85fdb0",
+      "segments": [
+        "A Quilt for Splashy",
+        "Splashy has a quilt. She tugs it up. It slips off. Muddy lifts it for her. He tucks it in. Sit with me, said Muddy."
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/cycle-shorts/3368e02ed6d948fcfe83.mp3",
+      "references": [
+        {
+          "passageId": "cycle-short-9",
+          "sourceId": "cycle-short-9",
+          "role": "passage"
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-11-01T23:53:13.100Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "8c664e59b13756decf6499c0aeeb667d3ce0722c29a25ea853760924fca5afcf"
+    },
+    {
+      "text": "Who tucks the quilt in?",
+      "textSha256": "3f8224bb72870436f748d24f9658755f8425949cd62f45cc7767d1173f1bb909",
+      "segments": [
+        "Who tucks the quilt in?"
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/cycle-shorts/3523c512f3af14107160.mp3",
+      "references": [
+        {
+          "passageId": "cycle-short-9",
+          "sourceId": "cycle-short-9-q3",
+          "role": "question-prompt"
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-11-01T23:53:13.102Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "5defb5d7b4cad8f786398f8d66f92c4fc8aa443315769e078028d803dd5fbe1e"
+    },
+    {
+      "text": "Can You Get the Cap?\n\nMuddy and Splashy are at the pond. A cap is on a log. Can you get it, Splashy? Splashy swims as Muddy holds the log. Splashy gets the cap.",
+      "textSha256": "3b61fee01381484fd40e2699a9cb031cfc4ab8acabb4c43a3d0cd4b197a3ed7e",
+      "segments": [
+        "Can You Get the Cap?",
+        "Muddy and Splashy are at the pond. A cap is on a log. Can you get it, Splashy? Splashy swims as Muddy holds the log. Splashy gets the cap."
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/cycle-shorts/14ac8fda3df59ab23066.mp3",
+      "references": [
+        {
+          "passageId": "cycle-short-10",
+          "sourceId": "cycle-short-10",
+          "role": "passage"
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-11-01T23:53:13.103Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "7577e3cd9d08814bf02e6be8204c3f280c6d1ce71a29582fd78524bdeba4af55"
+    },
+    {
+      "text": "The Box\n\nMuddy the pig was in a box. The box tips on its side. Muddy yells for help. Splashy lifts the lid. Now I can see the sun, said Muddy.",
+      "textSha256": "c8e399f9bb0130e15f2b6d48b67dc156b22b379e13106963726df766767be10d",
+      "segments": [
+        "The Box",
+        "Muddy the pig was in a box. The box tips on its side. Muddy yells for help. Splashy lifts the lid. Now I can see the sun, said Muddy."
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/cycle-shorts/3a7886bb779827de04e8.mp3",
+      "references": [
+        {
+          "passageId": "cycle-short-11",
+          "sourceId": "cycle-short-11",
+          "role": "passage"
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-11-01T23:53:13.109Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "0080feb732fdcb1d2675b077c8d9ecf610db94d2a3e3cc4cd02b4bd3c411e2cd"
+    },
+    {
+      "text": "Where was Muddy?",
+      "textSha256": "17fc34a01ab997687aac20ffb6567c2cb3b2ea0a75309585da23fe28c7c76de2",
+      "segments": [
+        "Where was Muddy?"
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/cycle-shorts/b4b18422045521eff7b2.mp3",
+      "references": [
+        {
+          "passageId": "cycle-short-11",
+          "sourceId": "cycle-short-11-q1",
+          "role": "question-prompt"
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-11-01T23:53:13.109Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "3a349008dd3bfcb57e12d2e0ab6705ef2fd3550b5e80a86485ab5e1048762405"
+    },
+    {
+      "text": "A Vest for Muddy\n\nMuddy has a red vest for the farm picnic. It will not fit. Is it for me or for Tiny? Tiny puts on the vest. It fits Tiny!",
+      "textSha256": "ea15e7d90e3e3fc1920841ec8a9f237c07c6d8fc222c8881a217ad1f614a2812",
+      "segments": [
+        "A Vest for Muddy",
+        "Muddy has a red vest for the farm picnic. It will not fit. Is it for me or for Tiny? Tiny puts on the vest. It fits Tiny!"
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/cycle-shorts/c1a2f1921c86e6ed786e.mp3",
+      "references": [
+        {
+          "passageId": "cycle-short-12",
+          "sourceId": "cycle-short-12",
+          "role": "passage"
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-11-01T23:53:13.113Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "16f8c0bd4da8597a28eeae6caeae7bc019beb047f14d55a8b40c0dafd800983d"
+    },
+    {
+      "text": "The Jam Jar\n\nMuddy has jam in his picnic kit. The zip is stuck. Clucky gets her peg. She lifts the zip with the peg. Now Muddy can get the jam.",
+      "textSha256": "c60b1a93e8676e778ac77255d525840d4ed38ca2655ca4a2561d396c15b03528",
+      "segments": [
+        "The Jam Jar",
+        "Muddy has jam in his picnic kit. The zip is stuck. Clucky gets her peg. She lifts the zip with the peg. Now Muddy can get the jam."
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/cycle-shorts/fe00b56958ed8654f789.mp3",
+      "references": [
+        {
+          "passageId": "cycle-short-13",
+          "sourceId": "cycle-short-13",
+          "role": "passage"
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-11-01T23:53:13.140Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "bbfc069c5d15e1da6a73fe89da451a15a76a865f948fb79b8fe5b992c6db82b9"
+    },
+    {
+      "text": "Lifts the zip with a peg",
+      "textSha256": "c2de76b2fb68fa5faba7397cdd66213074e550c2b38ae8f56d16df9b0adbf25e",
+      "segments": [
+        "Lifts the zip with a peg"
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/cycle-shorts/a3699cf66e737e8310e7.mp3",
+      "references": [
+        {
+          "passageId": "cycle-short-13",
+          "sourceId": "cycle-short-13-q3",
+          "role": "question-option",
+          "authoredIndex": 0
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-11-01T23:53:13.140Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "91dc2b27209793da4eb55ae34dbc9921e3de773a5e594de46db8a295358b8c03"
+    },
+    {
+      "text": "The Thin Stick\n\nMuddy and Brave the chick look for a shell. The shell is in a thin crack by the pond. Muddy cannot reach it. Brave lifts it with a thin stick. Good work, Brave, said Muddy.",
+      "textSha256": "e4b2f863f5a67c557bd1660e8a2ed230d21404f99e59ab6170d6512b7288a610",
+      "segments": [
+        "The Thin Stick",
+        "Muddy and Brave the chick look for a shell. The shell is in a thin crack by the pond. Muddy cannot reach it. Brave lifts it with a thin stick. Good work, Brave, said Muddy."
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/cycle-shorts/84a71ec277a425c008b3.mp3",
+      "references": [
+        {
+          "passageId": "cycle-short-15",
+          "sourceId": "cycle-short-15",
+          "role": "passage"
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-11-01T23:53:13.144Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "7b21de7acced26f21ea71502e6a62d2b6160c260660f0b1e5d7726ae4322c723"
+    },
+    {
+      "text": "The Ball by the Wall\n\nMuddy has a ball. They all watch it roll to the wall. The ball is stuck in a gap. Try this, says Splashy. Muddy pushes a stick into the gap. Out pops the ball onto the mat!",
+      "textSha256": "985e5b6f44923fd3deee986159ed31a749f90b2d0abad9f1175b8a7a972fc850",
+      "segments": [
+        "The Ball by the Wall",
+        "Muddy has a ball. They all watch it roll to the wall. The ball is stuck in a gap. Try this, says Splashy. Muddy pushes a stick into the gap. Out pops the ball onto the mat!"
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/cycle-shorts/f4d9f046656162e947bb.mp3",
+      "references": [
+        {
+          "passageId": "cycle-short-16",
+          "sourceId": "cycle-short-16",
+          "role": "passage"
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-11-01T23:53:13.147Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "ec5a949f39f6be5de37246bfa1f3221b461fa4d276a44e9529f36f9f9ed48631"
+    },
+    {
+      "text": "The Pink Cup\n\nMuddy has a pink cup. It goes under the tap by the barn. Why does the sink fill up? A leaf blocks the hole. Muddy lifts out the leaf. The water goes down and the sink is empty.",
+      "textSha256": "fae81d542d2b1b08a311010318514a7b746b0067a4a91635c6ff2bd028a71e66",
+      "segments": [
+        "The Pink Cup",
+        "Muddy has a pink cup. It goes under the tap by the barn. Why does the sink fill up? A leaf blocks the hole. Muddy lifts out the leaf. The water goes down and the sink is empty."
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/cycle-shorts/947fbab3c857b268af41.mp3",
+      "references": [
+        {
+          "passageId": "cycle-short-22",
+          "sourceId": "cycle-short-22",
+          "role": "passage"
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-11-01T23:53:13.158Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "29a8f2a022308169e057d94e680e91e7782ac7011b4bf76fafdc58b83162a94e"
+    },
+    {
+      "text": "The Picnic Bell\n\nMuddy hears a buzz by the bell. Which bug is it? A bee lands on the bell. His friends may miss lunch. He waits for the bee to fly off. Then Muddy rings the bell for lunch.",
+      "textSha256": "16f98a4940503b8dc6072593565a2e28051d89937cab13984c64659b0d1a1900",
+      "segments": [
+        "The Picnic Bell",
+        "Muddy hears a buzz by the bell. Which bug is it? A bee lands on the bell. His friends may miss lunch. He waits for the bee to fly off. Then Muddy rings the bell for lunch."
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/cycle-shorts/dee50d8e10722cb0c299.mp3",
+      "references": [
+        {
+          "passageId": "cycle-short-24",
+          "sourceId": "cycle-short-24",
+          "role": "passage"
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-11-10T22:53:35.848Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "d4a97dae0398aba75b56103b41af7945e3114495da274bd2904be5864a5652a3"
+    },
+    {
+      "text": "Try My Way\n\nMy hat is stuck by the pond, said Muddy. Why not try a stick, said Splashy. The stick is too short. Muddy finds a longer stick by the barn. This time the stick reaches the hat. Muddy lifts the hat onto the grass.",
+      "textSha256": "247bb5640e3b34beb60db80b26809e590723177b05a8ec9708a67d9b23ee7f0c",
+      "segments": [
+        "Try My Way",
+        "My hat is stuck by the pond, said Muddy. Why not try a stick, said Splashy. The stick is too short. Muddy finds a longer stick by the barn. This time the stick reaches the hat. Muddy lifts the hat onto the grass."
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/cycle-shorts/17e03fa262e65da6c2df.mp3",
+      "references": [
+        {
+          "passageId": "cycle-short-26",
+          "sourceId": "cycle-short-26",
+          "role": "passage"
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-11-01T23:53:13.188Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "aec4234883ae34a4e81680d9c1746846e9945eaef86c59b8245bf71f6c870ee6"
     }
   ]
 }

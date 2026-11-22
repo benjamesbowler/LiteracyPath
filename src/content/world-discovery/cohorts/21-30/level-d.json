@@ -87,7 +87,7 @@
       },
       {
         "pageNumber": 5,
-        "text": "The all-electric car has a large battery. Stored energy in the battery supplies electricity to an electric motor.",
+        "text": "The electric car has a large battery. The battery sends electricity to a motor.",
         "imageBrief": "Side cutaway of parked teal car reveals flat battery under passenger floor and compact motor near rear axle. Orange insulated electrical cables link battery and motor. Show four intact wheels and ordinary cabin above; no fuel tank, combustion cylinders or exhaust pipe.",
         "imageAlt": "A cutaway of the teal car shows a large flat battery under the seats, connected by cables to a motor.",
         "pageDescription": "A cutaway of the teal car shows a large flat battery under the seats, connected by cables to a motor.",
@@ -117,7 +117,7 @@
       },
       {
         "pageNumber": 8,
-        "text": "When the electric car needs more energy, an adult plugs it into a charger. Electricity helps recharge its battery.",
+        "text": "An adult plugs the electric car into a charger. Electricity flows into the car to recharge its battery.",
         "imageBrief": "Teal car stationary at separate charging post. Adult driver light-brown skin, short brown hair, plum jacket and dark pants plugs a thick cable connector into front-side charge port. Small clean cutaway reveals battery under floor connected by cable; no liquid pours from charger and no gasoline nozzle.",
         "imageAlt": "An adult connects the teal car to a charging post. A cutaway shows the connection leading to its battery.",
         "pageDescription": "An adult connects the teal car to a charging post. A cutaway shows the connection leading to its battery.",
@@ -239,7 +239,7 @@
       },
       {
         "pageNumber": 3,
-        "text": "North America and South America meet along a narrow stretch of land. Water does not lie between all of their edges.",
+        "text": "North America and South America meet along a narrow stretch of land, with sea on both sides.",
         "imageBrief": "The map focuses on the Americas and their narrow Central American connection. Correct north-south positions; keep the land connection visible rather than inventing an ocean gap. Clearly place only these map labels on their correct land areas: North America, South America.",
         "imageAlt": "The map focuses on the Americas and their narrow Central American connection.",
         "pageDescription": "The map focuses on the Americas and their narrow Central American connection.",
@@ -279,7 +279,7 @@
       },
       {
         "pageNumber": 7,
-        "text": "South of Europe lies Africa. The sea between them helps us find their facing coasts.",
+        "text": "The Mediterranean Sea lies between southern Europe and northern Africa.",
         "imageBrief": "The Mediterranean separates the facing coasts of southern Europe and northern Africa. Real shoreline geometry, narrow Strait of Gibraltar and correct nearby western Asia; Africa is not drawn as wholly isolated. Clearly place only these map labels on their correct land areas: Europe, Africa, Asia.",
         "imageAlt": "The Mediterranean separates the facing coasts of southern Europe and northern Africa.",
         "pageDescription": "The Mediterranean separates the facing coasts of southern Europe and northern Africa.",
@@ -340,8 +340,8 @@
         "meaning": "a line used to mark where one area ends"
       },
       {
-        "word": "coast",
-        "meaning": "the edge where land meets the sea"
+        "word": "Mediterranean Sea",
+        "meaning": "the sea between southern Europe and northern Africa"
       }
     ]
   },
@@ -410,7 +410,7 @@
       },
       {
         "pageNumber": 3,
-        "text": "Blood returning from the body first reaches the right side of the heart. It needs more oxygen.",
+        "text": "Blood comes back to the right side of the heart. It carries less oxygen now.",
         "imageBrief": "Arrows lead returning blood into the right heart. Anatomical right is viewer left; dark-red blood has fewer oxygen symbols, never zero oxygen or blue blood.",
         "imageAlt": "Arrows lead returning blood into the right heart.",
         "pageDescription": "Arrows lead returning blood into the right heart.",
@@ -497,7 +497,7 @@
       "visual": {
         "page": 6,
         "prompt": "Where does blood go after leaving the lungs?",
-        "lookFor": "To the left heart, then toward the body."
+        "lookFor": "Blood goes to the left side of the heart. From there, the heart pumps it around the body."
       }
     },
     "levelRationale": "Candidate D: Trace heart-to-lungs-to-heart-to-body circulation, connecting each stage to oxygen delivery and return. The connected explanation uses concrete clauses and supported topic words. Independent placement and media review remain pending.",
@@ -606,7 +606,7 @@
       },
       {
         "pageNumber": 6,
-        "text": "Cooler air near the sea moves inland. It pushes beneath the warmer air and helps lift it.",
+        "text": "As warm air rises, cooler air from the sea moves in along the ground.",
         "imageBrief": "A low arrow runs from sea to land beneath rising air. Sea-left to land-right flow; no water wave moves with the air; windsock remains consistent.",
         "imageAlt": "A low arrow runs from sea to land beneath rising air.",
         "pageDescription": "A low arrow runs from sea to land beneath rising air.",
@@ -762,7 +762,7 @@
       },
       {
         "pageNumber": 5,
-        "text": "Zoe folds the paper back and forth. The crease lines run parallel to the long edges, making long ridges and grooves.",
+        "text": "Zoe folds the paper back and forth. Each fold runs along the long side of the paper.",
         "imageBrief": "Zoe makes alternating accordion folds across the width of one sheet. Every crease runs parallel to its long edges, so each ridge extends the full future span between supports. Hands contact paper naturally.",
         "imageAlt": "Zoe makes parallel creases along the long edges of one sheet.",
         "pageDescription": "Zoe forms long accordion ridges by alternating folds across the sheet’s width.",
@@ -941,7 +941,7 @@
       },
       {
         "pageNumber": 7,
-        "text": "Then the robot turns and rolls along a clear path. Its sensor helped trigger these actions.",
+        "text": "The robot turns and rolls along a clear path. One push on the bumper started all three steps.",
         "imageBrief": "The robot turns to one side of the block. One curved motion arrow, enough clearance around block, no instant teleport to the far side.",
         "imageAlt": "The robot turns to one side of the block.",
         "pageDescription": "The robot turns to one side of the block.",
@@ -1086,7 +1086,7 @@
       },
       {
         "pageNumber": 4,
-        "text": "Fresh grain holds moisture. Drying removes some water so the grain can be stored with less risk of spoilage.",
+        "text": "Freshly cut rice has water in it. Drying the rice helps keep it from spoiling in storage.",
         "imageBrief": "Workers spread harvested grain on a clean drying surface. Plain work clothes and tools; no grain on dirty road; an example drying method, not a fixed time claim.",
         "imageAlt": "Workers spread harvested grain on a clean drying surface.",
         "pageDescription": "Workers spread harvested grain on a clean drying surface.",
@@ -1143,7 +1143,7 @@
       },
       {
         "pageNumber": 10,
-        "text": "Plant, grain, husk removed, then cooking: the rice in this bowl has changed at each step.",
+        "text": "The rice in this bowl grew on a plant. Its husk came off at the mill. Cooking made it soft.",
         "imageBrief": "Return to the bowl of cooked rice beside the dry plant and grain samples. One orderly teaching display, not a field-to-factory collage; samples accurately distinguish husk, brown grain and white grain.",
         "imageAlt": "A bowl of cooked rice sits beside a rice stalk and dishes of unhusked, brown and white rice.",
         "pageDescription": "A bowl of cooked rice sits beside a rice stalk and dishes of unhusked, brown and white rice.",
@@ -1290,7 +1290,7 @@
       },
       {
         "pageNumber": 9,
-        "text": "Chickadees eat other small creatures too. This leaf, caterpillar and bird show just one feeding connection in the woodland.",
+        "text": "Chickadees can feed spiders and other small animals to their young, too. Here a chickadee finds a spider.",
         "imageBrief": "A chickadee investigates a small spider on another twig. One restrained, anatomically correct spider; broader food link without replacing the main sequence.",
         "imageAlt": "A chickadee investigates a small spider on another twig.",
         "pageDescription": "A chickadee investigates a small spider on another twig.",
@@ -1329,8 +1329,8 @@
         "meaning": "a young bird still in its nest"
       },
       {
-        "word": "connection",
-        "meaning": "a link between two things"
+        "word": "chickadee",
+        "meaning": "a small bird with a dark cap and pale cheeks"
       }
     ]
   },

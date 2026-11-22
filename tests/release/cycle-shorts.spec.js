@@ -1,5 +1,6 @@
 import {test,expect} from '@playwright/test';
 import {CYCLE_SHORTS} from '../../src/content/cycle-shorts/passages.js';
+import {resolveComprehensionPassageAudio} from '../../src/content/comprehension/audio.js';
 import {buildCyclePresentation} from '../../src/utils/present/presentationBuilder.js';
 const out='.artifacts/cycle-shorts';
 
@@ -78,10 +79,13 @@ test('teacher Guided Reading has the same collection and private answer reveals'
  await expect(page.locator('.rc-feedback')).toContainText(CYCLE_SHORTS[0].questions[0].answer);
 });
 
-test('new Cycle Shorts narration starts and stops in the real reader',async({page})=>{
+test('revised Cycle Shorts narration starts and stops in the real reader',async({page})=>{
+ const passage=CYCLE_SHORTS[4];
+ const audio=resolveComprehensionPassageAudio(passage);
+ expect(audio.status).toBe('ready');
  await page.goto('/preview/child-surfaces.html?surface=reading-library');await page.getByRole('button',{name:'Cycle Shorts',exact:true}).click();
- await page.getByRole('button',{name:`Read Cycle 1: ${CYCLE_SHORTS[0].title}`,exact:true}).click();
- const delivery=page.waitForResponse(r=>r.url().includes('/audio/production/en-US/cycle-shorts/')&&[200,206].includes(r.status()));
+ await page.getByRole('button',{name:`Read Cycle ${passage.cycleNumber}: ${passage.title}`,exact:true}).click();
+ const delivery=page.waitForResponse(r=>new URL(r.url()).pathname===audio.path&&[200,206].includes(r.status()));
  await page.getByRole('button',{name:'Hear with Leda',exact:true}).click();await delivery;
  await expect(page.locator('.rc-speech-note')).toHaveText('Playing with Leda.');
  await page.getByRole('button',{name:'Stop voice',exact:true}).click();

@@ -16,7 +16,7 @@ test('visual inventory covers all current immutable reader deliveries and preser
     const paths=[book.coverImage||book.cover||book.coverUrl,...book.pages.map(page=>page.image||page.imageUrl||page.pageImage)].filter(Boolean);
     for(const source of paths){const canonical=clean(source),delivery=clean(withRepairedGuidedReadingImageVersion(source));if(delivery!==canonical)expected.set(canonical,delivery);}
   }
-  assert.equal(expected.size,66,'The five replacements and15 accepted sibling repairs retain their bounded current delivery set.');
+  assert.equal(expected.size,71,'The reviewed replacements retain their bounded current delivery set.');
   // Disabling source literals proves these are discovered from actual runtime
   // delivery selection, rather than accidentally from a review registry string.
   const inventory=new Map(collectAppVisualReviewInventory(root,{includeSourceLiterals:false}).map(row=>[row.path,row]));

@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-11-22",
+  "title": "How a Lock Lifts a Boat",
+  "generator": "Built-in ImageGen with separate edits for the two illustrated pages",
+  "delivery": "WebP quality 88 from the native 1536 × 1024 selections",
+  "review": "Checked the open and closed gate pair, boat, water levels, and operator against the existing ordered diagrams and the printed page.",
+  "assets": [
+    {
+      "bookId": "bright-ideas-16",
+      "pageNumber": 4,
+      "path": "/guided-reading/bright-ideas/book-16/page-04.webp",
+      "previousSha256": "f16ebb835cc77a7a1b96932f294c055220ccd74c43bb8ed137a157d390054d63",
+      "sha256": "6ea953ec06e2ac2ef4961c577992d3d267a0e9cc0b47166b31f95cf98c3f9a1e",
+      "width": 1536,
+      "height": 1024,
+      "sourceImageGenOutput": "exec-c556b1f7-5874-4840-a2b8-a85193367c13.png",
+      "sourceSha256": "333ea57504a465b2b6ecf85fe52e34329b6905bd15123d8b83f121ff4c985f01",
+      "visualBriefSha256": "9e0b147317f1a808a7198de1950e5b694c3c7d98c246a439a01f89801e970802",
+      "observation": "The lower gate appeared to span the entry while the boat was already inside. The entry now shares the low water with the chamber and the narrow jamb recedes to the far wall at the same position as the gates on pages 3 and 5. The upper gate still holds back the higher water."
+    },
+    {
+      "bookId": "bright-ideas-16",
+      "pageNumber": 11,
+      "path": "/guided-reading/bright-ideas/book-16/page-11.webp",
+      "previousSha256": "6e92a653403a4fb5736cb80422035647aaf89c20b424d2d90f30535e9851bb2f",
+      "sha256": "ee8182256c49f1f097aad8d66861c64b33cd0f81339e69994faf736c05432b4f",
+      "width": 1536,
+      "height": 1024,
+      "sourceImageGenOutput": "exec-1e12e69f-f9b2-4e0c-bccf-29a6b9a4446e.png",
+      "sourceSha256": "92838c11a14bf8d55d87564de8f894e43867f1fd61c4d0814a5f7fa7dd91e23e",
+      "visualBriefSha256": "db8c21b6174130c7a1f555c410dfe1fb8587e455db80eef5f9652635a9c7ce4c",
+      "observation": "The upper gate appeared to span the exit after the red boat passed it. The open exit now shares the high water with the chamber at the elevation established on page 10. The lower gate stays closed and the operator stands on the towpath."
+    }
+  ]
+}

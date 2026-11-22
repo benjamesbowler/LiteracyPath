@@ -1,5 +1,22 @@
 // Exact-text repairs for the new nonfiction cohort; published audio remains unchanged.
 export const WORLD_DISCOVERY_NONFICTION_AUDIO_REPAIRS = Object.freeze({
+  "isolated_word:fold": {
+    "role": "isolated_word",
+    "normalizedLookupText": "fold",
+    "spokenText": "fold",
+    "voiceName": "en-US-Chirp3-HD-Leda",
+    "audioPath": "/audio/production/en-US/isolated_word/fold-nf50-249ee8cbb6.mp3",
+    "audioSha256": "249ee8cbb669a65f018b0ee234296cff6675a8839c40a4ac5e6879b85eb99006",
+    "reviewedAt": "2026-11-22",
+    "pronunciations": [
+      {
+        "phrase": "fold",
+        "pronunciation": "foʊld",
+        "phoneticEncoding": "PHONETIC_ENCODING_IPA"
+      }
+    ],
+    "reviewEvidence": "source-art/world-discovery/cohorts/21-30/narration-review.json records matching small.en and tiny.en recognition and an exact decoded signal for the accepted Leda clip. The 2026-11-22 reading-quality cohort review records its extended Guided Reading scope."
+  },
   "guided_page:back at the oak, another caterpillar takes a bite. a chickadee searches the next branch": {
     "role": "guided_page",
     "normalizedLookupText": "back at the oak, another caterpillar takes a bite. a chickadee searches the next branch",
@@ -184,5 +201,22 @@ export const WORLD_DISCOVERY_NONFICTION_AUDIO_REPAIRS = Object.freeze({
     ],
     "pronunciationSource": "https://dictionary.cambridge.org/us/pronunciation/english/rio-de-janeiro",
     "reviewEvidence": "source-art/world-discovery/remediation/2026-11-10/topic-revision-new-narration-review.json — exact IPA payload, complete decode/signal and unprompted recognition; residual rare-name ASR ambiguity recorded, not human listening."
+  },
+  "isolated_word:spoiling": {
+    "role": "isolated_word",
+    "normalizedLookupText": "spoiling",
+    "spokenText": "spoiling",
+    "voiceName": "en-US-Chirp3-HD-Leda",
+    "audioPath": "/audio/production/en-US/isolated_word/spoiling-6be3e6ba17.mp3",
+    "audioSha256": "6be3e6ba173d61fbd1e775f35bc1358118ddf7ac79790c8e76b081c69b19f4b0",
+    "reviewedAt": "2026-11-22",
+    "pronunciations": [
+      {
+        "phrase": "spoiling",
+        "pronunciation": "ˈspɔɪlɪŋ",
+        "phoneticEncoding": "PHONETIC_ENCODING_IPA"
+      }
+    ],
+    "reviewEvidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json records the exact Leda clip, matching unprompted local speech recognition, and complete decoded signal. Rendered with an explicit IPA clarification."
   }
 });

@@ -75,8 +75,8 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "Bob wants Fluff to sit.",
       "Fluff walks past Bob.",
       "Fluff runs to Nan.",
-      "Nan pats Fluff calmly.",
-      "Bob pats Fluff calmly.",
+      "Nan gives Fluff a soft pat.",
+      "Bob gives Fluff a pat too.",
       "Fluff stays beside Bob.",
       "Fluff sits between them."
     ]
@@ -102,7 +102,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     failedAttempt: "Bob stops at the doorway until Nan smiles with him.",
     resolution: "They smile, sit together and begin drawing.",
     pages: [
-      "Today is their first school day.",
+      "It's their first day at school.",
       "Bob holds his bag.",
       "Nan holds her bag.",
       "Bob stops at the classroom door.",
@@ -124,7 +124,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "Nan finds the hidden frog.",
       "Bob spots the big ape.",
       "They spot the big elephant.",
-      "Their zoo card is complete!"
+      "They spot all six animals!"
     ]
   }),
   "bob-and-nan-07-birthday": fictionReview({
@@ -149,9 +149,9 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     failedAttempt: "A short rest is not enough.",
     resolution: "Rest and drinks lead to recovery; Bob and Nan can run with Fluff again.",
     pages: [
-      "Bob feels too ill to play.",
+      "Bob feels too sick to play.",
       "Bob rests in bed.",
-      "Nan feels ill too.",
+      "Nan feels sick too.",
       "Nan falls asleep beside Fluff.",
       "Mom brings them water.",
       "They rest for two days.",
@@ -319,7 +319,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "A key falls inside a log.",
       "The hole is very small.",
       "Grumpy cannot reach the key.",
-      "A wide wing cannot reach.",
+      "Clucky tries. The key stays there.",
       "Everyone looks at Tiny.",
       "Tiny is small enough.",
       "Tiny crawls inside.",
@@ -408,7 +408,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "Grumpy gets wet. He scowls.",
       "Clucky's hat drips. She frowns.",
       "Splashy dries Grumpy and the hat.",
-      "Splashy picks a puddle with space."
+      "Splashy finds a puddle far away."
     ]
   }),
   "meadow-pals-14-speedy-slows-down": fictionReview({
@@ -422,7 +422,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "Speedy runs past the pond.",
       "Speedy runs past the hill.",
       "Speedy misses the home path.",
-      "No one sees Speedy.",
+      "No one is there to help.",
       "Speedy cannot find home.",
       "Speedy stops and listens.",
       "Tiny calls from home.",
@@ -530,7 +530,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "Cuddly looks up.",
       "They sit in the tree.",
       "Cuddly asks for a hug.",
-      "Shy leans in for her hug.",
+      "Shy leans in for a hug.",
       "They smile in the tree."
     ]
   }),
@@ -541,7 +541,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     resolution: "They stop, Tiny frees the lock of wool, and they leave space.",
     pages: [
       "Woolly and Grumpy are stuck.",
-      "Wool catches on Grumpy's horn.",
+      "Woolly's wool catches on Grumpy's horn.",
       "They pull too hard.",
       "They both move left.",
       "They both move right.",
@@ -629,7 +629,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     progression: "Each page connects one familiar pet to the food, space, exercise or rest it needs.",
     synthesis: "Dogs, cats, fish, birds and rabbits need care that fits the animal.",
     pages: [
-      "A dog needs food, exercise, and rest.",
+      "A dog needs food, walks, and rest.",
       "A cat needs food, play, and quiet.",
       "A fish needs clean water and the right food.",
       "A pet bird needs room to fly.",
@@ -644,9 +644,9 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     pages: [
       "Our Sun is one huge star in space.",
       "Sunlight brings daytime to our side of Earth.",
-      "Its warmth heats the land and water.",
+      "The Sun warms the land and water.",
       "Plants use sunlight to make food.",
-      "Enjoy daylight safely. Never look straight at the Sun.",
+      "Never look straight at the Sun. It can hurt your eyes.",
       "The Sun's light and warmth help life on Earth."
     ]
   }),
@@ -685,7 +685,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "Summer sunshine lasts late into the day.",
       "In fall, many leaves change color.",
       "Winter air may bring frost or snow.",
-      "Plants and animals change with each season.",
+      "The same tree looks different in each season.",
       "After winter, spring comes again."
     ]
   }),
@@ -707,11 +707,11 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     progression: "Each page pairs one tool with its main function.",
     synthesis: "Each tool has a particular job and needs careful use.",
     pages: [
-      "A hammer drives nails into wood.",
+      "A hammer hits nails into wood.",
       "A saw cuts wood.",
       "A wrench turns nuts and bolts.",
       "A drill makes holes.",
-      "A ruler checks length.",
+      "A ruler shows how long something is.",
       "Each tool has a job. Adults help us use tools safely."
     ]
   }),
@@ -735,9 +735,9 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     pages: [
       "A chef cooks meals.",
       "A doctor helps sick people.",
-      "A firefighter puts out a blaze.",
+      "A firefighter puts out fires.",
       "A teacher helps kids learn.",
-      "Police come to help in an emergency.",
+      "Police officers help when a road is unsafe.",
       "People do different jobs to help us."
     ]
   }),
@@ -793,7 +793,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "Blue water meets green land along the coast.",
       "High peaks rise from the land.",
       "Deep oceans cover much of Earth.",
-      "Green forests grow on many continents.",
+      "Many large areas of land have forests.",
       "Mountains, oceans, forests, and this little park are all parts of Earth."
     ]
   }),
@@ -805,10 +805,10 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     pages: [
       "I wash my hands with soap and water.",
       "I eat many kinds of food.",
-      "I drink water through the day.",
+      "I drink water during the day.",
       "I brush my teeth twice a day.",
       "I play in the day. I sleep at night.",
-      "These small habits help care for my body."
+      "I do these things to keep my body healthy."
     ]
   }),
   "gr-d-44": nonfictionReview({
@@ -850,7 +850,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "Most reptiles lay eggs.",
       "Snakes are reptiles with no legs.",
       "A turtle's shell helps protect its body.",
-      "Many lizards bask in warm places.",
+      "Many lizards sit in warm, sunny places.",
       "Warm sun helps a reptile move and hunt."
     ]
   }),
@@ -861,8 +861,8 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     progression: "Food and water lead into visible changes in a seed, tadpole and caterpillar.",
     synthesis: "Growth can change both the size and the shape of a living thing.",
     pages: [
-      "Living things need food to grow and change.",
-      "Living things need water too.",
+      "Animals need food to grow and change.",
+      "Plants and animals need water too.",
       "A seed grows roots, a stem, and leaves.",
       "A tadpole grows legs. Soon it is a frog.",
       "A caterpillar forms a chrysalis. A butterfly comes out.",
@@ -875,12 +875,12 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     progression: "The pages identify poles, one magnetic material, two non-magnetic materials and unlike or like pole pairs.",
     synthesis: "Opposite poles attract; matching poles push apart.",
     pages: [
-      "A magnet has two poles.",
+      "A magnet has a north pole and a south pole.",
       "It pulls on some kinds of metal.",
       "It does not pull on wood.",
       "It does not pull on glass.",
-      "Opposite poles attract each other.",
-      "Matching poles push apart."
+      "A north pole and a south pole pull together.",
+      "Two north poles push apart."
     ]
   }),
   "gr-e-49": nonfictionReview({
@@ -905,10 +905,10 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     pages: [
       "My eyes find colors and shapes.",
       "I hear loud and soft sounds with my ears.",
-      "My nose finds many smells.",
-      "My tongue finds different tastes.",
-      "My skin feels heat, cold, and touch.",
-      "Together, my senses help me explore."
+      "My nose helps me smell flowers.",
+      "My tongue helps me taste food.",
+      "My skin helps me feel what I touch.",
+      "I use my senses to learn about the things around me."
     ]
   }),
 
@@ -997,12 +997,12 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     pages: [
       "A young dog is called a puppy.",
       "A young cat is called a kitten.",
-      "A young cow is called a calf.",
+      "A baby cow is called a calf.",
       "A young chicken is called a chick.",
       "A young sheep is called a lamb.",
       "A young horse is called a foal.",
       "A young duck is called a duckling.",
-      "They grow bigger and learn new things."
+      "A chick grows into a chicken. A lamb grows into a sheep."
     ]
   }),
   "first-facts-a-07-animals-on-the-farm": nonfictionReview({
@@ -1026,7 +1026,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     synthesis: "Ocean animals move, hide and breathe in many different ways.",
     pages: [
       "Oceans are home to animals of every size.",
-      "Fish flick their fins to swim.",
+      "This fish moves its tail from side to side to swim.",
       "Blue whales are Earth's biggest animals. They come up for air.",
       "An octopus uses eight arms to crawl and grab.",
       "A crab's hard shell guards its soft body.",
@@ -1042,9 +1042,9 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     pages: [
       "It is night. Which animals wake up?",
       "Owls spot movement in dim light.",
-      "Many bats listen for echoes. Their sounds bounce back from insects.",
+      "A bat finds insects by listening to echoes of the sounds it makes.",
       "Hedgehogs sniff for insects after dark.",
-      "Foxes listen and smell for prey.",
+      "Foxes listen and sniff for small animals to catch.",
       "These animals look for food at night."
     ]
   }),
@@ -1057,7 +1057,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "Look closely. Who lives among these flowers?",
       "A butterfly rests on a flower.",
       "Bees move pollen from flower to flower.",
-      "Some ladybugs hunt aphids on plants.",
+      "Some ladybugs eat tiny insects called aphids.",
       "Ants keep their young in underground nests.",
       "Earthworms tunnel through the soil below the plants.",
       "A snail glides over a stone on one broad foot.",
@@ -1086,9 +1086,9 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     synthesis: "The reader can use sides, points and curves to find more flat shapes nearby.",
     pages: [
       "A circle has no straight sides. This wheel looks like a circle.",
-      "A square has four equal sides. This window looks square.",
-      "A triangle has three sides. This roof looks like a triangle.",
-      "A rectangle has four square corners. This door looks rectangular.",
+      "A square has four equal sides and four square corners. This window looks square.",
+      "A triangle has three straight sides. This roof looks like a triangle.",
+      "A rectangle has four straight sides and four square corners. This door looks rectangular.",
       "A star shape has points. This one has five.",
       "An oval is round and stretched. This egg outline looks oval.",
       "Now look around. Which flat shapes can you find?"
@@ -1122,8 +1122,8 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     ]
   }),
   "first-facts-a-15-things-that-float-and-sink": nonfictionReview({
-    title: "Why Things Float or Sink",
-    topicQuestion: "How do material density and shape affect floating?",
+    title: "What Floats? What Sinks?",
+    topicQuestion: "Which things float and which things sink?",
     progression: "Paired examples disprove the heavy-sinks rule before a supervised comparison.",
     synthesis: "A heavy object can float and a light object can sink, so weight alone is not enough.",
     pages: [
@@ -1132,7 +1132,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "A leaf may float. A coin sinks.",
       "Even a heavy, hollow boat can float.",
       "This wooden ball floats. This metal ball sinks.",
-      "Try safe objects with an adult. What happens?",
+      "Pick two things with an adult. See which floats and which sinks.",
       "Heavy things can float. Light things can sink."
     ]
   }),
@@ -1175,7 +1175,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "A crescent shows a thin curve of the Moon’s sunlit side.",
       "At full Moon, we see a round, sunlit side.",
       "The Moon travels around Earth.",
-      "The Moon's sunlit ground looks gray up close.",
+      "Astronauts saw gray ground when they walked on the Moon.",
       "By day or night, moonlight is reflected sunlight."
     ]
   }),
@@ -1203,7 +1203,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "My ears help me hear sounds.",
       "My nose helps me smell the leaves.",
       "My tongue helps me taste the fruit.",
-      "My skin feels touch, warmth, and cold.",
+      "I can feel if something is warm, cold, rough, or smooth.",
       "My senses work together every day.",
       "What can you see, hear, smell, taste, or feel?"
     ]
@@ -1215,9 +1215,9 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     synthesis: "Bodies and skills change, and people grow in their own way and time.",
     pages: [
       "Babies need help with many things.",
-      "First, I learn to sit and crawl.",
-      "Then, I practice standing and walking.",
-      "Soon, I can run, jump, and play.",
+      "As a baby, I learned to sit and crawl.",
+      "Then I practiced standing and walking.",
+      "Now I can run, jump, and play.",
       "I can build with blocks and talk.",
       "I need food, play, and sleep to help me grow.",
       "We learn to walk and talk at different times."
@@ -1262,7 +1262,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "A pebble is a small piece of rock.",
       "Moving water can rub a pebble smooth.",
       "People build roads and walls with rock.",
-      "This shell shape is a fossil. A sea animal left it long ago.",
+      "This fossil shows the shape of a shell from long ago.",
       "Collect loose rocks only where an adult says it is safe.",
       "Water wears down big rocks. Small pebbles collect in streams."
     ]
@@ -1272,8 +1272,8 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     progression: "The pages move through waterways, rain, living needs, household uses, water's forms and rain collection.",
     synthesis: "The water observed at ground level also appears as oceans and clouds when Earth is seen from space.",
     pages: [
-      "Water fills oceans, rivers, lakes, and clouds.",
-      "Raindrops fall from clouds and refill rivers.",
+      "There is water in oceans, rivers, lakes, and clouds.",
+      "Rain falls from clouds. Some of the rain flows into rivers.",
       "This deer drinks fresh water from the river.",
       "People need clean water to drink.",
       "We also use water to wash.",
@@ -1296,7 +1296,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "Back at the hive, workers turn the sweet nectar into honey.",
       "As a bee visits flowers, pollen brushes onto its body.",
       "The bee carries pollen to the next flower. Later, fruit can grow.",
-      "Making honey takes many bees and thousands of flower visits.",
+      "Worker bees gather nectar from thousands of flowers to make honey.",
       "More blooming plants give hungry bees more places to feed.",
       "Honeybees make food for other bees. They also carry pollen between flowers."
     ]
@@ -1312,9 +1312,9 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "Other eruptions blast ash, rocks, and gases high into the air.",
       "Repeated underwater eruptions can build new volcanic islands.",
       "Old volcanic rock breaks down into soil rich in minerals.",
-      "Look around the globe: volcanoes rise on land and under oceans.",
+      "Volcanoes can form on land or on the ocean floor.",
       "Scientists watch small earthquakes, gases, and moving ground for warning signs.",
-      "Eruptions can destroy old ground, then build new land in its place."
+      "Lava can cover the ground we see now. When it cools, it becomes new rock."
     ]
   }),
   "level-c-nonfiction-03-penguins": nonfictionReview({
@@ -1325,7 +1325,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     pages: [
       "Penguins cannot fly, but their strong wings sweep them through water.",
       "Emperor penguins live through fierce Antarctic cold and wind.",
-      "A father balances one egg on his feet beneath warm skin.",
+      "A father holds one egg on his feet. A fold of skin keeps it warm.",
       "The fathers huddle close for warmth while the mothers hunt at sea.",
       "When the mothers return, both parents feed and warm their chicks.",
       "Emperors dive deep and steer with their flippers to catch fish.",
@@ -1342,10 +1342,10 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     pages: [
       "Our Moon circles Earth. How can we learn about a world so far away?",
       "We can measure it from Earth. The Moon is about one quarter as wide as our planet.",
-      "Its surface reflects sunlight. That light lets us see mountains and dark patches through a telescope.",
+      "The Moon reflects light from the Sun. That is how we can see it from Earth.",
       "Watch for a month. As the Moon circles Earth, we see different parts of its sunlit half.",
       "The Moon also affects our shores. Its gravity helps make the ocean tides rise and fall.",
-      "To learn more, we look closer. Bowl-shaped craters mark places where space rocks struck the Moon.",
+      "Look closely through a telescope. Space rocks made these bowl-shaped holes, called craters.",
       "In 1969, Apollo 11 astronauts walked across that rocky ground. They brought samples home.",
       "Scientists study those Moon rocks to learn how the Moon formed and changed.",
       "Telescopes show the Moon’s surface. Astronauts brought back Moon rocks. Scientists study the rocks to learn more about the Moon."
@@ -1359,11 +1359,11 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     pages: [
       "Seeds come in many shapes. Each holds a tiny plant inside.",
       "With water, air, and warmth, a seed begins to grow.",
-      "A root grows out first. It takes in water from the soil.",
+      "A root usually grows out first. It takes in water from the soil.",
       "A shoot reaches light and opens its first leaves.",
       "The leaves use sunlight, water, and air to make food. This is photosynthesis.",
       "Bees and butterflies carry pollen from flower to flower. This is called pollination.",
-      "After pollination, new seeds grow inside this plant's pods.",
+      "After pollination, new seeds grow inside the pods on this bean plant.",
       "Wind, water, and animals carry some seeds to new places.",
       "Plant a seed in soil. Add water and watch a new plant grow."
     ]
@@ -1374,8 +1374,8 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     synthesis: "The ending connects spider anatomy, senses and silk to hunting, egg care and a garden web.",
     pages: [
       "A spider has eight legs and two body sections—but no wings. How does it catch flying insects?",
-      "Tiny spinnerets at its rear make strong, stretchy silk.",
-      "An orb-weaver stretches silk into a round web of spokes and spirals.",
+      "Silk comes out through tiny parts called spinnerets at the back of the spider's body.",
+      "An orb-weaver spins a round web. Straight threads reach out from the middle. A spiral thread joins them.",
       "Other spiders make flat sheets, deep funnels, or loose tangles.",
       "A jumping spider needs no web. It watches, creeps, and pounces.",
       "A web spider feels trapped prey tugging on the silk.",
@@ -1389,15 +1389,15 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     progression: "Introduce ocean layers, begin with shallow reefs, descend into darker and deeper water, then compare deep-ocean darkness with sunlit plankton near the surface.",
     synthesis: "The ending returns to the vast portion of ocean still unobserved.",
     pages: [
-      "Oceans cover most of Earth, but sunlight reaches only the top.",
+      "Oceans cover most of Earth. Sunlight gets weaker deeper in the water.",
       "The ocean has layers. Let's begin in the sunlit water near the surface.",
       "Many animals live on coral reefs in warm, sunlit water.",
       "Tiny coral animals build hard skeletons. Over time, many skeletons together can form a reef.",
-      "Below 200 meters, there is less light. The deeper we go, the harder the water pushes.",
+      "Below 200 meters, very little light reaches the water. The deeper we go, the more the water presses on us.",
       "Deeper down, sunlight cannot reach the water. Some fish make their own light. This is called bioluminescence.",
       "The Mariana Trench reaches nearly eleven kilometers below sea level.",
       "Far above, tiny plankton float in sunlight. Some make food and release oxygen, just as land plants do.",
-      "Submarines help people explore deep water. There is still much to learn about the ocean."
+      "Special underwater vehicles carry people or cameras into the deep ocean."
     ]
   }),
   "level-c-nonfiction-08-butterflies": nonfictionReview({
@@ -1408,12 +1408,12 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     pages: [
       "This monarch has six legs, four wings, and two antennae.",
       "But it did not begin with wings. A monarch has four life stages.",
-      "A monarch lays a tiny egg on milkweed.",
+      "A female monarch lays a tiny egg on a milkweed leaf.",
       "A striped caterpillar hatches, eats milkweed, and grows and grows.",
       "It hangs upside down and forms a green chrysalis.",
       "Inside, its whole body changes. This change is called metamorphosis.",
       "The new butterfly crawls out with wet, crumpled wings.",
-      "Its wings harden. The butterfly uncoils its long mouthpart, called a proboscis, to sip nectar.",
+      "Its wings dry and grow firm. The butterfly sips nectar through a long tube called a proboscis.",
       "Now a female lays new eggs on milkweed. Each egg can become another butterfly."
     ]
   }),
@@ -1423,7 +1423,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     synthesis: "Alongside stone formations and living animals, caves can preserve visible marks left by people long ago.",
     pages: [
       "Water, waves, and flowing lava can each make a cave. What might we find inside?",
-      "Rainwater has a little acid. It slowly wears away a rock called limestone.",
+      "Rainwater can turn a little acidic as it seeps through soil. Over time, the water dissolves rock called limestone.",
       "Drop by drop, small cracks can grow into rooms and winding passages.",
       "Water drops leave tiny bits of minerals on the ceiling. These build long points called stalactites.",
       "More drops leave minerals on the floor. These build points called stalagmites.",
@@ -1440,7 +1440,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     synthesis: "The ending returns calls to their specific spring breeding purpose.",
     pages: [
       "A common frog lives in ponds and on damp land.",
-      "In spring, a female lays a wobbling clump of jelly-covered eggs.",
+      "In spring, a female lays a clump of eggs. Soft jelly covers the eggs.",
       "Tadpoles hatch with tails and gills, but no legs.",
       "Back legs grow first. Front legs follow as the tail shrinks.",
       "Now it is a froglet. It climbs out but stays near water.",
@@ -1559,7 +1559,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "This dog needs a soft bed.",
       "This cat needs quiet to rest.",
       "This fish needs clean water.",
-      "This bird needs a perch.",
+      "A bird sits on a perch.",
       "This rabbit needs space to hop.",
       "This dog likes a gentle pat.",
       "Now this dog wants to play."
@@ -1586,8 +1586,8 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     pages: [
       "A ball looks round.",
       "The lid is a square.",
-      "A door looks rectangular.",
-      "A pie slice is triangular.",
+      "The door is a rectangle.",
+      "This pie slice looks triangular.",
       "Shapes are all around us.",
       "This wheel looks like a circle.",
       "Which shape can you find?"
@@ -1612,12 +1612,12 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     progression: "The pages compare sea animal movements before ending with human swimming.",
     synthesis: "The final page connects the movement pattern to people.",
     pages: [
-      "A fish swims with a swish.",
-      "A shark swims very fast.",
+      "A fish swims with its tail.",
+      "A shark can swim fast.",
       "A crab crawls sideways.",
-      "A huge whale swims far.",
+      "A whale can swim far.",
       "A seal swims and dives.",
-      "A turtle swims slowly.",
+      "A turtle swims with its flippers.",
       "People can swim too!"
     ]
   }),
@@ -1647,7 +1647,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "Branches reach toward the sky.",
       "Green leaves catch sunlight.",
       "Red apples grow on branches.",
-      "These parts make one tree."
+      "These parts help the tree grow."
     ]
   }),
   "first-facts-level-a-15-baby-animals": nonfictionReview({
@@ -1674,7 +1674,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "A jet moves very fast.",
       "A snail moves slowly.",
       "A worm moves slowly.",
-      "A turtle does not rush.",
+      "A turtle can move slowly.",
       "Find something fast and something slow."
     ]
   }),
@@ -1700,10 +1700,10 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "My two eyes can see.",
       "My two ears can hear.",
       "My nose can smell.",
-      "My mouth can eat.",
+      "I eat with my mouth.",
       "My two hands can clap.",
-      "My two feet can run.",
-      "My whole body is mine."
+      "I run on my feet.",
+      "This is my body."
     ]
   }),
   "first-facts-level-a-19-day-and-night": nonfictionReview({
@@ -1715,9 +1715,9 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "Daytime is bright.",
       "Birds sing during the day.",
       "The Sun sets.",
-      "The Moon lights the dark sky.",
+      "We see the Moon at night.",
       "Stars shine at night.",
-      "Night ends. Day comes again."
+      "Day comes back after night."
     ]
   }),
   "first-facts-level-a-20-space": nonfictionReview({

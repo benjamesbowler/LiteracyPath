@@ -4,7 +4,7 @@ import { createHash } from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { tmpdir } from "node:os";
-import { validateReviewedWordAudioRetirement, verifyReviewedWordAudioRetirements, verifyReviewedWordAudioContextWithdrawals, verifyReviewedWordAudioContextAdditions } from "../../tools/lib/reviewedWordAudioRetirements.mjs";
+import { validateReviewedWordAudioRetirement, verifyReviewedWordAudioRetirements, verifyReviewedWordAudioContextWithdrawals, verifyReviewedWordAudioContextAdditions, verifyReviewedWordAudioContextRebindings } from "../../tools/lib/reviewedWordAudioRetirements.mjs";
 import { stableWorldDiscoveryJson, worldDiscoveryCohortIds, worldDiscoveryInputFingerprint } from "../../src/data/worldDiscoveryCohortContract.js";
 
 const hash = bytes => createHash("sha256").update(bytes).digest("hex");
@@ -42,7 +42,7 @@ function fixture(contextual = false) {
   return { r, e };
 }
 
-function withdrawalFixture(contextual = false) {
+function withdrawalFixture(contextual = false, reboundText) {
   const f = fixture(contextual);
   const cohorts = [0, 1].map(index => ({ id: index ? "11-20" : "01-10", index,
     firstNumber: index * 10 + 1, lastNumber: index * 10 + 10, expectedBooks: 50, expectedPages: 50, active: true,
@@ -52,7 +52,8 @@ function withdrawalFixture(contextual = false) {
     narrationInventory: `source-art/world-discovery/remediation/2026-11-09/inventory-${index}.json`,
     registration: `src/content/world-discovery/registrations/2026-11-09/${index ? "11-20" : "01-10"}.json`,
     maintenanceBaseline: { path: "source-art/world-discovery/remediation/2026-11-09/before.json", sha256: "a".repeat(64) } }));
-  const cohort = cohorts[1], binding = f.r.contexts[0], replacementPageText = contextual ? "Kit pulls the ribbon tight." : "Kit bends forward.";
+  const cohort = cohorts[1], binding = f.r.contexts[0];
+  const replacementPageText = reboundText ?? (contextual ? "Kit pulls the ribbon tight." : "Kit bends forward.");
   const books = worldDiscoveryCohortIds(cohort).map(id => ({ id, pages: [{ pageNumber: id === binding.bookId ? binding.pageNumber : 1,
     text: id === binding.bookId ? replacementPageText : "We see a tree." }] }));
   const reviews = {};
@@ -87,6 +88,23 @@ function withdrawalFixture(contextual = false) {
   };
   return { ...f, scope, evidence, files, put, withdrawal, registration, cohort, verify, apply };
 }
+
+test("a revised sentence can retain a historical word, meaning and exact approved pronunciation", () => {
+  const f = withdrawalFixture(false, "Kit bows and smiles.");
+  const { withdrawal: original, scope, evidence, r, e } = f;
+  const rebinding = { ...original, meaning: r.meaning };
+  delete scope.contextWithdrawals;
+  scope.contextRebindings = [rebinding];
+  const approval = { ...e.contexts[0].approval, pageText: rebinding.replacementPageText };
+  evidence.contextualEntries = [approval];
+  assert.equal([...verifyReviewedWordAudioContextRebindings(scope, evidence).values()][0], rebinding);
+  e.contexts[0] = { ...e.contexts[0], pageText: rebinding.replacementPageText, approval, rebinding, rebindingVerified: true };
+  e.currentOccurrences = [`${rebinding.context.bookId}:${rebinding.context.pageNumber}:${rebinding.replacementPageText}`];
+  assert.equal(validateReviewedWordAudioRetirement(r, e), true);
+  assert.throws(() => validateReviewedWordAudioRetirement(r, { ...e, contexts: [{ ...e.contexts[0], rebindingVerified: false }] }));
+  assert.throws(() => verifyReviewedWordAudioContextRebindings(scope, { ...evidence, contextualEntries: [{ ...approval, audioSha256: r.oldSha256 }] }));
+  assert.throws(() => verifyReviewedWordAudioContextRebindings({ ...scope, contextRebindings: [{ ...rebinding, meaning: "ties ribbon loops" }] }, evidence));
+});
 
 function additionFixture(withdrawOriginal = false) {
   const f = withdrawalFixture();

@@ -3,7 +3,7 @@
 During this additive expansion, the existing published books remain unchanged.
 All three cohorts are locally registered: 150 World Discovery books, including
 the 50 nonfiction books in `21-30`, ten in each production band A–E. Current
-independent public shelves are 30 A, 30 B, 30 C, 31 D and 29 E across the series.
+independent public shelves are 30 A, 30 B, 29 C, 32 D and 29 E across the series.
 `src/content/world-discovery/cohorts.json` declares three ordered cohorts.
 `01-10`, `11-20` and `21-30` are active in the local source catalogue. The complete
 local Guided Reading runtime contains 447 books, including 217 nonfiction.
@@ -256,10 +256,10 @@ If an earlier reviewed word retirement refers to text that is now repaired,
 preserve its historical entry. Explicit `contextWithdrawals` and
 `contextAdditions` may record exact removed or added uses, with current manuscript
 and registration hashes. Withdrawals require the word and contextual override to
-be absent; additions require the same reviewed meaning, pronunciation and default
-audio. Unlisted uses, stale source text, changed bytes or invented historical
-contexts fail validation. This maintains retirement proof without freezing
-otherwise authorized editorial work.
+be absent. Additions require the same reviewed meaning, pronunciation and default
+audio. Use `contextRebindings` when a revised sentence at the same page keeps the
+reviewed meaning, pronunciation and contextual audio bytes. Unlisted uses,
+stale source text, changed bytes or invented historical contexts fail validation.
 
 The November repair provenance is under
 `source-art/world-discovery/remediation/2026-11-09/`; broader Guided Reading

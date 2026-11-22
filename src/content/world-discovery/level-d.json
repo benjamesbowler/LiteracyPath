@@ -244,7 +244,7 @@
       },
       {
         "pageNumber": 8,
-        "text": "Kit carries the blocks back in two quiet loads. He makes a low bridge that does not need a tall tower.",
+        "text": "Kit makes two trips to the rug. He sets the blocks down gently and builds a low bridge.",
         "imageBrief": "Kit sets the final three blocks on the rug beside the first three, beginning a low stable bridge. Exact continuity: Exactly six blocks; no more towers near Zoe.",
         "imageAlt": "Kit sets the final three blocks on the rug beside the first three, beginning a low stable bridge.",
         "pageDescription": "Kit sets the final three blocks on the rug beside the first three, beginning a low stable bridge.",
@@ -1029,7 +1029,7 @@
       },
       {
         "pageNumber": 5,
-        "text": "The fly hits that sticky line. Its legs and wings struggle, making the silk move.",
+        "text": "The fly hits the sticky silk. It kicks and flaps, making the threads shake.",
         "imageBrief": "The small fly is caught on the right section of the spiral, with two wings and six legs visible. Exact continuity: No gore; web pulls slightly around fly; spider still near middle.",
         "imageAlt": "The small fly is caught on the right section of the spiral, with two wings and six legs visible.",
         "pageDescription": "The small fly is caught on the right section of the spiral, with two wings and six legs visible.",
@@ -1056,7 +1056,7 @@
       },
       {
         "pageNumber": 8,
-        "text": "It wraps the fly in more silk. The captured insect will be food for the spider.",
+        "text": "The spider wraps the fly in more silk. The fly will be its next meal.",
         "imageBrief": "The spider wraps the small fly in a compact silk bundle on the right side of the web. Exact continuity: Matter-of-fact predation, no blood or exaggerated suffering; fly remains small.",
         "imageAlt": "The spider wraps the small fly in a compact silk bundle on the right side of the web.",
         "pageDescription": "The spider wraps the small fly in a compact silk bundle on the right side of the web.",
@@ -1085,7 +1085,7 @@
     "discussion": {
       "oral": {
         "prompt": "How does the web help the spider in two different ways?",
-        "listenFor": "Sticky lines catch prey; movements through silk alert the spider and guide it to the caught animal."
+        "listenFor": "The sticky silk catches the fly. The fly shakes the silk, and the spider feels the movement through its feet."
       },
       "visual": {
         "page": 4,
@@ -1171,7 +1171,7 @@
     "pages": [
       {
         "pageNumber": 1,
-        "text": "This dry bean is a seed. Inside its coat is a tiny plant waiting for the right conditions.",
+        "text": "This dry bean is a seed. Inside its coat is a tiny plant. It needs water and warmth to grow.",
         "imageBrief": "Large educational cutaway of one cream bean seed shows the tiny embryo between two thick seed halves. Exact continuity: Diagram magnified; no fully formed miniature flowering plant inside.",
         "imageAlt": "Large educational cutaway of one cream bean seed shows the tiny embryo between two thick seed halves.",
         "pageDescription": "Large educational cutaway of one cream bean seed shows the tiny embryo between two thick seed halves.",
@@ -1263,7 +1263,7 @@
     "discussion": {
       "oral": {
         "prompt": "How can one of these beans grow into a new plant?",
-        "listenFor": "It is a new seed; in suitable warm, damp conditions it can germinate and repeat the cycle."
+        "listenFor": "It is a new seed. Water and warmth help a new root and shoot start to grow."
       },
       "visual": {
         "page": 8,

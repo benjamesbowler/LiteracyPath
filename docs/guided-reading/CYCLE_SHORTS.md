@@ -54,9 +54,10 @@ npx playwright test tests/release/cycle-shorts.spec.js --project=desktop
 
 Generated signal and browser receipts live in ignored `.artifacts/cycle-shorts/`.
 They do not establish human listening, physical-iPad or observed classroom use.
-When a revised story receives a new narration path, the previous recording can
-remain in `compatibilityClips` with its original text and byte hash for readers
-using a cached lesson.
+When a revision changes the narration path for a story, question or answer,
+the generator retains the prior path, exact text and byte hash in
+`compatibilityClips`. Cached Present and Guided Reading lessons can use their
+original recordings.
 
 The existing Linux visual-baseline workflow has a `cycle-shorts` scope. It refreshes only the six Books baselines, then verifies Books, comprehension and the Cycle Shorts flow. It runs no database setup or hosted-data writes and does not claim the unrelated whole-product device matrix passed.
 

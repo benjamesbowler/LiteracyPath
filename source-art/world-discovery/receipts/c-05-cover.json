@@ -31,8 +31,8 @@
   "reviewedManuscriptSource": {
     "path": "src/content/world-discovery/level-c.json",
     "bookId": "world-discovery-c-05",
-    "sha256": "82042aa026d7c61c15e92b344417a2a8a47d6faa1613d44970635301753cb799",
-    "reviewedAt": "2026-11-09",
-    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
+    "sha256": "b9cc033b1a28324484405cd1b94e69d0c12f1a970570e087ae782397f89d7425",
+    "reviewedAt": "2026-11-22",
+    "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/01-10-complete-book-review.json"
   }
 }

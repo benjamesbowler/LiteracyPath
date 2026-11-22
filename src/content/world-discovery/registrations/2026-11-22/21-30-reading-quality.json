@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "cohortId": "21-30",
+  "status": "release-ready",
+  "method": "validated-source-direct-image-and-automated-narration-evidence",
+  "inputFingerprint": "fnv1a64:09ec8698abbe7c29",
+  "inputSha256": "b7d47122f8bef475e28951c4487d7a4d8f70d3da71be08d6bc7448aef86ca696",
+  "evidenceSha256": "8c8ebb7bd9a1ad451e1b8139647b0569458ae74c1483fc6568729b777094068a",
+  "counts": {
+    "books": 50,
+    "pages": 440,
+    "illustrations": 490,
+    "cards": 50,
+    "references": 51,
+    "audioFiles": 1823,
+    "screenedClips": 600
+  }
+}
