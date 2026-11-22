@@ -88,6 +88,7 @@ jobs:
       - name: Install Playwright Chromium
         run: npx playwright install --with-deps chromium
       - name: Install Supabase CLI
+        id: audit-supabase-cli
         if: inputs.scope != 'cycle-shorts' && inputs.scope != 'ui-chrome' && inputs.scope != 'child-redesign' && inputs.scope != 'child-one-screen' && inputs.scope != 'reader-skills-insights' && inputs.scope != 'hollow-blue-ui' && inputs.scope != 'assessment-blue-ui' && inputs.scope != 'phonics-overhaul' && inputs.scope != 'skills-trail' && inputs.scope != 'phonics-menu'
         uses: supabase/setup-cli@v2
         with:
@@ -477,7 +478,7 @@ jobs:
         if: always() && inputs.scope == 'teacher-simplicity' && steps.teacher-audit-stack.outcome == 'success'
         run: node tools/prepareTeacherSimplicitySupabase.mjs --stop
       - name: Stop local Supabase
-        if: always() && inputs.scope != 'teacher-simplicity' && inputs.scope != 'cycle-shorts' && inputs.scope != 'ui-chrome' && inputs.scope != 'child-redesign' && inputs.scope != 'reader-skills-insights' && inputs.scope != 'hollow-blue-ui' && inputs.scope != 'assessment-blue-ui' && inputs.scope != 'phonics-overhaul' && inputs.scope != 'skills-trail' && inputs.scope != 'phonics-menu'
+        if: always() && inputs.scope != 'teacher-simplicity' && steps.audit-supabase-cli.outcome == 'success'
         run: supabase stop --no-backup
 
   phonics-regression:
