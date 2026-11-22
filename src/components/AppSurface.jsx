@@ -1928,6 +1928,7 @@ export function AppSurface({ surface }) {
           <Suspense fallback={<LazyPageFallback label="Loading resources..." />}>
             <TeacherIntentPage
               intent="resources"
+              client={isSupabaseConfigured ? supabase : null}
               classList={classList}
               classListReadState={classListReadState}
               teacherId={teacherId}

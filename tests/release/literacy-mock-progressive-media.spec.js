@@ -82,6 +82,7 @@ test('an autoplay-blocked Safari prompt stays below the answer area and recovers
     let first = true;
     window.Audio = class extends EventTarget {
       play() {
+        if (this.src?.endsWith('#mock-audio-unlock')) return Promise.resolve();
         if (first) { first = false; return Promise.reject(new DOMException('Gesture required', 'NotAllowedError')); }
         this.paused = false; this.onplaying?.(); this.timer = setTimeout(() => this.onended?.(), 5); return Promise.resolve();
       }

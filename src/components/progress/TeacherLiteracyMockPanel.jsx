@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { LITERACY_MOCK_SHORT_ITEM_COUNTS } from '../../policy/literacyMockQuestionLimit.js';
-import { prepareLiteracyMockSession, controlLiteracyMockSession, listLiteracyMockHistoryPage, getLiteracyMockReport, resolveLiteracyMockSupport, prepareLiteracyMockFreshCheck, prepareLiteracyMockEntryCheck, LITERACY_MOCK_CONTENT_VERSION, requireLiteracyMockSuccess } from "../../data/literacyMockSessionCore.js";
+import { LITERACY_MOCK_BALANCED_VERSION, LITERACY_MOCK_VERSION } from '../../policy/literacyMockVersions.js';
+import { prepareLiteracyMockSession, controlLiteracyMockSession, listLiteracyMockHistoryPage, getLiteracyMockReport, getLiteracyMockV13Availability, resolveLiteracyMockSupport, prepareLiteracyMockFreshCheck, prepareLiteracyMockEntryCheck, requireLiteracyMockSuccess } from "../../data/literacyMockSessionCore.js";
+import { getLiteracyMockTeacherStatus } from "../../data/literacyMockTeacherStatus.js";
 import { buildLiteracyMockReport, literacyMockStudentName, literacyMockControlError } from "../../utils/literacyMockReport.js";
 import { readMockTeacherPending, saveMockTeacherPending, clearMockTeacherPending } from "../../utils/literacyMockTeacherPending.js";
 import { literacyMockCollectionNotice } from "../../utils/literacyMockCollectionNotice.js";
@@ -28,6 +30,33 @@ async function boundedRequest(request, { timeoutMs = 10000, controller } = {}) {
 function validResult(result) {
   try { return requireLiteracyMockSuccess(result); }
   catch (error) { throw Object.assign(new Error(literacyMockControlError(error.code)), { code: error.code, confirmedRejection: error.confirmedRejection }); }
+}
+
+function verifySnapshot(result, sessionId, classId) {
+  if (result.session?.id !== sessionId || result.session?.class_id !== classId || !Array.isArray(result.members)) {
+    throw new Error("Session identity could not be verified.");
+  }
+  return result;
+}
+
+function liveMember(row, roster) {
+  const name = literacyMockStudentName(roster.find(student => String(student.id) === String(row.student_id)));
+  return { studentId: String(row.student_id), name, member: row, status: row.run_status ?? row.run?.status,
+    planned: row.planned ?? row.run?.plan?.itemIds?.length ?? null,
+    answered: row.answered ?? row.run?.responses?.filter(response => response.responseStatus === "answered").length ?? 0,
+    mediaFailures: row.media_failures ?? row.run?.mediaFailures?.length ?? 0,
+    help: row.pending_help ?? row.run?.helpRequests?.filter(request => request.pending === true) ?? [] };
+}
+
+function deviceStatus(pupil, mock) {
+  const receipt = pupil.member.receipt_state;
+  if (receipt === "expired") return "Upload window expired · showing answers received by the server";
+  if (receipt === "awaiting_connection") return `Waiting for upload · until ${dateText(pupil.member.receipt_deadline)}`;
+  if (receipt === "received" || pupil.status === "completed") return "Finished · server record available";
+  if (pupil.member.content_ok === false) return "Content needs attention";
+  if (pupil.status === "ready") return "Sound and controls checked";
+  if (pupil.status === "running") return "Working";
+  return mock.state === "prepared" ? "Not sent to device yet" : "Sound and button checks / waiting for device";
 }
 
 function TeacherLiteracyMockPanelBody({ client, teacherId, classId, className, students, onSessionPrepared, initialStudentIds, initialSessionId, initialReportStudentId, initialPhase, onReturn, returnLabel }) {
@@ -61,6 +90,9 @@ function TeacherLiteracyMockPanelBody({ client, teacherId, classId, className, s
   const [historyError, setHistoryError] = useState("");
   const [historyStudent, setHistoryStudent] = useState(initialHistoryStudent);
   const [sessionId, setSessionId] = useState(initialSessionId || pendingControl?.sessionId || pendingEvidenceAction?.sessionId || "");
+  const [statusSnapshot, setStatusSnapshot] = useState(null);
+  const [statusState, setStatusState] = useState("idle");
+  const [statusError, setStatusError] = useState("");
   const [snapshot, setSnapshot] = useState(null);
   const [reportState, setReportState] = useState("idle");
   const [reportError, setReportError] = useState("");
@@ -70,8 +102,9 @@ function TeacherLiteracyMockPanelBody({ client, teacherId, classId, className, s
   const [finishOpen, setFinishOpen] = useState(false);
   const [selectedReportStudent, setSelectedReportStudent] = useState(initialReportStudentId || initialHistoryStudent);
   const alive = useRef(true);
+  const statusRequest = useRef({ sequence: 0, pending: null });
+  const confirmedStatus = useRef(null);
   const reportRequest = useRef({ sequence: 0, pending: null });
-  const confirmedReport = useRef(null);
   const historyRequest = useRef(0);
   const reportHeading = useRef(null);
   const statusRef = useRef(null);
@@ -97,45 +130,58 @@ function TeacherLiteracyMockPanelBody({ client, teacherId, classId, className, s
 
   useEffect(() => { const timer = setTimeout(() => { void loadHistory(); }, 0); return () => clearTimeout(timer); }, [loadHistory]);
 
-  const refreshReport = useCallback(async ({ focus = false, background = false, force = false } = {}) => {
-    if (!sessionId || (background && document.hidden) || (!force && reportRequest.current.pending?.sessionId === sessionId)) return;
-    const confirmed = confirmedReport.current;
-    const completed = confirmed?.session?.id === sessionId && confirmed.session.class_id === classId
-      && confirmed.session.mock?.state === "completed";
-    // A finished session can still be waiting for offline iPads. Stop automatic
-    // full-report downloads only after delivery is confirmed (or for the older
-    // protocol without device collection). Explicit refresh always reads again.
-    if (background && completed && (confirmed.session.mock.capabilities?.offlineDelivery === false
-      || confirmed.session.mock.collection_pending_count === 0)) return;
+  const refreshStatus = useCallback(async ({ background = false, force = false } = {}) => {
+    if (!sessionId || (background && document.hidden) || (!force && statusRequest.current.pending?.sessionId === sessionId)) return;
+    const confirmed = confirmedStatus.current?.session;
+    if (background && confirmed?.id === sessionId && confirmed.class_id === classId && confirmed.mock?.state === "completed"
+      && (confirmed.mock.capabilities?.offlineDelivery === false || confirmed.mock.collection_pending_count === 0)) return;
+    statusRequest.current.pending?.controller.abort();
+    const sequence = ++statusRequest.current.sequence;
+    const controller = new AbortController();
+    const request = { sessionId, controller };
+    statusRequest.current.pending = request;
+    if (!background) setStatusState("loading");
+    try {
+      const data = await boundedRequest(getLiteracyMockTeacherStatus({ client, sessionId, signal: controller.signal }), { controller });
+      const result = verifySnapshot(validResult(data), sessionId, classId);
+      if (!alive.current || sequence !== statusRequest.current.sequence) return;
+      confirmedStatus.current = result;
+      setStatusSnapshot(result); setStatusState("ready"); setStatusError("");
+    } catch (error) {
+      if (!alive.current || sequence !== statusRequest.current.sequence) return;
+      setStatusState("error");
+      setStatusError(error.confirmedRejection ? error.message : "Session status could not be confirmed. The last verified rows remain visible. Refresh to use the controls.");
+    } finally { if (statusRequest.current.pending === request) statusRequest.current.pending = null; }
+  }, [classId, client, sessionId]);
+
+  const refreshReport = useCallback(async ({ focus = false, force = false } = {}) => {
+    if (!sessionId || (!force && reportRequest.current.pending?.sessionId === sessionId)) return;
     reportRequest.current.pending?.controller?.abort();
     const sequence = ++reportRequest.current.sequence;
     const controller = new AbortController();
     const request = { sessionId, sequence, controller };
     reportRequest.current.pending = request;
-    if (!background) setReportState("loading");
-    if (focus) statusRef.current?.focus();
+    setReportState("loading");
     try {
       // A complete report includes the canonical question evidence. On a slow
       // link it can take more than ten seconds; never abandon its body and
       // start overlapping copies that prevent any one refresh from finishing.
-      const result = validResult(await boundedRequest(getLiteracyMockReport({ client, sessionId, signal: controller.signal }), { timeoutMs: 60000, controller }));
-      if (result.session?.id !== sessionId || result.session?.class_id !== classId || !Array.isArray(result.members)) throw new Error("Session identity could not be verified.");
+      const result = verifySnapshot(validResult(await boundedRequest(getLiteracyMockReport({ client, sessionId, signal: controller.signal }), { timeoutMs: 60000, controller })), sessionId, classId);
       if (!alive.current || sequence !== reportRequest.current.sequence) return;
-      confirmedReport.current = result;
       setSnapshot(result); setReportState("ready"); setReportError("");
       if (focus) setTimeout(() => reportHeading.current?.focus(), 0);
     } catch (error) {
       if (!alive.current || sequence !== reportRequest.current.sequence) return;
-      setReportState("error"); setReportError(error.confirmedRejection ? error.message : "Live progress could not be refreshed. The last verified rows remain visible; controls are paused until a refresh succeeds.");
+      setReportState("error"); setReportError(error.confirmedRejection ? error.message : "Detailed results could not be refreshed. You can still use live controls.");
     } finally { if (reportRequest.current.pending === request) reportRequest.current.pending = null; }
   }, [classId, client, sessionId]);
 
   useEffect(() => {
     if (!sessionId) return undefined;
-    const counter = reportRequest.current;
-    const first = setTimeout(() => { void refreshReport(); }, 0);
-    const timer = setInterval(() => { void refreshReport({ background: true }); }, 5000);
-    const wake = () => { if (!document.hidden) void refreshReport({ background: true }); };
+    const counter = statusRequest.current;
+    const first = setTimeout(() => { void refreshStatus(); }, 0);
+    const timer = setInterval(() => { void refreshStatus({ background: true }); }, 5000);
+    const wake = () => { if (!document.hidden) void refreshStatus({ background: true }); };
     document.addEventListener("visibilitychange", wake);
     window.addEventListener("online", wake);
     return () => {
@@ -144,21 +190,33 @@ function TeacherLiteracyMockPanelBody({ client, teacherId, classId, className, s
       document.removeEventListener("visibilitychange", wake);
       window.removeEventListener("online", wake);
     };
-  }, [refreshReport, sessionId]);
+  }, [refreshStatus, sessionId]);
 
+  useEffect(() => {
+    if (!sessionId || phase !== "results") return undefined;
+    const counter = reportRequest.current;
+    const timer = setTimeout(() => { void refreshReport(); }, 0);
+    return () => {
+      clearTimeout(timer); counter.sequence++;
+      counter.pending?.controller?.abort(); counter.pending = null;
+    };
+  }, [phase, refreshReport, sessionId]);
+
+  const verifiedStatus = statusSnapshot?.session?.id === sessionId && statusSnapshot.session.class_id === classId ? statusSnapshot : null;
   const verifiedSnapshot = snapshot?.session?.id === sessionId && snapshot.session.class_id === classId ? snapshot : null;
   const report = useMemo(() => verifiedSnapshot ? buildLiteracyMockReport(verifiedSnapshot, { students: roster }) : null, [verifiedSnapshot, roster]);
-  const mock = verifiedSnapshot?.session?.mock;
+  const receiptStates = useMemo(() => new Map(verifiedStatus?.members.map(member => [String(member.student_id), member.receipt_state])), [verifiedStatus]);
+  const mock = verifiedStatus?.session?.mock;
   const filteredHistory = history.filter(session => !historyStudent || session.member_student_ids?.some(id => String(id) === historyStudent));
   const selectedCount = wholeClass ? roster.length : roster.filter(student => studentIds.includes(String(student.id))).length;
-  const sessionModel = teacherSessionModel({ protocol: "mock", session: verifiedSnapshot?.session, connection: reportState === "ready" ? "connected" : "reconnecting" });
+  const sessionModel = teacherSessionModel({ protocol: "mock", session: verifiedStatus?.session, connection: statusState === "ready" ? "connected" : "reconnecting" });
   const activePhase = phase;
-  const livePupils = report?.pupils.slice().sort((a, b) => {
-    const priority = pupil => pupil.pendingHelpRequests?.length || pupil.member.content_ok === false ? 0 : pupil.member.connected === false && pupil.run?.status !== "completed" ? 1 : pupil.run?.status === "completed" ? 3 : 2;
-    return priority(a) - priority(b);
-  }) || [];
-  const controlsDisabled = busy || mutationPending || reportState !== "ready";
-  const noticeText = literacyMockCollectionNotice(message, { sessionId, classId, snapshot: verifiedSnapshot, report, reportState });
+  const livePupils = useMemo(() => (verifiedStatus?.members ?? []).map(row => liveMember(row, roster)).sort((a, b) => {
+    const priority = pupil => pupil.help.length || pupil.member.content_ok === false ? 0 : pupil.member.connected === false && pupil.status !== "completed" ? 1 : pupil.status === "completed" ? 3 : 2;
+    return priority(a) - priority(b) || a.name.localeCompare(b.name);
+  }), [verifiedStatus, roster]);
+  const controlsDisabled = busy || mutationPending || statusState !== "ready";
+  const noticeText = literacyMockCollectionNotice(message, { sessionId, classId, snapshot: verifiedStatus, report, reportState: statusState });
 
   function retainMutation(kind, args) {
     setPendingMutation(saveMockTeacherPending(teacherId, classId, kind, args));
@@ -170,10 +228,14 @@ function TeacherLiteracyMockPanelBody({ client, teacherId, classId, className, s
 
 
   async function prepare(retry = null) {
-    const args = retry || { classId, wholeClass, studentIds: wholeClass ? [] : roster.filter(student => studentIds.includes(String(student.id))).map(student => student.id), durationMinutes, itemCount, windowMode, contentVersion: LITERACY_MOCK_CONTENT_VERSION, requestId: requestId() };
+    let args = retry;
     let dispatched = false;
     setBusy(true); setMessage("");
     try {
+      if (!args) {
+        const v13 = await boundedRequest(getLiteracyMockV13Availability({ client }));
+        args = { classId, wholeClass, studentIds: wholeClass ? [] : roster.filter(student => studentIds.includes(String(student.id))).map(student => student.id), durationMinutes, itemCount, windowMode, contentVersion: v13 ? LITERACY_MOCK_BALANCED_VERSION : LITERACY_MOCK_VERSION, requestId: requestId() };
+      }
       retainMutation("preparation", args);
       dispatched = true;
       const result = validResult(await boundedRequest(prepareLiteracyMockSession({ client, ...args, legacyPending: Boolean(retry) })));
@@ -188,7 +250,7 @@ function TeacherLiteracyMockPanelBody({ client, teacherId, classId, className, s
       }
       void loadHistory();
     } catch (error) {
-      if (error.confirmedRejection) confirmMutation(args);
+      if (dispatched && error.confirmedRejection) confirmMutation(args);
       if (!alive.current) return;
       setMessage(error.confirmedRejection || !dispatched ? error.message : "Preparation could not be confirmed. Retry the same preparation to recover its result without creating another session.");
     } finally { if (alive.current) setBusy(false); }
@@ -207,7 +269,7 @@ function TeacherLiteracyMockPanelBody({ client, teacherId, classId, className, s
       setFinishOpen(false);
       const controlsRequestedSession = args.sessionId === sessionId;
       if (controlsRequestedSession) setPhase(controlled.session?.mock?.state === "completed" ? "results" : "live");
-      await refreshReport({ force: true }); void loadHistory();
+      await refreshStatus({ force: true }); void loadHistory();
       setMessage(!controlsRequestedSession ? "The earlier session action is confirmed. The requested report remains open." : args.action === "collect"
         ? { kind: "collection", sessionId: args.sessionId, collectionId: controlled.session?.mock?.collection_id || args.requestId }
         : ({ start: "Assessment started.", pause: "Assessment paused.", resume: "Assessment resumed.", add_time: "Five minutes added within the available session window.", finish: "Assessment finished. Saved answers and questions not reached remain in the report.", live_on: "Live updates enabled. Answers still save on each iPad first.", live_off: "Live updates switched off. Answers will be collected when students finish or you collect the class." })[args.action]);
@@ -216,7 +278,7 @@ function TeacherLiteracyMockPanelBody({ client, teacherId, classId, className, s
       if (!alive.current) return;
       setMessage(error.confirmedRejection || !dispatched ? error.message : literacyMockControlError(error));
       setFinishOpen(false);
-      if (error.confirmedRejection) await refreshReport({ force: true });
+      if (error.confirmedRejection) await refreshStatus({ force: true });
     } finally { if (alive.current) setBusy(false); }
   }
 
@@ -242,7 +304,8 @@ function TeacherLiteracyMockPanelBody({ client, teacherId, classId, className, s
         }
         void loadHistory();
       } else {
-        await refreshReport({ force: true });
+        await refreshStatus({ force: true });
+        if (phase === "results") await refreshReport({ force: true });
         setMessage("Assistance recorded. The report now separates help with access from help with an answer.");
       }
     } catch (error) {
@@ -256,7 +319,7 @@ function TeacherLiteracyMockPanelBody({ client, teacherId, classId, className, s
     <TeacherPageHeader eyebrow="Teacher-launched assessment" title="Adaptive Literacy Test" description={`Prepare a test for ${className || "your class"} or selected children. Start it here and see every child’s saved results below.`} />
     <p className="literacy-mock-note">All eight literacy areas, starting with the simplest tasks. Choose 15, 25 or 40 questions. Results save automatically to this class’s test history.</p>
     <details><summary>About this test</summary><p>An independent Literacy Guide assessment with original questions for MAP-style Reading K–2 preparation and harder extensions. Literacy Guide is not affiliated with or endorsed by NWEA. Results describe classroom observations and do not provide official MAP scores or score predictions. This test has no time limit; a break pauses it so the teacher can resume the same sitting.</p></details>
-    <TeacherSessionFrame protocol="mock" phase={activePhase} availablePhases={sessionId ? ["prepare", "live", "results"] : ["prepare", "results"]} onPhaseChange={nextPhase => { setPhase(nextPhase); if (nextPhase === "prepare") setSetupOpen(true); }} audience={`${report?.pupils.length ?? selectedCount} students`} students={report?.pupils.map(pupil => ({ id: pupil.studentId, name: pupil.name })) || roster.filter(student => wholeClass || studentIds.includes(String(student.id)))} onReturn={onReturn} returnLabel={returnLabel}>
+    <TeacherSessionFrame protocol="mock" phase={activePhase} availablePhases={sessionId ? ["prepare", "live", "results"] : ["prepare", "results"]} onPhaseChange={nextPhase => { setPhase(nextPhase); if (nextPhase === "prepare") setSetupOpen(true); }} audience={`${verifiedStatus ? livePupils.length : selectedCount} students`} students={verifiedStatus ? livePupils.map(pupil => ({ id: pupil.studentId, name: pupil.name })) : roster.filter(student => wholeClass || studentIds.includes(String(student.id)))} onReturn={onReturn} returnLabel={returnLabel}>
     {activePhase === "prepare" && <details className="literacy-mock-setup" open={setupOpen} onToggle={event => setSetupOpen(event.currentTarget.open)}>
       <summary>Prepare a new session</summary>
       {!roster.length ? <p role="status">Add students to this class before preparing an assessment.</p> : <>
@@ -267,6 +330,7 @@ function TeacherLiteracyMockPanelBody({ client, teacherId, classId, className, s
         </fieldset>
         <label>Questions<select aria-label="Questions" value={itemCount} disabled={busy || mutationPending} onChange={event => setItemCount(Number(event.target.value))}>{LITERACY_MOCK_SHORT_ITEM_COUNTS.map(value => <option key={value} value={value}>Up to {value} questions</option>)}</select></label>
         <p><strong>Adaptive test · up to {itemCount} questions</strong> — all eight literacy areas. Each area starts with the simplest tasks, then becomes easier or harder from that child’s independent answers. Each sitting uses fresh questions where available. The test stops at the selected limit; areas without enough observations remain unconfirmed.</p>
+        <p>{itemCount === 15 ? "Entry sample. Expect one or two First steps questions per area." : itemCount === 25 ? "Short profile. Most questions establish starting evidence, with room to sample Starter." : "Deeper profile. Successful areas can reach Starter with room for follow-up observations."}</p>
         <p>No time limit. Use Pause assessment for a break, then Resume assessment when the children are ready. Every saved answer stays in the same sitting.</p>
         <button type="button" className="literacy-mock-primary" disabled={!client || busy || mutationPending || selectedCount === 0} onClick={() => prepare()}>{busy && !mock ? "Preparing…" : `Prepare for ${selectedCount} ${selectedCount === 1 ? "student" : "students"}`}</button>
       </>}
@@ -279,18 +343,23 @@ function TeacherLiteracyMockPanelBody({ client, teacherId, classId, className, s
       {historyCursor && <button type="button" disabled={historyState === "loading"} onClick={() => loadHistory(historyCursor)}>Load older sessions</button>}
     </section>}
     {sessionId && <section className="literacy-mock-live" aria-label="Teacher session controls">
-      <div className="literacy-mock-live-heading"><h3 ref={reportHeading} tabIndex={-1}>{activePhase === "results" ? "Saved assessment results" : "Assessment session"}</h3><button type="button" disabled={reportState === "loading"} onClick={() => refreshReport({ focus: true })}>Refresh progress</button></div>
-      <p ref={statusRef} tabIndex={-1} role="status" aria-busy={reportState === "loading"}>{reportState === "loading" ? "Loading verified session progress…" : reportError || (mock ? `${STATES[mock.state]} · Last checked ${dateText(mock.server_now)}` : "Waiting for session details.")}</p>
-      {mock && <><p>{sessionModel.receiptLabel}. Ending a session does not confirm that offline answers have arrived.</p>{activePhase !== "results" && <><dl className="literacy-mock-metrics"><div><dt>Session</dt><dd>{STATES[mock.state]}</dd></div>{mock.state !== "completed" && <div><dt>{mock.window_mode === 'untimed' ? 'Time limit' : 'Time remaining at last check'}</dt><dd>{mock.window_mode === 'untimed' ? 'No time limit' : minutes(mock.remaining_seconds)}</dd></div>}<div><dt>{report.boundaryAdaptive ? "Maximum questions" : "Questions per student"}</dt><dd>{mock.item_count}</dd></div><div><dt>Students</dt><dd>{report.pupils.length}</dd></div></dl>
+      <div className="literacy-mock-live-heading"><h3 ref={reportHeading} tabIndex={-1}>{activePhase === "results" ? "Saved assessment results" : "Assessment session"}</h3><button type="button" disabled={statusState === "loading"} onClick={() => { statusRef.current?.focus(); void refreshStatus({ force: true }); if (activePhase === "results") void refreshReport({ focus: true, force: true }); }}>Refresh progress</button></div>
+      <p ref={statusRef} tabIndex={-1} role="status" aria-busy={statusState === "loading"}>{statusState === "loading" ? "Loading verified session progress…" : statusError || (mock ? `${STATES[mock.state]} · Last checked ${dateText(mock.server_now)}` : "Waiting for session details.")}</p>
+      {mock && <><p>{sessionModel.receiptLabel}.</p>{mock.collection_expired_count > 0 && <p role="status">Upload window expired for {mock.collection_expired_count} {mock.collection_expired_count === 1 ? "device" : "devices"}. Results contain the answers received before the deadline.</p>}{activePhase !== "results" && <><dl className="literacy-mock-metrics"><div><dt>Session</dt><dd>{STATES[mock.state]}</dd></div>{mock.state !== "completed" && <div><dt>{mock.window_mode === 'untimed' ? 'Time limit' : 'Time remaining at last check'}</dt><dd>{mock.window_mode === 'untimed' ? 'No time limit' : minutes(mock.remaining_seconds)}</dd></div>}<div><dt>Maximum questions</dt><dd>{mock.item_count}</dd></div><div><dt>Students</dt><dd>{livePupils.length}</dd></div></dl>
         {mock.state !== "completed" && <div className="literacy-mock-controls">{mock.state === "prepared" && <button className="literacy-mock-primary" type="button" disabled={controlsDisabled} onClick={() => sendControl("start")}>Start assessment</button>}{mock.state === "running" && <button type="button" disabled={controlsDisabled} onClick={() => sendControl("pause")}>Pause assessment</button>}{mock.state === "paused" && <button className="literacy-mock-primary" type="button" disabled={controlsDisabled} onClick={() => sendControl("resume")}>Resume assessment</button>}{mock.window_mode !== "untimed" && <button type="button" disabled={controlsDisabled} onClick={() => sendControl("add_time")}>Add 5 minutes</button>}<button type="button" disabled={controlsDisabled || Boolean(mock.collection_id)} onClick={() => setFinishOpen(true)}>{mock.capabilities?.offlineDelivery ? "Collect all data and finish" : "Finish assessment"}</button></div>}
         {mock.state !== "completed" && <p>{mock.window_mode === "untimed" ? "No time limit. Answers save on each iPad before the student continues." : mock.window_mode === "pause_at_window_end" ? "This session pauses for a break at the window end. Resume to continue." : "This session finishes when its time limit is reached."}</p>}
-        {mock.capabilities?.offlineDelivery && mock.state !== "completed" && <div className="literacy-mock-delivery-controls"><label><input type="checkbox" checked={mock.delivery_mode === "live"} disabled={controlsDisabled || Boolean(mock.collection_id)} onChange={event => sendControl(event.target.checked ? "live_on" : "live_off")}/> Live data updates</label><p>Leave this off for poor Wi-Fi. Students keep working; their answers upload quietly when they finish or you collect the class.</p>{mock.collection_id && <p role="status">{mock.collection_pending_count} {mock.collection_pending_count === 1 ? "iPad is" : "iPads are"} waiting to deliver data. Keep those iPads open and reconnect them. The assessment will finish when all started iPads have delivered.</p>}</div>}
-        {mock.capabilities?.supportResolution && report.pupils.some(pupil => pupil.pendingHelpRequests?.length) && <section className="literacy-mock-help-desk" aria-label="Help requests"><h4>Students asking for help</h4><p>Record what you actually provided. Reading a protected reading item or suggesting an answer counts as answer assistance.</p>{report.pupils.flatMap(pupil => (pupil.pendingHelpRequests || []).map(request => <div key={`${pupil.studentId}:${request.questionId}`}><strong>{pupil.name}</strong><p>{request.itemSnapshot?.prompt || "Help requested on the current question"}</p><button type="button" disabled={controlsDisabled} onClick={() => evidenceAction("support", pupil.studentId, request.questionId, "none")}>No assistance needed</button><button type="button" disabled={controlsDisabled} onClick={() => evidenceAction("support", pupil.studentId, request.questionId, "access")}>Controls or access only</button><button type="button" disabled={controlsDisabled} onClick={() => evidenceAction("support", pupil.studentId, request.questionId, "answer")}>Help with the answer</button></div>))}</section>}
+        {mock.capabilities?.offlineDelivery && mock.state !== "completed" && <div className="literacy-mock-delivery-controls"><label><input type="checkbox" checked={mock.delivery_mode === "live"} disabled={controlsDisabled || Boolean(mock.collection_id)} onChange={event => sendControl(event.target.checked ? "live_on" : "live_off")}/> Live data updates</label><p>Leave this off for poor Wi-Fi. Answers upload when students finish or you collect the class.</p>{mock.collection_id && <p role="status">{mock.collection_pending_count} {mock.collection_pending_count === 1 ? "device is" : "devices are"} waiting to upload. Keep the devices open and reconnect them before {dateText(verifiedStatus.session.expires_at)}.</p>}</div>}
+        {mock.capabilities?.supportResolution && livePupils.some(pupil => pupil.help.length) && <section className="literacy-mock-help-desk" aria-label="Help requests"><h4>Students asking for help</h4><p>Record what you actually provided. Reading a protected reading item or suggesting an answer counts as answer assistance.</p>{livePupils.flatMap(pupil => pupil.help.map(request => <div key={`${pupil.studentId}:${request.questionId}`}><strong>{pupil.name}</strong><p>{request.prompt || request.itemSnapshot?.prompt || "Help requested on the current question"}</p><button type="button" disabled={controlsDisabled} onClick={() => evidenceAction("support", pupil.studentId, request.questionId, "none")}>No assistance needed</button><button type="button" disabled={controlsDisabled} onClick={() => evidenceAction("support", pupil.studentId, request.questionId, "access")}>Controls or access only</button><button type="button" disabled={controlsDisabled} onClick={() => evidenceAction("support", pupil.studentId, request.questionId, "answer")}>Help with the answer</button></div>))}</section>}
         <p>{mock.state === "prepared" && "This check is prepared but has not been sent to devices. Start it to let students check sound and practise any new controls. "}Progress refreshes every five seconds while this tab is visible and the session or iPad collection is unfinished. Use Refresh progress to check finished results again. A disconnected device or missing answer is not a literacy result.</p>
-        <TeacherDataTable label="Adaptive Literacy Test pupil progress" className="literacy-mock-table"><caption>Students needing help first, then connection checks, working and finished</caption><thead><tr><th scope="col">Student</th><th scope="col">Readiness / connection</th><th scope="col">Saved progress</th><th scope="col">Evidence</th></tr></thead><tbody>{livePupils.map(pupil => <tr key={pupil.studentId}><th scope="row">{pupil.name}</th><td>{pupil.member.connected === true ? "Connected" : pupil.member.connected === false ? "Not currently connected" : "Connection not confirmed"}<small>{pupil.run?.status === "completed" ? "Finished · report received" : pupil.member.content_ok === false ? "Content needs attention" : pupil.run?.status === "ready" ? "Sound and controls checked" : pupil.run?.status === "running" ? "Working" : mock.state === "prepared" ? "Not sent to device yet" : "Sound and button checks / waiting for device"}</small>{pupil.member.last_seen_at && <small>Last seen {dateText(pupil.member.last_seen_at)}</small>}</td><td>{pupil.answered} answered{pupil.planned !== null ? ` of ${pupil.planned}` : ""}<small>{pupil.notReachedItems ?? "Unknown"} not reached · {pupil.presentedUnansweredItems ?? "Unknown"} seen without an answer · {pupil.totals.unscored} unscored</small>{pupil.mediaFailureCount > 0 && <small>{pupil.mediaFailureCount} media {pupil.mediaFailureCount === 1 ? "failure" : "failures"} · no answer slot used</small>}</td><td>{pupil.unsampledSkills} skills not yet sampled<button type="button" onClick={() => { setSelectedReportStudent(pupil.studentId); setPhase("results"); setTimeout(() => { reportContainer.current?.querySelector("h3")?.focus(); reportContainer.current?.scrollIntoView({ block: "start", behavior: "auto" }); }, 0); }}>View {pupil.name}’s report</button></td></tr>)}</tbody></TeacherDataTable></>}
-        {activePhase === "results" && <div ref={reportContainer}><div className="literacy-mock-controls">{report.pupils.map(pupil => <button type="button" key={pupil.studentId} onClick={() => setSelectedReportStudent(pupil.studentId)}>View {pupil.name}’s report</button>)}</div><LiteracyMockReport key={sessionId} report={report} studentId={selectedReportStudent} onStudentChange={setSelectedReportStudent} actionDisabled={controlsDisabled} onRecordAssistance={mock.capabilities?.supportResolution ? (studentId, questionId, assistance, sourceId) => evidenceAction("support", studentId, questionId, assistance, null, sourceId || sessionId) : undefined} /></div>}
+        <TeacherDataTable label="Adaptive Literacy Test pupil progress" className="literacy-mock-table"><caption>Students needing help first, then connection checks, working and finished</caption><thead><tr><th scope="col">Student</th><th scope="col">Readiness / connection</th><th scope="col">Received answers</th><th scope="col">Evidence</th></tr></thead><tbody>{livePupils.map(pupil => <tr key={pupil.studentId}><th scope="row">{pupil.name}</th><td>{pupil.member.connected === true ? "Connected" : pupil.member.connected === false ? "Not currently connected" : "Connection not confirmed"}<small>{deviceStatus(pupil, mock)}</small>{pupil.member.last_seen_at && <small>Last seen {dateText(pupil.member.last_seen_at)}</small>}</td><td>{pupil.answered} received{pupil.planned !== null ? ` of ${pupil.planned} planned` : ""}{pupil.mediaFailures > 0 && <small>{pupil.mediaFailures} media {pupil.mediaFailures === 1 ? "failure" : "failures"} · no answer slot used</small>}</td><td><button type="button" onClick={() => { setSelectedReportStudent(pupil.studentId); setPhase("results"); reportHeading.current?.focus(); }}>View {pupil.name}’s report</button></td></tr>)}</tbody></TeacherDataTable></>}
         {mock.state === "completed" && activePhase !== "results" && <button type="button" onClick={() => setPhase("results")}>View saved results</button>}
       </>}
+      {activePhase === "results" && <div ref={reportContainer}>
+        {reportState === "loading" && <p role="status">Loading detailed results…</p>}
+        {reportError && <p role="status">{reportError}</p>}
+        {report && livePupils.some(pupil => pupil.answered !== report.pupils.find(row => row.studentId === pupil.studentId)?.answered) && <p role="status">New answers are available. Refresh progress to update the detailed results.</p>}
+        {report && <><div className="literacy-mock-controls">{report.pupils.map(pupil => <button type="button" key={pupil.studentId} onClick={() => setSelectedReportStudent(pupil.studentId)}>View {pupil.name}’s report</button>)}</div><LiteracyMockReport key={sessionId} report={report} receiptStates={receiptStates} studentId={selectedReportStudent} onStudentChange={setSelectedReportStudent} actionDisabled={controlsDisabled} onRecordAssistance={mock?.capabilities?.supportResolution ? (studentId, questionId, assistance, sourceId) => evidenceAction("support", studentId, questionId, assistance, null, sourceId || sessionId) : undefined} /></>}
+      </div>}
     </section>}
     </TeacherSessionFrame>
     {finishOpen && <div className="literacy-mock-dialog-overlay"><TeacherDialog label="Finish this assessment?" className="literacy-mock-dialog" onClose={() => !busy && setFinishOpen(false)} closeOnEscape={!busy} busy={busy}><h3>Finish this assessment?</h3><p>{mock?.capabilities?.offlineDelivery ? "Students stop when their iPad receives this request. Answers already saved on each iPad are collected before the session closes. Offline iPads need to reconnect with the app open." : "This ends the assessment for these students. Saved answers remain in the teacher report. Questions not reached are kept separate from errors."}</p><button type="button" disabled={busy} onClick={() => sendControl(mock?.capabilities?.offlineDelivery ? "collect" : "finish")}>{mock?.capabilities?.offlineDelivery ? "Collect all data and finish" : "Finish and keep the report"}</button><button type="button" disabled={busy} data-autofocus onClick={() => setFinishOpen(false)}>Keep working</button></TeacherDialog></div>}

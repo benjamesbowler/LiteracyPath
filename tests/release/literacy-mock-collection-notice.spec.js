@@ -20,7 +20,7 @@ async function openCollectionPanel(page) {
     const report = () => ({ ok: true, session: structuredClone(session), members: [{ student_id: 'student-a', run: structuredClone(run) }] });
     const client = { async call(name, args) {
       if (name === 'teacher_list_literacy_mock_history_page') return { data: { ok: true, sessions: [{ ...structuredClone(session), member_student_ids: ['student-a'] }], hasMore: false, nextCursor: null } };
-      if (name === 'teacher_get_literacy_mock_report') return { data: report() };
+      if (name === 'teacher_get_literacy_mock_report' || name === 'teacher_get_literacy_mock_status') return { data: report() };
       if (name === 'teacher_control_literacy_mock_session') {
         session.mock.collection_id = args.p_request_id; session.mock.revision++;
         return { data: { ok: true, session: structuredClone(session) } };

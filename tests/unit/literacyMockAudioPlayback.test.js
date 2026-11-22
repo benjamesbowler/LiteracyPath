@@ -36,6 +36,16 @@ test('one gesture plays the complete assessment sequence on the same permitted m
  assert.equal(h.states[2],false);
 });
 
+test('a failed supplemental layout cue still plays the item’s required recording',async t=>{
+ const direction='/audio/read-the-box.mp3', prompt='/audio/required-question.mp3';
+ const h=await host(t,()=>({ready:Promise.resolve(new Map([[direction,{error:true}],[prompt,{src:prompt}]])),dispose(){}}));
+ const audio=h.hook([{path:direction,role:'layout_instruction'},{path:prompt,role:'question_prompt'}]);
+ const playing=h.gesture(()=>audio.play());await flushAudio();
+ assert.equal(h.instances[0].src,prompt);
+ h.instances[0].end();await playing;
+ assert.deepEqual(h.states[0],{[direction]:'failed',[prompt]:'completed'});
+});
+
 test('playing without progress cannot leave Listen frozen forever or count as completed',async t=>{
  t.mock.timers.enable({apis:['setTimeout']});
  const h=await host(t),audio=h.hook([{path:'/audio/frozen.mp3'}]);

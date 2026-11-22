@@ -116,7 +116,7 @@ function completeRequests(bootstrap, offline, outcome) {
     if (!sameLiteracyMockPlan(next, box.run.plan)) box = appendMockOutbox(box, { requestId: `adapt-${index}`, expectedRevision: box.run.revision, plan: next, response: null }, {}, disk);
   }
   assert.equal(box.run.status, 'completed');
-  return { box, trace };
+  return { box, trace, disk };
 }
 
 test('V9 frozen publication and canonical scoring remain valid while withdrawn ceiling stock fails closed', async t => {
@@ -153,10 +153,10 @@ test('V9 frozen publication and canonical scoring remain valid while withdrawn c
         for (const questionId of plan.itemIds) assert.equal(getLiteracyExposure(byId.get(questionId), buildLiteracyExposureIndex({ exposures })).knownFamiliar, null);
         const registered = await save(db, id, 'initial', 0, plan); assert.equal(registered.ok, true, `${context}: ${registered.error}`);
         const bootstrap = await batch(db, id, 'bootstrap', null); assert.equal(bootstrap.ok, true, bootstrap.error); assert.ok(bootstrap.run.offlineLeaseId);
-        let { box, trace } = completeRequests(bootstrap, offline, outcome);
+        let { box, trace, disk } = completeRequests(bootstrap, offline, outcome);
         let received, deliveryNumber = 0;
         while (box.requests.length) {
-          box = prepareMockDelivery(box, { batchId: `complete-${++deliveryNumber}` }, storage());
+          box = prepareMockDelivery(box, { batchId: `complete-${++deliveryNumber}` }, disk);
           const sent = box.delivery.sent;
           received = await batch(db, id, sent.batchId, box.delivery.leaseId, sent.requests);
           assert.equal(received.ok, true, `${context}, delivery ${deliveryNumber}: ${JSON.stringify(received)}`);
@@ -165,7 +165,7 @@ test('V9 frozen publication and canonical scoring remain valid while withdrawn c
           box = acknowledgeMockOutbox(box, sent, received, request => {
             const item = byId.get(request.questionId || request.response?.questionId);
             return { item, isCorrect: item && request.response ? scoreLiteracyMockResponse(item, request.response.selected) : undefined };
-          }, storage());
+          }, disk);
         }
         assert.deepEqual(received.run.responses.map(value => value.isCorrect), trace.map(value => value.correct), context);
         assert.deepEqual(received.run.responses.map(value => value.itemSnapshot.adaptiveAreaBand), trace.map(value => value.band), context);

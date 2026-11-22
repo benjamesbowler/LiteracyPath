@@ -11,9 +11,10 @@ import { MOCK_RUNTIME_INSTRUCTION_AUDIO } from '../../data/generated/literacyMoc
 import { readLiteracyMockReadiness, recordLiteracyMockReadiness, selectLiteracyMockTutorials } from '../../utils/literacyMockReadiness.js';
 import { LITERACY_MOCK_EVIDENCE_VERSIONS } from '../../policy/literacyMockVersions.js';
 import { literacyItemQualityIssue } from '../../policy/literacyItemEligibility.js';
-import { readMockOutbox, pruneReceivedMockOutboxes, createMockOutbox, writeMockOutbox, appendMockOutbox, prepareMockDelivery, acknowledgeMockOutbox } from '../../utils/literacyMockOutbox.js';
+import { mockOutboxKey, readMockOutbox, pruneReceivedMockOutboxes, createMockOutbox, writeMockOutbox, appendMockOutbox, prepareMockDelivery, acknowledgeMockOutbox } from '../../utils/literacyMockOutbox.js';
 import { warmMockOfflineExecutable } from '../../utils/offlineShell.js';
 import { mockOfflineMediaPaths, createMockOfflineMedia } from '../../utils/literacyMockOfflineMedia.js';
+import { literacyMockReadingInstructionPath } from '../../utils/literacyMockNarration.js';
 import '../../styles/literacy-mock.css';
 
 function MockSoundCheck({ onReady, disabled }) {
@@ -36,6 +37,7 @@ function MockSoundCheck({ onReady, disabled }) {
 }
 
 const requestId = () => globalThis.crypto?.randomUUID?.() || `mock-${Date.now()}-${Math.random().toString(36).slice(2)}`;
+const makeMediaPreparation = (key = null) => ({ key, pending: false, failures: 0, missingCounts: new Map(), retryAt: 0 });
 function readPending(key, studentId) { try { return JSON.parse(readAssessmentDraft(key, studentId) || 'null'); } catch { return null; } }
 function containsWithdrawnRequest(request, answeredCount = 0) {
   return Boolean(literacyItemQualityIssue(request?.response || {})
@@ -60,7 +62,9 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
   const [offlineMedia,setOfflineMedia] = useState(null);
   const [deviceReady, setDeviceReady] = useState(false);
   const [, setMediaRevision] = useState(0);
-  const questionPreparation = useRef({key:null, pending:false, failures:0, retryAt:0});
+  const questionPreparation = useRef(makeMediaPreparation());
+  const unavailableDirections = useRef(new Set());
+  const [confirmedMediaFailure, setConfirmedMediaFailure] = useState(null);
   const [deviceError, setDeviceError] = useState('');
   const [preparationNotice, setPreparationNotice] = useState('');
   const [preparationProgress, setPreparationProgress] = useState(0);
@@ -81,7 +85,7 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
   const contentVersion = run?.contentVersion || mock?.content_version || focusSession?.content_version || 'literacy-mock-v1';
   const hasWithdrawnQuestions = Boolean(run?.plan?.itemIds?.slice(run.responses?.length || 0)
     .some(id => literacyItemQualityIssue({ id })));
-  const mixedRuntime = ['literacy-mock-v10','literacy-mock-v11','literacy-mock-v12'].includes(contentVersion) && mock?.plan_kind === 'mixed';
+  const mixedRuntime = ['literacy-mock-v10','literacy-mock-v11','literacy-mock-v12','literacy-mock-v13'].includes(contentVersion) && mock?.plan_kind === 'mixed';
   const reloadBank = useCallback(async () => {
     setBankError('');
     const runtimeKey = `${contentVersion}:${mixedRuntime}`;
@@ -111,7 +115,7 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
     if (result.mock && (!owner.current.mock || result.mock.revision > owner.current.mock.revision
       || (result.mock.revision === owner.current.mock.revision && Date.parse(result.mock.server_now) >= Date.parse(owner.current.mock.server_now)))) {
       owner.current.mock = result.mock; setMock(result.mock);
-      if (device.current.box) { const next = { ...device.current.box, mock:result.mock }; if (writeMockOutbox(next)) { device.current.box = next; setBoxState(next); } }
+      if (device.current.box) { const next = { ...device.current.box, mock:result.mock }; if (writeMockOutbox(next, undefined, device.current.box)) { device.current.box = next; setBoxState(next); } }
       setClockOffset(Date.parse(result.mock.server_now) - Date.now());
     }
     if (result.run && !device.current.box && (!owner.current.run || (result.run.revision >= owner.current.run.revision && (result.run.eventRevision || 0) >= (owner.current.run.eventRevision || 0)))) {
@@ -138,7 +142,7 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
       if (device.current.box && !device.current.box.requests.length && !device.current.box.delivery && result.run) {
         const next = { ...device.current.box, run:result.run, serverRun:result.run, mock:result.mock,
           lastServerContactAt:new Date().toISOString() };
-        if (writeMockOutbox(next)) { device.current.box=next; setBoxState(next); owner.current.run=next.run; setRun(next.run); }
+        if (writeMockOutbox(next, undefined, device.current.box)) { device.current.box=next; setBoxState(next); owner.current.run=next.run; setRun(next.run); }
       }
       void deliveryRef.current?.();
     } catch { if (owner.current.active) { setConnected(false); setLoading(false); } }
@@ -173,6 +177,7 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
     // receives lightweight teacher controls while this transfer is active.
     owner.current.polling?.abort();
     const controller=new AbortController(); let timer; let delivered=false;
+    current.deliveryController = controller;
     try {
       current.box=prepareMockDelivery(current.box,{batchId:requestId(),collectionId:state?.collection_id || null});
       const delivery=current.box.delivery;
@@ -189,7 +194,7 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
       current.failures++; current.retryAt=Date.now()+Math.min(30000,1000*2**Math.min(current.failures,5));
       if (failure.code==='device_storage_failed' && owner.current.active) setDeviceError('This iPad could not save your work. Keep it open and ask your teacher for help.');
       // Uncertain delivery retains the exact batch and all newer answers.
-    } finally { clearTimeout(timer); current.flushing=false; if(delivered && current.box?.requests.length) setTimeout(()=>deliveryRef.current?.(),0); }
+    } finally { clearTimeout(timer); current.flushing=false; current.deliveryController=null; if(delivered && current.box?.requests.length) setTimeout(()=>deliveryRef.current?.(),0); }
   },[client,token,sessionId,projectionFor,accept]);
   useEffect(()=>{deliveryRef.current=flushDevice;},[flushDevice]);
   useEffect(() => {
@@ -209,6 +214,7 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
             new Promise((_,reject)=>{timer=setTimeout(()=>{controller.abort();reject(new Error('lease_timeout'));},10000);})
           ]);
           clearTimeout(timer);
+          if (!owner.current.active || controller.signal.aborted) return;
           if (!lease?.ok || lease.run?.studentId!==studentId || lease.run?.assignmentId!==sessionId || !lease.run.offlineLeaseId) throw new Error('lease_unconfirmed');
           box=createMockOutbox({studentId,sessionId,run:lease.run,mock:lease.mock,mediaItemIds:ids,
             focusSession:{...focusSession,expires_at:lease.run.offlineLeaseExpiresAt}});
@@ -220,9 +226,8 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
         await warmMockOfflineExecutable({contentVersion,mixed:mixedRuntime,signal:controller.signal,onProgress:state=>progress(Math.round(20*state.completed/state.total))});
         const mediaIds=new Set([...ids,...Object.values(literacyMockTutorialIdsForVersion(contentVersion))]);
         const mediaItems=bank.filter(item=>mediaIds.has(item.id));
-        media=await createMockOfflineMedia(mockOfflineMediaPaths(mediaItems,[MOCK_RUNTIME_INSTRUCTION_AUDIO.readPassage,MOCK_RUNTIME_INSTRUCTION_AUDIO.circle]),{signal:controller.signal,contentVersion});
-        const first=bank.find(item=>item.id===current.box.run.plan.itemIds[current.box.run.responses.length]);
-        if (first) await media.ensure(mockOfflineMediaPaths([first],[MOCK_RUNTIME_INSTRUCTION_AUDIO.readPassage]),{priority:2});
+        const extraInstructions = mediaItems.map(literacyMockReadingInstructionPath).filter(Boolean);
+        media=await createMockOfflineMedia(mockOfflineMediaPaths(mediaItems,extraInstructions),{signal:controller.signal,contentVersion});
         if (!owner.current.active || controller.signal.aborted) { media.dispose(); return; }
         current.media=media; current.preparationFailures=0; current.preparationRetryAt=0; setPreparationNotice(''); setOfflineMedia(media); setBoxState(current.box); owner.current.run=current.box.run; setRun(current.box.run); setReady(true); setLoading(false); setDeviceReady(true);
       } catch (failure) {
@@ -244,14 +249,22 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
     window.addEventListener('online',wake);
     return ()=>{clearInterval(timer);window.removeEventListener('online',wake);};
   },[]);
-  useEffect(()=>()=>{device.current.preparationController?.abort();device.current.media?.dispose();},[]);
+  useEffect(()=>()=>{device.current.preparationController?.abort();device.current.deliveryController?.abort();device.current.media?.dispose();},[]);
 
-  async function mutate(mutation) {
+  async function mutate(mutation, { additionalMediaItemIds = [] } = {}) {
     if (!owner.current.active || owner.current.writing) return;
     if (mutation && device.current.box && device.current.media) {
       try {
+        if (additionalMediaItemIds.length) {
+          const extra = new Set(additionalMediaItemIds);
+          const items = owner.current.bank.filter(candidate => extra.has(candidate.id));
+          if (!device.current.media.admit(mockOfflineMediaPaths(items, items.map(literacyMockReadingInstructionPath).filter(Boolean)))) {
+            setDeviceError('No replacement question fits this iPad. Your saved answers are safe. Ask your teacher for help.');
+            return;
+          }
+        }
         const item = owner.current.bank?.find(value => value.id === (mutation.questionId || mutation.response?.questionId));
-        const next = appendMockOutbox(device.current.box, mutation, { item,
+        const next = appendMockOutbox(device.current.box, mutation, { item, additionalMediaItemIds,
           isCorrect:mutation.response?.responseStatus === 'answered' ? scoreLiteracyMockResponse(item,mutation.response.selected) : undefined });
         device.current.box=next; setBoxState(next); owner.current.run=next.run; setRun(next.run); setError('');
         void deliveryRef.current?.();
@@ -326,6 +339,7 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
   async function submit(response) {
     const latest = owner.current.run;
     if (!latest || owner.current.pending || (!connected && !deviceReady) || literacyItemQualityIssue(response)) return;
+    if (response.responseStatus === 'media_failed' && latest.mediaFailures?.some(row => row.questionId === response.questionId)) return;
     await mutate({ requestId: requestId(), expectedRevision: latest.revision, plan: null, response });
   }
   function recordEvent(question, event) {
@@ -337,8 +351,9 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
   const availableBank=useMemo(()=>{if(!bank || !mediaItemIds)return bank;const ids=new Set(mediaItemIds);return bank.filter(candidate=>ids.has(candidate.id));},[bank,mediaItemIds]);
   // Repair withdrawn content and unavailable media before adapting. Neither changes a saved
   // answer or advances the child; the server must accept the plan before display.
-  const {adaptivePlan,mediaUnavailable,contentUnavailable,capacityUnavailable}=useMemo(()=>{
+  const {adaptivePlan,additionalMediaItemIds,mediaUnavailable,contentUnavailable,capacityUnavailable}=useMemo(()=>{
     let adaptivePlan = null;
+    let additionalMediaItemIds = [];
     let mediaUnavailable = false;
     let contentUnavailable = false;
     let capacityUnavailable = false;
@@ -351,22 +366,29 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
         : replaceInvalidLiteracyMockContent(repairBank, run.plan, run.responses, run.mediaFailures || [], run.presentations || [], { exposures });
       contentUnavailable = contentReplacement.unavailable;
       if (!contentUnavailable) {
-        const replacement = replaceFailedLiteracyMockMedia(repairBank, contentReplacement.plan, run.responses, run.mediaFailures || [], run.presentations || [], { exposures });
+        let replacement = replaceFailedLiteracyMockMedia(repairBank, contentReplacement.plan, run.responses, run.mediaFailures || [], run.presentations || [], { exposures });
+        if (replacement.unavailable && connected && deviceReady && globalThis.navigator?.onLine !== false && mediaItemIds && mock.plan_kind === 'mixed') {
+          replacement = replaceFailedLiteracyMockMedia(bank, contentReplacement.plan, run.responses, run.mediaFailures || [], run.presentations || [], { exposures });
+          if (!replacement.unavailable) {
+            const reserved = new Set(mediaItemIds);
+            additionalMediaItemIds = replacement.plan.itemIds.filter(id => !reserved.has(id));
+          }
+        }
         mediaUnavailable = replacement.unavailable;
         // Persist a same-level content/media repair before evaluating later
         // assistance. Neither kind of invalid evidence changes task demand.
         const repairNeeded = !sameLiteracyMockPlan(replacement.plan, run.plan);
-        if (!mediaUnavailable) adaptivePlan = mock.plan_kind === 'fresh_check' || repairNeeded ? replacement.plan : adaptLiteracyMockPlan(repairBank, run.plan, run.responses, run.mediaFailures || [], run.presentations || [], { resetUnsupported: run.presentationTracking === true, exposures, itemCount: mock.item_count });
+        if (!mediaUnavailable) adaptivePlan = mock.plan_kind === 'fresh_check' || repairNeeded ? replacement.plan : adaptLiteracyMockPlan(repairBank, run.plan, run.responses, run.mediaFailures || [], run.presentations || [], { resetUnsupported: run.presentationTracking === true, exposures, itemCount: mock.item_count, sessionId });
       }
     } catch (failure) { if (hasWithdrawnQuestions) contentUnavailable = true; else if (failure.code === 'mock_fresh_capacity') capacityUnavailable = true; else mediaUnavailable = true; }
     }
-    return {adaptivePlan,mediaUnavailable,contentUnavailable,capacityUnavailable};
-  },[bank,availableBank,run,mock,hasWithdrawnQuestions,serverExposures,studentId]);
+    return {adaptivePlan,additionalMediaItemIds,mediaUnavailable,contentUnavailable,capacityUnavailable};
+  },[bank,availableBank,run,mock,hasWithdrawnQuestions,serverExposures,studentId,sessionId,connected,deviceReady,mediaItemIds]);
   const adaptationNeeded = Boolean(adaptivePlan && !sameLiteracyMockPlan(adaptivePlan, run.plan));
   useEffect(() => {
     if (!adaptationNeeded || (!connected && !deviceReady) || (mock?.capabilities?.offlineDelivery && !deviceReady) || pending || busy || error || adaptRef.current === run.revision) return;
     adaptRef.current = run.revision;
-    void mutate({ requestId: requestId(), expectedRevision: run.revision, plan: adaptivePlan, response: null });
+    void mutate({ requestId: requestId(), expectedRevision: run.revision, plan: adaptivePlan, response: null }, { additionalMediaItemIds });
   });
   const clockFinished = mock?.state === 'running' && Date.parse(mock.deadline_at) <= now + clockOffset;
   const finished = mock?.state === 'completed' || run?.status === 'completed';
@@ -377,28 +399,50 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
   const reminder = reminderId && allTutorials.find(value => value.id === reminderId);
   const tutorial = reminder || (soundChecked && !run && !ready ? tutorials[tutorialIndex] : null);
   const mediaTarget = tutorial || item;
-  const currentMediaPaths = useMemo(() => mediaTarget
-    ? mockOfflineMediaPaths([mediaTarget], [MOCK_RUNTIME_INSTRUCTION_AUDIO.readPassage]) : [], [mediaTarget]);
+  const currentMediaPaths = useMemo(() => mediaTarget ? mockOfflineMediaPaths([mediaTarget]) : [], [mediaTarget]);
+  const skippedMediaPaths = useMemo(() => new Set((run?.mediaFailures || [])
+    .flatMap(failure => (failure.failedMediaPaths || []).map(path => path.split('#')[0]))), [run?.mediaFailures]);
+  const readingInstruction = mediaTarget && literacyMockReadingInstructionPath(mediaTarget);
+  const includeLayoutInstruction = !mock?.capabilities?.offlineDelivery || !readingInstruction || Boolean(offlineMedia?.has([readingInstruction]));
   const currentMediaReady = !mock?.capabilities?.offlineDelivery || Boolean(offlineMedia?.has(currentMediaPaths));
+  const missingCurrentPath = !currentMediaReady && mediaTarget?.id === confirmedMediaFailure?.key ? confirmedMediaFailure?.path : null;
   useEffect(() => {
     if (!offlineMedia || !mediaTarget || adaptationNeeded || finished) return;
-    const key=mediaTarget.id, preparation=questionPreparation.current;
-    if (preparation.key!==key) Object.assign(preparation,{key,pending:false,failures:0,retryAt:0});
-    if (!offlineMedia.has(currentMediaPaths)) {
-      if (preparation.pending || Date.now()<preparation.retryAt) return;
+    const key=mediaTarget.id;
+    if (questionPreparation.current.key !== key) questionPreparation.current = makeMediaPreparation(key);
+    const preparation = questionPreparation.current;
+    if (!missingCurrentPath && !offlineMedia.has(currentMediaPaths) && !preparation.pending && Date.now() >= preparation.retryAt) {
       preparation.pending=true;
       void offlineMedia.ensure(currentMediaPaths,{priority:2}).then(()=>{
-        if (owner.current.active) setMediaRevision(value=>value+1);
-        if (preparation.key===key) { preparation.failures=0; preparation.retryAt=0; }
-      }).catch(()=>{
-        if (preparation.key===key) { preparation.failures++; preparation.retryAt=Date.now()+Math.min(30000,1000*2**Math.min(preparation.failures,5)); }
-      }).finally(()=>{if(preparation.key===key)preparation.pending=false;});
+        if (owner.current.active && questionPreparation.current === preparation) {
+          Object.assign(preparation, makeMediaPreparation(key));
+          setMediaRevision(value=>value+1);
+        }
+      }).catch(failure=>{
+        if (!owner.current.active || questionPreparation.current !== preparation) return;
+        preparation.failures++;
+        preparation.retryAt=Date.now()+Math.min(30000,1000*2**Math.min(preparation.failures,5));
+        const missing = failure.missingPath;
+        if (currentMediaPaths.includes(missing) && !offlineMedia.has([missing])) {
+          const count = (preparation.missingCounts.get(missing) || 0) + 1;
+          preparation.missingCounts.set(missing, count);
+          if (count >= 2) setConfirmedMediaFailure({ key, path: missing });
+        }
+      }).finally(()=>{preparation.pending=false;});
     }
     // Keep the next planned questions ahead of unused alternatives. Selection
     // still uses the complete authorized bank, regardless of what is cached.
-    const nextIds=new Set(run.plan.itemIds.slice(itemIndex,itemIndex+4));
-    void offlineMedia.ensure(mockOfflineMediaPaths(bank.filter(value=>nextIds.has(value.id))),{priority:1}).catch(()=>{});
-  },[offlineMedia,mediaTarget,currentMediaPaths,adaptationNeeded,finished,run,itemIndex,bank,now]);
+    if (readingInstruction && !unavailableDirections.current.has(readingInstruction) && !offlineMedia.has([readingInstruction])) {
+      void offlineMedia.ensure([readingInstruction],{priority:1}).catch(failure=>{
+        if (failure.missingPath === readingInstruction) unavailableDirections.current.add(readingInstruction);
+      });
+    }
+    const nextIds=new Set(run.plan.itemIds.slice(itemIndex+1,itemIndex+4));
+    const nextItems=bank.filter(value=>nextIds.has(value.id));
+    const extras=nextItems.map(literacyMockReadingInstructionPath).filter(Boolean);
+    const upcomingPaths=mockOfflineMediaPaths(nextItems,extras).filter(path=>!skippedMediaPaths.has(path) && !unavailableDirections.current.has(path));
+    void offlineMedia.ensure(upcomingPaths,{priority:1}).catch(()=>{});
+  },[offlineMedia,mediaTarget,currentMediaPaths,adaptationNeeded,finished,run,itemIndex,bank,now,missingCurrentPath,readingInstruction,skippedMediaPaths]);
   useEffect(() => {
     if (!offlineMedia) return;
     if (finished) { offlineMedia.dispose(); return; }
@@ -407,13 +451,14 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
       if (pending || Date.now()<retryAt) return;
       pending=true;
       // A cache miss only waits for its bytes; it cannot alter the route.
-      void offlineMedia.ensure(mockOfflineMediaPaths(availableBank),{priority:0})
+      const paths = mockOfflineMediaPaths(availableBank, availableBank.map(literacyMockReadingInstructionPath).filter(Boolean));
+      void offlineMedia.ensure(paths.filter(path=>!skippedMediaPaths.has(path) && !unavailableDirections.current.has(path)),{priority:0})
         .catch(()=>{retryAt=Date.now()+30000;}).finally(()=>{pending=false;});
     };
     warm(); const interval=setInterval(warm,30000);
     window.addEventListener('online',warm);
     return ()=>{clearInterval(interval);window.removeEventListener('online',warm);};
-  },[offlineMedia,availableBank,finished]);
+  },[offlineMedia,availableBank,finished,skippedMediaPaths]);
   async function finishTutorial(response) {
     if (response.responseStatus !== 'answered') { setTutorialMessage('Ask your teacher to check the sound and pictures, then try again.'); return; }
     if (!scoreLiteracyMockResponse(tutorial, response.selected)) { setTutorialMessage('Look at the example above, then try the buttons again.'); return; }
@@ -425,6 +470,18 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
     else setTutorialIndex(value => value + 1);
   }
   const stopped = mock?.state !== 'running' || finished || clockFinished || (!connected && !deviceReady) || Boolean(mock?.collection_id) || (deviceReady && Date.parse(boxState?.serverRun.offlineLeaseExpiresAt) <= now + clockOffset) || (mock?.capabilities?.offlineDelivery && !deviceReady);
+  const skipUnavailableMedia = missingCurrentPath && !tutorial && mock?.capabilities?.preRenderMediaFailure;
+  function retryCurrentMedia() {
+    questionPreparation.current = makeMediaPreparation(mediaTarget?.id);
+    setConfirmedMediaFailure(null);
+    setNow(Date.now());
+  }
+  function replaceUnavailableQuestion() {
+    if (!skipUnavailableMedia || stopped || busy || error || run.helpRequests?.some(row => row.questionId === item.id && row.status === 'pending')) return;
+    const failedMediaPaths = [...item.requiredAudioPaths,...item.requiredImagePaths].filter(path => path.split('#')[0] === missingCurrentPath);
+    if (!failedMediaPaths.length) return;
+    void submit({ questionId:item.id, selected:null, responseStatus:'media_failed', audioDelivery:{}, supportUsed:false, failedMediaPaths });
+  }
   const withdrawnPendingRequest = containsWithdrawnRequest(pending, itemIndex);
   const contentReviewBlocked = hasWithdrawnQuestions && (contentUnavailable || mediaUnavailable || Boolean(error) || !adaptationNeeded)
     || withdrawnPendingRequest && !busy && !mock?.capabilities?.contentQuarantineRepair;
@@ -450,18 +507,74 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
   else if (capacityUnavailable) stateContent = <><h2>Ask your teacher.</h2><p role="alert" data-child-instruction>A new question at the right difficulty is not available. Your saved answers are safe.</p><p data-child-progress>{itemIndex} questions finished</p></>;
   else if (mediaUnavailable) stateContent = <><h2>Ask your teacher.</h2><p role="alert" data-child-instruction>The pictures or sounds for these questions are not available. Your saved answers are safe.</p><p data-child-progress>{itemIndex} questions finished</p></>;
   else if (adaptationNeeded) stateContent = <p role="status">Getting the next question…</p>;
+  else if (skipUnavailableMedia) stateContent = <>
+    <p role="status" data-child-instruction>A picture or recording did not load. This question will not count.</p>
+    <button type="button" className="literacy-mock-next" data-child-primary onClick={replaceUnavailableQuestion} disabled={busy || Boolean(error) || run.helpRequests?.some(row=>row.questionId===item.id && row.status==='pending')}>Go to another question</button>
+    <button type="button" onClick={retryCurrentMedia}>Try to load it again</button>
+    <p data-child-progress>{itemIndex} questions finished</p>
+  </>;
+  else if (missingCurrentPath) stateContent = <><h2>Ask your teacher.</h2><p role="status" data-child-instruction>The pictures or sounds are not ready. Your saved answers are safe.</p><button type="button" className="literacy-mock-next" data-child-primary onClick={retryCurrentMedia}>Try again</button></>;
+  else if (!currentMediaReady && questionPreparation.current.key === mediaTarget?.id && questionPreparation.current.failures >= 3) stateContent = <><p role="status" data-child-instruction>The pictures or sounds are not ready yet. Your work is safe. Keep this iPad open and ask your teacher.</p><button type="button" className="literacy-mock-next" data-child-primary onClick={retryCurrentMedia}>Try again</button></>;
   else if (!currentMediaReady) stateContent = <><p role="status" data-child-instruction>Getting the next picture and sound…</p><p data-child-progress>Your answers are safe on this iPad.</p></>;
   else if (!item) stateContent = <p role="alert">This question needs an update. Ask your teacher to reload.</p>;
   return <main className="literacy-mock" data-child-surface="literacy-mock" aria-busy={loading || busy}>
     <div className="literacy-mock-canvas">
       <header className="literacy-mock-header"><h1 data-child-title>Adaptive Literacy Test</h1><span>Reading &amp; language</span></header>
       {error && !contentReviewBlocked && <div className="literacy-mock-error" role="alert">{error}{!pending && <button type="button" onClick={retryRejected}>Try again</button>}</div>}
-      {stateContent ? <div className="literacy-mock-state">{stateContent}</div> : tutorial ? <LiteracyMockQuestion key={tutorial.id} item={tutorial} seed={`warmup:${sessionId}:${studentId}`} index={Math.max(0, tutorials.indexOf(tutorial))} total={reminder ? null : tutorials.length} studentName={studentName} studentId={studentId} resolveMedia={offlineMedia?.resolve} disabled={busy} demonstration demonstrationMessage={tutorialMessage} onSubmit={finishTutorial}/>
-        : <LiteracyMockQuestion key={item.id} item={item} seed={run.plan.seed} index={itemIndex} total={run.plan.itemIds.length} studentName={studentName} studentId={studentId} resolveMedia={offlineMedia?.resolve} disabled={stopped || busy || Boolean(error)} exposure={run.presentations?.find(value => value.questionId === item.id) || getLiteracyExposure(item, buildLiteracyExposureIndex({ exposures: [...serverExposures, ...readLiteracyExposures(studentId)] }))} onPresented={() => { recordEvent(item, 'presented'); recordLiteracyExposures(studentId, [item]); }} onHelpRequest={mock?.capabilities?.supportResolution ? event => recordEvent(item, event) : undefined} helpRequest={run.helpRequests?.find(value => value.questionId === item.id)} helpPending={busy} blockPendingHelp={Boolean(mock?.capabilities?.offlineDelivery)} legacyHelpEnabled={!LITERACY_MOCK_EVIDENCE_VERSIONS.includes(contentVersion)} onMechanicReminder={allTutorials.some(value => value.format === item.format) ? () => { setTutorialMessage(''); setReminderId(allTutorials.find(value => value.format === item.format).id); } : undefined} onSubmit={submit}/>}
+      {stateContent ? <div className="literacy-mock-state">{stateContent}</div> : tutorial ? <LiteracyMockQuestion key={tutorial.id} item={tutorial} seed={`warmup:${sessionId}:${studentId}`} index={Math.max(0, tutorials.indexOf(tutorial))} total={reminder ? null : tutorials.length} studentName={studentName} studentId={studentId} resolveMedia={offlineMedia?.resolve} includeLayoutInstruction={includeLayoutInstruction} disabled={busy} demonstration demonstrationMessage={tutorialMessage} onSubmit={finishTutorial}/>
+        : <LiteracyMockQuestion key={item.id} item={item} seed={run.plan.seed} index={itemIndex} total={run.plan.itemIds.length} studentName={studentName} studentId={studentId} resolveMedia={offlineMedia?.resolve} includeLayoutInstruction={includeLayoutInstruction} disabled={stopped || busy || Boolean(error)} exposure={run.presentations?.find(value => value.questionId === item.id) || getLiteracyExposure(item, buildLiteracyExposureIndex({ exposures: [...serverExposures, ...readLiteracyExposures(studentId)] }))} onPresented={() => { recordEvent(item, 'presented'); recordLiteracyExposures(studentId, [item]); }} onHelpRequest={mock?.capabilities?.supportResolution ? event => recordEvent(item, event) : undefined} helpRequest={run.helpRequests?.find(value => value.questionId === item.id)} helpPending={busy} blockPendingHelp={Boolean(mock?.capabilities?.offlineDelivery)} legacyHelpEnabled={!LITERACY_MOCK_EVIDENCE_VERSIONS.includes(contentVersion)} onMechanicReminder={allTutorials.some(value => value.format === item.format) ? () => { setTutorialMessage(''); setReminderId(allTutorials.find(value => value.format === item.format).id); } : undefined} onSubmit={submit}/>}
+    </div>
+  </main>;
+}
+
+function LiteracyMockTab(props) {
+  const { studentId, focusSession } = props;
+  const sessionId = focusSession?.id;
+  const [status, setStatus] = useState(() => globalThis.navigator?.locks?.request ? 'opening' : 'unavailable');
+  const [attempt, setAttempt] = useState(0);
+  useEffect(() => {
+    const locks = globalThis.navigator?.locks;
+    if (!locks?.request) return;
+    const controller = new AbortController();
+    let active = true, release;
+    // Give a previous mount time to release its lock before showing standby.
+    // A live tab keeps ownership, and the waiting request never steals it.
+    const timer = setTimeout(() => {
+      controller.abort();
+      if (active) setStatus('standby');
+    }, 500);
+    void locks.request(mockOutboxKey(studentId, sessionId), { signal: controller.signal }, () => {
+      clearTimeout(timer);
+      if (!active || controller.signal.aborted) return;
+      setStatus('writer');
+      return new Promise(resolve => { release = resolve; });
+    }).catch(() => {
+      clearTimeout(timer);
+      if (active && !controller.signal.aborted) setStatus('unavailable');
+    });
+    return () => {
+      active = false;
+      clearTimeout(timer);
+      controller.abort();
+      release?.();
+    };
+  }, [studentId, sessionId, attempt]);
+
+  if (status === 'writer') return <OwnedLiteracyMockPage {...props}/>;
+  return <main className="literacy-mock" data-child-surface="literacy-mock">
+    <div className="literacy-mock-canvas">
+      <header className="literacy-mock-header"><h1 data-child-title>Adaptive Literacy Test</h1></header>
+      <div className="literacy-mock-state">
+        {status === 'opening' ? <p role="status">Opening your test…</p> : status === 'standby' ? <>
+          <h2>Your test is open in another tab.</h2>
+          <p data-child-instruction>Close the other test tab, then tap Continue here. Your saved answers will come with you.</p>
+          <button type="button" className="literacy-mock-next" data-child-primary onClick={() => { setStatus('opening'); setAttempt(value => value + 1); }}>Continue here</button>
+        </> : <><h2>Ask your teacher.</h2><p role="alert" data-child-instruction>This browser cannot safely open the test. Keep this tab open and ask your teacher for help.</p></>}
+      </div>
     </div>
   </main>;
 }
 
 export function LiteracyMockPage(props) {
-  return <OwnedLiteracyMockPage key={`${props.studentId}:${props.token}:${props.focusSession?.id}`} {...props}/>;
+  return <LiteracyMockTab key={`${props.studentId}:${props.token}:${props.focusSession?.id}`} {...props}/>;
 }

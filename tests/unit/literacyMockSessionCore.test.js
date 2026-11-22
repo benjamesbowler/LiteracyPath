@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { controlLiteracyMockSession, prepareLiteracyMockSession, getStudentLiteracyMockRun, saveStudentLiteracyMockRun,
   listLiteracyMockSessions, getLiteracyMockReport, recordLiteracyMockEvent, resolveLiteracyMockSupport, prepareLiteracyMockFreshCheck, prepareLiteracyMockEntryCheck, getLiteracyMockFreshCapacity,
-  requireLiteracyMockSuccess, literacyMockMutationReceiptContext, verifyLiteracyMockMutationReceipt } from "../../src/data/literacyMockSessionCore.js";
+  getLiteracyMockV13Availability, requireLiteracyMockSuccess, literacyMockMutationReceiptContext, verifyLiteracyMockMutationReceipt } from "../../src/data/literacyMockSessionCore.js";
 import { BOUNDARY_RPCS, validateSupabaseResponse } from "../../src/data/boundaries/client.js";
 
 test("mock boundary sends only assignment token and immutable mutation inputs", async () => {
@@ -26,6 +26,18 @@ test("offline and transport failures stay failures", async () => {
   await assert.rejects(getStudentLiteracyMockRun({ token: "opaque", sessionId: "session" }), /offline/);
   const error = new Error("save unavailable");
   await assert.rejects(saveStudentLiteracyMockRun({ client: { call: async () => ({ data: null, error }) } }), error);
+});
+
+test("V13 availability keeps missing backend support distinct from a failed lookup", async () => {
+  const call = async (name, args) => {
+    assert.equal(name, "teacher_literacy_mock_v13_available");
+    assert.deepEqual(args, {});
+    return { data: true, error: null };
+  };
+  assert.equal(await getLiteracyMockV13Availability({ client: { call } }), true);
+  const rejected = code => ({ call: async () => ({ data: null, error: Object.assign(new Error(code), { code }) }) });
+  assert.equal(await getLiteracyMockV13Availability({ client: rejected("PGRST202") }), false);
+  await assert.rejects(getLiteracyMockV13Availability({ client: rejected("transport") }), /transport/);
 });
 
 test("mock clock and run envelopes reject malformed server content", () => {
@@ -109,11 +121,13 @@ test('preparation retries retain their original version without sending client v
   await prepareLiteracyMockSession({ ...payload, contentVersion: 'literacy-mock-v8' });
   await prepareLiteracyMockSession({ ...payload, contentVersion: 'literacy-mock-v10' });
   await prepareLiteracyMockSession({ ...payload, contentVersion: 'literacy-mock-v11' });
-  assert.deepEqual(calls.map(call => call.name), ['teacher_prepare_literacy_mock_session_v3', 'teacher_prepare_literacy_mock_session_v4', 'teacher_prepare_literacy_mock_session_v12', 'teacher_prepare_literacy_mock_session_v8', 'teacher_prepare_literacy_mock_session_v10', 'teacher_prepare_literacy_mock_session_v11']);
+  await prepareLiteracyMockSession({ ...payload, contentVersion: 'literacy-mock-v13' });
+  assert.deepEqual(calls.map(call => call.name), ['teacher_prepare_literacy_mock_session_v3', 'teacher_prepare_literacy_mock_session_v4', 'teacher_prepare_literacy_mock_session_v12', 'teacher_prepare_literacy_mock_session_v8', 'teacher_prepare_literacy_mock_session_v10', 'teacher_prepare_literacy_mock_session_v11', 'teacher_prepare_literacy_mock_session_v13']);
   assert.deepEqual(calls[0].args, calls[1].args);
   assert.equal(calls[2].args.p_item_count, 124);
   assert.equal(calls[4].args.p_item_count, 67);
   assert.equal(calls[5].args.p_item_count, 124);
+  assert.equal(calls[6].args.p_item_count, 25);
   assert.equal(calls[3].args.p_item_count, 43);
   assert.ok(calls.every(call => !Object.hasOwn(call.args, 'contentVersion') && !Object.hasOwn(call.args, 'legacyPending')));
   assert.throws(() => prepareLiteracyMockSession({ ...payload, contentVersion: 'unknown' }), /Unsupported/);

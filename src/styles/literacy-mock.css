@@ -83,14 +83,14 @@
 .literacy-mock-passage-parts button { min-height:44px; padding:8px 10px; border:1px solid #377697; border-radius:8px; background:white; color:#244961; }
 @media (min-width:701px) and (min-height:560px) {
   .literacy-mock-question { padding:16px 24px 8px; }
-  .literacy-mock-question.has-passage { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); grid-template-rows:auto minmax(0,1fr) auto; gap:12px 24px; overflow:hidden; }
+  .literacy-mock-question.has-passage { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); grid-template-rows:auto minmax(0,1fr) auto; gap:12px 24px; }
   .has-passage > .literacy-mock-reading-text { grid-column:1; grid-row:1/3; }
   .has-passage > .literacy-mock-stem { grid-column:2; grid-row:1; margin:0; gap:12px; }
   .has-passage > .literacy-mock-responses { grid-column:2; grid-row:2; min-height:0; }
   .has-passage > .literacy-mock-access { grid-column:1/-1; grid-row:3; min-height:0; margin:0; }
   .literacy-mock .has-passage .literacy-mock-choice-bank { gap:12px; }
   .literacy-mock .has-passage .literacy-mock-choice { padding:12px; font-size:22px; min-height:76px; }
-  .literacy-mock-question.is-demonstration { display:grid; grid-template-columns:190px minmax(0,1fr); grid-template-rows:auto minmax(0,1fr) auto; gap:12px 20px; overflow:hidden; }
+  .literacy-mock-question.is-demonstration { display:grid; grid-template-columns:190px minmax(0,1fr); grid-template-rows:auto minmax(0,1fr) auto; gap:12px 20px; }
   .is-demonstration > .literacy-mock-demonstration { grid-column:1; grid-row:1/3; margin:0; padding:12px; }
   .is-demonstration > .literacy-mock-stem { grid-column:2; grid-row:1; margin:0; }
   .is-demonstration > .literacy-mock-responses { grid-column:2; grid-row:2; min-height:0; }
@@ -112,11 +112,12 @@
   .has-passage .literacy-mock-stem p { font-size:23px; }
 }
 @media (min-width:701px) and (min-height:560px) {
-  .literacy-mock-question:not(.has-passage):not(.is-demonstration):not(.has-stimulus) { display:grid; grid-template-columns:1fr; grid-template-rows:auto minmax(0,1fr) auto; gap:12px; overflow:hidden; }
+  .literacy-mock-question:not(.has-passage):not(.is-demonstration):not(.has-stimulus) { display:grid; grid-template-columns:1fr; grid-template-rows:auto minmax(0,1fr) auto; gap:12px; }
   .literacy-mock-question > .literacy-mock-stem { margin-bottom:0; }
-  .literacy-mock-question > .literacy-mock-responses { display:flex; flex-direction:column; min-height:0; }
+  .literacy-mock-question > .literacy-mock-responses { display:flex; flex-direction:column; min-height:0; overflow:auto; padding:6px; scroll-padding:6px; }
+  .literacy-mock-responses > * { flex-shrink:0; }
   .literacy-mock-question > .literacy-mock-access { min-height:28px; margin:0; }
-  .literacy-mock-question.has-stimulus { display:grid; grid-template-columns:minmax(180px,1fr) minmax(0,2fr); grid-template-rows:auto minmax(0,1fr) auto; gap:12px 24px; overflow:hidden; }
+  .literacy-mock-question.has-stimulus { display:grid; grid-template-columns:minmax(180px,1fr) minmax(0,2fr); grid-template-rows:auto minmax(0,1fr) auto; gap:12px 24px; }
   .has-stimulus > .literacy-mock-stem { grid-column:1/-1; grid-row:1; }
   .has-stimulus > .literacy-mock-stimulus { grid-column:1; grid-row:2; align-self:center; margin:0; }
   .has-stimulus > .literacy-mock-responses { grid-column:2; grid-row:2; }
@@ -124,11 +125,11 @@
   .literacy-mock-responses > .literacy-mock-region-label,
   .literacy-mock-selection-count,
   .literacy-mock-mechanic { flex-shrink:0; margin:0 0 8px; }
-  .literacy-mock .literacy-mock-responses > .literacy-mock-choice-bank { flex:1; min-height:0; width:100%; gap:12px; grid-auto-rows:minmax(0,1fr); }
+  .literacy-mock .literacy-mock-responses > .literacy-mock-choice-bank { flex:1 0 auto; min-height:0; width:100%; gap:12px; grid-auto-rows:minmax(min-content,1fr); }
   .literacy-mock-option { display:grid; grid-template-columns:minmax(0,1fr); min-height:0; gap:8px; align-items:stretch; }
   .literacy-mock .literacy-mock-option:has(> .literacy-mock-choice-audio) { grid-template-columns:minmax(0,1fr) 48px; }
   .literacy-mock .literacy-mock-choice-audio { align-self:center; }
-  .literacy-mock .literacy-mock-choice { min-height:56px; height:100%; padding:10px 12px; font-size:22px!important; line-height:1.35; }
+  .literacy-mock .literacy-mock-choice { min-height:56px; height:auto; padding:10px 12px; font-size:22px!important; line-height:1.35; }
   .literacy-mock .literacy-mock-choice.has-picture { min-height:0; padding:8px; }
   .literacy-mock .literacy-mock-choice img { height:110px; }
   .literacy-mock .literacy-mock-choice .literacy-mock-art { width:110px; height:110px; }
@@ -214,8 +215,9 @@
 .literacy-mock .has-letter-reference .literacy-mock-choice-bank { display:flex; justify-content:space-around; flex-wrap:wrap; flex:0 1 auto; border:1px solid #479aaa; background:#59bbce; border-radius:0; padding:10px; max-width:none; }
 .literacy-mock .format-match .literacy-mock-option,
 .literacy-mock .format-build_word .literacy-mock-option,
-.literacy-mock .format-order .literacy-mock-option,
 .literacy-mock .has-letter-reference .literacy-mock-option { display:flex; flex:1; min-width:64px; }
+.literacy-mock .format-order .literacy-mock-option { display:flex; flex:1 1 min(100%,15rem); min-width:0; }
+.literacy-mock .format-order .literacy-mock-construction .literacy-mock-slot { flex-basis:min(100%,12rem); max-width:none; }
 .literacy-mock .literacy-mock-choice[draggable=true],
 .literacy-mock .has-letter-reference .literacy-mock-choice { cursor:grab; border:1px solid transparent; border-radius:0; padding:8px; min-width:64px; min-height:64px; background:transparent; box-shadow:none; font-size:32px!important; }
 .literacy-mock .has-letter-reference .literacy-mock-choice::before { display:none; }
@@ -233,4 +235,8 @@
   .literacy-mock .literacy-mock-construction { flex-wrap:wrap; gap:10px; }
   .literacy-mock .literacy-mock-construction .literacy-mock-slot { min-width:56px; min-height:60px; }
   .literacy-mock-match-targets { gap:14px 20px; }
+}
+
+@media (min-width:701px) and (min-height:560px) {
+  .literacy-mock .format-order .literacy-mock-option:has(> .literacy-mock-choice-audio) { display:grid; }
 }

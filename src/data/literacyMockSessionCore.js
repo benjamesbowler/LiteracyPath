@@ -1,11 +1,12 @@
 /** Token-scoped mock evidence uses its own RPC store, never practice/mastery. */
 // The server chooses a fully published version; existing sessions keep theirs.
 import { literacyMockBoundaryLimits } from '../policy/literacyMockBoundaryPolicy.js';
-import { LITERACY_MOCK_VERSION, LITERACY_MOCK_VERSIONS } from '../policy/literacyMockVersions.js';
+import { isLiteracyMockBoundaryVersion, LITERACY_MOCK_EVIDENCE_VERSIONS, LITERACY_MOCK_VERSION, LITERACY_MOCK_VERSIONS } from '../policy/literacyMockVersions.js';
+import { literacyMockQuestionLimit } from '../policy/literacyMockQuestionLimit.js';
 export const LITERACY_MOCK_CONTENT_VERSION = LITERACY_MOCK_VERSION;
 export const LITERACY_MOCK_SUPPORTED_VERSIONS = LITERACY_MOCK_VERSIONS;
 
-async function callMockRpc(client, name, args, signal) {
+export async function callMockRpc(client, name, args, signal) {
   if (!client) throw new Error("Mock sessions are unavailable while the service is offline.");
   let request = client.call(name, args);
   if (signal && typeof request?.abortSignal === "function") request = request.abortSignal(signal);
@@ -14,12 +15,22 @@ async function callMockRpc(client, name, args, signal) {
   return data;
 }
 
+export async function getLiteracyMockV13Availability({ client, signal } = {}) {
+  try {
+    return await callMockRpc(client, 'teacher_literacy_mock_v13_available', {}, signal) === true;
+  } catch (error) {
+    if (error.code === 'PGRST202' || error.code === '42883') return false;
+    throw error;
+  }
+}
+
 export function prepareLiteracyMockSession({ client, classId, studentIds = [], wholeClass = false, durationMinutes = 20, itemCount, requestId = null, windowMode = "pause_at_window_end", contentVersion, legacyPending = false }) {
   const version = contentVersion || (legacyPending ? 'literacy-mock-v3' : LITERACY_MOCK_CONTENT_VERSION);
-  if (!['literacy-mock-v3', 'literacy-mock-v4', 'literacy-mock-v5', 'literacy-mock-v6', 'literacy-mock-v7','literacy-mock-v8','literacy-mock-v9','literacy-mock-v10','literacy-mock-v11','literacy-mock-v12'].includes(version)) throw new Error('Unsupported mock preparation version.');
+  if (!LITERACY_MOCK_EVIDENCE_VERSIONS.includes(version)) throw new Error('Unsupported mock preparation version.');
+  const count = itemCount ?? (isLiteracyMockBoundaryVersion(version) ? literacyMockQuestionLimit(version, undefined, literacyMockBoundaryLimits(version).maximum) : 43);
   return callMockRpc(client, `teacher_prepare_literacy_mock_session_${version.replace('literacy-mock-', '')}`, {
     p_class_id: classId, p_student_ids: studentIds, p_whole_class: Boolean(wholeClass),
-    p_duration_minutes: durationMinutes, p_item_count: itemCount ?? (['literacy-mock-v9','literacy-mock-v10','literacy-mock-v11','literacy-mock-v12'].includes(version) ? literacyMockBoundaryLimits(version).maximum : 43), p_request_id: requestId, p_window_mode: windowMode
+    p_duration_minutes: durationMinutes, p_item_count: count, p_request_id: requestId, p_window_mode: windowMode
   });
 }
 

@@ -6,17 +6,16 @@ import { mockResponseValue, mockResponseComplete, mockConstructionLength } from 
 import { LiteracyMockImage } from './LiteracyMockImage.jsx';
 import { readAssessmentDraft, writeAssessmentDraft } from '../../utils/assessmentDraftStorage.js';
 import { AssessmentTextFeature } from '../assessment/AssessmentTextFeature.jsx';
-import { MOCK_RUNTIME_INSTRUCTION_AUDIO } from '../../data/generated/literacyMockRuntimeAudio.generated.js';
 import { LiteracyMockPassage } from './LiteracyMockPassage.jsx';
-import { literacyMockNarrationCues, literacyMockLetterReference, wholeClassMockQuestionPrompt } from '../../utils/literacyMockNarration.js';
+import { literacyMockNarrationCues, literacyMockLetterReference, literacyMockReadingInstructionPath, wholeClassMockQuestionPrompt } from '../../utils/literacyMockNarration.js';
 
-export function LiteracyMockQuestion({ item, seed, index, total, studentName, studentId, disabled = false, onSubmit, demonstration = false, demonstrationMessage = '', exposure = {}, onPresented, onHelpRequest, helpRequest, helpPending = false, onMechanicReminder, legacyHelpEnabled = false, blockPendingHelp = false, resolveMedia, practice = false }) {
+export function LiteracyMockQuestion({ item, seed, index, total, studentName, studentId, disabled = false, onSubmit, demonstration = false, demonstrationMessage = '', exposure = {}, onPresented, onHelpRequest, helpRequest, helpPending = false, onMechanicReminder, legacyHelpEnabled = false, blockPendingHelp = false, resolveMedia, practice = false, includeLayoutInstruction = true }) {
   const choices = useMemo(() => mockChoices(item, seed), [item, seed]);
   const letterReference = literacyMockLetterReference(item);
   const showPassage = Boolean(!letterReference && item.passage && item.displayPassageDuringResponse && item.format !== 'select_text');
-  const readingInstructionPath = !letterReference && item.modality === 'reading' && item.passage && item.displayPassageDuringResponse
-    ? MOCK_RUNTIME_INSTRUCTION_AUDIO.readPassage : null;
-  const audioCues = useMemo(() => literacyMockNarrationCues(item,choices), [item, choices]);
+  const [playLayoutInstruction] = useState(includeLayoutInstruction);
+  const readingInstructionPath = literacyMockReadingInstructionPath(item);
+  const audioCues = useMemo(() => literacyMockNarrationCues(item, choices, { includeLayoutInstruction: playLayoutInstruction }), [item, choices, playLayoutInstruction]);
   const draftKey = `lp-mock-selection:${seed}:${item.id}`;
   const [draft] = useState(() => {
     try {
@@ -43,10 +42,8 @@ export function LiteracyMockQuestion({ item, seed, index, total, studentName, st
     try { writeAssessmentDraft(draftKey, JSON.stringify({ selection, knownFamiliar, supportUsed: legacySupportUsed }), studentId); } catch { /* The answer is not committed until Next. */ }
   }, [draftKey, selection, knownFamiliar, legacySupportUsed, studentId, practice]);
   const constructionLength = useMemo(() => mockConstructionLength(item), [item]);
-  const instructionFailed = readingInstructionPath !== null && audio.delivery[readingInstructionPath] === 'failed';
   const mediaFailed = item.requiredAudioPaths.some(path => audio.delivery[path] === 'failed') || Object.values(images).includes('failed');
-  const ready = (item.requiredAudioPaths.every(path => audio.delivery[path] === 'completed')
-    && (readingInstructionPath === null || audio.delivery[readingInstructionPath] === 'completed'))
+  const ready = item.requiredAudioPaths.every(path => audio.delivery[path] === 'completed')
     && item.requiredImagePaths.every(path => images[path] === 'completed');
   const picture = (src, alt, role = 'choice') => <LiteracyMockImage src={src} mediaSource={resolveMedia?.(src)} alt={alt || ''} role={role} onLoad={() => setImages(value => ({ ...value, [src]: 'completed' }))} onError={() => setImages(value => ({ ...value, [src]: 'failed' }))}/>;
   function choose(id) {
@@ -155,7 +152,6 @@ export function LiteracyMockQuestion({ item, seed, index, total, studentName, st
       </div>
       <div className="literacy-mock-access" aria-live="polite">
         {audio.blocked && <p role="status">Tap the speaker to listen.</p>}
-        {instructionFailed && <p>The direction did not load. Tap the speaker to try the direction again.</p>}
         {mediaFailed ? <><p>{practice ? 'A picture or recording did not load. Try again or choose another question.' : 'A picture or recording did not load. This question will not count.'}</p>{item.requiredAudioPaths.some(path=>audio.delivery[path]==='failed') && <button type="button" disabled={disabled || audio.speaking} onClick={()=>audio.play()}>Try sound again</button>}<button type="button" disabled={disabled || blockPendingHelp && helpRequest?.status === 'pending'} onClick={() => submit('media_failed')}>Go to another question</button></> : !ready && !audio.blocked ? <p>{audio.speaking ? 'Listen…' : practice ? 'Listen to the whole question before checking.' : 'Listen to the whole question before Next.'}</p> : null}
         {helpRequest?.status === 'pending' && <p>{helpRequest.localOnly ? 'Ask your teacher for help.' : 'Your teacher has been asked to help.'} <button type="button" disabled={disabled || helpPending} onClick={() => onHelpRequest?.('help_cancelled')}>Cancel request</button></p>}
         {helpRequest?.assistanceType === 'access' && <p>Your teacher helped with the controls.</p>}

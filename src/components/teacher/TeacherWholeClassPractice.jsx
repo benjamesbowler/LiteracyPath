@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { LITERACY_MOCK_SHORT_ITEM_COUNTS } from '../../policy/literacyMockQuestionLimit.js';
+import { LITERACY_MOCK_VERSION } from '../../policy/literacyMockVersions.js';
 import { TeacherPageHeader, TeacherPageShell } from './ui/TeacherPrimitives.jsx';
 import { teacherCycleOptions } from './teacherCycleReference.js';
 import { elSkillsBlockCycles } from '../../data/elSkillsBlockCycles.js';
@@ -8,6 +9,7 @@ import { CycleActivityRenderer } from '../cycle-practice/CycleActivityRenderer.j
 import { resolveCyclePracticeAudio } from '../cycle-practice/cyclePracticeAudio.js';
 import { playCueAudio, playCueSequence, stopCueAudio } from '../../utils/audio/cuePlayer.js';
 import { loadLiteracyMockRuntimeBank, scoreLiteracyMockResponse } from '../../data/literacyMockRuntimeBank.js';
+import { getLiteracyMockV13Availability } from '../../data/literacyMockSessionCore.js';
 import { LiteracyMockQuestion } from '../progress/LiteracyMockQuestion.jsx';
 import { LITERACY_DOMAINS } from '../../policy/literacyPracticePolicy.js';
 import { LITERACY_MOCK_BAND_NAMES } from '../../policy/literacyMockAdaptivePolicy.js';
@@ -100,7 +102,7 @@ function CycleClassQuestion({ round, onFeedback, showAnswer, onHideAnswer }) {
   </div>;
 }
 
-export default function TeacherWholeClassPractice({ kind, initialCycleId, onExit }) {
+export default function TeacherWholeClassPractice({ kind, initialCycleId, client, onExit }) {
   const cycles = kind === 'cycles';
   const [cycleId, setCycleId] = useState(initialCycleId || 'cycle-1');
   const [activity, setActivity] = useState('all');
@@ -118,11 +120,17 @@ export default function TeacherWholeClassPractice({ kind, initialCycleId, onExit
   useEffect(() => {
     if (cycles) return;
     let active = true;
-    loadLiteracyMockRuntimeBank({ mixed: true }).then(rows => {
+    const controller = new AbortController();
+    async function loadBank() {
+      const ready = !client || await getLiteracyMockV13Availability({ client, signal: controller.signal });
+      if (ready) return (await import('../../data/generated/literacyMockClassPractice.generated.js')).LITERACY_MOCK_CLASS_PRACTICE;
+      return loadLiteracyMockRuntimeBank({ contentVersion: LITERACY_MOCK_VERSION, mixed: true });
+    }
+    loadBank().then(rows => {
       if (active) { setBank(rows); setLoad('ready'); }
     }).catch(() => { if (active) setLoad('failed'); });
-    return () => { active = false; };
-  }, [cycles]);
+    return () => { active = false; controller.abort(); };
+  }, [client, cycles]);
   useEffect(() => () => stopCueAudio(), []);
   useEffect(() => {
     const changed = () => setIsFullscreen(document.fullscreenElement === stage.current);
@@ -130,6 +138,7 @@ export default function TeacherWholeClassPractice({ kind, initialCycleId, onExit
     return () => document.removeEventListener('fullscreenchange', changed);
   }, []);
   const bands = useMemo(() => [...new Set(wholeClassMockPool(bank, area, 'all').map(item => item.adaptiveAreaBand))].sort((a,b) => a-b), [bank, area]);
+  const available = !cycles && band !== 'adaptive' ? wholeClassMockPool(bank, area, band).length : null;
   const item = session?.rounds[index];
   const total = session?.adaptive ? session.targetCount : session?.rounds.length;
   function start() {
@@ -172,11 +181,12 @@ export default function TeacherWholeClassPractice({ kind, initialCycleId, onExit
           <label>Practice step<select value={band} disabled={load !== 'ready'} onChange={event => setBand(event.target.value)}>
             <option value="adaptive">Start easy · adapt gradually</option>{bands.map(value => <option key={value} value={value}>{LITERACY_MOCK_BAND_NAMES[value]}</option>)}</select></label>
           {band === 'adaptive' && <p>Each area starts easy. A first-try correct answer moves that area up one step; an incorrect answer moves it down. Mixed practice returns to each area after eight questions.</p>}</>}
-      <label>Questions<select value={count} onChange={event => setCount(event.target.value)}>{(cycles ? [12,24] : LITERACY_MOCK_SHORT_ITEM_COUNTS).map(value => <option key={value} value={value}>{value} questions</option>)}{cycles && <option value="all">All available questions</option>}</select></label>
+      <label>Questions<select value={count} onChange={event => setCount(event.target.value)}>{(cycles ? [12,24] : LITERACY_MOCK_SHORT_ITEM_COUNTS).map(value => <option key={value} value={value}>{cycles ? '' : 'Up to '}{value} questions</option>)}{cycles && <option value="all">All available questions</option>}</select></label>
+      {load === 'ready' && available !== null && <p role="status">{available} available at this step. This round will use {Math.min(available, Number(count))} {Math.min(available, Number(count)) === 1 ? 'question' : 'questions'}.</p>}
       {load === 'loading' && <p role="status">Loading practice questions…</p>}
       {load === 'failed' && <p role="alert">Questions could not load. Reload Teach, then open class practice again. <button type="button" onClick={() => window.location.reload()}>Reload Teach</button></p>}
-      <button type="button" className="lp-button lp-button-primary" disabled={load !== 'ready'} onClick={start}>Start class practice</button>
-    </section> : !item ? <section className="whole-class-empty" role="status"><p>{session.rounds.length ? 'End of these questions. Choose more practice when the class is ready.' : 'No questions are available for these settings. Choose another activity or practice step.'}</p>
+      <button type="button" className="lp-button lp-button-primary" disabled={load !== 'ready' || available === 0} onClick={start}>Start class practice</button>
+    </section> : !item ? <section className="whole-class-empty" role="status"><p>{session.exhausted ? `Used all ${session.rounds.length} questions available for this route. Choose another area or practice step.` : session.rounds.length ? 'End of these questions. Choose more practice when the class is ready.' : 'No questions are available for these settings. Choose another activity or practice step.'}</p>
       <button type="button" className="lp-button" onClick={settings}>Choose practice</button></section> : <>
       <div className="whole-class-controls"><h3 tabIndex={-1} data-practice-question-title>Practice question {index + 1} of {total}</h3>
         <button type="button" className="lp-button" onClick={settings}>Change practice</button>

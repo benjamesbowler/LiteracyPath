@@ -29,6 +29,8 @@ export const CLASS_RPCS = new Set([
   "teacher_prepare_literacy_mock_session_v10",
   "teacher_prepare_literacy_mock_session_v11",
   "teacher_prepare_literacy_mock_session_v12",
+  "teacher_prepare_literacy_mock_session_v13",
+  "teacher_literacy_mock_v13_available",
   "student_record_literacy_mock_event",
   "teacher_resolve_literacy_mock_support",
   "teacher_prepare_literacy_mock_fresh_check",
@@ -38,6 +40,7 @@ export const CLASS_RPCS = new Set([
   "teacher_list_literacy_mock_sessions",
   "teacher_list_literacy_mock_history_page",
   "teacher_get_literacy_mock_report",
+  "teacher_get_literacy_mock_status",
   "student_get_literacy_mock_run",
   "student_save_literacy_mock_run",
   "student_sync_literacy_mock_batch",
@@ -97,6 +100,7 @@ const STUDENT_FOCUS_RPCS = new Set([
   "teacher_prepare_literacy_mock_session_v10",
   "teacher_prepare_literacy_mock_session_v11",
   "teacher_prepare_literacy_mock_session_v12",
+  "teacher_prepare_literacy_mock_session_v13",
   "student_record_literacy_mock_event",
   "teacher_resolve_literacy_mock_support",
   "teacher_prepare_literacy_mock_fresh_check",
@@ -106,6 +110,7 @@ const STUDENT_FOCUS_RPCS = new Set([
   "teacher_list_literacy_mock_sessions",
   "teacher_list_literacy_mock_history_page",
   "teacher_get_literacy_mock_report",
+  "teacher_get_literacy_mock_status",
   "student_get_literacy_mock_run",
   "student_save_literacy_mock_run",
   "student_sync_literacy_mock_batch",
@@ -233,7 +238,8 @@ function validateLiteracyMockStateFields(value, label) {
   assertPlainRecord(value, label);
   assertOptionalFields(value, { state: "string", revision: "integer", item_count: "integer", duration_seconds: "integer",
     remaining_seconds: "integer", window_mode: "string", capabilities: "object", focus: "object", candidate_item_ids: "array", deadline_at: "string", server_now: "string", started_at: "string", ended_at: "string", end_reason: "string",
-    delivery_mode:"string", collection_id:"string", collection_requested_at:"string", collection_pending_count:"integer", collection_received_count:"integer" }, label);
+    delivery_mode:"string", collection_id:"string", collection_requested_at:"string", collection_pending_count:"integer",
+    collection_received_count:"integer", collection_expired_count:"integer" }, label);
   if (!["prepared", "running", "paused", "completed"].includes(value.state) || !Number.isInteger(value.revision) || value.revision < 0
     || !Number.isInteger(value.remaining_seconds) || value.remaining_seconds < 0) {
     throw new DomainBoundaryError(`${label} returned an invalid mock session clock.`);
@@ -344,6 +350,19 @@ function validateNamedIdentity(value, label) {
   return value;
 }
 
+function validateLiteracyMockStatusMember(value, label) {
+  validateStudentFocusMember(value, label);
+  assertOptionalFields(value, {
+    run_status: "string", receipt_state: "string", receipt_deadline: "string", answered: "integer",
+    planned: "integer", media_failures: "integer", pending_help: "array"
+  }, label);
+  if (value.pending_help) {
+    validateRows(value.pending_help, `${label}.pending_help`,
+      (help, helpLabel) => assertOptionalFields(help, { questionId: "string", prompt: "string" }, helpLabel));
+  }
+  return value;
+}
+
 /**
  * Validate the class-access and student-login payloads that cross the public
  * unauthenticated boundary. These responses are deliberately stricter than
@@ -384,7 +403,8 @@ export function validateClassRpcData(name, data) {
     if (data.sessions) validateRows(data.sessions, `rpc.${name}.sessions`,
       name === "teacher_list_literacy_mock_history_page" ? validateLiteracyMockHistorySession : validateStudentFocusSession);
     validateStudentFocusSession(data.session, `rpc.${name}.session`);
-    if (data.members) validateRows(data.members, `rpc.${name}.members`, validateStudentFocusMember);
+    if (data.members) validateRows(data.members, `rpc.${name}.members`,
+      name === "teacher_get_literacy_mock_status" ? validateLiteracyMockStatusMember : validateStudentFocusMember);
     return data;
   }
   if (READING_SESSION_RPCS.has(name)) {

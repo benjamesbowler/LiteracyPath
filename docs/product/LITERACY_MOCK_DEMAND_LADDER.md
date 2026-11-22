@@ -1,14 +1,14 @@
 # Adaptive Literacy Test: actual task demand
 
-New sittings use **v12 / areas-v6**. This standard supplements the
+New sittings use **V13 / areas-v6** after the teacher availability probe confirms
+the current catalogue and session status RPC. During rollout, the client can
+prepare V12 with its original schedule. This standard supplements the
 [session contract](LITERACY_MOCK_SESSIONS.md) and
 [Question Design Bible](../content/QUESTION_DESIGN_BIBLE.md).
-`src/policy/literacyMockDemandV12.js` owns current literal classification and
-`src/policy/literacyMockProgressionV11.js` retains the existing progression. V12
-adds reviewed familiar vocabulary at First steps and Starter, seven pictured
-action/feeling-word families and eight sentence-capitalization situations.
-It inherits V11's four-choice operations and leaves every V1–V11 publication,
-original admission and saved response unchanged.
+`src/policy/literacyMockDemandV12.js` defines the literal classification
+inherited by V13, and `src/policy/literacyMockProgressionV11.js` defines the
+independent observations needed for progression. V13 inherits V12's reviewed
+beginner vocabulary and four-choice operations with its own scored catalogue.
 
 Every area begins independently at **First steps (0)**. Three consecutive fresh
 independent correct answers are required to leave First steps; two are required
@@ -38,7 +38,35 @@ guarantee that every child finds every task in a higher band harder. Reports
 therefore retain area-specific accuracy, the actual sampled tasks and demand,
 without RIT, percentile, grade-equivalence or an overall literacy level.
 
-## V12 publication with V11 repeated observations and bounded length
+## V13 short-route scheduling and offline reserve
+
+Each pass offers one question per unfinished area. The starting area rotates
+between sittings using the session identifier, so the last area varies when
+the question cap ends a pass. Early stopping releases the remaining slots
+to unfinished areas. The browser and database preserve the answered prefix
+and the current shown question through ordinary adaptation.
+
+| Question cap | All-correct path |
+| --- | --- |
+| 15 | First Steps entry snapshot. Seven areas receive two questions and one area receives one. |
+| 25 | Three First Steps questions in all eight areas, then one Starter question in the first area. |
+| 40 | Three First Steps and two Starter questions in every area. |
+
+An uneven response pattern can reach deeper demands where other areas finish
+early. The same independent thresholds apply at every length. A question-cap
+stop is unconfirmed. The V13 client reserves only demands reachable under the
+selected cap and retains media alternatives matching the construct, access
+conditions and source level where available. A required media failure has its
+own unscored record and leaves the response slot available for a fresh exact-task
+replacement. Earlier sittings retain their versioned schedule.
+
+`20261122090000_literacy_mock_short_routing_v13.sql` adds the V13 schedule,
+versioned preparation and readiness RPCs. The client and database coverage in
+`literacyMockBalancedV13.test.js` and `literacyMockBalancedV13Sql.test.js` check
+the rotating opening, uneven profiles, cap handling, exact media repair and
+five fresh 40-question retakes with the V13 practice partition.
+
+## Repeated observations and bounded length, V11 onward
 
 An area ends after two independent correct ceiling observations, two independent
 incorrect floor observations, or repeated lower success and two errors at the
@@ -47,12 +75,13 @@ threshold is three at First steps and two elsewhere. Two consecutive supported,
 familiar or unscored answers at the same demand stop that area unconfirmed.
 Media failures spend no answer slot and exact-task repair retains demand.
 
-Budgets are sounds **15**, phonics **17**, print **13**, vocabulary **15**,
+Area budgets are sounds **15**, phonics **17**, print **13**, vocabulary **15**,
 listening **17**, language **15**, reading **17**, writing **15**: **124 at most**.
-The actual all-correct path is **108** answers; all-incorrect is **16**. A budget
-stop is unconfirmed. Print still permits at most five distinct lower-letter
-targets; a reversal there may stop unconfirmed before a fresh lower recheck.
-The immutable shown/answered prefix and canonical late-help rules below remain.
+The historical full-length all-correct path uses **108** answers and the
+all-incorrect path uses **16**. A budget stop is unconfirmed. Print permits up
+to five distinct lower-letter targets and a reversal there may stop unconfirmed
+before a fresh lower recheck. The immutable shown/answered prefix and canonical
+late-help rules below remain.
 
 Every current `choice` item has exactly four distinct choices with one key and
 three diagnostic distractors. Familiar relations such as **win–lose** use

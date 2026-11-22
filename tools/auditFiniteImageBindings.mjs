@@ -102,7 +102,7 @@ coverage.push({surface:'Formal Assessment',banks,questions,controlledV3,method:'
 const runtime=await imp('src/data/literacyMockRuntimeBank.js'),versions=await imp('src/policy/literacyMockVersions.js'),elig=await imp('src/policy/literacyItemEligibility.js');
 const historicalBranches=[],historicalPaths=new Set();
 function runtimeImageSlots(item){const out=[];if(item.image)out.push(item.image);if(item.format!=='select_text')for(const c of item.choices||[])if(c.image)out.push(c.image);if(item.format==='match')for(const t of item.matchTargets||[])if(t.image)out.push(t.image);return out;}
-for(const version of versions.LITERACY_MOCK_VERSIONS)for(const mixed of [false,...(['literacy-mock-v10','literacy-mock-v11','literacy-mock-v12'].includes(version)?[true]:[])]){
+for(const version of versions.LITERACY_MOCK_VERSIONS)for(const mixed of [false,...(['literacy-mock-v10','literacy-mock-v11','literacy-mock-v12',versions.LITERACY_MOCK_BALANCED_VERSION].includes(version)?[true]:[])]){
  const items=await runtime.loadLiteracyMockRuntimeBank({contentVersion:version,mixed}),admitted=items.filter(elig.isLiteracyItemEligible),selected=new Set();
  selectionDomain('accepted-historical-map:'+version+':mixed='+mixed,admitted);
  for(const item of admitted)for(const src of runtimeImageSlots(item)){const p=src.split(/[?#]/)[0];selected.add(p);historicalPaths.add(p);pathProof(p,'Accepted MAP historical/current actual runtime slots',version+':'+mixed+':'+item.id,'positive-current-output');}

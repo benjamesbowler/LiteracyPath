@@ -20,13 +20,15 @@ import { buildLiteracyMockV8 } from './literacyMockV8.js';
 import { buildLiteracyMockV9 } from './literacyMockV9.js';
 import { buildLiteracyMockV11 } from './literacyMockV11.js';
 import { buildLiteracyMockV12 } from './literacyMockV12.js';
+import { buildLiteracyMockV13 } from './literacyMockV13.js';
+import { partitionLiteracyMockV13 } from './literacyMockPracticePartition.js';
 import { buildLiteracyMockV10 } from './literacyMockV10.js';
 import { LITERACY_MOCK_FOUNDATION_SKILLS } from '../policy/literacyMockAdaptivePolicy.js';
 import { LITERACY_MOCK_VERSION, LITERACY_MOCK_VERSIONS } from '../policy/literacyMockVersions.js';
 export { LITERACY_MOCK_TUTORIAL_IDS, literacyMockTutorialIdsForVersion, scoreLiteracyMockResponse } from './literacyMockRuntimeContract.js';
 export { LITERACY_MOCK_VERSION, LITERACY_MOCK_VERSIONS } from '../policy/literacyMockVersions.js';
 export const LITERACY_MOCK_SKILLS = Object.freeze([...LITERACY_PRACTICE_SKILLS,...LITERACY_MOCK_FOUNDATION_SKILLS]);
-export const literacyMockSkillsForVersion = version => ['literacy-mock-v5','literacy-mock-v6','literacy-mock-v7','literacy-mock-v8','literacy-mock-v9','literacy-mock-v10','literacy-mock-v11','literacy-mock-v12'].includes(version) ? LITERACY_MOCK_SKILLS : LITERACY_PRACTICE_SKILLS;
+export const literacyMockSkillsForVersion = version => LITERACY_MOCK_VERSIONS.slice(4).includes(version) ? LITERACY_MOCK_SKILLS : LITERACY_PRACTICE_SKILLS;
 export const LITERACY_MOCK_MAP_DOMAINS = Object.freeze({
   sound_awareness: 'foundations', phonics: 'foundations', print: 'foundations',
   language: 'language_writing', writing: 'language_writing',
@@ -247,9 +249,15 @@ export function normalizeLiteracyMockItem(source, { contentVersion = LITERACY_MO
 }
 
 const pendingBanks = new Map();
+export async function loadLiteracyMockV13Candidates() {
+  const base = await loadLiteracyMockBank({ contentVersion: 'literacy-mock-v12', includeUnavailable: true });
+  return buildLiteracyMockV13(base);
+}
+
 export async function loadLiteracyMockBank({ includeUnavailable = false, contentVersion = LITERACY_MOCK_VERSION } = {}) {
   if (!LITERACY_MOCK_VERSIONS.includes(contentVersion)) throw new Error('Unsupported literacy mock content version.');
   if (!pendingBanks.has(contentVersion)) pendingBanks.set(contentVersion, (async () => {
+    if (contentVersion === 'literacy-mock-v13') return partitionLiteracyMockV13(await loadLiteracyMockV13Candidates()).scored;
     if (contentVersion === 'literacy-mock-v12') return buildLiteracyMockV12(await loadLiteracyMockBank({includeUnavailable:true,contentVersion:'literacy-mock-v11'}),source=>normalizeLiteracyMockItem(source,{contentVersion}));
     if (contentVersion === 'literacy-mock-v8') return buildLiteracyMockV8(await loadLiteracyMockBank({includeUnavailable:true,contentVersion:'literacy-mock-v7'}), source => normalizeLiteracyMockItem(source,{contentVersion}));
     if (contentVersion === 'literacy-mock-v9') return buildLiteracyMockV9(await loadLiteracyMockBank({includeUnavailable:true,contentVersion:'literacy-mock-v8'}), source => normalizeLiteracyMockItem(source,{contentVersion}));

@@ -6,10 +6,15 @@ import { PROGRESS_CHECK_INSTRUCTIONS } from '../data/progressCheckInstructions.j
 export function literacyMockLetterReference(item) {
   return item.skillId === 'letter_knowledge' && /^[A-Za-z]$/.test(item.passage || '');
 }
-export function literacyMockNarrationCues(item, choices) {
-  const reading=!literacyMockLetterReference(item) && item.modality==='reading' && item.passage && item.displayPassageDuringResponse;
+export function literacyMockReadingInstructionPath(item) {
+  return !literacyMockLetterReference(item) && item.modality === 'reading' && item.passage && item.displayPassageDuringResponse
+    ? MOCK_RUNTIME_INSTRUCTION_AUDIO.readPassage : null;
+}
+
+export function literacyMockNarrationCues(item, choices, { includeLayoutInstruction = true } = {}) {
+  const instruction = includeLayoutInstruction && literacyMockReadingInstructionPath(item);
   return [
-    ...(reading ? [{role:'layout_instruction',text:PROGRESS_CHECK_INSTRUCTIONS.readPassage,path:MOCK_RUNTIME_INSTRUCTION_AUDIO.readPassage}] : []),
+    ...(instruction ? [{role:'layout_instruction',text:PROGRESS_CHECK_INSTRUCTIONS.readPassage,path:instruction}] : []),
     ...item.requiredAudioCues.filter(cue=>cue.role!=='choice'),
     ...choices.flatMap((choice,index)=>item.requiredAudioCues
       .filter(cue=>cue.role==='choice' && (cue.choiceId===choice.id || (!cue.choiceId && cue.path===choice.audioPath)))

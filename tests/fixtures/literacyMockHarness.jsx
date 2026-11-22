@@ -7,13 +7,14 @@ import { LiteracyMockPage } from '../../src/components/progress/LiteracyMockPage
 import { LiteracyMockQuestion } from '../../src/components/progress/LiteracyMockQuestion.jsx';
 import { useStudentFocusSession } from '../../src/hooks/useStudentFocusSession.js';
 import { TeacherLiteracyMockPanel } from '../../src/components/progress/TeacherLiteracyMockPanel.jsx';
-import { loadLiteracyMockBank, LITERACY_MOCK_VERSION, literacyMockTutorialIdsForVersion } from '../../src/data/literacyMockBank.js';
+import { loadLiteracyMockBank, literacyMockTutorialIdsForVersion } from '../../src/data/literacyMockBank.js';
 import { selectLiteracyMockPlan, selectLiteracyMockFreshCheck, mockChoices } from '../../src/utils/literacyMockPlanner.js';
 import { literacyMockFocus, sameLiteracyMockTask } from '../../src/utils/literacyMockConditions.js';
 import { buildLiteracyExposureIndex, getLiteracyExposure } from '../../src/utils/literacyEvidence.js';
 import { literacyItemQualityIssue } from '../../src/policy/literacyItemEligibility.js';
 import { validateClassRpcData } from '../../src/data/boundaries/classes.js';
 import { isLiteracyMockBoundaryVersion, LITERACY_MOCK_EVIDENCE_VERSIONS } from '../../src/policy/literacyMockVersions.js';
+import { LITERACY_MOCK_SHORT_ITEM_COUNTS } from '../../src/policy/literacyMockQuestionLimit.js';
 
 // A local protocol simulator, deliberately separate from production persistence.
 // Browser tests drive the real components and pass only canonical server receipts.
@@ -21,17 +22,20 @@ const query = new URLSearchParams(location.search);
 // Historical interaction cases default to their published v4 protocol. New area cases request v5 explicitly.
 const contentVersion = query.get("version") || 'literacy-mock-v4';
 const boundaryAdaptive = isLiteracyMockBoundaryVersion(contentVersion);
-const areaAdaptive=['literacy-mock-v5','literacy-mock-v6','literacy-mock-v7','literacy-mock-v8','literacy-mock-v9','literacy-mock-v10','literacy-mock-v11',LITERACY_MOCK_VERSION].includes(contentVersion);
+const areaAdaptive = boundaryAdaptive || ['literacy-mock-v5','literacy-mock-v6','literacy-mock-v7','literacy-mock-v8'].includes(contentVersion);
 const v3 = LITERACY_MOCK_EVIDENCE_VERSIONS.includes(contentVersion);
+const v13 = contentVersion === 'literacy-mock-v13';
 const capabilities = { presentationReceipts: v3, supportResolution: v3, freshChecks: v3, entryChecks: v3, windowModes: v3,
-  offlineDelivery:query.has('device'), contentQuarantineRepair: !query.has('legacyContentBackend') };
-const itemCount = ['literacy-mock-v11','literacy-mock-v12'].includes(contentVersion) ? 124 : boundaryAdaptive ? 67 : areaAdaptive || query.get('count') === '43' ? 43 : 24;
+  offlineDelivery:query.has('device'), contentQuarantineRepair: !query.has('legacyContentBackend'), preRenderMediaFailure: v13 };
+const requestedCount = Number(query.get('count'));
+const shortCount = (v13 || contentVersion === 'literacy-mock-v12') && LITERACY_MOCK_SHORT_ITEM_COUNTS.includes(requestedCount) ? requestedCount : null;
+const itemCount = shortCount ?? (v13 ? 25 : ['literacy-mock-v11','literacy-mock-v12'].includes(contentVersion) ? 124 : boundaryAdaptive ? 67 : areaAdaptive || requestedCount === 43 ? 43 : 24);
 const bank = await loadLiteracyMockBank({ includeUnavailable: true, contentVersion });
 const available = bank.filter(item => item.mediaReady);
 const key = `literacy-mock-browser-server:${query.get('case') || 'default'}`;
 // The simulated external V11 database has its own storage bucket. Keep its
 // test records from consuming the real learner outbox's localStorage quota.
-const fixtureServerStorage = ['literacy-mock-v11','literacy-mock-v12'].includes(contentVersion) ? sessionStorage : localStorage;
+const fixtureServerStorage = ['literacy-mock-v11','literacy-mock-v12','literacy-mock-v13'].includes(contentVersion) ? sessionStorage : localStorage;
 let releaseHistoryRead;
 const heldHistoryRead = query.has('holdHistory') ? new Promise(resolve => { releaseHistoryRead = resolve; }) : null;
 const clone = value => structuredClone(value);
@@ -128,6 +132,22 @@ function teacherResult(record = state) {
       priorRuns: student.id === 'student-a' ? priorRuns.slice(0, 20) : [], historyCoverage: { limit: 20, windowDays: 90, truncated: priorRuns.length > 20 } };
   }) };
 }
+function teacherStatus(record) {
+  normalizeClock(record);
+  const mock = record.session.mock;
+  const members = assignedStudents(record).map(student => {
+    const run = student.id === 'student-a' ? record.run : null;
+    const receipt = !run ? 'not_started' : !run.offlineLeaseId ? 'server_record'
+      : run.collectionAckId || run.status === 'completed' ? 'received'
+        : mock.collection_id ? 'awaiting_connection' : 'device_open';
+    return { student_id: student.id, connected: record.session.status === 'active', content_ok: true, last_seen_at: timestamp(),
+      run_status: run?.status ?? null, receipt_state: receipt, receipt_deadline: run?.offlineLeaseExpiresAt ?? null,
+      answered: run?.responses.filter(response => response.responseStatus === 'answered').length ?? 0,
+      planned: run?.plan?.itemIds.length ?? null, media_failures: run?.mediaFailures.length ?? 0,
+      pending_help: run?.helpRequests.filter(request => request.pending).map(request => ({ questionId: request.questionId, prompt: request.itemSnapshot?.prompt })) ?? [] };
+  });
+  return { ok: true, session: clone(record.session), members };
+}
 function correct(item, selected) {
   if (item.answerMode === 'set') return JSON.stringify([...selected].sort()) === JSON.stringify([...item.answer].sort());
   return JSON.stringify(selected) === JSON.stringify(item.answer);
@@ -152,11 +172,14 @@ function batchReceipt(value,compact=false){
  }
  return result;
 }
-const client = { async call(name, args) {
+const client = { async call(name, args = {}) {
   state.calls.push({ name, args: clone(args) }); persist();
   const target = sessionRecord(args.p_session_id || args.p_source_session_id);
-  if ((state.fault === 'hang-read' && name === 'student_get_literacy_mock_run') || (state.fault === 'hang-save' && name === 'student_save_literacy_mock_run') || (state.fault === 'hang-event' && name === 'student_record_literacy_mock_event') || (state.fault === 'hang-prepare' && name.startsWith('teacher_prepare_literacy_mock_session')) || (state.fault === 'hang-report' && name === 'teacher_get_literacy_mock_report')) return new Promise(() => {});
+  if ((state.fault === 'hang-read' && name === 'student_get_literacy_mock_run') || (state.fault === 'hang-save' && name === 'student_save_literacy_mock_run') || (state.fault === 'hang-event' && name === 'student_record_literacy_mock_event') || (state.fault === 'hang-prepare' && name.startsWith('teacher_prepare_literacy_mock_session')) || (state.fault === 'hang-report' && name === 'teacher_get_literacy_mock_report') || (state.fault === 'hang-status' && name === 'teacher_get_literacy_mock_status')) return new Promise(() => {});
   if (state.fault === 'offline') throw new Error('Simulated disconnected network');
+  if (name === 'teacher_literacy_mock_v13_available') return { data: v13 };
+  if (name === 'teacher_get_literacy_mock_status') return { data: teacherStatus(target) };
+  if (name === 'teacher_get_literacy_mock_report' && state.fault === 'fail-report') return { error: new Error('Simulated detailed report failure') };
   if (name === 'student_sync_literacy_mock_batch') {
     state.batches ||= {}; const old=state.batches[args.p_batch_id];
     if (old) return {data:{...batchReceipt(old),duplicate:true}};
@@ -207,7 +230,7 @@ const client = { async call(name, args) {
   }
   if (state.fault === 'stale') { state.fault = null; persist(); return { data: { ok: false, error: 'stale_revision' } }; }
   let result;
-  if (name === 'teacher_prepare_literacy_mock_session' || name === 'teacher_prepare_literacy_mock_session_v3' || name === 'teacher_prepare_literacy_mock_session_v4' || name === 'teacher_prepare_literacy_mock_session_v5' || name === 'teacher_prepare_literacy_mock_session_v6' || name === 'teacher_prepare_literacy_mock_session_v7' || name === 'teacher_prepare_literacy_mock_session_v8' || name === 'teacher_prepare_literacy_mock_session_v9' || name === 'teacher_prepare_literacy_mock_session_v10' || name === 'teacher_prepare_literacy_mock_session_v11' || name === 'teacher_prepare_literacy_mock_session_v12') {
+  if (/^teacher_prepare_literacy_mock_session(?:_v(?:[3-9]|1[0-3]))?$/.test(name)) {
     if (args.p_whole_class && args.p_student_ids.length) return { data: { ok: false, error: 'whole_class_ids_must_be_empty' } };
     state.archives.push({ session: clone(state.session), run: clone(state.run), memberIds: state.memberIds });
     state.session = { ...clone(target.session), id: `prepared-session-${state.archives.length}`, status: 'prepared', started_at: timestamp(), mock: { ...target.session.mock, plan_kind: 'mixed', window_mode: args.p_window_mode || 'timed_sample', state: 'prepared', revision: 1, item_count: args.p_item_count, duration_seconds: args.p_duration_minutes * 60, remaining_seconds: args.p_duration_minutes * 60, time_extension_count: 0, deadline_at: null } };
@@ -281,7 +304,7 @@ const client = { async call(name, args) {
     if (target.session.mock.state === 'completed') return { data: { ok: false, error: 'assessment_finished', mock: clone(target.session.mock) } };
     if (args.p_plan) {
       const ids = args.p_plan.itemIds;
-      if (!Array.isArray(ids) || (boundaryAdaptive ? ids.length < (target.run?.responses.length || 0) || ids.length > itemCount : ids.length !== target.session.mock.item_count) || new Set(ids).size !== ids.length || ids.some(id => !bank.some(item => item.id === id))) return { data: { ok: false, error: 'invalid_plan' } };
+      if (!Array.isArray(ids) || (boundaryAdaptive ? ids.length < (target.run?.responses.length || 0) || ids.length > target.session.mock.item_count : ids.length !== target.session.mock.item_count) || new Set(ids).size !== ids.length || ids.some(id => !bank.some(item => item.id === id))) return { data: { ok: false, error: 'invalid_plan' } };
       if (capabilities.contentQuarantineRepair && ids.slice(target.run?.responses.length || 0).some(id => literacyItemQualityIssue({ id }))) return { data: { ok: false, error: 'content_item_withdrawn' } };
       if (v3 && !target.run && ids.some(id => getLiteracyExposure(bank.find(item => item.id === id), buildLiteracyExposureIndex({ exposures: exposureValues() })).knownFamiliar)) {
         return { data: { ok: false, error: 'fresh_item_exposed' } };
@@ -314,7 +337,7 @@ const client = { async call(name, args) {
       if (!item || item.id !== response.questionId) return { data: { ok: false, error: 'unexpected_question' } };
       if (capabilities.contentQuarantineRepair && literacyItemQualityIssue(item)) return { data: { ok: false, error: 'content_item_withdrawn' } };
       const presentation = target.run.presentations.find(value => value.questionId === item.id);
-      if (v3 && !presentation) return { data: { ok: false, error: 'presentation_required' } };
+      if (v3 && !presentation && !(v13 && response.responseStatus === 'media_failed')) return { data: { ok: false, error: 'presentation_required' } };
       const scored = response.responseStatus === 'answered';
       const canonical = { ...clone(response), itemSnapshot: clone(item.itemSnapshot || item), skillId: item.skillId, domainId: item.domainId, level: item.level,
         isCorrect: scored ? correct(item, response.selected) : null, knownFamiliar: presentation?.knownFamiliar === true || response.knownFamiliar === true ? true : null,
@@ -375,4 +398,5 @@ function Harness() {
   if (query.has('focusHook')) return <FocusHarness/>;
   return <LiteracyMockPage client={client} token="local-browser-fixture" studentId="student-a" studentName="Alex" focusSession={state.session}/>;
 }
-createRoot(document.getElementById('root')).render(<Harness/>);
+const harness = <Harness/>;
+createRoot(document.getElementById('root')).render(query.get('strictMode') === '1' ? <React.StrictMode>{harness}</React.StrictMode> : harness);

@@ -33,7 +33,7 @@ test('an individual report shows historical demand, the saved operation and unkn
   assert.match(html,/Use one occurrence of a word to select its contextual sense/);
   assert.match(html,/Tasks sampled \(1\)/);
   assert.match(html,/Earlier familiarity is unknown for 1 of these independent answers/);
-  assert.match(html,/absence from the available history does not prove a question is new/);
+  assert.match(html,/A question may be familiar even when its history has no exposure record/);
   assert.doesNotMatch(html,/percentage uses fresh, independent/);
   assert.match(html,/1 of 1 independent answers correct/);
 });

@@ -49,6 +49,39 @@ test("supported, familiar, repeated, skipped and media failures remain outside i
   assert.equal(report.groups.length, 0);
 });
 
+test('audit withdrawals stay visible as unscored V12 evidence while the corrected V13 item can count', async () => {
+  const olderVersion = 'literacy-mock-v12';
+  const currentVersion = 'literacy-mock-v13';
+  const [olderBank, currentBank] = await Promise.all([olderVersion, currentVersion]
+    .map(contentVersion => loadLiteracyMockBank({ includeUnavailable: true, contentVersion })));
+  const picturedId = 'mock.v11.phonics.cvc-capacity.sat';
+  const promptId = 'lp3.sentence_comprehension.l1.A.literal_who_what.v4';
+  const savedResponse = itemSnapshot => response(itemSnapshot.id, {
+    skillId: itemSnapshot.skillId, domainId: itemSnapshot.domainId, level: itemSnapshot.level,
+    itemSnapshot, selected: itemSnapshot.answer, isCorrect: true,
+  });
+  const olderPicture = savedResponse(olderBank.find(item => item.id === picturedId));
+  const olderPrompt = savedResponse(olderBank.find(item => item.id === promptId));
+  const current = savedResponse(currentBank.find(item => item.id === picturedId));
+  const payload = { session: { id: 'current', content_version: olderVersion }, members: [{
+    ...member('a', [olderPicture]),
+    priorRuns: [{ assignmentId: 'previous', contentVersion: olderVersion, responses: [olderPrompt] }],
+  }] };
+  const original = structuredClone(payload);
+  const [olderPupil] = buildLiteracyMockReport(payload, { now, students }).pupils;
+  assert.equal(olderPupil.answered, 1);
+  assert.equal(olderPupil.totals.independent, 0);
+  assert.equal(olderPupil.withdrawnQuestionCount, 1);
+  assert.equal(olderPupil.longitudinal.responses.length, 2);
+  assert.ok(olderPupil.longitudinal.responses.every(row => row.classification === 'content_invalid'
+    && row.evidenceType === 'unscored' && row.isCorrect === null && row.originalIsCorrect === true));
+  assert.deepEqual(payload, original);
+  const [currentPupil] = buildLiteracyMockReport({ session: { id: 'next', content_version: currentVersion },
+    members: [member('a', [current])] }, { now, students }).pupils;
+  assert.equal(currentPupil.totals.independent, 1);
+  assert.equal(currentPupil.withdrawnQuestionCount, 0);
+});
+
 test('withdrawn ambiguous spelling remains visible but cannot create successes, errors or historical patterns', async () => {
   const bank = await loadLiteracyMockBank({ includeUnavailable: true });
   const invalidIds = [

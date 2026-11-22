@@ -465,9 +465,9 @@ test('a hung save exposes a recoverable timeout and retries the original request
 test('teacher timeouts preserve verified rows and recover preparation without a second session', async ({ page }) => {
   await open(page, '&mode=teacher');
   await expect(page.getByRole('button', { name: 'Pause assessment', exact: true })).toBeVisible();
-  await page.evaluate(() => window.__literacyMock.setFault('hang-report'));
+  await page.evaluate(() => window.__literacyMock.setFault('hang-status'));
   await page.getByRole('button', { name: 'Refresh progress', exact: true }).click();
-  await expect(page.getByText(/Live progress could not be refreshed/)).toBeVisible({ timeout: 15000 });
+  await expect(page.getByText(/Session status could not be confirmed/)).toBeVisible({ timeout: 15000 });
   await expect(page.getByRole('button', { name: 'View Alex’s report', exact: true })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Pause assessment', exact: true })).toBeDisabled();
   await page.evaluate(() => window.__literacyMock.setFault(null));
@@ -1265,7 +1265,7 @@ for (const audience of ['whole class', 'individual']) test(`one full teacher-lau
     await page.getByRole('combobox', { name: 'Open a session', exact: true }).selectOption(sessionId);
     await page.getByRole('button', { name: 'Live', exact: true }).click();
     const progress = page.getByRole('region', { name: 'Adaptive Literacy Test pupil progress', exact: true });
-    await expect(progress).toContainText('Finished · report received');
+    await expect(progress).toContainText('Finished · server record available');
     await expect(progress).toContainText('43 answered of 43');
     await page.getByRole('button', { name: 'View Alex’s report', exact: true }).click();
     await expect(page.getByRole('heading', { name: 'Alex — test results', exact: true })).toBeVisible();
@@ -1276,7 +1276,7 @@ for (const audience of ['whole class', 'individual']) test(`one full teacher-lau
     const report = page.locator('.literacy-mock-report');
     await expect(report).toContainText('All 43 questions answered.');
     await expect(report.locator('.literacy-mock-result-summary')).toContainText('100%');
-    await expect(report.locator('.literacy-mock-result-summary')).toContainText('43 of 43 independent answers correct');
+    await expect(report.locator('.literacy-mock-result-summary')).toContainText('43 answers');
     await expect(report.locator('.literacy-mock-result-summary')).toContainText('Challenge tasks');
     await report.getByText('Answer and coverage details', { exact: true }).click();
     const shownSkills = new Set(finished.responses.map(response => response.skillId)).size;
