@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "books": [
+    {
+      "bookId": "world-discovery-a-29",
+      "reviewedAt": "2026-11-22",
+      "method": "codex-full-manuscript-and-complete-image-sequence-inspection",
+      "textFingerprint": "fnv1a64:2c667fe507512968",
+      "sourceBookSha256": "f901b0be0bea47b49de26868818727681b20b5057666da316e0fa78bccc25576",
+      "fullTextPrepAndDiscussionReviewed": true,
+      "allReferencesCoversAndPagesReviewed": true,
+      "changes": [
+        {
+          "field": "page-06",
+          "reason": "Zoe's two hands lower the matching red rectangle onto the other red rectangle. The offset edge and its shadow make the two paper layers clear, so a child can follow the stacking action before the next page shows aligned edges. The table, sleeves and paper color match the neighboring pages."
+        }
+      ],
+      "assets": [
+        {
+          "slot": "reference",
+          "path": "source-art/world-discovery/a-29-reference.webp",
+          "sha256": "dd53e01cc4dbd6668906dd98ed037211da671ad0949c0b206594d1fce3fa2828",
+          "method": "ordinarily displayed sequence and targeted native review",
+          "note": "Existing image compared in the complete ordered sequence.",
+          "replaced": false
+        },
+        {
+          "slot": "cover",
+          "path": "public/guided-reading/world-discovery/a-29/cover.webp",
+          "sha256": "1930de84dbcfb1cd7dd5555da73c4c3838b60e659a2ff50b952b9a8c3b541b80",
+          "method": "ordinarily displayed sequence and targeted native review",
+          "note": "Existing image compared in the complete ordered sequence.",
+          "replaced": false
+        },
+        {
+          "slot": "page-01",
+          "path": "public/guided-reading/world-discovery/a-29/page-01.webp",
+          "sha256": "001920564539a97e383d06d0525d037bd159d612abc70e1a53ddf382c262aa30",
+          "method": "ordinarily displayed sequence and targeted native review",
+          "note": "Existing image compared in the complete ordered sequence.",
+          "replaced": false
+        },
+        {
+          "slot": "page-02",
+          "path": "public/guided-reading/world-discovery/a-29/page-02.webp",
+          "sha256": "c2195adb5f5d68c3aa3b538bbdb3dc98699ff33de08b82a7bd1000678e2c7ae5",
+          "method": "ordinarily displayed sequence and targeted native review",
+          "note": "Existing image compared in the complete ordered sequence.",
+          "replaced": false
+        },
+        {
+          "slot": "page-03",
+          "path": "public/guided-reading/world-discovery/a-29/page-03.webp",
+          "sha256": "e0e0faeb2f6e5a516c8ce4256edc5fe926afab9cfecd9901ef373400e1a531d7",
+          "method": "ordinarily displayed sequence and targeted native review",
+          "note": "Existing image compared in the complete ordered sequence.",
+          "replaced": false
+        },
+        {
+          "slot": "page-04",
+          "path": "public/guided-reading/world-discovery/a-29/page-04.webp",
+          "sha256": "4a8b37d6b08b6f599299ab10c24e23018e33afcfc7eaaecbe528138c45611f96",
+          "method": "ordinarily displayed sequence and targeted native review",
+          "note": "Existing image compared in the complete ordered sequence.",
+          "replaced": false
+        },
+        {
+          "slot": "page-05",
+          "path": "public/guided-reading/world-discovery/a-29/page-05.webp",
+          "sha256": "42b975f7c075e58b72be57b9f76af4f250dab9b69426005c7ea673643b3d9d2d",
+          "method": "ordinarily displayed sequence and targeted native review",
+          "note": "Existing image compared in the complete ordered sequence.",
+          "replaced": false
+        },
+        {
+          "slot": "page-06",
+          "path": "public/guided-reading/world-discovery/a-29/page-06.webp",
+          "sha256": "bd16de10dd2d8dc00e62add6e307837bf019d39b868247dc1196fe583ee1925f",
+          "method": "ordinarily displayed sequence and targeted native review",
+          "note": "Zoe's two hands lower the matching red rectangle onto the other red rectangle. The offset edge and its shadow make the two paper layers clear, so a child can follow the stacking action before the next page shows aligned edges. The table, sleeves and paper color match the neighboring pages.",
+          "replaced": true,
+          "previousSha256": "8b712e7ead09f0c9dac3eb0e53970d77740ee073f4e9932acf3b23bde84ed279"
+        },
+        {
+          "slot": "page-07",
+          "path": "public/guided-reading/world-discovery/a-29/page-07.webp",
+          "sha256": "697f1e4680f6874453b6b4186a352c9a9b5a430e1135d994cd1a1ba05cdd20f8",
+          "method": "ordinarily displayed sequence and targeted native review",
+          "note": "Existing image compared in the complete ordered sequence.",
+          "replaced": false
+        },
+        {
+          "slot": "page-08",
+          "path": "public/guided-reading/world-discovery/a-29/page-08.webp",
+          "sha256": "4df23fa276e59306c3ca8e6885e0ab468dc7be65d49df641340054aade2094b2",
+          "method": "ordinarily displayed sequence and targeted native review",
+          "note": "Existing image compared in the complete ordered sequence.",
+          "replaced": false
+        }
+      ],
+      "openFindings": [],
+      "note": "The original strip folds and is cut into two halves. The replacement shows Zoe lowering one rectangle onto the other before aligning all the edges. Page 7 shows the aligned stack with a visible thin second layer. Page 8 puts the two halves back side by side."
+    }
+  ]
+}

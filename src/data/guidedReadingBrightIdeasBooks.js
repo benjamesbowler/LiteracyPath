@@ -547,7 +547,7 @@ const MANUSCRIPTS = deepFreeze([
       },
       {
         "pageNumber": 6,
-        "text": "She opens each ring and links it.",
+        "text": "Dot opens a ring.\nShe links it to the chain.",
         "imageBrief": "Use the built-in image generator. Clean, clear, bright cartoon illustration with crisp consistent outlines, simple flat colors and readable shapes. No embossed relief, patchy or daubed paint, painterly/gouache effects, canvas grain, paper texture or simulated brushwork. Preserve locked Small Steps character identities, clothes and proportions, translating the rendering to this clean cartoon style. Landscape, full composition with action inset; no generated text, labels, numbers or pseudo-writing. The playroom craft table stands beside a low wooden playhouse window. Dot adds another reopened ring to the growing chain. Exact state: Work progresses red-blue; no cuts or tools.",
         "imageAlt": "Dot adds a red ring to the chain that Sam holds.",
         "state": "Work progresses red-blue; no cuts or tools.",
@@ -618,9 +618,9 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Read the failed lift and the repair, then explain why the second lift works.",
       "fluency": "Reread pages 3 and 5 to contrast stay with hang."
     },
-    "reviewedAt": "2026-11-09",
-    "reviewedTextFingerprint": "fnv1a64:d214ec5ff0b0dac8",
-    "reviewedManuscriptSha256": "93b19a9e366ee401ca3fc73e0454b28ae4e6fe59fc8c549eabd7b438f6373fc5",
+    "reviewedAt": "2026-11-22",
+    "reviewedTextFingerprint": "fnv1a64:a332d339359d66bf",
+    "reviewedManuscriptSha256": "fe35d9c5d45739db3176aa5fbfa759282d958dc9889a5267cca088c3e12c3c16",
     "readingMode": "predictable-levelled",
     "additionalPrerequisites": []
   },
@@ -713,7 +713,7 @@ const MANUSCRIPTS = deepFreeze([
       },
       {
         "pageNumber": 7,
-        "text": "Many little catches hold the strap shut.",
+        "text": "The little hooks keep the strap closed.",
         "imageBrief": "Use the built-in image generator. Clean, clear, bright cartoon illustration with crisp consistent outlines, simple flat colors and readable shapes. No embossed relief, patchy or daubed paint, painterly/gouache effects, canvas grain, paper texture or simulated brushwork. Preserve locked Small Steps character identities, clothes and proportions, translating the rendering to this clean cartoon style. Landscape, full composition with action inset; no generated text, labels, numbers or pseudo-writing. Sam sits beside the oak playroom bench with one small blue shoulder bag. The red strap lies closed across the blue bag. Exact state: Return to ordinary scale.",
         "imageAlt": "Sam holds his bag with its red strap closed.",
         "state": "Return to ordinary scale.",
@@ -759,7 +759,7 @@ const MANUSCRIPTS = deepFreeze([
         "lookFor": "Curved hooks caught through soft loops."
       }
     },
-    "levelRationale": "Print fits instructional B, but changing scale, part-to-whole mechanism, catch used as a noun, and reversible cause support App C.",
+    "levelRationale": "Short sentences name the parts of a familiar strap. Readers connect the close-up hooks and loops to the whole strap, then track how pulling releases it and pressing closes it again. The change of scale and reversible cause support App C.",
     "foundationsGuide": {
       "soundLetter": {
         "grapheme": "oo",
@@ -797,9 +797,9 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Read every word before studying the close-up, then explain how pressing and pulling differ.",
       "fluency": "Reread paired action/result sentences in pages 2–3 and 10."
     },
-    "reviewedAt": "2026-11-09",
-    "reviewedTextFingerprint": "fnv1a64:51a21f1480d1453f",
-    "reviewedManuscriptSha256": "69ee2a0ca97f802897eac4eb536e411367ac91053acda359e58b254d7dc4a4f5",
+    "reviewedAt": "2026-11-22",
+    "reviewedTextFingerprint": "fnv1a64:82f459771a1aa60c",
+    "reviewedManuscriptSha256": "794d494a9b2af2c003527bed144ce922933e7cc4763a85111a452464ded78662",
     "readingMode": "predictable-levelled",
     "additionalPrerequisites": []
   },
@@ -1413,7 +1413,7 @@ const MANUSCRIPTS = deepFreeze([
       },
       {
         "pageNumber": 5,
-        "text": "Here is an example after one shower.\nThe gauge holds five millimeters of rain.",
+        "text": "After the first shower, the water reaches the five-millimeter mark.",
         "imageBrief": "Close view of the gauge alone after the first shower; water is exactly at 5. These are illustrative readings, not reported real measurements. Clean bright outlined flat cartoon, preserving the accepted scale and gauge master.",
         "imageAlt": "The rain gauge water reaches the five mark.",
         "state": "Close view of the gauge alone after the first shower; water is exactly at 5. These are illustrative readings, not reported real measurements.",
@@ -1422,7 +1422,7 @@ const MANUSCRIPTS = deepFreeze([
       },
       {
         "pageNumber": 6,
-        "text": "Dot records five. Then she empties the gauge.\nThe next shower needs an empty start.",
+        "text": "Dot writes down five and empties the gauge.\nNow it is ready for the next shower.",
         "imageBrief": "Dot lifts the tube out and pours the last drops from its lowered open rim into the garden. The holder stays fixed. Dad holds the first recorded reading, 5. Clean bright outlined flat cartoon, preserving the accepted scale and gauge master.",
         "imageAlt": "Dot tips the rain gauge to pour out the last drops. Dad holds the recorded five.",
         "state": "Dot lifts the tube out and pours the last drops from its lowered open rim into the garden. The holder stays fixed. Dad holds the first recorded reading, 5.",
@@ -1431,7 +1431,7 @@ const MANUSCRIPTS = deepFreeze([
       },
       {
         "pageNumber": 7,
-        "text": "After the next shower, the example gauge holds ten millimeters.\nDot records ten.",
+        "text": "After the next shower, the water reaches ten millimeters.\nDot writes down ten.",
         "imageBrief": "After another shower, the refitted tube holds water exactly at 10. Dot records 10; the earlier 5 was emptied and is not carried over. Clean bright outlined flat cartoon, preserving the accepted scale and gauge master.",
         "imageAlt": "Dot records ten while the gauge water reaches the ten mark.",
         "state": "After another shower, the refitted tube holds water exactly at 10. Dot records 10; the earlier 5 was emptied and is not carried over.",
@@ -1515,9 +1515,9 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Read the two measurements and explain which shower left more, using the text rather than a guessed picture height.",
       "fluency": "Reread pages 5–8 with clear pauses after each measurement."
     },
-    "reviewedAt": "2026-11-09",
-    "reviewedTextFingerprint": "fnv1a64:480af6bb285e2d8b",
-    "reviewedManuscriptSha256": "64335d1768abb19bd8fd92eafe0a3a9beda7050e88a75ea38a45ae2cd7983911",
+    "reviewedAt": "2026-11-22",
+    "reviewedTextFingerprint": "fnv1a64:1b616c4635febf74",
+    "reviewedManuscriptSha256": "28d4bfcac74911d5c5bcdfeaf3b696a606513064689993a51a82f6a8d2ce83c1",
     "readingMode": "predictable-levelled",
     "additionalPrerequisites": []
   },
@@ -2003,7 +2003,7 @@ const MANUSCRIPTS = deepFreeze([
       },
       {
         "pageNumber": 10,
-        "text": "An oven cools the glass slowly. This helps stop it from cracking. This careful heating and cooling is called annealing.",
+        "text": "The bottles cool slowly in the oven. This helps keep the glass from cracking. This step is called annealing.",
         "imageBrief": "Use the built-in image generator. Clean, clear, bright cartoon illustration with crisp consistent outlines, simple flat colors and readable shapes. No embossed relief, patchy or daubed paint, painterly/gouache effects, canvas grain, paper texture or simulated brushwork. Preserve locked Small Steps character identities, clothes and proportions, translating the rendering to this clean cartoon style. Landscape, full composition with action inset; no generated text, labels, numbers or pseudo-writing. An illustrated container-glass factory sequence, ending at a kitchen table; all factory workers are adults behind appropriate barriers. A row of identical bottles passes along the cooling tunnel toward its cooler end. Exact state: No visible stress cracks as normal outcome.",
         "imageAlt": "A row of identical bottles passes along the cooling tunnel toward its cooler end.",
         "state": "No visible stress cracks as normal outcome.",
@@ -2021,7 +2021,7 @@ const MANUSCRIPTS = deepFreeze([
       },
       {
         "pageNumber": 12,
-        "text": "The bottle has been mixed, melted, shaped, cooled, and checked.\nNow it can hold a drink.",
+        "text": "The melted glass took the shape of the mold.\nNow the cool, clear bottle can hold a drink.",
         "imageBrief": "Use the built-in image generator. Clean, clear, bright cartoon illustration with crisp consistent outlines, simple flat colors and readable shapes. No embossed relief, patchy or daubed paint, painterly/gouache effects, canvas grain, paper texture or simulated brushwork. Preserve locked Small Steps character identities, clothes and proportions, translating the rendering to this clean cartoon style. Landscape, full composition with action inset; no generated text, labels, numbers or pseudo-writing. An illustrated container-glass factory sequence, ending at a kitchen table; all factory workers are adults behind appropriate barriers. The clear finished bottle stands filled with water on a kitchen table. Exact state: Same neck/base silhouette; final material and use answer question.",
         "imageAlt": "The clear finished bottle stands filled with water on a kitchen table.",
         "state": "Same neck/base silhouette; final material and use answer question.",
@@ -2045,16 +2045,16 @@ const MANUSCRIPTS = deepFreeze([
       "soundLetter": {
         "grapheme": "sh",
         "sound": "ʃ",
-        "word": "shaped",
-        "model": "Say shaped. Listen for /ʃ/, then find sh in the printed word. Read the whole word again."
+        "word": "shape",
+        "model": "Say shape. Listen for /ʃ/, then find sh in the printed word. Read the whole word again."
       },
       "decoding": {
         "words": [
           "sand",
           "glass",
-          "shaped"
+          "shape"
         ],
-        "model": "Blend sand: /s/ /æ/ /n/ /d/ and glass: /g/ /l/ /æ/ /s/. Read shape as /ʃ/ /eɪ/ /p/, then add /t/ for ed in shaped; a-e spells /eɪ/. Frequent-word support: In the, th spells /ð/; model its natural sentence vowel, often /ə/. Read into in two parts, in-to; o in to can spell /uː/. In these, th spells /ð/, e-e spells /iː/, and s spells /z/."
+        "model": "Blend sand: /s/ /æ/ /n/ /d/ and glass: /g/ /l/ /æ/ /s/. Read shape as /ʃ/ /eɪ/ /p/; a-e spells /eɪ/. Frequent-word support: In the, th spells /ð/; model its natural sentence vowel, often /ə/. Read into in two parts, in-to; o in to can spell /uː/. In these, th spells /ð/, e-e spells /iː/, and s spells /z/."
       },
       "highFrequencyWords": [
         "the",
@@ -2072,15 +2072,15 @@ const MANUSCRIPTS = deepFreeze([
         },
         {
           "word": "annealing",
-          "meaning": "heating glass and then cooling it slowly to help stop it from cracking"
+          "meaning": "letting hot glass cool slowly and evenly so it is less likely to crack"
         }
       ],
       "connectedReading": "Read one transformation at a time; explain what changes and what has not yet happened.",
-      "fluency": "Reread the closing list in meaningful groups rather than as separate word calls."
+      "fluency": "Reread the closing spread. Pause briefly after the first sentence to connect how the mold shapes the glass with what the bottle can do."
     },
-    "reviewedAt": "2026-11-09",
-    "reviewedTextFingerprint": "fnv1a64:054bf772aa1b0854",
-    "reviewedManuscriptSha256": "4baac9a3237d64d8a8c420280fc6ff1ee0be704164bc891c3cb399915f490836",
+    "reviewedAt": "2026-11-22",
+    "reviewedTextFingerprint": "fnv1a64:d71fd163066bfc29",
+    "reviewedManuscriptSha256": "b9c89fde286de4eacc965b21a39dd754c40a92fd3a7b2768305edf2644894abb",
     "readingMode": "predictable-levelled",
     "additionalPrerequisites": []
   },
@@ -2158,7 +2158,7 @@ const MANUSCRIPTS = deepFreeze([
       },
       {
         "pageNumber": 4,
-        "text": "Paler patches spread across its skin.\nThe animal has not become a different octopus.",
+        "text": "Paler patches spread across its skin.\nThey help it blend with the sand.",
         "imageBrief": "Use the built-in image generator. Clean, clear, bright cartoon illustration with crisp consistent outlines, simple flat colors and readable shapes. No embossed relief, patchy or daubed paint, painterly/gouache effects, canvas grain, paper texture or simulated brushwork. Preserve locked Small Steps character identities, clothes and proportions, translating the rendering to this clean cartoon style. Landscape, full composition with action inset; no generated text, labels, numbers or pseudo-writing. A cool rocky northeast Pacific seabed; one giant Pacific octopus is followed at a respectful distance. The same octopus displays paler patches on the sand. Exact state: Body proportions and eight-arm structure unchanged.",
         "imageAlt": "The same octopus displays paler patches on the sand.",
         "state": "Body proportions and eight-arm structure unchanged.",
@@ -2287,9 +2287,9 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Read the whole-to-part explanation, then explain why an outline can be harder to follow.",
       "fluency": "Reread pages 5–8 slowly, grouping each cause with its result."
     },
-    "reviewedAt": "2026-11-09",
-    "reviewedTextFingerprint": "fnv1a64:624d74cc46d0b54f",
-    "reviewedManuscriptSha256": "519c2243be07ef36d0503fb5f7e4b7ed854a17f890530d975a973d1611aeefe5",
+    "reviewedAt": "2026-11-22",
+    "reviewedTextFingerprint": "fnv1a64:6f842b51d6288b7b",
+    "reviewedManuscriptSha256": "aeef1e5e65647a1bc07aea854d4b357f97727f2ec9f6c6ee1aba76192020cac1",
     "readingMode": "predictable-levelled",
     "additionalPrerequisites": []
   },
@@ -2563,7 +2563,7 @@ const MANUSCRIPTS = deepFreeze([
       },
       {
         "pageNumber": 4,
-        "text": "Our print holds its shape.\nLater, a gentle layer of sand or mud covers it without washing it away.",
+        "text": "Later, sand or mud settles over the print.\nThe print holds its shape under the new layer.",
         "imageBrief": "Use the built-in image generator. Clean, clear, bright cartoon illustration with crisp consistent outlines, simple flat colors and readable shapes. No embossed relief, patchy or daubed paint, painterly/gouache effects, canvas grain, paper texture or simulated brushwork. Preserve locked Small Steps character identities, clothes and proportions, translating the rendering to this clean cartoon style. Landscape, full composition with action inset; no generated text, labels, numbers or pseudo-writing. A scientifically informed illustrative sequence from an ancient muddy shore through layered sediment to a present-day exposed rock surface. Fine pale sediment settles into and over the intact footprint. Exact state: Original brown print surface remains under new material.",
         "imageAlt": "Fine pale sediment settles into and over the intact footprint.",
         "state": "Original brown print surface remains under new material.",
@@ -2710,9 +2710,9 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Read the possible sequence, then sort one supported conclusion from one unanswered question.",
       "fluency": "Reread may, can and could accurately; do not turn qualified facts into certainties."
     },
-    "reviewedAt": "2026-11-09",
-    "reviewedTextFingerprint": "fnv1a64:995d20d5f58570e0",
-    "reviewedManuscriptSha256": "e5da655a38ba52e5edfd374b65d924970106a2aa04a9ce9defae461fd696ccad",
+    "reviewedAt": "2026-11-22",
+    "reviewedTextFingerprint": "fnv1a64:f2b8f7f8f9e09f7c",
+    "reviewedManuscriptSha256": "005de1ae1a8701abfe321d2f03b09947233d4bbcfee9e7842282d30dbb325b96",
     "readingMode": "predictable-levelled",
     "additionalPrerequisites": []
   },
@@ -2757,7 +2757,7 @@ const MANUSCRIPTS = deepFreeze([
     "pages": [
       {
         "pageNumber": 1,
-        "text": "A red boat reaches a higher stretch of canal.\nIt cannot float uphill through the air. What can lift it?",
+        "text": "A red boat reaches the end of the lower canal.\nHow can it reach the higher water?",
         "imageBrief": "Use the built-in image generator. Clean, clear, bright cartoon illustration with crisp consistent outlines, simple flat colors and readable shapes. No embossed relief, patchy or daubed paint, painterly/gouache effects, canvas grain, paper texture or simulated brushwork. Preserve locked Small Steps character identities, clothes and proportions, translating the rendering to this clean cartoon style. Landscape, full composition with action inset; no generated text, labels, numbers or pseudo-writing. A simplified working canal lock viewed from the side and above, with the lower reach consistently left and upper reach right. A red narrowboat approaches the lower side of a lock with a higher canal beyond. Exact state: Boat at lower left; upper right water clearly higher.",
         "imageAlt": "A red narrowboat approaches the lower side of a lock with a higher canal beyond.",
         "state": "Boat at lower left; upper right water clearly higher.",
@@ -2785,10 +2785,10 @@ const MANUSCRIPTS = deepFreeze([
       {
         "pageNumber": 4,
         "text": "The lower gates open, and the boat enters.\nThe boat still floats at the lower height.",
-        "imageBrief": "Use the built-in image generator. Clean, clear, bright cartoon illustration with crisp consistent outlines, simple flat colors and readable shapes. No embossed relief, patchy or daubed paint, painterly/gouache effects, canvas grain, paper texture or simulated brushwork. Preserve locked Small Steps character identities, clothes and proportions, translating the rendering to this clean cartoon style. Landscape, full composition with action inset; no generated text, labels, numbers or pseudo-writing. A simplified working canal lock viewed from the side and above, with the lower reach consistently left and upper reach right. The boat moves right into the chamber through open lower gates. Exact state: Upper gates shut; no change of water height.",
-        "imageAlt": "The boat moves right into the chamber through open lower gates.",
-        "state": "Upper gates shut; no change of water height.",
-        "pageDescription": "The boat moves right into the chamber through open lower gates.",
+        "imageBrief": "Use the built-in image generator. Clean flat cartoon side cutaway. The open lower gate rests against the far wall so water and the red boat have a clear path from the lower canal into the chamber. Show one continuous low water surface on the left and through the chamber. The upper gate stays visibly shut and holds back the higher water on the right. Keep the operator, boat, towpath and stone walls consistent with the adjacent diagrams. No lettering.",
+        "imageAlt": "The red boat enters from the left through an open gate. The water stays low in the chamber, and the right gate is still shut.",
+        "state": "Lower entrance open and clear; upper exit shut; lower canal and chamber water match.",
+        "pageDescription": "The red boat enters from the left through an open gate. The water stays low in the chamber, and the right gate is still shut.",
         "embeddedImageText": ""
       },
       {
@@ -2848,10 +2848,10 @@ const MANUSCRIPTS = deepFreeze([
       {
         "pageNumber": 11,
         "text": "The boat moves out onto the higher water.\nThe lower gates remain shut behind the chamber.",
-        "imageBrief": "Use the built-in image generator. Clean, clear, bright cartoon illustration with crisp consistent outlines, simple flat colors and readable shapes. No embossed relief, patchy or daubed paint, painterly/gouache effects, canvas grain, paper texture or simulated brushwork. Preserve locked Small Steps character identities, clothes and proportions, translating the rendering to this clean cartoon style. Landscape, full composition with action inset; no generated text, labels, numbers or pseudo-writing. A simplified working canal lock viewed from the side and above, with the lower reach consistently left and upper reach right. The red boat exits right onto the upper canal. Exact state: Boat still right-facing; no other gate open.",
-        "imageAlt": "The red boat exits right onto the upper canal.",
-        "state": "Boat still right-facing; no other gate open.",
-        "pageDescription": "The red boat exits right onto the upper canal.",
+        "imageBrief": "Use the built-in image generator. Clean flat cartoon side cutaway. The open upper gate rests against the far wall so the red boat can move right onto the upper canal. The chamber and upper canal share one continuous high water surface. The lower gate on the left stays visibly shut. Keep the same boat, stone walls and operator standing on the towpath. No lettering.",
+        "imageAlt": "The red boat leaves through the open right gate onto higher water. The left gate still holds the higher water inside the chamber.",
+        "state": "Upper exit open and clear; lower entrance shut; chamber and upper canal water match.",
+        "pageDescription": "The red boat leaves through the open right gate onto higher water. The left gate still holds the higher water inside the chamber.",
         "embeddedImageText": ""
       },
       {
@@ -2931,9 +2931,9 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Read with the lower/upper orientation fixed; explain which state must change before the next action.",
       "fluency": "Reread pages 5–10, grouping each condition with the action it permits."
     },
-    "reviewedAt": "2026-11-09",
-    "reviewedTextFingerprint": "fnv1a64:e0088847adf2bc3a",
-    "reviewedManuscriptSha256": "c172c10393954509e2dd3103952c5458c0d117c5ddbd5ccaf6cde5090af7f5ad",
+    "reviewedAt": "2026-11-22",
+    "reviewedTextFingerprint": "fnv1a64:e6197ad873470d1c",
+    "reviewedManuscriptSha256": "ffdaa1e7f611f2f074346b7dbeadb16adf3a6702b6fe214a76d3e5ac79cb921b",
     "readingMode": "predictable-levelled",
     "additionalPrerequisites": []
   },

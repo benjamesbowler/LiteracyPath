@@ -21,10 +21,8 @@ test('all fifty titles and ordered manuscripts match the current independently f
   assert.equal(next.reduce((sum, book) => sum + book.pages.length, 0), 220);
   assert.equal(bright.reduce((sum, book) => sum + book.pages.length, 0), 220);
   const readingText = books.map(book => ({id: book.id, title: book.title, pages: book.pages.map(page => page.text)}));
-  // The complete ESL review on 2026-11-09 revised Bright Ideas 08, 12, 15,
-  // 17, 18 and 20. All fifty current manuscripts are independently recorded in
-  // source-art/guided-reading-remediation/2026-11-09/complete-book-review.json.
-  assert.equal(createHash('sha256').update(JSON.stringify(readingText)).digest('hex'), '232bc30aba8d9ea85647a386d7f1cd604253f7746530c2de24aa23268fcb2e81');
+  // Reviewed against the full ordered text after the 2026-11-22 ESL edits.
+  assert.equal(createHash('sha256').update(JSON.stringify(readingText)).digest('hex'), '11b49187614e3d81645863fe053a7fba157bdc779b1321edf884a671d52a4398');
   for (const book of books) {
     assert.equal(fingerprintBookReadingText(book), book.reviewedTextFingerprint, book.id);
     assert.equal(createHash('sha256').update(JSON.stringify(book.pages.map(page => page.text))).digest('hex'), book.reviewedManuscriptSha256, book.id);

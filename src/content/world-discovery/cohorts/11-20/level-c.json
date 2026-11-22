@@ -308,7 +308,7 @@
       },
       {
         "pageNumber": 2,
-        "text": "At a nearby farm, a grower pulls carrots from the soil. She gathers them in a green crate.",
+        "text": "At a nearby farm, a farmer pulls carrots from the soil. She puts them in a green crate.",
         "imageBrief": "The grower kneels beside a carrot row and places freshly pulled carrots into the distinctive green crate with its pale diagonal brace. Continuity: One batch of carrots collected; no mechanical field harvesting or unrelated vegetables introduced.",
         "imageAlt": "The grower kneels beside a carrot row and places freshly pulled carrots into the distinctive green crate with its pale diagonal brace.",
         "pageDescription": "The grower kneels beside a carrot row and places freshly pulled carrots into the distinctive green crate with its pale diagonal brace.",
@@ -317,7 +317,7 @@
       },
       {
         "pageNumber": 3,
-        "text": "The full crate goes into her van. She takes the carrots to the market with the other growers.",
+        "text": "She puts the full crate in her van. Next stop, the market!",
         "imageBrief": "The grower slides the full green crate into her plain gray van; distant separate vehicles suggest others arriving without adding named cast. Continuity: Same crate and crop travel together; no claim every farmers market uses this exact transport.",
         "imageAlt": "The grower slides the full green crate into her plain gray van; distant separate vehicles suggest others arriving without adding named cast.",
         "pageDescription": "The grower slides the full green crate into her plain gray van; distant separate vehicles suggest others arriving without adding named cast.",
@@ -326,7 +326,7 @@
       },
       {
         "pageNumber": 4,
-        "text": "The worker holds the gate open and points out a space. The grower carries the crate to her table.",
+        "text": "A worker holds the gate open and points to the table. The farmer carries the crate over.",
         "imageBrief": "The worker stands beside the open market gate and points to the established empty table. The grower carries the green crate through. Continuity: Gate was opened for setup and remains open; table is the one shown in page 1.",
         "imageAlt": "The worker stands beside the open market gate and points to the established empty table. The grower carries the green crate through.",
         "pageDescription": "The worker stands beside the open market gate and points to the established empty table. The grower carries the green crate through.",
@@ -335,7 +335,7 @@
       },
       {
         "pageNumber": 5,
-        "text": "The grower lifts carrots onto the stand. She keeps the empty crate underneath for the trip home.",
+        "text": "The farmer puts the carrots on the table. She keeps the empty crate underneath for the trip home.",
         "imageBrief": "Carrot bunches lie on the tabletop; the grower slides the now empty green crate under it with its diagonal brace visible. Continuity: Crop moved onto stall; crate emptied but retained, not discarded or vanished.",
         "imageAlt": "Carrot bunches lie on the tabletop; the grower slides the now empty green crate under it with its diagonal brace visible.",
         "pageDescription": "Carrot bunches lie on the tabletop; the grower slides the now empty green crate under it with its diagonal brace visible.",
@@ -344,7 +344,7 @@
       },
       {
         "pageNumber": 6,
-        "text": "Kit arrives with a grown-up. He points to a bunch of carrots and asks the grower about them.",
+        "text": "Kit arrives with a grown-up. He points to a bunch of carrots and asks the farmer about them.",
         "imageBrief": "Kit and his adult stand at the carrot stall; Kit points to one bunch while the grower gestures toward it. Continuity: Market is now open to customers; no transaction completed yet.",
         "imageAlt": "Kit and his adult stand at the carrot stall; Kit points to one bunch while the grower gestures toward it.",
         "pageDescription": "Kit and his adult stand at the carrot stall; Kit points to one bunch while the grower gestures toward it.",
@@ -353,7 +353,7 @@
       },
       {
         "pageNumber": 7,
-        "text": "The grown-up pays. The grower passes the carrots across, and Kit puts them in their cloth bag.",
+        "text": "The grown-up pays. The farmer hands Kit the carrots, and he puts them in their cloth bag.",
         "imageBrief": "Adult hands payment to the grower while Kit lowers the purchased carrot bunch into the cloth bag. Keep money small and non-detailed. Continuity: One bunch transferred; other carrots remain on stall; crate still underneath.",
         "imageAlt": "Adult hands payment to the grower while Kit lowers the purchased carrot bunch into the cloth bag. Keep money small and non-detailed.",
         "pageDescription": "Adult hands payment to the grower while Kit lowers the purchased carrot bunch into the cloth bag. Keep money small and non-detailed.",
@@ -373,23 +373,23 @@
     "discussion": {
       "oral": {
         "prompt": "Which jobs had already happened before Kit arrived?",
-        "listenFor": "The carrots had been grown and harvested, carried to the market and set out for customers."
+        "listenFor": "The farmer grew and picked the carrots. She took them to the market and put them on the table."
       },
       "visual": {
         "page": 5,
         "prompt": "Where is the crate now, and why is it empty?",
-        "lookFor": "Under the table; its carrots have been moved onto the stand, and the grower will reuse it to carry things home."
+        "lookFor": "The crate is under the table. The farmer put the carrots on the table and kept the crate for the trip home."
       }
     },
     "levelRationale": "Candidate C: The same concrete crate supports a longer connected sequence with before/now relationships and several human roles. The final sentence gathers the causal work rather than listing unrelated community helpers.",
     "languagePrep": [
       {
-        "word": "grower",
-        "meaning": "a person who raises plants for food or other uses"
+        "word": "farmer",
+        "meaning": "someone who grows food or keeps farm animals"
       },
       {
-        "word": "stand",
-        "meaning": "a place where goods are displayed for sale"
+        "word": "crate",
+        "meaning": "a strong box used for carrying things"
       },
       {
         "word": "crop",
@@ -457,7 +457,7 @@
       },
       {
         "pageNumber": 4,
-        "text": "Kit picks it up and starts again. The bookmark reaches that patch and turns back, just as before.",
+        "text": "Kit picks it up and starts again. The bookmark reaches the same arrow and turns back again.",
         "imageBrief": "After the restart, the red bookmark again reaches the backward fifth arrow and begins its local reversal. Kit’s hand remains near the starting end; Zoe steadies the open book. Continuity: Restart fails because directions are unchanged; bookmark does not pass fifth arrow toward the book or return to the distant start.",
         "imageAlt": "After the restart, the red bookmark again reaches the backward fifth arrow and begins its local reversal. Kit’s hand remains near the starting end; Zoe steadies the open book.",
         "pageDescription": "After the restart, the red bookmark again reaches the backward fifth arrow and begins its local reversal. Kit’s hand remains near the starting end; Zoe steadies the open book.",
@@ -718,7 +718,7 @@
     "pages": [
       {
         "pageNumber": 1,
-        "text": "A comet has a long, pale tail. Is its tail a long piece of ice?",
+        "text": "This comet has a long, pale tail. Is it a long piece of ice?",
         "imageBrief": "A broad pale dust tail stretches from a much smaller irregular dark center. A distant Sun is visible left of frame. Continuity: Opening near-Sun view; one comet and one visible dust tail; diffuse material, not a solid spike.",
         "imageAlt": "A broad pale dust tail stretches from a much smaller irregular dark center. A distant Sun is visible left of frame.",
         "pageDescription": "A broad pale dust tail stretches from a much smaller irregular dark center. A distant Sun is visible left of frame.",
@@ -781,7 +781,7 @@
       },
       {
         "pageNumber": 8,
-        "text": "The long tail is not a solid piece of the comet. It is loose dust, lit by the Sun.",
+        "text": "This comet’s long, pale tail is loose dust. Sunlight bounces off the dust, so we can see it.",
         "imageBrief": "Final close view of a fading pale dust tail shows diffuse tiny particles around the small dark center, with sunlight arriving from the left. Continuity: Concluding selective dust-tail view; solid center and loose tail remain distinguishable.",
         "imageAlt": "Final close view of a fading pale dust tail shows diffuse tiny particles around the small dark center, with sunlight arriving from the left.",
         "pageDescription": "Final close view of a fading pale dust tail shows diffuse tiny particles around the small dark center, with sunlight arriving from the left.",
@@ -886,7 +886,7 @@
       },
       {
         "pageNumber": 4,
-        "text": "The otter sets the stone on its chest. It holds the clam above the flat surface.",
+        "text": "The otter sets the stone on its chest. It holds the clam just above the stone.",
         "imageBrief": "Otter’s forepaws raise the closed clam over the stone lying securely on its chest; hind feet trail naturally in the water. Continuity: Stone is anvil, clam will be struck against it; one clear tool arrangement maintained.",
         "imageAlt": "Otter’s forepaws raise the closed clam over the stone lying securely on its chest; hind feet trail naturally in the water.",
         "pageDescription": "Otter’s forepaws raise the closed clam over the stone lying securely on its chest; hind feet trail naturally in the water.",

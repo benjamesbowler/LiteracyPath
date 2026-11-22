@@ -39,9 +39,10 @@
     "note": "One north-up world-outline map has exactly three dots on Japan/northeast Africa/east-central South America and three non-crossing leaders to three paired circles: Fuji/Tokyo, desert/Nile, Amazon/Rio. Complete diagram inside frame; no animals, extra dots, labels, symbols or flags. Producer independently inspected the final installed WebP natively; complete final sequence and relevant native diagrams were independently reviewed."
   },
   "reviewedManuscriptSource": {
-    "bookId": "world-discovery-e-22",
     "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
-    "sha256": "d3b67d6c70cda202a99594710f903a9dc9ec37110031b15daf30f7eb0b2fb747",
-    "evidence": "source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json"
+    "bookId": "world-discovery-e-22",
+    "sha256": "a5a1a1cf92309c5a6828059be3b97a3072ca2df61097ef97c68d5a07909f41c9",
+    "reviewedAt": "2026-11-22",
+    "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json"
   }
 }

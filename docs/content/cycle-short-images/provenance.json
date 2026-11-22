@@ -82,6 +82,14 @@
       "date": "2026-11-03",
       "method": "Actual generated comic panels inspected in labelled 900px-wide review sheets; Cycle 12 and corrected Cycle 27 also inspected individually.",
       "notes": "Clean outlined cartoon scene; ordered actions, named characters and essential props match the passage. No answer letters or story text embedded. Rendered fit checked separately in the Cycle Shorts browser suite."
+    },
+    "retainedImageReview": {
+      "date": "2026-11-22",
+      "reviewedText": "Muddy sits on a log. The log rolls. Muddy gets off. Muddy sits on the mat.",
+      "reviewedTextSha256": "dc3d5e63005dd0b5f6534425c324766d9c7683ad869a11c2f379e49110d231bc",
+      "sourceTextSha256": "92dcca1e20ac54a2cba10ed583e4be92b5fe611f64034f04e4590ebaf363e3b1",
+      "imageSha256": "349e155a9c252455f08a84bada6b4844ec922b368b42cda39678757f0eff58c6",
+      "notes": "The first panel places Muddy on the log. The next shows the log rolling and Muddy stepping off. The last shows him seated on the blue mat."
     }
   },
   "cycle-short-6": {
@@ -89,7 +97,7 @@
     "sourceSha256": "ae032fdf724bd8819c41c8c20f5dc6b64fcc3bf8217c6ad04c403ba50bbd8001",
     "assetSha256": "c4c3f0334d77913da4bdaeccbf6ff339c69dbb7c75c851b1290c40a5d9523f38",
     "sourceText": "My red hat is in the mud. Muddy runs to it. How do I get my hat? Muddy lifts it with a stick. The hat is back on Muddy.",
-    "prompt": "One finished horizontal three-panel classroom story comic, read left to right. No text, labels, lettering, answer letters or decorative symbols. Bold, clean, clear 2D cartoon illustration with crisp continuous outlines, clear silhouettes, flat clean colors and a small number of smooth cel-shaded shapes. Keep the focal action readable at child-facing display size. Draw material details with simple outlined shapes and restrained flat marks. No painterly rendering, gouache, watercolor, brush daubs, patchy paint, visible brushwork, paper or canvas grain, embossed or impasto relief, pebbled surfaces, fuzzy edges or hyper-textured material rendering. Use neutral everyday settings and clothing with ordinary variation in skin tone and hair. No religious buildings, symbols or clothing, racial or ethnic caricatures or identity-themed costumes, or national, religious or political flags. Plain game-course pennants and checkered racing flags are allowed. Simple pale backgrounds, large clear actions, all faces and props within an 8% safe inset. One coherent moment per panel. World: Sunny Meadow Farm, daylight, same setting and props across the three panels. Reference image supplies only Muddy's identity, not its surrounding stars/leaves. MEADOW-MUDDY is a round pink pig with floppy triangular ears, oval snout, dark brown mud patches on both cheeks and belly, black hoof tips; no clothing unless the story introduces it. Exactly four limbs per mammal, with forehooves used to hold things, no added human arms. MEADOW-SPLASHY is a yellow duckling with orange beak and feet, half Muddy's height. MEADOW-CLUCKY is a russet hen with red comb, two wings and two legs, three quarters Muddy's height, no hat. MEADOW-TINY is a grey field mouse with pink nose and inner ears, thin grey tail, one quarter Muddy's height. MEADOW-SPEEDY is a black-and-white border collie, about Muddy's height. MEADOW-BRAVE is a small yellow chick with short orange beak and feet, one third Muddy's height; distinct from the duckling. Draw only characters named in these panels. Exact story: My red hat is in the mud. Muddy runs to it. How do I get my hat? Muddy lifts it with a stick. The hat is back on Muddy.\nPanel 1: A red hat lies in a shallow mud patch; Muddy approaches.\nPanel 2: Muddy uses a long stick to lift the red hat out of the mud.\nPanel 3: The same red hat is back on Muddy\u2019s head; the stick rests nearby.",
+    "prompt": "One finished horizontal three-panel classroom story comic, read left to right. No text, labels, lettering, answer letters or decorative symbols. Bold, clean, clear 2D cartoon illustration with crisp continuous outlines, clear silhouettes, flat clean colors and a small number of smooth cel-shaded shapes. Keep the focal action readable at child-facing display size. Draw material details with simple outlined shapes and restrained flat marks. No painterly rendering, gouache, watercolor, brush daubs, patchy paint, visible brushwork, paper or canvas grain, embossed or impasto relief, pebbled surfaces, fuzzy edges or hyper-textured material rendering. Use neutral everyday settings and clothing with ordinary variation in skin tone and hair. No religious buildings, symbols or clothing, racial or ethnic caricatures or identity-themed costumes, or national, religious or political flags. Plain game-course pennants and checkered racing flags are allowed. Simple pale backgrounds, large clear actions, all faces and props within an 8% safe inset. One coherent moment per panel. World: Sunny Meadow Farm, daylight, same setting and props across the three panels. Reference image supplies only Muddy's identity, not its surrounding stars/leaves. MEADOW-MUDDY is a round pink pig with floppy triangular ears, oval snout, dark brown mud patches on both cheeks and belly, black hoof tips; no clothing unless the story introduces it. Exactly four limbs per mammal, with forehooves used to hold things, no added human arms. MEADOW-SPLASHY is a yellow duckling with orange beak and feet, half Muddy's height. MEADOW-CLUCKY is a russet hen with red comb, two wings and two legs, three quarters Muddy's height, no hat. MEADOW-TINY is a grey field mouse with pink nose and inner ears, thin grey tail, one quarter Muddy's height. MEADOW-SPEEDY is a black-and-white border collie, about Muddy's height. MEADOW-BRAVE is a small yellow chick with short orange beak and feet, one third Muddy's height; distinct from the duckling. Draw only characters named in these panels. Exact story: My red hat is in the mud. Muddy runs to it. How do I get my hat? Muddy lifts it with a stick. The hat is back on Muddy.\nPanel 1: A red hat lies in a shallow mud patch; Muddy approaches.\nPanel 2: Muddy uses a long stick to lift the red hat out of the mud.\nPanel 3: The same red hat is back on Muddy’s head; the stick rests nearby.",
     "referencePath": "/images/worksheets/muddy-colouring.webp",
     "referenceSha256": "6e7e9d1338353261677a8e91a08939cadb47d36fee772511b8074b6f9471e577",
     "generator": "Built-in image_gen",
@@ -101,13 +109,12 @@
       "notes": "Clean outlined cartoon scene; ordered actions, named characters and essential props match the passage. No answer letters or story text embedded. Rendered fit checked separately in the Cycle Shorts browser suite."
     },
     "retainedImageReview": {
-      "date": "2026-11-11",
-      "reviewer": "Codex native-resolution visual inspection",
+      "date": "2026-11-22",
+      "reviewedText": "Muddy’s red hat is in the mud. Muddy runs to it. “How do I get my hat?” Muddy asks. Muddy lifts it with a stick. Muddy puts his hat back on.",
+      "reviewedTextSha256": "b31e1744f09ddbc06ffa36ef12d2f3ec1cd3fb463c42d8bfe8a7ff12dd058b1f",
       "sourceTextSha256": "9f92c70170c08c9478d2490d0130d60b1bb9c5d77dfe4226e385339ac27c3e8c",
-      "reviewedText": "Muddy’s red hat is in the mud. Muddy runs to it. “How do I get my hat?” Muddy asks. Muddy lifts it with a stick. The hat is back on Muddy.",
-      "reviewedTextSha256": "b212408d0eff315dd0a9067af6b32e57eb767447a2f44478939ced47cd6d3281",
       "imageSha256": "c4c3f0334d77913da4bdaeccbf6ff339c69dbb7c75c851b1290c40a5d9523f38",
-      "notes": "Three panels show Muddy approaching the red hat in mud, lifting it with a stick and wearing it again. The attributed question clarifies the same character’s intent."
+      "notes": "The last panel shows the same recovered red hat back on Muddy’s head after the stick lifts it."
     }
   },
   "cycle-short-7": {
@@ -168,6 +175,14 @@
       "date": "2026-11-03",
       "method": "Actual generated comic panels inspected in labelled 900px-wide review sheets; Cycle 12 and corrected Cycle 27 also inspected individually.",
       "notes": "Clean outlined cartoon scene; ordered actions, named characters and essential props match the passage. No answer letters or story text embedded. Rendered fit checked separately in the Cycle Shorts browser suite."
+    },
+    "retainedImageReview": {
+      "date": "2026-11-22",
+      "reviewedText": "Splashy has a quilt. She tugs it up. It slips off. Muddy lifts it for her. He tucks the quilt around her. “Sit with me,” says Muddy.",
+      "reviewedTextSha256": "4f101bf5a2f60d52fc3c77f69ff463bd3ca22ab58a1835078230821d41b95051",
+      "sourceTextSha256": "50bf8a8cdeda00d9d9a6f950d044dd8c4b9138480bee828a181f133ccb262f65",
+      "imageSha256": "34bd5c66eef2fa2c42c45ec2c73ad7558d40716a0afd7a1843e914c14d29a87f",
+      "notes": "The quilt covers Splashy after Muddy lifts it; both friends remain together in the last panel."
     }
   },
   "cycle-short-10": {
@@ -185,6 +200,14 @@
       "date": "2026-11-03",
       "method": "Actual generated comic panels inspected in labelled 900px-wide review sheets; Cycle 12 and corrected Cycle 27 also inspected individually.",
       "notes": "Clean outlined cartoon scene; ordered actions, named characters and essential props match the passage. No answer letters or story text embedded. Rendered fit checked separately in the Cycle Shorts browser suite."
+    },
+    "retainedImageReview": {
+      "date": "2026-11-22",
+      "reviewedText": "Muddy and Splashy are at the pond. A cap is on a log. “Can you get it, Splashy?” asks Muddy. Splashy swims as Muddy holds the log. Splashy gets the cap.",
+      "reviewedTextSha256": "767e7d866b693b36b16823d2cf77fc9fa25ea459458cc00ec49bd98e0eb798fd",
+      "sourceTextSha256": "a47d6f9160a3896f465a9795e0bca9af368be0c5aacd0b977ffa4683ff36bf02",
+      "imageSha256": "cf275ce8b8d0b3b1f05ba6253d502b10ffa584e2c646923ae1792f9aa55d73d6",
+      "notes": "Muddy remains at the bank holding the log while Splashy swims and gets the cap."
     }
   },
   "cycle-short-11": {
@@ -202,6 +225,14 @@
       "date": "2026-11-03",
       "method": "Actual generated comic panels inspected in labelled 900px-wide review sheets; Cycle 12 and corrected Cycle 27 also inspected individually.",
       "notes": "Clean outlined cartoon scene; ordered actions, named characters and essential props match the passage. No answer letters or story text embedded. Rendered fit checked separately in the Cycle Shorts browser suite."
+    },
+    "retainedImageReview": {
+      "date": "2026-11-22",
+      "reviewedText": "Muddy the pig is in a box. The box tips on its side. Muddy yells for help. Splashy lifts the lid. “Now I can see the sun,” says Muddy.",
+      "reviewedTextSha256": "9ca039ac228c5b77f6f0a7ed60d4485627dbe21537748a6f63b7a5d772c46c97",
+      "sourceTextSha256": "e99b0ca0cf1af60f847390e55f921a9bd1e56a5cf0a4329631a4aec54cf97a5e",
+      "imageSha256": "442afc84af7a39bc7076c930922de7d79536e36d843fa4153635697c7ffff756",
+      "notes": "The box tips onto its side with Muddy inside. Splashy lifts the flap and Muddy can see out."
     }
   },
   "cycle-short-12": {
@@ -219,6 +250,14 @@
       "date": "2026-11-03",
       "method": "Actual generated comic panels inspected in labelled 900px-wide review sheets; Cycle 12 and corrected Cycle 27 also inspected individually.",
       "notes": "Clean outlined cartoon scene; ordered actions, named characters and essential props match the passage. No answer letters or story text embedded. Rendered fit checked separately in the Cycle Shorts browser suite."
+    },
+    "retainedImageReview": {
+      "date": "2026-11-22",
+      "reviewedText": "Muddy has a red vest for the farm picnic. It will not fit. “Is it for me or for Tiny?” asks Muddy. Tiny puts on the vest. It fits Tiny!",
+      "reviewedTextSha256": "b6a1f2dd5bbb5346cb663bbe5532edb92f2f05554ce9de2840a6ccb218f77669",
+      "sourceTextSha256": "7433ea0dcdbb7f5960a76216738e372fb9242c6ef823650cd72164f57638d29d",
+      "imageSha256": "bce01419295986581f326d678e36f0e5603df69fab082ff646907b5525d8946b",
+      "notes": "The vest remains the same red garment as it passes from Muddy to Tiny."
     }
   },
   "cycle-short-13": {
@@ -236,6 +275,14 @@
       "date": "2026-11-03",
       "method": "Actual generated comic panels inspected in labelled 900px-wide review sheets; Cycle 12 and corrected Cycle 27 also inspected individually.",
       "notes": "Clean outlined cartoon scene; ordered actions, named characters and essential props match the passage. No answer letters or story text embedded. Rendered fit checked separately in the Cycle Shorts browser suite."
+    },
+    "retainedImageReview": {
+      "date": "2026-11-22",
+      "reviewedText": "Muddy has jam in his picnic kit. The bag’s zip is stuck. Clucky gets her peg. She pulls the zip with the peg. Now Muddy can get the jam.",
+      "reviewedTextSha256": "133387e28753802e1be19cfce1f88afd346a5fe17ca140a459d7ec2f71398a13",
+      "sourceTextSha256": "95d112a02f27fb3b6e805ff2dc0a58909116174058c0218001cba9414cc7650b",
+      "imageSha256": "1a91679aa0b426649814916f5f26b3a24b646493f2ff40d27cee116e12fd308a",
+      "notes": "Clucky grips the jam bag’s zipper with the peg. The last panel shows Muddy with the retrieved jar."
     }
   },
   "cycle-short-15": {
@@ -253,6 +300,14 @@
       "date": "2026-11-03",
       "method": "Actual generated comic panels inspected in labelled 900px-wide review sheets; Cycle 12 and corrected Cycle 27 also inspected individually.",
       "notes": "Clean outlined cartoon scene; ordered actions, named characters and essential props match the passage. No answer letters or story text embedded. Rendered fit checked separately in the Cycle Shorts browser suite."
+    },
+    "retainedImageReview": {
+      "date": "2026-11-22",
+      "reviewedText": "Muddy and Brave the chick look for a shell. The shell is in a narrow crack by the pond. Muddy cannot reach it. Brave lifts it with a thin stick. “Good work, Brave!” says Muddy.",
+      "reviewedTextSha256": "50f829925b667b5c0f5b76a4104b1b0c122668cbd88b375ee99433d5f2a39e37",
+      "sourceTextSha256": "21c74b38622c79e71b0bba5a7099dc9dfe21e67158f0e34ffaf0add535fa8124",
+      "imageSha256": "bab7b053f6742baa0dd55cf9d20ca0b5c2022b10f18a424397d7f55e032bdcaf",
+      "notes": "Brave uses the thin stick to reach the shell in the narrow crack while Muddy watches."
     }
   },
   "cycle-short-16": {
@@ -270,6 +325,14 @@
       "date": "2026-11-03",
       "method": "Actual generated comic panels inspected in labelled 900px-wide review sheets; Cycle 12 and corrected Cycle 27 also inspected individually.",
       "notes": "Clean outlined cartoon scene; ordered actions, named characters and essential props match the passage. No answer letters or story text embedded. Rendered fit checked separately in the Cycle Shorts browser suite."
+    },
+    "retainedImageReview": {
+      "date": "2026-11-22",
+      "reviewedText": "Muddy has a ball. Muddy and Splashy watch it roll to the wall. The ball is stuck in a gap. “Try this,” says Splashy. Muddy pushes a stick into the gap. Out pops the ball onto the mat!",
+      "reviewedTextSha256": "c0585aaee3161ce8f8f2e150cb8c847ce4f6994e0004877d80393498555a890c",
+      "sourceTextSha256": "79f82522e86f0c7bb1a2c035c4ef54708cd166224e8a3bff222c5e4b08ac5eb6",
+      "imageSha256": "678523f643c6060d9a730951e8828e18d5254c0478bd81d02b04a95cc4f595be",
+      "notes": "Muddy and Splashy follow the same ball by the wall. The last panel shows it free on the mat."
     }
   },
   "cycle-short-17": {
@@ -338,6 +401,14 @@
       "date": "2026-11-03",
       "method": "Actual generated comic panels inspected in labelled 900px-wide review sheets; Cycle 12 and corrected Cycle 27 also inspected individually.",
       "notes": "Clean outlined cartoon scene; ordered actions, named characters and essential props match the passage. No answer letters or story text embedded. Rendered fit checked separately in the Cycle Shorts browser suite."
+    },
+    "retainedImageReview": {
+      "date": "2026-11-22",
+      "reviewedText": "Muddy has a pink cup. Muddy puts it under the tap by the barn. Why does the sink fill up? A leaf blocks the hole. Muddy lifts out the leaf. The water goes down and the sink is empty.",
+      "reviewedTextSha256": "d31ae9f75b8d5f131150fb7cfb53ec3185f79d49858d658ff0d91db8923cf3e9",
+      "sourceTextSha256": "ea5516a69475c171cce48de7ba9dc501beeb93290674c369968d8e489252fc79",
+      "imageSha256": "50fc0d442f576d50bc14aab9427ca65acbc2a2c9bedd4f9e91b93f09346d14e1",
+      "notes": "The cup starts at the tap. Muddy removes the leaf, and the sink drains."
     }
   },
   "cycle-short-24": {
@@ -357,13 +428,12 @@
       "notes": "Clean outlined cartoon scene; ordered actions, named characters and essential props match the passage. No answer letters or story text embedded. Rendered fit checked separately in the Cycle Shorts browser suite."
     },
     "retainedImageReview": {
-      "date": "2026-11-11",
-      "reviewer": "Codex native-resolution visual inspection",
+      "date": "2026-11-22",
+      "reviewedText": "Muddy hears a buzz by the bell. “Which bug is it?” asks Muddy. A bee lands on the bell. Muddy must ring the bell or his friends may miss lunch. He waits for the bee to fly off. Then Muddy rings the bell for lunch.",
+      "reviewedTextSha256": "69123d35e3d54b95b31ab961b7849e1dd3b41a752d4d8901b0c75d5a0e55f567",
       "sourceTextSha256": "eab157a73ed16e26eeb31f5ee881e23564ccd54fbe9478c53108b2fae5f9a5de",
-      "reviewedText": "Muddy hears a buzz by the bell. Which bug is it? A bee lands on the bell. His friends may miss lunch. He waits for the bee to fly off. Then Muddy rings the bell for lunch.",
-      "reviewedTextSha256": "c630d9ce0823892b5ee99773c6cb72e13727bfdc69a188e0ccd6dc9d2dddd124",
       "imageSha256": "cef623ae93f161fdc8d1568811495164fe55caebfd37e2fbd86b818e7182eb06",
-      "notes": "Three panels show one picnic bell, the bee landing on it, and Muddy ringing beside the picnic blanket after the bee leaves. The lunch concern gives him a reason to ring when the bell is clear."
+      "notes": "The same bell appears in all three panels. Muddy waits for the bee before ringing it."
     }
   },
   "cycle-short-26": {
@@ -371,7 +441,7 @@
     "sourceSha256": "9897a4d2e0fd129fe723f3a6fd16c7165394e6fe1911f7b3b34d12e3f7429a84",
     "assetSha256": "0022e7ce7f45dc583e15687fdb0bd6659061fed04f562ed97efbd442bf72084e",
     "sourceText": "My hat is stuck by the pond, said Muddy. Why not try a stick, said Splashy. The stick is too short. Muddy finds a longer stick by the barn. This time the stick reaches the hat. Muddy lifts the hat onto the grass.",
-    "prompt": "One finished horizontal three-panel classroom story comic, read left to right. No text, labels, lettering, answer letters or decorative symbols. Bold, clean, clear 2D cartoon illustration with crisp continuous outlines, clear silhouettes, flat clean colors and a small number of smooth cel-shaded shapes. Keep the focal action readable at child-facing display size. Draw material details with simple outlined shapes and restrained flat marks. No painterly rendering, gouache, watercolor, brush daubs, patchy paint, visible brushwork, paper or canvas grain, embossed or impasto relief, pebbled surfaces, fuzzy edges or hyper-textured material rendering. Use neutral everyday settings and clothing with ordinary variation in skin tone and hair. No religious buildings, symbols or clothing, racial or ethnic caricatures or identity-themed costumes, or national, religious or political flags. Plain game-course pennants and checkered racing flags are allowed. Simple pale backgrounds, large clear actions, all faces and props within an 8% safe inset. One coherent moment per panel. World: Sunny Meadow Farm, daylight, same setting and props across the three panels. Reference image supplies only Muddy's identity, not its surrounding stars/leaves. MEADOW-MUDDY is a round pink pig with floppy triangular ears, oval snout, dark brown mud patches on both cheeks and belly, black hoof tips; no clothing unless the story introduces it. Exactly four limbs per mammal, with forehooves used to hold things, no added human arms. MEADOW-SPLASHY is a yellow duckling with orange beak and feet, half Muddy's height. MEADOW-CLUCKY is a russet hen with red comb, two wings and two legs, three quarters Muddy's height, no hat. MEADOW-TINY is a grey field mouse with pink nose and inner ears, thin grey tail, one quarter Muddy's height. MEADOW-SPEEDY is a black-and-white border collie, about Muddy's height. MEADOW-BRAVE is a small yellow chick with short orange beak and feet, one third Muddy's height; distinct from the duckling. Draw only characters named in these panels. Exact story: My hat is stuck by the pond, said Muddy. Why not try a stick, said Splashy. The stick is too short. Muddy finds a longer stick by the barn. This time the stick reaches the hat. Muddy lifts the hat onto the grass.\nPanel 1: Muddy\u2019s hat is stuck near the pond; Splashy watches him try a stick that is clearly too short to reach it.\nPanel 2: Muddy finds a visibly longer stick beside the nearby barn.\nPanel 3: Muddy uses the longer stick to lift the hat safely onto the grass beside Splashy.",
+    "prompt": "One finished horizontal three-panel classroom story comic, read left to right. No text, labels, lettering, answer letters or decorative symbols. Bold, clean, clear 2D cartoon illustration with crisp continuous outlines, clear silhouettes, flat clean colors and a small number of smooth cel-shaded shapes. Keep the focal action readable at child-facing display size. Draw material details with simple outlined shapes and restrained flat marks. No painterly rendering, gouache, watercolor, brush daubs, patchy paint, visible brushwork, paper or canvas grain, embossed or impasto relief, pebbled surfaces, fuzzy edges or hyper-textured material rendering. Use neutral everyday settings and clothing with ordinary variation in skin tone and hair. No religious buildings, symbols or clothing, racial or ethnic caricatures or identity-themed costumes, or national, religious or political flags. Plain game-course pennants and checkered racing flags are allowed. Simple pale backgrounds, large clear actions, all faces and props within an 8% safe inset. One coherent moment per panel. World: Sunny Meadow Farm, daylight, same setting and props across the three panels. Reference image supplies only Muddy's identity, not its surrounding stars/leaves. MEADOW-MUDDY is a round pink pig with floppy triangular ears, oval snout, dark brown mud patches on both cheeks and belly, black hoof tips; no clothing unless the story introduces it. Exactly four limbs per mammal, with forehooves used to hold things, no added human arms. MEADOW-SPLASHY is a yellow duckling with orange beak and feet, half Muddy's height. MEADOW-CLUCKY is a russet hen with red comb, two wings and two legs, three quarters Muddy's height, no hat. MEADOW-TINY is a grey field mouse with pink nose and inner ears, thin grey tail, one quarter Muddy's height. MEADOW-SPEEDY is a black-and-white border collie, about Muddy's height. MEADOW-BRAVE is a small yellow chick with short orange beak and feet, one third Muddy's height; distinct from the duckling. Draw only characters named in these panels. Exact story: My hat is stuck by the pond, said Muddy. Why not try a stick, said Splashy. The stick is too short. Muddy finds a longer stick by the barn. This time the stick reaches the hat. Muddy lifts the hat onto the grass.\nPanel 1: Muddy’s hat is stuck near the pond; Splashy watches him try a stick that is clearly too short to reach it.\nPanel 2: Muddy finds a visibly longer stick beside the nearby barn.\nPanel 3: Muddy uses the longer stick to lift the hat safely onto the grass beside Splashy.",
     "referencePath": "/images/worksheets/muddy-colouring.webp",
     "referenceSha256": "6e7e9d1338353261677a8e91a08939cadb47d36fee772511b8074b6f9471e577",
     "generator": "Built-in image_gen",
@@ -381,6 +451,14 @@
       "date": "2026-11-03",
       "method": "Actual generated comic panels inspected in labelled 900px-wide review sheets; Cycle 12 and corrected Cycle 27 also inspected individually.",
       "notes": "Clean outlined cartoon scene; ordered actions, named characters and essential props match the passage. No answer letters or story text embedded. Rendered fit checked separately in the Cycle Shorts browser suite."
+    },
+    "retainedImageReview": {
+      "date": "2026-11-22",
+      "reviewedText": "“My hat is stuck by the pond,” says Muddy. “Why not try a stick?” says Splashy. The stick is too short. Muddy finds a longer stick by the barn. This time the stick reaches the hat. Muddy lifts the hat onto the grass.",
+      "reviewedTextSha256": "0b938d568e948cc5478904951effba0ed721b87d6805d22327c36333f847755a",
+      "sourceTextSha256": "313d611103989927638f02d4ff3ebd329548c41f97099000b6655cdaff8ff928",
+      "imageSha256": "0022e7ce7f45dc583e15687fdb0bd6659061fed04f562ed97efbd442bf72084e",
+      "notes": "The first stick falls short. The longer stick reaches the same hat and retrieves it."
     }
   },
   "cycle-short-27": {
@@ -388,7 +466,7 @@
     "sourceSha256": "e676cc8dcbc6823c411e9f8f3fb55349d5ee51da3ae35540d06b608f04a931fb",
     "assetSha256": "f4dfe1876838bcf21ee1db9918b9cfdd509995ae3937db825c20b5bbc47f666d",
     "sourceText": "Muddy has a big apple for his friend Splashy. First he puts it on a flat log. The apple rolls into the grass. Muddy picks it up and washes it. Clucky cuts it in half. Muddy and Splashy each eat half by the pond.",
-    "prompt": "One finished horizontal three-panel classroom story comic, read left to right. No text, labels, lettering, answer letters or decorative symbols. Bold, clean, clear 2D cartoon illustration with crisp continuous outlines, clear silhouettes, flat clean colors and a small number of smooth cel-shaded shapes. Keep the focal action readable at child-facing display size. Draw material details with simple outlined shapes and restrained flat marks. No painterly rendering, gouache, watercolor, brush daubs, patchy paint, visible brushwork, paper or canvas grain, embossed or impasto relief, pebbled surfaces, fuzzy edges or hyper-textured material rendering. Use neutral everyday settings and clothing with ordinary variation in skin tone and hair. No religious buildings, symbols or clothing, racial or ethnic caricatures or identity-themed costumes, or national, religious or political flags. Plain game-course pennants and checkered racing flags are allowed. Simple pale backgrounds, large clear actions, all faces and props within an 8% safe inset. One coherent moment per panel. World: Sunny Meadow Farm, daylight, same setting and props across the three panels. Reference image supplies only Muddy's identity, not its surrounding stars/leaves. MEADOW-MUDDY is a round pink pig with floppy triangular ears, oval snout, dark brown mud patches on both cheeks and belly, black hoof tips; no clothing unless the story introduces it. Exactly four limbs per mammal, with forehooves used to hold things, no added human arms. MEADOW-SPLASHY is a yellow duckling with orange beak and feet, half Muddy's height. MEADOW-CLUCKY is a russet hen with red comb, two wings and two legs, three quarters Muddy's height, no hat. MEADOW-TINY is a grey field mouse with pink nose and inner ears, thin grey tail, one quarter Muddy's height. MEADOW-SPEEDY is a black-and-white border collie, about Muddy's height. MEADOW-BRAVE is a small yellow chick with short orange beak and feet, one third Muddy's height; distinct from the duckling. Draw only characters named in these panels. Exact story: Muddy has a big apple for his friend Splashy. First he puts it on a flat log. The apple rolls into the grass. Muddy picks it up and washes it. Clucky cuts it in half. Muddy and Splashy each eat half by the pond.\nPanel 1: One big apple has rolled off a flat log into the grass beside Muddy and Splashy. The log and Muddy\u2019s forehooves are empty; exactly one apple is visible.\nPanel 2: Muddy picks up and washes the same apple in a basin of clean water.\nPanel 3: Clucky stands beside an EMPTY cutting board; Muddy and Splashy each hold exactly one half of the one apple beside the pond. Exactly two apple halves total in the entire final panel, one in each friend\u2019s forelimbs. No extra apple, slices or halves on the cutting board or ground.",
+    "prompt": "One finished horizontal three-panel classroom story comic, read left to right. No text, labels, lettering, answer letters or decorative symbols. Bold, clean, clear 2D cartoon illustration with crisp continuous outlines, clear silhouettes, flat clean colors and a small number of smooth cel-shaded shapes. Keep the focal action readable at child-facing display size. Draw material details with simple outlined shapes and restrained flat marks. No painterly rendering, gouache, watercolor, brush daubs, patchy paint, visible brushwork, paper or canvas grain, embossed or impasto relief, pebbled surfaces, fuzzy edges or hyper-textured material rendering. Use neutral everyday settings and clothing with ordinary variation in skin tone and hair. No religious buildings, symbols or clothing, racial or ethnic caricatures or identity-themed costumes, or national, religious or political flags. Plain game-course pennants and checkered racing flags are allowed. Simple pale backgrounds, large clear actions, all faces and props within an 8% safe inset. One coherent moment per panel. World: Sunny Meadow Farm, daylight, same setting and props across the three panels. Reference image supplies only Muddy's identity, not its surrounding stars/leaves. MEADOW-MUDDY is a round pink pig with floppy triangular ears, oval snout, dark brown mud patches on both cheeks and belly, black hoof tips; no clothing unless the story introduces it. Exactly four limbs per mammal, with forehooves used to hold things, no added human arms. MEADOW-SPLASHY is a yellow duckling with orange beak and feet, half Muddy's height. MEADOW-CLUCKY is a russet hen with red comb, two wings and two legs, three quarters Muddy's height, no hat. MEADOW-TINY is a grey field mouse with pink nose and inner ears, thin grey tail, one quarter Muddy's height. MEADOW-SPEEDY is a black-and-white border collie, about Muddy's height. MEADOW-BRAVE is a small yellow chick with short orange beak and feet, one third Muddy's height; distinct from the duckling. Draw only characters named in these panels. Exact story: Muddy has a big apple for his friend Splashy. First he puts it on a flat log. The apple rolls into the grass. Muddy picks it up and washes it. Clucky cuts it in half. Muddy and Splashy each eat half by the pond.\nPanel 1: One big apple has rolled off a flat log into the grass beside Muddy and Splashy. The log and Muddy’s forehooves are empty; exactly one apple is visible.\nPanel 2: Muddy picks up and washes the same apple in a basin of clean water.\nPanel 3: Clucky stands beside an EMPTY cutting board; Muddy and Splashy each hold exactly one half of the one apple beside the pond. Exactly two apple halves total in the entire final panel, one in each friend’s forelimbs. No extra apple, slices or halves on the cutting board or ground.",
     "referencePath": "/images/worksheets/muddy-colouring.webp",
     "referenceSha256": "6e7e9d1338353261677a8e91a08939cadb47d36fee772511b8074b6f9471e577",
     "generator": "Built-in image_gen",

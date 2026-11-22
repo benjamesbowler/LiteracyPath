@@ -4,7 +4,7 @@
     {
       "bookId": "world-discovery-a-16",
       "pageNumber": 5,
-      "pageText": "Air heats the speeding rock.",
+      "pageText": "The speeding rock heats the air.",
       "word": "speeding",
       "pronunciation": "ˈspiːdɪŋ",
       "pronunciationEncoding": "PHONETIC_ENCODING_IPA",
@@ -244,7 +244,7 @@
     {
       "bookId": "world-discovery-e-15",
       "pageNumber": 6,
-      "pageText": "Later, more ice melted at the glacier's front than arrived from higher up. The end of the glacier grew shorter.",
+      "pageText": "More ice melted at the glacier’s front than arrived from above. The glacier still flowed downhill, but its front moved higher.",
       "word": "glacier",
       "pronunciation": "ˈɡleɪʃɚ",
       "pronunciationEncoding": "PHONETIC_ENCODING_IPA",
@@ -454,7 +454,7 @@
     {
       "bookId": "world-discovery-a-28",
       "pageNumber": 2,
-      "pageText": "The ant drinks some food.",
+      "pageText": "The ant drinks from the drop.",
       "word": "ant",
       "pronunciation": "ænt",
       "pronunciationEncoding": "PHONETIC_ENCODING_IPA",
@@ -902,21 +902,6 @@
       "reviewEvidence": "source-art/world-discovery/cohorts/21-30/narration-review.json"
     },
     {
-      "bookId": "world-discovery-d-27",
-      "pageNumber": 4,
-      "pageText": "Fresh grain holds moisture. Drying removes some water so the grain can be stored with less risk of spoilage.",
-      "word": "spoilage",
-      "pronunciation": "ˈspɔɪlɪdʒ",
-      "pronunciationEncoding": "PHONETIC_ENCODING_IPA",
-      "voiceName": "en-US-Chirp3-HD-Leda",
-      "audioPath": "/audio/production/en-US/isolated_word/spoilage-nf50-0ede4f1d3d.mp3",
-      "audioSha256": "0ede4f1d3d313ec2d864afeb97d1c16e525699aea2cf050cc8e703223265dd06",
-      "status": "reviewed",
-      "reviewedAt": "2026-11-09",
-      "reviewNote": "Exact-context Leda pronunciation/clarity repair. Full decoded signal, unprompted speech screens, any spelling-only disposition and original synthesis payload retained in cohort narration evidence. Automated evidence, not human listening.",
-      "reviewEvidence": "source-art/world-discovery/cohorts/21-30/narration-review.json"
-    },
-    {
       "bookId": "world-discovery-d-28",
       "pageNumber": 7,
       "pageText": "The oak did not feed the chick directly. Its leaves fed the caterpillar that the chick ate.",
@@ -1069,7 +1054,7 @@
     {
       "bookId": "world-discovery-e-28",
       "pageNumber": 4,
-      "pageText": "Green leaves use light to help make food from water and a gas in the air. This process supports the growing tree.",
+      "pageText": "Leaves use sunlight, water, and a gas called carbon dioxide to make sugar the tree can use.",
       "word": "use",
       "pronunciation": "juːz",
       "pronunciationEncoding": "PHONETIC_ENCODING_IPA",

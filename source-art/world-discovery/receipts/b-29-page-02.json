@@ -36,9 +36,10 @@
     "limits": "Independent sequence and reader review follow separately."
   },
   "reviewedManuscriptSource": {
-    "bookId": "world-discovery-b-29",
     "path": "src/content/world-discovery/cohorts/21-30/level-b.json",
-    "sha256": "9796169576ba8580a5f1963d4f2884d31c334ef8d957a5a57193756c8fa9653c",
-    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
+    "bookId": "world-discovery-b-29",
+    "sha256": "467189e40f940406a4cf8a09b1aa981bcdd09111cd3bb00f3faa7367eca52308",
+    "reviewedAt": "2026-11-22",
+    "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json"
   }
 }

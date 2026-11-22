@@ -36,9 +36,10 @@
     "limits": "Individual installed WebP inspected. Independent whole-sequence, actual reader/card and audio approval are separate."
   },
   "reviewedManuscriptSource": {
-    "bookId": "world-discovery-e-26",
     "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
-    "sha256": "a04b6d0950794fec64943013d30facc27daa8410774f7062963be893ca44e0a3",
-    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
+    "bookId": "world-discovery-e-26",
+    "sha256": "6ffe3336104512a5c4f3cc6995ee279b6a3b5d05a323956efa21b87e89a3064a",
+    "reviewedAt": "2026-11-22",
+    "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json"
   }
 }

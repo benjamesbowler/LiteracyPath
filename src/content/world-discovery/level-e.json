@@ -105,7 +105,7 @@
       },
       {
         "pageNumber": 9,
-        "text": "At the show, the fox peeps out. Kit’s voice reaches the back row. “Who has been digging near my den?”",
+        "text": "At the show, the fox peeks out. Kit’s voice reaches the back row. “Who has been digging near my den?”",
         "imageBrief": "Kit operates the fox through the stage window before a small seated audience of unnamed children; Zoe’s rabbit waits below edge. Exact continuity: Performance after rehearsal; child audience neutral clothes; Kit behind stage.",
         "imageAlt": "Kit operates the fox through the stage window before a small seated audience of unnamed children; Zoe’s rabbit waits below edge.",
         "pageDescription": "Kit operates the fox through the stage window before a small seated audience of unnamed children; Zoe’s rabbit waits below edge.",
@@ -125,7 +125,7 @@
     "discussion": {
       "oral": {
         "prompt": "Why did Kit need to say what he wanted, even after Zoe liked his fox voice?",
-        "listenFor": "She interpreted his practice as a sound effect and kept the builder label; he wanted a whole speaking part."
+        "listenFor": "Zoe asked Kit to make one sound for the fox. Kit wanted to play the whole fox part."
       },
       "visual": {
         "page": 7,
@@ -256,7 +256,7 @@
       },
       {
         "pageNumber": 9,
-        "text": "The dog pops up. The ball rolls out. Then the dog curls down, with the ball safely beside the bed.",
+        "text": "The dog pops up. The ball rolls out. Then the dog curls up, with the ball beside the bed.",
         "imageBrief": "Three small, clearly separated picture-story panels on one paper show startled dog, rolling ball, then curled dog. Exact continuity: This is printed comic art within the room scene; no speech bubbles or pseudo-writing.",
         "imageAlt": "Three small, clearly separated picture-story panels on one paper show startled dog, rolling ball, then curled dog.",
         "pageDescription": "Three small, clearly separated picture-story panels on one paper show startled dog, rolling ball, then curled dog.",
@@ -378,7 +378,7 @@
       },
       {
         "pageNumber": 4,
-        "text": "This community gives some of the rain another route. A downspout directs roof water toward a shallow planted hollow.",
+        "text": "A pipe called a downspout sends water from the roof to a low spot full of plants.",
         "imageBrief": "Roof downspout leads through a stone-lined shallow channel toward a planted depression away from the building. Exact continuity: Building foundation remains above and away from collection area; no pond against walls.",
         "imageAlt": "Roof downspout leads through a stone-lined shallow channel toward a planted depression away from the building.",
         "pageDescription": "Roof downspout leads through a stone-lined shallow channel toward a planted depression away from the building.",
@@ -443,12 +443,12 @@
     "discussion": {
       "oral": {
         "prompt": "Why does some rainwater soak into the soil while some flows out of the garden?",
-        "listenFor": "It holds and absorbs some water, but heavy rain can exceed that capacity; excess needs a planned route."
+        "listenFor": "The garden holds water while it soaks into the soil. In heavy rain, extra water leaves through the stone outlet."
       },
       "visual": {
         "page": 8,
         "prompt": "Where can extra water leave without crossing the walking path?",
-        "lookFor": "Through the low stone outlet into the separate swale."
+        "lookFor": "Extra water flows out through the stone opening and away from the path."
       }
     },
     "levelRationale": "App E connects land cover, runoff, pollutants, infiltration and capacity limits across a community system. Conditional language and the overflow exception require synthesis beyond a simple sequence.",
@@ -462,8 +462,8 @@
         "meaning": "water that leaves when a space is too full"
       },
       {
-        "word": "drainage",
-        "meaning": "the routes that carry water away"
+        "word": "downspout",
+        "meaning": "a pipe that carries rainwater down from a roof"
       }
     ]
   },
@@ -502,7 +502,7 @@
     "pages": [
       {
         "pageNumber": 1,
-        "text": "Zoe’s silver chalk makes a door in any wall. The whole outline must join, or the wall stays solid.",
+        "text": "Zoe’s silver chalk makes a door in any wall. Leave a gap in the chalk line, and the wall stays solid.",
         "imageBrief": "Zoe finishes a small closed silver rectangle on a cream wall, revealing a view into the adjacent puppet room. Exact continuity: Explicit magic; only closed chalk outlines open; ordinary doorway visible to the right.",
         "imageAlt": "Zoe finishes a small closed silver rectangle on a cream wall, revealing a view into the adjacent puppet room.",
         "pageDescription": "Zoe finishes a small closed silver rectangle on a cream wall, revealing a view into the adjacent puppet room.",
@@ -538,7 +538,7 @@
       },
       {
         "pageNumber": 5,
-        "text": "Zoe rests the moon on the floor. She stretches string across it, then carries that width to the wall.",
+        "text": "Zoe stretches string across the moon on the floor. Then she holds the same length of string against the wall.",
         "imageBrief": "Kit steadies the yellow paper sphere on the floor while Zoe stretches plain string across its widest part. Exact continuity: Same single dent; lightweight sphere supported on floor; string compares diameter, not circumference.",
         "imageAlt": "Kit steadies the yellow paper sphere on the floor while Zoe stretches plain string across its widest part.",
         "pageDescription": "Kit steadies the yellow paper sphere on the floor while Zoe stretches plain string across its widest part.",
@@ -583,7 +583,7 @@
       },
       {
         "pageNumber": 10,
-        "text": "They hang the moon above the curtain. After both return, Zoe wipes the outline away. This time, she means to close it.",
+        "text": "They hang the moon above the curtain. Back in the art room, Zoe wipes away the chalk to close the door.",
         "imageBrief": "Back in art room, Zoe erases the chalk outline while Kit stands beside her; through ordinary door the moon hangs over blue curtain. Exact continuity: Both children fully returned before erasure; completed show prop visible through ordinary doorway.",
         "imageAlt": "Back in art room, Zoe erases the chalk outline while Kit stands beside her; through ordinary door the moon hangs over blue curtain.",
         "pageDescription": "Back in art room, Zoe erases the chalk outline while Kit stands beside her; through ordinary door the moon hangs over blue curtain.",
@@ -749,7 +749,7 @@
       },
       {
         "pageNumber": 10,
-        "text": "Look again at the steep bank and sandy bar. One bend shows two connected changes: ground removed here and sediment left there.",
+        "text": "The outside bank has worn away. Sand has built up on the inside of the same bend.",
         "imageBrief": "Final elevated view balances steep eroded outer edge and broad deposited inner bar in same frame. Exact continuity: Clear two-process synthesis; tree remains in original position; no printed labels.",
         "imageAlt": "Final elevated view balances steep eroded outer edge and broad deposited inner bar in same frame.",
         "pageDescription": "Final elevated view balances steep eroded outer edge and broad deposited inner bar in same frame.",
@@ -765,7 +765,7 @@
       "visual": {
         "page": 10,
         "prompt": "Where has ground been worn away, and where has material built up?",
-        "lookFor": "Steep outer bank shows erosion; low inner bar shows deposition."
+        "lookFor": "The outside bank has worn away. Sand has built up on the inside of the bend."
       }
     },
     "levelRationale": "App E links two simultaneous processes, transport capacity, changing flow and elapsed time. The reader must connect removal and deposition across separate places while retaining the same river bend.",
@@ -1002,7 +1002,7 @@
       },
       {
         "pageNumber": 2,
-        "text": "This lesser long-nosed bat drinks nectar, the sweet liquid inside flowers. Its long muzzle fits into the open bloom.",
+        "text": "This lesser long-nosed bat drinks nectar, the sweet liquid inside flowers. It fits its long nose into the open flower.",
         "imageBrief": "Close view shows brown bat’s elongated muzzle entering the wide white saguaro flower. Exact continuity: Bat much smaller than cactus; no oversized canine fangs; wings natural.",
         "imageAlt": "Close view shows brown bat’s elongated muzzle entering the wide white saguaro flower.",
         "pageDescription": "Close view shows brown bat’s elongated muzzle entering the wide white saguaro flower.",
@@ -1038,7 +1038,7 @@
       },
       {
         "pageNumber": 6,
-        "text": "That transfer is pollination. It can help the flower make seeds. The bat carries pollen without trying to grow a plant.",
+        "text": "Moving pollen from one flower to another is called pollination. This can help a flower make seeds.",
         "imageBrief": "Close flower view shows a little transferred pollen on the central stigma as bat withdraws. Exact continuity: No instant seeds or fruit; natural incidental transfer, no purposeful gardening expression.",
         "imageAlt": "Close flower view shows a little transferred pollen on the central stigma as bat withdraws.",
         "pageDescription": "Close flower view shows a little transferred pollen on the central stigma as bat withdraws.",
@@ -1085,12 +1085,12 @@
     "discussion": {
       "oral": {
         "prompt": "What does the bat get from the flower, and what does the flower gain from the visit?",
-        "listenFor": "Bat gets nectar; pollen transferred to another flower can enable seed formation. The bat need not intend this."
+        "listenFor": "The bat drinks nectar. When pollen rubs off the bat’s fur onto another flower, it can help that flower make seeds."
       },
       "visual": {
         "page": 5,
         "prompt": "What part of the bat is carrying pollen to the next flower?",
-        "lookFor": "Pollen clings to fur around muzzle and face and contacts the flower center."
+        "lookFor": "Pollen sticks to the fur around the bat’s nose and mouth. The fur brushes the middle of the next flower."
       }
     },
     "levelRationale": "App E links adaptations, feeding, incidental pollen transport and delayed reproduction across night and later-season views. Qualified claims and the distinction between purpose and consequence support a connected ecological explanation.",
@@ -1189,7 +1189,7 @@
       },
       {
         "pageNumber": 5,
-        "text": "Front legs appeared, too. Inside, its body was changing: lungs developed while its gills became less important.",
+        "text": "Front legs appeared too. Inside, its lungs grew as its gills became much smaller.",
         "imageBrief": "A later common-frog tadpole with four legs rises near the surface, its long tail still attached; the view shows only its natural external body. Exact continuity: Four legs plus tail is a metamorph stage; no abrupt no-overlap breathing claim; no speculative cutaway anatomy or external lung balloons.",
         "imageAlt": "A later common-frog tadpole with four legs rises near the surface, its long tail still attached; the view shows only its natural external body.",
         "pageDescription": "A later common-frog tadpole with four legs rises near the surface, its long tail still attached; the view shows only its natural external body.",
@@ -1198,7 +1198,7 @@
       },
       {
         "pageNumber": 6,
-        "text": "The tail did not fall off. The body absorbed it, using its materials as the young frog continued to change.",
+        "text": "The tail did not fall off. The froglet’s body broke it down and used parts of it to grow.",
         "imageBrief": "Froglet with four strong legs and a visibly shorter tail rests in shallow water. Exact continuity: Tail stub attached smoothly; no detached tail or injury.",
         "imageAlt": "Froglet with four strong legs and a visibly shorter tail rests in shallow water.",
         "pageDescription": "Froglet with four strong legs and a visibly shorter tail rests in shallow water.",
@@ -1234,7 +1234,7 @@
       },
       {
         "pageNumber": 10,
-        "text": "Egg, tadpole, froglet, adult: the changes fit different ways of living. A tiny swimmer becomes a frog at the water’s edge.",
+        "text": "A tadpole swims with a tail and breathes through gills. A grown frog has legs and breathes with lungs and skin.",
         "imageBrief": "Final adult common frog at original moist bank, with young tadpoles in the shallows below. Exact continuity: Adults and new-generation tadpoles coexist; not a lineup of identical individuals frozen at once.",
         "imageAlt": "Final adult common frog at original moist bank, with young tadpoles in the shallows below.",
         "pageDescription": "Final adult common frog at original moist bank, with young tadpoles in the shallows below.",
@@ -1245,7 +1245,7 @@
     "discussion": {
       "oral": {
         "prompt": "Why is changing from a tadpole to a frog more than just growing legs?",
-        "listenFor": "The tail is absorbed and breathing structures change as legs develop, helping the young frog move from swimming underwater to using damp banks."
+        "listenFor": "The tail gets shorter and the lungs grow as the gills shrink. Legs and lungs help the froglet move and breathe out of the water."
       },
       "visual": {
         "page": 6,
@@ -1379,7 +1379,7 @@
       },
       {
         "pageNumber": 5,
-        "text": "The whale’s calf was born alive and drinks milk made by its mother. Feeding young with milk is a mammal trait.",
+        "text": "The whale’s calf was born alive. The calf drinks milk from its mother, just like other baby mammals.",
         "imageBrief": "Adult female blue whale and smaller calf swim closely; calf at mother’s underside in an accurate nonexplicit nursing position. Exact continuity: No bottle, udder hanging like cow, or milk cloud; natural cetacean anatomy.",
         "imageAlt": "Adult female blue whale and smaller calf swim closely; calf at mother’s underside in an accurate nonexplicit nursing position.",
         "pageDescription": "Adult female blue whale and smaller calf swim closely; calf at mother’s underside in an accurate nonexplicit nursing position.",
@@ -1397,7 +1397,7 @@
       },
       {
         "pageNumber": 7,
-        "text": "Some sharks give birth to live young, too. Sharks are fish. That one clue alone cannot tell us “mammal.”",
+        "text": "Some sharks are born alive too. Sharks are fish. Being born alive does not tell us if an animal is a mammal.",
         "imageBrief": "A sandbar shark swims through shallow coastal water with small shark pups nearby, all with visible gill slits and natural fin anatomy. Exact continuity: No birth depicted; sharks remain fish; no whales in this comparison scene.",
         "imageAlt": "A sandbar shark swims through shallow coastal water with small shark pups nearby, all with visible gill slits and natural fin anatomy.",
         "pageDescription": "A sandbar shark swims through shallow coastal water with small shark pups nearby, all with visible gill slits and natural fin anatomy.",
@@ -1435,7 +1435,7 @@
     "discussion": {
       "oral": {
         "prompt": "Why are swimming in the ocean and giving birth to live young not enough by themselves to identify a mammal?",
-        "listenFor": "Many different groups share water, and some fish bear live young; mammal traits include milk and other related features."
+        "listenFor": "Some sharks are born alive, and they are fish. A whale has lungs and feeds milk to its calf. Those are clues that it is a mammal."
       },
       "visual": {
         "page": 3,
@@ -1450,8 +1450,8 @@
         "meaning": "an animal in the group whose mothers make milk for their young"
       },
       {
-        "word": "trait",
-        "meaning": "a feature of a living thing"
+        "word": "calf",
+        "meaning": "a baby whale in this book"
       },
       {
         "word": "streamlined",
@@ -1576,7 +1576,7 @@
       },
       {
         "pageNumber": 8,
-        "text": "A little at a time lets water soak in. If water runs away, pouring faster will not put more around the roots.",
+        "text": "Kit pours a little and waits for the water to soak in. Pouring faster can send it down the path.",
         "imageBrief": "Close view shows water soaking into bed soil beneath the can spout with path remaining dry. Exact continuity: Illustrative conditional statement; no demonstrated flooding needed.",
         "imageAlt": "Close view shows water soaking into bed soil beneath the can spout with path remaining dry.",
         "pageDescription": "Close view shows water soaking into bed soil beneath the can spout with path remaining dry.",

@@ -32,9 +32,10 @@
     "limits": "Individual installed WebP only; independent sequence, reader, card and audio separate."
   },
   "reviewedManuscriptSource": {
-    "bookId": "world-discovery-e-29",
     "path": "src/content/world-discovery/cohorts/21-30/level-e.json",
-    "sha256": "7b5d49fa464ddfe3c488fb7295ea82cbaa37ae0e01b14b633c270d651f53cb42",
-    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
+    "bookId": "world-discovery-e-29",
+    "sha256": "4f2f088b284e666425b97e5665cff431d85c6871a29a7198f6516348e760fc57",
+    "reviewedAt": "2026-11-22",
+    "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json"
   }
 }

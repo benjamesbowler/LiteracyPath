@@ -1,7 +1,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
+import {readFileSync,readdirSync} from 'node:fs';
 import {CYCLE_SHORTS,cycleShortFor,cycleShortLearningWords} from '../../src/content/cycle-shorts/passages.js';
 import {COMPREHENSION_PASSAGES} from '../../src/content/comprehension/passages.js';
+import {resolveComprehensionPassageAudio,resolveComprehensionQuestionAudio} from '../../src/content/comprehension/audio.js';
 import {cycleShortPicture} from '../../src/content/cycle-shorts/pictures.js';
 import {buildCyclePresentation} from '../../src/utils/present/presentationBuilder.js';
 
@@ -61,4 +64,31 @@ test('every cycle resolves only its own current story picture, including unchang
  }
  assert.equal(cycleShortPicture(null),null);
  assert.equal(cycleShortPicture({id:'constructor',text:'unknown'}),null);
+});
+
+test('cached Cycle Shorts keep the exact historical audio at their released paths',()=>{
+ const root=new URL('../../',import.meta.url);
+ const manifest=JSON.parse(readFileSync(new URL('src/content/cycle-shorts/audioManifest.generated.json',root),'utf8'));
+ const family='/audio/production/en-US/cycle-shorts/';
+ const clipPaths=[...manifest.clips,...manifest.compatibilityClips]
+  .filter(clip=>clip.audioPath.startsWith(family)).map(clip=>clip.audioPath.slice(family.length));
+ assert.deepEqual(readdirSync(new URL(`public${family}`,root)).sort(),clipPaths.sort());
+ const firstKitRelease=manifest.compatibilityClips.find(clip=>clip.audioPath===`${family}734b033257c86b35f921.mp3`);
+ assert.equal(firstKitRelease?.audioSha256,'6c5216a344145b99cb28221fa7dcbe771f6ec665e2020ba7a4f4321040fcfa7e');
+ for(const clip of manifest.compatibilityClips){
+  assert.equal(createHash('sha256').update(clip.text).digest('hex'),clip.textSha256);
+  const bytes=readFileSync(new URL(`public${clip.audioPath}`,root));
+  assert.equal(createHash('sha256').update(bytes).digest('hex'),clip.audioSha256,clip.audioPath);
+ }
+});
+
+test('all current Cycle Shorts passages and questions resolve exact Leda clips',()=>{
+ for(const passage of CYCLE_SHORTS){
+  assert.equal(resolveComprehensionPassageAudio(passage).status,'ready',passage.id);
+  for(const question of passage.questions){
+   const audio=resolveComprehensionQuestionAudio(question);
+   assert.equal(audio.status,'ready',question.id);
+   assert.equal(audio.parts.length,9,question.id);
+  }
+ }
 });

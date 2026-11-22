@@ -36,9 +36,10 @@
     "limits": "Individual installed illustration inspection; independent sequence, reader, cards and narration reviewed separately."
   },
   "reviewedManuscriptSource": {
-    "bookId": "world-discovery-c-27",
     "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
-    "sha256": "0a0ac3b1ba535502efe40a5c6efda391dc81175f1b316a119c2caa6ba2d5af52",
-    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
+    "bookId": "world-discovery-c-27",
+    "sha256": "a208381a419db6780819e9dda430dd68740b800a484021f58f3690ed19d9358c",
+    "reviewedAt": "2026-11-22",
+    "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json"
   }
 }

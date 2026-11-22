@@ -334,7 +334,7 @@
       },
       {
         "pageNumber": 4,
-        "text": "Kit pushes the cart up the ramp. The steep slope feels hard to climb.",
+        "text": "Kit tries to push the cart up the ramp. He has to push hard on the steep slope.",
         "imageBrief": "World Discovery classroom table with a model public library, same afternoon. The library is a plain cream block building on a 4-centimeter platform; no written signs. Kit and Zoe remain beside the model. Kit leans his fingers against the cart at the middle of the short steep ramp; Zoe steadies the model base, not the moving cart. Exact state: Same cart and load; no unsupported bridge gap.",
         "imageAlt": "Kit leans his fingers against the cart at the middle of the short steep ramp; Zoe steadies the model base, not the moving cart.",
         "pageDescription": "Kit leans his fingers against the cart at the middle of the short steep ramp; Zoe steadies the model base, not the moving cart.",
@@ -343,7 +343,7 @@
       },
       {
         "pageNumber": 5,
-        "text": "They keep the same step but choose a longer board. The new slope is gentler.",
+        "text": "They keep the same step but try a longer board. Now the ramp is less steep.",
         "imageBrief": "World Discovery classroom table with a model public library, same afternoon. The library is a plain cream block building on a 4-centimeter platform; no written signs. Kit and Zoe remain beside the model. The longer tan board now reaches the unchanged platform from farther across the table; short board lies flat nearby. Exact state: Height, cart, load and surface unchanged; only ramp length/slope differ.",
         "imageAlt": "The longer tan board now reaches the unchanged platform from farther across the table; short board lies flat nearby.",
         "pageDescription": "The longer tan board now reaches the unchanged platform from farther across the table; short board lies flat nearby.",
@@ -381,7 +381,7 @@
     "discussion": {
       "oral": {
         "prompt": "What made the second ramp easier for Kit to use?",
-        "listenFor": "It reached the same height over a longer distance, making a gentler slope. The cart and load stayed the same."
+        "listenFor": "Both boards go up to the same step. The longer board makes a less steep ramp, so Kit can push more easily."
       },
       "visual": {
         "page": 5,
@@ -396,8 +396,8 @@
         "meaning": "a sloping surface that joins two heights"
       },
       {
-        "word": "gentler",
-        "meaning": "less steep here"
+        "word": "steep",
+        "meaning": "rising quickly, like the short ramp"
       },
       {
         "word": "model",
@@ -622,7 +622,7 @@
       },
       {
         "pageNumber": 5,
-        "text": "At the bench, two paths split. Only one path on the map leads to the pond.",
+        "text": "At the bench, the path splits in two. Only one way leads to the pond.",
         "imageBrief": "World Discovery small enclosed park in daylight. Fixed plan: entrance gate at south/bottom; a straight path reaches one bench at a central fork; right branch passes one tall tree and reaches a kidney-shaped pond at northeast/top-right; left branch ends at a flowerbed. No roads. Kit stands beside the brown bench at the fork and compares its two branches with the paper map. Exact state: Left branch flowerbed, right branch tree and pond; landmarks unchanged.",
         "imageAlt": "Kit stands beside the brown bench at the fork and compares its two branches with the paper map.",
         "pageDescription": "Kit stands beside the brown bench at the fork and compares its two branches with the paper map.",
@@ -665,7 +665,7 @@
       "visual": {
         "page": 7,
         "prompt": "Find the picture that matches the real pond.",
-        "lookFor": "The blue curved pond shape; location and path connection match the real park."
+        "lookFor": "The curved blue shape on the map matches the pond at the end of the path."
       }
     },
     "levelRationale": "C has paired observations, varied sentence shapes and an explicit representation-to-place comparison. Familiar landmarks support map and route vocabulary, with no cardinal-direction or scale burden.",
@@ -793,7 +793,7 @@
       },
       {
         "pageNumber": 8,
-        "text": "The light did not circle the ball. The turning ball changed which side was bright.",
+        "text": "The flashlight stayed in one place. Turning the ball brought Zoe’s dot back into the light.",
         "imageBrief": "World Discovery classroom at early evening; first a view through the window, then a darkened tabletop demonstration. Kit keeps one flashlight fixed at screen left while Zoe rotates one blue-green ball in place at center. Final broad view shows Kit’s steady flashlight and Zoe holding the ball with the dot bright again. Exact state: Model position unchanged apart from rotation; both children can compare the fixed light and turning ball.",
         "imageAlt": "Final broad view shows Kit’s steady flashlight and Zoe holding the ball with the dot bright again.",
         "pageDescription": "Final broad view shows Kit’s steady flashlight and Zoe holding the ball with the dot bright again.",

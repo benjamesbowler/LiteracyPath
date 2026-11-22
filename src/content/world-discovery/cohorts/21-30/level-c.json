@@ -103,7 +103,7 @@
       },
       {
         "pageNumber": 6,
-        "text": "The balloon rises as the air inside warms. To come down, the pilot lets the air cool.",
+        "text": "The air in the bag is warmer and lighter than the air outside. That helps the balloon rise.",
         "imageBrief": "Same full yellow-blue balloon floating above a wide open field, higher than on the previous page. One adult pilot stands securely inside tan basket with hand at the burner control; burner is safely contained under the open mouth. Low ground and trees make height clear. One coherent scene without dots, panels, arrows or cutaways.",
         "imageAlt": "The yellow-and-blue balloon floats above an open field. Its pilot stands in the basket beside the burner control.",
         "pageDescription": "The yellow-and-blue balloon floats above an open field. Its pilot stands in the basket beside the burner control.",
@@ -139,7 +139,7 @@
       "visual": {
         "page": 5,
         "prompt": "What heats the air inside the balloon?",
-        "lookFor": "The burner above the basket sends heat through the opening into the envelope."
+        "lookFor": "The burner above the basket heats the air inside the large fabric bag."
       }
     },
     "levelRationale": "The revised manuscript compares a plane’s fixed wings, a helicopter’s rotating wing-like blades and a balloon’s heating/cooling operation. Causal links are explicit in short varied sentences and the final return states what differs. The new page 6 removes the equal-volume/density inference: no hidden physical model must be held across the text. This is comparable with C Rocket and Cloud, and substantially less integrated than the current E Wings explanation.",
@@ -360,7 +360,7 @@
       },
       {
         "pageNumber": 2,
-        "text": "Bones meet at the elbow. The joint lets them change angle without bending the long bones themselves.",
+        "text": "Bones meet at the elbow. The elbow joint lets the arm move without bending its bones.",
         "imageBrief": "Integrated side cutaway displays upper arm bone meeting radius/ulna at natural elbow, with accurate hard bone geometry.",
         "imageAlt": "A view inside a bent arm shows the upper arm bone meeting the two forearm bones at the elbow.",
         "pageDescription": "A view inside a bent arm shows the upper arm bone meeting the two forearm bones at the elbow.",
@@ -699,7 +699,7 @@
       },
       {
         "pageNumber": 6,
-        "text": "She closes it. The bulb shines. Now Kit lifts one wire clip from its safe contact. The bulb goes dark again.",
+        "text": "Zoe closes the switch. The bulb shines. Kit lifts one wire clip. The bulb goes dark again.",
         "imageBrief": "Switch closed but yellow wire’s bulb-end clip lifted from insulated terminal board; bulb dark.",
         "imageAlt": "Kit lifts the yellow wire’s clip away from the bulb. The switch remains closed, but the bulb is dark.",
         "pageDescription": "Kit lifts the yellow wire’s clip away from the bulb. The switch remains closed, but the bulb is dark.",
@@ -801,7 +801,7 @@
       },
       {
         "pageNumber": 2,
-        "text": "The black bars and white spaces form a code. Their different widths stand for a number that identifies this product.",
+        "text": "The black bars and white spaces have different widths. The pattern stands for a number for this kind of cereal.",
         "imageBrief": "Integrated close-up of one consistent linear barcode pattern on the same box, bar/space widths clear.",
         "imageAlt": "The cereal box has a blue circle above a barcode made of black bars and white spaces of different widths.",
         "pageDescription": "The cereal box has a blue circle above a barcode made of black bars and white spaces of different widths.",
@@ -850,7 +850,7 @@
       },
       {
         "pageNumber": 7,
-        "text": "The worker scans another box of the same cereal. The computer finds the updated price using the same product number.",
+        "text": "The worker scans another box of the same cereal. The same stripes bring up the new price.",
         "imageBrief": "Second identical product box scanned; both same package designs and same barcode pattern visible in controlled composition. The only screen words and price are exactly 'Cereal $4'. Render them clearly; no other text.",
         "imageAlt": "The worker scans a second matching cereal box. Both boxes have the same barcode, and the screen reads “Cereal $4”.",
         "pageDescription": "The worker scans a second matching cereal box. Both boxes have the same barcode, and the screen reads “Cereal $4”.",
@@ -859,7 +859,7 @@
       },
       {
         "pageNumber": 8,
-        "text": "The stripes identify the product. The store’s computer uses that number to find its name and price.",
+        "text": "The stripes tell the computer which cereal it is. The computer looks up the name and price.",
         "imageBrief": "Return to whole checkout scene with cereal box, scanner and matching on-screen product thumbnail. The only screen words and price are exactly 'Cereal $4'. Render them clearly; no other text.",
         "imageAlt": "Kit watches the worker scan the cereal box. The screen shows its matching picture and “Cereal $4”.",
         "pageDescription": "Kit watches the worker scan the cereal box. The screen shows its matching picture and “Cereal $4”.",
@@ -870,7 +870,7 @@
     "discussion": {
       "oral": {
         "prompt": "Does this box need new stripes every time the store changes its price?",
-        "listenFor": "No. The store changes its saved price record; the code still identifies the same product."
+        "listenFor": "The stripes tell the computer which cereal it is. The shop can change its saved price without changing the stripes."
       },
       "visual": {
         "page": 5,
@@ -885,8 +885,8 @@
         "meaning": "a pattern that a scanner can read as a code"
       },
       {
-        "word": "identify",
-        "meaning": "show which thing something is"
+        "word": "scanner",
+        "meaning": "a tool that shines light on the bars and spaces and reads their pattern"
       },
       {
         "word": "record",
@@ -1003,7 +1003,7 @@
       },
       {
         "pageNumber": 7,
-        "text": "The pencils receive paint. Sharpening cuts away some wood and uncovers a point of the dark core.",
+        "text": "Paint covers the wood. Sharpening cuts away some wood and shows the dark point.",
         "imageBrief": "Five plain red pencils after painting; one shown sharpened with pale wood cone and dark point, remaining four blunt.",
         "imageAlt": "Five red pencils lie on a tray. One has a sharpened wooden tip with its dark core exposed; four remain blunt.",
         "pageDescription": "Five red pencils lie on a tray. One has a sharpened wooden tip with its dark core exposed; four remain blunt.",
@@ -1012,7 +1012,7 @@
       },
       {
         "pageNumber": 8,
-        "text": "Zoe draws a gray line. Graphite from the core marks the paper, while the wood holds the core in her hand.",
+        "text": "Zoe draws a gray line. The graphite makes the mark. The wood gives her something to hold.",
         "imageBrief": "Return to Zoe drawing one gray line with the same red pencil at classroom table.",
         "imageAlt": "Zoe draws a gray line on paper with the sharpened red pencil.",
         "pageDescription": "Zoe draws a gray line on paper with the sharpened red pencil.",
@@ -1125,7 +1125,7 @@
       },
       {
         "pageNumber": 4,
-        "text": "Inside, its body cools. Its heartbeat and breathing slow down. This low-activity state is called hibernation.",
+        "text": "Inside the nest, its body cools down. Its heart beats more slowly, and its breathing slows. This is hibernation.",
         "imageBrief": "Integrated nest cutaway shows curled hedgehog sheltered in intact leaf chamber, eyes closed; no comic sleep letters.",
         "imageAlt": "A view inside the leaf nest shows the hedgehog curled up with closed eyes. Patches of snow lie outside.",
         "pageDescription": "A view inside the leaf nest shows the hedgehog curled up with closed eyes. Patches of snow lie outside.",
@@ -1190,7 +1190,7 @@
       },
       {
         "word": "hibernation",
-        "meaning": "a state in which an animal’s body slows down during cold months"
+        "meaning": "the time when an animal’s body slows down to use less energy in winter"
       },
       {
         "word": "energy",
@@ -1435,7 +1435,7 @@
       },
       {
         "pageNumber": 5,
-        "text": "Earth’s gravity still pulls downward. When the upward push is strong enough, the rocket lifts away from the pad.",
+        "text": "Earth’s gravity pulls downward. The rocket lifts off when its upward push is stronger than Earth’s pull.",
         "imageBrief": "Rocket has cleared pad; upward thrust arrow longer than downward gravity arrow in declared teaching diagram.",
         "imageAlt": "The rocket rises clear of the launch pad. A long upward thrust arrow is larger than the downward gravity arrow.",
         "pageDescription": "The rocket rises clear of the launch pad. A long upward thrust arrow is larger than the downward gravity arrow.",

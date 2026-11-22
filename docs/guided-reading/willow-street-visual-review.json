@@ -565,8 +565,8 @@
       "assetType": "reading-page",
       "pageNumber": 3,
       "path": "/guided-reading/willow-street/build-a-cardboard-ramp/page-03.webp",
-      "displayedText": "Rest the cardboard across the book stack.",
-      "textSha256": "8a4a257652543f5c316219109f98446815fd6906f03fb1b3b440f7ce6937c4f7",
+      "displayedText": "Rest one end of the cardboard on the books.",
+      "textSha256": "a63cde081fc1b6b20f07587c16aeccad82c2b974a7c4f5b5c7e8c4e8c90c897f",
       "visualBriefSha256": "69c8d47514d0ed12fc8964a9e51762e37a993b8c711736d2b65043150b5ca0f2",
       "imageSha256": "d7b534d9b64c3d34a80cf8e43bfa273a3e9decbee93476c1762f7af62bb7e1b5",
       "visualTreatment": "willow-street-illustrated",
@@ -580,7 +580,15 @@
       },
       "disposition": "approved",
       "notes": "Accepted all nine saved WebPs natively and the full 390 sequence. Same Leo in rust/cream stripes/navy/red and established teal/navy/grey-shoed adult, left cubby and right window. ONE cardboard ramp slopes high LEFT to low RIGHT, ONE red hatchback throughout. Exactly TWO books BLUE over GREEN until page 6; third YELLOW book added underneath on 7–8. Page 4 adult tapes lower end, 5 clears landing and parks car safely left; 6 BLUE first-stop marker aligned beside RIGHT FRONT bumper of right-facing car, 7 YELLOW second stop farther right measured at same FRONT bumper, 8 compares the two observed stops. No prematurely added third book or duplicate blue bin; full essential bodies/props inset, empty cream panel and clean outlined faceless scenery.",
-      "sourceManifest": "docs/guided-reading/willow-street-illustrated-media-manifest.json"
+      "sourceManifest": "docs/guided-reading/willow-street-illustrated-media-manifest.json",
+      "editorialReview20261122": {
+        "reviewedAt": "2026-11-22",
+        "method": "The changed line was compared with the installed artwork in the ordered book sequence.",
+        "notes": [
+          "Describes the visible raised end and creates a slope."
+        ],
+        "priorTextSha256": "8a4a257652543f5c316219109f98446815fd6906f03fb1b3b440f7ce6937c4f7"
+      }
     },
     {
       "bookId": "willow-street-build-a-cardboard-ramp",
@@ -657,8 +665,8 @@
       "assetType": "reading-page",
       "pageNumber": 7,
       "path": "/guided-reading/willow-street/build-a-cardboard-ramp/page-07.webp",
-      "displayedText": "Raise the ramp, release the car again, then mark its second stop.",
-      "textSha256": "70c30afe545059e2d3a667b12a9616de043342399f5782b44a22181992ec6900",
+      "displayedText": "Add another book. Retape, release again, and mark the car’s stop.",
+      "textSha256": "84febb753824da25a42dd812aa71f154d173cb35c3866af8f06c8585dc4b2faa",
       "visualBriefSha256": "b1daae2fddfa00ab60d1cc789b778d5f5fa9aa70d6143c0696a3bc4de43deb44",
       "imageSha256": "e2d3e7148dd791bc7fc318e6c32c48ec94df41dd084262a1f044996cb3312b72",
       "visualTreatment": "willow-street-illustrated",
@@ -672,7 +680,15 @@
       },
       "disposition": "approved",
       "notes": "Accepted all nine saved WebPs natively and the full 390 sequence. Same Leo in rust/cream stripes/navy/red and established teal/navy/grey-shoed adult, left cubby and right window. ONE cardboard ramp slopes high LEFT to low RIGHT, ONE red hatchback throughout. Exactly TWO books BLUE over GREEN until page 6; third YELLOW book added underneath on 7–8. Page 4 adult tapes lower end, 5 clears landing and parks car safely left; 6 BLUE first-stop marker aligned beside RIGHT FRONT bumper of right-facing car, 7 YELLOW second stop farther right measured at same FRONT bumper, 8 compares the two observed stops. No prematurely added third book or duplicate blue bin; full essential bodies/props inset, empty cream panel and clean outlined faceless scenery.",
-      "sourceManifest": "docs/guided-reading/willow-street-illustrated-media-manifest.json"
+      "sourceManifest": "docs/guided-reading/willow-street-illustrated-media-manifest.json",
+      "editorialReview20261122": {
+        "reviewedAt": "2026-11-22",
+        "method": "The changed line was compared with the installed artwork in the ordered book sequence.",
+        "notes": [
+          "Makes the second test reproducible and keeps the ramp secured before release."
+        ],
+        "priorTextSha256": "70c30afe545059e2d3a667b12a9616de043342399f5782b44a22181992ec6900"
+      }
     },
     {
       "bookId": "willow-street-build-a-cardboard-ramp",
@@ -3545,8 +3561,8 @@
       "assetType": "reading-page",
       "pageNumber": 2,
       "path": "/guided-reading/willow-street/the-lunchbox-mix-up/page-02.webp",
-      "displayedText": "Maya checks both boxes. The lunchboxes are not swapped.",
-      "textSha256": "9dd7738bf6474d977c683ea3fa279b5afd29d7b4dd00f2ade784ebaaa88925ff",
+      "displayedText": "Maya has her yellow box. Samir has his green box.",
+      "textSha256": "c2ffddea1575626b39baa7f651d9d1a6ac89bfda8f8ae39a0ef59610ca256823",
       "visualBriefSha256": "b522a8847afa87ab548155a522bcdd039ff6699e2d2878d0a2405777387b9270",
       "imageSha256": "26583032686b8491e41ce566f3338e48941b097f916499d019fe52ebadfc5add",
       "visualTreatment": "willow-street-illustrated",
@@ -3568,6 +3584,14 @@
           "Maya points to the patch on her yellow box; Samir holds his green box. Both patches are blank. The cup and apple remain in the wrong boxes."
         ],
         "priorTextSha256": "dd2aa19f4f536afc1330c8321f56e039518a6101fca146094f057489b8ebc870"
+      },
+      "editorialReview20261122": {
+        "reviewedAt": "2026-11-22",
+        "method": "The changed line was compared with the installed artwork in the ordered book sequence.",
+        "notes": [
+          "Gives visible color cues for each owner before the contents are exchanged."
+        ],
+        "priorTextSha256": "9dd7738bf6474d977c683ea3fa279b5afd29d7b4dd00f2ade784ebaaa88925ff"
       }
     },
     {
@@ -3607,8 +3631,8 @@
       "assetType": "reading-page",
       "pageNumber": 4,
       "path": "/guided-reading/willow-street/the-lunchbox-mix-up/page-04.webp",
-      "displayedText": "They swap the things, but one spoon stays behind.",
-      "textSha256": "1ede808e18edc70b42f8241a7f7589687c03871091239eb28b3e27c0060b7936",
+      "displayedText": "They trade the cup and apple. The spoon stays behind.",
+      "textSha256": "8a82861ed3b5b744613068f82db050df1305a7e2cdd09dc156de542c78b9ce38",
       "visualBriefSha256": "a3eba2f7a2b1b77b48c80502293c9eda1a83fdeb72313525204ac858eababbce",
       "imageSha256": "a07bb1a4aa8b70d926af10779a9e8570b7d788858b605a45669236fe3df3510e",
       "visualTreatment": "willow-street-illustrated",
@@ -3622,7 +3646,15 @@
       },
       "disposition": "approved",
       "notes": "All nine final WebPs inspected native plus ordered390: Maya one high puff mustard/teal/plum and Samir cobalt/charcoal remain consistent. Rectangular light-oak tables, sage chairs and tall windows persist; yellow/green lunchboxes keep owners; blue cup and green apple exchange once, silver spoon returns while orange napkin stays Samir side. Final lunch is correctly sorted. All essential faces/hands/feet/clues safely inset beyond8percent and clear cream footer retained.",
-      "sourceManifest": "docs/guided-reading/willow-street-illustrated-media-manifest.json"
+      "sourceManifest": "docs/guided-reading/willow-street-illustrated-media-manifest.json",
+      "editorialReview20261122": {
+        "reviewedAt": "2026-11-22",
+        "method": "The changed line was compared with the installed artwork in the ordered book sequence.",
+        "notes": [
+          "Names exactly what the children exchange and the object they missed."
+        ],
+        "priorTextSha256": "1ede808e18edc70b42f8241a7f7589687c03871091239eb28b3e27c0060b7936"
+      }
     },
     {
       "bookId": "willow-street-the-lunchbox-mix-up",
@@ -4038,8 +4070,8 @@
       "assetType": "reading-page",
       "pageNumber": 5,
       "path": "/guided-reading/willow-street/the-puddle-plan/page-05.webp",
-      "displayedText": "He tests each stone. It stays still under his foot.",
-      "textSha256": "51311c638b90e7ce5b0818cfd763b1c9999f4ca95d4f8c7c8ae451d52b813d6b",
+      "displayedText": "Samir steps on the stones. Each one stays still.",
+      "textSha256": "b9bea9de21d84ce2c35b02614b07275bc34e803ed81e325109bd9a037044e4fd",
       "visualBriefSha256": "ffcb6eebade81d222cff0fe8a07028508210cd1d575883ec3a9adc8342a68ae0",
       "imageSha256": "d4f809132f29bbc5f85564371a502af180e1a8bfae36357421b8ca8a3307bb3e",
       "visualTreatment": "willow-street-illustrated",
@@ -4053,7 +4085,15 @@
       },
       "disposition": "approved",
       "notes": "All9savedWebPs inspectednative and390fullsequence: Samir andLeoincobalt/yellowvest/ruststripes retained; page1–2allshoesclean, onlyONELeo REDshoe entersmud3 and staysmuddy4–8, otherLeo shoe WHITEclean, Samirbluewhite/MayaPLUM stayclean. SameFOURdrystonesalreadyformnear-edge route4 beforeSamirtests5; exactlyTWOorangecones firstintroduced6 andpersist7–8. Mayaarrives7 anddrycrosses;3friendsreachOPEN3railgarden8. Bluearchedbricklibraryleft/palehallright greyroofshedbluecan persist, essentialcast/entirepuddle/stones/cones safely>8percentinset, quietcream readingarea clear.",
-      "sourceManifest": "docs/guided-reading/willow-street-illustrated-media-manifest.json"
+      "sourceManifest": "docs/guided-reading/willow-street-illustrated-media-manifest.json",
+      "editorialReview20261122": {
+        "reviewedAt": "2026-11-22",
+        "method": "The changed line was compared with the installed artwork in the ordered book sequence.",
+        "notes": [
+          "Removes a singular pronoun with a potentially confusing referent and names who tests the route."
+        ],
+        "priorTextSha256": "51311c638b90e7ce5b0818cfd763b1c9999f4ca95d4f8c7c8ae451d52b813d6b"
+      }
     },
     {
       "bookId": "willow-street-the-puddle-plan",

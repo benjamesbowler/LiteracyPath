@@ -6,7 +6,7 @@ export const appVisualAssetReview = {
   "reviewedBy": "codex-direct-visual-audit",
   "status": "complete",
   "scope": {
-    "imageCount": 12760,
+    "imageCount": 12768,
     "sources": [
       "runtime-media-registry",
       "source-literals",
@@ -14,7 +14,7 @@ export const appVisualAssetReview = {
     ],
     "method": "Every displayable inventory path inspected in indexed full-aspect sheets; all book pages and covers compared in ordered sequences; flagged images opened natively. All repaired bytes checked against final visual receipts, all shared card derivatives independently re-reviewed. Retained held sources have separately verified current non-display purposes; no pixel approval.",
     "heldSourceCount": 458,
-    "directlyReviewedImageCount": 12302
+    "directlyReviewedImageCount": 12310
   },
   "assets": [
     {
@@ -3486,10 +3486,16 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-10-29"
     },
     {
-      "path": "/guided-reading/bright-ideas/book-16/page-04.webp",
-      "sha256": "f16ebb835cc77a7a1b96932f294c055220ccd74c43bb8ed137a157d390054d63",
+      "path": "/guided-reading/bright-ideas/book-16/page-04.6ea953ec06e2.webp",
+      "sha256": "6ea953ec06e2ac2ef4961c577992d3d267a0e9cc0b47166b31f95cf98c3f9a1e",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-21"
+    },
+    {
+      "path": "/guided-reading/bright-ideas/book-16/page-04.webp",
+      "sha256": "6ea953ec06e2ac2ef4961c577992d3d267a0e9cc0b47166b31f95cf98c3f9a1e",
+      "status": "approved",
+      "reviewedAt": "2026-11-21"
     },
     {
       "path": "/guided-reading/bright-ideas/book-16/page-05.webp",
@@ -3528,10 +3534,16 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-10-29"
     },
     {
-      "path": "/guided-reading/bright-ideas/book-16/page-11.webp",
-      "sha256": "6e92a653403a4fb5736cb80422035647aaf89c20b424d2d90f30535e9851bb2f",
+      "path": "/guided-reading/bright-ideas/book-16/page-11.ee8182256c49.webp",
+      "sha256": "ee8182256c49f1f097aad8d66861c64b33cd0f81339e69994faf736c05432b4f",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-21"
+    },
+    {
+      "path": "/guided-reading/bright-ideas/book-16/page-11.webp",
+      "sha256": "ee8182256c49f1f097aad8d66861c64b33cd0f81339e69994faf736c05432b4f",
+      "status": "approved",
+      "reviewedAt": "2026-11-21"
     },
     {
       "path": "/guided-reading/bright-ideas/book-16/page-12.webp",
@@ -9222,10 +9234,16 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-10-30"
     },
     {
-      "path": "/guided-reading/nonfiction/first-facts-level-a/book-20/page-002.webp",
-      "sha256": "bddbe5cca7cdb1a2c35366e4bba01eddc64a2b1e908d974ed8cbafe14fafddd1",
+      "path": "/guided-reading/nonfiction/first-facts-level-a/book-20/page-002.b5c6f2ac275f.webp",
+      "sha256": "b5c6f2ac275f1a152fe7fcb8fabf7ab05baed078872030a3bf2e8c27fb981641",
       "status": "approved",
-      "reviewedAt": "2026-10-30"
+      "reviewedAt": "2026-11-21"
+    },
+    {
+      "path": "/guided-reading/nonfiction/first-facts-level-a/book-20/page-002.webp",
+      "sha256": "b5c6f2ac275f1a152fe7fcb8fabf7ab05baed078872030a3bf2e8c27fb981641",
+      "status": "approved",
+      "reviewedAt": "2026-11-21"
     },
     {
       "path": "/guided-reading/nonfiction/first-facts-level-a/book-20/page-003.webp",
@@ -12433,10 +12451,16 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-10-29"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-d-43-page-04.webp",
-      "sha256": "1599b38447063092ea85ca2526d29e3da72846e25bf48eab941177dd00e8a70f",
+      "path": "/guided-reading/regen/pages/gr-d-43-page-04.dd171a5b3cad.webp",
+      "sha256": "dd171a5b3cadd8dc610f620c9f8f4be2fbda93b906d3b99e84392bc9d65cf56b",
       "status": "approved",
-      "reviewedAt": "2026-10-29"
+      "reviewedAt": "2026-11-21"
+    },
+    {
+      "path": "/guided-reading/regen/pages/gr-d-43-page-04.webp",
+      "sha256": "dd171a5b3cadd8dc610f620c9f8f4be2fbda93b906d3b99e84392bc9d65cf56b",
+      "status": "approved",
+      "reviewedAt": "2026-11-21"
     },
     {
       "path": "/guided-reading/regen/pages/gr-d-43-page-05.webp",
@@ -16246,6 +16270,12 @@ export const appVisualAssetReview = {
       "path": "/guided-reading/series/james-and-anna/book-05/page-007.webp",
       "sha256": "cf8911b575ff902018cca330725036d1cc0f0b9d45cc6775c9895bc9576e9456",
       "status": "approved"
+    },
+    {
+      "path": "/guided-reading/series/james-and-anna/book-05/page-008-dad-cuts-df7581588218.webp",
+      "sha256": "df75815882185ebe50bed5f60202682b07a7fa12b390ebca5e86328d91b73bd8",
+      "status": "approved",
+      "reviewedAt": "2026-11-21"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-05/page-008.webp",
@@ -24983,10 +25013,16 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-11-09"
     },
     {
-      "path": "/guided-reading/world-discovery/a-29/page-06.webp",
-      "sha256": "8b712e7ead09f0c9dac3eb0e53970d77740ee073f4e9932acf3b23bde84ed279",
+      "path": "/guided-reading/world-discovery/a-29/page-06.bd16de10dd2d.webp",
+      "sha256": "bd16de10dd2d8dc00e62add6e307837bf019d39b868247dc1196fe583ee1925f",
       "status": "approved",
-      "reviewedAt": "2026-11-09"
+      "reviewedAt": "2026-11-21"
+    },
+    {
+      "path": "/guided-reading/world-discovery/a-29/page-06.webp",
+      "sha256": "bd16de10dd2d8dc00e62add6e307837bf019d39b868247dc1196fe583ee1925f",
+      "status": "approved",
+      "reviewedAt": "2026-11-21"
     },
     {
       "path": "/guided-reading/world-discovery/a-29/page-07.webp",
@@ -28643,6 +28679,12 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-11-07"
     },
     {
+      "path": "/guided-reading/world-discovery/d-04/page-07.35acd87d4b3c.webp",
+      "sha256": "35acd87d4b3c090dfb2d4d4712e064d3efc7432799e791293ae08b991524d1cf",
+      "status": "approved",
+      "reviewedAt": "2026-11-21"
+    },
+    {
       "path": "/guided-reading/world-discovery/d-04/page-07.f09799f3b38c.webp",
       "sha256": "f09799f3b38c84fb63b8674848f5024ca2142c649b1a06b64100ff424578aec7",
       "status": "approved",
@@ -28650,9 +28692,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/world-discovery/d-04/page-07.webp",
-      "sha256": "f09799f3b38c84fb63b8674848f5024ca2142c649b1a06b64100ff424578aec7",
+      "sha256": "35acd87d4b3c090dfb2d4d4712e064d3efc7432799e791293ae08b991524d1cf",
       "status": "approved",
-      "reviewedAt": "2026-11-10"
+      "reviewedAt": "2026-11-21"
     },
     {
       "path": "/guided-reading/world-discovery/d-04/page-08.87ebba7dfcfd.webp",
@@ -28661,10 +28703,16 @@ export const appVisualAssetReview = {
       "reviewedAt": "2026-11-11"
     },
     {
-      "path": "/guided-reading/world-discovery/d-04/page-08.webp",
-      "sha256": "87ebba7dfcfdb47642ce66bf31161176eb818b7f32db821e4e74fc3caa2bac16",
+      "path": "/guided-reading/world-discovery/d-04/page-08.8e8d2b915f74.webp",
+      "sha256": "8e8d2b915f745b4aec633d899e07d7e5d9378aeee0693c8f37935fa23661b43a",
       "status": "approved",
-      "reviewedAt": "2026-11-10"
+      "reviewedAt": "2026-11-21"
+    },
+    {
+      "path": "/guided-reading/world-discovery/d-04/page-08.webp",
+      "sha256": "8e8d2b915f745b4aec633d899e07d7e5d9378aeee0693c8f37935fa23661b43a",
+      "status": "approved",
+      "reviewedAt": "2026-11-21"
     },
     {
       "path": "/guided-reading/world-discovery/d-04/page-09.webp",

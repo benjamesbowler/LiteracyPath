@@ -1,0 +1,1603 @@
+{
+  "schemaVersion": 1,
+  "books": [
+    {
+      "bookId": "world-discovery-a-02",
+      "reviewedAt": "2026-11-22",
+      "method": "codex-full-manuscript-and-complete-image-sequence-inspection",
+      "textFingerprint": "fnv1a64:f3ae10b6ea0b01df",
+      "sourceBookSha256": "08691fffbd437b0490da84fff401ffed0c0a1a7d6890c358ae5359300309dd45",
+      "fullTextPrepAndDiscussionReviewed": true,
+      "allReferencesCoversAndPagesReviewed": true,
+      "changes": [
+        {
+          "pageNumber": 8,
+          "reason": "Clarifies the visible placement in the closing image."
+        }
+      ],
+      "supportChanged": true,
+      "assets": [
+        {
+          "slot": "reference",
+          "path": "source-art/world-discovery/a-02-reference.webp",
+          "sha256": "3a4238b51e25f9662faf1ece73286932c652a3fc654a63133cade60cbcb78d7f",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "cover",
+          "path": "public/guided-reading/world-discovery/a-02/cover.webp",
+          "sha256": "c75c9b4d50bf4d623dffd16b8af42deb65e94fcfdea862e152a4d6d1879438b5",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-01",
+          "path": "public/guided-reading/world-discovery/a-02/page-01.webp",
+          "sha256": "91ea2d0ee4917ff7bd83ca732a9b0bc650ae5b7f65469cad134c4fc64c4b4a66",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-02",
+          "path": "public/guided-reading/world-discovery/a-02/page-02.webp",
+          "sha256": "697a9b9a96b30bd6df06d7a2cab1be6f0efc676dea07006d9433aa0ecafa96ba",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-03",
+          "path": "public/guided-reading/world-discovery/a-02/page-03.webp",
+          "sha256": "a6939f1ae2fd343a2edeb4f37e49eee994c17896c68ccffe78bc88b79ec30f1f",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-04",
+          "path": "public/guided-reading/world-discovery/a-02/page-04.webp",
+          "sha256": "ae8a054620d229825aecae2c98eeaf3cc0451fe81b111fbeee54e61e37117c4a",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-05",
+          "path": "public/guided-reading/world-discovery/a-02/page-05.webp",
+          "sha256": "598cf728a1b748d7d80c94c4ce1a2ace30392f86b4d3b7fc46f3029b395f96a6",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-06",
+          "path": "public/guided-reading/world-discovery/a-02/page-06.webp",
+          "sha256": "33e7c2b911bff04c1d29e338552dbdff4d9c97b6a318ae394d95ea8f417f3f5b",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-07",
+          "path": "public/guided-reading/world-discovery/a-02/page-07.webp",
+          "sha256": "ed58ae86501ad59c2e72b193c212ee132789097b2a3fea0962f02c1649d2b5d0",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-08",
+          "path": "public/guided-reading/world-discovery/a-02/page-08.webp",
+          "sha256": "ba6dbf4cb9b45ca6d5cd8254b316471aea066b5e40e1953ff8400254a6950082",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        }
+      ],
+      "openFindings": []
+    },
+    {
+      "bookId": "world-discovery-a-07",
+      "reviewedAt": "2026-11-22",
+      "method": "codex-full-manuscript-and-complete-image-sequence-inspection",
+      "textFingerprint": "fnv1a64:6aa1b8433666a946",
+      "sourceBookSha256": "05ef745e2f02910891ca1387af8636d4ba5cb2dae8c5cff9566eccba83325849",
+      "fullTextPrepAndDiscussionReviewed": true,
+      "allReferencesCoversAndPagesReviewed": true,
+      "changes": [
+        {
+          "pageNumber": 5,
+          "reason": "Replaces the uncommon verb shades with a visible position."
+        }
+      ],
+      "supportChanged": false,
+      "assets": [
+        {
+          "slot": "reference",
+          "path": "source-art/world-discovery/a-07-reference.webp",
+          "sha256": "277c2c6417f6f49712b863ada674e6b8641151debfc86de948e9f5e6b64b1c0f",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "cover",
+          "path": "public/guided-reading/world-discovery/a-07/cover.webp",
+          "sha256": "c5c602529410ef7d949e6a7f7066919aebf92abf86572d9a3d5daa6a6abd0ef3",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-01",
+          "path": "public/guided-reading/world-discovery/a-07/page-01.webp",
+          "sha256": "54bc102a703ffbc80eae2a29c88eed72291a4b98b482da8d000aeb8319c780f9",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-02",
+          "path": "public/guided-reading/world-discovery/a-07/page-02.webp",
+          "sha256": "57a656a236ed2a76a66dfc203630bfed030792a2fc85d3e67037698506a603ab",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-03",
+          "path": "public/guided-reading/world-discovery/a-07/page-03.webp",
+          "sha256": "8b196b8bcd3c911fd16bae5d627d7c8cad070375e2c78082c0967eab997a3a3a",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-04",
+          "path": "public/guided-reading/world-discovery/a-07/page-04.webp",
+          "sha256": "996fe7d46bb9a74719ff8ab4a7e3ce05a6eab8b56df68d3d879700bf49c546a4",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-05",
+          "path": "public/guided-reading/world-discovery/a-07/page-05.webp",
+          "sha256": "8a4bb877834369ea01db266c96312fe08f32a36653ea9fc911aaa71c599282ca",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-06",
+          "path": "public/guided-reading/world-discovery/a-07/page-06.webp",
+          "sha256": "fd25eee26c958156ad98642c0eb3018aa6c1e56dcdbb21aa97d21fed02e1fed7",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-07",
+          "path": "public/guided-reading/world-discovery/a-07/page-07.webp",
+          "sha256": "bd359626e706b4561752f615eafeb1ee67a846db41187a87cb244f857d436f8c",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-08",
+          "path": "public/guided-reading/world-discovery/a-07/page-08.webp",
+          "sha256": "3dc61d064b4eef47622b76454dbaafaf44d50f0514fb5280bd64e37eb89e187f",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        }
+      ],
+      "openFindings": []
+    },
+    {
+      "bookId": "world-discovery-b-03",
+      "reviewedAt": "2026-11-22",
+      "method": "codex-full-manuscript-and-complete-image-sequence-inspection",
+      "textFingerprint": "fnv1a64:e91f96a546194774",
+      "sourceBookSha256": "8ccd9bd23c0377f41630ae2345391dca37ef433e5f7a1f0035beacc8095d030c",
+      "fullTextPrepAndDiscussionReviewed": true,
+      "allReferencesCoversAndPagesReviewed": true,
+      "changes": [
+        {
+          "pageNumber": 5,
+          "reason": "Clarifies whose action completes the return."
+        }
+      ],
+      "supportChanged": false,
+      "assets": [
+        {
+          "slot": "reference",
+          "path": "source-art/world-discovery/b-03-reference.webp",
+          "sha256": "2bd7f33589cb2c5478829a521616a98310638afcf6b728c4283df9dc33aa9b73",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "cover",
+          "path": "public/guided-reading/world-discovery/b-03/cover.webp",
+          "sha256": "6a7a428208beeb7b2b1c03855107fc1aef390e56bbbaada51bc3c3514db6d8a3",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-01",
+          "path": "public/guided-reading/world-discovery/b-03/page-01.webp",
+          "sha256": "5ca50bda21aa53a38840511057d68d7d1b94f61b59a4345c2a672d9668e37674",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-02",
+          "path": "public/guided-reading/world-discovery/b-03/page-02.webp",
+          "sha256": "ee3247bf1e9ca675b5ab57b1a18325e89befabc63b9fcbe26199f6c7da46442b",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-03",
+          "path": "public/guided-reading/world-discovery/b-03/page-03.webp",
+          "sha256": "e7c8c4d77c0ce85c4fdf9a71af5d7f48fa56e2073a7b695212b2dbe590c30b41",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-04",
+          "path": "public/guided-reading/world-discovery/b-03/page-04.webp",
+          "sha256": "2479eb5fcb6cb100b34c4a404d3a07c6ab8685eaec3c65295dd9f11dff0ac8e9",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-05",
+          "path": "public/guided-reading/world-discovery/b-03/page-05.webp",
+          "sha256": "fb71c454cb283bc5055a7e24933485225ce0a412fea238c4cc4cdf47fa8eb21a",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-06",
+          "path": "public/guided-reading/world-discovery/b-03/page-06.webp",
+          "sha256": "2534fc261fcaf54fad21fb5b5f8d507e35bcf8ccb63ff4d4e2d070ea8a738631",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-07",
+          "path": "public/guided-reading/world-discovery/b-03/page-07.webp",
+          "sha256": "2da7e76967dad9ee69cb2a8f5f0106ad6ada6fa2502c3836d9d4cddaefd14062",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-08",
+          "path": "public/guided-reading/world-discovery/b-03/page-08.webp",
+          "sha256": "f7b4f0d6aa6205aa0f5075f14761969c532e6983f1df4767a2ade49c16e24c90",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        }
+      ],
+      "openFindings": []
+    },
+    {
+      "bookId": "world-discovery-c-03",
+      "reviewedAt": "2026-11-22",
+      "method": "codex-full-manuscript-and-complete-image-sequence-inspection",
+      "textFingerprint": "fnv1a64:75055bcfb7b1cbce",
+      "sourceBookSha256": "81bbb463ad165659278021854c2840ba71261850efcdd697b27fa261936fef3a",
+      "fullTextPrepAndDiscussionReviewed": true,
+      "allReferencesCoversAndPagesReviewed": true,
+      "changes": [
+        {
+          "pageNumber": 4,
+          "reason": "Names who pushes and what makes this attempt hard."
+        },
+        {
+          "pageNumber": 5,
+          "reason": "Names the unchanged rise and the difference in slope."
+        }
+      ],
+      "supportChanged": true,
+      "assets": [
+        {
+          "slot": "reference",
+          "path": "source-art/world-discovery/c-03-reference.webp",
+          "sha256": "8e6b7dee14a323711f76200c99d10dc51b9204483d73ba18659ed328f7ee9988",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "cover",
+          "path": "public/guided-reading/world-discovery/c-03/cover.webp",
+          "sha256": "84e100bfc0c67cf543aa4bdf09a30d14a255b69e3fbc357763a1a0695ff8dd50",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-01",
+          "path": "public/guided-reading/world-discovery/c-03/page-01.webp",
+          "sha256": "fa4990cb8d312cb2b23c174051b4adda8053a9da37bfeb3f9962954acc6f05fb",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-02",
+          "path": "public/guided-reading/world-discovery/c-03/page-02.webp",
+          "sha256": "461c9974a23baa08130078dfa4910545f38cda45122f048ff7271059a1f1d130",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-03",
+          "path": "public/guided-reading/world-discovery/c-03/page-03.webp",
+          "sha256": "6c42733a24b29e1556c839e736a279ec065226e384dd1947971a01a56d8f9458",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-04",
+          "path": "public/guided-reading/world-discovery/c-03/page-04.webp",
+          "sha256": "8442552d1db4e3450f54d627809f9032fdaa4f178dc4526c1df38dd3293798b5",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-05",
+          "path": "public/guided-reading/world-discovery/c-03/page-05.webp",
+          "sha256": "258b05ce3e779cb6349f3070d2c4f2deb8c4991a6b982532fba3ebfd2a988dd8",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-06",
+          "path": "public/guided-reading/world-discovery/c-03/page-06.webp",
+          "sha256": "df7abf214f2570a8e6bed9091ea4dc11a9cbcce3129150c2942afeecea865c33",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-07",
+          "path": "public/guided-reading/world-discovery/c-03/page-07.webp",
+          "sha256": "dfd20cc7c21d24c294b973ff1be485523a0c9a905569bb654451047c992a89c6",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-08",
+          "path": "public/guided-reading/world-discovery/c-03/page-08.webp",
+          "sha256": "f716b5ed0ff40200feeda6713232b5a2bd9b345ab59b677d8d42e1c4f337d056",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        }
+      ],
+      "openFindings": []
+    },
+    {
+      "bookId": "world-discovery-c-05",
+      "reviewedAt": "2026-11-22",
+      "method": "codex-full-manuscript-and-complete-image-sequence-inspection",
+      "textFingerprint": "fnv1a64:e821f143d43e6119",
+      "sourceBookSha256": "b9cc033b1a28324484405cd1b94e69d0c12f1a970570e087ae782397f89d7425",
+      "fullTextPrepAndDiscussionReviewed": true,
+      "allReferencesCoversAndPagesReviewed": true,
+      "changes": [
+        {
+          "pageNumber": 5,
+          "reason": "One path splits into two branches, as pictured."
+        }
+      ],
+      "supportChanged": true,
+      "assets": [
+        {
+          "slot": "reference",
+          "path": "source-art/world-discovery/c-05-reference.webp",
+          "sha256": "abc439a567189f08ff66ddf08f8f6afc2941b48f42c91752662a4377026ae141",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "cover",
+          "path": "public/guided-reading/world-discovery/c-05/cover.webp",
+          "sha256": "6cb10127710d318631b9c6489e6222641a2bf9d844da5e2bd96dcae60a9bce9f",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-01",
+          "path": "public/guided-reading/world-discovery/c-05/page-01.webp",
+          "sha256": "8668d4fc014d50b33903e59623b5151ae304a290997fa0f6ef12117f595e7404",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-02",
+          "path": "public/guided-reading/world-discovery/c-05/page-02.webp",
+          "sha256": "824d0d04b6d8d2861ad7d6ad77487dd4c3b8de66a6c7ee2203fc4d1b30476170",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-03",
+          "path": "public/guided-reading/world-discovery/c-05/page-03.webp",
+          "sha256": "c3c455ab48c7884d1ddeab7705e9cb4f12f8480c9dbf40ac24c696152a12cac7",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-04",
+          "path": "public/guided-reading/world-discovery/c-05/page-04.webp",
+          "sha256": "8b42f72daf221b8782b93a015a051e8996f733158f5364ffbbd234009115a9fc",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-05",
+          "path": "public/guided-reading/world-discovery/c-05/page-05.webp",
+          "sha256": "4d77b1031bfe7bf1f258d29b600170b0b68e34bd73cf643d2fe6d78e4076d6f5",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-06",
+          "path": "public/guided-reading/world-discovery/c-05/page-06.webp",
+          "sha256": "4bdab6c33fd85229cc8caef457d96bd041e8df885a72b97e815a79cd141c5b00",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-07",
+          "path": "public/guided-reading/world-discovery/c-05/page-07.webp",
+          "sha256": "d7ed4118c9eaad69a5fb318586be5a7e2e8201638c0fba5f8464a92941725600",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-08",
+          "path": "public/guided-reading/world-discovery/c-05/page-08.webp",
+          "sha256": "3bd58363d5e34ebf97dc1f4fa3dd1b5964b4c38d61cb09636746fdc502840bea",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        }
+      ],
+      "openFindings": []
+    },
+    {
+      "bookId": "world-discovery-c-06",
+      "reviewedAt": "2026-11-22",
+      "method": "codex-full-manuscript-and-complete-image-sequence-inspection",
+      "textFingerprint": "fnv1a64:a6af8ab170b776b6",
+      "sourceBookSha256": "d1f4871cb745be5a6be9a1dc3a5bcf375a479e90cd7ec2768727f2d6245839f9",
+      "fullTextPrepAndDiscussionReviewed": true,
+      "allReferencesCoversAndPagesReviewed": true,
+      "changes": [
+        {
+          "pageNumber": 8,
+          "reason": "The light-facing half remains in place while the marked surface rotates."
+        }
+      ],
+      "supportChanged": false,
+      "assets": [
+        {
+          "slot": "reference",
+          "path": "source-art/world-discovery/c-06-reference.webp",
+          "sha256": "15a5bc65899830e2b8aa885cad7aac1c2ad9aca848291d22d93a86c464affdfc",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "cover",
+          "path": "public/guided-reading/world-discovery/c-06/cover.webp",
+          "sha256": "23637c38bca6822a555e3c97006bc70e1e79bd7781bc6cd3cce5e50ba6c48424",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-01",
+          "path": "public/guided-reading/world-discovery/c-06/page-01.webp",
+          "sha256": "1ad862f31e320ff6c90c69a24f4498a2e39a01528f7ebfe57e2629d25bd8cd3c",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-02",
+          "path": "public/guided-reading/world-discovery/c-06/page-02.webp",
+          "sha256": "87a3c51d6db81ea198fa70984a51961ddade0c4ae9d593757f3c31303deb1707",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-03",
+          "path": "public/guided-reading/world-discovery/c-06/page-03.webp",
+          "sha256": "c2d6d089262840a9b54249ec46b859c8a202b1977cace8e7733706ea5b2a0f0c",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-04",
+          "path": "public/guided-reading/world-discovery/c-06/page-04.webp",
+          "sha256": "86fbe446aaa8f481d20d3496a3f736ff9c9c610ea4e97a464a5d40d54f147c6d",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-05",
+          "path": "public/guided-reading/world-discovery/c-06/page-05.webp",
+          "sha256": "ff8be17e12d2141f185c4195be60aa2ad98e66316fc1996444c9180bb04caa3b",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-06",
+          "path": "public/guided-reading/world-discovery/c-06/page-06.webp",
+          "sha256": "95a0fe0139d39d6ec9e07c4dbd40939138882a5080670fc45d8550045cee56dd",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-07",
+          "path": "public/guided-reading/world-discovery/c-06/page-07.webp",
+          "sha256": "6bea3f661f1b37a5e85a1fbafd90bec9e6d7a9e7c9e5a7f9123f12dc7ef36e5e",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-08",
+          "path": "public/guided-reading/world-discovery/c-06/page-08.webp",
+          "sha256": "2ba262ff262d979f317abf398bde3c488892d4e25a32d72963f0b5f4061fae99",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        }
+      ],
+      "openFindings": []
+    },
+    {
+      "bookId": "world-discovery-d-02",
+      "reviewedAt": "2026-11-22",
+      "method": "codex-full-manuscript-and-complete-image-sequence-inspection",
+      "textFingerprint": "fnv1a64:81cbc20dcfd14659",
+      "sourceBookSha256": "43518a988713e9beeba73d45b208384cd6a64a2eae38b0dc693f709d6e16efd8",
+      "fullTextPrepAndDiscussionReviewed": true,
+      "allReferencesCoversAndPagesReviewed": true,
+      "changes": [
+        {
+          "pageNumber": 8,
+          "reason": "Shows the quieter action and exact block arrangement."
+        }
+      ],
+      "supportChanged": false,
+      "assets": [
+        {
+          "slot": "reference",
+          "path": "source-art/world-discovery/d-02-reference.webp",
+          "sha256": "74e6b3397c8322de42e60224c7447e1e6d112ea7a3a9b5fbe94b6ef08a143720",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "cover",
+          "path": "public/guided-reading/world-discovery/d-02/cover.webp",
+          "sha256": "eccb65d8fc302434493c3fbfe91d03cb943b81dc51c5bd85154505d2675b550e",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-01",
+          "path": "public/guided-reading/world-discovery/d-02/page-01.webp",
+          "sha256": "5de70dd87e56f2617b6a1cd6c551ee25ae509d502425ea85a8e28dbdac41e658",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-02",
+          "path": "public/guided-reading/world-discovery/d-02/page-02.webp",
+          "sha256": "c2977c7427bea49a2d6afc611a71a4a2a7108b8ebc72334ddcf34e1ba0a0e611",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-03",
+          "path": "public/guided-reading/world-discovery/d-02/page-03.webp",
+          "sha256": "e74d326683752796655a822f267341a0d3e85fab22305faf3681862d18877333",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-04",
+          "path": "public/guided-reading/world-discovery/d-02/page-04.webp",
+          "sha256": "988956cb2a5dbbcbeffb0a5e23288466416d8b11e0888d5e541037bf74b4dd4d",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-05",
+          "path": "public/guided-reading/world-discovery/d-02/page-05.webp",
+          "sha256": "c24368cea594056636146ce999f0261e0098f25a1fcba6f4dc1f41fd2489e4de",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-06",
+          "path": "public/guided-reading/world-discovery/d-02/page-06.webp",
+          "sha256": "95d2139c4bbcb0cc23865fe15d24c07d2303c553c21db086bbde2fe27f45b9bb",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-07",
+          "path": "public/guided-reading/world-discovery/d-02/page-07.webp",
+          "sha256": "6de6a60ebcaca7119f0cc7d8104a7017528f6f424999c5f5c1eaa50b3b2a4c5d",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-08",
+          "path": "public/guided-reading/world-discovery/d-02/page-08.webp",
+          "sha256": "e89fa7008190770769bef608eac1a2a555be596a6924e54ed4fcb1abcbaeee0d",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-09",
+          "path": "public/guided-reading/world-discovery/d-02/page-09.webp",
+          "sha256": "d431ff5743386a578ee2b094e87ac8ac10c9e65edccd87f623f0f39ff6570e92",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-10",
+          "path": "public/guided-reading/world-discovery/d-02/page-10.webp",
+          "sha256": "bd142aeabb3fe49393925b38aa83b5f311a442fb56196639472a25281647c9e4",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        }
+      ],
+      "openFindings": []
+    },
+    {
+      "bookId": "world-discovery-d-07",
+      "reviewedAt": "2026-11-22",
+      "method": "codex-full-manuscript-and-complete-image-sequence-inspection",
+      "textFingerprint": "fnv1a64:b6fcba015624ba27",
+      "sourceBookSha256": "b2f7e4a88825e56c3b1466fccbd76bb304f5cae3d3e8d04ee6c66b06b6bd2b40",
+      "fullTextPrepAndDiscussionReviewed": true,
+      "allReferencesCoversAndPagesReviewed": true,
+      "changes": [
+        {
+          "pageNumber": 5,
+          "reason": "Uses visible actions to show how the spider detects the fly."
+        },
+        {
+          "pageNumber": 8,
+          "reason": "Replaces captured insect with the established subject and purpose."
+        }
+      ],
+      "supportChanged": true,
+      "assets": [
+        {
+          "slot": "reference",
+          "path": "source-art/world-discovery/d-07-reference.webp",
+          "sha256": "b025bdffb8926422123fc03ffed8526adc1df1b98bfb771338f4eff721fcb879",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "cover",
+          "path": "public/guided-reading/world-discovery/d-07/cover.webp",
+          "sha256": "85d5d8d841849172110937fece5208d70c7797c2fd00cff7ef423269673e24d4",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-01",
+          "path": "public/guided-reading/world-discovery/d-07/page-01.webp",
+          "sha256": "44026316cfc8c136e287ef75d0103f935211ce351c145e5eec627fe0e060cfca",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-02",
+          "path": "public/guided-reading/world-discovery/d-07/page-02.webp",
+          "sha256": "0977d2bbba953f3673759d50a8fe5ff4356d80ebd2663b5dad9889b3e1cf3f4c",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-03",
+          "path": "public/guided-reading/world-discovery/d-07/page-03.webp",
+          "sha256": "df9489934d52dde8cf96966537343de5f3ecc318668989cafddd6bcd85497f3b",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-04",
+          "path": "public/guided-reading/world-discovery/d-07/page-04.webp",
+          "sha256": "4dd4c2ab955fa07acfb6ef4f1c53029fe09c20a591a13edf8eebbb8cf8a79561",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-05",
+          "path": "public/guided-reading/world-discovery/d-07/page-05.webp",
+          "sha256": "8e0da40d132d2e05ee7520240b22c815d66814bb8981fb34ffe0a6b7d457cd17",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-06",
+          "path": "public/guided-reading/world-discovery/d-07/page-06.webp",
+          "sha256": "d362c6bab8945ca17362a0a7463acd4268ce5a65c3190cc44a9139848de7e87d",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-07",
+          "path": "public/guided-reading/world-discovery/d-07/page-07.webp",
+          "sha256": "b22b8e53aab34bc953c40f3866c1bad92f113fc85a50695791b78039257f9c66",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-08",
+          "path": "public/guided-reading/world-discovery/d-07/page-08.webp",
+          "sha256": "8229cbf095996f45d0bc146f279b0cb0670d724b5601f3583dac87cb019a7315",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-09",
+          "path": "public/guided-reading/world-discovery/d-07/page-09.webp",
+          "sha256": "5a699875a52e1417781e983d9a9238f8edcdb0f69065946d0e4b8e8d3e31fe8e",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-10",
+          "path": "public/guided-reading/world-discovery/d-07/page-10.webp",
+          "sha256": "2a012698c0a05ac49610ce838958184e383173d8ceca5112a0a4afdd00059939",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        }
+      ],
+      "openFindings": []
+    },
+    {
+      "bookId": "world-discovery-d-08",
+      "reviewedAt": "2026-11-22",
+      "method": "codex-full-manuscript-and-complete-image-sequence-inspection",
+      "textFingerprint": "fnv1a64:8a4830db775d08e6",
+      "sourceBookSha256": "91c6843292d4a6a9cf426bdc5dd38fb53cd34e4ace73049de01aaba3c1c5860f",
+      "fullTextPrepAndDiscussionReviewed": true,
+      "allReferencesCoversAndPagesReviewed": true,
+      "changes": [
+        {
+          "pageNumber": 1,
+          "reason": "Names the conditions that the following page shows."
+        }
+      ],
+      "supportChanged": true,
+      "assets": [
+        {
+          "slot": "reference",
+          "path": "source-art/world-discovery/d-08-reference.webp",
+          "sha256": "81f255b73961b2d0a45f6e36cde60a66c5826d868daac5069046f7881d874bee",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "cover",
+          "path": "public/guided-reading/world-discovery/d-08/cover.webp",
+          "sha256": "7ed874c4417dbe8aa81b549f4db74dfc7a200c372e1af0c2d3c525c0cdd0ab63",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-01",
+          "path": "public/guided-reading/world-discovery/d-08/page-01.webp",
+          "sha256": "32a9a2ed6d14596c6faf16759450244dd1093b42d903489dd01469efc2d9468e",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-02",
+          "path": "public/guided-reading/world-discovery/d-08/page-02.webp",
+          "sha256": "f825447ca7b38fb31e8c21fc6d86f2309100fd3a45a30dfbe6947828a5425943",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-03",
+          "path": "public/guided-reading/world-discovery/d-08/page-03.webp",
+          "sha256": "eebbe362930cc98af0c8da06cd55181921f3f66e77a3e8fce13f83b3158af24b",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-04",
+          "path": "public/guided-reading/world-discovery/d-08/page-04.webp",
+          "sha256": "ce1a2b1a7a760d4e88eaa6a09ddfb133b28ab34f9334d72bd002c244a0313e43",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-05",
+          "path": "public/guided-reading/world-discovery/d-08/page-05.webp",
+          "sha256": "bfe2380c700647dc30ac64be4eaf641006f3e2affee7d19301d08458cca1f93c",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-06",
+          "path": "public/guided-reading/world-discovery/d-08/page-06.webp",
+          "sha256": "601b5060d5a16b15236be90b101542fead61a68134cd61526d9417adf96cf295",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-07",
+          "path": "public/guided-reading/world-discovery/d-08/page-07.webp",
+          "sha256": "c87287804a8dfe31ad5a28e34a90e26f2012a864fde72d2a13ee6e4de315a483",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-08",
+          "path": "public/guided-reading/world-discovery/d-08/page-08.webp",
+          "sha256": "d5f6716c95f9d97fa99eb6306caa6ac15b34b328762452d62e5da68b80cd449f",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-09",
+          "path": "public/guided-reading/world-discovery/d-08/page-09.webp",
+          "sha256": "1e14288734eeda560a7f75a3b334c7800794cb6aba05f88ed55dbf137c811ffe",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-10",
+          "path": "public/guided-reading/world-discovery/d-08/page-10.webp",
+          "sha256": "804314e447f226864c4a5e575977000ecd2b12a92795e65485112062c734bc66",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        }
+      ],
+      "openFindings": []
+    },
+    {
+      "bookId": "world-discovery-e-01",
+      "reviewedAt": "2026-11-22",
+      "method": "codex-full-manuscript-and-complete-image-sequence-inspection",
+      "textFingerprint": "fnv1a64:6501c74092b32a6f",
+      "sourceBookSha256": "b9c5d4cd2474bc148afe743903064ec1577b36d23a12600b970b1903d1485dec",
+      "fullTextPrepAndDiscussionReviewed": true,
+      "allReferencesCoversAndPagesReviewed": true,
+      "changes": [
+        {
+          "pageNumber": 9,
+          "reason": "Uses ordinary U.S. English for the puppet’s action."
+        }
+      ],
+      "supportChanged": true,
+      "assets": [
+        {
+          "slot": "reference",
+          "path": "source-art/world-discovery/e-01-reference.webp",
+          "sha256": "880c410c6c1ea563ffa2eb5399c5251f60792bd4f04c7474ff066ccdd9c3b0ed",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "cover",
+          "path": "public/guided-reading/world-discovery/e-01/cover.webp",
+          "sha256": "c0693c1bae9d938a222791268c87c76439999052ac215005e090d1f799c651e4",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-01",
+          "path": "public/guided-reading/world-discovery/e-01/page-01.webp",
+          "sha256": "33e02e02f23d52d92f8bf0a263e1cd35b1127b9ba4b5f39c3e5a7f6263faf02c",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-02",
+          "path": "public/guided-reading/world-discovery/e-01/page-02.webp",
+          "sha256": "54b258828d9c8bffcd2185323afecefece738f3df6d4f5f59fa240059bf61630",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-03",
+          "path": "public/guided-reading/world-discovery/e-01/page-03.webp",
+          "sha256": "ff1639a8e63bae97b4ca05e5c7c24acf223a8650b38b7d6cb5fa6e465e00111e",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-04",
+          "path": "public/guided-reading/world-discovery/e-01/page-04.webp",
+          "sha256": "7588bbe8969077026241ccd9ec6fa1d335fca3e0f4391edb87d021464dbee55a",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-05",
+          "path": "public/guided-reading/world-discovery/e-01/page-05.webp",
+          "sha256": "e700a3cb08492433a1ab0729ff9f91edc34e026d0b71fb7321ba411c8baf9a94",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-06",
+          "path": "public/guided-reading/world-discovery/e-01/page-06.webp",
+          "sha256": "3eca09bb7b5418752436385fdab491f71a01b2f2b9f898af147f6261f4412988",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-07",
+          "path": "public/guided-reading/world-discovery/e-01/page-07.webp",
+          "sha256": "a00ce3a596feb31cc73165643dfe1f47907225794d99873c02d4e7fe7c83fce4",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-08",
+          "path": "public/guided-reading/world-discovery/e-01/page-08.webp",
+          "sha256": "103d798172b6a23ae24e8ca1fde067e2df9894ddfdae6c38fb0c608aad57d04d",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-09",
+          "path": "public/guided-reading/world-discovery/e-01/page-09.webp",
+          "sha256": "850f4274a4f33618e5537e77d6314e8f5b1b8a21b70d16b73b26e91866a403f3",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-10",
+          "path": "public/guided-reading/world-discovery/e-01/page-10.webp",
+          "sha256": "ee6a7b537d2a36546f1b833d1f15cf69019d0215417b777c721259b34ef53402",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        }
+      ],
+      "openFindings": []
+    },
+    {
+      "bookId": "world-discovery-e-02",
+      "reviewedAt": "2026-11-22",
+      "method": "codex-full-manuscript-and-complete-image-sequence-inspection",
+      "textFingerprint": "fnv1a64:1e34488e977fa1df",
+      "sourceBookSha256": "9ead4b9acbfbf414d1945c01fa7e955133f40411894e9628abcc3308945a2b56",
+      "fullTextPrepAndDiscussionReviewed": true,
+      "allReferencesCoversAndPagesReviewed": true,
+      "changes": [
+        {
+          "pageNumber": 9,
+          "reason": "Uses the natural action curl up and names the ball’s final position."
+        }
+      ],
+      "supportChanged": false,
+      "assets": [
+        {
+          "slot": "reference",
+          "path": "source-art/world-discovery/e-02-reference.webp",
+          "sha256": "2967114195cf9a503e306aa0ea9ff39f8b490ed5f0dfaf659ac37688732c1311",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "cover",
+          "path": "public/guided-reading/world-discovery/e-02/cover.webp",
+          "sha256": "08f54bb516772040f73d74af4e4922ad5c7339e46f7a17efadea2f45e8123588",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-01",
+          "path": "public/guided-reading/world-discovery/e-02/page-01.webp",
+          "sha256": "ba0b9a6fa3c58a7a00702c475c608d9b6464e5a60be17491a0c86b5da3600f7d",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-02",
+          "path": "public/guided-reading/world-discovery/e-02/page-02.webp",
+          "sha256": "8c47cb37627adcb0067bfdaf44d76b5d97e2311d9309a3a121190bfafeda9d5e",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-03",
+          "path": "public/guided-reading/world-discovery/e-02/page-03.webp",
+          "sha256": "44466df2590ef61d151da584e01c342793c32d3e365e67e41e4949a1cf57a847",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-04",
+          "path": "public/guided-reading/world-discovery/e-02/page-04.webp",
+          "sha256": "7ed5f38b8b61d4ccb7ceec4c41a8b6ed36bf8af893c28a22c48bb64550d0ff09",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-05",
+          "path": "public/guided-reading/world-discovery/e-02/page-05.webp",
+          "sha256": "4a5fd12b84924c9609f2e296f7a8fc9fbcc1edc922a5fd285b52bab5128babaa",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-06",
+          "path": "public/guided-reading/world-discovery/e-02/page-06.webp",
+          "sha256": "c4267566007b87092f013ca5795a79f753649eb1af8c22afb99e4699194928e0",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-07",
+          "path": "public/guided-reading/world-discovery/e-02/page-07.webp",
+          "sha256": "f912a594e3e6e08f24689a3a3478971b50bad36b0bac259de9dd7191fa886421",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-08",
+          "path": "public/guided-reading/world-discovery/e-02/page-08.webp",
+          "sha256": "6b90dc14317336195c14764effef70ef4b9c29d3859af2d41d432959dca93d76",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-09",
+          "path": "public/guided-reading/world-discovery/e-02/page-09.webp",
+          "sha256": "264c436a1ee35eaa578ba6dc05a4584207ede88badd4b46c5f8625cf86fac7fc",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-10",
+          "path": "public/guided-reading/world-discovery/e-02/page-10.webp",
+          "sha256": "0c51980f92be9d292c0a1351a8e43097df64dade533c14766c00a1941d540095",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        }
+      ],
+      "openFindings": []
+    },
+    {
+      "bookId": "world-discovery-e-03",
+      "reviewedAt": "2026-11-22",
+      "method": "codex-full-manuscript-and-complete-image-sequence-inspection",
+      "textFingerprint": "fnv1a64:061e5ede2aa9e15a",
+      "sourceBookSha256": "241f083c4737b0497a9c9abdecf3192923ad2790eb189a13631c5b21572bcc4d",
+      "fullTextPrepAndDiscussionReviewed": true,
+      "allReferencesCoversAndPagesReviewed": true,
+      "changes": [
+        {
+          "pageNumber": 4,
+          "reason": "Defines the useful technical word through visible action."
+        }
+      ],
+      "supportChanged": true,
+      "assets": [
+        {
+          "slot": "reference",
+          "path": "source-art/world-discovery/e-03-reference.webp",
+          "sha256": "2868250f4b180fd8276cb0ba536346e792940d2dd379773df458ba5201b70689",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "cover",
+          "path": "public/guided-reading/world-discovery/e-03/cover.webp",
+          "sha256": "f2db1ee59786cdfcd0a6be74fede06bd57d927ff1b44f07432be066511df1e4e",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-01",
+          "path": "public/guided-reading/world-discovery/e-03/page-01.webp",
+          "sha256": "e513413f582cef57e212efad77066e5b367c6e64bfe91369827e2161136ad010",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-02",
+          "path": "public/guided-reading/world-discovery/e-03/page-02.webp",
+          "sha256": "c7f148b3984c87eb3d3d05ad8f0f0a3eba9606ea2c7a9f5903cf4c2d6b074890",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-03",
+          "path": "public/guided-reading/world-discovery/e-03/page-03.webp",
+          "sha256": "c37e90da45a465768559a4d84bf52ea73ec772642d9f0066b32cb3b25f100212",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-04",
+          "path": "public/guided-reading/world-discovery/e-03/page-04.webp",
+          "sha256": "980b8c4fac7e5c8e2ac35fabd909b9e471159f3631b9280af5da6235e220358e",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-05",
+          "path": "public/guided-reading/world-discovery/e-03/page-05.webp",
+          "sha256": "126fc39215c4c0736b44bb5249820ca43d6a8b3df9d6782c4259bfeb3e678381",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-06",
+          "path": "public/guided-reading/world-discovery/e-03/page-06.webp",
+          "sha256": "3b76d7843322d98ae562249187b6f24ecfd06b334e727b3da911c75bd795dbb9",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-07",
+          "path": "public/guided-reading/world-discovery/e-03/page-07.webp",
+          "sha256": "eddc1ee24142b7f983d2daa7f32d6a29a1b4011dd19f6db675e806a451395bb1",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-08",
+          "path": "public/guided-reading/world-discovery/e-03/page-08.webp",
+          "sha256": "cd1fab22b279fe52109bed075bf80484c1bed4371b26f367c77d5bd779e201c2",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-09",
+          "path": "public/guided-reading/world-discovery/e-03/page-09.webp",
+          "sha256": "a17b8dbd8275699086003c38f88acf9c7ebf54c6eeefbc1a45235d3c649625fe",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-10",
+          "path": "public/guided-reading/world-discovery/e-03/page-10.webp",
+          "sha256": "d7067ca5b91986f7096e88af819cabd8885f60932004e9fe52f5badac878f71f",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        }
+      ],
+      "openFindings": []
+    },
+    {
+      "bookId": "world-discovery-e-04",
+      "reviewedAt": "2026-11-22",
+      "method": "codex-full-manuscript-and-complete-image-sequence-inspection",
+      "textFingerprint": "fnv1a64:6630db3af038fdf2",
+      "sourceBookSha256": "461db068ad74e5e97e81d3145b3a420793bdfaa0861631a79c53cad425c6cc5b",
+      "fullTextPrepAndDiscussionReviewed": true,
+      "allReferencesCoversAndPagesReviewed": true,
+      "changes": [
+        {
+          "pageNumber": 1,
+          "reason": "Makes the concrete magic rule explicit."
+        },
+        {
+          "pageNumber": 5,
+          "reason": "Shows the measuring action without the abstract carries that width."
+        },
+        {
+          "pageNumber": 10,
+          "reason": "Names where they return and what closes the magic door."
+        }
+      ],
+      "supportChanged": false,
+      "assets": [
+        {
+          "slot": "reference",
+          "path": "source-art/world-discovery/e-04-reference.webp",
+          "sha256": "f808693890ebf5f4ad6d07d0bf8c4a2d388a9052e14535884ba4c9d4f2a0d094",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "cover",
+          "path": "public/guided-reading/world-discovery/e-04/cover.webp",
+          "sha256": "e8667fe2d8cfe54f32c48cd469abba1892f746bb1ca1b5af5254114c82b2affe",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-01",
+          "path": "public/guided-reading/world-discovery/e-04/page-01.webp",
+          "sha256": "1b18ba152c32890c15ec08b87935e96c94b02915fcdd0850a48853343ab5e9a9",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-02",
+          "path": "public/guided-reading/world-discovery/e-04/page-02.webp",
+          "sha256": "38da701dce4d54e6a9d277e2c3dd399ed7246d7794969bcd20bb3988b3ddf1cf",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-03",
+          "path": "public/guided-reading/world-discovery/e-04/page-03.webp",
+          "sha256": "3a38a6b5bc067a0bb9241151394eddcd648b9d307f8ff5721738d4a36f706ba8",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-04",
+          "path": "public/guided-reading/world-discovery/e-04/page-04.webp",
+          "sha256": "b7d83633a29bd8feb4aa837f8d01ae45245759a41cee8bfc6d95812ad8a8d398",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-05",
+          "path": "public/guided-reading/world-discovery/e-04/page-05.webp",
+          "sha256": "55378f58436c9261153c687b8812db81d5b18c94c52982572f0b0102a9390a28",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-06",
+          "path": "public/guided-reading/world-discovery/e-04/page-06.webp",
+          "sha256": "d67e981da59aee158a571a80548ad3c421288459d40871e628948757059cbb26",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-07",
+          "path": "public/guided-reading/world-discovery/e-04/page-07.webp",
+          "sha256": "ec5ef66866c2dd1b5d2cda628009aa6b61fc9f81df3a10fdb907763f3169bec3",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-08",
+          "path": "public/guided-reading/world-discovery/e-04/page-08.webp",
+          "sha256": "ee688f3de4339d8e5216fc468c72f01fcf2a204dab7f0893f141cef5f5e893f8",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-09",
+          "path": "public/guided-reading/world-discovery/e-04/page-09.webp",
+          "sha256": "71289017d2397855012cf6f78037d658aae54169e14100e6d9303d158393dc29",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-10",
+          "path": "public/guided-reading/world-discovery/e-04/page-10.webp",
+          "sha256": "83e79fd065ecf5f3c3c6aeaed18e822a5f03d32b0f3e3297b33625b1abe921a5",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        }
+      ],
+      "openFindings": []
+    },
+    {
+      "bookId": "world-discovery-e-05",
+      "reviewedAt": "2026-11-22",
+      "method": "codex-full-manuscript-and-complete-image-sequence-inspection",
+      "textFingerprint": "fnv1a64:d7698f38a67c171d",
+      "sourceBookSha256": "9c11de52a5dca4e07c19a7869bac27e56cbf91d62c4399c9f4782e7958634c89",
+      "fullTextPrepAndDiscussionReviewed": true,
+      "allReferencesCoversAndPagesReviewed": true,
+      "changes": [
+        {
+          "pageNumber": 10,
+          "reason": "Ends on the two visible sides and their linked changes."
+        }
+      ],
+      "supportChanged": true,
+      "assets": [
+        {
+          "slot": "reference",
+          "path": "source-art/world-discovery/e-05-reference.webp",
+          "sha256": "09b317f78aa80a24ac4d9b06d85ef930e8e214d72c61a7d5e39a0a354c3cb990",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "cover",
+          "path": "public/guided-reading/world-discovery/e-05/cover.webp",
+          "sha256": "3761460d22f47357ee887d465610b62acf15eda74732226d41f26bbf5006f479",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-01",
+          "path": "public/guided-reading/world-discovery/e-05/page-01.webp",
+          "sha256": "61532dfeb78f89701038258a428d87881945d61f0ea13a4a5aeb0b7d45f98095",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-02",
+          "path": "public/guided-reading/world-discovery/e-05/page-02.webp",
+          "sha256": "e1fab7b2cd0378c8589e74229ddc21060a7bc300a8a1488d6f1516b5ea90cfc2",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-03",
+          "path": "public/guided-reading/world-discovery/e-05/page-03.webp",
+          "sha256": "ed91bce975fb64001f67a32198d97ceb36c1052212eaecaec679bc9e82128fb9",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-04",
+          "path": "public/guided-reading/world-discovery/e-05/page-04.webp",
+          "sha256": "1664ed6d65c61328b86be962f1e3839b1fb8f4ede0edebef20d0d84c3b941809",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-05",
+          "path": "public/guided-reading/world-discovery/e-05/page-05.webp",
+          "sha256": "7addba250211a419cdb39832213203e5e0a50af708fc350121c26b6dc0609ee9",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-06",
+          "path": "public/guided-reading/world-discovery/e-05/page-06.webp",
+          "sha256": "3abc815a731b34682a7d929afc0480cd886df5190fd14d5bf986de7bd0affdfd",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-07",
+          "path": "public/guided-reading/world-discovery/e-05/page-07.webp",
+          "sha256": "93cd8afb3a538d9739983d7e0c0abbff5b2861f8bff1c561f5f4e997e7403ef3",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-08",
+          "path": "public/guided-reading/world-discovery/e-05/page-08.webp",
+          "sha256": "b722508a146c402e88c5e9a00d11c1b629c7e341f91a023a6235104c18709a09",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-09",
+          "path": "public/guided-reading/world-discovery/e-05/page-09.webp",
+          "sha256": "0896d031116b04b7b00d3f5f2140c54468577c021be577aa270ab2fdb4f328ff",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-10",
+          "path": "public/guided-reading/world-discovery/e-05/page-10.webp",
+          "sha256": "da8d7a0d0a9134249996a0a21cbe92a511cfd95c38336dd47e8417fe9b2da082",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        }
+      ],
+      "openFindings": []
+    },
+    {
+      "bookId": "world-discovery-e-07",
+      "reviewedAt": "2026-11-22",
+      "method": "codex-full-manuscript-and-complete-image-sequence-inspection",
+      "textFingerprint": "fnv1a64:74d0cca6e5c8d072",
+      "sourceBookSha256": "6b6ae17fe04fd82bc21a943f02c789c4efad1841224be4bcd59ca50793c44014",
+      "fullTextPrepAndDiscussionReviewed": true,
+      "allReferencesCoversAndPagesReviewed": true,
+      "changes": [
+        {
+          "pageNumber": 2,
+          "reason": "Keeps species and science vocabulary while removing muzzle and bloom."
+        },
+        {
+          "pageNumber": 6,
+          "reason": "Defines the process through the action and its result."
+        }
+      ],
+      "supportChanged": true,
+      "assets": [
+        {
+          "slot": "reference",
+          "path": "source-art/world-discovery/e-07-reference.webp",
+          "sha256": "b4ce39455a38fc8b4cb14e8072afa5cbd55bdb5d4cbb66aecd7a8208af873f0f",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "cover",
+          "path": "public/guided-reading/world-discovery/e-07/cover.webp",
+          "sha256": "c41b503a6a67469529e1d368e85bcb93758532d4f9e44bca85ef5bd6464cf350",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-01",
+          "path": "public/guided-reading/world-discovery/e-07/page-01.webp",
+          "sha256": "1baeab996869e57304521a28830734762faddefa3926040e1beb709f1b8bfb60",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-02",
+          "path": "public/guided-reading/world-discovery/e-07/page-02.webp",
+          "sha256": "61f8b795f0e81c29e328cbc307d5b45a808cda3c5f1ab224c45095d40c5044ee",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-03",
+          "path": "public/guided-reading/world-discovery/e-07/page-03.webp",
+          "sha256": "2bbac8b3ac6442707d3ded311f183ca4cb5b457ca3d565cc618597380633a719",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-04",
+          "path": "public/guided-reading/world-discovery/e-07/page-04.webp",
+          "sha256": "32f258755d18c49e359722648cd298f039687e60c83697beb3bbb21c2dd11b25",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-05",
+          "path": "public/guided-reading/world-discovery/e-07/page-05.webp",
+          "sha256": "78784757ebfaf40ae45068ce518fdd6c73d45eb12420fc761a7c2cc234e7007b",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-06",
+          "path": "public/guided-reading/world-discovery/e-07/page-06.webp",
+          "sha256": "5b646f3f192913bc4e1e93fcd9400e0b501e9a3b8e3a09c96ebd8ebaaf5cc6ec",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-07",
+          "path": "public/guided-reading/world-discovery/e-07/page-07.webp",
+          "sha256": "0d3ec548adb31bab5536d05bf6a0b595eca059fb0ad09da0cc78f9a273b03c2a",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-08",
+          "path": "public/guided-reading/world-discovery/e-07/page-08.webp",
+          "sha256": "49e89983731ae05a0d279f526c702e28ffd53c92e3a8576346ff96b0eeb93b54",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-09",
+          "path": "public/guided-reading/world-discovery/e-07/page-09.webp",
+          "sha256": "420ab8ad9c5100dd2ec954f29d106b78c7c28c18d6b0a0f929b69bfb51579415",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-10",
+          "path": "public/guided-reading/world-discovery/e-07/page-10.webp",
+          "sha256": "f5385ab049648b38e4eeb8e681837baa52ee9432d8f42cab82573ce6b4f4c8fa",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        }
+      ],
+      "openFindings": []
+    },
+    {
+      "bookId": "world-discovery-e-08",
+      "reviewedAt": "2026-11-22",
+      "method": "codex-full-manuscript-and-complete-image-sequence-inspection",
+      "textFingerprint": "fnv1a64:258f230f7c5f3994",
+      "sourceBookSha256": "413a28420932d9573bf65fa8d491ccd47b2efc034b8dd34318086070355020b0",
+      "fullTextPrepAndDiscussionReviewed": true,
+      "allReferencesCoversAndPagesReviewed": true,
+      "changes": [
+        {
+          "pageNumber": 5,
+          "reason": "Describes the concurrent changes rather than saying gills became less important."
+        },
+        {
+          "pageNumber": 6,
+          "reason": "Explains absorption without saying materials."
+        },
+        {
+          "pageNumber": 10,
+          "reason": "Names the two pictured forms and the substantial differences."
+        }
+      ],
+      "supportChanged": true,
+      "assets": [
+        {
+          "slot": "reference",
+          "path": "source-art/world-discovery/e-08-reference.webp",
+          "sha256": "6a9e45f7d7666a174cb27a0d7741a136b572bfed10b8582ac031ac458a50af92",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "cover",
+          "path": "public/guided-reading/world-discovery/e-08/cover.webp",
+          "sha256": "0591c65684c28ad08775a728a4b15242c3880d92865f6a13b0df2b10da43d693",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-01",
+          "path": "public/guided-reading/world-discovery/e-08/page-01.webp",
+          "sha256": "f0cc94cd6e3c4bdc26ab73577f4d8cc6fb5d1ed469d30dd12c22e6f63a669258",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-02",
+          "path": "public/guided-reading/world-discovery/e-08/page-02.webp",
+          "sha256": "f5e8ada0e9e12bf674a3d82a624fa96b7f6da9c90c54365bc71bfd988a5b8ba5",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-03",
+          "path": "public/guided-reading/world-discovery/e-08/page-03.webp",
+          "sha256": "dd82856c37d782bf2ecbcc4d3f8b6df072ce97fd89b4bbfa53796e52d07db22c",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-04",
+          "path": "public/guided-reading/world-discovery/e-08/page-04.webp",
+          "sha256": "177270441193496d8681f48155e72b51c752b57202619dca1a991a17fd3129c5",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-05",
+          "path": "public/guided-reading/world-discovery/e-08/page-05.webp",
+          "sha256": "98757d720f3b95acae750d44adf24860f457a1bcdadddcbccc87762d8ce8bba8",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-06",
+          "path": "public/guided-reading/world-discovery/e-08/page-06.webp",
+          "sha256": "93959481a953d96a0b7c36fcdd5c188801f567d3edd7d2dc5ef564db64c861c1",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-07",
+          "path": "public/guided-reading/world-discovery/e-08/page-07.webp",
+          "sha256": "8da5636fe728779a88c694f6352db15a47d3a6c0fad49b138fdc093177b7d4d7",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-08",
+          "path": "public/guided-reading/world-discovery/e-08/page-08.webp",
+          "sha256": "45dc93fe54a43e458ff133108179c43920df288cb132bb715dc74469cf22baa8",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-09",
+          "path": "public/guided-reading/world-discovery/e-08/page-09.webp",
+          "sha256": "2ebc15448ffe28af19e77f965bc53d1f0f41efd2f32229789f8b61391e6c4cb1",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-10",
+          "path": "public/guided-reading/world-discovery/e-08/page-10.webp",
+          "sha256": "253592aa249e8fbebc9b5c87dc1338811faf3bfe27028fbcc6e7cab243c70fc9",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        }
+      ],
+      "openFindings": []
+    },
+    {
+      "bookId": "world-discovery-e-09",
+      "reviewedAt": "2026-11-22",
+      "method": "codex-full-manuscript-and-complete-image-sequence-inspection",
+      "textFingerprint": "fnv1a64:3f2b7dd15580e93b",
+      "sourceBookSha256": "918f945803934f6a2f441aaff92b14db68e430e7dd5f80e4378b8ba78e23c90d",
+      "fullTextPrepAndDiscussionReviewed": true,
+      "allReferencesCoversAndPagesReviewed": true,
+      "changes": [
+        {
+          "pageNumber": 5,
+          "reason": "Connects the visible nursing behavior to a named classification without saying mammal trait."
+        },
+        {
+          "pageNumber": 7,
+          "reason": "States the inference in familiar language."
+        }
+      ],
+      "supportChanged": true,
+      "assets": [
+        {
+          "slot": "reference",
+          "path": "source-art/world-discovery/e-09-reference.webp",
+          "sha256": "27ce1cad7fc782603b9645e09b7e737ad3c14f8669c7b05915f99ea087540971",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "cover",
+          "path": "public/guided-reading/world-discovery/e-09/cover.webp",
+          "sha256": "3dfb4ef837f7ddb98e156076c1322194297ccd36c188dc8216d5c3e24a8733ae",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-01",
+          "path": "public/guided-reading/world-discovery/e-09/page-01.webp",
+          "sha256": "14ea7d669837fb143c46f5a7881230f7b9939b78322596e4c465f126af7c717a",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-02",
+          "path": "public/guided-reading/world-discovery/e-09/page-02.webp",
+          "sha256": "a9063a3109846d1ec2c76bb35257128d68fe4a4eabf3368797acf057125a72da",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-03",
+          "path": "public/guided-reading/world-discovery/e-09/page-03.webp",
+          "sha256": "8a5485ab839e3ebf5897933707c8e07ba66de208da1815185c33849833415faa",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-04",
+          "path": "public/guided-reading/world-discovery/e-09/page-04.webp",
+          "sha256": "44a528662d0cb978757467643b19a56ce7e2aae2db6d6391d9c901120ff6f186",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-05",
+          "path": "public/guided-reading/world-discovery/e-09/page-05.webp",
+          "sha256": "37e0dd1ea68f202b74c07d9cb9d735e8249ae8bcb9d7dd237d50041b5c4aa1ce",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-06",
+          "path": "public/guided-reading/world-discovery/e-09/page-06.webp",
+          "sha256": "39fdc459205ce946c5ed9d6725b6e3e9a52fbc3e5e55ce5d52cd8f27e934ca90",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-07",
+          "path": "public/guided-reading/world-discovery/e-09/page-07.webp",
+          "sha256": "d6646693c5a4758d745e1170be81ac2d6c052153be3f7571e61edca764942bda",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-08",
+          "path": "public/guided-reading/world-discovery/e-09/page-08.webp",
+          "sha256": "f50b4caff5cd83c29eea87cb4fdcafa84fb5171ef23f38ffb5da941c1e720d6c",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-09",
+          "path": "public/guided-reading/world-discovery/e-09/page-09.webp",
+          "sha256": "abe4bbec4da869ec95589547d0bde752a2330164a968c6285417d79b683a7499",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-10",
+          "path": "public/guided-reading/world-discovery/e-09/page-10.webp",
+          "sha256": "2d9459cc17d0ef1654a1d469679ad2b4b76caf7cb4d4ad10c7c988d7b4a69584",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        }
+      ],
+      "openFindings": []
+    },
+    {
+      "bookId": "world-discovery-e-10",
+      "reviewedAt": "2026-11-22",
+      "method": "codex-full-manuscript-and-complete-image-sequence-inspection",
+      "textFingerprint": "fnv1a64:e0ee7687c272e558",
+      "sourceBookSha256": "8c7c650a18329eccf0b7be26a3f3ec28ab2000bc3f56941ea5a98188e59e4661",
+      "fullTextPrepAndDiscussionReviewed": true,
+      "allReferencesCoversAndPagesReviewed": true,
+      "changes": [
+        {
+          "pageNumber": 8,
+          "reason": "Names the deliberate action and the visible alternative."
+        }
+      ],
+      "supportChanged": false,
+      "assets": [
+        {
+          "slot": "reference",
+          "path": "source-art/world-discovery/e-10-reference.webp",
+          "sha256": "244b30e48df0525e9bb02a6b20a4ac8d9c033b2eb931b30d0c88d1e42bca1b1e",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "cover",
+          "path": "public/guided-reading/world-discovery/e-10/cover.webp",
+          "sha256": "5d7d7939d85301fdf7c6651d2a49030851b68d74c30d4228d50c1eea7f797794",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-01",
+          "path": "public/guided-reading/world-discovery/e-10/page-01.webp",
+          "sha256": "08830de043dd1d2ab5c53b1d8136a2773fdc49a252597d717a17b7533cbb1fa6",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-02",
+          "path": "public/guided-reading/world-discovery/e-10/page-02.webp",
+          "sha256": "7f9eccf7fd1e6dcf16b1944f467fda603a0d467501e8a76e643cfcfba2483c92",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-03",
+          "path": "public/guided-reading/world-discovery/e-10/page-03.webp",
+          "sha256": "7ba0a5ea2966b23836c2f7b21647d37e01fe732bf1563904f5ae885d99bdffb9",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-04",
+          "path": "public/guided-reading/world-discovery/e-10/page-04.webp",
+          "sha256": "8d0e1232c2834112235677a1555a548ee877bf0a910d993bdd2bb77a09baf259",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-05",
+          "path": "public/guided-reading/world-discovery/e-10/page-05.webp",
+          "sha256": "87712f8c1ab6f81c1326a7e4f7ed54611fb7f52010656ef78265581bb6d42af6",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-06",
+          "path": "public/guided-reading/world-discovery/e-10/page-06.webp",
+          "sha256": "bd25c71aa2519b4d8e256a5180679be91d6e60fd9d55dcc3682cc8c2805e1e20",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-07",
+          "path": "public/guided-reading/world-discovery/e-10/page-07.webp",
+          "sha256": "fce29b7a083683ab4ae567408bccd81374f6e3c5f62f72b4931787d307012173",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-08",
+          "path": "public/guided-reading/world-discovery/e-10/page-08.webp",
+          "sha256": "8c3f565cdd688790cc41cd999b04e4da9d02d9cf408a23b5589e2b8309511aef",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-09",
+          "path": "public/guided-reading/world-discovery/e-10/page-09.webp",
+          "sha256": "8936f1a7ce11f0e1890f1796a8cda6fedab33f841808bf90f41ef4d251f44958",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        },
+        {
+          "slot": "page-10",
+          "path": "public/guided-reading/world-discovery/e-10/page-10.webp",
+          "sha256": "ca0f21fada269c4721745095ac878a55d6f51a4bd05fd8efc6b67b2559c9318c",
+          "method": "Installed illustrations inspected in page order with targeted native follow-up"
+        }
+      ],
+      "openFindings": []
+    }
+  ]
+}

@@ -31,9 +31,10 @@
     "note": "Incoming airflow is right-to-left relative to the right-facing jet, with downward trailing flow and upward wing lift; root inspected this teaching diagram natively. Producer independently inspected the final installed WebP natively; complete final sequence and relevant native diagrams were independently reviewed."
   },
   "reviewedManuscriptSource": {
-    "bookId": "world-discovery-c-21",
     "path": "src/content/world-discovery/cohorts/21-30/level-c.json",
-    "sha256": "64fc91f6c01ea97064c24b464d0add6b505a38d410f33adf22efff79ac2710a6",
-    "evidence": "source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json"
+    "bookId": "world-discovery-c-21",
+    "sha256": "477c8591d57a046f7eb64cac800669087e9631ce9acaea8dd7601a8efb367a53",
+    "reviewedAt": "2026-11-22",
+    "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json"
   }
 }

@@ -2,39 +2,50 @@
   "bookId": "world-discovery-d-04",
   "slot": "page-07",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-11",
-  "source": "source-art/world-discovery/remediation/2026-11-11/d04-generation-inputs/page-07-selected.png",
-  "sourceSha256": "e0005e8b63f03a3866179d7c9038ffa053c97f922f4c5510c567db25dbad22c4",
+  "generatedAt": "2026-11-22",
+  "source": "source-art/world-discovery/remediation/2026-11-22/d04-native/page-07.png",
+  "sourceSha256": "5c152d07983e61fa3f6513ed4e5578882b187bace568cf2a5b16ffd9dfb0a3cd",
   "output": "public/guided-reading/world-discovery/d-04/page-07.webp",
-  "outputSha256": "f09799f3b38c84fb63b8674848f5024ca2142c649b1a06b64100ff424578aec7",
+  "outputSha256": "35acd87d4b3c090dfb2d4d4712e064d3efc7432799e791293ae08b991524d1cf",
   "width": 1536,
   "height": 1024,
-  "prompt": "Repair the supplied page illustration for The Bag of Wind, preserving the exact established two children, clothing and colors, blue zip pouch, red diamond kite with black spars and white tail/string, low apple tree, garden wall and clean bold outlined flat-color cartoon style. The sole major correction is unmistakable safe spatial framing: Zoe, the girl with dark skin, two dark hair puffs, yellow shirt and pink overalls, must be STANDING ON THE GRASS beside the left/back side of a LOW tree, with her COMPLETE body, two legs and both shoes visibly planted on grass left of the trunk. Her torso and head must not appear perched in the fork or emerging from the trunk. Lower the tree fork to the children's chest height and put Zoe beside it, not behind its trunk. She holds the same blue pouch with both normal hands and aims its zipper corner horizontally through an open gap behind the wedged red kite. Only a tiny white puff escapes that little opening. The kite remains caught by one small twig in this frame, not flying free. Kit, the black-haired boy in teal T-shirt and yellow shorts, stands on grass on the right ready to catch the kite; his two shoes and normal arms/hands are clear. Keep both children the same established height, perspective coherent, all essential bodies and props safely in frame, no text or added characters. The point of the story is walking around the tree and using a small sideways puff, not climbing. Show one coherent moment from a slightly wide view, full landscape composition, clean flat colors and crisp outlines everywhere, no painterly texture.",
+  "prompt": "Precisely edit image 1 as a controlled continuity repair for the existing 3:2 landscape children’s book illustration. Keep its full canvas and exact composition. Change only the girl Zoe’s two wardrobe colors. Use the garments in image 2 and the locked design sheet in image 3 only as color and design reference. Change Zoe’s bright pink overalls to the same deep, muted dark plum overalls on the adjacent page, with darker plum cel shadows. Change both bright pink sneaker uppers to clean plain white matching image 2, with restrained light gray cel shading and the existing black outlines. Her yellow t-shirt, white socks, face, hair puffs, skin tone, pose and all existing linework stay exactly as in image 1. Preserve the original red upright kite still visibly caught against the same small hooked twig in the tree fork, the tiny white puff from the single blue zip pouch in Zoe’s hands aimed toward the snag, Kit’s distance and waiting pose with empty hands, the continuous kite string attached to the one spool beside Kit’s shoe, six apples, brick wall, green yard and sky. Preserve the complete book-illustration camera composition and crisp outlines, flat cel colors and lack of captions or watermark. Output only the recolored page from image 1, without bringing over the pose or scene from images 2 or 3.",
   "references": [
     {
-      "path": "/Users/benjaminbowler/Projects/LiteracyPath/public/guided-reading/world-discovery/d-04/page-07.webp",
-      "sha256": "72b842a46eecb9dbde52933ce74d1ea0c6433df3402fae9922ed8af2ced98c76",
-      "preservedPath": "source-art/world-discovery/remediation/2026-11-11/d04-generation-inputs/page-07-previous.webp"
+      "path": "public/guided-reading/world-discovery/d-04/page-07.webp",
+      "sha256": "f09799f3b38c84fb63b8674848f5024ca2142c649b1a06b64100ff424578aec7",
+      "revision": "bda161a60a3129d8800f8bf6184d159722c2ff1c"
+    },
+    {
+      "path": "public/guided-reading/world-discovery/d-04/page-09.webp",
+      "sha256": "b77962eaabebd23a5af77a33ed5018ba5738e1ae92649982843b18d2540137a7"
+    },
+    {
+      "path": "source-art/world-discovery/d-04-reference.webp",
+      "sha256": "c8a2f09fac5bd4c1ec072a7047102a629dc2aaea1aefff72271a1b08bc35b06d"
     }
   ],
-  "generationProvenance": "source-art/world-discovery/remediation/2026-11-11/d04-generation-provenance.json",
+  "deliveryEncoding": {
+    "format": "webp",
+    "quality": 88,
+    "effort": 6
+  },
   "supersedes": {
-    "path": "source-art/world-discovery/remediation/2026-11-11/d04-prior-receipts/d-04-page-07.json",
-    "sha256": "64a06bb08b09b72785fdbb3a0a82ccdbcbd14cc4b999279f6f3a0bb354c80a6b"
+    "path": "source-art/world-discovery/remediation/2026-11-22/d04-prior-receipts/d-04-page-07.json",
+    "sha256": "7324c78b1488c73a9fb5d8615e2e6a9094ea575688e2fd20c7a5833e241fe256"
   },
   "visualReview": {
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-11",
-    "sha256": "f09799f3b38c84fb63b8674848f5024ca2142c649b1a06b64100ff424578aec7",
-    "note": "Zoe complete with two feet on grass left/back of low tree, pouch separate and tiny opening/puff horizontal through open air, kite still snagged, Kit grounded and waiting; one tail/string/spool.",
-    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-11/d04-complete-book-review.json",
-    "limits": "Direct agent image/sequence inspection; not physical classroom observation."
+    "reviewedAt": "2026-11-22",
+    "sha256": "35acd87d4b3c090dfb2d4d4712e064d3efc7432799e791293ae08b991524d1cf",
+    "note": "Zoe wears the established dark plum overalls and white sneakers. She stands on the grass, aims a small puff through the gap, and the red kite stays caught on the single hooked twig. Kit waits with empty hands. One slack kite string remains attached to its spool.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-22/d04-complete-book-review.json"
   },
   "reviewedManuscriptSource": {
     "path": "src/content/world-discovery/level-d.json",
     "bookId": "world-discovery-d-04",
     "sha256": "94bfa8da474e89a395d7d99e98695d9aba42b1d3a5736a0214c60d5e027ac27e",
-    "reviewedAt": "2026-11-11",
-    "evidence": "source-art/world-discovery/remediation/2026-11-11/d04-complete-book-review.json"
+    "reviewedAt": "2026-11-22",
+    "evidence": "source-art/world-discovery/remediation/2026-11-22/d04-complete-book-review.json"
   }
 }

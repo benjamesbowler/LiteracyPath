@@ -1,0 +1,62 @@
+{
+  "engine": "Google Cloud Text-to-Speech",
+  "voice": "en-US-Chirp3-HD-Leda",
+  "reviewDate": "2026-11-22",
+  "records": [
+    {
+      "role": "guided_page",
+      "normalizedLookupText": "a hammer hits nails into wood",
+      "spokenText": "A hammer hits nails into wood.",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "audioPath": "/audio/production/en-US/guided_page/a-hammer-hits-nails-into-wood-ff78e6b461.mp3",
+      "audioSha256": "ff78e6b461aa70b013c81a819ccafb41f403c3549956ff2e03e326b01d4059fc",
+      "reviewedAt": "2026-11-22",
+      "ssml": "<speak><break time=\"150ms\"/><phoneme alphabet=\"ipa\" ph=\"eɪ\">A</phoneme><break time=\"55ms\"/>hammer hits nails into wood.</speak>",
+      "reviewEvidence": "Complete FFmpeg decode. Unprompted small.en reproduced all six printed words after punctuation normalization. The second recognizer detected the now audible stressed article vowel. The previous take omitted that opening vowel in both recognizers."
+    },
+    {
+      "role": "guided_page",
+      "normalizedLookupText": "bess the horse lowers her soft nose. james reaches up and strokes it",
+      "spokenText": "Bess the horse lowers her soft nose. James reaches up and strokes it.",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "audioPath": "/audio/production/en-US/guided_page/bess-the-horse-lowers-her-soft-nose-james-reaches-up-and-strokes-it-d1978a8083.mp3",
+      "audioSha256": "d1978a808306524e78c67485ad714b98c4a96670cb7d34daeb9ca2e1aacbc17a",
+      "reviewedAt": "2026-11-22",
+      "ssml": "<speak><break time=\"150ms\"/><phoneme alphabet=\"ipa\" ph=\"bɛs\">Bess</phoneme><break time=\"100ms\"/>the horse lowers her soft nose. James reaches up and strokes it.</speak>",
+      "reviewEvidence": "Complete FFmpeg decode. Unprompted small.en reproduced the exact words after punctuation normalization. Signal review confirmed final unvoiced s frication and no following stop release in the explicitly pronounced name."
+    },
+    {
+      "role": "guided_page",
+      "normalizedLookupText": "they stop to look at the cakes. did they find everything on the list",
+      "spokenText": "They stop to look at the cakes. Did they find everything on the list?",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "audioPath": "/audio/production/en-US/guided_page/they-stop-to-look-at-the-cakes-did-they-find-everything-on-the-list-6c624e3eca.mp3",
+      "audioSha256": "6c624e3ecac768c67993d8fcf743eaff781fdd14f3ebe789616036df6ae82e06",
+      "reviewedAt": "2026-11-22",
+      "ssml": "<speak><break time=\"150ms\"/>They <phoneme alphabet=\"ipa\" ph=\"stɑp\">stop</phoneme><break time=\"80ms\"/>to look at the cakes. Did they find everything on the list?</speak>",
+      "reviewEvidence": "Complete FFmpeg decode. Two independent unprompted recognition passes reproduced the exact words, with the present-tense verb and following to aligned separately."
+    },
+    {
+      "role": "guided_page",
+      "normalizedLookupText": "i lob the wet ball to dad",
+      "spokenText": "I lob the wet ball to Dad.",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "audioPath": "/audio/production/en-US/guided_page/i-lob-the-wet-ball-to-dad-e561142605.mp3",
+      "audioSha256": "e561142605e660dae3d50b4a6ae475497aab3813f7d6534b2e11f3b1484ecc02",
+      "reviewedAt": "2026-11-22",
+      "ssml": "<speak><break time=\"150ms\"/>I <phoneme alphabet=\"ipa\" ph=\"lɑb\">lob</phoneme><break time=\"65ms\"/>the wet ball to Dad.</speak>",
+      "reviewEvidence": "Complete FFmpeg decode. Unprompted small.en reproduced the exact printed sentence and tiny.en independently captured the intended decodable word lob."
+    },
+    {
+      "role": "guided_page",
+      "normalizedLookupText": "a straight row of bright spots shone on the curved wall. luna shook her head. the lights should have formed an owl",
+      "spokenText": "A straight row of bright spots shone on the curved wall. Luna shook her head. The lights should have formed an owl.",
+      "voiceName": "en-US-Chirp3-HD-Leda",
+      "audioPath": "/audio/production/en-US/guided_page/a-straight-row-of-bright-spots-shone-on-the-curved-wall-luna-shook-her-head-the-lights-should-have-f-12194c9426.mp3",
+      "audioSha256": "12194c9426cfb91686c37af74c5fb4531c001ca3fdb7493c6618ea96d855ad5a",
+      "reviewedAt": "2026-11-22",
+      "ssml": "<speak><break time=\"150ms\"/>A straight row of bright spots shone on the curved wall. Luna shook her head. The <phoneme alphabet=\"ipa\" ph=\"laɪts\">lights</phoneme><break time=\"65ms\"/>should have formed an owl.</speak>",
+      "reviewEvidence": "Complete FFmpeg decode. Both unprompted recognizers captured the explicitly pronounced plural lights. Tiny.en reproduced the full sentence and small.en used only the shone/shown homophone in the preceding sentence."
+    }
+  ]
+}

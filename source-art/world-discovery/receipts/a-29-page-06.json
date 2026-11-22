@@ -2,38 +2,50 @@
   "bookId": "world-discovery-a-29",
   "slot": "page-06",
   "tool": "built-in image_gen",
-  "generatedAt": "2026-11-09T10:58:18.428Z",
-  "source": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-fdfb62cf-c73c-4894-8bc0-48e293e6bb7f.png",
-  "sourceSha256": "e54c3af9b6d388f69d589ed44c615f3e1a60ff06010b3bd069ff7857badea3ee",
+  "generatedAt": "2026-11-22",
+  "source": "source-art/world-discovery/remediation/2026-11-22/a29-native/page-06.png",
+  "sourceSha256": "70d517a61f400faa6a5b8b91d184b4a1d6db5571e286fcf239c6de054b74c1e1",
   "output": "public/guided-reading/world-discovery/a-29/page-06.webp",
-  "outputSha256": "8b712e7ead09f0c9dac3eb0e53970d77740ee073f4e9932acf3b23bde84ed279",
+  "outputSha256": "bd16de10dd2d8dc00e62add6e307837bf019d39b868247dc1196fe583ee1925f",
   "width": 1536,
   "height": 1024,
-  "prompt": "Precisely edit this supplied image: shorten the red paper's HORIZONTAL WIDTH by 10% (to 90% of current width), keeping its HEIGHT EXACTLY unchanged. Apply to BOTH separate rectangles equally and symmetrically, move gripping hands inward accordingly. Keep upper held above lower with same gap. The paper's final width must be twice its height, not 2.2 times. Preserve all other poses, hands, sleeves, colors and camera. No text. Landscape 3:2.",
+  "prompt": "Edit image 1, the overhead 3:2 illustration of two hands and two red paper halves, to show exactly one mathematical action: the two identically sized red paper rectangles partly overlap in an actual stack. Preserve image 1’s camera, beige blank table, clean black outlines, flat color artwork, Zoe’s two brown hands on the upper piece and her yellow sleeves. Move only the loose bottom rectangle up beneath the rectangle she is holding. Make the bottom rectangle same dimensions, same red color with light shadow; it sits flat on the table. It almost lines up, showing one narrow straight red strip of the bottom sheet at the lower and right edge of the top sheet, offset by roughly 10% of one sheet’s height. Draw clear black seam edges and a small contact shadow between paper layers, so the child can see two sheets right now. Do not show two rectangles with a visible beige gap, an extra rectangle, a different paper size, curved or rolled paper, arrow, writing, caption, or panel. The two equal rectangles have straight square corners and the same horizontal proportions as in image 1. Image 2 is the next page showing complete edge alignment; use it only as a visual guide for how this exact stack will sit after Zoe finishes lining it up. Image 3 is the locked series reference for Zoe's yellow sleeves, paper and clean style. Return only the revised page image.",
   "references": [
     {
-      "path": "/Users/benjaminbowler/.codex/generated_images/01a1be68-3dea-7690-9a7c-7bf49008f0e0/exec-b8869c5c-9f0e-4ba0-860b-7a42120b3ece.png",
-      "sha256": "780ab2c049016cc39b73243310ed8aa29e042134f4a2a964b355ddc24ab43f3f"
+      "path": "public/guided-reading/world-discovery/a-29/page-06.webp",
+      "sha256": "8b712e7ead09f0c9dac3eb0e53970d77740ee073f4e9932acf3b23bde84ed279",
+      "revision": "bda161a60a3129d8800f8bf6184d159722c2ff1c"
+    },
+    {
+      "path": "public/guided-reading/world-discovery/a-29/page-07.webp",
+      "sha256": "697f1e4680f6874453b6b4186a352c9a9b5a430e1135d994cd1a1ba05cdd20f8"
+    },
+    {
+      "path": "source-art/world-discovery/a-29-reference.webp",
+      "sha256": "dd53e01cc4dbd6668906dd98ed037211da671ad0949c0b206594d1fce3fa2828"
     }
   ],
-  "manuscriptSource": {
-    "directory": "/Users/benjaminbowler/Projects/LiteracyPath-nonfiction-next-50/src/content/world-discovery/cohorts/21-30",
-    "sha256": "f901b0be0bea47b49de26868818727681b20b5057666da316e0fa78bccc25576",
-    "isolated": true,
-    "firstNumber": 21,
-    "lastNumber": 30,
-    "topicProfile": "nonfiction-discovery"
+  "deliveryEncoding": {
+    "format": "webp",
+    "quality": 88,
+    "effort": 6
+  },
+  "supersedes": {
+    "path": "source-art/world-discovery/remediation/2026-11-22/a29-prior-receipts/a-29-page-06.json",
+    "sha256": "8344c1f4fdd97df52545a93593d5b39b5d6d3003412fec74624c2d3de98ef59f"
   },
   "visualReview": {
-    "sha256": "8b712e7ead09f0c9dac3eb0e53970d77740ee073f4e9932acf3b23bde84ed279",
     "method": "codex-direct-image-inspection",
-    "reviewedAt": "2026-11-09T10:58:18.429Z",
-    "note": "Directly inspected native: two separate congruent 2:1 red rectangles, upper held above lower flat sheet with slight gap and shadow; left/right widths align in preparation for stacking. Two natural gripping hands, no extra paper, generous margins."
+    "reviewedAt": "2026-11-22",
+    "sha256": "bd16de10dd2d8dc00e62add6e307837bf019d39b868247dc1196fe583ee1925f",
+    "note": "Zoe's two hands lower the matching red rectangle onto the other red rectangle. The offset edge and its shadow make the two paper layers clear, so a child can follow the stacking action before the next page shows aligned edges. The table, sleeves and paper color match the neighboring pages.",
+    "sequenceEvidence": "source-art/world-discovery/remediation/2026-11-22/a29-complete-book-review.json"
   },
   "reviewedManuscriptSource": {
-    "bookId": "world-discovery-a-29",
     "path": "src/content/world-discovery/cohorts/21-30/level-a.json",
-    "sha256": "f901b0be0bea47b49de26868818727681b20b5057666da316e0fa78bccc25576",
-    "evidence": "source-art/world-discovery/remediation/2026-11-10/21-30-accessibility-complete-book-review.json"
+    "bookId": "world-discovery-a-29",
+    "sha256": "5c17f7ef39fa257e5b1808a786f1d05025ecdd87d364366f8cc0057cca5df18c",
+    "reviewedAt": "2026-11-22",
+    "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json"
   }
 }

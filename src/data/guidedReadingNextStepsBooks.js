@@ -3624,7 +3624,7 @@ const MANUSCRIPTS = deepFreeze([
     "pages": [
       {
         "pageNumber": 1,
-        "text": "I see a cat in a box.",
+        "text": "Is it a cat in the box?",
         "imageBrief": "Clean, clear, bright cartoon with crisp continuous outlines and flat colors; simple cel shading only. No painterly marks, paper/canvas texture, patchy daubs, embossing, fuzzy edges or generated lettering. Keep Small Steps canon faces, proportions, clothing and animal markings. Landscape composition with all important action fully visible. Sam peers into the shallow box. The tan hat’s two upper folds and cream lining create a cat-like silhouette; show no actual animal eyes or paws in the box.",
         "imageAlt": "Sam kneels beside a box containing a folded tan hat with two pointed corners.",
         "state": {
@@ -3818,7 +3818,7 @@ const MANUSCRIPTS = deepFreeze([
         "lookFor": "A fabric loop tag sticks out from the folded shape."
       }
     },
-    "levelRationale": "Eight short pages with one question in dialogue, a controlled false first impression, a visible clue and a twelve-word paired-sentence ending. The identity inference and pattern break warrant B.",
+    "levelRationale": "A question opens the search, then a tag provides a concrete clue and two short sentences reveal where the hat and the cat end up. The small identity inference and brief dialogue support B.",
     "foundationsGuide": {
       "soundLetter": {
         "grapheme": "t",
@@ -3847,9 +3847,9 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Read the first claim as Sam’s mistaken thought. After the reveal, revisit the tag clue and explain why Sam changes his mind. Read the words rather than guessing the hidden object.",
       "fluency": "Read the question with a gentle rise, pause at the reveal, and let the final two sentences complete the joke."
     },
-    "reviewedAt": "2026-11-09",
-    "reviewedTextFingerprint": "fnv1a64:bc06f4fa2c6ade4f",
-    "reviewedManuscriptSha256": "63c67d244c7615d748d69f81e0fb2dcebd583d7b400ac8fcc7180a354038dd38",
+    "reviewedAt": "2026-11-22",
+    "reviewedTextFingerprint": "fnv1a64:b106def7e33062d1",
+    "reviewedManuscriptSha256": "0c1be77f888ab23698f5ab870b0a79e1df841e527b75fcc9445fdc8aeac6f247",
     "readingBandProfile": "standard",
     "additionalPrerequisites": []
   },
@@ -6455,22 +6455,6 @@ const MANUSCRIPTS = deepFreeze([
         "note": "Final y represents /aɪ/ in this exact Cycle 6 HFW; initial consonant y does not license it generally."
       },
       {
-        "word": "not",
-        "graphemes": [
-          "n",
-          "o",
-          "t"
-        ],
-        "sounds": [
-          "n",
-          "ɑ",
-          "t"
-        ],
-        "firstCycle": 5,
-        "type": "regular",
-        "note": "Fully regular within the declared VC/CVC scope; U.S. short-vowel pronunciation."
-      },
-      {
         "word": "on",
         "graphemes": [
           "o",
@@ -6712,7 +6696,7 @@ const MANUSCRIPTS = deepFreeze([
       },
       {
         "pageNumber": 4,
-        "text": "“Your cap is not on the mat.”",
+        "text": "“Set your cap on the mat.”",
         "imageBrief": "Clean, clear, bright cartoon with crisp continuous outlines and flat colors; simple cel shading only. No painterly marks, paper/canvas texture, patchy daubs, embossing, fuzzy edges or generated lettering. Keep Small Steps canon faces, proportions, clothing and animal markings. Landscape composition with all important action fully visible. Dot points back to the blue mat, then at Sam’s tan cap beside the cup. She speaks calmly; Sam looks at the shared starting place.",
         "imageAlt": "Dot points to the blue mat. Sam looks back at her while his tan cap stays beside the cup.",
         "state": {
@@ -6870,9 +6854,9 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Decode the print, teach this as the exact Cycle 14 exception, then use the starting positions to explain why Sam tries again. Ask for the fair-start cause, not a memorized moral.",
       "fluency": "Distinguish the speakers through gentle expression. Pause at the two-sentence contrast on page 7 and make the final congratulations sound friendly."
     },
-    "reviewedAt": "2026-11-09",
-    "reviewedTextFingerprint": "fnv1a64:3b8a6dcc85c41f64",
-    "reviewedManuscriptSha256": "07ea2bf0060dd61bdfb60dc37bba5095428b428e3cf211f7d6051dae64229045",
+    "reviewedAt": "2026-11-22",
+    "reviewedTextFingerprint": "fnv1a64:c7026e6560a266d7",
+    "reviewedManuscriptSha256": "aaca33782b68d3587ff6936d36ea926070aaad1b44d2cefe3fc5f72b5c5fcbf3",
     "readingBandProfile": "standard",
     "additionalPrerequisites": []
   },
@@ -7203,7 +7187,7 @@ const MANUSCRIPTS = deepFreeze([
     "pages": [
       {
         "pageNumber": 1,
-        "text": "My ship is on the rim.",
+        "text": "My ship is on the tub rim.",
         "imageBrief": "Clean, clear, bright cartoon with crisp continuous outlines and flat colors; simple cel shading only. No painterly marks, paper/canvas texture, patchy daubs, embossing, fuzzy edges or generated lettering. Keep Small Steps canon faces, proportions, clothing and animal markings. Landscape composition with all important action fully visible. The blue ship rests entirely on the dry broad rim nearest Sam. Water lies below inside the tub. Sam holds the blue fan; Dad sits at the opposite end.",
         "imageAlt": "Sam holds a blue fan beside a toy ship resting on the tub's rim. Dad sits across the table.",
         "state": {
@@ -7430,9 +7414,9 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Read both failed attempts and the placement change. Ask the child to explain where the ship was before and after. The final pass back connects the solution with shared play.",
       "fluency": "Read the repeated rim lines with gentle anticipation; pause at the change and use lively voices for the two invitations."
     },
-    "reviewedAt": "2026-11-09",
-    "reviewedTextFingerprint": "fnv1a64:b7c221cfdef1a59e",
-    "reviewedManuscriptSha256": "64895f3c08002d1b473e683194549edb02d42949c21e06e04cf897e51f55b272",
+    "reviewedAt": "2026-11-22",
+    "reviewedTextFingerprint": "fnv1a64:0e0dbb96f0a380b7",
+    "reviewedManuscriptSha256": "9651706bf99b151b2f4d145c560b16aeace39608f5274cde15097dbda633495b",
     "readingBandProfile": "standard",
     "additionalPrerequisites": []
   },
@@ -8811,7 +8795,7 @@ const MANUSCRIPTS = deepFreeze([
     "practiceWords": [
       "tall",
       "wall",
-      "gap"
+      "cups"
     ],
     "exceptions": [
       {
@@ -8891,16 +8875,18 @@ const MANUSCRIPTS = deepFreeze([
         "note": "Reviewed U.S. pronunciation using only these taught correspondences; any adjacent consonants additionally require the book’s named blending lessons. Final s is /s/ only when written in this record."
       },
       {
-        "word": "gap",
+        "word": "cups",
         "graphemes": [
-          "g",
-          "a",
-          "p"
+          "c",
+          "u",
+          "p",
+          "s"
         ],
         "sounds": [
-          "g",
-          "æ",
-          "p"
+          "k",
+          "ʌ",
+          "p",
+          "s"
         ],
         "firstCycle": 11,
         "type": "regular",
@@ -9204,7 +9190,7 @@ const MANUSCRIPTS = deepFreeze([
       },
       {
         "pageNumber": 5,
-        "text": "I set a cup\non top of the gap.",
+        "text": "I set a cup\non top of the cups.",
         "imageBrief": "Clean, clear, bright cartoon picture-book illustration with strong clear outlines and flat colors. Use the current clean Small Steps cast master. No painted, embossed, patchy, gouache, canvas or paper texture; no lettering inside the image. Dot positions the third inverted cup so its rim bridges the two lower cups. Her hands still support it.",
         "imageAlt": "Dot places the third cup across the two lower cups.",
         "state": {
@@ -9252,14 +9238,14 @@ const MANUSCRIPTS = deepFreeze([
         "words": [
           "tall",
           "wall",
-          "gap"
+          "cups"
         ],
-        "model": "Before reading, confirm the completed-cycle prerequisite and the named supplemental blending lessons. Model each reviewed sound in tall, wall, gap; join the sounds without dropping a consonant or adding a vowel. Teach the actual declared whole-word exceptions explicitly; their unusual spellings do not introduce a general pattern."
+        "model": "Before reading, confirm the completed-cycle prerequisite and the named supplemental blending lessons. Model each reviewed sound in tall, wall, cups; join the sounds without dropping a consonant or adding a vowel. Teach the actual declared whole-word exceptions explicitly; their unusual spellings do not introduce a general pattern."
       },
       "languagePrep": [
         {
-          "word": "gap",
-          "meaning": "a space between things"
+          "word": "top",
+          "meaning": "the highest part of something"
         },
         {
           "word": "wall",
@@ -9269,9 +9255,9 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Let the child try the print, with support as needed. If a word is difficult, return to its reviewed spelling and sounds; use the picture to discuss meaning after reading, not to guess the word. Then ask: What did Dot change after the cups fell? A daily short reading routine may include this book; record independent reading separately from narration or word help.",
       "fluency": "Reread the page 5 passage with attention to its punctuation and the actual scene. Invite a smoother second reading that preserves every printed word, then check the explanation against the picture."
     },
-    "reviewedAt": "2026-11-09",
-    "reviewedTextFingerprint": "fnv1a64:1c1baa19d97122fe",
-    "reviewedManuscriptSha256": "5390c91398d9a6976e50e905fdf5a042026c8a6c5e43e13f4d5d353244dc179f",
+    "reviewedAt": "2026-11-22",
+    "reviewedTextFingerprint": "fnv1a64:1c1571025e3b0753",
+    "reviewedManuscriptSha256": "e161c702d64874281051d1d8ea30a132fb971bdcd9a9a32580d623b1862be95f",
     "type": "fiction",
     "readingBandProfile": "standard",
     "readingMode": "decodable",
@@ -14146,6 +14132,11 @@ const MANUSCRIPTS = deepFreeze([
         "word": "what",
         "cycle": 21,
         "reason": "Whole-word a represents /ʌ/. Explicit HFW first introduced in Cycle 21."
+      },
+      {
+        "word": "me",
+        "cycle": 9,
+        "reason": "Exact HFW introduced in Cycle 9; e represents long e, not the later short-e correspondence. Teach this whole word only."
       }
     ],
     "wordRecords": [
@@ -14366,6 +14357,24 @@ const MANUSCRIPTS = deepFreeze([
         "note": "Reviewed U.S. pronunciation using only these taught correspondences; any adjacent consonants additionally require the book’s named blending lessons. Final s is /s/ only when written in this record."
       },
       {
+        "word": "gets",
+        "graphemes": [
+          "g",
+          "e",
+          "t",
+          "s"
+        ],
+        "sounds": [
+          "g",
+          "ɛ",
+          "t",
+          "s"
+        ],
+        "firstCycle": 12,
+        "type": "regular",
+        "note": "Reviewed U.S. pronunciation using only these taught correspondences; any adjacent consonants additionally require the book’s named blending lessons. Final s is /s/ only when written in this record."
+      },
+      {
         "word": "have",
         "graphemes": [
           "h",
@@ -14500,6 +14509,20 @@ const MANUSCRIPTS = deepFreeze([
         "firstCycle": 2,
         "type": "regular",
         "note": "Reviewed U.S. pronunciation using only these taught correspondences; any adjacent consonants additionally require the book’s named blending lessons. Final s is /s/ only when written in this record."
+      },
+      {
+        "word": "me",
+        "graphemes": [
+          "m",
+          "e"
+        ],
+        "sounds": [
+          "m",
+          "iː"
+        ],
+        "firstCycle": 9,
+        "type": "exception",
+        "note": "Exact HFW introduced in Cycle 9; e represents long e, not the later short-e correspondence. Teach this whole word only."
       },
       {
         "word": "nod",
@@ -14690,6 +14713,22 @@ const MANUSCRIPTS = deepFreeze([
         "note": "Reviewed U.S. pronunciation using only these taught correspondences; any adjacent consonants additionally require the book’s named blending lessons. Final s is /s/ only when written in this record."
       },
       {
+        "word": "that",
+        "graphemes": [
+          "th",
+          "a",
+          "t"
+        ],
+        "sounds": [
+          "ð",
+          "æ",
+          "t"
+        ],
+        "firstCycle": 15,
+        "type": "regular",
+        "note": "Voiced th /ð/, first regular by Cycle15; do not use the unvoiced /θ/ sound."
+      },
+      {
         "word": "the",
         "graphemes": [
           "th",
@@ -14755,7 +14794,7 @@ const MANUSCRIPTS = deepFreeze([
       "storySpine": "Dot wants Dad to identify what she is acting.",
       "failedAttempt": "Flapping only the rag suggests a ship rather than a hen.",
       "turn": "Adding hopping clarifies the hen; each player then chooses useful physical clues.",
-      "resolution": "Dot identifies Sam’s imitation of resting Dad from the cup, beard patch and pose, prompting Dad’s playful objection.",
+      "resolution": "Dot identifies Sam’s imitation of resting Dad from the cup, beard patch and pose, prompting Dad’s playful recognition.",
       "canonIds": [
         "SMALL-DOT",
         "SMALL-DAD",
@@ -14869,7 +14908,7 @@ const MANUSCRIPTS = deepFreeze([
       },
       {
         "pageNumber": 8,
-        "text": "\"Dad!\" Dad says, \"I am up!\"\nSam is not up.",
+        "text": "“Dad!” I nod at Sam.\nDad gets up. “That is me!”",
         "imageBrief": "Clean, clear, bright cartoon picture-book illustration with strong clear outlines and flat colors. Use the current clean Small Steps cast master. No painted, embossed, patchy, gouache, canvas or paper texture; no lettering inside the image. Dot points playfully toward upright Dad, who gestures to show he is standing. Sam remains reclining with the cup and beard patch, smiling.",
         "imageAlt": "Dad stands beside the chair while Sam lies on the mat with a cup and a pretend beard. Dot smiles at Sam.",
         "state": {
@@ -14921,9 +14960,9 @@ const MANUSCRIPTS = deepFreeze([
       "connectedReading": "Let the child try the print, with support as needed. If a word is difficult, return to its reviewed spelling and sounds; use the picture to discuss meaning after reading, not to guess the word. Then ask: Why did Dot think Sam was pretending to be Dad? A daily short reading routine may include this book; record independent reading separately from narration or word help.",
       "fluency": "Reread the page 7 passage with attention to its punctuation and the actual scene. Invite a smoother second reading that preserves every printed word, then check the explanation against the picture."
     },
-    "reviewedAt": "2026-11-09",
-    "reviewedTextFingerprint": "fnv1a64:63cebd65a32482b9",
-    "reviewedManuscriptSha256": "fd8227257447e5e15fe806fdb598d0ec29d67405e2d7e875a2798a7a8e3affd5",
+    "reviewedAt": "2026-11-22",
+    "reviewedTextFingerprint": "fnv1a64:0d7d7146e37bbf15",
+    "reviewedManuscriptSha256": "44f2effaa27d3d59e7a995db023619c59c5383ca9952c0831aeab23509c9bd80",
     "type": "fiction",
     "readingBandProfile": "standard",
     "readingMode": "decodable",

@@ -369,5 +369,39 @@ export const WORLD_DISCOVERY_EXPANSION_AUDIO_REPAIRS = Object.freeze({
     ],
     "pronunciationSource": "https://docs.cloud.google.com/text-to-speech/docs/chirp3-hd#custom-pronunciations",
     "reviewEvidence": "At least one unprompted recognizer recovers the exact normalized printed words. Full FFmpeg decode is finite, nonempty and unclipped."
+  },
+  "guided_page:kit arrives with a grown-up. he points to a bunch of carrots and asks the farmer about them": {
+    "role": "guided_page",
+    "normalizedLookupText": "kit arrives with a grown-up. he points to a bunch of carrots and asks the farmer about them",
+    "spokenText": "Kit arrives with a grown-up. He points to a bunch of carrots and asks the farmer about them.",
+    "voiceName": "en-US-Chirp3-HD-Leda",
+    "audioPath": "/audio/production/en-US/guided_page/kit-arrives-with-a-grown-up-he-points-to-a-bunch-of-carrots-and-asks-the-farmer-about-them-b7a3ae8d3b.mp3",
+    "audioSha256": "b7a3ae8d3b399bff78c6b36980ae8bda9e5197fba17ca0ac9caf70849f28599c",
+    "reviewedAt": "2026-11-22",
+    "pronunciations": [
+      {
+        "phrase": "Kit",
+        "pronunciation": "kɪt",
+        "phoneticEncoding": "PHONETIC_ENCODING_IPA"
+      }
+    ],
+    "reviewEvidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-narration-review.json records the exact Leda clip, matching unprompted local speech recognition, and complete decoded signal. Rendered with an explicit IPA clarification."
+  },
+  "guided_page:when the butterfly lifts a wing, its clear middle lifts with its brown edge": {
+    "role": "guided_page",
+    "normalizedLookupText": "when the butterfly lifts a wing, its clear middle lifts with its brown edge",
+    "spokenText": "When the butterfly lifts a wing, its clear middle lifts with its brown edge.",
+    "voiceName": "en-US-Chirp3-HD-Leda",
+    "audioPath": "/audio/production/en-US/guided_page/when-the-butterfly-lifts-a-wing-its-clear-middle-lifts-with-its-brown-edge-9eaa3573be.mp3",
+    "audioSha256": "9eaa3573bedf833487a72b484cf37f985cff35ec75a49ef95eb1610a40c211b8",
+    "reviewedAt": "2026-11-22",
+    "pronunciations": [
+      {
+        "phrase": "When",
+        "pronunciation": "wɛn",
+        "phoneticEncoding": "PHONETIC_ENCODING_IPA"
+      }
+    ],
+    "reviewEvidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-narration-review.json records the exact Leda clip, matching unprompted local speech recognition, and complete decoded signal. Rendered with an explicit IPA clarification."
   }
 });

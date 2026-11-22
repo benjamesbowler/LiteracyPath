@@ -689,8 +689,8 @@
       "pageNumber": 3,
       "path": "/guided-reading/small-steps/book-05/page-03.webp",
       "imageSha256": "8b9ce9f56ba81110ad8a4b70a32c6e0dd6192ec962857bf717161c63b214b06c",
-      "displayedText": "I get the hen.",
-      "textSha256": "86aff51879da808c1225fa5baf03e837abdf4793236829c1780659844d26251e",
+      "displayedText": "The hen is on my lap.",
+      "textSha256": "93d03d68e58becac1bbd6d2b40ad590d2abbfec5bd3ec92bcd11807f070493ae",
       "visualBriefSha256": "129ec5e2abec5df1ca6d1a8bc14cf7ff4e10c0315f6ce2a5fb64f46356db91ee",
       "width": 1536,
       "height": 1024,
@@ -699,7 +699,15 @@
       "reviewedAt": "2026-10-29",
       "reviewer": "Codex native detail and independent ordered sequence review",
       "notes": "Clean outlined bright flat cartoon with smooth materials and natural anatomy. Room/cast/stethoscope/hen/carrier consistent. Dot supports hen body with both hands close to lap; Dad supervises; carrier empty.",
-      "sequenceReview": "All9 native assets and ordered sequence inspected. Hen in carrier -> supported lift -> floor -> adults/child sit -> gentle lap invitation -> voluntary lap -> pet. No forced handling; exact1hen/carrier/stethoscope, consistent room/clothes, clean cartoon surfaces."
+      "sequenceReview": "All9 native assets and ordered sequence inspected. Hen in carrier -> supported lift -> floor -> adults/child sit -> gentle lap invitation -> voluntary lap -> pet. No forced handling; exact1hen/carrier/stethoscope, consistent room/clothes, clean cartoon surfaces.",
+      "editorialReview20261122": {
+        "reviewedAt": "2026-11-22",
+        "method": "The changed line was compared with the installed artwork in the ordered book sequence.",
+        "notes": [
+          "Names the actual state before the hen moves off Dot instead of the vague get."
+        ],
+        "priorTextSha256": "86aff51879da808c1225fa5baf03e837abdf4793236829c1780659844d26251e"
+      }
     },
     {
       "bookId": "small-steps-05",
@@ -707,8 +715,8 @@
       "pageNumber": 4,
       "path": "/guided-reading/small-steps/book-05/page-04.webp",
       "imageSha256": "e7fa774b87418c4d955eda398859e97b75053f233a203a709cfb7338afb1d7cd",
-      "displayedText": "The hen is not on my lap.",
-      "textSha256": "b73fa8441f6823f652af86555fc1c8b776f764e2e4610ef2bbb597b9ca0be0a1",
+      "displayedText": "The hen is on the rug.",
+      "textSha256": "e1915bf2779cde10744d7a51247a74409793df38f363a49a1d5e189db56d44b4",
       "visualBriefSha256": "35e7ec974607ad869e60187f6b1abf08b664f5d9d2f7464aabb429ffd5e4eb28",
       "width": 1536,
       "height": 1024,
@@ -717,7 +725,15 @@
       "reviewedAt": "2026-10-29",
       "reviewer": "Codex native detail and independent ordered sequence review",
       "notes": "Clean outlined bright flat cartoon with smooth materials and natural anatomy. Room/cast/stethoscope/hen/carrier consistent. Hen safely on floor mat; Dot empty lap and open hands, no chasing.",
-      "sequenceReview": "All9 native assets and ordered sequence inspected. Hen in carrier -> supported lift -> floor -> adults/child sit -> gentle lap invitation -> voluntary lap -> pet. No forced handling; exact1hen/carrier/stethoscope, consistent room/clothes, clean cartoon surfaces."
+      "sequenceReview": "All9 native assets and ordered sequence inspected. Hen in carrier -> supported lift -> floor -> adults/child sit -> gentle lap invitation -> voluntary lap -> pet. No forced handling; exact1hen/carrier/stethoscope, consistent room/clothes, clean cartoon surfaces.",
+      "editorialReview20261122": {
+        "reviewedAt": "2026-11-22",
+        "method": "The changed line was compared with the installed artwork in the ordered book sequence.",
+        "notes": [
+          "Names the destination and makes the lap-to-rug change visible in print."
+        ],
+        "priorTextSha256": "b73fa8441f6823f652af86555fc1c8b776f764e2e4610ef2bbb597b9ca0be0a1"
+      }
     },
     {
       "bookId": "small-steps-05",
@@ -725,8 +741,8 @@
       "pageNumber": 5,
       "path": "/guided-reading/small-steps/book-05/page-05.webp",
       "imageSha256": "08ef69dd1ad44e493efcb128aa621f024a9c75a8432920861a5ae4cc74a47621",
-      "displayedText": "The vet and I sit.",
-      "textSha256": "612d14d56d178574d0e0c429398ef23ccd1efd09fbc7870a584ab394c4839f72",
+      "displayedText": "Dad and I sit.",
+      "textSha256": "47c556411847584ac3b6699989978ab78ff8b135ab49381d7423fed3b5e9e451",
       "visualBriefSha256": "f021cc32c2bc2b309a3283ac9cc60ee638a410e2882d0de0878f9efe7bf03305",
       "width": 1536,
       "height": 1024,
@@ -735,7 +751,15 @@
       "reviewedAt": "2026-10-29",
       "reviewer": "Codex native detail and independent ordered sequence review",
       "notes": "Clean outlined bright flat cartoon with smooth materials and natural anatomy. Room/cast/stethoscope/hen/carrier consistent. Dot and Dad sit cross-legged at hen level and wait, hen remains on mat.",
-      "sequenceReview": "All9 native assets and ordered sequence inspected. Hen in carrier -> supported lift -> floor -> adults/child sit -> gentle lap invitation -> voluntary lap -> pet. No forced handling; exact1hen/carrier/stethoscope, consistent room/clothes, clean cartoon surfaces."
+      "sequenceReview": "All9 native assets and ordered sequence inspected. Hen in carrier -> supported lift -> floor -> adults/child sit -> gentle lap invitation -> voluntary lap -> pet. No forced handling; exact1hen/carrier/stethoscope, consistent room/clothes, clean cartoon surfaces.",
+      "editorialReview20261122": {
+        "reviewedAt": "2026-11-22",
+        "method": "The changed line was compared with the installed artwork in the ordered book sequence.",
+        "notes": [
+          "Keeps one name for the same adult during the cause-and-effect sequence."
+        ],
+        "priorTextSha256": "612d14d56d178574d0e0c429398ef23ccd1efd09fbc7870a584ab394c4839f72"
+      }
     },
     {
       "bookId": "small-steps-05",
@@ -2417,8 +2441,8 @@
       "pageNumber": 7,
       "path": "/guided-reading/small-steps/book-16/page-07.webp",
       "imageSha256": "2778ef67c0dd0822f45fe9ff4d6fb466eef779dcc0cc8dec2bbe80bb496d81dc",
-      "displayedText": "I lob the wet ball at Dad.",
-      "textSha256": "7938d75913fd645b22682c7faba3f91a838a67e8b6457d191280938b66ebbbba",
+      "displayedText": "I lob the wet ball to Dad.",
+      "textSha256": "428ad0c0a1b9f951f23c47402ca2e2bbfee16b8b9e32bf37f0ea4a3727f7e746",
       "visualBriefSha256": "675f69ef3077db172e7b40d64e10a6a5972f6becfaa88cb96f122f00ae70e3e7",
       "width": 1536,
       "height": 1024,
@@ -2427,7 +2451,15 @@
       "reviewedAt": "2026-10-29",
       "reviewer": "Codex native detail and independent ordered sequence review",
       "notes": "Native output reviewed: One wet ball gently airborne toward Dad's open hands at chest height; net/cup on mat, no ball in tub.",
-      "sequenceReview": "Root independent ordered cover/page sequence inspection: Cup fails to retrieve floating blue ball; red net succeeds; Dot removes ball, tosses it and Dad catches it with wet shirt payoff. Single ball, cup, net and tub throughout. Clean outlined cartoon surfaces."
+      "sequenceReview": "Root independent ordered cover/page sequence inspection: Cup fails to retrieve floating blue ball; red net succeeds; Dot removes ball, tosses it and Dad catches it with wet shirt payoff. Single ball, cup, net and tub throughout. Clean outlined cartoon surfaces.",
+      "editorialReview20261122": {
+        "reviewedAt": "2026-11-22",
+        "method": "The changed line was compared with the installed artwork in the ordered book sequence.",
+        "notes": [
+          "The picture shows Dot sending a ball for Dad to catch. The preposition describes the intended handoff."
+        ],
+        "priorTextSha256": "7938d75913fd645b22682c7faba3f91a838a67e8b6457d191280938b66ebbbba"
+      }
     },
     {
       "bookId": "small-steps-16",

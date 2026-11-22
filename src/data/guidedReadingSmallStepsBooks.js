@@ -1574,22 +1574,6 @@ const MANUSCRIPTS = deepFreeze([
         "note": "Fully regular within the declared VC/CVC scope; U.S. short-vowel pronunciation."
       },
       {
-        "word": "get",
-        "graphemes": [
-          "g",
-          "e",
-          "t"
-        ],
-        "sounds": [
-          "g",
-          "ɛ",
-          "t"
-        ],
-        "firstCycle": 12,
-        "type": "regular",
-        "note": "Decodable after Cycle 12 from g/e/t even though get is later listed for HFW review."
-      },
-      {
         "word": "hen",
         "graphemes": [
           "h",
@@ -1676,22 +1660,6 @@ const MANUSCRIPTS = deepFreeze([
         "note": "Final y represents /aɪ/ in this exact Cycle 6 HFW; initial consonant y does not license it generally."
       },
       {
-        "word": "not",
-        "graphemes": [
-          "n",
-          "o",
-          "t"
-        ],
-        "sounds": [
-          "n",
-          "ɑ",
-          "t"
-        ],
-        "firstCycle": 5,
-        "type": "regular",
-        "note": "Fully regular within the declared VC/CVC scope; U.S. short-vowel pronunciation."
-      },
-      {
         "word": "on",
         "graphemes": [
           "o",
@@ -1718,6 +1686,22 @@ const MANUSCRIPTS = deepFreeze([
           "t"
         ],
         "firstCycle": 12,
+        "type": "regular",
+        "note": "Fully regular within the declared VC/CVC scope; U.S. short-vowel pronunciation."
+      },
+      {
+        "word": "rug",
+        "graphemes": [
+          "r",
+          "u",
+          "g"
+        ],
+        "sounds": [
+          "ɹ",
+          "ʌ",
+          "g"
+        ],
+        "firstCycle": 10,
         "type": "regular",
         "note": "Fully regular within the declared VC/CVC scope; U.S. short-vowel pronunciation."
       },
@@ -1784,7 +1768,8 @@ const MANUSCRIPTS = deepFreeze([
         "note": "Fully regular within the declared VC/CVC scope; U.S. short-vowel pronunciation."
       }
     ],
-    "reviewedTextFingerprint": "fnv1a64:1c8890532ededb32",
+    "reviewedTextFingerprint": "fnv1a64:9ecd9361f17c2013",
+    "reviewedAt": "2026-11-22",
     "narrator": "Dot, first person.",
     "cast": [
       "SMALL-DOT",
@@ -1836,7 +1821,7 @@ const MANUSCRIPTS = deepFreeze([
       },
       {
         "pageNumber": 3,
-        "text": "I get the hen.",
+        "text": "The hen is on my lap.",
         "imageBrief": "Under Dad's nearby guidance, Dot gently lifts the calm hen with both hands supporting its body, close to her lap, never by wings or feet.",
         "state": {
           "hen": "supported just above Dot's lap",
@@ -1847,7 +1832,7 @@ const MANUSCRIPTS = deepFreeze([
       },
       {
         "pageNumber": 4,
-        "text": "The hen is not on my lap.",
+        "text": "The hen is on the rug.",
         "imageBrief": "Hen has hopped down safely onto the low floor mat; Dot's hands open without chasing it. No long fall or frantic bird.",
         "state": {
           "hen": "on floor mat",
@@ -1858,7 +1843,7 @@ const MANUSCRIPTS = deepFreeze([
       },
       {
         "pageNumber": 5,
-        "text": "The vet and I sit.",
+        "text": "Dad and I sit.",
         "imageBrief": "Dot and Dad sit on the floor at the hen's level, giving it space; bench and carrier remain in same places.",
         "state": {
           "hen": "on floor mat nearby",
@@ -6414,6 +6399,11 @@ const MANUSCRIPTS = deepFreeze([
         "word": "the",
         "cycle": 2,
         "reason": "Cycle 2 taught whole word; e is unstressed /ə/. The /ði/ spoken variant before a vowel is also the same taught whole word, never a general e rule."
+      },
+      {
+        "word": "to",
+        "cycle": 6,
+        "reason": "Whole word taught in Cycle6; o represents /u/ here, not short /ɑ/. Connected speech can reduce to /tə/."
       }
     ],
     "wordRecords": [
@@ -6428,20 +6418,6 @@ const MANUSCRIPTS = deepFreeze([
         "firstCycle": 2,
         "type": "exception",
         "note": "Unstressed article /ə/ is the Cycle 2 whole word, not short a."
-      },
-      {
-        "word": "at",
-        "graphemes": [
-          "a",
-          "t"
-        ],
-        "sounds": [
-          "æ",
-          "t"
-        ],
-        "firstCycle": 2,
-        "type": "regular",
-        "note": "Regular single-syllable VC/CVC word using already-taught sound values."
       },
       {
         "word": "ball",
@@ -6702,6 +6678,20 @@ const MANUSCRIPTS = deepFreeze([
         "note": "Cycle 2 taught whole word; e is unstressed /ə/. The /ði/ spoken variant before a vowel is also the same taught whole word, never a general e rule."
       },
       {
+        "word": "to",
+        "graphemes": [
+          "t",
+          "o"
+        ],
+        "sounds": [
+          "t",
+          "u"
+        ],
+        "firstCycle": 6,
+        "type": "exception",
+        "note": "Whole word taught in Cycle6; o represents /u/ here, not short /ɑ/. Connected speech can reduce to /tə/."
+      },
+      {
         "word": "tub",
         "graphemes": [
           "t",
@@ -6734,7 +6724,8 @@ const MANUSCRIPTS = deepFreeze([
         "note": "Regular single-syllable VC/CVC word using already-taught sound values."
       }
     ],
-    "reviewedTextFingerprint": "fnv1a64:9755a9d4179bd54c",
+    "reviewedTextFingerprint": "fnv1a64:bb463fbcd8807fc8",
+    "reviewedAt": "2026-11-22",
     "narrator": "SMALL-DOT",
     "cast": [
       "SMALL-DOT",
@@ -6855,7 +6846,7 @@ const MANUSCRIPTS = deepFreeze([
       },
       {
         "pageNumber": 7,
-        "text": "I lob the wet ball at Dad.",
+        "text": "I lob the wet ball to Dad.",
         "imageBrief": "Dot makes a gentle short underhand toss of the soft blue ball toward Dad’s open hands at close range. Dad is willingly joining the game; no distressed reaction or head-directed throw.",
         "state": {
           "location": "Sunny level patio with a broad shallow water-play tub. Dot and Dad stay on the dry paving; no one enters the tub. This is a ball game, not a water rescue.",
@@ -8728,7 +8719,7 @@ export const GUIDED_READING_SMALL_STEPS_BOOKS = Object.freeze(MANUSCRIPTS.map(ro
   const decodableScope = deepFreeze({
     id: row.id + ":v1", version: "2026-10-28.1", afterCycle: row.afterCycle,
     focus: row.focus, practiceWords: row.practiceWords, exceptions: row.exceptions, wordRecords: row.wordRecords,
-    reviewedTextFingerprint: row.reviewedTextFingerprint, reviewedAt: "2026-10-28",
+    reviewedTextFingerprint: row.reviewedTextFingerprint, reviewedAt: row.reviewedAt || "2026-10-28",
     reviewMethod: "Independent complete-manuscript, title, pronunciation and cumulative-code review",
     wordShape: "VC/CVC with explicitly taught qu, x, all, nk, ng and doubled-final chunks; declared whole-word exceptions"
   });

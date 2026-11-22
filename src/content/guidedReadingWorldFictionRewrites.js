@@ -147,7 +147,7 @@ export const GUIDED_READING_WORLD_FICTION_REWRITES = Object.freeze({
       "Zippy knows a shortcut home. Off he goes!",
       "Sunny calls, \"Which way?\" Zippy races on.",
       "He speeds past the waterfall and meadow.",
-      "Zippy stops. Sunny Hollow is nowhere nearby.",
+      "Zippy stops. He can't see his way home.",
       "Zippy spots three blue flowers. \"I passed those!\"",
       "He walks toward the bent tree, one slow step at a time.",
       "Sunny meets him beside the bent tree.",
@@ -226,7 +226,7 @@ export const GUIDED_READING_WORLD_FICTION_REWRITES = Object.freeze({
       "Wiggly leads Fancy to warm water and a flat rock.",
       "He fills a bowl. Fancy wets the folded leaves.",
       "Fancy presses the damp fan with her tail. The fold flattens.",
-      "The fan is flat again. Fancy dips it beside her smiling reflection.",
+      "The fan is flat again. Fancy dips it in the pool and smiles.",
       "Fancy slips a bracelet onto Wiggly's tail. \"For you.\""
     ]
   }),
@@ -244,7 +244,7 @@ export const GUIDED_READING_WORLD_FICTION_REWRITES = Object.freeze({
       "Clumsy scans beyond the ferns and waterfall.",
       "He spots Chompy, mud, rocks, and one blue square.",
       "Dozy's pillow floats below the waterfall.",
-      "Bouncy gulps. \"I knocked it down the stream.\"",
+      "Bouncy gulps. “I knocked it into the stream.”",
       "Clumsy stretches his neck, but he cannot reach the pillow.",
       "Wiggly bends low and lifts the pillow.",
       "Dozy hugs the soggy pillow. His eyes close at once.",
@@ -260,7 +260,7 @@ export const GUIDED_READING_WORLD_FICTION_REWRITES = Object.freeze({
     pages: [
       "Flappy flaps toward a branch, then lands in mud.",
       "\"I have wings. Why can't I reach that branch?\"",
-      "Bossy flies overhead. Flappy flaps just as hard, but stays down.",
+      "Bossy flies overhead. Flappy flaps just as hard, but stays on the ground.",
       "Sunny studies the feathered wings. \"Try a jump,\" she says.",
       "Flappy gives one angry squawk. A feather drifts down.",
       "Flappy stamps. Small claws dig into the soft ground.",
@@ -268,7 +268,7 @@ export const GUIDED_READING_WORLD_FICTION_REWRITES = Object.freeze({
       "An insect drifts past. Flappy spreads both wings and glides after it.",
       "\"I climb up,\" Flappy tells Grumpy, \"and glide down!\"",
       "Grumpy looks up. \"You built that nest.\"",
-      "\"I am Flappy,\" says Flappy. \"Watch this.\"",
+      "“Watch me land!” Flappy says.",
       "From the branch above, Flappy glides down into the nest."
     ]
   }),
@@ -288,7 +288,7 @@ export const GUIDED_READING_WORLD_FICTION_REWRITES = Object.freeze({
       "Fern dust lands on Sneezy's nose.",
       "Sneezy looks up. \"Stand back!\"",
       "He draws one huge, slow breath.",
-      "The Pals duck at the far side of a rock.",
+      "The Pals duck behind a big rock.",
       "Sneezy aims. ACHOO! Loose rocks fly.",
       "The falls roar. A bright rainbow arcs high. Sneezy sniffs."
     ]
@@ -395,7 +395,7 @@ export const GUIDED_READING_WORLD_FICTION_REWRITES = Object.freeze({
       "Bouncy ties each branch high off the path.",
       "Shy leads all the Pals to Cozy Cave.",
       "Rain pounds the cave. Dozy's blue pillow stays dry.",
-      "The sun comes back. Each Pal clears one cave path."
+      "The sun comes back. The Pals clear the path outside Cozy Cave."
     ]
   }),
   "moonwood-tales-c-01": fictionRewrite({
@@ -409,13 +409,13 @@ export const GUIDED_READING_WORLD_FICTION_REWRITES = Object.freeze({
       "Pip knelt between the old roots and lifted the glowing stone carefully. Golden light warmed his fingers, and he wondered what kind of stone it could be.",
       "Burrow popped out of a nearby tunnel and peered closely at Pip's new discovery. \"Old stories call that a Bravery Stone,\" the mole explained.",
       "Pip held the glowing stone close and waited to feel brave. He still felt afraid when he looked at the steep cliffs.",
-      "To test the stone, Pip visited the safe practice wall at Tumblerock Cliffs. He chose the lowest route, where a thick blue mat waited below.",
+      "Pip slipped the stone into his belt pocket and tried the low climbing wall at Tumblerock Cliffs. A thick blue mat waited below it.",
       "Pip's legs wobbled as he reached for the first hold. He breathed slowly, checked each grip, and climbed one careful step at a time.",
       "Pip smiled when he reached the top of the practice wall. He climbed down safely, then carried the warm stone toward Fog Marsh.",
       "Thick fog covered the marked marsh path, and reeds rustled beside Pip. He felt afraid, but he watched the markers and kept walking forward.",
       "That evening, Pip rested quietly beside Crystal Stream and studied the little stone. Its last golden light grew dim, then disappeared in the sunset.",
-      "Pip hurried to Burrow and showed him the dull stone. “Will I still be brave without its light?” he asked. He remembered walking through the dark marsh.",
-      "Burrow held the dull stone up to the light. \"Where did you keep it while you climbed?\" he asked. Pip looked down at the pocket on his belt.",
+      "Pip hurried to Burrow and showed him the dull stone. “Will I still be brave without its light?” he asked. He remembered walking through the foggy marsh.",
+      "Burrow held the dull stone up to the light. “Where did you keep it while you climbed?” he asked. Pip looked down at his belt pocket.",
       "Pip turned the plain stone over once more. He slipped it into his pocket. \"Come on, Burrow,\" he said. \"I'll show you the way back.\""
     ]
   }),
@@ -432,7 +432,7 @@ export const GUIDED_READING_WORLD_FICTION_REWRITES = Object.freeze({
       "Fern tried a slower verse, then a careful stopping spell, but neither one completed the song. The wild plant twisted higher and grew even faster.",
       "By afternoon, the enormous stem pushed straight through Hollow Oak's roof. Pip and the others stepped back as heavy branches spread above their heads.",
       "Fern heard Luna calling from inside the tree. Thick leaves blocked the doorway. “Fern, please move the leaves so I can get out,” Luna called.",
-      "Fern stopped casting spells and listened to the green leaves rustling around her. They repeated the opening notes, then paused where her song ended.",
+      "Fern stopped casting spells and listened to the green leaves around her. They rustled the opening notes and stopped right where she had stopped singing.",
       "Fern knew what to do. She had to finish the song. She closed her eyes and softly sang the ending her mother had taught her.",
       "The completed song changed the wild plant at once. Its tall stem lowered, and the leaves slid away from every window toward the garden.",
       "By evening, one large flowering plant stood neatly beside Hollow Oak. The doorway was open again, with plenty of space for Luna to pass.",
@@ -512,13 +512,13 @@ export const GUIDED_READING_WORLD_FICTION_REWRITES = Object.freeze({
     pages: [
       "Flint left Hollow Oak with a roll of paper and a feather pen. He wanted to make a map showing every path, tree, and stream in Moonwood.",
       "As Flint walked north, he recorded Crystal Stream and Tumblerock Cliffs. He also marked each bend carefully, so no traveler would miss a turn.",
-      "For three days, Flint followed paths and added new details to the parchment. His map grew so long that he had to unroll it across the trail.",
+      "For three days, Flint followed paths and added trees and bends to the paper. His map grew so long that he had to unroll it across the trail.",
       "At last, Flint held up his finished map. He looked at the small pictures of trees, cliffs, and streams. “I have drawn every path in Moonwood!” he said.",
       "Flint lowered the map and looked at the forest around him. The nearby trees stood in different places from the ones in his careful drawing.",
       "The map showed Whispering Meadow after the next turn. But Flint found himself beside water and tall gray reeds. The magical path had moved since he drew it.",
       "Flint spread yesterday’s map across a mossy rock and looked at the paths. “The map was right yesterday,” he said. “The paths look different today.”",
       "Flint kept the old map and opened a blank page. He wrote TODAY at the top, then drew the path as it looked now, with its new bend.",
-      "Flint checked each landmark against his new map and followed the changing route through one long loop. Near sunset, the new marks finally led him back to Hollow Oak.",
+      "Flint matched the trees and bends to the marks on his new map. He followed the long loop. Near sunset, the new marks led him back to Hollow Oak.",
       "Pip met Flint at the doorway. “Did your map help you get home?” Flint held up both pages. “This new map helped me.”",
       "Inside, Flint pinned his first beautiful map to the wall under one clear label: YESTERDAY. It showed how Moonwood looked before the paths moved.",
       "Flint looked through the round window. Two magical paths moved again! He smiled, took another page, and drew their new places. He kept all his maps together."
@@ -542,7 +542,7 @@ export const GUIDED_READING_WORLD_FICTION_REWRITES = Object.freeze({
       "Dewdrop waited beside the root. \"Tell me something you've really seen.\" The fish turned toward a string of bubbles. \"I found those this morning,\" it said.",
       "The fish swam beneath the root, and Dewdrop followed along the bank. Cold water bubbled up between the pebbles. It was a spring she had never noticed.",
       "Dewdrop touched the spring water and drew back her fingers. \"Cold!\" The fish circled the bubbling stones. \"I found it with my nose,\" it said.",
-      "Pip leaned over the root and asked his new friend's name. \"Ripple,\" said the fish. \"Want to see what I found under here?\" Dewdrop moved closer to look."
+      "Pip leaned over the root and asked the fish its name. “I'm Ripple,” said the fish. “Want to see what I found?” Dewdrop moved closer to look."
     ]
   }),
   "moonwood-tales-c-08": fictionRewrite({
@@ -578,7 +578,7 @@ export const GUIDED_READING_WORLD_FICTION_REWRITES = Object.freeze({
       "At breakfast, Spark felt the first sneeze arrive too quickly to warn anyone. Magic struck his porridge, which flapped from the bowl like a frightened bird.",
       "Wren caught the flying bowl. \"There's a leaf wash for stray sneeze spells,\" she said. Spark sniffed and reached for his wand again with his free hand.",
       "In Whispering Meadow, Spark raised one hand to give the warning. The sneeze arrived anyway, and a golden ring turned every nearby flower blue.",
-      "Spark knelt beside a blue flower and rubbed its petals. The blue stayed. \"That was yellow,\" he said, just as another tickle climbed up his nose.",
+      "Spark knelt beside a blue flower and rubbed its petals. The blue stayed. “That was yellow,” he said. Then his nose began to tickle again.",
       "Spark squeezed his nose and tried to hold the sneeze inside. Gold magic gathered around his watering eyes, growing brighter with every silent second.",
       "Fern saw the dangerous glow and pointed Spark away from Crystal Stream. She brought a soft cloth, but the trapped sneeze was already too powerful.",
       "The sneeze burst free just as Spark turned beside the water. A wide wave of gold magic raced across the stream before anyone could stop it.",
@@ -601,12 +601,12 @@ export const GUIDED_READING_WORLD_FICTION_REWRITES = Object.freeze({
       "She had stored the box outside beside cold water. A storm had moved the little stone that once marked its hiding place.",
       "Pip asked Luna to remember one more helpful detail. She pictured bright pebbles shifting beneath very cold water. One pebble was striped silver.",
       "Fern checked the shaded garden while Burrow checked the cool tunnels. Neither place held the silver box. Luna crossed both places off her list.",
-      "The friends searched the nearby paths and Whispering Meadow. They found several bright stones, but no flowing water beside them anywhere nearby.",
+      "The friends searched the nearby paths and Whispering Meadow. They found several bright stones, but none lay beside a stream. They kept looking for cold water.",
       "Dewdrop named Crystal Stream. Luna remembered hiding the box where its current kept the old seeds cool. The silver pebble marked one broad step.",
       "Luna flew ahead to the stream's broad stepping stones and landed on the largest one. She studied the bright pebbles moving beneath the clear water.",
       "Between the pebbles, a silver box waited exactly where Luna had once hidden it. Dewdrop lifted the box from the current and passed it to her.",
       "Luna held the cold box against her feathers. Water dripped from its corners. She carried it back to Hollow Oak before opening the little silver latch.",
-      "Fern leaned closer as Luna lifted the lid. Twelve round seeds shone inside the box, bright as candle flames. Luna counted them once; none had cracked in the cold water.",
+      "Fern leaned closer as Luna lifted the lid. Twelve round seeds shone inside the box, bright as candle flames. Luna counted them. Every seed was whole.",
       "Luna looked up through Hollow Oak's old branches. She had saved the seeds to grow young trees beside them. Now twelve small lights waited in her open box.",
       "Luna set the open box on the ground outside Hollow Oak. She gave each helper a seed and pointed to a bare patch beneath the old branches.",
       "Before sunset, the friends planted all twelve seeds in a wide ring around Hollow Oak. They covered each hole gently and watered the dark soil.",
@@ -643,9 +643,9 @@ export const GUIDED_READING_WORLD_FICTION_REWRITES = Object.freeze({
     pages: [
       "Fern paused beside Crystal Stream because its familiar music had vanished. The water still flowed between the banks, but none of the singing stones made a sound.",
       "Dewdrop dipped below the surface and listened to the silent current. When she rose, she told Fern that the trouble began somewhere farther upstream.",
-      "Fern and Dewdrop followed the narrowing stream toward its oldest source. With every bend, the water grew shallower. Fern could see dry pebbles along both banks.",
+      "Fern and Dewdrop followed the stream toward the place where it began. At every bend, the water grew shallower. Fern could see more dry pebbles along the banks.",
       "Farther upstream, old roots stretched across the banks and under the water. The friends followed the thin trickle between them. Soon even its splashing over the roots grew faint.",
-      "At the source, a fallen boulder rested in thick mud across the stream. Beneath it, the smooth singing stones were trapped without moving water.",
+      "A fallen boulder rested in thick mud across the stream. It blocked most of the water. Only a trickle reached the smooth singing stones below it.",
       "Dewdrop sent her strongest rush of water against the boulder's round side. Water splashed everywhere, but the heavy stone remained locked in the mud.",
       "Fern braced both feet and pushed the boulder with her hands. The pressure only sank it deeper, allowing the wet mud to grip even tighter.",
       "Fern looped a strong green vine around the boulder and pulled from the bank. At the same time, Dewdrop sent a steady current underneath it.",
@@ -693,7 +693,7 @@ export const GUIDED_READING_WORLD_FICTION_REWRITES = Object.freeze({
       "Wren closed her spell book and knelt beside the mushroom. 'Can you show us the open meadow?' she asked. Its bright side pulsed as if answering.",
       "A second mushroom flashed farther ahead, and then a third answered beyond it. Wren and Flint followed the line of gentle lights through the thick trees.",
       "The last trees opened onto Whispering Meadow, where golden grass waved in the sun. Flint laughed with relief, and Wren thanked the mushrooms for guiding them.",
-      "Before they ate lunch, Flint drew the mushroom trail onto his map and added the date. Wren marked each bright side facing Whispering Meadow, so they could read the signal again.",
+      "Before lunch, Flint drew the mushroom trail on his map and added the date. Wren marked which way the mushrooms pointed, so they could follow the lights again.",
       "Flint folded the map beside his lunch. The final mushroom's light slowly faded. Wren touched its cap with one finger. \"Thanks for waiting for us,\" she whispered."
     ]
   }),
@@ -736,7 +736,7 @@ export const GUIDED_READING_WORLD_FICTION_REWRITES = Object.freeze({
       "Next, Burrow tucked several acorn biscuits into his waistcoat pockets. Glimmer covered a laugh, but Pip pointed to the muddy trail and kept watching quietly.",
       "Burrow leaned against the mushroom and began to snore. Pip gathered the boots beside him. Glimmer kept watch while Pip moved the biscuit bowl out of reach.",
       "At sunrise, Burrow found crumbs in his pockets and Pip's boots beside him. Pip showed him the muddy footprints. Burrow stared at the overturned bench. \"Was that me?\"",
-      "Burrow set the bench upright and returned Pip's boots. He shook crumbs from his pockets, then checked another boot beside the door. \"No biscuits in this one, either.\""
+      "Burrow set the bench upright and returned Pip's boots. He shook crumbs from his pockets, then checked a boot beside the door. “No biscuits in this boot!”"
     ]
   }),
   "moonwood-tales-c-17": fictionRewrite({
@@ -768,7 +768,7 @@ export const GUIDED_READING_WORLD_FICTION_REWRITES = Object.freeze({
     resolution: "Stone moves the loose rock, gets soaked by a splash, and relaxes as he watches the freed fish swim in clear water.",
     pages: [
       "Dewdrop was swimming through Crystal Stream when she found a large fish trapped in the shallows. Its silver body twisted between two rocks, but it could not escape.",
-      "The rocks gripped the fish on both sides while its tail flicked desperately. Dewdrop checked for injuries, then asked the fish to stay as still as possible.",
+      "The rocks held the fish on both sides. Its tail flicked fast. Dewdrop looked for cuts along the fish's silver sides and asked it to keep still.",
       "Dewdrop sent a strong current against the rocks. Instead of freeing the fish, the rushing water pressed its body tighter, so she stopped at once.",
       "She hurried to Stone and asked him to move a rock. Stone followed her to the bank, though his worried eyes stayed on the sparkling water.",
       "Stone crouched beside the stream and reached toward the fish. Then he pulled back. 'I want to help,' he said, 'but I don’t like getting wet.'",
@@ -790,7 +790,7 @@ export const GUIDED_READING_WORLD_FICTION_REWRITES = Object.freeze({
     pages: [
       "Luna opened the glow-seed box and found it completely empty. A thin crack crossed one corner, with gold dust scattered beneath it.",
       "The path beside Hollow Oak needed the glow seeds for its evening light. Luna called her friends. They had to find the seeds before nightfall.",
-      "The friends divided into careful search groups. Pip followed the gold dust outside, where the storm had washed it into several faint trails.",
+      "Pip and Flint went outside to look for the seeds. Rain had washed gold dust from the box into several trails. Pip followed one of them.",
       "Pip followed a gold trail all the way to Fog Marsh. It ended in sticky mud, with no seeds. Flint marked the empty trail on his map.",
       "Wren and Spark tried search spells beside the empty box. Both arrows pointed at the wizards' dusty sleeves. \"Seed dust,\" said Wren, brushing it off with a sigh.",
       "Burrow searched below Hollow Oak and came back empty-handed. The tunnel floors were dry. If rain had carried the seeds away, they must still be aboveground.",
@@ -813,7 +813,7 @@ export const GUIDED_READING_WORLD_FICTION_REWRITES = Object.freeze({
       "The golden fragments glowed and rolled along the open ground. Pip, Luna, and the others hurried outside to see what had fallen.",
       "Pip caught one fragment before it rolled into a dark bush. A tiny star pattern glowed across its smooth, warm golden surface.",
       "Each piece glowed brighter when Luna turned it toward the sky. Matching groups of stars flashed above the trees. These groups made patterns called constellations.",
-      "Luna studied every pattern carefully. 'These are pieces of old shooting stars,' she explained. 'Their light belongs with those constellations before dawn.'",
+      "Luna studied the patterns. “These are Moonwood star pieces,” she said. “We have to return each piece to the right pattern before dawn.”",
       "Pip lifted one fragment above his head. The trees hid its constellation, so its glow faded and it settled back into his hands.",
       "'The fragments need a clear view from Tumblerock's highest safe ledge,' Luna said. Flint quickly unfolded a map and led the whole group.",
       "Everyone followed Flint up the rocky path before dawn. Stone carried two fragments while Wren and Spark kept the others wrapped safely.",
@@ -830,7 +830,7 @@ export const GUIDED_READING_WORLD_FICTION_REWRITES = Object.freeze({
     failedAttempt: "Pip, Wren, Burrow, and Fern search every ordinary room without finding the speaker inside the walls.",
     resolution: "Fern finds Twig's glasses, Fern loosens the roots around her door, and Twig joins the others at their table before returning home.",
     pages: [
-      "Late one evening inside Hollow Oak, Pip heard scratching behind the root wall. A tiny voice seemed to be searching for something, but he could not see anyone.",
+      "Late one evening inside Hollow Oak, Pip heard scratching behind the root wall. A tiny voice muttered behind the roots, as if someone had lost something.",
       "Wren pressed one ear against the wall beside him. The scratching moved from root to root, followed by quiet muttering that neither friend could understand.",
       "Luna listened from her perch and said she had heard that scratching long ago. Still, she could not remember who lived behind that part of the oak.",
       "Pip, Wren, Burrow, and Fern searched every room they knew. They looked under tables and behind shelves, but found no doorway into the root wall.",
@@ -838,7 +838,7 @@ export const GUIDED_READING_WORLD_FICTION_REWRITES = Object.freeze({
       "Fern pressed one palm against the roots until they loosened. She pulled the door open, slipped inside, and called back. \"There is a whole room in here!\"",
       "The hidden room felt warm and cozy. Acorns, buttons, feathers, and other collected objects filled its shelves, while a small creature searched each pile.",
       "The creature introduced herself as Twig. She had searched for her glasses for three days and asked Fern to check the crowded shelves.",
-      "Fern looked around, then noticed the glasses resting on Twig's head. 'They are above your ears,' she said gently. Twig reached up and laughed.",
+      "Fern looked around, then noticed the glasses resting on Twig's head. “They're on your head!” she said. Twig reached up, touched the glasses, and laughed.",
       "Twig slipped the glasses onto her nose and returned to sorting acorns. With the lenses in place, she could finally see which acorns belonged in each basket.",
       "Fern stepped back into Hollow Oak's main room with Twig beside her. \"We found the glasses,\" she said. Pip hurried to make room at the little table.",
       "Twig shared a cookie with her new neighbors around the table. Then she gathered the crumbs in her hand and went home. Her own little door clicked shut."
@@ -882,8 +882,8 @@ export const GUIDED_READING_WORLD_FICTION_REWRITES = Object.freeze({
       "Pip recognized objects that Moonwood neighbors had left behind. 'We filled your home without asking,' he admitted. The mist spirit gave one slow, unhappy nod.",
       "Pip, Fern, and Luna carried every object out of the marsh. At the same time, Dewdrop cleared the blocked channel so clean water could flow again.",
       "When the final basket left, the mist spirit stretched tall and clear. Fresh water moved around its tree, and the gray fog began drawing back.",
-      "At the marsh edge, each Moonwood neighbor carried one stone into place. Together they built a clear boundary, so everyone could see where the mist spirit's home began.",
-      "The fog stayed behind the new stone line, and mushrooms along the edge lit one by one. Pip checked his old marker and smiled at the peaceful marsh."
+      "Each Moonwood neighbor carried one stone to the edge of the marsh. They laid the stones in a line to mark where the mist spirit's home began.",
+      "The fog stayed behind the new stone line, and mushrooms along the edge lit one by one. Pip checked his old marker. The air around the stick was clear again."
     ]
   }),
   "moonwood-tales-c-24": fictionRewrite({
@@ -899,8 +899,8 @@ export const GUIDED_READING_WORLD_FICTION_REWRITES = Object.freeze({
       "Pip covered his mouth to hold back a cheer. \"You saw that?\" Glimmer whispered, looking up at Luna. She nodded, and the young dragon gave a tiny grin.",
       "Glimmer tried again. This time, a longer flame glowed inside the ring. The warm orange light grew brighter. Glimmer felt excited as the flame grew.",
       "Glimmer gasped, and the flame began to wobble toward the stones. 'Stop,' Luna said firmly. Glimmer closed their mouth, and the unsafe flame vanished.",
-      "Luna set a lantern inside the circle. “Light this lantern. The others will light too,” she said. Glimmer took a long breath and blew a small flame at its wick.",
-      "The lantern caught the flame and shone. Golden sparks traveled from lamp to lamp, lighting the path without spreading fire across the ground.",
+      "Luna looked at the lantern by the ring. “Light this one and the others will light too,” she said. Glimmer blew a small flame at its wick.",
+      "The lantern wick lit up. Golden sparks traveled from lamp to lamp. One after another, the lanterns along the path began to shine.",
       "Soon, a line of safe golden light wound through Moonwood. Lanterns and glowing mushrooms marked every turn. From the fire circle, Glimmer watched the whole path brighten.",
       "Glimmer turned to the friends waiting behind the ring. \"All those lights?\" they asked, looking back along the path. Pip finally let out the cheer he had been holding.",
       "Luna settled beside Glimmer under the golden lanterns. \"How does it feel?\" she asked. Glimmer opened their mouth to answer, then closed it and grinned.",
@@ -935,8 +935,8 @@ export const GUIDED_READING_WORLD_FICTION_REWRITES = Object.freeze({
     failedAttempt: "Pip holds the upper rope still, which transmits the buried branch's tugs and makes the bell ring harder.",
     resolution: "Pip and Burrow find the wind-pulled branch, secure its lower rope to a root peg, and rehang the fallen lantern beside a silent bell.",
     pages: [
-      "A brass bell rang beneath Hollow Oak, though nobody touched its hanging rope. Pip looked up in surprise. Why was the bell moving by itself?",
-      "The ringing made every lantern rattle against its hook. Pip watched one sway farther with each chime. He needed to quiet the bell before it fell.",
+      "A brass bell rang high inside Hollow Oak. Nobody touched its hanging rope. Pip looked up in surprise. Why was the bell moving by itself?",
+      "The ringing made every lantern rattle against its hook. Pip watched one sway farther with each chime. He needed to quiet the bell before a lantern fell.",
       "Pip grabbed the rope with both hands and tried to hold it still. Instead, the bell swung harder above him. The lanterns shook even more.",
       "Pip released the rope and pressed one palm against the wooden floor. With every chime, a root trembled under his hand. The shaking came from below.",
       "Burrow dug carefully beneath the floor while Pip followed the trembling root. Soon they uncovered a buried branch tugging a second rope. That rope led upward.",
@@ -956,7 +956,7 @@ export const GUIDED_READING_WORLD_FICTION_REWRITES = Object.freeze({
     pages: [
       "Fern cupped one glassleaf bud as the moon rose over her garden. The flowers needed moonlight to open, but old branches shaded their bed.",
       "Stone saw branches shading the flower bed and reached across the old roots. \"I can clear those,\" he said. Pip watched his enormous hands move closer.",
-      "As Stone leaned forward, his enormous shadow spread across the garden. Every glassleaf bud disappeared from the moonbeam. The whole flower bed grew dark.",
+      "As Stone leaned forward, his enormous shadow spread across the garden. The shadow covered one glassleaf bud after another. Soon the whole flower bed was dark.",
       "Stone stepped to the left, hoping the moonlight would return. Curving roots still blocked his reach, and his shadow covered the buds again. He sighed.",
       "Pip noticed a silver patch shining beneath the roots on the garden's far side. \"That light comes from the stream!\" he called. Stone turned to look.",
       "Stone walked to Crystal Stream and chose one flat, wet rock. Its smooth surface caught the moonlight. He carried it back without entering the fragile flower bed.",
@@ -994,7 +994,7 @@ export const GUIDED_READING_WORLD_FICTION_REWRITES = Object.freeze({
     pages: [
       "Rain began to fall over Fern's garden, where ten moonberries lay drying on a cloth. Fern watched the drops. The berries had to reach Hollow Oak before they were soaked.",
       "Wren opened her magic pocket beside the ten berries. \"I'll carry them inside before the rain grows heavy,\" she promised. Fern nodded as the dark clouds thickened.",
-      "Wren tapped her pocket and cast a familiar spell. The pocket could hold one object without any weight. She smiled, certain ten little berries would fit.",
+      "Wren tapped her pocket and cast a familiar spell. It made one object feel as light as air. “These berries are tiny,” she said. “They'll fit.”",
       "Wren placed the first moonberry inside, then added another and another. The pocket still felt completely light. She hurried toward Hollow Oak without looking behind her.",
       "Each new berry pushed the previous one out of the magic pocket. Plop after plop, moonberries landed safely on the path behind Wren. She never noticed.",
       "At Hollow Oak, Wren reached into her weightless pocket and pulled out one moonberry. \"Only one?\" she cried. Then she raced back along the garden path.",
@@ -1011,11 +1011,11 @@ export const GUIDED_READING_WORLD_FICTION_REWRITES = Object.freeze({
     failedAttempt: "Luna's neat size order creates a straight row that matches no constellation on the wall.",
     resolution: "Luna turns each thread until seven lights form an owl, then secures the window while her pupils trace the restored shape.",
     pages: [
-      "After a windy night, Luna entered Hollow Oak's star room and stopped. Seven colored glass stars hung in a tangled knot. Their threads crossed in every direction.",
+      "Wind rattled Hollow Oak. Luna entered the star room and stopped. Seven colored glass stars hung in a knot. Their threads crossed in every direction.",
       "Young owls hooted outside the round door, ready for their lesson. Luna had only a few minutes to restore the mobile. She began with a tidy plan.",
       "Luna untangled the glass stars and arranged them from smallest to largest. The seven stars made one neat row. She lifted the mobile toward the ceiling.",
-      "Light from the mobile cast a straight row of bright spots on the curved wall. Luna studied the pattern and shook her head. The row did not show any constellation.",
-      "Instead of guessing again, Luna opened the round roof window. The true night sky appeared above her. She compared each glass star with the lights overhead.",
+      "A straight row of bright spots shone on the curved wall. Luna shook her head. The lights should have formed an owl.",
+      "Instead of guessing again, Luna opened the round roof window. She could see the stars above her. She compared each glass star with the lights overhead.",
       "Luna found one red star east of three close silver points. She held that part of the pattern in her mind. Then she checked the remaining stars.",
       "Luna turned one hanging thread, then another, while watching the wall. Each reflected light moved closer to its place in the sky. The pattern slowly formed.",
       "At last, all seven lights joined into the shape of an owl. Luna checked the real stars once more. The restored pattern matched perfectly.",
@@ -1031,7 +1031,7 @@ export const GUIDED_READING_WORLD_FICTION_REWRITES = Object.freeze({
     resolution: "Burrow tests a firm gap below the root, digs through to Fern's bench, and adds the hidden circle to his corrected map.",
     pages: [
       "Burrow spread out his map of the clearing. The path to Fern's garden took a long bend around a stump. He picked up his shovel to make a shortcut.",
-      "Burrow dug beneath the clearing and followed the straight route on his map. The soil stayed firm and easy at first. Then his shovel struck something hard.",
+      "Burrow dug beneath the clearing and followed the straight route on his map. At first, the soil held its shape and was easy to dig. Then his shovel struck something hard.",
       "A thick curved root blocked the tunnel from floor to roof. Burrow could not dig through it. He turned left and followed the root instead.",
       "The root curved farther and farther until Burrow popped aboveground beside the same old stump. He looked down at his starting hole. All that digging had brought him back here.",
       "Burrow blinked, then studied the root instead of following it again. He marked its curve with clay dots and measured the full circle using cord.",
@@ -1106,7 +1106,7 @@ export const GUIDED_READING_WORLD_FICTION_REWRITES = Object.freeze({
     failedAttempt: "Stone taps every differently sized chime with the same pebble, producing harsh overlap and twisting the smallest chime.",
     resolution: "Stone steadies the small chime while Pip matches four tools, and their low-to-high pattern rings clearly through the open doors.",
     pages: [
-      "Before moonrise, Hollow Oak's four root chimes made dull, uneven sounds. Pip listened to each one while Stone inspected their cords. Something needed careful tuning.",
+      "Before moonrise, Pip listened to Hollow Oak's four root chimes. One clanged. Another barely made a sound. Beside him, Stone checked the cords.",
       "Luna waited outside Hollow Oak's doors. \"Can you tune them before I open the doors?\" she asked. Pip nodded, and Stone picked up a large pebble.",
       "Stone tapped the largest chime with his pebble, then tapped the other three just as hard. The chimes made loud sounds. Pip covered his ears.",
       "CLANG! Four harsh notes crashed together inside Hollow Oak. The smallest chime twisted on its cord, and Stone quickly lowered the pebble. \"That did not work.\"",

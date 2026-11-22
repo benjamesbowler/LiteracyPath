@@ -15,7 +15,11 @@ test('selected manuscripts preserve source image identities in the requested rea
     assert.deepEqual(pages.map(page => page.pageNumber), rewrite.sourcePageNumbers, id);
     assert.deepEqual(pages.map(page => page.text), rewrite.pages, id);
     for (const page of pages) {
-      assert.match(page.image, new RegExp(`page-${String(page.pageNumber).padStart(3, '0')}\\.webp$`), `${id}: image follows source page ${page.pageNumber}`);
+      if (id === 'james-and-anna-05-tree-house' && page.pageNumber === 8) {
+        assert.equal(page.image, '/guided-reading/series/james-and-anna/book-05/page-008-dad-cuts-df7581588218.webp');
+      } else {
+        assert.match(page.image, new RegExp(`page-${String(page.pageNumber).padStart(3, '0')}\\.webp$`), `${id}: image follows source page ${page.pageNumber}`);
+      }
       assert.equal(page.pageAudioText, page.text, `${id}: narration follows displayed text`);
     }
   }

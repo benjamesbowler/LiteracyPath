@@ -417,7 +417,7 @@
       },
       {
         "pageNumber": 10,
-        "text": "Japan, Egypt, and Brazil each have many kinds of places. A country’s name tells only part of its story.",
+        "text": "A name on the map marks the whole country. Look closer and you can see the different places inside it.",
         "imageBrief": "Return to same world map with three accurate dots. Around map place three paired landscape medallions: Japan wooded mountain and urban buildings; Egypt dry plateau and Nile fields; Brazil forest river and city coast. Thin leader lines bind each pair to correct dot. No flags, words, costumes or national icons.",
         "imageAlt": "The world map connects each of three countries to two different landscapes from inside it.",
         "pageDescription": "The world map connects each of three countries to two different landscapes from inside it.",
@@ -534,7 +534,7 @@
       },
       {
         "pageNumber": 4,
-        "text": "Her brain uses this information as she decides to stop the ball. Then it sends messages toward her arm muscles.",
+        "text": "Zoe sees the ball getting closer. Her brain sends messages telling her arm muscles to move.",
         "imageBrief": "A body diagram begins an outgoing route from brain toward the spinal cord. Brain in head, cord inside spine; no tiny person, speech bubble or literal picture stored inside the brain.",
         "imageAlt": "A body diagram begins an outgoing route from brain toward the spinal cord.",
         "pageDescription": "A body diagram begins an outgoing route from brain toward the spinal cord.",
@@ -584,7 +584,7 @@
       },
       {
         "pageNumber": 9,
-        "text": "Nerve cells pass messages to other nerve cells. Many connections help the body keep sensing and moving.",
+        "text": "Nerve cells pass messages from one cell to the next. Messages travel both to and from the brain.",
         "imageBrief": "A restrained close diagram shows three connected nerve cells. Cells have branching ends with tiny gaps; no physical wires or envelopes; pathway stays within the teaching diagram.",
         "imageAlt": "A restrained close diagram shows three connected nerve cells.",
         "pageDescription": "A restrained close diagram shows three connected nerve cells.",
@@ -761,7 +761,7 @@
       },
       {
         "pageNumber": 10,
-        "text": "Slow movement can build strain. A sudden slip releases it, sending waves through the ground. That is how this earthquake begins.",
+        "text": "The rock bends as the plates move. When the fault slips, energy travels in waves that shake the ground.",
         "imageBrief": "Return to the fault cutaway with the stripe offset and waves spreading. Final state matches page six; one example, no claim all earthquakes share this exact fault type.",
         "imageAlt": "Two rock blocks have an offset stripe across their boundary. Opposite arrows show their movement as rings mark spreading waves.",
         "pageDescription": "Two rock blocks have an offset stripe across their boundary. Opposite arrows show their movement as rings mark spreading waves.",
@@ -773,7 +773,7 @@
     "discussion": {
       "oral": {
         "prompt": "Why can rock move slowly for a long time before an earthquake?",
-        "listenFor": "A fault can stay stuck while strain builds, then slip suddenly."
+        "listenFor": "The plates keep pushing while the fault is stuck. When the rock slips, energy spreads out in waves."
       },
       "visual": {
         "page": 6,
@@ -788,8 +788,8 @@
         "meaning": "a break in rock where the sides can move"
       },
       {
-        "word": "strain",
-        "meaning": "a change in shape caused by a push or pull"
+        "word": "energy",
+        "meaning": "what can make things move, such as rock during an earthquake"
       },
       {
         "word": "wave",
@@ -893,7 +893,7 @@
       },
       {
         "pageNumber": 6,
-        "text": "For this lifting wing, the combined pressure pushes more upward than downward. That difference produces lift.",
+        "text": "Air pushes up harder on the bottom of this wing than it pushes down on the top.",
         "imageBrief": "A simplified pressure comparison sits beside the upward lift arrow. Lower-surface upward pushes and upper-surface downward pushes are combined conceptually; not all local arrows equal or uniformly sized.",
         "imageAlt": "A simplified pressure comparison sits beside the upward lift arrow.",
         "pageDescription": "A simplified pressure comparison sits beside the upward lift arrow.",
@@ -1102,7 +1102,7 @@
       },
       {
         "pageNumber": 10,
-        "text": "The picture crossed many connections as coded data. Screens, routers, cables and radio signals helped it reach Kit.",
+        "text": "The picture traveled in small packets of data. Kit’s laptop put the data together and showed the boat.",
         "imageBrief": "A final simple route links the two devices through the server and routers. One coherent diagram with wired and local wireless sections clearly distinct; original picture visible at both ends.",
         "imageAlt": "A final simple route links the two devices through the server and routers.",
         "pageDescription": "A final simple route links the two devices through the server and routers.",
@@ -1232,7 +1232,7 @@
       },
       {
         "pageNumber": 6,
-        "text": "The woven cloth is treated and colored. This cloth becomes pale blue before workers cut the shirt pieces.",
+        "text": "Workers dye the woven cloth pale blue. Then they cut out the pieces for a shirt.",
         "imageBrief": "A pale-blue cloth roll emerges at a finishing stage. Same plain weave; blue color consistent with final shirt; no untreated cotton bolls mixed into fabric.",
         "imageAlt": "A pale-blue cloth roll emerges at a finishing stage.",
         "pageDescription": "A pale-blue cloth roll emerges at a finishing stage.",
@@ -1280,7 +1280,7 @@
     "discussion": {
       "oral": {
         "prompt": "Why must cotton be spun before this cloth is woven?",
-        "listenFor": "Spinning joins short fibers into long yarn that the loom can interlace."
+        "listenFor": "Twisting the short fibers makes long yarn. The loom can weave that yarn over and under another set."
       },
       "visual": {
         "page": 5,
@@ -1382,7 +1382,7 @@
       },
       {
         "pageNumber": 4,
-        "text": "Green leaves use light to help make food from water and a gas in the air. This process supports the growing tree.",
+        "text": "Leaves use sunlight, water, and a gas called carbon dioxide to make sugar the tree can use.",
         "imageBrief": "A close leaf view connects sunlight, water and incoming carbon dioxide to plant food-making. Simple teaching symbols only; roots supply water, no soil chunks becoming food or leaves eating sunlight.",
         "imageAlt": "A close leaf view connects sunlight, water and incoming carbon dioxide to plant food-making.",
         "pageDescription": "A close leaf view connects sunlight, water and incoming carbon dioxide to plant food-making.",
@@ -1438,7 +1438,7 @@
       },
       {
         "pageNumber": 10,
-        "text": "The rainforest changes from bright treetops to shaded ground. Where light reaches leaves helps shape what can grow and feed there.",
+        "text": "Sunlight helps fruit grow high in the canopy. Young trees can grow in little patches of light on the ground.",
         "imageBrief": "Return to the full forest section with toucan above and young plants below. One connected habitat, same trees and species; gap partly filled, clear light difference without invented numerical percentages.",
         "imageAlt": "A toucan perches high in a rainforest tree while young trees grow beside a fallen log in a patch of sunlight.",
         "pageDescription": "A toucan perches high in a rainforest tree while young trees grow beside a fallen log in a patch of sunlight.",
@@ -1461,7 +1461,7 @@
     "languagePrep": [
       {
         "word": "canopy",
-        "meaning": "the leafy layer formed by tree crowns"
+        "meaning": "the layer of leaves and branches at the top of the forest"
       },
       {
         "word": "absorb",
@@ -1524,7 +1524,7 @@
     "pages": [
       {
         "pageNumber": 1,
-        "text": "A museum washboard helps us explore an older way to wash. Its ridged board and hand-turned rollers each have a job.",
+        "text": "This old washboard has ridges for rubbing clothes. Its wringer has two rollers for squeezing water from wet cloth.",
         "imageBrief": "A washboard with its top wringer stands beside two tubs in a teaching space. Five horizontal ribbed slats, two rubber rollers and one crank, based on Museum Wales object F79.198; no invented date label.",
         "imageAlt": "A washboard with its top wringer stands beside two tubs in a teaching space.",
         "pageDescription": "A washboard with its top wringer stands beside two tubs in a teaching space.",
@@ -1533,7 +1533,7 @@
       },
       {
         "pageNumber": 2,
-        "text": "In our demonstration, an adult washes a yellow shirt with water and soap. The cloth moves against the board's ridges.",
+        "text": "An adult rubs a yellow shirt against the washboard’s ridges. She uses water and soap.",
         "imageBrief": "The adult rubs the yellow shirt gently against the washboard in a tub. One blue pocket identifies the shirt; adult in modern clothes, sleeves clear of water; no boiling water.",
         "imageAlt": "The adult rubs the yellow shirt gently against the washboard in a tub.",
         "pageDescription": "The adult rubs the yellow shirt gently against the washboard in a tub.",
@@ -1607,7 +1607,7 @@
       },
       {
         "pageNumber": 10,
-        "text": "This is one comparison of two methods. People still wash in different ways, using the water, tools and power available to them.",
+        "text": "The same shirt came clean two ways. Both times, it still had to dry before someone could wear it.",
         "imageBrief": "The washboard and washer stand beside the clean dry shirt in the teaching display. Modern neutral setting; no ranking of people or suggestion everyone once or now uses the same method.",
         "imageAlt": "The washboard and washer stand beside the clean dry shirt in the teaching display.",
         "pageDescription": "The washboard and washer stand beside the clean dry shirt in the teaching display.",
@@ -1765,7 +1765,7 @@
       },
       {
         "pageNumber": 9,
-        "text": "If conditions improve in time, algae can increase again. Some corals recover their color and continue growing.",
+        "text": "If the water cools soon enough, algae can grow inside the coral again. The coral may get its color back.",
         "imageBrief": "A comparison shows one possible recovery as algae and tan color return. Explicit possible outcome in composition; not a guaranteed timeline or instant full-reef recovery.",
         "imageAlt": "A comparison shows one possible recovery as algae and tan color return.",
         "pageDescription": "A comparison shows one possible recovery as algae and tan color return.",

@@ -22,12 +22,12 @@ export const CYCLE_SHORT_PICTURES = {
   },
   "cycle-short-5": {
     "src": "/images/comprehension/cycle-shorts/cycle-short-5.webp",
-    "sourceText": "Muddy sits on a log. The log rolls. No, Muddy cannot sit on it. So Muddy lets it go and sits on the mat.",
+    "sourceText": "Muddy sits on a log. The log rolls. Muddy gets off. Muddy sits on the mat.",
     "alt": "First: Muddy sits on a round log beside a mat. Next: The round log rolls under Muddy and he steps off safely. Last: Muddy sits on the mat as the log rests nearby."
   },
   "cycle-short-6": {
     "src": "/images/comprehension/cycle-shorts/cycle-short-6.webp",
-    "sourceText": "Muddy’s red hat is in the mud. Muddy runs to it. “How do I get my hat?” Muddy asks. Muddy lifts it with a stick. The hat is back on Muddy.",
+    "sourceText": "Muddy’s red hat is in the mud. Muddy runs to it. “How do I get my hat?” Muddy asks. Muddy lifts it with a stick. Muddy puts his hat back on.",
     "alt": "First: A red hat lies in a shallow mud patch; Muddy approaches. Next: Muddy uses a long stick to lift the red hat out of the mud. Last: The same red hat is back on Muddy’s head; the stick rests nearby."
   },
   "cycle-short-7": {
@@ -42,37 +42,37 @@ export const CYCLE_SHORT_PICTURES = {
   },
   "cycle-short-9": {
     "src": "/images/comprehension/cycle-shorts/cycle-short-9.webp",
-    "sourceText": "Splashy has a quilt. She tugs it up. It slips off. Muddy lifts it for her. He tucks it in. Sit with me, said Muddy.",
+    "sourceText": "Splashy has a quilt. She tugs it up. It slips off. Muddy lifts it for her. He tucks the quilt around her. “Sit with me,” says Muddy.",
     "alt": "First: Splashy sits beside Muddy with a quilt slipping off her body. Next: Muddy lifts the slipping quilt back around Splashy. Last: Muddy tucks the quilt around Splashy; they sit together comfortably."
   },
   "cycle-short-10": {
     "src": "/images/comprehension/cycle-shorts/cycle-short-10.webp",
-    "sourceText": "Muddy and Splashy are at the pond. A cap is on a log. Can you get it, Splashy? Splashy swims as Muddy holds the log. Splashy gets the cap.",
+    "sourceText": "Muddy and Splashy are at the pond. A cap is on a log. “Can you get it, Splashy?” asks Muddy. Splashy swims as Muddy holds the log. Splashy gets the cap.",
     "alt": "First: Muddy and Splashy stand by a pond; a cap lies on a floating log. Next: Muddy holds the log steady from the bank as Splashy swims towards the cap. Last: Splashy has retrieved the cap and swims back to Muddy, who still holds the log."
   },
   "cycle-short-11": {
     "src": "/images/comprehension/cycle-shorts/cycle-short-11.webp",
-    "sourceText": "Muddy the pig was in a box. The box tips on its side. Muddy yells for help. Splashy lifts the lid. Now I can see the sun, said Muddy.",
+    "sourceText": "Muddy the pig is in a box. The box tips on its side. Muddy yells for help. Splashy lifts the lid. “Now I can see the sun,” says Muddy.",
     "alt": "First: Muddy sits inside a large open cardboard box. Next: The box has tipped onto its side; Muddy calls for help from inside while Splashy approaches. Last: Splashy lifts the lid flap; Muddy looks through the opening at the sun."
   },
   "cycle-short-12": {
     "src": "/images/comprehension/cycle-shorts/cycle-short-12.webp",
-    "sourceText": "Muddy has a red vest for the farm picnic. It will not fit. Is it for me or for Tiny? Tiny puts on the vest. It fits Tiny!",
+    "sourceText": "Muddy has a red vest for the farm picnic. It will not fit. “Is it for me or for Tiny?” asks Muddy. Tiny puts on the vest. It fits Tiny!",
     "alt": "First: Muddy holds a tiny red buttoned vest against his belly; it is visibly too small. Tiny stands beside him. Next: Muddy hands the same red vest to Tiny. Last: Tiny wears the same red vest comfortably while Muddy smiles beside him at a picnic blanket."
   },
   "cycle-short-13": {
     "src": "/images/comprehension/cycle-shorts/cycle-short-13.webp",
-    "sourceText": "Muddy has jam in his picnic kit. The zip is stuck. Clucky gets her peg. She lifts the zip with the peg. Now Muddy can get the jam.",
+    "sourceText": "Muddy has jam in his picnic kit. The bag’s zip is stuck. Clucky gets her peg. She pulls the zip with the peg. Now Muddy can get the jam.",
     "alt": "First: Muddy has a picnic bag with a jam jar visible through a small unzipped opening; the zip is stuck. Next: Clucky uses an ordinary wooden clothes peg to grip and lift the stuck zipper pull. Last: The bag is open and Muddy can lift out the jam jar; Clucky holds the peg."
   },
   "cycle-short-15": {
     "src": "/images/comprehension/cycle-shorts/cycle-short-15.webp",
-    "sourceText": "Muddy and Brave the chick look for a shell. The shell is in a thin crack by the pond. Muddy cannot reach it. Brave lifts it with a thin stick. Good work, Brave, said Muddy.",
+    "sourceText": "Muddy and Brave the chick look for a shell. The shell is in a narrow crack by the pond. Muddy cannot reach it. Brave lifts it with a thin stick. “Good work, Brave!” says Muddy.",
     "alt": "First: Muddy and Brave look at a shell visibly stuck in a narrow crack beside the pond. Next: Muddy cannot reach into the crack; Brave slides a thin stick under the shell. Last: Brave lifts the shell out with the thin stick while Muddy watches."
   },
   "cycle-short-16": {
     "src": "/images/comprehension/cycle-shorts/cycle-short-16.webp",
-    "sourceText": "Muddy has a ball. They all watch it roll to the wall. The ball is stuck in a gap. Try this, says Splashy. Muddy pushes a stick into the gap. Out pops the ball onto the mat!",
+    "sourceText": "Muddy has a ball. Muddy and Splashy watch it roll to the wall. The ball is stuck in a gap. “Try this,” says Splashy. Muddy pushes a stick into the gap. Out pops the ball onto the mat!",
     "alt": "First: Muddy and Splashy watch a ball roll towards a low stone wall; a mat is nearby. Next: The ball is lodged in a gap at the bottom of the wall; Muddy pushes a stick into the gap. Last: The ball has popped out onto the mat; Muddy holds the stick while Splashy watches."
   },
   "cycle-short-17": {
@@ -92,17 +92,17 @@ export const CYCLE_SHORT_PICTURES = {
   },
   "cycle-short-22": {
     "src": "/images/comprehension/cycle-shorts/cycle-short-22.webp",
-    "sourceText": "Muddy has a pink cup. It goes under the tap by the barn. Why does the sink fill up? A leaf blocks the hole. Muddy lifts out the leaf. The water goes down and the sink is empty.",
+    "sourceText": "Muddy has a pink cup. Muddy puts it under the tap by the barn. Why does the sink fill up? A leaf blocks the hole. Muddy lifts out the leaf. The water goes down and the sink is empty.",
     "alt": "First: Muddy holds a pink cup under a running tap at the barn sink; water builds up because a leaf covers the drain hole. Next: Muddy lifts the blocking leaf from the drain hole; water begins to flow down. Last: The sink is empty of standing water; the pink cup rests nearby and Muddy holds the removed leaf."
   },
   "cycle-short-24": {
     "src": "/images/comprehension/cycle-shorts/cycle-short-24.webp",
-    "sourceText": "Muddy hears a buzz by the bell. Which bug is it? A bee lands on the bell. His friends may miss lunch. He waits for the bee to fly off. Then Muddy rings the bell for lunch.",
+    "sourceText": "Muddy hears a buzz by the bell. “Which bug is it?” asks Muddy. A bee lands on the bell. Muddy must ring the bell or his friends may miss lunch. He waits for the bee to fly off. Then Muddy rings the bell for lunch.",
     "alt": "First: Muddy looks at a bee flying beside a farm lunch bell. Next: The bee lands on the bell; Muddy waits with his forehooves away from the bell. Last: The bee has flown clear and Muddy rings the bell beside a picnic blanket."
   },
   "cycle-short-26": {
     "src": "/images/comprehension/cycle-shorts/cycle-short-26.webp",
-    "sourceText": "My hat is stuck by the pond, said Muddy. Why not try a stick, said Splashy. The stick is too short. Muddy finds a longer stick by the barn. This time the stick reaches the hat. Muddy lifts the hat onto the grass.",
+    "sourceText": "“My hat is stuck by the pond,” says Muddy. “Why not try a stick?” says Splashy. The stick is too short. Muddy finds a longer stick by the barn. This time the stick reaches the hat. Muddy lifts the hat onto the grass.",
     "alt": "First: Muddy’s hat is stuck near the pond; Splashy watches him try a stick that is clearly too short to reach it. Next: Muddy finds a visibly longer stick beside the nearby barn. Last: Muddy uses the longer stick to lift the hat safely onto the grass beside Splashy."
   },
   "cycle-short-27": {

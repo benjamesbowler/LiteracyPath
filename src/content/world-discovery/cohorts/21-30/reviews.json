@@ -715,12 +715,12 @@
   "world-discovery-a-28": {
     "appReadingLevel": "A",
     "rationale": "Short direct clauses follow finding food, feeding, returning, leaving scent and recruiting other ants. The revised p5 explicitly states that scent cannot be seen, so the diagram convention does not require unsupported inference. Repeated ant/scent/drop words and oral preparation support A; detailed chemical mechanisms and memory research remain outside the child text.",
-    "reviewedAt": "2026-11-09",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:e45d545b43927daf",
+    "reviewedTextFingerprint": "fnv1a64:b9f1cc7a983be393",
     "dimensionObservations": {
-      "syntax": "Eight pages; each page is one short present-tense statement of at most six words, without dialogue or subordinate clauses.",
-      "vocabulary": "Ant, sweet drop, nest, scent and trail recur; scent/trail/nest are orally prepared and invisibility is printed explicitly.",
+      "syntax": "8 pages, 44 words. Pages contain 5–6 words. The revised sentences preserve the book’s A reading demands.",
+      "vocabulary": "Current oral preparation covers scent, trail, nest. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "Ants can follow an invisible scent. The text now states the invisibility; no pheromone terminology or ant-memory theory is required.",
       "progression": "Discovery, return, scent deposition, explicit invisibility, recruitment and arrival form one complete connected inquiry.",
       "inference": "Short direct clauses follow finding food, feeding, returning, leaving scent and recruiting other ants. The revised p5 explicitly states that scent cannot be seen, so the diagram convention does not require unsupported inference. Repeated ant/scent/drop words and oral preparation support A; detailed chemical mechanisms and memory research remain outside the child text."
@@ -748,9 +748,9 @@
     },
     "editorialScorecard": {
       "authority": "docs/content/STORY_BIBLE_PART_1_WRITING.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09T13:17:28.876Z",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:e45d545b43927daf",
+      "reviewedTextFingerprint": "fnv1a64:b9f1cc7a983be393",
       "categories": {
         "character": {
           "score": 4,
@@ -778,11 +778,11 @@
         },
         "language": {
           "score": 4,
-          "evidence": "Short concrete clauses fit A; scent/trail/nest preparation and explicit We cannot see the scent prevent reliance on unexplained visible dots."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-a-28. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "Finds, drinks, walks and follow are natural verbs, while the short informational voice remains restrained."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-a-28. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 3,
@@ -794,11 +794,11 @@
         },
         "illustration": {
           "score": 4,
-          "evidence": "Natural pages omit scent dots; declared explanatory pages show them. Recruits face toward food, the feeding drop reduces, and arriving ants match the exact text states. Current independent sequence is clear."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-a-28. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "All 9 exact current title/page texts have hash-matching Leda clips in the automated narration report, with full decode/signal and independent-recognition dispositions. Shared word reuse is governed by the cohort inventory. Automated evidence supports a sound current recording set; reader playback remains separate, so fully verified score 4 is not assigned. No human-listening claim."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 33,
@@ -807,24 +807,21 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "independentSequence": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-a-28/independentImageReview",
-        "independentSequenceSha256": "a0e8d6760856560dc731553d7ee5aecfcf9aeac9887952af94edabffacc878d5",
-        "automatedNarration": "source-art/world-discovery/cohorts/21-30/narration-review.json",
-        "automatedNarrationSha256": "1274b52ebb6ecdba0c730ecf5672b4ebfd4d1c8cfcd0824ab5de2413c8afa647",
-        "humanListeningObserved": false,
-        "completeBook": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-a-28"
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json",
+        "humanListeningObserved": false
       }
     }
   },
   "world-discovery-a-29": {
     "appReadingLevel": "A",
     "rationale": "Short concrete folding, meeting, pressing, cutting and matching clauses supply direct evidence for half. No written measurement or abstract arithmetic is required. Matching edges and final reassembly make the new concept visible, with half/equal in oral preparation; A is supported.",
-    "reviewedAt": "2026-11-09",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:2c667fe507512968",
+    "reviewedTextFingerprint": "fnv1a64:04ae68ebcae50fff",
     "dimensionObservations": {
-      "syntax": "Eight pages; each page is one short present-tense statement of at most six words, without dialogue or subordinate clauses.",
-      "vocabulary": "Strip, fold, piece, edges and half name directly observed actions and relationships; half/equal are orally prepared.",
+      "syntax": "8 pages, 43 words. Pages contain 5–6 words. The revised sentences preserve the book’s A reading demands.",
+      "vocabulary": "Current oral preparation covers equal, half, fold. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "Folding, cutting, matching and joining two pieces demonstrate halves; numeric measurement and fraction notation are unnecessary.",
       "progression": "Fold establishes midpoint, cut creates two pieces, superposition checks equality and reconstruction verifies the whole.",
       "inference": "Short concrete folding, meeting, pressing, cutting and matching clauses supply direct evidence for half. No written measurement or abstract arithmetic is required. Matching edges and final reassembly make the new concept visible, with half/equal in oral preparation; A is supported."
@@ -848,9 +845,9 @@
     "releaseStatus": "editorial-media-reviewed-reader-release-gates-separate",
     "editorialScorecard": {
       "authority": "docs/content/STORY_BIBLE_PART_1_WRITING.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09T13:17:28.876Z",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:2c667fe507512968",
+      "reviewedTextFingerprint": "fnv1a64:04ae68ebcae50fff",
       "categories": {
         "character": {
           "score": 4,
@@ -878,11 +875,11 @@
         },
         "language": {
           "score": 4,
-          "evidence": "Short action clauses, directly shown ends/edges/fold and equal/half preparation fit A without symbolic fractions or numerical measures."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-a-29. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "Folds, meet, presses, cuts and match are clear spoken verbs. The procedural voice is natural and intentionally plain."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-a-29. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 3,
@@ -894,11 +891,12 @@
         },
         "illustration": {
           "score": 4,
-          "evidence": "Aligned ends, stationary crease, congruent overlap and two equal halves restoring the original strip agree with the text; the stacking action is shown with two parts before exact overlap. Current independent sequence is clear."
+          "status": "reviewed",
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-a-29. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "All 9 exact current title/page texts have hash-matching Leda clips in the automated narration report, with full decode/signal and independent-recognition dispositions. Shared word reuse is governed by the cohort inventory. Automated evidence supports a sound current recording set; reader playback remains separate, so fully verified score 4 is not assigned. No human-listening claim."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 33,
@@ -907,12 +905,9 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "independentSequence": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-a-29/independentImageReview",
-        "independentSequenceSha256": "56387743b91a5db37eb9bdd6188fbfa4ea3c2bb08c696e053f2fbb81442b2cb7",
-        "automatedNarration": "source-art/world-discovery/cohorts/21-30/narration-review.json",
-        "automatedNarrationSha256": "1274b52ebb6ecdba0c730ecf5672b4ebfd4d1c8cfcd0824ab5de2413c8afa647",
-        "humanListeningObserved": false,
-        "completeBook": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-a-29"
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json",
+        "humanListeningObserved": false
       }
     }
   },
@@ -1021,16 +1016,16 @@
     "sourceCandidateLevel": "B",
     "appReadingLevel": "B",
     "levelSystem": "literacy-guide-a-h-v1",
-    "reviewedAt": "2026-11-10",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:134409cd9ee3130c",
+    "reviewedTextFingerprint": "fnv1a64:c3909b0faa7bd63c",
     "reviewedTextHash": "sha256:8ae3721b1fa849d9f3ba8d4208377b730894f711e0bd96b4cef256d147d4f7fd",
     "manuscriptReviewStatus": "complete",
     "reviewScope": "complete-book-editorial-and-media-review",
     "rationale": "Short paired present-tense clauses follow three familiar bodily actions and their visible movement results. Chain, blade and glide broaden concrete vocabulary, but no specialist force theory or unstated mechanism is required. The final people-power statement supplies the shared comparison explicitly. Upper B is supported by the catalogue’s B swimming-feet and train/mirror sequences; the presence of three vehicles alone does not require C.",
     "dimensionObservations": {
-      "syntax": "Eight pages of brief present-tense clauses and one opening question; two authored lines per page, 12 words maximum and no subordinate clauses. Push/glide repetitions vary purposefully.",
-      "vocabulary": "Pedals, chain, skate, glide, oar handles and blades name visible parts/actions. Oral preparation defines pedal, glide and the oar meaning of blade. This is levelled text, not a cumulative-decoding claim.",
+      "syntax": "8 pages, 82 words. Pages contain 8–12 words. The revised sentences preserve the book’s B reading demands.",
+      "vocabulary": "Current oral preparation covers pedal, glide, blade. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "People supply the push or pull for three non-motorized rides. Backward water movement beside forward boat movement is concrete and is already an established B demand in Feet for Swimming.",
       "progression": "Bicycle transmission/rolling, skating push/glide and rowing pull/blade action each lead to movement; the last page states the shared bodily source of power.",
       "inference": "Low. The opening asks what makes the rides go; the text names people and their actions rather than asking the reader to derive an unseen physical law."
@@ -1083,9 +1078,9 @@
     ],
     "editorialScorecard": {
       "authority": "docs/content/STORY_BIBLE_PART_1_WRITING.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-10",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:134409cd9ee3130c",
+      "reviewedTextFingerprint": "fnv1a64:c3909b0faa7bd63c",
       "categories": {
         "character": {
           "score": 4,
@@ -1113,11 +1108,11 @@
         },
         "language": {
           "score": 4,
-          "evidence": "Brief natural clauses, repeated push/pull vocabulary and explicit outcomes support B while keeping the topic dignified."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-b-21. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "Push, glide, push, glide creates an audible rhythm; the rest is clear, specific explanatory prose."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-b-21. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 3,
@@ -1129,11 +1124,11 @@
         },
         "illustration": {
           "score": 4,
-          "evidence": "Every final page matches the exact concrete prose and authorized diagram state; meaningful mechanical/map/framing defects were repaired and the complete final sequence independently inspected."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-b-21. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "All 9 exact current title/page texts resolve to matching screened Leda clips, with full decode/signal and independent-recognition dispositions. Missing words and page-scoped clarity takes have separate exact-byte screening. Automated evidence supports current recordings; human listening and physical-device playback are not claimed."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 32,
@@ -1142,11 +1137,8 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "completeBook": "source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json#world-discovery-b-21",
-        "automatedNarration": "source-art/world-discovery/remediation/2026-11-10/topic-revision-new-narration-review.json",
-        "automatedNarrationSha256": "30a2705085245a70b65230b1fb73b0273d0dc23256d70dc3c6156e97a390a1fa",
-        "additionalWordScreening": "source-art/world-discovery/remediation/2026-11-10/topic-revision-additional-word-review.json",
-        "additionalWordScreeningSha256": "0e1312f6c797d86b8576672450e80875aa314d6880bfeb9e30687d8643c5a45f",
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json",
         "humanListeningObserved": false
       }
     },
@@ -1172,12 +1164,12 @@
   "world-discovery-b-22": {
     "appReadingLevel": "B",
     "rationale": "Short direct directions follow connected blue water around Earth. Ocean names are the main new vocabulary and receive exact map labels; no national borders or memorized geography is required.",
-    "reviewedAt": "2026-11-09",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:6c4fe226d96b9d5b",
+    "reviewedTextFingerprint": "fnv1a64:05118b6c5c61ce92",
     "dimensionObservations": {
-      "syntax": "Eight pages with short paired clauses, no dialogue; each authored line was read for ordinary spoken English.",
-      "vocabulary": "Focused terms Atlantic, Southern, Indian, Pacific, Arctic are introduced through named objects/actions and oral preparation.",
+      "syntax": "8 pages, 85 words. Pages contain 9–14 words. The revised sentences preserve the book’s B reading demands.",
+      "vocabulary": "Current oral preparation covers ocean, connected, globe. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "The opening question and concrete example introduce the needed context; no unintroduced off-page knowledge is required for the stated answer.",
       "progression": "A continuous water route answers the opening separation question.",
       "inference": "Short direct directions follow connected blue water around Earth. Ocean names are the main new vocabulary and receive exact map labels; no national borders or memorized geography is required."
@@ -1201,9 +1193,9 @@
     "releaseStatus": "editorial-media-reviewed-reader-release-gates-separate",
     "editorialScorecard": {
       "authority": "docs/content/STORY_BIBLE_PART_1_WRITING.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09T13:54:07.399Z",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:6c4fe226d96b9d5b",
+      "reviewedTextFingerprint": "fnv1a64:05118b6c5c61ce92",
       "categories": {
         "character": {
           "score": 4,
@@ -1231,11 +1223,11 @@
         },
         "language": {
           "score": 4,
-          "evidence": "Short directional clauses support the B reader through unfamiliar proper names; repeated water and ocean anchor the map-supported explanation."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-b-22. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "The question and tracing language read naturally, while the sequence of geographical names makes the voice more functional than lyrical."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-b-22. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 3,
@@ -1247,11 +1239,11 @@
         },
         "illustration": {
           "score": 4,
-          "evidence": "The illustrated route stays in water around Africa and southern Australia and through the northern passage; repeated labels identify regions without implying physical dividing walls. The current independent image sequence is clear."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-b-22. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "All 9 exact current title/page texts have hash-matching Leda clips in the completed automated narration report, with full decode/signal checks and recorded independent-recognition dispositions. Shared word reuse is governed by the cohort inventory. Automated evidence supports a sound current recording set; reader playback remains separate, so fully verified score 4 is not assigned. No human-listening claim."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 34,
@@ -1260,16 +1252,9 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "independentSequence": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-b-22/independentImageReview",
-        "independentSequenceSha256": "48d2b4ae4cdd7a86ad9a3362c54ec8e89ab972142838f7be4f44e5b97ed4a69f",
-        "automatedNarration": "source-art/world-discovery/cohorts/21-30/narration-review.json",
-        "automatedNarrationSha256": "1274b52ebb6ecdba0c730ecf5672b4ebfd4d1c8cfcd0824ab5de2413c8afa647",
-        "humanListeningObserved": false,
-        "independentSequenceHashRefresh": {
-          "previousSha256": "e140f1656f11678e0eaf6ebe7f83c06b423d3a0e690c387180d9adaaad4261c5",
-          "reason": "Independent reviewer re-read current prose and briefs against prior direct-inspection findings, verified all inspected image hashes unchanged and added explicit manuscript binding. Review findings/scores unchanged."
-        },
-        "completeBook": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-b-22"
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json",
+        "humanListeningObserved": false
       }
     }
   },
@@ -1485,12 +1470,12 @@
   "world-discovery-b-25": {
     "appReadingLevel": "B",
     "rationale": "Two short clauses per page isolate one change at a time. Light-path vocabulary has concrete flashlight, mirror and screen support; the ending states the observed relationship.",
-    "reviewedAt": "2026-11-09",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:c896b3df4406df15",
+    "reviewedTextFingerprint": "fnv1a64:0cb574f6616166f5",
     "dimensionObservations": {
-      "syntax": "Eight pages with short paired clauses, no dialogue; each authored line was read for ordinary spoken English.",
-      "vocabulary": "Focused terms mirror, screen, path are introduced through named objects/actions and oral preparation.",
+      "syntax": "8 pages, 90 words. Pages contain 9–13 words. The revised sentences preserve the book’s B reading demands.",
+      "vocabulary": "Current oral preparation covers mirror, reflect, path. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "The opening question and concrete example introduce the needed context; no unintroduced off-page knowledge is required for the stated answer.",
       "progression": "Turn mirror, block beam, restore beam and restore angle provide connected comparisons.",
       "inference": "Two short clauses per page isolate one change at a time. Light-path vocabulary has concrete flashlight, mirror and screen support; the ending states the observed relationship."
@@ -1514,9 +1499,9 @@
     "releaseStatus": "editorial-media-reviewed-reader-release-gates-separate",
     "editorialScorecard": {
       "authority": "docs/content/STORY_BIBLE_PART_1_WRITING.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09T13:54:07.399Z",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:c896b3df4406df15",
+      "reviewedTextFingerprint": "fnv1a64:0cb574f6616166f5",
       "categories": {
         "character": {
           "score": 4,
@@ -1544,11 +1529,11 @@
         },
         "language": {
           "score": 4,
-          "evidence": "Short paired sentences, repeated apparatus names and observable changes support B readers without angle formulae or abstract optics vocabulary."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-b-25. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "Moves, blocks, turns and comes back make a clear spoken demonstration. The voice is straightforward rather than unusually memorable."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-b-25. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 3,
@@ -1560,11 +1545,11 @@
         },
         "illustration": {
           "score": 4,
-          "evidence": "The screen spot moves only with the appropriate mirror change, disappears when the incoming light is blocked and returns when the block is removed; diagram arrows follow the authored path. The current independent image sequence is clear."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-b-25. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "All 9 exact current title/page texts have hash-matching Leda clips in the completed automated narration report, with full decode/signal checks and recorded independent-recognition dispositions. Shared word reuse is governed by the cohort inventory. Automated evidence supports a sound current recording set; reader playback remains separate, so fully verified score 4 is not assigned. No human-listening claim."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 33,
@@ -1573,16 +1558,9 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "independentSequence": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-b-25/independentImageReview",
-        "independentSequenceSha256": "f6ebead40190306b034699d153c7b34f8733d58d03aa49f89ba24e2ba959f65b",
-        "automatedNarration": "source-art/world-discovery/cohorts/21-30/narration-review.json",
-        "automatedNarrationSha256": "1274b52ebb6ecdba0c730ecf5672b4ebfd4d1c8cfcd0824ab5de2413c8afa647",
-        "humanListeningObserved": false,
-        "independentSequenceHashRefresh": {
-          "previousSha256": "ed7cf158d2b9079fc73c537d65bb8860b5c3a839d0da154921a7fd620398ab7d",
-          "reason": "Independent reviewer re-read current prose and briefs against prior direct-inspection findings, verified all inspected image hashes unchanged and added explicit manuscript binding. Review findings/scores unchanged."
-        },
-        "completeBook": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-b-25"
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json",
+        "humanListeningObserved": false
       }
     }
   },
@@ -1693,12 +1671,12 @@
   "world-discovery-b-27": {
     "appReadingLevel": "B",
     "rationale": "A question leads into short observable steps. Curds and whey are named beside their physical outcomes; the adult handles all heat and pouring.",
-    "reviewedAt": "2026-11-09",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:20762b9f16812f17",
+    "reviewedTextFingerprint": "fnv1a64:02ea556659157897",
     "dimensionObservations": {
-      "syntax": "Eight pages with short paired clauses, no dialogue; each authored line was read for ordinary spoken English.",
-      "vocabulary": "Focused terms pasteurized, curds, whey are introduced through named objects/actions and oral preparation.",
+      "syntax": "8 pages, 86 words. Pages contain 10–12 words. The revised sentences preserve the book’s B reading demands.",
+      "vocabulary": "Current oral preparation covers curds, whey, pasteurized. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "The opening question and concrete example introduce the needed context; no unintroduced off-page knowledge is required for the stated answer.",
       "progression": "Milk separates after lemon juice; cloth retains curds and drains whey.",
       "inference": "A question leads into short observable steps. Curds and whey are named beside their physical outcomes; the adult handles all heat and pouring."
@@ -1723,9 +1701,9 @@
     "releaseStatus": "editorial-media-reviewed-reader-release-gates-separate",
     "editorialScorecard": {
       "authority": "docs/content/STORY_BIBLE_PART_1_WRITING.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09T13:54:07.399Z",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:20762b9f16812f17",
+      "reviewedTextFingerprint": "fnv1a64:02ea556659157897",
       "categories": {
         "character": {
           "score": 4,
@@ -1753,11 +1731,11 @@
         },
         "language": {
           "score": 4,
-          "evidence": "B sentences introduce curds and whey next to their visible forms. Repeated milk, cloth and bowl keep the procedure trackable."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-b-27. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "Heats, adds, forms, pours and drains make a natural spoken sequence; the instructional voice is intentionally plain."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-b-27. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 3,
@@ -1769,11 +1747,11 @@
         },
         "illustration": {
           "score": 4,
-          "evidence": "White curds remain in the cloth while pale whey reaches the bowl; the final two products agree with the text and the children do not handle hot equipment. The current independent image sequence is clear."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-b-27. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "All 9 exact current title/page texts have hash-matching Leda clips in the completed automated narration report, with full decode/signal checks and recorded independent-recognition dispositions. Shared word reuse is governed by the cohort inventory. Automated evidence supports a sound current recording set; reader playback remains separate, so fully verified score 4 is not assigned. No human-listening claim."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 34,
@@ -1782,28 +1760,21 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "independentSequence": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-b-27/independentImageReview",
-        "independentSequenceSha256": "393521314f4d12df5dfe24d241ccdcc64ad970160ea219e94ec158a713b929e4",
-        "automatedNarration": "source-art/world-discovery/cohorts/21-30/narration-review.json",
-        "automatedNarrationSha256": "1274b52ebb6ecdba0c730ecf5672b4ebfd4d1c8cfcd0824ab5de2413c8afa647",
-        "humanListeningObserved": false,
-        "independentSequenceHashRefresh": {
-          "previousSha256": "666f318858d7b1a04be437b896655e21abf6cdb488ca5c09f24eba1dc101b8f1",
-          "reason": "Independent reviewer re-read current prose and briefs against prior direct-inspection findings, verified all inspected image hashes unchanged and added explicit manuscript binding. Review findings/scores unchanged."
-        },
-        "completeBook": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-b-27"
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json",
+        "humanListeningObserved": false
       }
     }
   },
   "world-discovery-b-28": {
     "appReadingLevel": "B",
     "rationale": "Short present-tense clauses connect neck, tongue and lips to one feeding action. Each page changes the same branch state; no talking animal or unsupported motive.",
-    "reviewedAt": "2026-11-09",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:c223231787d367af",
+    "reviewedTextFingerprint": "fnv1a64:2ca198597887c391",
     "dimensionObservations": {
-      "syntax": "Eight pages with short paired clauses, no dialogue; each authored line was read for ordinary spoken English.",
-      "vocabulary": "Focused terms twig, tongue, thorns are introduced through named objects/actions and oral preparation.",
+      "syntax": "8 pages, 93 words. Pages contain 10–12 words. The revised sentences preserve the book’s B reading demands.",
+      "vocabulary": "Current oral preparation covers twig, thorn, bend. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "The opening question and concrete example introduce the needed context; no unintroduced off-page knowledge is required for the stated answer.",
       "progression": "Reach, grasp, pull and chew leaves; the thorn-bearing twig remains behind.",
       "inference": "Short present-tense clauses connect neck, tongue and lips to one feeding action. Each page changes the same branch state; no talking animal or unsupported motive."
@@ -1827,9 +1798,9 @@
     "releaseStatus": "editorial-media-reviewed-reader-release-gates-separate",
     "editorialScorecard": {
       "authority": "docs/content/STORY_BIBLE_PART_1_WRITING.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09T13:54:07.399Z",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:c223231787d367af",
+      "reviewedTextFingerprint": "fnv1a64:2ca198597887c391",
       "categories": {
         "character": {
           "score": 4,
@@ -1857,11 +1828,11 @@
         },
         "language": {
           "score": 4,
-          "evidence": "Short action clauses and repeated leaves, twig, tongue and mouth support B readers through a concrete animal behavior."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-b-28. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "Reaches, wraps, holds, pulls and chews are natural and specific; the narration avoids giving the animal a human voice."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-b-28. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 3,
@@ -1873,11 +1844,11 @@
         },
         "illustration": {
           "score": 4,
-          "evidence": "Tongue and lips grip leaves, the head withdraws, and leaves reach the mouth while the woody thorned twig stays outside; neck and tongue roles remain distinct. The current independent image sequence is clear."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-b-28. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "All 9 exact current title/page texts have hash-matching Leda clips in the completed automated narration report, with full decode/signal checks and recorded independent-recognition dispositions. Shared word reuse is governed by the cohort inventory. Automated evidence supports a sound current recording set; reader playback remains separate, so fully verified score 4 is not assigned. No human-listening claim."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 32,
@@ -1886,28 +1857,21 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "independentSequence": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-b-28/independentImageReview",
-        "independentSequenceSha256": "bb2c9e005cb41f5dac23cb6f7f7bdc0c61cfafb9151a06a4525d120765194783",
-        "automatedNarration": "source-art/world-discovery/cohorts/21-30/narration-review.json",
-        "automatedNarrationSha256": "1274b52ebb6ecdba0c730ecf5672b4ebfd4d1c8cfcd0824ab5de2413c8afa647",
-        "humanListeningObserved": false,
-        "independentSequenceHashRefresh": {
-          "previousSha256": "4541566a78eec5d152d30b8377b26977ef46bccd9b02de7a892a9c73ac29a423",
-          "reason": "Independent reviewer re-read current prose and briefs against prior direct-inspection findings, verified all inspected image hashes unchanged and added explicit manuscript binding. Review findings/scores unchanged."
-        },
-        "completeBook": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-b-28"
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json",
+        "humanListeningObserved": false
       }
     }
   },
   "world-discovery-b-29": {
     "appReadingLevel": "B",
     "rationale": "A concrete five-versus-six demonstration explains gaps without an abstract rule first. Short clauses and repeated cube/book/edge vocabulary support B.",
-    "reviewedAt": "2026-11-09",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:1efa2eb28dff6627",
+    "reviewedTextFingerprint": "fnv1a64:6e9c4661aac91a24",
     "dimensionObservations": {
-      "syntax": "Eight pages with short paired clauses, no dialogue; each authored line was read for ordinary spoken English.",
-      "vocabulary": "Focused terms equal, gaps, width are introduced through named objects/actions and oral preparation.",
+      "syntax": "8 pages, 88 words. Pages contain 9–13 words. The revised sentences preserve the book’s B reading demands.",
+      "vocabulary": "Current oral preparation covers width, equal, gap. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "The opening question and concrete example introduce the needed context; no unintroduced off-page knowledge is required for the stated answer.",
       "progression": "Close the gaps in five units, observe shortfall, then add the sixth unit.",
       "inference": "A concrete five-versus-six demonstration explains gaps without an abstract rule first. Short clauses and repeated cube/book/edge vocabulary support B."
@@ -1931,9 +1895,9 @@
     "releaseStatus": "editorial-media-reviewed-reader-release-gates-separate",
     "editorialScorecard": {
       "authority": "docs/content/STORY_BIBLE_PART_1_WRITING.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09T13:54:07.399Z",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:1efa2eb28dff6627",
+      "reviewedTextFingerprint": "fnv1a64:6e9c4661aac91a24",
       "categories": {
         "character": {
           "score": 4,
@@ -1961,11 +1925,11 @@
         },
         "language": {
           "score": 4,
-          "evidence": "B clauses remain short and concrete. The repeated book and cubes make gap, equal and width meaningful without symbolic arithmetic."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-b-29. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "Points, moves, touches and adds give the explanation an easy spoken sequence; the language is clear rather than playful."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-b-29. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 3,
@@ -1977,11 +1941,11 @@
         },
         "illustration": {
           "score": 4,
-          "evidence": "Closing the original gaps produces the authored one-unit shortfall, and adding the spare restores complete edge-to-edge coverage without changing the book or cube sizes. The current independent image sequence is clear."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-b-29. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "All 9 exact current title/page texts have hash-matching Leda clips in the completed automated narration report, with full decode/signal checks and recorded independent-recognition dispositions. Shared word reuse is governed by the cohort inventory. Automated evidence supports a sound current recording set; reader playback remains separate, so fully verified score 4 is not assigned. No human-listening claim."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 34,
@@ -1990,16 +1954,9 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "independentSequence": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-b-29/independentImageReview",
-        "independentSequenceSha256": "b90f1714fe69fe48b317aadf80e7cb36a57ea6f14b819073e2dcba7a5f8e6a6d",
-        "automatedNarration": "source-art/world-discovery/cohorts/21-30/narration-review.json",
-        "automatedNarrationSha256": "1274b52ebb6ecdba0c730ecf5672b4ebfd4d1c8cfcd0824ab5de2413c8afa647",
-        "humanListeningObserved": false,
-        "independentSequenceHashRefresh": {
-          "previousSha256": "8ee1ada7cd32fd78e7ca26e9ec7c43f2f2fd4eb8fa74892d9f023d3a4ced7234",
-          "reason": "Independent reviewer re-read current prose and briefs against prior direct-inspection findings, verified all inspected image hashes unchanged and added explicit manuscript binding. Review findings/scores unchanged."
-        },
-        "completeBook": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-b-29"
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json",
+        "humanListeningObserved": false
       }
     }
   },
@@ -2112,16 +2069,16 @@
     "sourceCandidateLevel": "C",
     "appReadingLevel": "C",
     "levelSystem": "literacy-guide-a-h-v1",
-    "reviewedAt": "2026-11-10",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:29198ee65628b240",
+    "reviewedTextFingerprint": "fnv1a64:1619fdc23d983403",
     "reviewedTextHash": "sha256:4512949ef8242d0ed1c968d552968e0ff747a467196832d10b6475261fdc740e",
     "manuscriptReviewStatus": "complete",
     "reviewScope": "complete-book-editorial-and-media-review",
     "rationale": "The revised manuscript compares a plane’s fixed wings, a helicopter’s rotating wing-like blades and a balloon’s heating/cooling operation. Causal links are explicit in short varied sentences and the final return states what differs. The new page 6 removes the equal-volume/density inference: no hidden physical model must be held across the text. This is comparable with C Rocket and Cloud, and substantially less integrated than the current E Wings explanation.",
     "dimensionObservations": {
-      "syntax": "Eight pages, 139 words, up to 21 words per page. Short declaratives mix with a question, coordination and the concise purpose construction To come down.",
-      "vocabulary": "Helicopter, hot-air balloon, blades, burner, fabric, drift and pilot are topic words. Blades as spinning wings, burner heating air and drift with wind are supported directly in the printed explanation; oral preparation adds definitions.",
+      "syntax": "8 pages, 140 words. Pages contain 15–21 words. The revised sentences preserve the book’s C reading demands.",
+      "vocabulary": "Current oral preparation covers blade, burner, drift. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "Three flying vehicles use air differently. The balloon is introduced operationally through heating, rising, cooling and descent; neither density nor equal-volume mass comparison is in this version.",
       "progression": "An opening three-way question leads through plane wings, helicopter blades, balloon heating and control before returning to different uses of air.",
       "inference": "Low to moderate. The reader compares the stated lifting arrangements; the book supplies each cause and the synthesis rather than demanding pressure/force reconciliation."
@@ -2174,9 +2131,9 @@
     ],
     "editorialScorecard": {
       "authority": "docs/content/STORY_BIBLE_PART_1_WRITING.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-10",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:29198ee65628b240",
+      "reviewedTextFingerprint": "fnv1a64:1619fdc23d983403",
       "categories": {
         "character": {
           "score": 4,
@@ -2204,11 +2161,11 @@
         },
         "language": {
           "score": 4,
-          "evidence": "The revised operation-based balloon wording preserves a connected C-level explanation within the standard page limit; it does not smuggle in an equal-volume lesson."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-c-21. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "Short active explanatory sentences are speakable and varied; this is competent nonfiction rather than character dialogue."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-c-21. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 3,
@@ -2220,11 +2177,11 @@
         },
         "illustration": {
           "score": 4,
-          "evidence": "Every final page matches the exact concrete prose and authorized diagram state; meaningful mechanical/map/framing defects were repaired and the complete final sequence independently inspected."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-c-21. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "All 9 exact current title/page texts resolve to matching screened Leda clips, with full decode/signal and independent-recognition dispositions. Missing words and page-scoped clarity takes have separate exact-byte screening. Automated evidence supports current recordings; human listening and physical-device playback are not claimed."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 33,
@@ -2233,11 +2190,8 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "completeBook": "source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json#world-discovery-c-21",
-        "automatedNarration": "source-art/world-discovery/remediation/2026-11-10/topic-revision-new-narration-review.json",
-        "automatedNarrationSha256": "30a2705085245a70b65230b1fb73b0273d0dc23256d70dc3c6156e97a390a1fa",
-        "additionalWordScreening": "source-art/world-discovery/remediation/2026-11-10/topic-revision-additional-word-review.json",
-        "additionalWordScreeningSha256": "0e1312f6c797d86b8576672450e80875aa314d6880bfeb9e30687d8643c5a45f",
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json",
         "humanListeningObserved": false
       }
     },
@@ -2261,17 +2215,17 @@
     "releaseStatus": "editorial-media-reviewed-reader-release-gates-separate"
   },
   "world-discovery-c-22": {
-    "appReadingLevel": "C",
-    "rationale": "The compass inquiry introduces magnet and magnetic north in context, then applies the same direction to a body turn. Pronouns have named anchors and the gate/tree relation is explicit.",
-    "reviewedAt": "2026-11-09",
+    "appReadingLevel": "D",
+    "rationale": "The reader has to keep separate the direction a child faces, the direction indicated by the red needle and the directions marked on the adjustable compass ring. The eight pages also distinguish magnetic north from map north and carry the model through two turns. These related but different frames make it a better fit for D than the direct landmark-to-map comparison in Follow the Park Map.",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
     "reviewedTextFingerprint": "fnv1a64:5d3a95b4fdfe09e2",
     "dimensionObservations": {
-      "syntax": "Eight connected pages with varied simple explanatory sentences and explicitly linked causes; page caps alone did not determine the level.",
-      "vocabulary": "Focused terms magnet, compass, magnetic north are introduced through named objects/actions and oral preparation.",
-      "knowledge": "The opening question and concrete example introduce the needed context; no unintroduced off-page knowledge is required for the stated answer.",
-      "progression": "Hold level, wait, align ring, turn toward gate and turn back toward tree.",
-      "inference": "The compass inquiry introduces magnet and magnetic north in context, then applies the same direction to a body turn. Pronouns have named anchors and the gate/tree relation is explicit."
+      "syntax": "Eight pages of paired clauses and directions. The longest page has 20 words.",
+      "vocabulary": "Compass, needle, ring, magnetic field, and magnetic north name distinct parts or ideas. The book uses marked directions and a red needle to support them.",
+      "knowledge": "A compass can keep pointing toward magnetic north when a person turns. Map north can differ from magnetic north.",
+      "progression": "Laying the compass flat, waiting for the needle, aligning the ring, and comparing two turns show which directions change and which stay fixed.",
+      "inference": "The reader has to keep the compass needle and the gate fixed in the world while reading left, right, and ahead from Kit’s changing viewpoint."
     },
     "reviewScope": "complete-book-editorial-and-media-review",
     "manuscriptReviewStatus": "complete",
@@ -2363,12 +2317,12 @@
   "world-discovery-c-23": {
     "appReadingLevel": "C",
     "rationale": "Short explanatory sentences name joint and tendon while retaining the same unloaded arm. Pulling and opposite actions are stated directly; the final demonstration answers the opening question.",
-    "reviewedAt": "2026-11-09",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:080d0a0711aeacf7",
+    "reviewedTextFingerprint": "fnv1a64:fb53c4dca793ce38",
     "dimensionObservations": {
-      "syntax": "Eight connected pages with varied simple explanatory sentences and explicitly linked causes; page caps alone did not determine the level.",
-      "vocabulary": "Focused terms joint, tendon, muscle are introduced through named objects/actions and oral preparation.",
+      "syntax": "8 pages, 135 words. Pages contain 15–18 words. The revised sentences preserve the book’s C reading demands.",
+      "vocabulary": "Current oral preparation covers joint, tendon, forearm. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "The opening question and concrete example introduce the needed context; no unintroduced off-page knowledge is required for the stated answer.",
       "progression": "Rigid bones change angle through a joint as opposed muscle groups contract.",
       "inference": "Short explanatory sentences name joint and tendon while retaining the same unloaded arm. Pulling and opposite actions are stated directly; the final demonstration answers the opening question."
@@ -2392,9 +2346,9 @@
     "releaseStatus": "editorial-media-reviewed-reader-release-gates-separate",
     "editorialScorecard": {
       "authority": "docs/content/STORY_BIBLE_PART_1_WRITING.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09T13:54:07.399Z",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:080d0a0711aeacf7",
+      "reviewedTextFingerprint": "fnv1a64:fb53c4dca793ce38",
       "categories": {
         "character": {
           "score": 4,
@@ -2422,11 +2376,11 @@
         },
         "language": {
           "score": 4,
-          "evidence": "Short connected C explanations attach muscle, tendon and joint to visible parts; repeated bend, straighten and pull keep the mechanism concrete."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-c-23. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "Kit’s familiar arm action and the opening question are natural aloud; the anatomical explanation is useful but restrained."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-c-23. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 3,
@@ -2438,11 +2392,11 @@
         },
         "illustration": {
           "score": 4,
-          "evidence": "The elbow angle changes while bones remain firm; front pulling bends, back pulling straightens, and the comparison panels preserve both anatomy and the statement that muscles pull rather than push. The current independent image sequence is clear."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-c-23. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "All 9 exact current title/page texts have hash-matching Leda clips in the completed automated narration report, with full decode/signal checks and recorded independent-recognition dispositions. Shared word reuse is governed by the cohort inventory. Automated evidence supports a sound current recording set; reader playback remains separate, so fully verified score 4 is not assigned. No human-listening claim."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 34,
@@ -2451,12 +2405,9 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "independentSequence": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-c-23/independentImageReview",
-        "independentSequenceSha256": "7b3b9db5000af706608c65302e3382c5b9ddc2653809f5be1e169f48f2a1a7b3",
-        "automatedNarration": "source-art/world-discovery/cohorts/21-30/narration-review.json",
-        "automatedNarrationSha256": "1274b52ebb6ecdba0c730ecf5672b4ebfd4d1c8cfcd0824ab5de2413c8afa647",
-        "humanListeningObserved": false,
-        "completeBook": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-c-23"
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json",
+        "humanListeningObserved": false
       }
     }
   },
@@ -2563,12 +2514,12 @@
   "world-discovery-c-25": {
     "appReadingLevel": "C",
     "rationale": "One low-voltage loop is varied in two controlled ways. Complete, gap and current are explained through immediate light changes, with explicit cause and restoration.",
-    "reviewedAt": "2026-11-09",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:4295ad07eb00a402",
+    "reviewedTextFingerprint": "fnv1a64:038c08b91387e341",
     "dimensionObservations": {
-      "syntax": "Eight connected pages with varied simple explanatory sentences and explicitly linked causes; page caps alone did not determine the level.",
-      "vocabulary": "Focused terms switch, circuit, current are introduced through named objects/actions and oral preparation.",
+      "syntax": "8 pages, 149 words. Pages contain 15–21 words. The revised sentences preserve the book’s C reading demands.",
+      "vocabulary": "Current oral preparation covers circuit, current, switch. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "The opening question and concrete example introduce the needed context; no unintroduced off-page knowledge is required for the stated answer.",
       "progression": "Close/open switch, then disconnect/reconnect another contact to test the whole loop.",
       "inference": "One low-voltage loop is varied in two controlled ways. Complete, gap and current are explained through immediate light changes, with explicit cause and restoration."
@@ -2592,9 +2543,9 @@
     "releaseStatus": "editorial-media-reviewed-reader-release-gates-separate",
     "editorialScorecard": {
       "authority": "docs/content/STORY_BIBLE_PART_1_WRITING.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09T13:54:07.399Z",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:4295ad07eb00a402",
+      "reviewedTextFingerprint": "fnv1a64:038c08b91387e341",
       "categories": {
         "character": {
           "score": 4,
@@ -2622,11 +2573,11 @@
         },
         "language": {
           "score": 4,
-          "evidence": "Short connected C sentences repeat switch, clip and loop, with each current state anchored in a visible connection rather than an abstract wiring list."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-c-25. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "Tracing, closing, removing and restoring read as clear spoken actions. The explanatory voice is competent and restrained."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-c-25. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 3,
@@ -2638,11 +2589,11 @@
         },
         "illustration": {
           "score": 4,
-          "evidence": "The red battery-to-switch, yellow switch-to-bulb and black return wires maintain one loop. Both an open blade and a disconnected clip produce darkness; only the fully restored loop lights the bulb. The current independent image sequence is clear."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-c-25. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "All 9 exact current title/page texts have hash-matching Leda clips in the completed automated narration report, with full decode/signal checks and recorded independent-recognition dispositions. Shared word reuse is governed by the cohort inventory. Automated evidence supports a sound current recording set; reader playback remains separate, so fully verified score 4 is not assigned. No human-listening claim."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 33,
@@ -2651,24 +2602,21 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "independentSequence": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-c-25/independentImageReview",
-        "independentSequenceSha256": "a58ed330b8e14a41f59c9768c2d23ac71ee5231069b0b2c44cedcbac52fe5423",
-        "automatedNarration": "source-art/world-discovery/cohorts/21-30/narration-review.json",
-        "automatedNarrationSha256": "1274b52ebb6ecdba0c730ecf5672b4ebfd4d1c8cfcd0824ab5de2413c8afa647",
-        "humanListeningObserved": false,
-        "completeBook": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-c-25"
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json",
+        "humanListeningObserved": false
       }
     }
   },
   "world-discovery-c-26": {
     "appReadingLevel": "C",
     "rationale": "Short mechanism explanations distinguish identifier from price. One concrete cereal item and a changed saved price make the invisible lookup process explicit.",
-    "reviewedAt": "2026-11-09",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:d99ccb015f2db9a1",
+    "reviewedTextFingerprint": "fnv1a64:d31228bceb273f97",
     "dimensionObservations": {
-      "syntax": "Eight connected pages with varied simple explanatory sentences and explicitly linked causes; page caps alone did not determine the level.",
-      "vocabulary": "Focused terms barcode, number, record are introduced through named objects/actions and oral preparation.",
+      "syntax": "8 pages, 145 words. Pages contain 14–21 words. The revised sentences preserve the book’s C reading demands.",
+      "vocabulary": "Current oral preparation covers barcode, scanner, record. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "The opening question and concrete example introduce the needed context; no unintroduced off-page knowledge is required for the stated answer.",
       "progression": "Scan pattern, decode identifier, look up record, update price and scan again.",
       "inference": "Short mechanism explanations distinguish identifier from price. One concrete cereal item and a changed saved price make the invisible lookup process explicit."
@@ -2692,9 +2640,9 @@
     "releaseStatus": "editorial-media-reviewed-reader-release-gates-separate",
     "editorialScorecard": {
       "authority": "docs/content/STORY_BIBLE_PART_1_WRITING.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09T15:24:58.725Z",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:d99ccb015f2db9a1",
+      "reviewedTextFingerprint": "fnv1a64:d31228bceb273f97",
       "categories": {
         "character": {
           "score": 4,
@@ -2722,11 +2670,11 @@
         },
         "language": {
           "score": 4,
-          "evidence": "Connected C sentences attach pattern, number and record to one visible checkout example, with short clauses keeping the hidden information sequence manageable."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-c-26. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "The opening question and specific box keep the spoken explanation approachable; the technical sequence remains plain exposition."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-c-26. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 3,
@@ -2738,11 +2686,11 @@
         },
         "illustration": {
           "score": 4,
-          "evidence": "Distinct bar/space widths lead to outgoing/returning scanner light, then a scanner-to-computer data arrow and a separate saved record. Cereal $3 changes to Cereal $4 in that record while the exact product code stays unchanged; a second matching box finds the updated price. The final checkout resolves the opening question. The current independent full sequence is clear."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-c-26. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "All 9 exact current title/page texts have hash-matching Leda clips in the completed automated narration report, with full decode/signal checks and recorded independent-recognition dispositions. Shared word reuse is governed by the cohort inventory. Automated evidence supports a sound current recording set; reader playback remains separate, so fully verified score 4 is not assigned. No human-listening claim."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 34,
@@ -2751,24 +2699,21 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "independentSequence": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-c-26/independentImageReview",
-        "independentSequenceSha256": "52a2e975a3fb3b2a638c32c5dbe0329c26c390c8767ebd2f2bd999a8bd7b85b0",
-        "automatedNarration": "source-art/world-discovery/cohorts/21-30/narration-review.json",
-        "automatedNarrationSha256": "1274b52ebb6ecdba0c730ecf5672b4ebfd4d1c8cfcd0824ab5de2413c8afa647",
-        "humanListeningObserved": false,
-        "completeBook": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-c-26"
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json",
+        "humanListeningObserved": false
       }
     }
   },
   "world-discovery-c-27": {
     "appReadingLevel": "C",
     "rationale": "The opening pencil question is answered by a concrete manufacturing sequence. New core/groove terms recur with exact five-to-five counts; no unexplained metallic lead is introduced.",
-    "reviewedAt": "2026-11-09",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:46005108b1a0a1e2",
+    "reviewedTextFingerprint": "fnv1a64:fd1de7196602ee12",
     "dimensionObservations": {
-      "syntax": "Eight connected pages with varied simple explanatory sentences and explicitly linked causes; page caps alone did not determine the level.",
-      "vocabulary": "Focused terms graphite, core, groove are introduced through named objects/actions and oral preparation.",
+      "syntax": "8 pages, 139 words. Pages contain 14–22 words. The revised sentences preserve the book’s C reading demands.",
+      "vocabulary": "Current oral preparation covers graphite, core, groove. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "The opening question and concrete example introduce the needed context; no unintroduced off-page knowledge is required for the stated answer.",
       "progression": "Form cores, groove boards, place cores, close the wood sandwich, cut and sharpen.",
       "inference": "The opening pencil question is answered by a concrete manufacturing sequence. New core/groove terms recur with exact five-to-five counts; no unexplained metallic lead is introduced."
@@ -2792,9 +2737,9 @@
     "releaseStatus": "editorial-media-reviewed-reader-release-gates-separate",
     "editorialScorecard": {
       "authority": "docs/content/STORY_BIBLE_PART_1_WRITING.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09T14:03:48.034Z",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:46005108b1a0a1e2",
+      "reviewedTextFingerprint": "fnv1a64:fd1de7196602ee12",
       "categories": {
         "character": {
           "score": 4,
@@ -2822,11 +2767,11 @@
         },
         "language": {
           "score": 4,
-          "evidence": "Connected manufacturing clauses remain concrete enough for C; graphite/core/groove preparation and a five-groove visual prompt support the material sequence without a decoding claim."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-c-27. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "Thin rods, lie straight and cuts away are natural, specific phrases. The factory account is speakable but mainly explanatory rather than especially musical."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-c-27. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 4,
@@ -2838,11 +2783,11 @@
         },
         "illustration": {
           "score": 4,
-          "evidence": "No core appears before its placement; the two-slat cutaway explains enclosure, one sharpened pencil reveals existing graphite, and only the dark tip creates the final gray mark. Current independent sequence is clear."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-c-27. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "All 9 exact current title/page texts have hash-matching Leda clips in the automated narration report, with full decode/signal and independent-recognition dispositions. Shared word reuse is governed by the cohort inventory. Automated evidence supports a sound current recording set; reader playback remains separate, so fully verified score 4 is not assigned. No human-listening claim."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 35,
@@ -2851,24 +2796,21 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "independentSequence": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-c-27/independentImageReview",
-        "independentSequenceSha256": "d55367455363ddc65a52301348b6d859df37b1dff834ec74843095ff3b72ef39",
-        "automatedNarration": "source-art/world-discovery/cohorts/21-30/narration-review.json",
-        "automatedNarrationSha256": "1274b52ebb6ecdba0c730ecf5672b4ebfd4d1c8cfcd0824ab5de2413c8afa647",
-        "humanListeningObserved": false,
-        "completeBook": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-c-27"
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json",
+        "humanListeningObserved": false
       }
     }
   },
   "world-discovery-c-28": {
     "appReadingLevel": "C",
     "rationale": "The seasonal sequence explains stored energy and slower body activity with clear cause. European species scope and possible winter awakenings avoid the all-winter-sleep misconception.",
-    "reviewedAt": "2026-11-09",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:719d5017ffd98bba",
+    "reviewedTextFingerprint": "fnv1a64:ba47a4f256d2740e",
     "dimensionObservations": {
-      "syntax": "Eight connected pages with varied simple explanatory sentences and explicitly linked causes; page caps alone did not determine the level.",
-      "vocabulary": "Focused terms stored fat, energy, hibernation are introduced through named objects/actions and oral preparation.",
+      "syntax": "8 pages, 151 words. Pages contain 16–20 words. The revised sentences preserve the book’s C reading demands.",
+      "vocabulary": "Current oral preparation covers prey, hibernation, energy. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "The opening question and concrete example introduce the needed context; no unintroduced off-page knowledge is required for the stated answer.",
       "progression": "Fall feeding and nest building lead to slower winter activity and renewed spring feeding.",
       "inference": "The seasonal sequence explains stored energy and slower body activity with clear cause. European species scope and possible winter awakenings avoid the all-winter-sleep misconception."
@@ -2893,9 +2835,9 @@
     "releaseStatus": "editorial-media-reviewed-reader-release-gates-separate",
     "editorialScorecard": {
       "authority": "docs/content/STORY_BIBLE_PART_1_WRITING.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09T14:03:48.034Z",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:719d5017ffd98bba",
+      "reviewedTextFingerprint": "fnv1a64:ba47a4f256d2740e",
       "categories": {
         "character": {
           "score": 4,
@@ -2923,11 +2865,11 @@
         },
         "language": {
           "score": 4,
-          "evidence": "C clauses connect one animal and recurring place across time; prey/hibernation/energy preparation and the explicit exception keep the hidden body changes understandable."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-c-28. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "Sheltered nest and thick leaf walls give specific images, while the measured body-process explanation remains clear, restrained exposition."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-c-28. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 3,
@@ -2939,11 +2881,11 @@
         },
         "illustration": {
           "score": 4,
-          "evidence": "Feeding, gathering leaves, curled low-activity winter states, mild-night emergence and spring hunting agree with each page; no literal fat bag, snow on animal or unbroken-sleep implication. Current independent sequence is clear."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-c-28. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "All 9 exact current title/page texts have hash-matching Leda clips in the automated narration report, with full decode/signal and independent-recognition dispositions. Shared word reuse is governed by the cohort inventory. Automated evidence supports a sound current recording set; reader playback remains separate, so fully verified score 4 is not assigned. No human-listening claim."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 34,
@@ -2952,12 +2894,9 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "independentSequence": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-c-28/independentImageReview",
-        "independentSequenceSha256": "9b8fda528ff9bc79bda6e3a79a9a2ae30890afaf0cd099ab1e9afe5a60b90faa",
-        "automatedNarration": "source-art/world-discovery/cohorts/21-30/narration-review.json",
-        "automatedNarrationSha256": "1274b52ebb6ecdba0c730ecf5672b4ebfd4d1c8cfcd0824ab5de2413c8afa647",
-        "humanListeningObserved": false,
-        "completeBook": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-c-28"
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json",
+        "humanListeningObserved": false
       }
     }
   },
@@ -3064,12 +3003,12 @@
   "world-discovery-c-30": {
     "appReadingLevel": "C",
     "rationale": "A launch question leads to a concrete gas/nozzle/thrust explanation. Opposite directions recur, gravity remains present, and the space example explicitly removes the ground-pushing misconception.",
-    "reviewedAt": "2026-11-09",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:980d650188a10dd7",
+    "reviewedTextFingerprint": "fnv1a64:b3185b478bf78cb0",
     "dimensionObservations": {
-      "syntax": "Eight connected pages with varied simple explanatory sentences and explicitly linked causes; page caps alone did not determine the level.",
-      "vocabulary": "Focused terms fuel, nozzle, thrust are introduced through named objects/actions and oral preparation.",
+      "syntax": "8 pages, 140 words. Pages contain 15–20 words. The revised sentences preserve the book’s C reading demands.",
+      "vocabulary": "Current oral preparation covers nozzle, thrust, gravity. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "The opening question and concrete example introduce the needed context; no unintroduced off-page knowledge is required for the stated answer.",
       "progression": "Propellants make gas; backward exhaust gives forward thrust, including in space.",
       "inference": "A launch question leads to a concrete gas/nozzle/thrust explanation. Opposite directions recur, gravity remains present, and the space example explicitly removes the ground-pushing misconception."
@@ -3093,9 +3032,9 @@
     "releaseStatus": "editorial-media-reviewed-reader-release-gates-separate",
     "editorialScorecard": {
       "authority": "docs/content/STORY_BIBLE_PART_1_WRITING.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09T14:03:48.034Z",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:980d650188a10dd7",
+      "reviewedTextFingerprint": "fnv1a64:b3185b478bf78cb0",
       "categories": {
         "character": {
           "score": 4,
@@ -3123,11 +3062,11 @@
         },
         "language": {
           "score": 4,
-          "evidence": "C language explains nozzle and thrust immediately, with gravity preparation and direct up/down then forward/back comparisons; the technical terms support one mechanism."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-c-30. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "Bursts, rushes and shoots give the account active verbs, but its overall read-aloud voice stays precise exposition rather than especially varied performance prose."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-c-30. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 4,
@@ -3139,11 +3078,11 @@
         },
         "illustration": {
           "score": 4,
-          "evidence": "Downward exhaust/upward thrust apply to the correct bodies; the smaller gravity arrow persists at liftoff, and later opposing arrows demonstrate propulsion without a nearby surface. Current independent sequence is clear."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-c-30. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "All 9 exact current title/page texts have hash-matching Leda clips in the automated narration report, with full decode/signal and independent-recognition dispositions. Shared word reuse is governed by the cohort inventory. Automated evidence supports a sound current recording set; reader playback remains separate, so fully verified score 4 is not assigned. No human-listening claim."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 35,
@@ -3152,12 +3091,9 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "independentSequence": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-c-30/independentImageReview",
-        "independentSequenceSha256": "87459c1371fe88a364ba072f2e84c8e34b59ba5f61e186119a0001530f3d5674",
-        "automatedNarration": "source-art/world-discovery/cohorts/21-30/narration-review.json",
-        "automatedNarrationSha256": "1274b52ebb6ecdba0c730ecf5672b4ebfd4d1c8cfcd0824ab5de2413c8afa647",
-        "humanListeningObserved": false,
-        "completeBook": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-c-30"
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json",
+        "humanListeningObserved": false
       }
     }
   },
@@ -3166,16 +3102,16 @@
     "sourceCandidateLevel": "D",
     "appReadingLevel": "D",
     "levelSystem": "literacy-guide-a-h-v1",
-    "reviewedAt": "2026-11-10",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:aa760a88909a5d93",
+    "reviewedTextFingerprint": "fnv1a64:9060ff87c90b3f30",
     "reviewedTextHash": "sha256:ec78fccd3581b3d03afc51c0e012da109e78a8985d677740eb85cf2153f58e29",
     "manuscriptReviewStatus": "complete",
     "reviewScope": "complete-book-editorial-and-media-review",
     "rationale": "The reader follows two power systems and compares their energy stores, wheel-turning parts, replenishment and exhaust. When-clauses, technical concrete nouns and the final production-pollution qualification increase demand beyond C, but the causal chains and referents remain direct. The resulting introductory systems comparison aligns with D Robot/Container and is less inferential than E Wings or the multi-condition E journey choice.",
     "dimensionObservations": {
-      "syntax": "Ten connected pages of paired statements and when-clauses, with a 20-word page maximum. The ending deliberately condenses the two already-explained systems into parallel fragments.",
-      "vocabulary": "Gasoline/petrol, liquid fuel, engine, exhaust, stored energy, electricity, motor, charger and pollution. The same nouns recur, and the language preparation separates engine from electric motor.",
+      "syntax": "10 pages, 182 words. Pages contain 14–20 words. The revised sentences preserve the book’s D reading demands.",
+      "vocabulary": "Current oral preparation covers gasoline, engine, motor, exhaust. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "Fuel burned in an engine and battery energy supplied to a motor are different power routes. Replenishment and exhaust are compared without claiming electric cars are pollution-free.",
       "progression": "Both cars raise one wheel-turning question; each system is explained, then pump/charger actions and pollution boundaries lead to the two-system synthesis.",
       "inference": "Moderate introductory systems tracking. The reader holds and compares two chains; no unseen mechanical detail, carbon calculation or life-cycle verdict has to be invented."
@@ -3228,9 +3164,9 @@
     ],
     "editorialScorecard": {
       "authority": "docs/content/STORY_BIBLE_PART_1_WRITING.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-10",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:aa760a88909a5d93",
+      "reviewedTextFingerprint": "fnv1a64:9060ff87c90b3f30",
       "categories": {
         "character": {
           "score": 4,
@@ -3258,11 +3194,11 @@
         },
         "language": {
           "score": 4,
-          "evidence": "Repeated exact referents and short explanatory clauses support the technical terms at D. The larger vocabulary does useful conceptual work."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-d-21. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "Natural specific explanations with a restrained parallel ending; no report-style category labels appear in the child prose."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-d-21. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 3,
@@ -3274,11 +3210,11 @@
         },
         "illustration": {
           "score": 4,
-          "evidence": "Every final page matches the exact concrete prose and authorized diagram state; meaningful mechanical/map/framing defects were repaired and the complete final sequence independently inspected."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-d-21. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "All 11 exact current title/page texts resolve to matching screened Leda clips, with full decode/signal and independent-recognition dispositions. Missing words and page-scoped clarity takes have separate exact-byte screening. Automated evidence supports current recordings; human listening and physical-device playback are not claimed."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 33,
@@ -3287,11 +3223,8 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "completeBook": "source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json#world-discovery-d-21",
-        "automatedNarration": "source-art/world-discovery/remediation/2026-11-10/topic-revision-new-narration-review.json",
-        "automatedNarrationSha256": "30a2705085245a70b65230b1fb73b0273d0dc23256d70dc3c6156e97a390a1fa",
-        "additionalWordScreening": "source-art/world-discovery/remediation/2026-11-10/topic-revision-additional-word-review.json",
-        "additionalWordScreeningSha256": "0e1312f6c797d86b8576672450e80875aa314d6880bfeb9e30687d8643c5a45f",
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json",
         "humanListeningObserved": false
       }
     },
@@ -3316,12 +3249,12 @@
   "world-discovery-d-22": {
     "appReadingLevel": "D",
     "rationale": "The book compares connected and sea-separated continental areas and distinguishes conventional map divisions from physical gaps. The inquiry supplies introductory geography relationships with short supported clauses. D is supported; the named-map text and explicit label whitelist now agree.",
-    "reviewedAt": "2026-11-09",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:1b69ad6e16bf246c",
+    "reviewedTextFingerprint": "fnv1a64:4e4cf873996ce6dc",
     "dimensionObservations": {
-      "syntax": "Ten pages, 171 word tokens; maximum 21 words per page. Short sentences combine with explicit sequence, comparison and introductory causal clauses.",
-      "vocabulary": "Oral preparation supports continent, boundary, coast. Topic terms are linked to named objects, visible processes or direct explanations; this is levelled text, not a cumulative-decodable claim.",
+      "syntax": "10 pages, 162 words. Pages contain 10–18 words. The revised sentences preserve the book’s D reading demands.",
+      "vocabulary": "Current oral preparation covers continent, boundary, Mediterranean Sea. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "Must an ocean separate every pair of continents?",
       "progression": "Compare connected and separated land areas on one accurate map, using the seven-continent convention.",
       "inference": "The book compares connected and sea-separated continental areas and distinguishes conventional map divisions from physical gaps. The inquiry supplies introductory geography relationships with short supported clauses. D is supported; the named-map text and explicit label whitelist now agree."
@@ -3346,9 +3279,9 @@
     "releaseStatus": "editorial-media-reviewed-reader-release-gates-separate",
     "editorialScorecard": {
       "authority": "docs/content/STORY_BIBLE_PART_1_WRITING.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09T14:08:49.610Z",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:1b69ad6e16bf246c",
+      "reviewedTextFingerprint": "fnv1a64:4e4cf873996ce6dc",
       "categories": {
         "character": {
           "score": 4,
@@ -3376,11 +3309,11 @@
         },
         "language": {
           "score": 4,
-          "evidence": "Short connected D clauses support geographical comparisons and a conventional-versus-physical distinction. Continent, boundary and coast are prepared, and the seven-name convention is explicit."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-d-22. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "The guided map language is clear and speakable. The proper names and explanatory qualifications make the voice useful rather than unusually memorable."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-d-22. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 3,
@@ -3392,11 +3325,11 @@
         },
         "illustration": {
           "score": 4,
-          "evidence": "Exact authorized continent names correspond to each view; the inland Europe/Asia boundary is a line across continuous land, while natural-color Earth distinguishes the teaching colors from real geography. The current independent image sequence is clear."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-d-22. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "All 11 exact current title/page texts have hash-matching Leda clips in the completed automated narration report, with full decode/signal checks and recorded independent-recognition dispositions. Shared word reuse is governed by the cohort inventory. Automated evidence supports a sound current recording set; reader playback remains separate, so fully verified score 4 is not assigned. No human-listening claim."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 33,
@@ -3405,29 +3338,21 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "independentSequence": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-d-22/independentImageReview",
-        "independentSequenceSha256": "0489bc8c2f2cac05a9ef6d6b4e78cc508bc57381e0871c9393dae44b6f1f14cc",
-        "automatedNarration": "source-art/world-discovery/cohorts/21-30/narration-review.json",
-        "automatedNarrationSha256": "1274b52ebb6ecdba0c730ecf5672b4ebfd4d1c8cfcd0824ab5de2413c8afa647",
-        "humanListeningObserved": false,
-        "independentSequenceHashNormalization": {
-          "previousSha256": "b2a6556f2708dc807690fafabe3ae9772e6d748dc52941a5d2e2463488b036b7",
-          "reason": "Independent report canonical-book hash normalized from one-element array wrapper; report retains proof and original hash. Exact current canonical book and every reviewed image digest revalidated; scores unchanged.",
-          "checkedAt": "2026-11-09T15:26:23.010Z"
-        },
-        "completeBook": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-d-22"
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json",
+        "humanListeningObserved": false
       }
     }
   },
   "world-discovery-d-23": {
     "appReadingLevel": "D",
     "rationale": "A concrete heartbeat leads through body return, right heart, lungs, left heart, body oxygen delivery and gas return. Each route is explicitly linked, with short clauses and supported oxygen/carbon-dioxide vocabulary. The specialized subject alone does not set the level; the ordered explanation supports D.",
-    "reviewedAt": "2026-11-09",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:3798de203779ff80",
+    "reviewedTextFingerprint": "fnv1a64:036163e3fc91d4f3",
     "dimensionObservations": {
-      "syntax": "Ten pages, 175 word tokens; maximum 21 words per page. Short sentences combine with explicit sequence, comparison and introductory causal clauses.",
-      "vocabulary": "Oral preparation supports blood vessel, oxygen, carbon dioxide. Topic terms are linked to named objects, visible processes or direct explanations; this is levelled text, not a cumulative-decodable claim.",
+      "syntax": "10 pages, 173 words. Pages contain 13–21 words. The revised sentences preserve the book’s D reading demands.",
+      "vocabulary": "Current oral preparation covers blood vessel, oxygen, carbon dioxide. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "How does blood travel between the heart, lungs and the body?",
       "progression": "Trace heart-to-lungs-to-heart-to-body circulation, connecting each stage to oxygen delivery and return.",
       "inference": "A concrete heartbeat leads through body return, right heart, lungs, left heart, body oxygen delivery and gas return. Each route is explicitly linked, with short clauses and supported oxygen/carbon-dioxide vocabulary. The specialized subject alone does not set the level; the ordered explanation supports D."
@@ -3452,9 +3377,9 @@
     "releaseStatus": "editorial-media-reviewed-reader-release-gates-separate",
     "editorialScorecard": {
       "authority": "docs/content/STORY_BIBLE_PART_1_WRITING.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09T14:08:49.610Z",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:3798de203779ff80",
+      "reviewedTextFingerprint": "fnv1a64:036163e3fc91d4f3",
       "categories": {
         "character": {
           "score": 4,
@@ -3482,11 +3407,11 @@
         },
         "language": {
           "score": 4,
-          "evidence": "Explicit directional links and short connected D clauses support the specialized subject. Prepared vessel and gas terms, repeated blood and clearly named destinations limit ambiguity."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-d-23. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "The felt beat provides a natural entry into the explanation. Later route language is clear but technical and restrained."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-d-23. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 3,
@@ -3498,11 +3423,11 @@
         },
         "illustration": {
           "score": 4,
-          "evidence": "Body blood enters the right atrium/ventricle, lungs feed the left atrium/ventricle before the body route, and blood remains inside vessels while gas symbols cross exchange boundaries. Carbon dioxide returns to lungs and exits through the separate airway. The current independent image sequence is clear."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-d-23. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "All 11 exact current title/page texts have hash-matching Leda clips in the completed automated narration report, with full decode/signal checks and recorded independent-recognition dispositions. Shared word reuse is governed by the cohort inventory. Automated evidence supports a sound current recording set; reader playback remains separate, so fully verified score 4 is not assigned. No human-listening claim."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 34,
@@ -3511,29 +3436,21 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "independentSequence": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-d-23/independentImageReview",
-        "independentSequenceSha256": "7bc6e48d61abcf0de1bed42e37aa32d0879411112b8befeb88585466f479cb19",
-        "automatedNarration": "source-art/world-discovery/cohorts/21-30/narration-review.json",
-        "automatedNarrationSha256": "1274b52ebb6ecdba0c730ecf5672b4ebfd4d1c8cfcd0824ab5de2413c8afa647",
-        "humanListeningObserved": false,
-        "independentSequenceHashNormalization": {
-          "previousSha256": "b01f62916378e53dc4bdb6bf6eb72cf58c12fe2c00d34d82f1829d1699d34bf1",
-          "reason": "Independent report canonical-book hash normalized from one-element array wrapper; report retains proof and original hash. Exact current canonical book and every reviewed image digest revalidated; scores unchanged.",
-          "checkedAt": "2026-11-09T15:26:23.013Z"
-        },
-        "completeBook": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-d-23"
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json",
+        "humanListeningObserved": false
       }
     }
   },
   "world-discovery-d-24": {
     "appReadingLevel": "D",
     "rationale": "The observed windsock leads through unequal warming, air expansion/density, rising/incoming air and a complete local circulation. The comparison and explicit cause sequence support D while all-weather claims are carefully avoided.",
-    "reviewedAt": "2026-11-09",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:284005ad136c23c3",
+    "reviewedTextFingerprint": "fnv1a64:1d1f4179191c26ba",
     "dimensionObservations": {
-      "syntax": "Ten pages, 166 word tokens; maximum 19 words per page. Short sentences combine with explicit sequence, comparison and introductory causal clauses.",
-      "vocabulary": "Oral preparation supports breeze, dense, inland. Topic terms are linked to named objects, visible processes or direct explanations; this is levelled text, not a cumulative-decodable claim.",
+      "syntax": "10 pages, 163 words. Pages contain 13–19 words. The revised sentences preserve the book’s D reading demands.",
+      "vocabulary": "Current oral preparation covers breeze, dense, inland. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "How can uneven heating make a sea breeze?",
       "progression": "Follow one daytime coast through unequal warming, density differences, rising air and incoming cooler air.",
       "inference": "The observed windsock leads through unequal warming, air expansion/density, rising/incoming air and a complete local circulation. The comparison and explicit cause sequence support D while all-weather claims are carefully avoided."
@@ -3557,9 +3474,9 @@
     "releaseStatus": "editorial-media-reviewed-reader-release-gates-separate",
     "editorialScorecard": {
       "authority": "docs/content/STORY_BIBLE_PART_1_WRITING.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09T14:08:49.610Z",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:284005ad136c23c3",
+      "reviewedTextFingerprint": "fnv1a64:1d1f4179191c26ba",
       "categories": {
         "character": {
           "score": 4,
@@ -3587,11 +3504,11 @@
         },
         "language": {
           "score": 4,
-          "evidence": "Short linked D explanations keep each cause explicit. Dense, breeze and inland are prepared, and scope words here, helped and can prevent unsupported absolutes."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-d-24. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "The opening observation and question sound natural aloud; the explanation is clear and carefully qualified rather than playful."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-d-24. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 3,
@@ -3603,11 +3520,11 @@
         },
         "illustration": {
           "score": 4,
-          "evidence": "The low flow goes inland, warm-land air rises, upper air returns seaward and cooler air sinks over water. The final scene removes diagram overlays while preserving the observed wind direction and local-example scope. The current independent image sequence is clear."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-d-24. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "All 11 exact current title/page texts have hash-matching Leda clips in the completed automated narration report, with full decode/signal checks and recorded independent-recognition dispositions. Shared word reuse is governed by the cohort inventory. Automated evidence supports a sound current recording set; reader playback remains separate, so fully verified score 4 is not assigned. No human-listening claim."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 34,
@@ -3616,29 +3533,21 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "independentSequence": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-d-24/independentImageReview",
-        "independentSequenceSha256": "14b74b793627f86f5d633273af09ee1e5cb6e58dd22794f34f24858521b9d7c3",
-        "automatedNarration": "source-art/world-discovery/cohorts/21-30/narration-review.json",
-        "automatedNarrationSha256": "1274b52ebb6ecdba0c730ecf5672b4ebfd4d1c8cfcd0824ab5de2413c8afa647",
-        "humanListeningObserved": false,
-        "independentSequenceHashNormalization": {
-          "previousSha256": "6b0c82fc4e34a4097d505bbb0d2d21f862573627718f40614e4e5ac1937abc40",
-          "reason": "Independent report canonical-book hash normalized from one-element array wrapper; report retains proof and original hash. Exact current canonical book and every reviewed image digest revalidated; scores unchanged.",
-          "checkedAt": "2026-11-09T15:26:23.016Z"
-        },
-        "completeBook": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-d-24"
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json",
+        "humanListeningObserved": false
       }
     }
   },
   "world-discovery-d-25": {
     "appReadingLevel": "D",
     "rationale": "A controlled comparison tracks same material/load/span against changed cross-section, then connects less bending to shape. This requires following one changed factor and several constants across ten pages, supporting D; fold direction and the less-bending result are now explicit.",
-    "reviewedAt": "2026-11-09",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:03bcb35ada4acf09",
+    "reviewedTextFingerprint": "fnv1a64:0d726d9f4d94ca44",
     "dimensionObservations": {
-      "syntax": "Ten pages, 171 word tokens; maximum 21 words per page. Short sentences combine with explicit sequence, comparison and introductory causal clauses.",
-      "vocabulary": "Oral preparation supports load, ridge, support. Topic terms are linked to named objects, visible processes or direct explanations; this is levelled text, not a cumulative-decodable claim.",
+      "syntax": "10 pages, 167 words. Pages contain 14–19 words. The revised sentences preserve the book’s D reading demands.",
+      "vocabulary": "Current oral preparation covers load, ridge, support. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "Can changing paper shape help it hold a load across the same gap?",
       "progression": "Compare one flat and then folded sheet while the gap, supports and load stay unchanged.",
       "inference": "A controlled comparison tracks same material/load/span against changed cross-section, then connects less bending to shape. This requires following one changed factor and several constants across ten pages, supporting D; fold direction and the less-bending result are now explicit."
@@ -3662,9 +3571,9 @@
     "releaseStatus": "editorial-media-reviewed-reader-release-gates-separate",
     "editorialScorecard": {
       "authority": "docs/content/STORY_BIBLE_PART_1_WRITING.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09T14:08:49.610Z",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:03bcb35ada4acf09",
+      "reviewedTextFingerprint": "fnv1a64:0d726d9f4d94ca44",
       "categories": {
         "character": {
           "score": 4,
@@ -3692,11 +3601,11 @@
         },
         "language": {
           "score": 4,
-          "evidence": "Connected D sentences track several constants and one changed factor. Concrete ridge, load and support meanings, explicit fold direction and the comparative less bending keep the task understandable."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-d-25. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "The opening test and hands-on action are natural to read aloud; the explanatory conclusion is deliberately plain."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-d-25. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 3,
@@ -3708,11 +3617,11 @@
         },
         "illustration": {
           "score": 4,
-          "evidence": "The flat loaded paper sags, the counter is removed before folding, a single sheet receives alternating long creases, and the same centered load causes much less sag. The final result has no hand supporting it. The current independent image sequence is clear."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-d-25. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "All 11 exact current title/page texts have hash-matching Leda clips in the completed automated narration report, with full decode/signal checks and recorded independent-recognition dispositions. Shared word reuse is governed by the cohort inventory. Automated evidence supports a sound current recording set; reader playback remains separate, so fully verified score 4 is not assigned. No human-listening claim."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 34,
@@ -3721,29 +3630,21 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "independentSequence": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-d-25/independentImageReview",
-        "independentSequenceSha256": "36daf5d8a850bba65a734c387950eeab334fb090d80ec7447c573dad297eb1c0",
-        "automatedNarration": "source-art/world-discovery/cohorts/21-30/narration-review.json",
-        "automatedNarrationSha256": "1274b52ebb6ecdba0c730ecf5672b4ebfd4d1c8cfcd0824ab5de2413c8afa647",
-        "humanListeningObserved": false,
-        "independentSequenceHashNormalization": {
-          "previousSha256": "39668978f444a743aa829578e77cf31344095adbabcfcfc2d27c9d1d7609b8ef",
-          "reason": "Independent report canonical-book hash normalized from one-element array wrapper; report retains proof and original hash. Exact current canonical book and every reviewed image digest revalidated; scores unchanged.",
-          "checkedAt": "2026-11-09T15:26:23.018Z"
-        },
-        "completeBook": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-d-25"
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json",
+        "humanListeningObserved": false
       }
     }
   },
   "world-discovery-d-26": {
     "appReadingLevel": "D",
     "rationale": "The ordered contact→sensor input→controller program→motor response chain distinguishes sensing from decision instructions, then repeats under a changed obstacle position. Explicit transitions and defined terms support D without AI knowledge.",
-    "reviewedAt": "2026-11-09",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:647bf2d63bf0167f",
+    "reviewedTextFingerprint": "fnv1a64:68a3aa827ed58f1e",
     "dimensionObservations": {
-      "syntax": "Ten pages, 170 word tokens; maximum 19 words per page. Short sentences combine with explicit sequence, comparison and introductory causal clauses.",
-      "vocabulary": "Oral preparation supports sensor, controller, program. Topic terms are linked to named objects, visible processes or direct explanations; this is levelled text, not a cumulative-decodable claim.",
+      "syntax": "10 pages, 172 words. Pages contain 14–19 words. The revised sentences preserve the book’s D reading demands.",
+      "vocabulary": "Current oral preparation covers sensor, controller, program. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "How can a simple robot use a touch sensor to change direction?",
       "progression": "Follow a slow robot through contact, sensor input, a programmed rule and a motor response, then vary the obstacle position.",
       "inference": "The ordered contact→sensor input→controller program→motor response chain distinguishes sensing from decision instructions, then repeats under a changed obstacle position. Explicit transitions and defined terms support D without AI knowledge."
@@ -3767,9 +3668,9 @@
     "releaseStatus": "editorial-media-reviewed-reader-release-gates-separate",
     "editorialScorecard": {
       "authority": "docs/content/STORY_BIBLE_PART_1_WRITING.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09T14:08:49.610Z",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:647bf2d63bf0167f",
+      "reviewedTextFingerprint": "fnv1a64:68a3aa827ed58f1e",
       "categories": {
         "character": {
           "score": 4,
@@ -3797,11 +3698,11 @@
         },
         "language": {
           "score": 4,
-          "evidence": "First, next, then and again organize the D process. Prepared sensor, controller and program definitions support the information chain without assuming artificial-intelligence knowledge."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-d-26. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "The short action sequence is easy to speak, with concrete wheels and bumper references. The voice remains clear technical explanation."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-d-26. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 3,
@@ -3813,11 +3714,11 @@
         },
         "illustration": {
           "score": 4,
-          "evidence": "Contact precedes the signal and stop; backing restores the gap and spring extension; the robot turns clear. Zoe moves the single block while it waits, and the second contact repeats the same mechanical trigger without humanlike eyes or a magical sensing beam. The current independent image sequence is clear."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-d-26. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "All 11 exact current title/page texts have hash-matching Leda clips in the completed automated narration report, with full decode/signal checks and recorded independent-recognition dispositions. Shared word reuse is governed by the cohort inventory. Automated evidence supports a sound current recording set; reader playback remains separate, so fully verified score 4 is not assigned. No human-listening claim."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 34,
@@ -3826,29 +3727,21 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "independentSequence": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-d-26/independentImageReview",
-        "independentSequenceSha256": "d0758f5cd5db26af0ab732e9b9c9fd8bf5ea16bc1a730b4c3fbe45e28dfbba0e",
-        "automatedNarration": "source-art/world-discovery/cohorts/21-30/narration-review.json",
-        "automatedNarrationSha256": "1274b52ebb6ecdba0c730ecf5672b4ebfd4d1c8cfcd0824ab5de2413c8afa647",
-        "humanListeningObserved": false,
-        "independentSequenceHashNormalization": {
-          "previousSha256": "d47c1bd0239b86126ce58b4c1201d0f5e198ccb73c2a96ae30ad2cdbf8d67003",
-          "reason": "Independent report canonical-book hash normalized from one-element array wrapper; report retains proof and original hash. Exact current canonical book and every reviewed image digest revalidated; scores unchanged.",
-          "checkedAt": "2026-11-09T15:26:23.020Z"
-        },
-        "completeBook": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-d-26"
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json",
+        "humanListeningObserved": false
       }
     }
   },
   "world-discovery-d-27": {
     "appReadingLevel": "D",
     "rationale": "A single crop-to-white-rice sequence distinguishes harvesting/threshing, water removal, husk removal, bran removal and water uptake. Topic words are embedded beside actions and the brown/white comparison is explicitly stated. Ten linked processing steps support D.",
-    "reviewedAt": "2026-11-09",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:e861936c3b8467e3",
+    "reviewedTextFingerprint": "fnv1a64:7488f0554f340cff",
     "dimensionObservations": {
-      "syntax": "Ten pages, 162 word tokens; maximum 19 words per page. Short sentences combine with explicit sequence, comparison and introductory causal clauses.",
-      "vocabulary": "Oral preparation supports grain, husk, mill. Topic terms are linked to named objects, visible processes or direct explanations; this is levelled text, not a cumulative-decodable claim.",
+      "syntax": "10 pages, 164 words. Pages contain 13–20 words. The revised sentences preserve the book’s D reading demands.",
+      "vocabulary": "Current oral preparation covers grain, husk, mill. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "What changes a rice plant’s grain into the rice in a bowl?",
       "progression": "Follow one white-rice production route through harvest, separation, drying, milling and cooking.",
       "inference": "A single crop-to-white-rice sequence distinguishes harvesting/threshing, water removal, husk removal, bran removal and water uptake. Topic words are embedded beside actions and the brown/white comparison is explicitly stated. Ten linked processing steps support D."
@@ -3874,9 +3767,9 @@
     "releaseStatus": "editorial-media-reviewed-reader-release-gates-separate",
     "editorialScorecard": {
       "authority": "docs/content/STORY_BIBLE_PART_1_WRITING.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09T14:08:49.610Z",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:e861936c3b8467e3",
+      "reviewedTextFingerprint": "fnv1a64:7488f0554f340cff",
       "categories": {
         "character": {
           "score": 4,
@@ -3904,11 +3797,11 @@
         },
         "language": {
           "score": 4,
-          "evidence": "Ten connected D steps introduce topic words alongside actions. Grain, husk and mill are prepared, and brown versus white rice is explicitly explained."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-d-27. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "Cuts, separates, dries, removes, packs and cooks form a natural spoken sequence, with restrained procedural narration."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-d-27. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 3,
@@ -3920,11 +3813,11 @@
         },
         "illustration": {
           "score": 4,
-          "evidence": "Threshing separates stems, drying retains the husk, dehulling exposes brown rice, later milling removes bran without bleach, and adult cooking yields plumper softer grains. Final samples distinguish each stage. The current independent image sequence is clear."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-d-27. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "All 11 exact current title/page texts have hash-matching Leda clips in the completed automated narration report, with full decode/signal checks and recorded independent-recognition dispositions. Shared word reuse is governed by the cohort inventory. Automated evidence supports a sound current recording set; reader playback remains separate, so fully verified score 4 is not assigned. No human-listening claim."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 33,
@@ -3933,29 +3826,21 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "independentSequence": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-d-27/independentImageReview",
-        "independentSequenceSha256": "88bf9dfff097fc3b8ef064c86a2e8c4a9f74e6b5736076f3ad020bdf2556831d",
-        "automatedNarration": "source-art/world-discovery/cohorts/21-30/narration-review.json",
-        "automatedNarrationSha256": "1274b52ebb6ecdba0c730ecf5672b4ebfd4d1c8cfcd0824ab5de2413c8afa647",
-        "humanListeningObserved": false,
-        "independentSequenceHashNormalization": {
-          "previousSha256": "5dbb420248894809232ecdda37536f7ad077fde54e1e30e0dfd5615d5d9e6627",
-          "reason": "Independent report canonical-book hash normalized from one-element array wrapper; report retains proof and original hash. Exact current canonical book and every reviewed image digest revalidated; scores unchanged.",
-          "checkedAt": "2026-11-09T15:26:23.023Z"
-        },
-        "completeBook": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-d-27"
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json",
+        "humanListeningObserved": false
       }
     }
   },
   "world-discovery-d-28": {
     "appReadingLevel": "D",
     "rationale": "The feeding sequence is concrete, then asks the reader to connect indirect leaf-to-chick feeding and a conditional scarcity effect. Scoped may and one feeding connection avoid overgeneralization. Linked relative/conditional clauses and supported inference fit D.",
-    "reviewedAt": "2026-11-09",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:face72855d14cece",
+    "reviewedTextFingerprint": "fnv1a64:db3f2cb649da1b59",
     "dimensionObservations": {
-      "syntax": "Ten pages, 164 word tokens; maximum 19 words per page. Short sentences combine with explicit sequence, comparison and introductory causal clauses.",
-      "vocabulary": "Oral preparation supports caterpillar, nestling, connection. Topic terms are linked to named objects, visible processes or direct explanations; this is levelled text, not a cumulative-decodable claim.",
+      "syntax": "10 pages, 163 words. Pages contain 13–18 words. The revised sentences preserve the book’s D reading demands.",
+      "vocabulary": "Current oral preparation covers caterpillar, nestling, chickadee. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "How can an oak leaf help feed a young bird?",
       "progression": "Trace a specific oak–caterpillar–Carolina chickadee feeding connection, then consider what happens when caterpillars are scarce.",
       "inference": "The feeding sequence is concrete, then asks the reader to connect indirect leaf-to-chick feeding and a conditional scarcity effect. Scoped may and one feeding connection avoid overgeneralization. Linked relative/conditional clauses and supported inference fit D."
@@ -3979,9 +3864,9 @@
     "releaseStatus": "editorial-media-reviewed-reader-release-gates-separate",
     "editorialScorecard": {
       "authority": "docs/content/STORY_BIBLE_PART_1_WRITING.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09T14:08:49.610Z",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:face72855d14cece",
+      "reviewedTextFingerprint": "fnv1a64:db3f2cb649da1b59",
       "categories": {
         "character": {
           "score": 4,
@@ -4009,11 +3894,11 @@
         },
         "language": {
           "score": 4,
-          "evidence": "Concrete feeding actions support D relative and conditional clauses. May and one feeding connection keep the scope accurate, while caterpillar, nestling and connection receive preparation."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-d-28. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "Look underneath and the returning bite give the explanation a natural observational voice; the later qualification remains plain exposition."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-d-28. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 3,
@@ -4025,11 +3910,11 @@
         },
         "illustration": {
           "score": 4,
-          "evidence": "The caterpillar is eaten through a physical beak-to-gape transfer, and diagram arrows run leaf to caterpillar to chick. Scarcity is shown as a longer search with some prey remaining, while the ending shows a new caterpillar rather than an already eaten animal returning. The current independent image sequence is clear."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-d-28. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "All 11 exact current title/page texts have hash-matching Leda clips in the completed automated narration report, with full decode/signal checks and recorded independent-recognition dispositions. Shared word reuse is governed by the cohort inventory. Automated evidence supports a sound current recording set; reader playback remains separate, so fully verified score 4 is not assigned. No human-listening claim."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 34,
@@ -4038,17 +3923,9 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "independentSequence": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-d-28/independentImageReview",
-        "independentSequenceSha256": "9f3eab6dcf51e93282e10ef25d5459bd0b600e6ab7835f5fe9db0d513677ace7",
-        "automatedNarration": "source-art/world-discovery/cohorts/21-30/narration-review.json",
-        "automatedNarrationSha256": "1274b52ebb6ecdba0c730ecf5672b4ebfd4d1c8cfcd0824ab5de2413c8afa647",
-        "humanListeningObserved": false,
-        "independentSequenceHashNormalization": {
-          "previousSha256": "25bcfe38ad38a37d5d6d2a6d801b7b16c50bc10653bf00e61e07cb7e823187d0",
-          "reason": "Independent report canonical-book hash normalized from one-element array wrapper; report retains proof and original hash. Exact current canonical book and every reviewed image digest revalidated; scores unchanged.",
-          "checkedAt": "2026-11-09T15:26:23.027Z"
-        },
-        "completeBook": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-d-28"
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json",
+        "humanListeningObserved": false
       }
     }
   },
@@ -4441,16 +4318,16 @@
     "sourceCandidateLevel": "E",
     "appReadingLevel": "D",
     "levelSystem": "literacy-guide-a-h-v1",
-    "reviewedAt": "2026-11-10",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:b8e30bde780d290a",
+    "reviewedTextFingerprint": "fnv1a64:0553e74126c4b9b4",
     "reviewedTextHash": "sha256:13775b8993892ed3685357cc9f9d2fc079a3a017ebdeaa1835347f9e73daa22e",
     "manuscriptReviewStatus": "complete",
     "reviewScope": "complete-book-editorial-and-media-review",
     "rationale": "Three explicitly paired examples show different landscapes and settlements within Japan, Egypt and Brazil, then state that one country contains different kinds of places. Readers hold nested country/place relationships and several proper names, supporting D, but the wording supplies every contrast and the synthesis. There is no E-level status exception, conditional choice, temporal shift or sustained causal inference. The demands align with D Continents and remain below E City, Town or Village; proper-name load alone does not justify E.",
     "dimensionObservations": {
-      "syntax": "Ten pages with short varied statements, one opening question, a where-clause and coordinated lists. The maximum is 20 words per page; the closing metaphor is anchored by the preceding concrete places.",
-      "vocabulary": "Japan, Mount Fuji, Tokyo, Egypt, Nile, Brazil, Amazon and Rio de Janeiro add substantial proper-name decoding/pronunciation demands. Islands, peak, slopes, banks, crops, rainforest and waterways add concrete geography vocabulary. Oral preparation and narration support access but do not turn this into a decodable text.",
+      "syntax": "10 pages, 181 words. Pages contain 15–20 words. The revised sentences preserve the book’s D reading demands.",
+      "vocabulary": "Current oral preparation covers country, desert, rainforest, bank. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "A country can include multiple physical environments and settlements. The Japan, Egypt and Brazil examples show within-country variety without claiming to represent every place or person there.",
       "progression": "The opening tests whether all places inside a country are alike; mountain/city, desert/river-bank cultivation and rainforest/coastal city pairs precede an explicit part–whole synthesis.",
       "inference": "Low to moderate. Country/place nesting and references must be retained, but the contrasts and conclusion are stated. There is less conceptual revision than the current E settlement-status book."
@@ -4497,9 +4374,9 @@
     ],
     "editorialScorecard": {
       "authority": "docs/content/STORY_BIBLE_PART_1_WRITING.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-10",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:b8e30bde780d290a",
+      "reviewedTextFingerprint": "fnv1a64:0553e74126c4b9b4",
       "categories": {
         "character": {
           "score": 4,
@@ -4527,11 +4404,11 @@
         },
         "language": {
           "score": 4,
-          "evidence": "The full manuscript fits D’s introductory geographic relationships. Reassigning public level to D preserves the real proper-name demands without inventing greater inference to maintain E."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-e-22. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "Let’s look closely and concrete active place descriptions make the prose accessible; the final part-of-its-story phrase has an immediate concrete anchor."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-e-22. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 3,
@@ -4543,11 +4420,11 @@
         },
         "illustration": {
           "score": 4,
-          "evidence": "Every final page matches the exact concrete prose and authorized diagram state; meaningful mechanical/map/framing defects were repaired and the complete final sequence independently inspected."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-e-22. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "All 11 exact current title/page texts resolve to matching screened Leda clips, with full decode/signal and independent-recognition dispositions. Missing words and page-scoped clarity takes have separate exact-byte screening. Automated evidence supports current recordings; human listening and physical-device playback are not claimed."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 32,
@@ -4556,11 +4433,8 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "completeBook": "source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json#world-discovery-e-22",
-        "automatedNarration": "source-art/world-discovery/remediation/2026-11-10/topic-revision-new-narration-review.json",
-        "automatedNarrationSha256": "30a2705085245a70b65230b1fb73b0273d0dc23256d70dc3c6156e97a390a1fa",
-        "additionalWordScreening": "source-art/world-discovery/remediation/2026-11-10/topic-revision-additional-word-review.json",
-        "additionalWordScreeningSha256": "0e1312f6c797d86b8576672450e80875aa314d6880bfeb9e30687d8643c5a45f",
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json",
         "humanListeningObserved": false
       }
     },
@@ -4589,12 +4463,12 @@
   "world-discovery-e-23": {
     "appReadingLevel": "E",
     "rationale": "One deliberate action is explained through sensory input, brain use, outgoing movement commands and returning touch feedback. Several related routes and microscopic-to-whole-body views require sustained integration; short explicit clauses and a visible ball catch support E without assuming reflex knowledge.",
-    "reviewedAt": "2026-11-09",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:b7538616bb350044",
+    "reviewedTextFingerprint": "fnv1a64:7872f0cf81a68f3a",
     "dimensionObservations": {
-      "syntax": "Ten pages, 185 word tokens; maximum 20 words per page. Short sentences combine with varied causal, conditional and temporal clauses across a sustained explanation.",
-      "vocabulary": "Oral preparation supports nerve, spinal cord, muscle. Topic terms are linked to named objects, visible processes or direct explanations; this is levelled text, not a cumulative-decodable claim.",
+      "syntax": "10 pages, 182 words. Pages contain 15–20 words. The revised sentences preserve the book’s E reading demands.",
+      "vocabulary": "Current oral preparation covers nerve, spinal cord, muscle. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "How do nerves help us sense something and move in response?",
       "progression": "Follow a deliberate ball-catching action through sight, brain processing, movement and touch feedback.",
       "inference": "One deliberate action is explained through sensory input, brain use, outgoing movement commands and returning touch feedback. Several related routes and microscopic-to-whole-body views require sustained integration; short explicit clauses and a visible ball catch support E without assuming reflex knowledge."
@@ -4620,9 +4494,9 @@
     "releaseStatus": "editorial-media-reviewed-reader-release-gates-separate",
     "editorialScorecard": {
       "authority": "docs/content/STORY_BIBLE_PART_1_WRITING.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09T14:35:17.081Z",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:b7538616bb350044",
+      "reviewedTextFingerprint": "fnv1a64:7872f0cf81a68f3a",
       "categories": {
         "character": {
           "score": 4,
@@ -4650,11 +4524,11 @@
         },
         "language": {
           "score": 4,
-          "evidence": "E thinking links several hidden systems to one concrete action. Natural short clauses, recurring ball/hand references and preparation for nerve, spinal cord and muscle support inference; pages contain 15–20 words."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-e-23. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "The question, reaches, touches and holds are specific and speakable. The technical middle is measured exposition, so the voice is strong but not unusually musical or memorable."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-e-23. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 4,
@@ -4666,11 +4540,11 @@
         },
         "illustration": {
           "score": 4,
-          "evidence": "Light enters the eye; messages go to brain without a spinal detour. The hand is visibly short of the ball before contact, sensory arrows return after contact, and the final ball is held still. Each diagram reveals the current page's mechanism. Current independent sequence is clear."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-e-23. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "All 11 exact current title/page texts have hash-matching Leda clips in the automated narration report, with full decode/signal and independent-recognition dispositions. Shared word reuse is governed by the cohort inventory. Automated evidence supports a sound current recording set; reader playback remains separate, so fully verified score 4 is not assigned. No human-listening claim."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 35,
@@ -4679,24 +4553,21 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "independentSequence": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-e-23/independentImageReview",
-        "independentSequenceSha256": "6b2087207b0be8c0975a56a5e3a2b5733b53cc0a9e41c4bc644edeb8cd4a77af",
-        "automatedNarration": "source-art/world-discovery/cohorts/21-30/narration-review.json",
-        "automatedNarrationSha256": "1274b52ebb6ecdba0c730ecf5672b4ebfd4d1c8cfcd0824ab5de2413c8afa647",
-        "humanListeningObserved": false,
-        "completeBook": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-e-23"
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json",
+        "humanListeningObserved": false
       }
     }
   },
   "world-discovery-e-24": {
     "appReadingLevel": "E",
     "rationale": "The explanation distinguishes slow plate movement, a locked segment, shape change, sudden slip and traveling waves from local rock motion. These related causes and model changes support E; qualifying one fault example and using push/slip words preserve accessibility.",
-    "reviewedAt": "2026-11-09",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:e28e1ede72518df7",
+    "reviewedTextFingerprint": "fnv1a64:0fc5107da631b6c4",
     "dimensionObservations": {
-      "syntax": "Ten pages, 189 word tokens; maximum 22 words per page. Short sentences combine with varied causal, conditional and temporal clauses across a sustained explanation.",
-      "vocabulary": "Oral preparation supports fault, strain, wave. Topic terms are linked to named objects, visible processes or direct explanations; this is levelled text, not a cumulative-decodable claim.",
+      "syntax": "10 pages, 187 words. Pages contain 16–22 words. The revised sentences preserve the book’s E reading demands.",
+      "vocabulary": "Current oral preparation covers fault, energy, wave. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "How can a sudden slip deep in rock make the ground shake?",
       "progression": "Use one sideways-slipping fault to connect slow motion, stuck rock, stored strain, sudden slip and spreading waves.",
       "inference": "The explanation distinguishes slow plate movement, a locked segment, shape change, sudden slip and traveling waves from local rock motion. These related causes and model changes support E; qualifying one fault example and using push/slip words preserve accessibility."
@@ -4721,9 +4592,9 @@
     "releaseStatus": "editorial-media-reviewed-reader-release-gates-separate",
     "editorialScorecard": {
       "authority": "docs/content/STORY_BIBLE_PART_1_WRITING.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09T14:35:17.081Z",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:e28e1ede72518df7",
+      "reviewedTextFingerprint": "fnv1a64:0fc5107da631b6c4",
       "categories": {
         "character": {
           "score": 4,
@@ -4751,11 +4622,11 @@
         },
         "language": {
           "score": 4,
-          "evidence": "E language handles linked causes and a distinction between transported energy and local motion in direct concrete clauses. Fault is explained in the text; fault, strain and wave preparation plus clear diagrams support the 16–22-word pages."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-e-24. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "Stuck part holds and the contrast between slow movement and sudden slip are clear aloud. The account remains deliberately calm and explanatory rather than rhythmically distinctive."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-e-24. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 3,
@@ -4767,11 +4638,11 @@
         },
         "illustration": {
           "score": 4,
-          "evidence": "Thin outer plates are distinct from the later specific fault example. Closed rough contact explains sticking; stripe deformation and offset explain strain and slip. Three ghosted wave positions move onward while the one teal patch remains local, then the final image synthesizes slip and waves. Current independent sequence is clear."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-e-24. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "All 11 exact current title/page texts have hash-matching Leda clips in the automated narration report, with full decode/signal and independent-recognition dispositions. Shared word reuse is governed by the cohort inventory. Automated evidence supports a sound current recording set; reader playback remains separate, so fully verified score 4 is not assigned. No human-listening claim."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 33,
@@ -4780,24 +4651,21 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "independentSequence": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-e-24/independentImageReview",
-        "independentSequenceSha256": "606993da987e9cffffa091d752a7ef21778126fea10ec408303f4718b6dec8ea",
-        "automatedNarration": "source-art/world-discovery/cohorts/21-30/narration-review.json",
-        "automatedNarrationSha256": "1274b52ebb6ecdba0c730ecf5672b4ebfd4d1c8cfcd0824ab5de2413c8afa647",
-        "humanListeningObserved": false,
-        "completeBook": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-e-24"
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json",
+        "humanListeningObserved": false
       }
     }
   },
   "world-discovery-e-25": {
     "appReadingLevel": "E",
     "rationale": "The reader links visible airflow turning to pressure over both wing surfaces, understands these as two descriptions of one interaction, and distinguishes steady support from changing flight. Varied clauses and supported causal comparison make E appropriate; the terms pressure, lift and balance are concretely prepared.",
-    "reviewedAt": "2026-11-09",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:090c9a62e03faf40",
+    "reviewedTextFingerprint": "fnv1a64:f60890efda2ae024",
     "dimensionObservations": {
-      "syntax": "Ten pages, 182 word tokens; maximum 21 words per page. Short sentences combine with varied causal, conditional and temporal clauses across a sustained explanation.",
-      "vocabulary": "Oral preparation supports lift, pressure, balance. Topic terms are linked to named objects, visible processes or direct explanations; this is levelled text, not a cumulative-decodable claim.",
+      "syntax": "10 pages, 183 words. Pages contain 14–21 words. The revised sentences preserve the book’s E reading demands.",
+      "vocabulary": "Current oral preparation covers lift, pressure, balance. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "How can moving air around wings help hold a plane up?",
       "progression": "Connect relative airflow, turned air and pressure differences to lift, then compare lift and weight in steady level flight.",
       "inference": "The reader links visible airflow turning to pressure over both wing surfaces, understands these as two descriptions of one interaction, and distinguishes steady support from changing flight. Varied clauses and supported causal comparison make E appropriate; the terms pressure, lift and balance are concretely prepared."
@@ -4823,9 +4691,9 @@
     "releaseStatus": "editorial-media-reviewed-reader-release-gates-separate",
     "editorialScorecard": {
       "authority": "docs/content/STORY_BIBLE_PART_1_WRITING.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09T14:35:17.081Z",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:090c9a62e03faf40",
+      "reviewedTextFingerprint": "fnv1a64:f60890efda2ae024",
       "categories": {
         "character": {
           "score": 4,
@@ -4853,11 +4721,11 @@
         },
         "language": {
           "score": 4,
-          "evidence": "The E task reconciles two descriptions of a mechanism in plain clauses, with lift, pressure and balance preparation. Repeated wing/air/force references and precise direction diagrams support 14–21-word pages."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-e-25. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "The heavy-plane opening and direct question are natural aloud; concrete pushes and turns keep the account speakable, while the explanatory middle earns a restrained score of 3."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-e-25. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 4,
@@ -4869,11 +4737,11 @@
         },
         "illustration": {
           "score": 4,
-          "evidence": "Both wing surfaces affect flow; downstream air turns downward. Pressure marks point into surfaces, their single resultant is upward, and the combined page does not duplicate lift. Equal opposing arrows show level flight; two modest angles preserve incoming direction. Current independent sequence is clear."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-e-25. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "All 11 exact current title/page texts have hash-matching Leda clips in the automated narration report, with full decode/signal and independent-recognition dispositions. Shared word reuse is governed by the cohort inventory. Automated evidence supports a sound current recording set; reader playback remains separate, so fully verified score 4 is not assigned. No human-listening claim."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 35,
@@ -4882,24 +4750,21 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "independentSequence": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-e-25/independentImageReview",
-        "independentSequenceSha256": "d66c9e73789f5aec7a58c8f2256e24e4fa3203abe8209850a0d17be780056898",
-        "automatedNarration": "source-art/world-discovery/cohorts/21-30/narration-review.json",
-        "automatedNarrationSha256": "1274b52ebb6ecdba0c730ecf5672b4ebfd4d1c8cfcd0824ab5de2413c8afa647",
-        "humanListeningObserved": false,
-        "completeBook": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-e-25"
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json",
+        "humanListeningObserved": false
       }
     }
   },
   "world-discovery-e-26": {
     "appReadingLevel": "E",
     "rationale": "One familiar picture is tracked through coded data, packets, local wireless links, network routing, a service server and reconstruction. The text differentiates the physical object from its representation, and fixed route examples support the multi-stage E explanation.",
-    "reviewedAt": "2026-11-09",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:67a0d996e203866c",
+    "reviewedTextFingerprint": "fnv1a64:41e7309ae8f9313d",
     "dimensionObservations": {
-      "syntax": "Ten pages, 187 word tokens; maximum 22 words per page. Short sentences combine with varied causal, conditional and temporal clauses across a sustained explanation.",
-      "vocabulary": "Oral preparation supports data, packet, router. Topic terms are linked to named objects, visible processes or direct explanations; this is levelled text, not a cumulative-decodable claim.",
+      "syntax": "10 pages, 187 words. Pages contain 15–22 words. The revised sentences preserve the book’s E reading demands.",
+      "vocabulary": "Current oral preparation covers data, packet, router. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "How can a picture move from one device to another across the internet?",
       "progression": "Follow one picture through data packets, local Wi-Fi, routers, a messaging server and the receiving device.",
       "inference": "One familiar picture is tracked through coded data, packets, local wireless links, network routing, a service server and reconstruction. The text differentiates the physical object from its representation, and fixed route examples support the multi-stage E explanation."
@@ -4924,9 +4789,9 @@
     "releaseStatus": "editorial-media-reviewed-reader-release-gates-separate",
     "editorialScorecard": {
       "authority": "docs/content/STORY_BIBLE_PART_1_WRITING.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09T14:03:48.034Z",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:67a0d996e203866c",
+      "reviewedTextFingerprint": "fnv1a64:41e7309ae8f9313d",
       "categories": {
         "character": {
           "score": 4,
@@ -4954,11 +4819,11 @@
         },
         "language": {
           "score": 4,
-          "evidence": "The sustained E explanation links a concrete picture to abstract representation; data/packet/router preparation and the wireless-end prompt make the network model accessible."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-e-26. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "The familiar two-home setup and direct question are natural, while the technical middle keeps a clear but restrained explanatory voice."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-e-26. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 4,
@@ -4970,11 +4835,11 @@
         },
         "illustration": {
           "score": 4,
-          "evidence": "Only home-device links use wireless arcs; interior links are wired, the service server is one scoped example, packets remain diagram symbols and Kit's screen stays blank until receipt. Current independent sequence is clear."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-e-26. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "All 11 exact current title/page texts have hash-matching Leda clips in the automated narration report, with full decode/signal and independent-recognition dispositions. Shared word reuse is governed by the cohort inventory. Automated evidence supports a sound current recording set; reader playback remains separate, so fully verified score 4 is not assigned. No human-listening claim."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 35,
@@ -4983,24 +4848,21 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "independentSequence": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-e-26/independentImageReview",
-        "independentSequenceSha256": "178d1e758b445eb65c8f50d8d76fc4060a8468fecad44693e0a20b6967b10837",
-        "automatedNarration": "source-art/world-discovery/cohorts/21-30/narration-review.json",
-        "automatedNarrationSha256": "1274b52ebb6ecdba0c730ecf5672b4ebfd4d1c8cfcd0824ab5de2413c8afa647",
-        "humanListeningObserved": false,
-        "completeBook": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-e-26"
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json",
+        "humanListeningObserved": false
       }
     }
   },
   "world-discovery-e-27": {
     "appReadingLevel": "E",
     "rationale": "A continuous material account connects short fibers, twisted long yarn, interlaced fabric and shaped sewn pieces while retaining the plant origin through scale changes. Past/present shifts, subordinate timing and a material-preservation synthesis support E. This is the one woven shirt, not a universal claim about all shirts.",
-    "reviewedAt": "2026-11-09",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:97d45dfd421582c2",
+    "reviewedTextFingerprint": "fnv1a64:708ce7c859ed53b6",
     "dimensionObservations": {
-      "syntax": "Ten pages, 179 word tokens; maximum 20 words per page. Short sentences combine with varied causal, conditional and temporal clauses across a sustained explanation.",
-      "vocabulary": "Oral preparation supports fiber, yarn, seam. Topic terms are linked to named objects, visible processes or direct explanations; this is levelled text, not a cumulative-decodable claim.",
+      "syntax": "10 pages, 177 words. Pages contain 15–20 words. The revised sentences preserve the book’s E reading demands.",
+      "vocabulary": "Current oral preparation covers fiber, yarn, seam. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "How do short cotton fibers become a woven shirt?",
       "progression": "Track material through separating, aligning, twisting, weaving, finishing, cutting and sewing.",
       "inference": "A continuous material account connects short fibers, twisted long yarn, interlaced fabric and shaped sewn pieces while retaining the plant origin through scale changes. Past/present shifts, subordinate timing and a material-preservation synthesis support E. This is the one woven shirt, not a universal claim about all shirts."
@@ -5026,9 +4888,9 @@
     "releaseStatus": "editorial-media-reviewed-reader-release-gates-separate",
     "editorialScorecard": {
       "authority": "docs/content/STORY_BIBLE_PART_1_WRITING.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09T14:03:48.034Z",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:97d45dfd421582c2",
+      "reviewedTextFingerprint": "fnv1a64:708ce7c859ed53b6",
       "categories": {
         "character": {
           "score": 4,
@@ -5056,11 +4918,11 @@
         },
         "language": {
           "score": 4,
-          "evidence": "E readers track material across scales, temporal clauses and purpose relationships; fiber/yarn/seam preparation and the interlacing prompt support that sustained account."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-e-27. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "Soft loose strand, twists together and over and under are natural tactile phrases; much of the voice remains measured process exposition."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-e-27. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 3,
@@ -5072,11 +4934,11 @@
         },
         "illustration": {
           "score": 4,
-          "evidence": "Fibers are not drawn as naturally endless yarn; the loom interlaces rather than knits, cutting precedes seams, and the final magnification preserves the dyed material state. Current independent sequence is clear."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-e-27. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "All 11 exact current title/page texts have hash-matching Leda clips in the automated narration report, with full decode/signal and independent-recognition dispositions. Shared word reuse is governed by the cohort inventory. Automated evidence supports a sound current recording set; reader playback remains separate, so fully verified score 4 is not assigned. No human-listening claim."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 32,
@@ -5085,24 +4947,21 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "independentSequence": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-e-27/independentImageReview",
-        "independentSequenceSha256": "cb7e8d669fe6979671d3c5c03f9301d1524226faad4b3e4f023ee4223d50a59e",
-        "automatedNarration": "source-art/world-discovery/cohorts/21-30/narration-review.json",
-        "automatedNarrationSha256": "1274b52ebb6ecdba0c730ecf5672b4ebfd4d1c8cfcd0824ab5de2413c8afa647",
-        "humanListeningObserved": false,
-        "completeBook": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-e-27"
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json",
+        "humanListeningObserved": false
       }
     }
   },
   "world-discovery-e-28": {
     "appReadingLevel": "E",
     "rationale": "The spatial light comparison develops into food-making, animal feeding and a temporal gap-growth-shade cycle. Conditional may/can and comparative clauses sustain multiple connected relationships with a visible anchor tree. The information remains concrete enough for E when the exact tree/light sequence is preserved.",
-    "reviewedAt": "2026-11-09",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:514985cf95d55a00",
+    "reviewedTextFingerprint": "fnv1a64:131351e16df03b0a",
     "dimensionObservations": {
-      "syntax": "Ten pages, 201 word tokens; maximum 22 words per page. Short sentences combine with varied causal, conditional and temporal clauses across a sustained explanation.",
-      "vocabulary": "Oral preparation supports canopy, absorb, gap. Topic terms are linked to named objects, visible processes or direct explanations; this is levelled text, not a cumulative-decodable claim.",
+      "syntax": "10 pages, 195 words. Pages contain 17–22 words. The revised sentences preserve the book’s E reading demands.",
+      "vocabulary": "Current oral preparation covers canopy, absorb, gap. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "How does the amount of light change life from the treetops to the ground?",
       "progression": "Follow sunlight through a tropical canopy, connect leaf food-making with animals, then show shade and a changing canopy gap.",
       "inference": "The spatial light comparison develops into food-making, animal feeding and a temporal gap-growth-shade cycle. Conditional may/can and comparative clauses sustain multiple connected relationships with a visible anchor tree. The information remains concrete enough for E when the exact tree/light sequence is preserved."
@@ -5129,9 +4988,9 @@
     "releaseStatus": "editorial-media-reviewed-reader-release-gates-separate",
     "editorialScorecard": {
       "authority": "docs/content/STORY_BIBLE_PART_1_WRITING.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09T14:03:48.034Z",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:514985cf95d55a00",
+      "reviewedTextFingerprint": "fnv1a64:131351e16df03b0a",
       "categories": {
         "character": {
           "score": 4,
@@ -5159,11 +5018,11 @@
         },
         "language": {
           "score": 4,
-          "evidence": "E language sustains linked spatial and temporal causes with careful some/may/can qualifications; canopy/absorb/gap preparation and the bright-patch question support the inference."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-e-28. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "Bright treetops, dimmer light and scattered patches are specific and speakable. The scientific connecting sentences keep the voice clear but restrained."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-e-28. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 4,
@@ -5175,11 +5034,11 @@
         },
         "illustration": {
           "score": 4,
-          "evidence": "Teaching arrows distinguish absorption/reflection/transmission; food-making links water, air and light, shade is not total darkness, and the opening/regrowth sequence changes the correct ground patch. Current independent sequence is clear."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-e-28. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "All 11 exact current title/page texts have hash-matching Leda clips in the automated narration report, with full decode/signal and independent-recognition dispositions. Shared word reuse is governed by the cohort inventory. Automated evidence supports a sound current recording set; reader playback remains separate, so fully verified score 4 is not assigned. No human-listening claim."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 35,
@@ -5188,24 +5047,21 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "independentSequence": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-e-28/independentImageReview",
-        "independentSequenceSha256": "00ff77cbce7f062c19932e4d9179ce5881d174881d14b29cbf402a1b3f438a54",
-        "automatedNarration": "source-art/world-discovery/cohorts/21-30/narration-review.json",
-        "automatedNarrationSha256": "1274b52ebb6ecdba0c730ecf5672b4ebfd4d1c8cfcd0824ab5de2413c8afa647",
-        "humanListeningObserved": false,
-        "completeBook": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-e-28"
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json",
+        "humanListeningObserved": false
       }
     }
   },
   "world-discovery-e-29": {
     "appReadingLevel": "E",
     "rationale": "Two explicit washdays retain the same shirt while comparing cleaning, rinsing and water-removal functions across changed tools. Temporal shifts and same-function/different-method synthesis support E, with no universal or moralized historical progression.",
-    "reviewedAt": "2026-11-09",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:7ddb8ebc54bd002b",
+    "reviewedTextFingerprint": "fnv1a64:8e4a1cab7b3f458f",
     "dimensionObservations": {
-      "syntax": "Ten pages, 202 word tokens; maximum 22 words per page. Short sentences combine with varied causal, conditional and temporal clauses across a sustained explanation.",
-      "vocabulary": "Oral preparation supports wringer, rinse, drum. Topic terms are linked to named objects, visible processes or direct explanations; this is levelled text, not a cumulative-decodable claim.",
+      "syntax": "10 pages, 192 words. Pages contain 15–22 words. The revised sentences preserve the book’s E reading demands.",
+      "vocabulary": "Current oral preparation covers wringer, rinse, drum. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "Which jobs stay the same when washing tools change?",
       "progression": "Compare an illustrative washboard-and-hand-wringer demonstration with a later automatic wash of the same shirt.",
       "inference": "Two explicit washdays retain the same shirt while comparing cleaning, rinsing and water-removal functions across changed tools. Temporal shifts and same-function/different-method synthesis support E, with no universal or moralized historical progression."
@@ -5231,9 +5087,9 @@
     "releaseStatus": "editorial-media-reviewed-reader-release-gates-separate",
     "editorialScorecard": {
       "authority": "docs/content/STORY_BIBLE_PART_1_WRITING.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09T14:03:48.034Z",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:7ddb8ebc54bd002b",
+      "reviewedTextFingerprint": "fnv1a64:8e4a1cab7b3f458f",
       "categories": {
         "character": {
           "score": 4,
@@ -5261,11 +5117,11 @@
         },
         "language": {
           "score": 4,
-          "evidence": "Two explicit times and matched functions create sustained E comparison; wringer/rinse/drum preparation and the handle prompt support the mechanism without universal historical claims."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-e-29. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "Ridged board, hand-turned rollers and fast spin are natural concrete phrases, with a clear report-like voice rather than a distinctive read-aloud rhythm."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-e-29. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 3,
@@ -5277,11 +5133,11 @@
         },
         "illustration": {
           "score": 4,
-          "evidence": "The wringer nip and drainage work coherently; tumbling and spin use closed-machine teaching views, both methods leave damp cloth, and later renewed dirt establishes a different washday. Current independent sequence is clear."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-e-29. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "All 11 exact current title/page texts have hash-matching Leda clips in the automated narration report, with full decode/signal and independent-recognition dispositions. Shared word reuse is governed by the cohort inventory. Automated evidence supports a sound current recording set; reader playback remains separate, so fully verified score 4 is not assigned. No human-listening claim."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 32,
@@ -5290,24 +5146,21 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "independentSequence": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-e-29/independentImageReview",
-        "independentSequenceSha256": "ad9dae181bbd7a7617977b199f2667bec86f21eeea5dfadbca79cf57946afc46",
-        "automatedNarration": "source-art/world-discovery/cohorts/21-30/narration-review.json",
-        "automatedNarrationSha256": "1274b52ebb6ecdba0c730ecf5672b4ebfd4d1c8cfcd0824ab5de2413c8afa647",
-        "humanListeningObserved": false,
-        "completeBook": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-e-29"
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json",
+        "humanListeningObserved": false
       }
     }
   },
   "world-discovery-e-30": {
     "appReadingLevel": "E",
     "rationale": "Coral/algae nutrient sharing, heat-associated loss, tissue/skeleton visibility and conditional survival form a sustained cause chain with alternative outcomes. Explicit definitions and restricted one-colony scope support E. The revised relationship sentences name food and algae loss directly; the ending now answers the warming/algae-loss inquiry and preserves conditional recovery.",
-    "reviewedAt": "2026-11-09",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:30b5556418a8c888",
+    "reviewedTextFingerprint": "fnv1a64:4a523cd74452f72b",
     "dimensionObservations": {
-      "syntax": "Ten pages, 190 word tokens; maximum 21 words per page. Short sentences combine with varied causal, conditional and temporal clauses across a sustained explanation.",
-      "vocabulary": "Oral preparation supports polyp, algae, bleaching. Topic terms are linked to named objects, visible processes or direct explanations; this is levelled text, not a cumulative-decodable claim.",
+      "syntax": "10 pages, 193 words. Pages contain 18–21 words. The revised sentences preserve the book’s E reading demands.",
+      "vocabulary": "Current oral preparation covers polyp, algae, bleaching. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "Why can warm water turn a living coral pale or white?",
       "progression": "Connect coral animals and algae, heat stress, algae loss, visible white skeleton and conditional recovery.",
       "inference": "Coral/algae nutrient sharing, heat-associated loss, tissue/skeleton visibility and conditional survival form a sustained cause chain with alternative outcomes. Explicit definitions and restricted one-colony scope support E. The revised relationship sentences name food and algae loss directly; the ending now answers the warming/algae-loss inquiry and preserves conditional recovery."
@@ -5333,9 +5186,9 @@
     "releaseStatus": "editorial-media-reviewed-reader-release-gates-separate",
     "editorialScorecard": {
       "authority": "docs/content/STORY_BIBLE_PART_1_WRITING.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09T14:03:48.034Z",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:30b5556418a8c888",
+      "reviewedTextFingerprint": "fnv1a64:4a523cd74452f72b",
       "categories": {
         "character": {
           "score": 4,
@@ -5363,11 +5216,11 @@
         },
         "language": {
           "score": 4,
-          "evidence": "E clauses sustain nutrient sharing, stress, visibility and conditional survival; polyp/algae/bleaching preparation and the skeleton prompt support the layered explanation."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-e-30. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "Looks like a rocky mound and white skeleton shows through supply memorable concrete phrasing; the later conditions remain precise explanatory prose."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-e-30. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 4,
@@ -5379,11 +5232,11 @@
         },
         "illustration": {
           "score": 4,
-          "evidence": "Bleaching leaves translucent living tissue rather than bare dead skeleton; reduced algae means fewer food symbols, and later recoloring retains a pale patch without implying guaranteed or instant recovery. Current independent sequence is clear."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json#world-discovery-e-30. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "All 11 exact current title/page texts have hash-matching Leda clips in the automated narration report, with full decode/signal and independent-recognition dispositions. Shared word reuse is governed by the cohort inventory. Automated evidence supports a sound current recording set; reader playback remains separate, so fully verified score 4 is not assigned. No human-listening claim."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 34,
@@ -5392,12 +5245,9 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "independentSequence": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-e-30/independentImageReview",
-        "independentSequenceSha256": "2d7c5e18ff12c12ba2fc2d6a364f6c02595b1b48d8cedc76e67c85f084b75afe",
-        "automatedNarration": "source-art/world-discovery/cohorts/21-30/narration-review.json",
-        "automatedNarrationSha256": "1274b52ebb6ecdba0c730ecf5672b4ebfd4d1c8cfcd0824ab5de2413c8afa647",
-        "humanListeningObserved": false,
-        "completeBook": "source-art/world-discovery/cohorts/21-30/complete-book-review.json#world-discovery-e-30"
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-narration-review.json",
+        "humanListeningObserved": false
       }
     }
   }

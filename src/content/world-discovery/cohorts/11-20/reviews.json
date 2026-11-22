@@ -402,22 +402,22 @@
   "world-discovery-a-16": {
     "appReadingLevel": "A",
     "rationale": "Eight single clauses of five or six words with concrete verbs shine/flashes/enters/heats/fades. Meteor is the one supported topic word. The return to the same star field makes the distinction visible.",
-    "reviewedAt": "2026-11-09",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:83596a257a35aef9",
+    "reviewedTextFingerprint": "fnv1a64:15ac4783eb718e0e",
     "reviewer": "author_b_c, independent of root author",
     "dimensionObservations": {
-      "syntax": "8 pages; 5–6 words per page, 41 page words overall. Complete manuscript checked against current A limits.",
-      "vocabulary": "Current oral preparation covers meteor, streak. All prose and glosses reread for literal, contemporary ESL language and picture support.",
+      "syntax": "8 pages, 42 words. Pages contain 5–6 words. The revised sentences preserve the book’s A reading demands.",
+      "vocabulary": "Current oral preparation covers meteor, streak. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "Independently checked NASA Basics of Space Flight: fast entry compresses/heats nearby air and transfers heat to the object; a tiny object may burn up. Meteor means the observed light, not a departing star.",
       "progression": "Pages 1–3 observe and name the brief light; pages 4–6 explain the same event; pages 7–8 return to the unchanged sky after it fades.",
       "inference": "The stars are still present after the streak disappears, answering the common falling-star confusion."
     },
     "editorialScorecard": {
       "authority": "docs/content/STORY_CONTENT_AUTHORING_TEMPLATE.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:83596a257a35aef9",
+      "reviewedTextFingerprint": "fnv1a64:15ac4783eb718e0e",
       "categories": {
         "character": {
           "score": 4,
@@ -445,11 +445,11 @@
         },
         "language": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json#world-discovery-a-16: complete manuscript, preparation and discussion reread; 0 exact repaired fields recorded in text-repairs.json. Current source word/sentence and level checks apply."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-a-16. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "world-discovery-a-16: Stars shine/bright streak/stars still shine frames the explanation in speakable short clauses."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-a-16. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 4,
@@ -461,11 +461,11 @@
         },
         "illustration": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json#world-discovery-a-16: reference, cover and all 8 pages directly inspected in sequence for anatomy, plausible object contact, identity, style, counts and text/state continuity. Exact installed hashes are bound here and in per-image receipts."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-a-16. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/11-20-narration-review.json: current title/page clips screened, full decode and speech-window signal checked, recognition differences investigated; unchanged word clips require exact historical role/text/hash reuse. Automated evidence is not human listening. Browser evidence is recorded separately."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 37,
@@ -473,8 +473,8 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "completeBook": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
-        "automatedNarration": "source-art/world-discovery/remediation/2026-11-09/11-20-narration-review.json",
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-narration-review.json",
         "humanListeningObserved": false
       }
     }
@@ -972,22 +972,22 @@
   "world-discovery-b-13": {
     "appReadingLevel": "B",
     "rationale": "Candidate B: Each short page advances one familiar object along a concrete route. Three postal terms are supported orally; syntax remains simple and the ending returns to the opening picture.",
-    "reviewedAt": "2026-11-09",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:bb9826cdf566be1f",
+    "reviewedTextFingerprint": "fnv1a64:8182dec1dd111fa2",
     "reviewer": "root, independent of author_b_c",
     "dimensionObservations": {
-      "syntax": "8 pages; 8–11 words per page, 76 page words overall. Complete manuscript checked against current B limits.",
-      "vocabulary": "Current oral preparation covers address, sort, carrier. All prose and glosses reread for literal, contemporary ESL language and picture support.",
+      "syntax": "8 pages, 77 words. Pages contain 8–11 words. The revised sentences preserve the book’s B reading demands.",
+      "vocabulary": "Current oral preparation covers address, sort, carrier. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "Postal museum evidence supports an illustrative route, not a universal transport method or delivery-time promise.",
       "progression": "Pages 1–7 maintain the sealed envelope through addressing, collection, sorting and delivery; page 8 reveals the opening picture.",
       "inference": "The green star stamp and red truck picture identify the same letter across locations."
     },
     "editorialScorecard": {
       "authority": "docs/content/STORY_CONTENT_AUTHORING_TEMPLATE.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:bb9826cdf566be1f",
+      "reviewedTextFingerprint": "fnv1a64:8182dec1dd111fa2",
       "categories": {
         "character": {
           "score": 4,
@@ -1015,11 +1015,11 @@
         },
         "language": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json#world-discovery-b-13: complete manuscript, preparation and discussion reread; 1 exact repaired fields recorded in text-repairs.json. Current source word/sentence and level checks apply."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-b-13. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "world-discovery-b-13: Full printed manuscript read for speakable phrasing, clear pronouns and meaningful recurrence. This is editorial text review, not human listening or generated-audio approval."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-b-13. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 3,
@@ -1031,11 +1031,11 @@
         },
         "illustration": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json#world-discovery-b-13: reference, cover and all 8 pages directly inspected in sequence for anatomy, plausible object contact, identity, style, counts and text/state continuity. Exact installed hashes are bound here and in per-image receipts."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-b-13. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/11-20-narration-review.json: current title/page clips screened, full decode and speech-window signal checked, recognition differences investigated; unchanged word clips require exact historical role/text/hash reuse. Automated evidence is not human listening. Browser evidence is recorded separately."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 36,
@@ -1043,8 +1043,8 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "completeBook": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
-        "automatedNarration": "source-art/world-discovery/remediation/2026-11-09/11-20-narration-review.json",
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-narration-review.json",
         "humanListeningObserved": false
       }
     }
@@ -1382,22 +1382,22 @@
   "world-discovery-b-18": {
     "appReadingLevel": "B",
     "rationale": "Candidate B: One visible change answers the initial inability to fly. Short main clauses avoid a technical definition chain; nymph is oral preparation, while printed wing pads are pictured in context.",
-    "reviewedAt": "2026-11-09",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:3d79070dd095b653",
+    "reviewedTextFingerprint": "fnv1a64:bba0d386f8a8759c",
     "reviewer": "root, independent of author_b_c",
     "dimensionObservations": {
-      "syntax": "8 pages; 6–12 words per page, 71 page words overall. Complete manuscript checked against current B limits.",
-      "vocabulary": "Current oral preparation covers shed, wing pads, nymph. All prose and glosses reread for literal, contemporary ESL language and picture support.",
+      "syntax": "8 pages, 72 words. Pages contain 6–12 words. The revised sentences preserve the book’s B reading demands.",
+      "vocabulary": "Current oral preparation covers shed, wing pads, nymph. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "Sources and artwork specify a winged two-striped grasshopper. The book does not introduce a butterfly chrysalis or claim all species fly.",
       "progression": "Pages 1–2 establish egg and wingless hatchling; pages 4–6 show successive molts; pages 7–8 connect adult wings to flight.",
       "inference": "The adult’s new ability answers what changed during the same animal’s growth."
     },
     "editorialScorecard": {
       "authority": "docs/content/STORY_CONTENT_AUTHORING_TEMPLATE.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:3d79070dd095b653",
+      "reviewedTextFingerprint": "fnv1a64:bba0d386f8a8759c",
       "categories": {
         "character": {
           "score": 4,
@@ -1425,11 +1425,11 @@
         },
         "language": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json#world-discovery-b-18: complete manuscript, preparation and discussion reread; 6 exact repaired fields recorded in text-repairs.json. Current source word/sentence and level checks apply."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-b-18. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "world-discovery-b-18: Full printed manuscript read for speakable phrasing, clear pronouns and meaningful recurrence. This is editorial text review, not human listening or generated-audio approval."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-b-18. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 3,
@@ -1441,11 +1441,11 @@
         },
         "illustration": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json#world-discovery-b-18: reference, cover and all 8 pages directly inspected in sequence for anatomy, plausible object contact, identity, style, counts and text/state continuity. Exact installed hashes are bound here and in per-image receipts."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-b-18. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/11-20-narration-review.json: current title/page clips screened, full decode and speech-window signal checked, recognition differences investigated; unchanged word clips require exact historical role/text/hash reuse. Automated evidence is not human listening. Browser evidence is recorded separately."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 36,
@@ -1453,8 +1453,8 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "completeBook": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
-        "automatedNarration": "source-art/world-discovery/remediation/2026-11-09/11-20-narration-review.json",
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-narration-review.json",
         "humanListeningObserved": false
       }
     }
@@ -1462,22 +1462,22 @@
   "world-discovery-b-19": {
     "appReadingLevel": "B",
     "rationale": "Candidate B: Concrete testing verbs and familiar clear/blurred/no-view language carry the grouping; technical transparent/translucent/opaque terms are not required in the printed B text.",
-    "reviewedAt": "2026-11-09",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:21e9d6ea4a534a8a",
+    "reviewedTextFingerprint": "fnv1a64:1cf1c47e7472279e",
     "reviewer": "root, independent of author_b_c",
     "dimensionObservations": {
-      "syntax": "8 pages; 7–13 words per page, 85 page words overall. Complete manuscript checked against current B limits.",
-      "vocabulary": "Current oral preparation covers clear, blurred, block, screen. All prose and glosses reread for literal, contemporary ESL language and picture support.",
+      "syntax": "8 pages, 85 words. Pages contain 7–13 words. The revised sentences preserve the book’s B reading demands.",
+      "vocabulary": "Current oral preparation covers clear, blurred, block, screen. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "Clear plastic may show edge shadows; wax paper scatters light; card blocks the central beam. Flashlight is not aimed toward eyes.",
       "progression": "Pages 2–4 compare equal sheets in one light path; pages 5–6 split passing/blocking; pages 7–8 separate the two passing views.",
       "inference": "One red car shows why two light-passing sheets need not provide the same view."
     },
     "editorialScorecard": {
       "authority": "docs/content/STORY_CONTENT_AUTHORING_TEMPLATE.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:21e9d6ea4a534a8a",
+      "reviewedTextFingerprint": "fnv1a64:1cf1c47e7472279e",
       "categories": {
         "character": {
           "score": 4,
@@ -1505,11 +1505,11 @@
         },
         "language": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json#world-discovery-b-19: complete manuscript, preparation and discussion reread; 5 exact repaired fields recorded in text-repairs.json. Current source word/sentence and level checks apply."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-b-19. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "world-discovery-b-19: Full printed manuscript read for speakable phrasing, clear pronouns and meaningful recurrence. This is editorial text review, not human listening or generated-audio approval."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-b-19. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 3,
@@ -1521,11 +1521,11 @@
         },
         "illustration": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json#world-discovery-b-19: reference, cover and all 8 pages directly inspected in sequence for anatomy, plausible object contact, identity, style, counts and text/state continuity. Exact installed hashes are bound here and in per-image receipts."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-b-19. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/11-20-narration-review.json: current title/page clips screened, full decode and speech-window signal checked, recognition differences investigated; unchanged word clips require exact historical role/text/hash reuse. Automated evidence is not human listening. Browser evidence is recorded separately."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 36,
@@ -1533,8 +1533,8 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "completeBook": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
-        "automatedNarration": "source-art/world-discovery/remediation/2026-11-09/11-20-narration-review.json",
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-narration-review.json",
         "humanListeningObserved": false
       }
     }
@@ -1782,22 +1782,22 @@
   "world-discovery-c-13": {
     "appReadingLevel": "C",
     "rationale": "Candidate C: The same concrete crate supports a longer connected sequence with before/now relationships and several human roles. The final sentence gathers the causal work rather than listing unrelated community helpers.",
-    "reviewedAt": "2026-11-09",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:8eaf153860773945",
+    "reviewedTextFingerprint": "fnv1a64:69e53625a465ee85",
     "reviewer": "root, independent of author_b_c",
     "dimensionObservations": {
-      "syntax": "8 pages; 16–19 words per page, 141 page words overall. Complete manuscript checked against current C limits.",
-      "vocabulary": "Current oral preparation covers grower, stand, crop. All prose and glosses reread for literal, contemporary ESL language and picture support.",
+      "syntax": "8 pages, 134 words. Pages contain 12–18 words. The revised sentences preserve the book’s C reading demands.",
+      "vocabulary": "Current oral preparation covers farmer, crate, crop. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "USDA evidence supports direct farm-vendor sales; a van and a gate are plausible details of this one market rather than universal operations.",
       "progression": "Pages 1–5 explain how an empty table gains produce; pages 6–8 connect that preparation to the purchase.",
       "inference": "The same empty green crate remains under the now working stall, connecting preparation and outcome."
     },
     "editorialScorecard": {
       "authority": "docs/content/STORY_CONTENT_AUTHORING_TEMPLATE.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:8eaf153860773945",
+      "reviewedTextFingerprint": "fnv1a64:69e53625a465ee85",
       "categories": {
         "character": {
           "score": 4,
@@ -1825,11 +1825,11 @@
         },
         "language": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json#world-discovery-c-13: complete manuscript, preparation and discussion reread; 1 exact repaired fields recorded in text-repairs.json. Current source word/sentence and level checks apply."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-c-13. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "world-discovery-c-13: Full printed manuscript read for speakable phrasing, clear pronouns and meaningful recurrence. This is editorial text review, not human listening or generated-audio approval."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-c-13. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 3,
@@ -1841,11 +1841,11 @@
         },
         "illustration": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json#world-discovery-c-13: reference, cover and all 8 pages directly inspected in sequence for anatomy, plausible object contact, identity, style, counts and text/state continuity. Exact installed hashes are bound here and in per-image receipts."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-c-13. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/11-20-narration-review.json: current title/page clips screened, full decode and speech-window signal checked, recognition differences investigated; unchanged word clips require exact historical role/text/hash reuse. Automated evidence is not human listening. Browser evidence is recorded separately."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 36,
@@ -1853,8 +1853,8 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "completeBook": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
-        "automatedNarration": "source-art/world-discovery/remediation/2026-11-09/11-20-narration-review.json",
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-narration-review.json",
         "humanListeningObserved": false
       }
     }
@@ -1862,22 +1862,22 @@
   "world-discovery-c-14": {
     "appReadingLevel": "C",
     "rationale": "Candidate C: A fair visible clue and an unsuccessful workaround require the reader to connect a rule to its consequences. Dialogue is brief; directions and changes remain concrete and printed.",
-    "reviewedAt": "2026-11-09",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:ba1078096f094a82",
+    "reviewedTextFingerprint": "fnv1a64:c3c3823fe6919d8c",
     "reviewer": "root, independent of author_b_c",
     "dimensionObservations": {
-      "syntax": "8 pages; 16–20 words per page, 145 page words overall. Complete manuscript checked against current C limits.",
-      "vocabulary": "Current oral preparation covers route, trace, bookmark. All prose and glosses reread for literal, contemporary ESL language and picture support.",
+      "syntax": "8 pages, 144 words. Pages contain 16–20 words. The revised sentences preserve the book’s C reading demands.",
+      "vocabulary": "Current oral preparation covers route, trace, bookmark. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "Opposing fourth/fifth arrows now cause a local reversal, not impossible travel back against the first three arrows. Blank page stopping remains seeded.",
       "progression": "Pages 1–2 establish the rule and touching route; pages 3–4 expose the unchanged local trap; pages 5–8 identify, redraw and reach the blank destination.",
       "inference": "The red tip remains exactly at Kit’s reading place after the route strip is removed."
     },
     "editorialScorecard": {
       "authority": "docs/content/STORY_CONTENT_AUTHORING_TEMPLATE.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:ba1078096f094a82",
+      "reviewedTextFingerprint": "fnv1a64:c3c3823fe6919d8c",
       "categories": {
         "character": {
           "score": 4,
@@ -1905,11 +1905,11 @@
         },
         "language": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json#world-discovery-c-14: complete manuscript, preparation and discussion reread; 7 exact repaired fields recorded in text-repairs.json. Current source word/sentence and level checks apply."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-c-14. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "world-discovery-c-14: Full printed manuscript read for speakable phrasing, clear pronouns and meaningful recurrence. This is editorial text review, not human listening or generated-audio approval."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-c-14. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 3,
@@ -1921,11 +1921,11 @@
         },
         "illustration": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json#world-discovery-c-14: reference, cover and all 8 pages directly inspected in sequence for anatomy, plausible object contact, identity, style, counts and text/state continuity. Exact installed hashes are bound here and in per-image receipts."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-c-14. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/11-20-narration-review.json: current title/page clips screened, full decode and speech-window signal checked, recognition differences investigated; unchanged word clips require exact historical role/text/hash reuse. Automated evidence is not human listening. Browser evidence is recorded separately."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 36,
@@ -1933,8 +1933,8 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "completeBook": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
-        "automatedNarration": "source-art/world-discovery/remediation/2026-11-09/11-20-narration-review.json",
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-narration-review.json",
         "humanListeningObserved": false
       }
     }
@@ -2022,22 +2022,22 @@
   "world-discovery-c-16": {
     "appReadingLevel": "C",
     "rationale": "Candidate C: one question contrasts a solid center with a visible loose-dust tail. Short paired clauses connect warming, dust release, reflected light and fading; gas-tail types, ion physics and a second solar-wind mechanism are excluded from child print.",
-    "reviewedAt": "2026-11-09",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:fb331a657767eaf3",
+    "reviewedTextFingerprint": "fnv1a64:b38c784cd9bb8b2e",
     "reviewer": "root, independent of author_b_c",
     "dimensionObservations": {
-      "syntax": "8 pages; 15–20 words per page, 136 page words overall. Complete manuscript checked against current C limits.",
-      "vocabulary": "Current oral preparation covers comet, dust, reflect. All prose and glosses reread for literal, contemporary ESL language and picture support.",
+      "syntax": "8 pages, 134 words. Pages contain 14–20 words. The revised sentences preserve the book’s C reading demands.",
+      "vocabulary": "Current oral preparation covers comet, dust, reflect. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "NASA evidence supports an illustrated dust tail reflecting sunlight. The book selects this tail and does not deny an additional gas tail.",
       "progression": "Pages 2–4 release dust from the icy center; pages 5–6 show reflected light and relative size; pages 7–8 explain a fading diffuse tail.",
       "inference": "A tail much larger than its solid center makes the solid-versus-loose comparison specific and memorable."
     },
     "editorialScorecard": {
       "authority": "docs/content/STORY_CONTENT_AUTHORING_TEMPLATE.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:fb331a657767eaf3",
+      "reviewedTextFingerprint": "fnv1a64:b38c784cd9bb8b2e",
       "categories": {
         "character": {
           "score": 4,
@@ -2065,11 +2065,11 @@
         },
         "language": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json#world-discovery-c-16: complete manuscript, preparation and discussion reread; 3 exact repaired fields recorded in text-repairs.json. Current source word/sentence and level checks apply."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-c-16. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "world-discovery-c-16: Full printed manuscript read for speakable phrasing, clear pronouns and meaningful recurrence. This is editorial text review, not human listening or generated-audio approval."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-c-16. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 3,
@@ -2081,11 +2081,11 @@
         },
         "illustration": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json#world-discovery-c-16: reference, cover and all 8 pages directly inspected in sequence for anatomy, plausible object contact, identity, style, counts and text/state continuity. Exact installed hashes are bound here and in per-image receipts."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-c-16. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/11-20-narration-review.json: current title/page clips screened, full decode and speech-window signal checked, recognition differences investigated; unchanged word clips require exact historical role/text/hash reuse. Automated evidence is not human listening. Browser evidence is recorded separately."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 36,
@@ -2093,8 +2093,8 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "completeBook": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
-        "automatedNarration": "source-art/world-discovery/remediation/2026-11-09/11-20-narration-review.json",
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-narration-review.json",
         "humanListeningObserved": false
       }
     }
@@ -2102,22 +2102,22 @@
   "world-discovery-c-17": {
     "appReadingLevel": "C",
     "rationale": "Candidate C: Action and consequence stay concrete while the ending connects a particular action to the category tool. Short paired sentences and a supported contrast earn more demand than a simple feeding list.",
-    "reviewedAt": "2026-11-09",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:4d3c262a11dff6a0",
+    "reviewedTextFingerprint": "fnv1a64:6a2122e7a966b9c7",
     "reviewer": "root, independent of author_b_c",
     "dimensionObservations": {
-      "syntax": "8 pages; 11–18 words per page, 119 page words overall. Complete manuscript checked against current C limits.",
-      "vocabulary": "Current oral preparation covers clam, tool, seabed. All prose and glosses reread for literal, contemporary ESL language and picture support.",
+      "syntax": "8 pages, 119 words. Pages contain 11–18 words. The revised sentences preserve the book’s C reading demands.",
+      "vocabulary": "Current oral preparation covers clam, tool, seabed. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "Aquarium and USGS accounts support sea otter prey processing on the chest with stone tools; this is one example, not every otter’s every meal.",
       "progression": "Pages 1–4 establish prey and anvil; pages 5–6 distinguish unsuccessful and successful strikes; pages 7–8 connect access to food with tool use.",
       "inference": "The first unbroken shell gives the crack on the next strike page-turn meaning."
     },
     "editorialScorecard": {
       "authority": "docs/content/STORY_CONTENT_AUTHORING_TEMPLATE.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:4d3c262a11dff6a0",
+      "reviewedTextFingerprint": "fnv1a64:6a2122e7a966b9c7",
       "categories": {
         "character": {
           "score": 4,
@@ -2145,11 +2145,11 @@
         },
         "language": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json#world-discovery-c-17: complete manuscript, preparation and discussion reread; 2 exact repaired fields recorded in text-repairs.json. Current source word/sentence and level checks apply."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-c-17. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "world-discovery-c-17: Full printed manuscript read for speakable phrasing, clear pronouns and meaningful recurrence. This is editorial text review, not human listening or generated-audio approval."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-c-17. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 3,
@@ -2161,11 +2161,11 @@
         },
         "illustration": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json#world-discovery-c-17: reference, cover and all 8 pages directly inspected in sequence for anatomy, plausible object contact, identity, style, counts and text/state continuity. Exact installed hashes are bound here and in per-image receipts."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-c-17. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/11-20-narration-review.json: current title/page clips screened, full decode and speech-window signal checked, recognition differences investigated; unchanged word clips require exact historical role/text/hash reuse. Automated evidence is not human listening. Browser evidence is recorded separately."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 36,
@@ -2173,8 +2173,8 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "completeBook": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
-        "automatedNarration": "source-art/world-discovery/remediation/2026-11-09/11-20-narration-review.json",
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-narration-review.json",
         "humanListeningObserved": false
       }
     }
@@ -2422,22 +2422,22 @@
   "world-discovery-d-11": {
     "appReadingLevel": "D",
     "rationale": "Candidate D: Zoe revises a concrete choice after noticing a mismatch between her memory and someone else's preference. Dialogue, a reversible failed change and the restored picture carry an internal decision across linked pages. Independent placement remains pending.",
-    "reviewedAt": "2026-11-09",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:03444d9eefa52e21",
+    "reviewedTextFingerprint": "fnv1a64:c373f2f3fd91f6fb",
     "reviewer": "root, independent of author_d_e",
     "dimensionObservations": {
-      "syntax": "10 pages; 16–21 words per page, 186 page words overall. Complete manuscript checked against current D limits.",
-      "vocabulary": "Current oral preparation covers prefer, puddle, remember. All prose and glosses reread for literal, contemporary ESL language and picture support.",
+      "syntax": "10 pages, 180 words. Pages contain 13–21 words. The revised sentences preserve the book’s D reading demands.",
+      "vocabulary": "Current oral preparation covers prefer, puddle, remember. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "Kit and Zoe retain locked designs; purple boots appear only in a child’s drawing, not on the real character. Their opinions can differ without one being corrected as fact.",
       "progression": "Pages 2–5 cover the cloud and expose the mismatch; pages 6–8 restore the reason for the puddle; pages 9–10 retain two different choices.",
       "inference": "The loose paper sun can be lifted off, and the biggest splash supplies Zoe’s own reason for choosing the rainy day."
     },
     "editorialScorecard": {
       "authority": "docs/content/STORY_CONTENT_AUTHORING_TEMPLATE.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:03444d9eefa52e21",
+      "reviewedTextFingerprint": "fnv1a64:c373f2f3fd91f6fb",
       "categories": {
         "character": {
           "score": 4,
@@ -2465,11 +2465,11 @@
         },
         "language": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json#world-discovery-d-11: complete manuscript, preparation and discussion reread; 2 exact repaired fields recorded in text-repairs.json. Current source word/sentence and level checks apply."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-d-11. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "world-discovery-d-11: Full printed manuscript read for speakable phrasing, clear pronouns and meaningful recurrence. This is editorial text review, not human listening or generated-audio approval."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-d-11. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 3,
@@ -2481,11 +2481,11 @@
         },
         "illustration": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json#world-discovery-d-11: reference, cover and all 10 pages directly inspected in sequence for anatomy, plausible object contact, identity, style, counts and text/state continuity. Exact installed hashes are bound here and in per-image receipts."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-d-11. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/11-20-narration-review.json: current title/page clips screened, full decode and speech-window signal checked, recognition differences investigated; unchanged word clips require exact historical role/text/hash reuse. Automated evidence is not human listening. Browser evidence is recorded separately."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 36,
@@ -2493,8 +2493,8 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "completeBook": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
-        "automatedNarration": "source-art/world-discovery/remediation/2026-11-09/11-20-narration-review.json",
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-narration-review.json",
         "humanListeningObserved": false
       }
     }
@@ -2662,22 +2662,22 @@
   "world-discovery-d-14": {
     "appReadingLevel": "D",
     "rationale": "Candidate D: the concrete failed grasp leads to a supported inference about one established magical rule. Ten short dialogue/action beats retain clear object identity and end with a visible comic payoff. Independent placement remains pending.",
-    "reviewedAt": "2026-11-09",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:d5cd462571e88e16",
+    "reviewedTextFingerprint": "fnv1a64:b9f75b1f4d082b12",
     "reviewer": "root, independent of author_d_e",
     "dimensionObservations": {
-      "syntax": "10 pages; 17–21 words per page, 184 page words overall. Complete manuscript checked against current D limits.",
-      "vocabulary": "Current oral preparation covers outline, copies, bow. All prose and glosses reread for literal, contemporary ESL language and picture support.",
+      "syntax": "10 pages, 182 words. Pages contain 16–21 words. The revised sentences preserve the book’s D reading demands.",
+      "vocabulary": "Current oral preparation covers outline, copies, bow. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "The revised prop is a red semicircular paper fan, not a flag. One flat silhouette remains tied to Kit’s outline and held objects while he stays inside the circle.",
       "progression": "Pages 1–3 seed copying; pages 4–6 fail to move a real fan with a flat shadow; pages 7–10 hold and wave the real fan so its copied shape moves.",
       "inference": "Kit’s bow makes the giant shadow fan dip almost to the floor while the real fan stays small."
     },
     "editorialScorecard": {
       "authority": "docs/content/STORY_CONTENT_AUTHORING_TEMPLATE.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:d5cd462571e88e16",
+      "reviewedTextFingerprint": "fnv1a64:b9f75b1f4d082b12",
       "categories": {
         "character": {
           "score": 4,
@@ -2705,11 +2705,11 @@
         },
         "language": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json#world-discovery-d-14: complete manuscript, preparation and discussion reread; 2 exact repaired fields recorded in text-repairs.json. Current source word/sentence and level checks apply."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-d-14. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "world-discovery-d-14: Full printed manuscript read for speakable phrasing, clear pronouns and meaningful recurrence. This is editorial text review, not human listening or generated-audio approval."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-d-14. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 3,
@@ -2721,11 +2721,11 @@
         },
         "illustration": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json#world-discovery-d-14: reference, cover and all 10 pages directly inspected in sequence for anatomy, plausible object contact, identity, style, counts and text/state continuity. Exact installed hashes are bound here and in per-image receipts."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-d-14. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/11-20-narration-review.json: current title/page clips screened, full decode and speech-window signal checked, recognition differences investigated; unchanged word clips require exact historical role/text/hash reuse. Automated evidence is not human listening. Browser evidence is recorded separately."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 36,
@@ -2733,8 +2733,8 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "completeBook": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
-        "automatedNarration": "source-art/world-discovery/remediation/2026-11-09/11-20-narration-review.json",
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-narration-review.json",
         "humanListeningObserved": false
       }
     }
@@ -2822,22 +2822,22 @@
   "world-discovery-d-16": {
     "appReadingLevel": "D",
     "rationale": "Candidate D: a sustained visible change is linked to one spatial cause. Familiar light/shadow language supports eclipse and filtered light; the phase comparison prevents a misconception without teaching orbital calculations. Independent placement remains pending.",
-    "reviewedAt": "2026-11-09",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:6da264a4a03ee80c",
+    "reviewedTextFingerprint": "fnv1a64:b2efcd21823e00a3",
     "reviewer": "root, independent of author_d_e",
     "dimensionObservations": {
-      "syntax": "10 pages; 15–19 words per page, 169 page words overall. Complete manuscript checked against current D limits.",
-      "vocabulary": "Current oral preparation covers eclipse, reflect, filtered. All prose and glosses reread for literal, contemporary ESL language and picture support.",
+      "syntax": "10 pages, 165 words. Pages contain 15–19 words. The revised sentences preserve the book’s D reading demands.",
+      "vocabulary": "Current oral preparation covers eclipse, reflect, phases. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "NASA sources support Earth blocking direct sunlight and red light transmitted through its air. Diagrams must keep Earth opaque, scale qualified and the Moon’s mare pattern unchanged.",
       "progression": "Pages 1–4 connect a dark edge to Earth’s shadow; pages 5–6 allow filtered reddish light; pages 7–10 restore direct light and separate this event from ordinary phases.",
       "inference": "The apparently bitten disk remains a whole Moon throughout; the final bright view answers the opening puzzle."
     },
     "editorialScorecard": {
       "authority": "docs/content/STORY_CONTENT_AUTHORING_TEMPLATE.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:6da264a4a03ee80c",
+      "reviewedTextFingerprint": "fnv1a64:b2efcd21823e00a3",
       "categories": {
         "character": {
           "score": 4,
@@ -2865,11 +2865,11 @@
         },
         "language": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json#world-discovery-d-16: complete manuscript, preparation and discussion reread; 1 exact repaired fields recorded in text-repairs.json. Current source word/sentence and level checks apply."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-d-16. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "world-discovery-d-16: Full printed manuscript read for speakable phrasing, clear pronouns and meaningful recurrence. This is editorial text review, not human listening or generated-audio approval."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-d-16. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 3,
@@ -2881,11 +2881,11 @@
         },
         "illustration": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json#world-discovery-d-16: reference, cover and all 10 pages directly inspected in sequence for anatomy, plausible object contact, identity, style, counts and text/state continuity. Exact installed hashes are bound here and in per-image receipts."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-d-16. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/11-20-narration-review.json: current title/page clips screened, full decode and speech-window signal checked, recognition differences investigated; unchanged word clips require exact historical role/text/hash reuse. Automated evidence is not human listening. Browser evidence is recorded separately."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 36,
@@ -2893,8 +2893,8 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "completeBook": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
-        "automatedNarration": "source-art/world-discovery/remediation/2026-11-09/11-20-narration-review.json",
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-narration-review.json",
         "humanListeningObserved": false
       }
     }
@@ -2902,22 +2902,22 @@
   "world-discovery-d-17": {
     "appReadingLevel": "D",
     "rationale": "Candidate D: the reader tracks the same body part through a controlled change of background and distinguishes transparent material from absence. Paired explanations and supported counterexamples earn more demand than a simple animal label book. Independent placement remains pending.",
-    "reviewedAt": "2026-11-09",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:5575b000a194187b",
+    "reviewedTextFingerprint": "fnv1a64:6feb99f605cae250",
     "reviewer": "root, independent of author_d_e",
     "dimensionObservations": {
-      "syntax": "10 pages; 14–22 words per page, 186 page words overall. Complete manuscript checked against current D limits.",
-      "vocabulary": "Current oral preparation covers transparent, membrane, vein. All prose and glosses reread for literal, contemporary ESL language and picture support.",
+      "syntax": "10 pages, 183 words. Pages contain 14–22 words. The revised sentences preserve the book’s D reading demands.",
+      "vocabulary": "Current oral preparation covers transparent, membrane, vein. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "Primary Greta oto studies support transparent membrane, sparse bristle-like scales and opaque broad-scaled borders. Art locks now include four developed walking legs plus reduced forelegs.",
       "progression": "Pages 1–5 establish an intact light-transmitting patch and its borders; pages 6–8 change the background; pages 9–10 retain the complete wing during movement.",
       "inference": "The same patch looks green and then pink because the visible background changes, not the butterfly’s identity."
     },
     "editorialScorecard": {
       "authority": "docs/content/STORY_CONTENT_AUTHORING_TEMPLATE.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:5575b000a194187b",
+      "reviewedTextFingerprint": "fnv1a64:6feb99f605cae250",
       "categories": {
         "character": {
           "score": 4,
@@ -2945,11 +2945,11 @@
         },
         "language": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json#world-discovery-d-17: complete manuscript, preparation and discussion reread; 2 exact repaired fields recorded in text-repairs.json. Current source word/sentence and level checks apply."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-d-17. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "world-discovery-d-17: Full printed manuscript read for speakable phrasing, clear pronouns and meaningful recurrence. This is editorial text review, not human listening or generated-audio approval."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-d-17. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 3,
@@ -2961,11 +2961,11 @@
         },
         "illustration": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json#world-discovery-d-17: reference, cover and all 10 pages directly inspected in sequence for anatomy, plausible object contact, identity, style, counts and text/state continuity. Exact installed hashes are bound here and in per-image receipts."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-d-17. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/11-20-narration-review.json: current title/page clips screened, full decode and speech-window signal checked, recognition differences investigated; unchanged word clips require exact historical role/text/hash reuse. Automated evidence is not human listening. Browser evidence is recorded separately."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 36,
@@ -2973,8 +2973,8 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "completeBook": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
-        "automatedNarration": "source-art/world-discovery/remediation/2026-11-09/11-20-narration-review.json",
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-narration-review.json",
         "humanListeningObserved": false
       }
     }
@@ -3142,22 +3142,22 @@
   "world-discovery-d-20": {
     "appReadingLevel": "D",
     "rationale": "Candidate D: a concrete before-and-after sequence connects lamp design, direction, usefulness and timing. The reader tracks what changes and what stays the same; the scope remains one fixture rather than a wide ecology lecture. Independent placement remains pending.",
-    "reviewedAt": "2026-11-09",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:9332635e185a77bc",
+    "reviewedTextFingerprint": "fnv1a64:dc2db32787ecb808",
     "reviewer": "root, independent of author_d_e",
     "dimensionObservations": {
-      "syntax": "10 pages; 14–21 words per page, 177 page words overall. Complete manuscript checked against current D limits.",
-      "vocabulary": "Current oral preparation covers shield, glare, timer. All prose and glosses reread for literal, contemporary ESL language and picture support.",
+      "syntax": "10 pages, 178 words. Pages contain 14–21 words. The revised sentences preserve the book’s D reading demands.",
+      "vocabulary": "Current oral preparation covers shield, glare, timer. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "DarkSky/IES and NPS evidence supports targeted, controlled lighting. An adult alone fits the shield with power off; no claim that one fixture eliminates regional skyglow.",
       "progression": "Pages 1–3 identify unwanted spill; pages 4–6 fit a top-and-side shield and compare the same view; pages 7–10 connect needed brightness and timing to the local path.",
       "inference": "The same bulb can serve the path while the hedge and upstairs window receive less direct light."
     },
     "editorialScorecard": {
       "authority": "docs/content/STORY_CONTENT_AUTHORING_TEMPLATE.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:9332635e185a77bc",
+      "reviewedTextFingerprint": "fnv1a64:dc2db32787ecb808",
       "categories": {
         "character": {
           "score": 4,
@@ -3185,11 +3185,11 @@
         },
         "language": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json#world-discovery-d-20: complete manuscript, preparation and discussion reread; 2 exact repaired fields recorded in text-repairs.json. Current source word/sentence and level checks apply."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-d-20. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "world-discovery-d-20: Full printed manuscript read for speakable phrasing, clear pronouns and meaningful recurrence. This is editorial text review, not human listening or generated-audio approval."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-d-20. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 3,
@@ -3201,11 +3201,11 @@
         },
         "illustration": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json#world-discovery-d-20: reference, cover and all 10 pages directly inspected in sequence for anatomy, plausible object contact, identity, style, counts and text/state continuity. Exact installed hashes are bound here and in per-image receipts."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-d-20. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/11-20-narration-review.json: current title/page clips screened, full decode and speech-window signal checked, recognition differences investigated; unchanged word clips require exact historical role/text/hash reuse. Automated evidence is not human listening. Browser evidence is recorded separately."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 36,
@@ -3213,8 +3213,8 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "completeBook": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
-        "automatedNarration": "source-art/world-discovery/remediation/2026-11-09/11-20-narration-review.json",
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-narration-review.json",
         "humanListeningObserved": false
       }
     }
@@ -3222,22 +3222,22 @@
   "world-discovery-e-11": {
     "appReadingLevel": "E",
     "rationale": "Candidate E: the reader follows two simultaneous wishes, a failed concealment, a pause that exposes the conflict, and a deliberate solution. Earlier fear, present pride and ownership of personal detail remain connected through concrete sheets and folds. Independent placement remains pending.",
-    "reviewedAt": "2026-11-09",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:842dfe5f0898a477",
+    "reviewedTextFingerprint": "fnv1a64:548dd26fac4e049f",
     "reviewer": "root, independent of author_d_e",
     "dimensionObservations": {
-      "syntax": "10 pages; 18–21 words per page, 196 page words overall. Complete manuscript checked against current E limits.",
-      "vocabulary": "Current oral preparation covers private, fold, choose. All prose and glosses reread for literal, contemporary ESL language and picture support.",
+      "syntax": "10 pages, 191 words. Pages contain 17–21 words. The revised sentences preserve the book’s E reading demands.",
+      "vocabulary": "Current oral preparation covers private, fold, choose. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "The swimmer exists only in a drawing; current Kit/Zoe clothing stays fixed. Kit waits for the offered picture and does not open Zoe’s folder.",
       "progression": "Pages 1–4 establish two memories and failed concealment; pages 5–7 distinguish withholding everything from choosing one part; pages 8–10 preserve the original while sharing the new drawing.",
       "inference": "The first drawing remains hers even after a different picture hangs publicly."
     },
     "editorialScorecard": {
       "authority": "docs/content/STORY_CONTENT_AUTHORING_TEMPLATE.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:842dfe5f0898a477",
+      "reviewedTextFingerprint": "fnv1a64:548dd26fac4e049f",
       "categories": {
         "character": {
           "score": 4,
@@ -3265,11 +3265,11 @@
         },
         "language": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json#world-discovery-e-11: complete manuscript, preparation and discussion reread; 1 exact repaired fields recorded in text-repairs.json. Current source word/sentence and level checks apply."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-e-11. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "world-discovery-e-11: Full printed manuscript read for speakable phrasing, clear pronouns and meaningful recurrence. This is editorial text review, not human listening or generated-audio approval."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-e-11. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 3,
@@ -3281,11 +3281,11 @@
         },
         "illustration": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json#world-discovery-e-11: reference, cover and all 10 pages directly inspected in sequence for anatomy, plausible object contact, identity, style, counts and text/state continuity. Exact installed hashes are bound here and in per-image receipts."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-e-11. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/11-20-narration-review.json: current title/page clips screened, full decode and speech-window signal checked, recognition differences investigated; unchanged word clips require exact historical role/text/hash reuse. Automated evidence is not human listening. Browser evidence is recorded separately."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 36,
@@ -3293,8 +3293,8 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "completeBook": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
-        "automatedNarration": "source-art/world-discovery/remediation/2026-11-09/11-20-narration-review.json",
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-narration-review.json",
         "humanListeningObserved": false
       }
     }
@@ -3302,22 +3302,22 @@
   "world-discovery-e-12": {
     "appReadingLevel": "E",
     "rationale": "Candidate E: the plot depends on concealed knowledge, an unintended consequence, delayed disclosure and a shared inference from an earlier sound. Pronouns, time clauses and dialogue sustain motives across the whole search without an abstract moral. Independent placement remains pending.",
-    "reviewedAt": "2026-11-09",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:eadcb37cc82b190b",
+    "reviewedTextFingerprint": "fnv1a64:2b4eb11cad107b1c",
     "reviewer": "root, independent of author_d_e",
     "dimensionObservations": {
-      "syntax": "10 pages; 17–22 words per page, 203 page words overall. Complete manuscript checked against current E limits.",
-      "vocabulary": "Current oral preparation covers gap, explain, clue. All prose and glosses reread for literal, contemporary ESL language and picture support.",
+      "syntax": "10 pages, 199 words. Pages contain 17–21 words. The revised sentences preserve the book’s E reading demands.",
+      "vocabulary": "Current oral preparation covers gap, explain, clue. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "Exactly twelve puzzle pieces remain: eleven assembled and one hidden/fallen/retrieved. The bench gap is accessible without moving heavy furniture or trapping a child.",
       "progression": "Pages 1–3 hide then lose the piece; pages 4–5 search without useful information; pages 6–9 disclose and retrace the fall; page 10 gives Zoe the final placement.",
       "inference": "The small tap becomes useful evidence only after Kit says where he hid the piece."
     },
     "editorialScorecard": {
       "authority": "docs/content/STORY_CONTENT_AUTHORING_TEMPLATE.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:eadcb37cc82b190b",
+      "reviewedTextFingerprint": "fnv1a64:2b4eb11cad107b1c",
       "categories": {
         "character": {
           "score": 4,
@@ -3345,11 +3345,11 @@
         },
         "language": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json#world-discovery-e-12: complete manuscript, preparation and discussion reread; 0 exact repaired fields recorded in text-repairs.json. Current source word/sentence and level checks apply."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-e-12. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "world-discovery-e-12: Full printed manuscript read for speakable phrasing, clear pronouns and meaningful recurrence. This is editorial text review, not human listening or generated-audio approval."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-e-12. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 3,
@@ -3361,11 +3361,11 @@
         },
         "illustration": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json#world-discovery-e-12: reference, cover and all 10 pages directly inspected in sequence for anatomy, plausible object contact, identity, style, counts and text/state continuity. Exact installed hashes are bound here and in per-image receipts."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-e-12. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/11-20-narration-review.json: current title/page clips screened, full decode and speech-window signal checked, recognition differences investigated; unchanged word clips require exact historical role/text/hash reuse. Automated evidence is not human listening. Browser evidence is recorded separately."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 36,
@@ -3373,8 +3373,8 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "completeBook": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
-        "automatedNarration": "source-art/world-discovery/remediation/2026-11-09/11-20-narration-review.json",
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-narration-review.json",
         "humanListeningObserved": false
       }
     }
@@ -3382,22 +3382,22 @@
   "world-discovery-e-13": {
     "appReadingLevel": "E",
     "rationale": "Candidate E: an apparent solution is tested against a different time, revised using a plan, and weighed against a second need. The linked inquiry asks readers to compare observations, distinguish present from future shade and infer why placement matters. Independent placement remains pending.",
-    "reviewedAt": "2026-11-09",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:3df763615d1ebe7e",
+    "reviewedTextFingerprint": "fnv1a64:4996168b54e2bd6c",
     "reviewer": "root, independent of author_d_e",
     "dimensionObservations": {
-      "syntax": "10 pages; 16–21 words per page, 193 page words overall. Complete manuscript checked against current E limits.",
-      "vocabulary": "Current oral preparation covers courtyard, shade, crown. All prose and glosses reread for literal, contemporary ESL language and picture support.",
+      "syntax": "10 pages, 191 words. Pages contain 16–21 words. The revised sentences preserve the book’s E reading demands.",
+      "vocabulary": "Current oral preparation covers courtyard, shade, caretaker. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "EPA and DOE sources support shade and time-sensitive site planning. The bench remains on the west side; the morning east-wall shadow and fixed doorway route are consistently specified.",
       "progression": "Pages 1–2 establish the noon problem; pages 3–5 test morning shade at lunchtime; pages 6–8 locate and check a canopy; pages 9–10 preserve future tree care and present access.",
       "inference": "The final plan succeeds at lunchtime and still leaves room for someone passing through."
     },
     "editorialScorecard": {
       "authority": "docs/content/STORY_CONTENT_AUTHORING_TEMPLATE.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:3df763615d1ebe7e",
+      "reviewedTextFingerprint": "fnv1a64:4996168b54e2bd6c",
       "categories": {
         "character": {
           "score": 4,
@@ -3425,11 +3425,11 @@
         },
         "language": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json#world-discovery-e-13: complete manuscript, preparation and discussion reread; 1 exact repaired fields recorded in text-repairs.json. Current source word/sentence and level checks apply."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-e-13. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "world-discovery-e-13: Full printed manuscript read for speakable phrasing, clear pronouns and meaningful recurrence. This is editorial text review, not human listening or generated-audio approval."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-e-13. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 3,
@@ -3441,11 +3441,11 @@
         },
         "illustration": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json#world-discovery-e-13: reference, cover and all 10 pages directly inspected in sequence for anatomy, plausible object contact, identity, style, counts and text/state continuity. Exact installed hashes are bound here and in per-image receipts."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-e-13. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/11-20-narration-review.json: current title/page clips screened, full decode and speech-window signal checked, recognition differences investigated; unchanged word clips require exact historical role/text/hash reuse. Automated evidence is not human listening. Browser evidence is recorded separately."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 36,
@@ -3453,8 +3453,8 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "completeBook": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
-        "automatedNarration": "source-art/world-discovery/remediation/2026-11-09/11-20-narration-review.json",
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-narration-review.json",
         "humanListeningObserved": false
       }
     },
@@ -3472,22 +3472,22 @@
   "world-discovery-e-14": {
     "appReadingLevel": "E",
     "rationale": "Candidate E: the reader retains an opening rule, tracks an unseen object's location after contact, recognizes the danger of repeating the failed approach, and connects a remembered observation to a controlled solution. Temporal and conditional clauses support the inference. Independent placement remains pending.",
-    "reviewedAt": "2026-11-09",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:3d9be9561aa2f6cd",
+    "reviewedTextFingerprint": "fnv1a64:28cd82cf92971ed5",
     "reviewer": "root, independent of author_d_e",
     "dimensionObservations": {
-      "syntax": "10 pages; 18–21 words per page, 193 page words overall. Complete manuscript checked against current E limits.",
-      "vocabulary": "Current oral preparation covers vanish, rim, visible. All prose and glosses reread for literal, contemporary ESL language and picture support.",
+      "syntax": "10 pages, 193 words. Pages contain 18–21 words. The revised sentences preserve the book’s E reading demands.",
+      "vocabulary": "Current oral preparation covers vanish, rim, visible. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "All visible boat surfaces, including its mast, are now painted before disappearance and wiped clean at the end. Painted objects stay solid; the unpainted table and tools remain visible.",
       "progression": "Page 1 tests wiping; pages 2–4 coat the hull, sail, mast and tray; pages 5–6 expose the failure of guessing; pages 7–10 trace and clean the moved objects.",
       "inference": "A revealed yellow edge leads to a blue strip, turning the tray itself into a usable clue."
     },
     "editorialScorecard": {
       "authority": "docs/content/STORY_CONTENT_AUTHORING_TEMPLATE.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:3d9be9561aa2f6cd",
+      "reviewedTextFingerprint": "fnv1a64:28cd82cf92971ed5",
       "categories": {
         "character": {
           "score": 4,
@@ -3515,11 +3515,11 @@
         },
         "language": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json#world-discovery-e-14: complete manuscript, preparation and discussion reread; 1 exact repaired fields recorded in text-repairs.json. Current source word/sentence and level checks apply."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-e-14. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "world-discovery-e-14: Full printed manuscript read for speakable phrasing, clear pronouns and meaningful recurrence. This is editorial text review, not human listening or generated-audio approval."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-e-14. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 3,
@@ -3531,11 +3531,11 @@
         },
         "illustration": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json#world-discovery-e-14: reference, cover and all 10 pages directly inspected in sequence for anatomy, plausible object contact, identity, style, counts and text/state continuity. Exact installed hashes are bound here and in per-image receipts."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-e-14. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/11-20-narration-review.json: current title/page clips screened, full decode and speech-window signal checked, recognition differences investigated; unchanged word clips require exact historical role/text/hash reuse. Automated evidence is not human listening. Browser evidence is recorded separately."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 36,
@@ -3543,8 +3543,8 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "completeBook": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
-        "automatedNarration": "source-art/world-discovery/remediation/2026-11-09/11-20-narration-review.json",
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-narration-review.json",
         "humanListeningObserved": false
       }
     }
@@ -3552,22 +3552,22 @@
   "world-discovery-e-15": {
     "appReadingLevel": "E",
     "rationale": "Candidate E: a present puzzle prompts reconstruction across past and present, then inference from two remaining clues. One explained specialist noun and a single erosion chain support temporal and causal reasoning without a landform catalogue. Independent placement remains pending.",
-    "reviewedAt": "2026-11-09",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:f78a02263c44fafa",
+    "reviewedTextFingerprint": "fnv1a64:6a3510e7728d213c",
     "reviewer": "root, independent of author_d_e",
     "dimensionObservations": {
-      "syntax": "10 pages; 17–22 words per page, 202 page words overall. Complete manuscript checked against current E limits.",
-      "vocabulary": "Current oral preparation covers glacier, valley, clue. All prose and glosses reread for literal, contemporary ESL language and picture support.",
+      "syntax": "10 pages, 203 words. Pages contain 17–22 words. The revised sentences preserve the book’s E reading demands.",
+      "vocabulary": "Current oral preparation covers glacier, valley, clue. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "NPS and USGS evidence supports widening/deepening, embedded-rock striations and a retreating front while ice still flows downslope. No backward-sliding glacier or instant landscape change is depicted.",
       "progression": "Pages 1–3 connect present space to former ice; pages 4–5 explain erosion; pages 6–7 retreat by net melting; pages 8–10 return to the two present clues.",
       "inference": "The ice is missing, but its work remains visible beside the small present river."
     },
     "editorialScorecard": {
       "authority": "docs/content/STORY_CONTENT_AUTHORING_TEMPLATE.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:f78a02263c44fafa",
+      "reviewedTextFingerprint": "fnv1a64:6a3510e7728d213c",
       "categories": {
         "character": {
           "score": 4,
@@ -3595,11 +3595,11 @@
         },
         "language": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json#world-discovery-e-15: complete manuscript, preparation and discussion reread; 1 exact repaired fields recorded in text-repairs.json. Current source word/sentence and level checks apply."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-e-15. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "world-discovery-e-15: Full printed manuscript read for speakable phrasing, clear pronouns and meaningful recurrence. This is editorial text review, not human listening or generated-audio approval."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-e-15. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 3,
@@ -3611,11 +3611,11 @@
         },
         "illustration": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json#world-discovery-e-15: reference, cover and all 10 pages directly inspected in sequence for anatomy, plausible object contact, identity, style, counts and text/state continuity. Exact installed hashes are bound here and in per-image receipts."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-e-15. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/11-20-narration-review.json: current title/page clips screened, full decode and speech-window signal checked, recognition differences investigated; unchanged word clips require exact historical role/text/hash reuse. Automated evidence is not human listening. Browser evidence is recorded separately."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 36,
@@ -3623,8 +3623,8 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "completeBook": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
-        "automatedNarration": "source-art/world-discovery/remediation/2026-11-09/11-20-narration-review.json",
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-narration-review.json",
         "humanListeningObserved": false
       }
     }
@@ -3792,22 +3792,22 @@
   "world-discovery-e-18": {
     "appReadingLevel": "E",
     "rationale": "Candidate E: the reader distinguishes continuity of a journey from continuity of an individual. Season markers, a plain explanation of generation and return to the winter setting support this inference; exact distances, generation counts and migration mechanisms are excluded. Independent placement remains pending.",
-    "reviewedAt": "2026-11-09",
+    "reviewedAt": "2026-11-22",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedTextFingerprint": "fnv1a64:644e73c4cf537a40",
+    "reviewedTextFingerprint": "fnv1a64:793607fece6a4548",
     "reviewer": "root, independent of author_d_e",
     "dimensionObservations": {
-      "syntax": "10 pages; 18–21 words per page, 197 page words overall. Complete manuscript checked against current E limits.",
-      "vocabulary": "Current oral preparation covers generation, descendants, milkweed. All prose and glosses reread for literal, contemporary ESL language and picture support.",
+      "syntax": "10 pages, 197 words. Pages contain 18–21 words. The revised sentences preserve the book’s E reading demands.",
+      "vocabulary": "Current oral preparation covers generation, fir, milkweed. Revised wording uses familiar U.S. English and explains the subject’s essential terms.",
       "knowledge": "FWS and NPS sources support the eastern migratory population’s Mexican overwintering and multigeneration northward movement. Maps must stay in eastern North America; no uniquely marked individual returns across the full year.",
       "progression": "Pages 1–3 follow autumn migrants through winter into spring; pages 4–7 introduce descendants moving north; pages 8–10 return a different generation south to the earlier region.",
       "inference": "The same winter forest welcomes new butterflies, making the relay comparison meaningful rather than literal."
     },
     "editorialScorecard": {
       "authority": "docs/content/STORY_CONTENT_AUTHORING_TEMPLATE.md#9-editorial-scorecard",
-      "reviewedAt": "2026-11-09",
+      "reviewedAt": "2026-11-22",
       "scope": "complete-book",
-      "reviewedTextFingerprint": "fnv1a64:644e73c4cf537a40",
+      "reviewedTextFingerprint": "fnv1a64:793607fece6a4548",
       "categories": {
         "character": {
           "score": 4,
@@ -3835,11 +3835,11 @@
         },
         "language": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json#world-discovery-e-18: complete manuscript, preparation and discussion reread; 6 exact repaired fields recorded in text-repairs.json. Current source word/sentence and level checks apply."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-e-18. The updated lines retain the public level and use the visible noun, action or supported explanation."
         },
         "voice": {
           "score": 3,
-          "evidence": "world-discovery-e-18: Full printed manuscript read for speakable phrasing, clear pronouns and meaningful recurrence. This is editorial text review, not human listening or generated-audio approval."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-e-18. The revised lines were read in page order against the complete manuscript and written in ordinary U.S. English."
         },
         "delight": {
           "score": 3,
@@ -3851,11 +3851,11 @@
         },
         "illustration": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json#world-discovery-e-18: reference, cover and all 10 pages directly inspected in sequence for anatomy, plausible object contact, identity, style, counts and text/state continuity. Exact installed hashes are bound here and in per-image receipts."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json#world-discovery-e-18. The installed reference, cover and every page were checked against the current text and state in reading order."
         },
         "audio": {
           "score": 3,
-          "evidence": "source-art/world-discovery/remediation/2026-11-09/11-20-narration-review.json: current title/page clips screened, full decode and speech-window signal checked, recognition differences investigated; unchanged word clips require exact historical role/text/hash reuse. Automated evidence is not human listening. Browser evidence is recorded separately."
+          "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-narration-review.json. Exact new page and isolated-word narration received decode, signal and transcript screening. The same role, text, and bytes bind earlier narration."
         }
       },
       "manuscriptSubtotal": 36,
@@ -3863,8 +3863,8 @@
       "openManuscriptDefects": [],
       "openMediaDefects": [],
       "mediaReviewEvidence": {
-        "completeBook": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json",
-        "automatedNarration": "source-art/world-discovery/remediation/2026-11-09/11-20-narration-review.json",
+        "completeBook": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-complete-book-review.json",
+        "automatedNarration": "source-art/world-discovery/remediation/2026-11-22/reading-quality/11-20-narration-review.json",
         "humanListeningObserved": false
       }
     }

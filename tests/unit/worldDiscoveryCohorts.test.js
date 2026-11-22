@@ -132,7 +132,7 @@ test("audio reuse requires exact registered clip bytes, role and text; inventori
   const audio = collectWorldDiscoveryCohortAudio(source.books);
   const plan = buildWorldDiscoveryAudioPlan(cohort, source, audio);
   assert.equal(plan.required.length, 0);
-  assert.equal(plan.reused.length, 1720);
+  assert.equal(plan.reused.length, 1702);
   for (const change of [
     value => { value.reused.pop(); },
     value => { value.required.push(value.reused.pop()); },
@@ -153,20 +153,19 @@ test("registration rechecks actual files and rejects a changed evidence receipt 
   assert.equal(result.entries.length, manifest.cohorts.filter(cohort => cohort.active).length);
   const proof = result.entries[0].registration;
   assert.equal(proof.counts.illustrations, 490);
-  assert.deepEqual(result.entries.slice(0, 2).map(entry => [entry.registration.cohortId, entry.registration.counts.audioFiles]), [["01-10", 1720], ["11-20", 1671]]);
-  const expectedAudioFiles = { "01-10": 1720, "11-20": 1671, "21-30": 1863 };
+  const expectedAudioFiles = { "01-10": 1702, "11-20": 1669, "21-30": 1823 };
   assert.deepEqual(result.entries.map(entry => [entry.registration.cohortId, entry.registration.counts.audioFiles]),
     manifest.cohorts.filter(cohort => cohort.active).map(cohort => [cohort.id, expectedAudioFiles[cohort.id]]));
   const nonfiction = result.entries.find(entry => entry.cohort.id === "21-30");
   if (manifest.cohorts[2].active) {
     assert.ok(nonfiction);
     assert.deepEqual(nonfiction.registration.counts, {
-      books: 50, pages: 440, illustrations: 490, cards: 50, references: 51, audioFiles: 1863, screenedClips: 584
+      books: 50, pages: 440, illustrations: 490, cards: 50, references: 51, audioFiles: 1823, screenedClips: 600
     });
     const inventory = JSON.parse(fs.readFileSync(new URL(`../../${nonfiction.cohort.narrationInventory}`, import.meta.url)));
-    assert.equal(inventory.required.length, 584);
-    assert.equal(inventory.reused.length, 1279);
-    assert.equal(new Set([...inventory.required, ...inventory.reused].map(row => row.audioPath)).size, 1863);
+    assert.equal(inventory.required.length, 600);
+    assert.equal(inventory.reused.length, 1223);
+    assert.equal(new Set([...inventory.required, ...inventory.reused].map(row => row.audioPath)).size, 1823);
     // Topic maintenance adds current consumers while every originally
     // published recording and its screening partition remain preserved.
     const originalRegistration = JSON.parse(fs.readFileSync(new URL("../../src/content/world-discovery/registrations/21-30.json", import.meta.url)));
@@ -205,15 +204,20 @@ test("registration rechecks actual files and rejects a changed evidence receipt 
       counts[row.kind] = (counts[row.kind] || 0) + 1;
       return counts;
     }, {}), { page_or_title: 51, word: 122 });
-    const newToCohort = [...inventory.required, ...inventory.reused].filter(row => !originalAudio.has(row.audioPath));
-    assert.equal(newToCohort.length, 177);
+    const previouslyRegistered = JSON.parse(fs.readFileSync(new URL("../../source-art/world-discovery/remediation/2026-11-22/21-30-level-and-fold-narration-inventory.json", import.meta.url)));
+    assert.equal(previouslyRegistered.required.length, 584);
+    assert.equal(previouslyRegistered.reused.length, 1279);
+    const previousAudio = new Map(audioBytes(previouslyRegistered));
+    const newToCohort = [...inventory.required, ...inventory.reused].filter(row => !previousAudio.has(row.audioPath));
+    assert.equal(newToCohort.length, 78);
     assert.deepEqual(newToCohort.reduce((counts, row) => {
       counts[row.kind] = (counts[row.kind] || 0) + 1;
       return counts;
-    }, {}), { page_or_title: 51, word: 126 });
-    const replacementIds = new Set(["world-discovery-b-21", "world-discovery-c-21", "world-discovery-d-21", "world-discovery-e-21", "world-discovery-e-22"]);
+    }, {}), { page_or_title: 43, word: 35 });
+    const edited = JSON.parse(fs.readFileSync(new URL("../../source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json", import.meta.url)));
+    const replacementIds = new Set(edited.books.map(row => row.bookId));
     const replacementBooks = readWorldDiscoveryCohort(nonfiction.cohort).books.filter(book => replacementIds.has(book.id));
-    assert.equal(replacementBooks.length, 5);
+    assert.equal(replacementBooks.length, 32);
     const replacementAudio = collectWorldDiscoveryCohortAudio(replacementBooks);
     for (const row of newToCohort) {
       assert.equal(replacementAudio.get(row.audioPath)?.audioSha256, row.audioSha256, `${row.audioPath}: new cohort consumer must belong to a replacement book`);

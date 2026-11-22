@@ -27,8 +27,8 @@
   "reviewedManuscriptSource": {
     "path": "src/content/world-discovery/level-e.json",
     "bookId": "world-discovery-e-07",
-    "sha256": "b3a3b5ef9be651c9a4107522a6f0a200b7b5460e23c1c7cab702b1270d07050c",
-    "reviewedAt": "2026-11-09",
-    "evidence": "source-art/world-discovery/remediation/2026-11-09/complete-book-review.json"
+    "sha256": "6b6ae17fe04fd82bc21a943f02c789c4efad1841224be4bcd59ca50793c44014",
+    "reviewedAt": "2026-11-22",
+    "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/01-10-complete-book-review.json"
   }
 }

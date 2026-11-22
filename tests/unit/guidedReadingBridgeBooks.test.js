@@ -132,8 +132,9 @@ test("food and ramp procedures expose every safety and comparison step to reader
   assert.doesNotMatch(fruit.pages.map(page => page.text).join(" "), /yoghurt/iu);
 
   const ramp = GUIDED_READING_BRIDGE_BOOKS.find(book => book.title === "Build a Cardboard Ramp");
+  assert.match(ramp.pages[2].text, /one end.*cardboard.*books/iu);
   assert.match(ramp.pages[5].text, /release.*mark.*stop/iu);
-  assert.match(ramp.pages[6].text, /raise.*release.*again.*mark/iu);
+  assert.match(ramp.pages[6].text, /add another book.*retape.*release again.*mark.*stop/iu);
   assert.match(ramp.pages[7].text, /compare.*both marks/iu);
 });
 
@@ -148,7 +149,7 @@ test("fiction review evidence matches reader-visible setbacks and resolutions", 
 
   const puddle = GUIDED_READING_BRIDGE_BOOKS.find(book => book.title === "The Puddle Plan");
   assert.match(puddle.pages[2].text, /Leo.*sinks.*mud/iu);
-  assert.match(puddle.pages[4].text, /tests each stone.*stays still/iu);
+  assert.match(puddle.pages[4].text, /Samir steps on the stones.*each one stays still/iu);
   assert.match(puddle.pages[5].text, /cones.*stones.*mark the way/iu);
   assert.match(puddle.pages[6].text, /Maya.*stones.*shoes stay dry/iu);
   assert.doesNotMatch(puddle.pages[7].text, /clean.*feet/iu);

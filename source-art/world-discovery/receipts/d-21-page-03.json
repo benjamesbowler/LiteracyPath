@@ -35,9 +35,10 @@
     "note": "Native final inspection confirms crank/piston connection, engine through transmission and shaft to rear differential/hub; single clockwise arrow on driven rear wheel matches rightward travel. Fuel and exhaust lines remain separate. Producer independently inspected the final installed WebP natively; complete final sequence and relevant native diagrams were independently reviewed."
   },
   "reviewedManuscriptSource": {
-    "bookId": "world-discovery-d-21",
     "path": "src/content/world-discovery/cohorts/21-30/level-d.json",
-    "sha256": "98d098b7790b51f3544d7069a44403c5a1e9da9323808471ee96dc80f0033831",
-    "evidence": "source-art/world-discovery/remediation/2026-11-10/topic-revision-complete-book-review.json"
+    "bookId": "world-discovery-d-21",
+    "sha256": "1d9bc0e8885810bd1eb531ccae65c42191b55ead5050d12e1a219e4ddbff2cac",
+    "reviewedAt": "2026-11-22",
+    "evidence": "source-art/world-discovery/remediation/2026-11-22/reading-quality/21-30-complete-book-review.json"
   }
 }

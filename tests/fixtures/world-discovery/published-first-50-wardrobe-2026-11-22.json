@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "priorFixtureSha256": "938221b8fb0c3d81373dcbc4f24767bc70a1998f8437044600171467bd696fcb",
+  "completeBookReview": "source-art/world-discovery/remediation/2026-11-22/d04-complete-book-review.json",
+  "completeBookReviewSha256": "8be2697119cfb5c34fcaec4c15d086aab1c672cc704a22078d793a7f90710e78",
+  "registration": "src/content/world-discovery/registrations/2026-11-22/01-10-wardrobe.json",
+  "archivedDeliveries": [
+    {
+      "path": "public/guided-reading/world-discovery/d-04/page-07.f09799f3b38c.webp",
+      "sha256": "f09799f3b38c84fb63b8674848f5024ca2142c649b1a06b64100ff424578aec7"
+    },
+    {
+      "path": "public/guided-reading/world-discovery/d-04/page-08.87ebba7dfcfd.webp",
+      "sha256": "87ebba7dfcfdb47642ce66bf31161176eb818b7f32db821e4e74fc3caa2bac16"
+    }
+  ],
+  "delta": {
+    "sourceFiles": {
+      "src/content/world-discovery/reviews.json": "3bde0f7a1beb440879c16e3ba58992b304b688a738c3ba8cff5c2d32797593ba"
+    },
+    "assets": {
+      "illustrations": {
+        "count": 490,
+        "pathAndByteManifestSha256": "281702563ea1ad9f03a23247b805c807172b323ce4fffdc731a2c1fa699b6dcc"
+      },
+      "receipts": {
+        "count": 540,
+        "pathAndByteManifestSha256": "b8c9d61a55543aab125e2beeb8dde3c84ceb77ecc3f214e3b46765d3bfb72900"
+      }
+    },
+    "sharedReviewRows": {
+      "appVisual": {
+        "count": 540,
+        "sha256": "1c4bff3cf2c35a2cc3e3d1e27cb3615056c932b8fc63239a365e0ec8fa8ed765"
+      },
+      "pageAlignment": {
+        "count": 440,
+        "sha256": "1a8cab4cf8e2381532142ec680d418341382fe64cd1513d8e3c469879a3a73e1"
+      }
+    }
+  }
+}

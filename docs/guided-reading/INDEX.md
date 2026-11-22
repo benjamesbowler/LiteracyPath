@@ -17,7 +17,7 @@ The live book modules are the authority:
 - `src/data/meadowPalsScienceNarration.js`
 
 The locally registered catalogue contains 447 books and 3,941 pages: 53 A, 116 B,
-93 C, 87 D, 44 E, 36 F, 16 G and 2 H. This includes 217 nonfiction books.
+92 C, 88 D, 44 E, 36 F, 16 G and 2 H. This includes 217 nonfiction books.
 These local counts do not establish production deployment or completion of
 release verification.
 
@@ -59,7 +59,7 @@ Release verification is recorded separately; an active local module alone is
 not a deployment claim.
 
 World Discovery contains 150 locally registered predictable/levelled books:
-30 A, 30 B, 30 C, 31 D and 29 E. The first 100 retain their original topic profile;
+30 A, 30 B, 29 C, 32 D and 29 E. The first 100 retain their original topic profile;
 the fifty books in cohort `21-30` add distinct nonfiction inquiries across ten
 declared strands. Its 1,320 reading pages, 150 covers, exact Leda narration and
 unscored teacher discussion support are governed by
