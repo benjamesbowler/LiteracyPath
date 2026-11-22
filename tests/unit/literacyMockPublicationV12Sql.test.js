@@ -54,7 +54,7 @@ function completeRequests(bootstrap, offline, outcome) {
     if (!sameLiteracyMockPlan(next, box.run.plan)) box = appendMockOutbox(box, { requestId: `adapt-${index}`, expectedRevision: box.run.revision, plan: next, response: null }, {}, disk);
   }
   assert.equal(box.run.status, 'completed');
-  return { box, trace };
+  return { box, trace, disk };
 }
 
 test('V12 canonical publication, complete delivery, retry receipts and teacher evidence agree',async()=>{
@@ -100,13 +100,13 @@ test('V12 canonical publication, complete delivery, retry receipts and teacher e
    const forged={...plan,itemIds:[harder.id,...plan.itemIds.slice(1)]};
    const rejected=await save(db,id,'forged-jump',registered.run.revision,forged);assert.equal(rejected.ok,false);
    const bootstrap=await batch(db,id,'bootstrap',null);assert.equal(bootstrap.ok,true,bootstrap.error);
-   let {box,trace}=completeRequests(bootstrap,bank.filter(q=>offlineIds.includes(q.id)),outcome),received,n=0;
+   let {box,trace,disk}=completeRequests(bootstrap,bank.filter(q=>offlineIds.includes(q.id)),outcome),received,n=0;
    while(box.requests.length){
-    box=prepareMockDelivery(box,{batchId:`v12-delivery-${++n}`},storage());const sent=box.delivery.sent;
+    box=prepareMockDelivery(box,{batchId:`v12-delivery-${++n}`},disk);const sent=box.delivery.sent;
     received=await batch(db,id,sent.batchId,box.delivery.leaseId,sent.requests);assert.equal(received.ok,true,`${name} batch${n}: ${received.error}`);
     verifyMockOutboxReceipt(received,sent);
     const repeat=await batch(db,id,sent.batchId,box.delivery.leaseId,sent.requests);assert.equal(repeat.duplicate,true);
-    box=acknowledgeMockOutbox(box,sent,received,request=>{const item=byId.get(request.response?.questionId||request.questionId);return {item,isCorrect:request.response?scoreLiteracyMockResponse(item,request.response.selected):undefined};},storage());
+    box=acknowledgeMockOutbox(box,sent,received,request=>{const item=byId.get(request.response?.questionId||request.questionId);return {item,isCorrect:request.response?scoreLiteracyMockResponse(item,request.response.selected):undefined};},disk);
    }
    assert.equal(received.run.status,'completed');assert.equal(received.run.responses.length,trace.length);
    if(name==='correct')assert.equal(trace.length,108);if(name==='incorrect')assert.equal(trace.length,16);

@@ -58,7 +58,7 @@ export function useMockAudio(cues, active = true, resolveMedia) {
           });
           if (!waited || generation !== player.current.generation || document.hidden) return;
         }
-        const complete = await new Promise(resolve => {
+        const status = await new Promise(resolve => {
           let timer; let finished = false; let previousTime = 0;
           const finish = (status) => {
             if (finished) return; finished = true; clearTimeout(timer);
@@ -74,7 +74,7 @@ export function useMockAudio(cues, active = true, resolveMedia) {
               if (status === 'completed' || status === 'failed') setDelivery(value => ({ ...value, [cue.path]: status }));
               if (status === 'blocked') setBlocked(true);
             }
-            resolve(status === 'completed');
+            resolve(status);
           };
           player.current.cancel = () => { setSpeaking(false); setActivePath(''); finish('cancelled'); };
           const progressed = () => {
@@ -97,7 +97,7 @@ export function useMockAudio(cues, active = true, resolveMedia) {
           setSpeaking(true); setActivePath(cue.path); audio.src = sources.get(cue.path).src; stalled();
           audio.play().catch(error => finish(error?.name === 'NotAllowedError' ? 'blocked' : 'failed'));
         });
-        if (!complete) break;
+        if (status !== 'completed' && !(cue.role === 'layout_instruction' && status === 'failed')) break;
       }
     } finally { preparation.dispose(); }
   }, [cues, stop, resolveMedia, active]);

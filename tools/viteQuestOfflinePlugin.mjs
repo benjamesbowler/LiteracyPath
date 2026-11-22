@@ -48,6 +48,7 @@ const GUIDED_READING_IMAGE_REVISIONS = ${JSON.stringify(GUIDED_READING_IMAGE_REV
 const PRECACHE = ${JSON.stringify(precache)};
 const QUEST_EXECUTABLE_ASSETS = ${JSON.stringify(questAssets)};
 const MOCK_EXECUTABLE_ASSETS = ${JSON.stringify(mockAssets)};
+const HASHED_SHELL_ASSET = ${String(/^\/assets\/[^/]+-[\w-]{8}\.(?:js|css|woff2?)$/)};
 const QUEST_MEDIA_PREFIXES = [
   "/guided-reading/",
   "/audio/production/en-US/guided_page/",
@@ -144,6 +145,12 @@ async function cacheFirst(request, cacheName) {
   const cache = await caches.open(cacheName);
   const cached = await cache.match(request);
   if (cached) return cached;
+  if (cacheName === SHELL_CACHE && HASHED_SHELL_ASSET.test(new URL(request.url).pathname)) {
+    // Module and stylesheet requests carry Origin, while precache requests may
+    // omit it. These same-origin build URLs identify identical public bytes.
+    const retained = await cache.match(request, { ignoreVary: true });
+    if (retained?.headers.get("vary")?.trim().toLowerCase() === "origin") return retained;
+  }
   const response = await fetch(request);
   if (isCacheable(response)) await cache.put(request, response.clone());
   return response;

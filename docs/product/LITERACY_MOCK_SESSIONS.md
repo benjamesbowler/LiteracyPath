@@ -13,9 +13,66 @@ The [Reporting Bible](../reporting/REPORTING_BIBLE.md),
 surface. [The former literacy practice guide](MAP_PREPARATION.md) retains the
 source and evidence contracts for historical learning and rehearsal records.
 
-## Current beginner vocabulary publication — V12, 28 October 2026
+## Balanced short sittings and separate class practice — V13
 
-New learner sittings and teacher class practice use V12. It retains V11's
+The teacher chooses a maximum of **15, 25 or 40** questions for the whole
+class or selected pupils. V13 offers one question per unfinished area per pass
+and rotates which area starts between sessions. Before any stopping rule fires,
+each area gets a first observation before another area gets a second. Fifteen
+questions sample First steps. Twenty-five primarily establish starting evidence
+and can offer a Starter question. At 40, an all-correct pupil gets three First
+steps and two Starter observations per area. The existing independent-evidence
+thresholds still govern progression. A length limit leaves an unfinished area
+unconfirmed. [Demand ladder and schedule](LITERACY_MOCK_DEMAND_LADDER.md)
+
+The V13 class-practice pack reserves its own question, passage and target
+families. Scored V13 selection excludes every overlapping alias. Fixed practice
+shows the exact available count and projected round length. Adaptive practice
+shows maximum lengths and explains when a route runs out of questions. Class
+practice includes early Print word-position tasks while the scored catalogue
+retains the finite letter-name and case targets across retakes. Class practice
+remains unscored. Class practice shown before this separation has no individual
+attendance or exposure record.
+
+The V13 catalogue varies early Listening and Vocabulary distractors, checks
+meaningful grapheme contrasts in whole-CVC tasks, repairs competing Phonics
+pictures and withdraws the identified ambiguous prompts and answer sets. V12 and
+earlier catalogues and saved responses retain their original versions. Reports
+mark those exact V12 observations as unscored content issues while preserving
+the recorded answer and receipt.
+
+One tab can write to a pupil's sitting. The learner browser needs the Web Locks
+API to open a sitting safely. A standby tab reads the durable queue when it
+takes over after the writable tab is closed. The current question
+waits for its own required media. V13 records a confirmed required-file failure
+as an unscored event and selects a compatible replacement when available. A
+transient outage keeps the original question for retry. The offline reserve
+covers only reachable demands under the selected ceiling. Compact screens keep
+answer cards, tile controls and replays reachable in a scrolling question area.
+
+Live teacher controls use a compact status response. Detailed evidence loads
+on entry to Results or on manual refresh. The device view distinguishes received
+answers, pending upload and an expired collection window. The class summary
+shows coverage and a next action for each pupil. Individual reports show
+independent counts at their observed demand and a classroom follow-up matched to
+the sampled skill and access conditions.
+
+The client checks for the full V13 catalogue and teacher status RPC before
+launching V13. Until those dependencies are available, new preparation uses V12.
+Apply the forward migrations in source order when authorized.
+
+1. `20261122032258_literacy_mock_teacher_status.sql`
+2. `20261122090000_literacy_mock_short_routing_v13.sql`
+3. `20261122090100_literacy_mock_catalogue_v13.sql`
+
+Use `tools/generateLiteracyMockV13Schema.mjs`,
+`tools/generateLiteracyMockV13Catalogue.mjs`,
+`tools/generateLiteracyMockRuntime.mjs` and
+`tools/generateLiteracyMockClassPractice.mjs` to verify generated sources.
+
+## Beginner vocabulary publication — V12, 28 October 2026
+
+V12 introduced familiar beginner vocabulary. It retains V11's
 eight areas, independent progression, four choices and media limits. The current
 launch controls offer **15, 25 or 40 questions** in both class practice and pupil
 tests (25 by default). Pupil choices are maximums: areas already confirmed may
@@ -51,8 +108,8 @@ browser and media evidence does not establish hosted activation.
 
 ### Teacher-led class practice
 
-Teach → **MAP Mock · Class practice** uses the current eligible V12 bank and
-shared question renderer. The default **Adaptive** practice starts every area
+Teach → **MAP Mock · Class practice** uses the eligible practice bank for the
+active release and the shared question renderer. The default **Adaptive** practice starts every area
 at First steps. A fresh first-attempt correct answer moves only that area up
 one adjacent step; an incorrect answer moves it down one, within its actual
 bank limits. This short, unscored teaching route is separate from the repeated
@@ -109,7 +166,7 @@ the implementation does not claim to reproduce inaccessible production pixels.
 
 ### Learner sittings
 
-New sittings use **v12 / areas-v6** and
+The V12 fallback uses **v12 / areas-v6** and
 `teacher_prepare_literacy_mock_session_v12`. Each of the eight areas starts at
 **First steps (0)**, independently of success elsewhere. Promotion requires
 **three consecutive fresh independent correct answers at First steps**, then
@@ -463,8 +520,8 @@ sessions retain their original administration and results. All sessions
 remain bounded by the parent focus-session expiry. The V9 maximum of 67 questions
 and historical 43-question form are local preparation choices; public sources differ on whether their approximate
 question count includes field-test items. Historical 24-question sessions remain
-readable, but new preparation offers only the full form. Neither form reproduces
-NWEA's calibrated adaptive algorithm.
+readable. Current preparation offers the maximums in the release section above.
+The mock uses its own descriptive evidence rules.
 [2025 technical report](https://www.nwea.org/uploads/MAP-Growth-Technical-Report-2025.pdf),
 [early-learner guidance](https://teach.mapnwea.org/assist/help_map/Content/Testing/EarlyLearning.htm).
 
@@ -474,9 +531,9 @@ test-screen detail. Official practice tests demonstrate interactions; they
 are brief, fixed and unscored. These limits prevent claims of operational
 equivalence. [Practice-test guidance](https://connection.nwea.org/articles/Knowledge/Practice-tests-for-MAP-Growth).
 
-## Coverage and question contracts
+## Historical V4 coverage and question contracts
 
-The canonical loader is `src/data/literacyMockBank.js`. New sessions use v4,
+The canonical loader is `src/data/literacyMockBank.js`. V4 launched
 with 8,819 authored records, including 11 tutorial-only examples, across six
 response formats and 47 skills in eight local areas. All required media must
 resolve before a record enters the ready bank. Tutorial stimulus aliases are
@@ -751,7 +808,7 @@ shown skills without an independent answer remain a separate evidence category.
 Listening and independent reading stay separate even when displayed beneath
 one broad comprehension heading.
 
-A teacher can prepare a 1–6-item fresh check from an actual response or
+Historical V3 and V4 supported a 1–6-item fresh check from an actual response or
 presentation. The server derives the same skill, domain, construct, level and
 access conditions and excludes known items, passages and families from synced
 practice and earlier mock exposure. The learner uses only the server-approved
@@ -1016,12 +1073,12 @@ Ended/expired tests are not reopened. Privacy cleanup includes durable device
 queues and their ownership index; cached public media contains no learner data.
 Earlier timed and pause-at-window-end sittings retain their recorded contracts.
 
-Teacher reports refresh automatically while visible until the session is
-completed and device collection confirms no pending iPads. Hidden tabs pause
-report downloads; returning to an unfinished report or reconnecting refreshes
-it immediately. Completed reports remain readable and **Refresh progress**
-always requests fresh server evidence. Unknown or pending device delivery
-continues refreshing; a session ending alone does not stop collection checks.
+Teacher status refreshes automatically while visible until the session is
+completed and outstanding device delivery is resolved. Hidden tabs pause
+polling. Returning to a visible unfinished session or reconnecting refreshes
+status immediately. On Results, **Refresh progress** also requests detailed
+evidence. Unknown or pending device delivery continues refreshing. An expired
+upload window is shown separately from confirmed delivery.
 
 Offline media admission includes the reviewed final-sound picture directory as
 well as the other approved public picture roots. Every deliverable V9 media
@@ -1029,9 +1086,9 @@ path is exercised through the real cache boundary. Preparation failures retry
 quietly with bounded backoff; repeated failures show a calm status explaining
 that saved work is safe, and successful preparation clears that status.
 
-Teacher results begin with the current working profile, percentage correct on
-fresh independent scored answers, its exact numerator/denominator, and a next
-teaching step. A class table and four-area table show the same definitions.
+Teacher results begin with the received answers, areas with independent evidence,
+and a next teaching step. The individual area table provides the observed task
+demand and exact numerator and denominator.
 Foundation and Challenge describe the authored local question demands, not a
 reading age, grade, RIT or calibrated scale. The existing shared learning policy
 sets the evidence minimum, skill diversity, recency and accuracy bands, evaluated
@@ -1039,8 +1096,7 @@ separately at each question demand. Without sufficient demand-specific evidence,
 the report says “More evidence needed” or “Mixed — confirm level.” A harder error
 does not erase supported Foundation evidence. Helped/familiar/unscored counts and
 all original question, coverage and historical evidence remain available behind
-secondary controls. Raw percentages across adaptive sittings are descriptive
-results and must not be interpreted as growth or used to rank children.
+secondary controls.
 
 ### V10 quality lookup delivery performance
 

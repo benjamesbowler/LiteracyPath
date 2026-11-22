@@ -10,7 +10,7 @@ const drain=async()=>{for(let n=0;n<12;n++)await Promise.resolve();};
 function host(network){
  const states=[],snapshots=[],reportRequest={current:{sequence:0,pending:null}};
  const deps={client:{},classId:'class',sessionId:'session',document:{hidden:false},alive:{current:true},reportRequest,confirmedReport:{current:null},
-  getLiteracyMockReport:network,validResult:v=>v,useCallback:fn=>fn,setReportState:v=>states.push(v),setReportError:()=>{},setSnapshot:v=>snapshots.push(v),statusRef:{current:null},reportHeading:{current:null}};
+  getLiteracyMockReport:network,validResult:v=>v,verifySnapshot:v=>v,useCallback:fn=>fn,setReportState:v=>states.push(v),setReportError:()=>{},setSnapshot:v=>snapshots.push(v),statusRef:{current:null},reportHeading:{current:null}};
  const refresh=new Function('deps',`const {${Object.keys(deps).join(',')}}=deps;${bounded};${refreshSource};return refreshReport;`)(deps);
  return {refresh,deps,states,snapshots,reportRequest};
 }
@@ -40,11 +40,11 @@ test('a forced refresh cancels the obsolete read and accepts only the new snapsh
  assert.deepEqual(h.snapshots,[result]);assert.equal(h.reportRequest.current.pending,null);
 });
 
-test('leaving a session aborts its in-flight report and releases the old poll',t=>{
+test('leaving a session aborts its in-flight status read and releases the old poll',t=>{
  t.mock.timers.enable({apis:['setTimeout','setInterval']});let cleanup;
- const controller=new AbortController(),reportRequest={current:{sequence:0,pending:{controller}}};
- const effect=source.slice(source.indexOf('  useEffect(() => {\n    if (!sessionId)'),source.indexOf('\n  const verifiedSnapshot'));
- const deps={sessionId:'session',reportRequest,refreshReport:()=>{},useEffect:fn=>{cleanup=fn();},document:{addEventListener(){},removeEventListener(){}},window:{addEventListener(){},removeEventListener(){}}};
+ const controller=new AbortController(),statusRequest={current:{sequence:0,pending:{controller}}};
+ const effect=source.slice(source.indexOf('  useEffect(() => {\n    if (!sessionId)'),source.indexOf('\n\n  useEffect(() => {\n    if (!sessionId || phase'));
+ const deps={sessionId:'session',statusRequest,refreshStatus:()=>{},useEffect:fn=>{cleanup=fn();},document:{addEventListener(){},removeEventListener(){}},window:{addEventListener(){},removeEventListener(){}}};
  new Function('deps',`const {${Object.keys(deps).join(',')}}=deps;${effect}`)(deps);
- cleanup();assert.equal(controller.signal.aborted,true);assert.equal(reportRequest.current.pending,null);assert.equal(reportRequest.current.sequence,1);
+ cleanup();assert.equal(controller.signal.aborted,true);assert.equal(statusRequest.current.pending,null);assert.equal(statusRequest.current.sequence,1);
 });

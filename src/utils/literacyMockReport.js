@@ -6,6 +6,7 @@ import { LITERACY_EXTENSION_SKILLS } from "../data/literacyPracticeExtensions.js
 import { evaluateEvidenceSufficiency, REPORTING_BIBLE_POLICY } from "../policy/reportingBible.js";
 import { literacyMockFocus, literacyMockTaskKey } from './literacyMockConditions.js';
 import { literacyItemQualityIssue } from '../policy/literacyItemEligibility.js';
+import { LITERACY_MOCK_V12_COMPETING_TENSE_IMAGES, LITERACY_MOCK_V13_WITHDRAWN } from '../data/literacyMockV13.js';
 
 export const LITERACY_MOCK_REPORT_AREAS = Object.freeze([
   { id: "foundations", label: "Foundational skills", domains: ["sound_awareness", "phonics", "print"] },
@@ -77,8 +78,21 @@ export function literacyMockResponseText(value, snapshot = {}) {
   return resolve(value);
 }
 
-function classification(response, repeated) {
-  if (literacyItemQualityIssue(response)) return "content_invalid";
+function reportContentIssue(value, version) {
+  const existing = literacyItemQualityIssue(value);
+  if (existing || (value.itemSnapshot?.contentVersion || version) !== 'literacy-mock-v12') return existing;
+  const id = value.questionId;
+  if (Object.hasOwn(LITERACY_MOCK_V12_COMPETING_TENSE_IMAGES, id)) {
+    return { code: 'ambiguous_picture', reason: LITERACY_MOCK_V12_COMPETING_TENSE_IMAGES[id] };
+  }
+  if (Object.hasOwn(LITERACY_MOCK_V13_WITHDRAWN, id)) {
+    return { code: 'ambiguous_question', reason: LITERACY_MOCK_V13_WITHDRAWN[id] };
+  }
+  return null;
+}
+
+function classification(response, repeated, contentIssue) {
+  if (contentIssue) return "content_invalid";
   if (response.responseStatus === "skipped") return "skipped";
   if (response.responseStatus !== "answered" || typeof response.isCorrect !== "boolean"
       || !text(response.questionId) || !response.itemSnapshot || !Number.isFinite(Date.parse(response.serverReceivedAt))) return "incomplete";
@@ -103,10 +117,10 @@ export function buildLiteracyMockReport(payload, { students = [], skills = null,
   const recentStart = nowMs - REPORTING_BIBLE_POLICY.recency.conclusionWindowDays * DAY_MS;
   const roster = new Map(students.map(student => [String(student.id), student]));
   const session = payload?.session || null;
-  const areaAdaptive = ['literacy-mock-v5','literacy-mock-v6','literacy-mock-v7','literacy-mock-v8','literacy-mock-v9','literacy-mock-v10','literacy-mock-v11','literacy-mock-v12'].includes(session?.content_version || session?.mock?.content_version);
+  const areaAdaptive = ['literacy-mock-v5','literacy-mock-v6','literacy-mock-v7','literacy-mock-v8','literacy-mock-v9','literacy-mock-v10','literacy-mock-v11','literacy-mock-v12','literacy-mock-v13'].includes(session?.content_version || session?.mock?.content_version);
   const version=session?.content_version || session?.mock?.content_version;
-  const boundaryAdaptive=['literacy-mock-v9','literacy-mock-v10','literacy-mock-v11','literacy-mock-v12'].includes(version);
-  const demandV6=['literacy-mock-v6','literacy-mock-v7','literacy-mock-v8','literacy-mock-v9','literacy-mock-v10','literacy-mock-v11','literacy-mock-v12'].includes(version);
+  const boundaryAdaptive=['literacy-mock-v9','literacy-mock-v10','literacy-mock-v11','literacy-mock-v12','literacy-mock-v13'].includes(version);
+  const demandV6=['literacy-mock-v6','literacy-mock-v7','literacy-mock-v8','literacy-mock-v9','literacy-mock-v10','literacy-mock-v11','literacy-mock-v12','literacy-mock-v13'].includes(version);
   skills ??= areaAdaptive ? [...LITERACY_MOCK_REPORT_SKILLS,...LITERACY_MOCK_FOUNDATION_SKILLS] : LITERACY_MOCK_REPORT_SKILLS;
   const reportAreas=areaAdaptive ? AREA_REPORTS : LITERACY_MOCK_REPORT_AREAS;
   const itemCount = Number.isInteger(session?.mock?.item_count) ? session.mock.item_count : null;
@@ -152,9 +166,9 @@ export function buildLiteracyMockReport(payload, { students = [], skills = null,
         sourceWindowMode: windowMode(Object.hasOwn(response, 'sourceWindowMode') ? response.sourceWindowMode : run?.windowMode ?? session?.mock?.window_mode),
         sourceDurationSeconds: durationSeconds(Object.hasOwn(response, 'sourceDurationSeconds') ? response.sourceDurationSeconds : run?.durationSeconds ?? session?.mock?.duration_seconds),
         sourceTimeExtensionCount: extensionCount(Object.hasOwn(response, 'sourceTimeExtensionCount') ? response.sourceTimeExtensionCount : run?.timeExtensionCount) };
-      const row = { ...sourceConditions, sourceSessionId: response.sourceSessionId || session?.id, conditions: literacyMockReportConditions(sourceConditions), index, classification: classification(enriched, repeated),
+      const contentIssue = reportContentIssue(response, version);
+      const row = { ...sourceConditions, sourceSessionId: response.sourceSessionId || session?.id, conditions: literacyMockReportConditions(sourceConditions), index, classification: classification(enriched, repeated, contentIssue),
         recent: Number.isFinite(receivedAt) && receivedAt <= nowMs && receivedAt >= recentStart };
-      const contentIssue = literacyItemQualityIssue(response);
       // Interpret invalid content separately without rewriting the saved first
       // answer, original key or immutable published snapshot.
       if (contentIssue) Object.assign(row, { contentIssue, originalIsCorrect: Object.hasOwn(response, 'originalIsCorrect') ? response.originalIsCorrect : response.isCorrect,
@@ -176,7 +190,7 @@ export function buildLiteracyMockReport(payload, { students = [], skills = null,
           sourceWindowMode: windowMode(run?.windowMode ?? session?.mock?.window_mode),
           sourceDurationSeconds: durationSeconds(run?.durationSeconds ?? session?.mock?.duration_seconds),
           sourceTimeExtensionCount: extensionCount(run?.timeExtensionCount) };
-        const contentIssue = literacyItemQualityIssue(value);
+        const contentIssue = reportContentIssue(value, version);
         return { ...source, conditions: literacyMockReportConditions(source), contentIssue,
           classification: contentIssue ? 'content_invalid' : 'unanswered', responseStatus: 'unanswered', isCorrect: null, evidenceType: 'unscored' };
       });

@@ -8,14 +8,15 @@ import { questOfflinePlugin, serviceWorkerSource } from "../../tools/viteQuestOf
 import { mockExecutableAssets } from "../../src/utils/offlineShell.js";
 import { LITERACY_MOCK_VERSION, LITERACY_MOCK_VERSIONS } from "../../src/policy/literacyMockVersions.js";
 
-function createWorkerHarness({ cachedResponse = null, networkResponse, questAssets = [], precache = [] }) {
+function createWorkerHarness({ cachedResponse = null, networkResponse, questAssets = [], precache = [], cacheMatch = () => true }) {
   const listeners = new Map();
   const cacheWrites = [];
   const stored = new Map();
   const messages = [];
   let skipWaitingCalls = 0;
   const cache = {
-    async match(request) {
+    async match(request, options) {
+      if (!cacheMatch(request, options)) return null;
       const key = typeof request === "string" ? request : request.url;
       return cachedResponse || stored.get(key)?.clone() || null;
     },
@@ -110,6 +111,32 @@ test('a navigation without a retained shell still returns the actual server erro
     const response = await harness.fetch({url:'https://literacy.guide/',mode:'navigate',method:'GET'});
     assert.equal(response.status, status); assert.equal(await response.text(), 'actual error');
   }
+});
+
+test('hashed shell chunks use their exact retained bytes when only the Origin request header varies', async () => {
+  const hashed = 'https://literacy.guide/assets/main-C8zAJXL7.js';
+  const stylesheet = 'https://literacy.guide/assets/main-DZIyCAUL.css';
+  const mutable = 'https://literacy.guide/assets/settings.js';
+  const localized = 'https://literacy.guide/assets/locale-Chl_stv_.js';
+  let online = true;
+  const harness = createWorkerHarness({
+    cacheMatch: (request, options) => !request.headers?.has('Origin') || options?.ignoreVary,
+    networkResponse: request => {
+      if (!online) throw new Error('offline');
+      return new Response('retained: ' + request.url, {
+        headers: { Vary: request.url === localized ? 'Origin, Accept-Language' : 'Origin' }
+      });
+    }
+  });
+  for (const path of [hashed, stylesheet, mutable, localized]) await harness.fetch(new Request(path));
+  online = false;
+  const withOrigin = path => new Request(path, { headers: { Origin: 'https://literacy.guide' } });
+  for (const path of [hashed, stylesheet]) {
+    const response = await harness.fetch(withOrigin(path));
+    assert.equal(await response.text(), 'retained: ' + path);
+  }
+  for (const path of [mutable, localized, `${hashed}?v=new`]) await assert.rejects(harness.fetch(withOrigin(path)), /offline/);
+  assert.equal(harness.cacheWrites.length, 4);
 });
 
 test("loaded rounded GLB bytes under Vite's hashed asset root survive an offline scene reload", async () => {

@@ -77,7 +77,7 @@ test('review uses exact lower-band context and does not regrade a harder task or
         `V${version} keeps its historical admission and saved evidence`);
     }
   }
-  assert.deepEqual(policy.contentVersions, ['literacy-mock-v12']);
+  assert.deepEqual(policy.contentVersions, ['literacy-mock-v12', 'literacy-mock-v13']);
   assert.deepEqual(policy.areaVersions, ['areas-v6']);
 });
 

@@ -126,6 +126,7 @@ function LevelCShelf({ copy, onOpenReader }) {
 
 export function TeacherIntentPage({
   intent,
+  client,
   classList = [],
   classListReadState = null,
   teacherId,
@@ -180,7 +181,7 @@ export function TeacherIntentPage({
   });
 
   if (classPractice && classRead.complete && hasClasses && selectedClassId) return <Suspense fallback={<p role="status">Loading class practice…</p>}>
-    <TeacherWholeClassPractice key={`${teacherId}:${selectedClassId}:${classPractice}`} kind={classPractice} initialCycleId={cycleId} onExit={() => {
+    <TeacherWholeClassPractice key={`${teacherId}:${selectedClassId}:${classPractice}`} kind={classPractice} initialCycleId={cycleId} client={client} onExit={() => {
       const entry = classPractice; setClassPractice('');
       requestAnimationFrame(() => document.getElementById(`teach-class-${entry}`)?.focus());
     }}/>

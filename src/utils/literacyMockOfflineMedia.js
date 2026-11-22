@@ -7,8 +7,13 @@ export const MOCK_OFFLINE_MEDIA_MAX_ASSETS = 768;
 export const MOCK_OFFLINE_MEDIA_V11_MAX_ASSETS = 1024;
 // The longer V11 route reserves more small recordings. Historical publications
 // retain their original admission limit; all versions share the same byte caps.
-export const mockOfflineMediaAssetLimit = contentVersion => ['literacy-mock-v11','literacy-mock-v12'].includes(contentVersion)
+export const mockOfflineMediaAssetLimit = contentVersion => ['literacy-mock-v11','literacy-mock-v12','literacy-mock-v13'].includes(contentVersion)
   ? MOCK_OFFLINE_MEDIA_V11_MAX_ASSETS : MOCK_OFFLINE_MEDIA_MAX_ASSETS;
+
+function validMockMediaPath(path) {
+  return /^\/(?:audio|images|media\/(?:vocabulary|initial-sounds|final-sounds|rhyming)\/images)\/[A-Za-z0-9_./%-]+$/.test(path)
+    && !path.includes('..');
+}
 
 export function mockOfflineMediaPaths(items, extras = []) {
   return [...new Set([...items.flatMap(item => [...item.requiredAudioPaths,...item.requiredImagePaths]),...extras]
@@ -19,8 +24,8 @@ export function mockOfflineMediaPaths(items, extras = []) {
 export async function createMockOfflineMedia(paths, { cacheStorage = globalThis.caches, fetcher = globalThis.fetch,
   signal, timeoutMs = 15000, onProgress, contentVersion,
   createObjectURL = blob => URL.createObjectURL(blob), revokeObjectURL = url => URL.revokeObjectURL(url) } = {}) {
-  if (!cacheStorage || !paths.length || paths.some(path => !/^\/(?:audio|images|media\/(?:vocabulary|initial-sounds|final-sounds|rhyming)\/images)\/[A-Za-z0-9_./%-]+$/.test(path)
-    || path.includes('..')) || paths.length > mockOfflineMediaAssetLimit(contentVersion)) throw new Error('Device media cache unavailable');
+  const assetLimit = mockOfflineMediaAssetLimit(contentVersion);
+  if (!cacheStorage || !paths.length || paths.some(path => !validMockMediaPath(path)) || paths.length > assetLimit) throw new Error('Device media cache unavailable');
   const cache = await cacheStorage.open(CACHE_NAME), urls = new Map(), blobs = new Map();
   const allowed = new Set(paths), jobs = new Map(), active = new Set();
   let disposed = false, bytes = 0, backgroundActive = 0;
@@ -36,10 +41,12 @@ export async function createMockOfflineMedia(paths, { cacheStorage = globalThis.
         const cached = response?.ok;
         if (!cached) {
           response = await fetcher(transportPath,{credentials:'omit',signal:controller.signal});
+          if ([404, 410].includes(response.status)) throw Object.assign(new Error('Required media unavailable'), { missingPath: path });
           if (!response.ok || response.redirected) throw new Error('Required media unavailable');
         }
         const type = response.headers.get('content-type') || '';
-        if (!/^(audio|image)\//.test(type)) throw new Error('Required media has the wrong type');
+        const requiredType = path.startsWith('/audio/') ? 'audio/' : 'image/';
+        if (!type.startsWith(requiredType)) throw Object.assign(new Error('Required media has the wrong type'), cached ? {} : { missingPath: path });
         const blob = cached ? await response.blob() : await readMockAssetBlob(response,{maxBytes:4*1024*1024,signal:controller.signal,onProgress:()=>renew?.()});
         if (!blob.size || blob.size > 4*1024*1024) throw new Error('Required media exceeds device cache limits');
         if (disposed || controller.signal.aborted) throw new Error('Device media preparation cancelled');
@@ -79,9 +86,9 @@ export async function createMockOfflineMedia(paths, { cacheStorage = globalThis.
       }).then(() => finish(), error => finish(error));
       function finish(error) {
         jobs.delete(job.path); active.delete(job); if (job.background) backgroundActive--;
-        if (error) {
+        if (error && !error.missingPath) {
           // An outage must not launch hundreds of doomed background requests.
-          for (const queued of jobs.values()) if (!queued.started) {
+          for (const queued of jobs.values()) if (!queued.started && (job.priority >= 2 || queued.priority < 2)) {
             jobs.delete(queued.path); queued.reject(error);
           }
         }
@@ -119,6 +126,12 @@ export async function createMockOfflineMedia(paths, { cacheStorage = globalThis.
   return {
     get bytes() { return bytes; }, get assets() { return blobs.size; },
     has: requested => !disposed && requested.every(path => blobs.has(path.split('#')[0])),
+    admit(requested) {
+      const keys = new Set([...allowed, ...requested.map(path => path.split('#')[0])]);
+      if (disposed || keys.size > assetLimit || [...keys].some(path => !validMockMediaPath(path))) return false;
+      for (const path of keys) allowed.add(path);
+      return true;
+    },
     async ensure(requested, {priority = 2} = {}) {
       if (disposed) throw new Error('Device media preparation cancelled');
       const keys = [...new Set(requested.map(path => path.split('#')[0]))];

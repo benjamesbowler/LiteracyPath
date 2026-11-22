@@ -122,7 +122,7 @@ test('teacher live updates and collection expose received data and wait for the 
  await expect.poll(()=>page.evaluate(()=>window.__literacyMock.state().session.mock.state),{timeout:30000}).toBe('completed');
  await page.goto(`${root}?case=${info.testId}&device=1&count=43&mode=teacher&session=mock-session&student=student-a&phase=results`);
  await expect(page.locator('.literacy-mock-result-summary')).toContainText('100%');
- await expect(page.locator('.literacy-mock-result-summary')).toContainText('2 of 2 independent answers correct');
+ await expect(page.locator('.literacy-mock-result-summary')).toContainText('2 answers');
  await expect(page.locator('.literacy-mock-result-summary')).toContainText('More evidence needed');
  await page.screenshot({path:info.outputPath('teacher-collected-report.png')});
 });

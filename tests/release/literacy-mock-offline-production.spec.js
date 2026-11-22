@@ -82,7 +82,7 @@ async function chooseAnswer(page, current = null, choiceOrder = null) {
 const root='/tests/fixtures/literacy-mock.html';
 async function openDevice(page, info) {
  await simulatedAudio(page,5);await page.setViewportSize({width:1024,height:724});
- await page.goto(`${root}?case=${info.testId}&device=1&count=43&focusHook=1`);
+ await page.goto(`${root}?case=${info.testId}&device=1&count=43`);
  await expect(page.getByRole('region',{name:'Question 1',exact:true})).toBeVisible({timeout:90000});
  await expect.poll(()=>page.evaluate(()=>Boolean(window.__literacyMock.device()?.serverRun.offlineLeaseId))).toBe(true);
 }
@@ -92,6 +92,100 @@ async function answerOne(page,n) {
  await expect(next).toBeEnabled({timeout:answerTimeout});await next.click();
  await expect.poll(()=>page.evaluate(()=>window.__literacyMock.device().run.responses.length)).toBe(n);
 }
+
+test.describe('V13 short sittings through the production offline shell', () => {
+  test.describe.configure({ mode: 'parallel' });
+  for (const count of [15, 25, 40]) test(`${count} questions prepare, recover offline and collect`, async ({ page, context }, info) => {
+    await simulatedAudio(page, 5);
+    await page.setViewportSize({ width: 1024, height: 768 });
+    const fixture = `${root}?case=${encodeURIComponent(info.testId)}&version=literacy-mock-v13&device=1&warmup=1&count=${count}`;
+    const metadataResponse = await page.request.get('/offline-build.json');
+    expect(metadataResponse.ok()).toBe(true);
+    const metadata = await metadataResponse.json();
+    expect(metadata.mockExecutable.mixedByVersion['literacy-mock-v13'].some(path => /RuntimeV13/i.test(path))).toBe(true);
+    expect(metadata.mockExecutable.mixedByVersion['literacy-mock-v12'].some(path => /RuntimeV12/i.test(path))).toBe(true);
+    await page.goto(`${fixture}&mode=teacher`);
+    await page.getByRole('combobox', { name: 'Questions' }).selectOption(String(count));
+    await page.getByRole('button', { name: 'Prepare for 2 students' }).click();
+    await expect.poll(() => page.evaluate(() => window.__literacyMock.state().session.id)).toMatch(/^prepared-session-/);
+    await expect.poll(() => page.evaluate(() => window.__literacyMock.state().session.mock.item_count)).toBe(count);
+    await page.getByRole('button', { name: 'Start assessment', exact: true }).click();
+    await expect(page.getByRole('button', { name: 'Pause assessment', exact: true })).toBeEnabled();
+    const assignmentId = await page.evaluate(() => window.__literacyMock.state().session.id);
+    const prepare = await page.evaluate(() => window.__literacyMock.state().calls.find(call => call.name === 'teacher_prepare_literacy_mock_session_v13'));
+    expect(prepare.args.p_item_count).toBe(count);
+
+    await page.goto(fixture);
+    await page.getByRole('button', { name: 'Circle', exact: true }).click({ timeout: 30000 });
+    await page.getByRole('button', { name: 'Check my sound', exact: true }).click();
+    await page.getByRole('button', { name: 'Next', exact: true }).click();
+    const tutorials = await page.evaluate(() => window.__literacyMock.tutorials());
+    for (const [index, tutorial] of tutorials.entries()) {
+      await expect(page.locator('[data-child-progress]')).toHaveText(`Button practice ${index + 1} of ${tutorials.length}`);
+      await chooseAnswer(page, tutorial);
+      await page.getByRole('button', { name: 'Next', exact: true }).click({ timeout: answerTimeout });
+    }
+    await expect(page.getByRole('region', { name: 'Question 1', exact: true })).toBeVisible({ timeout: 90000 });
+    await expect.poll(() => page.evaluate(() => Boolean(navigator.serviceWorker.controller))).toBe(true);
+    await answerOne(page, 1);
+    await answerOne(page, 2);
+    const before = await page.evaluate(() => window.__literacyMock.device());
+    expect(before.run.contentVersion).toBe('literacy-mock-v13');
+    const bank = await loadLiteracyMockBank({ contentVersion: before.run.contentVersion });
+    const paths = retainedMediaPaths(bank, before.mediaItemIds);
+    await expect.poll(() => page.evaluate(async urls => {
+      const cache = await caches.open('lp-mock-public-media-v1');
+      return (await Promise.all(urls.map(path => cache.match(path)))).every(response => response?.ok);
+    }, paths), { timeout: 90000 }).toBe(true);
+
+    await page.evaluate(() => {
+      const box = window.__literacyMock.device();
+      localStorage.setItem('lp-student-session-v1', JSON.stringify({ token: 'local-browser-fixture', studentId: box.studentId,
+        studentName: 'Alex', teacherId: box.focusSession.teacher_id, classId: box.focusSession.class_id,
+        expiresAt: Date.parse(box.focusSession.expires_at) }));
+      window.__literacyMock.setFault('offline');
+    });
+    await context.setOffline(true);
+    await page.goto('/');
+    const device = () => page.evaluate(sessionId => JSON.parse(localStorage.getItem(`lp-mock-outbox:student-a:${sessionId}`)), assignmentId);
+    for (let index = 2; index < count; index++) {
+      if (index === 2 || index === Math.floor(count / 2)) await page.reload();
+      await expect(page.getByRole('region', { name: `Question ${index + 1}`, exact: true })).toBeVisible({ timeout: 60000 });
+      const box = await device();
+      expect(box.run.responses).toHaveLength(index);
+      const current = bank.find(item => item.id === box.run.plan.itemIds[index]);
+      expect(current).toBeTruthy();
+      await chooseAnswer(page, current, mockChoices(current, box.run.plan.seed));
+      await page.getByRole('button', { name: index === count - 1 ? 'Finish test' : 'Next question', exact: true }).click({ timeout: answerTimeout });
+      await expect.poll(async () => (await device()).run.responses.length).toBe(index + 1);
+    }
+    const finished = await device();
+    expect(finished.run.responses.slice(0, 2)).toEqual(before.run.responses);
+    expect(new Set(finished.run.responses.map(answer => answer.questionId)).size).toBe(count);
+    expect(finished.requests.length).toBeGreaterThan(0);
+
+    await context.setOffline(false);
+    await page.goto(fixture);
+    await page.waitForFunction(() => Boolean(window.__literacyMock));
+    await page.evaluate(() => { window.__literacyMock.setFault(null); window.dispatchEvent(new Event('online')); });
+    await expect.poll(() => page.evaluate(() => window.__literacyMock.state().run.responses.length), { timeout: 60000 }).toBe(count);
+    await expect.poll(async () => (await device()).requests.length).toBe(0);
+    await page.goto(`${fixture}&mode=teacher&phase=live&session=${encodeURIComponent(assignmentId)}`);
+    await page.getByRole('button', { name: 'Collect all data and finish', exact: true }).click();
+    await page.getByRole('dialog').getByRole('button', { name: 'Collect all data and finish', exact: true }).click();
+    const pupil = page.getByRole('row').filter({ hasText: 'Alex' });
+    await expect(pupil).toContainText('Full sitting received');
+    await expect(pupil).toContainText(`${count} of ${count}`);
+    const report = await page.evaluate(() => window.__literacyMock.state().run.responses);
+    expect(report.map(answer => answer.questionId)).toEqual(finished.run.responses.map(answer => answer.questionId));
+    expect(report.every(answer => answer.isCorrect === true && answer.evidenceType === 'independent')).toBe(true);
+    await info.attach('offline-collection-verification', { contentType: 'application/json', body: JSON.stringify({
+      buildId: metadata.buildId, cap: count, beforeDisconnection: before.run.responses.length,
+      continuedAfterOfflineReload: [2, Math.floor(count / 2)], preservedDistinctResponses: report.length,
+      pendingRequestsAfterCollection: (await device()).requests.length,
+    }) });
+  });
+});
 
 test('V12 production code and media retain three answers and accept the fourth after an offline app reload',async({page,context},info)=>{
  await simulatedAudio(page,5); // Audio lifecycle only; executable/media HTTP and CacheStorage are real.
@@ -108,7 +202,7 @@ test('V12 production code and media retain three answers and accept the fourth a
  const metadataPath=info.outputPath('served-v12-offline-build.json');
  await writeFile(metadataPath,JSON.stringify(metadata,null,2));
  await info.attach('served-v12-offline-build',{path:metadataPath,contentType:'application/json'});
- await page.goto(`${root}?case=${info.testId}&version=literacy-mock-v12&device=1&focusHook=1`);
+ await page.goto(`${root}?case=${info.testId}&version=literacy-mock-v12&device=1`);
  await expect(page.getByRole('region',{name:'Question 1',exact:true})).toBeVisible({timeout:90000});
  await expect.poll(()=>page.evaluate(()=>Boolean(navigator.serviceWorker.controller))).toBe(true);
  await expect.poll(()=>page.evaluate(()=>Boolean(window.__literacyMock.device()?.serverRun.offlineLeaseId))).toBe(true);
@@ -208,7 +302,7 @@ test('the installed production shell, assessment code, bank and media survive a 
  expect(queued.requests.length).toBeGreaterThan(43);
  await page.screenshot({path:info.outputPath('production-offline-complete.png')});
  await context.setOffline(false);
- await page.goto(`${root}?case=${info.testId}&device=1&count=43&focusHook=1`);
+ await page.goto(`${root}?case=${info.testId}&device=1&count=43`);
  await page.waitForFunction(()=>Boolean(window.__literacyMock));
  await page.evaluate(()=>{window.__literacyMock.setFault(null);window.dispatchEvent(new Event('online'));});
  await expect.poll(()=>page.evaluate(()=>window.__literacyMock.state().run.responses.length),{timeout:30000}).toBe(43);

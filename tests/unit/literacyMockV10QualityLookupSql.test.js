@@ -122,7 +122,7 @@ function completeOutbox(bootstrap, offline, outcome) {
     const adapted = adaptLiteracyMockBoundaryPlan(offline, box.run.plan, box.run.responses, [], box.run.presentations);
     if (!sameLiteracyMockPlan(adapted, box.run.plan)) box = appendMockOutbox(box, { requestId: `adapt-${index}`, expectedRevision: box.run.revision, plan: adapted, response: null }, {}, disk);
   }
-  return { box, trace };
+  return { box, trace, disk };
 }
 
 test('lookup-only migration preserves full canonical 58 correct, 16 incorrect and 48 reversal runs with reports', async t => {
@@ -144,16 +144,16 @@ test('lookup-only migration preserves full canonical 58 correct, 16 incorrect an
       const registered = await query(db, 'select student_save_literacy_mock_run($1,$2,$3,0,$4,null) value', ['synthetic-token', id, 'initial', plan]); assert.equal(registered.ok, true, registered.error);
       const sync = (key, lease, requests = []) => query(db, 'select student_sync_literacy_mock_batch($1,$2,$3,$4,$5,null) value', ['synthetic-token', id, key, lease, requests]);
       const bootstrap = await sync('bootstrap', null); assert.equal(bootstrap.ok, true, bootstrap.error);
-      let { box, trace } = completeOutbox(bootstrap, offline, outcome), result, delivery = 0; const batchMs = [];
+      let { box, trace, disk } = completeOutbox(bootstrap, offline, outcome), result, delivery = 0; const batchMs = [];
       while (box.requests.length) {
-        box = prepareMockDelivery(box, { batchId: `lookup-batch-${++delivery}` }, storage()); const sent = box.delivery.sent;
+        box = prepareMockDelivery(box, { batchId: `lookup-batch-${++delivery}` }, disk); const sent = box.delivery.sent;
         assert.ok(sent.requests.length <= 12);
         const started = performance.now(); result = await sync(sent.batchId, box.delivery.leaseId, sent.requests); batchMs.push(performance.now() - started);
         assert.equal(result.ok, true, `${name}: ${JSON.stringify(result)}`); verifyMockOutboxReceipt(result, sent);
         const retried = await sync(sent.batchId, box.delivery.leaseId, sent.requests); assert.equal(retried.duplicate, true);
         assert.deepEqual(retried.run.responses, result.run.responses);
         box = acknowledgeMockOutbox(box, sent, result, request => { const item = byId.get(request.questionId || request.response?.questionId);
-          return { item, isCorrect: item && request.response ? scoreLiteracyMockResponse(item, request.response.selected) : undefined }; }, storage());
+          return { item, isCorrect: item && request.response ? scoreLiteracyMockResponse(item, request.response.selected) : undefined }; }, disk);
       }
       assert.equal(trace.length, length); assert.equal(result.run.status, 'completed'); assert.equal(result.run.plan.itemIds.length, length);
       assert.deepEqual(result.run.responses.map(row => ({ questionId: row.questionId, selected: row.selected, isCorrect: row.isCorrect, band: row.itemSnapshot.adaptiveAreaBand })), trace);

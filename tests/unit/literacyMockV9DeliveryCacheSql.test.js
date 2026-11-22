@@ -32,16 +32,16 @@ async function countFunctions(db) {
 const resetCounts = db => db.exec(counters.map((_name, index) => `select setval('delivery_count_${index}',0,true);`).join('\n'));
 const counts = async db => Object.fromEntries(await Promise.all(counters.map(async (name, index) => [name, await query(db, `select last_value::integer value from delivery_count_${index}`)])));
 
-function correctQueue(bootstrap, offline, byId) {
+function correctQueue(bootstrap, offline, byId, storage) {
   let box = createMockOutbox({ studentId, sessionId: bootstrap.run.assignmentId, run: bootstrap.run, mock: bootstrap.mock, focusSession: { id: bootstrap.run.assignmentId } });
   while (box.run.responses.length < box.run.plan.itemIds.length) {
     const index = box.run.responses.length, item = byId.get(box.run.plan.itemIds[index]); assert.ok(item);
     const response = { questionId: item.id, selected: item.answer, responseStatus: 'answered', supportUsed: false, knownFamiliar: false,
       audioDelivery: Object.fromEntries(item.requiredAudioPaths.map(path => [path, 'completed'])) };
-    box = appendMockOutbox(box, { type: 'event', requestId: `shown-${index}`, questionId: item.id, event: 'presented' }, { item }, disk());
-    box = appendMockOutbox(box, { requestId: `answer-${index}`, expectedRevision: box.run.revision, plan: null, response }, { item, isCorrect: true }, disk());
+    box = appendMockOutbox(box, { type: 'event', requestId: `shown-${index}`, questionId: item.id, event: 'presented' }, { item }, storage);
+    box = appendMockOutbox(box, { requestId: `answer-${index}`, expectedRevision: box.run.revision, plan: null, response }, { item, isCorrect: true }, storage);
     const next = adaptLiteracyMockBoundaryPlan(offline, box.run.plan, box.run.responses, [], box.run.presentations);
-    if (!sameLiteracyMockPlan(next, box.run.plan)) box = appendMockOutbox(box, { requestId: `adapt-${index}`, expectedRevision: box.run.revision, plan: next, response: null }, {}, disk());
+    if (!sameLiteracyMockPlan(next, box.run.plan)) box = appendMockOutbox(box, { requestId: `adapt-${index}`, expectedRevision: box.run.revision, plan: next, response: null }, {}, storage);
   }
   return box;
 }
@@ -67,6 +67,7 @@ test('V9 delivery optimization is a reproducible forward migration with exact gu
 test('V9 late delivery retains exact scoring and receipts while bounding repeated support and boundary work', async t => {
   const bank = await loadLiteracyMockBank({ contentVersion: 'literacy-mock-v9' }), byId = new Map(bank.map(item => [item.id, item]));
   const db = await fixtureV9({ catalogue: true, deliveryCache: false });
+  const storage = disk();
   let box, id, expectedLate, baselineCounts, baselineMs;
   try {
     const itemsBefore = (await db.query("select content_version,md5(string_agg(id||':'||md5(item::text),E'\\n' order by id collate \"C\")) digest from literacy_mock_items group by content_version order by content_version")).rows;
@@ -81,15 +82,15 @@ test('V9 late delivery retains exact scoring and receipts while bounding repeate
     const offline = bank.filter(item => reserve.includes(item.id));
     assert.equal((await rpc(db, 'student_save_literacy_mock_run', ['synthetic-token', id, 'initial', 0, plan, null])).ok, true);
     const bootstrap = await rpc(db, 'student_sync_literacy_mock_batch', ['synthetic-token', id, 'bootstrap', null, [], null]); assert.equal(bootstrap.ok, true);
-    box = correctQueue(bootstrap, offline, byId); assert.equal(box.run.responses.length, 58); assert.equal(box.requests.length, 174);
+    box = correctQueue(bootstrap, offline, byId, storage); assert.equal(box.run.responses.length, 58); assert.equal(box.requests.length, 174);
     let number = 0;
     while (box.serverRun.responses.length < 52) {
-      box = prepareMockDelivery(box, { batchId: `delivery-${++number}` }, disk());
+      box = prepareMockDelivery(box, { batchId: `delivery-${++number}` }, storage);
       const received = await batch(db, id, box.delivery); assert.equal(received.ok, true, received.error);
-      box = acknowledgeMockOutbox(box, box.delivery.sent, received, projection(byId), disk());
+      box = acknowledgeMockOutbox(box, box.delivery.sent, received, projection(byId), storage);
     }
     assert.equal(box.serverRun.responses.length, 52);
-    box = prepareMockDelivery(box, { batchId: 'late-52-to-56' }, disk()); assert.equal(box.delivery.sent.requests.length, 12);
+    box = prepareMockDelivery(box, { batchId: 'late-52-to-56' }, storage); assert.equal(box.delivery.sent.requests.length, 12);
     await countFunctions(db);
     await db.exec('begin'); await resetCounts(db);
     let started = performance.now(); expectedLate = await batch(db, id, box.delivery); baselineMs = performance.now() - started;
@@ -123,11 +124,11 @@ test('V9 late delivery retains exact scoring and receipts while bounding repeate
     await resetCounts(db); const replay = await batch(db, id, box.delivery);
     assert.equal(replay.duplicate, true); assert.deepEqual(replay.run, received.run);
     assert.ok(Object.values(await counts(db)).every(value => value === 0), 'Exact retries return the stored receipt without recomputation.');
-    box = acknowledgeMockOutbox(box, box.delivery.sent, received, projection(byId), disk());
+    box = acknowledgeMockOutbox(box, box.delivery.sent, received, projection(byId), storage);
     while (box.requests.length) {
-      box = prepareMockDelivery(box, { batchId: `final-${++number}` }, disk());
+      box = prepareMockDelivery(box, { batchId: `final-${++number}` }, storage);
       const final = await batch(db, id, box.delivery); assert.equal(final.ok, true, final.error);
-      box = acknowledgeMockOutbox(box, box.delivery.sent, final, projection(byId), disk());
+      box = acknowledgeMockOutbox(box, box.delivery.sent, final, projection(byId), storage);
     }
     assert.equal(box.serverRun.status, 'completed'); assert.equal(box.serverRun.responses.length, 58); assert.equal(box.serverRun.plan.itemIds.length, 58);
     assert.ok(box.serverRun.responses.every(response => response.isCorrect === true));

@@ -48,12 +48,16 @@ test("teacher report retains neutral missing samples and individual report has s
   const classHtml = renderToStaticMarkup(React.createElement(reportComponent, { report }));
   assert.match(classHtml, /What to practise next/);
   assert.match(classHtml, /Alex: no independent sample/);
+  assert.match(classHtml, /0 of 4 areas/);
+  assert.doesNotMatch(classHtml, /Correct independently|\d+%/);
   assert.doesNotMatch(classHtml, /Secure<|Needs support</);
   const pupilHtml = renderToStaticMarkup(React.createElement(reportComponent, { report, initialStudentId: "s" }));
   assert.match(pupilHtml, /role="region" aria-label="Alex: four literacy areas" tabindex="0"/);
   assert.match(pupilHtml, /All 47 skills and next steps/);
   assert.match(pupilHtml, /Questions not reached/);
   assert.match(pupilHtml, /No recorded question in this sitting — no result/);
+  assert.match(pupilHtml, /Classroom check for Initial Sounds/);
+  assert.match(pupilHtml, /Say words slowly, compare their sounds/);
   assert.doesNotMatch(pupilHtml, /All 43 questions answered/);
   assert.doesNotMatch(pupilHtml, /NaN|undefined/);
 });

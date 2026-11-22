@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { LITERACY_MOCK_RUNTIME_V12 as bank } from '../../src/data/generated/literacyMockRuntimeV12.generated.js';
+import { LITERACY_MOCK_CLASS_PRACTICE as practice } from '../../src/data/generated/literacyMockClassPractice.generated.js';
 
 test.describe.configure({ timeout: 90000 });
 test.use({ hasTouch:true });
@@ -100,11 +101,26 @@ test('class practice offers and starts 15, 25 and 40 question rounds', async ({ 
   await page.goto('/preview/teacher-a11y.html?surface=resources');
   await page.getByRole('button', { name:'Open MAP Mock practice', exact:true }).click();
   const selector = page.getByRole('combobox', { name:'Questions', exact:true });
-  await expect(selector.locator('option')).toHaveText(['15 questions','25 questions','40 questions']);
+  await expect(selector.locator('option')).toHaveText(['Up to 15 questions','Up to 25 questions','Up to 40 questions']);
   for (const count of [15,25,40]) {
     await selector.selectOption(String(count));
     await page.getByRole('button', { name:'Start class practice', exact:true }).click();
     await expect(page.getByRole('heading', { name:`Practice question 1 of ${count}`, exact:true })).toBeVisible();
     await page.getByRole('button', { name:'Change practice', exact:true }).click();
   }
+});
+
+test('fixed class practice discloses a shorter round before launch', async ({ page }) => {
+  await page.goto('/preview/teacher-a11y.html?surface=resources');
+  await page.getByRole('button', { name:'Open MAP Mock practice', exact:true }).click();
+  await page.getByRole('combobox', { name:'Area', exact:true }).selectOption('vocabulary');
+  await page.getByRole('combobox', { name:'Practice step', exact:true }).selectOption('4');
+  await page.getByRole('combobox', { name:'Questions', exact:true }).selectOption('40');
+  const available = practice.filter(item => item.domainId === 'vocabulary' && item.adaptiveAreaBand === 4).length;
+  expect(available).toBeGreaterThan(0);
+  expect(available).toBeLessThan(40);
+  const noun = available === 1 ? 'question' : 'questions';
+  await expect(page.getByRole('status')).toHaveText(`${available} available at this step. This round will use ${available} ${noun}.`);
+  await page.getByRole('button', { name:'Start class practice', exact:true }).click();
+  await expect(page.getByRole('heading', { name:`Practice question 1 of ${available}`, exact:true })).toBeVisible();
 });

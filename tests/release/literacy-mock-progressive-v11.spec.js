@@ -125,7 +125,7 @@ for(const pattern of ['correct','incorrect','reversal'])test(`V11 child sitting,
  await page.evaluate(()=>window.__literacyMock.teacher('collect'));
  await page.goto(`${root}?${params}&mode=teacher&session=mock-session&student=student-a&phase=results`);
  const correctCount=trace.filter(row=>row.correct).length,summary=page.locator('.literacy-mock-result-summary');
- await expect(summary).toContainText(`${correctCount} of ${total} independent answers correct`,{timeout:90000});
+ await expect(summary).toContainText(`${total} answers`,{timeout:90000});
  await expect(page.getByText(`All ${total} questions answered.`,{exact:true})).toBeVisible();
  const areas=page.getByRole('region',{name:'Alex: literacy areas'});
  await expect(areas.locator('tbody tr')).toHaveCount(8);
@@ -140,7 +140,7 @@ for(const pattern of ['correct','incorrect','reversal'])test(`V11 child sitting,
  await page.screenshot({path:info.outputPath(`${pattern}-teacher-result.png`),fullPage:true});
  await page.getByRole('combobox',{name:'Report for',exact:true}).selectOption('');
  const classroom=page.getByRole('region',{name:'Class assessment summary'});
- await expect(classroom).toContainText(`${correctCount} of ${total} correct`);
+ await expect(classroom).toContainText(`${total} independent answers`);
  await expect(classroom).toContainText('Full sitting received');
  fs.writeFileSync(info.outputPath('route-and-gap.json'),JSON.stringify({pattern,total,correct:correctCount,routes,states,trace},null,2));
 });

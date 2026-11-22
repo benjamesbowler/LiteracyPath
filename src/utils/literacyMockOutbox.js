@@ -9,6 +9,7 @@ const clone = value => structuredClone(value);
 const answer = value => ({ questionId:value.questionId, responseStatus:value.responseStatus, selected:value.selected ?? null });
 export const mockOutboxKey = (studentId, sessionId) => `lp-mock-outbox:${studentId}:${sessionId}`;
 const storageFor = storage => storage || globalThis.localStorage;
+const retainedRecords = new WeakMap();
 
 function valid(value, studentId, sessionId) {
   return value?.schemaVersion === MOCK_OUTBOX_SCHEMA && value.studentId === studentId && value.sessionId === sessionId
@@ -23,20 +24,31 @@ function valid(value, studentId, sessionId) {
 
 export function readMockOutbox(studentId, sessionId, storage) {
   try {
-    const value = JSON.parse(readAssessmentDraft(mockOutboxKey(studentId,sessionId),studentId,storageFor(storage)) || 'null');
-    return valid(value,studentId,sessionId) ? value : null;
+    const serialized = readAssessmentDraft(mockOutboxKey(studentId,sessionId),studentId,storageFor(storage));
+    const value = JSON.parse(serialized);
+    if (!valid(value,studentId,sessionId)) return null;
+    retainedRecords.set(value, serialized);
+    return value;
   } catch { return null; }
 }
 
 /** Verify durable readback before allowing the child to leave the current question. */
-export function writeMockOutbox(value, storage) {
+export function writeMockOutbox(value, storage, expected = value) {
   if (!valid(value,value?.studentId,value?.sessionId)) return false;
   try {
-    const serialized = JSON.stringify(value);
-    if (serialized.length > 3 * 1024 * 1024) return false;
     const target = storageFor(storage), key = mockOutboxKey(value.studentId,value.sessionId);
-    return writeAssessmentDraft(key,serialized,value.studentId,target)
-      && readAssessmentDraft(key,value.studentId,target) === serialized;
+    const stored = target.getItem(key);
+    // The sitting's Web Lock serializes writers. The revision also rejects a
+    // stale in-memory queue when an older tab or privacy cleanup changes storage.
+    const retained = retainedRecords.get(expected);
+    if (stored === null ? retained || expected?.storageRevision : stored !== (retained || JSON.stringify(expected))) return false;
+    const storageRevision = globalThis.crypto.randomUUID();
+    const serialized = JSON.stringify({ ...value, storageRevision });
+    if (serialized.length > 3 * 1024 * 1024 || !writeAssessmentDraft(key,serialized,value.studentId,target)
+      || readAssessmentDraft(key,value.studentId,target) !== serialized) return false;
+    value.storageRevision = storageRevision;
+    retainedRecords.set(value, serialized);
+    return true;
   } catch { return false; }
 }
 
@@ -73,7 +85,7 @@ export function projectMockMutation(run, request, { item, isCorrect, itemCount, 
   }
   if (request.expectedRevision !== next.revision) throw new Error('Invalid local revision');
   if (request.plan) {
-    const variable = ['literacy-mock-v9','literacy-mock-v10','literacy-mock-v11','literacy-mock-v12'].includes(next.contentVersion);
+    const variable = ['literacy-mock-v9','literacy-mock-v10','literacy-mock-v11','literacy-mock-v12','literacy-mock-v13'].includes(next.contentVersion);
     if (request.plan.seed !== next.plan.seed || !Array.isArray(request.plan.itemIds)
       || (variable ? request.plan.itemIds.length < next.responses.length || request.plan.itemIds.length > (itemCount ?? literacyMockBoundaryLimits(next.contentVersion).maximum)
         || next.status === 'completed' && request.plan.itemIds.length !== next.plan.itemIds.length : request.plan.itemIds.length !== next.plan.itemIds.length)
@@ -114,13 +126,18 @@ export function appendMockOutbox(value, request, projectionOptions, storage) {
     || value.requests.some(row => row.requestId === request.requestId)) throw new Error('Invalid device queue request');
   const run = projectMockMutation(value.run,request,{...projectionOptions,itemCount:value.mock.item_count});
   const next = { ...value, run, requests:[...value.requests,clone(request)] };
-  if (!writeMockOutbox(next,storage)) throw Object.assign(new Error('The iPad could not save this answer.'),{ code:'device_storage_failed' });
+  if (projectionOptions?.additionalMediaItemIds?.length) {
+    const extra = projectionOptions.additionalMediaItemIds;
+    if (!request.plan || extra.some(id => !request.plan.itemIds.includes(id))) throw new Error('Invalid replacement media reserve');
+    next.mediaItemIds = [...new Set([...value.mediaItemIds, ...extra])];
+  }
+  if (!writeMockOutbox(next,storage,value)) throw Object.assign(new Error('The iPad could not save this answer.'),{ code:'device_storage_failed' });
   return next;
 }
 
 export function prepareMockDelivery(value, { batchId, collectionId = null }, storage) {
   if (value.delivery) return value;
-  const requests=['literacy-mock-v5','literacy-mock-v6','literacy-mock-v7','literacy-mock-v8','literacy-mock-v9','literacy-mock-v10','literacy-mock-v11','literacy-mock-v12'].includes(value.run.contentVersion) ? value.requests.slice(0,MOCK_V5_DELIVERY_REQUEST_LIMIT) : value.requests;
+  const requests=['literacy-mock-v5','literacy-mock-v6','literacy-mock-v7','literacy-mock-v8','literacy-mock-v9','literacy-mock-v10','literacy-mock-v11','literacy-mock-v12','literacy-mock-v13'].includes(value.run.contentVersion) ? value.requests.slice(0,MOCK_V5_DELIVERY_REQUEST_LIMIT) : value.requests;
   const complete=requests.length===value.requests.length;
   // This is the receipt watermark for the sent prefix. The full local sitting
   // stays intact until every chunk has its own canonical acknowledgement.
@@ -140,7 +157,7 @@ export function prepareMockDelivery(value, { batchId, collectionId = null }, sto
     responses:sentRun.responses.map(answer) };
   const next = { ...value, delivery:{ batchId, collectionId:complete ? collectionId : null, leaseId:value.serverRun.offlineLeaseId ?? null,
     sent:clone({studentId:value.studentId,sessionId:value.sessionId,run:watermark,requests,batchId}) } };
-  if (!writeMockOutbox(next,storage)) throw Object.assign(new Error('The iPad could not retain its delivery request.'),{code:'device_storage_failed'});
+  if (!writeMockOutbox(next,storage,value)) throw Object.assign(new Error('The iPad could not retain its delivery request.'),{code:'device_storage_failed'});
   return next;
 }
 
@@ -175,7 +192,7 @@ export function acknowledgeMockOutbox(current, sent, result, projectionFor, stor
   let run = clone(result.run);
   for (const request of remaining) run = projectMockMutation(run,request,projectionFor(request));
   const next = { ...current, serverRun:clone(result.run), run, requests:remaining, delivery:null, mock:clone(result.mock || current.mock), lastServerContactAt:new Date().toISOString() };
-  if (!writeMockOutbox(next,storage)) throw Object.assign(new Error('The delivery receipt could not be retained.'),{ code:'device_storage_failed' });
+  if (!writeMockOutbox(next,storage,current)) throw Object.assign(new Error('The delivery receipt could not be retained.'),{ code:'device_storage_failed' });
   return next;
 }
 

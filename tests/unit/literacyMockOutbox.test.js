@@ -27,6 +27,17 @@ test('storage denial or failed readback keeps the current question and the origi
  const unreadable={getItem:()=>null,setItem:()=>{},removeItem:()=>{}};
  assert.equal(writeMockOutbox(before,unreadable),false);
 });
+test('a stale tab cannot replace either an offline queue or an in-flight receipt, including after upgrading a legacy record', async () => {
+ const {prepareMockDelivery,mockOutboxKey}=await import('../../src/utils/literacyMockOutbox.js');
+ const target=storage(), legacy=initial();
+ target.setItem(mockOutboxKey(legacy.studentId,legacy.sessionId),JSON.stringify(legacy));
+ const stale=readMockOutbox(legacy.studentId,legacy.sessionId,target);
+ const current=appendMockOutbox(legacy,response,options,target);
+ const delivery=prepareMockDelivery(current,{batchId:'pending-receipt'},target);
+ assert.throws(()=>appendMockOutbox(stale,{...response,requestId:'stale',response:{...response.response,selected:'c2'}},options,target),/could not save/);
+ assert.equal(writeMockOutbox({...current,mock:{state:'paused'}},target),false);
+ assert.deepEqual(readMockOutbox(legacy.studentId,legacy.sessionId,target),delivery);
+});
 test('receipt loss, wrong pupil, truncated acknowledgement and changed answers never authorize deleting queued work', () => {
  const sent=appendMockOutbox(initial(),response,options,storage()), good=receipt(sent);
  for(const changed of [{}, {...good,acknowledged:[]}, {...good,run:{...good.run,studentId:'other'}}, {...good,run:{...good.run,responses:[{...good.run.responses[0],selected:'different'}]}}, {...good,run:{...good.run,revision:1}}]) assert.throws(()=>verifyMockOutboxReceipt(changed,sent),/receipt is incomplete/);
@@ -54,6 +65,7 @@ test('assistance requests do not silently convert a helped or unresolved respons
  const target=storage(), help=appendMockOutbox(initial(),{type:'event',requestId:'help',questionId:'q1',event:'help_requested'},options,target);
  assert.throws(()=>appendMockOutbox(help,response,options,target),/not been resolved/);
  const resolved={...help,run:{...help.run,helpRequests:[{questionId:'q1',status:'resolved',assistanceType:'answer'}]}};
+ assert.equal(writeMockOutbox(resolved,target,help),true);
  const saved=appendMockOutbox(resolved,response,options,target);
  assert.equal(saved.run.responses[0].evidenceType,'supported');
 });
@@ -84,7 +96,7 @@ test('help request receipts require actual server assistance records before queu
 test('completed received replicas retire for a new sitting while pending answers and the active child remain intact',async()=>{
  const {pruneReceivedMockOutboxes}=await import('../../src/utils/literacyMockOutbox.js');const target=storage();
  const queued=appendMockOutbox(initial(),response,options,target);writeMockOutbox(queued,target);
- const completed={...queued,studentId:'finished',run:{...receipt(queued).run,studentId:'finished',status:'completed'},serverRun:{...receipt(queued).run,studentId:'finished',status:'completed'},requests:[]};
+ const completed=createMockOutbox({...initial(),studentId:'finished',run:{...receipt(queued).run,studentId:'finished',status:'completed'}});
  writeMockOutbox(completed,target);
  assert.equal(pruneReceivedMockOutboxes({exceptStudentId:'finished',exceptSessionId:'assignment',storage:target}),0);
  assert.equal(pruneReceivedMockOutboxes({exceptStudentId:'new-child',exceptSessionId:'new-sitting',storage:target}),1);

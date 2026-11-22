@@ -1,14 +1,16 @@
 import { allocateIndependentItems, shuffleLiteracyMock } from './literacyMockPlanner.js';
 import { buildLiteracyExposureIndex, getLiteracyExposure, canonicalLiteracyIdentity, isEligibleLiteracyResponse } from './literacyEvidence.js';
 import { isLiteracyItemEligible } from '../policy/literacyItemEligibility.js';
-import { LITERACY_MOCK_AREA_MAX } from '../policy/literacyMockAdaptivePolicy.js';
-import { literacyMockBoundaryState as literacyMockBoundaryStateV9, literacyMockBoundarySchedule as literacyMockBoundaryScheduleV9, literacyMockBoundaryLimits,literacyMockBoundaryPlaceholderBand } from '../policy/literacyMockBoundaryPolicy.js';
-import { sameLiteracyMockTask } from './literacyMockConditions.js';
+import { LITERACY_MOCK_AREA_MAX, LITERACY_MOCK_AREA_ORDER } from '../policy/literacyMockAdaptivePolicy.js';
+import { literacyMockBoundaryState, literacyMockBoundarySchedule, literacyMockBoundaryLimits,
+  literacyMockBoundaryPlaceholderBand, literacyMockFirstPossibleOrdinal } from '../policy/literacyMockBoundaryPolicy.js';
+import { LITERACY_MOCK_V11_PRINT_LETTER_LIMIT } from '../policy/literacyMockProgressionV11.js';
+import { LITERACY_MOCK_BALANCED_VERSION, isLiteracyMockBoundaryVersion, isLiteracyMockProgressionVersion } from '../policy/literacyMockVersions.js';
+import { literacyMockTaskKey, sameLiteracyMockTask } from './literacyMockConditions.js';
 import { selectLiteracyMockPrintRetakePool } from './literacyMockRetakePool.js';
 import { literacyMockQuestionLimit } from '../policy/literacyMockQuestionLimit.js';
 
 const capacityError = message => Object.assign(new Error(message), { code: 'mock_fresh_capacity' });
-const boundaryVersions = new Set(['literacy-mock-v9', 'literacy-mock-v10', 'literacy-mock-v11','literacy-mock-v12']);
 const band = item => item?.adaptiveAreaBand ?? item?.itemSnapshot?.adaptiveAreaBand;
 const mediaPaths = item => [...(item.requiredAudioPaths || []), ...(item.requiredImagePaths || [])].map(path => path.split('#')[0]);
 const blocked = failures => {
@@ -17,7 +19,7 @@ const blocked = failures => {
   return item => ids.has(item.id) || mediaPaths(item).some(path => paths.has(path));
 };
 function usable(bank, failures = []) {
-  const versions = new Set(bank.filter(item => boundaryVersions.has(item.contentVersion)).map(item => item.contentVersion));
+  const versions = new Set(bank.filter(item => isLiteracyMockBoundaryVersion(item.contentVersion)).map(item => item.contentVersion));
   if (versions.size > 1) throw new Error('A boundary plan must use one frozen content publication.');
   const contentVersion = versions.values().next().value || 'literacy-mock-v9';
   const tutorials = new Set(bank.filter(item => item.tutorialOnly).map(item => item.stimulusKey));
@@ -39,7 +41,7 @@ function fresh(items, exposures) {
 function entryOwnership(items) {
   // Explicit V11 reservations protect genuinely new target stock across oral,
   // printed and CVC variants. The authored owner is stable across failures.
-  const authoredOwners = new Map(items.filter(item => ['literacy-mock-v11','literacy-mock-v12'].includes(item.contentVersion) && item.routeReservationArea)
+  const authoredOwners = new Map(items.filter(item => isLiteracyMockProgressionVersion(item.contentVersion) && item.routeReservationArea)
     .map(item => [item.targetWord,item.routeReservationArea]));
   const listening = new Set(items.filter(item => item.skillId === 'listen_words_phrases' && band(item) === 1
     && (!authoredOwners.has(item.targetWord)||authoredOwners.get(item.targetWord)==='listening')).map(item => item.targetWord));
@@ -52,19 +54,19 @@ function entryOwnership(items) {
   return items.filter(item => {
     const family = canonicalLiteracyIdentity(item).familyId;
     const word = family?.startsWith('mock-foundation-word:') ? family.slice('mock-foundation-word:'.length) : null;
-    if(['literacy-mock-v11','literacy-mock-v12'].includes(item.contentVersion) && item.domainId==='phonics' && owners.get(item.targetWord || canonicalLiteracyIdentity(item).passageKey)==='language')return false;
-    if(['literacy-mock-v11','literacy-mock-v12'].includes(item.contentVersion) && item.domainId==='phonics' && band(item)===1){
+    if(isLiteracyMockProgressionVersion(item.contentVersion) && item.domainId==='phonics' && owners.get(item.targetWord || canonicalLiteracyIdentity(item).passageKey)==='language')return false;
+    if(isLiteracyMockProgressionVersion(item.contentVersion) && item.domainId==='phonics' && band(item)===1){
       const target=item.targetWord || canonicalLiteracyIdentity(item).passageKey;
       if(owners.get(target)==='reading')return false;
     }
     // V11's additional CVC contrasts share real word exposure with the
     // oral/reading areas. Keep these alternatives available; actual plan
     // allocation and delivered history still enforce global freshness.
-    return ['literacy-mock-v11','literacy-mock-v12'].includes(item.contentVersion) && item.domainId === 'phonics'
+    return isLiteracyMockProgressionVersion(item.contentVersion) && item.domainId === 'phonics'
       || !owners.has(word) || owners.get(word) === item.domainId;
   });
 }
-function offlinePool(candidates, plan, byId) {
+function historicalOfflinePool(candidates, plan, byId) {
   const reserved = plan.itemIds.map(id => byId.get(id));
   reserved.push(...selectLiteracyMockPrintRetakePool(candidates, plan, byId, { boundary: true }).filter(item => !plan.itemIds.includes(item.id)));
   const assets = new Set(reserved.flatMap(mediaPaths));
@@ -74,7 +76,7 @@ function offlinePool(candidates, plan, byId) {
     // Include one extra candidate at this demand. Repair still requires an
     // exact task/access/source-level match and safely holds if none remains.
     const version = reserved[0]?.contentVersion;
-    const firstPossible = ['literacy-mock-v11','literacy-mock-v12'].includes(version) && stage > 0 ? 2 * stage + 1 : stage;
+    const firstPossible = isLiteracyMockProgressionVersion(version) && stage > 0 ? 2 * stage + 1 : stage;
     const total = literacyMockBoundaryLimits(version).budgets[domain] - firstPossible + 1;
     const needed = Math.max(0, total - reserved.filter(item => item.domainId === domain && band(item) === stage).length);
     if (!needed) continue;
@@ -83,7 +85,7 @@ function offlinePool(candidates, plan, byId) {
     // demands/areas; each actual plan and delivered prefix remain globally
     // independent. Requiring all hypothetical branches to be independent would
     // exhaust valid stock that no child can encounter in one sitting.
-    const branch = ['literacy-mock-v11','literacy-mock-v12'].includes(version)
+    const branch = isLiteracyMockProgressionVersion(version)
       ? reserved.filter(item => item.domainId===domain && band(item)===stage)
       : reserved.filter(item => item.domainId!==domain || band(item)===stage);
     const pool = shuffleLiteracyMock(fresh(candidates, branch).filter(item => item.domainId === domain && band(item) === stage), `${plan.seed}:${domain}:${stage}:offline`);
@@ -95,12 +97,65 @@ function offlinePool(candidates, plan, byId) {
   return reserved.map(item => item.id);
 }
 
+function balancedOfflinePool(candidates, plan, byId, limit) {
+  const initial = plan.itemIds.map(id => byId.get(id));
+  const reserved = [...initial], assets = new Set(reserved.flatMap(mediaPaths));
+  const { budgets } = literacyMockBoundaryLimits(LITERACY_MOCK_BALANCED_VERSION);
+  // All areas receive one question before any receives a second. Two visits
+  // are necessary to stop any area, so no third visit can occur before 16.
+  const minOtherAnswers = 2 * (LITERACY_MOCK_AREA_ORDER.length - 1);
+  const possibleAreaVisits = Math.max(2, limit - minOtherAnswers);
+  const keep = items => {
+    for (const item of items) {
+      reserved.push(item);
+      for (const path of mediaPaths(item)) assets.add(path);
+    }
+  };
+  const newAssetCount = item => mediaPaths(item).filter(path => !assets.has(path)).length;
+  for (const [domain, maximum] of Object.entries(LITERACY_MOCK_AREA_MAX)) {
+    const visits = Math.min(budgets[domain], possibleAreaVisits);
+    for (let stage = 0; stage <= maximum; stage++) {
+      const reachable = visits - literacyMockFirstPossibleOrdinal(stage) + 1;
+      if (reachable < 1) break;
+      const here = item => item.domainId === domain && band(item) === stage;
+      const branch = reserved.filter(here);
+      const pool = shuffleLiteracyMock(fresh(candidates.filter(here), branch), `${plan.seed}:${domain}:${stage}:offline`);
+      pool.sort((left, right) => newAssetCount(left) - newAssetCount(right));
+      const target = domain === 'print' && stage <= 1 ? Math.min(reachable, LITERACY_MOCK_V11_PRINT_LETTER_LIMIT) : reachable;
+      let amount = Math.max(0, target + 1 - branch.length);
+      // Bank exhaustion on a possible branch does not prevent a viable entry
+      // plan. Keep as much independent capacity as exists and let an actual
+      // exhausted route surface a capacity stop.
+      while (amount > 0) {
+        const selected = allocateIndependentItems(Array.from({ length: amount }, () => pool));
+        if (selected) { keep(selected); break; }
+        amount--;
+      }
+    }
+  }
+  // Retain a repair representative where a demand mixes different constructs,
+  // modalities or source levels. A broadly similar demand cannot repair it.
+  const conditions = item => JSON.stringify([band(item),item.level,literacyMockTaskKey(item)]);
+  const exemplars = new Map([...reserved].reverse().map(item => [conditions(item), item]));
+  for (const [key, original] of exemplars) {
+    const failedPaths = new Set(mediaPaths(original));
+    const overlap = item => mediaPaths(item).filter(path => failedPaths.has(path)).length;
+    const existing = reserved.filter(item => conditions(item) === key);
+    const known = fresh(existing, [original]);
+    const candidatesAtTask = fresh(candidates.filter(item => conditions(item) === key), existing);
+    const alternative = shuffleLiteracyMock(candidatesAtTask, `${plan.seed}:${key}:repair`)
+      .sort((left, right) => overlap(left) - overlap(right) || newAssetCount(left) - newAssetCount(right))[0];
+    if (alternative && (!known.length || known.every(item => overlap(item) > overlap(alternative)))) keep([alternative]);
+  }
+  return reserved.map(item => item.id);
+}
+
 export function selectLiteracyMockBoundaryPlan(bank, { sessionId, studentId, itemCount, seed, exposures = [], onOfflineItems } = {}) {
-  const version = bank.find(item => boundaryVersions.has(item.contentVersion))?.contentVersion;
+  const version = bank.find(item => isLiteracyMockBoundaryVersion(item.contentVersion))?.contentVersion;
   const {maximum, areaVersion} = literacyMockBoundaryLimits(version);
   if (!sessionId || !studentId) throw new Error('A boundary plan needs a session and learner.');
   const limit = literacyMockQuestionLimit(version, itemCount, maximum);
-  const schedule = literacyMockBoundaryScheduleV9([], {bank}).slice(0, limit), planSeed = seed || `${sessionId}:${studentId}:${areaVersion}`;
+  const schedule = literacyMockBoundarySchedule([], {bank,sessionId}).slice(0, limit), planSeed = seed || `${sessionId}:${studentId}:${areaVersion}`;
   const candidates = fresh(entryOwnership(usable(bank)), exposures), ordinals = {};
   const options = schedule.map((domain, index) => {
     const demand = literacyMockBoundaryPlaceholderBand(version,domain, ordinals[domain] = (ordinals[domain] || 0) + 1);
@@ -109,11 +164,16 @@ export function selectLiteracyMockBoundaryPlan(bank, { sessionId, studentId, ite
   const selected = allocateIndependentItems(options, schedule);
   if (!selected) throw capacityError('Not enough fresh questions for the bounded boundary test.');
   const plan = { itemIds: selected.map(item => item.id), seed: planSeed };
-  if (onOfflineItems) onOfflineItems(offlinePool(candidates, plan, new Map(bank.map(item => [item.id, item]))));
+  if (onOfflineItems) {
+    const byId = new Map(bank.map(item => [item.id, item]));
+    onOfflineItems(version === LITERACY_MOCK_BALANCED_VERSION
+      ? balancedOfflinePool(candidates, plan, byId, limit)
+      : historicalOfflinePool(candidates, plan, byId));
+  }
   return plan;
 }
 
-export function adaptLiteracyMockBoundaryPlan(bank, plan, responses = [], failures = [], presentations = [], { exposures = [], itemCount } = {}) {
+export function adaptLiteracyMockBoundaryPlan(bank, plan, responses = [], failures = [], presentations = [], { exposures = [], itemCount, sessionId = plan.seed.split(':')[0] } = {}) {
   const byId = new Map(bank.map(item => [item.id, item]));
   const version = bank[0]?.contentVersion;
   const limit = literacyMockQuestionLimit(version, itemCount, literacyMockBoundaryLimits(version).maximum);
@@ -127,8 +187,8 @@ export function adaptLiteracyMockBoundaryPlan(bank, plan, responses = [], failur
   // a reserved unscored slot only while building future placeholders; its real
   // answer will recompute the state and can restore unused bounded slots.
   const reservedRows = frozenCurrent ? [...responses, { questionId: current.id, responseStatus: 'skipped', evidenceType: 'unscored', isCorrect: null }] : responses;
-  const schedule = literacyMockBoundaryScheduleV9(reservedRows, { bank: byId }).slice(0, limit);
-  const states = literacyMockBoundaryStateV9(responses, { bank: byId });
+  const schedule = literacyMockBoundarySchedule(reservedRows, { bank: byId, sessionId }).slice(0, limit);
+  const states = literacyMockBoundaryState(responses, { bank: byId });
   const prefix = plan.itemIds.slice(0, responses.length + (frozenCurrent ? 1 : 0));
   const frozen = prefix.map(id => byId.get(id));
   const candidates = fresh(entryOwnership(usable(bank, failures)), [...exposures, ...frozen]);
