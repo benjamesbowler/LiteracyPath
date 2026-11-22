@@ -14525,8 +14525,8 @@
       }
     ],
     "graph": {
-      "count": 1576,
-      "sha256": "4490f27a6af91e9c88ab291bdd49ce60e70d48f1e8cb9d686ddc4b2c70ae5511",
+      "count": 1577,
+      "sha256": "4553bd16aad16acca2dfa2a71c3cc9b49d85a72b0aceb2d1f9019caf0760fea0",
       "modules": [
         "demos/sound-seekers/assets/audio/brook-complete.mp3",
         "demos/sound-seekers/assets/audio/brook.mp3",
@@ -16068,6 +16068,7 @@
         "src/utils/starGalleryRounds.js",
         "src/utils/starRubric.js",
         "src/utils/storyQuestProgress.js",
+        "src/utils/storyQuestRoutes.js",
         "src/utils/studentProfile.js",
         "src/utils/studentSessionRecovery.js",
         "src/utils/studentWelcomeGuide.js",
@@ -16106,8 +16107,8 @@
         "src/utils/workshopObjects.js"
       ],
       "edges": {
-        "count": 3740,
-        "sha256": "919463c2595453b9124418d8da88ce26f6d7c13d3621d192a4cdc13737c3339a"
+        "count": 3745,
+        "sha256": "d3a4c5a4b6d99f593b8a99d9f93c274fb58b449ca54b427c84e75ddba7fb15fd"
       },
       "issues": [],
       "dynamic": []
@@ -16573,7 +16574,7 @@
     },
     "historicalAdministrativeSources": {
       "cohort": "tools/manifests/app-visual-historical-review-sources.json",
-      "cohortSha256": "95c1fa90081835aba45ab0dc0bb8da19b2bae62ae00110ea4ff6a3ea230ce795",
+      "cohortSha256": "cce7ff7add2b1e0b1c41f0993e5c9b3ee72be08d3cc44eb46e9820c534eecf53",
       "sourcePins": [
         {
           "path": "src/components/admin/MediaQaReviewPage.jsx",
@@ -16621,7 +16622,7 @@
         },
         {
           "path": "src/data/generated/mediaQaReviewItems.generated.js",
-          "sha256": "f1cb0a2c5357456b4bc1ee0efb72efca4af6014dc32f683cd7f05e89434bd597"
+          "sha256": "3e2c396e610408aaa5d0ee3937b7ee018b84b4fda84d0d0b9835422706f5043f"
         },
         {
           "path": "src/data/generated/vocabularyRuntime.generated.js",
@@ -16656,8 +16657,8 @@
       }
     },
     "runtimeSources": {
-      "count": 1771,
-      "sha256": "797da99a02a8126acade65e00429c5b79a958bfa9659e19c49f01c18c720f2ec",
+      "count": 1772,
+      "sha256": "1172dff9be8bc6fd414a3885188cb0a946d7f3a01a33befbecb30fa4021d7fbb",
       "files": [
         {
           "path": "demos/sound-seekers/chapter.config.mjs",
@@ -18593,7 +18594,7 @@
         },
         {
           "path": "src/components/LearnAreaPage.jsx",
-          "sha256": "93fac12d9c6b605ef4e38ed54e4f925966fdef119afa287d3c4c27c69d5f73cd"
+          "sha256": "1d3457c192e266f11cdc021e01949c6be512943a23049e3632412b7d5424c7c2"
         },
         {
           "path": "src/components/learning/LearningTeachingCard.jsx",
@@ -18849,11 +18850,11 @@
         },
         {
           "path": "src/components/StoryQuestPlayer.css",
-          "sha256": "555206fb7b9148e02cd81f8385d96d4bd74f673fb44f1e48c0ba4fd60d3bdd3c"
+          "sha256": "36cc32e774f06f6e2bc6dc40c96c017b2ade52978a29ee3720c65905e80d1b70"
         },
         {
           "path": "src/components/StoryQuestPlayer.jsx",
-          "sha256": "bde851ae5406044986606f05fe054168268173e304944bdb3881c9bd97f4723a"
+          "sha256": "6a66413d9ca92a3bf452edb6ea9bc2f1bdb4f24f8d508dd92647550c7ddd07b3"
         },
         {
           "path": "src/components/StoryQuestSpeaker.jsx",
@@ -19333,11 +19334,11 @@
         },
         {
           "path": "src/content/storyContentReviews.js",
-          "sha256": "e0f04ef74491bffac1fd034879f2415b92c0849b20b557b6bed090819b96b98b"
+          "sha256": "f1684e0c1eeb5fc8cef4ab102f5ad0ef743aac80d3871ed67423f67c07258075"
         },
         {
           "path": "src/content/storyQuestNarrationManifest.generated.json",
-          "sha256": "92794f7bcd4666d227756c2cfbbbfe91cd87fb111522bb2d9924febcda64f422"
+          "sha256": "36ee95f8f9cc946aabbbb6184b505a9f49c38f4ba6cdcd7340845584269d027a"
         },
         {
           "path": "src/content/transfer/transferContextPolicy.js",
@@ -19857,7 +19858,7 @@
         },
         {
           "path": "src/data/generated/audioFilePaths.generated.js",
-          "sha256": "b15653d4cd3b25ce8e410ffc89e58be451b728b044f6ff5820121102aae7f5ef"
+          "sha256": "e0430f607b418daad196b3dc105e9b323c4a074b0659433006a99ccc953995c0"
         },
         {
           "path": "src/data/generated/audioGuidedReadingPaths.generated.js",
@@ -19869,7 +19870,7 @@
         },
         {
           "path": "src/data/generated/audioQuestPaths.generated.js",
-          "sha256": "6f816142bb6f681dfd69f517c313fc9fa2971ff7792a6e9fe10d0d8c6b6ccf03"
+          "sha256": "c6823d18b235cb989c77ff26f9f3129f209155d751c6684fdb2d7f044a26116b"
         },
         {
           "path": "src/data/generated/cyclePracticeInstructionAudio.generated.js",
@@ -19985,7 +19986,7 @@
         },
         {
           "path": "src/data/generated/mediaQaReviewItems.generated.js",
-          "sha256": "f1cb0a2c5357456b4bc1ee0efb72efca4af6014dc32f683cd7f05e89434bd597"
+          "sha256": "3e2c396e610408aaa5d0ee3937b7ee018b84b4fda84d0d0b9835422706f5043f"
         },
         {
           "path": "src/data/generated/presentNarration.generated.js",
@@ -20013,7 +20014,7 @@
         },
         {
           "path": "src/data/generated/storyQuestLedaAudio.generated.js",
-          "sha256": "49a79e3a730396984535591d7a6f764b496ca2f9c52b80a8b0dea4ff53b124f3"
+          "sha256": "5535ce2a5a950ff7a3982cebde5ef6920e71cf0d1a0a5b985c4778a7edb4b177"
         },
         {
           "path": "src/data/generated/studentNavigationAudio.generated.js",
@@ -20789,11 +20790,11 @@
         },
         {
           "path": "src/data/storyQuestReaderCopy.js",
-          "sha256": "fcc687c1ac5e0801df7c7a255cd88183085d180e7a6a5809b858acbc9b4c2be1"
+          "sha256": "bd9e4c731d7b70f628728011391561ee665b55c88d7a9a9d2ecb8dccd9a89bf3"
         },
         {
           "path": "src/data/storyQuests.js",
-          "sha256": "ecfa87e427f01375ee4407695f5b8958ffba868a1ef7c4e05c4e1e4270a0b468"
+          "sha256": "4056d12654bcc11f92c246c98987b48626576a1a4fff826cb8c8c849af9fd9db"
         },
         {
           "path": "src/data/studentDetailedReportBuilder.js",
@@ -21901,7 +21902,7 @@
         },
         {
           "path": "src/policy/childLibraryPolicy.js",
-          "sha256": "3a1f260436aad02ab056061be10cdaed48bae3103a02ece998c57c7c2760a6f8"
+          "sha256": "8e3669ef7db880184a3b83a4b64106bf198526ba042d25d86f4d2e1575aee319"
         },
         {
           "path": "src/policy/childMediaCapturePolicy.js",
@@ -23229,7 +23230,7 @@
         },
         {
           "path": "src/utils/progressMerge.js",
-          "sha256": "c6cd31b853d899dd8b2be3d4a9d3886e9bb697ac0b17715df6a1acbf0d710536"
+          "sha256": "737b947686768b08e74fbe6f063f70f68dd297b4cfa22f7f7bf0192606b330cf"
         },
         {
           "path": "src/utils/progressQueue.js",
@@ -23573,7 +23574,11 @@
         },
         {
           "path": "src/utils/storyQuestProgress.js",
-          "sha256": "c14101b64d226c00c3de2dc85d06d8aa23a868610007b57bead062b65278ed13"
+          "sha256": "a7a7399a264aafe493de404940d9182c78e09290c313ca4ac5be591210edf1ec"
+        },
+        {
+          "path": "src/utils/storyQuestRoutes.js",
+          "sha256": "de8e12dbde366df15d280d6a06d7cb27abca71d2448fa9b015cf601eb1a06150"
         },
         {
           "path": "src/utils/studentProfile.js",
@@ -23780,7 +23785,7 @@
       },
       {
         "path": "tools/manifests/app-visual-historical-review-sources.json",
-        "sha256": "95c1fa90081835aba45ab0dc0bb8da19b2bae62ae00110ea4ff6a3ea230ce795"
+        "sha256": "cce7ff7add2b1e0b1c41f0993e5c9b3ee72be08d3cc44eb46e9820c534eecf53"
       }
     ],
     "policies": [

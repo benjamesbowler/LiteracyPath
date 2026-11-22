@@ -478,8 +478,16 @@ export function computeHydratedValue(area, key, existing, payload, { scopeKey } 
     return { ...local, ...cloud, games, musicEnabled, musicPreferenceVersion };
   }
 
-  // Per-item progress records: forward-merge so completed/words/scores can't regress.
-  if (area === "story_quests" || area === "guided_reading") {
+  if (area === "story_quests") {
+    const local = base[key];
+    const localIsNewer = String(local?.updatedAt || "") > String(payload?.updatedAt || "");
+    // Discoveries accumulate in either order. The latest read owns the
+    // ordered checkpoint, including an unfinished reread of a completed book.
+    const progress = localIsNewer ? mergeMonotonic(payload, local) : mergeMonotonic(local, payload);
+    return { ...base, [key]: progress };
+  }
+
+  if (area === "guided_reading") {
     return { ...base, [key]: mergeMonotonic(base[key], payload) };
   }
 

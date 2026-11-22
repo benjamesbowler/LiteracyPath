@@ -607,6 +607,30 @@ Removed the task's reproducible offline speech environment and three model
 caches after preserving recognition reports, model hashes and generation inputs.
 The original Codex-generated artwork and required review evidence remain intact.
 
+### Interactive Story Quest narration — 22 November 2026
+
+The [Story Quest catalogue](../src/data/storyQuests.js) now includes scene
+actions and named endings. Its [shared spoken copy](../src/data/storyQuestReaderCopy.js)
+feeds the existing Leda generator for the reader's story, choices, scene
+actions, discoveries, invitations, and replay controls. The
+[exact narration manifest](../src/content/storyQuestNarrationManifest.generated.json)
+records 1,276 active clips for 3,378 spoken references. The generator installed
+420 new MP3s used by the final catalogue.
+
+Removed 62 superseded tracked clips and four interim takes totaling 3,000,858
+bytes after exact path, active manifest, QA inventory, and source reference
+checks. The tracked files are recoverable from the commit and Git blobs
+recorded in `.artifacts/story-quests/superseded-audio-retirement.json`.
+The four untracked takes can be regenerated from their draft wording.
+The audio existence catalogues and public inventory were regenerated.
+
+The Story Quest media QA sync refreshed the 190 active scene rows and
+verified exact recordings for authored interactions and endings against their
+hashes. The other 14,367 rows retained identical bytes in the synchronized
+inventory. The full audio signal report is
+`.artifacts/story-quests/audio-integrity.json`. Separate browser checks
+exercised playback and interruption in desktop and mobile Chromium.
+
 ## Present classroom workspace — 28 September 2026
 
 Present now derives its outline, preview, print plan and projector from one

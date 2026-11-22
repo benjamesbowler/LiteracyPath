@@ -4,6 +4,9 @@ import test from "node:test";
 import { storyQuests } from "../../src/data/storyQuests.js";
 import { storyQuestSpokenItems } from "../../src/data/storyQuestReaderCopy.js";
 import { STUDENT_RAIL_DESTINATIONS, selectActiveStudentTab } from "../../src/policy/studentRailPolicy.js";
+import { computeHydratedValue } from "../../src/utils/progressMerge.js";
+import { buildQuestCard } from "../../src/policy/childLibraryPolicy.js";
+import { encodeStoryQuestCheckpoint, readStoryQuestCheckpoint, storyQuestEndingIds, storyQuestReplayFork } from "../../src/utils/storyQuestRoutes.js";
 import {
   buildStoryQuestResumeHistory,
   isStoryQuestTeacherPreviewScope,
@@ -208,6 +211,7 @@ test("Story Quest exposure stays cumulative while the current route remains resu
       completedAt: "2026-07-20T00:00:00.000Z",
       visitedPageCount: 4,
       visitedPageIds: ["page-1", "new-branch"],
+      exploredPageIds: ["page-1", "old-branch", "new-branch"],
       wordsFound: ["cat", "map", "sun"],
       wordsFoundCount: 3,
       opened: true,
@@ -235,6 +239,49 @@ test("rewritten or invalid routes restart instead of dropping readers beyond req
   assert.deepEqual(resolveStoryQuestResume(quest, { contentRevision: "old", visitedPageIds: ["start", "clue", "door"] }, "door"), { pageId: "start", history: [] });
   assert.deepEqual(resolveStoryQuestResume(quest, { contentRevision: "new", visitedPageIds: ["start", "door"] }, "door"), { pageId: "start", history: [] });
   assert.deepEqual(resolveStoryQuestResume(quest, { contentRevision: "new", visitedPageIds: ["start", "clue", "door"] }, "door"), { pageId: "door", history: ["start", "clue"] });
+});
+
+test("a synced replay resumes the new branch and preserves endings found on both devices", () => {
+  const quest = storyQuests.find(quest => quest.id === "mp_ra_a_02_shy_cuddly_quiet_adventure");
+  const prefix = ["p01_start", "p04_call_shy", "p02_cuddly", "p06_go_to_tree", "p07_tree_under"];
+  const finished = [...prefix, "p08_tree_hug"];
+  const replay = [...prefix, "p08_tree_purr"];
+  const checkpoint = (visitedPageIds, routeFinished) => encodeStoryQuestCheckpoint({
+    contentRevision: quest.contentRevision, visitedPageIds, routeFinished
+  });
+  const old = { completed: true, routeFinished: true, visitedPageIds: finished,
+    updatedAt: "2026-11-22T01:00:00Z",
+    endingPageIds: ["p08_tree_hug"], routeCheckpoint: checkpoint(finished, true) };
+  const recent = { completed: true, routeFinished: false, visitedPageIds: replay,
+    updatedAt: "2026-11-22T02:00:00Z",
+    endingPageIds: ["p08_tree_purr"], routeCheckpoint: checkpoint(replay, false) };
+  const row = computeHydratedValue("story_quests", quest.id, { [quest.id]: old }, recent)[quest.id];
+  const resume = readStoryQuestCheckpoint(row);
+  assert.equal(resume.routeFinished, false);
+  assert.deepEqual(resume.visitedPageIds, replay);
+  assert.deepEqual(resolveStoryQuestResume(quest, row, resume.lastPageId), {
+    pageId: "p08_tree_purr", history: prefix
+  });
+  assert.deepEqual(storyQuestEndingIds(row), ["p08_tree_hug", "p08_tree_purr"]);
+  const hydratedWithStaleCloud = computeHydratedValue("story_quests", quest.id, { [quest.id]: recent }, old)[quest.id];
+  assert.deepEqual(readStoryQuestCheckpoint(hydratedWithStaleCloud), resume);
+  assert.deepEqual(storyQuestEndingIds(hydratedWithStaleCloud), ["p08_tree_hug", "p08_tree_purr"]);
+  assert.equal(buildQuestCard({ quest, row: { ...row, opened: true } }).badge, "Continue");
+  assert.equal(buildQuestCard({ quest: { ...quest, contentRevision: "incompatible" }, row: { ...row, opened: true } }).badge, "Read again");
+});
+
+test("replay prioritises a new ending, then a different scene on a path to a known ending", () => {
+  const pages = new Map(Object.entries({
+    start: { id: "start", choices: [{ nextPageId: "fork" }, { nextPageId: "other-ending" }] },
+    fork: { id: "fork", choices: [{ nextPageId: "ending" }, { nextPageId: "detour" }] },
+    detour: { id: "detour", choices: [{ nextPageId: "ending" }] },
+    ending: { id: "ending", choices: [{ nextPageId: "end" }] },
+    "other-ending": { id: "other-ending", choices: [{ nextPageId: "end" }] }
+  }));
+  const route = ["start", "fork", "ending"];
+  assert.equal(storyQuestReplayFork(route, ["ending"], [], pages), 0);
+  assert.equal(storyQuestReplayFork(route, ["ending", "other-ending"], ["other-ending"], pages), 1);
+  assert.equal(storyQuestReplayFork(route, ["ending", "other-ending"], ["other-ending", "detour"], pages), -1);
 });
 
 test("every declared Story Quest target word can be encountered on at least one page", () => {

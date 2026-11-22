@@ -71,10 +71,10 @@ export const guidedReadingSharedStoryReviews = Object.freeze([Object.freeze({
 export const storyQuestPolicyReviews = Object.freeze([
   {
     "id": "mw_ra_c_01_pip_stone_loud_thing",
-    "sourceFingerprint": "6aa4924b719c11b2473e293f78a3a11053702f53503791eb6503fa9856ac8046",
+    "sourceFingerprint": "f359cd8036dc475324e5472ec791817aa014d4782898552ab906330d3b291c46",
     "status": "approved",
     "reviewer": "Codex editorial and direct visual review",
-    "reviewedAt": "2026-09-30",
+    "reviewedAt": "2026-11-22",
     "scores": {
       "character": 3,
       "goal": 4,
@@ -94,21 +94,23 @@ export const storyQuestPolicyReviews = Object.freeze([
     "summary": "Replaced near-identical forks with two real decisions; visible tracks, quiet listening and stepping stones support the frog reunion.",
     "rewriteActions": [
       "Replaced near-identical forks with two real decisions; visible tracks, quiet listening and stepping stones support the frog reunion.",
-      "Natural compact prose, explicit Next links, story-specific replay and independently audible invitations/decisions replace repetitive forced questions."
+      "Natural compact prose, explicit Next links, story-specific replay and independently audible invitations/decisions replace repetitive forced questions.",
+      "Added 3 scene encounters with distinct clues or reactions and 2 named endings. Recorded the new prompts, reveals and revised story copy."
     ],
     "illustrationActions": [
-      "Current scene art and dedicated cover inspected against final prose, anatomy, recurring props and incoming route state; exact accepted bytes are locked by cache identity and the scoped app visual review."
+      "Current scene art and dedicated cover inspected against final prose, anatomy, recurring props and incoming route state; exact accepted bytes are locked by cache identity and the scoped app visual review.",
+      "Checked 6 illustration targets directly on the active scenes. Preserved the scene artwork and matching route state."
     ],
     "routeEvidence": {
       "completeRoutes": 4,
       "pageNodes": 13,
-      "method": "Exhaustive finite graph and browser traversal of all 52 current routes; replay edges excluded."
+      "method": "Traversed the finite graph to check every path reaches an authored ending through at least one playable encounter. Replay links excluded."
     },
     "pageEvidence": {
       "pages": 13,
       "images": 13,
       "imageTextMatches": 13,
-      "method": "Every current image directly inspected against the revised scene; corrected images reviewed again and final hashes recorded. Original 340-page dispositions consolidate to 190 active scenes and 150 retired."
+      "method": "Existing illustrations retained. Revised moments, endings and action targets checked against the active scene art."
     },
     "audioEvidence": {
       "pages": 13,
@@ -118,16 +120,16 @@ export const storyQuestPolicyReviews = Object.freeze([
       "voice": "en-US-Chirp3-HD-Leda",
       "format": "MP3 128 kbps from 24 kHz LINEAR16 source",
       "provenance": "src/content/storyQuestNarrationManifest.generated.json",
-      "method": "914 current clips hash-checked and fully decoded; independent unprompted local recognition screening prompted 26 clearer takes. Recognition ambiguity is recorded separately from confirmed defects.",
-      "limitation": "No direct human listening, classroom or physical-device observation is claimed. Acceptance follows continuous QA pass-by-exception."
+      "method": "Exact production Leda clips for current prose, prompts, choices, action reveals and endings are mapped to the current narration manifest. The catalogue passed hash, decoding and signal checks.",
+      "limitation": "The new recordings were machine-checked. No human listening or classroom observation is claimed."
     }
   },
   {
     "id": "mw_ra_c_02_fern_wren_walking_garden",
-    "sourceFingerprint": "d76304f6f53fb2df3114b9c2365d9b84c63d8b3288f323c227b5b2aff0187a48",
+    "sourceFingerprint": "20b6af54ccbcee0a7dfbb952903395514ba69bf5334c00ab6ace6664f4094389",
     "status": "approved",
     "reviewer": "Codex editorial and direct visual review",
-    "reviewedAt": "2026-09-30",
+    "reviewedAt": "2026-11-22",
     "scores": {
       "character": 3,
       "goal": 4,
@@ -147,21 +149,23 @@ export const storyQuestPolicyReviews = Object.freeze([
     "summary": "Established two potion rules before use; green lifts leaves, purple grows feet; water removes feet and one dancer can remain.",
     "rewriteActions": [
       "Established two potion rules before use; green lifts leaves, purple grows feet; water removes feet and one dancer can remain.",
-      "Natural compact prose, explicit Next links, story-specific replay and independently audible invitations/decisions replace repetitive forced questions."
+      "Natural compact prose, explicit Next links, story-specific replay and independently audible invitations/decisions replace repetitive forced questions.",
+      "Added 3 scene encounters with distinct clues or reactions and 2 named endings. Recorded the new prompts, reveals and revised story copy."
     ],
     "illustrationActions": [
-      "Current scene art and dedicated cover inspected against final prose, anatomy, recurring props and incoming route state; exact accepted bytes are locked by cache identity and the scoped app visual review."
+      "Current scene art and dedicated cover inspected against final prose, anatomy, recurring props and incoming route state; exact accepted bytes are locked by cache identity and the scoped app visual review.",
+      "Checked 6 illustration targets directly on the active scenes. Preserved the scene artwork and matching route state."
     ],
     "routeEvidence": {
       "completeRoutes": 4,
       "pageNodes": 15,
-      "method": "Exhaustive finite graph and browser traversal of all 52 current routes; replay edges excluded."
+      "method": "Traversed the finite graph to check every path reaches an authored ending through at least one playable encounter. Replay links excluded."
     },
     "pageEvidence": {
       "pages": 15,
       "images": 15,
       "imageTextMatches": 15,
-      "method": "Every current image directly inspected against the revised scene; corrected images reviewed again and final hashes recorded. Original 340-page dispositions consolidate to 190 active scenes and 150 retired."
+      "method": "Existing illustrations retained. Revised moments, endings and action targets checked against the active scene art."
     },
     "audioEvidence": {
       "pages": 15,
@@ -171,16 +175,16 @@ export const storyQuestPolicyReviews = Object.freeze([
       "voice": "en-US-Chirp3-HD-Leda",
       "format": "MP3 128 kbps from 24 kHz LINEAR16 source",
       "provenance": "src/content/storyQuestNarrationManifest.generated.json",
-      "method": "914 current clips hash-checked and fully decoded; independent unprompted local recognition screening prompted 26 clearer takes. Recognition ambiguity is recorded separately from confirmed defects.",
-      "limitation": "No direct human listening, classroom or physical-device observation is claimed. Acceptance follows continuous QA pass-by-exception."
+      "method": "Exact production Leda clips for current prose, prompts, choices, action reveals and endings are mapped to the current narration manifest. The catalogue passed hash, decoding and signal checks.",
+      "limitation": "The new recordings were machine-checked. No human listening or classroom observation is claimed."
     }
   },
   {
     "id": "mw_ra_c_03_luna_burrow_star_shell_door",
-    "sourceFingerprint": "2f9fa1d989469908acfb73b8fd6ee58a50dfa7ac7d68d139eb4ffe8b2812d050",
+    "sourceFingerprint": "6093ea84a5a291b6fac3c2a6a933a268a3dfdab6061fc720a38782fb4da87cd2",
     "status": "approved",
     "reviewer": "Codex editorial and direct visual review",
-    "reviewedAt": "2026-09-30",
+    "reviewedAt": "2026-11-22",
     "scores": {
       "character": 3,
       "goal": 4,
@@ -200,21 +204,23 @@ export const storyQuestPolicyReviews = Object.freeze([
     "summary": "Kept the folded map and shell through both routes; upside-down insertion fails before both pieces turn and fit.",
     "rewriteActions": [
       "Kept the folded map and shell through both routes; upside-down insertion fails before both pieces turn and fit.",
-      "Natural compact prose, explicit Next links, story-specific replay and independently audible invitations/decisions replace repetitive forced questions."
+      "Natural compact prose, explicit Next links, story-specific replay and independently audible invitations/decisions replace repetitive forced questions.",
+      "Added 3 scene encounters with distinct clues or reactions and 2 named endings. Recorded the new prompts, reveals and revised story copy."
     ],
     "illustrationActions": [
-      "Current scene art and dedicated cover inspected against final prose, anatomy, recurring props and incoming route state; exact accepted bytes are locked by cache identity and the scoped app visual review."
+      "Current scene art and dedicated cover inspected against final prose, anatomy, recurring props and incoming route state; exact accepted bytes are locked by cache identity and the scoped app visual review.",
+      "Checked 6 illustration targets directly on the active scenes. Preserved the scene artwork and matching route state."
     ],
     "routeEvidence": {
-      "completeRoutes": 4,
+      "completeRoutes": 6,
       "pageNodes": 13,
-      "method": "Exhaustive finite graph and browser traversal of all 52 current routes; replay edges excluded."
+      "method": "Traversed the finite graph to check every path reaches an authored ending through at least one playable encounter. Replay links excluded."
     },
     "pageEvidence": {
       "pages": 13,
       "images": 13,
       "imageTextMatches": 13,
-      "method": "Every current image directly inspected against the revised scene; corrected images reviewed again and final hashes recorded. Original 340-page dispositions consolidate to 190 active scenes and 150 retired."
+      "method": "Existing illustrations retained. Revised moments, endings and action targets checked against the active scene art."
     },
     "audioEvidence": {
       "pages": 13,
@@ -224,16 +230,16 @@ export const storyQuestPolicyReviews = Object.freeze([
       "voice": "en-US-Chirp3-HD-Leda",
       "format": "MP3 128 kbps from 24 kHz LINEAR16 source",
       "provenance": "src/content/storyQuestNarrationManifest.generated.json",
-      "method": "914 current clips hash-checked and fully decoded; independent unprompted local recognition screening prompted 26 clearer takes. Recognition ambiguity is recorded separately from confirmed defects.",
-      "limitation": "No direct human listening, classroom or physical-device observation is claimed. Acceptance follows continuous QA pass-by-exception."
+      "method": "Exact production Leda clips for current prose, prompts, choices, action reveals and endings are mapped to the current narration manifest. The catalogue passed hash, decoding and signal checks.",
+      "limitation": "The new recordings were machine-checked. No human listening or classroom observation is claimed."
     }
   },
   {
     "id": "mw_ra_c_04_dewdrop_flint_lost_glow",
-    "sourceFingerprint": "b8a568aa387db830cf697627ada1471e40028e82ead11c6bdb9c06162e05d555",
+    "sourceFingerprint": "982989af9dac2914f44e76ad7ea73cfad4a36fcda9c7086a3af27ed4ee662651",
     "status": "approved",
     "reviewer": "Codex editorial and direct visual review",
-    "reviewedAt": "2026-09-30",
+    "reviewedAt": "2026-11-22",
     "scores": {
       "character": 3,
       "goal": 4,
@@ -253,21 +259,23 @@ export const storyQuestPolicyReviews = Object.freeze([
     "summary": "Kept the stream, fallen slab and dark lantern state coherent; gentle water and the lever produce visible changes.",
     "rewriteActions": [
       "Kept the stream, fallen slab and dark lantern state coherent; gentle water and the lever produce visible changes.",
-      "Natural compact prose, explicit Next links, story-specific replay and independently audible invitations/decisions replace repetitive forced questions."
+      "Natural compact prose, explicit Next links, story-specific replay and independently audible invitations/decisions replace repetitive forced questions.",
+      "Added 3 scene encounters with distinct clues or reactions and 2 named endings. Recorded the new prompts, reveals and revised story copy."
     ],
     "illustrationActions": [
-      "Current scene art and dedicated cover inspected against final prose, anatomy, recurring props and incoming route state; exact accepted bytes are locked by cache identity and the scoped app visual review."
+      "Current scene art and dedicated cover inspected against final prose, anatomy, recurring props and incoming route state; exact accepted bytes are locked by cache identity and the scoped app visual review.",
+      "Checked 6 illustration targets directly on the active scenes. Preserved the scene artwork and matching route state."
     ],
     "routeEvidence": {
       "completeRoutes": 4,
       "pageNodes": 15,
-      "method": "Exhaustive finite graph and browser traversal of all 52 current routes; replay edges excluded."
+      "method": "Traversed the finite graph to check every path reaches an authored ending through at least one playable encounter. Replay links excluded."
     },
     "pageEvidence": {
       "pages": 15,
       "images": 15,
       "imageTextMatches": 15,
-      "method": "Every current image directly inspected against the revised scene; corrected images reviewed again and final hashes recorded. Original 340-page dispositions consolidate to 190 active scenes and 150 retired."
+      "method": "Existing illustrations retained. Revised moments, endings and action targets checked against the active scene art."
     },
     "audioEvidence": {
       "pages": 15,
@@ -277,16 +285,16 @@ export const storyQuestPolicyReviews = Object.freeze([
       "voice": "en-US-Chirp3-HD-Leda",
       "format": "MP3 128 kbps from 24 kHz LINEAR16 source",
       "provenance": "src/content/storyQuestNarrationManifest.generated.json",
-      "method": "914 current clips hash-checked and fully decoded; independent unprompted local recognition screening prompted 26 clearer takes. Recognition ambiguity is recorded separately from confirmed defects.",
-      "limitation": "No direct human listening, classroom or physical-device observation is claimed. Acceptance follows continuous QA pass-by-exception."
+      "method": "Exact production Leda clips for current prose, prompts, choices, action reveals and endings are mapped to the current narration manifest. The catalogue passed hash, decoding and signal checks.",
+      "limitation": "The new recordings were machine-checked. No human listening or classroom observation is claimed."
     }
   },
   {
     "id": "dp_ra_b_01_chompy_big_lunch_hunt",
-    "sourceFingerprint": "e9b9de725b548a7616914cbdb1a257e4284634aa726aee271603664a1ed2f5f0",
+    "sourceFingerprint": "9045dd6289d30019f147d5752aa71e5ebc27269e4537b842efe72cb684bc8fdf",
     "status": "approved",
     "reviewer": "Codex editorial and direct visual review",
-    "reviewedAt": "2026-09-30",
+    "reviewedAt": "2026-11-22",
     "scores": {
       "character": 4,
       "goal": 4,
@@ -306,21 +314,23 @@ export const storyQuestPolicyReviews = Object.freeze([
     "summary": "Preserved Grumpy's refusal and practical leaf basket; berry mishaps lead to a specific shared picnic.",
     "rewriteActions": [
       "Preserved Grumpy's refusal and practical leaf basket; berry mishaps lead to a specific shared picnic.",
-      "Natural compact prose, explicit Next links, story-specific replay and independently audible invitations/decisions replace repetitive forced questions."
+      "Natural compact prose, explicit Next links, story-specific replay and independently audible invitations/decisions replace repetitive forced questions.",
+      "Added 3 scene encounters with distinct clues or reactions and 2 named endings. Recorded the new prompts, reveals and revised story copy."
     ],
     "illustrationActions": [
-      "Current scene art and dedicated cover inspected against final prose, anatomy, recurring props and incoming route state; exact accepted bytes are locked by cache identity and the scoped app visual review."
+      "Current scene art and dedicated cover inspected against final prose, anatomy, recurring props and incoming route state; exact accepted bytes are locked by cache identity and the scoped app visual review.",
+      "Checked 6 illustration targets directly on the active scenes. Preserved the scene artwork and matching route state."
     ],
     "routeEvidence": {
-      "completeRoutes": 2,
+      "completeRoutes": 3,
       "pageNodes": 17,
-      "method": "Exhaustive finite graph and browser traversal of all 52 current routes; replay edges excluded."
+      "method": "Traversed the finite graph to check every path reaches an authored ending through at least one playable encounter. Replay links excluded."
     },
     "pageEvidence": {
       "pages": 17,
       "images": 17,
       "imageTextMatches": 17,
-      "method": "Every current image directly inspected against the revised scene; corrected images reviewed again and final hashes recorded. Original 340-page dispositions consolidate to 190 active scenes and 150 retired."
+      "method": "Existing illustrations retained. Revised moments, endings and action targets checked against the active scene art."
     },
     "audioEvidence": {
       "pages": 17,
@@ -330,16 +340,16 @@ export const storyQuestPolicyReviews = Object.freeze([
       "voice": "en-US-Chirp3-HD-Leda",
       "format": "MP3 128 kbps from 24 kHz LINEAR16 source",
       "provenance": "src/content/storyQuestNarrationManifest.generated.json",
-      "method": "914 current clips hash-checked and fully decoded; independent unprompted local recognition screening prompted 26 clearer takes. Recognition ambiguity is recorded separately from confirmed defects.",
-      "limitation": "No direct human listening, classroom or physical-device observation is claimed. Acceptance follows continuous QA pass-by-exception."
+      "method": "Exact production Leda clips for current prose, prompts, choices, action reveals and endings are mapped to the current narration manifest. The catalogue passed hash, decoding and signal checks.",
+      "limitation": "The new recordings were machine-checked. No human listening or classroom observation is claimed."
     }
   },
   {
     "id": "dp_ra_b_02_sunnys_rainy_day_rescue",
-    "sourceFingerprint": "4dfd0a0d1b33719254ac49328fdcb62309f3c74e23f0e374c476d3599158b14f",
+    "sourceFingerprint": "4bda61144c02f4db3b1cc9831c254362b58d419b35b67141eec20f3f96901255",
     "status": "approved",
     "reviewer": "Codex editorial and direct visual review",
-    "reviewedAt": "2026-09-30",
+    "reviewedAt": "2026-11-22",
     "scores": {
       "character": 4,
       "goal": 4,
@@ -359,21 +369,23 @@ export const storyQuestPolicyReviews = Object.freeze([
     "summary": "Made shelter failures visible; Dozy's star pillow and Sunny's supported leaf roof remain consistent.",
     "rewriteActions": [
       "Made shelter failures visible; Dozy's star pillow and Sunny's supported leaf roof remain consistent.",
-      "Natural compact prose, explicit Next links, story-specific replay and independently audible invitations/decisions replace repetitive forced questions."
+      "Natural compact prose, explicit Next links, story-specific replay and independently audible invitations/decisions replace repetitive forced questions.",
+      "Added 3 scene encounters with distinct clues or reactions and 2 named endings. Recorded the new prompts, reveals and revised story copy."
     ],
     "illustrationActions": [
-      "Current scene art and dedicated cover inspected against final prose, anatomy, recurring props and incoming route state; exact accepted bytes are locked by cache identity and the scoped app visual review."
+      "Current scene art and dedicated cover inspected against final prose, anatomy, recurring props and incoming route state; exact accepted bytes are locked by cache identity and the scoped app visual review.",
+      "Checked 6 illustration targets directly on the active scenes. Preserved the scene artwork and matching route state."
     ],
     "routeEvidence": {
-      "completeRoutes": 4,
+      "completeRoutes": 6,
       "pageNodes": 14,
-      "method": "Exhaustive finite graph and browser traversal of all 52 current routes; replay edges excluded."
+      "method": "Traversed the finite graph to check every path reaches an authored ending through at least one playable encounter. Replay links excluded."
     },
     "pageEvidence": {
       "pages": 14,
       "images": 14,
       "imageTextMatches": 14,
-      "method": "Every current image directly inspected against the revised scene; corrected images reviewed again and final hashes recorded. Original 340-page dispositions consolidate to 190 active scenes and 150 retired."
+      "method": "Existing illustrations retained. Revised moments, endings and action targets checked against the active scene art."
     },
     "audioEvidence": {
       "pages": 14,
@@ -383,16 +395,16 @@ export const storyQuestPolicyReviews = Object.freeze([
       "voice": "en-US-Chirp3-HD-Leda",
       "format": "MP3 128 kbps from 24 kHz LINEAR16 source",
       "provenance": "src/content/storyQuestNarrationManifest.generated.json",
-      "method": "914 current clips hash-checked and fully decoded; independent unprompted local recognition screening prompted 26 clearer takes. Recognition ambiguity is recorded separately from confirmed defects.",
-      "limitation": "No direct human listening, classroom or physical-device observation is claimed. Acceptance follows continuous QA pass-by-exception."
+      "method": "Exact production Leda clips for current prose, prompts, choices, action reveals and endings are mapped to the current narration manifest. The catalogue passed hash, decoding and signal checks.",
+      "limitation": "The new recordings were machine-checked. No human listening or classroom observation is claimed."
     }
   },
   {
     "id": "dp_ra_b_03_grumpy_almost_good_day",
-    "sourceFingerprint": "8e812a6e4bff39463aa258897d4af8c9142f22147e62cddfc11d8348aaabb9b9",
+    "sourceFingerprint": "9d0129385972e08565b902609db42020a224a7b661766a224ac2872d10cbd3fa",
     "status": "approved",
     "reviewer": "Codex editorial and direct visual review",
-    "reviewedAt": "2026-09-30",
+    "reviewedAt": "2026-11-22",
     "scores": {
       "character": 4,
       "goal": 4,
@@ -412,21 +424,23 @@ export const storyQuestPolicyReviews = Object.freeze([
     "summary": "Replaced mood-correction language with nap choices; seven stones, twig repair and quiet boundaries stay consistent.",
     "rewriteActions": [
       "Replaced mood-correction language with nap choices; seven stones, twig repair and quiet boundaries stay consistent.",
-      "Natural compact prose, explicit Next links, story-specific replay and independently audible invitations/decisions replace repetitive forced questions."
+      "Natural compact prose, explicit Next links, story-specific replay and independently audible invitations/decisions replace repetitive forced questions.",
+      "Added 3 scene encounters with distinct clues or reactions and 5 named endings. Recorded the new prompts, reveals and revised story copy."
     ],
     "illustrationActions": [
-      "Current scene art and dedicated cover inspected against final prose, anatomy, recurring props and incoming route state; exact accepted bytes are locked by cache identity and the scoped app visual review."
+      "Current scene art and dedicated cover inspected against final prose, anatomy, recurring props and incoming route state; exact accepted bytes are locked by cache identity and the scoped app visual review.",
+      "Checked 6 illustration targets directly on the active scenes. Preserved the scene artwork and matching route state."
     ],
     "routeEvidence": {
       "completeRoutes": 5,
       "pageNodes": 21,
-      "method": "Exhaustive finite graph and browser traversal of all 52 current routes; replay edges excluded."
+      "method": "Traversed the finite graph to check every path reaches an authored ending through at least one playable encounter. Replay links excluded."
     },
     "pageEvidence": {
       "pages": 21,
       "images": 21,
       "imageTextMatches": 21,
-      "method": "Every current image directly inspected against the revised scene; corrected images reviewed again and final hashes recorded. Original 340-page dispositions consolidate to 190 active scenes and 150 retired."
+      "method": "Existing illustrations retained. Revised moments, endings and action targets checked against the active scene art."
     },
     "audioEvidence": {
       "pages": 21,
@@ -436,16 +450,16 @@ export const storyQuestPolicyReviews = Object.freeze([
       "voice": "en-US-Chirp3-HD-Leda",
       "format": "MP3 128 kbps from 24 kHz LINEAR16 source",
       "provenance": "src/content/storyQuestNarrationManifest.generated.json",
-      "method": "914 current clips hash-checked and fully decoded; independent unprompted local recognition screening prompted 26 clearer takes. Recognition ambiguity is recorded separately from confirmed defects.",
-      "limitation": "No direct human listening, classroom or physical-device observation is claimed. Acceptance follows continuous QA pass-by-exception."
+      "method": "Exact production Leda clips for current prose, prompts, choices, action reveals and endings are mapped to the current narration manifest. The catalogue passed hash, decoding and signal checks.",
+      "limitation": "The new recordings were machine-checked. No human listening or classroom observation is claimed."
     }
   },
   {
     "id": "dp_ra_b_04_bouncy_big_bounce",
-    "sourceFingerprint": "261beac03cd5873d0c3438fc79e1d53f525deb4ae65a1bba719cc29b6466cc00",
+    "sourceFingerprint": "9e618cb55cd5b86d9bddd0a2caa22d049862500cef8b10d832c7ffdf04517fc6",
     "status": "approved",
     "reviewer": "Codex editorial and direct visual review",
-    "reviewedAt": "2026-09-30",
+    "reviewedAt": "2026-11-22",
     "scores": {
       "character": 4,
       "goal": 4,
@@ -465,21 +479,23 @@ export const storyQuestPolicyReviews = Object.freeze([
     "summary": "Established two-legged spring anatomy and fixed basket; different bounces change berry loss and cave travel.",
     "rewriteActions": [
       "Established two-legged spring anatomy and fixed basket; different bounces change berry loss and cave travel.",
-      "Natural compact prose, explicit Next links, story-specific replay and independently audible invitations/decisions replace repetitive forced questions."
+      "Natural compact prose, explicit Next links, story-specific replay and independently audible invitations/decisions replace repetitive forced questions.",
+      "Added 3 scene encounters with distinct clues or reactions and 3 named endings. Recorded the new prompts, reveals and revised story copy."
     ],
     "illustrationActions": [
-      "Current scene art and dedicated cover inspected against final prose, anatomy, recurring props and incoming route state; exact accepted bytes are locked by cache identity and the scoped app visual review."
+      "Current scene art and dedicated cover inspected against final prose, anatomy, recurring props and incoming route state; exact accepted bytes are locked by cache identity and the scoped app visual review.",
+      "Checked 6 illustration targets directly on the active scenes. Preserved the scene artwork and matching route state."
     ],
     "routeEvidence": {
       "completeRoutes": 3,
       "pageNodes": 19,
-      "method": "Exhaustive finite graph and browser traversal of all 52 current routes; replay edges excluded."
+      "method": "Traversed the finite graph to check every path reaches an authored ending through at least one playable encounter. Replay links excluded."
     },
     "pageEvidence": {
       "pages": 19,
       "images": 19,
       "imageTextMatches": 19,
-      "method": "Every current image directly inspected against the revised scene; corrected images reviewed again and final hashes recorded. Original 340-page dispositions consolidate to 190 active scenes and 150 retired."
+      "method": "Existing illustrations retained. Revised moments, endings and action targets checked against the active scene art."
     },
     "audioEvidence": {
       "pages": 19,
@@ -489,16 +505,16 @@ export const storyQuestPolicyReviews = Object.freeze([
       "voice": "en-US-Chirp3-HD-Leda",
       "format": "MP3 128 kbps from 24 kHz LINEAR16 source",
       "provenance": "src/content/storyQuestNarrationManifest.generated.json",
-      "method": "914 current clips hash-checked and fully decoded; independent unprompted local recognition screening prompted 26 clearer takes. Recognition ambiguity is recorded separately from confirmed defects.",
-      "limitation": "No direct human listening, classroom or physical-device observation is claimed. Acceptance follows continuous QA pass-by-exception."
+      "method": "Exact production Leda clips for current prose, prompts, choices, action reveals and endings are mapped to the current narration manifest. The catalogue passed hash, decoding and signal checks.",
+      "limitation": "The new recordings were machine-checked. No human listening or classroom observation is claimed."
     }
   },
   {
     "id": "dp_ra_b_05_shys_snail_shade",
-    "sourceFingerprint": "eaa40c95cc1bdf315390fb4f655f38c579e4cec3b8980c951a1c989db8b315d6",
+    "sourceFingerprint": "03379d21144d9462d62abecd197b424bed9ff194c27bef568e172fa58c7de564",
     "status": "approved",
     "reviewer": "Codex editorial and direct visual review",
-    "reviewedAt": "2026-09-30",
+    "reviewedAt": "2026-11-22",
     "scores": {
       "character": 4,
       "goal": 4,
@@ -518,21 +534,23 @@ export const storyQuestPolicyReviews = Object.freeze([
     "summary": "Removed unsupported snail-sand generalisations; leaf/twig instability, three reused bark pieces and a filled moss gap drive action.",
     "rewriteActions": [
       "Removed unsupported snail-sand generalisations; leaf/twig instability, three reused bark pieces and a filled moss gap drive action.",
-      "Natural compact prose, explicit Next links, story-specific replay and independently audible invitations/decisions replace repetitive forced questions."
+      "Natural compact prose, explicit Next links, story-specific replay and independently audible invitations/decisions replace repetitive forced questions.",
+      "Added 3 scene encounters with distinct clues or reactions and 2 named endings. Recorded the new prompts, reveals and revised story copy."
     ],
     "illustrationActions": [
-      "Current scene art and dedicated cover inspected against final prose, anatomy, recurring props and incoming route state; exact accepted bytes are locked by cache identity and the scoped app visual review."
+      "Current scene art and dedicated cover inspected against final prose, anatomy, recurring props and incoming route state; exact accepted bytes are locked by cache identity and the scoped app visual review.",
+      "Checked 6 illustration targets directly on the active scenes. Preserved the scene artwork and matching route state."
     ],
     "routeEvidence": {
       "completeRoutes": 4,
       "pageNodes": 12,
-      "method": "Exhaustive finite graph and browser traversal of all 52 current routes; replay edges excluded."
+      "method": "Traversed the finite graph to check every path reaches an authored ending through at least one playable encounter. Replay links excluded."
     },
     "pageEvidence": {
       "pages": 12,
       "images": 12,
       "imageTextMatches": 12,
-      "method": "Every current image directly inspected against the revised scene; corrected images reviewed again and final hashes recorded. Original 340-page dispositions consolidate to 190 active scenes and 150 retired."
+      "method": "Existing illustrations retained. Revised moments, endings and action targets checked against the active scene art."
     },
     "audioEvidence": {
       "pages": 12,
@@ -542,16 +560,16 @@ export const storyQuestPolicyReviews = Object.freeze([
       "voice": "en-US-Chirp3-HD-Leda",
       "format": "MP3 128 kbps from 24 kHz LINEAR16 source",
       "provenance": "src/content/storyQuestNarrationManifest.generated.json",
-      "method": "914 current clips hash-checked and fully decoded; independent unprompted local recognition screening prompted 26 clearer takes. Recognition ambiguity is recorded separately from confirmed defects.",
-      "limitation": "No direct human listening, classroom or physical-device observation is claimed. Acceptance follows continuous QA pass-by-exception."
+      "method": "Exact production Leda clips for current prose, prompts, choices, action reveals and endings are mapped to the current narration manifest. The catalogue passed hash, decoding and signal checks.",
+      "limitation": "The new recordings were machine-checked. No human listening or classroom observation is claimed."
     }
   },
   {
     "id": "story_quest_short_a_sam_pam_01",
-    "sourceFingerprint": "a4720f15e0277dadb1e8ed004052c68d4a605fdf19d5d333bf74166b653a9cf3",
+    "sourceFingerprint": "57a5ad15ae48152dc9fe24a73927b4b1e4265fd1f6dd6a30955d20d1f9b8d9a8",
     "status": "approved",
     "reviewer": "Codex editorial and direct visual review",
-    "reviewedAt": "2026-09-30",
+    "reviewedAt": "2026-11-22",
     "scores": {
       "character": 3,
       "goal": 4,
@@ -571,21 +589,23 @@ export const storyQuestPolicyReviews = Object.freeze([
     "summary": "Declared the short-a track and exception words; kept grammar natural and cat/map/mat/van/bag states coherent.",
     "rewriteActions": [
       "Declared the short-a track and exception words; kept grammar natural and cat/map/mat/van/bag states coherent.",
-      "Natural compact prose, explicit Next links, story-specific replay and independently audible invitations/decisions replace repetitive forced questions."
+      "Natural compact prose, explicit Next links, story-specific replay and independently audible invitations/decisions replace repetitive forced questions.",
+      "Added 3 scene encounters with distinct clues or reactions and 2 named endings. Recorded the new prompts, reveals and revised story copy."
     ],
     "illustrationActions": [
-      "Current scene art and dedicated cover inspected against final prose, anatomy, recurring props and incoming route state; exact accepted bytes are locked by cache identity and the scoped app visual review."
+      "Current scene art and dedicated cover inspected against final prose, anatomy, recurring props and incoming route state; exact accepted bytes are locked by cache identity and the scoped app visual review.",
+      "Checked 6 illustration targets directly on the active scenes. Preserved the scene artwork and matching route state."
     ],
     "routeEvidence": {
       "completeRoutes": 4,
       "pageNodes": 9,
-      "method": "Exhaustive finite graph and browser traversal of all 52 current routes; replay edges excluded."
+      "method": "Traversed the finite graph to check every path reaches an authored ending through at least one playable encounter. Replay links excluded."
     },
     "pageEvidence": {
       "pages": 9,
       "images": 9,
       "imageTextMatches": 9,
-      "method": "Every current image directly inspected against the revised scene; corrected images reviewed again and final hashes recorded. Original 340-page dispositions consolidate to 190 active scenes and 150 retired."
+      "method": "Existing illustrations retained. Revised moments, endings and action targets checked against the active scene art."
     },
     "audioEvidence": {
       "pages": 9,
@@ -595,16 +615,16 @@ export const storyQuestPolicyReviews = Object.freeze([
       "voice": "en-US-Chirp3-HD-Leda",
       "format": "MP3 128 kbps from 24 kHz LINEAR16 source",
       "provenance": "src/content/storyQuestNarrationManifest.generated.json",
-      "method": "914 current clips hash-checked and fully decoded; independent unprompted local recognition screening prompted 26 clearer takes. Recognition ambiguity is recorded separately from confirmed defects.",
-      "limitation": "No direct human listening, classroom or physical-device observation is claimed. Acceptance follows continuous QA pass-by-exception."
+      "method": "Exact production Leda clips for current prose, prompts, choices, action reveals and endings are mapped to the current narration manifest. The catalogue passed hash, decoding and signal checks.",
+      "limitation": "The new recordings were machine-checked. No human listening or classroom observation is claimed."
     }
   },
   {
     "id": "mp_ra_a_01_muddy_splashy_missing_hat",
-    "sourceFingerprint": "b07645a03ca3ab818706ac9b91cadeaa7c0af028c1a983a78feb25dcd78ef176",
+    "sourceFingerprint": "a50728aee410a8842cfb06cdb9fc50fdb5bfc4a768f4499131fcacd4cc1914ad",
     "status": "approved",
     "reviewer": "Codex editorial and direct visual review",
-    "reviewedAt": "2026-09-30",
+    "reviewedAt": "2026-11-22",
     "scores": {
       "character": 4,
       "goal": 4,
@@ -624,21 +644,23 @@ export const storyQuestPolicyReviews = Object.freeze([
     "summary": "Removed forced noun possessives and cosmetic decisions; hat identity, muddy reveal and ending wearer stay consistent.",
     "rewriteActions": [
       "Removed forced noun possessives and cosmetic decisions; hat identity, muddy reveal and ending wearer stay consistent.",
-      "Natural compact prose, explicit Next links, story-specific replay and independently audible invitations/decisions replace repetitive forced questions."
+      "Natural compact prose, explicit Next links, story-specific replay and independently audible invitations/decisions replace repetitive forced questions.",
+      "Added 3 scene encounters with distinct clues or reactions and 2 named endings. Recorded the new prompts, reveals and revised story copy."
     ],
     "illustrationActions": [
-      "Current scene art and dedicated cover inspected against final prose, anatomy, recurring props and incoming route state; exact accepted bytes are locked by cache identity and the scoped app visual review."
+      "Current scene art and dedicated cover inspected against final prose, anatomy, recurring props and incoming route state; exact accepted bytes are locked by cache identity and the scoped app visual review.",
+      "Checked 6 illustration targets directly on the active scenes. Preserved the scene artwork and matching route state."
     ],
     "routeEvidence": {
       "completeRoutes": 4,
       "pageNodes": 12,
-      "method": "Exhaustive finite graph and browser traversal of all 52 current routes; replay edges excluded."
+      "method": "Traversed the finite graph to check every path reaches an authored ending through at least one playable encounter. Replay links excluded."
     },
     "pageEvidence": {
       "pages": 12,
       "images": 12,
       "imageTextMatches": 12,
-      "method": "Every current image directly inspected against the revised scene; corrected images reviewed again and final hashes recorded. Original 340-page dispositions consolidate to 190 active scenes and 150 retired."
+      "method": "Existing illustrations retained. Revised moments, endings and action targets checked against the active scene art."
     },
     "audioEvidence": {
       "pages": 12,
@@ -648,16 +670,16 @@ export const storyQuestPolicyReviews = Object.freeze([
       "voice": "en-US-Chirp3-HD-Leda",
       "format": "MP3 128 kbps from 24 kHz LINEAR16 source",
       "provenance": "src/content/storyQuestNarrationManifest.generated.json",
-      "method": "914 current clips hash-checked and fully decoded; independent unprompted local recognition screening prompted 26 clearer takes. Recognition ambiguity is recorded separately from confirmed defects.",
-      "limitation": "No direct human listening, classroom or physical-device observation is claimed. Acceptance follows continuous QA pass-by-exception."
+      "method": "Exact production Leda clips for current prose, prompts, choices, action reveals and endings are mapped to the current narration manifest. The catalogue passed hash, decoding and signal checks.",
+      "limitation": "The new recordings were machine-checked. No human listening or classroom observation is claimed."
     }
   },
   {
     "id": "mp_ra_a_02_shy_cuddly_quiet_adventure",
-    "sourceFingerprint": "d3c3e051e3d07120085a76895a218bfe09df5246d626c5b35d647150a60844a7",
+    "sourceFingerprint": "30ded24da0ffaf5dd98d8c7bc151bc56e49b5810316397d5bab6a300541a58e6",
     "status": "approved",
     "reviewer": "Codex editorial and direct visual review",
-    "reviewedAt": "2026-09-30",
+    "reviewedAt": "2026-11-22",
     "scores": {
       "character": 4,
       "goal": 4,
@@ -677,21 +699,23 @@ export const storyQuestPolicyReviews = Object.freeze([
     "summary": "Preserved quietness as valid; separated requesting space from accepting contact and made the final greeting visible.",
     "rewriteActions": [
       "Preserved quietness as valid; separated requesting space from accepting contact and made the final greeting visible.",
-      "Natural compact prose, explicit Next links, story-specific replay and independently audible invitations/decisions replace repetitive forced questions."
+      "Natural compact prose, explicit Next links, story-specific replay and independently audible invitations/decisions replace repetitive forced questions.",
+      "Added 3 scene encounters with distinct clues or reactions and 2 named endings. Recorded the new prompts, reveals and revised story copy."
     ],
     "illustrationActions": [
-      "Current scene art and dedicated cover inspected against final prose, anatomy, recurring props and incoming route state; exact accepted bytes are locked by cache identity and the scoped app visual review."
+      "Current scene art and dedicated cover inspected against final prose, anatomy, recurring props and incoming route state; exact accepted bytes are locked by cache identity and the scoped app visual review.",
+      "Checked 6 illustration targets directly on the active scenes. Preserved the scene artwork and matching route state."
     ],
     "routeEvidence": {
       "completeRoutes": 2,
       "pageNodes": 7,
-      "method": "Exhaustive finite graph and browser traversal of all 52 current routes; replay edges excluded."
+      "method": "Traversed the finite graph to check every path reaches an authored ending through at least one playable encounter. Replay links excluded."
     },
     "pageEvidence": {
       "pages": 7,
       "images": 7,
       "imageTextMatches": 7,
-      "method": "Every current image directly inspected against the revised scene; corrected images reviewed again and final hashes recorded. Original 340-page dispositions consolidate to 190 active scenes and 150 retired."
+      "method": "Existing illustrations retained. Revised moments, endings and action targets checked against the active scene art."
     },
     "audioEvidence": {
       "pages": 7,
@@ -701,16 +725,16 @@ export const storyQuestPolicyReviews = Object.freeze([
       "voice": "en-US-Chirp3-HD-Leda",
       "format": "MP3 128 kbps from 24 kHz LINEAR16 source",
       "provenance": "src/content/storyQuestNarrationManifest.generated.json",
-      "method": "914 current clips hash-checked and fully decoded; independent unprompted local recognition screening prompted 26 clearer takes. Recognition ambiguity is recorded separately from confirmed defects.",
-      "limitation": "No direct human listening, classroom or physical-device observation is claimed. Acceptance follows continuous QA pass-by-exception."
+      "method": "Exact production Leda clips for current prose, prompts, choices, action reveals and endings are mapped to the current narration manifest. The catalogue passed hash, decoding and signal checks.",
+      "limitation": "The new recordings were machine-checked. No human listening or classroom observation is claimed."
     }
   },
   {
     "id": "mp_ra_a_03_bouncy_speedy_fast_map",
-    "sourceFingerprint": "a28624a82ef19b621272a551866b37fb9980c73f884e3d8504141e91a99465d8",
+    "sourceFingerprint": "c915fbd306fff302912c1a718b8887ed6c786fbe1a07dd4bb59d21471184d520",
     "status": "approved",
     "reviewer": "Codex editorial and direct visual review",
-    "reviewedAt": "2026-09-30",
+    "reviewedAt": "2026-11-22",
     "scores": {
       "character": 4,
       "goal": 4,
@@ -730,21 +754,23 @@ export const storyQuestPolicyReviews = Object.freeze([
     "summary": "Locked the diagram's barn/pond/oak geometry and authorship; waiting and recovering the map change the route.",
     "rewriteActions": [
       "Locked the diagram's barn/pond/oak geometry and authorship; waiting and recovering the map change the route.",
-      "Natural compact prose, explicit Next links, story-specific replay and independently audible invitations/decisions replace repetitive forced questions."
+      "Natural compact prose, explicit Next links, story-specific replay and independently audible invitations/decisions replace repetitive forced questions.",
+      "Added 3 scene encounters with distinct clues or reactions and 2 named endings. Recorded the new prompts, reveals and revised story copy."
     ],
     "illustrationActions": [
-      "Current scene art and dedicated cover inspected against final prose, anatomy, recurring props and incoming route state; exact accepted bytes are locked by cache identity and the scoped app visual review."
+      "Current scene art and dedicated cover inspected against final prose, anatomy, recurring props and incoming route state; exact accepted bytes are locked by cache identity and the scoped app visual review.",
+      "Checked 6 illustration targets directly on the active scenes. Preserved the scene artwork and matching route state."
     ],
     "routeEvidence": {
       "completeRoutes": 4,
       "pageNodes": 11,
-      "method": "Exhaustive finite graph and browser traversal of all 52 current routes; replay edges excluded."
+      "method": "Traversed the finite graph to check every path reaches an authored ending through at least one playable encounter. Replay links excluded."
     },
     "pageEvidence": {
       "pages": 11,
       "images": 11,
       "imageTextMatches": 11,
-      "method": "Every current image directly inspected against the revised scene; corrected images reviewed again and final hashes recorded. Original 340-page dispositions consolidate to 190 active scenes and 150 retired."
+      "method": "Existing illustrations retained. Revised moments, endings and action targets checked against the active scene art."
     },
     "audioEvidence": {
       "pages": 11,
@@ -754,16 +780,16 @@ export const storyQuestPolicyReviews = Object.freeze([
       "voice": "en-US-Chirp3-HD-Leda",
       "format": "MP3 128 kbps from 24 kHz LINEAR16 source",
       "provenance": "src/content/storyQuestNarrationManifest.generated.json",
-      "method": "914 current clips hash-checked and fully decoded; independent unprompted local recognition screening prompted 26 clearer takes. Recognition ambiguity is recorded separately from confirmed defects.",
-      "limitation": "No direct human listening, classroom or physical-device observation is claimed. Acceptance follows continuous QA pass-by-exception."
+      "method": "Exact production Leda clips for current prose, prompts, choices, action reveals and endings are mapped to the current narration manifest. The catalogue passed hash, decoding and signal checks.",
+      "limitation": "The new recordings were machine-checked. No human listening or classroom observation is claimed."
     }
   },
   {
     "id": "mp_ra_a_04_brave_tiny_big_little_rescue",
-    "sourceFingerprint": "dc4beb010e7b59febba384fddc87e69d0089f6935c61e44e925ee6ef196728a5",
+    "sourceFingerprint": "517bbb68a18a1924e79d0049810b63c13768e60a9bfa37f9fe02b2164cdb9773",
     "status": "approved",
     "reviewer": "Codex editorial and direct visual review",
-    "reviewedAt": "2026-09-30",
+    "reviewedAt": "2026-11-22",
     "scores": {
       "character": 4,
       "goal": 4,
@@ -783,21 +809,23 @@ export const storyQuestPolicyReviews = Object.freeze([
     "summary": "Separated the rope and Woolly rescue routes; anchored the climb, kept the hat handoffs and two feathers explicit.",
     "rewriteActions": [
       "Separated the rope and Woolly rescue routes; anchored the climb, kept the hat handoffs and two feathers explicit.",
-      "Natural compact prose, explicit Next links, story-specific replay and independently audible invitations/decisions replace repetitive forced questions."
+      "Natural compact prose, explicit Next links, story-specific replay and independently audible invitations/decisions replace repetitive forced questions.",
+      "Added 3 scene encounters with distinct clues or reactions and 2 named endings. Recorded the new prompts, reveals and revised story copy."
     ],
     "illustrationActions": [
-      "Current scene art and dedicated cover inspected against final prose, anatomy, recurring props and incoming route state; exact accepted bytes are locked by cache identity and the scoped app visual review."
+      "Current scene art and dedicated cover inspected against final prose, anatomy, recurring props and incoming route state; exact accepted bytes are locked by cache identity and the scoped app visual review.",
+      "Checked 4 illustration targets directly on the active scenes. Preserved the scene artwork and matching route state."
     ],
     "routeEvidence": {
       "completeRoutes": 4,
       "pageNodes": 12,
-      "method": "Exhaustive finite graph and browser traversal of all 52 current routes; replay edges excluded."
+      "method": "Traversed the finite graph to check every path reaches an authored ending through at least one playable encounter. Replay links excluded."
     },
     "pageEvidence": {
       "pages": 12,
       "images": 12,
       "imageTextMatches": 12,
-      "method": "Every current image directly inspected against the revised scene; corrected images reviewed again and final hashes recorded. Original 340-page dispositions consolidate to 190 active scenes and 150 retired."
+      "method": "Existing illustrations retained. Revised moments, endings and action targets checked against the active scene art."
     },
     "audioEvidence": {
       "pages": 12,
@@ -807,8 +835,8 @@ export const storyQuestPolicyReviews = Object.freeze([
       "voice": "en-US-Chirp3-HD-Leda",
       "format": "MP3 128 kbps from 24 kHz LINEAR16 source",
       "provenance": "src/content/storyQuestNarrationManifest.generated.json",
-      "method": "914 current clips hash-checked and fully decoded; independent unprompted local recognition screening prompted 26 clearer takes. Recognition ambiguity is recorded separately from confirmed defects.",
-      "limitation": "No direct human listening, classroom or physical-device observation is claimed. Acceptance follows continuous QA pass-by-exception."
+      "method": "Exact production Leda clips for current prose, prompts, choices, action reveals and endings are mapped to the current narration manifest. The catalogue passed hash, decoding and signal checks.",
+      "limitation": "The new recordings were machine-checked. No human listening or classroom observation is claimed."
     }
   }
 ].map(review => Object.freeze(review)));

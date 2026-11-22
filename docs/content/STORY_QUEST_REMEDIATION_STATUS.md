@@ -1,6 +1,6 @@
 # Story Quest remediation status
 
-**Current source truth — 2026-08-09.** Story Quest and Guided Reading manuscripts, routes, illustrations, exact-text narrations and completed human listening validation are approved for release.
+**Historical record from 2026-08-09.** For current Story Quest manuscripts, routes, media and review requirements, see the [Story Quest production contract](STORY_QUEST_PRODUCTION.md).
 
 ## Current result
 

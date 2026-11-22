@@ -305,9 +305,16 @@ test("the quest grid never borrows stories from another world", () => {
 
 test("the story you are in is the one the grid puts first", () => {
   const inProgress = storyQuests.find(quest => questWorldId(quest) === "meadow");
+  const start = inProgress.pages.find(page => page.id === inProgress.startPageId);
+  const lastPageId = start.choices[0].nextPageId;
   const cards = buildQuestGrid({
     quests: storyQuests,
-    progress: { [inProgress.id]: { opened: true, lastPageId: "p02_a" } },
+    progress: { [inProgress.id]: {
+      opened: true,
+      lastPageId,
+      contentRevision: inProgress.contentRevision,
+      visitedPageIds: [start.id, lastPageId]
+    } },
     world: "meadow"
   });
   assert.equal(cards[0].id, inProgress.id);

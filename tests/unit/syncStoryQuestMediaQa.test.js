@@ -3,6 +3,8 @@ import { createHash } from "node:crypto";
 import test from "node:test";
 
 import { mergeMediaQaReviewItems } from "../../src/data/mediaQaReviewStatus.js";
+import { normalizeLedaAudioText } from "../../src/data/normalizeLedaAudioText.js";
+import { storyQuestSpokenItems } from "../../src/data/storyQuestReaderCopy.js";
 import { syncStoryQuestMediaQaItems } from "../../tools/syncStoryQuestMediaQa.mjs";
 
 const hash = value => createHash("sha256").update(value).digest("hex");
@@ -94,6 +96,52 @@ test("sync refuses duplicated current page identities", () => {
   const input = fixture();
   input.quests[0].pages.push(input.quests[0].pages[0]);
   assert.throws(() => syncStoryQuestMediaQaItems(input), /Duplicate current Story Quest page/);
+});
+
+test("the media inventory validates scene actions and endings against exact voiced references", () => {
+  const input = fixture();
+  const page = input.quests[0].pages[0];
+  page.play = { prompt: "Where is the cat?", actions: [{ label: "Look up", reveal: "A tail!" }] };
+  page.endingTitle = "Safe at Home";
+  page.replayPrompt = "Try the other path?";
+  const extras = storyQuestSpokenItems(input.quests).filter(item => /-(explore|play-control|ending|ending-control)$/.test(item.pageId));
+  assert.deepEqual(extras.map(item => item.text), [
+    "Where is the cat? Look up.", "Where is the cat?", "Look up", "A tail!",
+    "Safe at Home. Try the other path?", "Safe at Home", "Try the other path?"
+  ]);
+  const hasExtraAudio = new Map();
+  const pathByText = new Map();
+  extras.forEach((item, index) => {
+    const audioPath = `/extra-${index}.mp3`;
+    const bytes = Buffer.from(audioPath);
+    hasExtraAudio.set(audioPath, bytes);
+    pathByText.set(item.text, audioPath);
+    input.narrationManifest.clips.push({
+      key: normalizeLedaAudioText(item.text), audioPath, audioSha256: hash(bytes), references: [item]
+    });
+  });
+  const readAsset = input.readAsset;
+  input.readAsset = path => hasExtraAudio.get(path) || readAsset(path);
+  input.getNarrationPath = text => pathByText.get(text) || "/current.mp3";
+  const result = syncStoryQuestMediaQaItems(input);
+  assert.equal(result.summary.unrelatedRowsUnchanged, true);
+
+  // A changed action recording makes an earlier review historical even when the
+  // narration of the printed page is identical.
+  const oldRow = result.items.find(item => item.area === "story_quests");
+  oldRow.reviewedAt = "2026-09-30";
+  const actionClip = input.narrationManifest.clips.find(clip => clip.key === "a tail");
+  const replacement = Buffer.from("new exact recording");
+  hasExtraAudio.set(actionClip.audioPath, replacement);
+  actionClip.audioSha256 = hash(replacement);
+  const refreshed = syncStoryQuestMediaQaItems({ ...input, existingItems: result.items });
+  const newRow = refreshed.items.find(item => item.area === "story_quests");
+  assert.equal(newRow.reviewedAt, "");
+  assert.equal(newRow.audioSha256, oldRow.audioSha256);
+  assert.notEqual(newRow.mediaFingerprint, oldRow.mediaFingerprint);
+
+  actionClip.references = [];
+  assert.throws(() => syncStoryQuestMediaQaItems(input), /book\/current-play-control/);
 });
 
 test("saved Story Quest decisions retain quarantine while labeling a changed snapshot's notes as historical", () => {
