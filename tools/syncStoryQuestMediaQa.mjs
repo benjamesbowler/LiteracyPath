@@ -5,6 +5,7 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 
 import { getMediaQaReviewId } from "../src/data/mediaQaReviewStatus.js";
 import { normalizeLedaAudioText } from "../src/data/normalizeLedaAudioText.js";
+import { storyQuestPageExtras } from "../src/data/storyQuestReaderCopy.js";
 
 const area = "story_quests";
 const outputPath = "src/data/generated/mediaQaReviewItems.generated.js";
@@ -37,6 +38,17 @@ export function syncStoryQuestMediaQaItems({
     }
     return mediaCache.get(asset);
   }
+  function exactNarration(questId, pageId, text) {
+    const audioPath = getNarrationPath(text);
+    const clip = clipsByPath.get(audioPath);
+    const label = `${questId}/${pageId}`;
+    if (!clip || clip.key !== normalizeLedaAudioText(text) || !clip.references?.some(reference => (
+      reference.questId === questId && reference.pageId === pageId && reference.text === text
+    ))) throw new Error(`Missing exact narration manifest reference: ${label}`);
+    const audioSha256 = mediaHash(audioPath);
+    if (audioSha256 !== clip.audioSha256) throw new Error(`Narration bytes differ from manifest: ${label}`);
+    return { audioPath, audioSha256, audioVoice: clip.voice, audioSource: clip.source };
+  }
   const currentRows = quests.flatMap(quest => quest.pages.map((page, index) => {
     const pageId = `${quest.id}:${page.id}`;
     const key = pageKey(quest.id, pageId);
@@ -44,19 +56,18 @@ export function syncStoryQuestMediaQaItems({
     seenPages.add(key);
     const previous = priorByPage.get(key);
     const text = page.text.join(" ");
-    const audioPath = getNarrationPath(text);
-    const clip = clipsByPath.get(audioPath);
-    if (!clip || clip.key !== normalizeLedaAudioText(text) || !clip.references?.some(reference => (
-      reference.questId === quest.id && reference.pageId === page.id && reference.text === text
-    ))) throw new Error(`Missing exact narration manifest reference: ${quest.id}/${page.id}`);
+    const narration = exactNarration(quest.id, page.id, text);
+    const extraNarration = storyQuestPageExtras(quest.id, page).map(item => ({
+      text: item.text,
+      ...exactNarration(item.questId, item.pageId, item.text)
+    }));
     const imageSha256 = mediaHash(page.imageUrl);
-    const audioSha256 = mediaHash(audioPath);
-    if (audioSha256 !== clip.audioSha256) throw new Error(`Narration bytes differ from manifest: ${quest.id}/${page.id}`);
     const answerChoices = (page.choices || []).map(choice => choice.label);
     const mediaFingerprint = sha256(JSON.stringify({
       text, choices: page.choices || [], choicePrompt: page.choicePrompt || "",
       imageAlt: page.imageAlt || "", imagePath: cleanPath(page.imageUrl), imageSha256,
-      audioPath: cleanPath(audioPath), audioSha256
+      audioPath: cleanPath(narration.audioPath), audioSha256: narration.audioSha256,
+      ...(extraNarration.length ? { play: page.play, endingTitle: page.endingTitle, extraNarration } : {})
     }));
     const sameMedia = previous?.mediaFingerprint === mediaFingerprint;
     const row = {
@@ -65,7 +76,7 @@ export function syncStoryQuestMediaQaItems({
       level: quest.level || "", phase: quest.phase || "", targetWord: (page.skillTags || []).join(", "),
       imagePath: page.imageUrl, imageRole: "story_quest_page", imageAlt: page.imageAlt || "", imageSha256,
       text, textSha256: sha256(text), answerChoices, correctAnswer: "",
-      audioPath, audioSha256, audioVoice: clip.voice, audioSource: clip.source,
+      ...narration,
       narrationGenerator: narrationManifest.generator,
       mediaFingerprint,
       status: previous?.status || "accepted",

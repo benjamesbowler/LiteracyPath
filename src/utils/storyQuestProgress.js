@@ -1,4 +1,5 @@
 import { queueProgressSave } from "./progressSync.js";
+import { readStoryQuestCheckpoint, storyQuestEndingIds } from "./storyQuestRoutes.js";
 
 const STORY_QUEST_PROGRESS_STORAGE_KEY = "literacyPath.storyQuestProgress.v1";
 
@@ -24,14 +25,21 @@ export function loadStoryQuestProgress(progressScopeKey = "default") {
 
 export function saveStoryQuestProgress(progressScopeKey = "default", progress = {}) {
   if (typeof window === "undefined") return;
+  const saved = loadStoryQuestProgress(progressScopeKey);
+  const changed = Object.fromEntries(Object.entries(progress || {}).filter(([, row]) => row && typeof row === "object").map(([questId, incoming]) => {
+    const existing = saved[questId] || {};
+    const existingIsNewer = (existing.updatedAt || "") > (incoming.updatedAt || "");
+    const [previous, latest] = existingIsNewer ? [incoming, existing] : [existing, incoming];
+    return [questId, mergeStoryQuestProgressRow(previous, latest, latest.updatedAt)];
+  }));
   try {
-    window.localStorage.setItem(storyQuestProgressStorageKey(progressScopeKey), JSON.stringify(progress));
+    window.localStorage.setItem(storyQuestProgressStorageKey(progressScopeKey), JSON.stringify({ ...saved, ...changed }));
   } catch {
     // Storage may be unavailable (private browsing / quota). The cloud queue
     // below still carries the progress.
   }
   try {
-    Object.entries(progress || {}).forEach(([questId, payload]) => {
+    Object.entries(changed).forEach(([questId, payload]) => {
       queueProgressSave("story_quests", questId, { v: 1, ...payload }, { scopeKey: progressScopeKey });
     });
   } catch {
@@ -91,10 +99,12 @@ export function resolveStoryQuestResume(quest = {}, progress = {}, requestedPage
   const start = quest.startPageId || quest.pages?.[0]?.id || "";
   const pages = new Map((quest.pages || []).map(page => [page.id, page]));
   const fresh = { pageId: start, history: [] };
-  if (quest.contentRevision && progress.contentRevision !== quest.contentRevision) return fresh;
+  const checkpoint = readStoryQuestCheckpoint(progress);
+  if (quest.contentRevision && checkpoint.contentRevision !== quest.contentRevision) return fresh;
   if (!requestedPageId || !pages.has(requestedPageId)) return fresh;
+  if (checkpoint !== progress && checkpoint.lastPageId !== requestedPageId) return fresh;
   const history = buildStoryQuestResumeHistory({
-    currentPageId: requestedPageId, progress, validPageIds: [...pages.keys()]
+    currentPageId: requestedPageId, progress: checkpoint, validPageIds: [...pages.keys()]
   });
   const route = [...history, requestedPageId];
   if (route[0] !== start) return fresh;
@@ -119,6 +129,11 @@ export function mergeStoryQuestProgressRow(
     Number(previous?.visitedPageCount) || 0,
     Number(patch?.visitedPageCount) || 0
   );
+  const endingPageIds = [...new Set([...storyQuestEndingIds(previous), ...storyQuestEndingIds(patch)])];
+  const exploredPageIds = [...new Set(
+    [previous?.exploredPageIds, previous?.visitedPageIds, patch?.exploredPageIds, patch?.visitedPageIds]
+      .flatMap(ids => Array.isArray(ids) ? ids.filter(id => typeof id === "string" && id.length > 0) : [])
+  )];
 
   return {
     ...previous,
@@ -132,6 +147,8 @@ export function mergeStoryQuestProgressRow(
       )
     } : {}),
     ...(visitedPageCount > 0 ? { visitedPageCount } : {}),
+    ...(endingPageIds.length ? { endingPageIds } : {}),
+    ...(exploredPageIds.length ? { exploredPageIds } : {}),
     completed: Boolean(previous?.completed || patch?.completed),
     completedAt: patch?.completedAt || previous?.completedAt || "",
     opened: true,

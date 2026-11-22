@@ -1,7 +1,9 @@
 /* eslint-disable react-hooks/set-state-in-effect -- LEGACY-LINT: pre-strict-rules file; new code must not add violations. */
 import { useEffect, useMemo, useRef, useState } from "react";
+import { ArrowArcLeft, ArrowBendDownRight, BookOpen, Ear, Eye, Footprints, HandHeart, HandTap, Hourglass, Signpost, Sparkle } from "@phosphor-icons/react";
 import { preloadMediaSet } from "../utils/preloadMedia.js";
 import { resolveStoryQuestResume } from "../utils/storyQuestProgress.js";
+import { encodeStoryQuestCheckpoint, isStoryQuestEnding, storyQuestEndingIds, storyQuestReplayFork } from "../utils/storyQuestRoutes.js";
 import { getLedaInstructionAudioPath } from "../data/ledaProductionAudio.js";
 import { getStoryQuestLedaAudioPath } from "../data/storyQuestLedaAudio.js";
 import {
@@ -12,7 +14,7 @@ import {
 } from "../utils/browserFullscreen.js";
 import { STOP_CHILD_AUDIO_EVENT } from "../utils/audio/childAudioLifecycle.js";
 import { spellingAudioPaths, wordSrc } from "../utils/questAudio.js";
-import { storyQuestDecisionText } from "../data/storyQuestReaderCopy.js";
+import { storyQuestDecisionText, storyQuestEndingCountText, storyQuestEndingText, storyQuestPlayText } from "../data/storyQuestReaderCopy.js";
 import { StoryQuestSpeaker } from "./StoryQuestSpeaker.jsx";
 import { ImmersiveReader } from "./guided-reading/ImmersiveReader.jsx";
 import "./StoryQuestPlayer.css";
@@ -52,17 +54,40 @@ function StoryQuestText({ lines, onHearWord }) {
         </p>
       ))}
       <span className="story-quest-word-hint">Tap a word to hear it.</span>
-      <span className="story-quest-keyboard-hint" id="story-quest-keyboard-hint">Use left and right arrows to choose a word, then Enter to hear it. Tab moves to the story choices.</span>
+      <span className="story-quest-keyboard-hint" id="story-quest-keyboard-hint">Use left and right arrows to choose a word, then Enter to hear it. Tab moves to the next story control.</span>
     </div>
   );
 }
 
-function StoryQuestImage({ src, title, alt }) {
+function StoryQuestImage({ src, title, alt, action }) {
   const [imageFailed, setImageFailed] = useState(false);
+  const [imageBounds, setImageBounds] = useState(null);
+  const imageRef = useRef(null);
+  const target = action?.target;
+  const showFocus = Boolean(target);
 
   useEffect(() => {
-    setImageFailed(false);
-  }, [src]);
+    const image = imageRef.current;
+    if (!image || imageFailed || !showFocus) return;
+
+    function measure() {
+      if (!image.naturalWidth || !image.naturalHeight) return;
+      const scale = Math.min(image.clientWidth / image.naturalWidth, image.clientHeight / image.naturalHeight);
+      setImageBounds({
+        width: image.naturalWidth * scale,
+        height: image.naturalHeight * scale
+      });
+    }
+
+    const observer = typeof ResizeObserver === "function" ? new ResizeObserver(measure) : null;
+    observer?.observe(image);
+    image.addEventListener("load", measure);
+    measure();
+    return () => {
+      observer?.disconnect();
+      image.removeEventListener("load", measure);
+    };
+  }, [imageFailed, showFocus]);
 
   if (!src || imageFailed) {
     return (
@@ -72,7 +97,7 @@ function StoryQuestImage({ src, title, alt }) {
     );
   }
 
-  return (
+  return <>
     <img
       alt={alt || title}
       className="story-quest-image"
@@ -80,9 +105,18 @@ function StoryQuestImage({ src, title, alt }) {
       fetchPriority="high"
       loading="eager"
       onError={() => setImageFailed(true)}
+      ref={imageRef}
       src={src}
     />
-  );
+    {target && imageBounds && (
+      <span className="story-quest-illustration-focus" key={action.label} aria-hidden="true"
+        style={{
+          left: `calc(50% + ${(target[0] / 100 - 0.5) * imageBounds.width}px)`,
+          top: `calc(50% + ${(target[1] / 100 - 0.5) * imageBounds.height}px)`
+        }}
+      />
+    )}
+  </>;
 }
 
 function getStoryQuestPageAudioUrl(page) {
@@ -92,6 +126,61 @@ function getStoryQuestPageAudioUrl(page) {
   if (rebuiltAudioUrl) return rebuiltAudioUrl;
   if (page.narrationNeedsRebuild) return "";
   return getLedaInstructionAudioPath(pageText) || page.audioUrl || "";
+}
+
+function speechPath(text) {
+  if (!text) return "";
+  return getStoryQuestLedaAudioPath(text) || getLedaInstructionAudioPath(text);
+}
+
+const ACTION_ICONS = { look: Eye, listen: Ear, help: HandHeart, move: Footprints, wait: Hourglass, touch: HandTap };
+
+function SceneActions({ play, active, imageUrl, onHear, onAct }) {
+  const feedbackRef = useRef(null);
+  const instructions = storyQuestPlayText(play);
+
+  useEffect(() => {
+    if (active) feedbackRef.current?.scrollIntoView({ block: "nearest", inline: "nearest" });
+  }, [active]);
+
+  return (
+    <section className="story-quest-play" aria-label="Explore the scene">
+      <div className="story-quest-play-head">
+        <HandTap size={22} weight="duotone" aria-hidden="true" />
+        <p>{play.prompt}</p>
+        <button className="story-quest-hear" type="button" aria-label="Hear the scene actions"
+          onClick={() => onHear(instructions)} disabled={!speechPath(instructions)}><StoryQuestSpeaker /></button>
+      </div>
+      <div className="story-quest-play-actions">
+        {play.actions.map(action => {
+          const Icon = ACTION_ICONS[action.icon];
+          return (
+            <button className="story-quest-play-action" key={action.label} type="button"
+              aria-pressed={action === active}
+              onClick={() => onAct(action)}>
+              <Icon size={22} weight="duotone" aria-hidden="true" />
+              {action.label}
+            </button>
+          );
+        })}
+      </div>
+      <div className="story-quest-play-feedback" aria-live="polite" ref={feedbackRef}>
+        {active && (
+          <div className="story-quest-play-reveal" key={active.label}>
+            <Sparkle size={20} weight="fill" aria-hidden="true" />
+            {active.target && (
+              <span className="story-quest-play-detail" aria-hidden="true">
+                <img src={imageUrl} alt="" style={{ transform: `translate(-${active.target[0]}%, -${active.target[1]}%)` }} />
+              </span>
+            )}
+            <p>{active.reveal}</p>
+            <button className="story-quest-hear" type="button" aria-label="Hear what you found"
+              onClick={() => onHear(active.reveal)} disabled={!speechPath(active.reveal)}><StoryQuestSpeaker /></button>
+          </div>
+        )}
+      </div>
+    </section>
+  );
 }
 
 function closeMoreMenuAndRun(event, action) {
@@ -138,9 +227,7 @@ export function StoryQuestPlayer({
     return new Map((quest?.pages || []).map(page => [page.id, page]));
   }, [quest]);
 
-  const getInitialRoute = () => resolveStoryQuestResume(quest, initialProgress, initialPageId);
-  const [currentPageId, setCurrentPageId] = useState(() => getInitialRoute().pageId);
-  const [history, setHistory] = useState(() => getInitialRoute().history);
+  const [{ pageId: currentPageId, history }, setRoute] = useState(() => resolveStoryQuestResume(quest, initialProgress, initialPageId));
   const [audioAvailable, setAudioAvailable] = useState(false);
   const [audioChecking, setAudioChecking] = useState(false);
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
@@ -148,10 +235,14 @@ export function StoryQuestPlayer({
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [viewportFullscreen, setViewportFullscreen] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
+  const [sessionEndings, setSessionEndings] = useState([]);
+  const [sessionScenes, setSessionScenes] = useState([]);
   const [activeWordSupport, setActiveWordSupport] = useState(null);
+  const [sceneAction, setSceneAction] = useState(null);
   const audioRef = useRef(null);
   const playerRef = useRef(null);
   const headingRef = useRef(null);
+  const endingHeadingRef = useRef(null);
   const previousPageRef = useRef(currentPageId);
   const wordSupportPlaybackTokenRef = useRef(0);
 
@@ -159,6 +250,15 @@ export function StoryQuestPlayer({
   const activeWordCard = (quest?.wordCards || []).find(card => card.word?.toLowerCase() === activeWordSupport?.word?.toLowerCase());
   const currentAudioUrl = getStoryQuestPageAudioUrl(currentPage);
   const currentSceneNumber = history.length + 1;
+  const endingPages = useMemo(() => [...pageById.values()].filter(isStoryQuestEnding), [pageById]);
+  const foundEndingIds = useMemo(() => {
+    const saved = new Set([...storyQuestEndingIds(initialProgress), ...sessionEndings]);
+    return endingPages.filter(page => saved.has(page.id)).map(page => page.id);
+  }, [endingPages, initialProgress, sessionEndings]);
+  const savedScenes = Array.isArray(initialProgress.exploredPageIds) ? initialProgress.exploredPageIds : [];
+  const replayFork = isComplete
+    ? storyQuestReplayFork([...history, currentPageId], foundEndingIds, [...savedScenes, ...sessionScenes], pageById)
+    : -1;
   const visitedPageIds = useMemo(() => new Set([...history, currentPageId].filter(Boolean)), [currentPageId, history]);
   const initialWordSignature = (Array.isArray(initialProgress?.wordsFound)
     ? initialProgress.wordsFound
@@ -183,21 +283,31 @@ export function StoryQuestPlayer({
         .filter(tag => targetWords.has(tag))
     ));
   }, [initialWordSignature, quest, visitedPageIds]);
-  const progressSnapshot = useMemo(() => ({
-    lastPageId: currentPageId,
-    targetWordCount: quest?.targetWords?.length || 0,
-    visitedPageCount: visitedPageIds.size,
-    visitedPageIds: Array.from(visitedPageIds),
-    wordsFound: foundWords,
-    wordsFoundCount: foundWords.length,
-    contentRevision: quest?.contentRevision || "",
-    routeFinished: isComplete
-  }), [currentPageId, foundWords, quest?.targetWords, quest?.contentRevision, visitedPageIds, isComplete]);
+  const progressSnapshot = useMemo(() => {
+    const checkpoint = {
+      contentRevision: quest?.contentRevision || "",
+      visitedPageIds: Array.from(visitedPageIds),
+      routeFinished: false
+    };
+    return {
+      ...checkpoint,
+      lastPageId: currentPageId,
+      targetWordCount: quest?.targetWords?.length || 0,
+      visitedPageCount: visitedPageIds.size,
+      wordsFound: foundWords,
+      wordsFoundCount: foundWords.length,
+      routeCheckpoint: encodeStoryQuestCheckpoint(checkpoint)
+    };
+  }, [currentPageId, foundWords, quest?.targetWords, quest?.contentRevision, visitedPageIds]);
 
   useEffect(() => {
     if (!currentPageId || isComplete) return;
     onProgress?.(currentPageId, progressSnapshot);
   }, [currentPageId, isComplete, onProgress, progressSnapshot]);
+
+  useEffect(() => {
+    if (isComplete) endingHeadingRef.current?.focus();
+  }, [isComplete]);
 
   useEffect(() => {
     setActiveWordSupport(null);
@@ -294,9 +404,15 @@ export function StoryQuestPlayer({
 
   useEffect(() => {
     if (typeof document === "undefined") return undefined;
+    let wasFullscreen = false;
 
     function handleFullscreenChange() {
-      setIsFullscreen(getBrowserFullscreenElement(document) === playerRef.current);
+      const entered = getBrowserFullscreenElement(document) === playerRef.current;
+      setIsFullscreen(entered);
+      if (wasFullscreen && !entered) {
+        requestAnimationFrame(() => playerRef.current?.querySelector(".story-quest-more-menu > summary")?.focus({ preventScroll: true }));
+      }
+      wasFullscreen = entered;
     }
 
     return addBrowserFullscreenListener(document, handleFullscreenChange);
@@ -361,7 +477,7 @@ export function StoryQuestPlayer({
   }
 
   function hearText(text) {
-    const path = getStoryQuestLedaAudioPath(text) || getLedaInstructionAudioPath(text);
+    const path = speechPath(text);
     if (path) void playWordSupportSequence([path]);
   }
 
@@ -380,30 +496,44 @@ export function StoryQuestPlayer({
     if (nextPageId === "end") {
       stopAudio();
       setIsComplete(true);
-      onComplete?.({ ...progressSnapshot, routeFinished: true, endingPageId: currentPageId });
+      const endingPageIds = [...new Set([...foundEndingIds, currentPageId])];
+      setSessionEndings(endingPageIds);
+      onComplete?.({
+        ...progressSnapshot,
+        routeFinished: true,
+        routeCheckpoint: encodeStoryQuestCheckpoint({ ...progressSnapshot, routeFinished: true }),
+        endingPageId: currentPageId,
+        endingPageIds
+      });
       return;
     }
     if (!pageById.has(nextPageId)) return;
     stopAudio();
-    setHistory(previous => [...previous, currentPageId]);
-    setCurrentPageId(nextPageId);
-    setIsComplete(false);
+    setSceneAction(null);
+    setSessionScenes(previous => previous.includes(nextPageId) ? previous : [...previous, nextPageId]);
+    setRoute({ pageId: nextPageId, history: [...history, currentPageId] });
   }
 
   function goBack() {
+    if (!history.length) return;
     stopAudio();
-    setHistory(previous => {
-      if (previous.length === 0) return previous;
-      const next = previous.slice(0, -1);
-      setCurrentPageId(previous[previous.length - 1]);
-      return next;
-    });
+    setSceneAction(null);
+    setRoute({ pageId: history.at(-1), history: history.slice(0, -1) });
   }
 
   function restart() {
     stopAudio();
-    setHistory([]);
-    setCurrentPageId(quest?.startPageId || quest?.pages?.[0]?.id || "");
+    setSceneAction(null);
+    setActiveWordSupport(null);
+    setRoute({ pageId: quest?.startPageId || quest?.pages?.[0]?.id || "", history: [] });
+    setIsComplete(false);
+  }
+
+  function tryAnotherPath() {
+    if (replayFork < 0) return;
+    stopAudio();
+    setSceneAction(null);
+    setRoute({ pageId: history[replayFork], history: history.slice(0, replayFork) });
     setIsComplete(false);
   }
 
@@ -461,7 +591,15 @@ export function StoryQuestPlayer({
   }
 
   const decisionText = storyQuestDecisionText(currentPage);
-  const decisionAudio = getStoryQuestLedaAudioPath(decisionText) || getLedaInstructionAudioPath(decisionText);
+  const decisionAudio = speechPath(decisionText);
+  const endingCountText = storyQuestEndingCountText(foundEndingIds.length, endingPages.length);
+  const endingAudio = isComplete ? [
+    storyQuestEndingText(currentPage),
+    replayFork >= 0 && "Try another path",
+    "Read again",
+    onExit && "Choose a story",
+    endingCountText
+  ].map(speechPath).filter(Boolean) : [];
 
   return (
     <ImmersiveReader active={viewportFullscreen} className="story-quest-immersive-reader">
@@ -482,20 +620,20 @@ export function StoryQuestPlayer({
         <StoryQuestMoreMenu isFullscreen={isFullscreen} onRestart={restart} onToggleFullscreen={toggleFullscreen} />
       </header>
 
-      <div className="story-quest-image-stage">
-        <StoryQuestImage src={currentPage.imageUrl} title={quest.title} alt={currentPage.imageAlt} />
+      <div className="story-quest-image-stage" key={`image-${currentPage.id}`}>
+        <StoryQuestImage src={currentPage.imageUrl} title={quest.title} alt={currentPage.imageAlt} action={sceneAction} />
       </div>
 
       <div className="story-quest-read-row">
         <button
           className={`lp-button lp-button-secondary story-quest-audio-button${isAudioPlaying ? " audio-feedback-playing" : ""}`}
-          disabled={!audioAvailable}
+          disabled={!audioAvailable && !isAudioPlaying}
           onClick={isAudioPlaying ? stopAudio : replayAudio}
           type="button"
           aria-label={isAudioPlaying ? "Stop audio" : "Hear the story"}
         >
           <StoryQuestSpeaker />
-          {audioChecking ? "Loading audio" : isAudioPlaying ? "Stop" : audioAvailable ? "Hear the story" : "Audio unavailable"}
+          {isAudioPlaying ? "Stop" : audioChecking ? "Loading audio" : audioAvailable ? "Hear the story" : "Audio unavailable"}
         </button>
         <StoryQuestText key={currentPage.id} lines={currentPage.text || []} onHearWord={handleStoryWordClick} />
         {audioError && <p className="story-quest-audio-error" role="status">{audioError}</p>}
@@ -510,17 +648,43 @@ export function StoryQuestPlayer({
         )}
       </div>
 
+      {currentPage.play && !isComplete && (
+        <SceneActions key={`actions-${currentPage.id}`} play={currentPage.play} active={sceneAction} imageUrl={currentPage.imageUrl} onHear={hearText}
+          onAct={action => { stopAudio(); setSceneAction(action); }} />
+      )}
+
       <div className="story-quest-decision" aria-label={isComplete ? "Read another story" : "Choose what happens next"}>
         {isComplete ? (
           <>
+            <div className="story-quest-ending-label">
+              <BookOpen size={24} weight="duotone" aria-hidden="true" />
+              <h2 ref={endingHeadingRef} tabIndex={-1}>{currentPage.endingTitle || "The end"}</h2>
+            </div>
             <div className="story-quest-decision-heading">
               <p className="story-quest-choice-prompt">{currentPage.replayPrompt || "Try a different path."}</p>
-              <button className="story-quest-hear" type="button" aria-label="Hear the ending options" onClick={() => playWordSupportSequence([currentPage.replayPrompt || "Try a different path.", "Read again", "Choose a story"].map(text => getStoryQuestLedaAudioPath(text) || getLedaInstructionAudioPath(text)).filter(Boolean))}><StoryQuestSpeaker /></button>
+              <button className="story-quest-hear" type="button" aria-label="Hear the ending options"
+                onClick={() => playWordSupportSequence(endingAudio)} disabled={!endingAudio.length}><StoryQuestSpeaker /></button>
             </div>
+            {replayFork >= 0 && (
+              <button className="story-quest-choice-button story-quest-replay" type="button" onClick={tryAnotherPath}>
+                <Signpost size={24} weight="duotone" aria-hidden="true" /> Try another path
+              </button>
+            )}
             <div className="story-quest-choice-grid">
               <button className="story-quest-choice-button" onClick={restart} type="button">Read again</button>
               {onExit && <button className="story-quest-choice-button" onClick={exitReader} type="button">Choose a story</button>}
             </div>
+            <section className="story-quest-endings" aria-label="Endings found">
+              <p>{endingCountText}</p>
+              <ul>
+                {endingPages.filter(page => foundEndingIds.includes(page.id)).map(page => (
+                  <li key={page.id} aria-current={page.id === currentPageId ? "true" : undefined}>
+                    <img src={page.imageUrl} alt="" loading="lazy" decoding="async" />
+                    <span>{page.endingTitle || "The end"}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
           </>
         ) : (
           <>
@@ -533,12 +697,16 @@ export function StoryQuestPlayer({
             <div className={`story-quest-choice-grid${currentPage.choices?.length === 1 ? " single" : ""}`}>
               {(currentPage.choices || []).map(choice => (
                 <div className="story-quest-choice" key={`${currentPage.id}-${choice.label}`}>
-                  <button className="story-quest-choice-button" disabled={choice.nextPageId !== "end" && !pageById.has(choice.nextPageId)} onClick={() => goToPage(choice)} type="button">{choice.label}</button>
-                  <button className="story-quest-hear" type="button" aria-label={`Hear choice: ${choice.label}`} onClick={() => hearText(choice.label)} disabled={!getStoryQuestLedaAudioPath(choice.label) && !getLedaInstructionAudioPath(choice.label)}><StoryQuestSpeaker /></button>
+                  <button className="story-quest-choice-button" disabled={choice.nextPageId !== "end" && !pageById.has(choice.nextPageId)} onClick={() => goToPage(choice)} type="button">
+                    {choice.label}{currentPage.play && choice.label === "Next" && <ArrowBendDownRight size={20} aria-hidden="true" />}
+                  </button>
+                  <button className="story-quest-hear" type="button" aria-label={`Hear choice: ${choice.label}`} onClick={() => hearText(choice.label)} disabled={!speechPath(choice.label)}><StoryQuestSpeaker /></button>
                 </div>
               ))}
             </div>
-            <button className="story-quest-previous" disabled={history.length === 0} onClick={goBack} type="button">Previous scene</button>
+            <button className="story-quest-previous" onClick={goBack} disabled={!history.length} type="button">
+              {currentPage.play && <ArrowArcLeft size={19} aria-hidden="true" />}Previous scene
+            </button>
           </>
         )}
       </div>

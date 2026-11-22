@@ -2,6 +2,7 @@ import { storyQuests } from "../src/data/storyQuests.js";
 
 const errors = [];
 const warnings = [];
+const playIcons = new Set(["look", "listen", "help", "move", "wait", "touch"]);
 
 function describeQuest(quest) {
   return quest?.id || quest?.title || "(unknown quest)";
@@ -135,6 +136,35 @@ function pageText(page) {
   return Array.isArray(page?.text) ? page.text.join(" ") : "";
 }
 
+function normalizedCopy(value) {
+  return typeof value === "string" ? value.trim().replace(/\s+/g, " ").toLowerCase() : "";
+}
+
+function validatePlayActions(quest, page) {
+  const { play } = page;
+  if (!isPlainObject(play) || !normalizedCopy(play.prompt) || !Array.isArray(play.actions) || play.actions.length !== 2) {
+    addError(quest, `${page.id} must have a readable exploration prompt and two actions`);
+    return;
+  }
+  const labels = new Set();
+  const reveals = new Set();
+  for (const action of play.actions) {
+    const label = normalizedCopy(action?.label);
+    const reveal = normalizedCopy(action?.reveal);
+    if (!label || label.split(" ").length > 4 || labels.has(label)
+      || !reveal || reveals.has(reveal) || !playIcons.has(action?.icon)) {
+      addError(quest, `${page.id} exploration needs distinct action labels of at most four words, distinct reveals and supported icons`);
+    }
+    const target = action?.target;
+    if (target != null && (!Array.isArray(target) || target.length !== 2
+      || !target.every(percent => Number.isFinite(percent) && percent >= 0 && percent <= 100))) {
+      addError(quest, `${page.id} exploration target must be two percentages within the illustration`);
+    }
+    labels.add(label);
+    reveals.add(reveal);
+  }
+}
+
 function shortestNarrativeRouteLength(pageById, startPageId) {
   const queue = [[startPageId, 1]];
   const shortestSeen = new Map([[startPageId, 1]]);
@@ -184,15 +214,22 @@ function validateNarrativeContracts(quest, pageById, startPageId, endingPages) {
   if (minimumRoute && shortestRoute < minimumRoute) {
     addError(quest, `shortest route is only ${shortestRoute} scenes; ${quest.level} requires at least ${minimumRoute}`);
   }
+  const endingTitles = new Set();
   endingPages.forEach(page => {
     if (!(page.choices || []).some(choice => isReplayChoice(choice, startPageId))
       || !(page.choices || []).some(choice => choice.nextPageId === "end")) {
       addError(quest, `${page.id} must offer both Read again and Finish`);
     }
     if (!page.replayPrompt?.trim()) addError(quest, `${page.id} needs a story-specific replay invitation`);
+    const title = normalizedCopy(page.endingTitle);
+    if (!title || endingTitles.has(title)) addError(quest, `${page.id} needs a distinct ending title`);
+    endingTitles.add(title);
   });
 
   const routes = narrativeRoutes(pageById, startPageId);
+  if (routes.some(route => !route.some(id => pageById.get(id)?.play))) {
+    addError(quest, "every route must offer at least one exploration scene");
+  }
   function everyRouteIncludes(ids, reason) {
     for (const route of routes) {
       let previous = -1;
@@ -358,6 +395,7 @@ if (!Array.isArray(storyQuests) || storyQuests.length === 0) {
     if (page.narrationNeedsRebuild !== undefined && typeof page.narrationNeedsRebuild !== "boolean") {
       addError(quest, `${page.id || `page ${index + 1}`} narrationNeedsRebuild must be boolean`);
     }
+    if (page.play !== undefined) validatePlayActions(quest, page);
     const joinedText = Array.isArray(page.text) ? page.text.join(" ") : "";
     const inanimateFacePatterns = [
       /(?:door|map|book|chair|lantern|sign)[^.]{0,60}(?:face|smil|frown|wink|eye|mouth)/i,
@@ -417,6 +455,9 @@ if (!Array.isArray(storyQuests) || storyQuests.length === 0) {
   if (!hasEnding) addError(quest, "must have at least one ending choice pointing to end");
   if (endingPages.length < 2) {
     addError(quest, `must have at least two distinct ending pages for replay value (found ${endingPages.length})`);
+  }
+  if (quest.pages.filter(page => page.play).length < 2) {
+    addError(quest, "must have at least two exploration scenes");
   }
 
   if (startPageId && pageById.has(startPageId)) {

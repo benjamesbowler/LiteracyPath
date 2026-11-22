@@ -7,6 +7,7 @@ import {
   saveStoryQuestProgress
 } from "../utils/storyQuestProgress.js";
 import { StoryQuestPlayer } from "./StoryQuestPlayer.jsx";
+import { readStoryQuestCheckpoint } from "../utils/storyQuestRoutes.js";
 
 const STORY_QUEST_LEVELS = [
   {
@@ -94,14 +95,11 @@ export function LearnAreaPage({
     || storyQuests[0];
   const primaryQuestStarted = Boolean(primaryQuest && questProgress[primaryQuest.id]?.opened);
   const activeQuestProgress = activeQuest ? questProgress[activeQuest.id] || {} : {};
+  const activeCheckpoint = readStoryQuestCheckpoint(activeQuestProgress);
   const activeQuestInitialPageId =
-    activeQuest && activeQuestProgress.routeFinished !== true && (!activeQuestProgress.completed || activeQuestProgress.routeFinished === false) && activeQuestProgress.lastPageId
-      ? activeQuestProgress.lastPageId
+    activeQuest && activeCheckpoint.routeFinished !== true && (!activeQuestProgress.completed || activeCheckpoint.routeFinished === false)
+      ? activeCheckpoint.lastPageId
       : "";
-  const activeQuestInitialProgress =
-    activeQuest && activeQuestProgress.routeFinished !== true && (!activeQuestProgress.completed || activeQuestProgress.routeFinished === false)
-      ? activeQuestProgress
-      : {};
 
   useEffect(() => {
     if (teacherPreview) return;
@@ -154,7 +152,7 @@ export function LearnAreaPage({
         <StoryQuestPlayer
           key={activeQuest.id}
           initialPageId={activeQuestInitialPageId}
-          initialProgress={activeQuestInitialProgress}
+          initialProgress={activeQuestProgress}
           onComplete={handleQuestComplete}
           onExit={handleQuestExit}
           onProgress={handleQuestProgress}

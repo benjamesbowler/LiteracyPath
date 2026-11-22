@@ -128,7 +128,7 @@
     },
     {
       "path": "src/data/generated/mediaQaReviewItems.generated.js",
-      "sha256": "f1cb0a2c5357456b4bc1ee0efb72efca4af6014dc32f683cd7f05e89434bd597"
+      "sha256": "3e2c396e610408aaa5d0ee3937b7ee018b84b4fda84d0d0b9835422706f5043f"
     },
     {
       "path": "src/data/generated/vocabularyRuntime.generated.js",

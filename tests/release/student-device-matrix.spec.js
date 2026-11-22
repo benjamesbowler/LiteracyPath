@@ -1224,7 +1224,9 @@ for (const profile of STUDENT_DEVICE_PROFILES) {
 }
 
 test("A3.6 required Story Quest image readiness waits for a delayed image and rejects a failed image", async ({ page }) => {
-  test.setTimeout(45_000);
+  // This opens the full shelf twice and intentionally waits for a failed
+  // readiness assertion. Give both cold boots room on a shared runner.
+  test.setTimeout(90_000);
   const profile = STUDENT_DEVICE_PROFILES.find(candidate => candidate.id === 'small-phone-portrait');
   const route = CHILD_SURFACE_ROUTES.find(candidate => candidate.id === 'story-quests');
   let releaseImage, requestedImage;

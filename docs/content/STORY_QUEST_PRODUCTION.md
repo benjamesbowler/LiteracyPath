@@ -22,7 +22,12 @@ of independent decoding. Moonwood Quests use the compact present-tense C profile
 not the longer past-tense Guided Reading paragraph profile.
 
 Store a meaningful `imageAlt` per scene, `shortTitle` and `hook` per book, and a
-`replayPrompt` at each ending. A dedicated cover invites the reader into the
+`replayPrompt` and distinct `endingTitle` at each ending. Each route includes an
+optional illustrated encounter where the pupil can try either of two concrete
+actions. Write a short prompt and distinct reveal for each action. Optional
+targets use percentages within the exact scene image, checked at display size.
+Each reveal must make sense on its own. It may show a clue, reaction or possible
+move without changing later route history. A dedicated cover invites the reader into the
 problem without revealing its solution. Never substitute the opening image for
 an authored cover. A content revision invalidates unsafe older route resumes;
 previous exposure/completion remains history, not a mastery claim.
@@ -35,11 +40,17 @@ previous exposure/completion remains history, not a mastery claim.
 - Sam/Pam's six picture-word cards show the matching meaning picture in word
   help. Picture support and heard words remain supported practice, not mastery.
 - Choices have separate hear and select controls. Hearing never selects a path.
+- Optional encounters expose controls and reveals to touch, keyboard and audio.
+  An image focus ring or detail supports a reveal. The written and spoken
+  feedback describes the same clue.
 - The child sees their scene position; vocabulary exposure is retained for
   reporting and never used as a story-completion bar or a mastery score.
 - The ending retains its illustration and prose after Finish. A replay invitation
   refers to the story; the shelf offers Continue or Read again, never a false lock
   or a claim that one ending exhausts the book.
+- When replay can uncover an unseen ending or an unvisited scene, the reader
+  offers a return to an earlier decision on the current route. Endings and
+  explored scenes accumulate separately from the current route checkpoint.
 - Full screen uses its remaining height for the complete illustration. Short
   passages sit below it above the path controls; longer passages use a separate
   column at roomy widths. Menu controls never reduce the picture to a fixed

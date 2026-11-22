@@ -6,6 +6,7 @@ import { currentGuidedReadingRecord, getCurrentGuidedReadingRecord } from "../ut
 // never the child or an achievement category.
 import { guidedReadingBookmark } from "../utils/guidedReading/bookmark.js";
 import { getPublicBookMetadata } from "../utils/guidedReading/bookLevelMetadata.js";
+import { readStoryQuestCheckpoint } from "../utils/storyQuestRoutes.js";
 
 export const BOOK_SHELF_SLOTS = 6;
 export const QUEST_GRID_SLOTS = 6;
@@ -282,10 +283,12 @@ export function questPageNumber(lastPageId = "", visitedPageIds = []) {
 
 export function buildQuestCard({ quest = {}, row = {} } = {}) {
   const world = questWorldId(quest);
-  const canContinue = Boolean(row.opened && row.lastPageId && row.routeFinished !== true
-    && (!row.completed || row.routeFinished === false));
+  const checkpoint = readStoryQuestCheckpoint(row);
+  const compatibleRevision = !quest.contentRevision || checkpoint.contentRevision === quest.contentRevision;
+  const canContinue = Boolean(compatibleRevision && row.opened && checkpoint.lastPageId && checkpoint.routeFinished !== true
+    && (!row.completed || checkpoint.routeFinished === false));
   const state = canContinue ? "carry-on" : row.completed ? "done" : "new";
-  const page = questPageNumber(row.lastPageId, row.visitedPageIds || []);
+  const page = questPageNumber(checkpoint.lastPageId, checkpoint.visitedPageIds || []);
   return {
     id: quest.id,
     title: quest.shortTitle || quest.title || "",

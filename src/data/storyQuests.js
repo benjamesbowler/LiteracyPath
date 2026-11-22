@@ -105,7 +105,30 @@ export const storyQuests = [
             "label": "Part the reeds",
             "nextPageId": "p05_reeds_shake"
           }
-        ]
+        ],
+        "play": {
+          "prompt": "What left those marks?",
+          "actions": [
+            {
+              "label": "Trace the tracks",
+              "reveal": "Little prints lead straight to the rock.",
+              "icon": "touch",
+              "target": [
+                51,
+                78
+              ]
+            },
+            {
+              "label": "Watch the reeds",
+              "reveal": "Only the reeds by the rock shake. Something is there!",
+              "icon": "look",
+              "target": [
+                84,
+                59
+              ]
+            }
+          ]
+        }
       },
       {
         "id": "p05_tiny_tracks",
@@ -162,11 +185,11 @@ export const storyQuests = [
         "text": [
           "A tiny frog gives a huge CROAK.",
           "Stone sits down with a thump.",
-          "\"That is you?\" says Pip."
+          "\"All that noise from you?\" says Pip."
         ],
         "imageUrl": "/images/story-quests/moonwood/pip-stone-loud-thing/p06_mossy_stone.webp?v=75e8731bc23c",
         "imageAlt": "The tiny green frog croaks from the rock. Pip stares in surprise. The enormous Stone has landed on his bottom beside Pip, startled by the frog’s big sound.",
-        "audioUrl": "/audio/production/en-US/story_page/a-tiny-frog-gives-a-huge-croak-stone-sits-down-with-a-thump-that-is-you-1930c4bcf6.mp3",
+        "audioUrl": "/audio/production/en-US/story_page/a-tiny-frog-gives-a-huge-croak-stone-sits-down-with-a-thump-all-that-noi-d0ad2ce5be.mp3",
         "narrationNeedsRebuild": false,
         "choicePrompt": "",
         "skillTags": [
@@ -229,7 +252,30 @@ export const storyQuests = [
             "label": "Next",
             "nextPageId": "p09_pip_covers_ears"
           }
-        ]
+        ],
+        "play": {
+          "prompt": "Stone's call is too big!",
+          "actions": [
+            {
+              "label": "Check the root",
+              "reveal": "The frog slips out of sight, down by the root.",
+              "icon": "look",
+              "target": [
+                72,
+                88
+              ]
+            },
+            {
+              "label": "Signal to Stone",
+              "reveal": "Pip can put one finger to his lips. Shhh, Stone!",
+              "icon": "help",
+              "target": [
+                42,
+                23
+              ]
+            }
+          ]
+        }
       },
       {
         "id": "p09_pip_covers_ears",
@@ -282,7 +328,30 @@ export const storyQuests = [
             "label": "Ask Stone to carry",
             "nextPageId": "p08_search_family"
           }
-        ]
+        ],
+        "play": {
+          "prompt": "Help the frog get home.",
+          "actions": [
+            {
+              "label": "Cup your ear",
+              "reveal": "That little croak comes from the far bank.",
+              "icon": "listen",
+              "target": [
+                47,
+                50
+              ]
+            },
+            {
+              "label": "Check Stone's hand",
+              "reveal": "His palm is as wide as a little raft.",
+              "icon": "look",
+              "target": [
+                15,
+                64
+              ]
+            }
+          ]
+        }
       },
       {
         "id": "p09_toadling_calls",
@@ -335,7 +404,8 @@ export const storyQuests = [
             "nextPageId": "end"
           }
         ],
-        "replayPrompt": "Try the other way to reunite the frogs."
+        "replayPrompt": "Could Stone carry the frog across?",
+        "endingTitle": "The Log Reunion"
       },
       {
         "id": "p08_search_family",
@@ -389,12 +459,13 @@ export const storyQuests = [
             "nextPageId": "end"
           }
         ],
-        "replayPrompt": "Try the other way to reunite the frogs."
+        "replayPrompt": "Could the frog call its family over?",
+        "endingTitle": "Stone's Tiny Wave"
       }
     ],
     "shortTitle": "The Loud Thing",
-    "childSynopsis": "A tiny voice makes a very big noise.",
-    "hook": "A tiny voice makes a very big noise.",
+    "childSynopsis": "That croak shook the whole oak!",
+    "hook": "A croak shakes Hollow Oak. What in the marsh made that sound?",
     "readingSupport": "Listen together or read with an adult; independent reading depends on the child’s taught words and reading experience.",
     "coverImageAlt": "A tiny voice makes a very big noise.",
     "contentRevision": "2026-09-29-story-quests-v2"
@@ -496,7 +567,30 @@ export const storyQuests = [
             "label": "Next",
             "nextPageId": "p03_pour_potion"
           }
-        ]
+        ],
+        "play": {
+          "prompt": "Try Fern's picture recipe.",
+          "actions": [
+            {
+              "label": "Test a purple drop",
+              "reveal": "In the book, two root feet pop out of a pot. Pit-pat!",
+              "icon": "touch",
+              "target": [
+                41,
+                38
+              ]
+            },
+            {
+              "label": "Test a water drop",
+              "reveal": "In the book, the feet tuck back inside the pot.",
+              "icon": "touch",
+              "target": [
+                49,
+                39
+              ]
+            }
+          ]
+        }
       },
       {
         "id": "p03_pour_potion",
@@ -527,12 +621,12 @@ export const storyQuests = [
         "id": "p04_all_walk",
         "text": [
           "Roots poke out beneath the pots.",
-          "The pots march through the open gate.",
+          "Pit-pat! The pots march through the gate.",
           "\"Those are not leaves!\" says Wren."
         ],
         "imageUrl": "/images/story-quests/moonwood/fern-wren-walking-garden/p04_all_walk.webp?v=7295717a62ff",
         "imageAlt": "The same three terracotta pots march through the open garden gate on pairs of little root-feet. Wren looks from the spilled purple bottle to the departing pots; Fern turns toward the gate.",
-        "audioUrl": "/audio/production/en-US/story_page/roots-poke-out-beneath-the-pots-the-pots-march-through-the-open-gate-tho-7cae0ddc08.mp3",
+        "audioUrl": "/audio/production/en-US/story_page/roots-poke-out-beneath-the-pots-pit-pat-the-pots-march-through-the-gate-517838bbda.mp3",
         "narrationNeedsRebuild": false,
         "choicePrompt": "",
         "skillTags": [
@@ -574,7 +668,30 @@ export const storyQuests = [
             "label": "Sing to the pots",
             "nextPageId": "p07_sing_softly"
           }
-        ]
+        ],
+        "play": {
+          "prompt": "Watch the runaway pots.",
+          "actions": [
+            {
+              "label": "Follow their feet",
+              "reveal": "The little pot can step right over Wren's hands.",
+              "icon": "look",
+              "target": [
+                52,
+                81
+              ]
+            },
+            {
+              "label": "Hum with Fern",
+              "reveal": "Two pots turn toward the tune. They like that beat!",
+              "icon": "listen",
+              "target": [
+                38,
+                32
+              ]
+            }
+          ]
+        }
       },
       {
         "id": "p04_small_plant",
@@ -724,7 +841,30 @@ export const storyQuests = [
             "label": "Keep one dancer",
             "nextPageId": "p09_silly_garden"
           }
-        ]
+        ],
+        "play": {
+          "prompt": "The pots are home. Now what?",
+          "actions": [
+            {
+              "label": "Check the water",
+              "reveal": "Plain water can tuck those roots back inside the pots.",
+              "icon": "touch",
+              "target": [
+                65,
+                79
+              ]
+            },
+            {
+              "label": "Copy the twirl",
+              "reveal": "Round and round! The little plant can dance, even with droopy leaves.",
+              "icon": "move",
+              "target": [
+                33,
+                79
+              ]
+            }
+          ]
+        }
       },
       {
         "id": "p09_plants_settle",
@@ -781,7 +921,8 @@ export const storyQuests = [
             "nextPageId": "end"
           }
         ],
-        "replayPrompt": "Would you keep a dancing pot?"
+        "replayPrompt": "What if you let one pot keep its feet?",
+        "endingTitle": "A Still Little Garden"
       },
       {
         "id": "p09_silly_garden",
@@ -837,7 +978,8 @@ export const storyQuests = [
             "nextPageId": "end"
           }
         ],
-        "replayPrompt": "Would you keep a dancing pot?"
+        "replayPrompt": "Can all three pots sit still?",
+        "endingTitle": "The Pot That Dances"
       }
     ],
     "shortTitle": "The Walking Garden",
@@ -973,7 +1115,30 @@ export const storyQuests = [
             "label": "Dig through the roots",
             "nextPageId": "p04_burrow_digs"
           }
-        ]
+        ],
+        "play": {
+          "prompt": "Read the stream like a map.",
+          "actions": [
+            {
+              "label": "Trace the stepping stones",
+              "reveal": "The stones make a path across the water. Their tops look wet.",
+              "icon": "look",
+              "target": [
+                63,
+                66
+              ]
+            },
+            {
+              "label": "Peek under roots",
+              "reveal": "There is a low gap. Burrow can dig it wider.",
+              "icon": "look",
+              "target": [
+                24,
+                34
+              ]
+            }
+          ]
+        }
       },
       {
         "id": "p04_upstream",
@@ -986,7 +1151,7 @@ export const storyQuests = [
         "imageAlt": "Burrow’s rear paw slips on the first broad wet stepping stone. Luna stands on the next stone with one feathered wing extended to him; the banks are close and water shallow.",
         "audioUrl": "/audio/production/en-US/story_page/burrow-steps-onto-a-wet-stone-his-back-foot-slips-luna-holds-out-one-str-0910bbeb09.mp3",
         "narrationNeedsRebuild": false,
-        "choicePrompt": "",
+        "choicePrompt": "How should Burrow get across?",
         "skillTags": [
           "luna",
           "burrow",
@@ -995,8 +1160,12 @@ export const storyQuests = [
         ],
         "choices": [
           {
-            "label": "Next",
+            "label": "Hold Luna's wing",
             "nextPageId": "p05_cross_stones"
+          },
+          {
+            "label": "Dig from the bank",
+            "nextPageId": "p04_burrow_digs"
           }
         ]
       },
@@ -1124,7 +1293,30 @@ export const storyQuests = [
             "label": "Next",
             "nextPageId": "p07_door_opens"
           }
-        ]
+        ],
+        "play": {
+          "prompt": "Look at both shell pieces.",
+          "actions": [
+            {
+              "label": "Match the edges",
+              "reveal": "The loose point fits the broken edge. The shell has five points again.",
+              "icon": "touch",
+              "target": [
+                55,
+                79
+              ]
+            },
+            {
+              "label": "Find the top",
+              "reveal": "The point at the top of the door tells Burrow which way to turn the shell.",
+              "icon": "look",
+              "target": [
+                71,
+                45
+              ]
+            }
+          ]
+        }
       },
       {
         "id": "p07_door_opens",
@@ -1176,18 +1368,41 @@ export const storyQuests = [
             "label": "Draw the blue stars",
             "nextPageId": "p10_door_open_ending"
           }
-        ]
+        ],
+        "play": {
+          "prompt": "Two lights, two ways to look.",
+          "actions": [
+            {
+              "label": "Trace the gold path",
+              "reveal": "The gold goes up to a high window. What can you see from there?",
+              "icon": "touch",
+              "target": [
+                83,
+                71
+              ]
+            },
+            {
+              "label": "Join the blue stars",
+              "reveal": "Two bright points sit side by side. They look like a pair of eyes.",
+              "icon": "look",
+              "target": [
+                51,
+                23
+              ]
+            }
+          ]
+        }
       },
       {
         "id": "p09_gold_path",
         "text": [
           "The gold path leads to a high window.",
           "Moonwood shines beneath them.",
-          "\"So many lights!\" says Burrow."
+          "\"The paths look like ribbons!\" says Burrow."
         ],
         "imageUrl": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p09_gold_path.webp?v=6b907456a660",
         "imageAlt": "Luna and Burrow look through a high window at Moonwood’s treetops, stars and glowing paths below. The gold path is visible behind them inside the stone room; the map remains on the nearby table.",
-        "audioUrl": "/audio/production/en-US/story_page/the-gold-path-leads-to-a-high-window-moonwood-shines-beneath-them-so-man-9905e7c4de.mp3",
+        "audioUrl": "/audio/production/en-US/story_page/the-gold-path-leads-to-a-high-window-moonwood-shines-beneath-them-the-pa-46928c23c1.mp3",
         "narrationNeedsRebuild": false,
         "choicePrompt": "Read again or finish?",
         "skillTags": [
@@ -1204,18 +1419,19 @@ export const storyQuests = [
             "nextPageId": "end"
           }
         ],
-        "replayPrompt": "Follow the other path in the star room."
+        "replayPrompt": "What shape will you find in the stars?",
+        "endingTitle": "Moonwood From Above"
       },
       {
         "id": "p10_door_open_ending",
         "text": [
           "Burrow draws the stars on his map.",
           "Luna points with one wing.",
-          "\"An owl!\" says Burrow."
+          "\"It's you, Luna!\" says Burrow."
         ],
         "imageUrl": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p10_door_open_ending.webp?v=0e3345e5909d",
         "imageAlt": "Burrow draws an owl-shaped arrangement of the room’s blue star crystals in an empty corner of his map. Luna indicates the matching constellation above them with her feathered wing; the door remains open behind them.",
-        "audioUrl": "/audio/production/en-US/story_page/burrow-draws-the-stars-on-his-map-luna-points-with-one-wing-an-owl-says-5705beb526.mp3",
+        "audioUrl": "/audio/production/en-US/story_page/burrow-draws-the-stars-on-his-map-luna-points-with-one-wing-it-s-you-lun-4c765f775e.mp3",
         "narrationNeedsRebuild": false,
         "choicePrompt": "Read again or finish?",
         "skillTags": [
@@ -1235,7 +1451,8 @@ export const storyQuests = [
             "nextPageId": "end"
           }
         ],
-        "replayPrompt": "Follow the other path in the star room."
+        "replayPrompt": "Where will the gold path take you?",
+        "endingTitle": "An Owl Made of Stars"
       }
     ],
     "shortTitle": "The Star Shell Door",
@@ -1373,7 +1590,30 @@ export const storyQuests = [
             "label": "Listen with Dewdrop",
             "nextPageId": "p06_quiet_tree"
           }
-        ]
+        ],
+        "play": {
+          "prompt": "Search the dark bank.",
+          "actions": [
+            {
+              "label": "Lift the lantern",
+              "reveal": "One gold speck, then another. They shine along the dry channel.",
+              "icon": "move",
+              "target": [
+                77,
+                68
+              ]
+            },
+            {
+              "label": "Listen by the roots",
+              "reveal": "There is a little hollow under the roots. Dewdrop can listen there.",
+              "icon": "listen",
+              "target": [
+                85,
+                55
+              ]
+            }
+          ]
+        }
       },
       {
         "id": "p06_moth_path",
@@ -1522,7 +1762,30 @@ export const storyQuests = [
             "label": "Next",
             "nextPageId": "p08_team_pull"
           }
-        ]
+        ],
+        "play": {
+          "prompt": "See what stops the stream.",
+          "actions": [
+            {
+              "label": "Look upstream",
+              "reveal": "Water piles up on this side. The slab blocks its way.",
+              "icon": "look",
+              "target": [
+                18,
+                46
+              ]
+            },
+            {
+              "label": "Search under the edge",
+              "reveal": "A small stone sticks out below the big slab. That one might move.",
+              "icon": "look",
+              "target": [
+                72,
+                73
+              ]
+            }
+          ]
+        }
       },
       {
         "id": "p08_team_pull",
@@ -1623,7 +1886,30 @@ export const storyQuests = [
             "label": "Open the quiet bend",
             "nextPageId": "p09_glow_chooses"
           }
-        ]
+        ],
+        "play": {
+          "prompt": "Try the glow's two spots.",
+          "actions": [
+            {
+              "label": "Test the moss",
+              "reveal": "Moss feels soft like a sponge. It could catch those noisy drops.",
+              "icon": "touch",
+              "target": [
+                81,
+                71
+              ]
+            },
+            {
+              "label": "Listen at the bend",
+              "reveal": "The bend is so still. A leaf hangs over it like a roof.",
+              "icon": "listen",
+              "target": [
+                11,
+                58
+              ]
+            }
+          ]
+        }
       },
       {
         "id": "p10_gentle_ending",
@@ -1655,7 +1941,8 @@ export const storyQuests = [
             "nextPageId": "end"
           }
         ],
-        "replayPrompt": "Try the other quiet home."
+        "replayPrompt": "Where else could the glow make a home?",
+        "endingTitle": "The Soft Splash"
       },
       {
         "id": "p09_glow_chooses",
@@ -1686,7 +1973,8 @@ export const storyQuests = [
             "nextPageId": "end"
           }
         ],
-        "replayPrompt": "Try the other quiet home."
+        "replayPrompt": "Could you quiet the waterfall itself?",
+        "endingTitle": "A Leaf Overhead"
       }
     ],
     "shortTitle": "The Hidden Glow",
@@ -1810,10 +2098,10 @@ export const storyQuests = [
       {
         "id": "p03_save_berries",
         "imageUrl": "/images/story-quests/dino-pals/chompy-lunch-hunt/p03_save_berries.webp?v=1e0019c12800",
-        "audioUrl": "/audio/production/en-US/story_page/chompy-fills-a-leaf-basket-now-for-some-picnic-friends-237fe842fe.mp3",
+        "audioUrl": "/audio/production/en-US/story_page/chompy-fills-a-leaf-basket-who-wants-a-picnic-he-calls-458aab7d0a.mp3",
         "text": [
           "Chompy fills a leaf basket.",
-          "Now for some picnic friends!"
+          "\"Who wants a picnic?\" he calls."
         ],
         "choices": [
           {
@@ -1833,7 +2121,30 @@ export const storyQuests = [
           "leaf",
           "basket",
           "picnic"
-        ]
+        ],
+        "play": {
+          "prompt": "Who might eat with Chompy?",
+          "actions": [
+            {
+              "label": "Pick a berry",
+              "reveal": "This purple berry is ripe. Will Grumpy want a taste?",
+              "icon": "touch",
+              "target": [
+                52,
+                56
+              ]
+            },
+            {
+              "label": "Check the basket",
+              "reveal": "It is full of berries. Sunny might bring a different fruit.",
+              "icon": "look",
+              "target": [
+                62,
+                85
+              ]
+            }
+          ]
+        }
       },
       {
         "id": "p04_grumpy_berries",
@@ -1861,18 +2172,22 @@ export const storyQuests = [
       {
         "id": "p05_grumpy_tiny_smile",
         "imageUrl": "/images/story-quests/dino-pals/chompy-lunch-hunt/p05_grumpy_tiny_smile.webp?v=86d25b98427d",
-        "audioUrl": "/audio/production/en-US/story_page/no-berries-for-me-says-grumpy-i-like-melon-and-leaves-e7fc18c835.mp3",
+        "audioUrl": "/audio/production/en-US/story_page/no-berries-for-me-says-grumpy-i-want-melon-and-lots-of-leaves-0aa1e2e6ba.mp3",
         "text": [
           "“No berries for me,” says Grumpy.",
-          "“I like melon and leaves.”"
+          "“I want melon. And lots of leaves!”"
         ],
         "choices": [
           {
-            "label": "Next",
+            "label": "Wait for leaves",
             "nextPageId": "p06_grumpy_full"
+          },
+          {
+            "label": "Find Sunny's melon",
+            "nextPageId": "p04_sunny_shares"
           }
         ],
-        "choicePrompt": "",
+        "choicePrompt": "How can Chompy help with lunch?",
         "imageAlt": "Grumpy turns from the berry and points towards broad edible leaves beside the path.",
         "narrationNeedsRebuild": false,
         "skillTags": [
@@ -1955,7 +2270,30 @@ export const storyQuests = [
           "grumpy",
           "melon",
           "leaves"
-        ]
+        ],
+        "play": {
+          "prompt": "Help set out lunch.",
+          "actions": [
+            {
+              "label": "Set out melon",
+              "reveal": "Grumpy can have a slice all to himself.",
+              "icon": "help",
+              "target": [
+                49,
+                67
+              ]
+            },
+            {
+              "label": "Make a leaf plate",
+              "reveal": "A broad leaf can hold a little of each food.",
+              "icon": "help",
+              "target": [
+                63,
+                68
+              ]
+            }
+          ]
+        }
       },
       {
         "id": "p06_everyone_eats",
@@ -2007,7 +2345,8 @@ export const storyQuests = [
           "grumpy",
           "melon"
         ],
-        "replayPrompt": "Who will Chompy visit next time?"
+        "replayPrompt": "What if you take the berries straight to Sunny?",
+        "endingTitle": "Grumpy's Melon Slice"
       },
       {
         "id": "p04_sunny_shares",
@@ -2082,7 +2421,30 @@ export const storyQuests = [
           "bouncy",
           "berries",
           "basket"
-        ]
+        ],
+        "play": {
+          "prompt": "Berries on the loose!",
+          "actions": [
+            {
+              "label": "Follow a berry",
+              "reveal": "It rolls right off the rock. Now it needs a wash!",
+              "icon": "move",
+              "target": [
+                66,
+                81
+              ]
+            },
+            {
+              "label": "Signal to Bouncy",
+              "reveal": "Both springs are still. Now Bouncy can help pick up berries.",
+              "icon": "help",
+              "target": [
+                84,
+                70
+              ]
+            }
+          ]
+        }
       },
       {
         "id": "p08_berry_mess_ending",
@@ -2188,7 +2550,8 @@ export const storyQuests = [
           "rock",
           "four"
         ],
-        "replayPrompt": "Who will Chompy visit next time?"
+        "replayPrompt": "Can you set the table with Grumpy?",
+        "endingTitle": "The Berries Bounce Back"
       }
     ],
     "shortTitle": "Chompy’s Picnic",
@@ -2284,7 +2647,30 @@ export const storyQuests = [
           "dozy",
           "rain",
           "dry"
-        ]
+        ],
+        "play": {
+          "prompt": "Help Sunny find a dry spot.",
+          "actions": [
+            {
+              "label": "Check the pillow",
+              "reveal": "Dozy holds it close, but it is soaked.",
+              "icon": "look",
+              "target": [
+                73,
+                70
+              ]
+            },
+            {
+              "label": "Watch the rain",
+              "reveal": "It runs right down Grumpy's back. He needs a roof.",
+              "icon": "look",
+              "target": [
+                55,
+                35
+              ]
+            }
+          ]
+        }
       },
       {
         "id": "p02_grumpy",
@@ -2341,11 +2727,15 @@ export const storyQuests = [
         ],
         "choices": [
           {
-            "label": "Next",
+            "label": "Wring out the pillow",
+            "nextPageId": "p03_cozy_cave"
+          },
+          {
+            "label": "Huddle in the cave",
             "nextPageId": "p04_cave_grumpy"
           }
         ],
-        "choicePrompt": "",
+        "choicePrompt": "How can Sunny get them dry?",
         "imageAlt": "Sunny, Grumpy and Dozy look at a broad leaf on the wet ground; it is too small to cover all three.",
         "narrationNeedsRebuild": false,
         "skillTags": [
@@ -2400,10 +2790,10 @@ export const storyQuests = [
       {
         "id": "p04_cave_grumpy",
         "imageUrl": "/images/story-quests/dino-pals/sunny-rainy-rescue/p04_cave_grumpy.webp?v=c602c19e19ee",
-        "audioUrl": "/audio/production/en-US/story_page/all-three-friends-huddle-in-cozy-cave-drip-rain-falls-through-a-crack-965d1009a7.mp3",
+        "audioUrl": "/audio/production/en-US/story_page/three-friends-huddle-in-cozy-cave-drip-a-roof-crack-leaks-onto-dozy-s-pi-3c217fb2b8.mp3",
         "text": [
-          "All three friends huddle in Cozy Cave.",
-          "Drip! Rain falls through a crack."
+          "Three friends huddle in Cozy Cave.",
+          "Drip! A roof crack leaks onto Dozy's pillow."
         ],
         "choices": [
           {
@@ -2418,7 +2808,30 @@ export const storyQuests = [
           "rain",
           "cave",
           "drip"
-        ]
+        ],
+        "play": {
+          "prompt": "Find the leak.",
+          "actions": [
+            {
+              "label": "Track a drop",
+              "reveal": "Drip! It falls through a crack in the roof.",
+              "icon": "look",
+              "target": [
+                52,
+                26
+              ]
+            },
+            {
+              "label": "Check the cave mouth",
+              "reveal": "The rain stays outside the cave. The water here comes from above.",
+              "icon": "look",
+              "target": [
+                19,
+                36
+              ]
+            }
+          ]
+        }
       },
       {
         "id": "p05_leaf_roof",
@@ -2514,7 +2927,30 @@ export const storyQuests = [
           "pillow",
           "cave",
           "sun"
-        ]
+        ],
+        "play": {
+          "prompt": "See what the rain leaves.",
+          "actions": [
+            {
+              "label": "Pat the pillow",
+              "reveal": "It is dry at last. Dozy can have his nap.",
+              "icon": "touch",
+              "target": [
+                50,
+                76
+              ]
+            },
+            {
+              "label": "Look outside",
+              "reveal": "There is water outside for a little leaf boat.",
+              "icon": "look",
+              "target": [
+                17,
+                53
+              ]
+            }
+          ]
+        }
       },
       {
         "id": "p08_quiet_ending",
@@ -2544,7 +2980,8 @@ export const storyQuests = [
           "dry",
           "pillow"
         ],
-        "replayPrompt": "Will you try the other shelter?"
+        "replayPrompt": "What can Sunny do with a leaf outside?",
+        "endingTitle": "Three in the Dry"
       },
       {
         "id": "p07_leaf_boat",
@@ -2595,12 +3032,13 @@ export const storyQuests = [
         "skillTags": [
           "boat"
         ],
-        "replayPrompt": "Will you try the other shelter?"
+        "replayPrompt": "Stay inside for a quiet nap next time.",
+        "endingTitle": "A Boat for Grumpy"
       }
     ],
     "shortTitle": "Sunny’s Rainy Rescue",
     "childSynopsis": "Help Sunny find shelter from the rain.",
-    "hook": "A wet pillow, a leaky cave—and a leafy idea.",
+    "hook": "Dozy's pillow is getting soaked. Can Sunny find a dry place?",
     "contentRevision": "2026-09-29-story-quests-v2"
   },
   {
@@ -2676,10 +3114,10 @@ export const storyQuests = [
       {
         "id": "p01_start",
         "imageUrl": "/images/story-quests/dino-pals/grumpy-almost-good-day/p01_start.webp?v=78236df4b425",
-        "audioUrl": "/audio/production/en-US/story_page/grumpy-wants-a-cool-quiet-nap-a-hard-twig-pokes-his-side-5fc45b54c6.mp3",
+        "audioUrl": "/audio/production/en-US/story_page/grumpy-tries-for-a-quiet-nap-poke-a-twig-jabs-his-side-3e72ae0157.mp3",
         "text": [
-          "Grumpy wants a cool, quiet nap.",
-          "A hard twig pokes his side."
+          "Grumpy tries for a quiet nap.",
+          "Poke! A twig jabs his side."
         ],
         "choices": [
           {
@@ -2699,7 +3137,30 @@ export const storyQuests = [
           "nap",
           "twig",
           "quiet"
-        ]
+        ],
+        "play": {
+          "prompt": "Check Grumpy's nap spot.",
+          "actions": [
+            {
+              "label": "Test the shade",
+              "reveal": "The bush makes a cool spot for a nap.",
+              "icon": "look",
+              "target": [
+                72,
+                71
+              ]
+            },
+            {
+              "label": "Touch the twig",
+              "reveal": "Poke! That hard tip is right at Grumpy's side.",
+              "icon": "touch",
+              "target": [
+                31,
+                69
+              ]
+            }
+          ]
+        }
       },
       {
         "id": "p02_bush",
@@ -2771,7 +3232,30 @@ export const storyQuests = [
           "sunny",
           "twig",
           "path"
-        ]
+        ],
+        "play": {
+          "prompt": "Help Grumpy make a plan.",
+          "actions": [
+            {
+              "label": "Check the root",
+              "reveal": "The root holds one end of the twig down.",
+              "icon": "look",
+              "target": [
+                14,
+                65
+              ]
+            },
+            {
+              "label": "Show Sunny the twig",
+              "reveal": "Sunny can hold one end. Grumpy can slide out the other.",
+              "icon": "help",
+              "target": [
+                30,
+                72
+              ]
+            }
+          ]
+        }
       },
       {
         "id": "p05_sunny_helps",
@@ -2823,7 +3307,8 @@ export const storyQuests = [
           "shade",
           "path"
         ],
-        "replayPrompt": "Where else could Grumpy find a nap?"
+        "replayPrompt": "Can Grumpy find a quiet spot by the stream?",
+        "endingTitle": "No More Pokes"
       },
       {
         "id": "p07_one_thing_done",
@@ -2873,7 +3358,8 @@ export const storyQuests = [
           "sunny",
           "path"
         ],
-        "replayPrompt": "Where else could Grumpy find a nap?"
+        "replayPrompt": "Can Sunny and Grumpy shift the twig together?",
+        "endingTitle": "A Moss Bed"
       },
       {
         "id": "p02_stream",
@@ -2925,7 +3411,30 @@ export const storyQuests = [
         "skillTags": [
           "chompy",
           "stream"
-        ]
+        ],
+        "play": {
+          "prompt": "Grumpy has two ideas.",
+          "actions": [
+            {
+              "label": "Hear the stream",
+              "reveal": "Splash, splash. This spot might be too loud to nap.",
+              "icon": "listen",
+              "target": [
+                40,
+                72
+              ]
+            },
+            {
+              "label": "Test a tail swish",
+              "reveal": "A club tail can send up a big splash.",
+              "icon": "move",
+              "target": [
+                80,
+                55
+              ]
+            }
+          ]
+        }
       },
       {
         "id": "p04_ignore_chompy",
@@ -2998,7 +3507,8 @@ export const storyQuests = [
           "chompy",
           "fish"
         ],
-        "replayPrompt": "Where else could Grumpy find a nap?"
+        "replayPrompt": "What if Grumpy tries one splash with Chompy?",
+        "endingTitle": "Fish Watch"
       },
       {
         "id": "p04_splash_chompy",
@@ -3090,7 +3600,8 @@ export const storyQuests = [
         "skillTags": [
           "grumpy"
         ],
-        "replayPrompt": "Where else could Grumpy find a nap?"
+        "replayPrompt": "What if Grumpy asks Chompy for quiet?",
+        "endingTitle": "Snooze in the Sun"
       },
       {
         "id": "p03_stones_fall",
@@ -3189,7 +3700,8 @@ export const storyQuests = [
           "fancy",
           "stone"
         ],
-        "replayPrompt": "Where else could Grumpy find a nap?"
+        "replayPrompt": "Where can Grumpy nap near the berry bush?",
+        "endingTitle": "The Stone Tower Stands"
       }
     ],
     "shortTitle": "Grumpy Needs a Nap",
@@ -3337,7 +3849,30 @@ export const storyQuests = [
           "bouncy",
           "chompy",
           "basket"
-        ]
+        ],
+        "play": {
+          "prompt": "Get ready for berry rain.",
+          "actions": [
+            {
+              "label": "Aim the basket",
+              "reveal": "Chompy holds it right below the berries.",
+              "icon": "help",
+              "target": [
+                38,
+                67
+              ]
+            },
+            {
+              "label": "Press a spring",
+              "reveal": "Boing! A little push makes a little hop.",
+              "icon": "touch",
+              "target": [
+                73,
+                79
+              ]
+            }
+          ]
+        }
       },
       {
         "id": "p04_big_bounce",
@@ -3390,9 +3925,9 @@ export const storyQuests = [
       {
         "id": "p05_legs_give_up",
         "imageUrl": "/images/story-quests/dino-pals/bouncy-big-bounce/p05_legs_give_up.webp?v=e4b7979b5ca2",
-        "audioUrl": "/audio/production/en-US/story_page/bouncy-s-springs-fold-into-the-ferns-chompy-sits-beside-him-cfb7cb26c3.mp3",
+        "audioUrl": "/audio/production/en-US/story_page/boing-flop-bouncy-lands-in-the-ferns-chompy-sits-beside-him-1a7c73465a.mp3",
         "text": [
-          "Bouncy’s springs fold into the ferns.",
+          "Boing! Flop! Bouncy lands in the ferns.",
           "Chompy sits beside him."
         ],
         "choices": [
@@ -3406,7 +3941,30 @@ export const storyQuests = [
         "narrationNeedsRebuild": false,
         "skillTags": [
           "chompy"
-        ]
+        ],
+        "play": {
+          "prompt": "See where Bouncy lands.",
+          "actions": [
+            {
+              "label": "Feel the ferns",
+              "reveal": "The soft ferns make a good place to sit.",
+              "icon": "touch",
+              "target": [
+                33,
+                81
+              ]
+            },
+            {
+              "label": "Spot a berry",
+              "reveal": "Berries lie on the ground. Chompy can help pick them up.",
+              "icon": "look",
+              "target": [
+                56,
+                87
+              ]
+            }
+          ]
+        }
       },
       {
         "id": "p06_everyone_sticky",
@@ -3482,7 +4040,8 @@ export const storyQuests = [
           "berry",
           "bounces"
         ],
-        "replayPrompt": "What will a different bounce change?"
+        "replayPrompt": "Can small bounces keep the berries in the basket?",
+        "endingTitle": "The Chin Bounce"
       },
       {
         "id": "p04_careful_bounce",
@@ -3578,7 +4137,30 @@ export const storyQuests = [
         "skillTags": [
           "dozy",
           "pebble"
-        ]
+        ],
+        "play": {
+          "prompt": "Tiptoe past Dozy.",
+          "actions": [
+            {
+              "label": "Check the sides",
+              "reveal": "There is room for one foot past the pebble.",
+              "icon": "look",
+              "target": [
+                55,
+                72
+              ]
+            },
+            {
+              "label": "Listen near Dozy",
+              "reveal": "A soft snore. Dozy is fast asleep.",
+              "icon": "listen",
+              "target": [
+                69,
+                44
+              ]
+            }
+          ]
+        }
       },
       {
         "id": "p04_quiet_exit",
@@ -3629,7 +4211,8 @@ export const storyQuests = [
           "berries",
           "rock"
         ],
-        "replayPrompt": "What will a different bounce change?"
+        "replayPrompt": "What if Bouncy hops over the pebble?",
+        "endingTitle": "The Quiet Picnic"
       },
       {
         "id": "p04_pebble_trip",
@@ -3727,7 +4310,8 @@ export const storyQuests = [
           "dozy",
           "berries"
         ],
-        "replayPrompt": "What will a different bounce change?"
+        "replayPrompt": "Can Bouncy pass Dozy without a sound?",
+        "endingTitle": "Room for Dozy"
       }
     ],
     "shortTitle": "Bouncy and the Berries",
@@ -3815,7 +4399,30 @@ export const storyQuests = [
           "snail",
           "sand",
           "shade"
-        ]
+        ],
+        "play": {
+          "prompt": "Think like a tiny snail.",
+          "actions": [
+            {
+              "label": "Test the sand",
+              "reveal": "The sand is hot in the sun. This is a long way for one snail.",
+              "icon": "touch",
+              "target": [
+                57,
+                82
+              ]
+            },
+            {
+              "label": "Find the shade",
+              "reveal": "The trees make a dark, cool spot ahead.",
+              "icon": "look",
+              "target": [
+                75,
+                65
+              ]
+            }
+          ]
+        }
       },
       {
         "id": "p02_leaf_failure",
@@ -3915,7 +4522,30 @@ export const storyQuests = [
         "skillTags": [
           "shy",
           "snail"
-        ]
+        ],
+        "play": {
+          "prompt": "Keep the bark path going.",
+          "actions": [
+            {
+              "label": "Find the empty piece",
+              "reveal": "The snail is off the back piece. Shy can move it now.",
+              "icon": "look",
+              "target": [
+                55,
+                71
+              ]
+            },
+            {
+              "label": "Point to the front",
+              "reveal": "Right here! Put a piece ahead so the snail can go on.",
+              "icon": "help",
+              "target": [
+                83,
+                71
+              ]
+            }
+          ]
+        }
       },
       {
         "id": "p05_bark",
@@ -3965,7 +4595,8 @@ export const storyQuests = [
           "log",
           "trail"
         ],
-        "replayPrompt": "Will bark or moss help next time?"
+        "replayPrompt": "Where would a moss path take the snail?",
+        "endingTitle": "The Silver Trail"
       },
       {
         "id": "p03_moss",
@@ -4013,7 +4644,30 @@ export const storyQuests = [
           "snail",
           "gap",
           "feelers"
-        ]
+        ],
+        "play": {
+          "prompt": "Why does the snail stop?",
+          "actions": [
+            {
+              "label": "Check the gap",
+              "reveal": "Hot sand shows here. The moss does not reach.",
+              "icon": "look",
+              "target": [
+                67,
+                76
+              ]
+            },
+            {
+              "label": "Watch the feelers",
+              "reveal": "In they go! The snail stops at the edge of the moss.",
+              "icon": "wait",
+              "target": [
+                62,
+                71
+              ]
+            }
+          ]
+        }
       },
       {
         "id": "p04_moss_strip",
@@ -4090,7 +4744,8 @@ export const storyQuests = [
           "snail",
           "fern"
         ],
-        "replayPrompt": "Will bark or moss help next time?"
+        "replayPrompt": "What shelter can you find with bark?",
+        "endingTitle": "One Little Feeler"
       }
     ],
     "shortTitle": "Shy’s Snail Trail",
@@ -4219,7 +4874,30 @@ export const storyQuests = [
             "nextPageId": "page-04"
           }
         ],
-        "imageAlt": "Pam holds the yellow bag beside Sam, who holds the open map near the van."
+        "imageAlt": "Pam holds the yellow bag beside Sam, who holds the open map near the van.",
+        "play": {
+          "prompt": "Help Sam and Pam pack.",
+          "actions": [
+            {
+              "label": "Check the map",
+              "reveal": "Sam can use the map to find the way.",
+              "icon": "look",
+              "target": [
+                45,
+                60
+              ]
+            },
+            {
+              "label": "Check the bag",
+              "reveal": "Pam has room in the bag for a snack.",
+              "icon": "help",
+              "target": [
+                61,
+                67
+              ]
+            }
+          ]
+        }
       },
       {
         "id": "page-04",
@@ -4265,7 +4943,30 @@ export const storyQuests = [
             "nextPageId": "page-06"
           }
         ],
-        "imageAlt": "The ginger cat sits across the open map on the red mat while Sam and Pam look at the covered route."
+        "imageAlt": "The ginger cat sits across the open map on the red mat while Sam and Pam look at the covered route.",
+        "play": {
+          "prompt": "That cat is in the way!",
+          "actions": [
+            {
+              "label": "Peek at the map",
+              "reveal": "The cat covers the middle of the map!",
+              "icon": "look",
+              "target": [
+                48,
+                72
+              ]
+            },
+            {
+              "label": "Find a clear spot",
+              "reveal": "There is room for the cat on the red mat.",
+              "icon": "touch",
+              "target": [
+                65,
+                77
+              ]
+            }
+          ]
+        }
       },
       {
         "id": "page-03",
@@ -4339,7 +5040,30 @@ export const storyQuests = [
             "nextPageId": "page-09"
           }
         ],
-        "imageAlt": "Sam lifts the uncovered map while Pam takes the yellow bag beside the van; the cat is on the mat away from the paper."
+        "imageAlt": "Sam lifts the uncovered map while Pam takes the yellow bag beside the van; the cat is on the mat away from the paper.",
+        "play": {
+          "prompt": "Look at the two nap spots.",
+          "actions": [
+            {
+              "label": "Point to the van",
+              "reveal": "Dad is ready. The cat can nap on the way.",
+              "icon": "look",
+              "target": [
+                24,
+                44
+              ]
+            },
+            {
+              "label": "Point to the mat",
+              "reveal": "The cat has a soft spot right here.",
+              "icon": "touch",
+              "target": [
+                61,
+                79
+              ]
+            }
+          ]
+        }
       },
       {
         "id": "page-10",
@@ -4349,7 +5073,7 @@ export const storyQuests = [
         "imageUrl": "/images/story-quests/sam-pam/page-10.webp?v=39534a748314",
         "audioUrl": "/audio/production/en-US/story_page/the-cat-can-nap-in-the-van-ae0877ef0f.mp3",
         "narrationNeedsRebuild": false,
-        "choicePrompt": "Pat or tap next time?",
+        "choicePrompt": "Could the cat nap at home?",
         "skillTags": [
           "cat",
           "can",
@@ -4367,7 +5091,8 @@ export const storyQuests = [
           }
         ],
         "imageAlt": "The ginger cat rests in its carrier between the belted children in the van, with the yellow bag secured below and Dad driving.",
-        "replayPrompt": "Pat or tap next time?"
+        "replayPrompt": "Could the cat nap at home?",
+        "endingTitle": "A nap on wheels"
       },
       {
         "id": "page-09",
@@ -4377,7 +5102,7 @@ export const storyQuests = [
         "imageUrl": "/images/story-quests/sam-pam/page-09.webp?v=29e32d4963f4",
         "audioUrl": "/audio/production/en-US/story_page/the-cat-can-nap-on-the-mat-6b0ffa3ccc.mp3",
         "narrationNeedsRebuild": false,
-        "choicePrompt": "Pat or tap next time?",
+        "choicePrompt": "Can the cat nap in the van?",
         "skillTags": [
           "cat",
           "can",
@@ -4395,7 +5120,8 @@ export const storyQuests = [
           }
         ],
         "imageAlt": "The cat curls up on the red mat in the home garden while Sam and Pam sit beside the packed yellow bag and their recovered map.",
-        "replayPrompt": "Pat or tap next time?"
+        "replayPrompt": "Can the cat nap in the van?",
+        "endingTitle": "A nap on the mat"
       }
     ],
     "shortTitle": "Sam and Pam",
@@ -4559,7 +5285,30 @@ export const storyQuests = [
             "nextPageId": "p02_splashy"
           }
         ],
-        "imageAlt": "Clucky reaches after her red hat as the wind blows it between Muddy's mud patch and Splashy's pond."
+        "imageAlt": "Clucky reaches after her red hat as the wind blows it between Muddy's mud patch and Splashy's pond.",
+        "play": {
+          "prompt": "Where can a red hat hide?",
+          "actions": [
+            {
+              "label": "Look at the mud",
+              "reveal": "Soft mud could hide a hat all the way to the brim.",
+              "icon": "look",
+              "target": [
+                21,
+                78
+              ]
+            },
+            {
+              "label": "Look at the pond",
+              "reveal": "A hat could float into those tall reeds.",
+              "icon": "look",
+              "target": [
+                89,
+                74
+              ]
+            }
+          ]
+        }
       },
       {
         "id": "p02_muddy",
@@ -4585,10 +5334,10 @@ export const storyQuests = [
       {
         "id": "p04_stick",
         "text": [
-          "A stick is not the hat."
+          "Not a hat. A stick!"
         ],
         "imageUrl": "/images/story-quests/meadow-pals/muddy-splashy-hat/p04_stick.webp?v=4ef811a6999b",
-        "audioUrl": "/audio/production/en-US/story_page/a-stick-is-not-the-hat-0cc1c15d9e.mp3",
+        "audioUrl": "/audio/production/en-US/story_page/not-a-hat-a-stick-27a57de7d7.mp3",
         "narrationNeedsRebuild": false,
         "choicePrompt": "",
         "skillTags": [
@@ -4728,7 +5477,30 @@ export const storyQuests = [
             "nextPageId": "p07_clucky_muddy_hat"
           }
         ],
-        "imageAlt": "Splashy fans the clean wet hat with spread wings while Muddy watches."
+        "imageAlt": "Splashy fans the clean wet hat with spread wings while Muddy watches.",
+        "play": {
+          "prompt": "Help Splashy dry the hat.",
+          "actions": [
+            {
+              "label": "Watch the brim",
+              "reveal": "Drip, drop. The hat is still wet.",
+              "icon": "look",
+              "target": [
+                54,
+                70
+              ]
+            },
+            {
+              "label": "Flap with Splashy",
+              "reveal": "Flap, flap! Two wings make a fine fan.",
+              "icon": "move",
+              "target": [
+                78,
+                72
+              ]
+            }
+          ]
+        }
       },
       {
         "id": "p07_clucky_muddy_hat",
@@ -4738,13 +5510,13 @@ export const storyQuests = [
         "imageUrl": "/images/story-quests/meadow-pals/muddy-splashy-hat/p07_clucky_muddy_hat.webp?v=f25cea556fcd",
         "audioUrl": "/audio/production/en-US/story_page/clucky-takes-the-dry-hat-00b9592674.mp3",
         "narrationNeedsRebuild": false,
-        "choicePrompt": "What will Clucky do?",
+        "choicePrompt": "Who gets to wear the hat?",
         "skillTags": [
           "hat"
         ],
         "choices": [
           {
-            "label": "Clucky wears it",
+            "label": "Wear the hat",
             "nextPageId": "p09_pond_ending"
           },
           {
@@ -4752,17 +5524,40 @@ export const storyQuests = [
             "nextPageId": "p09_fancy_muddy_ending"
           }
         ],
-        "imageAlt": "Clucky receives the clean dry hat from Muddy and Splashy beside the barn."
+        "imageAlt": "Clucky receives the clean dry hat from Muddy and Splashy beside the barn.",
+        "play": {
+          "prompt": "Look at the hat now.",
+          "actions": [
+            {
+              "label": "Check for drops",
+              "reveal": "No more drops. The hat is ready to wear.",
+              "icon": "look",
+              "target": [
+                40,
+                57
+              ]
+            },
+            {
+              "label": "Check Muddy's ears",
+              "reveal": "That big red brim might cover Muddy's ears!",
+              "icon": "look",
+              "target": [
+                24,
+                43
+              ]
+            }
+          ]
+        }
       },
       {
         "id": "p09_pond_ending",
         "text": [
-          "Clucky wears it. Splashy splashes."
+          "Clucky wears it. Splashy splashes!"
         ],
         "imageUrl": "/images/story-quests/meadow-pals/muddy-splashy-hat/p09_pond_ending.webp?v=cec401ebdd46",
         "audioUrl": "/audio/production/en-US/story_page/clucky-wears-it-splashy-splashes-d0d413b886.mp3",
         "narrationNeedsRebuild": false,
-        "choicePrompt": "Try the other search?",
+        "choicePrompt": "How would the hat look on Muddy?",
         "skillTags": [
           "wears",
           "splashes"
@@ -4778,7 +5573,8 @@ export const storyQuests = [
           }
         ],
         "imageAlt": "Clucky wears her clean red hat while Splashy splashes in the pond and Muddy watches.",
-        "replayPrompt": "Try the other search?"
+        "replayPrompt": "How would the hat look on Muddy?",
+        "endingTitle": "A hat and a splash"
       },
       {
         "id": "p09_fancy_muddy_ending",
@@ -4788,7 +5584,7 @@ export const storyQuests = [
         "imageUrl": "/images/story-quests/meadow-pals/muddy-splashy-hat/p09_fancy_muddy_ending.webp?v=6a0ee2431e1c",
         "audioUrl": "/audio/production/en-US/story_page/clucky-lets-muddy-wear-the-hat-cc5a8d1986.mp3",
         "narrationNeedsRebuild": false,
-        "choicePrompt": "Who wears it next?",
+        "choicePrompt": "What if Clucky wears it?",
         "skillTags": [
           "muddy",
           "hat"
@@ -4804,12 +5600,13 @@ export const storyQuests = [
           }
         ],
         "imageAlt": "Muddy wears the clean hat with Clucky's welcoming wing gesture while Splashy watches.",
-        "replayPrompt": "Who wears it next?"
+        "replayPrompt": "What if Clucky wears it?",
+        "endingTitle": "Muddy tries it on"
       }
     ],
     "shortTitle": "The Missing Hat",
-    "childSynopsis": "Find Clucky’s hat in the mud.",
-    "hook": "A red hat blows away, and two friends find a muddy surprise.",
+    "childSynopsis": "Where did Clucky’s red hat go?",
+    "hook": "Clucky's red hat blows away. Where should Muddy and Splashy look?",
     "contentRevision": "2026-09-29-story-quests-v2"
   },
   {
@@ -4875,10 +5672,10 @@ export const storyQuests = [
       {
         "id": "p04_call_shy",
         "text": [
-          "Cuddly calls. Shy jumps."
+          "Cuddly calls. Shy jumps up!"
         ],
         "imageUrl": "/images/story-quests/meadow-pals/shy-cuddly-quiet/p04_call_shy.webp?v=68f55a305519",
-        "audioUrl": "/audio/production/en-US/story_page/cuddly-calls-shy-jumps-bf06a5f762.mp3",
+        "audioUrl": "/audio/production/en-US/story_page/cuddly-calls-shy-jumps-up-d76db77a25.mp3",
         "narrationNeedsRebuild": false,
         "choicePrompt": "",
         "skillTags": [
@@ -4891,7 +5688,30 @@ export const storyQuests = [
             "nextPageId": "p02_cuddly"
           }
         ],
-        "imageAlt": "Cuddly cups paws around the mouth for a big greeting, and Shy jumps in surprise beside the barn door."
+        "imageAlt": "Cuddly cups paws around the mouth for a big greeting, and Shy jumps in surprise beside the barn door.",
+        "play": {
+          "prompt": "What did that big hello do?",
+          "actions": [
+            {
+              "label": "Watch Shy jump",
+              "reveal": "Both feet leave the ground!",
+              "icon": "look",
+              "target": [
+                31,
+                73
+              ]
+            },
+            {
+              "label": "Listen at the barn",
+              "reveal": "That hello could fill the whole barn!",
+              "icon": "listen",
+              "target": [
+                58,
+                37
+              ]
+            }
+          ]
+        }
       },
       {
         "id": "p02_cuddly",
@@ -4911,7 +5731,30 @@ export const storyQuests = [
             "nextPageId": "p06_go_to_tree"
           }
         ],
-        "imageAlt": "Cuddly lowers both paws and steps away from the barn door, leaving Shy a clear open space."
+        "imageAlt": "Cuddly lowers both paws and steps away from the barn door, leaving Shy a clear open space.",
+        "play": {
+          "prompt": "Give Shy a moment.",
+          "actions": [
+            {
+              "label": "Hold still",
+              "reveal": "Now Shy has room to peek out.",
+              "icon": "wait",
+              "target": [
+                21,
+                61
+              ]
+            },
+            {
+              "label": "Look past Cuddly",
+              "reveal": "The way to the tree is clear. Shy can lead.",
+              "icon": "look",
+              "target": [
+                87,
+                81
+              ]
+            }
+          ]
+        }
       },
       {
         "id": "p06_go_to_tree",
@@ -4936,37 +5779,60 @@ export const storyQuests = [
       {
         "id": "p07_tree_under",
         "text": [
-          "Shy sits. Cuddly waits nearby."
+          "Shy sits and Cuddly waits nearby."
         ],
         "imageUrl": "/images/story-quests/meadow-pals/shy-cuddly-quiet/p07_tree_under.webp?v=8c7e7b498a4b",
-        "audioUrl": "/audio/production/en-US/story_page/shy-sits-cuddly-waits-nearby-3b27fb58d8.mp3",
+        "audioUrl": "/audio/production/en-US/story_page/shy-sits-and-cuddly-waits-nearby-e1b2440aad.mp3",
         "narrationNeedsRebuild": false,
-        "choicePrompt": "How close will Shy sit?",
+        "choicePrompt": "How does Shy say hello?",
         "skillTags": [
           "sits",
           "nearby"
         ],
         "choices": [
           {
-            "label": "Have a hug",
+            "label": "Lean in and hug",
             "nextPageId": "p08_tree_hug"
           },
           {
-            "label": "Leave a little space",
+            "label": "Sit a little apart",
             "nextPageId": "p08_tree_purr"
           }
         ],
-        "imageAlt": "Shy and Cuddly sit on the grass with a clear gap between them."
+        "imageAlt": "Shy and Cuddly sit on the grass with a clear gap between them.",
+        "play": {
+          "prompt": "Let Shy pick a hello.",
+          "actions": [
+            {
+              "label": "Look at Shy",
+              "reveal": "Shy can lean in when a hug feels right.",
+              "icon": "look",
+              "target": [
+                34,
+                65
+              ]
+            },
+            {
+              "label": "Find a spot",
+              "reveal": "They can sit under one tree and still have room.",
+              "icon": "touch",
+              "target": [
+                43,
+                80
+              ]
+            }
+          ]
+        }
       },
       {
         "id": "p08_tree_hug",
         "text": [
-          "Shy and Cuddly hug."
+          "Shy leans in for a hug."
         ],
         "imageUrl": "/images/story-quests/meadow-pals/shy-cuddly-quiet/p08_tree_hug.webp?v=dd7b6ff81f27",
-        "audioUrl": "/audio/production/en-US/story_page/shy-and-cuddly-hug-0a385ef362.mp3",
+        "audioUrl": "/audio/production/en-US/story_page/shy-leans-in-for-a-hug-501e09770a.mp3",
         "narrationNeedsRebuild": false,
-        "choicePrompt": "Try a different hello?",
+        "choicePrompt": "Could they sit a little apart?",
         "skillTags": [
           "hug"
         ],
@@ -4981,7 +5847,8 @@ export const storyQuests = [
           }
         ],
         "imageAlt": "Shy leans willingly into a gentle hug with Cuddly beneath the tree.",
-        "replayPrompt": "Try a different hello?"
+        "replayPrompt": "Could they sit a little apart?",
+        "endingTitle": "A hug from Shy"
       },
       {
         "id": "p08_tree_purr",
@@ -4991,7 +5858,7 @@ export const storyQuests = [
         "imageUrl": "/images/story-quests/meadow-pals/shy-cuddly-quiet/p08_tree_purr.webp?v=016e6ab615b8",
         "audioUrl": "/audio/production/en-US/story_page/shy-rests-cuddly-rests-nearby-4f91372ee9.mp3",
         "narrationNeedsRebuild": false,
-        "choicePrompt": "Try a different hello?",
+        "choicePrompt": "Could Shy lean in for a hug?",
         "skillTags": [
           "rests",
           "nearby"
@@ -5007,7 +5874,8 @@ export const storyQuests = [
           }
         ],
         "imageAlt": "Shy sits comfortably apart from the curled-up Cuddly on the grass, with open space between them.",
-        "replayPrompt": "Try a different hello?"
+        "replayPrompt": "Could Shy lean in for a hug?",
+        "endingTitle": "Room under the tree"
       }
     ],
     "shortTitle": "A Quiet Hello",
@@ -5153,7 +6021,30 @@ export const storyQuests = [
             "nextPageId": "p04_map_caught"
           }
         ],
-        "imageAlt": "Speedy jumps toward the map but misses as it floats above his nose; Bouncy watches from below."
+        "imageAlt": "Speedy jumps toward the map but misses as it floats above his nose; Bouncy watches from below.",
+        "play": {
+          "prompt": "Help them track the flying map.",
+          "actions": [
+            {
+              "label": "Look up",
+              "reveal": "It's getting high. Bouncy has a big spring jump.",
+              "icon": "look",
+              "target": [
+                68,
+                29
+              ]
+            },
+            {
+              "label": "Follow the wind",
+              "reveal": "The map blows along the path. Speedy can run ahead.",
+              "icon": "move",
+              "target": [
+                82,
+                72
+              ]
+            }
+          ]
+        }
       },
       {
         "id": "p02_bouncy",
@@ -5215,15 +6106,38 @@ export const storyQuests = [
             "nextPageId": "p03_barn"
           }
         ],
-        "imageAlt": "Bouncy and Speedy spread the recovered map flat on the path and examine the dotted route together."
+        "imageAlt": "Bouncy and Speedy spread the recovered map flat on the path and examine the dotted route together.",
+        "play": {
+          "prompt": "Read the map together.",
+          "actions": [
+            {
+              "label": "Hold a corner",
+              "reveal": "Two friends can keep one map flat.",
+              "icon": "touch",
+              "target": [
+                33,
+                83
+              ]
+            },
+            {
+              "label": "Trace the dots",
+              "reveal": "The dots go from the red barn to the tree.",
+              "icon": "move",
+              "target": [
+                46,
+                76
+              ]
+            }
+          ]
+        }
       },
       {
         "id": "p03_barn",
         "text": [
-          "The path goes past the barn."
+          "They walk past the barn."
         ],
         "imageUrl": "/images/story-quests/meadow-pals/bouncy-speedy-map/p03_barn.webp?v=72568f4cb649",
-        "audioUrl": "/audio/production/en-US/story_page/the-path-goes-past-the-barn-99850b3ab9.mp3",
+        "audioUrl": "/audio/production/en-US/story_page/they-walk-past-the-barn-d978cf5df1.mp3",
         "narrationNeedsRebuild": false,
         "choicePrompt": "",
         "skillTags": [
@@ -5245,13 +6159,13 @@ export const storyQuests = [
         "imageUrl": "/images/story-quests/meadow-pals/bouncy-speedy-map/p05_big_tree.webp?v=88d557ba422d",
         "audioUrl": "/audio/production/en-US/story_page/tiny-waves-from-the-big-tree-60041fdaa3.mp3",
         "narrationNeedsRebuild": false,
-        "choicePrompt": "What will they do now?",
+        "choicePrompt": "Stay with Tiny or head home?",
         "skillTags": [
           "tree"
         ],
         "choices": [
           {
-            "label": "Share the berries",
+            "label": "Stop for berries",
             "nextPageId": "p09_tiny_snack_ending"
           },
           {
@@ -5259,17 +6173,40 @@ export const storyQuests = [
             "nextPageId": "p09_home_ending"
           }
         ],
-        "imageAlt": "Tiny waves beneath the oak beside a small bowl of red berries as Bouncy and Speedy arrive with the map."
+        "imageAlt": "Tiny waves beneath the oak beside a small bowl of red berries as Bouncy and Speedy arrive with the map.",
+        "play": {
+          "prompt": "Tiny is here at last!",
+          "actions": [
+            {
+              "label": "Wave to Tiny",
+              "reveal": "Tiny waves back. There's a bowl of red berries!",
+              "icon": "move",
+              "target": [
+                75,
+                81
+              ]
+            },
+            {
+              "label": "Trace the way back",
+              "reveal": "The map can show the way back to the barn.",
+              "icon": "touch",
+              "target": [
+                29,
+                64
+              ]
+            }
+          ]
+        }
       },
       {
         "id": "p09_tiny_snack_ending",
         "text": [
-          "Tiny shares the red berries."
+          "Tiny shares red berries with them."
         ],
         "imageUrl": "/images/story-quests/meadow-pals/bouncy-speedy-map/p09_tiny_snack_ending.webp?v=c05def4849c0",
-        "audioUrl": "/audio/production/en-US/story_page/tiny-shares-the-red-berries-0289a6be39.mp3",
+        "audioUrl": "/audio/production/en-US/story_page/tiny-shares-red-berries-with-them-3e267ba477.mp3",
         "narrationNeedsRebuild": false,
-        "choicePrompt": "Catch the map another way?",
+        "choicePrompt": "What if they take the map home?",
         "skillTags": [
           "berries"
         ],
@@ -5284,7 +6221,8 @@ export const storyQuests = [
           }
         ],
         "imageAlt": "Tiny offers the red berries to Bouncy and Speedy under the oak, with the recovered map open beside them.",
-        "replayPrompt": "Catch the map another way?"
+        "replayPrompt": "What if they take the map home?",
+        "endingTitle": "Berries at the big tree"
       },
       {
         "id": "p09_home_ending",
@@ -5294,7 +6232,7 @@ export const storyQuests = [
         "imageUrl": "/images/story-quests/meadow-pals/bouncy-speedy-map/p09_home_ending.webp?v=b64dd25db26d",
         "audioUrl": "/audio/production/en-US/story_page/the-map-leads-them-home-e4bc0ba3c3.mp3",
         "narrationNeedsRebuild": false,
-        "choicePrompt": "Catch the map another way?",
+        "choicePrompt": "What if they stop for berries?",
         "skillTags": [
           "map",
           "home"
@@ -5310,7 +6248,8 @@ export const storyQuests = [
           }
         ],
         "imageAlt": "Bouncy and Speedy arrive back at the same barn gate using their recovered map.",
-        "replayPrompt": "Catch the map another way?"
+        "replayPrompt": "What if they stop for berries?",
+        "endingTitle": "Home with the map"
       }
     ],
     "shortTitle": "The Flying Map",
@@ -5371,10 +6310,10 @@ export const storyQuests = [
       {
         "id": "p01_start",
         "text": [
-          "The hat blows off Clucky."
+          "Off goes the red hat!"
         ],
         "imageUrl": "/images/story-quests/meadow-pals/brave-tiny-rescue/p01_start.webp?v=495798c052c4",
-        "audioUrl": "/audio/production/en-US/story_page/the-hat-blows-off-clucky-fd879cf512.mp3",
+        "audioUrl": "/audio/production/en-US/story_page/off-goes-the-red-hat-8611e0f738.mp3",
         "narrationNeedsRebuild": false,
         "choicePrompt": "",
         "skillTags": [
@@ -5427,7 +6366,30 @@ export const storyQuests = [
             "nextPageId": "p04_hat_in_pot"
           }
         ],
-        "imageAlt": "A red thread runs over the flowerpot rim to the red hat inside; Brave and Tiny inspect it."
+        "imageAlt": "A red thread runs over the flowerpot rim to the red hat inside; Brave and Tiny inspect it.",
+        "play": {
+          "prompt": "Follow that red thread.",
+          "actions": [
+            {
+              "label": "Trace the thread",
+              "reveal": "It runs right over the rim of the pot.",
+              "icon": "touch",
+              "target": [
+                37,
+                77
+              ]
+            },
+            {
+              "label": "Peek into the pot",
+              "reveal": "There's the hat. It's all the way down!",
+              "icon": "look",
+              "target": [
+                53,
+                65
+              ]
+            }
+          ]
+        }
       },
       {
         "id": "p04_hat_in_pot",
@@ -5464,7 +6426,7 @@ export const storyQuests = [
         ],
         "choices": [
           {
-            "label": "Tip with Woolly",
+            "label": "Tip the pot",
             "nextPageId": "p06_woolly_helps"
           },
           {
@@ -5472,20 +6434,39 @@ export const storyQuests = [
             "nextPageId": "p06_tiny_helps"
           }
         ],
-        "imageAlt": "Brave is inside the upright flowerpot with the hat at the bottom; Tiny and Woolly look over the rim."
+        "imageAlt": "Brave is inside the upright flowerpot with the hat at the bottom; Tiny and Woolly look over the rim.",
+        "play": {
+          "prompt": "Find a way out for Brave.",
+          "actions": [
+            {
+              "label": "Check the pot",
+              "reveal": "Woolly is big enough to tip the pot.",
+              "icon": "look",
+              "target": [
+                58,
+                71
+              ]
+            },
+            {
+              "label": "Check the rope",
+              "reveal": "Tiny can lower the rope right down to Brave.",
+              "icon": "help"
+            }
+          ]
+        }
       },
       {
         "id": "p06_woolly_helps",
         "text": [
-          "Woolly tips. Brave carries the hat."
+          "Woolly tips it. Brave walks out."
         ],
         "imageUrl": "/images/story-quests/meadow-pals/brave-tiny-rescue/p06_woolly_helps.webp?v=0419409f809d",
-        "audioUrl": "/audio/production/en-US/story_page/woolly-tips-brave-carries-the-hat-9912a0b08c.mp3",
+        "audioUrl": "/audio/production/en-US/story_page/woolly-tips-it-brave-walks-out-2111cc0959.mp3",
         "narrationNeedsRebuild": false,
         "choicePrompt": "",
         "skillTags": [
           "tips",
-          "hat"
+          "pot"
         ],
         "choices": [
           {
@@ -5564,31 +6545,50 @@ export const storyQuests = [
         "imageUrl": "/images/story-quests/meadow-pals/brave-tiny-rescue/p07_clucky_happy.webp?v=0dfd1623f3b5",
         "audioUrl": "/audio/production/en-US/story_page/tiny-gives-clucky-the-hat-e2206d123c.mp3",
         "narrationNeedsRebuild": false,
-        "choicePrompt": "What will Clucky offer?",
+        "choicePrompt": "How will Clucky thank them?",
         "skillTags": [
           "hat"
         ],
         "choices": [
           {
-            "label": "Give two feathers",
+            "label": "Share two feathers",
             "nextPageId": "p09_fancy_brave_ending"
           },
           {
-            "label": "Lend the hat",
+            "label": "Let Brave try it",
             "nextPageId": "p06_hat_on_brave"
           }
         ],
-        "imageAlt": "Tiny gives the red hat back to Clucky, who lowers a wing to receive it while Brave watches."
+        "imageAlt": "Tiny gives the red hat back to Clucky, who lowers a wing to receive it while Brave watches.",
+        "play": {
+          "prompt": "The hat is back with Clucky.",
+          "actions": [
+            {
+              "label": "Think of a gift",
+              "reveal": "Two red feathers would make two little gifts.",
+              "icon": "help"
+            },
+            {
+              "label": "Look at Brave",
+              "reveal": "One big hat. One very small chick.",
+              "icon": "look",
+              "target": [
+                28,
+                65
+              ]
+            }
+          ]
+        }
       },
       {
         "id": "p09_fancy_brave_ending",
         "text": [
-          "Clucky shares two red feathers."
+          "Two red feathers for two friends."
         ],
         "imageUrl": "/images/story-quests/meadow-pals/brave-tiny-rescue/p09_fancy_brave_ending.webp?v=79a54a24a6ef",
-        "audioUrl": "/audio/production/en-US/story_page/clucky-shares-two-red-feathers-c458ecaba6.mp3",
+        "audioUrl": "/audio/production/en-US/story_page/two-red-feathers-for-two-friends-abd866235f.mp3",
         "narrationNeedsRebuild": false,
-        "choicePrompt": "Try the other rescue?",
+        "choicePrompt": "What if Brave tries on the hat?",
         "skillTags": [
           "feathers"
         ],
@@ -5603,7 +6603,8 @@ export const storyQuests = [
           }
         ],
         "imageAlt": "Clucky wears her returned hat and offers one red feather to Brave and one to Tiny.",
-        "replayPrompt": "Try the other rescue?"
+        "replayPrompt": "What if Brave tries on the hat?",
+        "endingTitle": "A pair of feathers"
       },
       {
         "id": "p06_hat_on_brave",
@@ -5613,7 +6614,7 @@ export const storyQuests = [
         "imageUrl": "/images/story-quests/meadow-pals/brave-tiny-rescue/p06_hat_on_brave.webp?v=d627fa12dfeb",
         "audioUrl": "/audio/production/en-US/story_page/clucky-lets-brave-try-the-hat-76a7bf1e74.mp3",
         "narrationNeedsRebuild": false,
-        "choicePrompt": "Try the other rescue?",
+        "choicePrompt": "What if Clucky shares two feathers?",
         "skillTags": [
           "hat"
         ],
@@ -5628,7 +6629,8 @@ export const storyQuests = [
           }
         ],
         "imageAlt": "Brave wears Clucky's oversized hat with permission while Clucky and Tiny enjoy the playful try-on.",
-        "replayPrompt": "Try the other rescue?"
+        "replayPrompt": "What if Clucky shares two feathers?",
+        "endingTitle": "Brave in a big hat"
       }
     ],
     "shortTitle": "The Little Rescue",
