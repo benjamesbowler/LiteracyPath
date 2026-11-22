@@ -1,7 +1,10 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
+import { PGlite } from '@electric-sql/pglite';
 import { fixtureV10 } from '../helpers/literacyMockV10Database.js';
 import { query, teacher, other, classId, studentId, secondStudent, foreignStudent, read } from '../helpers/literacyMockDatabase.js';
+import { createLiteracyMockManifest } from '../../tools/generateLiteracyMockManifest.mjs';
+import { V13_CATALOGUE_MIGRATION } from '../../tools/generateLiteracyMockV13Catalogue.mjs';
 import { literacyMockV13SchemaSql, V13_SCHEMA_MIGRATION } from '../../tools/generateLiteracyMockV13Schema.mjs';
 import { loadLiteracyMockRuntimeBank } from '../../src/data/literacyMockRuntimeBank.js';
 import { selectLiteracyMockPlan, adaptLiteracyMockPlan, sameLiteracyMockPlan, replaceFailedLiteracyMockMedia } from '../../src/utils/literacyMockPlanner.js';
@@ -40,6 +43,44 @@ function queueAnswer(box, item, disk) {
     requestId:`answer-${index}`, expectedRevision:shown.run.revision, plan:null, response:selected(item)
   }, { item, isCorrect:true }, disk);
 }
+
+test('V13 publishes the reviewed picture metadata independently of the frozen V12 record', async () => {
+  const v12 = 'literacy-mock-v12';
+  const id = 'mock.capacity.foundation.cluster-build.short_o.picture.cross';
+  const historicDigest = 'd08a7b6f94713f673f481c12f6925d1324ba480912e2c0e8f81f2e39bd5e8de5';
+  const [previous, current] = await Promise.all([v12, version].map(contentVersion => createLiteracyMockManifest({ contentVersion })));
+  const expected = JSON.parse(JSON.stringify(current.items.find(item => item.id === id)));
+  const currentDigest = expected.itemSnapshot.mediaDecision.reviewedAssets[0].sha256;
+  assert.notEqual(currentDigest, historicDigest);
+
+  const db = await PGlite.create();
+  const item = contentVersion => query(db,
+    'select item value from public.literacy_mock_items where content_version=$1 and id=$2', [contentVersion, id]);
+  try {
+    await db.exec(`create table public.literacy_mock_items (id text, content_version text, item jsonb, primary key(content_version,id));
+      create table public.literacy_mock_publications (content_version text primary key, item_count integer not null);`);
+    for (let i = 0; i < previous.items.length; i += 350) {
+      await db.query(`insert into public.literacy_mock_items
+        select item->>'id', $1, item from jsonb_array_elements($2::jsonb) item`,
+      [v12, JSON.stringify(previous.items.slice(i, i + 350))]);
+    }
+    const migration = read(V13_CATALOGUE_MIGRATION);
+    await db.exec(migration);
+    assert.deepEqual(await item(version), expected);
+
+    // Reproduce the single historical review digest observed on production.
+    await db.query(`update public.literacy_mock_items
+      set item=jsonb_set(item,'{itemSnapshot,mediaDecision,reviewedAssets,0,sha256}',to_jsonb($1::text),false)
+      where content_version=$2 and id=$3`, [historicDigest, v12, id]);
+    const frozen = await item(v12);
+    assert.equal(frozen.itemSnapshot.mediaDecision.reviewedAssets[0].sha256, historicDigest);
+    await db.exec(migration);
+    assert.deepEqual(await item(version), expected);
+    assert.deepEqual(await item(v12), frozen);
+  } finally {
+    await db.close();
+  }
+});
 
 test('V13 availability, balanced offline delivery, teacher receipts and immutable legacy schedules', async t => {
   const db = await fixtureV10({ catalogue:true });

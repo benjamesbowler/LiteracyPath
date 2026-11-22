@@ -7,6 +7,9 @@ export const V13_CATALOGUE_MIGRATION = '20261122090100_literacy_mock_catalogue_v
 const root = new URL('../', import.meta.url);
 const quote = value => `'${JSON.stringify(value).replaceAll("'", "''")}'::jsonb`;
 
+// Production V12 was published before this picture's reviewed bytes changed.
+const REFRESHED_MEDIA_REVIEW_ID = 'mock.capacity.foundation.cluster-build.short_o.picture.cross';
+
 export async function literacyMockV13CatalogueSql() {
   const [previous, manifest] = await Promise.all(['literacy-mock-v12', 'literacy-mock-v13']
     .map(contentVersion => createLiteracyMockManifest({ contentVersion })));
@@ -14,7 +17,7 @@ export async function literacyMockV13CatalogueSql() {
   const inherited = new Set();
   const corrected = manifest.items.filter(item => {
     const old = byId.get(item.id);
-    if (!old || JSON.stringify(item) !== JSON.stringify({ ...old,
+    if (item.id === REFRESHED_MEDIA_REVIEW_ID || !old || JSON.stringify(item) !== JSON.stringify({ ...old,
       itemSnapshot: { ...old.itemSnapshot, contentVersion: manifest.contentVersion } })) return true;
     inherited.add(item.id);
     return false;
