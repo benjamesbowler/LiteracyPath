@@ -1877,7 +1877,7 @@ export function TeacherStudentsPage({
             disabled={!selectedClass || !rosterRead.complete || !groupedStudentRows.length}
             aria-describedby={sessionAudience === "selected_students" ? "roster-session-audience" : undefined}
             onClick={() => onStartStudentSession?.(
-              sessionAudience === "whole_class" ? [] : groupedStudentRows.map(row => row.id),
+              effectiveRosterFilterIds || [],
               { audience: sessionAudience }
             )}
           >

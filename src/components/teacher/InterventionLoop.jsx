@@ -169,11 +169,20 @@ function friendlySupportResult(value) {
   }[value] || value;
 }
 
-function ShortVowelTeachingSequence({ client, studentIds, onUse }) {
+function supportsShortATeachingSequence(focus) {
+  const label = focus.toLowerCase().trim().replace(/[-–]/g, " ").replace(/\s+/g, " ");
+  return /^(?:cvc(?: words)?(?: (?:and )?short vowels)?|short vowels?|blend(?:ing)? (?:three sounds|cvc words|short a words)|short (?:vowel )?[“"'/]?a[”"'/]?(?: words| blending)?)$/.test(label);
+}
+
+function teachingSequenceScope(focus, studentIds) {
+  return JSON.stringify([focus.toLowerCase().trim(), [...studentIds].sort()]);
+}
+
+function ShortVowelTeachingSequence({ client, studentIds, scope, onUse, onPrepare }) {
   const [sequence, setSequence] = useState(null);
   const [status, setStatus] = useState("idle");
   const [confirmedFor, setConfirmedFor] = useState("");
-  const audienceKey = JSON.stringify([...studentIds].sort());
+  const ready = studentIds.length > 0 && confirmedFor === scope;
 
   async function load() {
     setStatus("loading");
@@ -194,18 +203,26 @@ function ShortVowelTeachingSequence({ client, studentIds, onUse }) {
       : status === "loading" && <p role="status">Checking the game and book…</p>}
     {sequence && <>
       <ol>
-        <li>{sequence.game ? `In ${sequence.game.title}, choose the first difficulty. Pause at the -at family and help pupils build cat.` : "The reviewed game round is unavailable."}</li>
+        <li>{sequence.game ? `In ${sequence.game.title}, choose the first difficulty. At the -at family, join c to at and say all three sounds before blending cat.` : "The reviewed game round or picture is unavailable."}</li>
         <li>{sequence.book ? `Read page 1 of ${sequence.book.title} together. The sentence is “${sequence.book.text}”` : "The approved book page could not be verified."}</li>
         <li>{sequence.checkWord ? `Later, show “${sequence.checkWord}” by itself if it is fresh for the pupil. Listen without modelling the answer and record that observation separately.` : "Choose a fresh word after confirming the practice materials."}</li>
       </ol>
-      {sequence.plan && <>
+      {(sequence.game || sequence.book) && <>
         <label>
-          <input type="checkbox" checked={confirmedFor === audienceKey} disabled={!studentIds.length}
-            onChange={event => setConfirmedFor(event.target.checked ? audienceKey : "")} />
-          I have taught through Cycle {sequence.book.afterCycle} with every selected pupil and checked their readiness for the game.
+          <input type="checkbox" checked={ready} disabled={!studentIds.length}
+            onChange={event => setConfirmedFor(event.target.checked ? scope : "")} />
+          {sequence.book
+            ? `I have taught through Cycle ${sequence.book.afterCycle} with every selected pupil and checked their readiness for the practice.`
+            : "I have taught short a and checked every selected pupil’s readiness for the game."}
         </label>
-        <button className="lp-button lp-button-secondary" type="button" disabled={!studentIds.length || confirmedFor !== audienceKey}
-          onClick={() => onUse(sequence.plan)}>Use this teaching sequence</button>
+        <div className="teacher-intervention-form-actions">
+          {onPrepare && sequence.game && <button className="lp-button lp-button-secondary" type="button" disabled={!ready}
+            onClick={() => onPrepare(studentIds, { audience: "selected_students", target: "arcade_game", gameId: sequence.game.id })}>Prepare Blend &amp; Build</button>}
+          {onPrepare && sequence.book && <button className="lp-button lp-button-secondary" type="button" disabled={!ready}
+            onClick={() => onPrepare(studentIds, { audience: "selected_students", target: "assigned_book", bookId: sequence.book.id })}>Prepare book practice</button>}
+          {sequence.plan && <button className="lp-button lp-button-secondary" type="button" disabled={!ready}
+            onClick={() => onUse(sequence.plan)}>Use this teaching sequence</button>}
+        </div>
       </>}
     </>}
   </section>;
@@ -218,7 +235,8 @@ function InterventionPlanner({
   className,
   busy,
   onSave,
-  onCancel
+  onCancel,
+  onPrepareSupportSession
 }) {
   const [draft, setDraft] = useState(() => {
     const initial = emptyDraft(seed);
@@ -228,7 +246,17 @@ function InterventionPlanner({
       studentIds: initial.studentIds.filter(id => availableStudentIds.has(String(id)))
     };
   });
+  const [appliedSequence, setAppliedSequence] = useState(() => {
+    const original = emptyDraft(seed);
+    if (!original.interventionId || !original.activity.startsWith("In Blend & Build, choose the first difficulty.")) return null;
+    return { activity: original.activity, scope: teachingSequenceScope(original.focus, original.studentIds) };
+  });
   const editing = Boolean(draft.interventionId);
+  const eligibleIds = new Set(rows.filter(row => !row.archived_at).map(row => String(row.id)));
+  const validIds = draft.studentIds.filter(id => eligibleIds.has(String(id)));
+  const sequenceAudience = validIds.length === draft.studentIds.length ? validIds : [];
+  const sequenceScope = teachingSequenceScope(draft.focus, sequenceAudience);
+  const sequenceNeedsReview = appliedSequence?.activity === draft.activity && appliedSequence.scope !== sequenceScope;
 
   function toggleStudent(studentId) {
     setDraft(current => ({
@@ -244,7 +272,7 @@ function InterventionPlanner({
       className="teacher-intervention-planner"
       onSubmit={event => {
         event.preventDefault();
-        void onSave(draft);
+        if (!sequenceNeedsReview) void onSave(draft);
       }}
     >
       <div className="teacher-intervention-form-grid">
@@ -318,14 +346,22 @@ function InterventionPlanner({
           onChange={event => setDraft(current => ({ ...current, activity: event.target.value }))}
         />
       </label>
-      {/\b(cvc|short[- ]vowels?|blend(?:ing)? three sounds)\b/i.test(draft.focus) && client && <ShortVowelTeachingSequence client={client}
-        studentIds={draft.studentIds} onUse={activity => setDraft(current => ({ ...current, activity }))} />}
+      {supportsShortATeachingSequence(draft.focus) && client && <ShortVowelTeachingSequence client={client}
+        studentIds={sequenceAudience} scope={sequenceScope} onPrepare={onPrepareSupportSession}
+        onUse={activity => {
+          setAppliedSequence({ activity, scope: sequenceScope });
+          setDraft(current => ({ ...current, activity }));
+        }} />}
+      {sequenceNeedsReview && <p className="teacher-intervention-field-error" role="status">
+        The focus or selected pupils changed. Confirm the short-a sequence again or update the teaching activity.
+      </p>}
       <div className="teacher-intervention-form-actions">
         <button
           className="lp-button lp-button-primary"
           type="submit"
           disabled={
             busy
+            || sequenceNeedsReview
             || !draft.ownerLabel.trim()
             || !draft.groupLabel.trim()
             || !draft.focus.trim()
@@ -358,6 +394,7 @@ export function InterventionLoop({
   recommendation,
   onRecommendationConsumed,
   onTodayQueueChange,
+  onPrepareSupportSession,
   headingRef
 }) {
   const [interventions, setInterventions] = useState([]);
@@ -788,6 +825,7 @@ export function InterventionLoop({
           busy={busyId === (activePlannerSeed.interventionId || "new")}
           onSave={savePlan}
           onCancel={closePlanner}
+          onPrepareSupportSession={onPrepareSupportSession}
         />
       )}
 

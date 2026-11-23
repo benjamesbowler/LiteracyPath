@@ -49,7 +49,7 @@ test("teacher resource subroutes expose main landmarks and a real route back", (
 test("worksheet-bank failures cannot also render the empty-bank claim", () => {
   const worksheet = source("src/components/WorksheetGeneratorPage.jsx");
 
-  assert.match(worksheet, /status:\s*"error"[\s\S]*?describeWorksheetBankLoadError\(error\)/);
+  assert.match(worksheet, /status:\s*"error"\s*,\s*message:\s*describeWorksheetBankError\(error\)/);
   assert.match(worksheet, /<ActionFeedback[\s\S]*?kind:\s*"error"[\s\S]*?actionLabel:\s*"Try again"[\s\S]*?onAction:\s*refreshBank/);
   assert.match(worksheet, /bankReadState\.status === "complete" && bank\.length === 0/);
   assert.match(

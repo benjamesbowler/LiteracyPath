@@ -24,7 +24,7 @@ test("Adventure Map keeps one forward action while enlarging the world on wide s
   assert.match(adventure, /aria-expanded=\{areaId === stop\.id\}/);
   assert.match(adventure, /nativeViewport/);
   assert.equal((adventure.match(/data-child-primary/g) || []).length, 1);
-  assert.match(adventure, /adventureStationContinuation\(stationsForCycle\(cycle\), fresh\.cycles\[cycleId\]\)/);
+  assert.match(adventure, /adventureStationContinuation\(stationsForCycle\(cycle\), fresh\.cycles\[cycle\.id\]\)/);
   assert.match(adventure, /setOpenStationId\([\s\S]*?nextStation\?\.id/);
   assert.match(adventure, /Choose another game here/);
   assert.match(adventure, /className="kg-speaker kg-speaker--md kg-glass"/);

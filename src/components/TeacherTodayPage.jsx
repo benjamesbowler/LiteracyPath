@@ -614,6 +614,8 @@ export function TeacherTodayPage({
   teacherId,
   message,
   onStartStudentSession,
+  onPrepareSupportSession,
+  supportPlannerClient = supabase,
   initialPracticeRequest = null,
   onPracticeRequestConsumed,
   misconceptionAnswersSeed = null,
@@ -1079,7 +1081,7 @@ export function TeacherTodayPage({
           </summary>
           <InterventionLoop
             key={`${teacherId || "teacher"}:${selectedClass.id}`}
-            supabase={supabase}
+            supabase={supportPlannerClient}
             teacherId={teacherId}
             classId={selectedClass.id}
             className={selectedClass.name}
@@ -1087,6 +1089,7 @@ export function TeacherTodayPage({
             recommendation={focusPracticeRecommendation}
             onRecommendationConsumed={() => setFocusPracticeRequest(null)}
             onTodayQueueChange={handleSupportQueueChange}
+            onPrepareSupportSession={onPrepareSupportSession}
             headingRef={supportPlannerHeadingRef}
           />
         </details>

@@ -130,7 +130,7 @@ function AcceptInvite({ schoolName, onAccept, busy, error }) {
   const [displayName, setDisplayName] = useState("");
   const [accepted, setAccepted] = useState(false);
   return <ParentAuthShell>
-    <div className="parent-auth-invite"><Envelope size={21} aria-hidden="true" /><div><strong>Invitation from {schoolName}</strong><span>Your confirmed email matches this invitation.</span></div></div>
+    <div className="parent-auth-invite"><Envelope size={21} aria-hidden="true" /><div><strong>Invitation from {schoolName}</strong><span>Use the email address your school invited.</span></div></div>
     <h1>Accept family access</h1>
     <p>The school will decide which child and which family-ready reports appear in this account.</p>
     <form onSubmit={event => { event.preventDefault(); onAccept(displayName); }}>

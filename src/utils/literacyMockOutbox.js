@@ -2,39 +2,25 @@ import { readAssessmentDraft, writeAssessmentDraft, removeAssessmentDraft } from
 import { literacyMockBoundaryLimits } from '../policy/literacyMockBoundaryPolicy.js';
 import { isLiteracyItemEligible } from '../policy/literacyItemEligibility.js';
 
-export const MOCK_OUTBOX_SCHEMA = 1;
-export const MOCK_OUTBOX_REQUEST_LIMIT = 512;
+import { MOCK_OUTBOX_SCHEMA, MOCK_OUTBOX_REQUEST_LIMIT, mockOutboxKey, readMockOutboxRecord, validMockOutbox } from "./literacyMockFocusCache.js";
+export { MOCK_OUTBOX_SCHEMA, MOCK_OUTBOX_REQUEST_LIMIT, mockOutboxKey, readCachedMockFocus } from "./literacyMockFocusCache.js";
+
 export const MOCK_V5_DELIVERY_REQUEST_LIMIT = 12;
 const clone = value => structuredClone(value);
 const answer = value => ({ questionId:value.questionId, responseStatus:value.responseStatus, selected:value.selected ?? null });
-export const mockOutboxKey = (studentId, sessionId) => `lp-mock-outbox:${studentId}:${sessionId}`;
 const storageFor = storage => storage || globalThis.localStorage;
 const retainedRecords = new WeakMap();
 
-function valid(value, studentId, sessionId) {
-  return value?.schemaVersion === MOCK_OUTBOX_SCHEMA && value.studentId === studentId && value.sessionId === sessionId
-    && value.mock && typeof value.mock === 'object'
-    && value.run?.studentId === studentId && value.run?.assignmentId === sessionId
-    && value.serverRun?.studentId === studentId && value.serverRun?.assignmentId === sessionId
-    && value.run.contentVersion === value.serverRun.contentVersion
-    && Array.isArray(value.requests) && value.requests.length <= MOCK_OUTBOX_REQUEST_LIMIT
-    && Array.isArray(value.run.responses) && Array.isArray(value.serverRun.responses)
-    && value.run.plan?.seed === value.serverRun.plan?.seed;
-}
-
 export function readMockOutbox(studentId, sessionId, storage) {
-  try {
-    const serialized = readAssessmentDraft(mockOutboxKey(studentId,sessionId),studentId,storageFor(storage));
-    const value = JSON.parse(serialized);
-    if (!valid(value,studentId,sessionId)) return null;
-    retainedRecords.set(value, serialized);
-    return value;
-  } catch { return null; }
+  const record = readMockOutboxRecord(studentId, sessionId, storage);
+  if (!record) return null;
+  retainedRecords.set(record.value, record.serialized);
+  return record.value;
 }
 
 /** Verify durable readback before allowing the child to leave the current question. */
 export function writeMockOutbox(value, storage, expected = value) {
-  if (!valid(value,value?.studentId,value?.sessionId)) return false;
+  if (!validMockOutbox(value,value?.studentId,value?.sessionId)) return false;
   try {
     const target = storageFor(storage), key = mockOutboxKey(value.studentId,value.sessionId);
     const stored = target.getItem(key);
@@ -57,7 +43,7 @@ export function createMockOutbox({ studentId, sessionId, run, mock, focusSession
     .filter(key => focusSession?.[key] !== undefined).map(key => [key,clone(focusSession[key])]));
   const value = { schemaVersion:MOCK_OUTBOX_SCHEMA, studentId, sessionId, serverRun:clone(run), run:clone(run),
     mock:clone(mock), focusSession:focus, mediaItemIds:clone(mediaItemIds), requests:[], lastServerContactAt:receivedAt };
-  if (!valid(value,studentId,sessionId)) throw new Error('Invalid initial device record');
+  if (!validMockOutbox(value,studentId,sessionId)) throw new Error('Invalid initial device record');
   return value;
 }
 
@@ -194,20 +180,6 @@ export function acknowledgeMockOutbox(current, sent, result, projectionFor, stor
   const next = { ...current, serverRun:clone(result.run), run, requests:remaining, delivery:null, mock:clone(result.mock || current.mock), lastServerContactAt:new Date().toISOString() };
   if (!writeMockOutbox(next,storage,current)) throw Object.assign(new Error('The delivery receipt could not be retained.'),{ code:'device_storage_failed' });
   return next;
-}
-
-export function readCachedMockFocus(studentId, storage, now = Date.now()) {
-  try {
-    const target = storageFor(storage), candidates = [];
-    for (let i=0;i<target.length;i++) {
-      const key = target.key(i), prefix = `lp-mock-outbox:${studentId}:`;
-      if (!key?.startsWith(prefix)) continue;
-      const value = readMockOutbox(studentId,key.slice(prefix.length),target);
-      if (value?.focusSession.status === 'active' && Date.parse(value.focusSession.expires_at) > now
-        && value.mock.state !== 'completed') candidates.push(value);
-    }
-    return candidates.sort((a,b) => b.lastServerContactAt.localeCompare(a.lastServerContactAt))[0] || null;
-  } catch { return null; }
 }
 
 /** Retire only fully received completed replicas; keep every pending/uncertain queue. */

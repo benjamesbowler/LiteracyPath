@@ -310,17 +310,22 @@ function Dashboard({ page }) {
   );
   const [newClassName, setNewClassName] = useState("");
   const [selectedPreviewGroup, setSelectedPreviewGroup] = useState("all");
+  const shortAPilot = params.has("short-a-pilot");
+  function focusSkill(row) {
+    return shortAPilot && row.name === "Aisha" ? "CVC and Short Vowels" : row.currentSkill;
+  }
   const [dashboardRows, setDashboardRows] = useState(() => previewProgressRows.map(row => ({
     ...row,
     ...(params.has("empty-session-group") ? { lastActive: "2026-07-22T09:00:00.000Z", currentLastActive: "2026-07-22T09:00:00.000Z" } : {}),
     ...(params.has("focus-evidence") ? {
+      currentSkill: focusSkill(row),
       lastActive: new Date().toISOString(),
       currentLastActive: new Date().toISOString(),
       currentAnswered: row.answered,
       currentAccuracy: row.accuracy,
-      currentEvidenceSkills: [row.currentSkill],
+      currentEvidenceSkills: [focusSkill(row)],
       focusEvidence: {
-        skill: row.currentSkill,
+        skill: focusSkill(row),
         answered: row.answered,
         accuracy: row.accuracy,
         lastActive: new Date().toISOString()
@@ -417,6 +422,17 @@ function Dashboard({ page }) {
         onStartCheck={asyncNoop}
         onOpenClasses={noop}
         onOpenProgress={noop}
+        supportPlannerClient={shortAPilot ? {
+          table() {
+            return { select: () => ({ order: async () => ({
+              data: params.has("short-a-quarantine") ? [{ book_id: "small-steps-01", status: "quarantined" }] : [],
+              error: null
+            }) }) };
+          }
+        } : undefined}
+        onPrepareSupportSession={shortAPilot ? (studentIds, context) => {
+          window.__preparedSupportSessions = [...(window.__preparedSupportSessions || []), { studentIds, context }];
+        } : undefined}
         teacherId=""
         misconceptionAnswersSeed={misconceptionPreviewAnswers || []}
         misconceptionSeedState={params.has("misconception-error") ? "error" : "ready"}

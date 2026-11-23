@@ -2,7 +2,6 @@ import { guidedReadingContentId } from "../utils/guidedReading/editions.js";
 import { readTeacherSessionReturn, rememberTeacherSessionReturn } from "../utils/teacherSessionReturn.js";
 import { createTeacherLaunchContext } from "../utils/teacherLaunchContext.js";
 import { Suspense, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
-import Confetti from "react-confetti";
 import logoUrl from "../assets/logo.webp";
 import { supabase, isSupabaseConfigured } from "../supabaseClient.js";
 import { skillTree } from "../skillTree.js";
@@ -96,6 +95,10 @@ const CheckpointDecisionPage = lazyAppPage("CheckpointDecisionPage");
 const DashboardSummary = lazyAppPage("DashboardSummary");
 const GuidedReadingPage = lazyAppPage("GuidedReadingPage");
 const ComprehensionPage = lazyWithRetry(() => import("./comprehension/ComprehensionPage.jsx"));
+const Confetti = lazyWithRetry(
+  () => import("react-confetti").catch(() => ({ default: () => null })),
+  { reloadOnFailure: false, notifyOnFailure: false }
+);
 const LetterAssessmentPage = lazyAppPage("LetterAssessmentPage");
 const TeacherReportsPage = lazyAppPage("TeacherReportsPage");
 
@@ -1497,7 +1500,7 @@ export function AppSurface({ surface }) {
         </div>
       )}
       {showConfetti && !prefersReducedMotion && !learnerAccessibility.reducedEffects && (
-        <Confetti recycle={false} numberOfPieces={90} />
+        <Suspense fallback={null}><Confetti recycle={false} numberOfPieces={90} /></Suspense>
       )}
 
       {studentPreview && isChildPreviewView && (
@@ -1812,6 +1815,7 @@ export function AppSurface({ surface }) {
               teacherId={teacherId}
               message={message}
               onStartStudentSession={() => openStudentSessionSetup([])}
+              onPrepareSupportSession={openStudentSessionSetup}
             />
           </Suspense>
         </PageBoundary>
