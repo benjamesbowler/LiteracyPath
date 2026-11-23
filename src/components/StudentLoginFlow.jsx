@@ -282,6 +282,9 @@ export function StudentLoginFlow({
       return { ok: false, permanent: ["code-not-found", "code-expired"].includes(nextRecovery.id) };
     }
     applyClassContext(result.data, code);
+    if (preparedClassCode(window.location.hash)) {
+      window.history.replaceState(null, "", `${window.location.pathname}${window.location.search}`);
+    }
     return { ok: true };
   }
 
@@ -293,11 +296,8 @@ export function StudentLoginFlow({
     busyRef.current = true;
     void Promise.resolve().then(() => cancelled ? null : resolveCode(code, { cancelled: () => cancelled })).then(result => {
       if (cancelled || !result) return;
-      const { ok, permanent } = result;
+      const { permanent } = result;
       busyRef.current = false;
-      if (ok && preparedCode) {
-        window.history.replaceState(null, "", `${window.location.pathname}${window.location.search}`);
-      }
       if (permanent && readRememberedContext()?.code === code) {
         try { window.localStorage.removeItem(CLASS_CONTEXT_STORAGE_KEY); }
         catch { /* remembering the class is best effort */ }

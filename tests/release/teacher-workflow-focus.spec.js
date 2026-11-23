@@ -310,8 +310,15 @@ test("practice receives the projected cycle rather than the class default", asyn
   await page.getByRole("combobox", { name: "Cycle", exact: true }).selectOption("cycle-4");
   const popupOpened = page.waitForEvent("popup");
   await page.getByRole("button", { name: "Present", exact: true }).click();
-  await (await popupOpened).close();
+  const popup = await popupOpened;
+  await expect(popup.locator("body")).toHaveAttribute("data-return-url", /presentedCycle=cycle-4/);
+  const returnHash = new URL(await popup.locator("body").getAttribute("data-return-url")).hash;
+  await popup.close();
   await page.getByRole("button", { name: /^Practise Cycle 4/ }).click();
   expect(await page.evaluate(() => window.__presentPractice?.context?.cycleId)).toBe("cycle-4");
   await expect(page.getByLabel("Teaching cycle for reference")).toHaveValue("cycle-5");
+  await page.goto(`/preview/teacher-a11y.html?surface=resources${returnHash}`);
+  await page.getByRole("button", { name: /^Practise Cycle 4/ }).click();
+  expect(await page.evaluate(() => window.__presentPractice?.context?.cycleId)).toBe("cycle-4");
+  await expect(page.getByRole("combobox", { name: "Class teaching cycle", exact: true })).toHaveValue("cycle-6");
 });

@@ -30,6 +30,7 @@ export function guidedReadingCompletion(record = {}, totalPages = Number(record.
   const occurrenceId = latestGuidedReadingOccurrence(record)?.id;
   return {
     readCount,
+    inferredReadCount: legacy.inferred ? legacy.count : 0,
     completed: readCount > 0,
     completionEvidence: finishes.length || (legacy.count && !legacy.inferred)
       ? "confirmed" : legacy.count ? "legacy-inferred" : "",

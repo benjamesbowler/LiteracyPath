@@ -142,6 +142,8 @@ export function TeacherIntentPage({
   onChangeCycle,
   suggestedCycleId = "",
   onStartPractice,
+  presentedCycleId = "",
+  onPractisePresentedCycle,
   onReadTogether
 }) {
   const [classPractice, setClassPractice] = useState('');
@@ -168,7 +170,9 @@ export function TeacherIntentPage({
   // The teaching cycle is set once in the context bar and read here. It is a
   // teacher-set reference, never derived from results, so an unset cycle stays
   // unset rather than guessing one.
-  const cycle = teacherCycleOptions().find(option => option.id === cycleId) || null;
+  const cycles = teacherCycleOptions();
+  const cycle = cycles.find(option => option.id === cycleId);
+  const presentedCycle = cycles.find(option => option.id === presentedCycleId);
   const tools = buildResourceTools({
     tools: copy.tools,
     cycleNumber: cycle?.cycleNumber || 0,
@@ -231,11 +235,16 @@ export function TeacherIntentPage({
                 <label htmlFor="teach-cycle">{FLOW.cycle}</label>
                 <select id="teach-cycle" className="tcb-cycle-select" value={cycleId} onChange={event => onChangeCycle?.(event.target.value)} disabled={!onChangeCycle}>
                   <option value="" disabled>Choose teaching cycle</option>
-                  {teacherCycleOptions().map(option => <option key={option.id} value={option.id}>{option.label}</option>)}
+                  {cycles.map(option => <option key={option.id} value={option.id}>{option.label}</option>)}
                 </select>
                 <small>{FLOW.cycleHint}</small>
                 {!cycleId && suggestedCycleId && <button className="lp-button" type="button" onClick={() => onChangeCycle?.(suggestedCycleId)}>Use previously chosen cycle</button>}
               </section>
+              {presentedCycle && onPractisePresentedCycle && <section aria-label="Practice after presenting">
+                <button className="lp-button lp-button-secondary" type="button" onClick={() => onPractisePresentedCycle(presentedCycle.id)}>
+                  Practise {presentedCycle.label}
+                </button>
+              </section>}
               <section className="teacher-resource-tools" aria-label={copy.toolsLabel}>
                 {tools.map(tool => (
                   <article className="teacher-resource-card" key={tool.id}>

@@ -104,7 +104,7 @@ test("every Guided Reading entry path receives the quarantine blocklist", () => 
     /filterPublishedGuidedReadingBooks\(\s*module\.getRuntimeGuidedReadingBooks\(\), quarantinedReadingBookIds/
   );
   assert.match(appSurfaceSource, /<StudentBooksPage[\s\S]*?quarantinedBookIds=\{quarantinedReadingBookIds\}/);
-  assert.match(appSurfaceSource, /renderReader=\{\(\{ bookId, books, initialPageIndex, onExit \}\)[\s\S]*?<GuidedReadingPage[\s\S]*?books=\{books\}/);
+  assert.match(appSurfaceSource, /renderReader=\{\(\{ bookId, books, initialPageIndex, initialReadAgain, onExit \}\)[\s\S]*?<GuidedReadingPage[\s\S]*?books=\{books\}/);
   assert.match(appSurfaceSource, /<ReadingSessionSetup[\s\S]*?quarantinedBookIds=\{quarantinedReadingBookIds\}/);
 });
 

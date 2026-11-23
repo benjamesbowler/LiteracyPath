@@ -147,6 +147,7 @@ export function GuidedReadingReportView({ error = "", loading = false, onRetry, 
                   {book.completionEvidence === "legacy-inferred" ? "Completed (inferred from older records)"
                     : book.completed ? "Completed" : "In progress"}
                   {book.completed && book.readCount > 0 ? `, ${book.readCount} ${book.readCount === 1 ? "read" : "reads"}` : ""}
+                  {book.completionEvidence === "confirmed" && book.inferredReadCount > 0 ? ` (${book.inferredReadCount} inferred)` : ""}
                   {book.completed && book.readingInProgress ? " · Reread in progress" : ""}
                 </span>
               </summary>

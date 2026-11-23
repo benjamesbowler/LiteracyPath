@@ -52,7 +52,8 @@ function DailyPresentPage({ classId, currentCycleId, onBack, onStartStudentSessi
     if (fallbackRef.current) URL.revokeObjectURL(fallbackRef.current);
     fallbackRef.current = "";
     try {
-      const returnHash = teacherIntentHash({ appView: APP_VIEWS.TEACHER_RESOURCES, classId });
+      const teachHash = teacherIntentHash({ appView: APP_VIEWS.TEACHER_RESOURCES, classId });
+      const returnHash = classId ? `${teachHash}&presentedCycle=${encodeURIComponent(cycleId)}` : teachHash;
       const result = openCyclePresentation(cycleId, { day, startIndex: 0, returnHash });
       const lesson = { cycleId, day, format: "core", preview: 0 };
       if (rememberPresentWorkspaceState(classId, lesson)) setSavedLesson(lesson);

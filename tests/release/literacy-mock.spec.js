@@ -1320,18 +1320,23 @@ test('the 28-pupil mock class opens at the summary and returns keyboard focus to
   const table = page.getByRole('region', { name: 'Class assessment summary' }).getByRole('table');
   await expect(table.locator('tbody tr')).toHaveCount(28);
   await expect(page.getByRole('button', { name: 'View Alex’s report', exact: true })).toHaveCount(1);
-  await page.getByLabel('Show', { exact: true }).selectOption('pending');
+  await page.getByRole('combobox', { name: 'Show', exact: true }).selectOption('pending');
   await expect(table.locator('tbody tr')).toHaveCount(1);
   await expect(table.getByText('Waiting for upload', { exact: true })).toBeVisible();
   const rowButton = table.getByRole('button', { name: 'View Bailey’s report', exact: true });
-  await rowButton.focus();
-  await page.keyboard.press('Enter');
+  if (test.info().project.name === 'mobile') await rowButton.tap();
+  else {
+    await rowButton.focus();
+    await page.keyboard.press('Enter');
+  }
   await expect(page.getByRole('heading', { name: 'Bailey — test results' })).toBeFocused();
   await page.getByRole('button', { name: 'Back to class results' }).click();
   await expect(rowButton).toBeFocused();
-  await page.getByLabel('Report for').selectOption('student-a');
+  await page.getByRole('combobox', { name: 'Report for', exact: true }).selectOption('student-a');
   await expect(page.getByRole('heading', { name: 'Alex — test results' })).toBeFocused();
   await expect(page.getByText('1 independent answer correct in this sitting.', { exact: false })).toBeVisible();
+  await expect(page.locator('.literacy-mock-result-summary')).toContainText('1 helped');
+  await expect(page.getByText('Media availability log (1)', { exact: true })).toBeVisible();
 });
 
 for (const scenario of [

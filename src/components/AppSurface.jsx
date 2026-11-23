@@ -1946,6 +1946,11 @@ export function AppSurface({ surface }) {
               onChangeCycle={changeTeacherCycle}
               suggestedCycleId={suggestedTeacherCycleId}
               onStartPractice={() => openStudentSessionSetup([], { purpose: "practise" })}
+              presentedCycleId={readTeacherFunnelParams().get("class") === selectedClassId
+                ? readTeacherFunnelParams().get("presentedCycle") || "" : ""}
+              onPractisePresentedCycle={cycleId => openStudentSessionSetup([], {
+                purpose: "practise", target: "cycle_practice", cycleId
+              })}
               onReadTogether={() => openReadingTogether({ studentIds: [], returnLabel: "Back to Teach" })}
               onOpenGuidedReading={bookId => {
                 setGuidedInitialBookId(typeof bookId === "string" ? bookId : "");

@@ -62,6 +62,12 @@ test("only flagless legacy coverage yields inferred completion", () => {
   assert.equal(guidedReadingCompletion(historical).completionEvidence, "legacy-inferred");
   assert.equal(guidedReadingCompletion({ ...historical, completed: false }).readCount, 0);
   assert.equal(guidedReadingCompletion({ ...historical, completed: true }).completionEvidence, "confirmed");
+  const now = "2026-11-23T10:15:00.000Z";
+  const occurrence = startGuidedReadingOccurrence(historical, { readAgain: true, totalPages: 3, now });
+  const incremental = finishGuidedReadingOccurrence(historical, { occurrence, totalPages: 3, now });
+  const mixed = guidedReadingCompletion(incremental, 3);
+  assert.equal(mixed.completionEvidence, "confirmed");
+  assert.deepEqual([mixed.readCount, mixed.inferredReadCount], [2, 1]);
 });
 
 test("only a teacher completing a named student's book sees the end-of-book summary", () => {

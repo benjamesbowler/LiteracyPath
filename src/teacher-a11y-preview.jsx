@@ -550,6 +550,8 @@ function Intent({ intent }) {
       onOpenComprehension={() => open("comprehension")}
       onOpenPresent={() => open("present", `&cycle=${cycleId}`)}
       onStartPractice={() => { window.location.href = "/preview/teacher-session-simplicity.html"; }}
+      presentedCycleId={readTeacherFunnelParams().get("class") === classId ? readTeacherFunnelParams().get("presentedCycle") : ""}
+      onPractisePresentedCycle={cycleId => { window.__presentPractice = { context: { cycleId } }; }}
       onReadTogether={() => { window.location.href = "/preview/teacher-session-simplicity.html?mode=reading"; }}
     />
   );

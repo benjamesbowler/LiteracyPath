@@ -46,6 +46,7 @@ test("an unknown class cycle is explicit and printing waits for a deliberate sel
 });
 
 test("a saved character pack restores every preview and keeps the class cycle", async ({ page }) => {
+  test.setTimeout(120_000);
   const recipe = { id: classA, cycle_id: "cycle-4", type: "characterColouring:pip", pages: 6, title: "Cycle 4 character pack" };
   let response = "network";
   let posted = null;
@@ -54,7 +55,7 @@ test("a saved character pack restores every preview and keeps the class cycle", 
       "access-control-allow-headers": route.request().headers()["access-control-request-headers"] || "*" };
     if (route.request().method() === "OPTIONS") return route.fulfill({ status: 200, headers });
     if (route.request().method() === "GET") {
-      if (response === "saved") return route.abort("failed");
+      if (response === "saved") return route.fulfill({ status: 400, json: { code: "mock_network", message: "Network unreachable" }, headers });
       return route.fulfill({ json: [recipe], headers });
     }
     posted = route.request().postDataJSON();

@@ -545,6 +545,7 @@ export async function createStudentReportWorkbook({
     completed: book.completionEvidence === "legacy-inferred" ? "Completed (inferred)"
       : book.completed ? "Completed" : "In progress",
     reads: book.readCount ?? book.reads ?? (book.completed ? 1 : 0),
+    inferredReads: book.inferredReadCount || 0,
     bookmarkPage: book.bookmarkPage ?? "",
     lastRead: book.lastReadAt || book.observedAt || "",
     correct: (book.wordsReadCorrectly || []).length,
@@ -563,7 +564,8 @@ export async function createStudentReportWorkbook({
       { key: "correct", header: "Read correctly", type: "number", width: 14 },
       { key: "support", header: "Needed support", type: "number", width: 15 },
       { key: "notes", header: "Teacher notes", width: 50, wrap: true },
-      { key: "bookmarkPage", header: "Bookmark page", type: "number", width: 16 }
+      { key: "bookmarkPage", header: "Bookmark page", type: "number", width: 16 },
+      { key: "inferredReads", header: "Inferred legacy reads", type: "number", width: 22 }
     ],
     bookRows,
     { emptyMessage: "No guided reading records yet." }

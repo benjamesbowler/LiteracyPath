@@ -595,7 +595,7 @@ test("every domain is represented in a report, even with no score for it", () =>
 test("unknown language information does not become a score, a shortfall or a transfer pattern", () => {
   const profile = buildMllStudentProfile({
     homeLanguageOral: null, homeLanguageLiteracy: false, serviceMinutesPerWeek: 0, yearsInUsSchools: " ",
-    languageAssessments: [{ administeredOn: "2026-08-01", source: "wida_access",
+    languageAssessments: [{ administeredOn: "2026-08-01", source: "access",
       domainLevels: { listening: 3, speaking: null, reading: "", writing: 7 },
       domainScaleScores: { listening: 325, speaking: null, reading: false, writing: 0 },
       compositeLevels: { overall: 4, literacy: "" }
@@ -627,9 +627,11 @@ test("a missing official score stays blank in a reopened multilingual workbook",
   const { createMllStudentWorkbook } = await import("../../src/utils/exportMllReportExcel.js");
   const report = buildMllStudentReport({ student: {
     studentId: "sample", studentName: "Sample learner", grade: "1", homeLanguage: "Spanish",
-    languageAssessments: [{ source: "wida_access", administeredOn: "2026-08-01",
+    languageAssessments: [{ source: "access", administeredOn: "2026-08-01",
       domainLevels: { listening: 3, speaking: null } }]
   } });
+  assert.equal(report.proficiency.available, true);
+  assert.equal(report.proficiency.domains.find(domain => domain.id === "speaking").level, null);
   assert.doesNotMatch(report.transfer?.narrative || "", /at an early stage/);
   const workbook = await createMllStudentWorkbook(report);
   const reopened = new workbook.constructor();

@@ -114,17 +114,17 @@ test("the latest valid adventure leads with its repair, both checkpoints survive
   await expect(page.locator("html")).toHaveAttribute("data-route-harness-ready", "true");
   await page.getByRole("button", { name: "Open Sound Seekers" }).click();
   const primary = page.locator(`${PORTAL} [data-mode="title"] [data-child-primary]`);
-  await expect(primary).toHaveText("Continue Woodland Homecoming");
+  await expect(primary).toHaveAccessibleName("Continue Woodland Homecoming");
   await expect(page.getByText(currentAct(woodland).title, { exact: true })).toBeVisible();
   await expect(page.getByRole("button", { name: `Back to ${getCampaignStage("meadow-01").name}`, exact: true })).toBeVisible();
   await primary.click();
   await expect(page.locator('[data-sound-seekers-game="woodland"]')).toHaveAttribute("data-phase", "title");
   await page.getByRole("button", { name: "Three-world adventure", exact: true }).click();
-  await expect(primary).toHaveText("Continue Woodland Homecoming");
+  await expect(primary).toHaveAccessibleName("Continue Woodland Homecoming");
   expect(await page.evaluate(keys => keys.map(key => localStorage.getItem(key)), rows.map(([key]) => key))).toEqual(rows.map(([, value]) => value));
 
   await page.evaluate(() => window.__setSoundSeekersRouteScope("route-isolation-b"));
-  await expect(primary).toHaveText("Start exploring");
+  await expect(primary).toHaveAccessibleName("Start exploring");
   await expect(page.getByRole("button", { name: "Woodland Homecoming", exact: true })).toBeVisible();
   await expect(page.getByRole("button", { name: /retired|classic adventure/i })).toHaveCount(0);
 });
@@ -137,7 +137,7 @@ test("guest return choices ignore device checkpoints and keep changes within tha
   await page.goto(`${HARNESS}?guest`, { waitUntil: "domcontentloaded" });
   await expect(page.locator("html")).toHaveAttribute("data-route-harness-ready", "true");
   await page.getByRole("button", { name: "Open Sound Seekers" }).click();
-  await expect(page.locator(`${PORTAL} [data-mode="title"] [data-child-primary]`)).toHaveText("Start exploring");
+  await expect(page.locator(`${PORTAL} [data-mode="title"] [data-child-primary]`)).toHaveAccessibleName("Start exploring");
   await page.getByRole("button", { name: "Woodland Homecoming", exact: true }).click();
   await expect(page.getByRole("button", { name: "Start a new adventure", exact: true })).toHaveCount(0);
   await page.getByRole("button", { name: "Turn sound on", exact: true }).click();
