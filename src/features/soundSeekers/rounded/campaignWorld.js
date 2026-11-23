@@ -8,10 +8,12 @@ import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { createRenderer, disposeRenderer } from '../../../components/learn/games/shared/threeShell.js';
 import { arcadePixelRatio } from '../../../components/learn/games/shared/arcadeRenderBudget.js';
 import { stepCampaignResident } from './campaignResidentBehavior.js';
-import { campaignGroundColour, campaignRoadGeometry, sampleCampaignRoads } from './campaignWorldSurface.js';
+import { campaignGroundColour, campaignRoadGeometry, campaignSpringStoneGeometry, sampleCampaignRoads } from './campaignWorldSurface.js';
 import { getCampaignStage, getCampaignMission } from '../v3/content/campaign.js';
-import { getCampaignWorldLayout, CAMPAIGN_WORLD_THEMES, campaignTerrainHeight, campaignCanWalk, campaignRoute, segmentDistance } from './campaignWorldLayouts.js';
+import { getCampaignWorldLayout, CAMPAIGN_WORLD_THEMES, campaignTerrainHeight, campaignCanWalk, campaignRoute, campaignSegmentWalkable, segmentDistance } from './campaignWorldLayouts.js';
 import { CAMPAIGN_ROUNDED_RESTORATIONS, getRoundedCampaignRestoration } from './campaignRestorations.js';
+import { advanceCampaignTrail, campaignTrailTarget, getCampaignTrail } from './campaignWorldTrails.js';
+import { createCampaignTrailView } from './campaignTrailView.js';
 
 const V = THREE.Vector3;
 export const ROUNDED_CAMPAIGN_PROP_KINDS = Object.freeze('apple bag bank basket beam bed bench blanket boat book bread bridge brush bucket camp card cart cloth cover crate cup cushion dock dome egg feather fern flag flower frame garden gate gem handle hedge ladder lantern ledge letter lever lily mat nest paint parcel path pillow plank plate pond post pot raft rail ramp reed reflector rock roof room root rope scroll seat seed shelf shell sign soap stair stick stone tool towel tray tree wheel window'.split(' '));
@@ -23,6 +25,8 @@ const clamp = (n,min,max) => Math.max(min,Math.min(max,n));
 // visible collider bounds; a blocked destination cannot move Bouncy or complete
 // a literacy task. Sliding follows an unobstructed axis rather than teleporting.
 function canStep(layout,player,x,z) {
+  const currentStep = campaignSpringHeight(layout, player.x, player.z);
+  if (campaignSpringHeight(layout, x, z) > currentStep + (player.lift || 0) + .035) return false;
   if(campaignCanWalk(layout,x,z))return true;
   // A newly installed object may surround a stationary explorer. Permit only
   // outward escape from that overlap, with every other collider still active.
@@ -39,6 +43,8 @@ export function campaignFrameSteps(elapsed, remainder = 0) {
 }
 
 export function campaignStepPlayer(layout,player,input,dt) {
+  const spring = campaignSpringAt(layout, player.x, player.z);
+  const springHeight = spring ? spring.top - campaignTerrainHeight(layout, player.x, player.z) : 0;
   const length=Math.hypot(input.x,input.z),speed=input.run?7:4.6;
   const dx=length?input.x/Math.max(1,length)*speed:0,dz=length?input.z/Math.max(1,length)*speed:0;
   const damping=1-Math.exp(-dt*18);
@@ -52,7 +58,36 @@ export function campaignStepPlayer(layout,player,input,dt) {
       if(canStep(layout,player,player.x,nz))player.z=nz;else player.vz=0;
     }
   }
+  if (spring !== campaignSpringAt(layout, player.x, player.z)) {
+    const nextSpringHeight = campaignSpringHeight(layout, player.x, player.z);
+    player.lift = Math.max(0, (player.lift || 0) + springHeight - nextSpringHeight);
+    player.liftSpeed ||= 0;
+  }
   return player;
+}
+
+// The spring arc is deterministic, independent of rendering speed and never
+// bypasses a water or scenery collider. Relative lift keeps sloped paths safe.
+const SPRING_SPEED = 6.9;
+const SPRING_GRAVITY = 16;
+
+export function requestCampaignJump(player) {
+  if (player.lift > 0 || player.liftSpeed > 0) return false;
+  player.lift = 0;
+  player.liftSpeed = SPRING_SPEED;
+  return true;
+}
+
+export function stepCampaignJump(player, dt) {
+  if (!player.lift && !player.liftSpeed) return false;
+  const nextLift = player.lift + player.liftSpeed * dt - SPRING_GRAVITY * dt * dt / 2;
+  if (nextLift > 0) {
+    player.lift = nextLift;
+    player.liftSpeed -= SPRING_GRAVITY * dt;
+    return false;
+  }
+  player.lift = player.liftSpeed = 0;
+  return true;
 }
 export function campaignNearMission(layout,player,available=[],completed=[]) {
   const availableIds=new Set(available),done=new Set(completed);
@@ -153,7 +188,92 @@ export function campaignCollisionLayout(layout,completed=[],low=false) {
 export function campaignWalkHeight(layout,x,z) {
   const ground=campaignTerrainHeight(layout,x,z);
   const deck=(layout.crossings||[]).filter(c=>x>=c.minX&&x<=c.maxX&&z>=c.minZ&&z<=c.maxZ).map(c=>c.height);
-  return Math.max(ground,...deck);
+  return Math.max(ground,...deck) + campaignSpringHeight(layout, x, z);
+}
+
+function campaignSpringAt(layout, x, z) {
+  return layout.springSteps?.find(step => (x - step.x) ** 2 + (z - step.z) ** 2 <= step.radius ** 2);
+}
+
+function campaignSpringHeight(layout, x, z) {
+  const step = campaignSpringAt(layout, x, z);
+  return step ? step.top - campaignTerrainHeight(layout, x, z) : 0;
+}
+
+export function campaignSpringSteps(layout) {
+  const [start, end] = layout.roads[0].points;
+  const length = Math.hypot(end[0] - start[0], end[1] - start[1]);
+  const dx = (end[0] - start[0]) / length, dz = (end[1] - start[1]) / length;
+  const trail = getCampaignTrail(layout);
+  const trailLine = [trail.origin, ...trail.checkpoints].map(point => [point.x, point.z]);
+  const landmarks = [...layout.missions, ...layout.discoveries.map(item => item.source)];
+  const heights = [.56, .88, 1.16];
+  for (const offset of [3.6, -3.6, 5.5, -5.5, 7.2, -7.2]) {
+    for (const lead of [2.2, 3.6, 5]) {
+      const steps = heights.map((height, index) => {
+        const distance = lead + index * 2.75;
+        const x = start[0] + dx * distance - dz * offset;
+        const z = start[1] + dz * distance + dx * offset;
+        return { x, z, height, top: campaignTerrainHeight(layout, x, z) + height, radius: 1 };
+      });
+      if (steps.every(({ x, z }) => campaignCanWalk(layout, x, z, 1.65)
+        && landmarks.every(point => Math.hypot(x - point.x, z - point.z) >= 2.4)
+        && trailLine.slice(1).every((point, i) => segmentDistance(x, z, trailLine[i], point) > 2.15)
+        && layout.roads.every(road => road.points.slice(1).every((end, i) => segmentDistance(x, z, road.points[i], end) > road.width / 2 + 1.25)))) return steps;
+    }
+  }
+  return [];
+}
+
+// Motor-assisted paths use the ground route around the optional raised pads.
+// A player who requested help from the top can always step back down.
+function campaignGroundRoute(layout, start, goal) {
+  const springObstacles = layout.springSteps.filter(step => Math.hypot(start.x - step.x, start.z - step.z) >= step.radius + .48)
+    .map(step => ({ x: step.x, z: step.z, r: step.radius }));
+  const ground = { ...layout, obstacles: [...layout.obstacles, ...springObstacles] };
+  return campaignSegmentWalkable(ground, start, goal) ? [goal] : campaignRoute(ground, start, goal);
+}
+
+function trailVergePlants(layout) {
+  const types = layout.worldId === 'meadow' ? ['flower', 'fern', 'flower']
+    : layout.worldId === 'dino' ? ['fern', 'stone', 'flower'] : ['fern', 'flower', 'reed'];
+  const plants = [];
+  for (const [index, road] of layout.roads.entries()) {
+    const samples = road.points.slice(1);
+    for (const [i, end] of samples.entries()) {
+      const [x, z] = road.points[i], dx = end[0] - x, dz = end[1] - z, length = Math.hypot(dx, dz);
+      if (length < 6) continue;
+      for (const [side, fraction] of [[-1, .28], [1, .68]]) {
+        const setback = (road.width / 2 + 1.35) * side / length;
+        const px = x + dx * fraction - dz * setback, pz = z + dz * fraction + dx * setback;
+        if (!campaignCanWalk(layout, px, pz, .72)
+          || layout.springSteps.some(step => Math.hypot(px - step.x, pz - step.z) < 2)
+          || Math.hypot(px - layout.landmark.x, pz - layout.landmark.z) < 4
+          || layout.roads.some(other => other.points.slice(1).some((point, j) =>
+            segmentDistance(px, pz, other.points[j], point) < other.width / 2 + .8))) continue;
+        const kind = types[(index + i + (side === 1 ? 1 : 0)) % types.length];
+        plants.push({ kind, x: px, z: pz, lift: 0, size: kind === 'fern' ? 1.4 : .94, rotation: i * 1.8 });
+        if (kind === 'flower') plants.push({ kind, x: px + .45, z: pz - .45, lift: 0, size: .64, rotation: i * .9 });
+      }
+    }
+  }
+  return plants;
+}
+
+export function campaignRepairLookout(layout, missionId, completed) {
+  if (!completed.includes(missionId)) return null;
+  const repair = getRoundedCampaignRestoration(layout.stageId, completed)?.props.find(prop => prop.missionId === missionId && prop.installed);
+  if (!repair) return null;
+  const subject = { x: layout.landmark.x + repair.x, z: layout.landmark.z + repair.z };
+  // Stand on the camera-facing side so Bouncy and the new part share the
+  // frame. Try nearby verges if a tree, water or another repair fills it.
+  for (const radius of [4, 5.5, 7]) {
+    for (const angle of [.45, 0, .95, -.55, 1.6, -1.2, 2.3, 3.1]) {
+      const point = { x: subject.x + Math.sin(angle) * radius, z: subject.z + Math.cos(angle) * radius };
+      if (campaignCanWalk(layout, point.x, point.z, .65)) return point;
+    }
+  }
+  return null;
 }
 
 function ownsResources() {
@@ -295,6 +415,19 @@ function instanceAsset(asset,placements,scene,resources,theme,tint=false,shadows
   asset.scene.traverse(o=>{if(!o.isMesh||o.isSkinnedMesh)return;let material=o.material;if(tint){const source=material;material=resources.tints.get(source);if(!material){material=source.clone();material.color.multiply(new THREE.Color(theme.worldId==='dino'?SOUND_SEEKERS_ROUNDED_PALETTE['eddbb7']:theme.worldId==='moonwood'?SOUND_SEEKERS_ROUNDED_PALETTE['bfd6e6']:SOUND_SEEKERS_ROUNDED_PALETTE['ffffff']));resources.tints.set(source,material);resources.materials.add(material);}}const mesh=new THREE.InstancedMesh(o.geometry,material,placements.length);placements.forEach((p,i)=>{pose.position.set(p.x,sceneryHeight(theme.layout,p.x,p.z),p.z);pose.scale.setScalar(p.scale||1);pose.rotation.set(0,p.rotation||0,0);pose.updateMatrix();matrix.multiplyMatrices(pose.matrix,o.matrixWorld);mesh.setMatrixAt(i,matrix);});mesh.castShadow=shadows;mesh.receiveShadow=shadows;mesh.computeBoundingSphere();result.add(mesh);});scene.add(result);return result;
 }
 
+function instanceCampaignTrees(asset, placements, group, resources, theme, shadows) {
+  // A single batch across the entire place survives every camera cull. Small
+  // neighbouring batches keep the same approved trees and let the renderer
+  // skip off-screen trunks and distant canopy.
+  const sectors = new Map();
+  for (const tree of placements) {
+    const cell = `${Math.floor(tree.x / 12)},${Math.floor(tree.z / 12)}`;
+    if (!sectors.has(cell)) sectors.set(cell, []);
+    sectors.get(cell).push(tree);
+  }
+  for (const sector of sectors.values()) instanceAsset(asset, sector, group, resources, theme, true, shadows);
+}
+
 /** Rounded presentation for the canonical campaign; no movement/evidence writes. */
 export async function createCampaignWorld(host,callbacks={},settings={}) {
   const layout=getCampaignWorldLayout(settings.stageId),stage=getCampaignStage(settings.stageId);
@@ -307,7 +440,9 @@ export async function createCampaignWorld(host,callbacks={},settings={}) {
   scene.background=new THREE.Color(theme.sky);scene.fog=new THREE.Fog(theme.fog,35,95);
   let renderer;
   try {renderer=createRenderer(THREE,{pixelRatioCap:low?1:1.5,toneMappingExposure:1.13,shadowMap:!low,powerPreference:'high-performance'});}catch(error){callbacks.failure?.(error);throw error;}
-  const canvas=renderer.domElement;canvas.tabIndex=-1;canvas.setAttribute('aria-label',`Walk through ${stage.name}. Arrow keys move; choose a nearby reading mission.`);host.append(canvas);
+  renderer.shadowMap.autoUpdate = false;
+  renderer.shadowMap.needsUpdate = true;
+  const canvas=renderer.domElement;canvas.tabIndex=-1;canvas.setAttribute('aria-label',`Explore ${stage.name}. Arrow keys move, Space jumps and E uses a nearby object or helps a Pal.`);host.append(canvas);
   const sun=new THREE.DirectionalLight(theme.light,2.2);sun.position.set(-16,29,13);sun.castShadow=!low;sun.shadow.mapSize.set(1024,1024);sun.shadow.camera.left=-37;sun.shadow.camera.right=37;sun.shadow.camera.top=37;sun.shadow.camera.bottom=-37;sun.shadow.camera.far=90;sun.shadow.normalBias=.07;scene.add(sun);
   scene.add(new THREE.HemisphereLight(theme.fill,theme.ambient,2.1));
   const surfaceTexture=groundTexture(resources);
@@ -319,22 +454,59 @@ export async function createCampaignWorld(host,callbacks={},settings={}) {
   const w=layout.water;
   if(w){const geometry=w.circle?new THREE.CircleGeometry(w.circle[2],40):new THREE.PlaneGeometry(w.width,w.to-w.from,1,24);geometry.rotateX(-Math.PI/2);const mesh=new THREE.Mesh(geometry,waterMat),x=w.circle?.[0]??(w.axis==='x'?w.at:(w.from+w.to)/2),z=w.circle?.[1]??(w.axis==='x'?(w.from+w.to)/2:w.at);if(w.axis==='z')geometry.rotateY(Math.PI/2);const p=geometry.attributes.position;for(let i=0;i<p.count;i++)p.setY(i,campaignTerrainHeight(layout,x+p.getX(i),z+p.getZ(i))-(layout.kind==='canyon'?1.95:.05));geometry.computeVertexNormals();mesh.position.set(x,0,z);scene.add(mesh);resources.geometries.add(geometry);}
   const furniture=makeFurniture(theme,resources),markerGroup=new THREE.Group(),markerMeshes=new Map();scene.add(markerGroup);
+  const springSteps = campaignSpringSteps(layout);
+  const springGeometry = campaignSpringStoneGeometry(theme);
+  const springMaterial = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: .9 });
+  resources.geometries.add(springGeometry);
+  resources.materials.add(springMaterial);
+  const springs = new THREE.InstancedMesh(springGeometry, springMaterial, springSteps.length);
+  const stone = new THREE.Object3D();
+  springSteps.forEach((step, index) => {
+    const height = step.height + .15;
+    stone.scale.set(step.radius, height, step.radius);
+    stone.position.set(step.x, step.top - height, step.z);
+    stone.rotation.y = index * 1.18;
+    stone.updateMatrix();
+    springs.setMatrixAt(index, stone.matrix);
+  });
+  springs.castShadow = springs.receiveShadow = true;
+  scene.add(springs);
   for(const p of layout.missions){const marker=new THREE.Group(),ringGeometry=new THREE.TorusGeometry(.72,.045,8,32);resources.geometries.add(ringGeometry);const ring=new THREE.Mesh(ringGeometry,furniture.mats.glow);ring.rotation.x=Math.PI/2;ring.position.y=.1;marker.add(ring);furniture.pole(marker,0,.1,0,.7,.04,'cream');furniture.oval(marker,0,1,0,.16,.2,.16,'gold');marker.position.set(p.x,campaignTerrainHeight(layout,p.x,p.z),p.z);markerGroup.add(marker);markerMeshes.set(p.missionId,marker);}
   const navigationMaterial=new THREE.MeshBasicMaterial({color:SOUND_SEEKERS_ROUNDED_PALETTE['234b73'],depthWrite:false});resources.materials.add(navigationMaterial);
   const clickGeometry=new THREE.TorusGeometry(.65,.065,6,32);resources.geometries.add(clickGeometry);const clickRing=new THREE.Mesh(clickGeometry,navigationMaterial);clickRing.rotation.x=Math.PI/2;clickRing.visible=false;scene.add(clickRing);
   const breadcrumbGeometry=new THREE.CircleGeometry(.12,8);breadcrumbGeometry.rotateX(-Math.PI/2);resources.geometries.add(breadcrumbGeometry);
   const breadcrumbs=new THREE.InstancedMesh(breadcrumbGeometry,navigationMaterial,32),breadcrumbPose=new THREE.Object3D();breadcrumbs.count=0;breadcrumbs.visible=false;breadcrumbs.frustumCulled=false;scene.add(breadcrumbs);
-  const player={...layout.spawn,vx:0,vz:0},input={x:0,z:0,run:false},look=new V(),cameraTarget=new V(),lookTarget=new V(),projected=new V(),forward=new V(),right=new V(),destinationHit=new V(),pointer=new THREE.Vector2(),ray=new THREE.Raycaster();
+  const player={...layout.spawn,vx:0,vz:0,lift:0,liftSpeed:0},input={x:0,z:0,run:false},look=new V(),cameraTarget=new V(),lookTarget=new V(),projected=new V(),destinationHit=new V(),pointer=new THREE.Vector2(),ray=new THREE.Raycaster();
+  // The controls use the gameplay camera's final heading even while the
+  // camera is easing out of the opening view or looking ahead on a trail.
+  const forward = new V(-5.8, 0, -12.3).normalize();
+  const right = new V().crossVectors(forward, new V(0, 1, 0)).normalize();
+  let landTime = 0;
+  const trail = getCampaignTrail(layout);
+  let trailIndex = 0, trailTime = 0;
   look.set(0,1,-3);
   let discoveryState={discoveredIds:[],carrying:null,operated:false};
   let discoveryGroup=null,carriedObject=null,encounterGroup=null;
   let navigation=null;
-  let destination=null,routeQueue=[],hero=null,mixer=null,actionName='',actions={},residents=[],contactShadows=null,restorationGroup=null,treesGroup=null,decorGroup=null,assets=null,collisionLayout=campaignCollisionLayout(layout,completed,low);
+  const buildCollisionLayout = () => ({ ...campaignCollisionLayout(layout, completed, low), springSteps });
+  let destination=null,routeQueue=[],hero=null,mixer=null,actionName='',actions={},residents=[],contactShadows=null,restorationGroup=null,treesGroup=null,decorGroup=null,assets=null,collisionLayout=buildCollisionLayout();
+  const trailView = createCampaignTrailView(scene, trail, { getHeight: (x, z) => campaignWalkHeight(collisionLayout, x, z) });
   const contactPose=new THREE.Object3D();
   function clearInstances(group){group?.traverse(o=>{if(o.isInstancedMesh)o.dispose();});}
-  function cleanup(){if(disposed)return;disposed=true;loadingController.abort();cancelAnimationFrame(frame);observer.disconnect();canvas.removeEventListener('pointerdown',onGround);canvas.removeEventListener('webglcontextlost',lost);settings.signal?.removeEventListener('abort',cleanup);mixer?.stopAllAction();residents.forEach(r=>r.mixer.stopAllAction());clearInstances(treesGroup);clearInstances(decorGroup);contactShadows?.dispose();breadcrumbs.dispose();resources.dispose();scene.clear();disposeRenderer(renderer,{forceContextLoss:true});}
+  function cleanup(){if(disposed)return;disposed=true;loadingController.abort();cancelAnimationFrame(frame);observer.disconnect();canvas.removeEventListener('pointerdown',onGround);canvas.removeEventListener('webglcontextlost',lost);settings.signal?.removeEventListener('abort',cleanup);mixer?.stopAllAction();residents.forEach(r=>r.mixer.stopAllAction());clearInstances(treesGroup);clearInstances(decorGroup);contactShadows?.dispose();breadcrumbs.dispose();springs.dispose();trailView.dispose();resources.dispose();scene.clear();disposeRenderer(renderer,{forceContextLoss:true});}
   function clearNavigation(){navigation=null;clickRing.visible=false;breadcrumbs.count=0;breadcrumbs.visible=false;}
-  function stopped(){input.x=input.z=0;player.vx=player.vz=0;destination=null;routeQueue=[];acc=0;clearNavigation();}
+  function stopped(){input.x=input.z=0;input.run=false;player.vx=player.vz=0;destination=null;routeQueue=[];acc=0;clearNavigation();}
+  function reachTrailMark() {
+    const next = advanceCampaignTrail(trail, trailIndex, player);
+    if (next === trailIndex) return false;
+    trailIndex = next;
+    if (navigation?.kind === 'trail') stopped();
+    const complete = next === trail.checkpoints.length;
+    callbacks.trailStep?.(complete);
+    if (complete) callbacks.discovery?.({ stageId: layout.stageId, id: trail.id, kind: 'trail' });
+    dirty = true;
+    return true;
+  }
   function followRoute(route,target){stopped();routeQueue=route;destination=routeQueue.shift();navigation=target;clickRing.position.set(target.point.x,campaignWalkHeight(collisionLayout,target.point.x,target.point.z)+.14,target.point.z);clickRing.visible=true;dirty=true;canvas.focus({preventScroll:true});}
   function navigationSnapshot(){return navigation ? {...navigation,arrived:!destination&&Math.hypot(player.x-navigation.point.x,player.z-navigation.point.z)<2.6} : null;}
   function fail(error){if(failed||disposed)return;failed=true;stopped();canvas.tabIndex=-1;callbacks.failure?.(error);}
@@ -342,7 +514,7 @@ export async function createCampaignWorld(host,callbacks={},settings={}) {
   function syncPixelRatio(){const ratio=arcadePixelRatio(low?1:1.5,host.clientWidth,host.clientHeight);if(renderer.getPixelRatio()!==ratio)renderer.setPixelRatio(ratio);}
   function resize(){if(disposed)return;const {width,height}=host.getBoundingClientRect();syncPixelRatio();renderer.setSize(Math.max(1,width),Math.max(1,height));camera.aspect=Math.max(1,width)/Math.max(1,height);camera.updateProjectionMatrix();dirty=true;}
   const observer=new ResizeObserver(resize);observer.observe(host);resize();
-  function onGround(event){if(disposed||failed||paused||phase!=='explore'||event.button>0)return;const box=canvas.getBoundingClientRect();pointer.set((event.clientX-box.left)/box.width*2-1,-(event.clientY-box.top)/box.height*2+1);ray.setFromCamera(pointer,camera);const hit=ray.intersectObject(ground,false)[0];if(!hit||!campaignCanWalk(collisionLayout,hit.point.x,hit.point.z))return;destinationHit.copy(hit.point);const route=campaignRoute(collisionLayout,player,destinationHit);if(!route.length)return;followRoute(route,{kind:'ground',label:'Along the path',point:{x:hit.point.x,z:hit.point.z}});}
+  function onGround(event){if(disposed||failed||paused||phase!=='explore'||event.button>0)return;const box=canvas.getBoundingClientRect();pointer.set((event.clientX-box.left)/box.width*2-1,-(event.clientY-box.top)/box.height*2+1);ray.setFromCamera(pointer,camera);const hit=ray.intersectObject(ground,false)[0];if(!hit||!campaignCanWalk(collisionLayout,hit.point.x,hit.point.z)||campaignSpringAt(collisionLayout,hit.point.x,hit.point.z))return;destinationHit.copy(hit.point);const route=campaignGroundRoute(collisionLayout,player,destinationHit);if(!route.length)return;followRoute(route,{kind:'ground',label:'Along the path',point:{x:hit.point.x,z:hit.point.z}});}
   function lost(event){event.preventDefault();fail(new Error('The 3D view is unavailable. Continue on the illustrated trail; your reading progress is saved.'));}
   canvas.addEventListener('pointerdown',onGround);canvas.addEventListener('webglcontextlost',lost);
   settings.signal?.addEventListener('abort',cleanup,{once:true});
@@ -371,10 +543,14 @@ export async function createCampaignWorld(host,callbacks={},settings={}) {
     const loaded=Object.fromEntries(results.map(result=>result.value));
     assets={tree:loaded['forest/tree.glb'],rock:loaded['forest/rock.glb'],mushrooms:loaded['forest/mushrooms.glb'],cottage:loaded['forest/cottage.glb']};
     const bouncy=loaded['characters/bouncy.glb'];hero=new THREE.Group();hero.add(bouncy.scene);hero.scale.setScalar(1.1);scene.add(hero);mixer=new THREE.AnimationMixer(bouncy.scene);actions=Object.fromEntries(bouncy.animations.map(clip=>[clip.name,mixer.clipAction(clip)]));action('Idle');
+    // Moving characters use the existing contact shadows. World shadows are
+    // baked by the renderer only when scenery or quality changes.
+    hero.traverse(object => { if (object.isMesh) object.castShadow = false; });
     // Only a Pal's exact authored GLB may appear in this world. Every other
     // resident is deliberately encountered through their canonical illustration.
     for(const id of residentFiles){
       const source=loaded[`characters/${id}.glb`],model=cloneSkeleton(source.scene),rm=new THREE.AnimationMixer(model);
+      model.traverse(object => { if (object.isMesh) object.castShadow = false; });
       const clips=Object.fromEntries(source.animations.map(clip=>[clip.name,rm.clipAction(clip)]));
       clips.Idle?.play();
       if(clips.Celebrate){clips.Celebrate.setLoop(THREE.LoopOnce,1);clips.Celebrate.clampWhenFinished=true;clips.Celebrate.timeScale=clips.Celebrate.getClip().duration/1.8;}
@@ -385,7 +561,15 @@ export async function createCampaignWorld(host,callbacks={},settings={}) {
     const contactGeometry=new THREE.CircleGeometry(1,24);contactGeometry.rotateX(-Math.PI/2);resources.geometries.add(contactGeometry);
     const contactMaterial=new THREE.MeshBasicMaterial({color:SOUND_SEEKERS_ROUNDED_PALETTE['615f5b'],map:contactShadowTexture(resources),transparent:true,opacity:.32,depthWrite:false});resources.materials.add(contactMaterial);
     contactShadows=new THREE.InstancedMesh(contactGeometry,contactMaterial,residents.length+1);contactShadows.frustumCulled=false;scene.add(contactShadows);
-    function plant(){if(treesGroup){clearInstances(treesGroup);scene.remove(treesGroup);}const trees=low?layout.trees.filter((_,i)=>i%3===0):layout.trees;treesGroup=new THREE.Group();scene.add(treesGroup);instanceAsset(assets.tree,trees,treesGroup,resources,{...theme,worldId:layout.worldId,layout},true);instanceAsset(assets.tree,low?layout.backdrop.filter((_,i)=>i%6===0):layout.backdrop,treesGroup,resources,{...theme,worldId:layout.worldId,layout},true,false);}
+    function plant() {
+      if (treesGroup) { clearInstances(treesGroup); scene.remove(treesGroup); }
+      treesGroup = new THREE.Group();
+      scene.add(treesGroup);
+      const treeTheme = { ...theme, worldId: layout.worldId, layout };
+      instanceCampaignTrees(assets.tree, low ? layout.trees.filter((_, i) => i % 3 === 0) : layout.trees, treesGroup, resources, treeTheme, true);
+      instanceCampaignTrees(assets.tree, low ? layout.backdrop.filter((_, i) => i % 6 === 0) : layout.backdrop, treesGroup, resources, treeTheme, false);
+      renderer.shadowMap.needsUpdate = true;
+    }
     function dress(){
       if(decorGroup){clearInstances(decorGroup);decorGroup.traverse(o=>{if(o.userData.batched&&o.geometry){o.geometry.dispose();resources.geometries.delete(o.geometry);}});scene.remove(decorGroup);}
       decorGroup=new THREE.Group();scene.add(decorGroup);
@@ -395,6 +579,12 @@ export async function createCampaignWorld(host,callbacks={},settings={}) {
       for(const feature of layout.features.filter(f=>!['rock','mushrooms','cottage'].includes(f.kind))){const object=furniture.prop({kind:feature.kind,x:feature.x,z:feature.z,lift:0,size:feature.scale,installed:true},assets);object.position.y+=campaignTerrainHeight(layout,feature.x,feature.z);object.rotation.y=feature.rotation;plants.add(object);}
       for (const spec of campaignWorkCorners(layout)) {
         const prop=furniture.prop(spec,assets);prop.position.y+=campaignTerrainHeight(layout,spec.x,spec.z);plants.add(prop);
+      }
+      for (const spec of trailVergePlants({ ...layout, springSteps })) {
+        const prop = furniture.prop(spec, assets);
+        prop.position.y += campaignTerrainHeight(layout, spec.x, spec.z);
+        prop.rotation.y = spec.rotation;
+        plants.add(prop);
       }
       const natural=batchFurniture(plants,resources);natural.traverse(o=>{o.userData.batched=true;});decorGroup.add(natural);
       if(!low){
@@ -415,26 +605,41 @@ export async function createCampaignWorld(host,callbacks={},settings={}) {
         if(d.kind==='carry'){
           const stand=furniture.prop({kind:d.standKind,x:d.destination.x+1.1,z:d.destination.z-.8,lift:0,size:.72,installed:true},assets);
           stand.position.y+=campaignTerrainHeight(layout,d.destination.x,d.destination.z);composition.add(stand);
-          if(discoveryState.carrying===d.id){carriedObject=furniture.prop({kind:d.itemKind,x:.42,z:.35,lift:1.1,size:.45,installed:false},assets);hero.add(carriedObject);continue;}
+          if(discoveryState.carrying===d.id){carriedObject=furniture.prop({kind:d.itemKind,x:.42,z:.35,lift:1.1,size:.45,installed:false},assets);carriedObject.traverse(object => { if (object.isMesh) object.castShadow = false; });hero.add(carriedObject);continue;}
         }
         const object=furniture.prop({kind:d.itemKind,x:location.x+(delivered?1.1:.8),z:location.z-.8,lift:delivered?.35:0,size:d.kind==='operate'?1.05:.62,installed:false,lit:discoveryState.operated,turned:discoveryState.operated,direction:'left'},assets);
         object.position.y+=campaignTerrainHeight(layout,location.x,location.z);composition.add(object);
         if(d.kind==='operate'&&known){const bloom=new THREE.Group();bloom.position.set(location.x-.8,campaignTerrainHeight(layout,location.x,location.z),location.z-.8);furniture.flower(bloom);composition.add(bloom);}
       }
       discoveryGroup=batchFurniture(composition,resources);scene.add(discoveryGroup);dirty=true;
+      renderer.shadowMap.needsUpdate = true;
     }
     function repair(){const key=completed.slice().sort().join('|');if(key===repairKey&&restorationGroup)return;repairKey=key;if(restorationGroup){scene.remove(restorationGroup);restorationGroup.traverse(o=>{if(o.geometry){o.geometry.dispose();resources.geometries.delete(o.geometry);}});}const composition=new THREE.Group(),state=getRoundedCampaignRestoration(layout.stageId,completed);for(const desc of state.props.filter(p=>(!p.missionId||p.installed)&&!(layout.water&&p.kind==='pond')))composition.add(furniture.prop(desc,assets));restorationGroup=batchFurniture(composition,resources);restorationGroup.position.set(layout.landmark.x,campaignTerrainHeight(layout,layout.landmark.x,layout.landmark.z),layout.landmark.z);scene.add(restorationGroup);
       if(encounterGroup){scene.remove(encounterGroup);encounterGroup.traverse(o=>{if(o.geometry){o.geometry.dispose();resources.geometries.delete(o.geometry);}});}
       const encounters=new THREE.Group();
       for(const p of campaignEncounterProps(layout,completed)){const object=furniture.prop(p,assets);object.position.y+=campaignTerrainHeight(layout,p.x,p.z);encounters.add(object);}
       for(const point of layout.missions){if(completed.includes(point.missionId))continue;const job=CAMPAIGN_ROUNDED_RESTORATIONS[layout.stageId].jobs.find(j=>j.missionId===point.missionId);if(job?.before.length)continue;const side=point.missionId.includes('-side-'),object=furniture.prop({kind:side?'lantern':'book',x:point.x+1,z:point.z-.85,lift:0,size:side?.65:.85,installed:false},assets);object.position.y+=campaignTerrainHeight(layout,point.x,point.z);encounters.add(object);}
-      encounterGroup=batchFurniture(encounters,resources);scene.add(encounterGroup);collisionLayout=campaignCollisionLayout(layout,completed,low);}
+      encounterGroup=batchFurniture(encounters,resources);scene.add(encounterGroup);collisionLayout=buildCollisionLayout();renderer.shadowMap.needsUpdate = true;}
     assets.plant=plant;assets.dress=dress;assets.repair=repair;assets.discoveries=discoveries;plant();dress();repair();discoveries();callbacks.ready?.();
   } catch(error){if(!disposed){fail(error);cleanup();}}
-  function snapshot(){const width=host.clientWidth,height=host.clientHeight;callbacks.snapshot?.({stageId:layout.stageId,x:player.x,z:player.z,nearMissionId:campaignNearMission(layout,player,available,completed),worldInteraction:campaignNearbyWorldInteraction(layout,player,discoveryState),navigation:navigationSnapshot(),discoveryTargets:campaignDiscoveryTargets(layout,discoveryState).map(target=>{projected.set(target.point.x,campaignTerrainHeight(layout,target.point.x,target.point.z)+1.25,target.point.z).project(camera);return {...target,x:(projected.x+1)/2*width,y:(1-projected.y)/2*height,visible:phase==='explore'&&!paused&&projected.z>-1&&projected.z<1&&Math.abs(projected.x)<.94&&Math.abs(projected.y)<.9&&Math.hypot(player.x-target.point.x,player.z-target.point.z)>2.6};}),carrying:discoveryState.carrying?{id:discoveryState.carrying,kind:layout.discoveries[0].itemKind,title:layout.discoveries[0].itemTitle}:null,markers:layout.missions.map(p=>{projected.set(p.x,campaignTerrainHeight(layout,p.x,p.z)+1.5,p.z).project(camera);const job=CAMPAIGN_ROUNDED_RESTORATIONS[layout.stageId].jobs.find(j=>j.missionId===p.missionId);return {missionId:p.missionId,objectKind:job?.before[0]?.kind||job?.after[0]?.kind||'lantern',x:(projected.x+1)/2*width,y:(1-projected.y)/2*height,visible:phase==='explore'&&available.includes(p.missionId)&&!completed.includes(p.missionId)&&projected.z>-1&&projected.z<1&&Math.abs(projected.x)<.94&&Math.abs(projected.y)<.9&&Math.hypot(player.x-p.x,player.z-p.z)>2.6};}),drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,renderedFrames,frameMs:frameAverage});}
+  const trailStatus = () => ({
+    label: trail.label, index: trailIndex, total: trail.checkpoints.length,
+    complete: trailIndex === trail.checkpoints.length,
+  });
+  function snapshot(){const width=host.clientWidth,height=host.clientHeight;callbacks.snapshot?.({stageId:layout.stageId,x:player.x,z:player.z,trail:trailStatus(),nearMissionId:campaignNearMission(layout,player,available,completed),worldInteraction:campaignNearbyWorldInteraction(layout,player,discoveryState),navigation:navigationSnapshot(),discoveryTargets:campaignDiscoveryTargets(layout,discoveryState).map(target=>{projected.set(target.point.x,campaignTerrainHeight(layout,target.point.x,target.point.z)+1.25,target.point.z).project(camera);return {...target,x:(projected.x+1)/2*width,y:(1-projected.y)/2*height,visible:phase==='explore'&&!paused&&projected.z>-1&&projected.z<1&&Math.abs(projected.x)<.94&&Math.abs(projected.y)<.9&&Math.hypot(player.x-target.point.x,player.z-target.point.z)>2.6};}),carrying:discoveryState.carrying?{id:discoveryState.carrying,kind:layout.discoveries[0].itemKind,title:layout.discoveries[0].itemTitle}:null,markers:layout.missions.map(p=>{projected.set(p.x,campaignTerrainHeight(layout,p.x,p.z)+1.5,p.z).project(camera);const job=CAMPAIGN_ROUNDED_RESTORATIONS[layout.stageId].jobs.find(j=>j.missionId===p.missionId);return {missionId:p.missionId,objectKind:job?.before[0]?.kind||job?.after[0]?.kind||'lantern',x:(projected.x+1)/2*width,y:(1-projected.y)/2*height,visible:phase==='explore'&&available.includes(p.missionId)&&!completed.includes(p.missionId)&&projected.z>-1&&projected.z<1&&Math.abs(projected.x)<.94&&Math.abs(projected.y)<.9&&Math.hypot(player.x-p.x,player.z-p.z)>2.6};}),drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,renderedFrames,frameMs:frameAverage});}
   function update(now){
     if(disposed||failed)return;frame=requestAnimationFrame(update);
-    const moving=!paused&&phase==='explore'&&(destination||input.x||input.z||Math.hypot(player.vx,player.vz)>.025);
+    if (phase === 'title' && settings.paintedEntrance) {
+      if (dirty) {
+        canvas.dataset.phase = phase;
+        canvas.dataset.paused = String(paused);
+        dirty = false;
+        snapshot();
+      }
+      last = now;
+      return;
+    }
+    const moving=!paused&&phase==='explore'&&(destination||input.x||input.z||player.lift||player.liftSpeed||Math.hypot(player.vx,player.vz)>.025||(!reduced&&landTime>0));
     if(!dirty&&!moving&&(reduced||paused||phase!=='explore')){last=now;return;}
     // Cap idle animations; a reduced idle scene never submits identical pixels.
     if(!dirty&&!moving&&!reduced&&now-drawTime<1000/30)return;
@@ -443,7 +648,7 @@ export async function createCampaignWorld(host,callbacks={},settings={}) {
       let dx=input.x,dz=input.z;
       if(dx||dz){destination=null;routeQueue=[];clearNavigation();}
       const following=Boolean(destination);
-      if(!following){camera.getWorldDirection(forward);forward.y=0;forward.normalize();right.crossVectors(forward,new V(0,1,0)).normalize();const x=right.x*dx-forward.x*dz,z=right.z*dx-forward.z*dz;dx=x;dz=z;}
+      if(!following){const x=right.x*dx-forward.x*dz,z=right.z*dx-forward.z*dz;dx=x;dz=z;}
       const clock=campaignFrameSteps(actual,acc);acc=clock.remainder;
       for(let step=0;step<clock.steps;step++){
         // Re-evaluate every waypoint per collision step so a slow rendered
@@ -453,12 +658,34 @@ export async function createCampaignWorld(host,callbacks={},settings={}) {
           const distance=destination?Math.hypot(destination.x-player.x,destination.z-player.z):0;
           dx=distance?(destination.x-player.x)/distance:0;dz=distance?(destination.z-player.z)/distance:0;
         }
+        const x = player.x, z = player.z;
         campaignStepPlayer(collisionLayout,player,{x:dx,z:dz,run:input.run},1/60);
+        if (x !== player.x || z !== player.z) reachTrailMark();
+        if (stepCampaignJump(player, 1/60)) landTime = .22;
       }
     }else acc=0;
     const routePoints=destination?campaignRouteBreadcrumbs(player,[destination,...routeQueue]):[];breadcrumbs.count=routePoints.length;breadcrumbs.visible=routePoints.length>0;routePoints.forEach((point,index)=>{breadcrumbPose.position.set(point.x,campaignWalkHeight(collisionLayout,point.x,point.z)+.15,point.z);breadcrumbPose.updateMatrix();breadcrumbs.setMatrixAt(index,breadcrumbPose.matrix);});if(routePoints.length)breadcrumbs.instanceMatrix.needsUpdate=true;
     const groundHeight=campaignWalkHeight(collisionLayout,player.x,player.z),speed=Math.hypot(player.vx,player.vz);
-    if(hero){hero.position.set(player.x,groundHeight+.04,player.z);if(speed>.15&&!paused&&phase==='explore'){const angle=Math.atan2(player.vx,player.vz);hero.rotation.y+=Math.atan2(Math.sin(angle-hero.rotation.y),Math.cos(angle-hero.rotation.y))*Math.min(1,dt*14);}action(speed>.15&&!paused&&phase==='explore'?'Walk':'Idle');if(!reduced&&!paused){mixer.timeScale=actionName==='Walk'?Math.max(.8,speed/4.6):1;mixer.update(dt);}}
+    const exploring = !paused && phase === 'explore';
+    if (exploring) landTime = Math.max(0, landTime - dt);
+    if (exploring) trailTime += dt;
+    trailView.update(trailIndex, trailTime, { reduced, active: phase === 'explore' });
+    if (hero) {
+      hero.position.set(player.x, groundHeight + .04 + player.lift, player.z);
+      if (speed > .15 && exploring) {
+        const angle = Math.atan2(player.vx, player.vz);
+        hero.rotation.y += Math.atan2(Math.sin(angle - hero.rotation.y), Math.cos(angle - hero.rotation.y)) * (reduced ? 1 : Math.min(1, dt * 14));
+      }
+      const stretch = reduced ? 0 : player.lift > 0
+        ? clamp(player.liftSpeed / SPRING_SPEED, -1, 1) * .08
+        : -Math.sin(landTime / .22 * Math.PI) * .13;
+      hero.scale.set(1.1 * (1 - stretch / 2), 1.1 * (1 + stretch), 1.1 * (1 - stretch / 2));
+      action(speed > .15 && exploring && !player.lift ? 'Walk' : 'Idle');
+      if (!reduced && exploring) {
+        mixer.timeScale = actionName === 'Walk' ? Math.max(.8, speed / 4.6) : 1;
+        mixer.update(dt);
+      }
+    }
     const completedCount=stage.missionIds.filter(id=>completed.includes(id)).length;
     for(const resident of residents){
       resident.behavior=stepCampaignResident(resident.behavior,{home:resident.home,work:layout.landmark,player,completedCount,dt,active:phase==='explore'&&!paused,reduced});
@@ -472,14 +699,26 @@ export async function createCampaignWorld(host,callbacks={},settings={}) {
     }
     if(contactShadows){
       const positions=[{x:player.x,z:player.z},...residents.map(resident=>resident.home)];
-      positions.forEach((position,index)=>{contactPose.position.set(position.x,campaignWalkHeight(collisionLayout,position.x,position.z)+.055,position.z);contactPose.scale.set(index?.64:.72,1,index?.48:.54);contactPose.updateMatrix();contactShadows.setMatrixAt(index,contactPose.matrix);});
+      positions.forEach((position,index)=>{const spread=index?1:1+player.lift*.24;contactPose.position.set(position.x,campaignWalkHeight(collisionLayout,position.x,position.z)+.055,position.z);contactPose.scale.set(index?.64:.72*spread,1,index?.48:.54*spread);contactPose.updateMatrix();contactShadows.setMatrixAt(index,contactPose.matrix);});
       contactShadows.instanceMatrix.needsUpdate=true;
     }
     for(const p of layout.missions){const marker=markerMeshes.get(p.missionId);marker.visible=phase==='explore'&&available.includes(p.missionId)&&!completed.includes(p.missionId);marker.scale.setScalar(p.missionId===focusMissionId?1.14:1);}
-    if(phase==='title'){cameraTarget.set(27,35,38);lookTarget.set(0,1,-3);}else{const extra=camera.aspect<.85?1.32:1;cameraTarget.set(player.x+5.8*extra,groundHeight+9.2*extra,player.z+10.8*extra);lookTarget.set(player.x,groundHeight+1.15,player.z-1.5);}
+    if (phase === 'title') {
+      cameraTarget.set(27, 35, 38); lookTarget.set(0, 1, -3);
+    } else {
+      const extra = camera.aspect < .85 ? 1.32 : 1;
+      const lead = reduced ? 0 : .25;
+      const x = player.x + player.vx * lead, z = player.z + player.vz * lead;
+      cameraTarget.set(x + 5.8 * extra, groundHeight + 9.2 * extra, z + 10.8 * extra);
+      lookTarget.set(x, groundHeight + 1.15, z - 1.5 * extra);
+    }
     const damp=reduced?1:1-Math.exp(-Math.max(dt,.016)*5);camera.position.lerp(cameraTarget,damp);look.lerp(lookTarget,damp);camera.lookAt(look);
     renderer.render(scene,camera);renderedFrames++;if(moving)frameAverage+=(Math.min(actual*1000,250)-frameAverage)*.08;canvas.dataset.phase=phase;canvas.dataset.paused=String(paused);canvas.dataset.available=available.join(',');canvas.dataset.navigation=navigation?.kind||'';canvas.dataset.navigationTarget=navigation?.id||'';canvas.dataset.navigationArrived=String(navigationSnapshot()?.arrived||false);canvas.dataset.routeBreadcrumbs=String(breadcrumbs.count);canvas.dataset.destination=destination?`${destination.x},${destination.z}`:'';canvas.dataset.stageId=layout.stageId;canvas.dataset.playerX=player.x.toFixed(3);canvas.dataset.playerZ=player.z.toFixed(3);canvas.dataset.renderedFrames=String(renderedFrames);canvas.dataset.drawCalls=String(renderer.info.render.calls);canvas.dataset.triangles=String(renderer.info.render.triangles);canvas.dataset.frameMs=frameAverage.toFixed(2);if(now-snapshotTime>90||reduced){snapshotTime=now;snapshot();}
     canvas.dataset.pixelRatio=String(renderer.getPixelRatio());canvas.dataset.residentStates=residents.map(resident=>`${resident.id}:${resident.behavior.mode}:${resident.model.rotation.y.toFixed(3)}:${resident.actionName}`).join(',');canvas.dataset.contactShadows=String(contactShadows?.count||0);
+    canvas.dataset.playerLift = player.lift.toFixed(3);
+    canvas.dataset.playerOnSpring = String(Boolean(campaignSpringAt(collisionLayout, player.x, player.z)) && player.lift === 0);
+    canvas.dataset.trailIndex = String(trailIndex);
+    canvas.dataset.trailTotal = String(trail.checkpoints.length);
     if(!reduced&&camera.position.distanceTo(cameraTarget)>.03)dirty=true;
   }
   if(!disposed)frame=requestAnimationFrame(update);
@@ -493,33 +732,72 @@ export async function createCampaignWorld(host,callbacks={},settings={}) {
       focusMissionId=state.focusMissionId===undefined?focusMissionId:state.focusMissionId;
       const oldDiscoveries=discoveryState.discoveredIds.join('|'),oldCarrying=discoveryState.carrying;
       discoveryState=campaignRestoreWorldInventory(layout,discoveryState,state);
+      if (state.discoveredIds?.includes(trail.id) && trailIndex !== trail.checkpoints.length) {
+        trailIndex = trail.checkpoints.length;
+        dirty = true;
+      }
       if(before===JSON.stringify([phase,paused,reduced,low,completed,available,focusMissionId,discoveryState.discoveredIds,discoveryState.carrying]))return;
       dirty=true;canvas.tabIndex=phase==='explore'&&!paused?0:-1;
-      if(phase!=='explore'||paused)stopped();
+      if(phase!=='explore'||paused){stopped();player.lift=player.liftSpeed=landTime=0;}
       else if(!wasInteractive&&(state.focusOnResume!==false||previousPhase!=='explore'||!wasPaused))canvas.focus({preventScroll:true});
       sun.castShadow=!low;renderer.shadowMap.enabled=!low;syncPixelRatio();
-      if(previousLow!==low&&assets){assets.plant();assets.dress();collisionLayout=campaignCollisionLayout(layout,completed,low);}
+      if(previousLow!==low&&assets){assets.plant();assets.dress();collisionLayout=buildCollisionLayout();}
       assets?.repair();
       if(oldDiscoveries!==discoveryState.discoveredIds.join('|')||oldCarrying!==discoveryState.carrying)assets?.discoveries();
     },
-    restore(position){if(disposed||failed||!position||!campaignCanWalk(collisionLayout,position.x,position.z))return false;player.x=position.x;player.z=position.z;stopped();dirty=true;return true;},
+    restore(position){if(disposed||failed||!position||!campaignCanWalk(collisionLayout,position.x,position.z))return false;player.x=position.x;player.z=position.z;player.lift=player.liftSpeed=landTime=0;stopped();dirty=true;return true;},
     move(x,z,{tapStep=false,tapOnly=false}={}){if(disposed||failed||paused||phase!=='explore')return;input.x=Number.isFinite(x)?clamp(x,-1,1):0;input.z=Number.isFinite(z)?clamp(z,-1,1):0;if(input.x||input.z){destination=null;routeQueue=[];clearNavigation();}
       // A short native tap uses the same bounded collision steps as a held
       // direction, so a press released before the next frame still moves.
-      if(tapStep&&(input.x||input.z)){camera.getWorldDirection(forward);forward.y=0;forward.normalize();right.crossVectors(forward,new V(0,1,0)).normalize();const dx=right.x*input.x-forward.x*input.z,dz=right.z*input.x-forward.z*input.z;for(let step=0;step<6;step++)campaignStepPlayer(collisionLayout,player,{x:dx,z:dz,run:input.run},1/60);}
+      if (tapStep && (input.x || input.z)) {
+        const dx = right.x * input.x - forward.x * input.z, dz = right.z * input.x - forward.z * input.z;
+        const x0 = player.x, z0 = player.z;
+        for (let step = 0; step < 6; step++) campaignStepPlayer(collisionLayout, player, { x: dx, z: dz, run: input.run }, 1 / 60);
+        if (x0 !== player.x || z0 !== player.z) reachTrailMark();
+      }
       if(tapOnly)input.x=input.z=0;dirty=true;},
     run(value){input.run=!!value;},
+    jump() {
+      if (disposed || failed || paused || phase !== 'explore' || !requestCampaignJump(player)) return false;
+      destination = null; routeQueue = []; clearNavigation();
+      dirty = true;
+      return true;
+    },
+    cancelJump() {
+      if (disposed || failed) return;
+      player.lift = player.liftSpeed = landTime = 0;
+      dirty = true;
+    },
     walkToMission(id){
       canvas.dataset.lastWalkMission=id;
       if(disposed||failed||paused||phase!=='explore'){canvas.dataset.lastWalk='inactive';return false;}
       if(!available.includes(id)||completed.includes(id)){canvas.dataset.lastWalk='unavailable';return false;}
       const point=layout.missions.find(p=>p.missionId===id);if(!point){canvas.dataset.lastWalk='unknown';return false;}
-      const route=campaignRoute(collisionLayout,player,point);
+      const route=campaignGroundRoute(collisionLayout,player,point);
       if(!route.length){canvas.dataset.lastWalk='unreachable';return false;}
       followRoute(route,{kind:'mission',id,point:{x:point.x,z:point.z}});focusMissionId=id;canvas.dataset.lastWalk='following';return true;
     },
     interact(){if(disposed||failed||paused||phase!=='explore')return false;const result=campaignUseWorldObject(layout,player,discoveryState);if(!result.accepted)return false;discoveryState=result.state;stopped();assets?.discoveries();dirty=true;callbacks.interaction?.({stageId:layout.stageId,...result.interaction,carryingId:discoveryState.carrying});if(result.discovery)callbacks.discovery?.(result.discovery);return result.interaction;},
-    walkToDiscovery(id){if(disposed||failed||paused||phase!=='explore')return false;const target=campaignDiscoveryTargets(layout,discoveryState).find(d=>d.id===id);if(!target)return false;const route=campaignRoute(collisionLayout,player,target.point);if(!route.length)return false;followRoute(route,target);return true;},
+    walkToDiscovery(id){if(disposed||failed||paused||phase!=='explore')return false;const target=campaignDiscoveryTargets(layout,discoveryState).find(d=>d.id===id);if(!target)return false;const route=campaignGroundRoute(collisionLayout,player,target.point);if(!route.length)return false;followRoute(route,target);return true;},
+    walkToTrail() {
+      if (disposed || failed || paused || phase !== 'explore') return false;
+      if (reachTrailMark()) return true;
+      const target = campaignTrailTarget(trail, trailIndex);
+      if (!target) return false;
+      const route = campaignGroundRoute(collisionLayout, player, target.point);
+      if (!route.length) return false;
+      followRoute(route, target);
+      return true;
+    },
+    walkToRepair(id) {
+      if (disposed || failed || paused || phase !== 'explore') return false;
+      const point = campaignRepairLookout(collisionLayout, id, completed);
+      if (!point) return false;
+      const route = campaignGroundRoute(collisionLayout, player, point);
+      if (!route.length) return false;
+      followRoute(route, { kind: 'repair', id, point });
+      return true;
+    },
     stopTravel(){if(disposed||failed)return;stopped();dirty=true;},
     position(){return {stageId:layout.stageId,x:player.x,z:player.z};},
     dispose:cleanup

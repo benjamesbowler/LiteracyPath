@@ -230,7 +230,7 @@ async function completeMissionThroughControls(page, scope, mission, onBeat) {
 }
 
 test("first stage earns all seven missions, preserves supported partial word on reload and returns to exploration", async ({ page }, testInfo) => {
-  test.setTimeout(420_000);
+  test.setTimeout(480_000);
   const scope = `route-earned-${testInfo.project.name}`;
   const errors = [];
   page.on("pageerror", error => errors.push(error.message));
@@ -242,6 +242,16 @@ test("first stage earns all seven missions, preserves supported partial word on 
 
   await placesMission(page, FIRST_STAGE_MAIN[0]);
   await completeMissionThroughControls(page, scope, FIRST_STAGE_MAIN[0]);
+  const firstRepair = await savedProgress(page, scope);
+  const canvas = page.locator(".rc-landscape canvas");
+  await page.getByRole("button", { name: "See the repair", exact: true }).click();
+  await expect(canvas).toHaveAttribute("data-navigation", "repair");
+  await expect(canvas).toHaveAttribute("data-navigation-target", FIRST_STAGE_MAIN[0].id);
+  await expect(canvas).toHaveAttribute("data-navigation-arrived", "true", { timeout: 45_000 });
+  await expect(page.getByRole("status").filter({ hasText: "Here’s what you fixed." })).toBeVisible();
+  await expect(page.locator(GAME)).toHaveAttribute("data-mode", "explore");
+  expect((await savedProgress(page, scope)).evidence).toEqual(firstRepair.evidence);
+  await page.screenshot({ path: testInfo.outputPath("first-earned-repair-lookout.png") });
   await placesMission(page, FIRST_STAGE_MAIN[1]);
   await completeMissionThroughControls(page, scope, FIRST_STAGE_MAIN[1]);
 

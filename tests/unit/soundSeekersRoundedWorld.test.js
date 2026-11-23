@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import { CAMPAIGN_STAGES } from '../../src/features/soundSeekers/v3/content/campaign.js';
 import { CAMPAIGN_WORLD_LAYOUTS, CAMPAIGN_WORLD_THEMES, campaignCanWalk, campaignRoute, campaignSegmentWalkable, campaignTerrainHeight, campaignRoadSamples } from '../../src/features/soundSeekers/rounded/campaignWorldLayouts.js';
 import { CAMPAIGN_ROUNDED_RESTORATIONS, getRoundedCampaignRestoration } from '../../src/features/soundSeekers/rounded/campaignRestorations.js';
-import { ROUNDED_CAMPAIGN_PROP_KINDS, campaignCollisionLayout, campaignStepPlayer, campaignFrameSteps, campaignNearMission, campaignUseWorldObject, campaignNearbyWorldInteraction, campaignRestoreWorldInventory, campaignEncounterProps, campaignWalkHeight } from '../../src/features/soundSeekers/rounded/campaignWorld.js';
+import { ROUNDED_CAMPAIGN_PROP_KINDS, campaignCollisionLayout, campaignStepPlayer, campaignFrameSteps, campaignNearMission, campaignUseWorldObject, campaignNearbyWorldInteraction, campaignRestoreWorldInventory, campaignEncounterProps, campaignWalkHeight, campaignSpringSteps, requestCampaignJump, stepCampaignJump, campaignRepairLookout } from '../../src/features/soundSeekers/rounded/campaignWorld.js';
 
 test('slow rendering retains the same collision-stepped walking time without unbounded catch-up',()=>{
   const layout={bounds:{minX:-100,maxX:100,minZ:-100,maxZ:100},obstacles:[],water:null};
@@ -226,6 +226,61 @@ test('continuous outward walking remains inside the authored boundary without wa
       campaignStepPlayer(l,p,{x:.7,z:1,run:true},1/60);
       assert.ok(Math.hypot(p.x-last.x,p.z-last.z)<=7/60+.001);
       assert.ok(campaignCanWalk(l,p.x,p.z));last={...p};
+    }
+  }
+});
+
+test('every place has a reachable three-step jump sequence and a clear ground route alongside it', () => {
+  for (const raw of Object.values(CAMPAIGN_WORLD_LAYOUTS)) {
+    const springSteps = campaignSpringSteps(raw);
+    assert.equal(springSteps.length, 3, raw.stageId);
+    const layout = { ...campaignCollisionLayout(raw), springSteps };
+    const [first, second] = springSteps;
+    const dx = (second.x - first.x) / 2.75, dz = (second.z - first.z) / 2.75;
+    const start = { x: first.x - dx * 2.4, z: first.z - dz * 2.4, vx: 0, vz: 0, lift: 0, liftSpeed: 0 };
+    const walker = { ...start };
+    for (let tick = 0; tick < 100; tick++) {
+      campaignStepPlayer(layout, walker, { x: dx, z: dz }, 1 / 60);
+      assert.ok(Math.hypot(first.x - walker.x, first.z - walker.z) > first.radius, `${raw.stageId}: walked into the first stone`);
+    }
+    for (const [x, z] of campaignRoadSamples(raw.roads[0])) {
+      assert.equal(campaignWalkHeight(layout, x, z), campaignWalkHeight(raw, x, z));
+    }
+    const jumper = { ...start };
+    for (const stone of springSteps) {
+      assert.equal(requestCampaignJump(jumper), true, raw.stageId);
+      assert.equal(requestCampaignJump(jumper), false, `${raw.stageId}: mid-air double jump`);
+      for (let tick = 0; tick < 90; tick++) {
+        const distance = Math.hypot(stone.x - jumper.x, stone.z - jumper.z);
+        const input = distance < .34 ? { x: 0, z: 0 }
+          : { x: (stone.x - jumper.x) / distance, z: (stone.z - jumper.z) / distance };
+        campaignStepPlayer(layout, jumper, input, 1 / 60);
+        stepCampaignJump(jumper, 1 / 60);
+        assert.ok(campaignCanWalk(layout, jumper.x, jumper.z));
+      }
+      assert.equal(jumper.lift, 0);
+      assert.ok(Math.abs(campaignWalkHeight(layout, jumper.x, jumper.z) - stone.top) < 1e-6, `${raw.stageId}: missed step ${stone.height}`);
+    }
+    for (let tick = 0; tick < 50; tick++) {
+      campaignStepPlayer(layout, jumper, { x: dx, z: dz }, 1 / 60);
+      stepCampaignJump(jumper, 1 / 60);
+    }
+    assert.equal(jumper.lift, 0, `${raw.stageId}: could not step down`);
+  }
+});
+
+test('a repair lookout opens only for the exact earned main part and stays reachable in both tiers', () => {
+  for (const stage of CAMPAIGN_STAGES) {
+    const raw = CAMPAIGN_WORLD_LAYOUTS[stage.id];
+    for (const low of [false, true]) {
+      assert.equal(campaignRepairLookout(campaignCollisionLayout(raw, [], low), stage.missionIds[0], []), null);
+      for (const [index, missionId] of stage.missionIds.entries()) {
+        const completed = stage.missionIds.slice(0, index + 1);
+        const layout = campaignCollisionLayout(raw, completed, low);
+        const point = campaignRepairLookout(layout, missionId, completed);
+        assert.ok(point, `${stage.id}: no lookout for ${missionId}`);
+        assert.ok(campaignRoute(layout, raw.missions[index], point).length, `${stage.id}: no route to ${missionId}`);
+      }
     }
   }
 });
