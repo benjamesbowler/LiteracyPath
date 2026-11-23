@@ -7,6 +7,7 @@ import { soundSeekersRoundedCssVariables } from '../visual/visualTokens.js';
 import { CHILD_COPY } from '../../../copy/childCopy.js';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { createCampaignStorage } from '../v3/campaignStorage.js';
+import { campaignReturn, shouldLeadWithWoodland } from '../soundSeekersEntry.js';
 import { queueProgressSave } from '../../../utils/progressSync.js';
 import { CAMPAIGN_STAGES, CAMPAIGN_MISSIONS, CAMPAIGN_WORLDS, getCampaignStage, getCampaignMission } from '../v3/content/campaign.js';
 import { CAST } from '../v3/content/cast.js';
@@ -33,6 +34,7 @@ import { ROUND_CAMPAIGN, currentCampaignCheckpoint, currentCampaignBeat, campaig
 import './rounded-campaign.css';
 
 const MOVE_DIRECTIONS = { ArrowUp: [0, -1], w: [0, -1], ArrowDown: [0, 1], s: [0, 1], ArrowLeft: [-1, 0], a: [-1, 0], ArrowRight: [1, 0], d: [1, 0] };
+const browserStorage = () => window.localStorage;
 const MOVE_BUTTONS = [[-1, 0, 'Left'], [1, 0, 'Right'], [0, -1, 'Up'], [0, 1, 'Down']];
 
 function NavigationArt({ src }) {
@@ -63,9 +65,9 @@ function Modal({ title, children, onClose }) {
   </dialog>;
 }
 
-export default function RoundedCampaign({ progressScopeKey, isSoundEnabled, ephemeral, accessibilitySettings = {}, onExit, onOpenWoodland }) {
+export default function RoundedCampaign({ progressScopeKey, isSoundEnabled, ephemeral, getStorage = browserStorage, accessibilitySettings = {}, onExit, onOpenWoodland, woodlandEntry }) {
   const [{ adapter, loaded }] = useState(() => {
-    const storage = createCampaignStorage({ getStorage: () => window.localStorage, queueSave: queueProgressSave, eventTarget: window, localOnly: ephemeral });
+    const storage = createCampaignStorage({ getStorage, queueSave: queueProgressSave, eventTarget: ephemeral ? null : window, localOnly: ephemeral });
     return { adapter: storage, loaded: storage.loadCampaignProgress(progressScopeKey) };
   });
   const [progress, setProgress] = useState(loaded.progress);
@@ -120,6 +122,10 @@ export default function RoundedCampaign({ progressScopeKey, isSoundEnabled, ephe
   const nextStage = CAMPAIGN_STAGES[CAMPAIGN_STAGES.indexOf(stage) + 1];
   const totalMain = Object.keys(progress?.campaign?.completedMissions || {}).filter(id => getCampaignMission(id)?.kind === 'main').length;
   const blocked = !progress || ['unreadable', 'unsupported', 'conflict', 'reset'].includes(saveState.status);
+  const campaignEntry = mode === 'title' ? campaignReturn({ blocked, stageName: stage.name, progress, activeMission: beat ? mission : null }) : null;
+  const woodlandFirst = mode === 'title' && shouldLeadWithWoodland(campaignEntry, woodlandEntry);
+  const primaryEntry = woodlandFirst ? woodlandEntry : campaignEntry;
+  const secondaryEntry = woodlandFirst ? campaignEntry : woodlandEntry;
   useEffect(() => { const pack = { stageId: stage.id, missionId: checkpoint?.missionId, challenges: checkpoint?.challenges || [] }; void warmQuestOfflineAssets([...collectCampaignOfflineAudio(pack), ...collectCampaignQuestionArt(pack)], { chapterId: checkpoint?.missionId || stage.id }); }, [stage.id, checkpoint?.missionId, checkpoint?.attemptId, checkpoint?.challenges]);
 
   const save = useCallback((candidate, options) => {
@@ -425,7 +431,21 @@ export default function RoundedCampaign({ progressScopeKey, isSoundEnabled, ephe
   return <main style={soundSeekersRoundedCssVariables()} className="rc-game" data-sound-seekers-game="rounded-campaign" data-presentation="rounded-3d" data-scene-ready={sceneReady ? "true" : "false"} data-child-surface="sound-seekers" data-stage-id={stage.id} data-mode={mode} aria-label="Sound Seekers" tabIndex={-1} onPointerDownCapture={observedInput} onKeyDownCapture={observedInput}>
     <div className="rc-landscape" ref={host} aria-hidden={mode !== 'explore'} />
     <header className="rc-header"><span className="rc-brand">Sound Seekers{mode === 'activity' && checkpoint && <small aria-label="Mission steps">{checkpoint.beatIndex + 1} of {checkpoint.challenges.length}</small>}</span><span>{mode === 'activity' && mission ? mission.title : stage.name}</span><button onClick={() => setModal('places')}>Places</button><button onClick={() => setModal('pause')}>Pause</button></header>
-    {mode === 'title' && <section className="rc-title"><img src={withRepairedImageVersion(CAST.bouncy.sprite)} alt="Bouncy" /><p className="rc-eyebrow">A journey with Bouncy</p><h1 data-child-title="">Three worlds to help.</h1><p data-child-instruction="">{CHILD_COPY.soundSeekers.startInstruction}</p><button className="rc-primary" data-child-primary="" data-child-emphasis="primary" data-child-emphasis-cue="" disabled={blocked} onClick={start}>{beat ? 'Carry on' : 'Start exploring'}</button><div data-child-choices=""><button onClick={onOpenWoodland}>Woodland Homecoming</button></div><p className="rc-save" data-child-progress="" role="status">{statusLine}</p><button className="rc-home" onClick={exit}>Home</button></section>}
+    {mode === 'title' && <section className="rc-title">
+      <img src={withRepairedImageVersion(CAST.bouncy.sprite)} alt="Bouncy" />
+      <p className="rc-eyebrow">A journey with Bouncy</p>
+      <h1 data-child-title="">{woodlandFirst ? 'Woodland Homecoming' : 'Three worlds to help.'}</h1>
+      <p data-child-instruction="">{primaryEntry.detail || (woodlandFirst ? 'Visit your Woodland Pals again.' : CHILD_COPY.soundSeekers.startInstruction)}</p>
+      <button className="rc-primary" data-child-primary="" data-child-emphasis="primary" data-child-emphasis-cue=""
+        disabled={primaryEntry.status === 'unavailable'} onClick={woodlandFirst ? onOpenWoodland : start}>{primaryEntry.label}</button>
+      <div data-child-choices="">
+        {secondaryEntry && <button disabled={secondaryEntry.status === 'unavailable'} onClick={woodlandFirst ? start : onOpenWoodland}>
+          {woodlandFirst && secondaryEntry.status === 'fresh' ? 'Three-world adventure' : secondaryEntry.label}
+        </button>}
+      </div>
+      <p className="rc-save" data-child-progress="" role="status">{woodlandFirst && !ephemeral ? 'Saved on this device' : statusLine}</p>
+      <button className="rc-home" onClick={exit}>Home</button>
+    </section>}
     {mode === 'explore' && <>
       <section className="rc-objective"><img src={withRepairedImageVersion(objectiveResident?.sprite)} alt={objectiveResident?.name || ''} /><div><h1>{stage.name}</h1><p>{nearbyMission ? `${objectiveResident.name} is here. Choose Help ${objectiveResident.name} to begin.` : stageRepaired ? 'Everyone here is ready. Try an extra adventure, or explore the next place.' : stage.problem}</p>{focusedMission && !nearbyMission && <button className="rc-primary" onClick={() => sceneReady ? world.current?.walkToMission(focusedMission.id) : begin(focusedMission.id)}>{sceneReady ? 'Walk to' : 'Help'} {CAST[focusedMission.residentId]?.name || 'your Pal'}</button>}{!focusedMission && <p>Every Pal here has been helped.</p>}{nextStage && isCampaignStageUnlocked(progress, nextStage.id, ROUND_CAMPAIGN) && <button onClick={() => visitPlace(nextStage)}>Explore {nextStage.name}</button>}{totalMain === 150 && <p className="rc-finished">All three worlds are ready. You can visit your Pals or play again.</p>}</div>{(!stageRepaired || focusedMission) && <button aria-label="Hear the current Pal's problem" onClick={hearProblem}>Listen</button>}</section>
       {sceneReady && snapshot.markers?.filter(marker => marker.visible && available.some(item => item.id === marker.missionId)).map(marker => { const item = getCampaignMission(marker.missionId), resident = CAST[item.residentId]; return <button key={marker.missionId} className="rc-world-marker" style={{ left: marker.x, top: marker.y }} aria-label={`Walk to ${resident.name}: ${item.title}`} onClick={() => world.current?.walkToMission(marker.missionId)}><img src={withRepairedImageVersion(resident.sprite)} alt="" /></button>; })}

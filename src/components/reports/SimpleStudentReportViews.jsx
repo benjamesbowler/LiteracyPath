@@ -344,6 +344,9 @@ export function SimpleOverviewReportView({
       {workspace.wholeChild?.evidenceHealth?.state === "review" && (
         <p className="report-summary-note" role="status">Some saved results need a closer look before making teaching decisions. Open the results below to see why.</p>
       )}
+      {workspace.skillsCheck?.skills?.some(skill => skill.evidenceNeedsReview) && (
+        <p className="report-summary-note" role="status">Conflicting first answers in a Skills check need teacher review.</p>
+      )}
       <details className="simple-report-coverage" ref={evidenceRef}>
         <summary>View all results and assessment details</summary>
         {workspace.wholeChild?.evidenceHealth && <EvidenceHealthReview health={workspace.wholeChild.evidenceHealth} />}

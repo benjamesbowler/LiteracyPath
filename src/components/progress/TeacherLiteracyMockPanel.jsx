@@ -247,6 +247,12 @@ function TeacherLiteracyMockPanelBody({ client, teacherId, classId, className, s
       } else {
         setSessionId(result.session.id); setPhase("prepare"); setSetupOpen(false);
         onSessionPrepared?.(result);
+        const routing = args.contentVersion === LITERACY_MOCK_BALANCED_VERSION
+          ? args.itemCount === 15 ? "Expect one or two First steps questions per area."
+            : args.itemCount === 25 ? "Most questions establish starting evidence, with room to sample Starter."
+              : "Successful areas can reach Starter with room for follow-up observations."
+          : "This session uses the earlier version. The selected question limit still applies, and shorter sittings may sample fewer areas.";
+        setMessage(`Session prepared. ${routing}`);
       }
       void loadHistory();
     } catch (error) {
@@ -317,7 +323,7 @@ function TeacherLiteracyMockPanelBody({ client, teacherId, classId, className, s
 
   return <TeacherPageShell as="section" product="literacy-mock-session" intent="assess" className="literacy-mock-teacher">
     <TeacherPageHeader eyebrow="Teacher-launched assessment" title="Adaptive Literacy Test" description={`Prepare a test for ${className || "your class"} or selected children. Start it here and see every child’s saved results below.`} />
-    <p className="literacy-mock-note">All eight literacy areas, starting with the simplest tasks. Choose 15, 25 or 40 questions. Results save automatically to this class’s test history.</p>
+    <p className="literacy-mock-note">Choose 15, 25 or 40 questions. Results save automatically to this class’s test history.</p>
     <details><summary>About this test</summary><p>An independent Literacy Guide assessment with original questions for MAP-style Reading K–2 preparation and harder extensions. Literacy Guide is not affiliated with or endorsed by NWEA. Results describe classroom observations and do not provide official MAP scores or score predictions. This test has no time limit; a break pauses it so the teacher can resume the same sitting.</p></details>
     <TeacherSessionFrame protocol="mock" phase={activePhase} availablePhases={sessionId ? ["prepare", "live", "results"] : ["prepare", "results"]} onPhaseChange={nextPhase => { setPhase(nextPhase); if (nextPhase === "prepare") setSetupOpen(true); }} audience={`${verifiedStatus ? livePupils.length : selectedCount} students`} students={verifiedStatus ? livePupils.map(pupil => ({ id: pupil.studentId, name: pupil.name })) : roster.filter(student => wholeClass || studentIds.includes(String(student.id)))} onReturn={onReturn} returnLabel={returnLabel}>
     {activePhase === "prepare" && <details className="literacy-mock-setup" open={setupOpen} onToggle={event => setSetupOpen(event.currentTarget.open)}>
@@ -329,8 +335,7 @@ function TeacherLiteracyMockPanelBody({ client, teacherId, classId, className, s
           {!wholeClass && <div className="literacy-mock-picker">{roster.map(student => <label key={student.id}><input type="checkbox" checked={studentIds.includes(String(student.id))} onChange={event => setStudentIds(current => event.target.checked ? [...current, String(student.id)] : current.filter(id => id !== String(student.id)))} />{literacyMockStudentName(student)}</label>)}</div>}
         </fieldset>
         <label>Questions<select aria-label="Questions" value={itemCount} disabled={busy || mutationPending} onChange={event => setItemCount(Number(event.target.value))}>{LITERACY_MOCK_SHORT_ITEM_COUNTS.map(value => <option key={value} value={value}>Up to {value} questions</option>)}</select></label>
-        <p><strong>Adaptive test · up to {itemCount} questions</strong> — all eight literacy areas. Each area starts with the simplest tasks, then becomes easier or harder from that child’s independent answers. Each sitting uses fresh questions where available. The test stops at the selected limit; areas without enough observations remain unconfirmed.</p>
-        <p>{itemCount === 15 ? "Entry sample. Expect one or two First steps questions per area." : itemCount === 25 ? "Short profile. Most questions establish starting evidence, with room to sample Starter." : "Deeper profile. Successful areas can reach Starter with room for follow-up observations."}</p>
+        <p><strong>Adaptive test · up to {itemCount} questions</strong> — tasks adjust based on each child’s independent answers. Each sitting uses fresh questions where available. Short sittings leave some areas with limited evidence.</p>
         <p>No time limit. Use Pause assessment for a break, then Resume assessment when the children are ready. Every saved answer stays in the same sitting.</p>
         <button type="button" className="literacy-mock-primary" disabled={!client || busy || mutationPending || selectedCount === 0} onClick={() => prepare()}>{busy && !mock ? "Preparing…" : `Prepare for ${selectedCount} ${selectedCount === 1 ? "student" : "students"}`}</button>
       </>}
@@ -358,7 +363,7 @@ function TeacherLiteracyMockPanelBody({ client, teacherId, classId, className, s
         {reportState === "loading" && <p role="status">Loading detailed results…</p>}
         {reportError && <p role="status">{reportError}</p>}
         {report && livePupils.some(pupil => pupil.answered !== report.pupils.find(row => row.studentId === pupil.studentId)?.answered) && <p role="status">New answers are available. Refresh progress to update the detailed results.</p>}
-        {report && <><div className="literacy-mock-controls">{report.pupils.map(pupil => <button type="button" key={pupil.studentId} onClick={() => setSelectedReportStudent(pupil.studentId)}>View {pupil.name}’s report</button>)}</div><LiteracyMockReport key={sessionId} report={report} receiptStates={receiptStates} studentId={selectedReportStudent} onStudentChange={setSelectedReportStudent} actionDisabled={controlsDisabled} onRecordAssistance={mock?.capabilities?.supportResolution ? (studentId, questionId, assistance, sourceId) => evidenceAction("support", studentId, questionId, assistance, null, sourceId || sessionId) : undefined} /></>}
+        {report && <LiteracyMockReport key={sessionId} report={report} receiptStates={receiptStates} studentId={selectedReportStudent} onStudentChange={setSelectedReportStudent} actionDisabled={controlsDisabled} onRecordAssistance={mock?.capabilities?.supportResolution ? (studentId, questionId, assistance, sourceId) => evidenceAction("support", studentId, questionId, assistance, null, sourceId || sessionId) : undefined} />}
       </div>}
     </section>}
     </TeacherSessionFrame>

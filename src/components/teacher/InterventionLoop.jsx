@@ -169,8 +169,51 @@ function friendlySupportResult(value) {
   }[value] || value;
 }
 
+function ShortVowelTeachingSequence({ client, studentIds, onUse }) {
+  const [sequence, setSequence] = useState(null);
+  const [status, setStatus] = useState("idle");
+  const [confirmedFor, setConfirmedFor] = useState("");
+  const audienceKey = JSON.stringify([...studentIds].sort());
+
+  async function load() {
+    setStatus("loading");
+    try {
+      const { loadShortVowelTeachingSequence } = await import("../../utils/shortVowelTeachingSequence.js");
+      setSequence(await loadShortVowelTeachingSequence(client));
+      setStatus("ready");
+    } catch {
+      setStatus("error");
+    }
+  }
+
+  return <section className="teacher-intervention-field" aria-label="Short-vowel teaching sequence">
+    {status === "idle" || status === "error"
+      ? <button className="lp-button lp-button-secondary" type="button" onClick={() => void load()}>
+        {status === "error" ? "Retry short-vowel sequence" : "See a short-vowel teaching sequence"}
+      </button>
+      : status === "loading" && <p role="status">Checking the game and book…</p>}
+    {sequence && <>
+      <ol>
+        <li>{sequence.game ? `In ${sequence.game.title}, choose the first difficulty. Pause at the -at family and help pupils build cat.` : "The reviewed game round is unavailable."}</li>
+        <li>{sequence.book ? `Read page 1 of ${sequence.book.title} together. The sentence is “${sequence.book.text}”` : "The approved book page could not be verified."}</li>
+        <li>{sequence.checkWord ? `Later, show “${sequence.checkWord}” by itself if it is fresh for the pupil. Listen without modelling the answer and record that observation separately.` : "Choose a fresh word after confirming the practice materials."}</li>
+      </ol>
+      {sequence.plan && <>
+        <label>
+          <input type="checkbox" checked={confirmedFor === audienceKey} disabled={!studentIds.length}
+            onChange={event => setConfirmedFor(event.target.checked ? audienceKey : "")} />
+          I have taught through Cycle {sequence.book.afterCycle} with every selected pupil and checked their readiness for the game.
+        </label>
+        <button className="lp-button lp-button-secondary" type="button" disabled={!studentIds.length || confirmedFor !== audienceKey}
+          onClick={() => onUse(sequence.plan)}>Use this teaching sequence</button>
+      </>}
+    </>}
+  </section>;
+}
+
 function InterventionPlanner({
   seed,
+  client,
   rows,
   className,
   busy,
@@ -275,6 +318,8 @@ function InterventionPlanner({
           onChange={event => setDraft(current => ({ ...current, activity: event.target.value }))}
         />
       </label>
+      {/\b(cvc|short[- ]vowels?|blend(?:ing)? three sounds)\b/i.test(draft.focus) && client && <ShortVowelTeachingSequence client={client}
+        studentIds={draft.studentIds} onUse={activity => setDraft(current => ({ ...current, activity }))} />}
       <div className="teacher-intervention-form-actions">
         <button
           className="lp-button lp-button-primary"
@@ -737,6 +782,7 @@ export function InterventionLoop({
         <InterventionPlanner
           key={activePlannerSeed.key || activePlannerSeed.id || "manual"}
           seed={activePlannerSeed}
+          client={supabase}
           rows={rows}
           className={className}
           busy={busyId === (activePlannerSeed.interventionId || "new")}

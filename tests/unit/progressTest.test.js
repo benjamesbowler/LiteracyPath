@@ -5,7 +5,7 @@ import { PROGRESS_TEST_TRACKS } from "../../src/policy/progressTestPolicy.js";
 import { beginProgressTest, commitProgressResponse, createProgressTestRun, finishProgressTest, nextProgressItem, progressAttemptFromRun } from "../../src/utils/progressTestRouter.js";
 import { compactAssessmentAttemptForStorage, mergeAssessmentAttemptIntoItemMastery, normalizeAssessmentAttempt, summarizeAssessmentHistory } from "../../src/data/assessmentHistoryStore.js";
 import { createReportingEvidence } from "../../src/data/reportingEvidenceModel.js";
-import { progressExportSheets } from "../../src/utils/exportProgressCheck.js";
+import { progressExportSheets, progressFollowUps } from "../../src/utils/exportProgressCheck.js";
 import { loadProgressRun, loadProgressRunLocal, persistProgressRun, progressDraftExtends, saveProgressRunLocal } from "../../src/data/progressTestStore.js";
 
 const make = options => createProgressTestRun({ bank: PROGRESS_BANK, studentId: "pupil-a", teacherId: "teacher-a", classId: "class-a", planKind: "focused", trackId: "reading_stories", seed: 20, attemptId: "run-a", ...options });
@@ -76,10 +76,10 @@ test("archive round trips retain frozen questions, warmups, pauses and descripti
   const summary = summarizeAssessmentHistory([normalized]); assert.equal(summary.totalQuestions, 0);
   const draft = normalizeAssessmentAttempt(progressAttemptFromRun(make())); assert.equal(draft.completedAt, null);
   const evidence = createReportingEvidence({ sourceRecordType: "adaptive_progress_test", statusCandidate: "secure" }); assert.equal(evidence.status, null); assert.equal(evidence.knowledgeEligible, false);
-  const sheets = progressExportSheets([normalized]); assert.deepEqual(Object.keys(sheets), ["Cover", "Summary", "Teach next", "Item evidence", "How to read", "Data", "Provenance"]);
+  const sheets = progressExportSheets([normalized]); assert.deepEqual(Object.keys(sheets), ["Cover", "Summary", "Follow-up", "Item evidence", "How to read", "Data", "Provenance"]);
   assert.deepEqual(JSON.parse(sheets.Data.slice(1).map(row => row[2]).join("")), normalized);
   assert.ok(sheets.Data.slice(1).every(row => row[2].length <= 30000));
-  assert.ok(sheets["Teach next"].length <= 3);
+  assert.ok(sheets["Follow-up"].length <= 3);
 });
 test("draft persistence is owner and assignment scoped, and server failure keeps the immutable local draft for retry", async () => {
   const previous = globalThis.localStorage; const values = new Map(); globalThis.localStorage = { getItem: key => values.get(key) || null, setItem: (key, value) => values.set(key, value) };
@@ -117,4 +117,28 @@ test("recovery keeps a newer valid server prefix silently and warns only for a d
     const conflict = await loadProgressRun({ client, ...initial });
     assert.deepEqual(conflict.run, remote); assert.match(conflict.conflict, /did not match/);
   } finally { if (previous === undefined) delete globalThis.localStorage; else globalThis.localStorage = previous; }
+});
+
+test("legacy follow-ups separate actual errors by sampled tier from incomplete coverage and extension", () => {
+  const strands = [{ trackId: "reading_stories", label: "Printed stories" },
+    { trackId: "listening_stories", label: "Listening to stories" }, { trackId: "hear_sounds", label: "Sounds" },
+    { trackId: "common_words", label: "Common words" }];
+  const question = (trackId, difficultyTier, responseStatus, isCorrect) => ({
+    trackId, difficultyTier, responseStatus, isCorrect, firstResponse: "fox",
+    itemSnapshot: { prompt: "Which animal found the key?", choices: [{ id: "fox", label: "The red fox" }] }
+  });
+  const record = { studentId: "sample", attemptId: "archive", metadata: { result: { strands } }, questionRecords: [
+    question("reading_stories", 1, "incorrect", false), question("reading_stories", 0, "correct", true),
+    question("reading_stories", 0, "supported", true), question("hear_sounds", 0, "correct", true),
+    question("common_words", 0, "media_failed", null)
+  ] };
+  const followUps = progressFollowUps(record);
+  assert.equal(followUps.teaching.length, 1);
+  assert.match(followUps.teaching[0].text, /tier 2.*1 of 1.*The red fox/);
+  assert.equal(followUps.sample.length, 3);
+  assert.match(followUps.sample.find(row => row.strand.trackId === "listening_stories").text, /was not sampled/);
+  assert.equal(followUps.extension.length, 1);
+  const workbook = progressExportSheets([record]);
+  assert.equal(workbook["Follow-up"][1][2], "Try teaching this");
+  assert.equal(workbook["Follow-up"][1][4], followUps.teaching[0].text);
 });

@@ -10,7 +10,7 @@ import { resolveComprehensionPassageAudio, resolveComprehensionQuestionAudio } f
 import { createComprehensionPlayer } from '../../content/comprehension/playback.js';
 import { STOP_CHILD_AUDIO_EVENT, stopAllChildAudio } from '../../utils/audio/childAudioLifecycle.js';
 import { groupCompletionPrefix, readGroupCompletion, saveGroupCompletion } from '../../content/comprehension/groupCompletion.js';
-import { readPractice, reducePractice, savePractice, practiceQuestion } from '../../content/comprehension/practice.js';
+import { currentPracticeChoice, readPractice, reducePractice, savePractice, practiceQuestion } from '../../content/comprehension/practice.js';
 import { buildComprehensionDocument, openComprehensionPrint, teachingPrompts } from '../../content/comprehension/print.js';
 import { TeacherPageShell, TeacherPageHeader } from '../teacher/ui/TeacherPrimitives.jsx';
 import { WorksheetPreview } from '../WorksheetPreview.jsx';
@@ -176,7 +176,7 @@ export function PassageWorkspace({passage:p,teacher,scope,print,busy,printNote,p
      <p className="rc-focus" data-child-progress="">Question {questionIndex+1} of {p.questions.length}</p><h2 ref={questionHeading} tabIndex={-1}>{q.prompt}</h2>
      <button className="rc-audio-question" onClick={()=>playAudio(resolveComprehensionQuestionAudio(q))}>Hear question and choices</button>
      {mode!=='student'&&<p>Choose together. Then reveal the answer.</p>}
-     <div className="rc-options" data-child-choices={mode==='student'?"":undefined} role="group" aria-label="Answer choices">{q.options.map((option,index)=><button key={option} aria-label={option} aria-pressed={(selection||(mode==='student'?response?.last:''))===option} disabled={mode==='student'&&Boolean(response?.correct)} data-correct={mode!=='student'&&reveal&&option===q.answer?true:undefined} onClick={()=>{setSelection(option);setChecked(false);}}><span className="rc-option-letter" aria-hidden="true">{'ABCD'[index]}</span><span>{option}</span></button>)}</div>
+     <div className="rc-options" data-child-choices={mode==='student'?"":undefined} role="group" aria-label="Answer choices">{q.options.map((option,index)=><button key={option} aria-label={option} aria-pressed={(selection||(mode==='student'?currentPracticeChoice(q,response?.last):''))===option} disabled={mode==='student'&&Boolean(response?.correct)} data-correct={mode!=='student'&&reveal&&option===q.answer?true:undefined} onClick={()=>{setSelection(option);setChecked(false);}}><span className="rc-option-letter" aria-hidden="true">{'ABCD'[index]}</span><span>{option}</span></button>)}</div>
      {mode==='student'?<>
       {(!response?.correct)&&<button className="rc-primary" data-child-primary="" disabled={!selection||checked} onClick={()=>{stopAudio();update({type:'answer',questionId:q.id,value:selection});setChecked(true);}}>Check answer</button>}
       {(checked||response?.correct||(!selection&&response))&&<div className="rc-feedback" role="status"><strong>{response?.correct?'That fits the story.':'Look back at this part. Try another answer.'}</strong><p>{q.evidence.join(' ')}</p></div>}

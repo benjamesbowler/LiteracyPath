@@ -1111,10 +1111,12 @@ export function AppSurface({ surface }) {
     && appView === APP_VIEWS.ASSESSMENT
     && !studentFocusUnavailable;
   const openStudentSessionSetup = (initialStudentIds = [], context = {}) => {
-    setStudentSessionLaunchScope(studentSessionScope);
     const ids = Array.isArray(initialStudentIds) ? initialStudentIds.filter(Boolean) : [];
+    const audience = context.audience || (ids.length ? "selected_students" : "whole_class");
+    if (!selectedClassId || (audience === "selected_students" && !ids.length)) return;
+    setStudentSessionLaunchScope(studentSessionScope);
     const launch = createTeacherLaunchContext({
-      classId: selectedClassId, audience: ids.length ? "selected_students" : "whole_class", studentIds: ids,
+      classId: selectedClassId, audience, studentIds: ids,
       purpose: context.purpose || (context.target === "skills_assessment" ? "assess" : "practise"),
       administration: context.target === "skills_assessment" ? "student_independent" : "supported_practice",
       target: context.target || "", contentId: context.bookId || context.gameId || "",
@@ -2116,6 +2118,7 @@ export function AppSurface({ surface }) {
               focusLocked={isStudentFocusLocked}
               lockedBookId={assignedBookId}
               lockedBookTitle={activeStudentFocus?.resolved_config?.book_title || null}
+              currentCycleId={assignedCyclePracticeId || assignedAdventureCycleId || teacherCycleId}
               headerActions={studentFocusNoticeInChildHeader ? (
                 <StudentSessionNotice
                   connection={studentFocus.connection}
@@ -2130,12 +2133,13 @@ export function AppSurface({ surface }) {
                 setAppView(APP_VIEWS.LEARN);
               }}
               publicationStatus={guidedReadingPublicationStatus}
-              renderReader={({ bookId, books, initialPageIndex, onExit }) => withStudentRail("books", (
+              renderReader={({ bookId, books, initialPageIndex, initialReadAgain, onExit }) => withStudentRail("books", (
                 <GuidedReadingPage
                   books={books}
                   initialBookId={bookId}
                   returnLabel={isAssignedBook ? "Back to my task" : "Back to Books"}
                   initialPageIndex={initialPageIndex}
+                  initialReadAgain={initialReadAgain}
                   onCloseReader={onExit}
                   studentId={studentId}
                   studentName={studentName}
@@ -2166,6 +2170,7 @@ export function AppSurface({ surface }) {
               recommendationEvidenceReady={selectedStudentEvidenceReady}
               mode="teacher"
               autoNarration={false}
+              currentCycleId={teacherCycleId}
               guidedReadingRecords={guidedReadingRecords}
               saveGuidedReadingRecord={saveGuidedReadingRecord}
               speakText={speakText}
@@ -2185,6 +2190,7 @@ export function AppSurface({ surface }) {
             onBack={() => goToTeacherIntent(APP_VIEWS.TEACHER_RESOURCES)}
             backLabel="Back to Teach"
             mode="class"
+            currentCycleId={teacherCycleId}
             guidedReadingRecords={{}}
             saveGuidedReadingRecord={() => {}}
             speakText={speakText}
@@ -2205,6 +2211,7 @@ export function AppSurface({ surface }) {
         <PageBoundary resetKey={`learn-${studentId}`}>
           <Suspense fallback={<LazyPageFallback label="Loading Story Quest..." />}>
             <StudentStoryQuestsPage
+              key={childProgressScopeKey}
               studentName={studentName}
               progressScopeKey={childProgressScopeKey}
               onNavigate={goToStudentTab}
@@ -2597,6 +2604,7 @@ export function AppSurface({ surface }) {
           classId={selectedClassId}
           className={getSelectedClassName(classList, selectedClassId)}
           client={isSupabaseConfigured ? supabase : null}
+          initialAudience={studentSessionContext.audience}
           initialStudentIds={studentSessionInitialIds}
           initialTarget={studentSessionContext.target}
           initialPurpose={studentSessionContext.purpose}

@@ -148,11 +148,12 @@ function ReadingLibrarySurface() {
         ...(PREVIEW_PARAMS.has("appLevel") ? { appReadingLevel: PREVIEW_PARAMS.get("appLevel") } : {})
       } : null}
       recommendationEvidenceReady={PREVIEW_PARAMS.get("evidenceReady") !== "0"}
-      renderReader={({ bookId, initialPageIndex, onExit }) => (
+      renderReader={({ bookId, initialPageIndex, initialReadAgain, onExit }) => (
         <PreviewShell active="books">
           <GuidedReadingPage
             initialBookId={bookId}
             initialPageIndex={initialPageIndex}
+            initialReadAgain={initialReadAgain}
             onCloseReader={onExit}
             guidedReadingRecords={records}
             mode="student"
@@ -277,6 +278,7 @@ function Surface() {
         <StudentAdventureMapPage
           studentName="Aaron"
           progressScopeKey={PREVIEW_SCOPE}
+          onHome={() => markDestination("student-home")}
           focusLocked={Boolean(focusSession)}
           lockedCycleId={focusSession?.resolved_config.cycle_id ?? null}
           headerActions={focusNotice}

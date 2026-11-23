@@ -1,4 +1,6 @@
 import { currentGuidedReadingRecord, guidedReadingContentId, guidedReadingHistoryBook } from "../utils/guidedReading/editions.js";
+import { guidedReadingCompletion } from "../utils/guidedReading/completionPolicy.js";
+import { guidedReadingBookmark } from "../utils/guidedReading/bookmark.js";
 /* eslint-disable no-unused-vars -- LEGACY-LINT: pre-strict-rules file; new code must not add violations. */
 import { guidedReadingRegenBooks } from "./guidedReadingRegenBooks.js";
 import { guidedReadingSeriesBooks } from "./guidedReadingSeriesBooks.js";
@@ -14,7 +16,6 @@ import { GUIDED_READING_BRIGHT_IDEAS_BOOKS } from "./guidedReadingBrightIdeasBoo
 import { GUIDED_READING_WORLD_DISCOVERY_BOOKS } from "./guidedReadingWorldDiscoveryBooks.js";
 import { MEADOW_PALS_SCIENCE_BOOKS } from "./meadowPalsScienceBooks.js";
 import { getMeadowPalsSciencePageNarration } from "./meadowPalsScienceNarration.js";
-import { enrichGuidedReadingBook } from "../utils/guidedReading/phonicsPageAnalyzer.js";
 import { GUIDED_READING_STORY_BIBLE_REWRITES as GUIDED_READING_CORE_REWRITES } from "../content/guidedReadingStoryBibleRewrites.js";
 import { GUIDED_READING_HUMAN_FICTION_REWRITES } from "../content/guidedReadingHumanFictionRewrites.js";
 import { GUIDED_READING_WORLD_FICTION_REWRITES } from "../content/guidedReadingWorldFictionRewrites.js";
@@ -3380,7 +3381,6 @@ export const guidedReadingBooks = activeGuidedReadingBaseBooks
   .map(ensureGuidedReadingMetadata)
   .filter(book => book.pages.length >= 4);
 
-export const enrichedGuidedReadingBooks = guidedReadingBooks.map(enrichGuidedReadingBook);
 
 export function normalizeGuidedReadingType(type = "") {
   const normalized = String(type || "").toLowerCase().replace(/[^a-z]/g, "");
@@ -3401,10 +3401,10 @@ export function getGuidedReadingProgress(book = {}, record = {}) {
       Object.keys(record.pages || {}).length
     )
   );
-  const completed = Boolean(record.completed || record.completedAt || (totalPages && completedPages >= totalPages));
-  const firstReadAt = record.firstReadAt || record.completedAt || "";
-  const lastReadAt = record.lastReadAt || record.completedAt || record.updatedAt || "";
-  const readCount = Math.max(Number(record.readCount || 0), completed ? 1 : 0);
+  const completion = guidedReadingCompletion(record, totalPages);
+  const firstReadAt = record.firstReadAt || completion.completedAt || "";
+  const lastReadAt = record.lastReadAt || completion.completedAt || record.updatedAt || "";
+  const savedPageIndex = guidedReadingBookmark(book, record);
 
   return {
     studentId: record.studentId || "",
@@ -3415,10 +3415,10 @@ export function getGuidedReadingProgress(book = {}, record = {}) {
     type: normalizeGuidedReadingType(book.type || record.type || ""),
     firstReadAt,
     lastReadAt,
-    readCount,
+    ...completion,
+    bookmarkPage: completedPages > 0 || Number.isInteger(record.lastPageIndex) ? savedPageIndex + 1 : null,
     completedPages,
-    totalPages,
-    completed
+    totalPages
   };
 }
 

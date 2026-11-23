@@ -26,7 +26,7 @@ export function buildPresentationPowerPointPlan(deck, document) {
     if (source.reviewItems?.length) {
       source.reviewItems.forEach((card, index) => push(source, `review${index}`, { main: true, ...base, text: card.text, images: card.imagePath ? [{ src: card.imagePath, label: card.anchorWord }] : [], audio: unique([{ src: card.audio, label: 'Hear sound or word' }, { src: card.anchorAudio, label: `Hear ${card.anchorWord}` }, ...(card.variants || []).map(item => ({ src: item.src, label: item.label }))]), prompt: card.anchorWord ? `Say the sound. Name ${card.anchorWord}. Give another spoken example.` : 'Read together. Use the word in a fresh spoken phrase.' }));
     } else if (source.construct === 'supported-sentence-picture-comparison') {
-      source.rounds.forEach((round, index) => choices(source, `round${index}`, { ...base, title: `${source.title} · ${index + 1} of ${source.rounds.length}`, images: [{ src: round.imagePath, label: round.sceneRequirements }], text: round.sentence, audio: round.audioPath ? [{ src: round.audioPath, label: 'Hear sentence' }] : [], answerAudio: [{ src: round.correctAudioPath, label: 'Hear true sentence' }] }, [{ text: 'True', correct: round.matches }, { text: 'False', correct: !round.matches }], `${round.matches ? 'True.' : 'False.'}\n${round.correctSentence}`));
+      source.rounds.forEach((round, index) => choices(source, `round${index}`, { ...base, title: `${source.title} · ${index + 1} of ${source.rounds.length}`, images: [{ src: round.imagePath, label: round.sceneAlt }], text: round.sentence, audio: round.audioPath ? [{ src: round.audioPath, label: 'Hear sentence' }] : [], answerAudio: [{ src: round.correctAudioPath, label: 'Hear true sentence' }] }, [{ text: 'True', correct: round.matches }, { text: 'False', correct: !round.matches }], `${round.matches ? 'True.' : 'False.'}\n${round.correctSentence}`));
     } else if (source.construct === 'supported-sentence-ordering' || source.construct === 'encoding') {
       const rounds = source.rounds || [{ sentence: source.answer, imagePath: images[0]?.src, audioPath: audio[0]?.src }];
       rounds.forEach((round, index) => {
@@ -34,7 +34,7 @@ export function buildPresentationPowerPointPlan(deck, document) {
         const parts = source.construct === 'encoding' ? source.materials.graphemes : sentence.split(/\s+/);
         const bank = parts.map((text, i) => ({ text, i })).sort((a, b) => (a.i * 7 + 3) % parts.length - (b.i * 7 + 3) % parts.length).reverse();
         const key = `build${index}`;
-        const roundBase = { ...base, images: round.imagePath ? [{ src: round.imagePath, label: round.sceneRequirements || '' }] : [], title: `${source.title}${rounds.length > 1 ? ` · ${index + 1} of ${rounds.length}` : ''}` };
+        const roundBase = { ...base, images: round.imagePath ? [{ src: round.imagePath, label: round.sceneAlt || '' }] : [], title: `${source.title}${rounds.length > 1 ? ` · ${index + 1} of ${rounds.length}` : ''}` };
         if (source.construct !== 'encoding') push(source, `${key}:read`, { ...roundBase, main: true, text: sentence, prompt: 'Read together for 15 seconds. When ready, choose Mix the words.', audio: [{ src: round.audioPath, label: 'Hear sentence' }], buttons: [{ label: 'Mix the words', target: `${source.index}:${key}:0` }] });
         for (let step = 0; step <= parts.length; step++) {
           const done = step === parts.length;

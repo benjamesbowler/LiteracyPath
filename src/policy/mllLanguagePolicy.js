@@ -54,9 +54,11 @@ export function mllLevelLabel(level) {
  * claiming a WIDA score. This function is the only sanctioned formatter.
  */
 export function mllLevelRangeLabel(low, high) {
-  const lo = Math.max(1, Math.min(6, Math.trunc(Number(low) || 0)));
-  const hi = Math.max(1, Math.min(6, Math.trunc(Number(high) || lo)));
-  if (!lo) return "Not enough evidence yet";
+  const lower = Number(low);
+  if (!Number.isFinite(lower) || lower < 1 || lower > 6) return "Not enough evidence yet";
+  const lo = Math.trunc(lower);
+  const upper = Number(high);
+  const hi = Number.isFinite(upper) && upper >= lo && upper <= 6 ? Math.trunc(upper) : lo;
   if (lo === hi) return mllLevelLabel(lo);
   const lowName = MLL_LEVELS.find(item => item.level === Math.min(lo, hi))?.name || "";
   const highName = MLL_LEVELS.find(item => item.level === Math.max(lo, hi))?.name || "";
@@ -226,8 +228,9 @@ export function computeCompositeScaleScore(compositeId, domainScaleScores = {}) 
   let weightUsed = 0;
   const missing = [];
   Object.entries(composite.weights).forEach(([domain, weight]) => {
-    const value = Number(domainScaleScores?.[domain]);
-    if (!Number.isFinite(value)) {
+    const raw = domainScaleScores?.[domain];
+    const value = typeof raw === "number" || (typeof raw === "string" && raw.trim()) ? Number(raw) : NaN;
+    if (!Number.isInteger(value) || value < 100 || value > 600) {
       missing.push(domain);
       return;
     }
@@ -351,10 +354,16 @@ export function evaluateDistanceToExit({
   criteria = MLL_DEFAULT_EXIT_CRITERIA
 } = {}) {
   const isKindergarten = String(gradeCluster) === "K";
-  const target = Number(criteria?.compositeMinimum);
-  const current = Number(compositeLevel);
+  const level = value => {
+    if (typeof value !== "number" && (typeof value !== "string" || !value.trim())) return null;
+    const number = Number(value);
+    return Number.isFinite(number) && number >= 1 && number <= 6 ? number : null;
+  };
+  const target = level(criteria?.compositeMinimum);
+  const current = level(compositeLevel);
+  const floor = level(criteria?.domainFloor);
 
-  if (!Number.isFinite(target)) {
+  if (target === null) {
     return {
       policyVersion: MLL_POLICY_VERSION,
       applicable: false,
@@ -378,8 +387,7 @@ export function evaluateDistanceToExit({
     ? compositeCeilingForKindergarten(criteria.compositeId, ceilings)
     : null;
   const unreachableDomainFloors = [];
-  if (isKindergarten && Number.isFinite(Number(criteria?.domainFloor))) {
-    const floor = Number(criteria.domainFloor);
+  if (isKindergarten && floor !== null) {
     MLL_DOMAINS.forEach(domain => {
       const ceiling = ceilings[domain.id];
       if (Number.isFinite(ceiling) && floor > ceiling) {
@@ -416,11 +424,13 @@ export function evaluateDistanceToExit({
   }
 
   const domainShortfalls = [];
-  if (Number.isFinite(Number(criteria?.domainFloor))) {
-    const floor = Number(criteria.domainFloor);
+  const missingDomains = [];
+  if (floor !== null) {
     MLL_DOMAINS.forEach(domain => {
-      const value = Number(domainLevels?.[domain.id]);
-      if (Number.isFinite(value) && value < floor) {
+      const value = level(domainLevels?.[domain.id]);
+      if (value === null) {
+        missingDomains.push(domain.label);
+      } else if (value < floor) {
         domainShortfalls.push({ domain: domain.id, label: domain.label, level: value, floor });
       }
     });
@@ -437,8 +447,7 @@ export function evaluateDistanceToExit({
 
   /** A floor sitting exactly on the ceiling is technically attainable and practically not. */
   const domainFloorsAtCeiling = [];
-  if (isKindergarten && Number.isFinite(Number(criteria?.domainFloor))) {
-    const floor = Number(criteria.domainFloor);
+  if (isKindergarten && floor !== null) {
     MLL_DOMAINS.forEach(domain => {
       if (ceilings[domain.id] === floor) {
         domainFloorsAtCeiling.push({ domain: domain.id, label: domain.label, floor });
@@ -446,7 +455,7 @@ export function evaluateDistanceToExit({
     });
   }
 
-  if (!Number.isFinite(current)) {
+  if (current === null) {
     return {
       policyVersion: MLL_POLICY_VERSION,
       applicable: true,
@@ -454,6 +463,9 @@ export function evaluateDistanceToExit({
       target,
       current: null,
       domainShortfalls,
+      missingDomains,
+      evidenceState: "missing_evidence",
+      meetsAll: null,
       note: `No ${labelForComposite(criteria.compositeId)} score on file, so distance to exit cannot be calculated. The configured target is ${target}.`
     };
   }
@@ -478,9 +490,13 @@ export function evaluateDistanceToExit({
     gap: gap > 0 ? gap : 0,
     meetsComposite: current >= target,
     domainShortfalls,
-    meetsAll: current >= target && !domainShortfalls.length,
+    missingDomains,
+    evidenceState: missingDomains.length ? "missing_evidence" : "complete",
+    meetsAll: current < target || domainShortfalls.length ? false : missingDomains.length ? null : true,
     note:
-      (current >= target && !domainShortfalls.length
+      (missingDomains.length
+        ? `Scores for ${missingDomains.join(", ")} are missing. Check the recorded scores before confirming the full exit criteria.`
+        : current >= target && !domainShortfalls.length
         ? `Meets the configured exit criteria (${labelForComposite(criteria.compositeId)} ${target}+).`
         : current >= target
           ? `Meets the ${labelForComposite(criteria.compositeId)} threshold, but ${domainShortfalls.map(item => item.label).join(" and ")} sits below the domain floor of ${criteria.domainFloor}.`

@@ -1,5 +1,6 @@
 import { buildFamilyReportSections } from "./parentAreaModel.js";
 import { FAMILY_COPY } from "../copy/familyCopy.js";
+import { canonicalStatusId, REPORT_STATUS_IDS } from "../policy/reportingBible.js";
 
 const FAMILY_DOMAIN_LABELS = Object.freeze({
   alphabet_knowledge: "letter names and sounds",
@@ -81,10 +82,6 @@ function friendlyDomain(domain = "") {
   return FAMILY_DOMAIN_LABELS[domain] || "reading and writing";
 }
 
-function uniqueFriendlyDomains(rows = []) {
-  return [...new Set(rows.map(row => friendlyDomain(row.domain)).filter(Boolean))];
-}
-
 function familyActionForDomain(domain = "") {
   const actions = {
     alphabet_knowledge: "Play a quick letter game. Name a letter, say its sound, and find it in a book.",
@@ -100,6 +97,84 @@ function familyActionForDomain(domain = "") {
     literacy_skill: "Read together for ten minutes and praise careful thinking, trying again, and noticing words."
   };
   return actions[domain] || actions.literacy_skill;
+}
+
+const FAMILY_STRANDS = [
+  ["alphabet_knowledge", "letters", "Letter names and sounds"],
+  ["phonological_awareness", "listening_sounds", "Listening to sounds in words"],
+  ["phonics", "letter_sound_links", "Matching letters and sounds"],
+  ["decoding", "reading_words", "Reading unfamiliar words"],
+  ["encoding", "spelling_words", "Spelling words"],
+  ["reading_fluency", "reading_aloud", "Reading aloud smoothly"],
+  ["comprehension", "understanding_text", "Understanding a text"],
+  ["vocabulary", "word_meanings", "Learning word meanings"],
+  ["language", "speaking_listening", "Speaking and listening"],
+  ["literacy_skill", "reading_writing", "Reading and writing"]
+];
+
+const FAMILY_PRIORITIES = [
+  REPORT_STATUS_IDS.NEEDS_SUPPORT, REPORT_STATUS_IDS.MIXED_EVIDENCE, REPORT_STATUS_IDS.DEVELOPING
+];
+
+const FAMILY_CONSTRUCTS = {
+  letter_name: ["naming letters", "Point to a letter on a sign and take turns saying its name."],
+  letter_sound: ["saying the sounds letters stand for", "Choose a letter and take turns saying its sound."],
+  initial_sound: ["hearing the first sound in a word", "Say two words and listen for whether they begin with the same sound."],
+  final_sound: ["hearing the last sound in a word", "Say a short word slowly and ask which sound comes last."],
+  rhyme_recognition: ["hearing which words rhyme", "Say two words and listen for whether their endings sound alike."],
+  cvc_word: ["sounding out short words", "Read a short word by saying each sound, then put the sounds together."],
+  short_vowel: ["hearing the middle vowel in a short word", "Read two short words such as mat and met. Listen to how the middle sound changes."],
+  digraph: ["reading two letters that make one sound", "Find sh in fish and shop. Say the sound those two letters make together."],
+  word_spelling: ["spelling familiar words from their sounds", "Say a short word and have your child write the letters for each sound."]
+};
+
+function familyStrandDomain(domain) {
+  if (domain === "fluency") return "reading_fluency";
+  return FAMILY_STRANDS.some(([key]) => key === domain) ? domain : "literacy_skill";
+}
+
+function familyFocus(row) {
+  const domain = familyStrandDomain(row.domain);
+  const construct = String(row.construct || "").toLowerCase();
+  const key = String(row.key || "").toLowerCase();
+  if (construct === "grapheme_sound" && ["sh", "ch", "th", "ck", "ng", "wh", "ph"].includes(key)) {
+    return [
+      `reading the two letters ${key} as one sound`,
+      `Find ${key} in a book or on a sign. Say the sound the two letters make together.`
+    ];
+  }
+  if (["letter_name", "letter_sound"].includes(construct) && /^[a-z]$/.test(key)) {
+    return construct === "letter_name"
+      ? [`naming the letter ${key}`, `Find the letter ${key} in a book. Take turns saying its name.`]
+      : [`saying the sound for the letter ${key}`, `Find the letter ${key} in a book. Take turns saying its sound.`];
+  }
+  return FAMILY_CONSTRUCTS[construct] || [friendlyDomain(domain), familyActionForDomain(domain)];
+}
+
+function summarizeFamilyStrands(concepts) {
+  const strands = FAMILY_STRANDS.map(([domain, id, label]) => {
+    const rows = concepts.filter(row => familyStrandDomain(row.domain) === domain).map(row => {
+      const [focus, activity] = familyFocus(row);
+      return { status: canonicalStatusId(statusId(row)), focus, activity };
+    }).sort((left, right) => left.focus.localeCompare(right.focus) || left.status.localeCompare(right.status));
+    const statuses = new Set(rows.map(row => row.status));
+    const hasStrength = statuses.has(REPORT_STATUS_IDS.SECURE);
+    const hasPriority = FAMILY_PRIORITIES.some(status => statuses.has(status));
+    const status = statuses.has(REPORT_STATUS_IDS.MIXED_EVIDENCE) || (hasStrength && hasPriority)
+      ? REPORT_STATUS_IDS.MIXED_EVIDENCE
+      : [REPORT_STATUS_IDS.NEEDS_SUPPORT, REPORT_STATUS_IDS.DEVELOPING, REPORT_STATUS_IDS.SECURE, REPORT_STATUS_IDS.NOT_ENOUGH_EVIDENCE]
+          .find(candidate => statuses.has(candidate)) || REPORT_STATUS_IDS.NOT_CHECKED;
+    const detail = hasStrength && hasPriority
+      ? "Some parts are going well. Other parts need more practice."
+      : status === REPORT_STATUS_IDS.NOT_CHECKED || status === REPORT_STATUS_IDS.NOT_ENOUGH_EVIDENCE
+        ? "The school has not shared enough information about this area yet."
+        : "The school has shared a current classroom picture for this area.";
+    return { id, label, status, detail, rows };
+  }).filter(strand => strand.rows.length);
+  const checked = strands.filter(strand => strand.status !== REPORT_STATUS_IDS.NOT_CHECKED);
+  const unchecked = strands.filter(strand => strand.status === REPORT_STATUS_IDS.NOT_CHECKED);
+  const visible = new Set([...checked, ...unchecked].slice(0, 6));
+  return strands.filter(strand => visible.has(strand));
 }
 
 function templateSource(report = {}) {
@@ -175,32 +250,33 @@ function leadershipTemplate({ report, studentName, className }) {
 }
 
 function familyTemplate({ report, studentName }) {
-  const concepts = reportConcepts(report);
-  const strengths = uniqueFriendlyDomains(
-    concepts.filter(row => statusId(row) === "secure")
-  );
-  const priorityIds = new Set(["needs_teaching", "mixed_evidence", "developing"]);
-  const priorityRows = concepts.filter(row => priorityIds.has(statusId(row)));
-  const practiceDomains = [...new Set(priorityRows.map(row => row.domain || "literacy_skill"))];
-  const nextAreas = practiceDomains.map(friendlyDomain);
-  const strengthItems = strengths.length
-    ? strengths.slice(0, 4).map(area => FAMILY_COPY.reportSections.strengthStatement
-      .replace("{name}", studentName)
-      .replace("{area}", area))
-    : [`${studentName} is showing us what they know while we gather a fuller picture.`];
-  const nextItems = nextAreas.length
-    ? nextAreas.slice(0, 3).map(area => `${studentName} is now working on ${area}.`)
-    : [`${studentName} is ready to keep building reading skills through regular practice.`];
-  const actionItems = practiceDomains.length
-    ? practiceDomains.slice(0, 3).map(familyActionForDomain)
-    : [familyActionForDomain("literacy_skill")];
-  const description = `This update celebrates ${studentName}’s progress and shares a few useful next steps.`;
+  const strands = summarizeFamilyStrands(reportConcepts(report));
+  const rows = strands.flatMap(strand => strand.rows);
+  const priorities = [];
+  for (const status of FAMILY_PRIORITIES) {
+    for (const row of rows) {
+      if (row.status === status && !priorities.some(priority => priority.focus === row.focus)) {
+        priorities.push(row);
+      }
+    }
+  }
+  const next = priorities.slice(0, 2);
+  const practiceFocus = new Set(priorities.map(row => row.focus));
+  const strengths = [...new Set(rows.filter(row => (
+    row.status === REPORT_STATUS_IDS.SECURE && !practiceFocus.has(row.focus)
+  )).map(row => row.focus))].slice(0, 4);
+  const strengthItems = strengths.map(area => FAMILY_COPY.reportSections.strengthStatement
+    .replace("{name}", () => studentName).replace("{area}", () => area));
+  const nextItems = next.map(row => `We're working on ${row.focus}.`);
+  const actionItems = next.map(row => row.activity);
+  const description = strengthItems[0] || nextItems[0] || FAMILY_COPY.reportSections.noCanDoItems;
 
   return {
     id: WHOLE_CHILD_REPORT_AUDIENCES.FAMILY,
     label: "Family update",
     title: `${studentName}’s reading update`,
     description,
+    progress: strands.map(({ id, label, status, detail }) => ({ id, label, status, detail })),
     sections: buildFamilyReportSections({
       highlight: description,
       canDo: strengthItems,

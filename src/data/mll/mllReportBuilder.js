@@ -79,9 +79,10 @@ export function extractSoundErrorPatterns(workspace = {}, { minimumOpportunities
   concepts.forEach(concept => {
     if (!soundConstructs.has(concept.construct)) return;
     const basis = concept.currentEvidenceBasis || concept.evidenceBasis || {};
-    const opportunities = Number(basis.observations ?? basis.total ?? 0);
-    const correct = Number(basis.correct ?? 0);
-    if (!opportunities) return;
+    const opportunities = basis.observations ?? basis.total;
+    const correct = basis.correct;
+    if (!Number.isInteger(opportunities) || opportunities <= 0
+      || !Number.isInteger(correct) || correct < 0 || correct > opportunities) return;
 
     const target = String(concept.key || "").toLowerCase();
     if (!target) return;
@@ -149,7 +150,7 @@ export function estimateWorkingLevelRange({
   const official = officialLevel === null || officialLevel === undefined || officialLevel === ""
     ? NaN
     : Number(officialLevel);
-  if (Number.isFinite(official) && official >= 1) {
+  if (Number.isFinite(official) && official >= 1 && official <= 6) {
     const base = Math.floor(official);
     return {
       low: base,

@@ -6,7 +6,7 @@ import { WOODLAND_PROGRESS_ROW, encodeWoodlandProgress } from './woodlandProgres
 import '../../../demos/sound-seekers/src/style.css';
 import '../../../demos/sound-seekers/src/chapter/chapter.css';
 
-export default function WoodlandChapter({ progressScopeKey, isSoundEnabled, onExit, accessibilitySettings, ephemeral }) {
+export default function WoodlandChapter({ progressScopeKey, isSoundEnabled, onExit, onOpenCampaign, getStorage, accessibilitySettings, ephemeral }) {
   const [reset, setReset] = useState(0);
   const [cloudStatus, setCloudStatus] = useState('device');
   const lastQueued = useRef({ signature: '', at: 0 });
@@ -40,11 +40,13 @@ export default function WoodlandChapter({ progressScopeKey, isSoundEnabled, onEx
   return <Chapter
     key={reset}
     storageKey={woodlandChapterStorageKey(progressScopeKey)}
+    getStorage={getStorage}
     childSurface="sound-seekers"
     ephemeral={ephemeral}
     onProgress={onProgress}
     cloudStatus={cloudStatus}
     onExit={onExit}
+    onOpenCampaign={onOpenCampaign}
     initialSettings={{
       muted: !isSoundEnabled,
       reduced: accessibilitySettings.reducedMotion === true,

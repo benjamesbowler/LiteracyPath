@@ -206,7 +206,7 @@ function assessmentContentSnapshot(questionRecords = []) {
   }));
 }
 
-function normalizeResponseStatus(item = {}) {
+function normalizeResponseStatus(item = {}, record = {}) {
   const explicit = normalizeKey(
     item.responseStatus ||
     item.response_status ||
@@ -236,6 +236,12 @@ function normalizeResponseStatus(item = {}) {
   if (item.discontinued) return ASSESSMENT_RESPONSE_STATUSES.DISCONTINUED;
   if (item.notScorable) return ASSESSMENT_RESPONSE_STATUSES.NOT_SCORABLE;
   if (item.skipped) return ASSESSMENT_RESPONSE_STATUSES.SKIPPED;
+  const assessmentId = normalizeKey(record.assessmentId || record.assessmentType || record.skillId);
+  if (assessmentId === "el_decoding" && typeof item.isCorrect !== "boolean") {
+    const code = normalizeKey(item.scoringCode || item.evaluation || item.responseCode || item.metadata?.evaluation);
+    if (code === "automatic_accurate" || code === "accurate_after_sounding") return ASSESSMENT_RESPONSE_STATUSES.CORRECT;
+    if (code === "self_corrected") return ASSESSMENT_RESPONSE_STATUSES.SELF_CORRECTED;
+  }
   // Historical records only supplied isCorrect. Treat a missing value as the
   // old normalizer did (incorrect), while all new non-administered states must
   // be explicit so they are never silently counted as misses.
@@ -261,7 +267,7 @@ function isScoredQuestion(question = {}) {
 }
 
 function normalizeQuestionRecord(item = {}, index, record, completedAt) {
-  const responseStatus = normalizeResponseStatus(item);
+  const responseStatus = normalizeResponseStatus(item, record);
   const pointsPossible = normalizeOptionalNumber(item.pointsPossible ?? item.maxPoints, { minimum: 0 });
   const defaultPointsEarned = pointsPossible === null
     ? null
@@ -318,6 +324,7 @@ function normalizeQuestionRecord(item = {}, index, record, completedAt) {
     ),
     outcomeRecordedAt: item.outcomeRecordedAt || existingMetadata.outcomeRecordedAt || "",
     responseStatus,
+    ...(item.supported === true || item.prompted === true ? { supported: true } : {}),
     ...(record.assessmentType === "cycle_practice_check" ? {
       mechanicId: item.mechanicId || "", selected: cloneJsonValue(item.selected, null),
       evidence: cloneJsonValue(item.evidence, {}), audioRequired: item.audioRequired === true,

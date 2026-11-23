@@ -9,7 +9,7 @@ The shared teacher workspace uses Prepare, Live and Results as presentation
 stages. Focus, reading and Mock MAP sessions keep their own protocols and
 save receipts. Practise launches supported activities such as Cycle Practice,
 games and reading; Assess exposes independent Skills assessment. New MAP work
-uses the teacher-launched full 43-question [Adaptive Literacy Test](LITERACY_MOCK_SESSIONS.md).
+uses the teacher-launched [Adaptive Literacy Test](LITERACY_MOCK_SESSIONS.md), which defines the available lengths and versioned routing.
 Under Start student session, the Adaptive Literacy Test appears only in Assess.
 That entry and Assessments open the same assessment desk. The launcher
 passes the chosen whole class, individual child or selected group to test setup;

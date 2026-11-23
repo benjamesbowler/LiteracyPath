@@ -6453,6 +6453,10 @@ body:has(.kg-viewport) .student-home-float { display: none; }
   box-shadow: 0 12px 24px rgba(15, 23, 42, 0.05);
 }
 
+.guided-page-listening .guided-page-text-frame {
+  box-shadow: 0 0 0 2px #c78f24, 0 12px 24px rgba(15, 23, 42, 0.05);
+}
+
 .guided-page-text {
   display: block;
   width: 100%;

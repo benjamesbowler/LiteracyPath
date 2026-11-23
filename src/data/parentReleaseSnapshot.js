@@ -3,84 +3,17 @@ import {
   WHOLE_CHILD_REPORT_AUDIENCES
 } from "./reportAudienceTemplates.js";
 import { lintParentAreaPlainLanguage } from "./parentAreaModel.js";
-import {
-  canonicalStatusId,
-  REPORT_STATUS_IDS
-} from "../policy/reportingBible.js";
-
-// This is aggregation precedence, not the teacher-facing display order.
-// Once a policy-ready source reports mixed evidence, a family summary must
-// preserve that disagreement instead of resolving it to a more conclusive
-// status from another row in the same domain.
-const FAMILY_STATUS_PRECEDENCE = Object.freeze([
-  REPORT_STATUS_IDS.MIXED_EVIDENCE,
-  REPORT_STATUS_IDS.NEEDS_SUPPORT,
-  REPORT_STATUS_IDS.DEVELOPING,
-  REPORT_STATUS_IDS.SECURE,
-  REPORT_STATUS_IDS.NOT_ENOUGH_EVIDENCE,
-  REPORT_STATUS_IDS.NOT_CHECKED
-]);
-
-const DOMAIN_LABELS = Object.freeze({
-  alphabet_knowledge: "Letter names and sounds",
-  phonological_awareness: "Listening to sounds in words",
-  phonics: "Matching letters and sounds",
-  decoding: "Reading unfamiliar words",
-  encoding: "Spelling words",
-  reading_fluency: "Reading aloud smoothly",
-  fluency: "Reading aloud smoothly",
-  comprehension: "Understanding a text",
-  vocabulary: "Learning word meanings",
-  language: "Speaking and listening",
-  literacy_skill: "Reading and writing"
-});
-
-const FAMILY_DOMAIN_IDS = Object.freeze({
-  alphabet_knowledge: "letters",
-  phonological_awareness: "listening_sounds",
-  phonics: "letter_sound_links",
-  decoding: "reading_words",
-  encoding: "spelling_words",
-  reading_fluency: "reading_aloud",
-  fluency: "reading_aloud",
-  comprehension: "understanding_text",
-  vocabulary: "word_meanings",
-  language: "speaking_listening",
-  literacy_skill: "reading_writing"
-});
 
 function asArray(value) {
   return Array.isArray(value) ? value : [];
 }
 
-function statusId(row = {}) {
-  return String(row.status?.id || row.statusId || row.status || "not_checked")
-    .toLowerCase()
-    .replace(/[\s-]+/g, "_");
-}
-
-function parentStatus(rows = []) {
-  const statuses = rows.map(row => canonicalStatusId(statusId(row)));
-  return FAMILY_STATUS_PRECEDENCE.find(status => statuses.includes(status))
-    || REPORT_STATUS_IDS.NOT_CHECKED;
-}
-
-function progressRows(report = {}) {
-  const domains = new Map();
-  asArray(report.concepts).forEach(row => {
-    const id = row.domain || "literacy_skill";
-    const current = domains.get(id) || [];
-    current.push(row);
-    domains.set(id, current);
-  });
-  return [...domains.entries()].slice(0, 6).map(([id, rows]) => ({
-    id: FAMILY_DOMAIN_IDS[id] || FAMILY_DOMAIN_IDS.literacy_skill,
-    label: DOMAIN_LABELS[id] || DOMAIN_LABELS.literacy_skill,
-    status: parentStatus(rows),
-    detail: rows.some(row => statusId(row) !== "not_checked")
-      ? "The school has shared a current classroom picture for this area."
-      : "The school has not shared enough information about this area yet."
-  }));
+function identityText(value, fallback, limit) {
+  const text = value == null || value === "" ? fallback : value;
+  if (typeof text !== "string" || !text.trim() || text.length > limit || /[\p{Cc}]/u.test(text)) {
+    throw new Error("Check the learner, class, school and teacher details before previewing.");
+  }
+  return text.trim();
 }
 
 export function buildParentReleaseSnapshot({
@@ -95,28 +28,21 @@ export function buildParentReleaseSnapshot({
   const wholeChild = workspace?.wholeChild || {};
   const family = buildWholeChildAudienceTemplates({
     report: wholeChild,
-    studentName,
-    className
+    studentName: "Your child"
   })[WHOLE_CHILD_REPORT_AUDIENCES.FAMILY];
   const sections = Object.fromEntries(asArray(family.sections).map(section => [section.id, section]));
   const homeSupport = sections.what_you_can_do_at_home;
   const strengths = asArray(sections.what_your_child_can_do?.items).slice(0, 4);
-  const nextFocus = asArray(sections.working_on_next?.items).slice(0, 3);
+  const nextFocus = asArray(sections.working_on_next?.items).slice(0, 2);
   const snapshot = {
     schemaVersion: 1,
-    learner: {
-      id: studentId,
-      name: studentName,
-      classLabel: className || "Class not shown",
-      schoolName: schoolName || "Your school"
-    },
     updatedLabel: `Released ${new Date().toLocaleDateString(undefined, { day: "numeric", month: "long", year: "numeric" })}`,
     highlight: family.description,
     strengths,
     canDo: strengths,
     nextFocus,
-    meaning: "The teacher will build these skills in small steps. Short, calm practice at home can help too.",
-    progress: progressRows(wholeChild),
+    meaning: sections.what_this_means.description,
+    progress: family.progress,
     atHome: {
       title: homeSupport.title,
       introduction: homeSupport.description,
@@ -126,8 +52,6 @@ export function buildParentReleaseSnapshot({
       privacyText: "Home practice is not recorded and does not change the school report."
     },
     contact: {
-      name: teacherName,
-      email: teacherEmail,
       message: "Contact the class teacher if you would like to talk about this update."
     }
   };
@@ -135,5 +59,22 @@ export function buildParentReleaseSnapshot({
   if (issues.length) {
     throw new Error(`The family report contains internal wording: ${issues.join(", ")}`);
   }
-  return snapshot;
+  if (typeof teacherEmail !== "string" || teacherEmail.length > 320
+    || (teacherEmail && !/^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/.test(teacherEmail))) {
+    throw new Error("Check the teacher’s contact email before previewing.");
+  }
+  return {
+    ...snapshot,
+    learner: {
+      id: identityText(studentId, "", 120),
+      name: identityText(studentName, "", 200),
+      classLabel: identityText(className, "Class not shown", 200),
+      schoolName: identityText(schoolName, "Your school", 200)
+    },
+    contact: {
+      ...snapshot.contact,
+      name: identityText(teacherName, "Class teacher", 200),
+      email: teacherEmail
+    }
+  };
 }

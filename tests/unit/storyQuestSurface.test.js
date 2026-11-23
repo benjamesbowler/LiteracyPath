@@ -3,14 +3,20 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { storyQuests } from "../../src/data/storyQuests.js";
 import { storyQuestSpokenItems } from "../../src/data/storyQuestReaderCopy.js";
+import { getStoryQuestPageAudioUrl } from "../../src/data/storyQuestLedaAudio.js";
 import { STUDENT_RAIL_DESTINATIONS, selectActiveStudentTab } from "../../src/policy/studentRailPolicy.js";
 import { computeHydratedValue } from "../../src/utils/progressMerge.js";
+import { configureProgressSync, hydrateCloudProgress } from "../../src/utils/progressSync.js";
+import { readProgressQueueRecords } from "../../src/utils/progressQueue.js";
 import { buildQuestCard } from "../../src/policy/childLibraryPolicy.js";
 import { encodeStoryQuestCheckpoint, readStoryQuestCheckpoint, storyQuestEndingIds, storyQuestReplayFork } from "../../src/utils/storyQuestRoutes.js";
 import {
   buildStoryQuestResumeHistory,
   isStoryQuestTeacherPreviewScope,
+  readStoryQuestProgress,
   resolveStoryQuestResume,
+  saveStoryQuestProgress,
+  storyQuestProgressStorageKey,
   mergeStoryQuestProgressRow
 } from "../../src/utils/storyQuestProgress.js";
 
@@ -24,6 +30,13 @@ const appSource = readFileSync("src/components/AppSurface.jsx", "utf8");
 const appRootSource = readFileSync("src/App.jsx", "utf8");
 const teacherStudentsSource = readFileSync("src/components/TeacherStudentsPage.jsx", "utf8");
 const comicThemeStyles = readFileSync("src/styles/comic-theme.css", "utf8");
+
+test("page narration keeps missing and held recordings unavailable", () => {
+  const text = ["A deliberately unrecorded fixture."];
+  assert.equal(getStoryQuestPageAudioUrl({ text }), "");
+  assert.equal(getStoryQuestPageAudioUrl({ text, audioUrl: "/audio/held.mp3", narrationNeedsRebuild: true }), "");
+  assert.ok(getStoryQuestPageAudioUrl(storyQuests[0].pages[0]));
+});
 
 test("all fourteen shelf synopses stay short without changing recorded invitations or story narration", () => {
   assert.equal(storyQuests.length, 14);
@@ -148,16 +161,8 @@ test("teacher Story Quest preview is named before launch and never persists prev
   assert.match(teacherStudentsSource, />\s*Preview Story Quests\s*</);
   assert.equal(isStoryQuestTeacherPreviewScope("teacher-preview:t-1:s-1"), true);
   assert.equal(isStoryQuestTeacherPreviewScope("s-1"), false);
-  assert.match(
-    learnAreaSource,
-    /teacherPreview \? \{\} : loadStoryQuestProgress\(progressScopeKey\)/,
-    "preview must start clean instead of presenting old teacher clicks as student progress"
-  );
-  assert.match(
-    learnAreaSource,
-    /useEffect\(\(\) => \{\s*if \(teacherPreview\) return;\s*saveStoryQuestProgress/,
-    "preview activity must not enter local or cloud persistence"
-  );
+  assert.deepEqual(readStoryQuestProgress("teacher-preview:t-1:s-1"), { status: "preview", progress: {} });
+  assert.match(learnAreaSource, /if \(read.status === "preview"\) \{[\s\S]*?return;\s*}/);
   assert.match(learnAreaSource, /This is a clean practice preview\./);
   assert.match(playerSource, /Read-only preview/);
   assert.match(
@@ -220,8 +225,54 @@ test("Story Quest exposure stays cumulative while the current route remains resu
       updatedAt: "2026-07-28T00:00:00.000Z"
     }
   );
-  assert.match(learnAreaSource, /mergeStoryQuestProgressRow\(previous\[questId\], patch\)/);
   assert.match(playerSource, /initialProgress\?\.wordsFound/);
+});
+
+test("Story Quest hydration preserves unreadable bytes, scopes its cached fallback and queues one changed row", async () => {
+  const bytes = new Map();
+  const storage = {
+    get length() { return bytes.size; },
+    key: index => [...bytes.keys()][index],
+    getItem: key => bytes.get(key) ?? null,
+    setItem: (key, value) => bytes.set(key, value),
+    removeItem: key => bytes.delete(key)
+  };
+  globalThis.window = Object.assign(new EventTarget(), {
+    localStorage: storage, setTimeout: () => 1, clearTimeout: () => {}
+  });
+  const a = storyQuestProgressStorageKey("pupil-a"), b = storyQuestProgressStorageKey("pupil-b");
+  const saved = { opened: true, endingPageIds: ["ending-1"], lastPageId: "ending-1" };
+  const active = { mode: "teacher", studentId: "pupil-a" };
+  try {
+    assert.equal(readStoryQuestProgress("pupil-a").status, "missing");
+    configureProgressSync(active);
+    for (const raw of ["{not readable", "null", "[]", '{"story":{"v":2}}', '{"story":[]}']) {
+      storage.setItem(a, raw);
+      assert.equal(saveStoryQuestProgress("pupil-a", "quest-2", { opened: true }), false);
+      assert.equal(storage.getItem(a), raw);
+    }
+    await hydrateCloudProgress({
+      mode: "student", token: "fixture", studentId: "pupil-a",
+      client: { call: async () => ({ data: [{ area: "story_quests", key: "quest-1", payload: saved }], error: null }) }
+    });
+    assert.equal(storage.getItem(a), '{"story":[]}');
+    assert.deepEqual(readStoryQuestProgress("pupil-a"), { status: "cached", progress: { "quest-1": saved } });
+    assert.equal(readStoryQuestProgress("pupil-b").status, "missing");
+    assert.deepEqual(readProgressQueueRecords(storage), []);
+
+    storage.setItem(a, JSON.stringify({ "quest-1": saved }));
+    assert.equal(saveStoryQuestProgress("pupil-a", "quest-2", { lastPageId: "page-2" }), true);
+    assert.deepEqual(readStoryQuestProgress("pupil-a").progress["quest-1"], saved);
+    assert.deepEqual(readProgressQueueRecords(storage).map(({ entry }) => entry.key), ["quest-2"]);
+    assert.equal(storage.getItem(b), null);
+
+    const preview = "teacher-preview:teacher:pupil-a";
+    assert.equal(saveStoryQuestProgress(preview, "quest-2", { lastPageId: "page-2" }), false);
+    assert.equal(storage.getItem(storyQuestProgressStorageKey(preview)), null);
+  } finally {
+    configureProgressSync(null);
+    delete globalThis.window;
+  }
 });
 
 test("Story Quest exposure is saved for adults without a child mastery claim", () => {

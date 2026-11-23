@@ -53,13 +53,13 @@
 .parent-auth-loader { margin: 30px auto; color: #18263E; }
 .parent-auth-warning { color: #a55d0a; margin-bottom: 14px; }
 
-.parent-report-dialog { position: fixed; z-index: 100; inset: 0; display: grid; place-items: center; padding: 18px; background: rgba(15, 25, 34, .62); font-family: var(--lp-font-ui, Inter, sans-serif); }
-.parent-report-dialog > div { width: min(100%, 720px); max-height: min(88dvh, 820px); overflow: auto; border-radius: 20px; background: #fff; color: #172033; padding: 28px; box-shadow: 0 24px 70px rgba(0, 0, 0, .28); }
+.parent-report-dialog { position: fixed; inset: 0; width: min(calc(100% - 36px), 720px); max-height: min(88dvh, 820px); margin: auto; padding: 28px; overflow: auto; border: 0; border-radius: 20px; background: #fff; color: #172033; box-shadow: 0 24px 70px rgba(15, 25, 34, .28); font-family: var(--lp-font-ui, Inter, sans-serif); }
+.parent-report-dialog::backdrop { background: rgba(15, 25, 34, .62); }
 .parent-report-dialog header { display: flex; justify-content: space-between; gap: 18px; border-bottom: 1px solid #dbe3e8; padding-bottom: 18px; }
 .parent-report-dialog header span { color: #18263E; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; }
 .parent-report-dialog h1 { margin: 5px 0; font: 750 28px/1.15 var(--lp-font-reading, Lexend, sans-serif); }
 .parent-report-dialog header p { margin: 0; color: #586579; }
-.parent-report-dialog header button { width: 42px; height: 42px; flex: none; display: grid; place-items: center; border: 0; border-radius: 10px; background: #f1f4f5; cursor: pointer; }
+.parent-report-dialog header button { width: 44px; height: 44px; flex: none; display: grid; place-items: center; border: 0; border-radius: 10px; background: #f1f4f5; cursor: pointer; }
 .parent-report-dialog section { margin-top: 22px; }
 .parent-report-dialog h2 { font-size: 18px; color: #18263E; }
 .parent-report-dialog li { margin: 8px 0; line-height: 1.5; }
@@ -68,6 +68,6 @@
 
 @media (max-width: 560px) {
   .parent-auth-card { padding: 23px 20px; }
-  .parent-report-dialog > div { padding: 22px 18px; }
+  .parent-report-dialog { padding: 22px 18px; }
   .parent-report-dialog footer { display: grid; }
 }

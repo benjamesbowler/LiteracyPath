@@ -1,7 +1,9 @@
+import { ProgressSafeReload } from "./ProgressSafeReload.jsx";
+
 // Full-page fallback shown by the root ErrorBoundary if the app ever throws
 // above every in-app boundary. Plain inline styles so it renders even if app
 // CSS failed to load.
-export function AppCrashFallback() {
+export function AppCrashFallback({ onRetry }) {
   return (
     <div style={{
       minHeight: "100dvh", display: "grid", placeItems: "center", padding: "24px",
@@ -13,11 +15,11 @@ export function AppCrashFallback() {
       }}>
         <h1 style={{ fontSize: "1.4rem", margin: "0 0 8px", color: "#3454C8" }}>We couldn&apos;t open the app</h1>
         <p style={{ margin: "0 0 20px", color: "#51607A" }}>
-          Your data is safe. Check your internet, then try again.
+          Check your connection, then try opening the app again.
         </p>
         <button
           type="button"
-          onClick={() => window.location.reload()}
+          onClick={onRetry}
           style={{
             minHeight: "44px", padding: "10px 22px", border: 0, borderRadius: "12px",
             background: "#3454C8", color: "#fff", fontWeight: 700, fontSize: "1rem", cursor: "pointer"
@@ -25,6 +27,7 @@ export function AppCrashFallback() {
         >
           Try again
         </button>
+        <ProgressSafeReload style={{ marginTop: "12px", minHeight: "44px", padding: "0 16px" }} />
       </div>
     </div>
   );

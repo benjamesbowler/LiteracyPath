@@ -464,7 +464,7 @@ export const EXPANSION_DRAFTS_A = [
       ],
       [
         "Where does Fluff move the block?",
-        "To the top of the pot",
+        "At the top",
         [
           "Inside the car",
           "Under the pot",
@@ -472,7 +472,8 @@ export const EXPANSION_DRAFTS_A = [
         ],
         [
           4
-        ]
+        ],
+        { "To the top of the pot": "At the top" }
       ]
     ],
     "Draw the toy car going into the pot. Write pot and car."
@@ -728,7 +729,7 @@ export const EXPANSION_DRAFTS_A = [
       ],
       [
         "Why does Pip add another spot?",
-        "So Socks can stop before the longer hop",
+        "So Socks can stop first",
         [
           "So the chalk will dry",
           "So Pip can sit down",
@@ -737,7 +738,8 @@ export const EXPANSION_DRAFTS_A = [
         [
           4,
           5
-        ]
+        ],
+        { "So Socks can stop before the longer hop": "So Socks can stop first" }
       ]
     ],
     "Draw the chalk spots and Socks hopping. Write hop and spot."
@@ -1739,7 +1741,7 @@ export const EXPANSION_DRAFTS_A = [
       ],
       [
         "Why does Pip check the arrow?",
-        "To see if Socks can see it before the turn",
+        "So Socks can see it",
         [
           "To see if the tree is tall",
           "To count the cars",
@@ -1748,7 +1750,8 @@ export const EXPANSION_DRAFTS_A = [
         [
           1,
           5
-        ]
+        ],
+        { "To see if Socks can see it before the turn": "So Socks can see it" }
       ]
     ],
     "Draw the chalk arrow at the turn in the track. Write arrow."
@@ -2320,7 +2323,7 @@ export const EXPANSION_DRAFTS_A = [
       ],
       [
         "What can Pip do at the end?",
-        "Stand in the doorway without holding the flap",
+        "Stand without holding the flap",
         [
           "Close a window",
           "Carry the tent home",
@@ -2328,7 +2331,8 @@ export const EXPANSION_DRAFTS_A = [
         ],
         [
           4
-        ]
+        ],
+        { "Stand in the doorway without holding the flap": "Stand without holding the flap" }
       ]
     ],
     "Draw the tent with its flap rolled up. Write tent."

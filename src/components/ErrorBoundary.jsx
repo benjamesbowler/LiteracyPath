@@ -1,3 +1,4 @@
+import { ProgressSafeReload } from "./ProgressSafeReload.jsx";
 import { Component } from "react";
 import { logBoundaryError } from "../utils/errorLog.js";
 
@@ -54,9 +55,7 @@ export class ErrorBoundary extends Component {
           <button className="main-button" type="button" onClick={() => this.setState({ error: null })}>
             Try again
           </button>
-          <button className="report-button" type="button" onClick={() => window.location.reload()}>
-            Start fresh
-          </button>
+          <ProgressSafeReload className="report-button" />
         </div>
       </div>
     );

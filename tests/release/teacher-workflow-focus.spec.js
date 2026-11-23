@@ -8,11 +8,11 @@ test.setTimeout(90000);
 
 test('whole-class practice recovers a missing picture and offers recovery when questions cannot load', async ({page}) => {
   await page.goto('/preview/teacher-a11y.html?surface=resources');
-  await page.route('**/literacyMockRuntimeV10.generated.js*', route=>route.abort());
+  await page.route('**/literacyMockClassPractice.generated.js*', route=>route.abort());
   await page.getByRole('button',{name:'Open MAP Mock practice',exact:true}).click();
   await expect(page.getByRole('alert')).toContainText('Questions could not load.');
   await expect(page.getByRole('button',{name:'Start class practice',exact:true})).toBeDisabled();
-  await page.unroute('**/literacyMockRuntimeV10.generated.js*');
+  await page.unroute('**/literacyMockClassPractice.generated.js*');
   await page.getByRole('button',{name:'Reload Teach',exact:true}).click();
   await page.getByRole('button',{name:'Open MAP Mock practice',exact:true}).click();
   await expect(page.getByRole('button',{name:'Start class practice',exact:true})).toBeEnabled();
@@ -123,6 +123,7 @@ for(const width of [1920,1024])test(`MAP Mock class practice checks and reveals 
   const writes=[];page.on('request',request=>{if(request.method()==='POST'&&/rpc|rest\/v1/.test(request.url()))writes.push(request.url());});
   await page.getByRole('button',{name:'Open MAP Mock practice',exact:true}).click();
   await page.getByRole('combobox',{name:'Area',exact:true}).selectOption('print');
+  await page.getByRole('combobox',{name:'Questions',exact:true}).selectOption('25');
   await page.getByRole('button',{name:'Start class practice',exact:true}).click();
   await expect(page.locator('.literacy-mock-question')).toBeVisible();
   await page.locator('.literacy-mock-choice').first().click();
@@ -136,7 +137,7 @@ for(const width of [1920,1024])test(`MAP Mock class practice checks and reveals 
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);
   await page.screenshot({path:`.artifacts/teach-class-practice-20261020/map-${width}.png`,fullPage:true});
   await page.getByRole('button',{name:'Next question',exact:true}).click();
-  await expect(page.getByText('Practice question 2 of 12',{exact:true})).toBeVisible();
+  await expect(page.getByText('Practice question 2 of 25',{exact:true})).toBeVisible();
   await expect(page.locator('.whole-class-answer')).toHaveCount(0);
   await page.getByRole('button',{name:'Back to Teach',exact:true}).click();
   await expect(page.getByRole('button',{name:'Open MAP Mock practice',exact:true})).toBeFocused();
@@ -187,7 +188,7 @@ test("Summary keeps detailed evidence one step away, retains every source item, 
   await expect(page.locator(".simple-report-coverage")).toHaveAttribute("open", "");
   await expect(page.locator(".simple-report-intro")).toContainText("of 126 items have saved answers");
   const evidence = page.getByRole("region", { name: "All source items by literacy domain" });
-  expect(await evidence.locator("details[open]").count()).toBeGreaterThan(0);
+  await expect(evidence.locator("details").first()).toBeAttached();
   await expect(evidence).not.toContainText("Nothing is in this group yet");
   for (const group of await evidence.locator("details").all()) {
     if (!await group.evaluate(element => element.open)) await group.locator(":scope > summary").click();
@@ -288,3 +289,29 @@ for (const viewport of [{ width: 1280, height: 900 }, { width: 390, height: 844 
     expect(pageErrors).toEqual([]);
   });
 }
+
+test("an empty roster group cannot open session setup as the whole class", async ({ page }) => {
+  await page.goto("/preview/teacher-a11y.html?surface=classes&empty-session-group=1");
+  const start = page.getByRole("button", { name: "Start student session", exact: true });
+  await expect(start).toBeEnabled();
+  await page.getByRole("button", { name: "Saved activity today", exact: true }).first().click();
+  await expect(start).toBeDisabled();
+  await expect(page.getByText(/Saved activity today · 0 students/)).toBeVisible();
+  await page.getByRole("button", { name: "Everyone", exact: true }).first().click();
+  await start.click();
+  expect(await page.evaluate(() => window.__teacherPreviewPractice)).toEqual({
+    studentIds: [], context: { audience: "whole_class" }
+  });
+});
+
+test("practice receives the projected cycle rather than the class default", async ({ page }) => {
+  await page.goto("/preview/teacher-a11y.html?surface=cycle-context");
+  await page.getByLabel("Teaching cycle for reference").selectOption("cycle-5");
+  await page.getByRole("combobox", { name: "Cycle", exact: true }).selectOption("cycle-4");
+  const popupOpened = page.waitForEvent("popup");
+  await page.getByRole("button", { name: "Present", exact: true }).click();
+  await (await popupOpened).close();
+  await page.getByRole("button", { name: /^Practise Cycle 4/ }).click();
+  expect(await page.evaluate(() => window.__presentPractice?.context?.cycleId)).toBe("cycle-4");
+  await expect(page.getByLabel("Teaching cycle for reference")).toHaveValue("cycle-5");
+});

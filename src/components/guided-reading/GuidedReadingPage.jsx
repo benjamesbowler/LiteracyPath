@@ -26,7 +26,7 @@ import {
   summarizeGuidedReadingRecords
 } from "../../data/guidedReadingBooks";
 import { enrichGuidedReadingBook } from "../../utils/guidedReading/phonicsPageAnalyzer.js";
-import { recommendBooksForStudent } from "../../utils/guidedReading/recommendBooksForStudent.js";
+import { prepareReadingRecommendationCatalogue, recommendBooksForStudent } from "../../utils/guidedReading/recommendBooksForStudent.js";
 import { readingRecommendationReason, readingRecommendationSummary } from "../../utils/guidedReading/recommendationExplanation.js";
 // The runtime library (retired books and pages removed, teacher level
 // overrides applied) moved to its own module on 2026-07-29 so the child's Books
@@ -66,11 +66,15 @@ import {
   waitForGuidedReadingPause
 } from "../../utils/guidedReading/readAloudPacing.js";
 import {
-  buildGuidedReadingCompletionPatch,
+  finishGuidedReadingOccurrence,
   getGuidedReadingCompletionMilestone,
   getGuidedReadingProgressionBooks,
+  guidedReadingCompletion,
+  guidedReadingVisitPatch,
+  mergeGuidedReadingEvidence,
   mergeGuidedReadingRecord,
-  shouldShowGuidedReadingCompletionSummary
+  shouldShowGuidedReadingCompletionSummary,
+  startGuidedReadingOccurrence
 } from "../../utils/guidedReading/completionPolicy.js";
 import {
   addBrowserFullscreenListener,
@@ -522,10 +526,12 @@ export function GuidedReadingPage({
   books = null,
   initialBookId = "",
   initialPageIndex = null,
+  initialReadAgain = false,
   studentId,
   studentName,
   studentProgress = null,
   recommendationEvidenceReady = true,
+  currentCycleId = "",
   guidedReadingRecords = {},
   saveGuidedReadingRecord,
   speakText,
@@ -591,7 +597,6 @@ export function GuidedReadingPage({
   const wordSupportAudioRef = useRef(null);
   const wordSupportElementRef = useRef(null);
   const highlightTimerRef = useRef(null);
-  const sentenceTimersRef = useRef([]);
   const wholeBookAbortRef = useRef(null);
   const wholeBookSequenceAudioRef = useRef(null);
   const wholeBookFirstPlayPromiseRef = useRef(null);
@@ -604,6 +609,7 @@ export function GuidedReadingPage({
   const decodingSupportEventCounterRef = useRef(0);
   const wordSupportPlaybackTokenRef = useRef(0);
   const recordDraftRef = useRef(null);
+  const occurrenceRef = useRef(null);
   const prefersReducedMotion = useReducedMotion();
   const runtimeGuidedReadingBooks = useMemo(() => books || getRuntimeGuidedReadingBooks(), [books]);
   const bookAnalyses = useMemo(() => new Map(runtimeGuidedReadingBooks.map(book => [book.id, getBookTextAnalysis(book)])), [runtimeGuidedReadingBooks]);
@@ -668,7 +674,7 @@ export function GuidedReadingPage({
     && !isGuidedReadingBookDeleted(selectedBook.id)
     && selectedBook.title !== GUIDED_READING_TOPIC_EDITIONS[selectedBook.id]?.retiredTitle
     && selectedReview.status !== "quarantined";
-  const enrichedSelectedBook = selectedBook ? enrichGuidedReadingBook(selectedBook) : null;
+  const enrichedSelectedBook = useMemo(() => selectedBook && readerOpen ? enrichGuidedReadingBook(selectedBook) : null, [selectedBook, readerOpen]);
   const selectedReadingPurpose = selectedBook
     ? classifyBookReadingPurpose(selectedBook, studentProgress || {})
     : null;
@@ -707,8 +713,8 @@ export function GuidedReadingPage({
     ? { ...CHILD_COPY.guidedReading, readPage: "Hear this page", readWholeBook: "Hear the whole book", stopReading: "Stop page audio" }
     : TEACHER_COPY.guidedReading.controls;
   const readerReturnLabel = returnLabel || (isStudentMode ? "Back to Books" : "Back to reading library");
-  const changeInitialBook = useEffectEvent(bookId => changeBook(bookId, initialPageIndex));
-  const launchBookBookmark = useEffectEvent(book => guidedReadingBookmark(book, getCurrentGuidedReadingRecord(book, guidedReadingRecords)));
+  const changeInitialBook = useEffectEvent(bookId => changeBook(bookId, initialPageIndex, initialReadAgain));
+  const openLaunchedBook = useEffectEvent(bookId => changeBook(bookId));
   const stopCurrentPageAudio = useEffectEvent(() => stopPageAudio());
   const stopAllGuidedReadingAudio = useEffectEvent(() => {
     wordSupportPlaybackTokenRef.current += 1;
@@ -795,19 +801,17 @@ export function GuidedReadingPage({
     setSelectedBookId(launchedBook.id);
     setSelectedLibraryType(normalizeGuidedReadingType(launchedBook.type));
     setSelectedLibraryLevel(displayBookLevel(launchedBook, bookAnalyses));
-    setPageIndex(launchBookBookmark(launchedBook));
-    setShowSummary(false);
-    setReaderOpen(true);
-    setIsReaderFullscreen(isStudentMode);
-    setReaderInteractionMode("reading");
+    openLaunchedBook(launchedBook.id);
     onLaunchBookHandled?.();
   }, [launchBookId, onLaunchBookHandled, runtimeGuidedReadingBooks, isStudentMode, bookAnalyses]);
 
-  const recommendedBooks = useMemo(() => isStudentMode || isClassMode || isReviewMode ? [] : recommendBooksForStudent({
-    books: runtimeGuidedReadingBooks,
+  const recommendationCatalogue = useMemo(() => isStudentMode || isClassMode || isReviewMode
+    ? [] : prepareReadingRecommendationCatalogue(runtimeGuidedReadingBooks), [isStudentMode, isClassMode, isReviewMode, runtimeGuidedReadingBooks]);
+  const recommendedBooks = useMemo(() => recommendBooksForStudent({
+    catalogue: recommendationCatalogue,
     studentProgress: recommendationEvidenceReady && studentProgress ? studentProgress : {},
     readingHistory: guidedReadingRecords
-  }).slice(0, 5), [isStudentMode, isClassMode, isReviewMode, runtimeGuidedReadingBooks, recommendationEvidenceReady, studentProgress, guidedReadingRecords]);
+  }).slice(0, 5), [recommendationCatalogue, recommendationEvidenceReady, studentProgress, guidedReadingRecords]);
   const recommendationDescription = readingRecommendationSummary(recommendedBooks, { evidenceReady: recommendationEvidenceReady });
   const selectedBookFocusLabels = [...new Set(
     (enrichedSelectedBook?.recommendedSkillsToReinforce || [])
@@ -877,7 +881,14 @@ export function GuidedReadingPage({
 
   useEffect(() => {
     window.addEventListener(STOP_CHILD_AUDIO_EVENT, stopAllGuidedReadingAudio);
-    return () => window.removeEventListener(STOP_CHILD_AUDIO_EVENT, stopAllGuidedReadingAudio);
+    function stopWhenHidden() {
+      if (document.hidden) stopAllGuidedReadingAudio();
+    }
+    document.addEventListener("visibilitychange", stopWhenHidden);
+    return () => {
+      window.removeEventListener(STOP_CHILD_AUDIO_EVENT, stopAllGuidedReadingAudio);
+      document.removeEventListener("visibilitychange", stopWhenHidden);
+    };
   }, []);
 
   useEffect(() => {
@@ -894,10 +905,6 @@ export function GuidedReadingPage({
       stopWordSupportAudio();
       if (highlightTimerRef.current) {
         clearTimeout(highlightTimerRef.current);
-      }
-      if (sentenceTimersRef.current.length) {
-        sentenceTimersRef.current.forEach(clearTimeout);
-        sentenceTimersRef.current = [];
       }
       if (typeof window !== "undefined" && window.speechSynthesis) {
         window.speechSynthesis.cancel();
@@ -1044,11 +1051,9 @@ export function GuidedReadingPage({
     ) {
       const externalUpdatedAt = Date.parse(externalRecord.updatedAt || externalRecord.lastReadAt || "") || 0;
       const draftUpdatedAt = Date.parse(draftRecord.updatedAt || draftRecord.lastReadAt || "") || 0;
-      if (externalUpdatedAt > draftUpdatedAt) {
-        recordDraftRef.current = externalRecord;
-        return externalRecord;
-      }
-      return draftRecord;
+      const latest = externalUpdatedAt > draftUpdatedAt ? externalRecord : draftRecord;
+      recordDraftRef.current = mergeGuidedReadingEvidence(externalRecord, draftRecord, latest);
+      return recordDraftRef.current;
     }
     recordDraftRef.current = externalRecord;
     return externalRecord;
@@ -1080,13 +1085,7 @@ export function GuidedReadingPage({
       book: { ...selectedBook, type: normalizeGuidedReadingType(selectedBook.type) },
       now,
       patch: {
-        firstReadAt: previous.firstReadAt || now,
-        lastReadAt: now,
-        lastPageIndex: nextPageIndex,
-        completedPages: Math.min(totalPages, Math.max(Number(previous.completedPages || 0), nextPageIndex + 1)),
-        totalPages,
-        completed: Boolean(previous.completed || previous.completedAt),
-        readCount: Number(previous.readCount || (previous.completed || previous.completedAt ? 1 : 0)),
+        ...guidedReadingVisitPatch(previous, { occurrence: occurrenceRef.current, pageIndex: nextPageIndex, totalPages, now }),
         ...patch
       }
     });
@@ -1177,13 +1176,15 @@ export function GuidedReadingPage({
     stopPageAudio();
     const now = new Date().toISOString();
     const previous = getWorkingRecord();
-    const completionPatch = buildGuidedReadingCompletionPatch({
+    const completionPatch = finishGuidedReadingOccurrence(previous, {
       now,
       totalPages: selectedBook.pages.length,
-      wasCompleted: Boolean(previous.completed || previous.completedAt),
-      readCount: previous.readCount,
-      completedAt: previous.completedAt
+      occurrence: occurrenceRef.current
     });
+    if (!completionPatch) {
+      closeReader();
+      return;
+    }
     touchBookProgress(selectedBook.pages.length - 1, completionPatch);
     // Credit the book on reading completion. Coins for the book are derived in
     // the Hollow economy - no gems.
@@ -1209,11 +1210,16 @@ export function GuidedReadingPage({
     }
   }
 
-  function changeBook(bookId, requestedIndex = null) {
+  function changeBook(bookId, requestedIndex = null, readAgain = false) {
     stopReaderAudio();
     setSelectedBookId(bookId);
     const nextBook = runtimeGuidedReadingBooks.find(item => item.id === bookId);
-    setPageIndex(guidedReadingBookmark(nextBook, getCurrentGuidedReadingRecord(nextBook, guidedReadingRecords), requestedIndex));
+    const saved = getCurrentGuidedReadingRecord(nextBook, guidedReadingRecords);
+    occurrenceRef.current = isClassMode || isReviewMode
+      ? null : startGuidedReadingOccurrence(saved, { readAgain, totalPages: nextBook?.pages?.length });
+    const freshReread = readAgain && occurrenceRef.current && !guidedReadingCompletion(saved, nextBook?.pages?.length).readingInProgress;
+    lastVisitedPageRef.current = "";
+    setPageIndex(guidedReadingBookmark(nextBook, saved, freshReread ? 0 : requestedIndex));
     setShowSummary(false);
     setReaderOpen(true);
     setIsReaderFullscreen(isStudentMode);
@@ -1349,16 +1355,15 @@ export function GuidedReadingPage({
     wholeBookAbortRef.current = null;
     wholeBookSequenceAudioRef.current = null;
     wholeBookFirstPlayPromiseRef.current = null;
-    if (pageAudioRef.current) {
-      pageAudioRef.current.pause();
-      pageAudioRef.current.currentTime = 0;
-      pageAudioRef.current = null;
+    const audio = pageAudioRef.current;
+    pageAudioRef.current = null;
+    if (audio) {
+      audio.pause();
+      audio.currentTime = 0;
     }
     if (typeof window !== "undefined" && window.speechSynthesis) {
       window.speechSynthesis.cancel();
     }
-    sentenceTimersRef.current.forEach(clearTimeout);
-    sentenceTimersRef.current = [];
     setHighlightedSentenceIndex(null);
     setIsPageAudioPlaying(false);
     setIsWholeBookReading(false);
@@ -1405,36 +1410,39 @@ export function GuidedReadingPage({
     }
 
     setIsReadAloudLoading(true);
+    const audio = new Audio(currentPageAudioPath);
     try {
-      const audio = new Audio(currentPageAudioPath);
       audio.playbackRate = GUIDED_READING_NARRATION_RATE;
       audio.volume = applyLearnerAudioIntensity(1);
       pageAudioRef.current = audio;
       setIsReadAloudPaused(false);
-      runSentenceHighlights(pageSentences);
+      audio.onplaying = () => {
+        if (pageAudioRef.current === audio) setIsPageAudioPlaying(true);
+      };
       audio.onended = () => {
+        if (pageAudioRef.current !== audio) return;
         pageAudioRef.current = null;
         setIsPageAudioPlaying(false);
         setIsReadAloudLoading(false);
+        setIsReadAloudPaused(false);
         setHighlightedSentenceIndex(null);
         if (buddyTurn?.reader === "leda") {
           setBuddyHeardPages(previous => previous.includes(pageIndex) ? previous : [...previous, pageIndex]);
         }
       };
       audio.onerror = () => {
-        pageAudioRef.current = null;
-        setIsPageAudioPlaying(false);
-        setIsReadAloudLoading(false);
+        if (pageAudioRef.current !== audio) return;
+        stopPageAudio();
         setAudioNotice("Read-aloud audio could not be loaded for this page.");
       };
       await audio.play();
+      if (pageAudioRef.current !== audio) return;
       setIsReadAloudLoading(false);
       setIsPageAudioPlaying(true);
     } catch (error) {
+      if (pageAudioRef.current !== audio) return;
       console.warn("Guided Reading page audio unavailable.", error);
-      pageAudioRef.current = null;
-      setIsPageAudioPlaying(false);
-      setIsReadAloudLoading(false);
+      stopPageAudio();
       setAudioNotice("Read-aloud audio could not be played for this page.");
     }
   }
@@ -1443,7 +1451,11 @@ export function GuidedReadingPage({
     const audio = pageAudioRef.current;
     if (!audio) return;
     if (isReadAloudPaused) {
-      audio.play().then(() => setIsReadAloudPaused(false)).catch(() => setAudioNotice("Read-aloud could not resume."));
+      audio.play().then(() => {
+        if (pageAudioRef.current === audio) setIsReadAloudPaused(false);
+      }).catch(() => {
+        if (pageAudioRef.current === audio) setAudioNotice("Read-aloud could not resume.");
+      });
     } else {
       audio.pause();
       setIsReadAloudPaused(true);
@@ -1531,8 +1543,14 @@ export function GuidedReadingPage({
       audio.volume = applyLearnerAudioIntensity(1);
       wholeBookSequenceAudioRef.current = audio;
       pageAudioRef.current = audio;
+      const ownsPlayback = () => pageAudioRef.current === audio && wholeBookAbortRef.current === controller;
+      audio.onplaying = () => {
+        if (ownsPlayback()) setIsPageAudioPlaying(true);
+      };
       audio.onended = async () => {
+        if (!ownsPlayback()) return;
         setIsPageAudioPlaying(false);
+        setIsReadAloudPaused(false);
         const hasNextPage = autoAdvanceReadAloudRef.current
           && startIndex < selectedBook.pages.length - 1;
         if (!hasNextPage && pageAudioRef.current === audio) pageAudioRef.current = null;
@@ -1556,13 +1574,8 @@ export function GuidedReadingPage({
         }
       };
       audio.onerror = () => {
-        if (pageAudioRef.current === audio) pageAudioRef.current = null;
-        if (wholeBookAbortRef.current === controller) wholeBookAbortRef.current = null;
-        wholeBookSequenceAudioRef.current = null;
-        wholeBookFirstPlayPromiseRef.current = null;
-        setIsPageAudioPlaying(false);
-        setIsWholeBookReading(false);
-        setIsReadAloudLoading(false);
+        if (!ownsPlayback()) return;
+        stopPageAudio();
         setAudioNotice("Read-aloud audio could not be loaded for this book.");
       };
       await (firstPlayPromise || audio.play());
@@ -1575,12 +1588,7 @@ export function GuidedReadingPage({
     } catch (error) {
       if (controller.signal.aborted || wholeBookAbortRef.current !== controller) return;
       console.warn("Guided Reading whole-book audio unavailable.", error);
-      wholeBookAbortRef.current = null;
-      wholeBookSequenceAudioRef.current = null;
-      wholeBookFirstPlayPromiseRef.current = null;
-      setIsPageAudioPlaying(false);
-      setIsWholeBookReading(false);
-      setIsReadAloudLoading(false);
+      stopPageAudio();
       setAudioNotice("Read-aloud audio could not be played for this book.");
     }
   }
@@ -1628,14 +1636,16 @@ export function GuidedReadingPage({
       if (!readyToNarrate || wholeBookAbortRef.current !== controller) return;
       try {
         const syncData = wholeBookSyncData || await fetchWholeBookSyncData(selectedBook, fullBookAudioPath);
+        if (controller.signal.aborted || wholeBookAbortRef.current !== controller) return;
         if (syncData && !wholeBookSyncData) setWholeBookSyncData(syncData);
         const audio = new Audio(fullBookAudioPath);
         audio.playbackRate = GUIDED_READING_NARRATION_RATE;
         audio.volume = applyLearnerAudioIntensity(1);
         const fullBookStartIndex = Math.min(pageIndex, selectedBook.pages.length - 1);
         let pageCues = [];
+        const ownsPlayback = () => pageAudioRef.current === audio && wholeBookAbortRef.current === controller;
         const syncPageToFullBookAudio = () => {
-          if (!autoAdvanceReadAloudRef.current) return;
+          if (!ownsPlayback() || !autoAdvanceReadAloudRef.current) return;
           if (!pageCues.length) {
             pageCues = buildWholeBookPageCues(selectedBook.pages, audio.duration, syncData);
           }
@@ -1652,7 +1662,11 @@ export function GuidedReadingPage({
             ? "Syncing pages with estimated timings pending verification."
             : "Syncing pages with runtime fallback timings until page-level timing data is added.");
         showReadAloudPage(fullBookStartIndex);
+        audio.onplaying = () => {
+          if (ownsPlayback()) setIsPageAudioPlaying(true);
+        };
         audio.onloadedmetadata = () => {
+          if (!ownsPlayback()) return;
           pageCues = buildWholeBookPageCues(selectedBook.pages, audio.duration, syncData);
           const startCue = pageCues[fullBookStartIndex];
           if (startCue?.start && Number.isFinite(startCue.start)) {
@@ -1662,21 +1676,20 @@ export function GuidedReadingPage({
         };
         audio.ontimeupdate = syncPageToFullBookAudio;
         audio.onended = () => {
+          if (!ownsPlayback()) return;
           pageAudioRef.current = null;
           if (wholeBookAbortRef.current === controller) wholeBookAbortRef.current = null;
           setIsWholeBookReading(false);
           setIsPageAudioPlaying(false);
           setIsReadAloudLoading(false);
+          setIsReadAloudPaused(false);
           if (autoAdvanceReadAloudRef.current) {
             showReadAloudPage(selectedBook.pages.length - 1);
           }
         };
         audio.onerror = () => {
-          pageAudioRef.current = null;
-          if (wholeBookAbortRef.current === controller) wholeBookAbortRef.current = null;
-          setIsWholeBookReading(false);
-          setIsPageAudioPlaying(false);
-          setIsReadAloudLoading(false);
+          if (!ownsPlayback()) return;
+          stopPageAudio();
           setAudioNotice("Whole-book audio could not be loaded.");
         };
         await audio.play();
@@ -1689,11 +1702,7 @@ export function GuidedReadingPage({
       } catch (error) {
         if (controller.signal.aborted || wholeBookAbortRef.current !== controller) return;
         console.warn("Guided Reading full-book audio unavailable.", error);
-        wholeBookAbortRef.current = null;
-        setIsWholeBookReading(false);
-        setIsPageAudioPlaying(false);
-        setIsReadAloudLoading(false);
-        setIsReadAloudPaused(false);
+        stopPageAudio();
         setAudioNotice("Whole-book audio could not be played.");
       }
       return;
@@ -1704,20 +1713,6 @@ export function GuidedReadingPage({
       setAudioNotice("Read-aloud audio is not available for this whole book yet.");
       return;
     }
-  }
-
-  function runSentenceHighlights(sentences = []) {
-    sentenceTimersRef.current.forEach(clearTimeout);
-    sentenceTimersRef.current = [];
-    if (!sentences.length) return;
-    const totalWords = sentences.join(" ").split(/\s+/).filter(Boolean).length || 1;
-    let elapsed = 0;
-    sentences.forEach((sentence, index) => {
-      const wordsInSentence = sentence.split(/\s+/).filter(Boolean).length || 1;
-      sentenceTimersRef.current.push(setTimeout(() => setHighlightedSentenceIndex(index), elapsed));
-      elapsed += Math.max(900, wordsInSentence * 420);
-    });
-    sentenceTimersRef.current.push(setTimeout(() => setHighlightedSentenceIndex(null), Math.max(elapsed, totalWords * 360)));
   }
 
   function brieflyHighlightWord(wordIndex) {
@@ -1954,7 +1949,7 @@ export function GuidedReadingPage({
     </nav>
   ) : null;
 
-  if(cycleShortsOpen&&!readerOpen) return <Suspense fallback={<p role="status">Opening Cycle Shorts…</p>}><CycleShortsLibrary teacher={!isStudentMode} scope={`guided-reading:${studentId||"class"}`} onBack={()=>setCycleShortsOpen(false)}/></Suspense>;
+  if(cycleShortsOpen&&!readerOpen) return <Suspense fallback={<p role="status">Opening Cycle Shorts…</p>}><CycleShortsLibrary teacher={!isStudentMode} scope={`guided-reading:${studentId||"class"}`} currentCycleId={currentCycleId} onBack={()=>setCycleShortsOpen(false)}/></Suspense>;
   if (hopAndStopOpen && hopAndStopAvailable) return <HopAndStopUnit onExit={() => setHopAndStopOpen(false)} />;
 
   if (!selectedBook) {
@@ -2383,7 +2378,7 @@ export function GuidedReadingPage({
                 {section.books.map(book => {
               const progress = getGuidedReadingProgress(book, getCurrentGuidedReadingRecord(book, guidedReadingRecords));
               const hasStarted = Boolean(progress.lastReadAt || progress.completedPages > 0);
-              const actionLabel = isClassMode ? "Preview" : progress.completed
+              const actionLabel = isClassMode ? "Preview" : progress.readingInProgress ? "Continue" : progress.completed
                 ? "Read Again"
                 : hasStarted
                   ? "Continue"
@@ -2411,7 +2406,7 @@ export function GuidedReadingPage({
                     </p>
                     <button
                       className="guided-book-action"
-                      onClick={() => changeBook(book.id)}
+                      onClick={() => changeBook(book.id, null, progress.completed)}
                       type="button"
                     >
                       {actionLabel}
@@ -2849,7 +2844,7 @@ export function GuidedReadingPage({
                   />
                 </div>
 
-                <div className="guided-page-reading">
+                <div className={`guided-page-reading${isPageAudioPlaying ? " guided-page-listening" : ""}`}>
                   <AutoFitReadingText
                     aria-label="Page text"
                     className={`guided-page-text ${readerInteractionMode} ${lineFocusEnabled ? "line-focus-enabled" : ""}`}
@@ -3084,7 +3079,7 @@ export function GuidedReadingPage({
           <div className="checkpoint-result-grid">
             <div>
               <span>Read count</span>
-              <strong>{readingProgress?.readCount || 1}</strong>
+              <strong>{readingProgress?.readCount ?? 0}</strong>
             </div>
             <div>
               <span>Pages completed</span>

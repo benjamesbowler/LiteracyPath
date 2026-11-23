@@ -63,6 +63,10 @@ previous exposure/completion remains history, not a mastery claim.
   the complete gallery cannot fit. Verify each state before interacting, with
   the learner header and navigation present at the supported viewports.
 - Playback is optional, interruptible and stops on exit. Music does not start.
+  A registered recording can be retried on the same scene after a playback failure.
+- A missing ledger starts fresh. Unreadable progress stays intact and the
+  reader can open a story without saving. The shelf can retry the same scoped
+  save and use the authenticated learner's cached copy for read-only recovery.
 
 ## Media and verification
 

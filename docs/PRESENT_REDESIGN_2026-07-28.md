@@ -1,8 +1,10 @@
 # Present: one simple daily classroom lesson
 
 Present offers one teacher-led presentation for each weekday of all 27 teaching
-cycles: 135 choices. Monday–Thursday target 15–20 minutes; Friday targets 30
-minutes of supported weekly and cumulative review. The 18 October 2026 direction
+cycles: 135 choices. Monday–Thursday plan around 15–20 minutes; Friday plans
+around 30 minutes of supported weekly and cumulative review. The chooser shows
+a rounded estimate for the selected lesson and, on Friday, for its priority
+rounds. The 18 October 2026 direction
 supersedes the former 18-minute Friday and exhaustive daily recap. The home page contains Cycle, Day and
 Present, alongside normal resource navigation. A launch starts at slide one.
 There is no format picker, preview console, teaching-stage bar or word-chain
@@ -56,17 +58,22 @@ The first Monday has no prior recap: its two minutes move to modelling and
 retrieval, and an oral sound sort fills the pre-blending block. Once a VC word
 is possible (a+m), show it honestly rather than waiting for a CVC.
 
-The five planning blocks Monday–Thursday allow 20 minutes: recall 2, focus 5,
-blending 3, games 6, language/reading 4. Friday allows 30 minutes: recall 4,
-weekly focus 5, blending 4, games 10, language/reading 7. Friday contains all
+The five planning blocks Monday–Thursday allow 20 minutes: recall 2, focus 4,
+blending 2, games 5, and language/reading 7. Friday allows 30 minutes: recall 4,
+weekly focus 3, blending 3, games 8, and language/reading 12. The reading block
+includes the Cycle Short and all three questions. Friday contains all
 three selected class games, three spelling rounds, three picture matches,
 sound sorting, six picture readings (two fresh and four labelled rereads from
 Monday–Thursday), and four language choices. Short early spelling banks may
 reuse their few taught words; pictures and oral language still vary.
 
-These are teacher pacing allowances backed by actual activity rounds, not
-measurements of classroom duration. Everyone thinks, responds, explains and
-repairs before the teacher advances. Participation is unscored.
+The chooser estimates time from the selected deck's planned response turns and
+transitions. On Friday, Slides marks extra blend, spelling and matching rounds
+and some stand-alone picture rereads. The full lesson plays in order, and the
+teacher can jump to priority activities when time is short. The story, its
+three questions, and each linked picture-language activity are priority slides.
+Estimate actual classroom time through observation. Everyone thinks, responds,
+explains and repairs before the teacher advances. Participation is unscored.
 
 ## Child-facing activities
 
@@ -145,6 +152,10 @@ repairs before the teacher advances. Participation is unscored.
   target, a useful picture when available and shuffled tiles; it withholds the
   printed answer during the attempt. Check retains an incorrect draft for
   discussion and Undo allows repair. There are no guided/model-mode toggles.
+  In Cycles 25–27, a teacher-modelled spelling example shares its ending with
+  the word children build. Use the authored sound–spelling map on new sight-word
+  slides to point out the tricky spelling. Hide the model and example together
+  before children retrieve and air-write the word.
   Before a CVC is available, use a taught VC or sight word; the first Monday
   cannot use an untaught `m` merely to make `am`.
 - Uppercase and lowercase tracing use separate slides. Each has its own Start
@@ -217,11 +228,16 @@ in cycles 1–9, Chompy in 10–18 and Pip in 19–27. Characters remain small,
 decorative and in their original colors. The old generic rabbit poses are no
 longer emitted by Present; their shared assets remain for other active uses.
 
-Navigation exposes Slides, Pause, Full screen, Previous and Next. The teaching
-stage selector and its additional footer are removed. Child stimuli retain the
-1920×1080 canvas; the canvas scales into the space left by real viewport controls.
-Keyboard movement/reveal/fullscreen, quiet animation policy and recoverable
-media failures remain. Class-scoped local memory remembers only cycle and day
+Start identifies the selected weekday and teaching focus and receives keyboard
+focus when the deck opens. Navigation exposes Slides, Pause, Full screen,
+Previous slide and Next slide. Arrow keys move between slides, R reveals, B
+pauses the screen and F toggles full screen. Recap card buttons move within
+the current slide. Slides groups activities into Recall, Focus, Blend, Games
+and Reading and identifies the current slide. On the last story question,
+Finish lesson offers Return to Teach or Review last slide. Child stimuli use
+the 1920×1080 canvas on a classroom display. On narrow or short displays the
+same slide reflows, with native touch targets and vertical scrolling when needed.
+Class-scoped local memory remembers only cycle and day
 when a lesson is prepared to open. Entry defaults to the current class cycle
 and today's teaching day. A saved lesson is offered separately through
 “Use saved lesson”; it never silently overrides the current class cycle. The
@@ -238,8 +254,10 @@ Do not hand-edit generated registries or generate paid audio for a layout change
 
 `public/present/audio.js` owns a single instructional playback channel. Rapid
 replay, completion, error and stale callbacks remain bounded. Slide navigation
-cancels the prior audio/animation. Pause preserves position and resumes that
-same playback; it never launches a different prompt. A recording or essential
+cancels the prior audio/animation. The Slides chooser and backgrounding pause
+recordings and formation animations. Resume playback continues the same cue
+after either interruption. Screen pause also preserves playback position.
+The Sentence Mix-Up countdown has its own deliberate resume. A recording or essential
 picture failure offers explicit recoverable teacher access and never counts
 as a child's incorrect response. No music/effect competes with teaching speech.
 

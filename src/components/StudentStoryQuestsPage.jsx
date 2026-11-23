@@ -6,11 +6,7 @@ import { StoryQuestSpeaker } from "./StoryQuestSpeaker.jsx";
 import StudentGlassShell from "./StudentGlassShell.jsx";
 import { storyQuests } from "../data/storyQuests.js";
 import { filterSample } from "../policy/freeTierContent.js";
-import {
-  isStoryQuestTeacherPreviewScope,
-  loadStoryQuestProgress,
-  storyQuestProgressStorageKey
-} from "../utils/storyQuestProgress.js";
+import { readStoryQuestProgress } from "../utils/storyQuestProgress.js";
 import {
   QUEST_GRID_SLOTS,
   STORY_WORLDS,
@@ -51,23 +47,6 @@ function ShelfArrow({ forward = false }) {
   );
 }
 
-// A READ THAT FAILED IS NOT A CHILD WHO HAS READ NOTHING. loadStoryQuestProgress
-// swallows a corrupt record and returns {}, which this screen would draw as six
-// brand-new stories — a claim about the child produced by a storage error. The
-// raw blob is parsed first purely to learn whether it was readable, exactly as
-// the Sound Trail checks its save file.
-function readStoryQuestState(progressScopeKey = "default") {
-  if (typeof window === "undefined") return { ok: true, progress: {} };
-  if (isStoryQuestTeacherPreviewScope(progressScopeKey)) return { ok: true, progress: {} };
-  try {
-    const raw = window.localStorage.getItem(storyQuestProgressStorageKey(progressScopeKey));
-    if (raw) JSON.parse(raw);
-    return { ok: true, progress: loadStoryQuestProgress(progressScopeKey) };
-  } catch {
-    return { ok: false, progress: {} };
-  }
-}
-
 export function StudentStoryQuestsPage({
   studentName,
   progressScopeKey = "default",
@@ -88,12 +67,13 @@ export function StudentStoryQuestsPage({
   // Held in state and re-read when the child comes back from a story, so the
   // badges show the progress the player just saved rather than the state this
   // screen started in. Re-read in the event handler, never in an effect.
-  const [read, setRead] = useState(() => readStoryQuestState(progressScopeKey));
+  const [read, setRead] = useState(() => readStoryQuestProgress(progressScopeKey));
+  const readUnavailable = read.status === "unreadable" || read.status === "cached";
 
   useEffect(() => {
     function handleHydrated(event) {
-      if (event.detail?.studentId && event.detail.studentId !== progressScopeKey) return;
-      setRead(readStoryQuestState(progressScopeKey));
+      if (event.detail?.studentId !== progressScopeKey) return;
+      setRead(readStoryQuestProgress(progressScopeKey));
     }
     window.addEventListener("lp-progress-hydrated", handleHydrated);
     return () => window.removeEventListener("lp-progress-hydrated", handleHydrated);
@@ -129,7 +109,7 @@ export function StudentStoryQuestsPage({
       questId: playingId,
       onExit: () => {
         setPlayingId("");
-        setRead(readStoryQuestState(progressScopeKey));
+        setRead(readStoryQuestProgress(progressScopeKey));
       }
     });
   }
@@ -146,7 +126,7 @@ export function StudentStoryQuestsPage({
       <div
         className="kg-screen kg-quests"
         data-child-surface="story-quests"
-        data-read-state={read.ok ? "ready" : "unreadable"}
+        data-read-state={read.status === "unreadable" ? "unreadable" : "ready"}
         data-quest-shelf={compactShelf ? "compact" : "grid"}
         data-quest-shelf-paged={shelfPageCount > 1 || undefined}
       >
@@ -160,9 +140,17 @@ export function StudentStoryQuestsPage({
             <ShelfArrow />
           </button>
           <h1 className="kg-title" data-child-title="">Story Quests</h1>
-          <button className="kg-quest-listen" type="button" aria-label="Hear how Story Quests work" onClick={() => narration.play("You choose what happens")}><StoryQuestSpeaker /><span className="kg-quest-hear-label">Hear</span></button>
-          <span className="kg-pill kg-quests-pill" data-child-instruction="" role={narration.status ? "status" : undefined}>
-            {narration.status || (read.ok ? "You choose what happens" : "We could not open your stories")}
+          {readUnavailable ? (
+            <button type="button" className="kg-quest-listen" onClick={() => {
+              narration.stop();
+              setRead(readStoryQuestProgress(progressScopeKey));
+            }}>Retry</button>
+          ) : (
+            <button className="kg-quest-listen" type="button" aria-label="Hear how Story Quests work" onClick={() => narration.play("You choose what happens")}><StoryQuestSpeaker /><span className="kg-quest-hear-label">Hear</span></button>
+          )}
+          <span className="kg-pill kg-quests-pill" data-child-instruction="" role={narration.status || readUnavailable ? "status" : undefined}>
+            {read.status === "unreadable" ? "We could not open your stories"
+              : read.status === "cached" ? "Last saved copy" : narration.status || "You choose what happens"}
           </span>
           <span className="kg-spacer" />
           {/* THE WORLD FILTER, WHICH IS ALSO THE OLD LEVEL FILTER. The shelf
@@ -205,7 +193,7 @@ export function StudentStoryQuestsPage({
                     <article
                       key={card.id}
                       className={`kg-glass kg-glass--tinted kg-quest-card${index === 0 ? " kg-quest-card--pick" : ""}`}
-                      data-quest-state={card.state}
+                      data-quest-state={read.status === "unreadable" ? undefined : card.state}
                       data-quest-world={card.world}
                     >
                       <button {...(index === 0
@@ -219,11 +207,11 @@ export function StudentStoryQuestsPage({
                           decoding="async"
                           onError={hideOnError}
                         />
-                        <span
+                        {(!readUnavailable || Object.hasOwn(read.progress, card.id)) && <span
                           className={`kg-quest-badge kg-quest-badge--${card.state}`}
                         >
                           {card.badge}
-                        </span>
+                        </span>}
                       </span>
                       <span className="kg-quest-foot">
                         <strong className="kg-quest-title">{card.title}</strong>
@@ -231,7 +219,7 @@ export function StudentStoryQuestsPage({
                         {card.readingNote && <small className="kg-quest-reading-note">{card.readingNote}</small>}
                         {index === 0 && (
                           <small className="kg-quest-action" data-child-emphasis-cue="">
-                            {card.state === "carry-on" ? "Continue" : card.state === "done" ? "Read again" : "Start story"}
+                            {readUnavailable ? "Read without saving" : card.state === "carry-on" ? "Continue" : card.state === "done" ? "Read again" : "Start story"}
                           </small>
                         )}
                       </span>

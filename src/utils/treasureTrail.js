@@ -13,6 +13,7 @@
 import { localProgressStorageKey } from "./progressKeys.js";
 import { decodeProgressStorage } from "./progressStorageCodec.js";
 import { worldForCycle } from "./palWorlds.js";
+import { guidedReadingCompletion } from "./guidedReading/completionPolicy.js";
 
 function readArea(area, scope) {
   if (typeof window === "undefined") return null;
@@ -57,7 +58,7 @@ function countCompletedStories(stories) {
 export function countBooksRead(reading) {
   const rows = reading && typeof reading === "object" ? Object.values(reading) : [];
   return rows.filter(row => row && typeof row === "object"
-    && (Number(row.readCount) > 0 || row.completed || row.completedAt)).length;
+    && guidedReadingCompletion(row).completed).length;
 }
 
 export function completedCycleBadges(quest) {

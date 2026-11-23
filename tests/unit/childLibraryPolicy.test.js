@@ -370,7 +370,7 @@ test("both screens keep the capabilities the shelf pages they replace had", () =
 
 test("a read that failed never renders as a child who has read nothing", () => {
   assert.match(booksPageSource, /data-read-state=\{recordsOk \? "ready" : "unreadable"\}/);
-  assert.match(questsPageSource, /data-read-state=\{read\.ok \? "ready" : "unreadable"\}/);
+  assert.match(questsPageSource, /data-read-state=\{read\.status === "unreadable" \? "unreadable" : "ready"\}/);
   assert.match(booksPageSource, /We could not open your reading just now\./);
   assert.match(questsPageSource, /We could not open your stories/);
 });

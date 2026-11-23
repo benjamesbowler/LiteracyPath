@@ -1,9 +1,9 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { storyQuests } from "../data/storyQuests.js";
 import {
   isStoryQuestTeacherPreviewScope,
-  loadStoryQuestProgress,
   mergeStoryQuestProgressRow,
+  readStoryQuestProgress,
   saveStoryQuestProgress
 } from "../utils/storyQuestProgress.js";
 import { StoryQuestPlayer } from "./StoryQuestPlayer.jsx";
@@ -46,8 +46,8 @@ function resolveStoryQuestLevel(quest = {}) {
 /**
  * @param launchQuestId  phase D (2026-07-29): the child's Story Quests screen
  *   is the front door now, so this page can be mounted with the story already
- *   chosen. Read at mount — never through an effect — and the quest is marked
- *   opened exactly as startQuest() marks it.
+ *   chosen. Read the initial checkpoint at mount and mark it opened when the
+ *   player reports its first scene.
  * @param onExitLibrary  where leaving the player goes. Absent (teacher preview,
  *   the standalone harness) it falls back to this page's own shelf.
  */
@@ -61,14 +61,12 @@ export function LearnAreaPage({
   const [selectedQuestId, setSelectedQuestId] = useState("");
   const [selectedLevelKey, setSelectedLevelKey] = useState("A");
   const [storyPage, setStoryPage] = useState(0);
-  const [questProgress, setQuestProgress] = useState(() => {
-    const saved = teacherPreview ? {} : loadStoryQuestProgress(progressScopeKey);
-    if (!launchQuestId) return saved;
-    return {
-      ...saved,
-      [launchQuestId]: mergeStoryQuestProgressRow(saved[launchQuestId], {})
-    };
-  });
+  const [read, setRead] = useState(() => readStoryQuestProgress(progressScopeKey));
+  const [saveFailed, setSaveFailed] = useState(false);
+  const blocked = useRef(false);
+  const previewProgress = useRef({});
+  const questProgress = read.progress;
+  const unsaved = saveFailed || read.status === "unreadable" || read.status === "cached";
   const activeQuest = storyQuests.find(quest => quest.id === activeQuestId) || null;
   const questGroups = STORY_QUEST_LEVELS.map(level => ({
     ...level,
@@ -102,16 +100,27 @@ export function LearnAreaPage({
       : "";
 
   useEffect(() => {
-    if (teacherPreview) return;
-    saveStoryQuestProgress(progressScopeKey, questProgress);
-  }, [progressScopeKey, questProgress, teacherPreview]);
+    if (activeQuestId) return;
+    function handleHydrated(event) {
+      if (event.detail?.studentId === progressScopeKey) {
+        setRead(readStoryQuestProgress(progressScopeKey));
+      }
+    }
+    window.addEventListener("lp-progress-hydrated", handleHydrated);
+    return () => window.removeEventListener("lp-progress-hydrated", handleHydrated);
+  }, [activeQuestId, progressScopeKey]);
 
   const updateQuestProgress = useCallback((questId, patch) => {
-    setQuestProgress(previous => ({
-      ...previous,
-      [questId]: mergeStoryQuestProgressRow(previous[questId], patch)
-    }));
-  }, []);
+    if (read.status === "preview") {
+      previewProgress.current[questId] = mergeStoryQuestProgressRow(previewProgress.current[questId], patch);
+      return;
+    }
+    if (unsaved || blocked.current) return;
+    if (!saveStoryQuestProgress(progressScopeKey, questId, { ...patch, updatedAt: new Date().toISOString() })) {
+      blocked.current = true;
+      setSaveFailed(true);
+    }
+  }, [progressScopeKey, read.status, unsaved]);
 
   const handleQuestComplete = useCallback((progressPatch = {}) => {
     if (!activeQuestId) return;
@@ -123,9 +132,12 @@ export function LearnAreaPage({
   }, [activeQuestId, updateQuestProgress]);
 
   const handleQuestExit = useCallback(() => {
+    setRead(read.status === "preview"
+      ? { status: "preview", progress: { ...previewProgress.current } }
+      : readStoryQuestProgress(progressScopeKey));
     setActiveQuestId("");
     onExitLibrary?.();
-  }, [onExitLibrary]);
+  }, [onExitLibrary, progressScopeKey, read.status]);
 
   const handleQuestProgress = useCallback((pageId, progressPatch = {}) => {
     if (!activeQuestId) return;
@@ -136,8 +148,11 @@ export function LearnAreaPage({
   }, [activeQuestId, updateQuestProgress]);
 
   function startQuest(questId) {
+    const fresh = readStoryQuestProgress(progressScopeKey);
+    setRead(fresh.status === "preview" ? { ...fresh, progress: { ...previewProgress.current } } : fresh);
+    blocked.current = false;
+    setSaveFailed(false);
     setSelectedQuestId(questId);
-    updateQuestProgress(questId, {});
     setActiveQuestId(questId);
   }
 
@@ -157,6 +172,7 @@ export function LearnAreaPage({
           onExit={handleQuestExit}
           onProgress={handleQuestProgress}
           previewMode={teacherPreview}
+          unsaved={unsaved}
           quest={activeQuest}
         />
       </main>
@@ -177,6 +193,16 @@ export function LearnAreaPage({
               This is a clean practice preview. Your choices reset when you return to teacher
               tools and never change the student's saved progress.
             </span>
+          </aside>
+        )}
+        {unsaved && (
+          <aside className="story-quest-preview-notice" role="status">
+            <span>We could not open your saved stories. You can read without saving.</span>
+            <button type="button" onClick={() => {
+              blocked.current = false;
+              setSaveFailed(false);
+              setRead(readStoryQuestProgress(progressScopeKey));
+            }}>Retry</button>
           </aside>
         )}
         <div className="story-quest-header-row">

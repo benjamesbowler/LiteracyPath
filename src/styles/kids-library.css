@@ -454,6 +454,10 @@
     white-space: nowrap;
   }
 
+  .kg-stage .kg-quests[data-read-state="unreadable"] .kg-quests-pill {
+    white-space: normal;
+  }
+
   .kg-stage .kg-quests-head .kg-segment-tray {
     grid-column: 1 / -1;
     grid-row: 2;

@@ -50,6 +50,7 @@ export const GUIDED_READING_COMPLETION_HEADERS = {
     "Reread Count",
     "Last Read Date",
     "Pages Read",
+    "Bookmark Page",
     "Total Pages",
     "Marked Words Count",
     "Notes / Status"
@@ -193,16 +194,18 @@ export function collectGuidedReadingCompletionRecords({
         completed,
         // Completion evidence and first-read evidence are distinct. A book can
         // be complete while its historical completion timestamp is unknown.
-        completionDate: completed ? formatDate(record.completedAt) : "",
+        completionDate: completed ? formatDate(progress.completedAt) : "",
         lastReadDate: formatDate(progress.lastReadAt),
         readCount,
         rereadCount,
         pagesRead: Number(progress.completedPages || 0),
+        bookmarkPage: progress.bookmarkPage,
+        completionEvidence: progress.completionEvidence,
         totalPages: Number(progress.totalPages || book.pages?.length || record.totalPages || 0),
         markedWordsCount: getMarkedWordsCount(record),
         notes: getRecordNotes(record, progress),
         rawLastReadAt: progress.lastReadAt || record.updatedAt || "",
-        rawCompletedAt: completed ? (record.completedAt || "") : ""
+        rawCompletedAt: completed ? progress.completedAt : ""
       });
     });
   });
@@ -428,12 +431,13 @@ export async function createGuidedReadingCompletionWorkbook(options = {}) {
     "Book Title": row.bookTitle,
     "Series": row.series,
     "Book App level": row.levelLabel,
-    "Completed": row.completed ? "Yes" : "No",
+    "Completed": row.completionEvidence === "legacy-inferred" ? "Yes (inferred)" : row.completed ? "Yes" : "No",
     "Completion Date": row.completionDate,
     "Read Count": row.readCount,
     "Reread Count": row.rereadCount,
     "Last Read Date": row.lastReadDate,
     "Pages Read": row.pagesRead,
+    "Bookmark Page": row.bookmarkPage,
     "Total Pages": row.totalPages,
     "Marked Words Count": row.markedWordsCount,
     "Notes / Status": row.notes

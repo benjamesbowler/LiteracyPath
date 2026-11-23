@@ -706,7 +706,7 @@ function benchmarkProfileSummary(profile = {}) {
     return `${status}; ${percentageText(metrics.exactSpellingRate)} exact spelling; ${percentageText(metrics.phonologicallyRepresentedRate)} phonologically represented`;
   }
   if (profile.domainKey === "decoding") {
-    return `${status}; ${percentageText(metrics.accuracyRate)} accuracy; ${percentageText(metrics.automaticityRate)} automatic`;
+    return [status, profile.observationSummary || `${percentageText(metrics.accuracyRate)} accuracy`].filter(Boolean).join(". ");
   }
   return `${status}; ${numericValue(metrics.wcpm) === "" ? "WCPM not scored" : `${numericValue(metrics.wcpm)} WCPM`}; ${percentageText(metrics.accuracyRate)} accuracy`;
 }
@@ -1253,6 +1253,9 @@ function addStudentDecodingDetailSheet(workbook, report = {}) {
     ...percentageHeaders,
     "Accurate count",
     "Automatic count",
+    "Reading speed recorded count",
+    "Reading speed missing count",
+    "Band reading speed recorded count",
     "Accurate after sounding count",
     "Self-corrected count",
     "Stop triggered",
@@ -1321,7 +1324,7 @@ function addStudentDecodingDetailSheet(workbook, report = {}) {
         "Not-scorable note": item?.notScorableNote || "",
         "Scoring code": humanizeKey(item?.scoringCode),
         "Accurate": benchmarkMetricBoolean(detail, item?.accurate, "Not administered"),
-        "Automatic": benchmarkMetricBoolean(detail, item?.automatic, "Not administered"),
+        "Automatic": benchmarkMetricBoolean(detail, item?.automatic, "Not recorded"),
         "Self-corrected": benchmarkMetricBoolean(detail, item?.selfCorrected, "Not recorded"),
         "Band accuracy": benchmarkMetricPercentage(detail, band?.accuracyRate),
         "Band automaticity": benchmarkMetricPercentage(detail, band?.automaticityRate),
@@ -1330,6 +1333,9 @@ function addStudentDecodingDetailSheet(workbook, report = {}) {
         "Automatic among accurate": benchmarkMetricPercentage(detail, detail.automaticAmongAccurateRate),
         "Accurate count": benchmarkMetricNumber(detail, detail.accurateCount),
         "Automatic count": benchmarkMetricNumber(detail, detail.automaticCount),
+        "Reading speed recorded count": benchmarkMetricNumber(detail, detail.automaticityJudgedCount),
+        "Reading speed missing count": benchmarkMetricNumber(detail, detail.automaticityMissingCount),
+        "Band reading speed recorded count": benchmarkMetricNumber(detail, band?.automaticityJudgedCount),
         "Accurate after sounding count": benchmarkMetricNumber(detail, detail.accurateAfterSoundingCount),
         "Self-corrected count": benchmarkMetricNumber(detail, detail.selfCorrectedCount),
         "Stop triggered": evidenceBoolean(detail.stopEvidence?.triggered, "No"),
@@ -1668,6 +1674,8 @@ function addClassBenchmarkDomainSummarySheet(workbook, report = {}) {
     "Decoding average automaticity",
     "Decoding accurate count",
     "Decoding automatic count",
+    "Decoding reading speed recorded count",
+    "Decoding reading speed missing count",
     "Stopped / discontinued students",
     "Fluency average WCPM",
     "Fluency average accuracy",
@@ -1721,6 +1729,8 @@ function addClassBenchmarkDomainSummarySheet(workbook, report = {}) {
         "Decoding average automaticity": percentageValue(summary.domainKey === "decoding" ? metrics.averageAutomaticityRate : null),
         "Decoding accurate count": summary.domainKey === "decoding" ? numericValue(metrics.accurateCount) : "",
         "Decoding automatic count": summary.domainKey === "decoding" ? numericValue(metrics.automaticCount) : "",
+        "Decoding reading speed recorded count": summary.domainKey === "decoding" ? numericValue(metrics.automaticityJudgedCount) : "",
+        "Decoding reading speed missing count": summary.domainKey === "decoding" ? numericValue(metrics.automaticityMissingCount) : "",
         "Stopped / discontinued students": summary.domainKey === "decoding" ? evidenceText(metrics.stoppedOrDiscontinuedStudents) : "",
         "Fluency average WCPM": summary.domainKey === "oralReadingFluency" ? numericValue(metrics.averageWcpm) : "",
         "Fluency average accuracy": percentageValue(summary.domainKey === "oralReadingFluency" ? metrics.averageAccuracyRate : null),
@@ -1913,7 +1923,7 @@ function addClassBenchmarkEvidenceDetailSheet(workbook, report = {}) {
         "Plausible spelling": detail.domainKey === "encoding" ? benchmarkMetricBoolean(detail, item?.plausible, "Not administered") : "",
         "Not yet represented": detail.domainKey === "encoding" ? benchmarkMetricBoolean(detail, item?.notYet, "Not administered") : "",
         "Accurate decoding": detail.domainKey === "decoding" ? benchmarkMetricBoolean(detail, item?.accurate, "Not administered") : "",
-        "Automatic decoding": detail.domainKey === "decoding" ? benchmarkMetricBoolean(detail, item?.automatic, "Not administered") : "",
+        "Automatic decoding": detail.domainKey === "decoding" ? benchmarkMetricBoolean(detail, item?.automatic, "Not recorded") : "",
         "Self-corrected": detail.domainKey === "decoding" ? benchmarkMetricBoolean(detail, item?.selfCorrected, "Not recorded") : "",
         "PA strand accuracy": benchmarkMetricPercentage(detail, detail.domainKey === "phonologicalAwareness" ? strandAccuracy : null),
         "PA attempt accuracy": benchmarkMetricPercentage(detail, detail.domainKey === "phonologicalAwareness" ? detail.accuracyRate : null),

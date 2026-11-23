@@ -21,6 +21,6 @@ function Preview() {
   const [open, setOpen] = useState(true);
   if (!valid) return <main><h1>Unknown review stage</h1><p>No progress was changed.</p></main>;
   if (!open) return <main><h1>Sound Seekers is safely closed</h1><button onClick={() => setOpen(true)}>Return to your saved place</button></main>;
-  return <SoundSeekersRoute progressScopeKey={scope} isSoundEnabled={params.get('sound') === '1'} ephemeral accessibilitySettings={{reducedMotion:params.get('motion') !== '1',simplifiedScene:params.get('simple') === '1'}} onExit={() => setOpen(false)} />;
+  return <SoundSeekersRoute progressScopeKey={scope} isSoundEnabled={params.get('sound') === '1'} accessibilitySettings={{reducedMotion:params.get('motion') !== '1',simplifiedScene:params.get('simple') === '1'}} onExit={() => setOpen(false)} />;
 }
 createRoot(document.getElementById('root')).render(<Preview />);

@@ -22,13 +22,13 @@ const FEATURE_TILES = [
     id: "skills",
     image: "/images/home-sage/adventure-map.webp",
     title: "Skills quest",
-    text: `A map of ${PRODUCT_CATALOG_FACTS.skillCycles} cycles that always starts at the right next sound.`
+    text: `A map of ${PRODUCT_CATALOG_FACTS.skillCycles} cycles with a suggested next stop.`
   },
   {
     id: "arcade",
     image: "/images/home-sage/arcade.webp",
     title: "Game arcade",
-    text: `Rhyme Pop, Sound Racer and ${PRODUCT_CATALOG_FACTS.learningGames - 2} more — every one is real reading practice.`
+    text: `Listen, rhyme, read and play with Rhyme Pop, Sound Racer and ${PRODUCT_CATALOG_FACTS.learningGames - 2} more games.`
   },
   {
     id: "stories",
@@ -125,8 +125,8 @@ export function StudentEntryPage({ onStudent, onTeacher, onTry }) {
           <h1 id="entry-gateway-title">Learning to read, one guided step at a time.</h1>
           <p className="lp-landing-lede">
             {CHILD_BRAND.name} gives children books, games and adventures they actually
-            want to open. Behind them, {TEACHER_BRAND.endorsedName} turns every tap into
-            a clear picture of what each child can do next.
+            want to open. {TEACHER_BRAND.endorsedName} helps teachers review saved work
+            and choose what to teach next.
           </p>
         </header>
 
@@ -325,7 +325,8 @@ export function StudentEntryPage({ onStudent, onTeacher, onTry }) {
         <span className="lp-landing-footer-note">
           © 2026 literacy.guide · {CHILD_BRAND.name}
         </span>
-        <nav className="lp-landing-legal-links" aria-label="Legal information">
+        <nav className="lp-landing-legal-links" aria-label="Family access and legal information">
+          <a href="/parent">Family sign-in</a>
           <a href="/legal.html">Legal</a>
           <a href="/privacy.html">Privacy</a>
           <a href="/terms.html">Terms</a>

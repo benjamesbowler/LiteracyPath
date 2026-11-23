@@ -57,11 +57,9 @@ export function assessmentAttemptsToSkillLedger(records = [], skillId = "", { st
     const recordSkillId = String(record?.skillId || record?.assessmentSkillId || "").trim();
     if (wantedSkill && recordSkillId && recordSkillId !== wantedSkill) return [];
     const completedAt = record?.completedAt || record?.timestamp || record?.createdAt || "";
-    const sittingId = String(record?.attemptId || record?.checkpointId || record?.id || "");
+    const learnerId = String(record?.studentId || record?.student_id || "");
+    const sittingId = String(record?.attemptId || record?.checkpointId || record?.id || completedAt);
     const questionRecords = Array.isArray(record?.questionRecords) ? record.questionRecords : [];
-    const unscoredCount = questionRecords.filter(question => question.supported || question.prompted
-      || (question.responseStatus && !["correct", "incorrect", "self_corrected", "no_response"].includes(question.responseStatus))
-      || (!question.responseStatus && typeof question.isCorrect !== "boolean")).length;
     const mode = /retention/i.test(String(record?.assessmentType || record?.mode || ""))
       ? "retention"
       : "formal";
@@ -81,6 +79,8 @@ export function assessmentAttemptsToSkillLedger(records = [], skillId = "", { st
               : question?.isCorrect === false ? "incorrect" : "not_administered");
         return {
           itemId: question?.questionId || question?.itemId || "",
+          questionRecord: question,
+          learnerId,
           itemKey: question?.itemKey || question?.item_key || "",
           itemType: question?.itemType || question?.item_type || "",
           level: question?.level || question?.itemLevel || record?.skillLevel || 1,
@@ -92,8 +92,12 @@ export function assessmentAttemptsToSkillLedger(records = [], skillId = "", { st
           mode,
           sittingId,
           sittingCompleted: !incomplete,
-          sittingPlannedSize: Number(record?.policySnapshot?.roundLength || Math.max(0, Number(record?.totalQuestions || questionRecords.length) - unscoredCount) || 0) || null,
-          answeredAt: question?.timestamp || question?.outcomeRecordedAt || completedAt
+          // Legacy attempts use the blueprint length. Archived aggregate
+          // totals can include replayed responses or an unscored media failure.
+          sittingPlannedSize: Number(record?.policySnapshot?.roundLength) || null,
+          responseRecordedAt: question?.outcomeRecordedAt
+            || (question?.timestamp !== completedAt ? question?.timestamp : null) || null,
+          answeredAt: question?.outcomeRecordedAt || question?.timestamp || completedAt
         };
       });
   });
@@ -124,6 +128,8 @@ export function normalizeLedgerAttempt(raw = {}, { timeZone } = {}) {
     || (raw.skipped ? "skipped" : (raw.isCorrect ?? raw.is_correct) != null ? (isCorrect ? "correct" : "incorrect") : "incorrect");
   return {
     itemId: String(raw.itemId || raw.questionId || raw.question_id || ""),
+    questionRecord: raw.questionRecord,
+    learnerId: String(raw.learnerId || raw.studentId || raw.student_id || ""),
     itemKey: String(raw.itemKey || raw.item_key || "").toLowerCase().trim(),
     itemType: String(raw.itemType || raw.item_type || ""),
     level: Number(raw.level || raw.itemLevel || raw.item_level || 1) >= 2 ? 2 : 1,
@@ -137,7 +143,9 @@ export function normalizeLedgerAttempt(raw = {}, { timeZone } = {}) {
     sittingCompleted: raw.sittingCompleted ?? raw.sitting_completed ?? null,
     sittingPlannedSize: Number(raw.sittingPlannedSize || raw.sitting_planned_size || 0) || null,
     dayKey: raw.dayKey || toDayKey(raw.answeredAt || raw.timestamp || raw.created_at || raw.createdAt || raw.lastSeen || 0, timeZone),
-    timestamp: Number(new Date(raw.answeredAt || raw.timestamp || raw.created_at || raw.createdAt || raw.lastSeen || 0).getTime() || 0)
+    timestamp: Number(new Date(raw.answeredAt || raw.timestamp || raw.created_at || raw.createdAt || raw.lastSeen || 0).getTime() || 0),
+    responseTimestamp: Number(new Date(raw.responseRecordedAt === null ? 0
+      : raw.responseRecordedAt || raw.answeredAt || raw.timestamp || 0).getTime() || 0)
   };
 }
 
@@ -145,6 +153,68 @@ function isScorable(attempt) {
   return attempt.mode !== "guided"
     && !attempt.supported
     && (attempt.responseState === "correct" || attempt.responseState === "incorrect");
+}
+
+function sittingKey(attempt) {
+  return JSON.stringify([attempt.learnerId, attempt.mode, attempt.sittingId || attempt.dayKey]);
+}
+
+function reconcileIndependentResponses(ledger) {
+  const identified = new Map();
+  const unidentified = [];
+  for (const row of ledger.filter(isScorable)) {
+    if (!row.itemId) {
+      // Anonymous legacy answers remain history but cannot prove a distinct item.
+      unidentified.push(row);
+      continue;
+    }
+    const key = JSON.stringify([sittingKey(row), row.level, row.phase, row.itemId]);
+    const matches = identified.get(key) || [];
+    matches.push(row);
+    identified.set(key, matches);
+  }
+  const evidence = [...unidentified];
+  for (const rows of identified.values()) {
+    const ordered = [...rows].sort((a, b) => (
+      (a.responseTimestamp || Infinity) - (b.responseTimestamp || Infinity) || a.timestamp - b.timestamp
+    ));
+    const first = ordered[0];
+    const responseValue = row => row.questionRecord?.firstResponse ?? row.questionRecord?.selectedAnswer;
+    const recordedFirst = responseValue(first);
+    const uncertain = ordered.some(row => {
+      const value = responseValue(row);
+      const differentSelection = recordedFirst != null && recordedFirst !== "" && value != null && value !== ""
+        && JSON.stringify(recordedFirst) !== JSON.stringify(value);
+      return (row.isCorrect !== first.isCorrect || row.itemKey !== first.itemKey || differentSelection)
+        && (!first.responseTimestamp || !row.responseTimestamp || row.responseTimestamp === first.responseTimestamp);
+    });
+    evidence.push({
+      ...first,
+      sittingCompleted: ordered.some(row => row.sittingCompleted === true) ? true : first.sittingCompleted,
+      sittingPlannedSize: Math.max(...ordered.map(row => row.sittingPlannedSize || 0)) || null,
+      requiresEvidenceReview: uncertain,
+      repeatedResponse: rows.length > 1
+    });
+  }
+  return evidence.sort((a, b) => a.timestamp - b.timestamp);
+}
+
+export function independentSkillAttemptResponses(record) {
+  const ledger = assessmentAttemptsToSkillLedger([record]).map(row => normalizeLedgerAttempt(row));
+  return reconcileIndependentResponses(ledger);
+}
+
+export function scoreRepeatedSkillAttemptResponses(responses) {
+  if (!responses.some(row => row.repeatedResponse)) return {};
+  const scored = responses.filter(row => !row.requiresEvidenceReview);
+  const correctCount = scored.filter(row => row.isCorrect).length;
+  return {
+    correctCount,
+    totalQuestions: scored.length,
+    scoredCount: scored.length,
+    accuracy: scored.length ? Math.round(correctCount / scored.length * 100) : null,
+    passed: null
+  };
 }
 
 function inWindow(attempt, nowMs, windowDays = EVIDENCE_WINDOW_DAYS) {
@@ -163,13 +233,16 @@ export function unitStateEvidenceKey(level, unitKey) {
 // ---------------------------------------------------------------------------
 
 export function computeUnitStates(rawLedger = [], blueprint, { now = Date.now(), timeZone } = {}) {
+  const ledger = rawLedger.map(raw => normalizeLedgerAttempt(raw, { timeZone }));
+  const attempts = reconcileIndependentResponses(ledger).filter(row => inWindow(row, now));
+  return unitStatesFromIndependentResponses(attempts, blueprint);
+}
+
+function unitStatesFromIndependentResponses(independentResponses, blueprint) {
   const states = new Map();
   if (!blueprint) return states;
   const rule = blueprint.unitRule;
-  const attempts = rawLedger
-    .map(raw => normalizeLedgerAttempt(raw, { timeZone }))
-    .filter(attempt => attempt.itemKey && isScorable(attempt) && inWindow(attempt, now))
-    .sort((a, b) => a.timestamp - b.timestamp);
+  const attempts = independentResponses.filter(row => row.itemKey && !row.requiresEvidenceReview);
 
   const byUnit = new Map();
   for (const attempt of attempts) {
@@ -260,7 +333,7 @@ function phaseSummary(attempts, level, phase, blueprint) {
   const phaseAttempts = attempts.filter(a => a.level === level && a.phase === phase);
   const sittingRows = new Map();
   for (const attempt of phaseAttempts) {
-    const key = attempt.sittingId || `${attempt.dayKey || "undated"}-L${level}P${phase}`;
+    const key = sittingKey(attempt);
     const rows = sittingRows.get(key) || [];
     rows.push(attempt);
     sittingRows.set(key, rows);
@@ -274,14 +347,17 @@ function phaseSummary(attempts, level, phase, blueprint) {
     );
     // A completion marker is not a substitute for the full per-phase form.
     // Explicitly partial archives and duplicate events cannot supply a pass.
-    const distinctItems = new Set(rows.map(row => row.itemId).filter(Boolean));
-    const completed = !rows.some(row => row.sittingCompleted === false)
-      && rows.length >= plannedSize && distinctItems.size >= plannedSize;
-    const correct = rows.filter(row => row.isCorrect).length;
-    const accuracy = rows.length ? correct / rows.length : 0;
+    const scored = rows.filter(row => !row.requiresEvidenceReview);
+    const distinctItems = new Set(scored.map(row => row.itemId).filter(Boolean));
+    const requiresEvidenceReview = scored.length < rows.length;
+    const completed = !requiresEvidenceReview && !rows.some(row => row.sittingCompleted === false)
+      && distinctItems.size >= plannedSize;
+    const correct = scored.filter(row => row.isCorrect).length;
+    const accuracy = scored.length ? correct / scored.length : 0;
     return {
       sittingId,
-      total: rows.length,
+      total: scored.length,
+      requiresEvidenceReview,
       correct,
       accuracy,
       completed,
@@ -298,6 +374,8 @@ function phaseSummary(attempts, level, phase, blueprint) {
   if (!passedEver) {
     if (!latest) {
       blockers.push(`Level ${level} Phase ${phase} has not been assessed yet.`);
+    } else if (latest.requiresEvidenceReview) {
+      blockers.push("Conflicting first answers need teacher review.");
     } else if (!latest.completed) {
       blockers.push(`Level ${level} Phase ${phase} needs a completed assessment.`);
     } else {
@@ -310,8 +388,8 @@ function phaseSummary(attempts, level, phase, blueprint) {
   return {
     level,
     phase,
-    scored: phaseAttempts.length,
-    correct: phaseAttempts.filter(a => a.isCorrect).length,
+    scored: phaseAttempts.filter(a => !a.requiresEvidenceReview).length,
+    correct: phaseAttempts.filter(a => a.isCorrect && !a.requiresEvidenceReview).length,
     sittings: sittings.length,
     latestSittingAccuracy: latest?.accuracy || 0,
     passed: passedEver,
@@ -325,8 +403,9 @@ function phaseSummary(attempts, level, phase, blueprint) {
 
 function levelSummary(attempts, level, blueprint, unitStates) {
   const levelAttempts = attempts.filter(a => a.level === level);
-  const scored = levelAttempts.length;
-  const correct = levelAttempts.filter(a => a.isCorrect).length;
+  const scoredRows = levelAttempts.filter(a => !a.requiresEvidenceReview);
+  const scored = scoredRows.length;
+  const correct = scoredRows.filter(a => a.isCorrect).length;
   const days = new Set(levelAttempts.map(a => a.dayKey).filter(Boolean));
   const accuracy = scored ? correct / scored : 0;
 
@@ -376,28 +455,31 @@ function retentionSummary(attempts, { level2PassedAt = null, now = Date.now() } 
   if (!retention.length) {
     return { attempted: false, passed: false, eligible, unlockAt, blockers: ["Retention check not taken yet (unlocks 3 days after Level 2 passes)."] };
   }
-  const latestSittingId = retention.at(-1).sittingId || retention.at(-1).dayKey;
-  const latest = retention.filter(a => (a.sittingId || a.dayKey) === latestSittingId);
-  const correct = latest.filter(a => a.isCorrect).length;
+  const latestSittingId = sittingKey(retention.at(-1));
+  const latest = retention.filter(a => sittingKey(a) === latestSittingId);
+  const scored = latest.filter(a => !a.requiresEvidenceReview);
+  const requiresEvidenceReview = scored.length < latest.length;
+  const correct = scored.filter(a => a.isCorrect).length;
   const administeredAt = Math.min(...latest.map(a => a.timestamp).filter(Boolean));
   const wasEligible = Number.isFinite(administeredAt) && administeredAt >= unlockAt;
-  const complete = !latest.some(row => row.sittingCompleted === false)
-    && new Set(latest.map(row => row.itemId).filter(Boolean)).size >= RETENTION_RULE.items;
-  const passed = wasEligible && complete && latest.length >= RETENTION_RULE.items && correct >= RETENTION_RULE.passMin;
+  const complete = !requiresEvidenceReview && !latest.some(row => row.sittingCompleted === false)
+    && new Set(scored.map(row => row.itemId).filter(Boolean)).size >= RETENTION_RULE.items;
+  const passed = wasEligible && complete && correct >= RETENTION_RULE.passMin;
   return {
     attempted: true,
     passed,
     eligible,
     correct,
-    total: latest.length,
+    total: scored.length,
     unlockAt,
     administeredAt,
     blockers: passed
       ? []
       : [
           ...(!wasEligible ? [`Retention check was taken before the ${RETENTION_RULE.minDaysAfterPass}-day wait had elapsed.`] : []),
-          ...(latest.length < RETENTION_RULE.items || correct < RETENTION_RULE.passMin
-            ? [`Latest retention check scored ${correct}/${latest.length}; needs ${RETENTION_RULE.passMin}/${RETENTION_RULE.items}.`]
+          ...(requiresEvidenceReview ? ["Conflicting first answers need teacher review."] : []),
+          ...(scored.length < RETENTION_RULE.items || correct < RETENTION_RULE.passMin
+            ? [`Latest retention check scored ${correct}/${scored.length}; needs ${RETENTION_RULE.passMin}/${RETENTION_RULE.items}.`]
             : [])
         ]
   };
@@ -409,12 +491,11 @@ export function computeSkillStatus(rawLedger = [], skillIdOrBlueprint, { now = D
     : skillIdOrBlueprint;
   if (!blueprint) return null;
 
-  const attempts = rawLedger
-    .map(raw => normalizeLedgerAttempt(raw, { timeZone }))
-    .filter(a => isScorable(a) && inWindow(a, now))
-    .sort((a, b) => a.timestamp - b.timestamp);
-  const formal = attempts.filter(a => a.mode !== "retention");
-  const unitStates = computeUnitStates(rawLedger, blueprint, { now, timeZone });
+  const ledger = rawLedger.map(raw => normalizeLedgerAttempt(raw, { timeZone }));
+  const attempts = reconcileIndependentResponses(ledger).filter(row => inWindow(row, now));
+  const formal = attempts.filter(row => row.mode !== "retention");
+  const unitStates = unitStatesFromIndependentResponses(attempts, blueprint);
+  const conflictingCount = attempts.filter(row => row.requiresEvidenceReview).length;
 
   const level1 = levelSummary(formal, 1, blueprint, unitStates);
   const level2 = levelSummary(formal, 2, blueprint, unitStates);
@@ -423,9 +504,9 @@ export function computeSkillStatus(rawLedger = [], skillIdOrBlueprint, { now = D
     : null;
   const retention = retentionSummary(attempts, { level2PassedAt, now });
 
-  const skipped = rawLedger.map(r => normalizeLedgerAttempt(r, { timeZone }))
+  const skipped = ledger
     .filter(a => a.responseState === "skipped" && inWindow(a, now)).length;
-  const supported = rawLedger.map(r => normalizeLedgerAttempt(r, { timeZone }))
+  const supported = ledger
     .filter(a => a.supported && inWindow(a, now)).length;
 
   const ladder = (l1, l2, ret) => {
@@ -447,7 +528,8 @@ export function computeSkillStatus(rawLedger = [], skillIdOrBlueprint, { now = D
     .filter(row => row.state === UNIT_STATE_IDS.REVIEW && !row.nonGating)
     .map(row => `L${row.level} ${row.unitKey}`);
   const needsReview =
-    level1.needsReview
+    conflictingCount > 0
+    || level1.needsReview
     || level2.needsReview
     || (RANK[status] >= RANK[SKILL_STATUS_IDS.LEVEL_1_PASSED] && reviewUnits.length >= 1)
     || (retention.attempted && !retention.passed && level1.passedEver && level2.passedEver);
@@ -455,6 +537,7 @@ export function computeSkillStatus(rawLedger = [], skillIdOrBlueprint, { now = D
   const whyNot = status === SKILL_STATUS_IDS.SECURE && !needsReview
     ? []
     : [
+      ...(conflictingCount ? ["Conflicting first answers need teacher review."] : []),
       ...(reviewUnits.length ? [`Needs review: ${reviewUnits.slice(0, 6).join(", ")}${reviewUnits.length > 6 ? "…" : ""} answered incorrectly most recently.`] : []),
       ...(!level1.passed ? level1.blockers : !level2.passed ? level2.blockers : retention.blockers)
     ];
@@ -479,7 +562,8 @@ export function computeSkillStatus(rawLedger = [], skillIdOrBlueprint, { now = D
     retention,
     unitStates,
     evidence: {
-      scored: attempts.length,
+      scored: attempts.length - conflictingCount,
+      conflictingCount,
       skipped,
       supported,
       days: new Set(attempts.map(a => a.dayKey).filter(Boolean)).size,

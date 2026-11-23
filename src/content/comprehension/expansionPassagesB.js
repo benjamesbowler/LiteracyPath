@@ -464,7 +464,7 @@ export const EXPANSION_DRAFTS_B = [
       ],
       [
         "Why does Chips use the longer ribbon?",
-        "The short ribbon cannot go around the box",
+        "The short ribbon won't fit",
         [
           "The short ribbon is wet",
           "The box has no lid",
@@ -473,7 +473,8 @@ export const EXPANSION_DRAFTS_B = [
         [
           1,
           2
-        ]
+        ],
+        { "The short ribbon cannot go around the box": "The short ribbon won't fit" }
       ]
     ],
     "Draw the ribbon around the gift box. Write ribbon and box."
@@ -1739,7 +1740,7 @@ export const EXPANSION_DRAFTS_B = [
       ],
       [
         "How does Muddy carry the tray safely?",
-        "Uses both front hooves to hold it flat",
+        "Holds it flat with both hooves",
         [
           "Holds it above the head",
           "Puts one cup underneath",
@@ -1748,7 +1749,8 @@ export const EXPANSION_DRAFTS_B = [
         [
           4,
           5
-        ]
+        ],
+        { "Uses both front hooves to hold it flat": "Holds it flat with both hooves" }
       ]
     ],
     "Draw Muddy holding the tray flat with both front hooves. Write cups and tray."

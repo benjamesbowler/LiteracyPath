@@ -49,6 +49,7 @@ export function FamilySharingPanel({
   const [email, setEmail] = useState("");
   const [busy, setBusy] = useState("load");
   const [error, setError] = useState("");
+  const [previewError, setPreviewError] = useState("");
   const [success, setSuccess] = useState("");
   const [createdLink, setCreatedLink] = useState("");
   const [view, setView] = useState("");
@@ -137,7 +138,7 @@ export function FamilySharingPanel({
   }
 
   function previewUpdate() {
-    setError("");
+    setPreviewError("");
     setSuccess("");
     try {
       // Capture once: later incoming teacher evidence must not change the
@@ -145,7 +146,7 @@ export function FamilySharingPanel({
       const snapshot = buildParentReleaseSnapshot({ workspace, studentId, studentName, className, schoolName, teacherName, teacherEmail });
       setDraft({ studentId, title: reportTitle, snapshot });
       setView("preview");
-    } catch (nextError) { setError(messageFor(nextError)); }
+    } catch (nextError) { setPreviewError(messageFor(nextError)); }
   }
 
   async function releasePreview() {
@@ -170,6 +171,7 @@ export function FamilySharingPanel({
       {error && <button type="button" className="lp-button lp-button-secondary" onClick={load}>Try loading family access again</button>}
     </div>
     {error ? <p className="family-sharing-message is-error" role="alert"><WarningCircle size={18} />{error}</p> : null}
+    {previewError ? <p className="family-sharing-message is-error" role="alert">Could not preview the update. {previewError}</p> : null}
     {success ? <p className="family-sharing-message is-success" role="status"><CheckCircle size={18} />{success}</p> : null}
     {view && <div className="family-update-overlay"><TeacherDialog label={view === "preview" ? "Preview family update" : "Manage guardian access"} className="family-update-dialog" onClose={() => { if (!busy) setView(""); }} closeOnEscape={!busy} busy={Boolean(busy)}>
       <header><h2>{view === "preview" ? "Preview family update" : "Manage guardian access"}</h2><button type="button" className="lp-button lp-button-secondary" disabled={Boolean(busy)} onClick={() => setView("")}>Back to student report</button></header>

@@ -1,3 +1,4 @@
+import { registerProgressReloadGuard } from "./progressReloadGuard.js";
 import { learnerAssessmentDraftKeys, clearLearnerAssessmentDrafts } from './assessmentDraftStorage.js';
 import { campaignWorkerAvailable, campaignQueueBytes, runCampaignPersistenceWork, disposeCampaignPersistenceWorker } from './campaignPersistenceWorker.js';
 import { campaignLiveKey, campaignBaseSignature, applyCampaignLiveJournal } from './campaignLiveJournal.js';
@@ -15,6 +16,7 @@ import {
   isMalformedCurrentElQuestProgress
 } from "./adventureMapProgress.js";
 import { computeHydratedValue, sanitizeCloudProgressPayload } from "./progressMerge.js";
+import { isStoryQuestProgressLedger, isStoryQuestProgressRow } from "./storyQuestRoutes.js";
 import {
   PROGRESS_AREAS,
   RETIRED_PROGRESS_AREAS,
@@ -884,6 +886,18 @@ export async function hydrateCloudProgress(session) {
       } catch { /* preserve local bytes and the cached original cloud row */ }
       return;
     }
+    if (row.area === "story_quests") {
+      const stored = readStoredJson(storageKey);
+      if (!stored.ok || (stored.exists && !isStoryQuestProgressLedger(stored.value))) return;
+      if (!isStoryQuestProgressRow(row.payload)) {
+        // A future story row remains opaque to this client. Keep it in the
+        // local ledger as well as the authenticated cache so writes stay blocked.
+        writeJson(storageKey, { ...stored.value, [row.key]: row.payload });
+        return;
+      }
+      writeJson(storageKey, computeHydratedValue(row.area, row.key, stored.value, row.payload));
+      return;
+    }
     const stored = row.area === "el_quest" ? readStoredJson(storageKey) : null;
     const existing = stored ? stored.value : readJson(storageKey, {});
     if (stored) {
@@ -1202,3 +1216,13 @@ export function logStudentActivity(area, itemId = null, event = "done", payload 
     return false;
   }
 }
+
+registerProgressReloadGuard({
+  hasVolatileProgress: () => getVolatileProgressCount() > 0,
+  async retry() {
+    const session = getActiveProgressSyncSession();
+    if (!sessionCanFlush(session)) return false;
+    await flushQueuedProgressWrites(session);
+    return getVolatileProgressCount() === 0;
+  }
+});

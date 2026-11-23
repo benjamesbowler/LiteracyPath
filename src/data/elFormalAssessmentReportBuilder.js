@@ -422,31 +422,42 @@ function buildEncodingDetail(record, definition) {
   };
 }
 
-function isAutomaticDecoding(question = {}, detail = questionEvidenceDetail(question)) {
-  const automaticity = evidenceValue(question, "automatic", "automaticity");
+function decodingJudgments(detail, performanceSuppressed) {
   const scoringCode = normalizeCompact(detail.scoringCode);
-  return automaticity === true || automaticity === "automatic" || scoringCode === "automatic_accurate";
+  const selfCorrected = detail.selfCorrected === true || detail.responseStatus === "self_corrected"
+    || scoringCode === "self_corrected";
+  if (performanceSuppressed || detail.validationIssues.length
+    || UNSCORED_RESPONSE_STATUSES.has(detail.responseStatus)) {
+    return { accurate: null, automatic: null, selfCorrected, soundedOut: false };
+  }
+  const legacyAccurate = ["automatic_accurate", "accurate_after_sounding", "self_corrected"].includes(scoringCode);
+  const accurate = detail.isCorrect ?? (legacyAccurate ? true : null);
+  const recordedSpeed = typeof detail.automatic === "boolean" ? detail.automatic
+    : detail.automatic === "automatic" ? true
+      : detail.automatic === "not_automatic" ? false : null;
+  let automatic = null;
+  if (accurate === false || (accurate === true && selfCorrected)) automatic = false;
+  else if (accurate === true) {
+    automatic = recordedSpeed ?? (scoringCode === "automatic_accurate" ? true
+      : scoringCode === "accurate_after_sounding" ? false : null);
+  }
+  const soundedOut = accurate === true && automatic === false && !selfCorrected
+    && scoringCode === "accurate_after_sounding";
+  return { accurate, automatic, selfCorrected, soundedOut };
 }
 
 function buildDecodingDetail(record, definition) {
   const performanceSuppressed = performanceSuppressedForRecord(record);
   const itemDetails = (record.questionRecords || []).map(question => {
     const detail = questionEvidenceDetail(question);
-    const accurate = isCorrectBenchmarkQuestion(question);
-    // A self-correction is valuable accurate-reading evidence, but the
-    // administration directions explicitly say it is not automatic reading.
-    const automatic = accurate && detail.selfCorrected !== true && isAutomaticDecoding(question, detail);
-    return { ...detail, accurate, automatic };
+    return { ...detail, ...decodingJudgments(detail, performanceSuppressed) };
   });
-  const scoredItems = performanceSuppressed
-    ? []
-    : itemDetails.filter(item => !UNSCORED_RESPONSE_STATUSES.has(item.responseStatus));
+  const scoredItems = itemDetails.filter(item => typeof item.accurate === "boolean");
   const accurateCount = scoredItems.filter(item => item.accurate).length;
-  const automaticCount = scoredItems.filter(item => item.automatic).length;
-  const selfCorrectedCount = scoredItems.filter(item => item.accurate && item.selfCorrected === true).length;
-  const accurateAfterSoundingCount = scoredItems.filter(item => (
-    item.accurate && !item.automatic && item.selfCorrected !== true
-  )).length;
+  const judgedItems = scoredItems.filter(item => typeof item.automatic === "boolean");
+  const automaticCount = judgedItems.filter(item => item.automatic).length;
+  const selfCorrectedCount = scoredItems.filter(item => item.accurate && item.selfCorrected).length;
+  const accurateAfterSoundingCount = scoredItems.filter(item => item.soundedOut).length;
   const bandMap = new Map();
   scoredItems.forEach(item => {
     const bandKey = String(item.bandId || (item.microphase ? `microphase-${item.microphase}` : "unbanded"));
@@ -456,20 +467,21 @@ function buildDecodingDetail(record, definition) {
       administeredCount: 0,
       accurateCount: 0,
       automaticCount: 0,
-      accuracyRate: null,
-      automaticityRate: null,
+      automaticityJudgedCount: 0,
       items: []
     };
     band.administeredCount += 1;
     if (item.accurate) band.accurateCount += 1;
     if (item.automatic) band.automaticCount += 1;
+    if (typeof item.automatic === "boolean") band.automaticityJudgedCount += 1;
     band.items.push(item);
     bandMap.set(bandKey, band);
   });
   const bandRows = Array.from(bandMap.values()).map(row => ({
     ...row,
     accuracyRate: percentage(row.accurateCount, row.administeredCount),
-    automaticityRate: percentage(row.automaticCount, row.administeredCount)
+    automaticityRate: percentage(row.automaticCount, row.automaticityJudgedCount),
+    automaticityMissingCount: row.administeredCount - row.automaticityJudgedCount
   }));
   const metadata = record.metadata || {};
   const stopCycleAnchor = record.stopCycleAnchor ?? metadata.stopCycleAnchor ?? record.stopCycle ?? "";
@@ -488,8 +500,10 @@ function buildDecodingDetail(record, definition) {
     accurateAfterSoundingCount,
     selfCorrectedCount,
     accuracyRate: percentage(accurateCount, scoredItems.length),
-    automaticityRate: percentage(automaticCount, scoredItems.length),
-    automaticAmongAccurateRate: percentage(automaticCount, accurateCount),
+    automaticityJudgedCount: judgedItems.length,
+    automaticityMissingCount: scoredItems.length - judgedItems.length,
+    automaticityRate: percentage(automaticCount, judgedItems.length),
+    automaticAmongAccurateRate: percentage(automaticCount, judgedItems.filter(item => item.accurate).length),
     bandRows,
     stopEvidence: {
       // Keep `stopCycle` for compatible report consumers, but label and
@@ -1328,6 +1342,8 @@ function buildClassBenchmarkEvidence(individualReports = [], classStudents = [],
         averageAutomaticityRate: averageMetric(withScoredEvidence.map(row => row.detail.automaticityRate)),
         accurateCount: withSavedEvidence.reduce((sum, row) => sum + Number(row.detail?.accurateCount || 0), 0),
         automaticCount: withSavedEvidence.reduce((sum, row) => sum + Number(row.detail?.automaticCount || 0), 0),
+        automaticityJudgedCount: withSavedEvidence.reduce((sum, row) => sum + Number(row.detail?.automaticityJudgedCount || 0), 0),
+        automaticityMissingCount: withSavedEvidence.reduce((sum, row) => sum + Number(row.detail?.automaticityMissingCount || 0), 0),
         stoppedOrDiscontinuedStudents: withSavedEvidence
           .filter(row => row.detail?.stopEvidence?.triggered || row.profile.administrationStatus === "discontinued")
           .map(row => getStudentName(row.student))

@@ -46,7 +46,7 @@ import { useChildPages } from "../hooks/useChildPages.js";
 import { ChildRecommendationExplanation } from "./recommendations/RecommendationExplanation.jsx";
 import { getGuidedReadingStorageKey } from "../appState/studentSessionHelpers.js";
 import { isGuidedReadingAssetDeleted } from "../data/deletedMediaManifest.js";
-import { recommendBooksForStudent } from "../utils/guidedReading/recommendBooksForStudent.js";
+import { prepareReadingRecommendationCatalogue, recommendBooksForStudent } from "../utils/guidedReading/recommendBooksForStudent.js";
 import { getRuntimeGuidedReadingBooks } from "../utils/guidedReading/runtimeBooks.js";
 import { filterPublishedGuidedReadingBooks } from "../policy/guidedReadingApprovalPolicy.js";
 import { filterToEntitlement, sampleBookIds } from "../policy/freeTierContent.js";
@@ -180,6 +180,7 @@ export function StudentBooksPage({
   guidedReadingRecords = {},
   studentProgress = null,
   recommendationEvidenceReady = true,
+  currentCycleId = "",
   initialBookId = "",
   focusLocked = false,
   lockedBookId = null,
@@ -210,6 +211,7 @@ export function StudentBooksPage({
     exactBookLock ? normalizedLockedBookId : (initialBookId || "")
   );
   const [openBookFromShelf, setOpenBookFromShelf] = useState(false);
+  const [openReadAgain, setOpenReadAgain] = useState(false);
   const [cycleShortsOpen,setCycleShortsOpen] = useState(false);
   const [speechStatus, setSpeechStatus] = useState("");
   const [showDiscovery, setShowDiscovery] = useState(false);
@@ -238,11 +240,12 @@ export function StudentBooksPage({
     (catalogueRef.current?.querySelector(selector) || filterTriggerRef.current)?.focus({ preventScroll: true });
   }, [openBookId]);
 
-  function openBook(bookId, recommendedBook = false) {
+  function openBook(bookId, recommendedBook = false, readAgain = false) {
     returnToBook.current = recommendedBook
       ? ".kg-continue [data-child-primary]"
       : `[data-book-id="${CSS.escape(bookId)}"]`;
     setOpenBookFromShelf(!recommendedBook);
+    setOpenReadAgain(readAgain);
     setOpenBookId(bookId);
   }
   function closeDiscovery() {
@@ -285,11 +288,12 @@ export function StudentBooksPage({
 
   // Suggestions use the reviewed text band of a selected/previous book.
   // This is a browsing choice, not a measure of the child's reading ability.
+  const recommendationCatalogue = useMemo(() => prepareReadingRecommendationCatalogue(library), [library]);
   const recommended = useMemo(() => recommendBooksForStudent({
-    books: library,
+    catalogue: recommendationCatalogue,
     studentProgress: recommendationEvidenceReady && studentProgress ? studentProgress : {},
     readingHistory: guidedReadingRecords
-  }), [library, guidedReadingRecords, recommendationEvidenceReady, studentProgress]);
+  }), [recommendationCatalogue, guidedReadingRecords, recommendationEvidenceReady, studentProgress]);
 
   const suggestedLevel = recommended[0]?.readingLevel || "A";
   const collections = useMemo(() => bookCollectionsForLevel(library), [library]);
@@ -361,7 +365,7 @@ export function StudentBooksPage({
     setSpeechStatus(spoken ? "Reading it out." : "Speech is unavailable.");
   }
 
-  if (cycleShortsOpen && !focusLocked && !exactBookLock) return <StudentGlassShell studentName={studentName} scopeKey={progressScopeKey} active="books" onNavigate={onNavigate} onHome={onHome} onGrownUps={onGrownUps}><Suspense fallback={<p role="status">Opening Cycle Shorts…</p>}><CycleShortsLibrary scope={`${teacherId}:${studentId}`} onBack={()=>setCycleShortsOpen(false)}/></Suspense></StudentGlassShell>;
+  if (cycleShortsOpen && !focusLocked && !exactBookLock) return <StudentGlassShell studentName={studentName} scopeKey={progressScopeKey} active="books" onNavigate={onNavigate} onHome={onHome} onGrownUps={onGrownUps}><Suspense fallback={<p role="status">Opening Cycle Shorts…</p>}><CycleShortsLibrary scope={`${teacherId}:${studentId}`} currentCycleId={currentCycleId} onBack={()=>setCycleShortsOpen(false)}/></Suspense></StudentGlassShell>;
   if (hopAndStopOpen && hopAndStopAvailable) {
     return <StudentGlassShell
       studentName={studentName}
@@ -377,12 +381,13 @@ export function StudentBooksPage({
   if (openBookId && renderReader && library.some(book => book.id === openBookId)) {
     const openBook = library.find(book => book.id === openBookId);
     const saved = bookReadingProgress(openBook, getCurrentGuidedReadingRecord(openBook, guidedReadingRecords));
-    return renderReader({ bookId: openBookId, books: library, initialPageIndex: saved.started ? saved.pageIndex : null, onExit: () => {
+    return renderReader({ bookId: openBookId, books: library, initialPageIndex: saved.started ? saved.pageIndex : null, initialReadAgain: openReadAgain && !focusLocked && !exactBookLock, onExit: () => {
       if (openBookFromShelf) {
         const index = shelf.books.findIndex(row => row.book.id === openBookId);
         if (index >= 0) setPageIndex(Math.floor(index / pageSize));
       }
       setOpenBookId("");
+      setOpenReadAgain(false);
     } });
   }
 
@@ -539,12 +544,12 @@ export function StudentBooksPage({
                 <button
                   type="button"
                   className="kg-button kg-button--md kg-glass-accent"
-                  onClick={() => openBook(panelBook.id, true)}
+                  onClick={() => openBook(panelBook.id, true, panelProgress?.completed && !panelProgress.readingInProgress)}
                   data-child-primary=""
                   data-child-emphasis="primary"
                 >
                   <PlayGlyph />
-                  <span data-child-emphasis-cue="">{resuming ? "Keep reading" : "Start reading"}</span>
+                  <span data-child-emphasis-cue="">{resuming ? "Keep reading" : panelProgress?.completed ? "Read again" : "Start reading"}</span>
                 </button>
                 <button
                   type="button"
@@ -631,12 +636,12 @@ export function StudentBooksPage({
             {visibleItems.filter(row => row?.book).map(({ book, progress }) => {
               const purpose = purposeFor(book);
               return <button key={book.id} type="button" className="kg-glass kg-book-card"
-                onClick={() => openBook(book.id)} data-book-id={book.id} data-child-emphasis="choice">
+                onClick={() => openBook(book.id, false, progress.completed)} data-book-id={book.id} data-child-emphasis="choice">
                 <BookCover book={book} eager />
                 <span className="kg-book-card-main"><strong className="kg-book-title">{book.title}</strong>
                   <small className="kg-book-purpose">{purpose.label}</small>
                   <small className="kg-book-text-measure" data-book-level={bookAnalyses.get(book.id)?.appReadingLevel || "pending"}>{appReadingLevelLabel(bookAnalyses.get(book.id)?.appReadingLevel)}</small>
-                  {progress.completed && <small className="kg-book-read">✓ Read</small>}
+                  {progress.completed && <small className="kg-book-read">{progress.readingInProgress ? "Continue reading" : "✓ Read · Read again"}</small>}
                 </span>
               </button>;
             })}

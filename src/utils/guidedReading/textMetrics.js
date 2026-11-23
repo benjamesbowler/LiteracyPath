@@ -19,12 +19,16 @@ export function serializeBookReadingText(book = {}) {
 // Synchronous browser-compatible change detector. It is not used for security.
 // The generator also records a SHA-256 hash for external measurement receipts.
 export function fingerprintBookReadingText(book) {
-  let hash = 0xcbf29ce484222325n;
+  let high = 0xcbf29ce4;
+  let low = 0x84222325;
   for (const byte of new TextEncoder().encode(serializeBookReadingText(book))) {
-    hash ^= BigInt(byte);
-    hash = BigInt.asUintN(64, hash * 0x100000001b3n);
+    low = (low ^ byte) >>> 0;
+    // Multiply the two 32-bit halves by the FNV prime (2^40 + 435).
+    const product = low * 435;
+    high = (Math.imul(high, 435) + (low << 8) + Math.floor(product / 0x100000000)) >>> 0;
+    low = product >>> 0;
   }
-  return `fnv1a64:${hash.toString(16).padStart(16, "0")}`;
+  return `fnv1a64:${high.toString(16).padStart(8, "0")}${low.toString(16).padStart(8, "0")}`;
 }
 
 export function tokenizeReadingText(text = "") {

@@ -11,11 +11,14 @@ export function PhonicsAlphabetPicker({ pages, progress = {}, rounds = {}, onSel
     <div className="phonics-letter-grid" role="group" aria-label="All 26 letters" data-child-choices="" data-child-primary="">
       {pages.visibleItems.map(letter => {
         const status = progress[letter] === "completed" ? "completed" : progress[letter] === "inprogress" ? "inprogress" : "default";
-        const label = status === "completed" ? "Complete" : status === "inprogress" ? "Try again" : "";
+        const completedRounds = rounds[letter]?.completedCount || 0;
+        const label = status === "completed" ? "Complete" : status === "inprogress" ? "Continue" : "";
         return <button key={letter} data-picker-key={letter} type="button" className={`phonics-letter-card wa-choice ${status}`} onClick={() => onSelectLetter(letter)}
-          aria-label={`Letter ${letter}${label ? `, ${label}` : ""}`} aria-description={`${rounds[letter]?.completedCount || 0} of ${LETTER_PRACTICE_ROUND_COUNT} rounds`} data-child-emphasis="choice">
+          aria-label={`Letter ${letter}${label ? `, ${label}` : ""}`} aria-description={`${completedRounds} of ${LETTER_PRACTICE_ROUND_COUNT} rounds`} data-child-emphasis="choice">
           <span className="phonics-letter-symbol">{letter}<small>{letter.toLowerCase()}</small></span>
-          {label && <span className="phonics-letter-state">{status === "completed" && <span aria-hidden="true">✓ </span>}{label}</span>}
+          {label && <span className="phonics-letter-state">{status === "completed" && <span aria-hidden="true">✓ </span>}{label}
+            {status === "inprogress" && completedRounds > 0 && <small aria-hidden="true"> {completedRounds}/{LETTER_PRACTICE_ROUND_COUNT}</small>}
+          </span>}
         </button>;
       })}
     </div>

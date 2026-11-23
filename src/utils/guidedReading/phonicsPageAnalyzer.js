@@ -8,6 +8,7 @@ import {
   inferVowelPattern,
   normalizeLexiconWord
 } from "../phonics/phonicsHeuristics.js";
+import { fingerprintBookReadingText, getAnalysisPages } from "./textMetrics.js";
 
 const HIGH_FREQUENCY_WORDS = new Set([
   "a", "i", "the", "my", "is", "can", "go", "to", "we", "me", "you", "and", "it", "in", "on", "at", "up",
@@ -58,20 +59,33 @@ function getWordPatterns(word = "") {
   return [...tags].sort();
 }
 
+const phonicsByWord = new Map();
+
+function compactWordDetails(word) {
+  const cached = phonicsByWord.get(word);
+  if (cached) return cached;
+  const phonicsPatterns = getWordPatterns(word);
+  const details = {
+    word,
+    phonicsPatterns,
+    highFrequency: HIGH_FREQUENCY_WORDS.has(word),
+    decodable: isCvc(word) || phonicsPatterns.some(pattern => /short-|digraph-|blend|silent-e|vowel-team/.test(pattern))
+  };
+  phonicsByWord.set(word, details);
+  return details;
+}
+
 export function analyzeGuidedReadingPage(page = {}) {
   const words = extractReadingWords(page.text || "");
   const uniqueWords = unique(words);
   const wordDetails = uniqueWords.map(word => ({
-    word,
+    ...compactWordDetails(word),
     initialSound: inferInitialSound(word),
     finalSound: inferFinalSound(word),
     medialVowel: inferMedialVowel(word),
     rime: inferRime(word),
     syllables: inferSyllables(word),
-    vowelPattern: inferVowelPattern(word),
-    phonicsPatterns: getWordPatterns(word),
-    highFrequency: HIGH_FREQUENCY_WORDS.has(word),
-    decodable: isCvc(word) || getWordPatterns(word).some(pattern => /short-|digraph-|blend|silent-e|vowel-team/.test(pattern))
+    vowelPattern: inferVowelPattern(word)
   }));
   const highFrequencyWords = wordDetails.filter(item => item.highFrequency).map(item => item.word);
   const decodableWords = wordDetails.filter(item => item.decodable && !item.highFrequency).map(item => item.word);
@@ -101,6 +115,51 @@ export function analyzeGuidedReadingPage(page = {}) {
   };
 }
 
+const bookPhonicsByFingerprint = new Map();
+
+// Ranking and eligibility need whole-book word/pattern evidence. They share
+// summaries for the exact text without generating word-by-word reader markup.
+export function summarizeGuidedReadingBookPhonics(book, fingerprint = fingerprintBookReadingText(book)) {
+  const cached = bookPhonicsByFingerprint.get(fingerprint);
+  if (cached) return cached;
+  const detailsByWord = new Map();
+  const pageCountsByPattern = new Map();
+  let wordCount = 0;
+  for (const page of getAnalysisPages(book)) {
+    const words = extractReadingWords(page.text);
+    wordCount += words.length;
+    const pagePatterns = new Set();
+    for (const word of new Set(words)) {
+      const details = compactWordDetails(word);
+      detailsByWord.set(word, details);
+      for (const pattern of details.phonicsPatterns) pagePatterns.add(pattern);
+    }
+    for (const pattern of pagePatterns) {
+      pageCountsByPattern.set(pattern, (pageCountsByPattern.get(pattern) || 0) + 1);
+    }
+  }
+  const wordDetails = [...detailsByWord.values()];
+  const highFrequencyWords = wordDetails.filter(detail => detail.highFrequency).map(detail => detail.word);
+  const decodableWords = wordDetails.filter(detail => detail.decodable && !detail.highFrequency).map(detail => detail.word);
+  const dominantPhonicsPatterns = [...pageCountsByPattern]
+    .sort(([patternA, countA], [patternB, countB]) => countB - countA || patternA.localeCompare(patternB))
+    .slice(0, 10)
+    .map(([pattern]) => pattern);
+  const summary = {
+    wordCount, wordDetails, highFrequencyWords, decodableWords, dominantPhonicsPatterns,
+    recommendedMicrophase: recommendedMicrophase(dominantPhonicsPatterns, highFrequencyWords, decodableWords),
+    recommendedSkillsToReinforce: dominantPhonicsPatterns.slice(0, 6)
+  };
+  bookPhonicsByFingerprint.set(fingerprint, summary);
+  return summary;
+}
+
+function recommendedMicrophase(patterns, highFrequencyWords, decodableWords) {
+  if (patterns.some(pattern => /digraph|blend/.test(pattern))) return "digraphs-and-blends";
+  if (patterns.some(pattern => /short-/.test(pattern)) || patterns.includes("cvc")) return "cvc-short-vowels";
+  return highFrequencyWords.length >= decodableWords.length ? "high-frequency-fluency" : "early-reading";
+}
+
 export function enrichGuidedReadingBook(book = {}) {
   const pages = (book.pages || []).map(page => ({
     ...page,
@@ -119,13 +178,6 @@ export function enrichGuidedReadingBook(book = {}) {
     .sort((a, b) => b.count - a.count || a.pattern.localeCompare(b.pattern))
     .slice(0, 10)
     .map(item => item.pattern);
-  const recommendedMicrophase = dominantPhonicsPatterns.some(pattern => /digraph|blend/.test(pattern))
-    ? "digraphs-and-blends"
-    : dominantPhonicsPatterns.some(pattern => /short-/.test(pattern)) || dominantPhonicsPatterns.includes("cvc")
-      ? "cvc-short-vowels"
-      : highFrequencyWords.length >= decodableWords.length
-        ? "high-frequency-fluency"
-        : "early-reading";
 
   return {
     ...book,
@@ -139,7 +191,7 @@ export function enrichGuidedReadingBook(book = {}) {
     decodableWords,
     decodablePercentage,
     dominantPhonicsPatterns,
-    recommendedMicrophase,
+    recommendedMicrophase: recommendedMicrophase(dominantPhonicsPatterns, highFrequencyWords, decodableWords),
     recommendedSkillsToReinforce: dominantPhonicsPatterns.slice(0, 6),
     estimatedDifficulty: pages.some(page => page.analysis.estimatedDifficulty === "developing") ? "developing" : pages.some(page => page.analysis.estimatedDifficulty === "early") ? "early" : "emergent"
   };

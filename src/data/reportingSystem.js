@@ -1,5 +1,5 @@
 import { isProgressTest } from "../policy/progressTestPolicy.js";
-import { normalizeAssessmentAttempt } from "./assessmentHistoryStore.js";
+import { mergeAssessmentAttemptRecords, normalizeAssessmentAttempt } from "./assessmentHistoryStore.js";
 import {
   LEARNING_CONCLUSION_SCOPES,
   LEARNING_EVIDENCE_POLICY,
@@ -19,6 +19,8 @@ import { buildSkillsCheckReportModel } from "./studentReportingWorkspaceModel.js
 import {
   assessmentAttemptsToSkillLedger,
   computeSkillStatus,
+  independentSkillAttemptResponses,
+  scoreRepeatedSkillAttemptResponses,
   SKILL_STATUS_IDS
 } from "../policy/skillStatusPolicy.js";
 
@@ -843,6 +845,15 @@ export function buildRecommendations({
   };
 }
 
+function reportingAssessmentScores(assessmentHistory) {
+  return mergeAssessmentAttemptRecords(assessmentHistory)
+    .filter(record => !isDescriptiveElBenchmarkRecord(record) && !isProgressTest(record))
+    .map(record => ({
+      ...record,
+      ...scoreRepeatedSkillAttemptResponses(independentSkillAttemptResponses(record))
+    }));
+}
+
 export function buildStudentReportModel({
   studentName = "",
   className = "",
@@ -861,9 +872,7 @@ export function buildStudentReportModel({
   storyQuestSummary = {},
   now = new Date()
 } = {}) {
-  const allRecords = assessmentHistory
-    .map(normalizeAssessmentAttempt)
-    .filter(record => !isDescriptiveElBenchmarkRecord(record) && !isProgressTest(record))
+  const allRecords = reportingAssessmentScores(assessmentHistory)
     .sort((a, b) => new Date(a.completedAt) - new Date(b.completedAt));
   const records = allRecords.filter(record => (
     isLearningEvidenceRecent(record.completedAt, { now, allowUndated: false })
@@ -1067,9 +1076,7 @@ export function buildClassReportModel({
 } = {}) {
   const classStudents = students.filter(student => !classId || getClassId(student) === classId);
   const classStudentIds = new Set(classStudents.map(getClassStudentId).filter(Boolean));
-  const canonicalRecords = assessmentHistory
-    .map(normalizeAssessmentAttempt)
-    .filter(record => !isDescriptiveElBenchmarkRecord(record) && !isProgressTest(record))
+  const canonicalRecords = reportingAssessmentScores(assessmentHistory)
     .flatMap(record => {
       if (!classId) return [record];
       // Recorded class ownership is provenance, not a hint. Moving a student

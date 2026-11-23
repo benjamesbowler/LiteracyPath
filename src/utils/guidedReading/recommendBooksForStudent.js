@@ -1,5 +1,6 @@
 import { getCurrentGuidedReadingRecord } from "./editions.js";
-import { enrichGuidedReadingBook } from "./phonicsPageAnalyzer.js";
+import { guidedReadingCompletion } from "./completionPolicy.js";
+import { summarizeGuidedReadingBookPhonics } from "./phonicsPageAnalyzer.js";
 import { getGuidedReadingBookMetadata } from "../../data/guidedReadingBookMetadata.js";
 import { APP_READING_LEVELS, getBookTextAnalysis } from "./bookTextAnalysis.js";
 import {
@@ -82,11 +83,7 @@ function needMatchesBook(need, book) {
 
 function recordIsComplete(book, record = {}) {
   const totalPages = book.pages?.length || Number(record.totalPages || 0);
-  const completedPages = Math.max(
-    Number(record.completedPages || 0),
-    Object.keys(record.pages || {}).length
-  );
-  return Boolean(record.completed || record.completedAt || (totalPages > 0 && completedPages >= totalPages));
+  return guidedReadingCompletion(record, totalPages).completed;
 }
 
 function recordHasStarted(record = {}) {
@@ -139,19 +136,31 @@ function resolveReadingLevel(enrichedBooks, studentProgress, readingHistory) {
 }
 
 function historyReason(book, history) {
+  if (guidedReadingCompletion(history, book.pages?.length).readingInProgress) return "Continue a book already started";
   if (recordIsComplete(book, history)) return "Ready to reread for fluency";
   if (recordHasStarted(history)) return "Continue a book already started";
   return "Not read yet";
 }
 
-export function recommendBooksForStudent({ books = [], studentProgress = {}, readingHistory = {} } = {}) {
+export function prepareReadingRecommendationCatalogue(books = []) {
+  return books
+    .filter(book => book.active !== false && !book.historicalEdition && (!book.qaStatus || book.qaStatus === "approved"))
+    .map(book => {
+      const { appReadingLevel, textFingerprint } = getBookTextAnalysis(book);
+      return { ...book, ...getGuidedReadingBookMetadata(book), appReadingLevel, textFingerprint };
+    })
+    .filter(book => APP_READING_LEVELS.includes(book.appReadingLevel));
+}
+
+export function recommendBooksForStudent({
+  books = [],
+  catalogue = prepareReadingRecommendationCatalogue(books),
+  studentProgress = {},
+  readingHistory = {}
+} = {}) {
   const needs = collectStudentNeeds(studentProgress);
-  const enriched = books
-    .map(book => ({ ...book, ...getGuidedReadingBookMetadata(book), appReadingLevel: getBookTextAnalysis(book).appReadingLevel }))
-    .map(enrichGuidedReadingBook)
-    .filter(book => book.active !== false && (!book.qaStatus || book.qaStatus === "approved") && APP_READING_LEVELS.includes(book.appReadingLevel));
   const instructionalLevel = String(studentProgress.guidedReadingLevel || studentProgress.readingLevel || "").toUpperCase();
-  const placementBooks = instructionalLevel ? enriched.filter(book => book.level === instructionalLevel) : enriched;
+  const placementBooks = instructionalLevel ? catalogue.filter(book => book.level === instructionalLevel) : catalogue;
   const standardBooks = instructionalLevel === "C" ? placementBooks.filter(book => book.readingBandProfile === "standard") : placementBooks;
   const eligibleBooks = standardBooks.length ? standardBooks : placementBooks;
   const readingLevel = resolveReadingLevel(eligibleBooks, studentProgress, readingHistory);
@@ -159,10 +168,13 @@ export function recommendBooksForStudent({ books = [], studentProgress = {}, rea
   const candidates = eligibleBooks.filter(book => book.appReadingLevel === readingLevel.level);
 
   return candidates
-    .map(book => {
+    .map(candidate => {
+      const phonics = summarizeGuidedReadingBookPhonics(candidate, candidate.textFingerprint);
+      const { wordDetails, ...summary } = phonics;
+      const book = { ...candidate, ...summary };
       const history = getCurrentGuidedReadingRecord(book, readingHistory);
       const needMatches = needs.filter(need => needMatchesBook(need, book));
-      const readingPurpose = classifyBookReadingPurpose(book, studentProgress);
+      const readingPurpose = classifyBookReadingPurpose(book, studentProgress, { wordCount: phonics.wordCount, wordDetails });
       const unreadBonus = recordIsComplete(book, history) ? 0 : recordHasStarted(history) ? 16 : 12;
       const patternScore = needMatches.length * 20;
       const independentPracticeBonus = readingPurpose.id === READING_PURPOSES.INDEPENDENT ? 24 : 0;

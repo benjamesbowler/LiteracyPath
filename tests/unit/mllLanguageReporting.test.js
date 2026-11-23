@@ -591,3 +591,61 @@ test("every domain is represented in a report, even with no score for it", () =>
   assert.equal(report.canDoByDomain.length, MLL_DOMAINS.length);
   report.canDoByDomain.forEach(entry => assert.equal(entry.officialLevel, null));
 });
+
+test("unknown language information does not become a score, a shortfall or a transfer pattern", () => {
+  const profile = buildMllStudentProfile({
+    homeLanguageOral: null, homeLanguageLiteracy: false, serviceMinutesPerWeek: 0, yearsInUsSchools: " ",
+    languageAssessments: [{ administeredOn: "2026-08-01", source: "wida_access",
+      domainLevels: { listening: 3, speaking: null, reading: "", writing: 7 },
+      domainScaleScores: { listening: 325, speaking: null, reading: false, writing: 0 },
+      compositeLevels: { overall: 4, literacy: "" }
+    }]
+  });
+  assert.equal(profile.homeLanguageOral, null);
+  assert.equal(profile.homeLanguageLiteracy, false);
+  assert.equal(profile.serviceMinutesPerWeek, 0);
+  assert.equal(profile.yearsInUsSchools, null);
+  const row = profile.languageAssessments[0];
+  assert.deepEqual(row.domainLevels, { listening: 3, speaking: null, reading: null, writing: null });
+  assert.deepEqual(row.domainScaleScores, { listening: 325, speaking: null, reading: null, writing: null });
+  assert.equal(row.compositeLevels.literacy, null);
+  assert.equal(computeCompositeScaleScore("oral_language", row.domainScaleScores).complete, false);
+  const exit = evaluateDistanceToExit({ compositeLevel: 4, domainLevels: row.domainLevels,
+    criteria: { compositeId: "overall", compositeMinimum: 4, domainFloor: 2 } });
+  assert.equal(exit.evidenceState, "missing_evidence");
+  assert.deepEqual(exit.domainShortfalls, []);
+  assert.equal(exit.meetsAll, null);
+  assert.equal(evaluateDistanceToExit({ compositeLevel: null, criteria: {
+    compositeId: "overall", compositeMinimum: 4, domainFloor: null
+  } }).current, null);
+  assert.deepEqual(extractSoundErrorPatterns({ wholeChild: { concepts: [
+    { construct: "initial_sound", key: "p", evidenceBasis: { observations: 8, correct: null } }
+  ] } }), []);
+});
+
+test("a missing official score stays blank in a reopened multilingual workbook", async () => {
+  const { createMllStudentWorkbook } = await import("../../src/utils/exportMllReportExcel.js");
+  const report = buildMllStudentReport({ student: {
+    studentId: "sample", studentName: "Sample learner", grade: "1", homeLanguage: "Spanish",
+    languageAssessments: [{ source: "wida_access", administeredOn: "2026-08-01",
+      domainLevels: { listening: 3, speaking: null } }]
+  } });
+  assert.doesNotMatch(report.transfer?.narrative || "", /at an early stage/);
+  const workbook = await createMllStudentWorkbook(report);
+  const reopened = new workbook.constructor();
+  await reopened.xlsx.load(await workbook.xlsx.writeBuffer());
+  const sheet = reopened.getWorksheet("Language proficiency");
+  let speakingColumn = 0;
+  let listeningColumn = 0;
+  let headerRow = 0;
+  sheet.eachRow(row => row.eachCell(cell => {
+    if (cell.value === "Speaking") {
+      speakingColumn = cell.col;
+      headerRow = row.number;
+    }
+    if (cell.value === "Listening") listeningColumn = cell.col;
+  }));
+  assert.ok(headerRow && speakingColumn && listeningColumn);
+  assert.equal(sheet.getRow(headerRow + 1).getCell(listeningColumn).value, 3);
+  assert.ok([null, ""].includes(sheet.getRow(headerRow + 1).getCell(speakingColumn).value));
+});

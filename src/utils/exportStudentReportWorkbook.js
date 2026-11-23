@@ -542,8 +542,10 @@ export async function createStudentReportWorkbook({
   const bookRows = (guided.books || []).map(book => ({
     title: book.title || "Untitled book",
     level: getGuidedReadingEvidenceMetadata(book).levelLabel,
-    completed: book.completed ? "Completed" : "In progress",
-    reads: book.readCount ?? book.reads ?? 1,
+    completed: book.completionEvidence === "legacy-inferred" ? "Completed (inferred)"
+      : book.completed ? "Completed" : "In progress",
+    reads: book.readCount ?? book.reads ?? (book.completed ? 1 : 0),
+    bookmarkPage: book.bookmarkPage ?? "",
     lastRead: book.lastReadAt || book.observedAt || "",
     correct: (book.wordsReadCorrectly || []).length,
     support: (book.wordsNeedingSupport || []).length,
@@ -560,7 +562,8 @@ export async function createStudentReportWorkbook({
       { key: "lastRead", header: "Last read", type: "date", width: 13 },
       { key: "correct", header: "Read correctly", type: "number", width: 14 },
       { key: "support", header: "Needed support", type: "number", width: 15 },
-      { key: "notes", header: "Teacher notes", width: 50, wrap: true }
+      { key: "notes", header: "Teacher notes", width: 50, wrap: true },
+      { key: "bookmarkPage", header: "Bookmark page", type: "number", width: 16 }
     ],
     bookRows,
     { emptyMessage: "No guided reading records yet." }

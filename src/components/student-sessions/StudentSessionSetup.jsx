@@ -69,6 +69,7 @@ export function StudentSessionSetup({
   assessmentHistoryLoading = false,
   skillTree = [],
   initialStudentIds = [],
+  initialAudience,
   initialTarget = "",
   initialPurpose = "",
   returnView = "teacherDashboard",
@@ -86,8 +87,9 @@ export function StudentSessionSetup({
     [students]
   );
   const requestedStudentIds = useMemo(() => [...new Set(initialStudentIds.filter(Boolean).map(String))], [initialStudentIds]);
-  const hasRequestedStudentIds = initialStudentIds.some(Boolean);
-  const startsWithWholeClass = !hasRequestedStudentIds;
+  const startsWithWholeClass = initialAudience
+    ? initialAudience === STUDENT_FOCUS_AUDIENCES.WHOLE_CLASS
+    : requestedStudentIds.length === 0;
 
   const launchTarget = initialPurpose === "assess" || initialTarget === STUDENT_FOCUS_TARGETS.PROGRESS_CHECK
     ? STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT

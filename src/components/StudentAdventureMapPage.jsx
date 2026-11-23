@@ -35,6 +35,7 @@ import {
   ADVENTURE_MAP_PARTS,
   adventureMapPartFor,
   buildAdventureMapScene,
+  resolveAdventureMapContinuation,
   resolveAdventureMapCycleLock
 } from "../policy/childTrailPolicy.js";
 
@@ -138,9 +139,15 @@ export function StudentAdventureMapPage({
     lockedCycleId
   });
   const mapCycles = cycleLock.locked ? exactAssignmentCycles : availableCycles;
-  const moreWordMatch = !cycleLock.locked
-    && mapCycles.some(cycle => cycle.id === 'cycle-27')
-    && completedWordMatchCycles({ cycles: read.cycles });
+  const continuation = resolveAdventureMapContinuation({
+    cycles: mapCycles,
+    starsFor,
+    cycleLock,
+    moreWordMatch: availableCycles.length === exactAssignmentCycles.length
+      && completedWordMatchCycles({ cycles: read.cycles })
+  });
+  const moreWordMatch = continuation.kind === "more-words";
+  const mapFinished = continuation.kind === "finished";
 
   useEffect(() => {
     if (!cycleLock.locked) return;
@@ -150,10 +157,7 @@ export function StudentAdventureMapPage({
   // The land the child is standing in: the one holding their first unfinished
   // stop. Same rule the mode itself uses to pick its home world, so the sign on
   // this screen and the map inside the mode never disagree.
-  const currentCycle = cycleLock.locked
-    ? cycleLock.cycle
-    : mapCycles.find(cycle => starsFor(cycle.id) <= 0)
-      || mapCycles[mapCycles.length - 1];
+  const currentCycle = continuation.cycle;
   const part = adventureMapPartFor(currentCycle?.cycleNumber || 1);
   const worldCycles = currentCycle
     ? mapCycles.filter(cycle => (
@@ -177,9 +181,13 @@ export function StudentAdventureMapPage({
     points: mapPoints,
     activeCycleId: cycleLock.locked ? cycleLock.cycleId : null
   });
-  const mapCards = moreWordMatch
-    ? [{ id: 'more-word-match', name: 'More Word Match', number: '✓', state: 'next' }]
-    : scene.cards.filter(stop => stop.state === "next");
+  const primaryStop = moreWordMatch
+    ? { id: continuation.cycle.id, name: "More Word Match", number: "✓" }
+    : scene.next;
+  const primaryLabel = mapFinished ? "Back to Home"
+    : moreWordMatch ? primaryStop.name : primaryStop ? `Carry on · ${primaryStop.name}` : "";
+  const primaryAction = mapFinished ? onHome || (onNavigate && (() => onNavigate("home")))
+    : primaryStop && openPrimaryStop;
 
   // The pal accompanies a placed marker. Progress can identify a next stop
   // without an authored coordinate; only a placed stop supplies its anchor.
@@ -201,11 +209,12 @@ export function StudentAdventureMapPage({
     ? "This assigned map space is not available."
     : !read.ok
     ? "We could not open your map right now."
-    : scene.next
-      ? `Your pal is waiting at ${scene.next.name}.`
-      : moreWordMatch ? "Keep matching new words." : "Every stop here is done.";
+    : moreWordMatch ? "Play More Word Match."
+    : mapFinished ? "You finished this map!"
+    : continuation.kind === "assigned" ? `Your teacher chose ${scene.next?.name || "this stop"}.`
+    : `Your pal is waiting at ${scene.next?.name || "your next stop"}.`;
 
-  const mapAudio = read.ok && (scene.next || moreWordMatch) && !openCycleId
+  const mapAudio = read.ok && scene.next && !openCycleId
     ? ADVENTURE_MAP_INSTRUCTION_AUDIO[normalizeLedaAudioText(ADVENTURE_MAP_INSTRUCTIONS.mapEntry)]
     : "";
   const hear = useCallback(() => {
@@ -334,6 +343,24 @@ export function StudentAdventureMapPage({
   const primaryReason = cycleLock.locked
     ? "Your teacher chose this map space."
     : moreWordMatch ? "Match four pairs of new words." : "This is your next unfinished stop.";
+
+  async function openPrimaryStop() {
+    if (opening) return;
+    setOpening(true);
+    try {
+      const cycle = continuation.cycle;
+      const { stationsForCycle } = await import("./elQuest/elQuestEngine.js");
+      const fresh = readMapProgress(progressScopeKey);
+      if (!fresh.ok) { setSpeechStatus("Your map could not be read. Try again."); return; }
+      const { nextStation } = adventureStationContinuation(stationsForCycle(cycle), fresh.cycles[cycle.id]);
+      setOpenStationId(moreWordMatch ? "spell" : nextStation?.id || "");
+      setOpenCycleId(cycle.id);
+    } catch {
+      setSpeechStatus("This game could not open. Try again.");
+    } finally {
+      setOpening(false);
+    }
+  }
 
   function recoverUnreadableProgress() {
     if (!clearElQuestLocalProgress(progressScopeKey)) {
@@ -491,65 +518,35 @@ export function StudentAdventureMapPage({
             <div className="kg-atlas-details-body">
             <span className={`kg-atlas-details-state kg-atlas-details-state--${selectedArea.state}`}>{stateLabel(selectedArea)}</span>
             <h2>{selectedArea.name}</h2>
-            <p>{mapAreaDetails(part.id, scene.stops.indexOf(selectedArea))}</p>
+            <p>{mapAreaDetails(part.id, selectedArea.slot)}</p>
             {selectedArea.state === "locked" && <p className="kg-atlas-details-hint">Keep following the path to get here.</p>}
             </div>
           </aside>}
         </section>
 
         <div className="kg-atlas-continue">
-          {mapCards.map(stop => {
-            const isNext = stop.state === "next";
-            const isMoreWords = stop.id === 'more-word-match';
-            const Tag = isNext ? "button" : "article";
-            return (
-              <Tag
-                key={stop.id}
-                {...(isNext ? { type: "button" } : {})}
-                className={`kg-atlas-continue-button kg-map-card kg-map-card--${stop.state}`}
-                disabled={isNext && opening}
-                onClick={isNext ? async () => {
-                  if (opening) return;
-                  setOpening(true);
-                  try {
-                    const cycleId = isMoreWords ? "cycle-27" : stop.id;
-                    const cycle = mapCycles.find(item => item.id === cycleId);
-                    const { stationsForCycle } = await import("./elQuest/elQuestEngine.js");
-                    const fresh = readMapProgress(progressScopeKey);
-                    if (!fresh.ok) { setSpeechStatus("Your map could not be read. Try again."); return; }
-                    const { nextStation } = adventureStationContinuation(stationsForCycle(cycle), fresh.cycles[cycleId]);
-                    setOpenStationId(isMoreWords ? "spell" : nextStation?.id || "");
-                    setOpenCycleId(cycleId);
-                  } catch { setSpeechStatus("This game could not open. Try again."); }
-                  finally { setOpening(false); }
-                } : undefined}
-                aria-label={isMoreWords ? 'More Word Match' : undefined}
-                aria-disabled={!isNext || undefined}
-                data-cycle-id={isMoreWords ? undefined : stop.id}
-                data-node-state={stop.state}
-                data-child-emphasis={stop.state === "next" ? "primary" : "choice"}
-                {...(stop.state === "next" ? { "data-child-primary": "" } : {})}
-              >
-                <span className="kg-map-card-chip" aria-hidden="true">
-                  {stop.state === "done" ? "✓" : String(stop.number)}
-                </span>
-                <span className="kg-map-card-text">
-                  <strong>{opening ? "Opening…" : `Carry on · ${stop.name}`}</strong>
-                  <small {...(stop.state === "next" ? { "data-child-emphasis-cue": "" } : {})}>
-                    {read.ok && isNext
-                      ? (
-                          <ChildRecommendationExplanation
-                            surface="adventure-map"
-                            reason={primaryReason}
-                          />
-                        )
-                      : read.ok ? stateLabel(stop) : "Still loading"}
-                  </small>
-                </span>
-                {isNext && <span className="kg-map-card-go" aria-hidden="true">&#8594;</span>}
-              </Tag>
-            );
-          })}
+          {primaryAction && (
+            <button
+              type="button"
+              className="kg-atlas-continue-button kg-map-card kg-map-card--next"
+              disabled={opening}
+              onClick={primaryAction}
+              aria-label={moreWordMatch ? "More Word Match" : undefined}
+              data-cycle-id={moreWordMatch ? undefined : primaryStop?.id}
+              data-node-state={mapFinished ? undefined : "next"}
+              data-child-emphasis="primary"
+              data-child-primary=""
+            >
+              <span className="kg-map-card-chip" aria-hidden="true">{primaryStop?.number || "✓"}</span>
+              <span className="kg-map-card-text">
+                <strong>{opening ? "Opening…" : primaryLabel}</strong>
+                {!mapFinished && <small data-child-emphasis-cue="">
+                  <ChildRecommendationExplanation surface="adventure-map" reason={primaryReason} />
+                </small>}
+              </span>
+              <span className="kg-map-card-go" aria-hidden="true">&#8594;</span>
+            </button>
+          )}
         </div>
 
         {scene.next && <button type="button" className="kg-atlas-browse" onClick={() => { setOpenStationId(""); setOpenCycleId(scene.next.id); }}>Choose another game here</button>}

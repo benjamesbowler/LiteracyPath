@@ -1,4 +1,9 @@
 import { expect, test } from "@playwright/test";
+import { freshChapter, currentAct } from "../../demos/sound-seekers/src/chapter/progress.js";
+import { createCampaignPreviewProgress } from "../../src/features/soundSeekers/preview/campaignPreview.js";
+import { woodlandChapterStorageKey } from "../../src/utils/progressKeys.js";
+import { campaignStorageKey } from "../../src/features/soundSeekers/v3/campaignStorage.js";
+import { getCampaignStage } from "../../src/features/soundSeekers/v3/content/campaign.js";
 
 const HARNESS = "/tests/fixtures/soundSeekersRouteIsolationHarness.html";
 const PORTAL = "[data-sound-seekers-route-portal]";
@@ -93,6 +98,52 @@ test("real route owns one isolated fullscreen host and restores exact page state
     scriptInert: false,
     keydownListeners: 0
   });
+});
+
+test("the latest valid adventure leads with its repair, both checkpoints survive and pupils stay isolated", async ({ page }) => {
+  test.slow();
+  const scope = "route-isolation-a";
+  const campaign = { ...createCampaignPreviewProgress("meadow-01"), updatedAt: Date.UTC(2026, 10, 21) };
+  const woodland = { ...freshChapter(19), attempts: 1, mode: "activity", updatedAt: "2026-11-23T00:00:00.000Z" };
+  const rows = [
+    [campaignStorageKey(scope), JSON.stringify(campaign)],
+    [woodlandChapterStorageKey(scope), JSON.stringify(woodland)]
+  ];
+  await page.addInitScript(rows => rows.forEach(([key, value]) => localStorage.setItem(key, value)), rows);
+  await page.goto(HARNESS, { waitUntil: "domcontentloaded" });
+  await expect(page.locator("html")).toHaveAttribute("data-route-harness-ready", "true");
+  await page.getByRole("button", { name: "Open Sound Seekers" }).click();
+  const primary = page.locator(`${PORTAL} [data-mode="title"] [data-child-primary]`);
+  await expect(primary).toHaveText("Continue Woodland Homecoming");
+  await expect(page.getByText(currentAct(woodland).title, { exact: true })).toBeVisible();
+  await expect(page.getByRole("button", { name: `Back to ${getCampaignStage("meadow-01").name}`, exact: true })).toBeVisible();
+  await primary.click();
+  await expect(page.locator('[data-sound-seekers-game="woodland"]')).toHaveAttribute("data-phase", "title");
+  await page.getByRole("button", { name: "Three-world adventure", exact: true }).click();
+  await expect(primary).toHaveText("Continue Woodland Homecoming");
+  expect(await page.evaluate(keys => keys.map(key => localStorage.getItem(key)), rows.map(([key]) => key))).toEqual(rows.map(([, value]) => value));
+
+  await page.evaluate(() => window.__setSoundSeekersRouteScope("route-isolation-b"));
+  await expect(primary).toHaveText("Start exploring");
+  await expect(page.getByRole("button", { name: "Woodland Homecoming", exact: true })).toBeVisible();
+  await expect(page.getByRole("button", { name: /retired|classic adventure/i })).toHaveCount(0);
+});
+
+test("guest return choices ignore device checkpoints and keep changes within that visit", async ({ page }) => {
+  test.slow();
+  const key = woodlandChapterStorageKey("route-isolation-a");
+  const original = JSON.stringify({ ...freshChapter(20), attempts: 4, updatedAt: "2026-11-23T00:00:00.000Z" });
+  await page.addInitScript(({ key, original }) => localStorage.setItem(key, original), { key, original });
+  await page.goto(`${HARNESS}?guest`, { waitUntil: "domcontentloaded" });
+  await expect(page.locator("html")).toHaveAttribute("data-route-harness-ready", "true");
+  await page.getByRole("button", { name: "Open Sound Seekers" }).click();
+  await expect(page.locator(`${PORTAL} [data-mode="title"] [data-child-primary]`)).toHaveText("Start exploring");
+  await page.getByRole("button", { name: "Woodland Homecoming", exact: true }).click();
+  await expect(page.getByRole("button", { name: "Start a new adventure", exact: true })).toHaveCount(0);
+  await page.getByRole("button", { name: "Turn sound on", exact: true }).click();
+  expect(await page.evaluate(key => localStorage.getItem(key), key)).toBe(original);
+  await page.getByRole("button", { name: "Three-world adventure", exact: true }).click();
+  await expect(page.getByRole("button", { name: "Woodland Homecoming", exact: true })).toBeVisible();
 });
 
 test("route traps forward and reverse Tab while nested sheets retain their own focus boundary", async ({ page }) => {

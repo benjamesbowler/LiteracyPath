@@ -1,4 +1,4 @@
-import { useId, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { hasLiteracySupport, literacyEvidenceConditions } from "../../utils/literacyEvidence.js";
 import { LiteracyMockFreshAction } from "./LiteracyMockFreshAction.jsx";
 import { LiteracyMockImage } from "./LiteracyMockImage.jsx";
@@ -81,18 +81,44 @@ export function LiteracyMockReport({ report, receiptStates, initialStudentId = "
   const titleId = useId();
   const [studentId, setStudentId] = useState(initialStudentId);
   const [selected, setSelected] = useState({});
+  const [filter, setFilter] = useState("all");
+  const pupilHeading = useRef(null);
+  const classHeading = useRef(null);
+  const rowButtons = useRef(new Map());
+  const focusTarget = useRef(null);
+  const pupil = report?.pupils.find(row => row.studentId === (controlledStudentId ?? studentId)) || null;
+  const activeStudentId = pupil?.studentId;
+  useEffect(() => {
+    const target = focusTarget.current;
+    if (!target) return;
+    const element = activeStudentId ? pupilHeading.current
+      : rowButtons.current.get(target.returnTo) || classHeading.current;
+    if (element) {
+      focusTarget.current = null;
+      element.focus();
+    }
+  }, [activeStudentId]);
   if (!report) return null;
-  const selectPupil = id => { setStudentId(id); onStudentChange?.(id); };
-  const pupil = report.pupils.find(row => row.studentId === (controlledStudentId ?? studentId)) || null;
+  const selectPupil = id => {
+    if (id === (activeStudentId || "")) return;
+    focusTarget.current = { returnTo: activeStudentId };
+    setStudentId(id);
+    onStudentChange?.(id);
+  };
   const summary = pupil ? literacyMockWorkingSummary(pupil) : null;
   const shownSkills = pupil ? report.totalSkills - pupil.notOfferedSkills : 0;
   const skillFor = response => pupil.skills.find(skill => skill.id === response.skillId);
   const receiptFor = row => receiptStates?.get(row.studentId) ?? row.member?.receipt_state;
+  const awaitingUpload = row => receiptFor(row) === "awaiting_connection";
+  const followUp = row => row.revisit.length > 0 || row.mediaFailureCount > 0
+    || report.needsSample?.some(sample => sample.studentId === row.studentId);
+  const visiblePupils = report.pupils.filter(row => filter === "all"
+    || (filter === "pending" ? awaitingUpload(row) : followUp(row)));
   function receiptLabel(row) {
     if (receiptFor(row) === 'expired') return 'Upload window expired · server answers only';
-    if (receiptFor(row) === 'awaiting_connection') return 'Waiting for device upload';
+    if (receiptFor(row) === 'awaiting_connection') return 'Waiting for upload';
     if (!row.run) return 'No sitting received';
-    if (row.run.status !== 'completed') return 'Still collecting / in progress';
+    if (row.run.status !== 'completed') return 'Collection in progress';
     if (row.planned === null) return 'Sitting received · length not recorded';
     return row.answered === row.planned ? 'Full sitting received' : 'Partial sitting received';
   }
@@ -103,9 +129,15 @@ export function LiteracyMockReport({ report, receiptStates, initialStudentId = "
         <option value="">Whole class</option>
         {report.pupils.map(row => <option key={row.studentId} value={row.studentId}>{row.name}</option>)}
       </select></label>
+      {!pupil && <label>Show<select value={filter} onChange={event => setFilter(event.target.value)}>
+        <option value="all">All pupils</option>
+        <option value="pending">Waiting for upload</option>
+        <option value="follow_up">Needs a follow-up</option>
+      </select></label>}
     </TeacherFilterBar>
     {pupil ? <>
-      <h4>{pupil.name} — test results</h4>
+      <h4 tabIndex={-1} ref={pupilHeading}>{pupil.name} — test results</h4>
+      <button type="button" onClick={() => selectPupil("")}>Back to class results</button>
       {['expired', 'awaiting_connection'].includes(receiptFor(pupil)) && <p role="status">{receiptLabel(pupil)}.</p>}
       {pupil.run?.status !== "completed" && <p role="status">Results received so far. The working profile can change as more answers arrive.</p>}
       {pupil.planned > 0 && <p><strong>{pupil.answered===pupil.planned ? `All ${pupil.planned} questions answered.` : `${pupil.answered} of ${pupil.planned} questions answered.${pupil.run?.status==='completed' ? ' Partial sitting.' : ''}`}</strong></p>}
@@ -178,8 +210,12 @@ export function LiteracyMockReport({ report, receiptStates, initialStudentId = "
         </li>)}</ol>
       </details>}
     </> : <>
-      <h4>Class results at a glance</h4>
-      <TeacherDataTable label="Class assessment summary" className="literacy-mock-table"><caption>Received answers, independent coverage and next steps for every child</caption><thead><tr><th scope="col">Student</th><th scope="col">Received answers</th><th scope="col">Independent evidence</th><th scope="col">Next teaching step</th></tr></thead><tbody>{report.pupils.map(row=>{const view=literacyMockWorkingSummary(row);return <tr key={row.studentId}><th scope="row"><button type="button" onClick={()=>selectPupil(row.studentId)}>{row.name}</button></th><td>{row.answered}{row.planned!==null ? ` of ${row.planned}` : ''}<small>{receiptLabel(row)}</small></td><td>{row.areas.filter(area => area.independent > 0).length} of {row.areas.length} areas<small>{view.accuracy.answered} independent answers · {view.helped.answered} helped</small></td><td>{view.nextStep}</td></tr>;})}</tbody></TeacherDataTable>
+      <h4 tabIndex={-1} ref={classHeading}>Class results at a glance</h4>
+      {visiblePupils.length === 0 && <p role="status">No pupils match this filter.</p>}
+      <TeacherDataTable label="Class assessment summary" className="literacy-mock-table"><caption>Received answers, independent coverage and next steps for every child</caption><thead><tr><th scope="col">Student</th><th scope="col">Received answers</th><th scope="col">Independent evidence</th><th scope="col">Next teaching step</th></tr></thead><tbody>{visiblePupils.map(row=>{const view=literacyMockWorkingSummary(row);return <tr key={row.studentId}><th scope="row"><button type="button" aria-label={`View ${row.name}’s report`} ref={element => {
+        if (element) rowButtons.current.set(row.studentId, element);
+        else rowButtons.current.delete(row.studentId);
+      }} onClick={()=>selectPupil(row.studentId)}>{row.name}</button></th><td>{row.answered}{row.planned!==null ? ` of ${row.planned}` : ''}<small>{receiptLabel(row)}</small></td><td>{row.areas.filter(area => area.independent > 0).length} of {row.areas.length} areas<small>{view.accuracy.answered} independent answers · {view.helped.answered} helped</small></td><td>{view.nextStep}</td></tr>;})}</tbody></TeacherDataTable>
       <h4>What to practise next</h4>
       <p>Open an area below to see children’s answers, then open a child’s report. Try a new example together before deciding what to teach.</p>
       <details><summary>How these suggestions are chosen</summary><p>This unselected review list uses recent independent errors from this session and the available earlier sessions, at the same skill, task demand and access conditions. A small sample calls for a fresh check, not a teaching group. Nothing creates a placement or saved group.</p></details>

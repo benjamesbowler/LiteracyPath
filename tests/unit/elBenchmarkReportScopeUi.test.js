@@ -447,3 +447,37 @@ test("finished report item evidence source keeps native disclosure and table sem
   assert.match(styles, /\.student-report-benchmark-exact-response[\s\S]*white-space: pre-wrap/);
   assert.match(styles, /content: attr\(data-label\)/, "mobile rows must retain visible column labels");
 });
+
+test("Word Reading uses the judged reading-speed count in the student view and class print", async t => {
+  const vite = await createServer({ appType: "custom", logLevel: "silent", server: { middlewareMode: true } });
+  t.after(() => vite.close());
+  const [
+    { FinishedReportPage }, { ElClassReportDocument }, { buildClassElAssessmentReportData },
+    { getElBenchmarkPlan, buildElBenchmarkAttempt, EL_BENCHMARK_IDS }
+  ] = await Promise.all([
+    vite.ssrLoadModule("/src/components/FinishedReportPage.jsx"),
+    vite.ssrLoadModule("/src/components/reports/ElClassReportDocument.jsx"),
+    vite.ssrLoadModule("/src/data/elAssessmentReportStore.js"),
+    vite.ssrLoadModule("/src/data/elBenchmarkAssessments.js")
+  ]);
+  const learner = { id: "student-1", name: "Ada", classId: "class-1" };
+  const benchmarkScope = { grade: "1", benchmarkWindow: "BOY" };
+  const plan = getElBenchmarkPlan({ assessmentId: EL_BENCHMARK_IDS.DECODING, grade: "1", window: "BOY" });
+  const [first, second] = plan.items;
+  const history = [buildElBenchmarkAttempt({
+    studentId: learner.id, studentName: learner.name, classId: learner.classId,
+    assessmentId: plan.assessmentId, grade: "1", window: "BOY", administrationStatus: "partial",
+    responses: {
+      [first.id]: { status: "correct", isCorrect: true, automatic: true, responseText: first.targetWord },
+      [second.id]: { status: "correct", isCorrect: true, responseText: second.targetWord }
+    }
+  })];
+  const individual = renderToStaticMarkup(React.createElement(FinishedReportPage, finishedReportProps(history)));
+  assert.match(individual, /Reading speed recorded for 1\. 1 read straight away/);
+  const classReport = buildClassElAssessmentReportData({
+    students: [learner], classId: learner.classId, benchmarkScope, assessmentHistory: history
+  });
+  const printed = renderToStaticMarkup(React.createElement(ElClassReportDocument, { report: classReport }));
+  assert.match(printed, /Words with reading speed recorded/);
+  assert.match(printed, /Reading speed recorded for 1\. 1 read straight away/);
+});

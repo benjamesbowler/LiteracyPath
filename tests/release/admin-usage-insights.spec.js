@@ -51,3 +51,21 @@ test.describe("admin on-demand usage export",()=>{
     expect(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth)).toBe(true);
   });
 });
+
+test("changing school filters disables the old prepared download until regeneration", async ({ page }) => {
+  test.setTimeout(120000);
+  await page.goto("/preview/app-usage-insights.html?fixture=empty");
+  const generate = page.getByRole("button", { name: "Generate report", exact: true });
+  const download = page.getByRole("button", { name: "Download JSON for Codex" });
+  await generate.click();
+  await expect(page.getByText("Prepared for All schools")).toBeVisible({ timeout: 60000 });
+  await expect(download).toBeEnabled();
+  await page.locator(".admin-usage-filters select").selectOption("synthetic-school");
+  await expect(download).toBeDisabled();
+  await generate.click();
+  await expect(page.getByText("Prepared for Fixture School")).toBeVisible({ timeout: 60000 });
+  await expect(download).toBeEnabled();
+  expect(await page.evaluate(() => window.__usageFixtureCalls
+    .filter(call => call.name === "admin_create_usage_snapshot").map(call => call.args.p_school_id)))
+    .toEqual([null, "synthetic-school"]);
+});

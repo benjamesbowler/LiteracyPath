@@ -3,6 +3,9 @@ import { createPortal } from "react-dom";
 import WoodlandChapter from "./WoodlandChapter.jsx";
 import RoundedCampaign from "./rounded/RoundedCampaign.jsx";
 import { warmQuestOfflineExecutable } from "../../utils/offlineShell.js";
+import { woodlandChapterStorageKey } from "../../utils/progressKeys.js";
+import { readChapterSaveResult } from "../../../demos/sound-seekers/src/chapter/storage.js";
+import { woodlandReturn } from "./soundSeekersEntry.js";
 
 const EMPTY_ACCESSIBILITY_SETTINGS = Object.freeze({});
 const FOCUSABLE_SELECTOR = [
@@ -74,7 +77,6 @@ export default function SoundSeekersRoute({
     throw new TypeError("Sound Seekers route props are invalid");
   }
   const [portalHost, setPortalHost] = useState(null);
-  const [journey, setJourney] = useState('campaign');
   useEffect(() => { void warmQuestOfflineExecutable(); }, []);
   const returnFocusRef = useRef(
     typeof document !== "undefined" && typeof document.activeElement?.focus === "function"
@@ -148,33 +150,74 @@ export default function SoundSeekersRoute({
     };
   }, []);
 
-  useEffect(() => {
-    if (!portalHost?.isConnected) return;
-    focusRouteSurface(portalHost);
-  }, [portalHost, progressScopeKey]);
-
   const leave = useCallback(() => {
     onExit();
   }, [onExit]);
 
+  return portalHost ? createPortal(
+    <SoundSeekersJourneys key={progressScopeKey} {...{ portalHost, progressScopeKey, isSoundEnabled, ephemeral, accessibilitySettings, leave }} />,
+    portalHost
+  ) : null;
+}
+
+function SoundSeekersJourneys({ portalHost, progressScopeKey, isSoundEnabled, ephemeral, accessibilitySettings, leave }) {
+  const [journey, setJourney] = useState('campaign');
+  const [getStorage] = useState(() => {
+    if (!ephemeral) return () => window.localStorage;
+    // Try sessions share their two checkpoints only within this visit.
+    const bytes = new Map();
+    const memory = {
+      getItem: key => bytes.get(key) ?? null,
+      setItem: (key, value) => bytes.set(key, value),
+      removeItem: key => bytes.delete(key)
+    };
+    return () => memory;
+  });
+  const woodlandKey = woodlandChapterStorageKey(progressScopeKey);
+  const [woodland, setWoodland] = useState(() => woodlandReturn(readChapterSaveResult(woodlandKey, getStorage)));
+  const refreshWoodland = useCallback(() => setWoodland(woodlandReturn(readChapterSaveResult(woodlandKey, getStorage))), [getStorage, woodlandKey]);
+
+  useEffect(() => {
+    if (ephemeral) return undefined;
+    const hydrated = event => {
+      if (event.detail?.studentId === progressScopeKey) refreshWoodland();
+    };
+    const changed = event => {
+      if (event.key === woodlandKey || event.key === null) refreshWoodland();
+    };
+    window.addEventListener('lp-progress-hydrated', hydrated);
+    window.addEventListener('storage', changed);
+    return () => {
+      window.removeEventListener('lp-progress-hydrated', hydrated);
+      window.removeEventListener('storage', changed);
+    };
+  }, [ephemeral, progressScopeKey, refreshWoodland, woodlandKey]);
+  useEffect(() => {
+    if (!portalHost?.isConnected) return;
+    focusRouteSurface(portalHost);
+  }, [portalHost, journey]);
+
   // The expanded rounded3D journey and original chapter keep separate saves.
-  const game = (
+  return (
     journey === 'woodland' ? <WoodlandChapter
       key={progressScopeKey}
       progressScopeKey={progressScopeKey}
       isSoundEnabled={isSoundEnabled}
       ephemeral={ephemeral}
+      getStorage={getStorage}
       onExit={leave}
+      onOpenCampaign={() => { refreshWoodland(); setJourney('campaign'); }}
       accessibilitySettings={accessibilitySettings}
     /> : <RoundedCampaign
       key={progressScopeKey}
       progressScopeKey={progressScopeKey}
       isSoundEnabled={isSoundEnabled}
       ephemeral={ephemeral}
+      getStorage={getStorage}
       accessibilitySettings={accessibilitySettings}
       onExit={leave}
+      woodlandEntry={woodland}
       onOpenWoodland={() => setJourney('woodland')}
     />
   );
-  return portalHost ? createPortal(game, portalHost) : null;
 }

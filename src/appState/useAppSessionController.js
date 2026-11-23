@@ -64,6 +64,7 @@ import {
 } from "./classDashboardReadState.js";
 import { finishStudentSignOut } from "../utils/studentSessionRecovery.js";
 import { PRACTICE_RESET_RETAINED_AREAS } from "../utils/progressSync.js";
+import { mergeGuidedReadingEvidence } from "../utils/guidedReading/completionPolicy.js";
 import { loadTeacherSchoolName } from "../data/teacherSchoolProfile.js";
 import { shouldApplyRestoredAppView } from "./appViewHelpers.js";
 import { createInternalTeacherUsername } from "./teacherSignupIdentity.js";
@@ -476,9 +477,12 @@ export function useAppSessionController(context) {
     if (!bookId || !studentId) return;
 
     setGuidedReadingRecords(previous => {
+      const saved = previous[bookId];
+      const latest = String(saved?.updatedAt || "") > String(record.updatedAt || "") ? saved : record;
+      const merged = mergeGuidedReadingEvidence(saved, record, latest);
       const next = {
         ...previous,
-        [bookId]: record
+        [bookId]: merged
       };
       const key = getGuidedReadingStorageKey(studentId);
       if (key) {
@@ -488,7 +492,7 @@ export function useAppSessionController(context) {
           console.warn("Could not save the guided reading record on this device.", error);
         }
       }
-      queueProgressSave("guided_reading", bookId, { v: 1, ...record }, { scopeKey: studentId });
+      queueProgressSave("guided_reading", bookId, { v: 1, ...merged }, { scopeKey: studentId });
       return next;
     });
   }

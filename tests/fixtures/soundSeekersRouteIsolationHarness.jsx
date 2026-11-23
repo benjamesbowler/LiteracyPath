@@ -26,6 +26,7 @@ function RouteIsolationHarness() {
   return mounted ? (
     <SoundSeekersRoute
       progressScopeKey={scopeKey}
+      ephemeral={new URLSearchParams(location.search).has("guest")}
       isSoundEnabled={false}
       onExit={() => setMounted(false)}
       accessibilitySettings={{ reducedMotion: true }}

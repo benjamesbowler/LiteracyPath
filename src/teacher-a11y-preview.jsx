@@ -309,8 +309,10 @@ function Dashboard({ page }) {
     () => previewArchivedStudents
   );
   const [newClassName, setNewClassName] = useState("");
+  const [selectedPreviewGroup, setSelectedPreviewGroup] = useState("all");
   const [dashboardRows, setDashboardRows] = useState(() => previewProgressRows.map(row => ({
     ...row,
+    ...(params.has("empty-session-group") ? { lastActive: "2026-07-22T09:00:00.000Z", currentLastActive: "2026-07-22T09:00:00.000Z" } : {}),
     ...(params.has("focus-evidence") ? {
       lastActive: new Date().toISOString(),
       currentLastActive: new Date().toISOString(),
@@ -442,8 +444,8 @@ function Dashboard({ page }) {
       onLoadStudent={rowStudentId => setSelectedPreviewStudentId(rowStudentId)}
       selectedStudentId={selectedPreviewStudentId}
       onClearStudent={() => setSelectedPreviewStudentId("")}
-      selectedGroupId="all"
-      onSelectGroup={noop}
+      selectedGroupId={selectedPreviewGroup}
+      onSelectGroup={setSelectedPreviewGroup}
       onStartCheck={async row => { window.__teacherPreviewAssessment = { studentId: row.id }; }}
       currentCycleId={params.get("cycle") ?? "cycle-3"}
       setupFocus={params.get("task") || ""}
@@ -1030,7 +1032,7 @@ function CycleContext() {
     {!context.cycleId && context.suggestedCycleId && <button type="button" onClick={() => setState(confirmTeacherCycle({ state, teacherId: activeTeacherId, classId: selectedClassId, cycleId: context.suggestedCycleId, cycleOptions: teacherCycleOptions() }))}>Use previously chosen cycle for {activeClassName}</button>}
     <button type="button" className="lp-button" onClick={() => setPage(current => current === "present" ? "worksheets" : "present")}>{page === "present" ? "Open worksheets" : "Open Present"}</button>
     {page === "present"
-      ? <PresentPage classId={selectedClassId} className={activeClassName} currentCycleId={context.cycleId} onBack={noop} />
+      ? <PresentPage classId={selectedClassId} className={activeClassName} currentCycleId={context.cycleId} onBack={noop} onStartStudentSession={(ids, context) => { window.__presentPractice = { ids, context }; }} />
       : <WorksheetGeneratorPage classId={selectedClassId} teacherId={activeTeacherId} className={activeClassName} currentCycleId={context.cycleId} onBack={noop} />}
   </>;
 }

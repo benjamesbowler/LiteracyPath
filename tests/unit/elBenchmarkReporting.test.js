@@ -1917,7 +1917,8 @@ test("Decoding aggregate categories keep self-corrections separate from accurate
       transcription: item.targetWord,
       isCorrect: true,
       automatic: index < 2,
-      selfCorrected: index >= 2 && index < 4
+      selfCorrected: index >= 2 && index < 4,
+      evaluation: index >= 4 ? "accurate_after_sounding" : ""
     }]))
   }));
   const formal = buildIndividualElFormalAssessmentReport({
@@ -1934,4 +1935,67 @@ test("Decoding aggregate categories keep self-corrections separate from accurate
     detail.automaticCount + detail.accurateAfterSoundingCount + detail.selfCorrectedCount,
     detail.accurateCount
   );
+});
+
+test("a partial Word Reading scorer, class report and reopened workbooks preserve the judged denominator", async () => {
+  const plan = getElBenchmarkPlan({ assessmentId: EL_BENCHMARK_IDS.DECODING, grade: "1", window: "BOY" });
+  const [first, second] = plan.items;
+  const run = (administrationStatus, responses) => buildElBenchmarkAttempt({
+    attemptId: "word-reading-partial",
+    studentId: student.id, studentName: student.name, classId: student.classId,
+    assessmentId: plan.assessmentId, grade: "1", window: "BOY",
+    administrationStatus, responses
+  });
+  const response = item => ({ status: "correct", isCorrect: true, responseText: item.targetWord });
+  const responses = { [first.id]: { ...response(first), automatic: true }, [second.id]: response(second) };
+  const benchmarkScope = { grade: "1", benchmarkWindow: "BOY" };
+  const attempt = run("partial", responses);
+  assert.equal(attempt.metrics.automaticity, 100);
+  assert.equal(attempt.candidatePlacement?.candidateMicrophase ?? null, null);
+  const assessmentHistory = [normalizeAssessmentAttempt(compactAssessmentAttemptForStorage(attempt))];
+  const input = { students: [student], studentId: student.id, classId: student.classId, benchmarkScope, assessmentHistory };
+  const individual = buildStudentElAssessmentReportData(input);
+  const detail = individual.formalAssessments.individualBenchmarkDetails[0];
+  assert.deepEqual(
+    [detail.accurateCount, detail.automaticityJudgedCount, detail.automaticityMissingCount, detail.automaticityRate, detail.accurateAfterSoundingCount],
+    [2, 1, 1, 100, 0]
+  );
+  assert.equal(detail.bandRows[0].automaticityRate, 100);
+  const individualBook = await createStudentElAssessmentWorkbook(individual);
+  const reopened = new individualBook.constructor();
+  await reopened.xlsx.load(await individualBook.xlsx.writeBuffer());
+  const row = worksheetRows(reopened.getWorksheet("Decoding Detail")).find(item => item["Item ID"] === second.id);
+  assert.equal(row.Automatic, "Not recorded");
+  assert.equal(row["Reading speed recorded count"], 1);
+  assert.equal(row["Attempt automaticity"], 1);
+
+  const classBook = await createClassElAssessmentWorkbook(buildClassElAssessmentReportData(input));
+  await reopened.xlsx.load(await classBook.xlsx.writeBuffer());
+  const classRow = worksheetRows(reopened.getWorksheet("Benchmark Domain Summary"))
+    .find(row => row["Decoding reading speed recorded count"] === 1);
+  assert.equal(classRow["Decoding accurate count"], 2);
+  assert.equal(classRow["Decoding average automaticity"], 1);
+
+  const format = value => buildIndividualElFormalAssessmentReport({
+    student, benchmarkScope, assessmentHistory: [value]
+  }).individualBenchmarkDetails[0];
+  const missing = format(run("discontinued", { [first.id]: response(first), [second.id]: response(second) }));
+  assert.equal(missing.accuracyRate, 100);
+  assert.equal(missing.automaticityRate, null);
+  const suppressed = format(run("not_scorable", responses));
+  assert.equal(suppressed.automaticityJudgedCount, 0);
+  assert.equal(suppressed.itemDetails[0].automatic, null);
+
+  const legacy = format({
+    ...common, ...attempt, administrationStatus: "partial",
+    questionRecords: [
+      { questionId: "one", responseStatus: "correct", scoringCode: "automatic_accurate" },
+      { questionId: "two", responseStatus: "correct", scoringCode: "accurate_after_sounding" },
+      { questionId: "three", responseStatus: "correct" },
+      { questionId: "four", responseStatus: "self_corrected", automaticity: true }
+    ]
+  });
+  assert.deepEqual(legacy.itemDetails.map(item => item.automatic), [true, false, null, false]);
+  assert.equal(legacy.automaticityJudgedCount, 3);
+  assert.equal(legacy.accurateAfterSoundingCount, 1);
 });
