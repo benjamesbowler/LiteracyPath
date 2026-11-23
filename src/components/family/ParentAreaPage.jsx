@@ -191,7 +191,7 @@ function Progress({ model }) {
   );
 }
 
-function Reports({ model, onOpenReport, onPrintReport }) {
+function Reports({ model, onOpenReport, onPrintReport, printing }) {
   return (
     <div className="pa-page" data-parent-section="reports">
       <SectionHeading
@@ -210,8 +210,8 @@ function Reports({ model, onOpenReport, onPrintReport }) {
                 <p>{report.summary}</p>
               </div>
               <div className="pa-report-actions">
-                <button type="button" className="pa-button pa-button-secondary" onClick={() => onOpenReport(report, model)}><FileText size={18} aria-hidden="true" />Open</button>
-                <button type="button" className="pa-icon-button" onClick={() => onPrintReport(report, model)} aria-label={`Print or save ${report.title}`}><Printer size={20} aria-hidden="true" /></button>
+                <button type="button" className="pa-button pa-button-secondary" onClick={() => onOpenReport(report, model)} aria-label={`Open ${report.title}`}><FileText size={18} aria-hidden="true" />Open</button>
+                <button type="button" className="pa-icon-button" onClick={() => onPrintReport(report, model)} disabled={printing} aria-label={`Print or save ${report.title}`}><Printer size={20} aria-hidden="true" /></button>
               </div>
             </article>
           ))}
@@ -261,6 +261,8 @@ export function ParentAreaPage({
   preferredLanguage = "en",
   reportNotifications = false,
   accountMessage = "",
+  reportMessage = "",
+  printing = false,
   onRetry = () => {},
   onOpenReport = () => {},
   onPrintReport = () => {},
@@ -300,9 +302,10 @@ export function ParentAreaPage({
         <div>{PRIMARY_SECTIONS.map(({ id, label, Icon }) => <button type="button" key={id} className={section === id ? "is-active" : ""} onClick={() => setSection(id)} aria-current={section === id ? "page" : undefined}><Icon size={20} aria-hidden="true" /><span>{label}</span></button>)}</div>
       </nav>
       <main id="parent-main" className="pa-main" tabIndex="-1">
+        {reportMessage && <p role="alert">{reportMessage}</p>}
         {section === "overview" ? <Overview model={model} onChangeSection={setSection} /> : null}
         {section === "progress" ? <Progress model={model} /> : null}
-        {section === "reports" ? <Reports model={model} onOpenReport={onOpenReport} onPrintReport={onPrintReport} /> : null}
+        {section === "reports" ? <Reports model={model} onOpenReport={onOpenReport} onPrintReport={onPrintReport} printing={printing} /> : null}
         {section === "account" ? <Account models={models} model={model} preferredLanguage={preferredLanguage} reportNotifications={reportNotifications} accountMessage={accountMessage} onUpdatePreferences={onUpdatePreferences} onSignOut={onSignOut} /> : null}
       </main>
       <footer className="pa-footer"><span>Family information shared by {model.learner.schoolName}</span><span>Secure family access</span></footer>

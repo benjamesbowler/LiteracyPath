@@ -5,6 +5,7 @@ import "./index.css";
 import "./App.css";
 import "./styles/parent-auth.css";
 import { ParentAreaPage } from "./components/family/ParentAreaPage.jsx";
+import { ParentApp } from "./components/family/ParentApp.jsx";
 import { FamilyReportDialog } from "./components/family/FamilyReportDialog.jsx";
 import { FAMILY_COPY } from "./copy/familyCopy.js";
 import { buildParentAreaModel } from "./data/parentAreaModel.js";
@@ -135,4 +136,43 @@ export function ParentAreaPreview() {
   return <><ParentAreaPage models={models} initialSection={requestedSection} state={state} onRetry={() => setState("ready")} onOpenReport={(report, model) => { setOpenReport(report); setOpenReportModel(model); }} /><FamilyReportDialog report={openReport} model={openReportModel} onClose={() => { setOpenReport(null); setOpenReportModel(null); }} onPrint={() => {}} /></>;
 }
 
-createRoot(document.getElementById("root")).render(<ParentAreaPreview />);
+function createPortalFixture({ acceptInvite }) {
+  const [first, second] = PARENT_AREA_PREVIEW_MODELS;
+  const child = model => ({ learner: model.learner, latest_snapshot: model, reports: model.reports });
+  const session = id => ({ user: { id } });
+  let current = session("fixture-guardian-a");
+  let onAuth = () => {};
+  const fixture = { accepted: 0, reads: 0, withdrawn: false, setGuardian(id) {
+    current = id ? session(id) : null;
+    onAuth(id ? "SIGNED_IN" : "SIGNED_OUT", current);
+  } };
+  window.__familyPortalFixture = fixture;
+  return {
+    auth: {
+      onAuthStateChange(callback) { onAuth = callback; return { data: { subscription: { unsubscribe() {} } } }; },
+      async getSession() { return { data: { session: current } }; },
+      async signOut() { fixture.setGuardian(null); return {}; }
+    },
+    async call(name) {
+      if (name === "guardian_invite_preview") return { data: { ok: true, school_name: "Fixture school" } };
+      if (name === "guardian_accept_invite") {
+        fixture.accepted += 1;
+        return { data: { ok: true } };
+      }
+      if (name === "guardian_get_portal") {
+        fixture.reads += 1;
+        if (acceptInvite && fixture.reads === 1) return { error: new Error("Simulated network outage") };
+        const selection = child(current?.user.id === "fixture-guardian-a" ? first : second);
+        if (fixture.withdrawn) selection.reports = [];
+        return { data: { ok: true, children: current ? [selection] : [] } };
+      }
+      return { data: { ok: true } };
+    }
+  };
+}
+
+const fixture = new URLSearchParams(window.location.search).get("portal");
+const root = createRoot(document.getElementById("root"));
+root.render(fixture
+  ? <ParentApp client={createPortalFixture({ acceptInvite: fixture === "accept" })} configured />
+  : <ParentAreaPreview />);

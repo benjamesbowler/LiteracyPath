@@ -1241,6 +1241,7 @@ test("A3.6 required Story Quest image readiness waits for a delayed image and re
   await (await showStoryQuestCard(page, hiddenGlowCard)).click();
   await requested;
   const reader = page.locator('.story-quest-reader');
+  await showStoryQuestReaderPane(reader, 'Picture');
   const image = reader.locator('.story-quest-image');
   let ready = false;
   const readiness = expectRequiredImageReady(page, image, 'delayed Story Quest image').then(() => { ready = true; });
@@ -1258,6 +1259,7 @@ test("A3.6 required Story Quest image readiness waits for a delayed image and re
   await page.reload();
   await page.getByRole('button', { name: 'Moonwood', exact: true }).click();
   await (await showStoryQuestCard(page, hiddenGlowCard)).click();
+  await showStoryQuestReaderPane(reader, 'Picture');
   await expect(reader.locator('.story-quest-image-placeholder')).toBeVisible();
   await expect(expectRequiredImageReady(page, image, 'failed Story Quest image')).rejects.toThrow();
 });
@@ -1849,7 +1851,7 @@ for (const height of [780, 860, 901, 973, 974]) {
   });
 }
 
-test("A3.6 Phonics names Complete and Try again in the freely chosen alphabet", async ({ page }) => {
+test("A3.6 Phonics names Complete and Continue in the freely chosen alphabet", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/preview/child-surfaces.html?surface=phonics");
@@ -1874,7 +1876,7 @@ test("A3.6 Phonics names Complete and Try again in the freely chosen alphabet", 
 
 
   await expect(surface.getByRole("button", { name: "Letter A, Complete", exact: true })).toBeVisible();
-  await expect(surface.getByRole("button", { name: "Letter B, Try again", exact: true })).toBeVisible();
+  await expect(surface.getByRole("button", { name: "Letter B, Continue", exact: true })).toBeVisible();
 });
 
 test("A3.6 Adventure Map guard rejects truncated tablet route names", async ({ page }) => {

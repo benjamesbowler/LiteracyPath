@@ -23,6 +23,16 @@
       var remaining = Number.isFinite(duration) && duration > 0 ? Math.max(0, duration - (Number(run.audio.currentTime) || 0)) : 12;
       run.watchdog = setTimeout(function () { if (active === run) finish(run, 'interrupted'); }, Math.max(5000, remaining * 1000 + 5000));
     }
+    function startPlayback(run) {
+      var attempt = ++run.attempt;
+      function interrupted() {
+        // Some browsers reject a pending play() when the teacher pauses it.
+        // A rejection from that earlier attempt must not cancel a later resume.
+        if (active === run && run.attempt === attempt && !run.paused) finish(run, 'interrupted');
+      }
+      watchdog(run);
+      try { run.audio.play()?.catch?.(interrupted); } catch { interrupted(); }
+    }
     function play(src, role) {
       stop(); serial += 1;
       if (!src) { notify('unavailable'); return Promise.resolve({ status: 'unavailable', requestId: serial, src: '' }); }
@@ -30,22 +40,22 @@
       return new Promise(function (resolve) {
         var audio;
         try { audio = makeAudio(src); } catch { notify('unavailable'); resolve({ status: 'unavailable', requestId: serial, src: src }); return; }
-        var run = { id: serial, src: src, audio: audio, resolve: resolve, done: false, listeners: [], paused: false };
+        var run = { id: serial, src: src, audio: audio, resolve: resolve, done: false, listeners: [], paused: false, attempt: 0 };
         active = run;
         function listen(name, callback) { audio.addEventListener(name, callback); run.listeners.push([name, callback]); }
         listen('ended', function () { if (active === run) finish(run, 'ended'); });
         listen('error', function () { if (active === run) finish(run, 'unavailable'); });
-        listen('playing', function () { if (active === run) { notify('playing'); watchdog(run); } });
+        listen('playing', function () { if (active === run && !run.paused) { notify('playing'); watchdog(run); } });
         listen('loadedmetadata', function () { if (active === run && !run.paused) watchdog(run); });
-        notify('loading'); watchdog(run);
-        try { var request = audio.play(); if (request && request.catch) request.catch(function () { if (active === run) finish(run, 'interrupted'); }); } catch { finish(run, 'interrupted'); }
+        notify('loading');
+        startPlayback(run);
       });
     }
-    function pause() { if (active) { active.paused = true; clearTimeout(active.watchdog); active.audio.pause(); notify('paused'); } }
+    function pause() { if (active && !active.paused) { active.paused = true; clearTimeout(active.watchdog); active.audio.pause(); notify('paused'); } }
     function resume() {
       if (!active || !active.paused) return;
-      var run = active; run.paused = false; watchdog(run);
-      try { var request = run.audio.play(); if (request && request.catch) request.catch(function () { if (active === run) finish(run, 'interrupted'); }); } catch { finish(run, 'interrupted'); }
+      var run = active; run.paused = false;
+      startPlayback(run);
     }
     return { play: play, stop: stop, pause: pause, resume: resume,
       setSpeechEnabled: function (value) { speech = Boolean(value); if (!speech) stop(); },

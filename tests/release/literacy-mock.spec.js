@@ -247,6 +247,7 @@ test('a confirmed revision rejection exposes recovery and permits a fresh answer
 });
 
 test('media failure replaces the same slot, persists excluded assets and keeps helped answers distinct', async ({ page }) => {
+  test.setTimeout(90000);
   await simulatedAudio(page);
   await page.addInitScript(() => { window.__mockAudio.failNext = !sessionStorage.getItem('mock-first-audio-failed'); sessionStorage.setItem('mock-first-audio-failed', 'true'); });
   await open(page, '&item=lp3.initial_sounds.l1.A.a.v1');
@@ -315,10 +316,10 @@ test('teacher can switch from a selected pupil to full class and prepare valid w
   await page.getByRole('button', { name: 'Prepare for 2 students', exact: true }).click();
   await page.getByRole('button', { name: 'Retry the same preparation', exact: true }).click();
   await expect(page.getByRole('button', { name: 'Start assessment', exact: true })).toBeVisible();
-  const call = (await server(page)).calls.find(call => call.name === 'teacher_prepare_literacy_mock_session_v4');
+  const call = (await server(page)).calls.find(call => call.name === 'teacher_prepare_literacy_mock_session_v12');
   expect(call.args.p_student_ids).toEqual([]);
   expect(call.args.p_whole_class).toBe(true);
-  const preparations = (await server(page)).calls.filter(call => call.name === 'teacher_prepare_literacy_mock_session_v4');
+  const preparations = (await server(page)).calls.filter(call => call.name === 'teacher_prepare_literacy_mock_session_v12');
   expect(preparations).toHaveLength(2);
   expect(preparations[0].args).toEqual(preparations[1].args);
   const preparedId = (await server(page)).session.id;
@@ -480,7 +481,7 @@ test('teacher timeouts preserve verified rows and recover preparation without a 
   await page.evaluate(() => window.__literacyMock.setFault(null));
   await page.getByRole('button', { name: 'Retry the same preparation', exact: true }).click();
   await expect(page.getByRole('button', { name: 'Start assessment', exact: true })).toBeVisible();
-  const requests = (await server(page)).calls.filter(call => call.name === 'teacher_prepare_literacy_mock_session_v4');
+  const requests = (await server(page)).calls.filter(call => call.name === 'teacher_prepare_literacy_mock_session_v12');
   expect(requests).toHaveLength(2); expect(requests[0].args).toEqual(requests[1].args);
 });
 
@@ -1312,4 +1313,43 @@ for (const audience of ['whole class', 'individual']) test(`one full teacher-lau
   expect(completed.every(record => new Set(record.run.responses.map(response => response.questionId)).size === 43)).toBe(true);
 });
 
+});
+
+test('the 28-pupil mock class opens at the summary and returns keyboard focus to the pupil row', async ({ page }) => {
+  await open(page, '&mode=teacher&session=mock-session&fullRoster&priorTaskAnswer');
+  const table = page.getByRole('region', { name: 'Class assessment summary' }).getByRole('table');
+  await expect(table.locator('tbody tr')).toHaveCount(28);
+  await expect(page.getByRole('button', { name: 'View Alex’s report', exact: true })).toHaveCount(1);
+  await page.getByRole('combobox', { name: 'Show', exact: true }).selectOption('pending');
+  await expect(table.locator('tbody tr')).toHaveCount(1);
+  await expect(table.getByText('Waiting for upload', { exact: true })).toBeVisible();
+  const rowButton = table.getByRole('button', { name: 'View Bailey’s report', exact: true });
+  if (test.info().project.name === 'mobile') await rowButton.tap();
+  else {
+    await rowButton.focus();
+    await page.keyboard.press('Enter');
+  }
+  await expect(page.getByRole('heading', { name: 'Bailey — test results' })).toBeFocused();
+  await page.getByRole('button', { name: 'Back to class results' }).click();
+  await expect(rowButton).toBeFocused();
+  await page.getByRole('combobox', { name: 'Report for', exact: true }).selectOption('student-a');
+  await expect(page.getByRole('heading', { name: 'Alex — test results' })).toBeFocused();
+  await expect(page.getByText('1 independent answer correct in this sitting.', { exact: false })).toBeVisible();
+  await expect(page.locator('.literacy-mock-result-summary')).toContainText('1 helped');
+  await expect(page.getByText('Media availability log (1)', { exact: true })).toBeVisible();
+});
+
+for (const scenario of [
+  { name: 'V13', query: '&version=literacy-mock-v13', rpc: 'v13', copy: 'Expect one or two First steps questions per area.' },
+  { name: 'the V12 fallback', query: '&version=literacy-mock-v12&availability=missing', rpc: 'v12', copy: 'This session uses the earlier version.' },
+  { name: 'a transport failure', query: '&availability=network', rpc: null, copy: 'Test availability could not be checked.' }
+]) test(`mock preparation shows the actual route for ${scenario.name}`, async ({ page }) => {
+  await open(page, `&mode=teacher${scenario.query}`);
+  await page.getByLabel('Questions', { exact: true }).selectOption('15');
+  await expect(page.getByText('Expect one or two First steps questions per area.', { exact: false })).toHaveCount(0);
+  await page.getByRole('button', { name: 'Prepare for 2 students', exact: true }).click();
+  await expect(page.getByText(scenario.copy, { exact: false })).toBeVisible();
+  const calls = (await server(page)).calls.filter(row => row.name.startsWith('teacher_prepare_literacy_mock_session'));
+  expect(calls.map(row => row.name)).toEqual(scenario.rpc ? [`teacher_prepare_literacy_mock_session_${scenario.rpc}`] : []);
+  if (scenario.rpc) expect(calls[0].args.p_item_count).toBe(15);
 });

@@ -99,7 +99,9 @@ export function mergeProgressQueueEntries(existing, incoming) {
     }
   } else if (["el_quest", "daily_mission", "hollow"].includes(incoming.area)) {
     payload = computeHydratedValue(incoming.area, incoming.key, existing.payload, incoming.payload);
-  } else if (["story_quests", "guided_reading"].includes(incoming.area)) {
+  } else if (incoming.area === "guided_reading") {
+    payload = computeHydratedValue(incoming.area, incoming.key, { [incoming.key]: existing.payload }, incoming.payload)[incoming.key];
+  } else if (incoming.area === "story_quests") {
     payload = mergeMonotonic(existing.payload, incoming.payload);
   } else if (["phonics_letters", "cvc"].includes(incoming.area)) {
     payload = mergePracticeProgressRecords(existing.payload, incoming.payload);

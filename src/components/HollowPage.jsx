@@ -258,8 +258,9 @@ export function HollowPage({ studentName, progressScopeKey = "default", onOpenBo
 
   useEffect(() => {
     function handleHydrated(event) {
-      if (event.detail?.studentId && event.detail.studentId !== scope) return;
+      if (event.detail?.studentId !== scope) return;
       setCompanionState(getCompanion(scope));
+      setTheme(loadStudentProfile(scope).denTheme || "meadow");
       setHydrationTick(tick => tick + 1);
     }
     window.addEventListener("lp-progress-hydrated", handleHydrated);

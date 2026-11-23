@@ -11,7 +11,11 @@ export function benchmarkObservationSummary(profile = {}, detail = profile.detai
     return `${detail.exactSpellingCount} of ${total} words spelled correctly. ${detail.plausibleSpellingCount} more represented the sounds with a different spelling.`;
   }
   if (profile.domainKey === "decoding" && count(total) && total > 0 && count(detail.accurateCount) && count(detail.automaticCount)) {
-    return `${detail.accurateCount} of ${total} words read correctly; ${detail.automaticCount} read straight away.`;
+    const correct = `${detail.accurateCount} of ${total} words read correctly.`;
+    if (!count(detail.automaticityJudgedCount) || detail.automaticityJudgedCount === 0) {
+      return `${correct} Reading speed was not recorded.`;
+    }
+    return `${correct} Reading speed recorded for ${detail.automaticityJudgedCount}. ${detail.automaticCount} read straight away.`;
   }
   if (profile.domainKey === "oralReadingFluency") {
     const rows = detail.passageRows?.length ? detail.passageRows : [detail];

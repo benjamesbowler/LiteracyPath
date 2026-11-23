@@ -13,8 +13,8 @@ records current product decisions, not a production-release certificate.
 
 - Home shows a compact real continuation above eight picture destinations:
   Map, Books, Stories, Arcade, Letters, Words, Sounds and Hollow. Every destination
-  is visible without a disclosure. Smaller screens use one native catalogue
-  scroll; recommendations retain one promoted action. Optional transfer practice
+  is reachable within the fitted Home page or the small-screen picture menu.
+  Recommendations retain one promoted action. Optional transfer practice
   remains eligible and reachable through Words, with its taught-letter checks.
 - A new child may play with a temporary Fluff suggestion, or deliberately choose a
   different Guide. Saved/hydrated choices take precedence. Subsequent changes
@@ -43,7 +43,7 @@ records current product decisions, not a production-release certificate.
   Reduced-choice support is an explicit, reversible per-student setting, not
   the default way to simplify the catalogue.
 - Arcade begins with the complete eligible gallery and one in-card recommended
-  cue. Growing catalogues use one native vertical scroller above navigation. Child progress shows personal, scoped records and makes no
+  cue. The [child surface rules](CHILD_SURFACE_RULES.md) govern visible catalogue pages. Child progress shows personal, scoped records and makes no
   peer-ranking request. Instructions include a short real demonstration and
   accurate recorded speech where available.
 - Sound Seekers' Help resident handoff remains separate from Find's navigation
@@ -88,8 +88,9 @@ records current product decisions, not a production-release certificate.
   Assess offers independent Skills assessment. Teacher-observed assessments
   retain their own administration and reporting rules. New MAP work uses only
   the teacher-launched **Adaptive Literacy Test**, reachable from both Start
-  student session and Assessments through the same assessment desk: one full 43-question
-  form, with a break that pauses the same test. The short/timed mock, standalone
+  student session and Assessments through the same assessment desk. The
+  [versioned test specification](../product/LITERACY_MOCK_SESSIONS.md) owns the available lengths and routing.
+  A break pauses the same test. The short/timed mock, standalone
   literacy practice/rehearsal and independent snapshot launch choices are
   retired. Their saved records remain readable with their original evidence
   meaning; supported practice is never recast as independent mock results.

@@ -10,7 +10,7 @@ export function WorkshopFamilyPicker({ pages, progress = {}, onSelectFamily }) {
     <div className="cvc-family-grid" role="group" aria-label="All word families" data-child-choices="" data-child-primary="">
       {pages.visibleItems.map(family => {
         const status = progress[family.id] || "default";
-        const label = status === "completed" ? "Complete" : status === "inprogress" ? "Try again" : "Play";
+        const label = status === "completed" ? "Complete" : status === "inprogress" ? "Continue" : "Play";
         const words = makeCvcWordModels(family.buildWords.slice(0, 3), family);
         return <button key={family.id} data-picker-key={family.id} type="button" className={`cvc-family-card ${status}`} onClick={() => onSelectFamily(family)} aria-label={`${family.rime} word family, ${label}`} data-child-emphasis="choice">
           <span className="cvc-family-rime">-{family.rime}</span>

@@ -30,6 +30,7 @@ import {
   TRAIL_NODE_SIZES,
   adventureMapPartFor,
   buildAdventureMapScene,
+  resolveAdventureMapContinuation,
   buildSoundChips,
   buildSoundTrailScene
 } from "../../src/policy/childTrailPolicy.js";
@@ -348,14 +349,17 @@ test("the map is drawn on the admin's placements, override and all", () => {
   );
 });
 
-test("a finished land still points somewhere rather than nowhere", () => {
+test("a finished land has no unfinished marker and keeps its final location", () => {
   const scene = buildAdventureMapScene({
     cycles: CYCLES,
     starsFor: () => 3,
     landmarks: LANDMARKS
   });
-  assert.equal(scene.next.id, "cycle-9");
-  assert.equal(scene.next.state, "done");
+  assert.equal(scene.next, null);
+  assert.deepEqual(resolveAdventureMapContinuation({ cycles: CYCLES, starsFor: () => 3 }), {
+    kind: "finished", cycle: CYCLES.at(-1)
+  });
+  assert.equal(resolveAdventureMapContinuation({ cycles: CYCLES, starsFor: () => 3, moreWordMatch: true }).kind, "more-words");
 });
 
 test("the map's three lands agree with the bands the rest of the app uses", () => {
@@ -506,7 +510,7 @@ test("every atlas place has details by mouse, keyboard and touch", () => {
   assert.match(mapCode, /onClick=.*setAreaId/);
   assert.match(mapCode, /aria-expanded=\{areaId === stop.id\}/);
   assert.match(mapCode, /event.key !== "Escape"/);
-  assert.match(mapCode, /mapAreaDetails\(part.id, scene.stops.indexOf\(selectedArea\)\)/);
+  assert.match(mapCode, /mapAreaDetails\(part.id, selectedArea.slot\)/);
   assert.match(atlasCss, /\.kg-atlas-stop[^}]*width:\s*58px; height:\s*58px/);
 });
 

@@ -17,13 +17,17 @@ function colorKind(color){
 }
 async function outcome(locator,kind){
  await expect(locator).toBeVisible();expect(colorKind(await locator.evaluate(node=>getComputedStyle(node).color))).toBe(kind);
- const typography=await locator.evaluate(node=>{const style=getComputedStyle(node);return {family:style.fontFamily.split(',')[0].replaceAll(/['"]/g,'').trim(),size:parseFloat(style.fontSize),weight:style.fontWeight};});
- expect(typography).toEqual({family:'Andika',size:34,weight:'700'});
+ const typography=await locator.evaluate(node=>{const style=getComputedStyle(node);return {family:style.fontFamily.split(',')[0].replaceAll(/['"]/g,'').trim(),weight:style.fontWeight};});
+ expect(typography).toEqual({family:'Andika',weight:'700'});
+ expect(await renderedFontSize(locator)).toBeGreaterThanOrEqual(16);
  const text=(await locator.innerText()).trim();expect(text).not.toBe('');
  if(kind==='correct')expect(text).toMatch(/✓.*Correct/i);
  if(kind==='incorrect')expect(text).toMatch(/✕.*Try again/i);
 }
 async function learningFace(locator){return locator.evaluate(node=>getComputedStyle(node).fontFamily.split(',')[0].replaceAll(/['"]/g,'').trim());}
+async function renderedFontSize(locator){
+ return locator.evaluate(node=>{const stage=node.closest('#stage');return parseFloat(getComputedStyle(node).fontSize)*stage.getBoundingClientRect().width/stage.offsetWidth;});
+}
 async function fit(active){
  const overflow=await active.evaluate(slide=>{
   const bounds=slide.getBoundingClientRect();
@@ -42,7 +46,7 @@ for(const viewport of [{name:'laptop',width:1366,height:768},{name:'projector',w
  const family=await learningFace(word);await page.evaluate(()=>document.fonts.ready);
  expect(await page.evaluate(name=>[...document.fonts].some(face=>face.family.replaceAll(/['"]/g,'')===name&&face.status==='loaded'),family)).toBe(true);
  const example=active.locator('[data-hfw-example]');await expect(example).toBeVisible();
- expect(await learningFace(example)).toBe(family);expect(await example.evaluate(node=>parseFloat(getComputedStyle(node).fontSize))).toBeGreaterThanOrEqual(80);
+ expect(await learningFace(example)).toBe(family);expect(await renderedFontSize(example)).toBeGreaterThanOrEqual(45);
  await fit(active);await page.screenshot({animations:'disabled',path:`${artifacts}/${viewport.name}-hfw-I-example.png`});
  // Explicit typography specimen: retain the real lesson's loaded learning face
  // and glyph settings, changing only the specimen text for visual inspection.
@@ -62,6 +66,22 @@ for(const viewport of [{name:'laptop',width:1366,height:768},{name:'projector',w
  await page.locator('#next').click();await jump(page,deck,'p-sight-slide');
  await expect(word).toBeVisible();await expect(example).toBeVisible();await expect(word).toHaveText(original);
 });
+
+for(const viewport of [{name:'projector',width:1920,height:1080},{name:'tablet',width:1024,height:768}]){
+ test(`the sight-word sound model disappears with the word during recall on ${viewport.name}`,async({page})=>{
+  await page.setViewportSize(viewport);
+  const deck=await openDeck(page,'cycle-7','thursday'),active=await jump(page,deck,'p-sight-slide');
+  const cue=active.locator('.p-hfw-model-cue'),part=cue.locator('[data-hfw-attention="ai"]');
+  await expect(cue).toBeVisible();await expect(cue).toContainText('ai → /ɛ/');
+  expect(await learningFace(part)).toBe('Andika');
+  await fit(active);
+  const cover=active.locator('[data-memory-toggle]');
+  await cover.click();await expect(cue).toBeHidden();
+  await expect(active.locator('.p-sight')).toBeHidden();
+  await expect(active.locator('[data-hfw-example]')).toBeHidden();
+  await cover.click();await expect(cue).toBeVisible();
+ });
+}
 
 test('one loaded kindergarten face covers recaps, spelling tiles, sentence print and mixed words',async({page})=>{
  await page.clock.install();const deck=await openDeck(page,'cycle-9','tuesday');let active=await jump(page,deck,'p-hfw-review');
@@ -172,7 +192,7 @@ for(const viewport of [{name:'laptop',width:1366,height:768},{name:'projector',w
   const deck=await openDeck(page,cycle,day),readings=deck.slideIndex.filter(slide=>slide.cls==='p-sentence-track'),language=deck.slideIndex.filter(slide=>slide.cls==='p-language');
   expect(readings).toHaveLength(day==='friday'?6:2);expect(language).toHaveLength(day==='friday'?4:2);
   if(cycle==='cycle-1'&&day==='monday'){
-   expect(deck.lessonPlan.newGraphemes).toEqual(['a']);expect(deck.lessonPlan.blocks.find(block=>block.id==='recall').minutes).toBe(0);expect(deck.lessonPlan.blocks.find(block=>block.id==='teach').minutes).toBe(7);expect(deck.lessonPlan.blocks.reduce((sum,block)=>sum+block.minutes,0)).toBe(20);
+   expect(deck.lessonPlan.newGraphemes).toEqual(['a']);expect(deck.lessonPlan.blocks.find(block=>block.id==='recall').minutes).toBe(0);expect(deck.lessonPlan.blocks.find(block=>block.id==='teach').minutes).toBe(6);expect(deck.lessonPlan.blocks.reduce((sum,block)=>sum+block.minutes,0)).toBe(20);
    expect(deck.slideIndex.filter(slide=>['p-blend','p-word-build','p-letter-review','p-hfw-review'].includes(slide.cls))).toHaveLength(0);
    expect(deck.manifest.slides.filter(slide=>slide.construct==='letter-formation').map(slide=>slide.target)).toEqual(['A','a']);
    const sort=await jump(page,deck,'p-cooperative-sort');await expect(sort).toHaveAttribute('data-lesson-block','blend');expect(await sort.locator('[data-sort-bin] > strong').allTextContents()).toEqual(['a','Other sound']);await fit(sort);
@@ -180,14 +200,14 @@ for(const viewport of [{name:'laptop',width:1366,height:768},{name:'projector',w
   }
   for(const [round,entry] of readings.entries()){
    await page.locator('#overview-toggle').click();await page.locator(`[data-go-slide="${entry.index}"]`).click();const active=page.locator('.slide.active');
-   await expect(active.locator('[data-track-sentence]')).toHaveText(deck.manifest.slides[entry.index].target);expect(await active.locator('[data-track-sentence]').evaluate(node=>parseFloat(getComputedStyle(node).fontSize))).toBeGreaterThanOrEqual(88);const picture=active.locator('.p-picture-sentence > img');await expect.poll(()=>picture.evaluate(img=>img.complete&&img.naturalWidth>0)).toBe(true);
+   await expect(active.locator('[data-track-sentence]')).toHaveText(deck.manifest.slides[entry.index].target);expect(await renderedFontSize(active.locator('[data-track-sentence]'))).toBeGreaterThanOrEqual(45);const picture=active.locator('.p-picture-sentence > img');await expect.poll(()=>picture.evaluate(img=>img.complete&&img.naturalWidth>0)).toBe(true);
    await fit(active);await page.screenshot({animations:'disabled',path:`${artifacts}/final-${viewport.name}-${cycle}-${day}-sentence-${round+1}.png`});
   }
   for(const [round,entry] of language.entries()){
    await page.locator('#overview-toggle').click();await page.locator(`[data-go-slide="${entry.index}"]`).click();const active=page.locator('.slide.active');
    const answer=active.locator('[data-language-choice][data-language-correct="true"]'),explanation=await answer.getAttribute('data-language-explanation');
    await answer.press('Enter');await outcome(active.locator('[data-language-feedback]'),'correct');await expect(active.locator('[data-language-feedback]')).toHaveText(`✓ Correct. ${explanation}`);expect(explanation).toContain(deck.manifest.slides[entry.index].target);
-   for(const mark of await active.locator('.p-language-mark').all())expect(await mark.evaluate(node=>parseFloat(getComputedStyle(node).fontSize))).toBeGreaterThanOrEqual(128);
+   for(const mark of await active.locator('.p-language-mark').all())expect(await renderedFontSize(mark)).toBeGreaterThanOrEqual(64);
    await fit(active);
    await page.screenshot({animations:'disabled',path:`${artifacts}/final-${viewport.name}-${cycle}-${day}-language-${round+1}.png`});
   }

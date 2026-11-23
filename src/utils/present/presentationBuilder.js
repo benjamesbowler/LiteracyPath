@@ -21,6 +21,7 @@ import { buildPresentClassGames, PRESENT_CLASS_GAMES_CSS } from "./presentationC
 import { presentLanguageActivity } from "./presentationLanguage.js";
 import { buildPresentPhonology, PRESENT_PHONOLOGY_CSS } from "./presentationPhonology.js";
 import { buildPresentActivityViews } from "./presentationActivities.js";
+import { PRESENT_VIEWPORT_CSS } from "./presentationViewport.js";
 import { PHONEME_RECORDING_TARGETS } from "../../data/phonemeRecordingSpec.js";
 import { getApprovedPhonemeAudioPath } from "../../data/approvedPhonemeAudio.js";
 import { PRESENT_NARRATION_AUDIO, PRESENT_NARRATION_METADATA } from "../../data/generated/presentNarration.generated.js";
@@ -264,10 +265,15 @@ const RHYME_PRODUCE_BANK = [
   { base: "bed", rhymes: ["red", "fed", "led"] },
   { base: "top", rhymes: ["hop", "mop", "pop"] }
 ];
-const CYCLE_PATTERN_SORTS = {
-  25: { label: "end with -ay", words: ["day", "say", "may", "play", "stay", "way"] },
-  26: { label: "end with y", words: ["by", "my", "why", "try", "fly", "sky"] },
-  27: { label: "have -ng", words: ["ring", "king", "song", "bang", "hang", "long"] }
+const FLUENCY_PATTERN_FAMILIES = {
+  25: [{ ending: "ay", onsets: ["d", "s", "m", "pl", "st", "w", "r", "p"] }],
+  26: [{ ending: "y", onsets: ["b", "m", "wh", "tr", "fl", "sk", "dr", "cr"] }],
+  27: [
+    { ending: "ing", onsets: ["r", "k", "s", "w", "br", "th"] },
+    { ending: "ong", onsets: ["s", "l", "g", "str"] },
+    { ending: "ang", onsets: ["b", "h", "s", "r"] },
+    { ending: "ung", onsets: ["h", "s", "r"] }
+  ]
 };
 const CYCLE_CHAINS = {
   25: ["day", "say", "way", "may"],
@@ -538,10 +544,19 @@ function writingSlide(card, world, letterCase = "lower") {
 
 function sightWordSlide(word, cycle, world) {
   const teaching = getPresentHfwTeaching(word);
+  const attention = teaching?.graphemePhonemeMap.filter(part => part.requiresExplicitTeaching) || [];
+  const modelPart = part => {
+    const spelling = `<strong data-hfw-attention="${esc(part.grapheme)}">${esc(part.grapheme)}</strong>`;
+    return part.phonemeIds.length ? `${spelling} → ${part.phonemeIds.map(sound => `/${esc(sound)}/`).join(" ")}` : `${spelling} is silent`;
+  };
+  const modelCue = word === "like"
+    ? `Notice how <strong data-hfw-attention="i">i</strong> and final <strong data-hfw-attention="e">e</strong> work together to spell /aɪ/.`
+    : attention.length ? `Notice the spelling in this word. ${attention.map(modelPart).join(" · ")}` : "Say each sound. Then read the whole word.";
   return slide(world, `<p class="p-kicker">Our new sight word</p><div class="p-sight p-memory-model">${esc(word)}</div>
+    <p class="p-hfw-model-cue p-memory-model p-teacher-prompt">${modelCue}</p>
     <div class="p-lesson-actions">${audioButton(wordAudio(word), "Hear word")}<button class="p-audio p-audio-ghost" type="button" data-memory-toggle>Hide and air-write</button></div>
     <p class="p-hfw-example p-memory-model" data-hfw-example>${esc(teaching?.phrase || `Read ${word} together.`)}</p>`,
-    {cls:"p-sight-slide",section:"Words",audio:wordAudio(word),teacher:teaching ? `${teaching.coverWritePrompt} ${teaching.meaning} ${teaching.correction}` : "Read, hide, write and compare.",meta:{target:word,construct:"high-frequency-word",answer:word,phonemeIds:teaching?.phonemeIds,regularParts:teaching?.regularParts,exceptionParts:teaching?.exceptionParts,teacher:{model:teaching?.phrase,likelyError:teaching?.likelyError,correction:teaching?.correction,support:"Model, cover, then retrieve.",stretch:"Use it in a spoken phrase."}}});
+    {cls:"p-sight-slide",section:"Words",audio:wordAudio(word),teacher:teaching ? `${plainText(modelCue)} ${teaching.coverWritePrompt} ${teaching.meaning} ${teaching.correction}` : "Read, hide, write and compare.",meta:{target:word,construct:"high-frequency-word",answer:word,phonemeIds:teaching?.phonemeIds,regularParts:teaching?.regularParts,exceptionParts:teaching?.exceptionParts,teacher:{model:`${plainText(modelCue)} ${teaching?.phrase || ""}`,likelyError:teaching?.likelyError,correction:teaching?.correction,support:"Model, cover, then retrieve.",stretch:"Use it in a spoken phrase."}}});
 }
 
 function blendSlides(cycle, world, offset = 0, day = "") {
@@ -795,7 +810,7 @@ function sentenceSlide(cycle, world, day, second = false, rereadCard = null) {
   const card = rereadCard || dailyPresentReading(cycle.cycleNumber, day)[Number(second)];
   return slide(world, `<p class="p-kicker">${rereadCard ? "This week · read and explain again" : second ? "Read together · a fresh sentence" : presentGameSchedule(cycle.cycleNumber,day).some(name=>["detective","scramble"].includes(name)) ? "Reread and explain · today’s picture" : "Read together · today’s picture"}</p>
     <div class="p-picture-sentence">
-      <img src="${esc(assetUrl(card.imagePath || wordImage(card.word)))}" alt="${esc(card.imageRole==='proposition-scene' ? card.sceneRequirements : 'Vocabulary support for the sentence')}"/>
+      <img src="${esc(assetUrl(card.imagePath || wordImage(card.word)))}" alt="${esc(card.sceneAlt)}"/>
       <div><div class="p-shared-sentence" data-track-sentence>${card.sentence.split(/\s+/).map(token => `<span data-track-word>${esc(token)}</span>`).join(" ")}</div>
       <div class="p-lesson-actions">${audioButton(presentationSentenceAudio(card.sentence),'Hear the sentence')}<button type="button" class="p-audio" data-track-next>Point to word</button></div></div>
     </div><p class="p-teacher-prompt">${esc(card.meaningPrompt)}</p>`, {
@@ -818,10 +833,10 @@ export function presentationDayPlan(cycleId, day = "monday", { format = "core" }
   const firstLesson=cycle.cycleNumber===1&&key==='monday';
   return {day:key,format:formatKey,title:titles[key],minutes:friday?30:20,minimumMinutes:friday?30:15,maximumMinutes:friday?30:20,newGraphemes:friday ? [] : newCards.map(card=>card.spelling),newWords,focus:newCards.map(displayGrapheme).join(" · ") || newWords.join(" · "),support:"Model briefly, allow everyone to respond, then retry.",stretch:"Ask for a new example within the taught code.",preparation:"No equipment needed. Children say, point, air-write or trace on a palm. Only the teacher operates the screen.",blocks:[
     {id:"recall",label:"Current week, last week and older recall",minutes:firstLesson?0:friday?4:2,guidance:"Current-week targets first, then last week and a rotating older sample; give a fresh spoken example."},
-    {id:"teach",label:friday ? "Monday–Thursday round-up" : "Today's focus and useful vocabulary",minutes:firstLesson?7:5,guidance:friday ? "Retrieve this week's letters, words and picture vocabulary; introduce no new code." : "Model each target, invite an echo and a fresh oral example, hide and retrieve. For each case: watch, air-trace, hide, trace on a palm, then compare."},
-    {id:"blend",label:friday ? "Read familiar words in fresh rounds" : "Blend and read",minutes:friday?4:3,guidance:"Everyone segments, blends and explains varied words within the taught code; revisit the difficult part."},
-    {id:"games",label:"Whole-class quick games",minutes:friday?10:6,guidance:friday?"Detective, Mix-Up, Missing, hidden sight words and rhyme, plus spelling, matching and sorting. Ask everyone to justify and repair before the next round.":"Everyone chooses or builds before the teacher's screen turn; explain and repair together."},
-    {id:"reading",label:friday ? "Six picture sentences, grammar and punctuation review" : "Picture sentences, grammar and punctuation",minutes:friday?7:4,guidance:"Read, explain the picture, choose a sentence helper and reread. Friday revisits four sentences from this week plus two fresh examples."}
+    {id:"teach",label:friday ? "Monday–Thursday round-up" : "Today's focus and useful vocabulary",minutes:firstLesson?6:friday?3:4,guidance:friday ? "Retrieve this week's letters, words and picture vocabulary; introduce no new code." : "Model each target, invite an echo and a fresh oral example, hide and retrieve. For each case: watch, air-trace, hide, trace on a palm, then compare."},
+    {id:"blend",label:friday ? "Read familiar words in fresh rounds" : "Blend and read",minutes:friday?3:2,guidance:"Everyone segments, blends and explains varied words within the taught code; revisit the difficult part."},
+    {id:"games",label:"Whole-class quick games",minutes:friday?8:5,guidance:friday?"Detective, Mix-Up, Missing, hidden sight words and rhyme, plus spelling, matching and sorting. Ask everyone to justify and repair before the next round.":"Everyone chooses or builds before the teacher's screen turn; explain and repair together."},
+    {id:"reading",label:"Picture sentences, language and Cycle Shorts",minutes:friday?12:7,guidance:"Read, explain the picture, choose a sentence helper and reread. Finish with the Cycle Short and discuss its three questions."}
   ]};
 }
 
@@ -835,6 +850,17 @@ const PATTERN_READING = {
 };
 
 function patternPartsFor(cycle, day = "") {
+  if (isFluencyCycle(cycle)) {
+    const dayIndex = Math.max(0, Object.keys(DAY_LABELS).indexOf(day));
+    const families = FLUENCY_PATTERN_FAMILIES[cycle.cycleNumber];
+    const family = families[dayIndex % families.length];
+    const introduced = new Set(presentationReviewContent(cycle.id, day).words);
+    const upcoming = new Set(cycle.highFrequencyWords.filter(word => !introduced.has(word)));
+    const start = (families.length === 1 ? dayIndex * 3 : dayIndex) % family.onsets.length;
+    return [...family.onsets.slice(start), ...family.onsets.slice(0, start)]
+      .filter(onset => !upcoming.has(onset + family.ending))
+      .map(onset => [...(onset === "wh" || onset === "th" ? [onset] : onset), family.ending]);
+  }
   const introduced = new Set();
   for (const item of elSkillsBlockCycles) {
     if (!item.cycleNumber || item.cycleNumber > cycle.cycleNumber) continue;
@@ -845,7 +871,6 @@ function patternPartsFor(cycle, day = "") {
 }
 
 function readingPartsFor(cycle, day) {
-  if (isFluencyCycle(cycle)) return CYCLE_PATTERN_SORTS[cycle.cycleNumber].words.map(word => [word]);
   const pattern = patternPartsFor(cycle, day);
   if (pattern.length) return pattern;
   const words = blendWordsFor(cycle, Math.max(0, Object.keys(DAY_LABELS).indexOf(day)), day);
@@ -856,21 +881,25 @@ function readingPartsFor(cycle, day) {
 
 function wordBuildSlide(cycle, world, day, offset = 0) {
   const dayIndex = Math.max(0, Object.keys(DAY_LABELS).indexOf(day));
+  const fluency = isFluencyCycle(cycle);
   const options = readingPartsFor(cycle, day);
-  const pool = shufflePresentationChoices(options, `${cycle.id}:weekly-spelling`);
+  const extraModels = fluency && day === "friday" ? patternPartsFor(cycle, "thursday").slice(0, 2) : [];
+  const pool = fluency
+    ? options.slice(2).filter(parts => !extraModels.some(model => model.join("") === parts.join("")))
+    : shufflePresentationChoices(options, `${cycle.id}:weekly-spelling`);
   const reading = pool[(dayIndex + offset) % pool.length];
   const familiarWords = presentationReviewContent(cycle.id,day).words;
   const word = reading?.join("") || familiarWords[(dayIndex + offset) % familiarWords.length];
   if (!word) return "";
-  // Fluency words use letter tiles here; the task is spelling, not phoneme count.
   const parts = reading?.length > 1 ? reading : [...word];
   const taught = [...taughtSinglesThrough(cycle.cycleNumber, day)];
   const distractor = pickPer(taught.filter(part => !parts.includes(part)), cycle.cycleNumber, 1, dayIndex + offset)[0];
   const bank = shufflePresentationChoices([...parts, ...(distractor ? [distractor] : [])].map((part, index) => ({ part, index })), `${cycle.id}:${day}:spelling:${offset}`);
   const cvc = parts.length === 3 && parts.every(part => part.length === 1) && /^[bcdfghjklmnpqrstvwzy][aeiou][bcdfghjklmnpqrstvwzy]$/.test(word);
-  const picture = reading ? wordImage(word) : "";
+  const picture = reading && !familiarWords.includes(word) ? wordImage(word) : "";
+  const practicePrompt = fluency && reading ? `Listen. Build another -${reading.at(-1)} word.` : "Say it. Tap the parts. Build it!";
   return slide(world, `<p class="p-kicker">Build a word${cvc ? " · CVC spelling" : ""}</p>
-    <h2 class="p-h2">Say it. Tap the parts. Build it!</h2>
+    <h2 class="p-h2">${practicePrompt}</h2>
     <div class="p-spelling-layout">${picture ? `<img class="p-spelling-picture" src="${esc(picture)}" alt="Picture of the word to spell"/>` : ""}<div>
     ${audioButton(wordAudio(word), "Hear the word")}
     <div class="p-build" data-build-target="${esc(JSON.stringify(parts))}" data-attempt-mode="whole-word">
@@ -892,21 +921,31 @@ function dailyReadingSlides(cycle, world, day) {
     // Before a CVC is possible, blend an honestly taught VC such as a+m.
     return readingPartsFor(cycle,day).map(parts=>slide(world,`<p class="p-kicker">Blend two sounds</p><div class="p-compound" data-blend-word="${esc(parts.join(''))}">${parts.map(part=>`<button class="p-tile-btn" type="button" data-play="${esc(graphemeAudio(part))}">${esc(part)}</button>`).join('')}${ICON_ARROW}<button class="p-made" type="button" data-play="${esc(wordAudio(parts.join('')))}">${esc(parts.join(''))}</button></div><p class="p-teacher-prompt">Say the sounds. Join them. Say the word in a sentence.</p>`,{cls:'p-blend',section:'Blending',teacher:'Model each already-taught sound, invite an echo, then blend and use the word in a spoken sentence. This is a VC word, not a CVC.',meta:{target:parts.join(''),construct:'decoding',codeStatus:'taught-code',responseTurns:3}}));
   }
-  return [...bank.slice(index % bank.length), ...bank.slice(0, index % bank.length)].slice(0, 2).map(parts => {
+  const first = isFluencyCycle(cycle) ? 0 : index % bank.length;
+  return [...bank.slice(first), ...bank.slice(0, first)].slice(0, 2).map((parts, round) => {
     const word = parts.join("");
+    const review = isFluencyCycle(cycle);
+    const ending = parts.at(-1);
+    const cues = parts.map(part => {
+      let audio = graphemeAudio(part);
+      if (review && part === "y") audio = assetUrl(getApprovedPhonemeAudioPath("y_ie"));
+      if (review && part === "wh") audio = graphemeAudio("w");
+      if (review && part === ending && part.endsWith("ng")) audio = "";
+      return { text: part, audio, mode: audio ? "recorded-phoneme" : "teacher-spoken-chunk" };
+    });
     return slide(world, `<p class="p-kicker">Read the spelling pattern</p>
-      <div class="p-compound" data-pattern-word="${word}">${parts.map(part => `<span class="p-tile"${graphemeAudio(part) ? ` data-play="${esc(graphemeAudio(part))}"` : ` data-visual-model="true"`}>${part}</span>`).join("")}</div>
-      <h2 class="p-h2">Read each part. Blend the word.</h2>
+      <div class="p-compound" data-pattern-word="${word}">${cues.map(({ text, audio }) => `<span class="p-tile"${audio ? ` data-play="${esc(audio)}"` : ` data-visual-model="true"`}>${text}</span>`).join("")}</div>
+      <h2 class="p-h2">${review ? `Say the ending -${ending}. Blend the whole word.` : "Read each part. Blend the word."}</h2>
       <div class="p-answer"><span class="p-response">${word}</span>${audioButton(wordAudio(word), "Read the word")}</div>${revealButton()}<button class="p-audio p-audio-ghost" type="button" data-model-blend>Guide the parts (teacher models sound chunks)</button>`,
-      { cls: "p-pattern-read", section: "Blending", reveal: true,
-        teacher: `Point to ${parts.join(" / ")}. A reviewed single-sound part can replay; a multi-sound chunk without a reviewed exact recording is a visual model for you to say aloud. Blend ${word}, then reread smoothly. Reveal after children try.`, meta: {target:word,answer:word,construct:"decoding",codeStatus:"taught-code",parts:parts.map(part=>({text:part,audio:graphemeAudio(part),mode:graphemeAudio(part)?"recorded-phoneme":"teacher-spoken-chunk"}))} });
+      { cls: "p-pattern-read", section: "Blending", reveal: true, char: review && round === 0 ? "wave" : undefined,
+        teacher: `Point to ${parts.join(" / ")}. A reviewed single-sound part can replay; a multi-sound chunk without a reviewed exact recording is a visual model for you to say aloud. ${review ? `Point out -${ending} before blending. Listen for this same ending in a different word during Build a word. ` : ""}Blend ${word}, then reread smoothly. Reveal after children try.`, meta: {target:word,answer:word,construct:"decoding",codeStatus:review?"teacher-modelled-pattern":"taught-code",patternFocus:review?ending:undefined,parts:cues} });
   });
 }
 
 
 
-function assembleDailySlides(cycle, world, day) {
-  const plan = presentationDayPlan(cycle.id, day);
+function assembleDailySlides(cycle, world, plan) {
+  const { day } = plan;
   const index = Object.keys(DAY_LABELS).indexOf(day);
   const cards = cardsAvailableOn(cycle, day);
   const fresh = (cycle.focusLetters?.length ? cards : []).filter(card => card.day === DAY_LABELS[day]);
@@ -918,23 +957,42 @@ function assembleDailySlides(cycle, world, day) {
   const traceCards = (fresh.length ? fresh : [...tracePool.slice((index*2)%Math.max(1,tracePool.length)),...tracePool.slice(0,(index*2)%Math.max(1,tracePool.length))].slice(0,2)).slice(0,4);
   const activities = buildPresentActivityViews({cycle,world,day,dayIndex:index,slide,esc,wordAudio,wordImage,audioButton,sentenceAudio:presentationSentenceAudio,mediaUrl:assetUrl,shuffle:shufflePresentationChoices,review:presentationReviewContent(cycle.id,day),initialSoundCards:cards});
   const readingSlides=dailyReadingSlides(cycle,world,day);
+  const extraRound = html => html && { html, priority: "extra" };
+  const blendSlides = readingSlides.length ? readingSlides : [activities.sort];
+  const fridayBlends = friday ? dailyReadingSlides(cycle, world, "thursday") : [];
+  const earlierReadingSlides = earlierReading.flatMap((card, i) => {
+    const reread = sentenceSlide(cycle, world, day, false, card);
+    if (i === 1) return [reread, language(card, "punctuation", (cycle.cycleNumber + 1) % 3)];
+    if (i === 3) return [reread, language(card, "grammar", i)];
+    return [extraRound(reread)];
+  });
   const weekItems = [...focusCards(cycle).map(card=>({text:displayGrapheme(card),audio:graphemeAudio(card.spelling),target:card.spelling,variants:card.spelling === "th" ? soundVariants("th") : []})),...cycle.highFrequencyWords.map(word=>({text:word,audio:wordAudio(word),target:word,variants:[]}))];
-  const weekly = slide(world, `<p class="p-kicker">Our week · Monday to Thursday</p><p class="p-teacher-prompt">Say the sounds and read the words from this week.</p><div data-review-carousel data-review-items="${esc(JSON.stringify(weekItems))}"><div class="p-review-focus" role="status">${esc(weekItems[0].text)}</div><p class="p-review-count">1 / ${weekItems.length}</p><div class="p-lesson-actions"><button class="p-audio p-audio-ghost" type="button" data-review-prev disabled>Back</button><button class="p-audio" type="button" data-review-hear>Hear</button><button class="p-audio" type="button" data-review-next>Next</button></div><div data-review-variants></div></div>`,{cls:"p-week-roundup",section:"Review",teacher:"Recap the letters and words taught Monday to Thursday. No new teaching on Friday.",meta:{target:"Monday–Thursday learning",construct:"weekly-retrieval",newTargets:[],reviewItems:weekItems,requiredAudio:weekItems.map(item=>({src:item.audio,type:"audio",role:"weekly-review",transcript:item.target,required:true}))}});
+  const weekly = slide(world, `<p class="p-kicker">Our week · Monday to Thursday</p><p class="p-teacher-prompt">Say the sounds and read the words from this week.</p><div data-review-carousel data-review-items="${esc(JSON.stringify(weekItems))}"><div class="p-review-focus" role="status">${esc(weekItems[0].text)}</div><p class="p-review-count">1 / ${weekItems.length}</p><div class="p-lesson-actions"><button class="p-audio p-audio-ghost" type="button" data-review-prev disabled>Back</button><button class="p-audio" type="button" data-review-hear>Hear</button><button class="p-audio" type="button" data-review-next>Next card</button></div><div data-review-variants></div></div>`,{cls:"p-week-roundup",section:"Review",teacher:"Recap the letters and words taught Monday to Thursday. No new teaching on Friday.",meta:{target:"Monday–Thursday learning",construct:"weekly-retrieval",newTargets:[],reviewItems:weekItems,requiredAudio:weekItems.map(item=>({src:item.audio,type:"audio",role:"weekly-review",transcript:item.target,required:true}))}});
   const groups = [
     [...cumulativeReviewSlides(cycle,world,day,"letters"),...cumulativeReviewSlides(cycle,world,day,"words")],
     friday ? [weekly] : [...fresh.map(card=>letterSoundSlide(card,cycle,world)),...traceCards.flatMap(card=>[writingSlide(card,world,"upper"),writingSlide(card,world,"lower")]),...plan.newWords.map(word=>sightWordSlide(word,cycle,world)),...(day==='thursday'?[weekly]:[])],
-    [...(readingSlides.length?readingSlides:[activities.sort]),...(friday?dailyReadingSlides(cycle,world,'thursday'):[])],
-    [...buildPresentPhonology({cycle,day,names:presentGameSchedule(cycle.cycleNumber,day),world,slide,esc,wordAudio,wordImage,shuffle:shufflePresentationChoices}),...buildPresentClassGames({cycle,day,world,slide,esc,mediaUrl:assetUrl,sentenceAudio:presentationSentenceAudio,wordAudio,shuffle:shufflePresentationChoices,focusWords:plan.newWords.length?plan.newWords:sightWordsAvailableOn(cycle,day),words:[...new Set([...sightWordsAvailableOn(cycle,day),...presentationReviewContent(cycle.id,day).words])],letters:cards.map(card=>({...card,text:displayGrapheme(card),audio:graphemeAudio(card.spelling)}))}),...(presentGameSchedule(cycle.cycleNumber,day).includes("pairs")?[sightMatchSlide(cycle,world,day)]:[]),wordBuildSlide(cycle,world,day),...(["monday","wednesday","friday"].includes(day)?[pictureMatchSlide(cycle,world,day)]:[activities.sort]),...(friday ? [wordBuildSlide(cycle,world,day,1),pictureMatchSlide(cycle,world,day,1),wordBuildSlide(cycle,world,day,2),pictureMatchSlide(cycle,world,day,2),activities.sort] : [])],
-    [sentenceSlide(cycle,world,day),language(todayReading[0],'punctuation',(cycle.cycleNumber+index)%3),sentenceSlide(cycle,world,day,true),language(todayReading[1],'grammar',index),...earlierReading.flatMap((card,i)=>[sentenceSlide(cycle,world,day,false,card),...(i===1?[language(card,'punctuation',(cycle.cycleNumber+1)%3)]:i===3?[language(card,'grammar',i)]:[])]),slide(world,`<p class="p-kicker">${day === "friday" ? "Week complete" : "Today's round-up"}</p><p class="p-teacher-prompt">${day === "friday" ? "Name your favourite game. Say a sound, read a word, and explain one picture sentence." : "Say today's sounds and words. Show your teacher one thing you remember."}</p><div class="p-roundup-stimulus">${(day === "friday" ? cycle.highFrequencyWords : [...new Set([...traceCards.map(displayGrapheme),...plan.newWords])]).map(text=>`<span>${esc(text)}</span>`).join("")}</div>`,{cls:"p-daily-roundup",section:"Review",teacher:"Invite a few individual responses before finishing; supported practice is not a formal score.",meta:{target:day === "friday" ? "Weekly recap" : "Daily recap",construct:"round-up"}})]
+    [...blendSlides.map((html, i) => friday && i > 0 ? extraRound(html) : html), ...fridayBlends.map((html, i) => i > 0 ? extraRound(html) : html)],
+    [...buildPresentPhonology({cycle,day,names:presentGameSchedule(cycle.cycleNumber,day),world,slide,esc,wordAudio,wordImage,shuffle:shufflePresentationChoices}),...buildPresentClassGames({cycle,day,world,slide,esc,mediaUrl:assetUrl,sentenceAudio:presentationSentenceAudio,wordAudio,shuffle:shufflePresentationChoices,focusWords:plan.newWords.length?plan.newWords:sightWordsAvailableOn(cycle,day),words:[...new Set([...sightWordsAvailableOn(cycle,day),...presentationReviewContent(cycle.id,day).words])],letters:cards.map(card=>({...card,text:displayGrapheme(card),audio:graphemeAudio(card.spelling)}))}),...(presentGameSchedule(cycle.cycleNumber,day).includes("pairs")?[sightMatchSlide(cycle,world,day)]:[]),wordBuildSlide(cycle,world,day),...(["monday","wednesday","friday"].includes(day)?[pictureMatchSlide(cycle,world,day)]:[activities.sort]),...(friday ? [...[1, 2].flatMap(round => [extraRound(wordBuildSlide(cycle, world, day, round)), extraRound(pictureMatchSlide(cycle, world, day, round))]), activities.sort] : [])],
+    [sentenceSlide(cycle,world,day),language(todayReading[0],'punctuation',(cycle.cycleNumber+index)%3),sentenceSlide(cycle,world,day,true),language(todayReading[1],'grammar',index),...earlierReadingSlides,slide(world,`<p class="p-kicker">${day === "friday" ? "Weekly round-up" : "Today's round-up"}</p><p class="p-teacher-prompt">${day === "friday" ? "Name your favourite game. Say a sound, read a word, and explain one picture sentence." : "Say today's sounds and words. Show your teacher one thing you remember."}</p><div class="p-roundup-stimulus">${(day === "friday" ? cycle.highFrequencyWords : [...new Set([...traceCards.map(displayGrapheme),...plan.newWords])]).map(text=>`<span>${esc(text)}</span>`).join("")}</div>`,{cls:"p-daily-roundup",section:"Review",teacher:"Invite a few individual responses before the story; supported practice is not a formal score.",meta:{target:day === "friday" ? "Weekly recap" : "Daily recap",construct:"round-up"}})]
   ];
   groups[groups.length-1].push(...buildPresentCycleShorts({cycle,world,day,slide,esc,audioButton,shuffle:shufflePresentationChoices,assetUrl}));
   let elapsed = 0;
-  return groups.flatMap((group,i) => { const block=plan.blocks[i],start=elapsed;elapsed+=block.minutes;return group.filter(Boolean).map((html,j)=>html.replace(/<section class="([^"]*)"/,`<section class="$1" data-lesson-block="${block.id}" data-block-label="${esc(block.label)}" data-block-minutes="${block.minutes}" data-block-start="${j === 0 ? "1" : "0"}"`).replace('</section>',`<p class="p-pacing">${start}–${elapsed} min · ${esc(block.label)}</p></section>`)); });
+  return groups.flatMap((group, i) => {
+    const block = plan.blocks[i];
+    const start = elapsed;
+    elapsed += block.minutes;
+    return group.filter(Boolean).map((item, j) => {
+      const { html, priority } = typeof item === "string" ? { html: item, priority: "core" } : item;
+      return html.replace(/<section class="([^"]*)"/,
+        `<section class="$1" data-lesson-block="${block.id}" data-block-label="${esc(block.label)}" data-block-minutes="${block.minutes}" data-block-start="${j === 0 ? "1" : "0"}" data-lesson-priority="${priority}"`)
+        .replace("</section>", `<p class="p-pacing">${start}–${elapsed} min · ${esc(block.label)}</p></section>`);
+    });
+  });
 }
 
-function assembleSlides(cycle, world, day) {
+function assembleSlides(cycle, world, plan) {
   if (cycle.type === "assessment") return [titleSlide(cycle,world),routinesSlide(cycle,world),endSlide(cycle,world)];
-  return assembleDailySlides(cycle,world,day);
+  return assembleDailySlides(cycle, world, plan);
 }
 
 function plainText(html = "") {
@@ -951,14 +1009,108 @@ function indexSlides(slides) {
       index, cls: attrs?.[1] || "", section: attribute("data-section"),
       title: [plainText(heading), plainText(target)].filter(Boolean).join(" · ") || "Lesson",
       teacher: plainText(/<template data-teacher-note>([\s\S]*?)<\/template>/.exec(html)?.[1] || "Invite everyone to respond. Model clearly, give thinking time, and listen to individual voices before moving on."),
-      block: attribute("data-lesson-block"), blockLabel: attribute("data-block-label")
+      block: attribute("data-lesson-block"), blockLabel: attribute("data-block-label"),
+      priority: attribute("data-lesson-priority")
     };
   });
+}
+
+const OVERVIEW_BLOCK_NAMES = {
+  recall: "Recall",
+  teach: "Focus",
+  blend: "Blend",
+  games: "Games",
+  reading: "Reading"
+};
+
+function renderSlideOverview(slideIndex) {
+  const groups = new Map();
+  for (const entry of slideIndex) {
+    if (!groups.has(entry.block)) groups.set(entry.block, []);
+    groups.get(entry.block).push(entry);
+  }
+  return [...groups].map(([block, entries]) => {
+    const totals = new Map();
+    const rounds = new Map();
+    for (const { title } of entries) totals.set(title, (totals.get(title) || 0) + 1);
+    const buttons = entries.map(({ title, index, priority }) => {
+      const round = (rounds.get(title) || 0) + 1;
+      rounds.set(title, round);
+      const label = totals.get(title) > 1 ? `${title} · Round ${round}` : title;
+      const extra = priority === "extra" ? '<span class="p-overview-extra">Extra practice</span>' : '';
+      return `<button type="button" data-go-slide="${index}"><span class="p-overview-number">${index + 1}</span><span class="p-overview-label">${esc(label)}${extra}</span></button>`;
+    }).join("");
+    const heading = OVERVIEW_BLOCK_NAMES[block];
+    return heading
+      ? `<section class="p-overview-group" aria-labelledby="overview-${block}"><h3 id="overview-${block}">${heading}</h3><div class="p-overview-entries">${buttons}</div></section>`
+      : `<div class="p-overview-entries">${buttons}</div>`;
+  }).join("");
 }
 
 function readTeachingRecord(html) {
   try { return JSON.parse(plainText(/<template data-teacher-record>([\s\S]*?)<\/template>/.exec(html)?.[1] || '{}')); } catch { return {}; }
 }
+
+function readBuildParts(html) {
+  const build = plainText(/data-build-target="([^"]*)"/.exec(html)?.[1] || "");
+  try { return build ? JSON.parse(build) : []; } catch { return []; }
+}
+
+function readSlidePacing(html, record = readTeachingRecord(html), parts = readBuildParts(html)) {
+  return {
+    block: /data-lesson-block="([^"]+)"/.exec(html)?.[1] || "",
+    priority: html.includes('data-lesson-priority="extra"') ? "extra" : "core",
+    responseTurns: Math.max(1, record.responseTurns || record.reviewItems?.length
+      || record.rounds?.length * 2 || (html.match(/data-review-(?:word|spelling)=/g) || []).length
+      || parts.length || (html.match(/data-match-word=/g) || []).length / 2)
+  };
+}
+
+function timingForSlides(slides, plan, {
+  planningBudgetMinutes, timingAllowances = {}, defaultBudgetMinutes = plan?.minutes || 0
+} = {}) {
+  const requestedBudget = Number(planningBudgetMinutes);
+  const budgetMinutes = Number.isFinite(requestedBudget) && requestedBudget > 0
+    ? Math.min(180, Math.max(1, requestedBudget)) : defaultBudgetMinutes;
+  const responseSeconds = Math.min(120, Math.max(1, Number(timingAllowances.responseSeconds) || 12));
+  const requestedTransition = Number(timingAllowances.transitionSeconds);
+  const transitionSeconds = Number.isFinite(requestedTransition) ? Math.min(120, Math.max(0, requestedTransition)) : 20;
+  const estimate = items => {
+    const seconds = items.reduce((total, item) => total + item.responseTurns * responseSeconds + transitionSeconds, 0);
+    return plan ? Math.round(seconds / 6) / 10 : Math.ceil(seconds / 60);
+  };
+  const groupTiming = items => {
+    const prioritySlides = items.filter(item => item.priority === "core");
+    return {
+      estimatedMinutes: estimate(items),
+      priorityEstimatedMinutes: estimate(prioritySlides),
+      extraSlideCount: items.length - prioritySlides.length
+    };
+  };
+  return {
+    budgetMinutes,
+    nominalBudgetMinutes: defaultBudgetMinutes,
+    ...groupTiming(slides),
+    responseTurns: slides.reduce((total, item) => total + item.responseTurns, 0),
+    observedMinutes: null,
+    responseSeconds,
+    transitionSeconds,
+    estimateBasis: "Planning estimate based on the time allowed for responses and slide transitions. Actual classroom time varies.",
+    blocks: (plan?.blocks || []).map(block => ({
+      id: block.id,
+      ...groupTiming(slides.filter(item => item.block === block.id))
+    }))
+  };
+}
+
+export function presentationLessonTiming(cycleId, day, { format, planningBudgetMinutes, timingAllowances } = {}) {
+  const cycle = getPresentationCycle(cycleId);
+  if (!cycle || cycle.type === "assessment") return null;
+  const plan = presentationDayPlan(cycleId, day, { format });
+  const slides = assembleDailySlides(cycle, presentationWorldFor(cycle), plan);
+  return timingForSlides(slides.map(html => readSlidePacing(html)), plan, { planningBudgetMinutes, timingAllowances });
+}
+
 // Semantic lookup uses the actual active resolvers, never filename guesses.
 let sharedMediaSemantics;
 function sharedMediaLookup() {
@@ -995,7 +1147,7 @@ function legacyTeachingRecord(entry,html,target,parts) {
   if(entry.cls==='p-together')return {...spec,likelyError:'The group echo can conceal a child who has not retrieved the named sound or word.',correction:'Repeat the same prompt quietly and listen to a deliberately sampled fresh response.',support:'Use a model and a gesture; mark the response supported.',stretch:'Ask for a new example with the retrieved sound or word.'};
   return {...spec,likelyError:`A response to ${target} may omit the feature named in this prompt.`,correction:`Return to the displayed ${entry.title} stimulus, demonstrate the named feature, then request a fresh response.`,support:'Use the specific object, gesture or oral model in this activity.',stretch:`Explain the named feature in a fresh example of ${target}.`};
 }
-function manifestForSlides(cycle, slides, entries, { day, format, reviewPolicy, deckKey, sortMode, planningBudgetMinutes, timingAllowances = {} }) {
+function manifestForSlides(cycle, slides, entries, { day, format, reviewPolicy, deckKey, sortMode, planningBudgetMinutes, timingAllowances, dayPlan }) {
   const full = presentationReviewContent(cycle.id, day);
   const selected = cycle.type==='assessment' ? full : presentationDailyReviewContent(cycle.id,day);
   const indexed = slides.map((html, index) => {
@@ -1003,9 +1155,7 @@ function manifestForSlides(cycle, slides, entries, { day, format, reviewPolicy, 
     const entry = entries[index];
     const attr = name => plainText(new RegExp(`${name}="([^"]*)"`).exec(html)?.[1] || '');
     let target = record.target || attr('data-pattern-word') || attr('data-blend-word') || plainText(/class="p-(?:sight|letter)"[^>]*>([^<]*)</.exec(html)?.[1] || '');
-    const build = attr('data-build-target');
-    let parts = [];
-    try { parts = build ? JSON.parse(build) : []; } catch { /* semantic gate reports malformed targets */ }
+    const parts = readBuildParts(html);
     if (parts.length) target = parts.join('');
     const sentence = plainText(/data-track-sentence>([\s\S]*?)<\/div>/.exec(html)?.[1] || '');
     if (sentence) target = sentence;
@@ -1014,7 +1164,7 @@ function manifestForSlides(cycle, slides, entries, { day, format, reviewPolicy, 
     const media = [];
     for (const match of html.matchAll(/(?:src|data-play|data-audio|data-writing-ready-audio)="([^"]+)"/g)) {
       const src = plainText(match[1]);
-      if (!media.some(item => item.src === src)) media.push({ src, type: /\.(?:mp3|wav|ogg)(?:[?#]|$)/.test(src) ? 'audio':'image', role: /\.(?:mp3|wav|ogg)(?:[?#]|$)/.test(src) ? 'instructional-cue':'supporting-image', transcript: record.audioTranscript || '', required: Boolean(build || sentence || record.construct === 'oral-narrative') });
+      if (!media.some(item => item.src === src)) media.push({ src, type: /\.(?:mp3|wav|ogg)(?:[?#]|$)/.test(src) ? 'audio':'image', role: /\.(?:mp3|wav|ogg)(?:[?#]|$)/.test(src) ? 'instructional-cue':'supporting-image', transcript: record.audioTranscript || '', required: Boolean(parts.length || sentence || record.construct === 'oral-narrative') });
     }
     media.push(...(record.requiredAudio || []).filter(role=>!media.some(item=>role.src && item.src===role.src)).map(role=>({...role,src:role.src||""})));
     for (const card of record.reviewItems || []) if (card.imagePath) {
@@ -1044,15 +1194,14 @@ function manifestForSlides(cycle, slides, entries, { day, format, reviewPolicy, 
     }
     if ((html.match(/data-audio-unavailable/g)||[]).length && !(record.requiredAudio || []).some(item=>!item.src)) media.push({src:'',type:'audio',role:'teacher-model-cue',transcript:target,required:false,availability:'unavailable-explicit-teacher-model',sourceAuthority:'Active lesson cue without installed recording',rightsAuthority:'No recording present; no media rights asserted',reviewState:'unavailable'});
     const teacher = { ...legacyTeachingRecord(entry,html,target,parts), ...(record.teacher || {}) };
-    return { ...record, id: `${cycle.id}:${day || 'whole'}:${format}:${index}`, index, title: entry.title, section: entry.section, target, construct: record.construct || (parts.length ? 'encoding' : sentence ? 'supported-shared-reading' : entry.section === 'Writing' ? 'letter-formation' : entry.section === 'Words' ? 'high-frequency-word' : 'teacher-led-practice'), studentPrompt: plainText(/<h2[^>]*>([\s\S]*?)<\/h2>/.exec(html)?.[1] || ''), responseCue: attr('data-response-cue'), answer: record.answer || (parts.length ? target : ''), teacher, codeStatus: record.codeStatus || (parts.length ? 'taught-code-or-taught-HFW' : sentence ? 'adult-supported' : 'see-current-cycle'), audioRoles: media.filter(item=>item.type==='audio'), media, mediaUnavailable: (html.match(/data-audio-unavailable/g)||[]).length, responseTurns: Math.max(1,record.responseTurns || record.reviewItems?.length || record.rounds?.length*2 || (html.match(/data-review-(?:word|spelling)=/g)||[]).length || parts.length || (html.match(/data-match-word=/g)||[]).length / 2), materials: { vocabularyScenes:record.vocabularyScenes || [], sort:record.sort || null, sentences:record.sentences || [], story:record.story || null, counterCount: record.boxCount || 0, graphemes: parts, tileBank: [...html.matchAll(/data-build-part="([^"]+)"/g)].map(match=>plainText(match[1])), pictureChoices: [...html.matchAll(/data-choice-value="([^"]+)"/g)].map(match=>plainText(match[1])), writingPrompt: entry.cls === 'p-writing' ? `Watch ${target}, hide the model, air-write from memory, then compare start, direction, sequence and legibility.` : '', images: media.filter(item=>item.type==='image' && !isCharacterMedia(item.src)).map(item=>item.src) } };
+    return { ...record, id: `${cycle.id}:${day || 'whole'}:${format}:${index}`, index, title: entry.title, section: entry.section, target, construct: record.construct || (parts.length ? 'encoding' : sentence ? 'supported-shared-reading' : entry.section === 'Writing' ? 'letter-formation' : entry.section === 'Words' ? 'high-frequency-word' : 'teacher-led-practice'), studentPrompt: plainText(/<h2[^>]*>([\s\S]*?)<\/h2>/.exec(html)?.[1] || ''), responseCue: attr('data-response-cue'), answer: record.answer || (parts.length ? target : ''), teacher, codeStatus: record.codeStatus || (parts.length ? 'taught-code-or-taught-HFW' : sentence ? 'adult-supported' : 'see-current-cycle'), audioRoles: media.filter(item=>item.type==='audio'), media, mediaUnavailable: (html.match(/data-audio-unavailable/g)||[]).length, ...readSlidePacing(html, record, parts), materials: { vocabularyScenes:record.vocabularyScenes || [], sort:record.sort || null, sentences:record.sentences || [], story:record.story || null, counterCount: record.boxCount || 0, graphemes: parts, tileBank: [...html.matchAll(/data-build-part="([^"]+)"/g)].map(match=>plainText(match[1])), pictureChoices: [...html.matchAll(/data-choice-value="([^"]+)"/g)].map(match=>plainText(match[1])), writingPrompt: entry.cls === 'p-writing' ? `Watch ${target}, hide the model, air-write from memory, then compare start, direction, sequence and legibility.` : '', images: media.filter(item=>item.type==='image' && !isCharacterMedia(item.src)).map(item=>item.src) } };
   });
-  const responseTurns = indexed.reduce((sum,item)=>sum+item.responseTurns,0);
-  const nominalBudgetMinutes=cycle.type==='assessment'?PRESENTATION_FORMATS.find(item=>item.value===format)?.minutes || 0:presentationDayPlan(cycle.id,day).minutes;
-  const budgetMinutes=Number.isFinite(Number(planningBudgetMinutes)) && Number(planningBudgetMinutes)>0?Math.min(180,Math.max(1,Number(planningBudgetMinutes))):nominalBudgetMinutes;
-  const responseSeconds=Math.min(120,Math.max(1,Number(timingAllowances.responseSeconds) || 12));
-  const transitionSeconds=Number.isFinite(Number(timingAllowances.transitionSeconds))?Math.min(120,Math.max(0,Number(timingAllowances.transitionSeconds))):20;
-  const estimatedMinutes = cycle.type === "assessment" ? Math.ceil((responseTurns * responseSeconds + indexed.length * transitionSeconds) / 60) : presentationDayPlan(cycle.id,day).minutes;
-  return { deckKey, cycleId: cycle.id, day, format, sortMode, sortChoices:PRESENT_SORT_ACTIVITIES.filter(item=>(item.prerequisites?.graphemes || []).every(g=>full.cards.some(card=>card.spelling===g))).map(item=>({value:item.construct,label:item.prompt})), slides:indexed, reviewCoverage: {mode:reviewPolicy.mode || 'current-week-and-rotating-cumulative', included:{graphemes:selected.cards.map(card=>card.spelling),words:selected.words}, omitted:{graphemes:full.cards.filter(card=>!selected.cards.some(item=>item.spelling===card.spelling)).map(card=>card.spelling),words:full.words.filter(word=>!selected.words.includes(word))}}, timing:{budgetMinutes,nominalBudgetMinutes,estimatedMinutes,responseTurns,observedMinutes:null,responseSeconds,transitionSeconds,estimateBasis:"Teacher-paced activity plan: Monday–Thursday 20 minutes (recall 2, focus 5, blending 3, games 6, language/reading 4); Friday 30 minutes (4, 5, 4, 10, 7), with extra games, six picture sentences and four language choices. Planning allowances, not observed classroom duration."}, coverage:indexed.map(item=>({target:item.target,label:item.construct,responseTurns:item.responseTurns,section:item.section,mediaUnavailable:item.mediaUnavailable})), print:indexed.filter(item=>item.materials.graphemes.length || item.materials.pictureChoices.length || item.materials.writingPrompt || item.materials.counterCount || item.construct==='oral-narrative' || item.sentences?.length || item.materials.sentences.length || item.materials.sort || item.materials.vocabularyScenes.length).map(item=>({id:item.id,target:item.target,answer:item.answer,...item.materials})) };
+  const timing = timingForSlides(indexed, dayPlan, {
+    planningBudgetMinutes,
+    timingAllowances,
+    defaultBudgetMinutes: dayPlan?.minutes ?? PRESENTATION_FORMATS.find(item => item.value === format)?.minutes ?? 0
+  });
+  return { deckKey, cycleId: cycle.id, day, format, sortMode, sortChoices:PRESENT_SORT_ACTIVITIES.filter(item=>(item.prerequisites?.graphemes || []).every(g=>full.cards.some(card=>card.spelling===g))).map(item=>({value:item.construct,label:item.prompt})), slides:indexed, reviewCoverage: {mode:reviewPolicy.mode || 'current-week-and-rotating-cumulative', included:{graphemes:selected.cards.map(card=>card.spelling),words:selected.words}, omitted:{graphemes:full.cards.filter(card=>!selected.cards.some(item=>item.spelling===card.spelling)).map(card=>card.spelling),words:full.words.filter(word=>!selected.words.includes(word))}}, timing, coverage:indexed.map(item=>({target:item.target,label:item.construct,responseTurns:item.responseTurns,section:item.section,mediaUnavailable:item.mediaUnavailable})), print:indexed.filter(item=>item.materials.graphemes.length || item.materials.pictureChoices.length || item.materials.writingPrompt || item.materials.counterCount || item.construct==='oral-narrative' || item.sentences?.length || item.materials.sentences.length || item.materials.sort || item.materials.vocabularyScenes.length).map(item=>({id:item.id,target:item.target,answer:item.answer,...item.materials})) };
 }
 
 export function buildPresentationCoverageDashboard() {
@@ -1085,14 +1234,15 @@ export function buildPresentationPrintHtml(cycleId, options = {}) {
   return `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>${esc(deck.title)} · exact lesson materials</title><style>${fontFaces()}body{font-family:Andika,Arial,sans-serif;color:#201e1d;margin:20mm}h1{font-size:24px}h2{font-size:21px}.material{break-after:page}.boxes,.tiles{display:flex;gap:8mm;flex-wrap:wrap;margin:12mm 0}.boxes span{width:35mm;height:35mm;border:2px solid #201e1d}.tiles span{min-width:22mm;padding:5mm;border:2px dashed #201e1d;font-size:34px}img{height:45mm;width:55mm;object-fit:contain}.writing-lines{height:60mm;background:repeating-linear-gradient(white 0,white 14mm,#82796a 14.4mm,white 15mm)}.sort-headings,.print-cards{display:flex;gap:8mm;flex-wrap:wrap}.sort-headings span{border:2px solid #201e1d;padding:8mm;flex:1}.print-cards figure{border:2px dashed #201e1d;padding:4mm;margin:0;display:flex;flex-direction:column;font-size:24px}.teacher{break-before:page}.teacher li{margin:5mm 0}@page{size:A4;margin:15mm}</style></head><body><h1>${esc(deck.title)}</h1><p>Use these exact selected activity materials. Children respond before the teacher model. Planning budget: ${deck.manifest.timing.budgetMinutes} minutes; estimate: ${deck.manifest.timing.estimatedMinutes} minutes. ${esc(deck.manifest.timing.estimateBasis)}</p>${pages}<section class="teacher"><h1>Teacher key and preparation</h1><p>Keep this portion private. Supported participation is not a formal Cycle Check.</p><ol>${deck.manifest.slides.map(item=>`<li><strong>${esc(item.title)} · ${esc(item.target)}</strong>${item.answer ? `<p>Model: ${esc(item.answer)}</p>`:''}<p>${esc(item.teacher.model)}</p></li>`).join('')}</ol></section></body></html>`;
 }
 
-export function buildCyclePresentation(cycleId, { day = "", format = "core", startIndex = 0, sessionId = "", reviewPolicy = {}, quiet = true, speech = true, retrievalMode = "retrieval", sortMode = "auto", planningBudgetMinutes = null, timingAllowances = {} } = {}) {
+export function buildCyclePresentation(cycleId, { day = "", format = "core", startIndex = 0, sessionId = "", reviewPolicy = {}, quiet = true, speech = true, retrievalMode = "retrieval", sortMode = "auto", planningBudgetMinutes = null, timingAllowances = {}, returnHash = "#teacher/teach" } = {}) {
   const cycle = getPresentationCycle(cycleId);
   if (!cycle) throw new Error("Unknown cycle");
   const requestedDay = normalizeDay(day);
   const dayKey = cycle.type === "assessment" ? "" : requestedDay;
   const formatKey = normalizeFormat(format);
   const world = presentationWorldFor(cycle);
-  const slides = assembleSlides(cycle, world, dayKey, formatKey, reviewPolicy, sortMode);
+  const dayPlan = dayKey ? presentationDayPlan(cycleId, dayKey, { format: formatKey }) : null;
+  const slides = assembleSlides(cycle, world, dayPlan);
   const slideIndex = indexSlides(slides);
   const projectedSlides = slides.map(html => html.replace(/<template data-teacher-(?:note|record)>[\s\S]*?<\/template>/g, ""));
   const initial = Number.isFinite(Number(startIndex)) ? Math.max(0, Math.min(slides.length - 1, Math.trunc(Number(startIndex)))) : 0;
@@ -1101,21 +1251,62 @@ export function buildCyclePresentation(cycleId, { day = "", format = "core", sta
   const deckScriptUrl = assetUrl("/present/deck.js");
   const railLabel = dayKey ? `${railTitle(cycle)} · ${DAY_LABELS[dayKey]}` : railTitle(cycle);
   const deckKey = `${cycleId}:${dayKey}:${formatKey}:${reviewPolicy.mode || "full-cumulative"}:${(reviewPolicy.graphemes || []).join(',')}:${(reviewPolicy.words || []).join(',')}:${retrievalMode}:${sortMode}`;
-  const manifest = manifestForSlides(cycle, slides, slideIndex, { day: dayKey, format: formatKey, reviewPolicy, deckKey, sortMode, planningBudgetMinutes, timingAllowances });
-  const lessonPlan = dayKey ? { ...presentationDayPlan(cycleId, dayKey, {format: formatKey}), estimatedMinutes: manifest.timing.estimatedMinutes, timingBasis:manifest.timing.estimateBasis, responseTurns:manifest.timing.responseTurns, blocks:presentationDayPlan(cycleId,dayKey,{format:formatKey}).blocks.map(block=>{const activities=manifest.slides.filter(item=>slideIndex[item.index].block===block.id);return {...block,estimatedMinutes:Math.round((activities.reduce((sum,item)=>sum+item.responseTurns,0)*manifest.timing.responseSeconds+activities.length*manifest.timing.transitionSeconds)/6)/10,activities:activities.map(item=>item.title)};}), timeWarning: manifest.timing.estimatedMinutes > manifest.timing.budgetMinutes ? "Full review and response routines may take longer. Adjust the budget or stop at a saved slide boundary." : "This is a planning estimate; observe actual classroom time." } : null;
+  const manifest = manifestForSlides(cycle, slides, slideIndex, {
+    day: dayKey, format: formatKey, reviewPolicy, deckKey, sortMode, planningBudgetMinutes, timingAllowances, dayPlan
+  });
+  const { timing } = manifest;
+  const lessonPlan = dayPlan ? {
+    ...dayPlan,
+    timing,
+    estimatedMinutes: timing.estimatedMinutes,
+    timingBasis: timing.estimateBasis,
+    responseTurns: timing.responseTurns,
+    blocks: dayPlan.blocks.map((block, index) => ({
+      ...block,
+      ...timing.blocks[index],
+      activities: slideIndex.filter(item => item.block === block.id).map(item => item.title)
+    })),
+    timeWarning: timing.estimatedMinutes > timing.budgetMinutes && timing.extraSlideCount
+      ? "The full lesson may take longer than planned. Use the Slides list to leave extra practice for later."
+      : timing.estimateBasis
+  } : null;
+  const reviewPattern = manifest.slides.find(item => item.patternFocus)?.patternFocus;
+  const reviewFocus = reviewPattern ? `Practise the -${reviewPattern} spelling pattern` : "Review taught sounds and words";
+  const startFocus = dayKey === "friday" ? "Weekly review" : lessonPlan?.focus || reviewFocus;
+  const startDay = dayKey ? `<p class="p-start-focus">${esc(DAY_LABELS[dayKey])} · ${esc(startFocus)}</p>` : "";
+  const finish = dayKey ? '<button id="finish" type="button" hidden>Finish lesson</button>' : "";
+  const finished = dayKey ? `<div id="finished" role="dialog" aria-modal="true" aria-labelledby="finished-title" hidden><h2 id="finished-title">${dayKey === "friday" ? "Week complete" : "Lesson complete"}</h2><div class="p-finish-actions"><button id="finish-return" type="button">Return to Teach</button><button id="finish-review" type="button">Review last slide</button></div></div>` : "";
   const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${esc(title)}</title>
-<style>${fontFaces()}${DECK_CSS}${PRESENT_CLASS_GAMES_CSS}${PRESENT_PHONOLOGY_CSS}${PRESENT_CYCLE_SHORTS_CSS}</style></head>
-<body data-deck-key="${esc(deckKey)}" data-session-id="${esc(sessionId)}" data-quiet="${quiet}" data-speech="${speech}" data-retrieval-mode="${esc(retrievalMode)}" data-start-index="${initial}" data-world="${world.id}">
-<div id="scaler"><div id="stage">
+<style>${fontFaces()}${DECK_CSS}${PRESENT_CLASS_GAMES_CSS}${PRESENT_PHONOLOGY_CSS}${PRESENT_CYCLE_SHORTS_CSS}${PRESENT_VIEWPORT_CSS}</style></head>
+<body data-deck-key="${esc(deckKey)}" data-session-id="${esc(sessionId)}" data-quiet="${quiet}" data-speech="${speech}" data-retrieval-mode="${esc(retrievalMode)}" data-start-index="${initial}" data-world="${world.id}" data-lesson-day="${dayKey}" data-return-url="${esc(assetUrl(`/${returnHash}`))}">
+<div id="scaler" inert><div id="stage">
   <header id="rail"><span id="rail-title">${esc(railLabel)}</span><nav id="rail-sections" aria-label="Lesson sections"></nav></header>
   <div id="deck">${projectedSlides.join("")}</div>
   <div id="lesson-progress" role="progressbar" aria-label="Lesson progress" aria-valuemin="1" aria-valuemax="${slides.length}"><span></span></div>
-  <nav id="nav" aria-label="Presentation controls"><button id="overview-toggle" type="button" aria-label="Choose a slide">Slides</button><button id="blank-toggle" type="button" aria-label="Pause the screen">Pause</button><button id="fullscreen-toggle" type="button" aria-label="Toggle full screen">Full screen</button><button id="prev" type="button" aria-label="Previous">&#8249;</button><span id="counter" aria-live="polite"></span><button id="next" type="button" aria-label="Next">&#8250;</button></nav>
-  <div id="overview" role="dialog" aria-modal="true" aria-label="Choose a slide" hidden><header><h2>Choose a slide</h2><button id="overview-close" type="button">Back to lesson</button></header><div id="overview-list">${slideIndex.map(entry => `<button type="button" data-go-slide="${entry.index}"><span>${entry.index + 1}</span>${esc(entry.title)}</button>`).join("")}</div></div>
+  <nav id="nav" aria-label="Presentation controls">
+    <p id="fullscreen-status" role="status" hidden></p>
+    <p id="audio-status" role="status"></p>
+    <button id="overview-toggle" type="button" aria-label="Choose a slide">Slides</button>
+    <button id="blank-toggle" type="button" aria-label="Pause the screen">Pause</button>
+    <button id="fullscreen-toggle" type="button" aria-label="Toggle full screen">Full screen</button>
+    <button id="resume-interrupted" type="button" hidden>Resume playback</button>
+    <button id="prev" type="button" aria-label="Previous slide">&#8249;</button>
+    <span id="counter" aria-live="polite"></span>
+    <button id="next" type="button" aria-label="Next slide"><span>Next slide</span><span aria-hidden="true">&#8250;</span></button>
+    ${finish}
+  </nav>
+  <div id="overview" role="dialog" aria-modal="true" aria-label="Choose a slide" hidden>
+    <header><h2>Choose a slide</h2><button id="overview-close" type="button">Back to lesson</button></header>
+    <div id="overview-list">${renderSlideOverview(slideIndex)}</div>
+  </div>
+  ${finished}
   <button id="blank-screen" type="button" hidden>Ready when you are<span>Tap or press B to return</span></button>
-  <p id="audio-status" role="status"></p>
 </div></div>
-<div id="start"><p class="p-kicker">Whole-class learning</p><h1>${esc(baseTitle)}</h1><button id="startBtn" type="button">${ICON_PLAY}<span>Start presentation</span></button><p>Arrow keys move · Enter reveals · B pauses the screen · F opens full screen</p></div>
+<div id="start" role="dialog" aria-modal="true" aria-labelledby="start-title" aria-describedby="start-shortcuts">
+  ${startDay}<h1 id="start-title">${esc(baseTitle)}</h1>
+  <button id="startBtn" type="button" disabled>${ICON_PLAY}<span>Start presentation</span></button>
+  <p id="start-shortcuts">Arrow keys change slides · R reveals · B pauses the screen · F toggles full screen</p>
+</div>
 <script src="${assetUrl("/present/audio.js")}"></script><script src="${assetUrl("/present/classGames.js")}"></script><script src="${deckScriptUrl}"></script>
 </body></html>`;
   return { title, slideCount: slides.length, html, slideIndex, lessonPlan, manifest };
@@ -1664,6 +1855,9 @@ const DECK_CSS = `
   .p-sight-slide .p-sight { text-align:center; font-size:240px; line-height:1.2; margin:20px 0; }
   .p-sight-slide .p-lesson-actions { justify-content:center; }
   .p-sight-slide .p-teacher-prompt { text-align:center; }
+  .slide.p-sight-slide { gap:20px; }
+  .p-sight-slide .p-hfw-model-cue { margin:0; }
+  .p-hfw-model-cue strong { font-family:${FONT_LETTER}; color:var(--accent-700); text-decoration:underline; text-underline-offset:0.16em; }
   .p-hfw-example { font-size:88px; line-height:1.3; color:var(--ink); text-align:center; margin:30px 0 0; max-width:100%; }
   .p-language-layout { display:grid;grid-template-columns:400px minmax(0,1fr);gap:44px;align-items:center;width:100%; }
   .p-language-picture { width:400px;height:390px;object-fit:contain;background:white;border-radius:28px;padding:18px; }

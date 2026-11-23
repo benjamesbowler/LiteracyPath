@@ -7,6 +7,7 @@ import { soundSeekersRoundedCssVariables } from '../visual/visualTokens.js';
 import { CHILD_COPY } from '../../../copy/childCopy.js';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { createCampaignStorage } from '../v3/campaignStorage.js';
+import { campaignReturn, shouldLeadWithWoodland } from '../soundSeekersEntry.js';
 import { queueProgressSave } from '../../../utils/progressSync.js';
 import { CAMPAIGN_STAGES, CAMPAIGN_MISSIONS, CAMPAIGN_WORLDS, getCampaignStage, getCampaignMission } from '../v3/content/campaign.js';
 import { CAST } from '../v3/content/cast.js';
@@ -33,6 +34,7 @@ import { ROUND_CAMPAIGN, currentCampaignCheckpoint, currentCampaignBeat, campaig
 import './rounded-campaign.css';
 
 const MOVE_DIRECTIONS = { ArrowUp: [0, -1], w: [0, -1], ArrowDown: [0, 1], s: [0, 1], ArrowLeft: [-1, 0], a: [-1, 0], ArrowRight: [1, 0], d: [1, 0] };
+const browserStorage = () => window.localStorage;
 const MOVE_BUTTONS = [[-1, 0, 'Left'], [1, 0, 'Right'], [0, -1, 'Up'], [0, 1, 'Down']];
 
 function NavigationArt({ src }) {
@@ -63,9 +65,9 @@ function Modal({ title, children, onClose }) {
   </dialog>;
 }
 
-export default function RoundedCampaign({ progressScopeKey, isSoundEnabled, ephemeral, accessibilitySettings = {}, onExit, onOpenWoodland }) {
+export default function RoundedCampaign({ progressScopeKey, isSoundEnabled, ephemeral, getStorage = browserStorage, accessibilitySettings = {}, onExit, onOpenWoodland, woodlandEntry }) {
   const [{ adapter, loaded }] = useState(() => {
-    const storage = createCampaignStorage({ getStorage: () => window.localStorage, queueSave: queueProgressSave, eventTarget: window, localOnly: ephemeral });
+    const storage = createCampaignStorage({ getStorage, queueSave: queueProgressSave, eventTarget: ephemeral ? null : window, localOnly: ephemeral });
     return { adapter: storage, loaded: storage.loadCampaignProgress(progressScopeKey) };
   });
   const [progress, setProgress] = useState(loaded.progress);
@@ -133,6 +135,10 @@ export default function RoundedCampaign({ progressScopeKey, isSoundEnabled, ephe
   const nextStage = CAMPAIGN_STAGES[CAMPAIGN_STAGES.indexOf(stage) + 1];
   const totalMain = Object.keys(progress?.campaign?.completedMissions || {}).filter(id => getCampaignMission(id)?.kind === 'main').length;
   const blocked = !progress || ['unreadable', 'unsupported', 'conflict', 'reset'].includes(saveState.status);
+  const campaignEntry = mode === 'title' ? campaignReturn({ blocked, stageName: stage.name, progress, activeMission: beat ? mission : null }) : null;
+  const woodlandFirst = mode === 'title' && shouldLeadWithWoodland(campaignEntry, woodlandEntry);
+  const primaryEntry = woodlandFirst ? woodlandEntry : campaignEntry;
+  const secondaryEntry = woodlandFirst ? campaignEntry : woodlandEntry;
   useEffect(() => { const pack = { stageId: stage.id, missionId: checkpoint?.missionId, challenges: checkpoint?.challenges || [] }; void warmQuestOfflineAssets([...collectCampaignOfflineAudio(pack), ...collectCampaignQuestionArt(pack)], { chapterId: checkpoint?.missionId || stage.id }); }, [stage.id, checkpoint?.missionId, checkpoint?.attemptId, checkpoint?.challenges]);
 
   const save = useCallback((candidate, options) => {
@@ -452,7 +458,6 @@ export default function RoundedCampaign({ progressScopeKey, isSoundEnabled, ephe
   const objectImage = kind => campaignQuestionImage({ kind });
   const replayMissions = CAMPAIGN_MISSIONS.filter(item => item.stageId === stage.id && progress?.campaign?.completedMissions[item.id]);
   const worldName = CAMPAIGN_WORLDS.find(item => item.id === stage.worldId)?.name;
-  const startLabel = beat ? 'Carry on' : 'Start exploring';
   const repairCount = stage.missionIds.filter(id => progress?.campaign?.completedMissions[id]).length;
   const recentRepair = repairReceipt?.stageId === stage.id ? repairReceipt : null;
   const nextPlaceOpen = nextStage && isCampaignStageUnlocked(progress, nextStage.id, ROUND_CAMPAIGN);
@@ -475,15 +480,17 @@ export default function RoundedCampaign({ progressScopeKey, isSoundEnabled, ephe
       <img className="rc-title-landscape" src={withRepairedImageVersion(campaignPlayfieldLandscape({ stageId: stage.id }))} alt="" />
       <img className="rc-title-hero" src={withRepairedImageVersion(CAST.bouncy.sprite)} alt="Bouncy" />
       <div className="rc-title-page">
-        <p className="rc-location">{worldName} <span aria-hidden="true">·</span> {stage.name}</p>
+        <p className="rc-location">{woodlandFirst ? 'Woodland Homecoming' : <>{worldName} <span aria-hidden="true">·</span> {stage.name}</>}</p>
         <h1 data-child-title="">Sound Seekers</h1>
-        <p className="rc-title-instruction" data-child-instruction="">{CHILD_COPY.soundSeekers.startInstruction}</p>
-        <button className="rc-primary" aria-label={startLabel} data-child-primary="" data-child-emphasis="primary" data-child-emphasis-cue="" disabled={blocked} onClick={start}>{startLabel} <span aria-hidden="true">→</span></button>
+        <p className="rc-title-instruction" data-child-instruction="">{primaryEntry.detail || (woodlandFirst ? 'Visit your Woodland Pals again.' : CHILD_COPY.soundSeekers.startInstruction)}</p>
+        <button className="rc-primary" aria-label={primaryEntry.label} data-child-primary="" data-child-emphasis="primary" data-child-emphasis-cue="" disabled={primaryEntry.status === 'unavailable'} onClick={woodlandFirst ? onOpenWoodland : start}>{primaryEntry.label} <span aria-hidden="true">→</span></button>
         <div className="rc-title-choices" data-child-choices="" role="group" aria-label="Other places to go">
-          <button onClick={onOpenWoodland}>Woodland Homecoming</button>
+          {secondaryEntry && <button disabled={secondaryEntry.status === 'unavailable'} onClick={woodlandFirst ? start : onOpenWoodland}>
+            {woodlandFirst && secondaryEntry.status === 'fresh' ? 'Three-world adventure' : secondaryEntry.label}
+          </button>}
           <button onClick={exit}>Home</button>
         </div>
-        <p className="rc-save" data-child-progress="" role="status">Place {stage.number} of {CAMPAIGN_STAGES.length} <span aria-hidden="true">· </span>{statusLine}</p>
+        <p className="rc-save" data-child-progress="" role="status">{woodlandFirst ? (ephemeral ? 'Guest adventure' : 'Saved on this device') : <>Place {stage.number} of {CAMPAIGN_STAGES.length} <span aria-hidden="true">· </span>{statusLine}</>}</p>
       </div>
     </section>}
     {mode === 'explore' && <>

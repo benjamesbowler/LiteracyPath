@@ -173,8 +173,8 @@ export function buildSoundChips({ owned = [], mastered = [], focus = [], limit =
 // together. There is deliberately no default list: a mock's invented arc used
 // to sit here and it drew the Farm Gate in the middle of a carrot patch.
 //
-// The land's nine cycles, the nine landmark names and the nine points are one
-// list three times over; they are paired by index and never windowed.
+// The landmarks and points are indexed by the cycle's authored slot. The
+// visible progression can omit cycles without moving any landmark.
 
 export const MAP_STOP_SIZES = Object.freeze({ done: 46, next: 64, locked: 46 });
 
@@ -194,6 +194,20 @@ export function adventureMapPartFor(cycleNumber) {
   const n = Number(cycleNumber) || 1;
   return ADVENTURE_MAP_PARTS.find(part => n >= part.first && n <= part.last)
     || ADVENTURE_MAP_PARTS[0];
+}
+
+export function adventureMapSlotFor(cycleNumber) {
+  return Number(cycleNumber) - adventureMapPartFor(cycleNumber).first;
+}
+
+export function resolveAdventureMapContinuation({ cycles, starsFor, cycleLock, moreWordMatch }) {
+  if (cycleLock?.locked) {
+    return cycleLock.cycle ? { kind: "assigned", cycle: cycleLock.cycle } : { kind: "unavailable" };
+  }
+  const next = cycles.find(cycle => starsFor(cycle.id) <= 0);
+  if (next) return { kind: "next", cycle: next };
+  const last = cycles.at(-1);
+  return { kind: moreWordMatch ? "more-words" : "finished", cycle: last };
 }
 
 export function resolveAdventureMapCycleLock({ cycles = [], lockedCycleId = null } = {}) {
@@ -231,9 +245,9 @@ export function adventureMapFocusLockFor({ isStudentMode = false, session = null
  * @param cycles   the playable cycles of ONE land, in order:
  *                 [{ id, cycleNumber }]
  * @param starsFor (cycleId) => stars earned, 0-3
- * @param landmarks the painted place names for those cycles, same order
- * @param points   the admin-placed [x, y] percentage pairs for those cycles,
- *                 same order — wideMapPointsFor(worldId, override) from
+ * @param landmarks the painted place names indexed by authored slot
+ * @param points   the admin-placed [x, y] percentage pairs indexed by slot
+ *                 — wideMapPointsFor(worldId, override) from
  *                 src/data/mapStops.js. No list, no markers.
  * @param activeCycleId an exact teacher-assigned cycle, or null for the
  *                 ordinary first-unfinished progression rule
@@ -250,8 +264,9 @@ export function buildAdventureMapScene({
   const list = cycles.filter(Boolean).map((cycle, position) => ({
     id: cycle.id,
     number: cycle.cycleNumber,
-    name: landmarks[position] || cycle.title || "",
+    name: landmarks[adventureMapSlotFor(cycle.cycleNumber)] || cycle.title || "",
     stars: Math.max(0, Math.min(3, Number(starsFor(cycle.id)) || 0)),
+    slot: adventureMapSlotFor(cycle.cycleNumber),
     position
   }));
 
@@ -260,11 +275,7 @@ export function buildAdventureMapScene({
     ? list.findIndex(item => item.id === activeCycleId)
     : -1;
   const firstUnfinished = list.findIndex(item => item.stars <= 0);
-  // Every stop finished means the land is done: the last one stays "next" so
-  // the screen still has somewhere to point rather than nowhere.
-  const nextPosition = exactCycleLock
-    ? activeCyclePosition
-    : firstUnfinished >= 0 ? firstUnfinished : Math.max(0, list.length - 1);
+  const nextPosition = exactCycleLock ? activeCyclePosition : firstUnfinished;
   const stateFor = item => {
     if (exactCycleLock && item.position === activeCyclePosition) return "next";
     if (item.stars > 0) return "done";
@@ -281,7 +292,7 @@ export function buildAdventureMapScene({
   // invented one.
   const stops = [];
   for (const item of list) {
-    const point = points[item.position];
+    const point = points[item.slot];
     if (!Array.isArray(point) || point.length < 2) continue;
     const [x, y] = point;
     const state = stateFor(item);
@@ -299,7 +310,7 @@ export function buildAdventureMapScene({
   // four states put it: two behind, the one you are on, one ahead. A teacher
   // assignment instead leads with the only actionable card so a small-screen
   // child never has to scroll past unavailable choices to find it.
-  const cardAnchor = nextPosition >= 0 ? nextPosition : 0;
+  const cardAnchor = nextPosition >= 0 ? nextPosition : list.length - 1;
   const cardStart = clamp(cardAnchor - 2, 0, Math.max(0, list.length - cardCount));
   const cards = list
     .slice(cardStart, cardStart + cardCount)

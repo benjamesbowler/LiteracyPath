@@ -6,6 +6,14 @@ export function practiceQuestion(passage,state,index){
  const question=passage.questions[index];
  return {...question,options:shuffleAnswerPositions(question.options,`${state.runSeed}:${passage.id}:${question.id}`)};
 }
+// Saved responses retain their exact wording. Only presentation and validity
+// resolve the reviewed equivalent for an edited answer.
+export function currentPracticeChoice(question,value) {
+ return question?.previousOptions&&Object.hasOwn(question.previousOptions,value)?question.previousOptions[value]:value;
+}
+function isRecordedChoice(question,value) {
+ return question.options.includes(value)||(question.previousOptions&&Object.hasOwn(question.previousOptions,value));
+}
 export function reducePractice(passage,state,action) {
  if(action.type==='reset')return initialPractice(passage);
  if(action.type==='read'&&Number.isInteger(action.index)&&action.index>=0&&action.index<3){
@@ -23,7 +31,7 @@ function valid(p,s) {
  if(!s||typeof s.runSeed!=='string'||!s.runSeed.length||s.runSeed.length>200||s.version!==VERSION||s.passageId!==p.id||!Array.isArray(s.reads)||s.reads.length!==3||s.reads.some(v=>typeof v!=='boolean')||!s.responses||typeof s.responses!=='object'||Array.isArray(s.responses))return false;
  for(const [id,r] of Object.entries(s.responses)){
   const q=p.questions.find(q=>q.id===id);
-  if(!q||!r||!q.options.includes(r.first)||!q.options.includes(r.last)||!Number.isSafeInteger(r.attempts)||r.attempts<1||r.attempts>1000||r.correct!==(r.last===q.answer))return false;
+  if(!q||!r||!isRecordedChoice(q,r.first)||!isRecordedChoice(q,r.last)||!Number.isSafeInteger(r.attempts)||r.attempts<1||r.attempts>1000||r.correct!==(currentPracticeChoice(q,r.last)===q.answer))return false;
   if(r.attempts===1&&r.first!==r.last)return false;
  }
  return s.completed===p.questions.every(q=>s.responses[q.id]?.correct===true);

@@ -144,6 +144,9 @@ export async function generateComprehensionLedaAudio() {
     if (missing.length || previous.clips.length !== records.length) throw new Error(`Comprehension narration stale or missing: ${missing.length}`);
     return plan;
   }
+  if (process.argv.includes('--offline') && providerSegments.length) {
+    throw new Error('Exact recordings must be available locally for an offline comprehension update');
+  }
   await mkdir(outputDir, { recursive: true });
   await mkdir(scratchDir, { recursive: true });
   const segmentFiles = new Map(segments.map(text => [text, path.join(scratchDir, `${sha256(text)}.wav`)]));
@@ -188,15 +191,15 @@ export async function generateComprehensionLedaAudio() {
       return { ...old, text: current.text, textSha256: current.textSha256, audioSha256: current.audioSha256 };
     }));
   const compatibilityPaths = new Set(compatibilityClips.map(clip => clip.audioPath));
-  if (cycleShorts) {
-    // Cached Present and Guided Reading bundles still ask for the exact old
-    // story, prompt or choice. Keep their released URLs and bytes paired.
+  {
+    // Cached bundles can still ask for the exact old story, prompt or choice.
+    // Keep their released URLs and bytes paired.
     for (const old of previous.clips) {
       if (activePaths.has(old.audioPath) || compatibilityPaths.has(old.audioPath)) continue;
       const filename = path.join(root, 'public', old.audioPath);
       if (path.dirname(filename) !== outputDir) continue;
       if (old.audioSha256 !== sha256(await readFile(filename))) {
-        throw new Error(`Cannot preserve prior Cycle Shorts narration: ${old.audioPath}`);
+        throw new Error(`Cannot preserve prior comprehension narration: ${old.audioPath}`);
       }
       compatibilityClips.push(old);
       compatibilityPaths.add(old.audioPath);

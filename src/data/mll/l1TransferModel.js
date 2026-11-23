@@ -463,7 +463,7 @@ export function analyzeL1Transfer({
 
   const total = rows.length;
   const level = Number(proficiencyLevelLow);
-  const earlyLevel = Number.isFinite(level) && level <= 2;
+  const earlyLevel = Number.isFinite(level) && level >= 1 && level <= 2;
 
   const summary = {
     total,

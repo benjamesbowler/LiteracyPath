@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {createHash} from 'node:crypto';
 import { elSkillsBlockCycles } from '../../src/data/elSkillsBlockCycles.js';
+import { getApprovedPhonemeAudioPath } from '../../src/data/approvedPhonemeAudio.js';
 import { worldForCycle } from '../../src/utils/palWorlds.js';
 import { bookCharacterAsset } from '../../src/components/quest/bookCharacterAvatar.js';
 import {
@@ -110,7 +111,10 @@ test('blending and pattern reading respect the actual introduction day',()=>{
     const taught=new Set(presentationReviewContent(cycle.id,day).cards.map(c=>c.spelling));
     for(const match of deck.html.matchAll(/data-blend-word="([a-z]+)"/g))assert.ok([...match[1]].every(letter=>taught.has(letter)),`${cycle.id} ${day} ${match[1]}`);
     for(const item of deck.manifest.slides.filter(s=>s.construct==='decoding'))for(const part of item.parts||[]){
-      assert.ok(taught.has(part.text)||(/^[bcdfghjklmnpqrstvwxyz]+$/.test(part.text)&&[...part.text].every(letter=>taught.has(letter))),`${cycle.id} ${day} ${part.text}`);
+      const explicitlyModelledAy = cycle.cycleNumber === 25 && item.codeStatus === 'teacher-modelled-pattern'
+        && item.patternFocus === 'ay' && part === item.parts.at(-1) && part.text === 'ay'
+        && part.audio === getApprovedPhonemeAudioPath('ay');
+      assert.ok(explicitlyModelledAy || taught.has(part.text)||(/^[bcdfghjklmnpqrstvwxyz]+$/.test(part.text)&&[...part.text].every(letter=>taught.has(letter))),`${cycle.id} ${day} ${part.text}`);
     }
   }
 });

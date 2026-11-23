@@ -1796,3 +1796,40 @@ test("Whole Child priorities are deterministic and ordered by need, evidence str
     "Developing"
   ]);
 });
+
+test("Skills Check evidence is current on day 90 and expires on day 91", () => {
+  const completedAt = "2026-08-15T10:00:00.000Z";
+  const record = attempt({
+    completedAt, updatedAt: completedAt,
+    questionRecords: [{ ...attempt().questionRecords[0], timestamp: completedAt }]
+  });
+  const statusAt = days => buildStudentReportingWorkspaceModel({
+    student, assessmentHistory: [record],
+    now: new Date(Date.parse(completedAt) + days * 86_400_000)
+  }).skillsCheck.skills[0].currentStatus.id;
+  assert.notEqual(statusAt(90), REPORTING_STATUS_IDS.NOT_CHECKED);
+  assert.equal(statusAt(91), REPORTING_STATUS_IDS.NOT_CHECKED);
+});
+
+test("the teacher's Skills Check summary uses the same independent 5/8 after a save retry", () => {
+  const completedAt = "2026-08-15T10:00:00.000Z";
+  const records = Array.from({ length: 8 }, (_, index) => ({
+    ...attempt().questionRecords[0],
+    skillId: "nouns", questionId: `noun-${index}`, itemKey: "person",
+    responseStatus: index < 5 ? "correct" : "incorrect", isCorrect: index < 5, timestamp: completedAt
+  }));
+  const result = buildStudentReportingWorkspaceModel({
+    student, now: new Date("2026-08-16T00:00:00.000Z"),
+    assessmentHistory: [attempt({
+      attemptId: "skills-duplicate", skillId: "nouns", skillName: "Nouns", completedAt, updatedAt: completedAt,
+      correctCount: 9, totalQuestions: 12, accuracy: 75, passed: true,
+      questionRecords: [...records, ...Array(4).fill(records[0])]
+    })]
+  }).skillsCheck.skills[0];
+  assert.equal(result.latestCorrectCount, 5);
+  assert.equal(result.latestTotalQuestions, 8);
+  assert.equal(result.latestAccuracy, 63);
+  assert.equal(result.skillStatus.level1.phases[1].latestSittingAccuracy, 5 / 8);
+  assert.equal(result.skillStatus.level1.phases[1].currentPassed, false);
+  assert.equal(result.latestAttempt.raw.questionRecords.length, 12);
+});

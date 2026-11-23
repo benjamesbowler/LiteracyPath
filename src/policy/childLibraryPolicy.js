@@ -5,6 +5,7 @@ import { currentGuidedReadingRecord, getCurrentGuidedReadingRecord } from "../ut
 // internal to suitability. Separately reviewed app text levels may label books,
 // never the child or an achievement category.
 import { guidedReadingBookmark } from "../utils/guidedReading/bookmark.js";
+import { guidedReadingCompletion } from "../utils/guidedReading/completionPolicy.js";
 import { getPublicBookMetadata } from "../utils/guidedReading/bookLevelMetadata.js";
 import { readStoryQuestCheckpoint } from "../utils/storyQuestRoutes.js";
 
@@ -119,11 +120,7 @@ export function bookReadingProgress(book = {}, record = {}) {
       Object.keys(record?.pages || {}).length
     )
   );
-  const completed = Boolean(
-    record?.completed
-    || record?.completedAt
-    || (totalPages > 0 && completedPages >= totalPages)
-  );
+  const { completed, readingInProgress, readCount } = guidedReadingCompletion(record, totalPages);
   const started = Boolean(
     completed
     || completedPages > 0
@@ -136,6 +133,8 @@ export function bookReadingProgress(book = {}, record = {}) {
   return {
     started,
     completed,
+    readingInProgress,
+    readCount,
     pageIndex,
     page: pageIndex + 1,
     totalPages,
@@ -162,7 +161,7 @@ function readTime(record = {}) {
 export function pickContinueBook({ books = [], records = {} } = {}) {
   const open = books
     .map(book => ({ book, progress: bookReadingProgress(book, getCurrentGuidedReadingRecord(book, records)) }))
-    .filter(row => row.progress.started && !row.progress.completed)
+    .filter(row => row.progress.readingInProgress || (row.progress.started && !row.progress.completed))
     .sort((a, b) => readTime(getCurrentGuidedReadingRecord(b.book, records)) - readTime(getCurrentGuidedReadingRecord(a.book, records)));
   return open[0] || null;
 }

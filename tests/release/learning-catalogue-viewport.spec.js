@@ -22,7 +22,7 @@ for (const profile of STUDENT_DEVICE_PROFILES.filter(item => item.id !== "projec
     await letters.last().click();
     await expect(surface.locator(".phonics-trace-pad")).toBeVisible();
     await surface.getByRole("button", { name: "Back to letters", exact: false }).click();
-    await expect(letters.last()).toHaveAccessibleName("Letter Z, Try again");
+    await expect(letters.last()).toHaveAccessibleName("Letter Z, Continue");
     await expect(letters.last()).toBeFocused();
     await expectInChildPane(letters.last());
     await surface.getByRole("button", { name: "Words", exact: true }).click();
@@ -109,8 +109,10 @@ test("Leaving a game returns to its card and shows the current saved outing", as
 });
 
 for (const profile of STUDENT_DEVICE_PROFILES.filter(item => item.family === "small-phone" || item.id === "tablet-landscape")) {
-  test(`Skills keeps reporting and the return to the question in frame at ${profile.id}`, async ({ page }) => {
+  test(`Skills keeps reporting and the return to the question in frame at ${profile.id}`, async ({ page }, info) => {
     await page.addInitScript(() => {
+      // Keep this viewport regression on the four-picture Initial Sounds format.
+      crypto.randomUUID = () => "initial-sounds-report-2";
       window.Audio = class extends EventTarget {
         constructor() { super(); this.currentTime = 0; this.readyState = 4; this.duration = 0.02; this.paused = true; }
         load() { this.dispatchEvent(new Event("canplay")); }
@@ -122,6 +124,14 @@ for (const profile of STUDENT_DEVICE_PROFILES.filter(item => item.family === "sm
     await page.getByRole("button", { name: "Play Initial Sounds", exact: true }).click();
     const practice = page.locator(".skills-practice-play");
     await expect(practice).toHaveAttribute("data-skills-practice-ready", "true");
+    const question = practice.locator("[data-assessment-question-id]");
+    const questionId = await question.getAttribute("data-assessment-question-id");
+    const pictures = practice.getByRole("group", { name: "Picture choices", exact: true });
+    const choices = pictures.getByRole("button", { name: /^Choose / });
+    const replay = pictures.getByRole("button", { name: /^Hear / });
+    await expect(choices).toHaveCount(4);
+    await expect(replay).toHaveCount(4);
+    await expectInChildPane(pictures.getByRole("button"));
     const report = practice.getByRole("button", { name: "Report a problem", exact: true });
     await expectInChildPane(practice.locator(".skills-practice-tools button:visible"));
     await report.click();
@@ -131,6 +141,10 @@ for (const profile of STUDENT_DEVICE_PROFILES.filter(item => item.family === "sm
     await expectInChildPane(back);
     await back.click();
     await expect(report).toBeFocused();
-    await expectInChildPane(practice.locator(":is(.assessment-answer-card,.initial-sound-image-button,.visual-assessment-card-button):visible"));
+    await expect(question).toHaveAttribute("data-assessment-question-id", questionId);
+    await expectInChildPane(pictures.getByRole("button"));
+    await page.screenshot({ path: info.outputPath(`skills-initial-sounds-${profile.id}.png`) });
+    await replay.last().click();
+    await expect(replay.last()).toHaveAccessibleName(/ playing$/);
   });
 }

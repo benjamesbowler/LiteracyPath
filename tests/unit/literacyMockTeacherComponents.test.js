@@ -24,8 +24,8 @@ test("teacher preparation exposes real 15, 25 and 40 question adaptive budgets",
   assert.match(html, /teacher-product-page literacy-mock-teacher/);
   assert.match(html, /Adaptive test · up to 25 questions/);
   for (const count of [15,25,40]) assert.match(html, new RegExp(`value="${count}"[^>]*>Up to ${count} questions`));
-  assert.match(html, /All eight literacy areas, starting with the simplest tasks/);
-  assert.match(html, /areas without enough observations remain unconfirmed/);
+  assert.match(html, /tasks adjust based on each child’s independent answers/);
+  assert.match(html, /Short sittings leave some areas with limited evidence/);
   assert.doesNotMatch(html, /Short mock|Timed sample|Assessment length/);
   assert.match(html, /Adaptive Literacy Test/);
   assert.match(html, /Results save automatically/);

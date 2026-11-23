@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { ArrowLeft, CheckCircle, Envelope, Key, Lock, ShieldCheck, SpinnerGap, WarningCircle } from "@phosphor-icons/react";
 import { buildParentAreaModel } from "../../data/parentAreaModel.js";
 import { familyReportModelForRelease, familyReportPrintableHtml } from "../../data/familyReportDocument.js";
@@ -130,7 +130,7 @@ function AcceptInvite({ schoolName, onAccept, busy, error }) {
   const [displayName, setDisplayName] = useState("");
   const [accepted, setAccepted] = useState(false);
   return <ParentAuthShell>
-    <div className="parent-auth-invite"><Envelope size={21} aria-hidden="true" /><div><strong>Invitation from {schoolName}</strong><span>Your confirmed email matches this invitation.</span></div></div>
+    <div className="parent-auth-invite"><Envelope size={21} aria-hidden="true" /><div><strong>Invitation from {schoolName}</strong><span>Use the email address your school invited.</span></div></div>
     <h1>Accept family access</h1>
     <p>The school will decide which child and which family-ready reports appear in this account.</p>
     <form onSubmit={event => { event.preventDefault(); onAccept(displayName); }}>
@@ -156,130 +156,225 @@ function PasswordRecovery({ onComplete }) {
   }}><label>New password<input type="password" minLength={8} autoComplete="new-password" required value={password} onChange={event => setPassword(event.target.value)} /></label>{error ? <p className="parent-auth-error" role="alert">{error}</p> : null}<button type="submit" className="pa-button pa-button-primary" disabled={busy}>Save new password</button></form></ParentAuthShell>;
 }
 
-export function ParentApp() {
+export function ParentApp({ client = supabase, configured = isSupabaseConfigured }) {
   const [session, setSession] = useState(null);
   const [sessionReady, setSessionReady] = useState(false);
   const [recovery, setRecovery] = useState(false);
-  const [invite] = useState(inviteFromLocation);
+  const [invite, setInvite] = useState(inviteFromLocation);
   const [invitePreview, setInvitePreview] = useState(null);
   const [inviteError, setInviteError] = useState("");
-  const [portal, setPortal] = useState(null);
-  const [state, setState] = useState("loading");
-  const [error, setError] = useState("");
+  const [acceptError, setAcceptError] = useState("");
   const [accepting, setAccepting] = useState(false);
-  const [openReport, setOpenReport] = useState(null);
-  const [openReportModel, setOpenReportModel] = useState(null);
-  const [accountMessage, setAccountMessage] = useState("");
+  const [acceptedFor, setAcceptedFor] = useState("");
+  const guardianRef = useRef({ id: "", generation: 0 });
+  const [sessionGeneration, setSessionGeneration] = useState(0);
 
-  const loadPortal = useCallback(async () => {
-    setState("loading");
-    setError("");
-    try {
-      const data = await guardianPortalApi.getPortal(supabase);
-      setPortal(data);
-      setState("ready");
-    } catch (nextError) {
-      setError(friendlyError(nextError));
-      setState("error");
+  const updateSession = useCallback(next => {
+    const id = next?.user?.id || "";
+    if (guardianRef.current.id !== id) {
+      guardianRef.current = { id, generation: guardianRef.current.generation + 1 };
+      setSessionGeneration(guardianRef.current.generation);
     }
+    setSession(next);
+    setSessionReady(true);
   }, []);
 
   useEffect(() => {
     let active = true;
-    supabase.auth.getSession().then(({ data }) => {
+    let authEventReceived = false;
+    const { data } = client.auth.onAuthStateChange((event, nextSession) => {
       if (!active) return;
-      setSession(data.session);
-      setSessionReady(true);
-    });
-    const { data } = supabase.auth.onAuthStateChange((event, nextSession) => {
-      if (!active) return;
+      authEventReceived = true;
       if (event === "PASSWORD_RECOVERY") setRecovery(true);
-      setSession(nextSession);
-      setSessionReady(true);
+      if (!nextSession) setRecovery(false);
+      updateSession(nextSession);
+    });
+    void client.auth.getSession().then(({ data: saved }) => {
+      if (active && !authEventReceived) updateSession(saved?.session || null);
+    }).catch(() => {
+      if (active && !authEventReceived) updateSession(null);
     });
     return () => { active = false; data.subscription.unsubscribe(); };
-  }, []);
+  }, [client, updateSession]);
 
   useEffect(() => {
-    if (!invite) return;
-    guardianPortalApi.previewInvite(supabase, invite)
-      .then(setInvitePreview)
-      .catch(nextError => setInviteError(friendlyError(nextError)));
-  }, [invite]);
-
-  useEffect(() => {
-    if (!session || invite || recovery) return undefined;
+    if (!invite) return undefined;
     let active = true;
-    guardianPortalApi.getPortal(supabase).then(data => {
-      if (!active) return;
-      setPortal(data);
-      setState("ready");
-    }).catch(nextError => {
-      if (!active) return;
-      setError(friendlyError(nextError));
-      setState("error");
-    });
+    guardianPortalApi.previewInvite(client, invite)
+      .then(data => { if (active) setInvitePreview(data); })
+      .catch(error => { if (active) setInviteError(friendlyError(error)); });
     return () => { active = false; };
-  }, [invite, recovery, session]);
+  }, [client, invite]);
 
-  const models = useMemo(() => modelsFromPortal(portal?.children), [portal]);
+  const guardianId = session?.user?.id;
+  const isCurrent = useCallback(() => Boolean(guardianId && guardianRef.current.id === guardianId
+    && guardianRef.current.generation === sessionGeneration), [guardianId, sessionGeneration]);
 
-  if (!isSupabaseConfigured) return <ParentAuthShell><h1>Family access is not configured</h1><p>The app cannot safely sign families in on this deployment. Ask the service owner to check the hosting settings.</p></ParentAuthShell>;
+  if (!configured) return <ParentAuthShell><h1>Family access is not configured</h1><p>The app cannot safely sign families in on this deployment. Ask the service owner to check the hosting settings.</p></ParentAuthShell>;
   if (!sessionReady || (invite && !invitePreview && !inviteError)) return <ParentAuthShell><SpinnerGap className="parent-area-spinner parent-auth-loader" size={32} aria-label="Loading secure family access" /></ParentAuthShell>;
-  if (recovery) return <PasswordRecovery onComplete={() => { setRecovery(false); void loadPortal(); }} />;
-  if (inviteError) return <ParentAuthShell><WarningCircle size={30} className="parent-auth-warning" /><h1>Invitation unavailable</h1><p>{inviteError}</p><a className="pa-button pa-button-secondary" href="/parent">Go to family sign in</a></ParentAuthShell>;
-  if (!session) return <AuthForm invite={invite} schoolName={invitePreview?.school_name} onComplete={setSession} />;
-  if (invite && !portal) return <AcceptInvite schoolName={invitePreview?.school_name || "your school"} busy={accepting} error={error} onAccept={async displayName => {
+  if (recovery) return <PasswordRecovery onComplete={() => setRecovery(false)} />;
+  if (invite && inviteError) return <ParentAuthShell><WarningCircle size={30} className="parent-auth-warning" /><h1>Invitation unavailable</h1><p>{inviteError}</p><a className="pa-button pa-button-secondary" href="/parent">Go to family sign in</a></ParentAuthShell>;
+  if (!guardianId) return <AuthForm invite={invite} schoolName={invitePreview?.school_name} onComplete={updateSession} />;
+  if (invite) return <AcceptInvite schoolName={invitePreview?.school_name || "your school"} busy={accepting} error={acceptError} onAccept={async displayName => {
     setAccepting(true);
-    setError("");
+    setAcceptError("");
     try {
-      await guardianPortalApi.acceptInvite(supabase, {
-        token: invite,
-        displayName,
-        termsVersion: LEGAL_POLICY.termsVersion,
-        privacyVersion: LEGAL_POLICY.privacyVersion
+      await guardianPortalApi.acceptInvite(client, {
+        token: invite, displayName, termsVersion: LEGAL_POLICY.termsVersion, privacyVersion: LEGAL_POLICY.privacyVersion
       });
+      if (!isCurrent()) return;
+      setAcceptedFor(guardianId);
+      setInvite("");
       window.history.replaceState({}, "", "/parent");
-      await loadPortal();
-    } catch (nextError) {
-      setError(friendlyError(nextError));
+    } catch (error) {
+      if (isCurrent()) setAcceptError(friendlyError(error));
     } finally {
       setAccepting(false);
     }
   }} />;
 
+  return <GuardianPortal key={sessionGeneration} client={client} isCurrent={isCurrent}
+    invitationAccepted={acceptedFor === guardianId}
+    onSignOut={async () => {
+      const { error } = await client.auth.signOut();
+      if (error) throw error;
+      if (isCurrent()) updateSession(null);
+    }}
+  />;
+}
+
+function findReleasedReport(models, selection) {
+  const model = models.find(item => item.learner.id === selection?.learnerId);
+  const report = model?.reports.find(item => item.id === selection.reportId);
+  return report ? { report, model } : null;
+}
+
+function GuardianPortal({ client, isCurrent, invitationAccepted, onSignOut }) {
+  const [portal, setPortal] = useState(null);
+  const [state, setState] = useState("loading");
+  const [selection, setSelection] = useState(null);
+  const [accountMessage, setAccountMessage] = useState("");
+  const [reportMessage, setReportMessage] = useState("");
+  const [printing, setPrinting] = useState(false);
+  const readSequence = useRef(0);
+  const printPending = useRef(false);
+
+  const loadPortal = useCallback(async () => {
+    const sequence = ++readSequence.current;
+    try {
+      const data = await guardianPortalApi.getPortal(client);
+      if (!isCurrent() || sequence !== readSequence.current) return;
+      setPortal(data);
+      setSelection(current => {
+        if (!current) return null;
+        return findReleasedReport(modelsFromPortal(data.children), current) ? current : null;
+      });
+      setState("ready");
+    } catch {
+      if (!isCurrent() || sequence !== readSequence.current) return;
+      setSelection(null);
+      setPortal(null);
+      setState("error");
+    }
+  }, [client, isCurrent]);
+
+  useEffect(() => {
+    let active = true;
+    void Promise.resolve().then(() => { if (active) void loadPortal(); });
+    const recheck = () => {
+      if (document.visibilityState === "visible" && !printPending.current) void loadPortal();
+    };
+    document.addEventListener("visibilitychange", recheck);
+    return () => {
+      active = false;
+      readSequence.current += 1;
+      document.removeEventListener("visibilitychange", recheck);
+    };
+  }, [loadPortal]);
+
+  const models = useMemo(() => modelsFromPortal(portal?.children), [portal]);
+  const openReport = state === "ready" && findReleasedReport(models, selection);
+  const retry = () => {
+    setState("loading");
+    void loadPortal();
+  };
+
   function printReport(report, model) {
-    void guardianPortalApi.recordReportEvent(supabase, { reportId: report.id, eventType: "report_printed" }).catch(() => {});
-    const reportModel = familyReportModelForRelease(report, model);
-    openHtmlDocument({ html: familyReportPrintableHtml({ title: report.title, model: reportModel }), name: "literacy-guide-family-report", autoPrint: true });
+    if (printPending.current || !isCurrent()) return;
+    printPending.current = true;
+    setPrinting(true);
+    setReportMessage("");
+    const requested = { learnerId: model.learner.id, reportId: report.id };
+    const result = openHtmlDocument({
+      name: "literacy-guide-family-report",
+      autoPrint: true,
+      prepareHtml: async () => {
+        try {
+          const checked = await guardianPortalApi.getPortal(client);
+          if (!isCurrent()) throw new Error("Sign in again to print this report.");
+          const release = findReleasedReport(modelsFromPortal(checked.children), requested);
+          if (!release) throw new Error("The school has withdrawn this report or access has changed.");
+          await guardianPortalApi.recordReportEvent(client, { reportId: report.id, eventType: "report_printed" });
+          if (!isCurrent()) throw new Error("Sign in again to print this report.");
+          return familyReportPrintableHtml({
+            title: release.report.title,
+            model: familyReportModelForRelease(release.report, release.model)
+          });
+        } catch (error) {
+          if (isCurrent()) void loadPortal();
+          throw error;
+        }
+      }
+    });
+    const finished = result.ready || Promise.reject(new Error("Allow pop-ups for this site, then try Print again."));
+    void finished.catch(error => {
+      if (isCurrent()) setReportMessage(friendlyError(error));
+    }).finally(() => {
+      printPending.current = false;
+      if (isCurrent()) setPrinting(false);
+    });
   }
+
+  if (invitationAccepted && state === "error") return <ParentAuthShell>
+    <h1>Your invitation was accepted</h1>
+    <p>The family area could not load. Your school link is ready.</p>
+    <button className="pa-button pa-button-primary" type="button" onClick={retry}>Load family area again</button>
+  </ParentAuthShell>;
 
   return <>
     <ParentAreaPage
       models={models}
       state={state}
-      onRetry={loadPortal}
+      onRetry={retry}
       preferredLanguage={portal?.profile?.preferred_language || "en"}
       reportNotifications={Boolean(portal?.profile?.report_notifications)}
       accountMessage={accountMessage}
+      reportMessage={!openReport ? reportMessage : ""}
+      printing={printing}
       onOpenReport={(report, model) => {
-        setOpenReport(report);
-        setOpenReportModel(model);
-        void guardianPortalApi.recordReportEvent(supabase, { reportId: report.id, eventType: "report_viewed" }).catch(() => {});
+        setReportMessage("");
+        setSelection({ learnerId: model.learner.id, reportId: report.id });
+        void guardianPortalApi.recordReportEvent(client, { reportId: report.id, eventType: "report_viewed" }).catch(() => {});
       }}
       onPrintReport={printReport}
-      onSignOut={async () => { await supabase.auth.signOut(); setPortal(null); setSession(null); }}
+      onSignOut={async () => {
+        try { await onSignOut(); }
+        catch { if (isCurrent()) setAccountMessage("Could not sign out. Try again."); }
+      }}
       onUpdatePreferences={async preferences => {
         setAccountMessage("");
         try {
-          await guardianPortalApi.updatePreferences(supabase, preferences);
-          setPortal(current => ({ ...current, profile: { ...current.profile, preferred_language: preferences.preferredLanguage, report_notifications: preferences.reportNotifications } }));
+          await guardianPortalApi.updatePreferences(client, preferences);
+          if (!isCurrent()) return;
+          setPortal(current => current && ({ ...current, profile: { ...current.profile, preferred_language: preferences.preferredLanguage, report_notifications: preferences.reportNotifications } }));
           setAccountMessage("Preferences saved.");
-        } catch (nextError) {
-          setAccountMessage(friendlyError(nextError));
+        } catch (error) {
+          if (isCurrent()) setAccountMessage(friendlyError(error));
         }
       }}
     />
-    <FamilyReportDialog report={openReport} model={openReportModel} onClose={() => { setOpenReport(null); setOpenReportModel(null); }} onPrint={printReport} />
+    {openReport && <FamilyReportDialog report={openReport.report} model={openReport.model}
+      onClose={() => { setSelection(null); setReportMessage(""); }}
+      onPrint={printReport} printMessage={reportMessage} printing={printing} />}
   </>;
 }

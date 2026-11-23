@@ -711,7 +711,10 @@ function BenchmarkDetail({ detail }) {
         {(detail.bandRows || []).map(row => (
           <li key={row.bandId}>
               <strong>{benchmarkReadingStageValue(row)}</strong>
-              {` · ${progressPhrase(row.accurateCount, row.administeredCount)} accurate · ${progressPhrase(row.automaticCount, row.administeredCount)} automatic`}
+              {` · ${progressPhrase(row.accurateCount, row.administeredCount)} words read correctly`}
+              {row.automaticityJudgedCount > 0
+                ? ` · Reading speed recorded for ${row.automaticityJudgedCount}. ${row.automaticCount} read straight away.`
+                : " · Reading speed was not recorded."}
             </li>
           ))}
         </ul>

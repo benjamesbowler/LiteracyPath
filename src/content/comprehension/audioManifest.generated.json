@@ -3642,6 +3642,12 @@
           "authoredIndex": 3
         },
         {
+          "passageId": "fluff-tune",
+          "sourceId": "fluff-tune-q3",
+          "role": "question-option",
+          "authoredIndex": 3
+        },
+        {
           "passageId": "fluff-fan-paper",
           "sourceId": "fluff-fan-paper-q1",
           "role": "question-option",
@@ -4944,118 +4950,100 @@
       "audioSha256": "a2ef8e3c2047e53c965dcb2510a59ded2ef086db24544ca1bb9fe0fdaf9c3ae8"
     },
     {
-      "text": "To a tree away from the ducks",
-      "textSha256": "7f0fe77f68c11dcce52006cac3967b5ee2dcb6b2503f904912c9a0b7b8205787",
+      "text": "A tree",
+      "textSha256": "c296ce671cf9b4e2a4331f80f8bc6e7fa25c4f580eec2345f5c46c642f922bad",
       "segments": [
-        "To a tree away from the ducks"
+        "A tree"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/242940b876c295565ad6.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/68df8254c0980880b5e2.mp3",
       "references": [
         {
           "passageId": "fluff-tune",
           "sourceId": "fluff-tune-q3",
           "role": "question-option",
           "authoredIndex": 0
-        }
-      ],
-      "voice": "en-US-Chirp3-HD-Leda",
-      "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:21:35.332Z",
-      "pauseBetweenSegmentsMs": 450,
-      "finalPaddingMs": 150,
-      "audioSha256": "ff7417da17d02aafc79a2d5ec5e0aafd783210175b655e382d01588f82005961"
-    },
-    {
-      "text": "Into the pond",
-      "textSha256": "10541b1b7c8fb57221237bdb7f8e8fda69cf36d0600f6b5a72fb36584cb611c5",
-      "segments": [
-        "Into the pond"
-      ],
-      "recipe": "leda-exact-segments-pause450-tail150-v2",
-      "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/1d9f0cf1dc44b98601ca.mp3",
-      "references": [
-        {
-          "passageId": "fluff-tune",
-          "sourceId": "fluff-tune-q3",
-          "role": "question-option",
-          "authoredIndex": 1
         },
         {
-          "passageId": "chips-sun-cap",
-          "sourceId": "chips-sun-cap-q2",
-          "role": "question-option",
-          "authoredIndex": 2
-        },
-        {
-          "passageId": "socks-steps",
-          "sourceId": "socks-steps-q2",
-          "role": "question-option",
-          "authoredIndex": 1
-        }
-      ],
-      "voice": "en-US-Chirp3-HD-Leda",
-      "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:21:35.332Z",
-      "pauseBetweenSegmentsMs": 450,
-      "finalPaddingMs": 150,
-      "audioSha256": "5a70640426ae1bc30d2042326c897687d1cfd5306a1610a0b483cb19e69c1618"
-    },
-    {
-      "text": "To a gate",
-      "textSha256": "ad81e4fcca71f465835710d739a5fda1262f243e9c18ffa6d11103b9a51bc99f",
-      "segments": [
-        "To a gate"
-      ],
-      "recipe": "leda-exact-segments-pause450-tail150-v2",
-      "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/2b19c3090684a01f059b.mp3",
-      "references": [
-        {
-          "passageId": "fluff-tune",
-          "sourceId": "fluff-tune-q3",
-          "role": "question-option",
-          "authoredIndex": 2
-        },
-        {
-          "passageId": "muddy-ring",
-          "sourceId": "muddy-ring-q2",
-          "role": "question-option",
-          "authoredIndex": 1
-        }
-      ],
-      "voice": "en-US-Chirp3-HD-Leda",
-      "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:21:35.332Z",
-      "pauseBetweenSegmentsMs": 450,
-      "finalPaddingMs": 150,
-      "audioSha256": "30bc9557663462c5fa69a0de0324a503f15a80b81d0e047b3ea7b711ab2f221a"
-    },
-    {
-      "text": "Into a boat",
-      "textSha256": "d6831af348bac4e3d667262de473ed51dfb2f141c101fc1c03430dac1031ab97",
-      "segments": [
-        "Into a boat"
-      ],
-      "recipe": "leda-exact-segments-pause450-tail150-v2",
-      "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/b67108278c228c6552e7.mp3",
-      "references": [
-        {
-          "passageId": "fluff-tune",
-          "sourceId": "fluff-tune-q3",
+          "passageId": "chompy-ink-pads",
+          "sourceId": "chompy-ink-pads-q2",
           "role": "question-option",
           "authoredIndex": 3
+        },
+        {
+          "passageId": "muddy-fog-window",
+          "sourceId": "muddy-fog-window-q2",
+          "role": "question-option",
+          "authoredIndex": 0
         }
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:21:35.332Z",
+      "generatedAt": "2026-10-30T01:50:01.847Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "adbac87b4f26a32a0a33501c7c28ce5f4dcd5ddae392fda7da58541f657e4784"
+      "audioSha256": "abd7fcf73222c8224672f40ba8692258d282a0797c5bf5c69737b12708e1fb17"
+    },
+    {
+      "text": "A bench",
+      "textSha256": "981b8bcc939aa62c007f79ece92391e829ab95631ff735851cdb5a16b953f747",
+      "segments": [
+        "A bench"
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/comprehension/150a1bee66a5ed3d319e.mp3",
+      "references": [
+        {
+          "passageId": "fluff-tune",
+          "sourceId": "fluff-tune-q3",
+          "role": "question-option",
+          "authoredIndex": 1
+        },
+        {
+          "passageId": "socks-hose",
+          "sourceId": "socks-hose-q3",
+          "role": "question-option",
+          "authoredIndex": 2
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-10-27T03:21:35.334Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "8110bdeb390fff992c2f811bd93fd7ad94eec15a212483d48fcae26a7dc93018"
+    },
+    {
+      "text": "A gate",
+      "textSha256": "1ca227957e6d3acfa264025057dccfc710587f4719317be332cbfe8a7f2797ad",
+      "segments": [
+        "A gate"
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/comprehension/51a90d5c360a7a8b1a97.mp3",
+      "references": [
+        {
+          "passageId": "fluff-tune",
+          "sourceId": "fluff-tune-q3",
+          "role": "question-option",
+          "authoredIndex": 2
+        },
+        {
+          "passageId": "pip-sink",
+          "sourceId": "pip-sink-q1",
+          "role": "question-option",
+          "authoredIndex": 2
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-10-27T03:21:35.333Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "68df5538de342d20a5c54476b2bc9b70fe4a5ba13ba27444b19e51493b3afa72"
     },
     {
       "text": "Chips and the Ice Cube\n\nChips has a big ice cube in a tub. Chips wants to use the tub for plants. The ice is stuck in the tub. Chips puts the tub in the sun. The ice melts into water. Chips pours out the water and puts soil in the tub. Now Chips can plant the seeds.",
@@ -8882,14 +8870,14 @@
       "audioSha256": "e5adbfdc3552b422e2a037b5fb7ba2b7f350b7e7f0141a7baa82e942b721c021"
     },
     {
-      "text": "The sign says ten, but the bag has nine",
-      "textSha256": "abb079148b9c443ae27434208ac9a2378df373ba47da0577ae35537a8568692a",
+      "text": "One seed is missing",
+      "textSha256": "1c838e6e5060edd6aba413fdece83789b373e9fd8a46be3e5d7105b07c3b2221",
       "segments": [
-        "The sign says ten, but the bag has nine"
+        "One seed is missing"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/de1fa15b41b4df83da39.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/625a0043dbda07a39629.mp3",
       "references": [
         {
           "passageId": "fluff-blue",
@@ -8900,10 +8888,10 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:21:35.333Z",
+      "generatedAt": "2026-11-23T04:55:24.462Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "f09392e4264811caeaa17d09e43784bd24544f069c8aab10792a93bd8bd62425"
+      "audioSha256": "b21eb1b0769b505669ed9b6e2259d841f1b601905ed9778c2ef91408c40eaba2"
     },
     {
       "text": "The bag has no seeds",
@@ -12957,6 +12945,36 @@
       "audioSha256": "f1501db09c988b4f6f8e5ebf36c2c6e9918e54db9d721f7047ee135d949f0747"
     },
     {
+      "text": "Into the pond",
+      "textSha256": "10541b1b7c8fb57221237bdb7f8e8fda69cf36d0600f6b5a72fb36584cb611c5",
+      "segments": [
+        "Into the pond"
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/comprehension/1d9f0cf1dc44b98601ca.mp3",
+      "references": [
+        {
+          "passageId": "chips-sun-cap",
+          "sourceId": "chips-sun-cap-q2",
+          "role": "question-option",
+          "authoredIndex": 2
+        },
+        {
+          "passageId": "socks-steps",
+          "sourceId": "socks-steps-q2",
+          "role": "question-option",
+          "authoredIndex": 1
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-10-27T03:21:35.332Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "5a70640426ae1bc30d2042326c897687d1cfd5306a1610a0b483cb19e69c1618"
+    },
+    {
       "text": "Beside the gate",
       "textSha256": "2649d7f92a422b420d3648576e99020e5a71a55505f5d3f0ba644d29baf9edf1",
       "segments": [
@@ -14686,6 +14704,30 @@
       "audioSha256": "5ebd3cbb1016bf11d9c2ee0967929a252f4f9609f7869fcf11ab7fd378831bab"
     },
     {
+      "text": "To a gate",
+      "textSha256": "ad81e4fcca71f465835710d739a5fda1262f243e9c18ffa6d11103b9a51bc99f",
+      "segments": [
+        "To a gate"
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/comprehension/2b19c3090684a01f059b.mp3",
+      "references": [
+        {
+          "passageId": "muddy-ring",
+          "sourceId": "muddy-ring-q2",
+          "role": "question-option",
+          "authoredIndex": 1
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-10-27T03:21:35.332Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "30bc9557663462c5fa69a0de0324a503f15a80b81d0e047b3ea7b711ab2f221a"
+    },
+    {
       "text": "To a chair",
       "textSha256": "184c63a992b41fdf7b8d89704035fe16e2d3088a70c1252690a867377a3a1bd3",
       "segments": [
@@ -15327,30 +15369,6 @@
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
       "audioSha256": "0cd187ee3c462832d709cc6be185505b7a8093decacb5113696594b477d97d2d"
-    },
-    {
-      "text": "A gate",
-      "textSha256": "1ca227957e6d3acfa264025057dccfc710587f4719317be332cbfe8a7f2797ad",
-      "segments": [
-        "A gate"
-      ],
-      "recipe": "leda-exact-segments-pause450-tail150-v2",
-      "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/51a90d5c360a7a8b1a97.mp3",
-      "references": [
-        {
-          "passageId": "pip-sink",
-          "sourceId": "pip-sink-q1",
-          "role": "question-option",
-          "authoredIndex": 2
-        }
-      ],
-      "voice": "en-US-Chirp3-HD-Leda",
-      "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:21:35.333Z",
-      "pauseBetweenSegmentsMs": 450,
-      "finalPaddingMs": 150,
-      "audioSha256": "68df5538de342d20a5c54476b2bc9b70fe4a5ba13ba27444b19e51493b3afa72"
     },
     {
       "text": "A shelf",
@@ -16793,6 +16811,12 @@
         {
           "passageId": "socks-steps",
           "sourceId": "socks-steps-q1",
+          "role": "question-option",
+          "authoredIndex": 0
+        },
+        {
+          "passageId": "fluff-pot-tunnel",
+          "sourceId": "fluff-pot-tunnel-q3",
           "role": "question-option",
           "authoredIndex": 0
         }
@@ -20389,30 +20413,6 @@
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
       "audioSha256": "12daee5e155403d2416f8baa7f901ac128194d5b8c2beb77a4d1dac79220b59b"
-    },
-    {
-      "text": "A bench",
-      "textSha256": "981b8bcc939aa62c007f79ece92391e829ab95631ff735851cdb5a16b953f747",
-      "segments": [
-        "A bench"
-      ],
-      "recipe": "leda-exact-segments-pause450-tail150-v2",
-      "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/150a1bee66a5ed3d319e.mp3",
-      "references": [
-        {
-          "passageId": "socks-hose",
-          "sourceId": "socks-hose-q3",
-          "role": "question-option",
-          "authoredIndex": 2
-        }
-      ],
-      "voice": "en-US-Chirp3-HD-Leda",
-      "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:21:35.334Z",
-      "pauseBetweenSegmentsMs": 450,
-      "finalPaddingMs": 150,
-      "audioSha256": "8110bdeb390fff992c2f811bd93fd7ad94eec15a212483d48fcae26a7dc93018"
     },
     {
       "text": "Chips Sets Up a Race\n\nChips sets up a toy car race. Chips draws a line on a long board. Five toy cars wait at the line. Chips lifts one end of the board with a block. The cars roll down together. The yellow car stops first. The red car rolls to the end.",
@@ -29408,30 +29408,6 @@
       "audioSha256": "a652d3045d9585c7e3b55f7456ec3f7ce7193749579e29019ead188fa048782b"
     },
     {
-      "text": "To the top of the pot",
-      "textSha256": "8b12619b52433dc1a7a86e10d99be71f502ee8bc0f21479ecd2d7b8f476ac917",
-      "segments": [
-        "To the top of the pot"
-      ],
-      "recipe": "leda-exact-segments-pause450-tail150-v2",
-      "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/6814b3188b383fafc928.mp3",
-      "references": [
-        {
-          "passageId": "fluff-pot-tunnel",
-          "sourceId": "fluff-pot-tunnel-q3",
-          "role": "question-option",
-          "authoredIndex": 0
-        }
-      ],
-      "voice": "en-US-Chirp3-HD-Leda",
-      "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-30T01:50:01.847Z",
-      "pauseBetweenSegmentsMs": 450,
-      "finalPaddingMs": 150,
-      "audioSha256": "b2d384acbad54490655e60b8f4149d7d7fb23546798ff685926df3474106c32c"
-    },
-    {
       "text": "Inside the car",
       "textSha256": "f52325a90115190b755f033f2bacca396261d3b927e51e6ff714b071c6dc302f",
       "segments": [
@@ -30911,14 +30887,14 @@
       "audioSha256": "fb9c17d61b4b157a585b11a5d4fee32568801c1b200112e436f0c9fb248bddc8"
     },
     {
-      "text": "So Socks can stop before the longer hop",
-      "textSha256": "ce184714561dd2f7501aae6db43c3b654bd5e24223ba6a20cd6478b199158d99",
+      "text": "So Socks can stop first",
+      "textSha256": "e044551ece5623a7ecdda09b0ae5f22da78ebcfb8483ee22ea924e0ce0a1916f",
       "segments": [
-        "So Socks can stop before the longer hop"
+        "So Socks can stop first"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/e3d304ea512581512b16.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/a40b872ae0752aa534aa.mp3",
       "references": [
         {
           "passageId": "pip-hop-spots",
@@ -30929,10 +30905,10 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-30T01:50:01.847Z",
+      "generatedAt": "2026-11-23T04:55:24.476Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "f1311983f8ab051ee8bc10f23db9971aa20513e43fe7e673c0140093969f5015"
+      "audioSha256": "7409309c4f8ce09faac96af1741ae3f4774c69e612a7c86362d0a9aef4b57721"
     },
     {
       "text": "So the chalk will dry",
@@ -32171,36 +32147,6 @@
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
       "audioSha256": "9002f65dd5ee3849c7497c249137853899cd38aa808c1a28c8bcf4dd1892c71a"
-    },
-    {
-      "text": "A tree",
-      "textSha256": "c296ce671cf9b4e2a4331f80f8bc6e7fa25c4f580eec2345f5c46c642f922bad",
-      "segments": [
-        "A tree"
-      ],
-      "recipe": "leda-exact-segments-pause450-tail150-v2",
-      "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/68df8254c0980880b5e2.mp3",
-      "references": [
-        {
-          "passageId": "chompy-ink-pads",
-          "sourceId": "chompy-ink-pads-q2",
-          "role": "question-option",
-          "authoredIndex": 3
-        },
-        {
-          "passageId": "muddy-fog-window",
-          "sourceId": "muddy-fog-window-q2",
-          "role": "question-option",
-          "authoredIndex": 0
-        }
-      ],
-      "voice": "en-US-Chirp3-HD-Leda",
-      "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-30T01:50:01.847Z",
-      "pauseBetweenSegmentsMs": 450,
-      "finalPaddingMs": 150,
-      "audioSha256": "abd7fcf73222c8224672f40ba8692258d282a0797c5bf5c69737b12708e1fb17"
     },
     {
       "text": "What does Chompy do before using the blue pad?",
@@ -36978,14 +36924,14 @@
       "audioSha256": "8df4d29012c98dfee761f61d71a00ac07a66dc93efa4c1502db9ef9516ef15fa"
     },
     {
-      "text": "To see if Socks can see it before the turn",
-      "textSha256": "a317dae19422ebddafdaa12d7388bb9ee8bd03deacc57573352fd34067f3d9e6",
+      "text": "So Socks can see it",
+      "textSha256": "b244d1a7ae5ca07d18dbfae5b878ee6e33abe2300353718adc77ef44539ae7e8",
       "segments": [
-        "To see if Socks can see it before the turn"
+        "So Socks can see it"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/a1e330d432caaf22b8b2.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/42c7ede6ec5fa800e1ea.mp3",
       "references": [
         {
           "passageId": "pip-chalk-arrow",
@@ -36996,10 +36942,10 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-30T01:50:01.847Z",
+      "generatedAt": "2026-11-23T04:55:24.477Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "bcd42f2110b75fee3fdaacf4dd23bb4aa0afcb8cc1b868b29b5000e2e0a404e3"
+      "audioSha256": "4fe0e6ec246b9758db24557f014582d33bbb6ed6dea8ba899d0afa3852a2f732"
     },
     {
       "text": "To see if the tree is tall",
@@ -40314,14 +40260,14 @@
       "audioSha256": "e8a898609afef1a997bc1a3a3f6383aca8f0ee90e8220f89ec5f5034995de861"
     },
     {
-      "text": "Stand in the doorway without holding the flap",
-      "textSha256": "563fb736fba9b4c63599bfcc297ec7f2a8f61dd6fd86a91a3294fab65edfd4a5",
+      "text": "Stand without holding the flap",
+      "textSha256": "92ab5a15492facf7f753b8320e6fe872e0ddde96f79d08a21b06c915c63637b1",
       "segments": [
-        "Stand in the doorway without holding the flap"
+        "Stand without holding the flap"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/e8531da31be3c25df73d.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/3e6718c4d2395d11160a.mp3",
       "references": [
         {
           "passageId": "muddy-tent-flap",
@@ -40332,10 +40278,10 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-30T01:50:01.848Z",
+      "generatedAt": "2026-11-23T04:55:24.478Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "3330ca5673e93ad39c3f31e7d01d2292c194affedf00a559e3c9ba68babb3fd6"
+      "audioSha256": "ded1490c93a4c8e7916d656e7683426d75cdea22db4e12614cc11bf612e2b7a2"
     },
     {
       "text": "Close a window",
@@ -44524,14 +44470,14 @@
       "audioSha256": "cdec636532b649bcda828954152370ac3a09605f065b049b2ccd82956b62eb32"
     },
     {
-      "text": "The short ribbon cannot go around the box",
-      "textSha256": "5019c59e81f166341dadf3b6bc68ed72e43c2b92667e9da4770dbb9f29659cac",
+      "text": "The short ribbon won't fit",
+      "textSha256": "c887e6bee68c6e657d0edad31bd248e4b548d7c14ce489e5489a1e2314a5d8da",
       "segments": [
-        "The short ribbon cannot go around the box"
+        "The short ribbon won't fit"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/d1920403b4385813dfd9.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/cc4703ee273f876f60e1.mp3",
       "references": [
         {
           "passageId": "chips-long-ribbon",
@@ -44542,10 +44488,10 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-30T01:50:01.849Z",
+      "generatedAt": "2026-11-23T04:55:24.480Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "8752f9af94f18ee1b2b2166284b2eed914a86880854c54bd42ca908bc9817e0f"
+      "audioSha256": "0be0071d0f8232c9a04f46cf42281dbc1545fd0b7120f7a752053ec4ec811eaa"
     },
     {
       "text": "The short ribbon is wet",
@@ -51457,14 +51403,14 @@
       "audioSha256": "4af2708803f3e5a668fa7f661a3dc43168a2cdf6accd51ff747c780f7b3f64eb"
     },
     {
-      "text": "Uses both front hooves to hold it flat",
-      "textSha256": "2dd3e94b8dcc71b194c5d89f4135f54c1393bbfa00c89e8a711ecd5658767ae3",
+      "text": "Holds it flat with both hooves",
+      "textSha256": "5ce05b73fe192189629ee61d62f91fe7b5ba6917a5119544311fefad8de1edde",
       "segments": [
-        "Uses both front hooves to hold it flat"
+        "Holds it flat with both hooves"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/ac34ef4815a2596d1aa8.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/cee23db7f987d2cc5597.mp3",
       "references": [
         {
           "passageId": "muddy-cup-tray",
@@ -51475,10 +51421,10 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-30T01:50:01.850Z",
+      "generatedAt": "2026-11-23T04:55:24.482Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "7b17e7e8e8eb4c27f24d88f0cd9ff2145b0016aca7d7d78b588b5004f64ecb74"
+      "audioSha256": "4cff5a779e3997b0968b50368cd129819f0cc8fb8ecfe9c222c949971be8fc47"
     },
     {
       "text": "Holds it above the head",
@@ -56555,6 +56501,222 @@
       "audioSha256": "5162b3011eecac8ce4973e78969015cc322b6a8a12db52ab7e1f9e0f73d4a92d",
       "text": "Chips Gets Ready for a Day Trip\n\nChips packs for a day trip. A water bottle, an apple and a map sit on a tray. Chips puts the bottle and apple in a bag. Chips wants the map in a small pocket. The open map is too wide. Chips folds the map and puts it in the pocket. Then Chips puts the tray away.",
       "textSha256": "46726c9c4b8bf5e00c04e30ec1ceb6c7dccb910bbf927ff0a2dabd6eef91e9c2"
+    },
+    {
+      "text": "To a tree away from the ducks",
+      "textSha256": "7f0fe77f68c11dcce52006cac3967b5ee2dcb6b2503f904912c9a0b7b8205787",
+      "segments": [
+        "To a tree away from the ducks"
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/comprehension/242940b876c295565ad6.mp3",
+      "references": [
+        {
+          "passageId": "fluff-tune",
+          "sourceId": "fluff-tune-q3",
+          "role": "question-option",
+          "authoredIndex": 0
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-10-27T03:21:35.332Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "ff7417da17d02aafc79a2d5ec5e0aafd783210175b655e382d01588f82005961"
+    },
+    {
+      "text": "Into a boat",
+      "textSha256": "d6831af348bac4e3d667262de473ed51dfb2f141c101fc1c03430dac1031ab97",
+      "segments": [
+        "Into a boat"
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/comprehension/b67108278c228c6552e7.mp3",
+      "references": [
+        {
+          "passageId": "fluff-tune",
+          "sourceId": "fluff-tune-q3",
+          "role": "question-option",
+          "authoredIndex": 3
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-10-27T03:21:35.332Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "adbac87b4f26a32a0a33501c7c28ce5f4dcd5ddae392fda7da58541f657e4784"
+    },
+    {
+      "text": "To the top of the pot",
+      "textSha256": "8b12619b52433dc1a7a86e10d99be71f502ee8bc0f21479ecd2d7b8f476ac917",
+      "segments": [
+        "To the top of the pot"
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/comprehension/6814b3188b383fafc928.mp3",
+      "references": [
+        {
+          "passageId": "fluff-pot-tunnel",
+          "sourceId": "fluff-pot-tunnel-q3",
+          "role": "question-option",
+          "authoredIndex": 0
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-10-30T01:50:01.847Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "b2d384acbad54490655e60b8f4149d7d7fb23546798ff685926df3474106c32c"
+    },
+    {
+      "text": "The sign says ten, but the bag has nine",
+      "textSha256": "abb079148b9c443ae27434208ac9a2378df373ba47da0577ae35537a8568692a",
+      "segments": [
+        "The sign says ten, but the bag has nine"
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/comprehension/de1fa15b41b4df83da39.mp3",
+      "references": [
+        {
+          "passageId": "fluff-blue",
+          "sourceId": "fluff-blue-q3",
+          "role": "question-option",
+          "authoredIndex": 0
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-10-27T03:21:35.333Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "f09392e4264811caeaa17d09e43784bd24544f069c8aab10792a93bd8bd62425"
+    },
+    {
+      "text": "So Socks can stop before the longer hop",
+      "textSha256": "ce184714561dd2f7501aae6db43c3b654bd5e24223ba6a20cd6478b199158d99",
+      "segments": [
+        "So Socks can stop before the longer hop"
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/comprehension/e3d304ea512581512b16.mp3",
+      "references": [
+        {
+          "passageId": "pip-hop-spots",
+          "sourceId": "pip-hop-spots-q3",
+          "role": "question-option",
+          "authoredIndex": 0
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-10-30T01:50:01.847Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "f1311983f8ab051ee8bc10f23db9971aa20513e43fe7e673c0140093969f5015"
+    },
+    {
+      "text": "To see if Socks can see it before the turn",
+      "textSha256": "a317dae19422ebddafdaa12d7388bb9ee8bd03deacc57573352fd34067f3d9e6",
+      "segments": [
+        "To see if Socks can see it before the turn"
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/comprehension/a1e330d432caaf22b8b2.mp3",
+      "references": [
+        {
+          "passageId": "pip-chalk-arrow",
+          "sourceId": "pip-chalk-arrow-q3",
+          "role": "question-option",
+          "authoredIndex": 0
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-10-30T01:50:01.847Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "bcd42f2110b75fee3fdaacf4dd23bb4aa0afcb8cc1b868b29b5000e2e0a404e3"
+    },
+    {
+      "text": "Stand in the doorway without holding the flap",
+      "textSha256": "563fb736fba9b4c63599bfcc297ec7f2a8f61dd6fd86a91a3294fab65edfd4a5",
+      "segments": [
+        "Stand in the doorway without holding the flap"
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/comprehension/e8531da31be3c25df73d.mp3",
+      "references": [
+        {
+          "passageId": "muddy-tent-flap",
+          "sourceId": "muddy-tent-flap-q3",
+          "role": "question-option",
+          "authoredIndex": 0
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-10-30T01:50:01.848Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "3330ca5673e93ad39c3f31e7d01d2292c194affedf00a559e3c9ba68babb3fd6"
+    },
+    {
+      "text": "The short ribbon cannot go around the box",
+      "textSha256": "5019c59e81f166341dadf3b6bc68ed72e43c2b92667e9da4770dbb9f29659cac",
+      "segments": [
+        "The short ribbon cannot go around the box"
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/comprehension/d1920403b4385813dfd9.mp3",
+      "references": [
+        {
+          "passageId": "chips-long-ribbon",
+          "sourceId": "chips-long-ribbon-q3",
+          "role": "question-option",
+          "authoredIndex": 0
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-10-30T01:50:01.849Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "8752f9af94f18ee1b2b2166284b2eed914a86880854c54bd42ca908bc9817e0f"
+    },
+    {
+      "text": "Uses both front hooves to hold it flat",
+      "textSha256": "2dd3e94b8dcc71b194c5d89f4135f54c1393bbfa00c89e8a711ecd5658767ae3",
+      "segments": [
+        "Uses both front hooves to hold it flat"
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/comprehension/ac34ef4815a2596d1aa8.mp3",
+      "references": [
+        {
+          "passageId": "muddy-cup-tray",
+          "sourceId": "muddy-cup-tray-q3",
+          "role": "question-option",
+          "authoredIndex": 0
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-10-30T01:50:01.850Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "7b17e7e8e8eb4c27f24d88f0cd9ff2145b0016aca7d7d78b588b5004f64ecb74"
     }
   ]
 }

@@ -194,7 +194,7 @@ test("the stops count names a real number and promises no stars", () => {
   // "Three stops to go" sat beside a star glyph and named a star total nothing
   // awards — books give none. A tick in a ring counts finished tasks and claims
   // nothing about treasure.
-  assert.match(code, /`\$\{doneCount\} of 3 done`/);
+  assert.match(code, /`Daily goal · \$\{doneCount\} of 3 done`/);
   assert.equal(
     /StarGlyph/.test(code),
     false,

@@ -51,3 +51,31 @@ test('every authored teaching, saved-place and exploration reason resolves an ex
     assert.ok(AUDIO_QUEST_PATHS.has(audio), text);
   }
 });
+
+test('cycle 8 with three played onset games still recommends onset practice, while written sorting matches its own target', () => {
+  const progress = { games: {
+    'rocket-run': { stars: 3, lastPlayedAt: '2026-11-22T00:00:00Z' },
+    'sound-racer': { stars: 3, lastPlayedAt: '2026-11-20T00:00:00Z' },
+    'word-climb': { stars: 3, lastPlayedAt: '2026-11-21T00:00:00Z' }
+  } };
+  assert.equal(arcadeRecommendation({ games: GAME_LIST, progress, currentCycleId: 'cycle-8' }).game.id, 'sound-racer');
+  const next = arcadeRecommendation({ games: GAME_LIST, progress, currentCycleId: 'cycle-15' });
+  assert.equal(next.game.id, 'sound-sort-factory');
+  assert.equal(next.reason, 'Practise: match starting letters.');
+  const unavailable = arcadeRecommendation({ games: [next.game], progress, recommendedSkill: 'initial_sounds' });
+  assert.equal(unavailable.basis, 'exploration');
+  assert.doesNotMatch(unavailable.reason, /sound/i);
+});
+
+test('browsing gives the same cycle recommendation and prefers an available unfinished or resumable outing', () => {
+  const progress = { difficulty: 'easy', games: {
+    'rocket-run': { journeys: { easy: { completed: Array.from({ length: 12 }, (_, i) => i) } } },
+    'word-climb': { checkpoints: { easy: { chapterIndex: 3 } } }
+  } };
+  const recommend = (currentCycleId, games = GAME_LIST) => arcadeRecommendation({ games, progress, currentCycleId });
+  assert.equal(recommend('cycle-1').game.id, 'word-climb');
+  assert.equal(recommend('cycle-1', GAME_LIST.filter(game => game.id !== 'word-climb')).game.id, 'sound-racer');
+  assert.equal(recommend('cycle-11').game.id, 'blend-and-build');
+  assert.equal(recommend('cycle-25').game.id, 'pop-the-word');
+  assert.deepEqual(recommend('cycle-11'), recommend('cycle-11'));
+});

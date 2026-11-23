@@ -102,3 +102,34 @@ test("family release snapshots use report home support without a cycle-generated
   assert.deepEqual(snapshot.atHome.activities.map(activity => activity.direction), homeSupport.items);
   assert.equal(snapshot.atHome.title, homeSupport.title);
 });
+
+test("a released update names distinct evidence in the same strand and remains stable when reordered", () => {
+  const concepts = [
+    { domain: "decoding", construct: "cvc_word", statusId: "secure" },
+    { domain: "decoding", construct: "grapheme_sound", key: "sh", statusId: "needs_support" },
+    { domain: "phonological_awareness", construct: "final_sound", statusId: "developing" },
+    { domain: "reading_fluency", statusId: "not_checked" },
+    { domain: "fluency", statusId: "not_checked" },
+    { domain: "encoding", statusId: "developing" }
+  ];
+  const snapshot = input => buildParentReleaseSnapshot({
+    workspace: { wholeChild: { concepts: input } },
+    studentId: workspace.wholeChild.studentId,
+    studentName: "Sam", className: "Willow Class", schoolName: "Benchmark School",
+    teacherName: "Ms Green", teacherEmail: "teacher@benchmark.school"
+  });
+  const result = snapshot(concepts);
+  assert.deepEqual(result, snapshot(concepts.slice().reverse()));
+  assert.equal(result.learner.schoolName, "Benchmark School");
+  assert.match(result.canDo[0], /sounding out short words/);
+  assert.match(result.nextFocus[0], /two letters sh as one sound/);
+  assert.match(result.atHome.activities[0].direction, /Find sh/);
+  assert.equal(result.nextFocus.length, 2);
+  assert.equal(result.progress.filter(row => row.id === "reading_aloud").length, 1);
+  assert.equal(result.progress.find(row => row.id === "reading_words").status, "mixed_evidence");
+
+  const empty = snapshot([]);
+  assert.match(empty.highlight, /still gathering/);
+  assert.deepEqual(empty.canDo, []);
+  assert.deepEqual(empty.nextFocus, []);
+});

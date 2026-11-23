@@ -54,9 +54,19 @@ function safeString(value) {
   return value === null || value === undefined ? "" : String(value);
 }
 
-function safeNumber(value) {
+function safeNumber(value, { min = 0, max = Infinity, integer = false } = {}) {
+  if (typeof value !== "number" && (typeof value !== "string" || !value.trim())) return null;
   const number = Number(value);
-  return Number.isFinite(number) ? number : null;
+  return Number.isFinite(number) && number >= min && number <= max && (!integer || Number.isInteger(number))
+    ? number : null;
+}
+
+function profileLevel(value) {
+  return safeNumber(value, { min: 1, max: 6 });
+}
+
+function profileBoolean(value) {
+  return typeof value === "boolean" ? value : null;
 }
 
 /**
@@ -79,7 +89,7 @@ export function buildMllStudentProfile(input = {}) {
     gradeCluster: cluster,
     gradeClusterKnown: Boolean(cluster),
 
-    isMultilingualLearner: input.isMultilingualLearner === true,
+    isMultilingualLearner: profileBoolean(input.isMultilingualLearner),
     lifecycleStage: MLL_LIFECYCLE_STAGES.some(stage => stage.id === input.lifecycleStage)
       ? input.lifecycleStage
       : "",
@@ -89,8 +99,8 @@ export function buildMllStudentProfile(input = {}) {
 
     // Language background — oral and literacy tracked apart, deliberately.
     homeLanguage: safeString(input.homeLanguage),
-    homeLanguageOral: input.homeLanguageOral === undefined ? null : Boolean(input.homeLanguageOral),
-    homeLanguageLiteracy: input.homeLanguageLiteracy === undefined ? null : Boolean(input.homeLanguageLiteracy),
+    homeLanguageOral: profileBoolean(input.homeLanguageOral),
+    homeLanguageLiteracy: profileBoolean(input.homeLanguageLiteracy),
     otherLanguages: Array.isArray(input.otherLanguages) ? input.otherLanguages.map(safeString) : [],
     countryOfOrigin: safeString(input.countryOfOrigin),
     yearsInUsSchools: safeNumber(input.yearsInUsSchools),
@@ -101,11 +111,11 @@ export function buildMllStudentProfile(input = {}) {
 
     // Services
     programModel: safeString(input.programModel),
-    serviceMinutesPerWeek: safeNumber(input.serviceMinutesPerWeek),
+    serviceMinutesPerWeek: safeNumber(input.serviceMinutesPerWeek, { integer: true }),
     serviceProvider: safeString(input.serviceProvider),
     supportTypes: Array.isArray(input.supportTypes) ? input.supportTypes.map(safeString) : [],
     accommodations: Array.isArray(input.accommodations) ? input.accommodations.map(safeString) : [],
-    familyDeclinedServices: input.familyDeclinedServices === true,
+    familyDeclinedServices: profileBoolean(input.familyDeclinedServices),
 
     // Assessment history and district configuration
     languageAssessments: normalizeAssessments(input.languageAssessments),
@@ -127,15 +137,12 @@ function normalizeAssessments(rows) {
       const domainLevels = {};
       const domainScaleScores = {};
       MLL_DOMAINS.forEach(domain => {
-        const level = safeNumber(row?.domainLevels?.[domain.id]);
-        const scale = safeNumber(row?.domainScaleScores?.[domain.id]);
-        if (level !== null) domainLevels[domain.id] = level;
-        if (scale !== null) domainScaleScores[domain.id] = scale;
+        domainLevels[domain.id] = profileLevel(row?.domainLevels?.[domain.id]);
+        domainScaleScores[domain.id] = safeNumber(row?.domainScaleScores?.[domain.id], { min: 100, max: 600, integer: true });
       });
       const compositeLevels = {};
       MLL_COMPOSITES.forEach(composite => {
-        const level = safeNumber(row?.compositeLevels?.[composite.id]);
-        if (level !== null) compositeLevels[composite.id] = level;
+        compositeLevels[composite.id] = profileLevel(row?.compositeLevels?.[composite.id]);
       });
       return {
         id: safeString(row?.id) || `${sourceId}-${safeString(row?.administeredOn)}`,
@@ -152,7 +159,8 @@ function normalizeAssessments(rows) {
         note: safeString(row?.note)
       };
     })
-    .filter(row => row.administeredOn || Object.keys(row.domainLevels).length)
+    .filter(row => row.administeredOn || [row.domainLevels, row.domainScaleScores, row.compositeLevels]
+      .some(scores => Object.values(scores).some(score => score !== null)))
     .sort((a, b) => String(a.administeredOn).localeCompare(String(b.administeredOn)));
 }
 
@@ -166,15 +174,15 @@ function normalizeExitCriteria(criteria) {
   if (!criteria) return { ...MLL_DEFAULT_EXIT_CRITERIA, configured: false };
   return {
     compositeId: safeString(criteria.compositeId) || "overall",
-    compositeMinimum: safeNumber(criteria.compositeMinimum),
-    domainFloor: safeNumber(criteria.domainFloor),
+    compositeMinimum: profileLevel(criteria.compositeMinimum),
+    domainFloor: profileLevel(criteria.domainFloor),
     additionalCriteria: Array.isArray(criteria.additionalCriteria)
       ? criteria.additionalCriteria.map(safeString)
       : [],
     effectiveFrom: safeString(criteria.effectiveFrom),
     effectiveTo: safeString(criteria.effectiveTo),
     source: safeString(criteria.source),
-    configured: safeNumber(criteria.compositeMinimum) !== null
+    configured: profileLevel(criteria.compositeMinimum) !== null
   };
 }
 

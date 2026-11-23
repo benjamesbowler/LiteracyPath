@@ -134,6 +134,7 @@ test("Skills trail exposes all 30 free choices and fits tablet and small phone",
   expect(labels.size).toBe(30);
   for (const size of [{ width: 1024, height: 768 }, { width: 320, height: 568 }]) {
     await page.setViewportSize(size);
+    await page.getByRole("navigation", { name: "Skills trail views" }).getByRole("button", { name: "Selected skill", exact: true }).click();
     await expect(page.locator("[data-child-primary]")).toBeVisible();
     const fits = await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth);
     expect(fits).toBe(true);

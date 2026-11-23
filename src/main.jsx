@@ -75,7 +75,7 @@ function SoundKeysLoadingFallback() {
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <ErrorBoundary logLabel="App root crashed" fallback={<AppCrashFallback />}>
+    <ErrorBoundary logLabel="App root crashed" fallback={({ reset }) => <AppCrashFallback onRetry={reset} />}>
       {rootPath === '/soundkeys'
         ? <Suspense fallback={<SoundKeysLoadingFallback />}><LazySoundKeysApp /></Suspense>
         : rootPath === '/parent'

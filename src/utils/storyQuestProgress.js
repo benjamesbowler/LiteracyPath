@@ -1,50 +1,65 @@
-import { queueProgressSave } from "./progressSync.js";
-import { readStoryQuestCheckpoint, storyQuestEndingIds } from "./storyQuestRoutes.js";
-
-const STORY_QUEST_PROGRESS_STORAGE_KEY = "literacyPath.storyQuestProgress.v1";
+import { getActiveProgressSyncSession, getCachedCloudProgressRows, queueProgressSave } from "./progressSync.js";
+import { localProgressStorageKey } from "./progressKeys.js";
+import { decodeProgressStorage } from "./progressStorageCodec.js";
+import { isStoryQuestProgressLedger, isStoryQuestProgressRow, readStoryQuestCheckpoint, storyQuestEndingIds } from "./storyQuestRoutes.js";
 
 export function storyQuestProgressStorageKey(progressScopeKey = "default") {
-  return `${STORY_QUEST_PROGRESS_STORAGE_KEY}.${encodeURIComponent(progressScopeKey || "default")}`;
+  return localProgressStorageKey("story_quests", progressScopeKey);
 }
 
 export function isStoryQuestTeacherPreviewScope(progressScopeKey = "") {
   return String(progressScopeKey || "").startsWith("teacher-preview:");
 }
 
-export function loadStoryQuestProgress(progressScopeKey = "default") {
-  if (typeof window === "undefined") return {};
+function readLocalStoryQuestProgress(progressScopeKey) {
+  if (typeof window === "undefined") return { status: "missing", progress: {} };
   try {
-    const parsed = JSON.parse(
-      window.localStorage.getItem(storyQuestProgressStorageKey(progressScopeKey)) || "{}"
-    );
-    return parsed && typeof parsed === "object" && !Array.isArray(parsed) ? parsed : {};
-  } catch {
-    return {};
-  }
+    const raw = window.localStorage.getItem(storyQuestProgressStorageKey(progressScopeKey));
+    if (raw === null) return { status: "missing", progress: {} };
+    const progress = decodeProgressStorage(raw);
+    if (isStoryQuestProgressLedger(progress)) return { status: "ready", progress };
+  } catch { /* The original bytes are needed for recovery. */ }
+  return { status: "unreadable", progress: {} };
 }
 
-export function saveStoryQuestProgress(progressScopeKey = "default", progress = {}) {
-  if (typeof window === "undefined") return;
-  const saved = loadStoryQuestProgress(progressScopeKey);
-  const changed = Object.fromEntries(Object.entries(progress || {}).filter(([, row]) => row && typeof row === "object").map(([questId, incoming]) => {
-    const existing = saved[questId] || {};
-    const existingIsNewer = (existing.updatedAt || "") > (incoming.updatedAt || "");
-    const [previous, latest] = existingIsNewer ? [incoming, existing] : [existing, incoming];
-    return [questId, mergeStoryQuestProgressRow(previous, latest, latest.updatedAt)];
-  }));
+export function readStoryQuestProgress(progressScopeKey = "default") {
+  const session = getActiveProgressSyncSession();
+  if (isStoryQuestTeacherPreviewScope(progressScopeKey)
+    || (session?.studentId === progressScopeKey && session.mode === "preview")) {
+    return { status: "preview", progress: {} };
+  }
+  const local = readLocalStoryQuestProgress(progressScopeKey);
+  if (local.status !== "unreadable" || session?.studentId !== progressScopeKey
+    || !["student", "teacher"].includes(session.mode)) return local;
+  const rows = getCachedCloudProgressRows(progressScopeKey);
+  if (!Array.isArray(rows)) return local;
+  const progress = Object.fromEntries(rows
+    .filter(row => row?.area === "story_quests" && row.key && isStoryQuestProgressRow(row.payload))
+    .map(row => [row.key, row.payload]));
+  return Object.keys(progress).length ? { status: "cached", progress } : local;
+}
+
+export function loadStoryQuestProgress(progressScopeKey = "default") {
+  return readStoryQuestProgress(progressScopeKey).progress;
+}
+
+export function saveStoryQuestProgress(progressScopeKey, questId, patch) {
+  if (typeof window === "undefined" || !questId || !isStoryQuestProgressRow(patch)) return false;
+  const { status, progress } = readStoryQuestProgress(progressScopeKey);
+  if (status !== "ready" && status !== "missing") return false;
+  const existing = Object.hasOwn(progress, questId) ? progress[questId] : {};
+  const existingIsNewer = (existing.updatedAt || "") > (patch.updatedAt || "");
+  const [previous, latest] = existingIsNewer ? [patch, existing] : [existing, patch];
+  const payload = mergeStoryQuestProgressRow(previous, latest, latest.updatedAt);
   try {
-    window.localStorage.setItem(storyQuestProgressStorageKey(progressScopeKey), JSON.stringify({ ...saved, ...changed }));
+    window.localStorage.setItem(storyQuestProgressStorageKey(progressScopeKey), JSON.stringify({ ...progress, [questId]: payload }));
   } catch {
-    // Storage may be unavailable (private browsing / quota). The cloud queue
-    // below still carries the progress.
+    return false;
   }
   try {
-    Object.entries(changed).forEach(([questId, payload]) => {
-      queueProgressSave("story_quests", questId, { v: 1, ...payload }, { scopeKey: progressScopeKey });
-    });
-  } catch {
-    // Story Quest progress is helpful report context, but it should never block reading.
-  }
+    queueProgressSave("story_quests", questId, { ...payload, v: 1 }, { scopeKey: progressScopeKey });
+  } catch { /* The current checkpoint was already saved on this device. */ }
+  return true;
 }
 
 export function formatStoryQuestDate(value) {

@@ -271,3 +271,62 @@ test("statuses are always provisional and carry evidence counts", () => {
   assert.ok(result.evidence.scored > 0);
   assert.ok(result.evidence.days >= 2);
 });
+
+test("repeated independent rows preserve a failed 5/8 phase and raw evidence", async () => {
+  const { learnerAssessmentStatus, nextAssessmentStep } = await import("../../src/appState/assessmentSitting.js");
+  const completedAt = new Date(T0).toISOString();
+  const questionRecords = Array.from({ length: 8 }, (_, index) => ({
+    questionId: `noun-${index}`, itemKey: "person", responseStatus: index < 5 ? "correct" : "incorrect"
+  }));
+  const archive = { studentId: "one", skillId: "nouns", attemptId: "sitting-a", completedAt,
+    skillLevel: 1, skillPhase: 1, questionRecords };
+  const repeated = { ...archive, totalQuestions: 12, questionRecords: [
+    ...Array(4).fill(questionRecords[0]), ...questionRecords.slice().reverse()
+  ] };
+  for (const rows of [[archive], [repeated], [repeated, archive], [archive, repeated, repeated]]) {
+    const status = learnerAssessmentStatus(rows, "nouns", "one", { now: NOW });
+    assert.equal(status.level1.phases[1].latestSittingAccuracy, 5 / 8);
+    assert.equal(status.level1.phases[1].currentPassed, false);
+    assert.equal(status.evidence.scored, 8);
+    assert.equal(status.unitStates.get(unitStateEvidenceKey(1, "person")).attempts, 8);
+    assert.deepEqual(nextAssessmentStep(status), { level: 1, phase: 1 });
+  }
+  assert.equal(repeated.questionRecords.length, 12);
+
+  const ambiguous = { ...archive, questionRecords: [...questionRecords,
+    { ...questionRecords[7], responseStatus: "correct" }] };
+  const review = learnerAssessmentStatus([ambiguous], "nouns", "one", { now: NOW });
+  assert.equal(review.evidence.conflictingCount, 1);
+  assert.match(review.whyNot.join(" "), /Conflicting first answers/);
+  assert.equal(review.level1.phases[1].currentPassed, false);
+
+  const later = { ...archive, attemptId: "sitting-b", completedAt: new Date(T0 + DAY).toISOString(),
+    questionRecords: questionRecords.map(row => ({ ...row, responseStatus: "correct" })) };
+  const result = learnerAssessmentStatus([later, archive], "nouns", "one", { now: NOW });
+  assert.equal(result.evidence.scored, 16);
+  assert.deepEqual(nextAssessmentStep(result), { level: 1, phase: 2 });
+});
+
+test("an eight-item retention check does not gain credit from a repeated correct response", () => {
+  const blueprint = getSkillBlueprint("digraphs");
+  const ledger = perfectRun(blueprint);
+  const retention = Array.from({ length: RETENTION_RULE.items }, (_, index) => attempt({
+    unit: "ch", item: `ret-${index}`, day: 27, level: 2, mode: "retention",
+    sitting: "retention-check", correct: index < RETENTION_RULE.passMin - 1
+  }));
+  const status = computeSkillStatus([...ledger, ...retention, ...Array(4).fill(retention[0])], blueprint, { now: NOW });
+  assert.equal(status.retention.correct, RETENTION_RULE.passMin - 1);
+  assert.equal(status.retention.total, 8);
+  assert.equal(status.retention.passed, false);
+});
+
+test("first dated independent answers survive reordering and a media replacement keeps its own identity", () => {
+  const base = attempt({ unit: "ch", item: "original", sitting: "single", day: 1, correct: false });
+  const later = { ...base, timestamp: base.timestamp + 500, responseState: "correct", isCorrect: true };
+  const failedMedia = { ...base, itemId: "unavailable", responseState: "media_failed" };
+  const replacement = { ...later, itemId: "replacement" };
+  const states = computeUnitStates([later, replacement, failedMedia, base], getSkillBlueprint("digraphs"), { now: NOW });
+  const learned = states.get(unitStateEvidenceKey(1, "ch"));
+  assert.equal(learned.attempts, 2);
+  assert.equal(learned.correct, 1);
+});

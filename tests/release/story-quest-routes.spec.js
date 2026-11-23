@@ -1,5 +1,6 @@
 import { expect, test } from "@playwright/test";
 import { storyQuests } from "../../src/data/storyQuests.js";
+import { encodeStoryQuestCheckpoint } from "../../src/utils/storyQuestRoutes.js";
 import { showStoryQuestCard } from "./helpers/storyQuestShelf.js";
 
 test.describe.configure({ timeout: 90_000 });
@@ -99,6 +100,45 @@ test("leaving an unfinished story resumes the actual route and stops narration",
   await reader.getByLabel("More story controls", { exact: true }).first().click();
   await reader.getByRole("button", { name: "Previous scene", exact: true }).click();
   await expect(reader.locator(".story-quest-position")).toHaveText("Scene 2");
+});
+
+test("unreadable Story Quest history survives opening, reading and exiting, then Retry restores the real checkpoint", async ({ page }) => {
+  const key = "literacyPath.storyQuestProgress.v1.child-surface-preview";
+  const corrupt = '{"unreadable":';
+  const quest = storyQuests.find(item => item.shortTitle === "The Missing Hat");
+  const route = routesFor(quest)[0];
+  await page.goto("/preview/child-surfaces.html?surface=story-quests", { waitUntil: "domcontentloaded" });
+  await expect(page.locator('[data-child-surface="story-quests"]')).toBeVisible();
+  await page.evaluate(({ key, corrupt }) => {
+    localStorage.setItem(key, corrupt);
+    window.dispatchEvent(new CustomEvent("lp-progress-hydrated", { detail: { studentId: "child-surface-preview" } }));
+  }, { key, corrupt });
+  await expect(page.getByText("We could not open your stories")).toBeVisible();
+  await expect(page.locator(".kg-quest-badge")).toHaveCount(0);
+  const reader = await openStory(page, quest.shortTitle);
+  await expect(reader.getByText("Reading without saving")).toBeVisible();
+  await choose(reader, route.choices[0]);
+  await expect(reader).toHaveAttribute("data-page-id", route.pages[1]);
+  await reader.getByRole("button", { name: "Back to Story Quests" }).click();
+  expect(await page.evaluate(key => localStorage.getItem(key), key)).toBe(corrupt);
+
+  const checkpoint = {
+    contentRevision: quest.contentRevision,
+    visitedPageIds: route.pages.slice(0, 2),
+    routeFinished: false
+  };
+  const restored = { [quest.id]: {
+    ...checkpoint, opened: true, lastPageId: route.pages[1],
+    routeCheckpoint: encodeStoryQuestCheckpoint(checkpoint),
+    endingPageIds: [route.pages.at(-1)]
+  } };
+  await page.evaluate(({ key, restored }) => localStorage.setItem(key, JSON.stringify(restored)), { key, restored });
+  await page.getByRole("button", { name: "Retry", exact: true }).click();
+  await openStory(page, quest.shortTitle);
+  await expect(reader).toHaveAttribute("data-page-id", route.pages[1]);
+  await expect(reader.getByText("Reading without saving")).toHaveCount(0);
+  expect(await page.evaluate(({ key, questId }) => JSON.parse(localStorage.getItem(key))[questId].endingPageIds,
+    { key, questId: quest.id })).toEqual(restored[quest.id].endingPageIds);
 });
 
 test("keyboard word help uses one tab stop and arrows while phone navigation stays touchable", async ({ page }) => {

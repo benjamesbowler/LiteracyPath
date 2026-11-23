@@ -20,30 +20,47 @@
   var embedded = window.self !== window.top;
   // about:srcdoc reports a null URL origin although its document inherits the parent origin.
   var messageOrigin = embedded ? window.parent.location.origin : location.origin;
+  var scaler = document.getElementById('scaler');
+  var deck = document.getElementById('deck');
+  var rail = document.getElementById('rail');
+  var nav = document.getElementById('nav');
+  var startOverlay = document.getElementById('start');
+  var startButton = document.getElementById('startBtn');
   var overview = document.getElementById('overview');
   var blank = document.getElementById('blank-screen');
+  var finished = document.getElementById('finished');
+  var finishButton = document.getElementById('finish');
+  var resumeButton = document.getElementById('resume-interrupted');
+  var fullscreenButton = document.getElementById('fullscreen-toggle');
+  var fullscreenStatus = document.getElementById('fullscreen-status');
   var audioStatus = document.getElementById('audio-status');
   var liveChannel;
   try { liveChannel = new BroadcastChannel('lp-present-live:' + sessionId); } catch { /* optional projector status */ }
 
   function fitStage() {
-    var nav=document.getElementById('nav'),rail=document.getElementById('rail');
     var top=embedded?0:(rail?.getBoundingClientRect().height || 52);
     var bottom=embedded?0:(nav?.getBoundingClientRect().height || 56);
+    document.body.style.setProperty('--present-nav-height', bottom + 'px');
     var available=Math.max(150,innerHeight-top-bottom);stage.style.top=(top+available/2)+'px';
     stage.style.transform = 'translate(-50%, -50%) scale(' + Math.min(innerWidth / 1920, available / 1080) + ')';
   }
   ['resize', 'orientationchange'].forEach(function (event) { window.addEventListener(event, fitStage); });
-  document.addEventListener('fullscreenchange', fitStage);
+  document.addEventListener('fullscreenchange', function () { syncFullscreen(); fitStage(); });
   fitStage();
 
   // Teacher controls stay in viewport pixels while only the child canvas scales.
-  ['rail','nav','overview','blank-screen','audio-status'].forEach(function (id) { var node = document.getElementById(id); if (node) document.body.append(node); });
+  ['rail','nav','overview','blank-screen','finished'].forEach(function (id) { var node = document.getElementById(id); if (node) document.body.append(node); });
   fitStage();
+  if (globalThis.ResizeObserver && !embedded) {
+    var toolbarResize = new ResizeObserver(fitStage);
+    toolbarResize.observe(rail);
+    toolbarResize.observe(nav);
+  }
   var audioOwner = globalThis.createPresentAudioController({onStatus:function(state){
     mediaState = state;
     if(classGames && (state==='unavailable'||state==='interrupted'))classGames.pause();
     audioStatus.textContent = state === 'muted' ? 'Speech is muted. Turn speech on to replay this available recording.' : state === 'unavailable' ? 'Recording unavailable. Use the private spoken prompt, retry or skip.' : state === 'interrupted' ? 'Audio delivery interrupted. Replay deliberately, model aloud or skip.' : state === 'paused' ? 'Audio paused. Resume when the class is ready.' : '';
+    syncResumeButton();
     publishStatus();
   }});
   audioOwner.setSpeechEnabled(document.body.dataset.speech !== 'false');
@@ -188,12 +205,16 @@
     function step(now) {
       run.resume = step;
       if (writingRun !== run) return;
-      if (!blank.hidden) { run.pausedAt = now; run.resume = step; return; }
+      if (document.hidden || activeOverlay()) {
+        if (!run.pausedAt) run.pausedAt = now;
+        return;
+      }
       if (run.pausedAt) {
         var hiddenFor = now - run.pausedAt;
         run.preparedAt += hiddenFor; if (start) start += hiddenFor; if (pause) pause += hiddenFor;
         run.readyDeadline += hiddenFor;
         run.pausedAt = 0;
+        syncResumeButton();
       }
 
       if (now < run.preparedAt || run.readyPending) {
@@ -220,8 +241,8 @@
     writeRaf = requestAnimationFrame(step);
   }
   document.addEventListener('visibilitychange',function(){
-    if(!document.hidden)resumeMatch();
-    if(document.hidden){classGames.pause();pauseMatch();endFinger();audioOwner.pause();pauseTimer();cancelModel();if(writingRun){writingRun.pausedAt=performance.now();cancelAnimationFrame(writeRaf);}}
+    if (document.hidden) pauseLesson();
+    else { resumeMatch(); syncResumeButton(); }
   });
   function syncReveal(slide) {
     var button = slide.querySelector('[data-reveal-toggle]');
@@ -588,6 +609,8 @@
   function show(index, force) {
     index = Math.max(0, Math.min(slides.length - 1, Math.trunc(index)));
     if (!Number.isFinite(index) || (!force && index === idx)) return;
+    var previousFocus = document.activeElement;
+    var focusWasOnSlide = slides[idx]?.contains(previousFocus);
     if (writingRun) stopWriting(slides[idx]);
     endFinger();
     classGames.cancel();cancelMatch();
@@ -598,12 +621,18 @@
       syncReveal(slide);
     });
     var current = slides[idx];
+    current.tabIndex = -1;
     current.dataset.writingLetterIndex = '0';
     resetTimer(current); resetBuild(current); resetTracking(current); resetWriting(current);
     resetMatch(current); resetChoice(current); clearFinger(current);
     document.getElementById('counter').textContent = (idx + 1) + ' / ' + slides.length;
     document.getElementById('prev').disabled = idx === 0;
-    document.getElementById('next').disabled = idx === slides.length - 1;
+    var next = document.getElementById('next');
+    next.disabled = idx === slides.length - 1;
+    if (finishButton) {
+      finishButton.hidden = embedded || !started || !next.disabled;
+      next.hidden = !finishButton.hidden;
+    }
     var progress = document.getElementById('lesson-progress');
     progress.setAttribute('aria-valuenow', String(idx + 1)); progress.firstElementChild.style.transform = 'scaleX(' + ((idx + 1) / slides.length) + ')';
     stage.classList.toggle('chromeless', !current.dataset.section);
@@ -613,39 +642,158 @@
     if(started&&retrievalMode==='model'&&current.dataset.audio)playAudio(current.dataset.audio);
     resetAdditional(current);classGames.reset(current);
     if(current.dataset.mediaInterrupted==='true')current.querySelectorAll(mediaControls).forEach(function(button){button.disabled=true;});
+    deck.scrollTop = 0;
+    syncResumeButton();
+    if (!activeOverlay()) {
+      if (focusWasOnSlide) current.focus({preventScroll:true});
+      else if (previousFocus === next && finishButton && !finishButton.hidden) finishButton.focus();
+      else if (previousFocus?.disabled || previousFocus?.hidden) current.focus({preventScroll:true});
+    }
     if (embedded) { window.parent.postMessage({ type: 'lp-present-preview', sessionId:sessionId, deckKey:deckKey, index:idx },messageOrigin);publishStatus(); }
     else {
       var message = statusMessage();
       try { if (window.opener) window.opener.postMessage(message, messageOrigin); liveChannel?.postMessage(message); } catch { /* closed teacher window */ }
     }
   }
-  function closeOverview() { overview.hidden = true; resumeMatch(); document.getElementById('deck').inert = false; document.getElementById('overview-toggle').focus(); }
-  function openOverview() { classGames.pause();pauseMatch(); overview.hidden = false; document.getElementById('deck').inert = true; (overview.querySelector('[aria-current="true"]') || document.getElementById('overview-close')).focus(); }
-  function toggleBlank() {
+  function activeOverlay() {
+    if (!startOverlay.hidden) return startOverlay;
+    if (finished && !finished.hidden) return finished;
+    if (!blank.hidden) return blank;
+    if (!overview.hidden) return overview;
+    return null;
+  }
+  function syncResumeButton() {
+    if (!resumeButton) return;
+    var paused = audioOwner?.getState().paused || Boolean(writingRun?.pausedAt);
+    resumeButton.hidden = !paused || document.hidden || Boolean(activeOverlay());
+  }
+  function syncOverlay() {
+    var active = activeOverlay();
+    [scaler, rail, nav].forEach(function (element) { element.inert = Boolean(active); });
+    audioStatus.hidden = Boolean(active);
+    if (fullscreenStatus) fullscreenStatus.hidden = Boolean(active) || !fullscreenStatus.textContent;
+    syncResumeButton();
+  }
+  function pauseLesson() {
     endFinger();
+    classGames.pause();
+    pauseMatch();
+    pauseTimer();
+    cancelModel();
+    if (writingRun && !writingRun.pausedAt) {
+      writingRun.pausedAt = performance.now();
+      cancelAnimationFrame(writeRaf);
+    }
+    audioOwner.pause();
+    syncResumeButton();
+  }
+  function resumeLesson() {
+    if (document.hidden || activeOverlay()) return;
+    var fromResumeButton = document.activeElement === resumeButton;
+    audioOwner.resume();
+    if (writingRun?.pausedAt) {
+      cancelAnimationFrame(writeRaf);
+      writeRaf = requestAnimationFrame(writingRun.resume);
+    }
+    syncResumeButton();
+    if (fromResumeButton) slides[idx].focus({preventScroll:true});
+  }
+  function closeOverview() {
+    overview.hidden = true;
+    syncOverlay();
+    resumeMatch();
+    document.getElementById('overview-toggle').focus();
+  }
+  function openOverview() {
+    if (activeOverlay()) return;
+    overview.hidden = false;
+    pauseLesson();
+    syncOverlay();
+    var selected = overview.querySelector('[aria-current="true"]') || document.getElementById('overview-close');
+    selected.focus({preventScroll:true});
+    selected.scrollIntoView({block:'nearest'});
+  }
+  function toggleBlank() {
+    var active = activeOverlay();
+    if (active && active !== blank) return;
     blank.hidden = !blank.hidden;
-    document.getElementById('deck').inert = !blank.hidden;
-    document.getElementById('nav').inert = !blank.hidden;
-    document.getElementById('rail').inert = !blank.hidden;
-    if (!blank.hidden) { classGames.pause();pauseMatch();audioOwner.pause(); pauseTimer(); cancelModel(); if (writingRun) { writingRun.pausedAt = performance.now(); writingRun.readyAudio?.pause(); cancelAnimationFrame(writeRaf); } blank.focus(); }
-    else { resumeMatch();audioOwner.resume(); if (writingRun?.resume) { var run = writingRun; if (run.readyPending) audioOwner.resume(); writeRaf = requestAnimationFrame(run.resume); } document.getElementById('blank-toggle').focus(); }
+    syncOverlay();
+    if (!blank.hidden) { pauseLesson(); blank.focus(); }
+    else { resumeMatch(); resumeLesson(); document.getElementById('blank-toggle').focus(); }
+  }
+  function showFinished() {
+    if (!finished || finishButton?.hidden || activeOverlay()) return;
+    finished.hidden = false;
+    pauseLesson();
+    stopAudio();
+    syncOverlay();
+    document.getElementById('finish-return').focus();
+  }
+  function reviewFinished() {
+    finished.hidden = true;
+    syncOverlay();
+    finishButton.focus();
+  }
+  function returnToTeach() {
+    var destination = new URL(document.body.dataset.returnUrl || '/', messageOrigin);
+    if (destination.origin !== messageOrigin) destination = new URL('/', messageOrigin);
+    try {
+      var opener = window.opener;
+      if (opener && !opener.closed && opener.location.origin === messageOrigin) {
+        opener.location.assign(destination.href);
+        opener.focus();
+        window.close();
+        if (window.closed) return;
+      }
+    } catch { /* A tab may have been closed or navigated after launch. */ }
+    window.location.assign(destination.href);
+  }
+  function syncFullscreen() {
+    var full = Boolean(document.fullscreenElement);
+    if (full && fullscreenStatus) fullscreenStatus.textContent = '';
+    fullscreenButton.textContent = full ? 'Exit full screen' : 'Full screen';
+    fullscreenButton.setAttribute('aria-label', fullscreenButton.textContent);
+    if (fullscreenStatus) fullscreenStatus.hidden = Boolean(activeOverlay()) || !fullscreenStatus.textContent;
+  }
+  function fullscreenUnavailable() {
+    if (fullscreenStatus) fullscreenStatus.textContent = 'Full screen is unavailable. Continue in this window.';
+    syncFullscreen();
   }
   function toggleFs() {
     try {
-      var request = document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen();
-      if (request?.catch) request.catch(function () { /* windowed presentation stays usable */ });
-    } catch { /* fullscreen unavailable */ }
+      if (document.fullscreenElement) {
+        document.exitFullscreen()?.catch(fullscreenUnavailable);
+      } else if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen()?.catch(fullscreenUnavailable);
+      } else {
+        fullscreenUnavailable();
+      }
+    } catch { fullscreenUnavailable(); }
+  }
+  function containTab(event, overlay) {
+    var controls = overlay.matches('button') ? [overlay] : Array.from(overlay.querySelectorAll('button:not(:disabled),a[href]')).filter(function (node) { return node.getClientRects().length; });
+    if (!controls.length) return;
+    var first = controls[0], last = controls[controls.length - 1];
+    if ((event.shiftKey && document.activeElement === first) || (!event.shiftKey && document.activeElement === last) || !overlay.contains(document.activeElement)) {
+      event.preventDefault();
+      (event.shiftKey ? last : first).focus();
+    }
+  }
+  function toggleReveal(slide) {
+    slide.classList.toggle('revealed');
+    syncReveal(slide);
+    publishStatus();
   }
   document.addEventListener('keydown', function (event) {
+    if (event.defaultPrevented || event.isComposing || event.altKey || event.ctrlKey || event.metaKey) return;
     if (event.target.closest('input, select, textarea, [contenteditable]')) return;
-    if (!blank.hidden) { if (event.key === 'Tab') { event.preventDefault(); blank.focus(); } if (event.key.toLowerCase() === 'b' || event.key === 'Escape') { event.preventDefault(); toggleBlank(); } return; }
-    if (!overview.hidden) {
-      if (event.key === 'Escape') { event.preventDefault(); closeOverview(); }
-      if (event.key === 'Tab') {
-        var items = Array.from(overview.querySelectorAll('button')); var first = items[0], last = items[items.length - 1];
-        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
-        else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
-      }
+    var key = event.key.toLowerCase();
+    var overlay = activeOverlay();
+    if (overlay) {
+      if (key === 'tab') containTab(event, overlay);
+      else if (overlay === blank && (key === 'b' || key === 'escape')) { event.preventDefault(); toggleBlank(); }
+      else if (key === 'escape' && overlay === overview) { event.preventDefault(); closeOverview(); }
+      else if (key === 'escape' && overlay === finished) { event.preventDefault(); reviewFinished(); }
       return;
     }
     if ((event.key === 'Enter' || event.key === ' ') && event.target.closest('button, a')) return;
@@ -653,10 +801,10 @@
     else if (event.key === 'ArrowLeft' || event.key === 'PageUp') { event.preventDefault(); show(idx - 1); }
     else if (event.key === 'Home') { event.preventDefault(); show(0); }
     else if (event.key === 'End') { event.preventDefault(); show(slides.length - 1); }
-    else if (event.key.toLowerCase() === 'f') toggleFs();
-    else if (event.key.toLowerCase() === 'b') toggleBlank();
-    else if (event.key.toLowerCase() === 'o') openOverview();
-    else if (event.key === 'Enter' && slides[idx].hasAttribute('data-reveal')) {event.preventDefault();slides[idx].classList.toggle('revealed');syncReveal(slides[idx]);publishStatus();}
+    else if (key === 'f') { event.preventDefault(); toggleFs(); }
+    else if (key === 'b') { event.preventDefault(); toggleBlank(); }
+    else if (key === 'o') { event.preventDefault(); openOverview(); }
+    else if ((key === 'r' || key === 'enter') && slides[idx]?.hasAttribute('data-reveal') && slides[idx].dataset.mediaInterrupted !== 'true') { event.preventDefault(); toggleReveal(slides[idx]); }
   });
   document.addEventListener('click', function (event) {
     var target = event.target;
@@ -664,7 +812,7 @@
     if(classGames.handleClick(target))return;
     if(handleAdditionalClick(target))return;
     var toggle = target.closest('[data-reveal-toggle]');
-    if(toggle){var slide=toggle.closest('.slide');slide.classList.toggle('revealed');syncReveal(slide);publishStatus();return;}
+    if(toggle){toggleReveal(toggle.closest('.slide'));return;}
     var timer = target.closest('[data-timer-start]'); if (timer) { runTimer(timer); return; }
     var match = target.closest('[data-match-word]'); if (match) { chooseMatch(match); return; }
     if (target.closest('[data-match-reset]')) { resetMatch(slides[idx],true); return; }
@@ -695,9 +843,18 @@
   document.getElementById('overview-close').addEventListener('click', closeOverview);
   document.getElementById('blank-toggle').addEventListener('click', toggleBlank);
   blank.addEventListener('click', toggleBlank);
-  document.getElementById('fullscreen-toggle').addEventListener('click', toggleFs);
-  document.getElementById('startBtn').addEventListener('click', function () {
-    started = true; document.getElementById('start').hidden = true; toggleFs(); show(initial, true); document.getElementById('next').focus();
+  fullscreenButton.addEventListener('click', toggleFs);
+  resumeButton?.addEventListener('click', resumeLesson);
+  finishButton?.addEventListener('click', showFinished);
+  document.getElementById('finish-return')?.addEventListener('click', returnToTeach);
+  document.getElementById('finish-review')?.addEventListener('click', reviewFinished);
+  startButton.addEventListener('click', function () {
+    started = true;
+    startOverlay.hidden = true;
+    syncOverlay();
+    toggleFs();
+    show(initial, true);
+    (finishButton && !finishButton.hidden ? finishButton : document.getElementById('next')).focus();
   });
   function handleCommand(message){
     if(!message||message.sessionId!==sessionId||message.deckKey!==deckKey)return;
@@ -708,7 +865,7 @@
     if(command==='next')show(idx+1);else if(command==='prev')show(idx-1);else if(command==='show')show(Number(value));
     else if(command==='reveal'){slides[idx].classList.toggle('revealed');syncReveal(slides[idx]);}
     else if(command==='blank')toggleBlank();else if(command==='stop-audio'){stopAudio();cancelModel();}
-    else if(command==='resume'){audioOwner.resume();if(writingRun?.resume){writeRaf=requestAnimationFrame(writingRun.resume);}}
+    else if(command==='resume')resumeLesson();
     else if(command==='quiet'){quiet=Boolean(value);document.body.classList.toggle('quiet-teaching',quiet);audioOwner.setEffectsEnabled(false);}
     else if(command==='speech')audioOwner.setSpeechEnabled(value);
     else if(command==='retrieval'){retrievalMode=value==='model'?'model':'retrieval';}
@@ -717,6 +874,12 @@
   window.addEventListener('message',function(event){if(event.origin!==messageOrigin)return;if(embedded&&event.source!==window.parent)return;if(!embedded&&event.source!==window.opener)return;handleCommand(event.data);});
   if(liveChannel)liveChannel.addEventListener('message',function(event){if(!embedded)handleCommand(event.data);});
   window.addEventListener('pagehide', function () { var disconnected=statusMessage();disconnected.disconnected=true;try{if(window.opener)window.opener.postMessage(disconnected,messageOrigin);if(!embedded)liveChannel?.postMessage(disconnected);}catch{/* closing */} classGames.cancel();cancelMatch();endFinger(); stopAudio(); stopTimer(); cancelModel(); if (writingRun) stopWriting(slides[idx]); cancelAnimationFrame(writeRaf); liveChannel?.close(); });
-  if (embedded) { document.getElementById('start').hidden = true; document.body.classList.add('embedded'); }
+  if (embedded) { startOverlay.hidden = true; document.body.classList.add('embedded'); }
   show(initial);
+  syncOverlay();
+  syncFullscreen();
+  if (!embedded) {
+    startButton.disabled = false;
+    startButton.focus({preventScroll:true});
+  }
 }());

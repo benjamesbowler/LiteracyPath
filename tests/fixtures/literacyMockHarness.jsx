@@ -41,6 +41,11 @@ const heldHistoryRead = query.has('holdHistory') ? new Promise(resolve => { rele
 const clone = value => structuredClone(value);
 const timestamp = () => new Date().toISOString();
 const students = [{ id: 'student-a', name: 'Alex' }, { id: 'student-b', name: 'Bailey' }];
+if (query.has('fullRoster')) {
+  students.push(...Array.from({ length: 26 }, (_, index) => ({
+    id: `student-${index + 3}`, name: `Pupil ${String(index + 3).padStart(2, '0')}`
+  })));
+}
 const chosen = query.get('item') ? bank.find(item => item.id === query.get('item')) : bank.find(item => item.format === (query.get('format') || 'choice') && (query.has('includeUnavailable') || item.mediaReady));
 function initialState() {
   const durationSeconds = query.get('windowMinutes') === '10' ? 600 : 1200;
@@ -71,6 +76,19 @@ function initialState() {
     itemSnapshot: clone(prior.itemSnapshot || prior), selected: prior.answer, isCorrect: true, responseStatus: 'answered', evidenceType: 'independent',
     supportUsed: false, knownFamiliar: null, audioDelivery: Object.fromEntries(prior.requiredAudioPaths.map(path => [path, 'completed'])),
     serverReceivedAt: timestamp(), occurredAt: timestamp() }] : [];
+  if (query.has('fullRoster') && responses.length) {
+    const helped = bank.find(item => item.id === plan.itemIds[1]);
+    const unavailable = bank.find(item => item.id === plan.itemIds[2]);
+    responses.push({
+      ...responses[0], questionId: helped.id, skillId: helped.skillId, domainId: helped.domainId, level: helped.level,
+      itemSnapshot: clone(helped.itemSnapshot || helped), selected: helped.answer, supportUsed: true, evidenceType: 'supported'
+    });
+    mediaFailures.push({
+      ...responses[0], questionId: unavailable.id, skillId: unavailable.skillId, domainId: unavailable.domainId,
+      itemSnapshot: clone(unavailable.itemSnapshot || unavailable), selected: null, responseStatus: 'media_failed',
+      evidenceType: 'unscored', isCorrect: null
+    });
+  }
   return {
     session: { id: 'mock-session', content_version: contentVersion, class_id: 'class-a', teacher_id:`teacher-${query.get('case') || 'default'}`, target:'progress_check', resolved_config:{plan_kind:'mock',bank_version:contentVersion,track_id:'all'}, content_ok:true, status: query.has('warmup') ? 'prepared' : 'active', expires_at:new Date(Date.now()+12*3600000).toISOString(), selection_scope: 'whole_class', started_at: timestamp(), mock: {
       content_version: contentVersion, capabilities, plan_kind: 'mixed', delivery_mode:'collect', window_mode:query.has('device') ? 'untimed' : query.has('timed') || !v3 ? 'timed_sample' : 'pause_at_window_end', state: query.has('warmup') ? 'prepared' : 'running', revision: 1, item_count: itemCount, duration_seconds: durationSeconds, remaining_seconds: durationSeconds, time_extension_count: 0,
@@ -137,7 +155,8 @@ function teacherStatus(record) {
   const mock = record.session.mock;
   const members = assignedStudents(record).map(student => {
     const run = student.id === 'student-a' ? record.run : null;
-    const receipt = !run ? 'not_started' : !run.offlineLeaseId ? 'server_record'
+    const receipt = query.has('fullRoster') && student.id === 'student-b' ? 'awaiting_connection'
+      : !run ? 'not_started' : !run.offlineLeaseId ? 'server_record'
       : run.collectionAckId || run.status === 'completed' ? 'received'
         : mock.collection_id ? 'awaiting_connection' : 'device_open';
     return { student_id: student.id, connected: record.session.status === 'active', content_ok: true, last_seen_at: timestamp(),
@@ -177,7 +196,11 @@ const client = { async call(name, args = {}) {
   const target = sessionRecord(args.p_session_id || args.p_source_session_id);
   if ((state.fault === 'hang-read' && name === 'student_get_literacy_mock_run') || (state.fault === 'hang-save' && name === 'student_save_literacy_mock_run') || (state.fault === 'hang-event' && name === 'student_record_literacy_mock_event') || (state.fault === 'hang-prepare' && name.startsWith('teacher_prepare_literacy_mock_session')) || (state.fault === 'hang-report' && name === 'teacher_get_literacy_mock_report') || (state.fault === 'hang-status' && name === 'teacher_get_literacy_mock_status')) return new Promise(() => {});
   if (state.fault === 'offline') throw new Error('Simulated disconnected network');
-  if (name === 'teacher_literacy_mock_v13_available') return { data: v13 };
+  if (name === 'teacher_literacy_mock_v13_available') {
+    if (query.get('availability') === 'missing') return { error: Object.assign(new Error('Function missing'), { code: 'PGRST202' }) };
+    if (query.get('availability') === 'network') throw new Error('Test availability could not be checked.');
+    return { data: v13 };
+  }
   if (name === 'teacher_get_literacy_mock_status') return { data: teacherStatus(target) };
   if (name === 'teacher_get_literacy_mock_report' && state.fault === 'fail-report') return { error: new Error('Simulated detailed report failure') };
   if (name === 'student_sync_literacy_mock_batch') {

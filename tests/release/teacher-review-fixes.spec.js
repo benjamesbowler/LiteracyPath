@@ -55,3 +55,58 @@ for (const practice of ["woodland", "campaign"]) {
     await expect(page.getByRole("button", { name: "Assign practice", exact: true })).toHaveCount(0);
   });
 }
+
+test("short-a support opens the exact practice materials for the confirmed three-pupil group", async ({ page }) => {
+  test.setTimeout(90_000);
+  await page.goto("/preview/teacher-a11y.html?surface=today&focus-evidence=1&short-a-pilot=1", { waitUntil: "domcontentloaded" });
+  await page.getByRole("button", { name: "Plan focused practice for Aisha in CVC and Short Vowels", exact: true }).click();
+  const planner = page.locator(".teacher-intervention-planner");
+  const sequence = planner.getByRole("region", { name: "Short-vowel teaching sequence" });
+  await expect(planner.getByRole("checkbox", { name: "Aisha", exact: true })).toBeChecked();
+  await planner.getByRole("checkbox", { name: "Aarav", exact: true }).check();
+  await planner.getByRole("checkbox", { name: "Camila", exact: true }).check();
+  await sequence.getByRole("button", { name: "See a short-vowel teaching sequence" }).click();
+  await expect(sequence).toContainText("join c to at");
+  await expect(sequence).toContainText("I am a cat.");
+  await expect(sequence).toContainText("show “tap” by itself if it is fresh");
+  const game = sequence.getByRole("button", { name: "Prepare Blend & Build" });
+  const book = sequence.getByRole("button", { name: "Prepare book practice" });
+  const ready = sequence.getByRole("checkbox", { name: /I have taught through Cycle 10/ });
+  await expect(game).toBeDisabled();
+  await expect(book).toBeDisabled();
+  await ready.check();
+  await game.click();
+  await book.click();
+  const preparations = await page.evaluate(() => window.__preparedSupportSessions);
+  expect(preparations).toHaveLength(2);
+  expect(preparations.map(item => item.context)).toEqual([
+    { audience: "selected_students", target: "arcade_game", gameId: "blend-and-build" },
+    { audience: "selected_students", target: "assigned_book", bookId: "small-steps-01" }
+  ]);
+  for (const preparation of preparations) {
+    expect(new Set(preparation.studentIds)).toEqual(new Set(["student-aisha", "student-camila", "student-aarav"]));
+  }
+  await sequence.getByRole("button", { name: "Use this teaching sequence" }).click();
+  await expect(planner.getByRole("textbox", { name: "Teaching activity" })).toHaveValue(/show tap without a picture or spoken cue/);
+  await expect(planner.getByRole("button", { name: "Save support plan" })).toBeEnabled();
+  await planner.getByRole("checkbox", { name: "Camila", exact: true }).uncheck();
+  await expect(ready).not.toBeChecked();
+  await expect(game).toBeDisabled();
+  await expect(planner.getByRole("button", { name: "Save support plan" })).toBeDisabled();
+  await planner.getByRole("textbox", { name: "Skill to work on" }).fill("Short vowel i");
+  await expect(sequence).toHaveCount(0);
+  await expect(planner.getByRole("button", { name: "Save support plan" })).toBeDisabled();
+});
+
+test("short-a preparation keeps unavailable and quarantined materials out of the planner", async ({ page }) => {
+  test.setTimeout(90_000);
+  await page.route("**/images/child-mode/cvc/cat.webp", route => route.abort());
+  await page.route("**/images/cvc/cat.svg", route => route.abort());
+  await page.goto("/preview/teacher-a11y.html?surface=today&focus-evidence=1&short-a-pilot=1&short-a-quarantine=1", { waitUntil: "domcontentloaded" });
+  await page.getByRole("button", { name: "Plan focused practice for Aisha in CVC and Short Vowels", exact: true }).click();
+  const sequence = page.getByRole("region", { name: "Short-vowel teaching sequence" });
+  await sequence.getByRole("button", { name: "See a short-vowel teaching sequence" }).click();
+  await expect(sequence).toContainText("The reviewed game round or picture is unavailable.");
+  await expect(sequence).toContainText("The approved book page could not be verified.");
+  await expect(sequence.getByRole("button", { name: /Prepare|Use this teaching sequence/ })).toHaveCount(0);
+});

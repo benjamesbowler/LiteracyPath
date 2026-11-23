@@ -14,7 +14,9 @@ export const PARENT_AREA_BANNED_TERMS = Object.freeze([
   "mastery",
   "percentile",
   "phoneme",
-  "raw score"
+  "raw score",
+  "scoring",
+  "microphase"
 ]);
 
 function asArray(value) {

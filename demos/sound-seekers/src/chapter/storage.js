@@ -1,8 +1,17 @@
 import { parseChapter } from './progress.js';
 
 export function readChapterSave(key, getStorage = () => globalThis.localStorage) {
-  try { return parseChapter(getStorage().getItem(key)); }
-  catch { return null; }
+  return readChapterSaveResult(key, getStorage).progress;
+}
+
+export function readChapterSaveResult(key, getStorage = () => globalThis.localStorage) {
+  try {
+    const raw = getStorage().getItem(key);
+    if (raw === null) return { status: 'fresh', progress: null };
+    const progress = parseChapter(raw);
+    if (progress) return { status: 'loaded', progress };
+  } catch { /* The scoped save is unavailable. */ }
+  return { status: 'unavailable', progress: null };
 }
 
 export function writeChapterSave(key, progress, getStorage = () => globalThis.localStorage) {

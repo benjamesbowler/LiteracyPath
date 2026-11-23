@@ -2,6 +2,16 @@ export function isStoryQuestEnding(page) {
   return Boolean(page?.choices?.some(choice => choice.nextPageId === "end"));
 }
 
+export function isStoryQuestProgressRow(value) {
+  return Boolean(value && typeof value === "object" && !Array.isArray(value)
+    && (value.v === undefined || value.v === 1));
+}
+
+export function isStoryQuestProgressLedger(value) {
+  return Boolean(value && typeof value === "object" && !Array.isArray(value)
+    && Object.values(value).every(isStoryQuestProgressRow));
+}
+
 export function storyQuestEndingIds(progress = {}) {
   return [...new Set([
     ...(Array.isArray(progress?.endingPageIds) ? progress.endingPageIds : []),

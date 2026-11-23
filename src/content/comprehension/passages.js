@@ -83,7 +83,9 @@ const drafts = [
   "Fluff can play a tune on a flute. Fluff plays by the pond. Ducks quack loudly, and Fluff cannot hear the tune. Fluff wants to use the flute in a quiet place. Fluff walks to a tree away from the ducks. Now Fluff can hear the tune.",[
    ["What does Fluff play?", "A flute", ["A drum", "A bell", "A horn"], [0]],
    ["Why does Fluff leave the pond?", "The ducks are too loud", ["The flute is lost", "The tree falls", "The tune is finished"], [2, 3]],
-   ["Where does Fluff go to play?", "To a tree away from the ducks", ["Into the pond", "To a gate", "Into a boat"], [4, 5]]
+   ["Where does Fluff go to play?", "A tree", ["A bench", "A gate", "A boat"], [4, 5], {
+    "To a tree away from the ducks": "A tree", "Into the pond": null, "To a gate": "A gate", "Into a boat": "A boat"
+   }]
   ],"Draw Fluff playing by the tree. Write tree."],
  ["chips-cube", "Chips and the Ice Cube", "silent", "u-e", "chips", ["cube", "use"],
   "Chips has a big ice cube in a tub. Chips wants to use the tub for plants. The ice is stuck in the tub. Chips puts the tub in the sun. The ice melts into water. Chips pours out the water and puts soil in the tub. Now Chips can plant the seeds.",[
@@ -143,7 +145,7 @@ const drafts = [
   "Fluff sells seeds at a table. Fluff makes a blue sign that says ten seeds in each bag. Fluff counts the seeds in each bag. One bag has only nine seeds. Fluff adds one more seed to that bag. Then Fluff uses glue to stick the sign to the table.",[
    ["What colour is the sign?", "Blue", ["Green", "Red", "Yellow"], [1]],
    ["How many seeds are in one bag before Fluff adds a seed?", "Nine", ["Eleven", "Ten", "One"], [3]],
-   ["Why does Fluff add one seed to the bag?", "The sign says ten, but the bag has nine", ["The bag has no seeds", "The table needs more seeds", "The glue is in the bag"], [1, 3, 4]]
+   ["Why does Fluff add one seed to the bag?", "One seed is missing", ["The bag has no seeds", "The table needs more seeds", "The glue is in the bag"], [1, 3, 4], { "The sign says ten, but the bag has nine": "One seed is missing" }]
   ],"Draw ten seeds in a bag. Write ten."],
  ["socks-trail", "Socks Makes a Trail", "teams", "ai / ay", "socks", ["trail", "rain", "way", "stay"],
   "Socks puts paper arrows on a trail. The arrows show the way to a picnic. Rain makes one paper arrow wet, and it tears. Socks uses flat stones to make new arrows. The stone arrows stay in place in the rain. Socks follows them to the picnic with a bag of food.",[
@@ -376,9 +378,9 @@ export const COMPREHENSION_PASSAGES = [...drafts,...ADDITIONAL_COMPREHENSION_DRA
     : family==='silent' ? ['Short vowels','Consonant digraphs and blends',focus,'Preview support words']
     : ['Short vowels','Consonant digraphs and blends','Silent e',focus,'Preview support words'],
   readingMode:'Phonics-focused; preview support words',
-  questions:questions.map(([prompt,answer,distractors,evidence],i)=>{
+  questions:questions.map(([prompt,answer,distractors,evidence,previousOptions],i)=>{
    const options=[answer,...distractors];
-   return {id:`${id}-q${i+1}`,prompt,answer,options,evidence:evidence.map(n=>sentences[n])};
+   return {id:`${id}-q${i+1}`,prompt,answer,options,evidence:evidence.map(n=>sentences[n]),...(previousOptions?{previousOptions}:{})};
   })
  });
 });

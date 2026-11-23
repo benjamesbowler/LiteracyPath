@@ -144,14 +144,18 @@ export function GuidedReadingReportView({ error = "", loading = false, onRetry, 
                   <small>{getGuidedReadingEvidenceMetadata(book).levelLabel}</small>
                 </span>
                 <span>
-                  {book.completed ? "Completed" : "In progress"}
-                  {book.readCount > 1 ? `, ${book.readCount} reads` : ""}
+                  {book.completionEvidence === "legacy-inferred" ? "Completed (inferred from older records)"
+                    : book.completed ? "Completed" : "In progress"}
+                  {book.completed && book.readCount > 0 ? `, ${book.readCount} ${book.readCount === 1 ? "read" : "reads"}` : ""}
+                  {book.completionEvidence === "confirmed" && book.inferredReadCount > 0 ? ` (${book.inferredReadCount} inferred)` : ""}
+                  {book.completed && book.readingInProgress ? " · Reread in progress" : ""}
                 </span>
               </summary>
               <div className="lg-report-book-detail">
                 <dl>
                   <div><dt>Last read</dt><dd>{formatEvidenceDate(book.lastReadAt || book.completedAt)}</dd></div>
                   <div><dt>Pages</dt><dd>{book.pagesRead ?? book.completedPages ?? "Not recorded"}</dd></div>
+                  {book.bookmarkPage && <div><dt>Bookmark</dt><dd>Page {book.bookmarkPage}</dd></div>}
                   <div>
                     <dt>Reading observation</dt>
                     <dd>

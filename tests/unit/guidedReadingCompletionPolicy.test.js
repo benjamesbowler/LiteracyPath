@@ -1,12 +1,74 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import {
-  buildGuidedReadingCompletionPatch,
+  finishGuidedReadingOccurrence,
   getGuidedReadingCompletionMilestone,
   getGuidedReadingProgressionBooks,
+  guidedReadingCompletion,
+  guidedReadingVisitPatch,
   mergeGuidedReadingRecord,
-  shouldShowGuidedReadingCompletionSummary
+  shouldShowGuidedReadingCompletionSummary,
+  startGuidedReadingOccurrence
 } from "../../src/utils/guidedReading/completionPolicy.js";
+import { mergeMonotonic, computeHydratedValue } from "../../src/utils/progressMerge.js";
+import { buildBookShelves, pickContinueBook, bookReadingProgress } from "../../src/policy/childLibraryPolicy.js";
+import { getGuidedReadingProgress } from "../../src/data/guidedReadingBooks.js";
+import { buildGuidedReadingReportModel } from "../../src/data/studentReportingWorkspaceModel.js";
+import { collectGuidedReadingCompletionRecords } from "../../src/utils/exportGuidedReadingCompletionExcel.js";
+
+test("reader, shelf, teacher and export agree across the last page, Finish, and a saved reread", () => {
+  const book = { id: "practice-book", title: "Practice Book", pages: [{}, {}, {}] };
+  const totalPages = book.pages.length;
+  const now = "2026-11-23T10:15:00.000Z";
+  const first = startGuidedReadingOccurrence({}, { totalPages, now });
+  const openedLast = guidedReadingVisitPatch({}, { occurrence: first, totalPages, now, pageIndex: 2 });
+
+  function assertSurfaceProgress(record, readCount, bookmark, canContinue) {
+    const records = { [book.id]: record };
+    const shelf = bookReadingProgress(book, record);
+    assert.deepEqual([shelf.readCount, shelf.page], [readCount, bookmark]);
+    assert.equal(Boolean(pickContinueBook({ books: [book], records })), canContinue);
+    const [{ books: rereadShelf }] = buildBookShelves({ books: [book], records, mode: "read-again" });
+    assert.equal(rereadShelf.length > 0, readCount > 0);
+    const progress = getGuidedReadingProgress(book, record);
+    const [report] = buildGuidedReadingReportModel({ guidedReadingRecords: records }).books;
+    const [excel] = collectGuidedReadingCompletionRecords({ guidedReadingRecordsByStudent: [{ studentId: "pupil", records }] });
+    for (const row of [progress, report, excel]) {
+      assert.deepEqual([row.readCount, row.bookmarkPage, row.completed], [readCount, bookmark, readCount > 0]);
+    }
+  }
+
+  assertSurfaceProgress(openedLast, 0, 3, true);
+  assert.equal(startGuidedReadingOccurrence(openedLast, { totalPages, now }).id, first.id);
+  const finished = { ...openedLast, ...finishGuidedReadingOccurrence(openedLast, { occurrence: first, totalPages, now }) };
+  assert.equal(finishGuidedReadingOccurrence(finished, { occurrence: first, totalPages, now }), null);
+  assert.equal(startGuidedReadingOccurrence(finished, { totalPages, now }), null);
+  assertSurfaceProgress(finished, 1, 3, false);
+
+  const second = startGuidedReadingOccurrence(finished, { readAgain: true, totalPages, now });
+  assert.notEqual(second.id, first.id);
+  const rereading = { ...finished, ...guidedReadingVisitPatch(finished, { occurrence: second, totalPages, now, pageIndex: 0 }) };
+  assert.equal(startGuidedReadingOccurrence(rereading, { totalPages, now }).id, second.id);
+  // The generic recursive maximum/union is also the hosted progress merge.
+  assertSurfaceProgress(mergeMonotonic(rereading, finished), 1, 1, true);
+  assertSurfaceProgress(computeHydratedValue("guided_reading", book.id, { [book.id]: rereading }, openedLast)[book.id], 1, 1, true);
+  const completedAgain = { ...rereading, ...finishGuidedReadingOccurrence(rereading, { occurrence: second, totalPages, now }) };
+  assertSurfaceProgress(completedAgain, 2, 3, false);
+  assert.equal(Object.hasOwn(completedAgain, "quizScore"), false);
+});
+
+test("only flagless legacy coverage yields inferred completion", () => {
+  const historical = { completedPages: 3, totalPages: 3 };
+  assert.equal(guidedReadingCompletion(historical).completionEvidence, "legacy-inferred");
+  assert.equal(guidedReadingCompletion({ ...historical, completed: false }).readCount, 0);
+  assert.equal(guidedReadingCompletion({ ...historical, completed: true }).completionEvidence, "confirmed");
+  const now = "2026-11-23T10:15:00.000Z";
+  const occurrence = startGuidedReadingOccurrence(historical, { readAgain: true, totalPages: 3, now });
+  const incremental = finishGuidedReadingOccurrence(historical, { occurrence, totalPages: 3, now });
+  const mixed = guidedReadingCompletion(incremental, 3);
+  assert.equal(mixed.completionEvidence, "confirmed");
+  assert.deepEqual([mixed.readCount, mixed.inferredReadCount], [2, 1]);
+});
 
 test("only a teacher completing a named student's book sees the end-of-book summary", () => {
   assert.equal(shouldShowGuidedReadingCompletionSummary({ mode: "teacher", studentId: "student-1" }), true);
@@ -109,12 +171,14 @@ test("A and B completion pools remain scoped to the selected book type", () => {
 });
 
 test("record merge preserves raw legacy quiz fields on an existing-record completion update and creates none for a clean completion", () => {
-  const patch = buildGuidedReadingCompletionPatch({
-    now: "2026-09-02T10:00:00.000Z",
-    totalPages: 4,
-    wasCompleted: true,
+  const previous = {
+    completed: true,
     readCount: 2,
     completedAt: "2026-08-01T10:00:00.000Z"
+  };
+  const now = "2026-09-02T10:00:00.000Z";
+  const patch = finishGuidedReadingOccurrence(previous, {
+    now, totalPages: 4, occurrence: startGuidedReadingOccurrence(previous, { readAgain: true, now })
   });
   const legacyReread = mergeGuidedReadingRecord({
     previous: {

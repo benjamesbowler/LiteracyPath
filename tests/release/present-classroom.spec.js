@@ -172,7 +172,7 @@ test('Present uses the child app palette and original Muddy, Chompy and Pip art'
   const deck=await deckPage(page,cycle,'monday');const active=await jump(page,deck,'p-letter-slide');
   await expect(page.locator('#stage')).toHaveCSS('background-color','rgb(247, 248, 250)');
   await expect(active.locator('.p-audio').first()).toHaveCSS('background-color','rgb(52, 84, 200)');
-  const art=active.locator('.p-pal');await expect(art).toHaveAttribute('src',new RegExp(`/characters/${character}/pose-ready.webp$`));
+  const art=active.locator('.p-pal');await expect(art).toHaveAttribute('src',new RegExp(`/characters/${character}/pose-ready\\.webp(?:\\?v=[a-f0-9]+)?$`));
   expect(await art.evaluate(img=>img.complete&&img.naturalWidth>0)).toBe(true);
   await page.screenshot({path:`${artifacts}/regression/blue-${character}.png`});
  }

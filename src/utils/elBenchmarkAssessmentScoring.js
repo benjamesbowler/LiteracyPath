@@ -709,7 +709,7 @@ function scoreDecoding(plan, responses, administrationStatus, session) {
     let automatic = null;
     if (isCorrect === false || selfCorrected) automatic = false;
     else if (isCorrect === true && typeof response?.automatic === "boolean") automatic = response.automatic;
-    return baseQuestionRecord(item, response, {
+    return { ...baseQuestionRecord(item, response, {
       status,
       isCorrect,
       automatic,
@@ -718,7 +718,7 @@ function scoreDecoding(plan, responses, administrationStatus, session) {
         ...stateIssues
       ],
       evaluationSource: "teacher_judgment"
-    });
+    }), scoringCode: response?.evaluation || "" };
   });
 
   const bandIds = Array.from(new Set(plan.items.map(item => item.bandId)));

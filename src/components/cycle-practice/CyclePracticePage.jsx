@@ -604,13 +604,23 @@ function CyclePracticeSession({
   }
 
 
-  if (state.responseRecoveryIssue) return <main className="cycle-practice-page woodland-activity cycle-practice-page--error" role="alert"><h1>Your saved practice needs an update</h1><p>Your recorded answers are kept here. Ask your teacher to update the app.</p></main>;
-
-  if (!cycle || !practicePlan.length || !assessmentPlan.length) {
+  const planUnavailable = !cycle || !practicePlan.length || !assessmentPlan.length;
+  const roundUnavailable = !currentRound && !result && !state.pendingAttempt;
+  if (state.responseRecoveryIssue || planUnavailable || roundUnavailable) {
+    const title = state.responseRecoveryIssue ? "Your saved practice needs an update"
+      : planUnavailable ? "Cycle Practice needs an update" : "This saved activity is unavailable";
     return (
-      <main className="cycle-practice-page woodland-activity cycle-practice-page--error" role="alert">
-        <h1>Cycle Practice needs an update</h1>
-        <p>Stay on this screen and ask your teacher for help.</p>
+      <main className="cycle-practice-page woodland-activity cycle-practice-page--error">
+        {headerActions}
+        <div role="alert">
+          <h1>{title}</h1>
+          <p>{locked ? "Stay here. Your teacher needs to replace this activity."
+            : "You can go back to learning and ask for help."}</p>
+          {(state.responseRecoveryIssue || roundUnavailable) && <p>Your recorded answers are kept here.</p>}
+        </div>
+        {!locked && <ActivityButton className="cycle-play-button" onClick={onExit} type="button">
+          <CycleIcon name="home" /> Back to learning
+        </ActivityButton>}
       </main>
     );
   }
@@ -640,13 +650,6 @@ function CyclePracticeSession({
         <ActivityButton type="button" className="cycle-play-button" aria-label="Retry save" disabled={answerPending} onClick={() => saveAttempt()}><CycleIcon name="retry" /></ActivityButton>
         {storageFailed && <p role="alert">Keep this page open.</p>}
       </section>
-    </main>
-  );
-
-  if (!currentRound) return (
-    <main className="cycle-practice-page woodland-activity cycle-practice-page--error" role="alert">
-      <h1>This saved activity is unavailable</h1>
-      <p>Your recorded answers are retained. Ask your teacher to start another session.</p>
     </main>
   );
 

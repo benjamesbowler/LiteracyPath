@@ -12,6 +12,8 @@ illustrated atlas. Meadow Farm, Dinosaur Valley and Moonwood each retain their
 nine existing cycle identities, landmark names and progress states. There is
 one continuation button for the next unfinished or exactly assigned cycle;
 inspecting another place does not bypass progression or the classroom lock.
+Sample access keeps each entitled cycle at its authored landmark. Finishing
+the sample leads back to Home. Finishing the full map offers More Word Match.
 
 Place buttons show information on mouse hover, keyboard focus/activation or a
 native touch tap. Escape, the close button and an outside pointer dismiss the

@@ -59,7 +59,10 @@ function elDomainMetricRows(summary = {}) {
   if (summary.domainKey === "decoding") {
     return [
       ["Average accuracy", percentage(metrics.averageAccuracyRate)],
-      ["Average automaticity", percentage(metrics.averageAutomaticityRate)]
+      ["Average automaticity", percentage(metrics.averageAutomaticityRate)],
+      ["Words read correctly", String(metrics.accurateCount ?? 0)],
+      ["Words with reading speed recorded", String(metrics.automaticityJudgedCount ?? 0)],
+      ["Words read straight away", String(metrics.automaticCount ?? 0)]
     ];
   }
   return [

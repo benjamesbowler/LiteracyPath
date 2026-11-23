@@ -45,7 +45,7 @@ card fits the initial usable pane; optional search remains secondary.
   intentional cover/thumbnail cropping is restricted to their art frames.
 - Learning engines may retain a bounded authored canvas when all required
   controls fit. Letters offers all 26 freely selectable letters with Complete
-  or Try again statuses. On smaller screens the letter grid has visible pages.
+  or Continue statuses. On smaller screens the letter grid has visible pages.
   Words gives access to every family in the chooser. Story Quests uses a paged
   world grid and fits every active scene in the reader. Viewport
   scaling must compensate touch floors and use Safari's visible viewport.
@@ -121,7 +121,7 @@ card fits the initial usable pane; optional search remains secondary.
 |---|---:|---:|---:|---:|---:|---|
 | Student sign in | PASS | PASS | PASS | PASS | PASS | Step title, recovery instruction, stepper, code choices, and one contextual Go action are explicit. |
 | Student home | PASS | PASS | PASS | PASS | PASS | Removed the duplicate top-bar continuation; the compact continuation owns the one named action above eight visible picture destinations. |
-| Phonics | PASS | PASS | PASS | PASS | PASS | Shows all 26 selectable letters in one grid, with Complete and Try again states; all eight word families are open picture-backed choices. |
+| Phonics | PASS | PASS | PASS | PASS | PASS | Offers all 26 letters in the chooser with Complete and Continue states; all eight word families are open picture-backed choices. |
 | Arcade | PASS | PASS | PASS | PASS | PASS | Added a direct instruction and marks the first unplayed game as “Play next”; the rest remain ordinary choices. |
 | Adventure Map | PASS | PASS | PASS | PASS | PASS | Forward-only Meadow → Dino → Moonwood path; only the first unfinished stop opens outside a temporary, single-stop teacher session. |
 | Sound Seekers | PASS | PASS | PASS | PASS | PASS | The fresh-state creature builder names the task, part step, choices, and one hatch action inside the Sound Seekers root. |

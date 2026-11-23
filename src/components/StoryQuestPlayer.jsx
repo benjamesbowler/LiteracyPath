@@ -5,7 +5,7 @@ import { preloadMediaSet } from "../utils/preloadMedia.js";
 import { resolveStoryQuestResume } from "../utils/storyQuestProgress.js";
 import { encodeStoryQuestCheckpoint, isStoryQuestEnding, storyQuestEndingIds, storyQuestReplayFork } from "../utils/storyQuestRoutes.js";
 import { getLedaInstructionAudioPath } from "../data/ledaProductionAudio.js";
-import { getStoryQuestLedaAudioPath } from "../data/storyQuestLedaAudio.js";
+import { getStoryQuestLedaAudioPath, getStoryQuestPageAudioUrl } from "../data/storyQuestLedaAudio.js";
 import {
   addBrowserFullscreenListener,
   exitBrowserFullscreen,
@@ -119,15 +119,6 @@ function StoryQuestImage({ src, title, alt, action }) {
   </>;
 }
 
-function getStoryQuestPageAudioUrl(page) {
-  if (!page) return "";
-  const pageText = Array.isArray(page.text) ? page.text.join(" ") : page.text;
-  const rebuiltAudioUrl = getStoryQuestLedaAudioPath(pageText);
-  if (rebuiltAudioUrl) return rebuiltAudioUrl;
-  if (page.narrationNeedsRebuild) return "";
-  return getLedaInstructionAudioPath(pageText) || page.audioUrl || "";
-}
-
 function speechPath(text) {
   if (!text) return "";
   return getStoryQuestLedaAudioPath(text) || getLedaInstructionAudioPath(text);
@@ -218,15 +209,14 @@ export function StoryQuestPlayer({
   onComplete,
   onExit,
   onProgress,
-  previewMode = false
+  previewMode = false,
+  unsaved = false
 }) {
   const pageById = useMemo(() => {
     return new Map((quest?.pages || []).map(page => [page.id, page]));
   }, [quest]);
 
   const [{ pageId: currentPageId, history }, setRoute] = useState(() => resolveStoryQuestResume(quest, initialProgress, initialPageId));
-  const [audioAvailable, setAudioAvailable] = useState(false);
-  const [audioChecking, setAudioChecking] = useState(false);
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
   const [audioError, setAudioError] = useState("");
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -341,48 +331,6 @@ export function StoryQuestPlayer({
   }, []);
 
   useEffect(() => {
-    let cancelled = false;
-    const audioUrl = currentAudioUrl;
-    setAudioAvailable(false);
-    setAudioChecking(Boolean(audioUrl));
-    setIsAudioPlaying(false);
-
-    if (!audioUrl || typeof Audio === "undefined") {
-      setAudioChecking(false);
-      return () => {
-        cancelled = true;
-      };
-    }
-
-    const audio = new Audio();
-    audio.preload = "metadata";
-    audio.onloadedmetadata = () => {
-      if (!cancelled) {
-        setAudioAvailable(true);
-        setAudioChecking(false);
-      }
-    };
-    audio.onerror = () => {
-      if (!cancelled) {
-        setAudioAvailable(false);
-        setAudioChecking(false);
-      }
-    };
-    audio.src = audioUrl;
-    try {
-      audio.load();
-    } catch {
-      setAudioAvailable(false);
-      setAudioChecking(false);
-    }
-
-    return () => {
-      cancelled = true;
-      audio.pause();
-    };
-  }, [currentAudioUrl]);
-
-  useEffect(() => {
     if (!currentPage) return;
     const nextPages = (currentPage.choices || [])
       .filter(choice => choice.nextPageId !== "end")
@@ -484,7 +432,7 @@ export function StoryQuestPlayer({
   }
 
   function replayAudio() {
-    if (audioAvailable && currentAudioUrl) void playWordSupportSequence([currentAudioUrl]);
+    if (currentAudioUrl) void playWordSupportSequence([currentAudioUrl]);
   }
 
   function goToPage(choice) {
@@ -612,14 +560,14 @@ export function StoryQuestPlayer({
   const narrationButton = (
     <button
       className={`lp-button lp-button-secondary story-quest-audio-button${isAudioPlaying ? " audio-feedback-playing" : ""}`}
-      disabled={!audioAvailable && !isAudioPlaying}
+      disabled={!currentAudioUrl && !isAudioPlaying}
       onClick={isAudioPlaying ? stopAudio : replayAudio}
       type="button"
       aria-label={isAudioPlaying ? "Stop audio" : "Hear the story"}
     >
       <StoryQuestSpeaker />
       <span className="story-quest-audio-label">
-        {isAudioPlaying ? "Stop" : audioChecking ? "Loading audio" : audioAvailable ? "Hear the story" : "Audio unavailable"}
+        {isAudioPlaying ? "Stop" : currentAudioUrl ? "Hear the story" : "Audio unavailable"}
       </span>
     </button>
   );
@@ -639,6 +587,7 @@ export function StoryQuestPlayer({
           <h1 ref={headingRef} tabIndex={-1}>{quest.shortTitle || quest.title}</h1>
           <span className="story-quest-position" role="status">{isComplete ? "The end" : `Scene ${currentSceneNumber}`}</span>
           {previewMode && <span className="story-quest-preview-badge">Read-only preview</span>}
+          {unsaved && <span className="story-quest-preview-badge" role="status">Reading without saving</span>}
         </div>
         <div className="story-quest-header-audio">{narrationButton}</div>
         <StoryQuestMoreMenu isFullscreen={isFullscreen} onRestart={restart}

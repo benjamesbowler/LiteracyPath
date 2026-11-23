@@ -34,7 +34,7 @@ import {
 import { ConfettiCelebration } from "../learn/games/shared/ConfettiCelebration.jsx";
 import { ProgressStars } from "../learn/games/shared/ProgressStars.jsx";
 import { ChildRecommendationExplanation } from "../recommendations/RecommendationExplanation.jsx";
-import { resolveAdventureMapCycleLock } from "../../policy/childTrailPolicy.js";
+import { adventureMapSlotFor, resolveAdventureMapContinuation, resolveAdventureMapCycleLock } from "../../policy/childTrailPolicy.js";
 import { filterSample } from "../../policy/freeTierContent.js";
 import {
   stationsForCycle,
@@ -229,11 +229,14 @@ function ElSkillsQuestSession({
     initialProgressRead.ok ? initialProgressRead.value : normalizeElQuestProgress(null)
   ));
   const progressRef = useRef(progress);
-  const cyclesComplete = completedWordMatchCycles(progress);
-  const recommendedCycle = useMemo(() => (
-    playableCycles.find(cycle => !(progress.cycles?.[cycle.id]?.stars > 0))
-      || (cyclesComplete ? playableCycles.at(-1) : playableCycles[0])
-  ), [playableCycles, progress, cyclesComplete]);
+  const cyclesComplete = playableCycles.length === allPlayableCycles.length && completedWordMatchCycles(progress);
+  const continuation = resolveAdventureMapContinuation({
+    cycles: playableCycles,
+    starsFor: id => Number(progress.cycles?.[id]?.stars) || 0,
+    moreWordMatch: cyclesComplete
+  });
+  const recommendedCycle = continuation.kind === "finished" ? null : continuation.cycle;
+  const mapFinished = continuation.kind === "finished";
 
   const cycleLock = useMemo(() => resolveAdventureMapCycleLock({
     // A teacher assignment is an exact classroom target, not ordinary map
@@ -928,7 +931,7 @@ function ElSkillsQuestSession({
   // Map geometry (lifted to component scope so the avatar tween effect and the
   // render share the same region/stops/points). Orientation picks the art,
   // stop coordinates, landmark labels, and coordinate space together.
-  const homeWorldId = worldForCycle(recommendedCycle?.cycleNumber || 1).id;
+  const homeWorldId = worldForCycle(continuation.cycle?.cycleNumber || 1).id;
   // The map follows the curriculum automatically. A child starts in Meadow
   // and reaches Dino and Moonwood by completing the preceding stops; lands
   // and completed cycles are not a level-selection menu.
@@ -1003,8 +1006,8 @@ function ElSkillsQuestSession({
       return best;
     });
 
-    const targetIndex = stops.findIndex(c => c.id === recommendedCycle?.id);
-    if (targetIndex < 0) return undefined;
+    const targetIndex = adventureMapSlotFor(recommendedCycle?.cycleNumber);
+    if (!mapPoints[targetIndex]) return undefined;
 
     const worldChanged = prevRegionRef.current !== region.id;
     prevRegionRef.current = region.id;
@@ -1034,7 +1037,7 @@ function ElSkillsQuestSession({
     };
     raf = requestAnimationFrame(step);
     return () => cancelAnimationFrame(raf);
-  }, [activeCycle, celebration, routeD, recommendedCycle?.id, region.id, stops, mapPoints, mapView.w, mapView.h]);
+  }, [activeCycle, celebration, routeD, recommendedCycle?.cycleNumber, region.id, mapPoints, mapView.w, mapView.h]);
 
   // Station finished: flow straight into the next one after a short
   // celebration beat - children keep playing, with a clear way to stop.
@@ -1115,7 +1118,7 @@ function ElSkillsQuestSession({
       <main
         className="skills-block-quest"
         data-learning-lane="practice_and_play"
-        data-pal-world={worldForCycle(recommendedCycle?.cycleNumber || 1).id}
+        data-pal-world={homeWorldId}
         data-child-surface="adventure-map"
         data-quest-view="map"
       >
@@ -1123,10 +1126,11 @@ function ElSkillsQuestSession({
           <div>
             <p className="sbq-kicker">Adventure Map</p>
             <h1 data-child-title="">Your sound and word path</h1>
-            <p className="sbq-sub" data-child-instruction="">{cyclesComplete ? 'Keep matching more words at your last stop.' : 'Follow “you are here” to start.'}</p>
+            <p className="sbq-sub" data-child-instruction="">{cyclesComplete ? "Play More Word Match." : mapFinished ? "You finished this map!" : 'Follow “you are here” to start.'}</p>
             <p className="sbq-map-progress" data-child-progress="">
               {completedCycles} of {playableCycles.length} stops complete
             </p>
+            {mapFinished && onExit && <button type="button" className="sbq-primary-button" data-child-primary="" onClick={onExit}>Back</button>}
           </div>
         </header>
         {(() => {
@@ -1170,10 +1174,12 @@ function ElSkillsQuestSession({
                     >
                       <path ref={routeRef} className="sbq-route-line" d={routeD} />
                     </svg>
-                    {stops.map((cycle, index) => {
+                    {stops.map(cycle => {
                       const cycleProgress = progress.cycles?.[cycle.id];
                       const isRecommended = cycle.id === recommendedCycle?.id;
-                      const [x, y] = mapPoints[index] || [50, 50];
+                      const index = adventureMapSlotFor(cycle.cycleNumber);
+                      if (!mapPoints[index]) return null;
+                      const [x, y] = mapPoints[index];
                       const Tag = isRecommended ? "button" : "span";
                       return (
                         <Tag
@@ -1182,6 +1188,7 @@ function ElSkillsQuestSession({
                           ref={el => { stopRefs.current[cycle.id] = el; }}
                           className={`sbq-stop${cycleProgress?.stars ? " done" : ""}${isRecommended ? " next" : ""}`}
                           style={{ left: `${x}%`, top: `${y}%` }}
+                          data-stop={cycle.id}
                           onClick={isRecommended ? () => {
                             if (panRef.current.moved) return;
                             openCycle(cycle);
@@ -1216,11 +1223,11 @@ function ElSkillsQuestSession({
                       );
                     })}
                     {/* The traveler: glides along the route via the rAF tween (it sets left/top). */}
-                    <div ref={avatarRef} className="sbq-journey-avatar" aria-hidden="true">
+                    {recommendedCycle && <div ref={avatarRef} className="sbq-journey-avatar" aria-hidden="true">
                       <span className="sbq-journey-avatar-bob">
                         <img src={travelerImage} alt="" />
                       </span>
-                    </div>
+                    </div>}
                   </div>
                 </div>
               </div>

@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { COMPREHENSION_PASSAGES, passageById } from '../../src/content/comprehension/passages.js';
-import { initialPractice, reducePractice, readPractice, savePractice, practiceQuestion } from '../../src/content/comprehension/practice.js';
+import { currentPracticeChoice, initialPractice, reducePractice, readPractice, savePractice, practiceQuestion } from '../../src/content/comprehension/practice.js';
 
 test('172 original complete passages have exact supported questions and phonics targets', () => {
   assert.equal(COMPREHENSION_PASSAGES.length, 172);
@@ -37,6 +37,25 @@ test('a first response stays immutable through supported retry and completion', 
   assert.equal(s.completed,true);
   const reset=reducePractice(p,s,{type:'reset'});assert.notEqual(reset.runSeed,s.runSeed);assert.deepEqual(reset.responses,{});assert.deepEqual(reset.reads,[false,false,false]);assert.equal(reset.completed,false);
   assert.deepEqual(reducePractice(p,s,{type:'answer',questionId:q.id,value:'invented'}),s);
+});
+
+test('equivalent edited choices preserve the recorded wording and progress of older saved practice', () => {
+  const passage = passageById('fluff-tune');
+  const question = passage.questions[2];
+  const newer = initialPractice(passage, 'previously-saved');
+  const older = {
+    ...newer,
+    responses: {
+      [question.id]: {
+        first: 'Into the pond', last: 'To a tree away from the ducks',
+        attempts: 2, correct: true
+      }
+    }
+  };
+  const storage = { getItem: () => JSON.stringify(older), setItem: () => assert.fail('a valid saved run must not be replaced') };
+  assert.deepEqual(readPractice(storage, 'pupil', passage), older);
+  assert.equal(currentPracticeChoice(question, older.responses[question.id].last), question.answer);
+  assert.equal(currentPracticeChoice(question, older.responses[question.id].first), null);
 });
 
 test('early-reader language stays brief and word help reaches both child sheets', async () => {

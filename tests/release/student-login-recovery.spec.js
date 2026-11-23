@@ -97,3 +97,29 @@ for (const recoveryCase of CASES) {
     expect(pageErrors).toEqual([]);
   });
 }
+
+test("remembered class survives repeated offline openings and still needs re-verification", async ({ page }) => {
+  const key = "lp-student-login-class-context-v1";
+  await page.goto("/preview/student-login-preview.html?scenario=offline");
+  await page.evaluate(key => localStorage.setItem(key, JSON.stringify({ code: "AB12CD" })), key);
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    await page.reload();
+    await expect(page.getByRole("heading", { name: "You are offline" })).toBeVisible();
+    await expect(page.getByRole("textbox", { name: "Class code" })).toHaveValue("AB12CD");
+    await expect(page.getByRole("button", { name: "Robin" })).toHaveCount(0);
+  }
+  await page.goto("/preview/student-login-preview.html?scenario=prepared-valid");
+  await expect(page.getByRole("button", { name: "Robin" })).toBeVisible();
+  await page.getByRole("button", { name: "Robin" }).click();
+  await expect(page.locator("html")).not.toHaveAttribute("data-student-session", "true");
+});
+
+test("a different expired prepared link leaves the remembered class intact", async ({ page }) => {
+  const key = "lp-student-login-class-context-v1";
+  await page.goto("/preview/student-login-preview.html?scenario=offline");
+  await page.evaluate(key => localStorage.setItem(key, JSON.stringify({ code: "AB12CD" })), key);
+  await page.goto("/preview/student-login-preview.html?scenario=code-expired#class=EF34GH");
+  await expect(page.getByRole("heading", { name: "Ask for the new class code" })).toBeVisible();
+  const remembered = await page.evaluate(key => JSON.parse(localStorage.getItem(key)), key);
+  expect(remembered.code).toBe("AB12CD");
+});

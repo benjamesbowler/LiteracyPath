@@ -254,62 +254,56 @@ export function StudentLoginFlow({
     }
   }
 
-  async function resolveCode(rawCode, { silentOnFail = false } = {}) {
+  async function resolveCode(rawCode, { cancelled = () => false } = {}) {
     const code = String(rawCode || "").replace(/[^A-Za-z0-9]/g, "").toUpperCase();
     if (code.length < 4) {
-      if (!silentOnFail) {
-        setRecovery(null);
-        setStatus(CHILD_COPY.signIn.missingCode);
-      }
-      return false;
+      setRecovery(null);
+      setStatus(CHILD_COPY.signIn.missingCode);
+      return { ok: false, permanent: false };
     }
     setLoading(true);
     setRecovery(null);
-    const { data, error } = await loadCompatibleStudentClass({
-      client,
-      code,
-      deviceId: deviceIdRef.current
-    });
-    setLoading(false);
-    if (error || !data?.ok) {
-      if (!silentOnFail) {
-        const nextRecovery = classifyStudentCodeRecovery({
-          data,
-          error,
-          online: typeof navigator === "undefined" ? true : navigator.onLine
-        });
-        setStatus("");
-        setRecovery(nextRecovery);
-        speakLine(nextRecovery.audioKey);
-      }
-      return false;
+    let result;
+    try {
+      result = await loadCompatibleStudentClass({ client, code, deviceId: deviceIdRef.current });
+    } catch (error) {
+      result = { error };
     }
-    applyClassContext(data, code);
-    return true;
+    if (cancelled()) return { ok: false, permanent: false };
+    setLoading(false);
+    if (result.error || !result.data?.ok) {
+      const nextRecovery = classifyStudentCodeRecovery({
+        ...result,
+        online: typeof navigator === "undefined" ? true : navigator.onLine
+      });
+      setStatus("");
+      setRecovery(nextRecovery);
+      speakLine(nextRecovery.audioKey);
+      return { ok: false, permanent: ["code-not-found", "code-expired"].includes(nextRecovery.id) };
+    }
+    applyClassContext(result.data, code);
+    if (preparedClassCode(window.location.hash)) {
+      window.history.replaceState(null, "", `${window.location.pathname}${window.location.search}`);
+    }
+    return { ok: true };
   }
 
-  // On a shared classroom device, re-verify the remembered code and jump to the
-  // name list. If the teacher regenerated the code, this fails silently and the
-  // child sees the code entry screen.
+  // A shared device keeps its saved code until the server rejects it outright.
   useEffect(() => {
     let cancelled = false;
-    const remembered = preparedCode ? { code: preparedCode } : readRememberedContext();
-    if (!remembered) return undefined;
-    (async () => {
-      if (cancelled) return;
-      const ok = await resolveCode(remembered.code, { silentOnFail: !preparedCode });
-      if (ok && preparedCode && !cancelled) window.history.replaceState(null, "", `${window.location.pathname}${window.location.search}`);
-      if (!ok && !cancelled) {
-        try {
-          window.localStorage.removeItem(CLASS_CONTEXT_STORAGE_KEY);
-        } catch {
-          // ignore
-        }
+    const code = preparedCode || readRememberedContext()?.code;
+    if (!code) return undefined;
+    busyRef.current = true;
+    void Promise.resolve().then(() => cancelled ? null : resolveCode(code, { cancelled: () => cancelled })).then(result => {
+      if (cancelled || !result) return;
+      const { permanent } = result;
+      busyRef.current = false;
+      if (permanent && readRememberedContext()?.code === code) {
+        try { window.localStorage.removeItem(CLASS_CONTEXT_STORAGE_KEY); }
+        catch { /* remembering the class is best effort */ }
       }
-    })();
-    return () => {
-      cancelled = true;
-    };
+    });
+    return () => { cancelled = true; };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

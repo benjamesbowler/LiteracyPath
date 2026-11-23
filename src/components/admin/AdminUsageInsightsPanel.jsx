@@ -18,6 +18,7 @@ export function AdminUsageInsightsPanel({ client, schools = [], manifestLoader =
   const [error, setError] = useState("");
   const [progress, setProgress] = useState(null);
   const [report, setReport] = useState(null);
+  const [preparedScope, setPreparedScope] = useState(null);
   const [downloaded, setDownloaded] = useState(false);
   const owner = useRef({ sequence: 0, abort: null, snapshotId: null, client });
   useEffect(() => {
@@ -37,35 +38,61 @@ export function AdminUsageInsightsPanel({ client, schools = [], manifestLoader =
     const sequence = ++current.sequence;
     setStatus("loading");
     const previous = current.snapshotId;
+    const abort = new AbortController();
+    current.abort = abort;
     current.snapshotId = null;
-    if (previous) await releaseAdminUsageSnapshot(client,previous).catch(() => {});
-    const abort = new AbortController(); current.abort = abort;
-    setError(""); setReport(null); setDownloaded(false); setProgress(null); setStatus("loading");
+    setError("");
+    setReport(null);
+    setPreparedScope(null);
+    setDownloaded(false);
+    setProgress(null);
+    const scope = {
+      schoolId,
+      schoolLabel: schoolId ? schools.find(school => school.id === schoolId)?.name || "Selected school" : "All schools",
+      from,
+      through
+    };
+    let snapshotId;
     try {
-      const range = usageDateRange(from,through);
-      const snapshot = await loadAdminUsageSnapshot({ client, from: range.from, to: range.to, schoolId, signal: abort.signal,
+      if (previous) await releaseAdminUsageSnapshot(client, previous).catch(() => {});
+      if (abort.signal.aborted) return;
+      const range = usageDateRange(scope.from, scope.through);
+      const snapshot = await loadAdminUsageSnapshot({ client, from: range.from, to: range.to, schoolId: scope.schoolId, signal: abort.signal,
         onProgress: value => { if (current.sequence === sequence) setProgress(value); } });
-      if (current.sequence !== sequence || abort.signal.aborted) { await releaseAdminUsageSnapshot(client,snapshot.metadata.snapshotId); return; }
-      current.snapshotId = snapshot.metadata.snapshotId;
+      snapshotId = snapshot.metadata.snapshotId;
+      if (abort.signal.aborted || current.sequence !== sequence) return;
       const manifest = await manifestLoader();
-      if (current.sequence !== sequence || abort.signal.aborted) { await releaseAdminUsageSnapshot(client,snapshot.metadata.snapshotId); return; }
+      if (abort.signal.aborted || current.sequence !== sequence) return;
       setReport(buildAdminUsageReport({ ...snapshot, itemManifest: manifest, operatorRange: range }));
+      setPreparedScope(scope);
+      current.snapshotId = snapshotId;
+      snapshotId = null;
       setStatus("ready");
     } catch (failure) {
-      if (current.snapshotId) await releaseAdminUsageSnapshot(client,current.snapshotId).catch(() => {});
-      current.snapshotId = null;
-      if (current.sequence === sequence) { setError(usageInsightsErrorText(failure)); setStatus("error"); }
+      if (current.sequence === sequence && !abort.signal.aborted) {
+        setError(usageInsightsErrorText(failure));
+        setStatus("error");
+      }
+    } finally {
+      if (snapshotId) void releaseAdminUsageSnapshot(client, snapshotId).catch(() => {});
+      if (current.sequence === sequence && abort.signal.aborted) setStatus("idle");
     }
   }
+
   function cancel() { owner.current.abort?.abort(); setStatus("canceling"); }
+  const scopeChanged = preparedScope && (
+    preparedScope.schoolId !== schoolId || preparedScope.from !== from || preparedScope.through !== through
+  );
   async function download() {
-    if (!report || !owner.current.snapshotId) return;
+    const snapshotId = owner.current.snapshotId;
+    if (!report || !snapshotId || scopeChanged) return;
     setStatus("downloading"); setError("");
     try {
       const content = JSON.stringify(report,null,2);
       // Validate expiry/deletion immediately before releasing the cache and
       // recording a download request. Never hand out a stale prepared export.
-      await releaseAdminUsageSnapshot(client,owner.current.snapshotId,true);
+      await releaseAdminUsageSnapshot(client, snapshotId, true);
+      if (owner.current.snapshotId !== snapshotId) return;
       owner.current.snapshotId = null;
       const blob = new Blob([content], { type: "application/json" });
       const url = URL.createObjectURL(blob);
@@ -98,7 +125,8 @@ export function AdminUsageInsightsPanel({ client, schools = [], manifestLoader =
     <div role="status" aria-live="polite">{status === "loading" ? progress ? `Collecting evidence: ${progress.loaded.toLocaleString()} of ${progress.total.toLocaleString()} rows.` : "Capturing a consistent snapshot…" : status === "canceling" ? "Canceling report generation…" : downloaded ? "Download requested. Temporary server evidence has been removed." : ""}</div>
     {error && <p role="alert" className="admin-usage-error">{error}</p>}
     {report && <>
-      <div className="admin-usage-result-header"><div><h3>Report ready</h3><p>Captured {new Date(report.metadata.capturedAt).toLocaleString()} · {report.summary.observedLearners} learners with cloud observations{report.summary.currentCohortLearners === null ? " (linked cohort size not recorded)" : ` / ${report.summary.currentCohortLearners} linked learner records`} · {report.summary.rawRows.toLocaleString()} source rows</p><p>Dates: {report.metadata.operatorRange.calendarFrom}–{report.metadata.operatorRange.calendarThrough} ({report.metadata.operatorRange.timezone}). Prepared download expires {new Date(report.metadata.expiresAt).toLocaleTimeString()}.</p></div><button type="button" className="main-button" disabled={busy || downloaded} onClick={() => void download()}>{downloaded ? "Downloaded" : "Download JSON for Codex"}</button></div>
+      <div className="admin-usage-result-header"><div><h3>Report ready</h3><p>Prepared for <strong>{preparedScope?.schoolLabel}</strong></p><p>Captured {new Date(report.metadata.capturedAt).toLocaleString()} · {report.summary.observedLearners} learners with cloud observations{report.summary.currentCohortLearners === null ? " (linked cohort size not recorded)" : ` / ${report.summary.currentCohortLearners} linked learner records`} · {report.summary.rawRows.toLocaleString()} source rows</p><p>Dates: {report.metadata.operatorRange.calendarFrom}–{report.metadata.operatorRange.calendarThrough} ({report.metadata.operatorRange.timezone}). Prepared download expires {new Date(report.metadata.expiresAt).toLocaleTimeString()}.</p></div><button type="button" className="main-button" disabled={busy || downloaded || scopeChanged || status === "error"} onClick={() => void download()}>{downloaded ? "Downloaded" : "Download JSON for Codex"}</button></div>
+      {scopeChanged && <p role="status">Filters changed. Generate a report for these filters before downloading.</p>}
       <dl className="admin-usage-metrics"><div><dt>Independent responses</dt><dd>{report.summary.independentResponses}</dd></div><div><dt>Supported responses</dt><dd>{report.summary.supported}</dd></div><div><dt>Unavailable media</dt><dd>{report.summary.mediaFailed}</dd></div><div><dt>Timing recorded / missing</dt><dd>{report.summary.responsesWithTiming} / {report.summary.responsesWithoutTiming}</dd></div></dl>
       <h3>Feature use</h3><TeacherDataTable label="Feature use" className="admin-usage-table"><thead><tr><th>Feature</th><th>Learners with use evidence</th><th>Visits</th><th>Availability denominator</th><th>Evidence</th></tr></thead><tbody>{report.features.map(feature => <tr key={feature.id}><th scope="row">{feature.label}</th><td>{feature.usageStatus === "not_observed" ? "Not recorded" : feature.uniqueLearners}</td><td>{feature.visits || "Not recorded"}</td><td>{feature.availableToObservedLearners || "Not recorded"}</td><td>{usageLabel(feature.usageStatus)}</td></tr>)}</tbody></TeacherDataTable>
       <h3>Most used content</h3><p>Dated events and current stored progress are separate. Stored counters can include play or reading before these dates; they are not interval totals or independent assessment scores. Up to 20 content items are shown; the download includes all items.</p>

@@ -1,4 +1,5 @@
 import { lazy } from "react";
+import { hasVolatileProgress } from "./progressReloadGuard.js";
 
 export const DYNAMIC_IMPORT_ERROR_EVENT = "lp-dynamic-import-failed";
 const RELOAD_SESSION_KEY = "lp-dynamic-import-reloaded";
@@ -18,7 +19,7 @@ function notifyDynamicImportFailure(error) {
 }
 
 export function reloadOnceForNewVersion() {
-  if (typeof window === "undefined") return false;
+  if (typeof window === "undefined" || hasVolatileProgress()) return false;
 
   try {
     if (window.sessionStorage?.getItem(RELOAD_SESSION_KEY) === "1") return false;

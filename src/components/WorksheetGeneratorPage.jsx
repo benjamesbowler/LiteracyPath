@@ -9,6 +9,7 @@ import {
   getWorksheetCycle,
   availableWorksheetTypes,
   buildWorksheetDocument,
+  resolveWorksheetType,
   printWorksheet
 } from "../utils/worksheets/worksheetBuilder.js";
 import {
@@ -30,12 +31,23 @@ import "../styles/worksheets.css";
 
 const TYPE_LABEL = Object.fromEntries(WORKSHEET_TYPES.map(t => [t.id, t.label]));
 
-function describeWorksheetBankLoadError(error) {
+function describeWorksheetBankError(error, operation = "load") {
   const detail = `${error?.code || ""} ${error?.message || ""}`.toLowerCase();
-  if (/(failed to fetch|network|offline|timeout|load failed)/.test(detail)) {
+  const permission = /(permission|policy|jwt|authori[sz]|401|403|42501)/.test(detail);
+  const network = /(failed to fetch|network|offline|timeout|load failed)/.test(detail);
+  if (operation === "save") {
+    if (permission) {
+      return "Your teacher session could not save the worksheet. Sign in again and retry. Your choices are still here.";
+    }
+    if (network) {
+      return "We couldn't reach your worksheet bank. Check your connection and try saving again. Your choices are still here.";
+    }
+    return "We couldn't save that worksheet. Your choices are still here. Try again.";
+  }
+  if (network) {
     return "We couldn't reach your saved worksheet bank. Check your connection and try again. You can still build and print a new worksheet.";
   }
-  if (/(permission|policy|jwt|authori[sz]|401|403)/.test(detail)) {
+  if (permission) {
     return "Your teacher session could not open the saved worksheet bank. Try again, then sign in again if it still fails. You can still build and print a new worksheet.";
   }
   return "Your saved worksheet bank could not be loaded. Try again. You can still build and print a new worksheet.";
@@ -56,6 +68,7 @@ function WorksheetGeneratorWorkspace({ classId = "", className = "", teacherId =
   const [browseActivities, setBrowseActivities] = useState(false);
   const activitySearchRef = useRef(null);
   const [previewPage, setPreviewPage] = useState(0);
+  const previewHeading = useRef(null);
   const [characterId, setCharacterId] = useState("muddy");
   const [pages, setPages] = useState(() => readWorksheetPackLength(teacherId));
   const [category, setCategory] = useState("all");
@@ -92,7 +105,7 @@ function WorksheetGeneratorWorkspace({ classId = "", className = "", teacherId =
     if (error) {
       setBankReadState({
         status: "error",
-        message: describeWorksheetBankLoadError(error)
+        message: describeWorksheetBankError(error)
       });
       return false;
     }
@@ -110,7 +123,7 @@ function WorksheetGeneratorWorkspace({ classId = "", className = "", teacherId =
       if (error) {
         setBankReadState({
           status: "error",
-          message: describeWorksheetBankLoadError(error)
+          message: describeWorksheetBankError(error)
         });
         return;
       }
@@ -163,10 +176,10 @@ function WorksheetGeneratorWorkspace({ classId = "", className = "", teacherId =
     setType("");
   }
 
-  function handleGenerate(answerKey = false) {
+  function handleGenerate(answerKey = false, printRecipe = recipe) {
     setNote("");
     try {
-      const result = printWorksheet(recipe, { answerKey });
+      const result = printWorksheet(printRecipe, { answerKey });
       if (!result.ok) {
         setNote("Please allow pop-ups for this site so the worksheet can open.");
         return;
@@ -181,18 +194,20 @@ function WorksheetGeneratorWorkspace({ classId = "", className = "", teacherId =
   }
 
   async function handleSave() {
+    if (busy) return;
     setBusy(true);
     setNote("");
     try {
       const { title } = buildWorksheetDocument(recipe);
-      const { error } = await saveWorksheetRecipe({ ...recipe, title });
+      const { row, error } = await saveWorksheetRecipe({ ...recipe, title });
       if (error) {
-        setNote("Saved worksheets need you to be signed in as a teacher. (Could not save right now.)");
+        setNote(describeWorksheetBankError(error, "save"));
       } else {
+        if (row) setBank(previous => [row, ...previous.filter(item => item.id !== row.id)]);
         const refreshed = await refreshBank();
         setNote(refreshed
           ? "Saved to your worksheet bank."
-          : "Saved, but the worksheet bank could not be refreshed. Reload the page to see it.");
+          : "Saved to your worksheet bank. Try refreshing the bank to see the latest list.");
       }
     } catch {
       setNote("We couldn't save that worksheet. Your choices are still here. Try again.");
@@ -211,6 +226,7 @@ function WorksheetGeneratorWorkspace({ classId = "", className = "", teacherId =
         setNote("We couldn't remove that saved worksheet. Nothing was changed. Try again.");
         return;
       }
+      setBank(previous => previous.filter(item => item.id !== id));
       const refreshed = await refreshBank();
       setDeleteCandidate("");
       setNote(refreshed
@@ -225,21 +241,22 @@ function WorksheetGeneratorWorkspace({ classId = "", className = "", teacherId =
 
   function openSavedWorksheet(item) {
     try {
-      const result = printWorksheet({
-        cycleId: item.cycle_id,
-        type: item.type,
-        pages: item.pages
-      });
-      if (!result.ok) {
-        setNote("Please allow pop-ups for this site so the worksheet can open.");
-        return;
-      }
-      setNote("Getting the worksheet pictures ready…");
-      result.ready
-        .then(() => setNote(""))
-        .catch(() => setNote("We couldn't load every worksheet picture, so nothing was printed. Check your connection and try again."));
+      const savedCycle = getWorksheetCycle(item.cycle_id);
+      const { baseType, characterId: savedCharacter } = resolveWorksheetType(item.type);
+      if (!savedCycle || !availableWorksheetTypes(savedCycle).includes(baseType)) throw new Error("Unavailable recipe");
+      const pageCount = Math.max(1, Math.min(WORKSHEET_PAGE_STAGES.length, Math.floor(Number(item.pages) || 1)));
+      setCycleContext(previous => ({
+        ...previous, cycleId: item.cycle_id,
+        source: previous.currentCycleId === item.cycle_id ? "class" : "saved-recipe"
+      }));
+      setType(baseType);
+      setCharacterId(savedCharacter);
+      setPages(pageCount);
+      setPreviewPage(0);
+      setNote("Opened from your worksheet bank.");
+      requestAnimationFrame(() => previewHeading.current?.focus());
     } catch {
-      setNote("We couldn't open that worksheet. Nothing was changed. Try again.");
+      setNote("This saved recipe could not be opened. Your studio choices are still here.");
     }
   }
 
@@ -263,6 +280,7 @@ function WorksheetGeneratorWorkspace({ classId = "", className = "", teacherId =
         <strong>{className || "This class"}</strong> · Current class cycle: {classCycle ? worksheetCycleLabel(classCycle) : "Not set"}
       </p>
       {cycleContext.source === "override" && <p>Worksheet override: {worksheetCycleLabel(cycle)}. <button type="button" className="ws-ghost" onClick={resetCycle}>Use current class cycle</button></p>}
+      {cycleContext.source === "saved-recipe" && <p>Saved worksheet cycle: {worksheetCycleLabel(cycle)}. <button type="button" className="ws-ghost" onClick={resetCycle}>Use current class cycle</button></p>}
       {!classCycle && <p>The class teaching cycle is not set. Choose a cycle explicitly for this worksheet.</p>}
 
       <section className="ws-builder" aria-label="Worksheet options">
@@ -317,7 +335,7 @@ function WorksheetGeneratorWorkspace({ classId = "", className = "", teacherId =
           </details>
           </div>
           <aside className="ws-preview" aria-label="Worksheet preview">
-            <div className="ws-preview-heading"><div><span className="ws-eyebrow">Your printable pack</span><h2>{TYPE_LABEL[effectiveType] || "Choose a teaching cycle"}</h2></div><span className="ws-paper-badge">A4</span></div>
+            <div className="ws-preview-heading"><div><span className="ws-eyebrow">Your printable pack</span><h2 ref={previewHeading} tabIndex={-1}>{TYPE_LABEL[effectiveType] || "Choose a teaching cycle"}</h2></div><span className="ws-paper-badge">A4</span></div>
             <p className="ws-preview-blurb">{effectiveTypeMeta?.blurb}</p>
             {effectiveType === "characterColouring" && <label className="ws-field ws-character-picker"><span>Start with your favourite Guide</span><select value={characterId} onChange={e => { setCharacterId(e.target.value); setPreviewPage(0); }}>{WORKSHEET_CHARACTER_ART.map(art => <option key={art.id} value={art.id}>{art.name}</option>)}</select></label>}
             {cycle && <div className="ws-preview-pager" aria-label="Preview pages">
@@ -353,7 +371,7 @@ function WorksheetGeneratorWorkspace({ classId = "", className = "", teacherId =
         )}
         {bankReadState.status === "complete" && bank.length === 0 ? (
           <p className="ws-empty">Keep a favourite for next time. Choose an activity above and save it to your bank.</p>
-        ) : bankReadState.status === "complete" ? (
+        ) : bank.length > 0 ? (
           <ul className="ws-bank-list">
             {bank.map(item => (
               <li key={item.id}>
@@ -363,8 +381,11 @@ function WorksheetGeneratorWorkspace({ classId = "", className = "", teacherId =
                 </div>
                 <div className="ws-bank-actions">
                   <button type="button" className="ws-ghost" onClick={() => openSavedWorksheet(item)}>
-                    Open
+                    Open in studio
                   </button>
+                  <button type="button" className="ws-ghost" onClick={() => handleGenerate(false, {
+                    cycleId: item.cycle_id, type: item.type, pages: item.pages
+                  })}>Quick print child pages</button>
                   {deleteCandidate === item.id ? (
                     <>
                       <button type="button" className="ws-danger" disabled={busy} onClick={() => handleDelete(item.id)}>

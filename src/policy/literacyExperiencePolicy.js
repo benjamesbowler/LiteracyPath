@@ -1,5 +1,5 @@
 import { elSkillsBlockCycles } from "../data/elSkillsBlockCycles.js";
-import { enrichGuidedReadingBook } from "../utils/guidedReading/phonicsPageAnalyzer.js";
+import { summarizeGuidedReadingBookPhonics } from "../utils/guidedReading/phonicsPageAnalyzer.js";
 import { auditDecodableBook, decodableTeachingWords } from "../utils/guidedReading/decodableScope.js";
 export { resolveConfirmedElPlacement } from "./elPlacementPolicy.js";
 
@@ -111,7 +111,7 @@ function placementFromProgress(studentProgress = {}) {
  * taught HFW or use a taught code pattern. Anything else remains available as
  * supported meaning-building, with narration and decoding help.
  */
-export function classifyBookReadingPurpose(book = {}, studentProgress = {}) {
+export function classifyBookReadingPurpose(book = {}, studentProgress = {}, bookPhonics) {
   if (book.readingMode === "decodable") {
     const audit = auditDecodableBook(book);
     const teachingWords = decodableTeachingWords(book);
@@ -154,28 +154,21 @@ export function classifyBookReadingPurpose(book = {}, studentProgress = {}) {
     };
   }
 
-  const alreadyEnriched = Number.isInteger(book.wordCount)
-    && Array.isArray(book.pages)
-    && book.pages.every(page => page?.analysis);
-  const enriched = alreadyEnriched ? book : enrichGuidedReadingBook(book);
+  const { wordDetails, wordCount } = bookPhonics || summarizeGuidedReadingBookPhonics(book);
   const { graphemes, highFrequencyWords } = elCodeThroughCycle(placement.anchorCycle);
-  const details = new Map(
-    enriched.pages.flatMap(page => page.analysis?.wordDetails || []).map(detail => [detail.word, detail])
-  );
   const notYetIndependentWords = [];
-  for (const word of enriched.pages.flatMap(page => page.analysis?.words || [])) {
-    const clean = String(word || "").toLowerCase();
+  for (const detail of wordDetails) {
+    const clean = detail.word;
     if (highFrequencyWords.has(clean)) continue;
-    const detail = details.get(clean);
     const readable = Boolean(
       detail?.decodable
       && canSegmentWithGraphemes(clean, graphemes)
       && advancedPatternsAreTaught(detail, graphemes)
     );
-    if (!readable && !notYetIndependentWords.includes(clean)) notYetIndependentWords.push(clean);
+    if (!readable) notYetIndependentWords.push(clean);
   }
 
-  if (notYetIndependentWords.length === 0 && enriched.wordCount > 0) {
+  if (notYetIndependentWords.length === 0 && wordCount > 0) {
     return {
       id: READING_PURPOSES.INDEPENDENT,
       label: "Read it yourself",

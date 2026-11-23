@@ -113,6 +113,12 @@ prompt and one optional visual prompt with private listen-for/look-for guidance.
 These prompts are unscored discussion support and never appear in the child
 reader.
 
+Page visits save the bookmark, including a visit to the final page. **Finish
+book** credits the current reading once. **Read again** starts on page one,
+and leaving partway through a reread keeps its bookmark. Historical records
+without an explicit completion flag may infer completion from full page
+coverage. Teacher reports identify that evidence as inferred.
+
 Whole-class books, child science read-alouds and full-screen reading use the
 compact picture-book presentation. The illustration and medium-sized text fill
 the reading area below one top transport bar, which contains narration,
@@ -150,8 +156,10 @@ check:guided-reading-writing-evidence` enforces the 100-example floor, source an
 quotation limits, A/B/C coverage, and fiction/nonfiction coverage.
 
 Every readable word and page narration must resolve through the current production
-audio paths. Continuous reading follows page order and page timing. Current automated
-coverage tests enforce these contracts.
+audio paths. Continuous reading follows page order and page timing. Recordings
+without reviewed sentence offsets use a steady cue on the page text while
+narration plays, pauses or buffers. Line focus remains available in the reader.
+Current automated coverage tests enforce these contracts.
 
 Child publication follows continuous pass-by-exception review and is controlled by
 the app-admin role. A missing row or `approved` row is accepted. A `quarantined`

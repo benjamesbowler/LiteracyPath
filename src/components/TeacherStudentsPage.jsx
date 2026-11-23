@@ -1009,6 +1009,8 @@ export function TeacherStudentsPage({
 
   const groupFilterIds = selectedRosterGroup.id === "all" ? null : selectedRosterGroup.studentIds;
   const effectiveRosterFilterIds = rosterFilterIds || groupFilterIds;
+  const sessionAudience = effectiveRosterFilterIds === null ? "whole_class" : "selected_students";
+  const sessionGroupLabel = rosterFilterIds ? "Suggested group" : selectedRosterGroup.label;
   const groupedStudentRows = effectiveRosterFilterIds
     ? studentRows.filter(row => effectiveRosterFilterIds.includes(row.id))
     : studentRows;
@@ -1872,15 +1874,21 @@ export function TeacherStudentsPage({
           <button
             className="lp-button lp-button-secondary"
             type="button"
-            disabled={!selectedClass || !rosterRead.complete || !studentRows.length}
+            disabled={!selectedClass || !rosterRead.complete || !groupedStudentRows.length}
+            aria-describedby={sessionAudience === "selected_students" ? "roster-session-audience" : undefined}
             onClick={() => onStartStudentSession?.(
-              selectedRosterGroup.id === "all"
-                ? []
-                : selectedRosterGroup.studentIds
+              effectiveRosterFilterIds || [],
+              { audience: sessionAudience }
             )}
           >
             Start student session
           </button>
+          {sessionAudience === "selected_students" && (
+            <small id="roster-session-audience">
+              {sessionGroupLabel} · {groupedStudentRows.length} {groupedStudentRows.length === 1 ? "student" : "students"}
+              {!groupedStudentRows.length && " · Choose another group or Everyone to start."}
+            </small>
+          )}
           <details className="teacher-roster-manage-menu">
             <summary>Manage class</summary>
             <div className="teacher-manage-actions">

@@ -11,7 +11,7 @@ test('spelling reports conventional and plausible spellings separately', () => {
   assert.equal(summary(profile('encoding'), { administeredCount: 12, exactSpellingCount: 7, plausibleSpellingCount: 3 }), '7 of 12 words spelled correctly. 3 more represented the sounds with a different spelling.');
 });
 test('word reading does not count sounding out as automatic', () => {
-  assert.equal(summary(profile('decoding'), { administeredCount: 8, accurateCount: 7, automaticCount: 4 }), '7 of 8 words read correctly; 4 read straight away.');
+  assert.equal(summary(profile('decoding'), { administeredCount: 8, accurateCount: 7, automaticCount: 4, automaticityJudgedCount: 6 }), '7 of 8 words read correctly. Reading speed recorded for 6. 4 read straight away.');
 });
 test('oral observations use administered evidence rather than all planned questions', () => {
   assert.equal(summary(profile('phonologicalAwareness'), { administeredCount: 3, correctCount: 0 }), '0 of 3 spoken answers correct.');

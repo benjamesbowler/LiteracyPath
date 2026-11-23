@@ -7,7 +7,9 @@ const viewports = [{ width: 1467, height: 830 }, { width: 1024, height: 768 }, {
 async function seedRoom(page, theme = "meadow") {
   await page.addInitScript(({ theme, items }) => {
     const scope = "child-surface-preview";
-    localStorage.setItem(`lp-student-profile:${scope}`, JSON.stringify({ companionId: "fluff", denTheme: theme }));
+    if (!localStorage.getItem(`lp-student-profile:${scope}`)) {
+      localStorage.setItem(`lp-student-profile:${scope}`, JSON.stringify({ companionId: "fluff", denTheme: theme }));
+    }
     localStorage.setItem(`lp-hollow:${scope}`, JSON.stringify({
       purchases: [...items.map((item, i) => ({ id: `owned-${i}`, item, cost: 0 })), { id: "gift", item: "egg-welcome", cost: 0 }], feeds: [], chests: [],
       layout: { slots: Object.fromEntries(items.map((item, i) => [`s${i + 1}`, item])), equipped: {} }
@@ -86,4 +88,27 @@ test("the painted-room guard detects the original letterbox regression", async (
   await expect.poll(async () => (await roomGeometry(page)).fillsWidth).toBe(true);
   await page.locator(".hollow-home-scene").evaluate(scene => scene.setAttribute("viewBox", "0 0 1920 1080"));
   expect((await roomGeometry(page)).fillsWidth).toBe(false);
+});
+
+test("the returning pupil's hydrated Hollow world and placements appear before reload", async ({ page }) => {
+  test.setTimeout(90_000);
+  await seedRoom(page);
+  await page.goto(route, { waitUntil: "domcontentloaded" });
+  const room = page.locator(".hollow-simple");
+  const scene = room.locator(".hollow-home-scene");
+  await expect(room).toHaveAttribute("data-pal-world", "meadow");
+  await page.evaluate(() => {
+    localStorage.setItem("lp-student-profile:child-surface-preview", JSON.stringify({ companionId: "fluff", denTheme: "moonwood" }));
+    window.dispatchEvent(new CustomEvent("lp-progress-hydrated", { detail: { studentId: "another-pupil" } }));
+  });
+  await expect(room).toHaveAttribute("data-pal-world", "meadow");
+  await page.evaluate(() => window.dispatchEvent(new CustomEvent("lp-progress-hydrated", {
+    detail: { studentId: "child-surface-preview" }
+  })));
+  await expect(room).toHaveAttribute("data-pal-world", "moonwood");
+  await expect(scene.locator("image").first()).toHaveAttribute("href", /scene-moonwood/);
+  await expect(scene.locator("[data-decoration-id]")).toHaveCount(items.length);
+  await page.reload({ waitUntil: "domcontentloaded" });
+  await expect(room).toHaveAttribute("data-pal-world", "moonwood");
+  await expect(scene.locator("[data-decoration-id]")).toHaveCount(items.length);
 });

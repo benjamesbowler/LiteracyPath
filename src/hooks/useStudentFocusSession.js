@@ -4,7 +4,7 @@ import {
   getStudentFocusSession,
   STUDENT_FOCUS_CONTENT_VERSION
 } from "../data/studentFocusSessionCore.js";
-import { readCachedMockFocus } from "../utils/literacyMockOutbox.js";
+import { readCachedMockFocus } from "../utils/literacyMockFocusCache.js";
 import { LITERACY_DOMAINS, LITERACY_PRACTICE_VERSION } from "../policy/literacyPracticePolicy.js";
 import { LITERACY_MOCK_SUPPORTED_VERSIONS } from "../data/literacyMockSessionCore.js";
 

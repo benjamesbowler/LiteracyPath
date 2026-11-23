@@ -275,3 +275,11 @@
     white-space: nowrap;
   }
 }
+.rc-cycle-shorts .rc-card-open .rc-short-cover {
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.rc-cycle-shorts .rc-card-open .rc-short-comic {
+  object-position: center;
+}

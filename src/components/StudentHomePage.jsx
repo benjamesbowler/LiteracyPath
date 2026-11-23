@@ -240,7 +240,7 @@ function planTodaysStops({ missionStatus, readable, heroMissionKind }) {
     heading,
     // A read that failed is not a child who has done nothing, so the count only
     // speaks when the read worked.
-    summary: readable ? `${doneCount} of 3 done` : "",
+    summary: readable ? `Daily goal · ${doneCount} of 3 done` : "",
     stops: shown.map(stop => ({
       ...stop,
       state: done(stop.kind)
@@ -804,6 +804,8 @@ export function StudentHomePage({
         <div className="kg-home-feature" hidden={showPlaces}>
         <section className="kg-home-continue" aria-labelledby="kg-home-hero-title">
           <div className="kg-home-continue-copy">
+            {primary?.art && <img className="kg-home-continue-art" src={withRepairedImageVersion(primary.art)}
+              width="64" height="64" alt="" onError={event => { event.currentTarget.hidden = true; }} />}
             <span className="kg-home-eyebrow" data-child-instruction="" data-learning-state-label="">{heroInstruction}</span>
             <h1 id="kg-home-hero-title" data-child-title="">{primary ? primary.title : "Choose a place to go"}</h1>
             <p id="kg-home-hero-stop" className="kg-home-hero-stop">{primary ? heroStop : recommendation.childReason}</p>

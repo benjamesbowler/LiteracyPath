@@ -104,13 +104,15 @@ for (const width of [1280, 390]) {
   test(`teacher resources retain teaching tools without retired planners at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });
     await page.goto("/preview/teacher-a11y.html?surface=resources");
-    await expect(page.getByRole("heading", { name: "Teach, print, project" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "What will you teach today?" })).toBeVisible();
     await expect(page.locator("[data-resource-kind]").filter({ hasText: "Teaching plan" })).toHaveCount(0);
     await expect(page.locator('[data-resource-kind="lesson-composer"], [data-resource-kind="family-bridge"]')).toHaveCount(0);
     for (const kind of ["present", "worksheets", "guided-reading"]) {
       const card = page.locator(`[data-resource-kind="${kind}"]`).locator("..");
       await expect(card).toBeVisible();
-      await expect(card.getByRole("button")).toBeEnabled();
+      const actions = await card.getByRole("button").all();
+      expect(actions.length).toBeGreaterThan(0);
+      for (const action of actions) await expect(action).toBeEnabled();
     }
     await expect(page.locator("body")).not.toContainText("Family Bridge");
     await expect(page.locator("body")).not.toContainText("Small-group lesson composer");
@@ -118,3 +120,73 @@ for (const width of [1280, 390]) {
     expect(overflow).toBe(0);
   });
 }
+
+test("family report opens with keyboard focus, closes with Escape and restores focus", async ({ page }) => {
+  await page.goto("/preview/parent-area.html?section=reports");
+  const open = page.getByRole("button", { name: "Open Summer reading update" });
+  await open.focus();
+  await page.keyboard.press("Enter");
+  const dialog = page.getByRole("dialog");
+  await expect(dialog.getByRole("heading", { name: "Summer reading update" })).toBeFocused();
+  for (let index = 0; index < 7; index += 1) {
+    await page.keyboard.press("Tab");
+    expect(await page.evaluate(() => document.activeElement === document.body
+      || Boolean(document.activeElement.closest("dialog")))).toBe(true);
+  }
+  await page.keyboard.press("Escape");
+  await expect(dialog).toHaveCount(0);
+  await expect(open).toBeFocused();
+});
+
+test("an accepted invitation retries loading without submitting again", async ({ page }) => {
+  await page.goto(`/preview/parent-area.html?portal=accept&invite=${"a".repeat(64)}`);
+  await page.getByRole("textbox", { name: "Your name" }).fill("Fixture Guardian");
+  await page.getByRole("checkbox").check();
+  await page.getByRole("button", { name: "Accept secure access" }).click();
+  await expect(page.getByRole("heading", { name: "Your invitation was accepted" })).toBeVisible();
+  await expect(page).toHaveURL(/\/parent$/);
+  await page.getByRole("button", { name: "Load family area again" }).click();
+  await expect(page.getByRole("heading", { name: "Aarav’s reading, clearly explained" })).toBeVisible();
+  expect(await page.evaluate(() => window.__familyPortalFixture.accepted)).toBe(1);
+});
+
+test("an open report closes when the next authorized read withdraws it", async ({ page }) => {
+  await page.goto("/preview/parent-area.html?portal=refresh");
+  await page.getByRole("button", { name: "Reports", exact: true }).click();
+  await page.getByRole("button", { name: "Open Summer reading update" }).click();
+  await expect(page.getByRole("dialog")).toBeVisible();
+  await page.evaluate(() => {
+    window.__familyPortalFixture.withdrawn = true;
+    document.dispatchEvent(new Event("visibilitychange"));
+  });
+  await expect(page.getByRole("dialog")).toHaveCount(0);
+  await expect(page.getByRole("heading", { name: "No reports have been released yet" })).toBeVisible();
+});
+
+test("printing a withdrawn release closes the reserved window without creating a document", async ({ page }) => {
+  await page.goto("/preview/parent-area.html?portal=refresh");
+  await page.getByRole("button", { name: "Reports", exact: true }).click();
+  await page.evaluate(() => {
+    window.__familyPortalFixture.withdrawn = true;
+    window.__familyPrintProbe = { navigated: false, closed: false };
+    window.open = () => ({
+      get closed() { return window.__familyPrintProbe.closed; },
+      location: { replace() { window.__familyPrintProbe.navigated = true; } },
+      close() { window.__familyPrintProbe.closed = true; }
+    });
+  });
+  await page.getByRole("button", { name: "Print or save Summer reading update" }).click();
+  await expect.poll(() => page.evaluate(() => window.__familyPrintProbe)).toEqual({ navigated: false, closed: true });
+  await expect(page.getByRole("heading", { name: "No reports have been released yet" })).toBeVisible();
+});
+
+test("switching guardian closes the previous guardian's open release", async ({ page }) => {
+  await page.goto("/preview/parent-area.html?portal=refresh");
+  await page.getByRole("button", { name: "Reports", exact: true }).click();
+  await page.getByRole("button", { name: "Open Summer reading update" }).click();
+  await expect(page.getByRole("dialog")).toBeVisible();
+  await page.evaluate(() => window.__familyPortalFixture.setGuardian("fixture-guardian-b"));
+  await expect(page.getByRole("dialog")).toHaveCount(0);
+  await expect(page.getByRole("heading", { name: "Aisha’s reading, clearly explained" })).toBeVisible();
+  await expect(page.getByText("Summer reading update")).toHaveCount(0);
+});

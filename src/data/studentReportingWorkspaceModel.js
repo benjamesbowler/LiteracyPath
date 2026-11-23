@@ -1,5 +1,7 @@
 import { guidedReadingHistoryBook } from "../utils/guidedReading/editions.js";
 import { getPublicBookMetadata } from "../utils/guidedReading/bookLevelMetadata.js";
+import { guidedReadingCompletion } from "../utils/guidedReading/completionPolicy.js";
+import { guidedReadingBookmark } from "../utils/guidedReading/bookmark.js";
 import { buildLiteracyPracticeReport } from "../utils/literacyPracticeReport.js";
 import { LITERACY_PRACTICE_SKILLS } from "./literacyPracticeBank.js";
 import { LITERACY_PRACTICE_ID } from "../policy/literacyPracticePolicy.js";
@@ -47,6 +49,8 @@ import { benchmarkWindowLabel } from "./elBenchmarkReportScope.js";
 import {
   assessmentAttemptsToSkillLedger,
   computeSkillStatus,
+  independentSkillAttemptResponses,
+  scoreRepeatedSkillAttemptResponses,
   SKILL_STATUS_IDS
 } from "../policy/skillStatusPolicy.js";
 import { buildEvidenceHealth } from "./evidenceHealth.js";
@@ -201,15 +205,18 @@ export function getCanonicalStudentAssessmentAttempts({
   ).filter(attempt => attempt.studentId === resolvedStudentId);
 }
 
-function dedupeAttemptQuestions(attempt = {}) {
+function dedupeAttemptQuestions(attempt = {}, { byPhase = false } = {}) {
   const byIdentity = new Map();
   asArray(attempt.questionRecords).forEach((question, index) => {
-    const identity = question.questionId || [
+    const questionIdentity = question.questionId || [
       question.itemType,
       question.itemKey,
       question.templateType,
       question.order || index + 1
     ].map(normalizeReportingKey).join("::");
+    const identity = byPhase
+      ? `${questionIdentity}:L${question.level ?? attempt.skillLevel ?? 1}P${question.phase ?? attempt.skillPhase ?? 1}`
+      : questionIdentity;
     const current = byIdentity.get(identity);
     const currentSize = current ? JSON.stringify(current).length : -1;
     const candidateSize = JSON.stringify(question).length;
@@ -410,6 +417,16 @@ export function getReportingConceptForAssessmentQuestion(question = {}, attempt 
       construct: "isolated_word_reading",
       key: word,
       label: `Read “${word}” in isolation`
+    });
+  }
+
+  if (itemType === "cvc_word") {
+    const word = cleanWord(question.targetWord || question.itemKey || question.correctAnswer);
+    return createReportingConcept({
+      domain: "decoding",
+      construct: "cvc_word",
+      key: word,
+      label: `Read “${word}”`
     });
   }
 
@@ -1106,15 +1123,18 @@ function guidedRowsFromRecords({ guidedReadingRecords = {}, studentId = "" } = {
         evidence.push(guidedWordEvidence({ ...row, studentId, raw: { mark, page: rawPage } }));
       });
     });
-    const completed = Boolean(rawRecord.completed || rawRecord.completedAt);
-    const readCount = Math.max(Number(rawRecord.readCount || 0), completed ? 1 : 0);
+    const totalPages = historyBook.historicalPageCount
+      || getPublicBookMetadata(historyBook).pageCount || Number(rawRecord.totalPages || 0);
+    const completion = guidedReadingCompletion(rawRecord, totalPages);
+    const pagesRead = Math.max(Number(rawRecord.completedPages) || 0, Object.keys(rawRecord.pages || {}).length);
+    const { completed, readCount } = completion;
     const notes = normalizedNoteRows(rawRecord);
     supportUseEvents.sort((a, b) => (
       finiteTimestamp(b.occurredAt) - finiteTimestamp(a.occurredAt) ||
       a.pageNumber - b.pageNumber ||
       a.wordIndex - b.wordIndex
     ));
-    const hasActivity = completed || readCount > 0 || Number(rawRecord.completedPages || 0) > 0 || wordMarks.length || notes.length || supportUseEvents.length;
+    const hasActivity = completed || pagesRead > 0 || wordMarks.length || notes.length || supportUseEvents.length;
     if (!hasActivity) return;
     books.push({
       bookId,
@@ -1122,13 +1142,13 @@ function guidedRowsFromRecords({ guidedReadingRecords = {}, studentId = "" } = {
       historicalEdition: Boolean(historyBook.historicalEdition),
       type: rawRecord.type || "",
       level,
-      completed,
-      completedAt: rawRecord.completedAt || "",
+      ...completion,
       lastReadAt: rawRecord.lastReadAt || rawRecord.updatedAt || rawRecord.completedAt || "",
-      readCount,
       rereadCount: Math.max(0, readCount - 1),
-      pagesRead: Number(rawRecord.completedPages || 0),
-      totalPages: Number(rawRecord.totalPages || 0),
+      pagesRead,
+      totalPages,
+      bookmarkPage: pagesRead && totalPages
+        ? guidedReadingBookmark(historyBook, { ...rawRecord, bookId, totalPages }) + 1 : null,
       attempted: wordMarks.length,
       correct: wordMarks.filter(row => row.mark === "correct").length,
       latestAccuracy: wordMarks.length
@@ -2125,8 +2145,20 @@ export function buildSkillsCheckReportModel({
     cloudAssessmentHistory
   }).filter(attempt => assessmentIdForAttempt(attempt) === "skill_checkpoint");
   const canonicalRawEvidence = [];
+  const scoreByAttempt = new Map();
   attempts.forEach(attempt => {
-    dedupeAttemptQuestions(attempt).forEach(({ identity, question }) => {
+    const independent = independentSkillAttemptResponses(attempt);
+    const repeated = independent.filter(row => row.repeatedResponse);
+    scoreByAttempt.set(attempt.attemptId, scoreRepeatedSkillAttemptResponses(independent));
+    const questionRows = dedupeAttemptQuestions(attempt, { byPhase: true });
+    for (const row of repeated) {
+      const position = questionRows.findIndex(entry => entry.question.questionId === row.itemId
+        && Number(entry.question.level || 1) === row.level && Number(entry.question.phase || 1) === row.phase);
+      if (position === -1) continue;
+      if (row.requiresEvidenceReview) questionRows.splice(position, 1);
+      else questionRows[position] = { ...questionRows[position], question: row.questionRecord };
+    }
+    questionRows.forEach(({ identity, question }) => {
       canonicalRawEvidence.push(rawAssessmentQuestionEvidence({
         question,
         identity,
@@ -2212,14 +2244,15 @@ export function buildSkillsCheckReportModel({
       lifetimeCorrectCount: 0,
       lifetimeTotalQuestions: 0
     };
-    row.attempts.push(attemptDisplayRow(attempt));
+    const score = scoreByAttempt.get(attempt.attemptId);
+    row.attempts.push({ ...attemptDisplayRow(attempt), ...score });
     row.historyLatestAt = latestDate([row.historyLatestAt, attempt.completedAt]);
     const attemptEvidence = rawEvidence.filter(evidence => evidence.sourceRecordId === attempt.attemptId);
     if (isTerminalAdministrationStatus(attempt.administrationStatus) && attemptHasScorableResult(attempt, attemptEvidence)) {
       row.lifetimeAttemptCount += 1;
       row.lifetimeLatestAt = latestDate([row.lifetimeLatestAt, attempt.completedAt]);
-      row.lifetimeCorrectCount += Number(attempt.correctCount || 0);
-      row.lifetimeTotalQuestions += Number(attempt.totalQuestions || 0);
+      row.lifetimeCorrectCount += Number(score?.correctCount ?? attempt.correctCount ?? 0);
+      row.lifetimeTotalQuestions += Number(score?.totalQuestions ?? attempt.totalQuestions ?? 0);
     }
     bySkill.set(skillId, row);
   });
@@ -2244,7 +2277,7 @@ export function buildSkillsCheckReportModel({
       { now }
     );
     const evidenceStatus = scoredAssessmentStatus(
-      latestAttempt?.raw || null,
+      latestAttempt ? { ...latestAttempt.raw, ...scoreByAttempt.get(latestAttempt.attemptId) } : null,
       currentEvidence,
       now
     );
@@ -2275,7 +2308,7 @@ export function buildSkillsCheckReportModel({
       latestCorrectCount: currentScorable ? finiteNumber(latestAttempt?.correctCount) : null,
       latestTotalQuestions: currentScorable ? finiteNumber(latestAttempt?.totalQuestions) : null,
       latestAccuracy: currentAccuracy,
-      latestPassed: currentScorable ? Boolean(latestAttempt?.passed) : null,
+      latestPassed: currentScorable ? latestAttempt?.passed ?? null : null,
       correctCount: currentScorable ? finiteNumber(latestAttempt?.correctCount) : null,
       totalQuestions: currentScorable ? finiteNumber(latestAttempt?.totalQuestions) : null,
       accuracy: currentAccuracy,
@@ -2299,6 +2332,7 @@ export function buildSkillsCheckReportModel({
       status: currentStatus,
       statusLabel: currentStatus.label,
       skillStatus: policyStatus,
+      evidenceNeedsReview: Boolean(policyStatus?.evidence.conflictingCount),
       learningEvidenceProfile: buildLearningEvidenceProfile(
         asArray(latestAttempt?.raw?.questionRecords).map(question => ({
           ...question,

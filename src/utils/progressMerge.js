@@ -1,4 +1,5 @@
 import { normalizeLearnGamesProgress } from "./learnGamesProgressContract.js";
+import { mergeGuidedReadingEvidence } from "./guidedReading/completionPolicy.js";
 import { mergeCampaignProgress } from "../features/soundSeekers/v3/engine/campaignProgress.js";
 import { WOODLAND_PROGRESS_ROW, mergeWoodlandProgress } from '../features/soundSeekers/woodlandProgress.js';
 import { MUSIC_PREFERENCE_VERSION, normalizeAudioPreferences } from "./audio/audioPreferences.js";
@@ -488,7 +489,7 @@ export function computeHydratedValue(area, key, existing, payload, { scopeKey } 
   }
 
   if (area === "guided_reading") {
-    return { ...base, [key]: mergeMonotonic(base[key], payload) };
+    return { ...base, [key]: mergeGuidedReadingEvidence(base[key], payload, mergeMonotonic(base[key], payload)) };
   }
 
   // Sound Seekers. Three different merge rules in one payload, because the

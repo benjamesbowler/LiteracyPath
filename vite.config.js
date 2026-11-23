@@ -66,6 +66,8 @@ const shellSupportModules = new Set([
   'utils/csvCell.js',
   'utils/guidedReading/editions.js',
   'utils/lazyWithRetry.js',
+  'utils/literacyMockFocusCache.js',
+  'utils/progressReloadGuard.js',
   'utils/learningEvidenceInsights.js',
   'utils/learningResponseAdapters.js',
   'utils/learningResponseState.js',
