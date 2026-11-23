@@ -9,7 +9,7 @@ for (const viewport of [
     await page.setViewportSize(viewport);
     await page.emulateMedia({ reducedMotion: "reduce" });
     for (const cycle of [1, 24]) {
-      await page.goto(`/preview/child-surfaces.html?surface=adventure-map&quest=cycle-${cycle}&station=sounds`);
+      await page.goto(`/preview/child-surfaces.html?surface=adventure-map&quest=cycle-${cycle}&station=sounds`, { waitUntil: "domcontentloaded" });
       const stage = page.locator('[data-mechanic-stage="sound-choice"]');
       await expect(stage).toBeVisible();
       await stage.getByRole("button").first().hover();
@@ -67,7 +67,7 @@ test("SoundKeys keeps its shuffled phrase on Continue and changes the run on Sta
 });
 
 for (const game of ["word-bridge", "reel-read"]) {
-  test(`${game} renders the target selected by its saved run seed`, async ({ page }) => {
+  test(`${game} restores the target selected by its saved run seed`, async ({ page }) => {
     const targets = [];
     await page.addInitScript(() => {
         const params = new URLSearchParams(location.search);
@@ -75,22 +75,21 @@ for (const game of ["word-bridge", "reel-read"]) {
         localStorage.setItem("literacy-guide-learn-games:fullscreen-overlay-preview", JSON.stringify({
           games: { [game]: { checkpoints: { easy: { level: 0, totalLevels: 10, sessionSeed: seed } } } }
         }));
-        window.renderedGameText = [];
-        const fillText = CanvasRenderingContext2D.prototype.fillText;
-        CanvasRenderingContext2D.prototype.fillText = function (text, ...args) {
-          if (!window.renderedGameText.includes(String(text))) window.renderedGameText.push(String(text));
-          return fillText.call(this, text, ...args);
-        };
     });
     for (const seed of [271, 941]) {
       await page.goto(`/preview/game-overlay.html?game=${game}&runSeed=${seed}&sound=0&music=0`);
-      const target = await page.evaluate(async ({ game, seed }) => {
-        const module = await import(`/src/utils/${game === "word-bridge" ? "wordBridgeLevels" : "reelReadLevels"}.js`);
-        return module[game === "word-bridge" ? "wordBridgeLadder" : "reelReadLadder"]("easy", seed)[0].target;
+      await page.getByRole("button", { name: "Continue", exact: true }).click();
+      const expected = await page.evaluate(async ({ game, seed }) => {
+        const modulePath = `/src/utils/${game === "word-bridge" ? "wordBridgeLevels" : "reelReadV2Levels"}.js`;
+        const module = await import(modulePath);
+        return module[game === "word-bridge" ? "wordBridgeLadder" : "reelReadV2Ladder"]("easy", seed)[0].target;
       }, { game, seed });
-      targets.push(target);
-      if (game === "word-bridge") await expect(page.locator('[data-wb="target"]')).toHaveText(target.toUpperCase());
-      else await expect.poll(() => page.evaluate(target => window.renderedGameText.some(text => text.toLowerCase().includes(target)), target)).toBe(true);
+      targets.push(expected);
+      await expect.poll(() => page.evaluate(gameId => {
+        const state = window.__arcadePreviewSnapshot?.();
+        if (gameId === "word-bridge") return state?.slots?.map(slot => slot.needed).join("").toLowerCase();
+        return state?.currentTask?.targetWord;
+      }, game)).toBe(expected);
     }
     expect(targets[0]).not.toBe(targets[1]);
   });

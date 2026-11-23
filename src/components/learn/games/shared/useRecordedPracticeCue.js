@@ -7,6 +7,7 @@ import { playCueAudio, stopCueAudio } from "../../../../utils/audio/cuePlayer.js
 // mute, replay, pause and leaving the stage cannot leak a stale sentence.
 export function useRecordedPracticeCue(text, enabled, autoPlay = true, onVoice) {
   const [failedText, setFailedText] = useState("");
+  const [deliveredText, setDeliveredText] = useState("");
   const canHear = enabled && hasRecordedSpeech(text);
   const replay = useCallback(() => {
     if (!canHear) return;
@@ -19,7 +20,11 @@ export function useRecordedPracticeCue(text, enabled, autoPlay = true, onVoice) 
       const watchdog = setTimeout(() => { stopCueAudio(); setFailedText(text); finish('unavailable'); }, 20000);
       playCueAudio(src, {
         onUnavailable: () => { setFailedText(text); finish('unavailable'); },
-        onDelivery: event => { if (event.type === "started") setFailedText(""); if (['completed', 'failed', 'interrupted', 'unavailable'].includes(event.type)) finish(event.type); }
+        onDelivery: event => {
+          if (event.type === "started") setFailedText("");
+          if (event.type === "completed") setDeliveredText(text);
+          if (["completed", "failed", "interrupted", "unavailable"].includes(event.type)) finish(event.type);
+        }
       });
     });
     onVoice?.(voice);
@@ -29,5 +34,5 @@ export function useRecordedPracticeCue(text, enabled, autoPlay = true, onVoice) 
     if (autoPlay) replay();
     return stopCueAudio;
   }, [autoPlay, replay]);
-  return { canHear, replay, unavailable: failedText === text };
+  return { canHear, replay, unavailable: failedText === text, delivered: canHear && deliveredText === text };
 }

@@ -7,7 +7,7 @@
 .gg-game-hud [data-gg=picture-recovery]{grid-column:1;grid-row:1/4;width:64px;height:64px;align-self:center}
 .gg-game-hud [data-gg=picture-recovery][hidden]{display:none}
 .gg-game-hud [data-gg=picture-recovery] svg{width:100%;height:100%}
-.gg-game-hud [data-gg=prompt]{grid-column:2;grid-row:1;color:#18263E!important;font-size:1.25rem!important;line-height:1.1!important;align-self:end}
+.gg-game-hud [data-gg=prompt]{grid-column:2;grid-row:1;color:#18263E!important;font-size:1.375rem!important;line-height:1.1!important;align-self:end}
 .gg-game-hud [data-gg=sentence]{grid-column:2;grid-row:2;color:#3454C8!important;letter-spacing:.14em!important;margin:0!important;font-size:1.15rem!important;line-height:1.15}
 .gg-game-hud [data-gg=cue]{grid-column:2;grid-row:4;color:#18263E!important;margin:0!important;font-size:.85rem!important;line-height:1.1}
 .gg-game-hud [data-gg-panel=center] [data-gg=level]{grid-column:2;grid-row:3;color:#18263E!important;letter-spacing:0!important;font-size:.78rem!important;line-height:1.1;margin:0!important}

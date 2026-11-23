@@ -66,9 +66,10 @@ test('Letter Leap missed and obsolete pickups stay visible, then current and old
   const geometry={bubbles:coordinates(initial),blocks:initial.blocks,sections:initial.sections,pits:initial.pits};
   expect(target.y).toBeGreaterThan(neighbour.y);
   await page.keyboard.down('ArrowRight');
-  await expect.poll(async()=>(await snapshot(page)).player.x,{intervals:[16]}).toBeGreaterThan(target.x-145);
+  const reachX = x => page.waitForFunction(x => document.querySelector('.letter-leap').__letterLeapMotion().player.x > x, x);
+  await reachX(target.x - 110);
   await page.keyboard.down('ArrowUp');
-  await expect.poll(async()=>(await snapshot(page)).player.x,{intervals:[16]}).toBeGreaterThan(target.x+50);
+  await reachX(target.x + 50);
   await page.keyboard.up('ArrowUp');await page.keyboard.up('ArrowRight');
   const missed=await snapshot(page);
   expect(missed.letterIndex).toBe(0);expect(missed.wrongHits).toBe(0);
@@ -79,12 +80,13 @@ test('Letter Leap missed and obsolete pickups stay visible, then current and old
   expect(collected.bubbles.filter(b=>b.taken)).toHaveLength(1);
   expect(old).toMatchObject({x:neighbour.x,y:neighbour.y,taken:false,display:'inactive'});
   const evidence=structuredClone(collected.learning),beforeWrong=collected.wrongHits;
+  // Launch before entering the shelf's underside so the physical arc crosses
+  // the stale letter at height. A standing jump below the shelf hits its lip.
   await page.keyboard.down('ArrowRight');
-  await expect.poll(async()=>(await snapshot(page)).player.x,{intervals:[16]}).toBeGreaterThan(neighbour.x-12);
-  await page.keyboard.up('ArrowRight');await page.waitForTimeout(180);
+  await reachX(neighbour.x - 105);
   await page.keyboard.down('ArrowUp');
   await page.waitForFunction(({x,y})=>{const p=document.querySelector('.letter-leap').__letterLeapMotion().player;return Math.abs(p.x-x)<34&&Math.abs(p.y-y)<42;},neighbour,{timeout:2000});
-  await page.keyboard.up('ArrowUp');
+  await page.keyboard.up('ArrowUp');await page.keyboard.up('ArrowRight');
   const stale=await snapshot(page);
   expect(Math.abs(stale.player.x-neighbour.x)).toBeLessThan(34);
   expect(stale.letterIndex).toBe(1);expect(stale.wrongHits).toBe(beforeWrong);

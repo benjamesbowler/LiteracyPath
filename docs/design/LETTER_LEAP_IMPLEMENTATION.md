@@ -1,5 +1,14 @@
 # Letter Leap authored platforming implementation
 
+## Running animation
+
+The grounded run uses both extended strides with a passing pose between them.
+The cycle follows distance travelled and changes pose about every 100 ms at
+full speed. Run frames align their measured crowns over a shared body position
+while their soles meet the same platform baseline. Mirrored movement, drawing
+and head contact share the registration. Muted retry feedback asks for another
+letter so it never points to a hidden replay control.
+
 ## iPad rendering repair — 9 October 2026
 
 The retained illustration, character registration and fixed-step platform

@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { burrowPlacementPreview } from '../../src/components/learn/games/games/burrowPresentation.js';
+import { burrowPlacementPreview, createBurrowPreview } from '../../src/components/learn/games/games/burrowPresentation.js';
 import { createBurrowWorld, placeBurrowPart, walkingHeight } from '../../src/utils/burrowBuildersRules.js';
 
 test('preview follows real water crossing rules without spending materials or editing the world', () => {
@@ -30,4 +30,16 @@ test('reading-plan preview stays neutral and never exposes answer correctness', 
   assert.equal(burrowPlacementPreview(world).valid, false);
   const preview = burrowPlacementPreview(world, { reading: true });
   assert.equal(preview.valid, null); assert.equal(preview.kind, 'plan'); assert.equal(preview.reason, undefined);
+});
+
+test('pointer aim and tool changes update the preview without changing the saved selection', () => {
+  const world = createBurrowWorld('meadow', { starter: true });
+  const bridge = { x: 5, z: 3 };
+  const preview = createBurrowPreview();
+  assert.equal(preview(world, { selection: bridge }).kind, 'place');
+  assert.equal(preview(world, { selection: bridge, remove: true }).kind, 'remove');
+  assert.equal(preview(world, { selection: world.selection, remove: true }).valid, false);
+  assert.deepEqual(world.selection, { x: 3, z: 5 });
+  assert.equal(world.undo.length, 0);
+  assert.equal(world.blocks.length, 3);
 });

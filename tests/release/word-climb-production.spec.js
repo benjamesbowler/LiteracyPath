@@ -121,6 +121,34 @@ test("leaving during active climbing restores the same physical route and held i
  const after=await readClimbSnapshot(page);expect(after.session).toEqual(before.session);expect(after.world.journey.obstacles).toEqual(before.world.journey.obstacles);
 });
 
+test("auto climb follows the tree, waits at both boughs, and leaves the word choice to the player",async({page})=>{
+  test.setTimeout(120_000);
+  await page.setViewportSize({width:1024,height:700});
+  const game=await openClimb(page);
+  const progress=page.getByRole("progressbar",{name:"Climb to the next word ledges"});
+  await expect(progress).toBeVisible();
+  await expect(game.locator('[data-wc="feedback"]')).toContainText("Hold ↑");
+  await page.getByRole("button",{name:"Auto climb",exact:true}).click();
+  await expect(page.getByRole("button",{name:"Stop auto climb",exact:true})).toHaveAttribute("aria-pressed","true");
+  await expect(game).toHaveAttribute("data-crossing","out",{timeout:30_000});
+  const forkHeight=await game.getAttribute("data-world-height");
+  const forkX=await game.getAttribute("data-world-x");
+  await page.waitForTimeout(300);
+  await expect(game).toHaveAttribute("data-world-height",forkHeight);
+  await expect(game).toHaveAttribute("data-world-x",forkX);
+  await page.getByRole("button",{name:"Cross right bough",exact:true}).click();
+  await expect(game).toHaveAttribute("data-crossing","back",{timeout:40_000});
+  await page.getByRole("button",{name:"Cross to the canopy",exact:true}).click();
+  await expect(game).toHaveAttribute("data-journey-phase","word",{timeout:30_000});
+  await expect(game).toHaveAttribute("data-wc-progress","0");
+  expect((await page.evaluate(()=>window.__arcadePreviewSnapshot())).learning.firstResponses).toEqual([]);
+  await expect(game.locator('[data-wc="feedback"]')).toContainText("Tap it");
+  await(await destination(page)).click();
+  await expect(game).toHaveAttribute("data-wc-progress","1");
+  await expect(game).toHaveAttribute("data-motor-falls","0");
+  await expect(page.getByRole("button",{name:"Auto climb",exact:true})).toHaveAttribute("aria-pressed","false");
+});
+
 for(const [difficulty,stage,width,height] of [['medium',1,568,320],['hard',2,390,844]])test(`${difficulty} route family reaches a readable station and accepts a real touch landing`,async({browser})=>{
  test.setTimeout(90000);const context=await browser.newContext({baseURL:test.info().project.use.baseURL,viewport:{width,height},hasTouch:true});const page=await context.newPage();
  try{

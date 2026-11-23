@@ -51,7 +51,7 @@ async function retry(page) {
   await expect(page.getByRole('button', { name: 'Retry save', exact: true })).toHaveCount(0);
 }
 
-for (const viewport of [{ width: 320, height: 568 }, { width: 768, height: 1024 }, { width: 1024, height: 768 }]) {
+for (const viewport of [{ width: 320, height: 568 }, { width: 568, height: 320 }, { width: 768, height: 1024 }, { width: 1024, height: 768 }]) {
   test(`Pop keeps the first choice, restores its model and bounds a second error at ${viewport.width}x${viewport.height}`, async ({ page }) => {
     test.setTimeout(90000); await page.setViewportSize(viewport); await open(page);
     const { target, wrong, first } = await wrongFirst(page);
@@ -93,6 +93,16 @@ for (const viewport of [{ width: 320, height: 568 }, { width: 768, height: 1024 
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   });
 }
+
+test('Pop offers a playable printed prompt when sound is off', async ({ page }) => {
+  await open(page);
+  const before = await read(page), target = before.gameState.words[0];
+  await expect(page.locator('.pr-objective strong')).toHaveText(`Pop ${target}`);
+  await expect(page.getByRole('button', { name: 'Hear target', exact: true })).toBeDisabled();
+  await page.getByRole('button', { name: `Pop ${target}`, exact: true }).click();
+  await expect.poll(async () => (await read(page)).round).toBe(1);
+  expect((await read(page)).evidence.firstResponses[0]).toMatchObject({ correct: true, supportUsed: ['printed_target'], independent: false });
+});
 
 test('Pop correct fresh transfer rewards one original slot and preserves first versus assisted evidence', async ({ page }) => {
   await open(page); const { first } = await wrongFirst(page); await model(page);

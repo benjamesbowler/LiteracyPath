@@ -57,7 +57,8 @@ export default function ReelReadPresentation({ difficulty='easy', sessionSeed=0,
   return <section ref={mount} className={`rr-stage${unavailable?' is-art-unavailable':''}`} aria-label="Reel and Read fishing trip" data-child-real-play>
     {hud&&<>
       <div className="rr-cue" data-child-instruction>
-        <button type="button" className="rr-hear" aria-label="Hear fishing clue again" disabled={!isSoundEnabled}
+        <button type="button" className="rr-hear"
+          aria-label={isSoundEnabled ? 'Hear fishing clue again' : 'Fishing clue unavailable while sound is off'} disabled={!isSoundEnabled}
           onClick={()=>{engine.current?.replay();focusPlay();}}>
           {hud.picture.image&&<img src={hud.picture.image} alt={hud.picture.kind==='meaning-context'?'Meaning scene. Hear the clue.':'Clue picture. Hear its name.'}/>}
           <span>{isSoundEnabled?'Hear':'Sound off'}</span>

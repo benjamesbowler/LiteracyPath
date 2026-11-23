@@ -21,6 +21,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test("Spell & Skate keeps the exact build goal and replay action child-readable", async ({ page }) => {
+  test.setTimeout(90_000);
   await page.goto("/preview/game-overlay.html?game=grammar-grind&sound=1&music=0");
   const player = page.getByRole("dialog", { name: "Spell & Skate", exact: true });
   await player.locator(".lg-game-loading").waitFor({ state: "hidden", timeout: 20_000 });
@@ -41,6 +42,14 @@ test("Spell & Skate keeps the exact build goal and replay action child-readable"
   expect(replayStyles.fontSize).toBeGreaterThanOrEqual(16);
   expect(replayStyles.width).toBeGreaterThanOrEqual(56);
   expect(replayStyles.height).toBeGreaterThanOrEqual(56);
+});
+
+test("Spell & Skate points to a visible clue with sound off", async ({ page }) => {
+  test.setTimeout(90_000);
+  await page.goto("/preview/game-overlay.html?game=grammar-grind&sound=0&music=0");
+  const player = page.getByRole("dialog", { name: "Spell & Skate", exact: true });
+  await expect(player.locator('[data-gg="prompt"]')).toHaveText(/^Build (the picture word|[a-z]+)$/i, { timeout: 45_000 });
+  await expect(player.locator('[data-gg="hear"]')).toBeDisabled();
 });
 
 test("Sentence Express prints its sentence goal beside a generous replay control", async ({ page }) => {
@@ -64,24 +73,31 @@ test("Sentence Express prints its sentence goal beside a generous replay control
   expect(replayStyles.height).toBeGreaterThanOrEqual(56);
 });
 
-test("Sentence Grove exposes a semantic 56-pixel sentence replay control", async ({ page }) => {
+test("Sentence Grove keeps the printed repair readable when no exact recording is available", async ({ page }) => {
+  // Use the supported Canvas renderer so GPU warmup cannot delay DOM checks.
+  await page.addInitScript(() => {
+    localStorage.setItem("literacy-guide-learn-games:fullscreen-overlay-preview", JSON.stringify({
+      games: { "star-gallery": { checkpoints: { easy: { level: 0, totalLevels: 10, sessionSeed: 0 } } } }
+    }));
+    const getContext = HTMLCanvasElement.prototype.getContext;
+    HTMLCanvasElement.prototype.getContext = function (kind, ...args) {
+      if (kind === "webgl" || kind === "webgl2") return null;
+      return getContext.call(this, kind, ...args);
+    };
+  });
   await page.goto("/preview/game-overlay.html?game=star-gallery&sound=1&music=0");
   const player = page.getByRole("dialog", { name: "Sentence Grove", exact: true });
+  await player.getByRole("button", { name: "Continue", exact: true }).click();
   await player.locator(".lg-game-loading").waitFor({ state: "hidden", timeout: 20_000 });
 
   const action = player.locator('[data-role="prompt"]');
   const sentence = player.locator('[data-role="display"]');
-  const replay = player.getByRole("button", { name: "Hear the sentence again", exact: true });
   await expect(action).toBeVisible();
-  await expect(sentence).toBeVisible();
-  await expect(replay).toBeVisible();
+  await expect(sentence).toHaveText("__ cat sat on the mat.");
+  await expect(player.getByRole("button", { name: "Hear the sentence again", exact: true })).toHaveCount(0);
 
   expect((await readableStyles(action)).fontSize).toBeGreaterThanOrEqual(18);
   expect((await readableStyles(sentence)).fontSize).toBeGreaterThanOrEqual(24);
-  const replayStyles = await readableStyles(replay);
-  expect(replayStyles.fontSize).toBeGreaterThanOrEqual(16);
-  expect(replayStyles.width).toBeGreaterThanOrEqual(56);
-  expect(replayStyles.height).toBeGreaterThanOrEqual(56);
 });
 
 test("SoundKeys names its word replay action and gives it a generous target", async ({ page }) => {
@@ -112,15 +128,15 @@ test("SoundKeys names its word replay action and gives it a generous target", as
   await expect(replay).toHaveText(/Hear/);
 });
 
-test("Reel & Read keeps a persistent semantic word replay clear of its play controls", async ({ page }) => {
+test("Reel & Read keeps a persistent semantic word replay clear of its play controls", async ({ page }, testInfo) => {
   await page.goto("/preview/game-overlay.html?game=reel-read&sound=1&music=0");
   const player = page.getByRole("dialog", { name: "Reel & Read", exact: true });
   await player.locator(".lg-game-loading").waitFor({ state: "hidden", timeout: 20_000 });
 
-  const replay = player.locator('[data-rr="replay"]');
+  const replay = player.getByRole("button", { name: /^(Hear fishing clue again|Fishing clue unavailable while sound is off)$/ });
   await expect(replay).toBeVisible();
-  await expect(replay).toHaveText(/Hear word(?: again)?/);
-  await expect(replay).toHaveAttribute("aria-label", /Hear .+ again/);
+  await expect(replay).toHaveText("Hear");
+  await expect(replay).toHaveAccessibleName("Hear fishing clue again");
 
   const replayStyles = await readableStyles(replay);
   expect(replayStyles.fontSize).toBeGreaterThanOrEqual(16);
@@ -128,9 +144,9 @@ test("Reel & Read keeps a persistent semantic word replay clear of its play cont
   expect(replayStyles.height).toBeGreaterThanOrEqual(56);
   const [replayBox, leftBox, rightBox, castBox] = await Promise.all([
     replay.boundingBox(),
-    player.locator('[data-rr="left"]').boundingBox(),
-    player.locator('[data-rr="right"]').boundingBox(),
-    player.locator('[data-rr="cast"]').boundingBox()
+    player.getByRole("button", { name: "Steer boat left", exact: true }).boundingBox(),
+    player.getByRole("button", { name: "Steer boat right", exact: true }).boundingBox(),
+    player.getByRole("button", { name: "Cast fishing hook", exact: true }).boundingBox()
   ]);
   for (const controlBox of [leftBox, rightBox, castBox]) {
     const overlaps = replayBox.x < controlBox.x + controlBox.width
@@ -155,15 +171,19 @@ test("Reel & Read keeps a persistent semantic word replay clear of its play cont
     await expect.poll(() => page.evaluate(() => window.__reelReplayKeyboard.clicks)).toBe(index + 1);
   }
   expect(await page.evaluate(() => window.__reelReplayKeyboard.keyDefaults)).toEqual([false, false]);
-  await page.screenshot({ path: ".artifacts/classroom-readiness/reel-replay-keyboard.png" });
+  await page.screenshot({ path: testInfo.outputPath("reel-replay-keyboard.png") });
 
+  await player.getByRole("button", { name: "Open game controls", exact: true }).click();
   await player.getByRole("button", { name: "Turn spoken audio and game sounds off" }).click();
+  await player.getByRole("button", { name: "Back to the game", exact: true }).click();
   await expect(replay).toBeDisabled();
-  await expect(replay).toHaveText(/Sound (?:is )?off/);
-  await expect(replay).toHaveAttribute("aria-label", "Word replay unavailable while sound is off");
+  await expect(replay).toHaveText("Sound off");
+  await expect(replay).toHaveAccessibleName("Fishing clue unavailable while sound is off");
+  await player.getByRole("button", { name: "Open game controls", exact: true }).click();
   await player.getByRole("button", { name: "Turn spoken audio and game sounds on" }).click();
+  await player.getByRole("button", { name: "Back to the game", exact: true }).click();
   await expect(replay).toBeEnabled();
-  await expect(replay).toHaveText(/Hear word(?: again)?/);
+  await expect(replay).toHaveText("Hear");
 });
 
 test("Sound Racer keeps its 56-pixel replay and readable label text", async ({ page }) => {

@@ -1124,7 +1124,7 @@ function startGame(mount, opts) {
             ...(wrongCounts[round.roundId] >= 2 ? ['partial-spelling-hint'] : [])])];
           wrongHits += 1; // literacy mistakes — the ONLY mistakes the star rubric sees
           burst(b.x, b.y, "#ff7a66"); sfx(playSoftBuzz);
-          const tip = 'Try again. Tap Hear.';
+          const tip = canHearTarget() ? 'Try again. Tap Hear.' : 'Try another letter.';
           addFloat(b.x, b.y - 26, tip); // teach, don't punish: no heart lost
           renderWord(); persist(); speakTarget();
         }
