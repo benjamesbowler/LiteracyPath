@@ -12,29 +12,37 @@ import {SPORTS_JUMP_ROWS} from '../../src/components/learn/games/games/sportsJum
 
 test('late actual registered sheet decode and scene image arrivals cannot allocate material pyramids or revive a disposed Canvas owner',async()=>{
   const originals={fetch:globalThis.fetch,Image:globalThis.Image,document:globalThis.document,createImageBitmap:globalThis.createImageBitmap};
-  const images=[],canvases=[],bitmap={width:1536,height:2304,closed:0,close(){this.closed++;}};let deliverAtlas;
+  const images=[],canvases=[],bitmap={width:1536,height:2304,closed:0,close(){this.closed++;}};
+  const {promise:decodeEntered,resolve:enterDecode}=Promise.withResolvers();
   globalThis.fetch=async url=>{
     const bytes=fs.readFileSync(new URL('../../public'+url,import.meta.url));
     return{ok:true,json:async()=>JSON.parse(bytes.toString()),arrayBuffer:async()=>bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength)};
   };
-  globalThis.createImageBitmap=()=>new Promise(resolve=>deliverAtlas=()=>resolve(bitmap));
+  globalThis.createImageBitmap=()=>new Promise(resolve=>enterDecode(()=>resolve(bitmap)));
   globalThis.Image=class{
     constructor(){this.width=1024;this.height=1024;images.push(this);}
     set src(value){this.source=value;if(value)this.deliver=this.onload;}
     get src(){return this.source;}
   };
   globalThis.document={createElement(){const canvas={width:0,height:0,getContext(){return{drawImage(){},fillRect(){},createLinearGradient(){return{addColorStop(){}};}};}};canvases.push(canvas);return canvas;}};
-  let game;
+  let game,decodeTimeout;
   try{
     game=createRacerCanvasPresentation({world:'meadow',renderer:{domElement:{width:1440,height:900}},camera:new THREE.PerspectiveCamera(),
       sceneData:{urls:{horizon:'/horizon.webp',scenery:'/scenery.webp',grass:'/grass.webp',paving:'/paving.webp'},venues:[],trees:[],art:{frames:{}}},track:{path:[{x:0,y:0,z:0,heading:0},{x:0,y:0,z:-10,heading:0}]}});
-    for(let attempt=0;attempt<50&&!deliverAtlas;attempt++)await new Promise(resolve=>setImmediate(resolve));
-    assert.equal(typeof deliverAtlas,'function','Registered metadata and exact fingerprint must pass before the delayed bitmap can arrive');
+    const deliverAtlas=await Promise.race([
+      decodeEntered,
+      game.ready.then(()=>null),
+      new Promise((_,reject)=>{
+        decodeTimeout=setTimeout(()=>reject(new Error('Timed out waiting for the registered bitmap decoder to start')),10_000);
+      })
+    ]);
+    assert.ok(deliverAtlas,'Canvas owner finished before the registered bitmap decoder started');
     game.dispose();game.dispose();for(const image of images)image.deliver();deliverAtlas();assert.equal(await game.ready,false);
     assert.equal(bitmap.closed,1);assert.equal(canvases.length,0,'Disposed late source images cannot create base materials, mips or horizon panels');
     const snapshot=game.snapshot();assert.equal(snapshot.preparedSurfaceBytes,0);assert.deepEqual(snapshot.materialWorkingMips,{});
     assert.ok(images.every(image=>image.src===''&&image.onload===null&&image.onerror===null));game.dispose();assert.equal(bitmap.closed,1);
   }finally{
+    clearTimeout(decodeTimeout);
     game?.dispose();Object.assign(globalThis,originals);
   }
 });

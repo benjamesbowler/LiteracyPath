@@ -31,6 +31,13 @@ const pacingRepairs = JSON.parse(await readFile(new URL('./comprehensionLedaPaci
 // Long passage recordings use the same speech at a smaller encoding budget.
 // Include the encoding in their recipe so clients request fresh asset paths.
 const encodingRepairs = JSON.parse(await readFile(new URL('./comprehensionLedaEncoding.json', import.meta.url), 'utf8'));
+// The MP3 stream-copy seek retains the initial consonant of this exact take.
+// Pin the normalized source so a different performance cannot be cut blindly.
+const leadTrims = new Map([['To make sure Socks can see it', {
+  trimSeekMs: 480,
+  trimSourceSha256: 'a02916e752b5c83343b96945bf6b9c1cd9428130c7ba214951e9fae7c3a6a660'
+}]]);
+const trimRecipeSuffix = trim => `-lead-seek${trim.trimSeekMs}-source${trim.trimSourceSha256}`;
 
 export function comprehensionNarrationRecords(passages) {
   const records = new Map();
@@ -46,9 +53,12 @@ export function comprehensionNarrationRecords(passages) {
       const bitrate = encodingRepairs[textSha256] || 128;
       if (![96, 128].includes(bitrate)) throw new Error(`Invalid narration bitrate for ${reference.sourceId}`);
       const pacedRecipe = tempo === 1 ? recipe : `${recipe}-tempo${tempo}`;
-      const clipRecipe = bitrate === 128 ? pacedRecipe : `${pacedRecipe}-mp3-${bitrate}k`;
+      const encodedRecipe = bitrate === 128 ? pacedRecipe : `${pacedRecipe}-mp3-${bitrate}k`;
+      const trim = leadTrims.get(text);
+      const clipRecipe = trim ? `${encodedRecipe}${trimRecipeSuffix(trim)}` : encodedRecipe;
       const filename = `${sha256(`${voice}|${clipRecipe}|${text}`).slice(0, 20)}.mp3`;
       records.set(text, { text, textSha256, segments: item.segments, recipe: clipRecipe, tempo, ...(bitrate !== 128 ? { bitrateKbps: bitrate } : {}),
+        ...trim,
         audioPath: (cycleShorts && COMPREHENSION_LEDA_AUDIO[text]) || `/audio/production/en-US/${family}/${filename}`, references: [reference] });
     }
   }
@@ -117,7 +127,20 @@ export async function generateComprehensionLedaAudio() {
       && old.audioSha256 === sha256(await readFile(filename));
     if (!valid) missing.push(record);
   }
-  const segments = [...new Set(missing.flatMap(record => record.segments))];
+  const clipsNeedingTrim = missing.filter(record => record.trimSeekMs);
+  const untrimmedSources = new Map();
+  for (const record of clipsNeedingTrim) {
+    const untrimmedRecipe = record.recipe.slice(0, -trimRecipeSuffix(record).length);
+    const source = [...previousByPath.values()].find(clip =>
+      clip.textSha256 === record.textSha256 && clip.recipe === untrimmedRecipe &&
+      clip.voice === voice && clip.audioSha256 === record.trimSourceSha256);
+    if (!source) continue;
+    const filename = path.join(root, 'public', source.audioPath);
+    if (await nonempty(filename) && source.audioSha256 === sha256(await readFile(filename))) {
+      untrimmedSources.set(record.text, filename);
+    }
+  }
+  const segments = [...new Set(missing.filter(record => !record.trimSeekMs).flatMap(record => record.segments))];
   const cachedSegments = new Set();
   for (const text of segments) if (await nonempty(path.join(cacheDir, `${sha256(text)}.wav`))) cachedSegments.add(text);
   // Reuse only exact-text canonical Leda records whose recorded bytes still
@@ -136,7 +159,9 @@ export async function generateComprehensionLedaAudio() {
   }
   const providerSegments = segments.filter(text => !cachedSegments.has(text) && !canonicalSegments.has(text));
   const plan = { passages: passages.length, finalClips: records.length, missingClips: missing.length,
-    cachedUtterances: cachedSegments.size, reusedCanonicalUtterances: canonicalSegments.size, providerRequests: providerSegments.length,
+    cachedUtterances: cachedSegments.size, reusedCanonicalUtterances: canonicalSegments.size,
+    trimmedExistingClips: untrimmedSources.size, missingTrimSources: clipsNeedingTrim.length - untrimmedSources.size,
+    providerRequests: providerSegments.length,
     providerCharacters: providerSegments.reduce((sum, text) => sum + text.length, 0), voice, recipe };
   console.log(JSON.stringify(plan, null, 2));
   if (process.argv.includes('--plan')) return plan;
@@ -144,6 +169,7 @@ export async function generateComprehensionLedaAudio() {
     if (missing.length || previous.clips.length !== records.length) throw new Error(`Comprehension narration stale or missing: ${missing.length}`);
     return plan;
   }
+  if (plan.missingTrimSources) throw new Error('Restore the exact normalized source before trimming comprehension narration.');
   if (process.argv.includes('--offline') && providerSegments.length) {
     throw new Error('Exact recordings must be available locally for an offline comprehension update');
   }
@@ -165,7 +191,13 @@ export async function generateComprehensionLedaAudio() {
     await mkdir(cacheDir, { recursive: true });
     for (const text of providerSegments) await copyFile(segmentFiles.get(text), path.join(cacheDir, `${sha256(text)}.wav`));
   }
-  for (const record of missing) await assemble(record, segmentFiles);
+  for (const record of missing) {
+    if (record.trimSeekMs) {
+      const target = path.join(root, 'public', record.audioPath);
+      await run('ffmpeg', ['-nostdin', '-y', '-hide_banner', '-loglevel', 'error', '-ss', String(record.trimSeekMs / 1000),
+        '-i', untrimmedSources.get(record.text), '-map', '0:a:0', '-c:a', 'copy', target]);
+    } else await assemble(record, segmentFiles);
+  }
   const regeneratedPaths = new Set(missing.map(record => record.audioPath));
   const clips = await Promise.all(records.map(async record => ({ ...record, voice, engine: 'Google Cloud Text-to-Speech v1',
     generatedAt: regeneratedPaths.has(record.audioPath) ? new Date().toISOString() : previousByPath.get(record.audioPath)?.generatedAt || new Date().toISOString(),

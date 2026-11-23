@@ -8870,14 +8870,14 @@
       "audioSha256": "e5adbfdc3552b422e2a037b5fb7ba2b7f350b7e7f0141a7baa82e942b721c021"
     },
     {
-      "text": "One seed is missing",
-      "textSha256": "1c838e6e5060edd6aba413fdece83789b373e9fd8a46be3e5d7105b07c3b2221",
+      "text": "The bag needs one more seed",
+      "textSha256": "fb722db4b52ea91e9bafaaf7475ad7d2f360dcb7d5908cb41976c1c5351e3b02",
       "segments": [
-        "One seed is missing"
+        "The bag needs one more seed"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/625a0043dbda07a39629.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/7b3ca0ec1a49c8c018e4.mp3",
       "references": [
         {
           "passageId": "fluff-blue",
@@ -8888,10 +8888,10 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-11-23T04:55:24.462Z",
+      "generatedAt": "2026-11-23T07:36:03.749Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "b21eb1b0769b505669ed9b6e2259d841f1b601905ed9778c2ef91408c40eaba2"
+      "audioSha256": "3e77a5686a415bfa4c315e9efb5f897429962fb63e93a9f848995ace96736764"
     },
     {
       "text": "The bag has no seeds",
@@ -36924,14 +36924,16 @@
       "audioSha256": "8df4d29012c98dfee761f61d71a00ac07a66dc93efa4c1502db9ef9516ef15fa"
     },
     {
-      "text": "So Socks can see it",
-      "textSha256": "b244d1a7ae5ca07d18dbfae5b878ee6e33abe2300353718adc77ef44539ae7e8",
+      "text": "To make sure Socks can see it",
+      "textSha256": "6758b9288a719e330747de3aa05fa62c5471922c57c0c9c5d0656966af19cf8c",
       "segments": [
-        "So Socks can see it"
+        "To make sure Socks can see it"
       ],
-      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "recipe": "leda-exact-segments-pause450-tail150-v2-lead-seek480-sourcea02916e752b5c83343b96945bf6b9c1cd9428130c7ba214951e9fae7c3a6a660",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/42c7ede6ec5fa800e1ea.mp3",
+      "trimSeekMs": 480,
+      "trimSourceSha256": "a02916e752b5c83343b96945bf6b9c1cd9428130c7ba214951e9fae7c3a6a660",
+      "audioPath": "/audio/production/en-US/comprehension/19dbbeb46b678fb04092.mp3",
       "references": [
         {
           "passageId": "pip-chalk-arrow",
@@ -36942,10 +36944,10 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-11-23T04:55:24.477Z",
+      "generatedAt": "2026-11-23T07:45:56.399Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "4fe0e6ec246b9758db24557f014582d33bbb6ed6dea8ba899d0afa3852a2f732"
+      "audioSha256": "50b31887c717b3abf7b7381d9a8c1a852521ee2ed9b95eca3a7fcae520b32dd1"
     },
     {
       "text": "To see if the tree is tall",
@@ -56717,6 +56719,78 @@
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
       "audioSha256": "7b17e7e8e8eb4c27f24d88f0cd9ff2145b0016aca7d7d78b588b5004f64ecb74"
+    },
+    {
+      "text": "So Socks can see it",
+      "textSha256": "b244d1a7ae5ca07d18dbfae5b878ee6e33abe2300353718adc77ef44539ae7e8",
+      "segments": [
+        "So Socks can see it"
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/comprehension/42c7ede6ec5fa800e1ea.mp3",
+      "references": [
+        {
+          "passageId": "pip-chalk-arrow",
+          "sourceId": "pip-chalk-arrow-q3",
+          "role": "question-option",
+          "authoredIndex": 0
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-11-23T04:55:24.477Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "4fe0e6ec246b9758db24557f014582d33bbb6ed6dea8ba899d0afa3852a2f732"
+    },
+    {
+      "text": "One seed is missing",
+      "textSha256": "1c838e6e5060edd6aba413fdece83789b373e9fd8a46be3e5d7105b07c3b2221",
+      "segments": [
+        "One seed is missing"
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/comprehension/625a0043dbda07a39629.mp3",
+      "references": [
+        {
+          "passageId": "fluff-blue",
+          "sourceId": "fluff-blue-q3",
+          "role": "question-option",
+          "authoredIndex": 0
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-11-23T04:55:24.462Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "b21eb1b0769b505669ed9b6e2259d841f1b601905ed9778c2ef91408c40eaba2"
+    },
+    {
+      "text": "To make sure Socks can see it",
+      "textSha256": "6758b9288a719e330747de3aa05fa62c5471922c57c0c9c5d0656966af19cf8c",
+      "segments": [
+        "To make sure Socks can see it"
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/comprehension/913a53bc3397901ae230.mp3",
+      "references": [
+        {
+          "passageId": "pip-chalk-arrow",
+          "sourceId": "pip-chalk-arrow-q3",
+          "role": "question-option",
+          "authoredIndex": 0
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-11-23T07:38:13.358Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "a02916e752b5c83343b96945bf6b9c1cd9428130c7ba214951e9fae7c3a6a660"
     }
   ]
 }

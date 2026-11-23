@@ -22,9 +22,19 @@ export function buildPresentationPowerPointPlan(deck, document) {
     const prompt = clean(section.querySelector('.p-teacher-prompt, .p-h2'));
     const images = unique([...section.querySelectorAll('img:not(.p-pal)')].map(node => ({ src: node.getAttribute('src'), label: node.getAttribute('alt') || source.media.find(item => item.src === node.getAttribute('src'))?.meaning || '' })));
     const audio = unique([...section.querySelectorAll('[data-play]')].map(node => ({ src: node.getAttribute('data-play'), label: clean(node) || 'Hear' })));
-    const base = { prompt, images, audio };
+    const passage = section.querySelector('.p-short-story, .p-short-reread');
+    const base = { prompt, images, audio, ...(passage && {
+      storyTitle: clean(section.querySelector('.p-short-title')),
+      story: clean(passage),
+      storyEmphasis: [...new Set([...passage.querySelectorAll('strong')].map(node => clean(node).toLowerCase()))]
+    }) };
     if (source.reviewItems?.length) {
-      source.reviewItems.forEach((card, index) => push(source, `review${index}`, { main: true, ...base, text: card.text, images: card.imagePath ? [{ src: card.imagePath, label: card.anchorWord }] : [], audio: unique([{ src: card.audio, label: 'Hear sound or word' }, { src: card.anchorAudio, label: `Hear ${card.anchorWord}` }, ...(card.variants || []).map(item => ({ src: item.src, label: item.label }))]), prompt: card.anchorWord ? `Say the sound. Name ${card.anchorWord}. Give another spoken example.` : 'Read together. Use the word in a fresh spoken phrase.' }));
+      source.reviewItems.forEach((card, index) => {
+        let reviewPrompt = prompt;
+        if (card.anchorWord) reviewPrompt = `Say the sound. Name ${card.anchorWord}. Give another spoken example.`;
+        else if (section.classList.contains('p-hfw-review')) reviewPrompt = 'Read together. Use the word in a fresh spoken phrase.';
+        push(source, `review${index}`, { main: true, ...base, text: card.text, images: card.imagePath ? [{ src: card.imagePath, label: card.anchorWord }] : [], audio: unique([{ src: card.audio, label: 'Hear sound or word' }, { src: card.anchorAudio, label: `Hear ${card.anchorWord}` }, ...(card.variants || []).map(item => ({ src: item.src, label: item.label }))]), prompt: reviewPrompt });
+      });
     } else if (source.construct === 'supported-sentence-picture-comparison') {
       source.rounds.forEach((round, index) => choices(source, `round${index}`, { ...base, title: `${source.title} · ${index + 1} of ${source.rounds.length}`, images: [{ src: round.imagePath, label: round.sceneAlt }], text: round.sentence, audio: round.audioPath ? [{ src: round.audioPath, label: 'Hear sentence' }] : [], answerAudio: [{ src: round.correctAudioPath, label: 'Hear true sentence' }] }, [{ text: 'True', correct: round.matches }, { text: 'False', correct: !round.matches }], `${round.matches ? 'True.' : 'False.'}\n${round.correctSentence}`));
     } else if (source.construct === 'supported-sentence-ordering' || source.construct === 'encoding') {
@@ -54,12 +64,38 @@ export function buildPresentationPowerPointPlan(deck, document) {
       });
     } else if (section.querySelector('[data-match-game]')) {
       const cards = [...section.querySelectorAll('[data-match-word]')].map(node => ({ value: node.getAttribute('data-match-word'), text: clean(node.querySelector('.p-card-word')) }));
-      // Eight cards have only 256 reveal boards. Native links preserve each
-      // visible card and let the teacher hide a mismatch or retain a matched pair.
-      for (let mask = 0; mask < 2 ** cards.length; mask++) {
-        const open = cards.filter((_, index) => mask & (1 << index));
-        const matched = open.filter(card => open.filter(other => other.value === card.value).length > 1);
-        push(source, `memory${mask}`, { main: mask === 0, ...base, images: [], audio: [], prompt: 'Choose numbered cards. Read the words. Keep pairs open. Hide cards that do not match.', cards: cards.map((card, index) => ({ label: mask & (1 << index) ? card.text : String(index + 1), revealed: Boolean(mask & (1 << index)), matched: matched.includes(card), target: `${source.index}:memory${mask ^ (1 << index)}` })), buttons: [{ label: 'Hide unmatched cards', target: `${source.index}:memory${cards.reduce((value, card, i) => matched.includes(card) ? value | (1 << i) : value, 0)}` }, { label: 'Play again', target: `${source.index}:memory0` }], feedback: matched.length === cards.length ? 'correct' : '' });
+      const letterPairs = Boolean(section.querySelector('[data-match-kind="letters"]'));
+      const boards = new Map();
+      const registerBoard = (matched, pending) => {
+        const id = `memory${matched}-${pending}`;
+        if (!boards.has(id)) boards.set(id, { matched, pending });
+        return `${source.index}:${id}`;
+      };
+      const firstBoard = registerBoard(0, 0);
+      const allMatched = (1 << cards.length) - 1;
+      // Keep resolved pairs separate from the two cards being compared.
+      // Early boards can contain more than two copies of the same word.
+      for (const [id, { matched, pending }] of boards) {
+        const opened = cards.filter((_, index) => pending & (1 << index));
+        const first = opened[0];
+        const comparing = opened.length === 2;
+        const board = cards.map((card, index) => {
+          const bit = 1 << index;
+          const revealed = Boolean((matched | pending) & bit);
+          // A self-link keeps ineligible clicks on the same board in Slide Show.
+          let target = `${source.index}:${id}`;
+          if (!revealed && !comparing) {
+            const isPair = first?.value === card.value && (!letterPairs || first.text !== card.text);
+            target = isPair ? registerBoard(matched | pending | bit, 0) : registerBoard(matched, pending | bit);
+          }
+          return { label: revealed ? card.text : String(index + 1), revealed, matched: Boolean(matched & bit), target };
+        });
+        push(source, id, {
+          main: matched === 0 && pending === 0, ...base, images: [], audio: [], cards: board,
+          prompt: comparing ? 'Read and compare both cards. Choose Hide unmatched cards before the next turn.' : 'Choose numbered cards. Read each word or letter. Keep pairs open.',
+          buttons: [{ label: 'Hide unmatched cards', target: registerBoard(matched, 0) }, { label: 'Play again', target: firstBoard }],
+          feedback: matched === allMatched ? 'correct' : ''
+        });
       }
     } else if (source.sort) {
       source.sort.items.forEach((item, index) => choices(source, `sort${index}`, { ...base, images: [{ src: section.querySelectorAll('[data-sort-item] img')[index]?.getAttribute('src'), label: item.word }], text: '', audio: audio.filter(cue => cue.label === `Hear picture ${index + 1}`), prompt: 'Name this picture. Choose its starting sound.' }, source.sort.headings.map((text, i) => ({ text, correct: i === item.group })), item.reason));
@@ -68,7 +104,9 @@ export function buildPresentationPowerPointPlan(deck, document) {
       const stem = clean(section.querySelector('.p-language-stem, .p-short-prompt'));
       const answer = clean(section.querySelector('[data-language-choice][data-language-correct="true"]'));
       const explanation = section.querySelector('[data-language-correct="true"]')?.getAttribute('data-language-explanation');
-      choices(source, 'choice', { ...base, images: source.oralFamily === 'rhyme' ? images : images.slice(0, 1), text: stem || '', prompt, story: clean(section.querySelector('.p-short-reread')), audio }, options, explanation || [answer || source.answer, ...(source.evidence || [])].join('\n'));
+      choices(source, 'choice', { ...base, images: source.oralFamily === 'rhyme' ? images : images.slice(0, 1), text: stem || '', prompt, audio }, options, explanation || [answer || source.answer, ...(source.evidence || [])].join('\n'));
+    } else if (passage) {
+      push(source, 'main', { ...base, main: true, prompt: clean(section.querySelector('.p-short-note')) });
     } else if (source.construct === 'letter-formation') {
       [...String(source.modelText || source.target)].forEach((letter, index) => {
         const group = section.querySelectorAll('[data-writing-letter]')[index];
@@ -93,7 +131,8 @@ export function buildPresentationPowerPointPlan(deck, document) {
         });
       });
     } else {
-      const text = [...section.querySelectorAll('.p-letter, .p-sight, .p-hfw-example, .p-shared-sentence, .p-title, .p-phase, .p-blurb, .p-short-story, .p-language-stem, .p-phoneme, .p-tile-btn, .p-made, .p-tile, .p-response')].filter(node => !node.closest('.p-answer')).map(clean).filter(Boolean).join('\n') || source.storyText || (section.querySelector('[data-reveal-toggle]') ? '' : source.target);
+      const roundUp = [...section.querySelectorAll('.p-roundup-stimulus > span')].map(clean).join(' ');
+      const text = roundUp || [...section.querySelectorAll('.p-letter, .p-sight, .p-hfw-example, .p-shared-sentence, .p-title, .p-phase, .p-blurb, .p-language-stem, .p-phoneme, .p-tile-btn, .p-made, .p-tile, .p-response')].filter(node => !node.closest('.p-answer')).map(clean).filter(Boolean).join('\n') || source.storyText || (section.querySelector('[data-reveal-toggle]') ? '' : source.target);
       const node = push(source, 'main', { ...base, main: true, text });
       if (section.querySelector('[data-memory-toggle]')) {
         node.buttons.push({ label: 'Hide and air-write', target: `${source.index}:hidden` });

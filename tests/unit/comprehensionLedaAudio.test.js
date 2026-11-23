@@ -48,6 +48,13 @@ test('every current passage and ordered four-choice question has exact canonical
     assert.equal(clip.recipe, record.recipe);
     assert.equal(clip.tempo, record.tempo);
     assert.equal(clip.bitrateKbps, record.bitrateKbps);
+    assert.equal(clip.trimSeekMs, record.trimSeekMs);
+    assert.equal(clip.trimSourceSha256, record.trimSourceSha256);
+    if (clip.trimSourceSha256) {
+      const normalized = source.compatibilityClips?.find(sourceClip =>
+        sourceClip.textSha256 === clip.textSha256 && sourceClip.audioSha256 === clip.trimSourceSha256);
+      assert.ok(normalized, 'the exact normalized source is retained for the lossless trim');
+    }
     assert.equal(clip.pauseBetweenSegmentsMs, COMPREHENSION_AUDIO_PAUSE_MS);
     assert.equal(clip.finalPaddingMs, 150);
     assert.ok(Number.isFinite(Date.parse(clip.generatedAt)));
