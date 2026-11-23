@@ -1241,6 +1241,7 @@ test("A3.6 required Story Quest image readiness waits for a delayed image and re
   await (await showStoryQuestCard(page, hiddenGlowCard)).click();
   await requested;
   const reader = page.locator('.story-quest-reader');
+  await showStoryQuestReaderPane(reader, 'Picture');
   const image = reader.locator('.story-quest-image');
   let ready = false;
   const readiness = expectRequiredImageReady(page, image, 'delayed Story Quest image').then(() => { ready = true; });
@@ -1258,6 +1259,7 @@ test("A3.6 required Story Quest image readiness waits for a delayed image and re
   await page.reload();
   await page.getByRole('button', { name: 'Moonwood', exact: true }).click();
   await (await showStoryQuestCard(page, hiddenGlowCard)).click();
+  await showStoryQuestReaderPane(reader, 'Picture');
   await expect(reader.locator('.story-quest-image-placeholder')).toBeVisible();
   await expect(expectRequiredImageReady(page, image, 'failed Story Quest image')).rejects.toThrow();
 });
