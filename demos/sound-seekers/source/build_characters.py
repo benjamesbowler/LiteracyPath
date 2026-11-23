@@ -1,6 +1,7 @@
 """Author and export Lantern Trail's canonical Bouncy and Woolly characters.
 
 Run with Blender 5.2: blender --background --factory-startup --python this_file
+Pass -- --refresh-bouncy to replace Bouncy in the existing four-character source.
 Geometry is authored here; no downloaded meshes, textures or rigs are used.
 The reference image is read for design continuity, not embedded in the mesh.
 Blender coordinates: Z up / -Y forward. glTF export: Y up / +Z forward.
@@ -9,14 +10,22 @@ from pathlib import Path
 import math
 import json
 import random
+import sys
+from tempfile import TemporaryDirectory
 import bpy
 from mathutils import Vector
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / 'assets' / 'characters'
 EVIDENCE = ROOT.parents[1] / '.artifacts' / 'sound-seekers-lantern-demo' / 'characters'
+REFRESH_BOUNCY = '--' in sys.argv and '--refresh-bouncy' in sys.argv[sys.argv.index('--')+1:]
+CAST_SOURCE = ROOT/'source'/'characters.blend'
+if REFRESH_BOUNCY and not CAST_SOURCE.is_file():
+    raise FileNotFoundError('The existing four-character source is required to refresh Bouncy.')
 ASSETS.mkdir(parents=True, exist_ok=True)
 EVIDENCE.mkdir(parents=True, exist_ok=True)
+refresh_output = TemporaryDirectory(dir=EVIDENCE) if REFRESH_BOUNCY else None
+bouncy_export = (Path(refresh_output.name) if refresh_output else ASSETS)/'bouncy.glb'
 bpy.ops.object.select_all(action='SELECT')
 bpy.ops.object.delete(use_global=False)
 for datablocks in (bpy.data.meshes, bpy.data.curves, bpy.data.materials, bpy.data.armatures, bpy.data.actions):
@@ -41,18 +50,19 @@ def material(name, hex_color, roughness=.7, metal=0):
 
 
 mats = {
-    'wool': material('Bouncy • honey-gold wool', 'F3BC39', .86),
-    'tuft': material('Bouncy • sunlit wool tips', 'FFCB50', .84),
-    'face': material('Bouncy • warm cream face', 'FFDA82', .78),
-    'ear': material('Bouncy • peach inner ears', 'D67B45', .8),
-    'scarf': material('Bouncy • red cotton scarf', 'BE2420', .9),
-    'scarf_light': material('Bouncy • scarf fold highlights', 'E03F24', .82),
+    'wool': material('Bouncy • honey-gold wool', 'F6BC42', .88),
+    'tuft': material('Bouncy • sunlit wool tips', 'FFD05D', .86),
+    'face': material('Bouncy • warm cream face', 'FFE4A7', .8),
+    'ear': material('Bouncy • peach inner ears', 'EC9366', .84),
+    'scarf': material('Bouncy • red cotton scarf', 'C62223', .86),
+    'scarf_light': material('Bouncy • scarf fold highlights', 'E73B31', .82),
     'hoof': material('Bouncy • chestnut hooves', '50321D', .72),
     'dark': material('Bouncy • nose and smile', '281B13', .7),
     'eye': material('Bouncy • warm ivory eyes', 'FFF7D8', .4),
     'pupil': material('Bouncy • dark kind eyes', '130F0B', .22),
     'glint': material('Bouncy • eye glints', 'FFFFFF', .16),
-    'metal': material('Bouncy • silver coil springs', 'B9C2C1', .25, .68),
+    'iris': material('Bouncy • chestnut irises', '57301C', .32),
+    'metal': material('Bouncy • satin silver coil springs', 'CAD2D1', .32, .34),
 }
 
 arm_data = bpy.data.armatures.new('Bouncy soft-part rig')
@@ -71,8 +81,8 @@ bones = {
     'Arm.R': ((.29,0,1.24), 'Body'),
     'Foot.L': ((-.205,0,.17), 'Root'),
     'Foot.R': ((.205,0,.17), 'Root'),
-    'Eye.L': ((-.163,-.36,1.846), 'Head'),
-    'Eye.R': ((.163,-.36,1.846), 'Head'),
+    'Eye.L': ((-.169,-.394,1.852), 'Head'),
+    'Eye.R': ((.169,-.394,1.852), 'Head'),
     'Scarf.L': ((-.03,-.30,1.38), 'Body'),
     'Scarf.R': ((.03,-.30,1.38), 'Body'),
 }
@@ -108,7 +118,11 @@ def mesh_object(name, vertices, faces, mat, bone='Body', weights=None):
     return obj
 
 
-def soft_shape(name, loc, scale, mat, bone='Body', segments=32, rings=20, wool=0, pear=0, tilt=0):
+def muzzle_relief(x, y, z):
+    return .061 * max(0, -y)**1.6 * math.exp(-(x/.63)**4 - ((z+.46)/.49)**2)
+
+
+def soft_shape(name, loc, scale, mat, bone='Body', segments=32, rings=20, wool=0, pear=0, tilt=0, puffs=(), muzzle=False):
     """A sculpted ovoid with shaped profile and restrained flowing wool ridges."""
     vertices = []
     for i in range(rings+1):
@@ -116,11 +130,18 @@ def soft_shape(name, loc, scale, mat, bone='Body', segments=32, rings=20, wool=0
         sv, cv = math.sin(v), math.cos(v)
         for j in range(segments):
             u = 2*math.pi*j/segments
+            ux, uy = sv*math.cos(u), sv*math.sin(u)
+            relief = sum(
+                height * math.exp(-min(80, spread * max(0, 1 - (ux*x + uy*y + cv*z))))
+                for x, y, z, spread, height in puffs
+            )
             ripple = 1 + wool*(.52*math.sin(11*u+2.8*cv)*math.sin(8*v)+.48*math.cos(9*u-3*cv)*math.sin(11*v))
             width = 1 - pear*cv
-            x = scale[0] * sv*math.cos(u)*width*ripple
-            y = scale[1] * sv*math.sin(u)*ripple
-            z = scale[2] * cv
+            x = scale[0] * sv*math.cos(u)*width*ripple*(1+relief)
+            y = scale[1] * sv*math.sin(u)*ripple*(1+relief)
+            z = scale[2] * cv*(1+relief)
+            if muzzle:
+                y -= muzzle_relief(ux, uy, cv)
             xx = x*math.cos(tilt)+z*math.sin(tilt)
             zz = -x*math.sin(tilt)+z*math.cos(tilt)
             vertices.append((loc[0]+xx,loc[1]+y,loc[2]+zz))
@@ -193,81 +214,109 @@ def ribbon(name, points, widths, mat, bone='Body'):
     return obj
 
 
-def ear(side):
+def ear(side, floppy=False):
     """Curved leaf volume, with an inset peach surface, rather than a cone."""
     sign=-1 if side=='L' else 1
     for inset,mat in [(False,'wool'),(True,'ear')]:
         verts=[]
         ring_count=22
+        lining = inset and floppy
+        ring_width = 17 if lining else 16
         for i in range(ring_count+1):
-            t=i/ring_count
+            along = i/ring_count
+            t=along
             if inset:
                 t=.12+.78*t
-            x=sign*(.36+.39*t)
-            z=1.91-.13*t-.045*math.sin(math.pi*t)
-            y=-.002-.10*t-.05*math.sin(math.pi*t)
-            width=.128*math.sin(math.pi*t)**.65*(.81 if inset else 1)
+            x=sign*(.36+(.46 if floppy else .39)*t)
+            z=1.91-(.19 if floppy else .13)*t-.045*math.sin(math.pi*t)
+            y=-.002-(.14 if floppy else .10)*t-.05*math.sin(math.pi*t)
+            width=(.135 if floppy else .128)*math.sin(math.pi*t)**.65*(.81 if inset and not lining else 1)
             depth=.058*math.sin(math.pi*t)**.6
-            for j in range(16):
-                a=2*math.pi*j/16
-                verts.append((x, y+depth*math.cos(a)-(.032 if inset else 0),z+width*math.sin(a)))
+            for j in range(ring_width):
+                # The peach patch follows the exact outer curve for Bouncy.
+                # A separate displaced volume would intersect the ear rim.
+                a=math.pi+(j/8-1)*1.05*math.sin(math.pi*along)**.48 if lining else 2*math.pi*j/16
+                offset=.003 if lining else .032 if inset else 0
+                verts.append((x, y+depth*math.cos(a)-offset,z+width*math.sin(a)))
         faces=[]
         for i in range(ring_count):
             for j in range(16):
-                a=i*16+j;b=i*16+(j+1)%16;c=(i+1)*16+(j+1)%16;d=(i+1)*16+j
-                faces.append((a,b,c,d))
+                next_j=(j+1)%ring_width
+                a=i*ring_width+j;b=i*ring_width+next_j;c=(i+1)*ring_width+next_j;d=(i+1)*ring_width+j
+                faces.append((d,c,b,a) if floppy and sign < 0 else (a,b,c,d))
         mesh_object('Curved '+side+(' peach ear inset' if inset else ' golden ear'),verts,faces,mat,'Ear.'+side)
 
 
-# The body is a shaped, pear-like fleece volume with directional surface folds.
-soft_shape('Pear-shaped fleece body',(0,.015,1.057),(.397,.285,.456),'wool',segments=64,rings=40,wool=.030,pear=.12)
-for row,z in enumerate([.665,.735,.83,.935,1.05,1.165,1.285,1.37]):
-    nz=(z-1.057)/.456
-    radial=math.sqrt(max(.01,1-nz*nz))
-    count=15 if row not in (0,7) else 10
-    for j in range(count):
-        a=2*math.pi*(j+.5*(row%2))/count
-        x=.373*radial*math.cos(a)
-        y=.269*radial*math.sin(a)+.015
-        size=.077+random.random()*.019
-        soft_shape('Layered body wool curl',(x,y,z), (size,size*.71,size*1.04),'tuft' if (row+j)%4==0 else 'wool',segments=16,rings=10,wool=.035,tilt=random.uniform(-.3,.3))
+# Irregular soft relief makes the fleece one continuous volume. Sampling four
+# traits for each tuft also keeps the seeded draw count for the Woolly recipe.
+fleece = []
+for index in range(55):
+    angle = index * math.pi * (3 - math.sqrt(5)) + random.uniform(-.14,.14)
+    latitude = 1 - 2*(index+.5)/55 + random.uniform(-.014,.014)
+    radial = math.sqrt(1-latitude*latitude)
+    fleece.append((radial*math.cos(angle),radial*math.sin(angle),latitude,
+                   random.uniform(58,94),random.uniform(.104,.176)))
+soft_shape('Continuous sculpted fleece body',(0,.012,1.061),(.385,.281,.441),'wool',
+           segments=100,rings=64,pear=.08,puffs=fleece)
 
-soft_shape('Rounded wool head',(0,.018,1.765),(.409,.297,.421),'wool','Head',segments=48,rings=32,wool=.013)
-soft_shape('Sculpted face patch',(0,-.227,1.752),(.328,.157,.330),'face','Head',segments=48,rings=32,pear=.12)
-soft_shape('Soft smiling muzzle',(0,-.334,1.603),(.177,.081,.105),'face','Head',segments=32,rings=18,pear=.2)
+soft_shape('Round fleece head',(0,.023,1.782),(.421,.292,.376),'wool','Head',
+           segments=90,rings=58,puffs=[puff for puff in fleece if puff[1] > -.1])
+face_center=(0,-.242,1.761)
+face_scale=(.357,.164,.298)
+face_pear=.03
+soft_shape('Broad warm face with sculpted muzzle',face_center,face_scale,'face','Head',
+           segments=66,rings=44,pear=face_pear,muzzle=True)
 
-# A deliberate top crest and cheek border preserve the illustrated lamb silhouette.
-for i,(x,z,sx,sz) in enumerate([(-.295,2.021,.105,.103),(-.219,2.103,.114,.108),(-.107,2.146,.115,.093),(.014,2.165,.123,.095),(.139,2.137,.116,.102),(.258,2.077,.103,.106),(.334,1.982,.084,.101)]):
-    soft_shape('Crown tuft %02d'%i,(x,-.07,z),(sx,.219,sz),'tuft','Head',segments=24,rings=16,wool=.035)
+
+def face_front(x, z):
+    unit_z=(z-face_center[2])/face_scale[2]
+    unit_x=x/(face_scale[0]*(1-face_pear*unit_z))
+    unit_y=-math.sqrt(max(0, 1-unit_x**2-unit_z**2))
+    return face_center[1]+unit_y*face_scale[1]-muzzle_relief(unit_x,unit_y,unit_z)
+
+# Broad overlapping curls, with a central lock that falls onto the forehead.
+for index,(x,y,z,sx,sy,sz,tilt) in enumerate([
+    (-.215,.016,2.088,.159,.181,.135,-.21), (-.056,.025,2.123,.169,.196,.124,-.10),
+    (.137,.039,2.108,.171,.188,.126,.14), (.276,.017,2.021,.130,.175,.129,.24),
+    (-.300,-.148,1.996,.110,.104,.110,-.33), (-.197,-.209,2.063,.142,.135,.120,-.30),
+    (-.029,-.256,2.069,.148,.134,.117,-.21), (.149,-.228,2.081,.136,.131,.117,.16),
+    (.284,-.150,2.029,.113,.118,.104,.32),
+]):
+    soft_shape('Rounded crown curl %02d'%index,(x,y,z),(sx,sy,sz),
+               'tuft' if index in (5,6,7) else 'wool','Head',segments=26,rings=18,wool=.015,tilt=tilt)
 for sign in (-1,1):
-    for k in range(5):
-        z=1.892-k*.084
-        x=sign*(.345-(.025 if k==4 else 0))
-        soft_shape('Cheek wool scallop',(x,-.087,z),(.075,.145,.084),'wool','Head',segments=20,rings=14,wool=.025)
-ear('L');ear('R')
+    for x,y,z,sx,sz in [
+        (.367,-.110,1.896,.086,.098), (.369,-.117,1.801,.077,.088),
+        (.337,-.113,1.701,.086,.088), (.280,-.098,1.623,.089,.084),
+    ]:
+        soft_shape('Cheek fleece scallop',(sign*x,y,z),(sx,.153,sz),'wool','Head',segments=22,rings=15,tilt=sign*.30)
+ear('L', floppy=True);ear('R', floppy=True)
 
 for side,sign in [('L',-1),('R',1)]:
-    x=sign*.151
-    soft_shape('Kind ivory eye '+side,(x,-.366,1.848),(.086,.042,.123),'eye','Eye.'+side,segments=32,rings=22)
-    soft_shape('Deep pupil '+side,(x+sign*.003,-.404,1.840),(.047,.018,.077),'pupil','Eye.'+side,segments=28,rings=20)
-    soft_shape('Bright eye glint '+side,(x-.014,-.422,1.882),(.019,.009,.023),'glint','Eye.'+side,segments=16,rings=12)
-    soft_shape('Small eye glint '+side,(x+.019,-.421,1.817),(.009,.006,.010),'glint','Eye.'+side,segments=12,rings=10)
+    x=sign*.169
+    bone='Eye.'+side
+    tilt=-sign*.12
+    soft_shape('Soft eye outline '+side,(x,-.375,1.850),(.099,.038,.123),'hoof',bone,segments=32,rings=22,tilt=tilt)
+    soft_shape('Kind ivory eye '+side,(x,-.395,1.850),(.094,.037,.116),'eye',bone,segments=32,rings=22,tilt=tilt)
+    soft_shape('Chestnut iris '+side,(x+sign*.006,-.426,1.839),(.061,.024,.087),'iris',bone,segments=28,rings=20,tilt=tilt)
+    soft_shape('Deep pupil '+side,(x+sign*.006,-.444,1.845),(.045,.011,.071),'pupil',bone,segments=26,rings=18,tilt=tilt)
+    soft_shape('Bright eye glint '+side,(x-.014,-.452,1.883),(.020,.008,.024),'glint',bone,segments=16,rings=12)
+    soft_shape('Small eye glint '+side,(x+.027,-.447,1.818),(.008,.007,.010),'glint',bone,segments=14,rings=10)
     points=[]
     for j in range(19):
         t=j/18
-        points.append((x-.061+.124*t,-.344,1.996+.021*math.sin(math.pi*t)))
-    tube('Gentle eyebrow '+side,points,[.006+.004*math.sin(math.pi*j/18) for j in range(19)],'hoof','Head',sides=7)
+        points.append((x-.068+.136*t,-.339+.012*(2*t-1)**2,1.996+.023*math.sin(math.pi*t)))
+    tube('Gentle eyebrow '+side,points,[.006+.005*math.sin(math.pi*j/18) for j in range(19)],'hoof','Head',sides=8)
 
-# Heart-shaped nose and a genuinely curved mouth line stay legible at game scale.
-soft_shape('Nose left lobe',(-.025,-.410,1.694),(.048,.026,.027),'hoof','Head',segments=24,rings=16)
-soft_shape('Nose right lobe',(.025,-.410,1.694),(.048,.026,.027),'hoof','Head',segments=24,rings=16)
-soft_shape('Nose soft tip',(0,-.423,1.678),(.044,.023,.035),'hoof','Head',segments=24,rings=16)
-tube('Nose to smile',[(0,-.417,1.669),(0,-.418,1.639),(0,-.413,1.617)],.006,'dark','Head')
+# A broad, rounded nose and curved smile read from the adventure camera.
+soft_shape('Rounded chestnut nose',(0,face_front(0,1.69)-.009,1.690),(.077,.035,.046),'hoof','Head',segments=36,rings=23,pear=-.27)
+tube('Nose to smile',[(0,face_front(0,z)-.004,z) for z in (1.669,1.650,1.620,1.600,1.581)],.006,'dark','Head')
 smile=[]
 for i in range(35):
     t=i/34
-    smile.append((-.137+.274*t,-.431+.031*(abs(t-.5)*2)**2,1.63-.048*math.sin(math.pi*t)))
-tube('Warm curved smile',smile,[.005+.001*math.sin(math.pi*i/34) for i in range(35)],'dark','Head')
+    x,z=-.145+.29*t,1.635-.054*math.sin(math.pi*t)
+    smile.append((x,face_front(x,z)-.004,z))
+tube('Warm curved smile',smile,[.005+.003*math.sin(math.pi*i/34) for i in range(35)],'dark','Head')
 
 # Soft cotton scarf collar: oval strip, with a folded knot and two leaf-like tails.
 verts=[];faces=[]
@@ -275,15 +324,15 @@ for i in range(64):
     a=2*math.pi*i/64
     for j in range(7):
         t=j/6
-        verts.append(((.281+.007*math.sin(t*math.pi))*math.cos(a),(.251+.009*math.sin(t*math.pi))*math.sin(a)-.018,1.386+.117*t+.018*math.sin(a)))
+        verts.append(((.308+.013*math.sin(t*math.pi))*math.cos(a),(.274+.011*math.sin(t*math.pi))*math.sin(a)-.021,1.359+.139*t+.026*math.sin(a)))
 for i in range(64):
     for j in range(6):
         a=i*7+j;b=((i+1)%64)*7+j
         faces.append((a,b,b+1,a+1))
 mesh_object('Red scarf wrapped collar',verts,faces,'scarf','Body')
-soft_shape('Folded scarf knot',(0,-.290,1.406),(.067,.038,.063),'scarf_light','Body',segments=24,rings=16,tilt=.12)
-ribbon('Scarf left tail',[(-.022,-.31,1.405),(-.052,-.33,1.345),(-.084,-.343,1.26),(-.12,-.326,1.179),(-.143,-.31,1.157)],[.023,.037,.048,.039,.005],'scarf','Scarf.L')
-ribbon('Scarf right tail',[(.025,-.31,1.403),(.054,-.345,1.345),(.087,-.36,1.266),(.109,-.331,1.191),(.101,-.31,1.169)],[.023,.04,.05,.035,.005],'scarf_light','Scarf.R')
+soft_shape('Folded scarf knot',(0,-.316,1.374),(.078,.050,.074),'scarf_light','Body',segments=28,rings=20,tilt=.16)
+ribbon('Scarf left tail',[(-.028,-.340,1.370),(-.062,-.347,1.306),(-.111,-.352,1.221),(-.146,-.333,1.148),(-.178,-.308,1.124)],[.033,.056,.063,.045,.004],'scarf','Scarf.L')
+ribbon('Scarf right tail',[(.029,-.341,1.370),(.061,-.359,1.314),(.112,-.370,1.243),(.139,-.358,1.170),(.129,-.346,1.143)],[.033,.057,.065,.043,.004],'scarf_light','Scarf.R')
 
 # Fleece-covered arms terminate in two chestnut hand hooves.
 for side,sign in [('L',-1),('R',1)]:
@@ -306,10 +355,10 @@ for side,sign in [('L',-1),('R',1)]:
     def spring_weights(co, side=side):
         t=max(0,min(1,(co[2]-.205)/.455))
         return {'Body':t,'Foot.'+side:1-t}
-    tube('Five-turn spring '+side,points,.0175,'metal',sides=10,weights_fn=spring_weights)
+    tube('Five-turn spring '+side,points,.0225,'metal',sides=12,weights_fn=spring_weights)
     soft_shape('Upper spring socket '+side,(x,0,.653),(.082,.082,.039),'hoof','Body',segments=24,rings=14)
     soft_shape('Lower spring socket '+side,(x,0,.21),(.08,.083,.029),'metal','Foot.'+side,segments=24,rings=14)
-    soft_shape('Cloven foot hoof '+side,(x,-.051,.105),(.14,.168,.105),'hoof','Foot.'+side,segments=36,rings=24,pear=.14)
+    soft_shape('Cloven foot hoof '+side,(x,-.052,.105),(.147,.172,.105),'hoof','Foot.'+side,segments=36,rings=24,pear=.14)
     tube('Foot hoof cleft '+side,[(x,-.211,.029),(x,-.215,.065),(x,-.197,.118),(x,-.154,.153)],.0065,'dark','Foot.'+side,sides=7)
 
 # A small fleece tail reads from the adventure camera without altering the front model.
@@ -442,7 +491,7 @@ rig['animation_notes']='Idle 4s loop; Walk 0.8333s in-place loop; Celebrate 2.66
 bpy.ops.object.select_all(action='DESELECT')
 rig.select_set(True);hero.select_set(True)
 bpy.context.view_layer.objects.active=rig
-bpy.ops.export_scene.gltf(filepath=str(ASSETS/'bouncy.glb'),export_format='GLB',use_selection=True,export_yup=True,export_animations=True,export_animation_mode='ACTIONS',export_merge_animation='ACTION',export_anim_single_armature=True,export_force_sampling=True,export_frame_range=False,export_optimize_animation_size=True,export_materials='EXPORT',export_skins=True,export_extras=True,export_apply=False)
+bpy.ops.export_scene.gltf(filepath=str(bouncy_export),export_format='GLB',use_selection=True,export_yup=True,export_animations=True,export_animation_mode='ACTIONS',export_merge_animation='ACTION',export_anim_single_armature=True,export_force_sampling=True,export_frame_range=False,export_optimize_animation_size=True,export_materials='EXPORT',export_skins=True,export_extras=True,export_apply=False)
 
 # Render evidence uses the actual mesh and authored rig in this saved source.
 floor_mat=material('Review floor • muted sage','788B66',.9)
@@ -471,6 +520,9 @@ cam_data.type='ORTHO';cam_data.ortho_scale=3.0
 scene.render.engine='CYCLES';scene.cycles.samples=32
 scene.cycles.use_denoising=True
 scene.render.resolution_x=720;scene.render.resolution_y=820;scene.render.resolution_percentage=100
+if REFRESH_BOUNCY:
+    scene.cycles.samples=24
+    scene.render.resolution_percentage=80
 scene.render.image_settings.file_format='PNG'
 scene.view_settings.view_transform='AgX'
 rig.animation_data.action=actions[0]
@@ -491,6 +543,42 @@ bpy.ops.render.render(write_still=True)
 rig.animation_data.action=actions[0];scene.frame_set(0)
 scene.render.filepath=str(EVIDENCE/'bouncy-three-quarter.png')
 bouncy_rig,bouncy_hero,bouncy_actions=rig,hero,actions
+
+if REFRESH_BOUNCY:
+    # Publish the new authored rig and mesh into the existing cast file while
+    # retaining the other characters, their poses and the shared studio.
+    with TemporaryDirectory(dir=EVIDENCE) as directory:
+        library = str(Path(directory)/'bouncy.blend')
+        bpy.data.libraries.write(library, {bouncy_rig, bouncy_hero})
+        bpy.ops.wm.open_mainfile(filepath=str(CAST_SOURCE))
+        old_rig = bpy.data.objects['Bouncy']
+        old_hero = bpy.data.objects['Bouncy sculpted surface']
+        assert old_hero.parent == old_rig
+        collection, position = old_rig.users_collection[0], old_rig.location.copy()
+        owned_actions = {strip.action for track in old_rig.animation_data.nla_tracks for strip in track.strips}
+        bpy.data.objects.remove(old_hero, do_unlink=True)
+        bpy.data.objects.remove(old_rig, do_unlink=True)
+        for action in owned_actions:
+            if action.users == int(action.use_fake_user):
+                bpy.data.actions.remove(action)
+        for store in (bpy.data.meshes, bpy.data.armatures, bpy.data.materials):
+            for block in list(store):
+                if not block.users and block.name.startswith('Bouncy'):
+                    store.remove(block)
+        with bpy.data.libraries.load(library) as (_, imported):
+            imported.objects = ['Bouncy', 'Bouncy sculpted surface']
+        new_rig, new_hero = imported.objects
+        assert new_hero.parent == new_rig
+        for obj in imported.objects:
+            collection.objects.link(obj)
+        new_rig.location = position
+        bpy.context.scene.frame_set(bpy.context.scene.frame_current)
+        bpy.context.preferences.filepaths.save_version = 0
+        bpy.ops.wm.save_as_mainfile(filepath=str(CAST_SOURCE))
+    bouncy_export.replace(ASSETS/'bouncy.glb')
+    refresh_output.cleanup()
+    sys.exit(0)
+
 bouncy_hero.hide_render=True
 
 # Woolly is a separately authored canonical lamb resident. Four natural legs,
@@ -619,7 +707,7 @@ scene.render.filepath=str(EVIDENCE/'woolly-front.png');bpy.ops.render.render(wri
 bouncy_hero.hide_render=False;bouncy_rig.location.x=-.97;rig.location.x=.97
 cam.location=(3.0,-8.0,3.25);cam.rotation_euler=(Vector((0,0,1.12))-cam.location).to_track_quat('-Z','Y').to_euler();cam.data.ortho_scale=4.8
 scene.frame_start=0;scene.frame_end=120
-bpy.ops.wm.save_as_mainfile(filepath=str(ROOT/'source'/'characters.blend'))
+bpy.ops.wm.save_as_mainfile(filepath=str(CAST_SOURCE))
 
 # Import each exported GLB into a fresh Blender scene and inspect that artifact.
 for character in ['bouncy','woolly']:

@@ -139,9 +139,11 @@ later explicitly taught vocabulary keeps its declared curriculum scope.
 
 ## Art, audio and access
 
-The approved Blender Bouncy is the golden spring-legged lamb. Bouncy, Woolly,
-Clucky and Splashy use the four original GLBs and their authored animation clips,
-with editable source and hashes in the demo character provenance. Other Pals
+The Blender Bouncy is the golden spring-legged lamb. The shared campaign and
+Woodland model uses sculpted fleece, rounded wool curls, a broad red scarf
+and two thicker satin-silver coils. Bouncy, Woolly, Clucky and Splashy use
+first-party GLBs and authored animation clips, with editable source and hashes
+in the demo character provenance. Other Pals
 appear as their canonical illustrated portraits and encounter art. Do not present
 unrelated placeholder models as a named resident. Three world palettes and the
 thirty place layouts, problem objects and repairs share this book-world direction.
