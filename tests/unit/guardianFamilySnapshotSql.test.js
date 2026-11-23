@@ -6,7 +6,7 @@ import { buildParentReleaseSnapshot } from "../../src/data/parentReleaseSnapshot
 
 const migrations = new URL("../../supabase/migrations/", import.meta.url);
 const original = readFileSync(new URL("20260822120000_school_linked_guardian_portal.sql", migrations), "utf8");
-const forward = readFileSync(new URL("20261123044802_family_report_controlled_language.sql", migrations), "utf8");
+const forward = readFileSync(new URL("20261123053429_family_report_controlled_language.sql", migrations), "utf8");
 const originalFunction = name => {
   const start = original.indexOf(`create or replace function public.${name}(`);
   return original.slice(start, original.indexOf("$$;", original.indexOf("as $$", start) + 5) + 3);
