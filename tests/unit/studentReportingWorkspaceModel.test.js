@@ -1529,6 +1529,7 @@ test("Skills Check renders Needs support only after ten scored responses show lo
   }));
   const model = buildStudentReportingWorkspaceModel({
     student,
+    now: new Date("2026-08-16T00:00:00.000Z"),
     assessmentHistory: [attempt({
       attemptId: "threshold-low-performance",
       completedAt,
@@ -1581,6 +1582,7 @@ test("a pass-then-fail review below ten scored responses remains Not enough resu
   });
   const model = buildStudentReportingWorkspaceModel({
     student,
+    now: new Date("2026-08-16T00:00:00.000Z"),
     assessmentHistory: [historicalPass, latestFail]
   });
 
