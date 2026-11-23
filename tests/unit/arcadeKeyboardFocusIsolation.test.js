@@ -126,14 +126,14 @@ test("Rhyme's actual leaf handler preserves nested controls and only fires from 
   const source = await readFile(new URL("../../src/components/learn/games/games/rhymePopEngine.js", import.meta.url), "utf8");
   const handlerSource = readFunction(source, "onKeyDown");
   const host = gameSurfaceTarget(), mount = { closest: () => host };
-  const makeHandler = new Function("isInteractiveKeyTarget", "document", "mount", "select", "fire",
-    `const state = { paused: false }, disposed = false; ${handlerSource}; return onKeyDown;`);
+  const makeHandler = new Function("isInteractiveKeyTarget", "document", "mount", "select", "fire", "keyboardBubbleId",
+    `const state = { paused: false, keyboardBubbleId }, disposed = false; ${handlerSource}; return onKeyDown;`);
   for (const control of ["button", "a", "[role='button']", "[contenteditable='true']", "input", "summary"]) {
     const target = { closest: selector => selector.includes(control) ? { control } : null };
     for (const key of [" ", "Enter", "ArrowLeft", "ArrowRight"]) {
       const actions = []; let prevented = false;
       makeHandler(isInteractiveKeyTarget, { activeElement: host }, mount,
-        value => actions.push(value), value => actions.push(value))({ target, key, preventDefault() { prevented = true; } });
+        value => actions.push(value), value => actions.push(value), 2)({ target, key, preventDefault() { prevented = true; } });
       assert.deepEqual(actions, [], `${control} retains ${key}`);
       assert.equal(prevented, false);
     }
@@ -141,12 +141,15 @@ test("Rhyme's actual leaf handler preserves nested controls and only fires from 
   for (const [key, expected] of [["ArrowLeft", -1], ["ArrowRight", 1], [" ", "keyboard"], ["Enter", "keyboard"]]) {
     const actions = []; let prevented = false;
     makeHandler(isInteractiveKeyTarget, { activeElement: host }, mount,
-      value => actions.push(value), value => actions.push(value))({ target: host, key, preventDefault() { prevented = true; } });
+      value => actions.push(value), value => actions.push(value), 2)({ target: host, key, preventDefault() { prevented = true; } });
     assert.deepEqual(actions, [expected]); assert.equal(prevented, true);
   }
   const actions = [];
+  makeHandler(isInteractiveKeyTarget, { activeElement: host }, mount,
+    value => actions.push(value), value => actions.push(value), null)({ target: host, key: " ", preventDefault() {} });
+  assert.deepEqual(actions, [], "a fresh formation must be aimed at before firing");
   makeHandler(isInteractiveKeyTarget, { activeElement: interactiveTarget() }, mount,
-    value => actions.push(value), value => actions.push(value))({ target: host, key: " ", preventDefault() { throw new Error("Unfocused game stole input"); } });
+    value => actions.push(value), value => actions.push(value), 2)({ target: host, key: " ", preventDefault() { throw new Error("Unfocused game stole input"); } });
   assert.deepEqual(actions, []);
   assert.match(source, /removeEventListener\('keydown', onKeyDown\)/);
 });

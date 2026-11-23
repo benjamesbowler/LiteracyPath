@@ -51,9 +51,18 @@ for (const size of [{width:1024,height:668},{width:768,height:1024},{width:320,h
 }
 
 test("Word Climb accepts two real held touches and cancels both immediately", async ({page},info)=>{
+  test.setTimeout(90_000);
+  // Isolate the input cancellation path from WebGL compilation on the runner.
+  await page.addInitScript(() => {
+    const getContext=HTMLCanvasElement.prototype.getContext;
+    HTMLCanvasElement.prototype.getContext=function(kind,...args) {
+      return ["webgl","webgl2"].includes(kind) ? null : getContext.call(this,kind,...args);
+    };
+  });
   await page.setViewportSize({width:1024,height:668});
   await page.goto("/preview/game-overlay.html?game=word-climb&sound=0");
-  const game=page.locator(".word-climb");await expect(page.locator('[data-wc-scene="ready"]')).toBeVisible();
+  const game=page.locator(".word-climb");
+  await expect(page.locator('[data-wc-scene="ready"], [data-wc-scene="canvas"]')).toBeVisible({timeout:60_000});
   const left=await page.locator('[data-wc-control="left"]').boundingBox(),up=await page.locator('[data-wc-control="up"]').boundingBox();
   const client=await page.context().newCDPSession(page);
   const touches=[{id:1,x:left.x+left.width/2,y:left.y+left.height/2},{id:2,x:up.x+up.width/2,y:up.y+up.height/2}];
@@ -61,9 +70,14 @@ test("Word Climb accepts two real held touches and cancels both immediately", as
   await expect.poll(async()=>Number(await game.getAttribute("data-world-height"))).toBeGreaterThan(80);
   expect(Number(await game.getAttribute("data-world-x"))).toBeLessThan(480);
   await client.send("Input.dispatchTouchEvent",{type:"touchCancel",touchPoints:[]});
-  const height=await game.getAttribute("data-world-height"),x=await game.getAttribute("data-world-x");
+  const actual=()=>page.evaluate(()=>window.__arcadePreviewSnapshot({motionOnly:true}));
+  // Cancellation clears the controller synchronously. DOM attributes can
+  // still show the previous render if the renderer skipped a frame.
+  const stopped=await actual();
+  expect(stopped.held).toEqual({left:false,right:false,up:false});
   await page.waitForTimeout(350);
-  await expect(game).toHaveAttribute("data-world-height",height);await expect(game).toHaveAttribute("data-world-x",x);
+  const after=await actual();
+  expect({x:after.world.x,y:after.world.y}).toEqual({x:stopped.world.x,y:stopped.world.y});
   await expect(game).toHaveAttribute("data-reading-errors","0");await expect(game).toHaveAttribute("data-motor-falls","0");
   await page.screenshot({path:info.outputPath("thorn-approach.png")});
 });

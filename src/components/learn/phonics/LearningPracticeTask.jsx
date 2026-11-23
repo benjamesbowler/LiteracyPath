@@ -8,7 +8,10 @@ import { learningModelPart } from "../../../utils/learningResponseAdapters.js";
 import { shuffleLearningQuestionChoices } from "../../../utils/answerPositionShuffle.js";
 
 function concealsTarget(task, instrument) {
-  return task.hideEncodingTarget || task.authoredBeat?.mechanic === "word_forge" || ["cvc_scaffolded_build", "cvc_word_magic", "recognition_target"].includes(instrument);
+  // A recognition lesson needs its worked example and its printed access
+  // fallback, including when an older checkpoint carries the encoding flag.
+  if (instrument === "recognition_target") return false;
+  return task.hideEncodingTarget || task.authoredBeat?.mechanic === "word_forge" || ["cvc_scaffolded_build", "cvc_word_magic"].includes(instrument);
 }
 
 function guidedSnapshot(snapshot, episode) {

@@ -23,6 +23,13 @@ import "../../../styles/learn-games.css";
 import "../../../styles/arcade-dark.css";
 
 const DIFFICULTIES = ["easy", "medium", "hard"];
+const COMPACT_GALLERY = "(max-width: 650px), (max-height: 620px)";
+const THREE_CARD_GALLERY = "(min-width: 550px) and (max-height: 430px) and (orientation: landscape)";
+
+function gamesInGalleryOrder(games, recommendedGame, compact) {
+  if (!compact || !recommendedGame) return games;
+  return [recommendedGame, ...games.filter(game => game.id !== recommendedGame.id)];
+}
 
 // All available games share one gallery. Sample scope is set at session start,
 // so eligibility must be resolved on render rather than module evaluation.
@@ -69,6 +76,8 @@ function GameArcadeContent({
   const progressCloseRef = useRef(null);
   const progressTriggerRef = useRef(null);
   const progressPanelRef = useRef(null);
+  const catalogueRef = useRef(null);
+  const returnToGame = useRef(null);
   function closeProgress() {
     setShowProgress(false);
     window.requestAnimationFrame(() => progressTriggerRef.current?.focus());
@@ -121,7 +130,10 @@ function GameArcadeContent({
   // Recomputed each render so a try session's sample takes effect; the scope is
   // set at session start, after this module was evaluated.
   const allGames = exactGameLock ? (lockedGame ? [lockedGame] : []) : availableGames();
-  const recommendation = arcadeRecommendation({ games: allGames, progress, currentCycleId, recommendedSkill, assignedGameId: normalizedLockedGameId });
+  function recommend(nextProgress) {
+    return arcadeRecommendation({ games: allGames, progress: nextProgress, currentCycleId, recommendedSkill, assignedGameId: normalizedLockedGameId });
+  }
+  const recommendation = recommend(progress);
   const recommendedGame = recommendation.game;
   const displayedActiveGame = exactGameLock
     ? activeGame?.id === lockedGame?.id ? lockedGame : null
@@ -129,13 +141,32 @@ function GameArcadeContent({
   const personalRecords = allGames.map(game => ({ game, record: getLearnGameProgress(progress, game.id) }))
     .filter(({ record }) => record.plays > 0 || record.stars > 0 || record.highScore > 0 || record.checkpoints?.[progress.difficulty])
     .sort((a, b) => String(b.record.lastPlayedAt || "").localeCompare(String(a.record.lastPlayedAt || "")));
-  const compactGallery = useChildBrowseMedia("(max-width: 650px), (max-height: 500px)");
+  const compactGallery = useChildBrowseMedia(COMPACT_GALLERY);
   const shortLandscape = useCompactChildBrowse();
-  const compactOrder = compactGallery && recommendedGame
-    ? [recommendedGame, ...allGames.filter(game => game.id !== recommendedGame.id)]
-    : allGames;
-  const gallery = useChildPages(compactOrder, compactGallery ? (shortLandscape ? 2 : 4) : Math.max(1, allGames.length));
+  const shortWideGallery = useChildBrowseMedia(THREE_CARD_GALLERY);
+  const pageSize = compactGallery ? (shortLandscape ? (shortWideGallery ? 3 : 2) : 4) : Math.max(1, allGames.length);
+  const gallery = useChildPages(gamesInGalleryOrder(allGames, recommendedGame, compactGallery), pageSize);
   const records = useChildPages(personalRecords, shortLandscape ? 1 : compactGallery ? 2 : 4);
+
+  useEffect(() => {
+    if (displayedActiveGame || !returnToGame.current) return;
+    const gameId = returnToGame.current;
+    returnToGame.current = null;
+    (catalogueRef.current?.querySelector(`[data-game-id="${CSS.escape(gameId)}"]`) || settingsTriggerRef.current)
+      ?.focus({ preventScroll: true });
+  }, [displayedActiveGame]);
+
+  function closeGame() {
+    const gameId = displayedActiveGame.id;
+    // Outing checkpoints can be saved during play without updating the hub.
+    const nextProgress = loadLearnGamesProgress(progressScopeKey);
+    const nextOrder = gamesInGalleryOrder(allGames, recommend(nextProgress).game, compactGallery);
+    const index = nextOrder.findIndex(game => game.id === gameId);
+    if (index >= 0 && compactGallery) gallery.setPageIndex(Math.floor(index / pageSize));
+    returnToGame.current = gameId;
+    setProgress(nextProgress);
+    setActiveGame(null);
+  }
 
   function gameTile(game) {
     return <button key={game.id} type="button" className={`lg-game-tile${game.id === recommendedGame?.id ? " is-recommended" : ""}`} data-game-id={game.id} data-game-section={gameMenuGroup(game)}
@@ -174,7 +205,7 @@ function GameArcadeContent({
 
   return (
     <section className="lg-arcade lg-simple-arcade" aria-labelledby="lg-arcade-title" data-pal-world={world.id} style={worldStyle(world)}>
-      <div className="lg-arcade-scrollbody" data-paged={gallery.pageCount > 1 ? "" : undefined}>
+      <div className="lg-arcade-scrollbody" data-paged={gallery.pageCount > 1 ? "" : undefined} inert={displayedActiveGame || showProgress ? true : undefined}>
         <div className="lg-arcade-topband">
           <div><h1 id="lg-arcade-title" className="lg-arcade-8bit" data-child-title="">{exactGameLock ? "Your game" : "Games"}</h1>
             <p className="lg-arcade-instruction" data-child-instruction="">{exactGameLock ? "Play the game your teacher chose." : "Choose any game to play."}</p></div>
@@ -199,7 +230,7 @@ function GameArcadeContent({
             {arcadeRecommendationAudioPath(recommendation.reason) && <button type="button" className="lg-menu-secondary" onClick={() => { stopCueAudio(); playCueAudio(arcadeRecommendationAudioPath(recommendation.reason)); }}>Hear why</button>}</details>}
         </section>}
         <section className="lg-game-choice-area" aria-label="Choose a game">
-          <div className={compactGallery ? "lg-game-tilegrid lg-game-paged-grid" : "lg-game-tilegrid"} id="lg-arcade-catalogue" role="group" aria-label="All available games" data-child-choices="">
+          <div ref={catalogueRef} className={compactGallery ? "lg-game-tilegrid lg-game-paged-grid" : "lg-game-tilegrid"} id="lg-arcade-catalogue" role="group" aria-label="All available games" data-child-choices="">
             {compactGallery ? gallery.visibleItems.map(gameTile) : [
               { id: "arcade", title: "Arcade", description: "Move, aim and build while you learn.", games: allGames.filter(game => gameMenuGroup(game) === "arcade") },
               { id: "phonics", title: "Phonics games", description: "Listen, look and practise.", games: allGames.filter(game => gameMenuGroup(game) === "phonics") }
@@ -246,9 +277,7 @@ function GameArcadeContent({
           soundEnabled={progress.soundEnabled}
           taughtCycle={confirmedArcadeTaughtCycle(confirmedPlacement)}
           progressScopeKey={progressScopeKey}
-          onClose={() => {
-            setActiveGame(null);
-          }}
+          onClose={closeGame}
           onSoundEnabledChange={setSoundEnabled}
           onProgressChange={setProgress}
         />

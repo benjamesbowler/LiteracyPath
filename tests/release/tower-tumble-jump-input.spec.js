@@ -67,6 +67,13 @@ test('pressing jump during the final descent launches on landing without a secon
 });
 
 test('a late press after walking off a real scaffold uses brief ledge grace', async ({ page }, info) => {
+  // Clock the native movement independently of asynchronous WebGL warmup.
+  await page.addInitScript(() => {
+    const getContext = HTMLCanvasElement.prototype.getContext;
+    HTMLCanvasElement.prototype.getContext = function (kind, ...args) {
+      return ['webgl', 'webgl2'].includes(kind) ? null : getContext.call(this, kind, ...args);
+    };
+  });
   await open(page);
   // The child's existing Reach bricks panel rests barrels while leaving
   // manual traversal available. Isolate ledge timing from unrelated contact.
@@ -82,9 +89,21 @@ test('a late press after walking off a real scaffold uses brief ledge grace', as
   const ledge = await snapshot(page);
   expect(ledge.position.y).toBe(3);
   expect(ledge.position.x).toBe(6);
-  await hold(page, 'ArrowRight', 400);
+  // Walk off the west edge. The moving lift can catch an east-edge step
+  // depending on how much real time passed before the controlled clock.
+  await hold(page, 'ArrowLeft', 1500);
+  await page.keyboard.press('e');
+  await page.keyboard.down('ArrowLeft');
+  try {
+    await page.clock.runFor(1100);
+    for (let step = 0; step < 90 && (await snapshot(page)).motion.grounded; step++) {
+      await page.clock.runFor(16);
+    }
+  } finally {
+    await page.keyboard.up('ArrowLeft');
+  }
   const departed = await snapshot(page);
-  expect(departed.position.x).toBeGreaterThan(8);
+  expect(departed.position.x).toBeLessThan(-8);
   expect(departed.motion.grounded).toBe(false);
   expect(departed.motion.ledgeGrace).toBeGreaterThan(0);
   await page.keyboard.press('Space');
@@ -159,4 +178,38 @@ test('releasing one movement input keeps an overlapping keyboard or pointer hold
   await page.clock.runFor(80);
   expect((await snapshot(page)).position.x).toBe(stopped);
   expect((await snapshot(page)).evidence.firstResponses).toEqual([]);
+});
+
+test.describe('laptop keyboard', () => {
+  test.use({ viewport: { width: 1024, height: 700 }, hasTouch: false });
+
+  test('advertises two-handed controls and accepts an action during movement', async ({ page }, info) => {
+    await open(page);
+    const guide = page.locator('.tower-tumble__keys');
+    await expect(guide).toBeVisible();
+    await expect(guide).toContainText('Space · Z · J Jump');
+    await expect(guide).toContainText('Enter · X · K Smash');
+    const before = await snapshot(page);
+    await page.keyboard.press('ArrowRight');
+    await page.clock.runFor(32);
+    expect((await snapshot(page)).position.x).toBeGreaterThan(before.position.x);
+    await page.keyboard.down('d');
+    await page.keyboard.press('j');
+    await page.clock.runFor(100);
+    const jumping = await snapshot(page);
+    expect(jumping.position.x).toBeGreaterThan(before.position.x + .3);
+    expect(jumping.position.y).toBeGreaterThan(.5);
+    await page.keyboard.press('k');
+    expect((await snapshot(page)).animation.strikeSecondsRemaining).toBeGreaterThan(0);
+    await page.keyboard.up('d');
+    await page.clock.runFor(1000);
+    const hear = page.getByRole('button', { name: 'Hear the whole word again', exact: true });
+    await hear.focus();
+    await page.keyboard.press('Enter');
+    expect((await snapshot(page)).animation.strikeSecondsRemaining).toBe(0);
+    await page.locator('.tower-tumble').focus();
+    await page.keyboard.press('Enter');
+    expect((await snapshot(page)).animation.strikeSecondsRemaining).toBeGreaterThan(0);
+    await page.screenshot({ path: info.outputPath('laptop-controls.png') });
+  });
 });

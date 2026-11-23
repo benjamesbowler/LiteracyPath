@@ -74,6 +74,40 @@ for (const profile of STUDENT_DEVICE_PROFILES.filter(item => item.id !== "projec
   });
 }
 
+test("Games page in a short laptop window keeps the whole roster reachable", async ({ page }, info) => {
+  await openSurface(page, "arcade", { width: 800, height: 510 });
+  const surface = page.locator("[data-child-surface=arcade]");
+  await expectPagedChoices(surface, surface.locator(".lg-game-tile"), {
+    pagerLabel: "Game pages", expectedCount: 27, key: "data-game-id", titleSelector: ".lg-game-tile-name"
+  });
+  await page.screenshot({ path: info.outputPath("games-short-window.png") });
+});
+
+test("Leaving a game returns to its card and shows the current saved outing", async ({ page }) => {
+  await openSurface(page, "arcade", { width: 568, height: 320 });
+  const surface = page.locator("[data-child-surface=arcade]");
+  const pager = surface.getByRole("navigation", { name: "Game pages" });
+  await expect(pager.getByRole("status")).toHaveText("Page 1 of 9");
+  await pager.getByRole("button", { name: "Next" }).click();
+  const tile = surface.locator('[data-game-id="sound-racer"]');
+  await tile.press("Enter");
+  const player = page.getByRole("dialog", { name: "Sound Racer", exact: true });
+  await expect(player).toBeVisible();
+  await expect(surface.locator(".lg-arcade-scrollbody")).toHaveAttribute("inert", "");
+  await page.evaluate(async () => {
+    const modulePath = "/src/utils/learnGamesProgress.js";
+    const { saveGameCheckpoint } = await import(modulePath);
+    saveGameCheckpoint("child-surface-preview", "sound-racer", "easy", 1, 10, 913, 0);
+  });
+  await player.getByRole("button", { name: "Close Sound Racer" }).click();
+  await page.getByRole("button", { name: "Leave", exact: true }).click();
+  await expect(player).toHaveCount(0);
+  await expect(tile).toContainText("Carry on");
+  await expect(pager.getByRole("status")).toHaveText("Page 1 of 9");
+  await expect(tile).toBeFocused();
+  await expectInChildPane(tile);
+});
+
 for (const profile of STUDENT_DEVICE_PROFILES.filter(item => item.family === "small-phone" || item.id === "tablet-landscape")) {
   test(`Skills keeps reporting and the return to the question in frame at ${profile.id}`, async ({ page }) => {
     await page.addInitScript(() => {

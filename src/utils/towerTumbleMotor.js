@@ -7,15 +7,34 @@ export const TOWER_LEDGE_GRACE_SECONDS = .1;
 // another thumb/key still pressing the same direction.
 export function createTowerTumbleInput() {
   const actions = new Map(['left', 'right', 'up', 'down'].map(action => [action, new Set()]));
+  const pending = new Map([...actions.keys()].map(action => [action, new Set()]));
+  const snapshot = () => Object.fromEntries([...actions].map(([action, owners]) => [action, owners.size > 0]));
   return {
     set(action, pressed, source) {
       const owners = actions.get(action);
       if (!owners) return;
-      if (pressed) owners.add(source); else owners.delete(source);
+      if (pressed) {
+        if (!owners.has(source)) pending.get(action).add(source);
+        owners.add(source);
+      } else owners.delete(source);
     },
-    releaseSource(source) { for (const owners of actions.values()) owners.delete(source); },
-    clear() { for (const owners of actions.values()) owners.clear(); },
-    snapshot: () => Object.fromEntries([...actions].map(([action, owners]) => [action, owners.size > 0])),
+    releaseSource(source) {
+      for (const owners of actions.values()) owners.delete(source);
+      for (const taps of pending.values()) taps.delete(source);
+    },
+    clear() {
+      for (const owners of actions.values()) owners.clear();
+      for (const taps of pending.values()) taps.clear();
+    },
+    snapshot,
+    consume() {
+      const sampled = snapshot();
+      for (const [action, taps] of pending) {
+        if (taps.size) sampled[action] = true;
+        taps.clear();
+      }
+      return sampled;
+    },
   };
 }
 

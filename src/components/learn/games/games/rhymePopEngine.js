@@ -1,6 +1,7 @@
 import { createArcadeRenderGate } from '../shared/arcadeFramePolicy.js';
 import { getArcadeCuePicture } from '../../../../data/arcadeCuePictures.js';
 import { isInteractiveKeyTarget } from '../../../../utils/interactiveEventTarget.js';
+import { replayShuffle } from '../../../../utils/gameReplay.js';
 import { speakWord } from '../../../../utils/learnGamesAudio.js';
 import { playPopSound, playSoftBuzz, playTapSound, playWhoosh } from '../../../../utils/audio/gameSfx.js';
 import { createRhymePopCueQueue } from '../../../../utils/audio/rhymePopCueQueue.js';
@@ -69,19 +70,27 @@ export function createRhymePopEngine(mount, options) {
       coach: state.coach, saveError: state.saveError, choices: state.balloons.map(({ id, word }) => ({ id, word })),
       focusedWord: state.balloons.find(row => row.id === state.keyboardBubbleId)?.word || '' });
   }
-  function fillChoices() {
-    const remaining = state.level.rhymingWords.filter(word => !state.acceptedWords.includes(word) && !state.balloons.some(row => row.word === word));
-    const desired = Math.min(state.level.correctVisible, remaining.length + state.balloons.filter(row => row.kind === 'rhyme').length);
-    while (state.balloons.length < state.level.visibleBalloons && state.acceptedWords.length < state.level.rhymingWords.length) {
-      const correct = state.balloons.filter(row => row.kind === 'rhyme').length < desired;
-      const pool = correct ? remaining : state.level.distractors.filter(word => !state.balloons.some(row => row.word === word));
-      const word = pool.shift(); if (!word) break;
-      const vacant = Array.from({ length: state.level.visibleBalloons }, (_, slot) => slot).filter(slot => !state.balloons.some(row => row.slot === slot));
-      const slot = vacant[(seed + state.stage * 17 + state.nextId * 11) % vacant.length];
+  function formChoices(poppedSlot) {
+    const { visibleBalloons, correctVisible, rhymingWords, distractors } = state.level;
+    const formationSeed = `${seed}:${state.stage}:${state.acceptedWords.length}`;
+    const rhymes = rhymingWords.filter(word => !state.acceptedWords.includes(word)).slice(0, correctVisible);
+    const priorWords = new Set(state.balloons.map(row => row.word));
+    const shuffled = replayShuffle(distractors, formationSeed + ':distractors');
+    const foils = [...shuffled.filter(word => !priorWords.has(word)), ...shuffled.filter(word => priorWords.has(word))];
+    const slots = replayShuffle(Array.from({ length: visibleBalloons }, (_, slot) => slot), formationSeed + ':slots');
+    // Reserve the lane just shot for a distractor, including when only one
+    // rhyme remains. The other lanes get a fresh, seeded formation.
+    if (poppedSlot != null) slots.push(...slots.splice(slots.indexOf(poppedSlot), 1));
+    state.balloons = [
+      ...rhymes.map(word => ({ word, kind: 'rhyme' })),
+      ...foils.slice(0, visibleBalloons - rhymes.length).map(word => ({ word, kind: 'distractor' })),
+    ].map((row, index) => ({ ...row, slot: slots[index] })).sort((a, b) => a.slot - b.slot).map(row => {
       const id = state.nextId++;
-      state.balloons.push({ id, word, kind: correct ? 'rhyme' : 'distractor', slot, phase: id*1.8 + state.stage*.9,
-        travel: 0, direction: id%2 ? 1 : -1, entering: state.acceptedWords.length > 0 });
-    }
+      return { ...row, id, phase: id * 1.8 + state.stage * .9, travel: 0, direction: id % 2 ? 1 : -1,
+        entering: state.acceptedWords.length > 0 };
+    });
+    state.keyboardBubbleId = null;
+    placeBalloons(0);
   }
   function placeBalloons(dt) {
     const layout = rhymePopStageLayout(width, height, state.level.visibleBalloons);
@@ -102,7 +111,7 @@ export function createRhymePopEngine(mount, options) {
       } else {
         state.stage++; state.level = ladder[state.stage]; state.acceptedWords = []; state.balloons = []; state.hintMistakes = 0;
         state.supportReasons = options.getSound() ? [] : ['sound-disabled']; state.celebrating = false; state.celebrationAt = null; state.coach = ''; state.combo = 0;
-        state.keyboardBubbleId = null; cue.cancel(); fillChoices(); placeBalloons(0); speakTarget(); persist();
+        cue.cancel(); formChoices(); speakTarget(); persist();
         options.onCheckpoint?.(state.stage, ladder.length); options.onProgressUpdate?.(state.stage, ladder.length); sfx(playWhoosh);
       }
     } }); dwell.waitFor(cue.whenRequiredIdle());
@@ -119,11 +128,18 @@ export function createRhymePopEngine(mount, options) {
       points: 140 + Math.min(6, state.combo + 1)*20 }).evidence;
     speakHit(balloon.word, !correct);
     if (correct) {
-      state.acceptedWords.push(balloon.word); state.combo++; state.balloons = state.balloons.filter(row => row.id !== balloon.id);
+      state.acceptedWords.push(balloon.word); state.combo++;
       state.score = state.evidence.acceptedResponses.reduce((sum, row) => sum + row.points, 0); options.onScoreUpdate?.(state.score);
       state.bursts.push({ x: balloon.x, y: balloon.y, at: clock() }); state.coach = `${balloon.word} rhymes!`; sfx(playPopSound);
-      if (state.acceptedWords.length === state.level.rhymingWords.length) finishFamily();
-      else { fillChoices(); persist(); }
+      if (state.acceptedWords.length === state.level.rhymingWords.length) {
+        state.balloons = state.balloons.filter(row => row.id !== balloon.id);
+        finishFamily();
+      } else {
+        // In-flight shots were made against the previous words. Discard them
+        // so changing the formation cannot create a new literacy response.
+        state.shots = []; state.queuedShot = null;
+        formChoices(balloon.slot); persist();
+      }
     } else {
       // A wrong word stays in this physical encounter, including its ID and
       // all other choices. Teaching support cannot silently replace the task.
@@ -147,6 +163,7 @@ export function createRhymePopEngine(mount, options) {
       state.shots.push({ x: geometry.muzzle.x, y: geometry.muzzle.y, vx: geometry.direction.x*speed, vy: geometry.direction.y*speed,
         r: clamp(width*.019, 18, 28), trail: [], source: pending.source, intendedId: pending.intendedId, origin: { ...geometry.muzzle } }); state.queuedShot = null;
     }
+    const formation = state.balloons;
     for (const shot of state.shots) {
       const from = { x: shot.x, y: shot.y };
       shot.trail.push(from); if (shot.trail.length > 8) shot.trail.shift();
@@ -154,7 +171,7 @@ export function createRhymePopEngine(mount, options) {
       shot.x = path.x; shot.y = path.y; shot.vx = path.vx; shot.banks = (shot.banks || 0)+path.banks;
       if (hit) { shot.dead = true; resolveHit(shot, hit.balloon); }
       else if (shot.y < -80 || shot.y > height+80) { shot.dead = true; state.motorMisses++; }
-      if (state.celebrating) break;
+      if (state.balloons !== formation) break;
     }
     state.shots = state.shots.filter(shot => !shot.dead); state.bursts = state.bursts.filter(burst => state.elapsed-burst.at < .5);
   }
@@ -163,7 +180,7 @@ export function createRhymePopEngine(mount, options) {
     const rows = [...state.balloons].sort((a, b) => a.slot-b.slot), old = rows.findIndex(row => row.id === state.keyboardBubbleId);
     const index = old < 0 ? direction < 0 ? rows.length-1 : 0 : (old + direction + rows.length) % rows.length;
     const selected = rows[index]; state.keyboardBubbleId = selected.id;
-    state.aim = { x: selected.x, y: selected.y }; notify();
+    state.aim = { x: selected.x, y: selected.y }; state.coach = ''; notify();
   }
   function pause() { if (state.paused) return; pausedAt = performance.now(); state.paused = true; state.queuedShot = null; cue.cancel(); dwell?.pause(); persist(); }
   function resume() { if (!state.paused) return; epoch += performance.now()-pausedAt; pausedAt = null; state.paused = false;
@@ -180,13 +197,18 @@ export function createRhymePopEngine(mount, options) {
     const active = document.activeElement, host = mount.closest('.lg-game-player-main');
     if (!(active === host || active === mount)) return;
     if (['ArrowLeft', 'a', 'A', 'ArrowRight', 'd', 'D'].includes(event.key)) { event.preventDefault(); select(['ArrowLeft', 'a', 'A'].includes(event.key) ? -1 : 1); }
-    else if ([' ', 'Enter', 'ArrowUp'].includes(event.key)) { event.preventDefault(); fire('keyboard'); }
+    else if ([' ', 'Enter', 'ArrowUp'].includes(event.key)) {
+      event.preventDefault();
+      if (state.keyboardBubbleId != null) fire('keyboard');
+    }
   }
   const hidden = () => { if (document.hidden) pause(); }, pageHide = () => pause();
   function resize() { renderGate.invalidate(); const bounds = mount.getBoundingClientRect(); width = bounds.width; height = bounds.height; world.resize(width, height);
     if (!state.aim.x) state.aim = { x: width*.5, y: height*.36 }; placeBalloons(0); notify(); }
   world = createRhymePopWorld(canvas, { difficulty, onDelivery: value => { renderGate.invalidate(); options.onDelivery?.(value); } });
-  const observer = new ResizeObserver(resize); observer.observe(mount); resize(); fillChoices(); placeBalloons(0); notify();
+  const observer = new ResizeObserver(resize); observer.observe(mount); resize();
+  if (!state.celebrating && state.balloons.length < state.level.visibleBalloons) formChoices();
+  notify();
   canvas.addEventListener('pointermove', move); canvas.addEventListener('pointerdown', down); window.addEventListener('keydown', onKeyDown);
   document.addEventListener('visibilitychange', hidden); window.addEventListener('pagehide', pageHide);
   function frame(at) {

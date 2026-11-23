@@ -2256,11 +2256,17 @@ function createStarGalleryEngine(mount, options) {
   bindTouchButton(nodes.moveBack, "down");
   bindTouchButton(nodes.turnLeft, "left");
   bindTouchButton(nodes.turnRight, "right");
-  nodes.cut.addEventListener("pointerdown", event => {
+  function cutAtControl(event) {
     event.preventDefault();
     event.stopPropagation();
     playSfx(options, playTapSound);
     tryCutNearestTree();
+  }
+  nodes.cut.addEventListener("pointerdown", cutAtControl);
+  nodes.cut.addEventListener("click", event => {
+    // Pointer input acts on press. The browser activates the focused button
+    // with a separate click for keyboard and assistive input.
+    if (event.detail === 0) cutAtControl(event);
   });
   nodes.replay.addEventListener("click", event => {
     event.preventDefault();

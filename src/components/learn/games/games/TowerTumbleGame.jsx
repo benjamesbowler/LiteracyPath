@@ -15,24 +15,26 @@ import { createTowerCanvasWorld as canvasWorld, createTowerThreeWorld as threeWo
 import { loadTowerTumbleSceneKit } from './towerTumbleSceneKit.js';
 import { physicalThemeForDifficulty } from '../shared/physicalArcadeThemes.js';
 import { createArcadeFrameBudgetState, sampleQuestFrameBudget } from '../../../../utils/questPerformance.js';
+import { isInteractiveKeyTarget } from '../../../../utils/interactiveEventTarget.js';
 import './TowerTumbleGame.css';
 
 const SIMULATION_STEP=1/60,MAX_SIMULATION_ACCUMULATOR=.12;
 const SPAWN = { x:-7,y:0,vy:0,facing:1,grounded:true,climbing:false,safe:{x:-7,y:0} };
+const MOVEMENT_KEYS = {arrowleft:'left',a:'left',arrowright:'right',d:'right',arrowup:'up',w:'up',arrowdown:'down',s:'down'};
 const initial = (rounds, difficulty, seed, cursor, scope, journeyIndex, resumed) => {
   const index = Math.max(0,Math.min(Number.isInteger(cursor)?cursor:0,rounds.length-1));
   const restored = loadTowerTumbleSession(scope,difficulty,seed,index,rounds,journeyIndex);
   return restored ? {...restored,saveError:false,actor:{...SPAWN,...restored.actor},feedback:restored.phase==='retry'?'Your sounds are saved. Retry the route.':restored.phase==='rescue'?'Lift ready! The cargo is safe.':'Carry on. Hear the word, then smash its sounds.'}
     : {seed,journeyIndex,index,roundId:rounds[index].roundId,unitIndex:0,phase:'playing',mistakes:0,hintUsed:false,delivery:'pending',score:0,
       lives:TOWER_TUMBLE_LIVES,immunity:0,supportReasons:resumed || index ? ['resume_without_support_record'] : [],evidence:newTowerTumbleEvidence(),actor:{...SPAWN},broken:[],collected:[],assist:true,access:false,saveError:false,
-      feedback:'Hear the word. Smash its sounds in order.'};
+      feedback:'Move beside a sound brick to smash it. Use ladders to change floors.'};
 };
 
-function MoveControl({direction,className,disabled,onMove,onFocus,onNudge,children}) {
+function MoveControl({direction,className,disabled,onMove,onCancel,onFocus,onNudge,children}) {
   const release=event=>onMove(direction,false,`pointer:${event.pointerId}`);
   return <button type="button" className={className} aria-label={{left:'Move left',right:'Move right',up:'Climb up',down:'Climb down'}[direction]} disabled={disabled}
     onPointerDown={event=>{event.preventDefault();event.currentTarget.setPointerCapture(event.pointerId);onMove(direction,true,`pointer:${event.pointerId}`);onFocus();}}
-    onPointerUp={release} onPointerCancel={release} onLostPointerCapture={release}
+    onPointerUp={release} onPointerCancel={event=>onCancel(`pointer:${event.pointerId}`)} onLostPointerCapture={release}
     onClick={event=>{if(event.detail===0)onNudge(direction);}}>{children}</button>;
 }
 
@@ -141,21 +143,25 @@ export default function TowerTumbleGame({difficulty='easy',sessionSeed=0,journey
       soundEnabled(value){sound=value;if(!value){voice.cancel();cancelGameSfx();voiceTicket++;state.delivery='unavailable';markSupported('sound-disabled');}else void replay();},
       replay,reach,strike,retryRoute(){if(enginePaused||state.phase!=='retry')return;state=towerTumbleRetryRoute(state);barrels=[];input.clear();movement.clear();autoRoute=null;lastBarrel=elapsed;state.feedback='Three lives. Your built sounds are safe. Keep going.';persist();publish();field.current?.focus({preventScroll:true});},jump(){if(!enginePaused&&world&&state.phase==='playing'&&!state.saveError){recordInput();movement.requestJump();autoRoute=null;}},
       move(key,value,source){if(enginePaused)return;input.set(key,value,source);if(value){recordInput();autoRoute=null;}},
+      cancelMove(source){input.releaseSource(source);},
       nudge(key){if(enginePaused)return;recordInput();input.set(key,true,'nudge');nudgeAt=elapsed+.22;autoRoute=null;},
       assist(){state.assist=!state.assist;persist();publish();},access(){state.access=!state.access;persist();publish();},
       hint(){if(state.mistakes<2||enginePaused)return;state.hintUsed=true;markSupported('partial-spelling-hint');field.current?.focus({preventScroll:true});},
       retrySave(){state.saveError=false;if(persist(true)){publish();if(state.phase==='rescue')rescueTime=Math.min(rescueTime,1.8);field.current?.focus({preventScroll:true});}},
       inspect:snapshot,...(import.meta.env.DEV?{debugSnapshot:()=>({...snapshot(),word:round().word,chunks:[...round().chunks]})}:{})};
     controller.current=api;
-    const keyMap={ArrowLeft:'left',a:'left',A:'left',ArrowRight:'right',d:'right',D:'right',ArrowUp:'up',w:'up',W:'up',ArrowDown:'down',s:'down',S:'down'};
     const keyDown=event=>{
       const active=document.activeElement,host=field.current?.closest('.lg-game-player-main');
-      if(!(field.current?.contains(active)||(host&&active===host))||enginePaused||state.phase!=='playing'||event.target.closest('input,textarea'))return;
-      if(keyMap[event.key]){event.preventDefault();if(!event.repeat)recordInput();input.set(keyMap[event.key],true,`key:${event.code||event.key}`);autoRoute=null;}
-      else if(event.key===' '&&event.target.tagName!=='BUTTON'){event.preventDefault();if(!event.repeat)api.jump();}
-      else if(event.key.toLowerCase()==='e'){event.preventDefault();if(!event.repeat)strike();}
+      if(!(field.current?.contains(active)||(host&&active===host))||enginePaused||state.phase!=='playing'||state.saveError||event.altKey||event.ctrlKey||event.metaKey||event.target.closest?.('input,textarea,select,[contenteditable],[inert]'))return;
+      const key=event.key.toLowerCase(),direction=MOVEMENT_KEYS[key];
+      if(direction){event.preventDefault();if(!event.repeat)recordInput();input.set(direction,true,`key:${event.code||key}`);autoRoute=null;}
+      else if(key==='j'||key==='z'||(key===' '&&!isInteractiveKeyTarget(event.target,event.key))){
+        event.preventDefault();if(!event.repeat)api.jump();
+      }else if(key==='k'||key==='x'||key==='e'||(key==='enter'&&!isInteractiveKeyTarget(event.target,event.key))){
+        event.preventDefault();if(!event.repeat)strike();
+      }
     };
-    const keyUp=event=>{if(keyMap[event.key])input.set(keyMap[event.key],false,`key:${event.code||event.key}`);};
+    const keyUp=event=>{const key=event.key.toLowerCase();if(MOVEMENT_KEYS[key])input.set(MOVEMENT_KEYS[key],false,`key:${event.code||key}`);};
     const blur=()=>{input.clear();movement.clear();pendingInputAt=null;autoRoute=null;};
     const visibility=()=>{hidden=document.hidden;pauseUpdate();};
     const query=window.matchMedia?.('(prefers-reduced-motion: reduce)'),motion=event=>{reduced=event.matches;};
@@ -190,7 +196,7 @@ export default function TowerTumbleGame({difficulty='easy',sessionSeed=0,journey
         const lift=3+Math.sin(elapsed*.7)*3;
         const platform={x:geometry.movingPlatform.x,y:lift,width:1.8};
         if(state.phase==='playing'&&!state.saveError){
-          const controls=input.snapshot();
+          const controls=input.consume();
           if(autoRoute){
             const targetLevel=autoRoute.y,currentLevel=state.actor.y;
             if(Math.abs(currentLevel-targetLevel)>.005){
@@ -241,7 +247,7 @@ export default function TowerTumbleGame({difficulty='easy',sessionSeed=0,journey
   },[rounds,difficulty,sessionSeed,startLevel,resumedCheckpoint,progressScopeKey,journey?.index,theme]);
   useEffect(()=>{controller.current?.soundEnabled(isSoundEnabled);},[isSoundEnabled]);
   const item=rounds[game.index],blocked=rendererMode==='loading'||paused||game.phase!=='playing'||game.saveError;
-  const move=(key,value,source)=>controller.current?.move(key,value,source),focus=()=>field.current?.focus({preventScroll:true}),nudge=key=>controller.current?.nudge(key);
+  const move=(key,value,source)=>controller.current?.move(key,value,source),cancelMove=source=>controller.current?.cancelMove(source),focus=()=>field.current?.focus({preventScroll:true}),nudge=key=>controller.current?.nudge(key);
   const tools=<div className="tower-tumble__tools">
     <button type="button" aria-label={game.assist?'Gentle moves':'Free moves'} aria-pressed={game.assist} onClick={()=>controller.current?.assist()} disabled={paused}><PersonSimple size={22}/><span>{game.assist?'Gentle moves':'Free moves'}</span></button>
     <button type="button" aria-label={game.access?'Hide bricks':'Reach bricks'} aria-pressed={game.access} onClick={()=>controller.current?.access()} disabled={paused}><Hammer size={22}/><span>{game.access?'Hide bricks':'Reach bricks'}</span></button>
@@ -267,20 +273,27 @@ export default function TowerTumbleGame({difficulty='easy',sessionSeed=0,journey
       {game.phase==='retry'&&<div className="tower-tumble__retry-route" role="group" aria-label="Retry the route"><strong>Try the route again</strong><span>Your built sounds are saved.</span><button type="button" onClick={()=>controller.current?.retryRoute()} disabled={paused}>Retry route · 3 lives</button></div>}
       {paused&&<div className="tower-tumble__paused"><strong>Paused</strong><span>Your sounds and route are saved.</span></div>}
     </div>
-    <div className="tower-tumble__status" role="status" aria-live="polite"><span>{game.feedback}</span>
-      {game.hintUsed&&<strong className="tower-tumble__hint" aria-label="Partial spelling hint">{phonicsTargetHint(item.word,game.mistakes)}</strong>}
-      {!shortScreen&&hintButton}
-      {game.saveError&&<button type="button" onClick={()=>controller.current?.retrySave()} disabled={paused}>Retry save</button>}
-    </div>
     <footer className="tower-tumble__controls">
       <div className="tower-tumble__dpad" role="group" aria-label="Move and climb">
-        <MoveControl className="tower-tumble__up" direction="up" disabled={blocked} onMove={move} onFocus={focus} onNudge={nudge}><ArrowUp size={28}/></MoveControl>
-        <MoveControl className="tower-tumble__left" direction="left" disabled={blocked} onMove={move} onFocus={focus} onNudge={nudge}><ArrowLeft size={28}/></MoveControl>
-        <MoveControl className="tower-tumble__down" direction="down" disabled={blocked} onMove={move} onFocus={focus} onNudge={nudge}><ArrowDown size={28}/></MoveControl>
-        <MoveControl className="tower-tumble__right" direction="right" disabled={blocked} onMove={move} onFocus={focus} onNudge={nudge}><ArrowRight size={28}/></MoveControl>
+        <MoveControl className="tower-tumble__up" direction="up" disabled={blocked} onMove={move} onCancel={cancelMove} onFocus={focus} onNudge={nudge}><ArrowUp size={28}/></MoveControl>
+        <MoveControl className="tower-tumble__left" direction="left" disabled={blocked} onMove={move} onCancel={cancelMove} onFocus={focus} onNudge={nudge}><ArrowLeft size={28}/></MoveControl>
+        <MoveControl className="tower-tumble__down" direction="down" disabled={blocked} onMove={move} onCancel={cancelMove} onFocus={focus} onNudge={nudge}><ArrowDown size={28}/></MoveControl>
+        <MoveControl className="tower-tumble__right" direction="right" disabled={blocked} onMove={move} onCancel={cancelMove} onFocus={focus} onNudge={nudge}><ArrowRight size={28}/></MoveControl>
       </div>
       {shortScreen&&tools}
-      <span className="tower-tumble__keys">Arrows / WASD · Space jump · E smash</span>
+      <div className="tower-tumble__control-guide">
+        <div className="tower-tumble__status" role="status" aria-live="polite"><span>{game.feedback}</span>
+          {game.hintUsed&&<strong className="tower-tumble__hint" aria-label="Partial spelling hint">{phonicsTargetHint(item.word,game.mistakes)}</strong>}
+          {!shortScreen&&hintButton}
+          {game.saveError&&<button type="button" onClick={()=>controller.current?.retrySave()} disabled={paused}>Retry save</button>}
+        </div>
+        <div className="tower-tumble__keys" aria-label="Keyboard controls">
+          <span><kbd>← →</kbd> or <kbd>A D</kbd> Move</span>
+          <span><kbd>↑ ↓</kbd> or <kbd>W S</kbd> Climb</span>
+          <span><kbd>Space</kbd> · <kbd>Z</kbd> · <kbd>J</kbd> Jump</span>
+          <span><kbd>Enter</kbd> · <kbd>X</kbd> · <kbd>K</kbd> Smash</span>
+        </div>
+      </div>
       <div className="tower-tumble__actions" role="group" aria-label="Jump and smash">
         <button type="button" className="tower-tumble__jump" disabled={blocked} onClick={()=>{controller.current?.jump();field.current?.focus({preventScroll:true});}}><ArrowUp size={28}/><span>Jump</span></button>
         <button type="button" className="tower-tumble__smash" data-child-primary disabled={blocked} onClick={()=>{controller.current?.strike();field.current?.focus({preventScroll:true});}}><Hammer size={28}/><span>Smash</span></button>

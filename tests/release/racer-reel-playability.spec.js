@@ -202,7 +202,7 @@ for (const [index, viewport] of reelViewports.entries()) {
     expect(cue.y).toBeGreaterThanOrEqual(0);
     expect(cue.x + cue.width).toBeLessThanOrEqual(viewport.width);
     expect(cue.y + cue.height).toBeLessThanOrEqual(viewport.height);
-    for (const name of ['Steer boat left', 'Steer boat right', 'Cast fishing hook', 'Hear fishing clue again']) {
+    for (const name of ['Steer boat left', 'Steer boat right', 'Cast fishing hook', 'Fishing clue unavailable while sound is off']) {
       const control = page.getByRole('button', { name, exact: true });
       const box = await control.boundingBox();
       expect(box.width).toBeGreaterThanOrEqual(56);
