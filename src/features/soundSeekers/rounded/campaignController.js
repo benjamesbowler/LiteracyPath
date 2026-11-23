@@ -5,6 +5,7 @@ import { beginCampaignMission, restartCampaignMission, updateCampaignCheckpoint,
 import { recordTaught } from '../v3/engine/progress.js';
 import { MECHANICS } from '../v3/engine/challenges.js';
 import { getCampaignWorldLayout } from './campaignWorldLayouts.js';
+import { CAMPAIGN_TRAIL_ID, getCampaignTrail } from './campaignWorldTrails.js';
 
 export const ROUND_CAMPAIGN = Object.freeze({ version: CAMPAIGN_VERSION, stages: CAMPAIGN_STAGES, missions: CAMPAIGN_MISSIONS });
 export function currentCampaignCheckpoint(progress) {
@@ -25,7 +26,10 @@ export function enterCampaignStage(progress, stageId, now) {
 }
 export function recordRoundedDiscovery(progress, event, now) {
   if (!progress || !isCampaignStageUnlocked(progress, event?.stageId, ROUND_CAMPAIGN)) return progress;
-  const authored = getCampaignWorldLayout(event.stageId)?.discoveries.find(item => item.id === event.id && item.kind === event.kind);
+  const layout = getCampaignWorldLayout(event.stageId);
+  const authored = event.kind === CAMPAIGN_TRAIL_ID
+    ? getCampaignTrail(layout)?.id === event.id
+    : layout?.discoveries.some(item => item.id === event.id && item.kind === event.kind);
   if (!authored) return progress;
   const id = `${event.stageId}:${event.id}`;
   if (progress.campaign.gameDiscoveries?.[id]) return progress;

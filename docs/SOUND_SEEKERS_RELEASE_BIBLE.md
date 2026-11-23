@@ -36,6 +36,25 @@ for direct travel. These cues read public world state only and never grant
 learning evidence. Stop walking, manual movement, pause and loss of focus clear
 the selected route and its cues together.
 
+Every place also has an optional trail through three or four authored markers.
+Walking through the current marker lights the next one. Find the next trail
+marker offers the same physical route in single legs for motor assistance.
+Reaching the lookout saves one narrative discovery for that place. Partial
+trail progress lasts in the active scene. The lookout and its receipt survive
+re-entry. Trail markers, jumps and landings never record literacy responses or
+unlock missions. The ground route stays available in both scene qualities.
+
+Space and the on-screen Jump control both launch Bouncy using the same fixed
+movement steps. Three raised stepping stones at each entrance provide optional
+practice. The camera uses bounded look-ahead during ordinary movement and a
+steady view with gentle movement enabled. Pausing or losing focus settles the
+jump and releases held inputs. Completing an authored main mission shows the
+earned repair count and offers a collision-checked trip to see the installed
+part. The player chooses when to make that trip or start another mission.
+The illustrated entrance preloads the scene without drawing hidden frames.
+Tree batches cull by area, and scenery changes refresh static world shadows.
+Bouncy and the canonical residents keep their moving contact shadows.
+
 The October 27 presentation pass keeps authored route widths, centre lines and
 walking rules. Roads share the ground texture and fade into its palette at their
 shoulders; terminal paint rounds only within already walkable ground. Ground
@@ -120,9 +139,11 @@ later explicitly taught vocabulary keeps its declared curriculum scope.
 
 ## Art, audio and access
 
-The approved Blender Bouncy is the golden spring-legged lamb. Bouncy, Woolly,
-Clucky and Splashy use the four original GLBs and their authored animation clips,
-with editable source and hashes in the demo character provenance. Other Pals
+The Blender Bouncy is the golden spring-legged lamb. The shared campaign and
+Woodland model uses sculpted fleece, rounded wool curls, a broad red scarf
+and two thicker satin-silver coils. Bouncy, Woolly, Clucky and Splashy use
+first-party GLBs and authored animation clips, with editable source and hashes
+in the demo character provenance. Other Pals
 appear as their canonical illustrated portraits and encounter art. Do not present
 unrelated placeholder models as a named resident. Three world palettes and the
 thirty place layouts, problem objects and repairs share this book-world direction.

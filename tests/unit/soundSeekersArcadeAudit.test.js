@@ -212,8 +212,10 @@ test("reported Arcade objectives and replay controls keep child-readable hierarc
     source("src/components/learn/games/games/reelReadEngine.js")
   ]);
   assert.match(reel, /className="rr-cue" data-child-instruction/);
-  assert.match(reel, /className="rr-hear" aria-label="Hear fishing clue again" disabled=\{!isSoundEnabled\}/);
-  assert.match(reel, /engine\.current\?\.replay\(\);focusPlay\(\)/);
+  const reelReplay = reel.match(/<button\b[^>]*className="rr-hear"[\s\S]*?<\/button>/)?.[0] ?? "";
+  assert.match(reelReplay, /aria-label=\{isSoundEnabled\s*\?\s*'Hear fishing clue again'\s*:\s*'Fishing clue unavailable while sound is off'\}/);
+  assert.match(reelReplay, /disabled=\{!isSoundEnabled\}/);
+  assert.match(reelReplay, /engine\.current\?\.replay\(\);focusPlay\(\)/);
   assert.match(reelCss, /\.rr-hear\{[^}]*width:64px;min-height:72px[^}]*font-size:16px/);
   assert.match(reelCss, /\.rr-hear\{[^}]*min-height:56px[^}]*width:56px/);
   assert.match(reelEngine, /replay\(\) \{ speakTarget\(true\);/);

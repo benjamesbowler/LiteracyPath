@@ -126,7 +126,10 @@ test("every substantial vertical slice is complete, traceable to checks, and hon
   assert.match(climbImplementation, /startLevel = 0/);
   assert.match(climbImplementation, /onCheckpoint\?\.\(Math\.min\(world.step, world.summit - 1\), world.summit\)/);
   assert.ok(climbImplementation.includes("callbacks.current.onEngineReady?.({pause,resume,markSupported,inspect,debugSnapshot:inspect})"));
-  assert.ok(climbImplementation.includes("createWordClimbStepper(world,advanceClimbJourney,handleEvent,handleStep)"));
+  const fixedStep = climbImplementation.match(/const stepper = createWordClimbStepper\(world,\(state,dt,held\)=>\{([\s\S]*?)\},handleEvent,handleStep,presentation\.capture\);/)?.[1];
+  assert.ok(fixedStep, "The fixed step still publishes events and captures the rendered pose");
+  assert.match(fixedStep, /let movement=inputLatch\.consume\(held\);/);
+  assert.match(fixedStep, /advanceClimbJourney\(state,dt,movement\);/);
   assert.ok(climbImplementation.includes("stepper.advance(dt,movement)"));
   const climbStepper = readFileSync("src/components/learn/games/games/wordClimbStepper.js", "utf8");
   assert.ok(climbStepper.includes("advance(world,WORD_CLIMB_STEP,input)"));

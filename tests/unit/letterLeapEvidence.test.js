@@ -192,7 +192,8 @@ test("Letter Leap freezes continuous decorative motion for reduced-motion player
   assert.equal(letterLeapDecorativeTime(true, 987654), 0);
   assert.equal(letterLeapDecorativeTime(false, 2500), 2.5);
 
-  assert.match(implementation, /const t = letterLeapDecorativeTime\(reduceMotion, decorativeClockMs\)/);
+  assert.match(implementation, /renderMotion\.frame\(\{ level, player, cam, camY, clock: decorativeClockMs \}, renderAlpha\)/);
+  assert.match(implementation, /const t = letterLeapDecorativeTime\(reduceMotion, view\.clock\)/);
   assert.match(implementation, /if \(!running \|\| !player\) return;\s*decorativeClockMs \+= dt \* 1000/);
   assert.match(implementation, /drawBgImage\(t\)/);
   assert.doesNotMatch(implementation, /drawDepthScenery\(Date\.now\(\)/);

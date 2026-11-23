@@ -44,14 +44,16 @@ test('Grove incomplete or failed GPU preparation enters authored Canvas recovery
  const begin=source.indexOf('  async function beginSceneWarmup()');
  const end=source.indexOf('  function finishGame()',begin);
  for(const status of ['partial','failed','timeout','ready']){
-  let recoveries=0;
+  let recoveries=0,hudUpdates=0;
   const context={warmupGeneration:0,renderer:{},graphicsLoading:false,loadingNotice:{hidden:true},
    simulation:{reset(){}},resetMotion(){},frameTimer:{reset(){}},disposed:false,
    gardenWorld:null,blenderLandmarks:null,authoredWorld:null,sceneryDetails:null,canvasSurface:null,
-   state:{},updateVehicle(){},updateCamera(){},camera:{},scene:{},motionQuery:null,
+   state:{},updateHud(){hudUpdates++;assert.equal(context.loadingNotice.hidden,false);},
+   updateVehicle(){},updateCamera(){},camera:{},scene:{},motionQuery:null,
    premiumRender:{prepareObject(){},render(){}},warmupReceipt:null,
    warmArcadeScene:async()=>({status}),switchToCanvas(){recoveries++;}};
   await vm.runInNewContext(`(${source.slice(begin,end)})`,context)();
+  assert.equal(hudUpdates,1,'the HUD receives the loading state before GPU preparation settles');
   assert.equal(recoveries,status==='ready'?0:1,status);
   if(status==='ready')assert.equal(context.graphicsLoading,false);
   else assert.equal(context.graphicsLoading,true,'only recovery can release loading after an incomplete GPU result');

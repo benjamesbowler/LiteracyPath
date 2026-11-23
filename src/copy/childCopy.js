@@ -27,7 +27,7 @@ export const CHILD_COPY = Object.freeze({
     resumePrompt: "Carry on where you left off?"
   }),
   soundSeekers: Object.freeze({
-    startInstruction: "Find sounds. Build words to help the Pals."
+    startInstruction: "Explore with Bouncy. Find sounds and build words to help the Pals."
   }),
   tracing: Object.freeze({
     prompt: "Trace the grey letter.",

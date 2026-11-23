@@ -21,7 +21,8 @@ function lifecycle() {
     speakWord(target, options) { return new Promise(resolve => calls.push({ target, options, resolve })); } });
   const state = vm.createContext({ cue, opts: { getSound: () => enabled }, paused: false, onboarding: false,
     phase: 'PLAYING', saveHeld: false, document: { hidden: false }, stepRemainder: .009, resultDwell: null,
-    performance: { now: () => 100 }, last: 0, persisted: 0, cleared: 0, loops: 0,
+    performance: { now: () => 100 }, last: 0, persisted: 0, cleared: 0, loops: 0, renderResets: 0,
+    presentation: { reset() { state.renderResets++; } },
     currentLevel: {}, builder: {}, pendingPracticeSnapshot: null, pendingCompletion: false, sincePracticeSave: 0,
     difficulty: 'easy', contentVersion: 'word-bridge-v3', overlay: { style: {} }, saveAllowed: true,
     practiceSnapshot: () => ({ captured: true }),
@@ -39,6 +40,7 @@ test('actual Bridge pause aborts an opening cue; ordinary resume requests the ex
   assert.equal(old.options.signal.aborted, true); assert.equal(owner.cue.snapshot().delivery, 'unavailable');
   assert.equal(owner.state.paused, true); assert.equal(owner.state.persisted, 1); assert.equal(owner.state.cleared, 1);
   owner.state.resume(); assert.equal(owner.state.paused, false); assert.equal(owner.state.stepRemainder, 0);
+  assert.equal(owner.state.renderResets, 1, 'resume clears the paused interpolation frame');
   assert.equal(owner.calls.length, 2, 'a real resume restarts the interrupted exact recorded cue');
   const current = owner.calls[1]; assert.equal(current.target, 'pen'); assert.equal(current.options.signal.aborted, false);
   old.options.onEnd(owner.round.audio); old.resolve(); await first;
