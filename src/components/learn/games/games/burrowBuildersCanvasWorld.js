@@ -1,5 +1,5 @@
 import { bindBurrowTap } from './burrowPointerInput.js';
-import { burrowPlacementPreview } from './burrowPresentation.js';
+import { createBurrowPreview } from './burrowPresentation.js';
 import { createArcadeRenderGate } from '../shared/arcadeFramePolicy.js';
 import { effectiveBurrowTerrain, terrainAt, walkingHeight, burrowWaterCells, burrowShelteredBeds, BUILD_SUPPLY_PILES } from '../../../../utils/burrowBuildersRules.js';
 import { physicalThemeForDifficulty } from '../shared/physicalArcadeThemes.js';
@@ -10,14 +10,14 @@ import { drawPhysicalPalArt, physicalPalFrame, preloadPhysicalPalArt, physicalPa
 // the existing controller. Tight cached object layers keep large sculptures
 // cheap while still allowing the moving guide to pass behind their real walls.
 export const BURROW_CAMERA_BEARING = Math.atan2(11, 12);
-export function burrowCameraTargetY(width, height, reading) {
-  if (!reading && height < 460 && width >= 360) return 3.45;
+export function burrowCameraTargetY(width, height, reading, freeBuilding = false) {
+  if (!reading && height < 460 && width >= 360) return freeBuilding ? .8 : 3.45;
   return width < 500 ? 1.4 : -.4;
 }
 
-export function createBurrowProjection(width, height, camera = 0, reading = false) {
+export function createBurrowProjection(width, height, camera = 0, reading = false, freeBuilding = false) {
   const aspect = width / height, span = height < 460 && width >= 360 ? 13 : aspect < .9 ? 14.8 / aspect : reading ? 11.6 : 11.4;
-  const angle = BURROW_CAMERA_BEARING + camera * Math.PI / 2, lookY = burrowCameraTargetY(width, height, reading);
+  const angle = BURROW_CAMERA_BEARING + camera * Math.PI / 2, lookY = burrowCameraTargetY(width, height, reading, freeBuilding);
   const pitch = Math.atan2((reading ? 12 : 10) - lookY, Math.hypot(11, 12)), scale = height / span;
   const project = (x, y, z) => ({ x: width / 2 - (reading && height < 460 && width >= 500 ? 9 : 0) + (x * Math.cos(angle) - z * Math.sin(angle)) * scale,
     y: height / 2 - (reading && width < 500 ? 20 : 0) - ((y - lookY) * Math.cos(pitch) - (x * Math.sin(angle) + z * Math.cos(angle)) * Math.sin(pitch)) * scale });
@@ -107,7 +107,7 @@ export function createBurrowCanvasWorld(mount, { state, api, diagnostics, reduce
   let alive = true, frame, imageBank = new Map(), p, width = 0, height = 0, lastKey = '', background, objects = [], overlays = [], hitRegions = [], revision = 0, palLoaded = false, carryLayer, currentTheme;
   const behind = document.createElement('canvas'), front = document.createElement('canvas'), behindContext = behind.getContext('2d'), frontContext = front.getContext('2d');
   let composedSplit = -1, composedRevision = -1;
-  let previewWorld, previewResult, previewMode;
+  const placementPreview = createBurrowPreview();
   let oldTime = 0, rebuilds = 0, assetLoads = 0, heldVisualTime = 0, rasterRatio = 1;
   const sprites = new Map();
   const old = diagnostics.current;
@@ -117,9 +117,11 @@ export function createBurrowCanvasWorld(mount, { state, api, diagnostics, reduce
   const cache = (id, draw, bounds) => { if (!sprites.has(id)) sprites.set(id, cachedLayer(width, height, draw, bounds)); return sprites.get(id); };
   const add = (id, x, z, draw, bounds, used) => { const sprite = cache(id, draw, bounds); used.add(id); (id.includes(':place:') ? overlays : objects).push({ depth: p.depth(x, z), sprite }); };
   function rebuild(current, world) {
-    const theme = physicalThemeForDifficulty(current.difficulty), reading = current.difficulty === 'hard' && !current.freeBuilding && current.phase !== 'creative'; currentTheme = theme;
-    p = createBurrowProjection(width, height, world.camera, reading);
-    const project = p.project, key = `${width}:${height}:${world.camera}:${reading}:${revision}`, used = new Set(); objects = []; overlays = []; hitRegions = []; rebuilds++;
+    const theme = physicalThemeForDifficulty(current.difficulty), free = current.freeBuilding || current.phase === 'creative';
+    const reading = current.difficulty === 'hard' && !free;
+    currentTheme = theme;
+    p = createBurrowProjection(width, height, world.camera, reading, free);
+    const project = p.project, key = `${width}:${height}:${world.camera}:${reading}:${free}:${revision}`, used = new Set(); objects = []; overlays = []; hitRegions = []; rebuilds++;
     const terrain = [];
     for (let z = 0; z < 11; z++) for (let x = 0; x < 11; x++) { const tile = effectiveBurrowTerrain(world, x, z); if (tile) terrain.push({ x, z, ...tile }); }
     terrain.sort((a, b) => p.depth(a.x, a.z) - p.depth(b.x, b.z));
@@ -192,11 +194,18 @@ export function createBurrowCanvasWorld(mount, { state, api, diagnostics, reduce
     const carryId = `${key}:carry:${world.selectedPart}`; carryLayer = cache(carryId, draw => part(draw, p, imageBank, { x: 5, z: 5, y: 0, type: world.selectedPart, rotation: 0 }, theme, true), boundsFor(p, 0, 0, 0)); used.add(carryId);
     for (const [id, layer] of sprites) if (!used.has(id)) { layer.canvas.width = layer.canvas.height = 0; sprites.delete(id); }
   }
-  const select = event => {
-    if (api.current?.isWorldInputBlocked?.()) return; const rect = canvas.getBoundingClientRect(), point = { x: event.clientX - rect.left, y: event.clientY - rect.top };
-    for (const region of [...hitRegions].reverse()) if (inside(point, region.polygon)) { region.chunk ? api.current?.buildChunk(region.chunk) : api.current?.activateCell(region.cell); break; }
+  const hitAt = event => {
+    const rect = canvas.getBoundingClientRect(), point = { x: event.clientX - rect.left, y: event.clientY - rect.top };
+    return hitRegions.findLast(region => inside(point, region.polygon));
   };
-  const observer = new ResizeObserver(resize); observer.observe(mount); resize(); const unbindTap = bindBurrowTap(canvas, select, () => !api.current?.isWorldInputBlocked?.());
+  const select = event => {
+    const hit = hitAt(event);
+    if (hit?.chunk) api.current?.buildChunk(hit.chunk);
+    else if (hit?.cell) api.current?.activateCell(hit.cell);
+  };
+  const observer = new ResizeObserver(resize); observer.observe(mount); resize();
+  const unbindTap = bindBurrowTap(canvas, select, () => !api.current?.isWorldInputBlocked?.(),
+    event => api.current?.aimAt(event && hitAt(event)?.cell));
   preloadPhysicalPalArt(physicalThemeForDifficulty(state().difficulty).id, { actions: ['tools'] }).then(image => { if (alive) palLoaded = Boolean(image); });
   loadArt(state().difficulty).then(images => { if (!alive) { for (const image of images.values()) if (image) image.src = ''; return; } imageBank = images; assetLoads++; revision++; lastKey = ''; });
   const tick = time => {
@@ -234,15 +243,14 @@ export function createBurrowCanvasWorld(mount, { state, api, diagnostics, reduce
     // Reading places remain visible at their truthful world projections even
     // when a tall authored canopy extends across the ground marker.
     for (const item of overlays) ctx.drawImage(item.sprite.canvas, item.sprite.x, item.sprite.y);
-    const free = current.phase === 'creative' || current.freeBuilding, reading = current.difficulty === 'hard' && !free, mode = `${free}:${reading}`;
-    if (!previewWorld || previewWorld.blocks !== world.blocks || previewWorld.materials !== world.materials || previewWorld.selection.x !== world.selection.x || previewWorld.selection.z !== world.selection.z || previewWorld.selectedPart !== world.selectedPart || previewWorld.rotation !== world.rotation || previewWorld.islandId !== world.islandId || Math.round(previewWorld.player.x) !== Math.round(world.player.x) || Math.round(previewWorld.player.z) !== Math.round(world.player.z) || previewMode !== mode) {
-      previewResult = burrowPlacementPreview(world, { free: true, reading }); previewWorld = world; previewMode = mode;
-    }
-    const selection = world.selection, sy = previewResult.y, outline = [[-.52, -.52], [.52, -.52], [.52, .52], [-.52, .52]].map(([dx, dz]) => p.project(selection.x - 5 + dx, sy + .07, selection.z - 5 + dz));
-    if (!reading && api.current?.toolMode?.() !== 'remove') { ctx.save(); ctx.globalAlpha = .64; part(ctx, p, imageBank, { ...selection, y: sy, type: world.selectedPart, rotation: previewResult.rotation }, currentTheme); ctx.restore(); }
+    const free = current.phase === 'creative' || current.freeBuilding, reading = current.difficulty === 'hard' && !free;
+    const remove = api.current?.toolMode?.() === 'remove', selection = api.current?.aimedCell() || world.selection;
+    const previewResult = placementPreview(world, { selection, reading, remove });
+    const sy = previewResult.y, outline = [[-.52, -.52], [.52, -.52], [.52, .52], [-.52, .52]].map(([dx, dz]) => p.project(selection.x - 5 + dx, sy + .07, selection.z - 5 + dz));
+    if (!reading && !remove && previewResult.valid) { ctx.save(); ctx.globalAlpha = .64; part(ctx, p, imageBank, { ...selection, y: sy, type: world.selectedPart, rotation: previewResult.rotation }, currentTheme); ctx.restore(); }
     polygon(ctx, outline); ctx.fillStyle = previewResult.valid === false ? '#e9c9e855' : '#fff0af55'; ctx.fill(); ctx.strokeStyle = '#fff9dc'; ctx.lineWidth = 5; ctx.stroke(); ctx.strokeStyle = '#203644'; ctx.lineWidth = 2; ctx.stroke();
     const angle = previewResult.rotation * Math.PI / 2, projectMarker = (x, z) => p.project(selection.x - 5 + x * Math.cos(angle) + z * Math.sin(angle), sy + .1, selection.z - 5 + z * Math.cos(angle) - x * Math.sin(angle));
-    polygon(ctx, [[-.13, -.37], [.13, -.37], [0, -.57]].map(([x, z]) => projectMarker(x, z))); ctx.fillStyle = '#203644'; ctx.fill();
+    if (!remove) { polygon(ctx, [[-.13, -.37], [.13, -.37], [0, -.57]].map(([x, z]) => projectMarker(x, z))); ctx.fillStyle = '#203644'; ctx.fill(); }
     if (previewResult.valid === false) {
       ctx.lineWidth = 3; for (const sign of [-1, 1]) { const a = projectMarker(-.3, -.3 * sign), b = projectMarker(.3, .3 * sign); ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); }
     }

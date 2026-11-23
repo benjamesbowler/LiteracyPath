@@ -11,8 +11,12 @@ misses and interceptions cannot manufacture a literacy response.
 The whole-word picture and recorded clue appear without the target spelling.
 Printed balloon choices are reading stimuli. Two deliberate wrong rhymes expose
 the oral hint “Listen to the ending sound.” The same identities, words and slots
-remain after an error. The local recorded equivalents pun/ton preserve the
-spoken /ʌn/ family; the hint does not claim that ton has written “-un”. Local
+remain after an error. A correct pop rebuilds the formation from the remaining
+rhymes and a fresh seeded mix of distractors. The popped lane receives a
+distractor and aiming resets. Shots already in flight belong to the previous
+formation and are cleared before they can hit the new words. The local recorded
+equivalents pun/ton preserve the spoken /ʌn/ family; the hint does not claim
+that ton has written “-un”. Local
 spit/took distractors preserve the original contrasts while providing actual
 recorded names. Global rhyme and vocabulary banks remain unchanged.
 
@@ -51,9 +55,8 @@ tile and preserves every selected opaque original RGBA pixel before WebP
 encoding. It does not threshold away curls or boots. Original failures and
 pixel-parity/bounds proofs are retained; lossy WebP RGB is not claimed identical.
 
-Portrait play uses a slow, continuously circulating two-row stadium. Every
-unchanged identity becomes reachable through a genuine first collision; no
-choice is removed or prioritised by correctness. Wide routes retain their
+Portrait play uses a slow, continuously circulating two-row stadium. Every live
+choice becomes reachable through a genuine first collision. Wide routes retain their
 original wind motion. The selected performer pose fits its actual body between
 the two floating thumb-control groups. Cue, hint and all 56 px controls remain
 readable in the reviewed 320×568, 320×340 and 568×260 frames.

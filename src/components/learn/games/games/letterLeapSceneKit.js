@@ -5,6 +5,29 @@ import { withRepairedImageVersion } from '../../../../utils/repairedImageVersion
 
 export const LETTER_LEAP_CAST = Object.freeze({ meadow: 'bouncy', dino: 'chompy', moonwood: 'pip' });
 const NAMES = Object.freeze({ bouncy: 'Bouncy', chompy: 'Chompy', pip: 'Pip' });
+const RUN_STRIDE = ['run-extended-a', 'run-passing', 'run-extended-b', 'run-passing'];
+// The phase follows distance travelled. At full speed each pose lasts about
+// 100ms, so alternating footfalls read as a stride instead of a flicker.
+const RUN_POSE_SPAN = 2.1;
+
+const heroFrames = Object.fromEntries(Object.values(LETTER_LEAP_CAST).map(hero => {
+  const actions = {};
+  for (const [id, atlas] of Object.entries(LETTER_LEAP_ATLASES)) {
+    if (!id.startsWith(hero + '-')) continue;
+    atlas.frames.forEach((frame, index) => { actions[frame.action] = { id, index, atlas, frame }; });
+  }
+  // The source poses register a different lead foot on each frame. Align the
+  // crown over one body position while leaving the sole on the ground line.
+  const idle = actions.idle;
+  const rest = registeredPalCanvasPose(idle.atlas, idle.frame, { height: 1 }).sockets.crown;
+  for (const action of new Set(RUN_STRIDE)) {
+    const entry = actions[action];
+    const crown = registeredPalCanvasPose(entry.atlas, entry.frame, { height: 1 }).sockets.crown;
+    const scale = rest.y / crown.y * (action === 'run-passing' ? .98 : 1);
+    entry.runAlignment = { scale, x: rest.x - crown.x * scale };
+  }
+  return [hero, actions];
+}));
 
 export function letterLeapPose(player, { inputAxis = 0 } = {}) {
   if (player?.onGround && Math.abs(player.vx || 0) < 0.4 && player.feedbackTime > 0) {
@@ -17,18 +40,21 @@ export function letterLeapPose(player, { inputAxis = 0 } = {}) {
   }
   if (player.squash > 0.08) return 'land';
   if (inputAxis && player.vx * inputAxis < -0.2) return 'brake';
-  if (Math.abs(player.vx) > 0.15) return Math.floor((player.anim || 0) / 0.85) % 2 ? 'run-passing' : 'run-extended-a';
+  if (Math.abs(player.vx) > 0.15) return RUN_STRIDE[Math.floor((player.anim || 0) / RUN_POSE_SPAN) % RUN_STRIDE.length];
   return 'idle';
 }
 
 export function letterLeapRegisteredPose(world, player, placement, options = {}) {
   const hero = LETTER_LEAP_CAST[world] || 'bouncy';
   const action = letterLeapPose(player, options);
-  const id = Object.keys(LETTER_LEAP_ATLASES).find(key => key.startsWith(hero + '-')
-    && LETTER_LEAP_ATLASES[key].frames.some(frame => frame.action === action));
-  const atlas = LETTER_LEAP_ATLASES[id];
-  const index = atlas?.frames.findIndex(frame => frame.action === action) ?? -1;
-  return { action, id, index, registration: atlas ? registeredPalCanvasPose(atlas, atlas.frames[index], placement) : null };
+  const { id, index, atlas, frame, runAlignment } = heroFrames[hero][action];
+  if (runAlignment) {
+    const height = placement.height ?? 110;
+    const sign = placement.mirror ? -1 : 1;
+    placement = { ...placement, height: height * runAlignment.scale,
+      x: (placement.x ?? 0) + runAlignment.x * height * sign };
+  }
+  return { action, id, index, placement, registration: registeredPalCanvasPose(atlas, frame, placement) };
 }
 
 export function letterLeapFoePose(foe, { reducedMotion = false } = {}) {
@@ -75,10 +101,6 @@ export function createLetterLeapSceneKit(world) {
     image.src = withRepairedImageVersion(asset.runtime);
   }
   load('terrain'); load('action-props'); load(world + '-horizon'); load(world + '-foes');
-  const getPose = (player, options) => {
-    const pose = letterLeapRegisteredPose(world, player, { height: 76 }, options);
-    return { action: pose.action, id: pose.id, index: pose.index };
-  };
   const terrain = LETTER_LEAP_SCENE_ART.terrain.frames.find(frame => frame.world === world);
   function drawLedge(ctx, x, y, width, { bodyHeight = 38, deep = false, viewLeft = x, viewRight = x + width } = {}) {
     const image = images.get('terrain');
@@ -141,18 +163,18 @@ export function createLetterLeapSceneKit(world) {
       });
     },
     drawHero(ctx, player, { height, inputAxis = 0, time = 0 } = {}) {
-      const pose = getPose(player, { inputAxis });
       const placement = { x: player.x, y: player.y + player.h / 2, height, mirror: player.face < 0 };
-      if (pose.id && bank.draw(ctx, pose.id, pose.index, placement)) return { ...pose, registration: bank.pose(pose.id, pose.index, placement), delivered: true };
+      const { action, id, index, placement: aligned, registration } = letterLeapRegisteredPose(world, player, placement, { inputAxis });
+      if (bank.draw(ctx, id, index, aligned)) return { action, id, index, registration, delivered: true };
       const delivered = drawPhysicalPalArt(ctx, {
         world, x: placement.x, y: placement.y, height, direction: player.face < 0 ? 'left' : 'right',
         time, moving: player.onGround && Math.abs(player.vx) > 0.15, action: player.onGround ? 'locomotion' : 'jump'
       });
-      return { ...pose, delivered, fallback: true };
+      return { action, id, index, delivered, fallback: true };
     },
     heroPose(player, placement, options) {
-      const pose = getPose(player, options);
-      return pose.id ? { ...pose, registration: bank.pose(pose.id, pose.index, placement) } : pose;
+      const { action, id, index, registration } = letterLeapRegisteredPose(world, player, placement, options);
+      return { action, id, index, registration };
     },
     drawLedge, drawProp,
     revision: () => revision,

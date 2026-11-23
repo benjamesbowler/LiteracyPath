@@ -8,7 +8,7 @@ test('reduced motion keeps genuine native shots while the actual painted reward 
     const original = CanvasRenderingContext2D.prototype.drawImage;
     window.__rhymeRibbonPaints = [];
     CanvasRenderingContext2D.prototype.drawImage = function(image, ...args) {
-      if (image?.src?.endsWith(runtime) && args.length === 8 && args[0] === source[0] && args[1] === source[1]
+      if (image?.src && new URL(image.src, location.href).pathname === runtime && args.length === 8 && args[0] === source[0] && args[1] === source[1]
         && args[2] === source[2]-source[0] && args[3] === source[3]-source[1]) {
         if (window.__rhymeRibbonPaints.length < 128) window.__rhymeRibbonPaints.push({ x: args[4], y: args[5], alpha: this.globalAlpha, at: performance.now() });
       }

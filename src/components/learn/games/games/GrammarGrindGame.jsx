@@ -1162,8 +1162,11 @@ function startGame(mount, opts) {
     setHudText(el.level, `Word ${levelIndex + 1} of ${ladder.length}`);
     setHudText(el.score, `${Math.max(0, Math.round(score))} pts`);
     setHudText(el.combo, `Combo x${combo}`);
-    setHudText(el.prompt, completed ? "Park complete" : lineReady ? `${level.audioWord} complete!` : "Build the word you hear");
     loadWordPicture();
+    const buildPrompt = canHearLevel
+      ? "Build the word you hear"
+      : pictureDelivery !== "unavailable" ? "Build the picture word" : `Build ${level.audioWord}`;
+    setHudText(el.prompt, completed ? "Park complete" : lineReady ? `${level.audioWord} complete!` : buildPrompt);
     setHudText(el.sentence, level.segments.map((segment, index) => (index < lineStep ? segment : "_")).join("  "));
     setHudText(el.cue, lineReady ? level.focus : phonicsTargetHint(level.audioWord, wordMistakes));
     overlay.dataset.correction = String(correctionTimer > 0);
@@ -1237,7 +1240,11 @@ function startGame(mount, opts) {
     supportReasons.add("teaching-feedback");combo=1;correctionTimer=2.8;
     message=`${selected} is not next`;messageTimer=1.45;
     const hint=phonicsTargetHint(level.audioWord,wordMistakes);
-    coachText=hint?`Hint: ${hint}. Listen again.`:`You chose ${selected}. Hear that sound, then listen to the word.`;
+    if (getSound()) {
+      coachText = hint ? `Hint: ${hint}. Listen again.` : `You chose ${selected}. Hear that sound, then listen to the word.`;
+    } else {
+      coachText = hint ? `Hint: ${hint}. Try again.` : `You chose ${selected}. Look at the clue and try another part.`;
+    }
     sfx(playSoftBuzz);
     if(!getSound())return;
     levelVoice?.abort();resultVoice?.abort();wordDelivery="pending";wordReceipt=null;

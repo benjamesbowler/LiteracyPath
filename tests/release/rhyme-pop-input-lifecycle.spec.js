@@ -14,8 +14,17 @@ test('fixed wrong choices, accepted rhyme and first wrong survive reload and sup
     expect((await readRhymeFrame(page)).bubbles.map(({ id, word, slot }) => ({ id, word, slot }))).toEqual(original);
   }
   await expect(page.locator('[data-rhyme-hint]:visible')).toHaveCount(1);
-  await acceptRhyme(page, await level(page, 'easy'));
+  const firstFormation = (await readRhymeFrame(page)).bubbles;
+  const reshuffled = await acceptRhyme(page, await level(page, 'easy'));
   const before = await readRhyme(page);
+  const accepted = before.evidence.acceptedResponses.at(-1).selected;
+  const poppedSlot = firstFormation.find(row => row.word === accepted).slot;
+  expect(reshuffled.bubbles.find(row => row.slot === poppedSlot)?.kind).toBe('distractor');
+  expect(reshuffled.bubbles.every(row => firstFormation.every(previous => previous.id !== row.id))).toBe(true);
+  expect(reshuffled.keyboardBubbleId).toBeNull();
+  await page.keyboard.press('Space');
+  await page.waitForTimeout(180);
+  expect((await readRhyme(page)).shots).toEqual([]);
   await page.reload();
   await page.getByRole('button', { name: 'Continue', exact: true }).click();
   await page.waitForFunction(() => window.__arcadePreviewSnapshot?.()?.performance?.delivered);
@@ -126,7 +135,8 @@ for (const [difficulty, asset] of [['easy', 'meadow-festival-v1'], ['medium', 'd
   test(`${difficulty} independently missing ${asset} keeps the original-art fallback and exact task after recovery`, async ({ page }) => {
     test.setTimeout(60000);
     let blocked = true;
-    await page.route(`**/game-assets/physical-arcade/rhyme-pop/${asset}.webp`, route => blocked ? route.abort() : route.continue());
+    await page.route(url => url.pathname.endsWith(`/game-assets/physical-arcade/rhyme-pop/${asset}.webp`),
+      route => blocked ? route.abort() : route.continue());
     await openRhyme(page, difficulty, { waitForArt: false });
     await page.waitForFunction(() => window.__arcadePreviewSnapshot().performance.playableFallback);
     await page.setViewportSize({ width: 320, height: 340 });

@@ -37,6 +37,10 @@
 .wc-air-controls button { flex:none; pointer-events:auto; width:56px; height:56px; border:2px solid #CBD5E1; border-radius:18px; background:linear-gradient(#ffffff,#E9EDF9); box-shadow:0 3px 0 #18263E55; color:#3454C8; font:700 28px var(--kid-font-display,Fredoka,sans-serif); touch-action:none; }
 .wc-air-controls button small { display:block; font-size:10px; line-height:1; }
 .wc-air-controls button:active,.wc-air-controls button[data-pressed] { background:#3454C8; color:#ffffff; box-shadow:0 1px 0 #18263E55; transform:translateY(2px); }
+.wc-air-controls .wc-guide-climb { width:auto; min-width:90px; padding:0 8px; border-radius:15px; font-size:clamp(12px,1.4vw,16px); }
+.wc-air-controls .wc-guide-climb[aria-pressed="true"] { color:#fff; background:#3454C8; border-color:#fff; }
+.word-climb:has(.wc-guide-climb) .wc-feedback { bottom:76px; }
+.wc-route-progress { display:block; width:100%; height:5px; margin-top:5px; accent-color:#3454C8; }
 .wc-summit-dialog,.wc-save-dialog { position:absolute; z-index:30; left:50%; top:50%; transform:translate(-50%,-50%); box-sizing:border-box; width:min(88%,380px); padding:18px 22px; text-align:center; color:#18263E; border:2px solid #CBD5E1; border-radius:24px; background:#F7F8FAfa; box-shadow:0 14px 60px #18263E66; }
 .wc-save-dialog { z-index:45; }
 .wc-summit-dialog>span { color:#3454C8; font-size:35px; }
@@ -52,7 +56,7 @@
 @keyframes wc-land { 0% { transform:scale(1.14,.8); } 70% { transform:scale(.97,1.04); } 100% { transform:scale(1); } }
 @media(hover:hover) and (pointer:fine) { .wc-word-ledge.is-reachable:not(:disabled):hover { background:#E9EDF9; border-color:#3454C8; } }
 @media(max-width:959px) { .wc-mission-card { top:96px; width:min(360px,calc(100% - 16px)); } .wc-next-words { top:176px; } }
-@media(max-width:520px) { .wc-mission-card { top:80px; gap:8px; padding:4px 8px; } .wc-stage-label { font-size:9px; } .wc-height span { display:none; } .wc-height { font-size:16px; } .wc-next-words { top:156px; } .wc-next-words>div { gap:10px; } .wc-next-words strong,.wc-word-ledge strong { font-size:clamp(16px,4.5vw,22px); } .wc-climber { width:66px; height:74px; } .wc-feedback { left:8px; right:8px; top:156px; bottom:auto; box-sizing:border-box; font-size:12px; } .word-climb[data-journey-phase="climb"] .wc-feedback { top:216px; } .wc-air-controls>button:last-child { margin-left:auto; } }
+@media(max-width:520px) { .wc-mission-card { top:80px; gap:8px; padding:4px 8px; } .wc-stage-label { font-size:9px; } .wc-height span { display:none; } .wc-height { font-size:16px; } .wc-next-words { top:156px; } .wc-next-words>div { gap:10px; } .wc-next-words strong,.wc-word-ledge strong { font-size:clamp(16px,4.5vw,22px); } .wc-climber { width:66px; height:74px; } .wc-feedback { left:8px; right:8px; top:156px; bottom:auto; box-sizing:border-box; font-size:12px; } .word-climb[data-journey-phase="climb"] .wc-feedback { top:216px; } }
 @media(max-height:420px) {
   .wc-summit-dialog { top:auto; bottom:8px; transform:translateX(-50%); width:min(92%,510px); padding:10px 16px; display:grid; grid-template-columns:1fr 1fr; column-gap:12px; }
   .wc-summit-dialog>span { display:none; }
@@ -70,6 +74,10 @@
 @media(max-height:420px) and (min-width:521px) { .wc-mission-card { top:8px; left:150px; right:208px; width:auto; min-height:56px; transform:none; padding:0 4px; } .wc-mission-card h2 { font-size:15px; } .wc-stage-label { display:none; } .wc-height { font-size:14px; } .wc-height span { display:none; } .wc-next-words { top:80px; } }
 @media(max-height:420px) and (max-width:520px) { .wc-mission-card { top:72px; min-height:56px; } .wc-next-words { top:144px; } .word-climb .wc-feedback { left:136px; right:80px; top:auto; bottom:12px; font-size:10px; } }
 @media(min-width:768px) and (min-height:421px) { .wc-bottom-bar { left:max(16px,env(safe-area-inset-left)); right:max(16px,env(safe-area-inset-right)); bottom:max(12px,env(safe-area-inset-bottom)); } .wc-air-controls button { width:72px; height:72px; font-size:32px; } .wc-air-controls button small { font-size:12px; } .wc-feedback { left:192px; right:112px; bottom:24px; } }
+@media(min-width:768px) and (min-height:421px) { .word-climb:has(.wc-guide-climb) .wc-feedback { bottom:96px; } }
+@media(max-width:520px) and (min-height:421px) { .word-climb[data-journey-phase="climb"] .wc-feedback { top:226px; bottom:auto; } }
+@media(min-width:521px) and (max-height:420px) { .word-climb:has(.wc-guide-climb) .wc-feedback { top:128px; bottom:auto; } }
+@media(max-width:520px) and (max-height:420px) { .word-climb:has(.wc-guide-climb) .wc-feedback { left:8px; right:8px; bottom:76px; } }
 @media(prefers-reduced-motion:reduce) { .wc-climber img { animation:none !important; } }
 @media(forced-colors:active) { .wc-word-ledge,.wc-replay,.wc-air-controls button,.wc-mission-card,.wc-next-words,.wc-save-dialog,.wc-summit-dialog { background:Canvas!important; color:CanvasText; border:2px solid CanvasText; } }
 

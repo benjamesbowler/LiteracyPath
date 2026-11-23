@@ -25,6 +25,17 @@ test('releasing a pointer, key alias or accessibility nudge preserves every othe
   assert.deepEqual(input.snapshot(), { left: false, right: false, up: false, down: false });
 });
 
+test('a directional tap survives release for one step while pointer cancellation drops an unplayed tap', () => {
+  const input = createTowerTumbleInput();
+  input.set('right', true, 'key:ArrowRight');
+  input.set('right', false, 'key:ArrowRight');
+  assert.equal(input.consume().right, true);
+  assert.equal(input.consume().right, false);
+  input.set('up', true, 'pointer:7');
+  input.releaseSource('pointer:7');
+  assert.equal(input.consume().up, false);
+});
+
 test('a committed short tap survives release and produces exactly one jump event', () => {
   const motor = createTowerTumbleMotor(), before = standing();
   motor.requestJump();

@@ -31,13 +31,21 @@ test('Sentence Grove shows the actual cat and keeps movement live with sound off
 test('a physically driven nearby tree always accepts the advertised cut', async ({ page }) => {
   test.setTimeout(90000);
   await page.addInitScript(() => {
+    const getContext = HTMLCanvasElement.prototype.getContext;
+    HTMLCanvasElement.prototype.getContext = function (kind, ...args) {
+      if (kind === 'webgl' || kind === 'webgl2') return null;
+      return getContext.call(this, kind, ...args);
+    };
     localStorage.setItem('literacy-guide-learn-games:fullscreen-overlay-preview', JSON.stringify({
       games: { 'star-gallery': { checkpoints: { easy: { level: 0, totalLevels: 10, sessionSeed: 0 } } } }
     }));
   });
   await page.clock.install();
-  await page.goto('/preview/game-overlay.html?game=star-gallery&sound=0&music=0');
-  await expect(page.locator('[data-role="cut"]')).toBeVisible();
+  await page.goto('/preview/game-overlay.html?game=star-gallery&sound=1&music=0');
+  await page.getByRole('button', { name: 'Continue', exact: true }).click();
+  await expect(page.locator('[data-role="cut"]')).toBeVisible({ timeout: 30_000 });
+  await expect(page.getByText('Getting your grove ready…', { exact: true })).toBeHidden({ timeout: 30_000 });
+  await page.clock.pauseAt(await page.evaluate(() => Date.now() + 250));
   let state = await snapshot(page);
   const target = state.tokens.filter(t => t.isCorrect).sort((a,b) => Math.hypot(a.position.x-state.player.x,a.position.z-state.player.z)-Math.hypot(b.position.x-state.player.x,b.position.z-state.player.z))[0];
   const held = new Set();
@@ -54,11 +62,18 @@ test('a physically driven nearby tree always accepts the advertised cut', async 
   for(const key of held)await page.keyboard.up(key);
   expect(state.nearTreeLabel).toBe(target.label);
   const before=state.correct+state.mistakes;
-  await page.getByRole('button',{name:'Cut the nearby answer tree',exact:true}).click();
+  await page.getByRole('button',{name:'Cut the nearby answer tree',exact:true}).press('Enter');
   await page.clock.runFor(20);
   state=await snapshot(page);
   expect(state.correct+state.mistakes).toBe(before+1);
   expect(state.correct).toBe(1);
+  await expect(page.locator('[data-role="display"]')).toHaveText('The cat sat on the mat.');
+  const replay = page.getByRole('button', { name: 'Hear your repaired sentence', exact: true });
+  await expect(replay).toBeEnabled();
+  const { width, height } = await replay.boundingBox();
+  expect(width).toBeGreaterThanOrEqual(56);
+  expect(height).toBeGreaterThanOrEqual(56);
+  expect(await replay.evaluate(button => parseFloat(getComputedStyle(button).fontSize))).toBeGreaterThanOrEqual(16);
 });
 
 

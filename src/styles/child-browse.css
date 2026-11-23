@@ -96,7 +96,7 @@
   grid-auto-rows: minmax(0, 1fr);
   align-content: start;
   height: 100%;
-  gap: 6px;
+  gap: 8px;
 }
 .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-paged-grid .lg-game-tile {
   grid-template-rows: minmax(0, 1fr) auto;
@@ -104,6 +104,12 @@
 }
 .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-paged-grid .lg-game-tile-art { height: 100%; aspect-ratio: auto; }
 .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-paged-grid .lg-game-tile-name { min-height: 38px; }
+
+@media (min-width: 651px) and (min-height: 431px) and (max-height: 620px) {
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-paged-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
 
 @media (max-height: 430px) and (orientation: landscape) {
   .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-tile { grid-template-columns: 72px minmax(0, 1fr); grid-template-rows: 1fr; height: 60px; }
@@ -120,6 +126,15 @@
   .kg-stage .student-surface-arcade .lg-simple-arcade .lg-personal-progress ul { margin: 4px 0; }
   .kg-stage .student-surface-arcade .lg-simple-arcade .lg-personal-progress li { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2px 6px; padding: 4px 6px; font-size: 13px; }
   .kg-stage .student-surface-arcade .lg-simple-arcade .lg-personal-progress li > strong { grid-column: 1 / -1; }
+}
+@media (min-width: 550px) and (max-height: 430px) and (orientation: landscape) {
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-paged-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-paged-grid .lg-game-tile {
+    grid-template-columns: 64px minmax(0, 1fr);
+  }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-paged-grid .lg-game-tile-art { width: 64px; }
 }
 @media (max-width: 470px) and (max-height: 430px) and (orientation: landscape) {
   .kg-stage .student-surface-phonics .phonics-island-view:has(.phonics-alphabet-picker) { grid-template-columns: 105px minmax(0, 1fr); }

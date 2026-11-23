@@ -12,6 +12,8 @@ The current route, staged vocabulary and reachable word ledges remain authoritat
 
 Easy uses 2200 units of ascent and two 400-unit crossings per station; Medium uses 1900 and two 350-unit crossings; Hard uses 1650 and two 325-unit crossings. Ascent, steering, gravity and word-flight speeds are unchanged. Generous connection gates supply at most eight units of tolerance, so the physical lower bound counts the remaining horizontal travel separately from vertical ascent. There is no minimum-time lock, delayed input or repeated word padding.
 
+The upcoming-word card shows the height gained toward the next word station. Hold Up or the Climb button to ascend manually. Auto climb follows the same route at the same speed using ordinary movement input. It waits for the player to choose a bough, cross back to the canopy and choose a word. Steering, stopping, pausing, leaving the window, a fall or arrival at the word station switches off auto climb. The option is available on the crossed-bough route and stays out of the saved session and literacy evidence. At a crossing, tapping a direction or a named bough moves the climber along the physical branch.
+
 The immutable `paced-native` receipts distinguish actual route play from ending/save checks:
 
 | Fresh outing | Actual words / crossings | Route wall time | Active movement plus real word flights | Full native case |

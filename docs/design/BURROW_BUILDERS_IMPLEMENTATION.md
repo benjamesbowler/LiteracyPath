@@ -104,9 +104,12 @@ terrain and shelter, an inhabited worksite and flowing water. The retained
 verification below exercises the complete rebuilt game; generated assets alone
 do not establish that result.
 
-Use arrows or WASD to walk and aim at the next cell in Free Build, E/Space to
-place, Backspace to pick up and Q to turn a piece. Held touch controls support
-the same walking actions and release
+Use arrows or WASD to walk and aim at the next cell in Free Build. E, Space or
+Enter acts at the highlighted spot. Backspace picks up and Q turns a piece.
+The world also has a Place or Pick up button beside the build tools. A mouse
+previews the cell it points at, using the same hit regions as a construction tap.
+The preview shows the active tool's result before the edit.
+Held touch controls support the same walking actions and release
 on pointer-up, cancellation, lost capture, blur, pause and page hiding. Camera
 changes preserve screen-relative movement and billboard the visible glyphs.
 Native workbench actions perform the same construction and learning action as

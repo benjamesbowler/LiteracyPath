@@ -120,7 +120,7 @@
 .skills-block-quest .woodland-adventure .am-letter-press { gap: 30px; }
 .skills-block-quest .woodland-adventure .am-letter-press-choices { gap: 26px; }
 .skills-block-quest .woodland-adventure .am-sound-choice__tiles { gap: clamp(20px, 4vw, 56px); }
-.skills-block-quest .woodland-adventure .am-sound-choice__tile { width: clamp(125px, 17vw, 215px); min-height: 160px; padding: 18px; }
+.skills-block-quest .woodland-adventure .am-sound-choice__tile { width: clamp(136px, 17vw, 215px); min-height: 160px; padding: 18px; }
 .skills-block-quest .woodland-adventure .am-word-choice__words { gap: 32px; width: min(980px, 100%); }
 .skills-block-quest .woodland-adventure .am-word-choice__words button { min-height: clamp(140px, 24vh, 220px); border-radius: 42% 46% 38% 42%; }
 .skills-block-quest .woodland-adventure .am-picture-search__scene { gap: 17px 22px; }

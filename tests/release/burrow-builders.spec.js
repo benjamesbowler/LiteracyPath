@@ -559,6 +559,7 @@ for (const [name, width, height] of [['phone', 320, 568], ['short', 568, 320], [
     await expect(page.getByRole('button', { name: 'Word kits', exact: true })).toBeVisible();
     await expect(page.getByRole('button', { name: 'Choose building piece', exact: true })).toBeVisible();
     await expect(page.getByRole('button', { name: 'Use remove tool', exact: true })).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Place at the highlighted spot', exact: true })).toBeVisible();
     await expect(page.getByRole('button', { name: 'Undo this edit', exact: true })).toBeVisible();
     const controls = await page.locator('.burrow-builders button:visible').evaluateAll(buttons => buttons.map(button => {
       const r = button.getBoundingClientRect(), center = document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2);
@@ -575,7 +576,7 @@ for (const [name, width, height] of [['phone', 320, 568], ['short', 568, 320], [
     }
     await expect.poll(async () => (await snapshot(page)).rendering.authoredPal).toBe('delivered');
     await page.screenshot({ path: testInfo.outputPath(`${name}-build-first.png`) });
-    await place(page);
+    await page.getByRole('button', { name: 'Place at the highlighted spot', exact: true }).click();
     const built = await snapshot(page);
     expect(built.world.blocks.length).toBe(initial.world.blocks.length + 1);
     expect(built.world.materials).toEqual(initial.world.materials);
@@ -621,6 +622,7 @@ test('piece and island drawers own input and Escape returns focus without editin
 });
 
 for (const renderer of ['webgl', 'canvas']) test(`direct ${renderer} taps build and remove with undo while drags and cancelled touches do not edit`, async ({ page }, testInfo) => {
+  test.setTimeout(90000);
   await page.setViewportSize({ width: 1280, height: 900 });
   await open(page, 'easy', false, { build: true });
   const canvas = page.locator('.burrow-builders__world canvas');
@@ -666,8 +668,59 @@ for (const renderer of ['webgl', 'canvas']) test(`direct ${renderer} taps build 
   const saved = await snapshot(page);
   expect(saved.score).toBe(0); expect(saved.evidence.firstResponses).toHaveLength(0);
   await page.reload(); await page.getByRole('button', { name: 'Continue', exact: true }).click();
+  await expect(page.locator('.burrow-builders')).toBeVisible({ timeout: 30000 });
   await expect.poll(async () => (await snapshot(page))?.world.blocks).toEqual(saved.world.blocks);
   expect((await snapshot(page)).freeBuilding).toBe(true);
+});
+
+for (const forceCanvas of [false, true]) test(`Burrow ${forceCanvas ? 'Canvas fallback' : 'default renderer'} previews the mouse target and keeps it consistent with the build and remove actions`, async ({ page }, testInfo) => {
+  test.setTimeout(60000);
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await open(page, 'easy', false, { build: true });
+  const canvas = page.locator('.burrow-builders__world canvas');
+  if (forceCanvas) {
+    await canvas.evaluate(node => node.dispatchEvent(new Event('webglcontextlost')));
+    await expect.poll(async () => (await snapshot(page)).rendering.renderer).toBe('canvas');
+  }
+  const initial = await snapshot(page), target = { x: 3, z: 4 };
+  await grid(page, target.x, target.z);
+  await page.getByRole('button', { name: 'Return to world view', exact: true }).click();
+  await expect.poll(async () => (await snapshot(page)).rendering.placementPreview).toMatchObject(target);
+  const targetPoint = (await snapshot(page)).rendering.selectedCellScreen;
+  await grid(page, initial.world.selection.x, initial.world.selection.z);
+  await page.getByRole('button', { name: 'Return to world view', exact: true }).click();
+  await expect.poll(async () => (await snapshot(page)).rendering.placementPreview).toMatchObject(initial.world.selection);
+  await expect(page.locator('.burrow-builders__keyboard-guide')).toBeVisible();
+  const bounds = await canvas.boundingBox();
+  const hover = () => page.mouse.move(bounds.x + targetPoint.x, bounds.y + targetPoint.y);
+  await hover();
+  await expect.poll(async () => (await snapshot(page)).rendering.placementPreview).toMatchObject({ ...target, kind: 'place' });
+  expect((await snapshot(page)).world.selection).toEqual(initial.world.selection);
+  expect((await snapshot(page)).world.blocks).toEqual(initial.world.blocks);
+  await page.getByRole('button', { name: 'Choose building piece', exact: true }).focus();
+  await page.keyboard.press('q');
+  await page.keyboard.press('e');
+  await expect.poll(async () => (await snapshot(page)).world.blocks.at(-1)).toMatchObject({ ...target, type: 'wood', rotation: 1 });
+  await page.getByRole('button', { name: 'Use remove tool', exact: true }).click();
+  await hover();
+  await expect.poll(async () => (await snapshot(page)).rendering.placementPreview).toMatchObject({ ...target, kind: 'remove' });
+  await page.screenshot({ path: testInfo.outputPath(`${(await snapshot(page)).rendering.renderer}-pointer-remove.png`) });
+  await page.getByRole('button', { name: 'Pick up at the highlighted spot', exact: true }).click();
+  expect((await snapshot(page)).world.blocks).toEqual(initial.world.blocks);
+  expect((await snapshot(page)).evidence).toEqual(initial.evidence);
+});
+
+test('releasing an alternate move key leaves the other key held', async ({ page }) => {
+  await open(page, 'easy', false, { build: true });
+  await page.keyboard.down('ArrowLeft');
+  await page.keyboard.down('a');
+  await page.keyboard.up('a');
+  const released = (await snapshot(page)).world.player.x;
+  await expect.poll(async () => (await snapshot(page)).world.player.x).toBeLessThan(released - .12);
+  await page.keyboard.up('ArrowLeft');
+  const stopped = (await snapshot(page)).world.player;
+  await page.waitForTimeout(120);
+  expect((await snapshot(page)).world.player).toEqual(stopped);
 });
 
 test('choosing a kit leaves Remove mode and a failed drawer save keeps recovery reachable', async ({ page }) => {

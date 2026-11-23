@@ -6,7 +6,7 @@ import path from 'node:path';
 import sharp from 'sharp';
 import { LETTER_LEAP_ATLASES, LETTER_LEAP_FOE_ATLASES, LETTER_LEAP_SCENE_ART } from '../../src/components/learn/games/games/letterLeapArt.generated.js';
 import { registeredPalCanvasPose } from '../../src/components/learn/games/shared/registeredPalArt.js';
-import { letterLeapPose, letterLeapFoePose, LETTER_LEAP_CAST } from '../../src/components/learn/games/games/letterLeapSceneKit.js';
+import { letterLeapPose, letterLeapRegisteredPose, letterLeapFoePose, LETTER_LEAP_CAST } from '../../src/components/learn/games/games/letterLeapSceneKit.js';
 import { letterLeapHeadContact, letterLeapBlockContact, letterLeapPlatformHasClearance } from '../../src/components/learn/games/games/letterLeapContact.js';
 
 test('all three canonical platforming casts have genuinely distinct move/jump/landing source poses', () => {
@@ -14,7 +14,7 @@ test('all three canonical platforming casts have genuinely distinct move/jump/la
   for (const hero of Object.values(LETTER_LEAP_CAST)) {
     const banks = Object.entries(LETTER_LEAP_ATLASES).filter(([id]) => id.startsWith(hero + '-'));
     const poses = banks.flatMap(([, atlas]) => atlas.frames);
-    for (const action of ['idle', 'run-extended-a', 'run-passing', 'brake', 'crouch', 'takeoff', 'rise', 'fall', 'land','bump','recover','correct','summit']) {
+    for (const action of ['idle', 'run-extended-a', 'run-passing', 'run-extended-b', 'brake', 'crouch', 'takeoff', 'rise', 'fall', 'land','bump','recover','correct','summit']) {
       assert.ok(poses.some(frame => frame.action === action), `${hero}: missing ${action}`);
     }
     const owned = banks.find(([id]) => id.endsWith('-platforming'))[1];
@@ -76,12 +76,29 @@ test('solid crate sides and a low ceiling cannot be walked or landed through', (
 test('pose selection follows real movement, reversal, spring/take-off, falling and landing state', () => {
   assert.equal(letterLeapPose({ onGround: true, vx: 0, squash: 0 }), 'idle');
   assert.equal(letterLeapPose({ onGround: true, vx: 4, squash: 0, anim: 0 }), 'run-extended-a');
-  assert.equal(letterLeapPose({ onGround: true, vx: 4, squash: 0, anim: 0.9 }), 'run-passing');
+  assert.equal(letterLeapPose({ onGround: true, vx: 4, squash: 0, anim: 0.9 }), 'run-extended-a');
   assert.equal(letterLeapPose({ onGround: true, vx: 4, squash: 0 }, { inputAxis: -1 }), 'brake');
   assert.equal(letterLeapPose({ onGround: false, vy: -19 }), 'takeoff');
   assert.equal(letterLeapPose({ onGround: false, vy: -5 }), 'rise');
   assert.equal(letterLeapPose({ onGround: false, vy: 7 }), 'fall');
   assert.equal(letterLeapPose({ onGround: true, vx: 4, squash: 0.3 }), 'land');
+});
+
+test('the full stride alternates lead feet at a readable pace without moving the body off its path', () => {
+  const run = { onGround: true, vx: 4.8, squash: 0 };
+  const samples = [0, 1.9, 2.2, 4.5, 6.5, 8.5];
+  const expected = ['run-extended-a', 'run-extended-a', 'run-passing', 'run-extended-b', 'run-passing', 'run-extended-a'];
+  for (const world of Object.keys(LETTER_LEAP_CAST)) for (const mirror of [false, true]) {
+    const placement = { x: 300, y: 420, height: 76, mirror };
+    const still = letterLeapRegisteredPose(world, { ...run, vx: 0 }, placement).registration;
+    const poses = samples.map(anim => letterLeapRegisteredPose(world, { ...run, anim }, placement));
+    assert.deepEqual(poses.map(pose => pose.action), expected);
+    for (const { registration } of poses) {
+      assert.equal(registration.sockets.feet.y, placement.y);
+      assert.ok(Math.abs(registration.sockets.crown.x - still.sockets.crown.x) < 0.01);
+      assert.ok(Math.abs(registration.sockets.crown.y - still.sockets.crown.y) < 2);
+    }
+  }
 });
 
 test('retained original sources and delivered derivatives match independently recorded dimensions and hashes', async () => {
