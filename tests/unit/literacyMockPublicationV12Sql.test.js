@@ -5,6 +5,7 @@ import {fixtureV10} from '../helpers/literacyMockV10Database.js';
 import {query,teacher,other,classId,studentId} from '../helpers/literacyMockDatabase.js';
 import {literacyMockV12SchemaSql,literacyMockV12CatalogueSql,V12_SCHEMA_MIGRATION,V12_CATALOGUE_MIGRATION} from '../../tools/generateLiteracyMockV12.mjs';
 import {loadLiteracyMockBank,scoreLiteracyMockResponse} from '../../src/data/literacyMockBank.js';
+import {LITERACY_MOCK_V12_COMPETING_TENSE_IMAGES,LITERACY_MOCK_V13_WITHDRAWN} from '../../src/data/literacyMockV13.js';
 import {createMockOutbox,appendMockOutbox,prepareMockDelivery,acknowledgeMockOutbox,verifyMockOutboxReceipt} from '../../src/utils/literacyMockOutbox.js';
 import {selectLiteracyMockPlan,adaptLiteracyMockPlan,sameLiteracyMockPlan} from '../../src/utils/literacyMockPlanner.js';
 import {mockConstructionLength} from '../../src/utils/literacyMockResponse.js';
@@ -12,6 +13,7 @@ import {literacyMockBoundaryState} from '../../src/policy/literacyMockBoundaryPo
 import {buildLiteracyMockReport} from '../../src/utils/literacyMockReport.js';
 import {mockOfflineMediaAssetLimit,mockOfflineMediaPaths} from '../../src/utils/literacyMockOfflineMedia.js';
 const migration = name => readFileSync(new URL(`../../supabase/migrations/${name}`,import.meta.url),'utf8');
+const auditWithdrawals = new Set([...Object.keys(LITERACY_MOCK_V12_COMPETING_TENSE_IMAGES), ...Object.keys(LITERACY_MOCK_V13_WITHDRAWN)]);
 const control = (db, id, action, revision, key = action) => query(db, 'select teacher_control_literacy_mock_session($1,$2,$3,$4) value', [id, action, revision, key]);
 const save = (db, id, key, revision, plan, response = null, token = 'synthetic-token') => query(db, 'select student_save_literacy_mock_run($1,$2,$3,$4,$5,$6) value', [token, id, key, revision, plan, response]);
 const batch = (db, id, key, lease, requests = [], collection = null, token = 'synthetic-token') => query(db, 'select student_sync_literacy_mock_batch($1,$2,$3,$4,$5,$6) value', [token, id, key, lease, requests, collection]);
@@ -113,7 +115,22 @@ test('V12 canonical publication, complete delivery, retry receipts and teacher e
    assert.deepEqual(await query(db,"select lp_mock_boundary_state_for_version(lp_mock_boundary_rows_v9($1,$2),'literacy-mock-v12') value",[id,learner]),literacyMockBoundaryState(received.run.responses,{bank:byId}));
    const collected=await control(db,id,'collect',received.mock.revision,'collect');assert.equal(collected.ok,true,collected.error);
    const report=buildLiteracyMockReport(await query(db,'select teacher_get_literacy_mock_report($1) value',[id]),{students:[{id:learner,name}]});const pupil=report.pupils[0];
-   assert.equal(pupil.responses.length,trace.length);assert.equal(pupil.totals.independent,trace.length);assert.equal(pupil.areas.length,8);assert.equal(pupil.maximumPlanned,124);
+   assert.deepEqual(pupil.responses.map(row => row.questionId), trace.map(row => row.questionId));
+   const withdrawn = trace.filter(row => auditWithdrawals.has(row.questionId));
+   const reportedWithdrawals = pupil.responses.filter(row => row.classification === 'content_invalid');
+   assert.deepEqual(reportedWithdrawals.map(row => row.questionId), withdrawn.map(row => row.questionId));
+   for (const row of reportedWithdrawals) {
+    const saved = received.run.responses[row.index];
+    assert.deepEqual(row.selected, saved.selected);
+    assert.deepEqual(row.itemSnapshot, saved.itemSnapshot);
+    assert.equal(row.originalIsCorrect, saved.isCorrect);
+    assert.equal(row.isCorrect, null);
+    assert.equal(row.evidenceType, 'unscored');
+   }
+   assert.equal(pupil.totals.independent, trace.length - withdrawn.length);
+   assert.equal(pupil.totals.unscored, withdrawn.length);
+   assert.equal(pupil.areas.length, 8);
+   assert.equal(pupil.maximumPlanned, 124);
    await db.exec(`set fixture.actor='${other}'`);assert.equal((await prepare(db,`${name}-foreign`,[learner])).ok,false);
   }
   await db.exec(`set fixture.actor='${teacher}'`);

@@ -152,10 +152,15 @@ test('actor UV ownership and late-load teardown release every active and inactiv
   assert.equal(other.userData.authoredPal.delivery, 'delivered'); disposeObject(other);
 });
 
-test('Hard Builders teaches its actual read-and-place task while earlier bands retain picture/audio encoding', () => {
+test('Builders leads with construction and teaches the matching Word kits task in each band', () => {
   const game = { id: 'burrow-builders', title: 'Burrow Builders' };
-  const easy = arcadeGuideForGame(game, { difficulty: 'easy' }), hard = arcadeGuideForGame(game, { difficulty: 'hard' });
-  assert.match(easy.instruction, /letters.*word/); assert.equal(hard.kind, 'place');
-  assert.match(hard.instruction, /Read the plan/);
-  assert.ok(hard.steps.every(step => !/hear|picture/i.test(step)));
+  const guides = ['easy', 'medium', 'hard'].map(difficulty => arcadeGuideForGame(game, { difficulty }));
+  for (const guide of guides) {
+    assert.equal(guide.kind, 'place');
+    assert.match(guide.instruction, /choose a piece.*tap the island/i);
+  }
+  const [easy, medium, hard] = guides.map(guide => guide.steps.find(step => step.startsWith('Open Word kits.')));
+  for (const step of [easy, medium]) assert.match(step, /hear the picture word.*choose its sounds/i);
+  assert.match(hard, /read the plan.*marked places/i);
+  assert.doesNotMatch(hard, /hear|picture/i);
 });

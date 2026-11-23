@@ -1,4 +1,4 @@
-import { campaignActionSound } from './campaignPlayfield.js';
+import { campaignActionSound, campaignPlayfieldLandscape } from './campaignPlayfield.js';
 import { withRepairedImageVersion } from '../../../utils/repairedImageVersion.js';
 import LearningPracticeTask from '../../../components/learn/phonics/LearningPracticeTask.jsx';
 import { saveCampaignLearningTask, completeCampaignLearningTask, campaignLearningSources } from './campaignLearningResponse.js';
@@ -77,6 +77,7 @@ export default function RoundedCampaign({ progressScopeKey, isSoundEnabled, ephe
   const [mode, setMode] = useState('title');
   const [modal, setModal] = useState(null);
   const [feedback, setFeedback] = useState(null);
+  const [repairReceipt, setRepairReceipt] = useState(null);
   const [recoveryPlayback, setRecoveryPlayback] = useState(null);
   const [practiceMediaFailures, setPracticeMediaFailures] = useState([]), [practiceMediaRevision, setPracticeMediaRevision] = useState(0);
   const onPracticeMediaState = useCallback((id, ready) => setPracticeMediaFailures(previous => {
@@ -106,6 +107,18 @@ export default function RoundedCampaign({ progressScopeKey, isSoundEnabled, ephe
     world.current?.run(motorKeys.current.has('Shift'));
   }, []);
   const releaseMotorPointer = event => { motorPointers.current.delete(event.pointerId); moveMotor(); };
+  const jump = useCallback(() => world.current?.jump(), []);
+  const guideTrail = () => {
+    if (!modal && mode === 'explore') {
+      world.current?.walkToTrail();
+      return;
+    }
+    if (mode === 'activity') return;
+    walkRequest.current = { kind: 'trail' };
+    setMode('explore');
+    setModal(null);
+  };
+  const seeRepair = () => world.current?.walkToRepair(repairReceipt?.missionId);
   const stageId = progress ? campaignResumeStage(progress) : CAMPAIGN_STAGES[0].id;
   const stage = getCampaignStage(stageId) || CAMPAIGN_STAGES[0];
   const checkpoint = currentCampaignCheckpoint(progress), beat = currentCampaignBeat(progress), mission = getCampaignMission(checkpoint?.missionId);
@@ -166,7 +179,8 @@ export default function RoundedCampaign({ progressScopeKey, isSoundEnabled, ephe
       } },
       interaction: event => { if (active) { const next = recordRoundedInventory(progressRef.current, event, Date.now()); if (next !== progressRef.current) save(next); } },
       discovery: event => { if (active) save(recordRoundedDiscovery(progressRef.current, event, Date.now())); },
-    }, { stageId: stage.id, reduced: settings.reduced, low: settings.low, signal: controller.signal, assetUrl: path => woodlandAssetUrl(`/assets/${path}`) }).then(value => {
+      trailStep: complete => { if (active) audio.current?.sfx(complete ? 'complete' : 'seed'); },
+    }, { stageId: stage.id, reduced: settings.reduced, low: settings.low, paintedEntrance: true, signal: controller.signal, assetUrl: path => woodlandAssetUrl(`/assets/${path}`) }).then(value => {
       created = value;
       if (!active) { value.dispose(); return; }
       world.current = value;
@@ -188,7 +202,8 @@ export default function RoundedCampaign({ progressScopeKey, isSoundEnabled, ephe
   useEffect(() => {
     if (!walkRequest.current || !sceneReady || paused || mode !== 'explore') return;
     const target = walkRequest.current; walkRequest.current = null;
-    world.current?.walkToDiscovery(target);
+    if (target.kind === 'trail') world.current?.walkToTrail();
+    else world.current?.walkToDiscovery(target);
   }, [sceneReady, paused, mode]);
 
   const cancelCue = useCallback(() => { cueGeneration.current++; replayGeneration.current++; audio.current?.stop(); reflectionDwell.current?.resolveCancelled?.(); reflectionDwell.current?.cancel(); }, []);
@@ -304,9 +319,18 @@ export default function RoundedCampaign({ progressScopeKey, isSoundEnabled, ephe
       onAdvance: () => {
         const current = currentCampaignCheckpoint(progressRef.current);
         if (current?.beatState.done) {
+          const before = progressRef.current;
           const next = advanceRoundedMission(progressRef.current, Date.now());
           if (!save(next)) return;
-          if (!currentCampaignBeat(next)) { setMode('explore'); setFeedback({ type: 'mission-complete', line: 'You helped! Your work stays here.' }); }
+          if (!currentCampaignBeat(next)) {
+            const finished = getCampaignMission(current.missionId);
+            if (finished?.kind === 'main' && !before.campaign.completedMissions[finished.id] && next.campaign.completedMissions[finished.id]) {
+              const place = getCampaignStage(finished.stageId);
+              const repairCount = place.missionIds.filter(id => next.campaign.completedMissions[id]).length;
+              setRepairReceipt({ title: finished.title, stageId: place.id, missionId: finished.id, repairCount });
+            }
+            setMode('explore');
+          }
         }
         displayHoldRef.current = null; setDisplayHold(null); teachingCursor.current = ''; setTeachingTarget(''); setFeedback(null);
       } });
@@ -353,6 +377,7 @@ export default function RoundedCampaign({ progressScopeKey, isSoundEnabled, ephe
         position: currentPosition ? roundedPosition({ ...currentPosition, stageId: getCampaignMission(id).stageId }) : undefined });
       if (next === progressRef.current) return;
       if (!save(next)) return;
+      setRepairReceipt(null);
       playClock.current = createCampaignPlayClock(currentCampaignCheckpoint(next).playTime, Date.now());
       setModal(null); setMode('activity');
     } catch { setAudioError('This activity could not open. Your saved place is safe. Try another available activity.'); }
@@ -407,50 +432,117 @@ export default function RoundedCampaign({ progressScopeKey, isSoundEnabled, ephe
       if (mode !== 'explore' || paused || event.target.closest('input,textarea,select,dialog,[contenteditable="true"]')) return;
       const name = event.key.length === 1 ? event.key.toLowerCase() : event.key;
       if (MOVE_DIRECTIONS[name] || name === 'Shift') { event.preventDefault(); motorKeys.current.add(name); moveMotor(); }
+      if (name === ' ' && !event.target.closest('button,a[href],[role="button"]')) {
+        event.preventDefault();
+        if (!event.repeat) jump();
+      }
       if (name === 'e' && !event.repeat) { event.preventDefault(); if (nearMission.current) begin(nearMission.current); else world.current?.interact(); }
     };
     const release = event => { motorKeys.current.delete(event.key.length === 1 ? event.key.toLowerCase() : event.key); moveMotor(); };
     const stop = () => { motorKeys.current.clear(); motorPointers.current.clear(); world.current?.move(0, 0); world.current?.run(false); };
-    const stopTravel = () => { stop(); world.current?.stopTravel(); };
+    const stopTravel = () => { stop(); world.current?.stopTravel(); world.current?.cancelJump(); };
     window.addEventListener('keydown', key); window.addEventListener('keyup', release); window.addEventListener('blur', stopTravel);
     document.addEventListener('visibilitychange', stopTravel);
     return () => { window.removeEventListener('keydown', key); window.removeEventListener('keyup', release); window.removeEventListener('blur', stopTravel); document.removeEventListener('visibilitychange', stopTravel); stop(); };
-  }, [begin, modal, mode, paused, moveMotor]);
+  }, [begin, modal, mode, paused, moveMotor, jump]);
 
   const statusLine = !saveState.ok ? saveState.error?.message : ephemeral ? 'Just for this visit' : cloudStatus === 'saved' ? 'Saved for you' : 'Saved on this device';
   const observedInput = event => { if (displayHoldRef.current || event.target.closest('button:disabled,[data-learning-phase=receipt]')) return; if (playClock.current) playClock.current = advanceCampaignPlayClock(playClock.current, { nowMs: Date.now(), activity: true, paused, hidden: document.hidden }); };
   const missionChoices = (items, replay = false) => <div className="rc-mission-list">{items.map(item => <button key={item.id} disabled={blocked} onClick={() => begin(item.id, replay)}><img src={withRepairedImageVersion(CAST[item.residentId]?.sprite)} alt="" /><span>{item.title}<small>{replay ? 'Play again' : progress?.campaign?.checkpoints?.[item.id] ? 'Carry on' : item.kind === 'optional' ? 'Extra adventure' : `Help ${CAST[item.residentId]?.name || 'this Pal'}`}</small></span></button>)}</div>;
-  const visitPlace = item => { if (save(enterCampaignStage(progressRef.current, item.id, Date.now()))) { setMode('explore'); setModal(null); } };
+  const visitPlace = item => { if (save(enterCampaignStage(progressRef.current, item.id, Date.now()))) { setRepairReceipt(null); setMode('explore'); setModal(null); } };
   const travel = sceneReady && !paused ? snapshot.navigation : null;
   const selectedWorldInteraction = travel?.kind === 'discovery' && snapshot.worldInteraction?.id === travel.id;
   const travelMission = travel?.kind === 'mission' ? getCampaignMission(travel.id) : null;
   const travelResident = travelMission && CAST[travelMission.residentId];
-  const travelLabel = travelResident ? (travel.arrived ? `${travelResident.name} is here. Choose Help.` : `Walking to ${travelResident.name}`) : travel?.kind === 'discovery' ? (travel.arrived ? ({ pickup: 'You found it. Pick it up.', place: 'You are here. Put it here.', operate: 'You found it. Choose Use it.' })[travel.action] : travel.label) : travel?.arrived ? 'You are here.' : 'Following the path';
+  const travelLabel = travelResident ? (travel.arrived ? `${travelResident.name} is here. Choose Help.` : `Walking to ${travelResident.name}`) : travel?.kind === 'discovery' ? (travel.arrived ? ({ pickup: 'You found it. Pick it up.', place: 'You are here. Put it here.', operate: 'You found it. Choose Use it.' })[travel.action] : travel.label) : travel?.kind === 'trail' ? `Walking to ${travel.label}` : travel?.kind === 'repair' ? (travel.arrived ? 'Here’s what you fixed.' : 'Walking to your repair') : travel?.arrived ? 'You are here.' : 'Following the path';
   const objectImage = kind => campaignQuestionImage({ kind });
   const replayMissions = CAMPAIGN_MISSIONS.filter(item => item.stageId === stage.id && progress?.campaign?.completedMissions[item.id]);
+  const worldName = CAMPAIGN_WORLDS.find(item => item.id === stage.worldId)?.name;
+  const repairCount = stage.missionIds.filter(id => progress?.campaign?.completedMissions[id]).length;
+  const recentRepair = repairReceipt?.stageId === stage.id ? repairReceipt : null;
+  const nextPlaceOpen = nextStage && isCampaignStageUnlocked(progress, nextStage.id, ROUND_CAMPAIGN);
+  const canWalkToPal = focusedMission && !nearbyMission;
+  const helpNearbyPal = nearbyMission && !selectedWorldInteraction;
+  const hasContextAction = helpNearbyPal || snapshot.worldInteraction;
+  const objectiveLine = stageRepaired ? (totalMain === 150 ? 'All three worlds are ready.' : 'Try an extra adventure, or explore the next place.')
+    : (nearbyMission || focusedMission)?.title || stage.problem;
+  const trailLine = snapshot.trail && (snapshot.trail.complete ? 'Trail complete' : `Trail markers ${snapshot.trail.index} of ${snapshot.trail.total}`);
+  const fieldMessage = (!saveState.ok && statusLine) || sceneError || (!sceneReady ? 'Opening the landscape…' : snapshot.worldInteraction?.prompt
+    || (snapshot.carrying ? `Carrying ${snapshot.carrying.title}. Bring it to the entrance.` : null));
   return <main style={soundSeekersRoundedCssVariables()} className="rc-game" data-sound-seekers-game="rounded-campaign" data-presentation="rounded-3d" data-scene-ready={sceneReady ? "true" : "false"} data-child-surface="sound-seekers" data-stage-id={stage.id} data-mode={mode} aria-label="Sound Seekers" tabIndex={-1} onPointerDownCapture={observedInput} onKeyDownCapture={observedInput}>
     <div className="rc-landscape" ref={host} aria-hidden={mode !== 'explore'} />
-    <header className="rc-header"><span className="rc-brand">Sound Seekers{mode === 'activity' && checkpoint && <small aria-label="Mission steps">{checkpoint.beatIndex + 1} of {checkpoint.challenges.length}</small>}</span><span>{mode === 'activity' && mission ? mission.title : stage.name}</span><button onClick={() => setModal('places')}>Places</button><button onClick={() => setModal('pause')}>Pause</button></header>
+    <header className="rc-header">
+      {mode === 'activity' && <><span className="rc-brand">Sound Seekers{checkpoint && <small aria-label="Mission steps">{checkpoint.beatIndex + 1} of {checkpoint.challenges.length}</small>}</span><span>{mission?.title}</span></>}
+      <button onClick={() => setModal('places')}>Places</button>
+      <button onClick={() => setModal('pause')}>Pause</button>
+    </header>
     {mode === 'title' && <section className="rc-title">
-      <img src={withRepairedImageVersion(CAST.bouncy.sprite)} alt="Bouncy" />
-      <p className="rc-eyebrow">A journey with Bouncy</p>
-      <h1 data-child-title="">{woodlandFirst ? 'Woodland Homecoming' : 'Three worlds to help.'}</h1>
-      <p data-child-instruction="">{primaryEntry.detail || (woodlandFirst ? 'Visit your Woodland Pals again.' : CHILD_COPY.soundSeekers.startInstruction)}</p>
-      <button className="rc-primary" data-child-primary="" data-child-emphasis="primary" data-child-emphasis-cue=""
-        disabled={primaryEntry.status === 'unavailable'} onClick={woodlandFirst ? onOpenWoodland : start}>{primaryEntry.label}</button>
-      <div data-child-choices="">
-        {secondaryEntry && <button disabled={secondaryEntry.status === 'unavailable'} onClick={woodlandFirst ? start : onOpenWoodland}>
-          {woodlandFirst && secondaryEntry.status === 'fresh' ? 'Three-world adventure' : secondaryEntry.label}
-        </button>}
+      <img className="rc-title-landscape" src={withRepairedImageVersion(campaignPlayfieldLandscape({ stageId: stage.id }))} alt="" />
+      <img className="rc-title-hero" src={withRepairedImageVersion(CAST.bouncy.sprite)} alt="Bouncy" />
+      <div className="rc-title-page">
+        <p className="rc-location">{woodlandFirst ? 'Woodland Homecoming' : <>{worldName} <span aria-hidden="true">·</span> {stage.name}</>}</p>
+        <h1 data-child-title="">Sound Seekers</h1>
+        <p className="rc-title-instruction" data-child-instruction="">{primaryEntry.detail || (woodlandFirst ? 'Visit your Woodland Pals again.' : CHILD_COPY.soundSeekers.startInstruction)}</p>
+        <button className="rc-primary" aria-label={primaryEntry.label} data-child-primary="" data-child-emphasis="primary" data-child-emphasis-cue="" disabled={primaryEntry.status === 'unavailable'} onClick={woodlandFirst ? onOpenWoodland : start}>{primaryEntry.label} <span aria-hidden="true">→</span></button>
+        <div className="rc-title-choices" data-child-choices="" role="group" aria-label="Other places to go">
+          {secondaryEntry && <button disabled={secondaryEntry.status === 'unavailable'} onClick={woodlandFirst ? start : onOpenWoodland}>
+            {woodlandFirst && secondaryEntry.status === 'fresh' ? 'Three-world adventure' : secondaryEntry.label}
+          </button>}
+          <button onClick={exit}>Home</button>
+        </div>
+        <p className="rc-save" data-child-progress="" role="status">{woodlandFirst ? (ephemeral ? 'Guest adventure' : 'Saved on this device') : <>Place {stage.number} of {CAMPAIGN_STAGES.length} <span aria-hidden="true">· </span>{statusLine}</>}</p>
       </div>
-      <p className="rc-save" data-child-progress="" role="status">{woodlandFirst && !ephemeral ? 'Saved on this device' : statusLine}</p>
-      <button className="rc-home" onClick={exit}>Home</button>
     </section>}
     {mode === 'explore' && <>
-      <section className="rc-objective"><img src={withRepairedImageVersion(objectiveResident?.sprite)} alt={objectiveResident?.name || ''} /><div><h1>{stage.name}</h1><p>{nearbyMission ? `${objectiveResident.name} is here. Choose Help ${objectiveResident.name} to begin.` : stageRepaired ? 'Everyone here is ready. Try an extra adventure, or explore the next place.' : stage.problem}</p>{focusedMission && !nearbyMission && <button className="rc-primary" onClick={() => sceneReady ? world.current?.walkToMission(focusedMission.id) : begin(focusedMission.id)}>{sceneReady ? 'Walk to' : 'Help'} {CAST[focusedMission.residentId]?.name || 'your Pal'}</button>}{!focusedMission && <p>Every Pal here has been helped.</p>}{nextStage && isCampaignStageUnlocked(progress, nextStage.id, ROUND_CAMPAIGN) && <button onClick={() => visitPlace(nextStage)}>Explore {nextStage.name}</button>}{totalMain === 150 && <p className="rc-finished">All three worlds are ready. You can visit your Pals or play again.</p>}</div>{(!stageRepaired || focusedMission) && <button aria-label="Hear the current Pal's problem" onClick={hearProblem}>Listen</button>}</section>
-      {sceneReady && snapshot.markers?.filter(marker => marker.visible && available.some(item => item.id === marker.missionId)).map(marker => { const item = getCampaignMission(marker.missionId), resident = CAST[item.residentId]; return <button key={marker.missionId} className="rc-world-marker" style={{ left: marker.x, top: marker.y }} aria-label={`Walk to ${resident.name}: ${item.title}`} onClick={() => world.current?.walkToMission(marker.missionId)}><img src={withRepairedImageVersion(resident.sprite)} alt="" /></button>; })}
+      <section className="rc-objective">
+        <div className="rc-objective-heading">
+          <p className="rc-location">{worldName}</p>
+          <h1 data-child-title="">{stage.name}</h1>
+          <div className="rc-repair-progress" data-child-progress="">
+            <span className="rc-repair-slots" aria-hidden="true">{stage.missionIds.map(id => <i key={id} data-filled={Boolean(progress?.campaign?.completedMissions[id])} />)}</span>
+            <span>{repairCount} of {stage.missionIds.length} repairs</span>
+          </div>
+        </div>
+        <div className="rc-objective-goal">
+          <img src={withRepairedImageVersion(objectiveResident?.sprite)} alt={objectiveResident?.name || ''} />
+          <p data-child-instruction="">{objectiveLine}</p>
+          {(!stageRepaired || focusedMission) && <button className="rc-listen" aria-label="Hear the current Pal's problem" onClick={hearProblem}>Listen</button>}
+        </div>
+        {(canWalkToPal || nextPlaceOpen) && <div className="rc-objective-actions">
+          {canWalkToPal && <button className={!sceneReady && !nextPlaceOpen ? 'rc-primary' : undefined} onClick={() => sceneReady ? world.current?.walkToMission(focusedMission.id) : begin(focusedMission.id)}>{sceneReady ? 'Walk to' : 'Help'} {CAST[focusedMission.residentId]?.name || 'your Pal'}</button>}
+          {nextPlaceOpen && <button className={!hasContextAction ? 'rc-primary' : undefined} data-child-primary={!hasContextAction ? '' : undefined} onClick={() => visitPlace(nextStage)}>Explore {nextStage.name}</button>}
+        </div>}
+        {recentRepair && <div className="rc-repair-receipt">
+          <p role="status"><span aria-hidden="true">✓</span> {recentRepair.title} complete</p>
+          {sceneReady && <button onClick={seeRepair}>See the repair</button>}
+        </div>}
+      </section>
+      {sceneReady && snapshot.markers?.filter(marker => marker.visible && available.some(item => item.id === marker.missionId)).map(marker => {
+        const item = getCampaignMission(marker.missionId);
+        const resident = CAST[item.residentId];
+        const mainGoal = item.id === focusedMission?.id;
+        const separateObject = !mainGoal && item.residentId === focusedMission?.residentId && objectImage(marker.objectKind);
+        return <button key={marker.missionId} className="rc-world-marker" data-goal={mainGoal} style={{ left: marker.x, top: marker.y }} aria-label={`Walk to ${resident.name}: ${item.title}`} onClick={() => world.current?.walkToMission(marker.missionId)}>
+          <NavigationArt src={separateObject || resident.sprite} />
+        </button>;
+      })}
       {sceneReady && !paused && snapshot.visibleDiscoveries?.map(target => <button key={target.id} className="rc-world-marker rc-discovery-marker" data-discovery-id={target.id} style={{ left: target.x, top: target.y }} aria-label={`Walk to explore: ${target.label}`} onClick={() => world.current?.walkToDiscovery(target.id)}><NavigationArt src={objectImage(target.objectKind)} /><span>Explore</span></button>)}
-      <footer className="rc-explore-footer">{travel ? <p className="rc-route-status" data-arrived={travel.arrived ? 'true' : 'false'} role="status"><NavigationArt src={travelResident?.sprite || (travel.objectKind ? objectImage(travel.objectKind) : CAST.bouncy.sprite)} /><span>{travelLabel}<small>{statusLine}</small></span>{!travel.arrived && <button aria-label="Stop walking" onClick={() => world.current?.stopTravel()}>×</button>}</p> : <p>{sceneError || (sceneReady ? nearbyMission ? `You found ${objectiveResident.name}. Help starts the adventure.` : snapshot.worldInteraction?.prompt || (snapshot.carrying ? `Carrying ${snapshot.carrying.title}. Bring it to the entrance.` : 'Tap the path to walk, or choose Walk to a Pal. Then choose Help.') : 'Opening the landscape…')}<small>{statusLine}</small></p>}<div className="rc-movement" aria-label="Move Bouncy">{MOVE_BUTTONS.map(([x,z,label]) => <button key={label} data-direction={label.toLowerCase()} aria-label={`Move ${label.toLowerCase()}`} onPointerDown={event => { event.preventDefault(); event.currentTarget.setPointerCapture(event.pointerId); motorPointers.current.set(event.pointerId, [x, z]); moveMotor(true); }} onPointerUp={releaseMotorPointer} onPointerCancel={releaseMotorPointer} onLostPointerCapture={releaseMotorPointer} onClick={event => { if (event.detail === 0) world.current?.move(x, z, { tapStep: true, tapOnly: true }); }}>{({Up:'↑',Left:'←',Down:'↓',Right:'→'})[label]}</button>)}</div>{nearbyMission && !selectedWorldInteraction ? <button className="rc-primary" onClick={() => begin(nearbyMission.id)}>Help {objectiveResident.name}</button> : snapshot.worldInteraction && <button className="rc-primary" onClick={() => world.current?.interact()}>{({pickup:'Pick it up',place:'Put it here',operate:'Use it'})[snapshot.worldInteraction.action]}</button>}</footer>
+      <footer className="rc-explore-footer">
+        {travel ? <p className="rc-route-status" data-arrived={travel.arrived ? 'true' : 'false'} role="status">
+          <NavigationArt src={travelResident?.sprite || (travel.objectKind ? objectImage(travel.objectKind) : CAST.bouncy.sprite)} />
+          <span>{travelLabel}</span>
+          {!travel.arrived && <button aria-label="Stop walking" onClick={() => world.current?.stopTravel()}>×</button>}
+        </p> : fieldMessage ? <p className="rc-field-message" role="status">{fieldMessage}</p> : null}
+        <div className="rc-movement" role="group" aria-label="Move Bouncy">{MOVE_BUTTONS.map(([x,z,label]) => <button key={label} data-direction={label.toLowerCase()} aria-label={`Move ${label.toLowerCase()}`} onPointerDown={event => { event.preventDefault(); event.currentTarget.setPointerCapture(event.pointerId); motorPointers.current.set(event.pointerId, [x, z]); moveMotor(true); }} onPointerUp={releaseMotorPointer} onPointerCancel={releaseMotorPointer} onLostPointerCapture={releaseMotorPointer} onClick={event => { if (event.detail === 0) world.current?.move(x, z, { tapStep: true, tapOnly: true }); }}>{({Up:'↑',Left:'←',Down:'↓',Right:'→'})[label]}</button>)}</div>
+        <button className="rc-jump" onClick={jump} aria-keyshortcuts="Space" aria-label="Jump" disabled={!sceneReady}>Jump</button>
+        {helpNearbyPal ? <button className="rc-primary" data-child-primary="" onClick={() => begin(nearbyMission.id)}>Help {objectiveResident.name}</button> : snapshot.worldInteraction && <button className="rc-primary" data-child-primary="" onClick={() => world.current?.interact()}>{({pickup:'Pick it up',place:'Put it here',operate:'Use it'})[snapshot.worldInteraction.action]}</button>}
+        {trailLine && !fieldMessage && !travel && (snapshot.trail.complete
+          ? <p className="rc-trail-progress" role="status">{trailLine}</p>
+          : <button className="rc-trail-guide" onClick={guideTrail} aria-label="Find the next trail marker">
+            <span>Find the next trail marker</span><small>{trailLine}</small>
+          </button>)}
+        <p className="rc-key-hint"><kbd>↑↓←→</kbd> Move <kbd>Space</kbd> Jump</p>
+      </footer>
     </>}
     {mode === 'activity' && beat && <section className="rc-activity" aria-label={mission.title}>{checkpoint.beatState.learningRecovery ? <LearningPracticeTask key={checkpoint.beatState.learningRecovery.id}
       id={checkpoint.beatState.learningRecovery.id} instrument="sound_seekers_campaign" question={checkpoint.beatState.learningRecovery.question}
@@ -480,6 +572,11 @@ export default function RoundedCampaign({ progressScopeKey, isSoundEnabled, ephe
     {modal === 'places' && <Modal title="Places" onClose={() => setModal(null)}>
       <section aria-label="Here now"><h3>Here now · {stage.name}</h3><p>Choose a Pal to help. Extra adventures are yours to choose.</p>{available.length ? missionChoices(available) : <p>Everyone here has been helped.</p>}</section>
       {sceneReady && !blocked && snapshot.discoveryTargets?.length > 0 && <details className="rc-journey rc-discovery-list"><summary>Explore objects</summary><p>Walk over, then choose Pick it up or Use it. These discoveries are optional.</p><div className="rc-mission-list">{snapshot.discoveryTargets.map(target => <button key={target.id} disabled={blocked} onClick={() => { setMode('explore'); setModal(null); walkRequest.current = target.id; }}><NavigationArt src={objectImage(target.objectKind)} /><span>{target.label}<small>Walk over</small></span></button>)}</div></details>}
+      {mode !== 'activity' && sceneReady && trailLine && !blocked && <details className="rc-journey rc-trail-list">
+        <summary>Trail markers</summary>
+        <p>{snapshot.trail.label} · {trailLine}</p>
+        {!snapshot.trail.complete && <button onClick={guideTrail}>Find the next trail marker</button>}
+      </details>}
       {replayMissions.length > 0 && <details className="rc-journey"><summary>Play here again</summary>{missionChoices(replayMissions, true)}</details>}
       {nextStage && isCampaignStageUnlocked(progress, nextStage.id, ROUND_CAMPAIGN) && <button className="rc-primary" onClick={() => visitPlace(nextStage)}>Explore {nextStage.name}</button>}
       <details className="rc-journey"><summary>Your journey · {CAMPAIGN_STAGES.length} places</summary><p>Completed places stay open for another visit.</p>{CAMPAIGN_WORLDS.map(place => <section key={place.id}><h3>{place.name}</h3><ul className="rc-journey-list">{CAMPAIGN_STAGES.filter(item => item.worldId === place.id).map(item => { const unlocked = progress && isCampaignStageUnlocked(progress, item.id, ROUND_CAMPAIGN); const done = item.missionIds.filter(id => progress?.campaign?.completedMissions[id]).length; return <li key={item.id}>{unlocked ? <button disabled={blocked} onClick={() => visitPlace(item)}>{item.name}{item.id === stage.id ? ' · Here' : ''}<small>{done === item.missionIds.length ? 'Complete · Visit again' : `${done} of ${item.missionIds.length} main adventures done`}</small></button> : <span>{item.name}<small>Later in your journey</small></span>}</li>; })}</ul></section>)}</details>

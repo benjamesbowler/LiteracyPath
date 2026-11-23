@@ -25,13 +25,16 @@ async function checkNavigationGeometry(page, profile, state, includeObjectiveCon
     };
     const status = footer.querySelector('.rc-route-status');
     const statusBox = box(status);
-    const controls = [...footer.querySelectorAll('.rc-movement button, :scope > .rc-primary'), ...(includeObjective ? document.querySelectorAll('.rc-objective button') : [])].filter(button => button.getBoundingClientRect().width > 0).map(button => {
+    const controls = [...footer.querySelectorAll('.rc-movement button, :scope > :is(.rc-primary, .rc-jump)'), ...(includeObjective ? document.querySelectorAll('.rc-objective button') : [])].filter(button => button.getBoundingClientRect().width > 0).map(button => {
       const rect = box(button), hit = document.elementFromPoint(rect.x + rect.width / 2, rect.y + rect.height / 2);
       return { ...rect, name: button.getAttribute('aria-label') || button.textContent.trim(), uncovered: hit?.closest('button') === button };
     });
     const stop = status.querySelector('button');
+    const stopBox = stop ? box(stop) : null;
+    const stopHit = stopBox && document.elementFromPoint(stopBox.x + stopBox.width / 2, stopBox.y + stopBox.height / 2);
     const statusHit = document.elementFromPoint(statusBox.x + statusBox.width / 2, statusBox.y + statusBox.height / 2);
-    return { status: statusBox, objective: box(document.querySelector('.rc-objective')), controls, stop: stop ? box(stop) : null,
+    return { status: statusBox, objective: box(document.querySelector('.rc-objective')), controls, stop: stopBox,
+      stopUncovered: stopHit?.closest('button') === stop,
       statusUncovered: statusHit?.closest('.rc-route-status') === status,
       textFits: status.scrollWidth <= status.clientWidth + 1 && status.scrollHeight <= status.clientHeight + 1 };
   }, includeObjectiveControls);
@@ -47,7 +50,7 @@ async function checkNavigationGeometry(page, profile, state, includeObjectiveCon
   expect(overlaps(geometry.status, geometry.objective), `${state} status clears the full mission panel`).toBe(false);
   expect(geometry.statusUncovered, `${state} status remains visible above other UI`).toBe(true);
   expect(geometry.textFits, `${state} status text stays inside its card`).toBe(true);
-  expect(geometry.controls.length).toBeGreaterThanOrEqual(4);
+  expect(geometry.controls.length).toBeGreaterThanOrEqual(5);
   for (const [index, control] of geometry.controls.entries()) {
     inside(control, control.name);
     expect(control.width, `${state} ${control.name} width`).toBeGreaterThanOrEqual(56);
@@ -60,7 +63,9 @@ async function checkNavigationGeometry(page, profile, state, includeObjectiveCon
     inside(geometry.stop, 'Stop walking');
     expect(geometry.stop.width).toBeGreaterThanOrEqual(56);
     expect(geometry.stop.height).toBeGreaterThanOrEqual(56);
+    expect(geometry.stopUncovered, `${state} Stop walking receives input`).toBe(true);
   }
+  return geometry;
 }
 
 for (const profile of profiles) test(`navigation travel and arrival preserve controls on ${profile.id}`, async ({ page }, info) => {
@@ -70,8 +75,9 @@ for (const profile of profiles) test(`navigation travel and arrival preserve con
   await page.getByRole('button', { name: 'Start exploring', exact: true }).click();
   await expect(page.locator(GAME)).toHaveAttribute('data-scene-ready', 'true');
   await walkToSeed(page);
-  await checkNavigationGeometry(page, profile, `${profile.id} travel`);
-  await page.getByRole('button', { name: 'Stop walking', exact: true }).tap();
+  const { stop } = await checkNavigationGeometry(page, profile, `${profile.id} travel`);
+  expect(stop, 'an active journey offers the stop control').toBeTruthy();
+  await page.touchscreen.tap(stop.x + stop.width / 2, stop.y + stop.height / 2);
   await expect(page.locator(CANVAS)).toHaveAttribute('data-navigation', '');
   await expect(page.locator(CANVAS)).toHaveAttribute('data-route-breadcrumbs', '0');
   await expect(page.locator('.rc-route-status')).toHaveCount(0);
@@ -88,7 +94,7 @@ test('missing object artwork keeps the small landscape destination and stop cont
   test.setTimeout(180000);
   const profile = profiles.find(candidate => candidate.id === 'small-phone-landscape');
   await page.setViewportSize({ width: profile.width, height: profile.height });
-  await page.route('**/images/sound-seekers/questions/seed-*.webp', route => route.abort());
+  await page.route(url => /^\/images\/sound-seekers\/questions\/seed-[^/]+\.webp$/.test(url.pathname), route => route.abort());
   await page.goto('/preview/rounded-campaign.html?stage=meadow-01&scope=navigation-missing-art&simple=1');
   await page.getByRole('button', { name: 'Start exploring', exact: true }).click();
   await expect(page.locator(GAME)).toHaveAttribute('data-scene-ready', 'true');
@@ -97,8 +103,9 @@ test('missing object artwork keeps the small landscape destination and stop cont
   await expect(page.locator('.rc-route-status > img')).toHaveCSS('visibility', 'hidden');
   const destination = await page.locator('.rc-route-status > span').boundingBox();
   expect(destination.width, 'destination keeps enough space to read beside the missing artwork').toBeGreaterThanOrEqual(80);
-  await checkNavigationGeometry(page, profile, 'missing artwork travel');
-  await page.getByRole('button', { name: 'Stop walking', exact: true }).tap();
+  const { stop } = await checkNavigationGeometry(page, profile, 'missing artwork travel');
+  expect(stop, 'navigation remains cancelable without destination artwork').toBeTruthy();
+  await page.touchscreen.tap(stop.x + stop.width / 2, stop.y + stop.height / 2);
   await expect(page.locator(CANVAS)).toHaveAttribute('data-navigation', '');
   await expect(page.locator(CANVAS)).toHaveAttribute('data-route-breadcrumbs', '0');
   await expect(page.locator('.rc-route-status')).toHaveCount(0);
@@ -106,7 +113,7 @@ test('missing object artwork keeps the small landscape destination and stop cont
   await expect(page.locator('.rc-route-status > img')).toHaveCSS('visibility', 'hidden');
   await page.screenshot({ path: info.outputPath('missing-object-art-travel.png') });
   await page.getByRole('button', { name: 'Walk to Muddy', exact: true }).click();
-  await expect(page.locator('.rc-route-status > img')).toHaveAttribute('src', /\/muddy\.webp$/);
+  await expect(page.locator('.rc-route-status > img')).toHaveAttribute('src', /\/muddy\.webp(?:\?|$)/);
   await expect.poll(() => page.locator('.rc-route-status > img').evaluate(image => image.naturalWidth)).toBeGreaterThan(0);
   await expect(page.locator('.rc-route-status > img')).toHaveCSS('visibility', 'visible');
   await page.screenshot({ path: info.outputPath('recovered-portrait-travel.png') });
@@ -136,7 +143,7 @@ test('a repaired place keeps its extra adventure and next-place actions clear of
   await expect(page.locator(GAME)).toHaveAttribute('data-mode', 'explore');
 });
 
-test('long repaired-place text scrolls inside its panel without covering navigation on a small phone', async ({ page }, info) => {
+test('long repaired-place text and its actions stay reachable without covering navigation on a small phone', async ({ page }, info) => {
   test.setTimeout(180000);
   const profile = profiles.find(candidate => candidate.id === 'small-phone-portrait');
   const scope = 'sound-seekers-preview:rounded:navigation-long-repaired-place';
@@ -158,7 +165,7 @@ test('long repaired-place text scrolls inside its panel without covering navigat
   const objective = page.locator('.rc-objective');
   await expect(objective).toContainText('Sleeping Observatory');
   await expect(objective).toContainText('Try an extra adventure, or explore the next place.');
-  expect(await objective.evaluate(panel => panel.scrollHeight > panel.clientHeight), 'long mission panel has its own scroll space').toBe(true);
+  expect(await objective.evaluate(panel => panel.scrollWidth <= panel.clientWidth + 1), 'long mission panel keeps its copy within its width').toBe(true);
   await page.screenshot({ path: info.outputPath('long-repaired-place-arrival.png') });
   const actions = objective.getByRole('button');
   expect(await actions.count()).toBe(3);

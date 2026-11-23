@@ -10,6 +10,30 @@ export function sampleCampaignRoads(layout) {
   return layout.roads.map(road => ({ points: campaignRoadSamples(road), halfWidth: road.width / 2 }));
 }
 
+export function campaignSpringStoneGeometry(theme) {
+  const profile = [
+    [0, 0], [.78, 0], [.92, .12], [1, .38], [.99, .72],
+    [.94, .91], [.86, 1], [.61, 1], [.31, 1], [0, 1],
+  ].map(([radius, height]) => new THREE.Vector2(radius, height));
+  const geometry = new THREE.LatheGeometry(profile, 32);
+  const positions = geometry.attributes.position;
+  const shade = new THREE.Color(theme.soil).lerp(new THREE.Color(theme.rock), .42);
+  const top = new THREE.Color(theme.rock).lerp(new THREE.Color(theme.cream), .62);
+  const colors = [];
+  for (let i = 0; i < positions.count; i++) {
+    const x = positions.getX(i), y = positions.getY(i), z = positions.getZ(i);
+    const angle = Math.atan2(z, x);
+    const variation = .98 + .028 * Math.sin(angle * 5) + .017 * Math.cos(angle * 8);
+    positions.setXYZ(i, x * variation, y, z * variation);
+    const speckle = .05 * Math.sin(angle * 7 + y * 17) * Math.cos(angle * 15);
+    const color = shade.clone().lerp(top, Math.max(0, Math.min(1, y ** 1.4 + speckle)));
+    colors.push(color.r, color.g, color.b);
+  }
+  geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+  geometry.computeVertexNormals();
+  return geometry;
+}
+
 // The road keeps its exact authored width and centreline. A vertex-coloured
 // shoulder blends into the same ground palette without alpha sorting, another
 // mesh, or a changed walking rule. Crossroads share paint, avoiding dark seams.

@@ -61,7 +61,10 @@ test('V10 teacher reports show repeated boundary evidence and keep higher demand
   assert.equal(report.boundaryAdaptive, true);
   const html = renderToStaticMarkup(React.createElement(LiteracyMockReport, { report, initialStudentId: 'child' }));
   assert.match(html, /can use up to 67 questions/);
-  assert.match(html, /2 of 4 independent answers correct/);
+  assert.match(html, /<th scope="col">Correct independently<\/th>/);
+  const vocabularyRow = html.match(/<tr><th scope="row">Vocabulary and word structure<\/th>.*?<\/tr>/u)?.[0] ?? '';
+  assert.match(vocabularyRow, /<td>2 of 4 correct<small>0 helped · 0 familiar · 0 unscored<\/small><\/td>/u);
+  assert.match(vocabularyRow, /First steps · 2 of 2 correct · Starter · 0 of 2 correct/u);
   assert.match(html, /Boundary observed: First steps \/ Starter/);
   assert.match(html, /No independent answers at: Early, Building, Developing, Extending/);
   assert.doesNotMatch(html, /Mastered|RIT score:/);
