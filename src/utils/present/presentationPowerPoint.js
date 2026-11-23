@@ -52,28 +52,44 @@ async function loadFonts() {
 
 // Learning print is rasterized with the bundled Andika. It therefore retains
 // its single-storey a/g and barred I on an offline computer without that font.
-function textPicture(text, width, height, { size = 64, color = INK, bold = false, align = 'center', teacher = false } = {}) {
+function textPicture(text, width, height, { size = 64, color = INK, bold = false, align = 'center', teacher = false, emphasis = [] } = {}) {
   const canvas = document.createElement('canvas');
   canvas.width = Math.round(width * 144); canvas.height = Math.round(height * 144);
   const ctx = canvas.getContext('2d');
   const family = teacher ? 'Present Export Source Sans 3' : 'Present Export Andika';
+  const focus = new Set(emphasis);
+  const setFont = heavy => { ctx.font = `${heavy ? 700 : 400} ${size}px "${family}"`; };
+  const measureOrDrawFocusedLine = (line, x = 0, y) => {
+    let width = 0;
+    for (const run of line.split(/(\b[a-zA-Z]+\b)/).filter(Boolean)) {
+      setFont(bold || focus.has(run.toLowerCase()));
+      if (y !== undefined) ctx.fillText(run, x + width, y);
+      width += ctx.measureText(run).width;
+    }
+    return width;
+  };
+  const lineWidth = line => focus.size ? measureOrDrawFocusedLine(line) : ctx.measureText(line).width;
   let lines;
   for (; size >= 12; size -= 2) {
-    ctx.font = `${bold ? 700 : 400} ${size}px "${family}"`;
+    setFont(bold);
     lines = [];
     for (const paragraph of String(text || '').split('\n')) {
       let line = '';
       for (const word of paragraph.split(/\s+/)) {
         const candidate = line ? `${line} ${word}` : word;
-        if (ctx.measureText(candidate).width > canvas.width - 24 && line) { lines.push(line); line = word; } else line = candidate;
+        if (lineWidth(candidate) > canvas.width - 24 && line) { lines.push(line); line = word; } else line = candidate;
       }
       lines.push(line);
     }
-    if (lines.length * size * 1.4 <= canvas.height - 12 && lines.every(line => ctx.measureText(line).width <= canvas.width - 24)) break;
+    if (lines.length * size * 1.4 <= canvas.height - 12 && lines.every(line => lineWidth(line) <= canvas.width - 24)) break;
   }
-  ctx.fillStyle = `#${color}`; ctx.textAlign = align; ctx.textBaseline = 'middle';
+  ctx.fillStyle = `#${color}`; ctx.textAlign = focus.size ? 'left' : align; ctx.textBaseline = 'middle';
   const lineHeight = size * 1.4, top = (canvas.height - (lines.length - 1) * lineHeight) / 2;
-  lines.forEach((line, i) => ctx.fillText(line, align === 'center' ? canvas.width / 2 : 12, top + i * lineHeight));
+  lines.forEach((line, i) => {
+    const y = top + i * lineHeight;
+    if (focus.size) measureOrDrawFocusedLine(line, align === 'center' ? (canvas.width - lineWidth(line)) / 2 : 12, y);
+    else ctx.fillText(line, align === 'center' ? canvas.width / 2 : 12, y);
+  });
   return canvas.toDataURL('image/png');
 }
 
@@ -143,7 +159,8 @@ export async function createPresentationPowerPoint(cycleId, { day, signal, onPro
     } else {
       const images = (item.images || []).filter(image => image.src);
       const hasPicture = images.length > 0;
-      const pictureW = hasPicture ? (item.story ? 3.1 : 4.3) : 0;
+      const storyQuestion = Boolean(item.story && item.text);
+      const pictureW = hasPicture ? (storyQuestion ? 3.1 : 4.3) : 0;
       images.forEach((image, i) => {
         const data = pictures.get(cacheKey(image.src));
         const box = { x: 0.65 + i % 2 * (pictureW / Math.min(2, images.length)), y: 1.35 + Math.floor(i / 2) * 1.65, w: pictureW / Math.min(2, images.length) - 0.1, h: images.length > 2 ? 1.4 : 3.65 };
@@ -153,10 +170,13 @@ export async function createPresentationPowerPoint(cycleId, { day, signal, onPro
         if (images.length > 1 && image.label && image.label.length < 30) putText(slide, image.label, box.x, box.y + box.h, box.w, 0.35, { size: 30 });
       });
       const x = hasPicture ? pictureW + 1 : 0.7, w = W - x - 0.7;
-      putText(slide, item.story, x, 1.2, w, 1.65, { size: 36, align: 'left' });
-      const y = item.story ? 3 : item.feedback ? 1.5 : 1.25;
+      if (item.story) {
+        putText(slide, item.storyTitle, x, 1.34, w, storyQuestion ? 0.37 : 0.62, { size: storyQuestion ? 34 : 52, bold: true, align: 'left' });
+        putText(slide, item.story, x, storyQuestion ? 1.76 : 2.05, w, storyQuestion ? 1.44 : 3.12, { size: storyQuestion ? 36 : 70, align: 'left', emphasis: item.storyEmphasis });
+      }
+      const y = storyQuestion ? 3.24 : item.feedback ? 1.5 : 1.25;
       const buttonRows = Math.ceil((item.buttons?.length || 0) / ((item.buttons?.length || 0) > 4 ? 4 : 3));
-      const h = Math.min(item.story ? 1.8 : 3.4, 5.45 - Math.max(0, buttonRows - 1) * 0.61 - y);
+      const h = Math.min(storyQuestion ? 1.8 : 3.4, 5.45 - Math.max(0, buttonRows - 1) * 0.61 - y);
       putText(slide, item.text, x, y, w, h, { size: String(item.text).length < 8 ? 200 : String(item.text).length < 30 ? 104 : 72, bold: String(item.text).length < 8, color: item.feedback === 'incorrect' ? 'B3261E' : INK });
     }
     const buttons = item.buttons || [];

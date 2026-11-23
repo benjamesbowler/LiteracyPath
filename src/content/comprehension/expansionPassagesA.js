@@ -1741,7 +1741,7 @@ export const EXPANSION_DRAFTS_A = [
       ],
       [
         "Why does Pip check the arrow?",
-        "So Socks can see it",
+        "To make sure Socks can see it",
         [
           "To see if the tree is tall",
           "To count the cars",
@@ -1751,7 +1751,10 @@ export const EXPANSION_DRAFTS_A = [
           1,
           5
         ],
-        { "To see if Socks can see it before the turn": "So Socks can see it" }
+        {
+          "To see if Socks can see it before the turn": "To make sure Socks can see it",
+          "So Socks can see it": "To make sure Socks can see it"
+        }
       ]
     ],
     "Draw the chalk arrow at the turn in the track. Write arrow."

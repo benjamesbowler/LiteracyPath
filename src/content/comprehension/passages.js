@@ -145,7 +145,10 @@ const drafts = [
   "Fluff sells seeds at a table. Fluff makes a blue sign that says ten seeds in each bag. Fluff counts the seeds in each bag. One bag has only nine seeds. Fluff adds one more seed to that bag. Then Fluff uses glue to stick the sign to the table.",[
    ["What colour is the sign?", "Blue", ["Green", "Red", "Yellow"], [1]],
    ["How many seeds are in one bag before Fluff adds a seed?", "Nine", ["Eleven", "Ten", "One"], [3]],
-   ["Why does Fluff add one seed to the bag?", "One seed is missing", ["The bag has no seeds", "The table needs more seeds", "The glue is in the bag"], [1, 3, 4], { "The sign says ten, but the bag has nine": "One seed is missing" }]
+   ["Why does Fluff add one seed to the bag?", "The bag needs one more seed", ["The bag has no seeds", "The table needs more seeds", "The glue is in the bag"], [1, 3, 4], {
+    "The sign says ten, but the bag has nine": "The bag needs one more seed",
+    "One seed is missing": "The bag needs one more seed"
+   }]
   ],"Draw ten seeds in a bag. Write ten."],
  ["socks-trail", "Socks Makes a Trail", "teams", "ai / ay", "socks", ["trail", "rain", "way", "stay"],
   "Socks puts paper arrows on a trail. The arrows show the way to a picnic. Rain makes one paper arrow wet, and it tears. Socks uses flat stones to make new arrows. The stone arrows stay in place in the rain. Socks follows them to the picnic with a bag of food.",[

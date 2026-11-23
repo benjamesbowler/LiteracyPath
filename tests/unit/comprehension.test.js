@@ -58,6 +58,30 @@ test('equivalent edited choices preserve the recorded wording and progress of ol
   assert.equal(currentPracticeChoice(question, older.responses[question.id].first), null);
 });
 
+test('revised arrow and seed choices use parallel wording and preserve saved answers', () => {
+  const revisions = [
+    { passageId: 'pip-chalk-arrow', answer: 'To make sure Socks can see it', opening: 'To ',
+      previous: ['To see if Socks can see it before the turn', 'So Socks can see it'] },
+    { passageId: 'fluff-blue', answer: 'The bag needs one more seed', opening: 'The ',
+      previous: ['The sign says ten, but the bag has nine', 'One seed is missing'] }
+  ];
+  for (const { passageId, answer, opening, previous } of revisions) {
+    const passage = passageById(passageId);
+    const question = passage.questions[2];
+    assert.equal(question.answer, answer);
+    assert.ok(question.options.every(option => option.startsWith(opening)), question.id);
+    for (const value of previous) {
+      const saved = {
+        ...initialPractice(passage, 'previously-saved'),
+        responses: { [question.id]: { first: value, last: value, attempts: 1, correct: true } }
+      };
+      const storage = { getItem: () => JSON.stringify(saved), setItem: () => assert.fail('a valid saved run must not be replaced') };
+      assert.deepEqual(readPractice(storage, 'pupil', passage), saved);
+      assert.equal(currentPracticeChoice(question, value), question.answer);
+    }
+  }
+});
+
 test('early-reader language stays brief and word help reaches both child sheets', async () => {
  const {buildComprehensionDocument:build}=await import('../../src/content/comprehension/print.js');
  const words=text=>text.match(/[a-z]+(?:'[a-z]+)?/gi)||[];

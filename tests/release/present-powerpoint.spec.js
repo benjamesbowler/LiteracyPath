@@ -2,7 +2,7 @@ import {test, expect} from '@playwright/test';
 import JSZip from 'jszip';
 import fs from 'node:fs/promises';
 
-const artifacts = '.artifacts/present-powerpoint';
+const artifacts = process.env.LP_PRESENT_POWERPOINT_ARTIFACTS || '.artifacts/present-powerpoint';
 
 test('every daily PowerPoint plan preserves all activities and has valid native paths', async ({page}) => {
   test.setTimeout(120000);
@@ -16,6 +16,8 @@ test('every daily PowerPoint plan preserves all activities and has valid native 
       const doc = new DOMParser().parseFromString(deck.html, 'text/html');
       const plan = buildPresentationPowerPointPlan(deck, doc);
       const ids = new Set(plan.slides.map(item => item.id));
+      const byId = new Map(plan.slides.map(item => [item.id, item]));
+      const sections = [...doc.querySelectorAll('#deck > section')];
       if (ids.size !== plan.slides.length) errors.push(`${cycle.id}/${day.value}: duplicate ID`);
       for (const source of deck.manifest.slides) if (!plan.slides.some(item => item.sourceIndex === source.index && item.main)) errors.push(`${cycle.id}/${day.value}: missing activity ${source.title}`);
       for (const slide of plan.slides) for (const target of [...(slide.buttons || []).map(item => item.target), ...(slide.cards || []).map(item => item.target), slide.next, slide.previous].filter(Boolean)) if (!ids.has(target)) errors.push(`${cycle.id}/${day.value}: broken ${target}`);
@@ -26,6 +28,42 @@ test('every daily PowerPoint plan preserves all activities and has valid native 
       for (const source of deck.manifest.slides.filter(item => item.rounds)) for (let i = 0; i < source.rounds.length; i++) if (!plan.slides.some(item => item.id.startsWith(`${source.index}:`) && (item.id.includes(`round${i}`) || item.id.includes(`build${i}`) || item.id.includes(`missing${i}`)))) errors.push(`${cycle.id}/${day.value}: missing round ${i}`);
       const falseSentences = deck.manifest.slides.flatMap(item => item.rounds || []).filter(item => item.matches === false);
       for (const round of falseSentences) for (const slide of plan.slides.filter(item => item.text === round.sentence)) if (slide.audio.length) errors.push('False sentence plays true audio');
+      for (const item of plan.slides.filter(item => item.cards)) {
+        const cards = [...sections[item.sourceIndex].querySelectorAll('[data-match-word]')];
+        const letterPairs = Boolean(sections[item.sourceIndex].querySelector('[data-match-kind="letters"]'));
+        const pending = item.cards.flatMap((card, i) => card.revealed && !card.matched ? [i] : []);
+        const match = (a, b) => a.dataset.matchWord === b.dataset.matchWord && (!letterPairs || a.querySelector('.p-card-word').textContent !== b.querySelector('.p-card-word').textContent);
+        const bits = (board, key) => board.cards.map(card => card[key]).join(',');
+        const fail = name => errors.push(`${cycle.id}/${day.value}/${item.id}: ${name}`);
+        const reset = byId.get(item.buttons.find(button => button.label === 'Play again').target);
+        const hidden = byId.get(item.buttons.find(button => button.label === 'Hide unmatched cards').target);
+        if (!reset.main || reset.cards.some(card => card.revealed)) fail('replay must close all cards');
+        if (bits(hidden, 'revealed') !== bits(item, 'matched')) fail('hide must keep exactly the matched cards open');
+        if (pending.length > 2 || item.cards.filter(card => card.matched).length % 2) fail('only pairs may match and only two cards may be pending');
+        item.cards.forEach((card, i) => {
+          if (card.revealed || pending.length === 2) {
+            if (card.target !== item.id) fail('a matched, open or comparison-locked card moved');
+            return;
+          }
+          const target = byId.get(card.target);
+          const completesPair = pending.length === 1 && match(cards[pending[0]], cards[i]);
+          const expected = item.cards.map((before, j) => before.matched || (completesPair && (j === i || j === pending[0])));
+          const expectedReveals = item.cards.map((before, j) => before.revealed || j === i);
+          if (bits(target, 'matched') !== expected.join(',') || bits(target, 'revealed') !== expectedReveals.join(',')) fail('one click should reveal one card and match at most one pair');
+        });
+      }
+      for (const item of plan.slides.filter(item => sections[item.sourceIndex]?.querySelector('.p-short-title'))) {
+        const source = sections[item.sourceIndex];
+        const passage = source.querySelector('.p-short-story, .p-short-reread');
+        const focus = [...new Set([...passage.querySelectorAll('strong')].map(word => word.textContent.toLowerCase()))];
+        if (item.storyTitle !== source.querySelector('.p-short-title').textContent || item.story !== passage.textContent || JSON.stringify(item.storyEmphasis) !== JSON.stringify(focus)) errors.push(`${cycle.id}/${day.value}/${item.id}: missing passage title, text or focus marks`);
+      }
+      for (const item of plan.slides) {
+        const source = sections[item.sourceIndex];
+        const recap = source?.querySelector('.p-roundup-stimulus');
+        if (recap?.children.length && item.text !== [...recap.children].map(word => word.textContent).join(' ')) errors.push(`${cycle.id}/${day.value}/${item.id}: missing round-up print`);
+        if (source?.classList.contains('p-week-roundup') && item.prompt !== source.querySelector('.p-teacher-prompt').textContent) errors.push(`${cycle.id}/${day.value}/${item.id}: weekly prompt omits sound recall`);
+      }
       counts.push({cycle: cycle.id, day: day.value, slides: plan.slides.length});
     }
     return {errors, counts};
@@ -56,6 +94,13 @@ test('downloaded PowerPoint contains offline pictures, audio, links, all rounds 
   expect(bytes.length).toBeLessThan(30_000_000);
   const xmls = await Promise.all(slides.map(name => zip.file(name).async('string')));
   expect(xmls.filter(xml => /show="0"/.test(xml)).length).toBeGreaterThan(250);
+  const storySlides = xmls.filter(xml => /descr="Cycle Shorts · (?:Sunny Meadow Farm|Question)/.test(xml));
+  expect(storySlides).toHaveLength(16);
+  expect(storySlides.every(xml => xml.includes('descr="A Quilt for Splashy"'))).toBe(true);
+  const weeklyReview = xmls.filter(xml => xml.includes('descr="Our week · Monday to Thursday"'));
+  expect(weeklyReview).toHaveLength(5);
+  expect(weeklyReview.every(xml => xml.includes('descr="Say the sounds and read the words from this week."'))).toBe(true);
+  expect(xmls.some(xml => xml.includes('descr="Weekly round-up"') && xml.includes('descr="he me she"'))).toBe(true);
   const media = Object.keys(zip.files).filter(name => /^ppt\/media\//.test(name) && !zip.files[name].dir);
   expect(media.some(name => name.endsWith('.mp3'))).toBe(true);
   expect(media.some(name => name.endsWith('.png'))).toBe(true);
