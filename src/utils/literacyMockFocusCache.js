@@ -40,4 +40,3 @@ export function readCachedMockFocus(studentId, storage, now = Date.now()) {
     return candidates.sort((a,b) => b.lastServerContactAt.localeCompare(a.lastServerContactAt))[0] || null;
   } catch { return null; }
 }
-
