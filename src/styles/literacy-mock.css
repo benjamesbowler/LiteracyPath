@@ -67,7 +67,7 @@
 .literacy-mock .literacy-mock-next:enabled:active{box-shadow:none;transform:translateY(2px)}
 .literacy-mock .literacy-mock-next{background:#155db7;font-weight:800}
 .literacy-mock .literacy-mock-next:disabled{background:#9ba6ac;box-shadow:none}
-.literacy-mock .literacy-mock-next:enabled:hover{background:#104d98}
+.literacy-mock .literacy-mock-next:enabled:hover{background:#104d98;color:#fff}
 
 /* The child sees a labelled text box, a question and a separate answer area.
    Longer printed passages use parts, never push the answers off the screen. */
