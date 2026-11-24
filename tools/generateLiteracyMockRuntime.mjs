@@ -4,7 +4,7 @@ import {loadLiteracyMockBank, literacyMockTutorialIdsForVersion} from '../src/da
 import {PROGRESS_CHECK_INSTRUCTIONS} from '../src/data/progressCheckInstructions.js';
 import {progressCheckAudioPath} from '../src/utils/progressCheckAudio.js';
 
-async function versionSources(version='literacy-mock-v10') {
+export async function versionSources(version='literacy-mock-v10') {
   const bank=await loadLiteracyMockBank({contentVersion:version,includeUnavailable:true});
   const items=bank.filter(item=>item.tutorialOnly || item.adaptiveMixedEligible);
   if(Object.values(literacyMockTutorialIdsForVersion(version)).some(id=>!items.some(item=>item.id===id))) throw Error('Runtime tutorials are incomplete.');
@@ -33,7 +33,7 @@ async function versionSources(version='literacy-mock-v10') {
 }
 
 export async function literacyMockRuntimeSources() {
-  return new Map([...(await versionSources()),...(await versionSources('literacy-mock-v11')),...(await versionSources('literacy-mock-v12')),...(await versionSources('literacy-mock-v13'))]);
+  return new Map([...(await versionSources()),...(await versionSources('literacy-mock-v11')),...(await versionSources('literacy-mock-v12')),...(await versionSources('literacy-mock-v13')),...(await versionSources('literacy-mock-v14'))]);
 }
 
 if(process.argv[1] && new URL(`file://${process.argv[1]}`).href===import.meta.url) {

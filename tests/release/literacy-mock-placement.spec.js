@@ -1,6 +1,5 @@
 import { test, expect } from '@playwright/test';
 import { LITERACY_MOCK_RUNTIME_V12 as bank } from '../../src/data/generated/literacyMockRuntimeV12.generated.js';
-import { LITERACY_MOCK_CLASS_PRACTICE as practice } from '../../src/data/generated/literacyMockClassPractice.generated.js';
 
 test.describe.configure({ timeout: 90000 });
 test.use({ hasTouch:true });
@@ -33,7 +32,7 @@ test('the letter case comparison shows a large reference letter and clear altern
 
 test('pupil setup sends each selected question maximum to the session service', async ({ page }) => {
   for (const count of [15,25,40]) {
-    await page.goto(`${root}?case=${encodeURIComponent(test.info().testId)}-${count}&mode=teacher&version=literacy-mock-v12`);
+    await page.goto(`${root}?case=${encodeURIComponent(test.info().testId)}-${count}&mode=teacher&version=literacy-mock-v14`);
     await page.getByRole('button', { name:'Prepare', exact:true }).click();
     const setup = page.locator('.literacy-mock-setup');
     if (!await setup.evaluate(node => node.open)) await setup.locator(':scope > summary').click();
@@ -42,7 +41,7 @@ test('pupil setup sends each selected question maximum to the session service', 
     await selector.selectOption(String(count));
     await page.getByRole('button', { name:'Prepare for 2 students', exact:true }).click();
     await expect.poll(() => page.evaluate(() => window.__literacyMock.state().session.mock.item_count)).toBe(count);
-    const args = await page.evaluate(() => window.__literacyMock.state().calls.find(call => call.name === 'teacher_prepare_literacy_mock_session_v12').args);
+    const args = await page.evaluate(() => window.__literacyMock.state().calls.find(call => call.name === 'teacher_prepare_literacy_mock_session_v14').args);
     expect(args.p_item_count).toBe(count);
   }
 });
@@ -99,28 +98,90 @@ test('word construction requires an explicit destination and every box before su
 
 test('class practice offers and starts 15, 25 and 40 question rounds', async ({ page }) => {
   await page.goto('/preview/teacher-a11y.html?surface=resources');
-  await page.getByRole('button', { name:'Open MAP Mock practice', exact:true }).click();
+  await page.getByRole('button', { name:'Open Mock MAP class test', exact:true }).click();
   const selector = page.getByRole('combobox', { name:'Questions', exact:true });
   await expect(selector.locator('option')).toHaveText(['Up to 15 questions','Up to 25 questions','Up to 40 questions']);
   for (const count of [15,25,40]) {
     await selector.selectOption(String(count));
-    await page.getByRole('button', { name:'Start class practice', exact:true }).click();
-    await expect(page.getByRole('heading', { name:`Practice question 1 of ${count}`, exact:true })).toBeVisible();
-    await page.getByRole('button', { name:'Change practice', exact:true }).click();
+    await page.getByRole('button', { name:'Start class test', exact:true }).click();
+    await expect(page.locator('[data-child-progress]')).toHaveText(`Question 1 of ${count}`);
+    await page.getByRole('button', { name:'End class test', exact:true }).click();
   }
 });
 
-test('fixed class practice discloses a shorter round before launch', async ({ page }) => {
-  await page.goto('/preview/teacher-a11y.html?surface=resources');
-  await page.getByRole('button', { name:'Open MAP Mock practice', exact:true }).click();
-  await page.getByRole('combobox', { name:'Area', exact:true }).selectOption('vocabulary');
-  await page.getByRole('combobox', { name:'Practice step', exact:true }).selectOption('4');
-  await page.getByRole('combobox', { name:'Questions', exact:true }).selectOption('40');
-  const available = practice.filter(item => item.domainId === 'vocabulary' && item.adaptiveAreaBand === 4).length;
-  expect(available).toBeGreaterThan(0);
-  expect(available).toBeLessThan(40);
-  const noun = available === 1 ? 'question' : 'questions';
-  await expect(page.getByRole('status')).toHaveText(`${available} available at this step. This round will use ${available} ${noun}.`);
-  await page.getByRole('button', { name:'Start class practice', exact:true }).click();
-  await expect(page.getByRole('heading', { name:`Practice question 1 of ${available}`, exact:true })).toBeVisible();
+
+test('a spelling response accepts physical keyboard input and correction before submission', async ({ page }) => {
+  await openItem(page, 'lp3.cvc_short_vowels.l2.B.short_a.v5');
+  const slots = page.locator('.literacy-mock-construction .literacy-mock-slot');
+  await slots.first().focus();
+  await page.keyboard.type('flg');
+  await page.keyboard.press('Backspace');
+  await expect(slots.nth(2)).toBeFocused();
+  await page.keyboard.type('ag');
+  await expect(slots).toHaveText(['f','l','a','g']);
+  const next = page.getByRole('button', { name:'Next question', exact:true });
+  await expect(next).toBeEnabled({ timeout:60000 });
+  await next.click();
+  expect(await page.evaluate(() => window.__literacyMock.state().lastSubmission.selected)).toBe('flag');
+});
+
+test('dragging a tile with a finger submits the tile in its destination', async ({ page, context }) => {
+  await page.setViewportSize({ width:768, height:1024 });
+  await openItem(page, 'lp3.cvc_short_vowels.l2.B.short_a.v5');
+  const tile = page.getByRole('group', { name:'Tiles to place' }).getByRole('button', { name:'f', exact:true });
+  const slot = page.locator('.literacy-mock-construction .literacy-mock-slot').first();
+  const source = await tile.boundingBox(), target = await slot.boundingBox();
+  const start = { x:source.x + source.width / 2, y:source.y + source.height / 2 };
+  const end = { x:target.x + target.width / 2, y:target.y + target.height / 2 };
+  const touch = await context.newCDPSession(page);
+  await touch.send('Input.dispatchTouchEvent',{ type:'touchStart', touchPoints:[start] });
+  for (let n = 1; n <= 5; n++)
+    await touch.send('Input.dispatchTouchEvent',{ type:'touchMove', touchPoints:[{ x:start.x+(end.x-start.x)*n/5, y:start.y+(end.y-start.y)*n/5 }] });
+  await touch.send('Input.dispatchTouchEvent',{ type:'touchEnd', touchPoints:[] });
+  await expect(slot).toHaveText('f');
+  await expect(tile).toBeDisabled();
+});
+
+test('dictation offers every alphabet letter and accepts a spelling without a length cue', async ({ page }, info) => {
+  await page.setViewportSize({ width:768,height:1024 });
+  const id='lp3.cvc_short_vowels.l2.B.short_a.v5';
+  await page.goto(`${root}?case=${encodeURIComponent(test.info().testId)}&mode=format&version=literacy-mock-v14&item=${id}`);
+  const alphabet = page.getByRole('group', { name:'Alphabet' });
+  await expect(alphabet.getByRole('button')).toHaveText([...'abcdefghijklmnopqrstuvwxyz']);
+  const input = page.getByRole('textbox', { name:'Your spelling' });
+  for (const letter of 'bell') await alphabet.getByRole('button',{name:letter,exact:true}).tap();
+  await expect(input).toHaveValue('bell');
+  await page.getByRole('button',{name:'Erase a letter'}).tap();
+  await expect(input).toHaveValue('bel');
+  await input.fill('fb');
+  await input.evaluate(el => {el.setSelectionRange(1,2);el.dispatchEvent(new Event('select', {bubbles:true}));});
+  await alphabet.getByRole('button',{name:'l',exact:true}).click();
+  await expect(input).toHaveValue('fl');
+  await input.press('End'); await input.pressSequentially('ag');
+  await expect(input).toHaveValue('flag');
+  await page.getByRole('button',{name:'Reset',exact:true}).click();
+  await expect(input).toHaveValue('');
+  await input.fill('f');
+  await page.getByRole('button',{name:'Listen to the question',exact:true}).click();
+  const next = page.getByRole('button', { name:'Next question',exact:true });
+  await expect(next).toBeEnabled({timeout:60000});
+  await page.screenshot({path:info.outputPath('alphabet-spelling.png')});
+  await next.click();
+  expect(await page.evaluate(()=>window.__literacyMock.state().lastSubmission.selected)).toBe('f');
+});
+
+test('select-all accepts an independent subset without revealing the answer count', async ({ page }, info) => {
+  await page.setViewportSize({width:390,height:844});
+  await page.goto(`${root}?case=${encodeURIComponent(test.info().testId)}&mode=format&version=literacy-mock-v14&item=mock.v14.read.pond-rail`);
+  await expect(page.getByText('Select all that apply',{exact:true})).toBeVisible({timeout:60000});
+  await page.getByRole('button',{name:'Listen to the question',exact:true}).click();
+  const options = page.locator('.literacy-mock-choice');
+  for (let i=0;i<4;i++) await options.nth(i).click();
+  await expect(page.locator('.literacy-mock-selection-count')).toHaveText('4 selected.');
+  for (let i=0;i<3;i++) await options.nth(i).click();
+  const next = page.getByRole('button',{name:'Next question',exact:true});
+  await expect(next).toBeEnabled({timeout:60000});
+  await page.screenshot({path:info.outputPath('select-all-mobile.png')});
+  await next.click();
+  expect(await page.evaluate(()=>window.__literacyMock.state().lastSubmission.selected)).toHaveLength(1);
 });

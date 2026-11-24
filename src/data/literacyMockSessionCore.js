@@ -1,9 +1,9 @@
 /** Token-scoped mock evidence uses its own RPC store, never practice/mastery. */
 // The server chooses a fully published version; existing sessions keep theirs.
 import { literacyMockBoundaryLimits } from '../policy/literacyMockBoundaryPolicy.js';
-import { isLiteracyMockBoundaryVersion, LITERACY_MOCK_EVIDENCE_VERSIONS, LITERACY_MOCK_VERSION, LITERACY_MOCK_VERSIONS } from '../policy/literacyMockVersions.js';
+import { isLiteracyMockBoundaryVersion, LITERACY_MOCK_EVIDENCE_VERSIONS, LITERACY_MOCK_ADAPTIVE_VERSION, LITERACY_MOCK_VERSIONS } from '../policy/literacyMockVersions.js';
 import { literacyMockQuestionLimit } from '../policy/literacyMockQuestionLimit.js';
-export const LITERACY_MOCK_CONTENT_VERSION = LITERACY_MOCK_VERSION;
+export const LITERACY_MOCK_CONTENT_VERSION = LITERACY_MOCK_ADAPTIVE_VERSION;
 export const LITERACY_MOCK_SUPPORTED_VERSIONS = LITERACY_MOCK_VERSIONS;
 
 export async function callMockRpc(client, name, args, signal) {
@@ -15,9 +15,9 @@ export async function callMockRpc(client, name, args, signal) {
   return data;
 }
 
-export async function getLiteracyMockV13Availability({ client, signal } = {}) {
+export async function getLiteracyMockV14Availability({ client, signal } = {}) {
   try {
-    return await callMockRpc(client, 'teacher_literacy_mock_v13_available', {}, signal) === true;
+    return await callMockRpc(client, 'teacher_literacy_mock_v14_available', {}, signal) === true;
   } catch (error) {
     if (error.code === 'PGRST202' || error.code === '42883') return false;
     throw error;

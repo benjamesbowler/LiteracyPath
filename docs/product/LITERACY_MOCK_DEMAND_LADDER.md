@@ -1,6 +1,10 @@
 # Adaptive Literacy Test: actual task demand
 
-New sittings use **V13 / areas-v6** after the teacher availability probe confirms
+V14 uses the same authored ladder and eight areas through both launch methods. New mixed sittings begin each area at Starter. The next fresh independent response in that area moves one adjacent demand up or down. Pairs rotate across all eight areas, with the starting area set by the session. The 15-, 25- and 40-question caps bound the sitting. Early stopping and evidence requirements still govern reporting. See the [current session contract](LITERACY_MOCK_SESSIONS.md).
+
+## Historical starting and progression rules
+
+V13 sittings use **V13 / areas-v6** after the teacher availability probe confirms
 the current catalogue and session status RPC. During rollout, the client can
 prepare V12 with its original schedule. This standard supplements the
 [session contract](LITERACY_MOCK_SESSIONS.md) and

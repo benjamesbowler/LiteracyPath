@@ -47,7 +47,7 @@ function buildResourceTools({
     },
     { id: "practice", ...FLOW.practice, onOpen: onStartPractice || null },
     { id: "class-cycles", kind: "Whole class", title: "Cycles · Class practice", body: "Work through cycle questions together on the class screen. Choose an activity and move at your own pace.", action: "Open Cycles practice", onOpen: () => onClassPractice('cycles') },
-    { id: "class-map", kind: "Whole class", title: "MAP Mock · Class practice", body: "Practise MAP-style questions together. Replay, discuss and reveal answers. No student results are recorded.", action: "Open MAP Mock practice", onOpen: () => onClassPractice('map') },
+    { id: "class-map", kind: "Whole class", title: "Mock MAP · Class test", body: "Take the pupil assessment together on one screen. Each response guides the next question. Individual results are recorded only on pupil devices.", action: "Open Mock MAP class test", onOpen: () => onClassPractice('map') },
     {
       id: "comprehension", kind: "Read and respond", title: "Reading Comprehension", body: "Short character passages for whole groups, small groups and student practice. Print matching colouring worksheets.", action: "Open Reading Comprehension", onOpen: onOpenComprehension || null
     },

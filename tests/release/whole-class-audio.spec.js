@@ -2,12 +2,22 @@ import { test, expect } from '@playwright/test';
 import { spawnSync } from 'node:child_process';
 import path from 'node:path';
 import fs from 'node:fs';
-import { LITERACY_MOCK_RUNTIME_V12 as bank } from '../../src/data/generated/literacyMockRuntimeV12.generated.js';
+import { LITERACY_MOCK_RUNTIME_V14 as bank } from '../../src/data/generated/literacyMockRuntimeV14.generated.js';
 import { createWholeClassMockSession } from '../../src/components/teacher/wholeClassPracticeModel.js';
 import { literacyMockNarrationCues } from '../../src/utils/literacyMockNarration.js';
 import { mockChoices } from '../../src/utils/literacyMockPlanner.js';
 
-const seed='class-practice:audio-class-6';
+import { literacyMockBoundarySchedule } from '../../src/policy/literacyMockBoundaryPolicy.js';
+
+function opening(area = 'sound_awareness') {
+  for (let number = 0; number < 100; number++) {
+    const sessionId = `audio-class-${number}`;
+    if (literacyMockBoundarySchedule([], {contentVersion: 'literacy-mock-v14', sessionId})[0] !== area) continue;
+    const session = createWholeClassMockSession(bank, {sessionId, itemCount: 25});
+    return {sessionId, seed: session.seed, item: session.rounds[0]};
+  }
+  throw new Error(`No opening for ${area}`);
+}
 async function auditNativeAudio(page) {
   await page.addInitScript(()=>{
     window.classAudioEvents=[];
@@ -24,17 +34,16 @@ async function auditNativeAudio(page) {
     };
   });
 }
-async function openPractice(page,area='sound_awareness',band='adaptive') {
-  await page.addInitScript(()=>Object.defineProperty(crypto,'randomUUID',{value:()=> 'audio-class-6'}));
+async function openPractice(page, area) {
+  const fixture = opening(area);
+  await page.addInitScript(id => Object.defineProperty(crypto, 'randomUUID', {value: () => id}), fixture.sessionId);
   await page.goto('/preview/teacher-a11y.html?surface=resources');
-  await page.getByRole('button',{name:'Open MAP Mock practice',exact:true}).click();
-  await page.getByRole('combobox',{name:'Area',exact:true}).selectOption(area);
-  if(band!=='adaptive')await page.getByRole('combobox',{name:'Practice step',exact:true}).selectOption(band);
-  await page.getByRole('button',{name:'Start class practice',exact:true}).click();
-  return createWholeClassMockSession(bank,{area,band,seed,count:25}).rounds[0];
+  await page.getByRole('button', {name:'Open Mock MAP class test',exact:true}).click();
+  await page.getByRole('button', {name:'Start class test',exact:true}).click();
+  return fixture;
 }
-async function expectCompleteNarration(page,item) {
-  const choices=mockChoices(item,`${seed}:0`);
+async function expectCompleteNarration(page, {item, seed}) {
+  const choices = mockChoices(item, seed);
   const expected=literacyMockNarrationCues(item,choices).map(cue=>cue.path);
   await expect.poll(()=>page.evaluate(()=>window.classAudioEvents.filter(e=>e.type==='ended').map(e=>e.path)),{timeout:60000}).toEqual(expected);
   return {choices,expected,events:await page.evaluate(()=>window.classAudioEvents)};
@@ -43,15 +52,16 @@ async function expectCompleteNarration(page,item) {
 for(const area of ['sound_awareness','phonics','print','vocabulary','listening','language','reading','writing'])test(`class ${area} automatically plays its complete authored narration without a script`,async({page})=>{
   test.setTimeout(90000);
   await auditNativeAudio(page);
-  const item=await openPractice(page,area);
+  const fixture = await openPractice(page, area);
+  const {item} = fixture;
   await expect(page.getByRole('button',{name:'Listen to the question',exact:true})).toBeVisible();
   await expect(page.locator('.whole-class-teacher-script')).toHaveCount(0);
-  if(area==='sound_awareness')await expect(page.locator('[data-child-instruction]')).toHaveText(`Which word has the same starting sound as ${item.targetWord}?`);
+  await expect(page.locator('[data-child-instruction]')).toHaveText(item.prompt);
   await page.locator('.literacy-mock-choice').first().click();
-  if(item.format==='match')await page.locator('.literacy-mock-slot').first().click();
-  await expect(page.getByRole('button',{name:'Check answer',exact:true})).toBeDisabled();
-  const {events,choices}=await expectCompleteNarration(page,item);
-  await expect(page.getByRole('button',{name:'Check answer',exact:true})).toBeEnabled();
+  if(item.format==='match' || item.skillId==='letter_knowledge' && item.passage)await page.locator('.literacy-mock-slot').first().click();
+  await expect(page.getByRole('button',{name:'Next question',exact:true})).toBeDisabled();
+  const {events,choices}=await expectCompleteNarration(page,fixture);
+  await expect(page.getByRole('button',{name:'Next question',exact:true})).toBeEnabled();
   const firstChoice=choices.find(choice=>choice.audioPath);
   if(firstChoice){
     const preceding=item.requiredAudioCues.filter(cue=>cue.role!=='choice').at(-1).path;
@@ -74,48 +84,46 @@ for(const area of ['sound_awareness','phonics','print','vocabulary','listening',
 test('the listening passage and blending phonemes remain audible',async({page})=>{
   test.setTimeout(120000);
   await auditNativeAudio(page);
-  const item=await openPractice(page,'listening','3');
-  await expectCompleteNarration(page,item);
-  expect(item.requiredAudioCues.some(cue=>cue.role==='passage')).toBe(true);
-  await page.getByRole('button',{name:'Change practice',exact:true}).click();
-  await page.getByRole('combobox',{name:'Area',exact:true}).selectOption('sound_awareness');
-  await page.getByRole('combobox',{name:'Practice step',exact:true}).selectOption('4');
-  await page.evaluate(()=>{window.classAudioEvents=[];});
-  await page.getByRole('button',{name:'Start class practice',exact:true}).click();
-  const blending=createWholeClassMockSession(bank,{area:'sound_awareness',band:'4',seed,count:25}).rounds[0];
-  await expectCompleteNarration(page,blending);
-  expect(blending.requiredAudioCues.filter(cue=>cue.role==='phoneme').length).toBeGreaterThan(0);
+  for (const role of ['passage', 'phoneme']) {
+    const item = bank.find(row => row.mediaReady && row.requiredAudioCues.some(cue => cue.role === role));
+    await page.goto(`/tests/fixtures/literacy-mock.html?mode=format&version=literacy-mock-v14&item=${encodeURIComponent(item.id)}`);
+    await page.getByRole('button', {name:'Listen to the question',exact:true}).click();
+    await expectCompleteNarration(page, {item, seed:'browser-format'});
+  }
 });
 
 test('a failed required recording blocks checking and can be replayed successfully',async({page})=>{
   test.setTimeout(90000);
   await page.route('**/*.mp3',route=>route.abort());
   await openPractice(page);
-  await expect(page.getByText('A picture or recording did not load. Try again or choose another question.',{exact:true})).toBeVisible();
+  await expect(page.getByText('A picture or recording did not load. This question will not count.',{exact:true})).toBeVisible();
   await page.locator('.literacy-mock-choice').first().click();
-  await expect(page.getByRole('button',{name:'Check answer',exact:true})).toBeDisabled();
+  await expect(page.getByRole('button',{name:'Next question',exact:true})).toBeDisabled();
   await page.unroute('**/*.mp3');
   await page.getByRole('button',{name:'Try sound again',exact:true}).click();
-  await expect(page.getByRole('button',{name:'Check answer',exact:true})).toBeEnabled({timeout:60000});
+  await expect(page.getByRole('button',{name:'Next question',exact:true})).toBeEnabled({timeout:60000});
   await expect(page.locator('.whole-class-teacher-script')).toHaveCount(0);
 });
 
 test('a broken required picture blocks checking and skipping it cannot promote difficulty',async({page})=>{
-  await page.route('**/images/**',route=>route.abort());
+  const broken = opening('vocabulary').item.requiredImagePaths[0];
+  await page.route('**' + broken, route=>route.abort());
   await openPractice(page,'vocabulary');
-  await expect(page.getByText('A picture or recording did not load. Try again or choose another question.',{exact:true})).toBeVisible();
+  await expect(page.getByText('A picture or recording did not load. This question will not count.',{exact:true})).toBeVisible();
   await page.locator('.literacy-mock-choice').first().click();
-  await expect(page.getByRole('button',{name:'Check answer',exact:true})).toBeDisabled();
+  await expect(page.getByRole('button',{name:'Next question',exact:true})).toBeDisabled();
   await page.getByRole('button',{name:'Go to another question',exact:true}).click();
-  await expect(page.getByRole('heading',{name:'Practice question 2 of 25',exact:true})).toBeVisible();
-  await expect(page.locator('.whole-class-practice-step')).toContainText('First steps');
+  await expect(page.getByRole('region',{name:'Question 1',exact:true})).toBeVisible();
+  await expect(page.locator('img').filter({visible:true}).first()).toBeVisible();
+  await expect(page.locator(`img[src="${broken}"]`)).toHaveCount(0);
 });
 
 
 test('padded answer clips start with speech and retain consistent gaps after network preloading',async({page},info)=>{
   test.setTimeout(90000);
-  const item=createWholeClassMockSession(bank,{area:'sound_awareness',band:'adaptive',seed,count:25}).rounds[0];
-  const choices=mockChoices(item,`${seed}:0`);
+  const fixture = opening();
+  const {item,seed} = fixture;
+  const choices = mockChoices(item,seed);
   const clip=choices.find(choice=>choice.audioPath).audioPath;
   const padded=spawnSync('ffmpeg',['-v','error','-i',path.join(process.cwd(),'public',clip),'-af','adelay=2000,apad=pad_dur=2','-f','wav','pipe:1']);
   expect(padded.status).toBe(0);
@@ -145,7 +153,7 @@ test('padded answer clips start with speech and retain consistent gaps after net
     };
   });
   await openPractice(page);
-  const {events}=await expectCompleteNarration(page,item);
+  const {events}=await expectCompleteNarration(page,fixture);
   const signals=await page.evaluate(()=>window.preparedSignals);
   expect(signals.length).toBeGreaterThanOrEqual(choices.length);
   for(const signal of signals){expect(signal.leading).toBeLessThanOrEqual(0.016);expect(signal.trailing).toBeLessThanOrEqual(0.031);}
@@ -167,8 +175,9 @@ test('retained pupil audio plays offline under the production media and connecti
     await route.fulfill({response,headers:{...response.headers(),'Content-Security-Policy':"media-src 'self' blob:; connect-src 'self' https://*.supabase.co wss://*.supabase.co"}});
   });
   await auditNativeAudio(page);
-  const item=await openPractice(page);
-  await expectCompleteNarration(page,item);
+  const fixture = await openPractice(page);
+  const {item} = fixture;
+  await expectCompleteNarration(page,fixture);
   const clip=item.requiredAudioCues.find(cue=>cue.role==='choice').path;
   await page.evaluate(async clip=>{
     const [{createMockOfflineMedia},{prepareMockAudio},{getMockAudioElement}]=await Promise.all([

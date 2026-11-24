@@ -26,3 +26,19 @@ test('placing a tile into a later box cannot complete a construction with empty 
   assert.equal(mockResponseComplete(item, ['t0', 't1', 't2']), true);
   assert.equal(mockResponseComplete({ format:'choice' }, ['']), false, 'Returning a letter from its blank clears the answer');
 });
+
+test('alphabet spelling accepts repeated letters and an independently chosen response length', () => {
+  const item = { ...build('bell', ['b','e','l']), alphabetSpelling:true };
+  for (const word of ['b', 'bell', 'belle']) {
+    assert.equal(mockResponseComplete(item,[...word]),true);
+    assert.equal(mockResponseValue(item,[...word]),word);
+  }
+  assert.equal(mockResponseComplete(item,[]),false);
+});
+
+test('select-all accepts any nonempty subset while preserving historical exact-count mechanics', () => {
+  const item = { format:'multi_select', selectCount:2, choices:['a','b','c','d'].map(id=>({id})), selectAllThatApply:true };
+  for (const selection of [['b'],['b','d'],['a','b','d'],['a','b','c','d']]) assert.equal(mockResponseComplete(item,selection),true);
+  for (const selection of [[],['a','a'],['missing']]) assert.equal(mockResponseComplete(item,selection),false);
+  assert.equal(mockResponseComplete({...item,selectAllThatApply:false},['b']),false);
+});

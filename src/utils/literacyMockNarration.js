@@ -21,14 +21,3 @@ export function literacyMockNarrationCues(item, choices, { includeLayoutInstruct
       .map(cue=>({...cue,choiceNumber:index+1})))
   ];
 }
-
-// Keep the reference word visible alongside the class question recording.
-// Learner prompts and the versioned item/recording contract stay unchanged.
-export function wholeClassMockQuestionPrompt(item) {
-  const target=item.requiredAudioCues.find(cue=>cue.role==='target_word')?.text?.trim();
-  if (!target) return item.prompt;
-  if (/^Which word has the same (starting|last|middle vowel) sound\?$/.test(item.prompt))
-    return item.prompt.replace(/\?$/,` as ${target}?`);
-  if (item.prompt==='Which word rhymes with the word you hear?') return `Which word rhymes with ${target}?`;
-  return item.prompt;
-}

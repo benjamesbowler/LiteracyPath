@@ -1,4 +1,5 @@
 export function mockResponseValue(item, selection) {
+  if (item.alphabetSpelling) return selection.join('');
   if (item.format === 'build_word') return selection.map(id => item.choices.find(choice => choice.id === id)?.label || '').join('');
   return ['choice', 'select_text'].includes(item.format) ? selection[0] : selection;
 }
@@ -24,8 +25,13 @@ export function mockConstructionLength(item) {
   return Number.isFinite(length) && length > 0 ? length : item.choices.length;
 }
 export function mockResponseComplete(item, selection) {
+  if (item.alphabetSpelling) return /^[a-z]{1,64}$/.test(selection.join(''));
   if (['choice', 'select_text'].includes(item.format)) return selection.length === 1 && Boolean(selection[0]);
-  if (item.format === 'multi_select') return selection.length === item.selectCount;
+  if (item.format === 'multi_select') {
+    if (item.selectAllThatApply) return selection.length > 0 && new Set(selection).size === selection.length
+      && selection.every(id => item.choices.some(choice => choice.id === id));
+    return selection.length === item.selectCount;
+  }
   if (item.format === 'match') return selection.length === item.matchTargets.length && selection.every(Boolean);
   if (['order', 'build_word'].includes(item.format)) return selection.length === mockConstructionLength(item) && selection.every(Boolean);
   return false;

@@ -1957,3 +1957,7 @@ The old aliases can be recovered exactly from the prior Git source images;
 environments can be recreated from retained versions/hashes. The rejected audio
 is excluded from delivery; resynthesis is not bitwise recovery. Protected work
 and unrelated worktrees were not touched.
+
+## Mock MAP shared assessment, November 2026
+
+V14 replaces the separate class-practice pack and class-only router at the teacher entry point. New mixed sittings on both surfaces use the versioned pupil planner and question renderer. V13 sources remain available to rebuild and verify historical publications.

@@ -1,8 +1,38 @@
+// Use speech energy over short active windows so that a pause in a passage
+// cannot turn up the gain. Apply one gain to every sample and channel so that
+// phoneme envelopes, stereo balance and the authored dynamics stay intact.
+export function mockSpeechGain(buffer) {
+  const channels = Array.from({ length: buffer.numberOfChannels }, (_, index) => buffer.getChannelData(index));
+  const windowSize = Math.max(1, Math.round(buffer.sampleRate * 0.02));
+  const powers = [];
+  let peak = 0;
+  let strongest = 0;
+  for (let start = 0; start < buffer.length; start += windowSize) {
+    const end = Math.min(start + windowSize, buffer.length);
+    let energy = 0;
+    for (const channel of channels) {
+      for (let index = start; index < end; index++) {
+        const sample = channel[index];
+        peak = Math.max(peak, Math.abs(sample));
+        energy += sample * sample;
+      }
+    }
+    const power = energy / ((end - start) * channels.length);
+    powers.push(power);
+    strongest = Math.max(strongest, power);
+  }
+  if (peak <= 0.001) throw new Error('Recording contains no audible sound');
+  const active = powers.filter(power => power >= strongest * 0.01);
+  const rms = Math.sqrt(active.reduce((sum, power) => sum + power, 0) / active.length);
+  // Lift quiet speech toward -18 dBFS and keep boosted peaks below -1 dBFS.
+  return Math.max(1, Math.min(0.126 / rms, 0.89 / peak));
+}
+
 // Keep only the outer silence. Quiet consonants and pauses inside speech stay
 // intact; a small guard protects the beginning and end of each spoken sound.
-export function mockSpeechBounds(buffer) {
+export function mockSpeechBounds(buffer, gain = 1) {
   const channels = Array.from({ length: buffer.numberOfChannels }, (_, i) => buffer.getChannelData(i));
-  const audible = i => channels.some(channel => Math.abs(channel[i]) > 0.001); // -60 dB
+  const audible = i => channels.some(channel => Math.abs(channel[i]) * gain > 0.001); // -60 dB
   let first = 0, last = buffer.length - 1;
   while (first < buffer.length && !audible(first)) first++;
   if (first === buffer.length) throw new Error('Recording contains no audible sound');
@@ -12,7 +42,8 @@ export function mockSpeechBounds(buffer) {
 }
 
 export function mockSpeechWav(buffer) {
-  const { start, end } = mockSpeechBounds(buffer);
+  const gain = mockSpeechGain(buffer);
+  const { start, end } = mockSpeechBounds(buffer, gain);
   const channels = Array.from({ length: buffer.numberOfChannels }, (_, i) => buffer.getChannelData(i));
   const frameSize = channels.length * 2, size = (end - start) * frameSize;
   const bytes = new ArrayBuffer(44 + size), view = new DataView(bytes);
@@ -23,7 +54,7 @@ export function mockSpeechWav(buffer) {
   view.setUint16(32, frameSize, true); view.setUint16(34, 16, true); label(36, 'data'); view.setUint32(40, size, true);
   let offset = 44;
   for (let i = start; i < end; i++) for (const channel of channels) {
-    const sample = Math.max(-1, Math.min(1, channel[i]));
+    const sample = Math.max(-1, Math.min(1, channel[i] * gain));
     view.setInt16(offset, Math.round(sample * (sample < 0 ? 32768 : 32767)), true); offset += 2;
   }
   return new Blob([bytes], { type: 'audio/wav' });

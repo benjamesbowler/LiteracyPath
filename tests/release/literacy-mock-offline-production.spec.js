@@ -61,6 +61,8 @@ async function chooseAnswer(page, current = null, choiceOrder = null) {
       await byId(current.answer[i]).click();
       await page.getByRole('button', { name: new RegExp(`^Space ${i + 1} for`) }).click();
     }
+  } else if (current.alphabetSpelling) {
+    await page.getByRole('textbox', { name:'Your spelling' }).fill(current.answer);
   } else if (current.format === 'build_word') {
     function compose(text, choices) {
       if (!text) return [];
@@ -93,16 +95,16 @@ async function answerOne(page,n) {
  await expect.poll(()=>page.evaluate(()=>window.__literacyMock.device().run.responses.length)).toBe(n);
 }
 
-test.describe('V13 short sittings through the production offline shell', () => {
+test.describe('V14 short sittings through the production offline shell', () => {
   test.describe.configure({ mode: 'parallel' });
   for (const count of [15, 25, 40]) test(`${count} questions prepare, recover offline and collect`, async ({ page, context }, info) => {
     await simulatedAudio(page, 5);
     await page.setViewportSize({ width: 1024, height: 768 });
-    const fixture = `${root}?case=${encodeURIComponent(info.testId)}&version=literacy-mock-v13&device=1&warmup=1&count=${count}`;
+    const fixture = `${root}?case=${encodeURIComponent(info.testId)}&version=literacy-mock-v14&device=1&warmup=1&count=${count}`;
     const metadataResponse = await page.request.get('/offline-build.json');
     expect(metadataResponse.ok()).toBe(true);
     const metadata = await metadataResponse.json();
-    expect(metadata.mockExecutable.mixedByVersion['literacy-mock-v13'].some(path => /RuntimeV13/i.test(path))).toBe(true);
+    expect(metadata.mockExecutable.mixedByVersion['literacy-mock-v14'].some(path => /RuntimeV14/i.test(path))).toBe(true);
     expect(metadata.mockExecutable.mixedByVersion['literacy-mock-v12'].some(path => /RuntimeV12/i.test(path))).toBe(true);
     await page.goto(`${fixture}&mode=teacher`);
     await page.getByRole('combobox', { name: 'Questions' }).selectOption(String(count));
@@ -112,7 +114,7 @@ test.describe('V13 short sittings through the production offline shell', () => {
     await page.getByRole('button', { name: 'Start assessment', exact: true }).click();
     await expect(page.getByRole('button', { name: 'Pause assessment', exact: true })).toBeEnabled();
     const assignmentId = await page.evaluate(() => window.__literacyMock.state().session.id);
-    const prepare = await page.evaluate(() => window.__literacyMock.state().calls.find(call => call.name === 'teacher_prepare_literacy_mock_session_v13'));
+    const prepare = await page.evaluate(() => window.__literacyMock.state().calls.find(call => call.name === 'teacher_prepare_literacy_mock_session_v14'));
     expect(prepare.args.p_item_count).toBe(count);
 
     await page.goto(fixture);
@@ -130,7 +132,7 @@ test.describe('V13 short sittings through the production offline shell', () => {
     await answerOne(page, 1);
     await answerOne(page, 2);
     const before = await page.evaluate(() => window.__literacyMock.device());
-    expect(before.run.contentVersion).toBe('literacy-mock-v13');
+    expect(before.run.contentVersion).toBe('literacy-mock-v14');
     const bank = await loadLiteracyMockBank({ contentVersion: before.run.contentVersion });
     const paths = retainedMediaPaths(bank, before.mediaItemIds);
     await expect.poll(() => page.evaluate(async urls => {

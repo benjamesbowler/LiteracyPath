@@ -4,6 +4,7 @@ import { loadLiteracyMockRuntimeBank, literacyMockTutorialIdsForVersion, scoreLi
 import { getStudentLiteracyMockRun, saveStudentLiteracyMockRun, recordLiteracyMockEvent, literacyMockMutationReceiptContext, verifyLiteracyMockMutationReceipt, syncStudentLiteracyMockBatch } from '../../data/literacyMockSessionCore.js';
 import { selectLiteracyMockPlan, selectLiteracyMockFreshCheck, adaptLiteracyMockPlan, replaceFailedLiteracyMockMedia, replaceInvalidLiteracyMockContent, sameLiteracyMockPlan } from '../../utils/literacyMockPlanner.js';
 import { readAssessmentDraft, writeAssessmentDraft, removeAssessmentDraft } from '../../utils/assessmentDraftStorage.js';
+import { LiteracyMockHeader } from './LiteracyMockHeader.jsx';
 import { LiteracyMockQuestion } from './LiteracyMockQuestion.jsx';
 import { buildLiteracyExposureIndex, canonicalLiteracyIdentity, getLiteracyExposure, readLiteracyExposures, recordLiteracyExposures } from '../../utils/literacyEvidence.js';
 import { useMockAudio } from '../../hooks/useMockAudio.js';
@@ -85,7 +86,7 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
   const contentVersion = run?.contentVersion || mock?.content_version || focusSession?.content_version || 'literacy-mock-v1';
   const hasWithdrawnQuestions = Boolean(run?.plan?.itemIds?.slice(run.responses?.length || 0)
     .some(id => literacyItemQualityIssue({ id })));
-  const mixedRuntime = ['literacy-mock-v10','literacy-mock-v11','literacy-mock-v12','literacy-mock-v13'].includes(contentVersion) && mock?.plan_kind === 'mixed';
+  const mixedRuntime = ['literacy-mock-v10','literacy-mock-v11','literacy-mock-v12','literacy-mock-v13','literacy-mock-v14'].includes(contentVersion) && mock?.plan_kind === 'mixed';
   const reloadBank = useCallback(async () => {
     setBankError('');
     const runtimeKey = `${contentVersion}:${mixedRuntime}`;
@@ -519,7 +520,7 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
   else if (!item) stateContent = <p role="alert">This question needs an update. Ask your teacher to reload.</p>;
   return <main className="literacy-mock" data-child-surface="literacy-mock" aria-busy={loading || busy}>
     <div className="literacy-mock-canvas">
-      <header className="literacy-mock-header"><h1 data-child-title>Adaptive Literacy Test</h1><span>Reading &amp; language</span></header>
+      <LiteracyMockHeader/>
       {error && !contentReviewBlocked && <div className="literacy-mock-error" role="alert">{error}{!pending && <button type="button" onClick={retryRejected}>Try again</button>}</div>}
       {stateContent ? <div className="literacy-mock-state">{stateContent}</div> : tutorial ? <LiteracyMockQuestion key={tutorial.id} item={tutorial} seed={`warmup:${sessionId}:${studentId}`} index={Math.max(0, tutorials.indexOf(tutorial))} total={reminder ? null : tutorials.length} studentName={studentName} studentId={studentId} resolveMedia={offlineMedia?.resolve} includeLayoutInstruction={includeLayoutInstruction} disabled={busy} demonstration demonstrationMessage={tutorialMessage} onSubmit={finishTutorial}/>
         : <LiteracyMockQuestion key={item.id} item={item} seed={run.plan.seed} index={itemIndex} total={run.plan.itemIds.length} studentName={studentName} studentId={studentId} resolveMedia={offlineMedia?.resolve} includeLayoutInstruction={includeLayoutInstruction} disabled={stopped || busy || Boolean(error)} exposure={run.presentations?.find(value => value.questionId === item.id) || getLiteracyExposure(item, buildLiteracyExposureIndex({ exposures: [...serverExposures, ...readLiteracyExposures(studentId)] }))} onPresented={() => { recordEvent(item, 'presented'); recordLiteracyExposures(studentId, [item]); }} onHelpRequest={mock?.capabilities?.supportResolution ? event => recordEvent(item, event) : undefined} helpRequest={run.helpRequests?.find(value => value.questionId === item.id)} helpPending={busy} blockPendingHelp={Boolean(mock?.capabilities?.offlineDelivery)} legacyHelpEnabled={!LITERACY_MOCK_EVIDENCE_VERSIONS.includes(contentVersion)} onMechanicReminder={allTutorials.some(value => value.format === item.format) ? () => { setTutorialMessage(''); setReminderId(allTutorials.find(value => value.format === item.format).id); } : undefined} onSubmit={submit}/>}
@@ -531,16 +532,14 @@ function LiteracyMockTab(props) {
   const { studentId, focusSession } = props;
   const sessionId = focusSession?.id;
   const [status, setStatus] = useState(() => globalThis.navigator?.locks?.request ? 'opening' : 'unavailable');
-  const [attempt, setAttempt] = useState(0);
   useEffect(() => {
     const locks = globalThis.navigator?.locks;
     if (!locks?.request) return;
     const controller = new AbortController();
     let active = true, release;
-    // Give a previous mount time to release its lock before showing standby.
-    // A live tab keeps ownership, and the waiting request never steals it.
+    // Show standby on contention, but keep the exclusive request queued. A
+    // slow reload or closed writer releases the lock without user intervention.
     const timer = setTimeout(() => {
-      controller.abort();
       if (active) setStatus('standby');
     }, 500);
     void locks.request(mockOutboxKey(studentId, sessionId), { signal: controller.signal }, () => {
@@ -558,7 +557,7 @@ function LiteracyMockTab(props) {
       controller.abort();
       release?.();
     };
-  }, [studentId, sessionId, attempt]);
+  }, [studentId, sessionId]);
 
   if (status === 'writer') return <OwnedLiteracyMockPage {...props}/>;
   return <main className="literacy-mock" data-child-surface="literacy-mock">
@@ -567,8 +566,7 @@ function LiteracyMockTab(props) {
       <div className="literacy-mock-state">
         {status === 'opening' ? <p role="status">Opening your test…</p> : status === 'standby' ? <>
           <h2>Your test is open in another tab.</h2>
-          <p data-child-instruction>Close the other test tab, then tap Continue here. Your saved answers will come with you.</p>
-          <button type="button" className="literacy-mock-next" data-child-primary onClick={() => { setStatus('opening'); setAttempt(value => value + 1); }}>Continue here</button>
+          <p data-child-instruction>Close the other test tab. This tab will continue from your saved answers.</p>
         </> : <><h2>Ask your teacher.</h2><p role="alert" data-child-instruction>This browser cannot safely open the test. Keep this tab open and ask your teacher for help.</p></>}
       </div>
     </div>

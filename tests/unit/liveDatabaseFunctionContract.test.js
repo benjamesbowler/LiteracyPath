@@ -64,7 +64,8 @@ test("literacy mock PostgREST parameter keys match the forward migrations exactl
     "20261020030000_literacy_mock_progression_v11.sql",
     "20261028040100_literacy_mock_beginner_v12.sql",
     "20261122032258_literacy_mock_teacher_status.sql",
-    "20261122090000_literacy_mock_short_routing_v13.sql"
+    "20261122090000_literacy_mock_short_routing_v13.sql",
+    "20261124090000_literacy_mock_adaptive_v14.sql"
   ];
   const sql = files.map(file => readFileSync(new URL(`../../supabase/migrations/${file}`, import.meta.url), "utf8")).join("\n");
   for (const name of [
@@ -92,7 +93,9 @@ test("literacy mock PostgREST parameter keys match the forward migrations exactl
     "teacher_resolve_literacy_mock_support",
     "teacher_get_literacy_mock_status",
     "teacher_literacy_mock_v13_available",
-    "teacher_prepare_literacy_mock_session_v13"
+    "teacher_literacy_mock_v14_available",
+    "teacher_prepare_literacy_mock_session_v13",
+    "teacher_prepare_literacy_mock_session_v14"
   ]) {
     const parameters = sql.match(new RegExp(`create (?:or replace )?function public\\.${name}\\(([^)]*)\\)`))?.[1];
     assert.equal(typeof parameters, "string", `${name} must exist in the migration`);

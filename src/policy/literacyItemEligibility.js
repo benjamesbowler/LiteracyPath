@@ -69,9 +69,20 @@ export const LITERACY_CONTEXTUAL_ITEM_QUALITY_ISSUES = Object.freeze([
   })),
 ]);
 
+// Forward withdrawal from the published V14 bank. These IDs also exist in
+// earlier catalogues with different answer choices; version is mandatory.
+export const LITERACY_MOCK_V14_PICTURE_ISSUES = Object.freeze({
+  'mock.v8.reading.0.mat.v11': 'Both mat and rug can describe the woven floor covering in the picture.',
+  'mock.v8.reading.1.pup.v11': 'Both pup and pet can describe the puppy in the picture.',
+  'mock.v12.beginner-reading.1.run': 'The still picture shows running but cannot distinguish run from ran.',
+});
+
 export function literacyItemQualityIssue(value = {}) {
   if (!value || typeof value !== 'object') return null;
   const source = value.itemSnapshot || value.questionSnapshot || value.question || value;
+  if (source.contentVersion === 'literacy-mock-v14' && Object.hasOwn(LITERACY_MOCK_V14_PICTURE_ISSUES,source.id)) {
+    return {code:'ambiguous_picture',reason:LITERACY_MOCK_V14_PICTURE_ISSUES[source.id]};
+  }
   const ids = [value.questionId, value.id, source.id, value.sourceItemId, source.sourceItemId];
   return ids.map(id => issues.get(id)).find(Boolean) || literacyV9ReviewedRhymeIssue(ids, source)
     || literacyV9ReviewedTransformationIssue(ids, source) || literacyMockBeginnerVocabularyIssue(source);

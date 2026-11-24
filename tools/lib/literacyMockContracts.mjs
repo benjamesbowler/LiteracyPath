@@ -1,3 +1,5 @@
+import { validV14ActionContrast } from '../../src/data/literacyMockV14.js';
+import { LITERACY_MOCK_V14_ORIGINAL_SOURCE } from '../../src/data/literacyMockV14Items.js';
 import {literacyMockDemandV12} from '../../src/policy/literacyMockDemandV12.js';
 import {literacyMockDemandV11,LITERACY_MOCK_V11_LADDERS} from '../../src/policy/literacyMockDemandV11.js';
 import {literacyMockBoundaryLimits} from '../../src/policy/literacyMockBoundaryPolicy.js';
@@ -5,7 +7,7 @@ import {getLiteracyMockAudioV11Path} from '../../src/data/literacyMockAudioV11.j
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { isLiteracyMockProgressionVersion, LITERACY_MOCK_VERSION } from '../../src/policy/literacyMockVersions.js';
+import { isLiteracyMockProgressionVersion, LITERACY_MOCK_ADAPTIVE_VERSION } from '../../src/policy/literacyMockVersions.js';
 import { cvcChoiceUsesSingleLetter } from '../../src/data/literacyMockV13.js';
 import { resolveLiteracyMockImagePath } from '../../src/data/literacyMockImageDelivery.js';
 import { LITERACY_MOCK_AREA_MAX, LITERACY_MOCK_AREA_ORDER } from '../../src/policy/literacyMockAdaptivePolicy.js';
@@ -31,7 +33,7 @@ const constructionOperations=new Set(['construct_split_vowel','construct_five_ph
 
 /** The current adaptive admission is the scope. Historical, tutorial and
  * quarantined/noneligible records remain immutable and are not relabelled. */
-export function currentLiteracyMockAuditItems(bank,{contentVersion=LITERACY_MOCK_VERSION}={}) {
+export function currentLiteracyMockAuditItems(bank,{contentVersion=LITERACY_MOCK_ADAPTIVE_VERSION}={}) {
   return bank.filter(q=>q.contentVersion===contentVersion && q.adaptiveMixedEligible===true && !q.tutorialOnly && isLiteracyItemEligible(q));
 }
 
@@ -54,6 +56,45 @@ function buildableLengths(answer,choices,offset=0,used=new Set()) {
   return result;
 }
 
+// V14 admits original select-all, dictated spelling and passage operations
+// alongside the inherited published ladder. Infer each new band from literal
+// stimulus/response evidence before comparing it with the published band.
+function originalV14Band(q) {
+  if (!Array.isArray(q.choices) || !Array.isArray(q.requiredAudioCues) || q.sourceProvenance?.file !== LITERACY_MOCK_V14_ORIGINAL_SOURCE
+    || q.constructClaim !== q.adaptiveDemand?.operation || !text(q.adaptiveDemand?.requires)) return null;
+  const labels = q.choices.map(c => c.label);
+  const set = q.format === 'multi_select' && q.selectAllThatApply === true && q.answerMode === 'set'
+    && Array.isArray(q.answer) && new Set(q.answer).size > 1 && q.answer.length < q.choices.length;
+  if (q.domainId === 'reading' && q.modality === 'reading' && text(q.passage)) {
+    if (q.skillId === 'key_details' && q.constructClaim === 'retrieve_printed_details' && set
+      && labels.every(label => q.passage.toLowerCase().includes(label))) return 2;
+    if (q.skillId === 'sequencing' && q.constructClaim === 'order_printed_events' && q.format === 'choice'
+      && /first|last/.test(q.prompt) && /before|after|then|once/i.test(q.passage)) return 3;
+    if (q.skillId === 'main_idea' && q.constructClaim === 'integrate_printed_details' && q.format === 'choice'
+      && q.passage.split(/[.!?]/).filter(text).length >= 3) return 4;
+  }
+  if (q.domainId === 'phonics' && q.skillId === 'cvc_short_vowels' && q.format === 'build_word' && q.alphabetSpelling
+    && q.answer === q.targetWord && !q.renderTargetText && q.requiredAudioCues.some(c => c.role === 'target_word' && c.text === q.answer)
+    && labels.every(label => /^[a-z]$/.test(label)) && q.responseLength === q.answer.length) {
+    const c = '[bcdfghjklmnpqrstvwxyz]', v = '[aeiou]';
+    if (q.constructClaim === 'encode_cvc' && new RegExp('^'+c+v+c+'$').test(q.answer)) return 2;
+    if (q.constructClaim === 'encode_consonant_blend' && new RegExp('^(?:'+c+c+v+c+'|'+c+v+c+c+')$').test(q.answer)) return 3;
+  }
+  if (q.domainId === 'print' && q.skillId === 'print_concepts' && q.constructClaim === 'locate_sentence_boundary'
+    && q.format === 'select_text' && q.passage.split(/[.!?]/).filter(text).length === 2
+    && q.choices.find(c => /[.!?]$/.test(c.label))?.id === q.answer) return 4;
+  if (q.domainId === 'vocabulary' && q.skillId === 'picture_vocabulary' && q.constructClaim === 'classify_related_referents'
+    && set && q.hideWrittenLabels && !q.passage && q.choices.every(c => c.image && c.imageAlt)) return 2;
+  return null;
+}
+
+function classifyV14(q, sourceItems) {
+  if (q.sourceProvenance?.file === LITERACY_MOCK_V14_ORIGINAL_SOURCE) return originalV14Band(q);
+  if (q.sourceProvenance?.file === 'src/data/literacyMockActionCapacityV11.js' && validV14ActionContrast(q))
+    return q.constructClaim === 'action_word_against_object_word' ? 0 : 1;
+  return literacyMockDemandV12(q,{sourceItems});
+}
+
 /** Validate the normalized Mock shape directly. Its ID-valued keys and
  * per-role cues are different from the public practice question schema. */
 export function auditLiteracyMockItem(q,{assetExists=publicFileExists,sourceItems}={}) {
@@ -63,17 +104,19 @@ export function auditLiteracyMockItem(q,{assetExists=publicFileExists,sourceItem
   const cues=Array.isArray(q.requiredAudioCues)?q.requiredAudioCues:[];
   const band=q.adaptiveAreaBand,operation=q.adaptiveDemand?.operation;
   const hasProgression=isLiteracyMockProgressionVersion(q.contentVersion);
-  const classify=['literacy-mock-v12','literacy-mock-v13'].includes(q.contentVersion)?q=>literacyMockDemandV12(q,{sourceItems}):q.contentVersion==='literacy-mock-v11'?q=>literacyMockDemandV11(q,{sourceItems}):q.contentVersion==='literacy-mock-v10'?literacyMockDemandV10:literacyMockDemandV9;
+  const isV14 = q.contentVersion === 'literacy-mock-v14';
+  const originalV14 = isV14 && q.sourceProvenance?.file === LITERACY_MOCK_V14_ORIGINAL_SOURCE;
+  const classify=isV14 ? q => classifyV14(q,sourceItems) : ['literacy-mock-v12','literacy-mock-v13'].includes(q.contentVersion)?q=>literacyMockDemandV12(q,{sourceItems}):q.contentVersion==='literacy-mock-v11'?q=>literacyMockDemandV11(q,{sourceItems}):q.contentVersion==='literacy-mock-v10'?literacyMockDemandV10:literacyMockDemandV9;
   const ladders=hasProgression?LITERACY_MOCK_V11_LADDERS:q.contentVersion==='literacy-mock-v10'?LITERACY_MOCK_V10_LADDERS:LITERACY_MOCK_V9_LADDERS;
   if(!text(q.id)||!text(q.prompt)||!text(q.skillId)||!text(q.constructClaim)||![1,2].includes(q.level)
     || !LITERACY_MOCK_AREA_ORDER.includes(q.domainId)||!formats.has(q.format)
     ||choices.length<2||new Set(ids).size!==ids.length||choices.some(c=>!text(c.id)||!text(c.label)))add('Q-MOCK-SHAPE','A normalized item needs a stable ID, literal prompt/construct, domain, source level and distinct labelled response IDs.');
   if(q.adaptiveAreaVersion!==(hasProgression?literacyMockBoundaryLimits(q.contentVersion).areaVersion:LITERACY_MOCK_V9_AREA_VERSION)||!Number.isInteger(band)||band<0||band>LITERACY_MOCK_AREA_MAX[q.domainId]
-    ||JSON.stringify(q.adaptiveDemand)!==JSON.stringify(ladders[q.domainId]?.[band])
+    ||(!originalV14 && JSON.stringify(q.adaptiveDemand)!==JSON.stringify(ladders[q.domainId]?.[band]))
     ||classify(q)!==band)add('Q-MOCK-DEMAND','The declared current adaptive band must match the actual admitted operation and its literal evidence contract.');
 
   if(hasProgression&&q.format==='choice'&&choices.length!==4)add('Q-MOCK-FOUR-CHOICES','Every current single-answer multiple-choice question needs one key and three distractors.');
-  if(q.contentVersion==='literacy-mock-v13'&&q.format==='choice'&&band===1&&['reading','phonics'].includes(q.domainId)
+  if((isV14 || q.contentVersion==='literacy-mock-v13')&&q.format==='choice'&&band===1&&['reading','phonics'].includes(q.domainId)
     && cvcChoiceUsesSingleLetter(choices,q.answer))add('Q-MOCK-CVC-SINGLE-LETTER','A single letter must not distinguish the key from all distractors in a complete CVC contrast.');
   if(['choice','select_text'].includes(q.format)){
     if(q.answerMode!=='exact'||typeof q.answer!=='string'||ids.filter(id=>id===q.answer).length!==1)add('Q-MOCK-KEY','A selected response needs exactly one literal keyed choice ID.');

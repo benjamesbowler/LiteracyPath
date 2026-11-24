@@ -20,6 +20,7 @@ import { buildLiteracyMockV8 } from './literacyMockV8.js';
 import { buildLiteracyMockV9 } from './literacyMockV9.js';
 import { buildLiteracyMockV11 } from './literacyMockV11.js';
 import { buildLiteracyMockV12 } from './literacyMockV12.js';
+import { buildLiteracyMockV14 } from './literacyMockV14.js';
 import { buildLiteracyMockV13 } from './literacyMockV13.js';
 import { partitionLiteracyMockV13 } from './literacyMockPracticePartition.js';
 import { buildLiteracyMockV10 } from './literacyMockV10.js';
@@ -257,6 +258,7 @@ export async function loadLiteracyMockV13Candidates() {
 export async function loadLiteracyMockBank({ includeUnavailable = false, contentVersion = LITERACY_MOCK_VERSION } = {}) {
   if (!LITERACY_MOCK_VERSIONS.includes(contentVersion)) throw new Error('Unsupported literacy mock content version.');
   if (!pendingBanks.has(contentVersion)) pendingBanks.set(contentVersion, (async () => {
+    if (contentVersion === 'literacy-mock-v14') return buildLiteracyMockV14(await loadLiteracyMockV13Candidates());
     if (contentVersion === 'literacy-mock-v13') return partitionLiteracyMockV13(await loadLiteracyMockV13Candidates()).scored;
     if (contentVersion === 'literacy-mock-v12') return buildLiteracyMockV12(await loadLiteracyMockBank({includeUnavailable:true,contentVersion:'literacy-mock-v11'}),source=>normalizeLiteracyMockItem(source,{contentVersion}));
     if (contentVersion === 'literacy-mock-v8') return buildLiteracyMockV8(await loadLiteracyMockBank({includeUnavailable:true,contentVersion:'literacy-mock-v7'}), source => normalizeLiteracyMockItem(source,{contentVersion}));

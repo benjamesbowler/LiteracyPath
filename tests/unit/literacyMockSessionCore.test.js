@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { controlLiteracyMockSession, prepareLiteracyMockSession, getStudentLiteracyMockRun, saveStudentLiteracyMockRun,
   listLiteracyMockSessions, getLiteracyMockReport, recordLiteracyMockEvent, resolveLiteracyMockSupport, prepareLiteracyMockFreshCheck, prepareLiteracyMockEntryCheck, getLiteracyMockFreshCapacity,
-  getLiteracyMockV13Availability, requireLiteracyMockSuccess, literacyMockMutationReceiptContext, verifyLiteracyMockMutationReceipt } from "../../src/data/literacyMockSessionCore.js";
+  getLiteracyMockV14Availability, requireLiteracyMockSuccess, literacyMockMutationReceiptContext, verifyLiteracyMockMutationReceipt } from "../../src/data/literacyMockSessionCore.js";
 import { BOUNDARY_RPCS, validateSupabaseResponse } from "../../src/data/boundaries/client.js";
 
 test("mock boundary sends only assignment token and immutable mutation inputs", async () => {
@@ -15,7 +15,7 @@ test("mock boundary sends only assignment token and immutable mutation inputs", 
   await saveStudentLiteracyMockRun({ client, token: "opaque", sessionId: "session", expectedRevision: 4, requestId: "answer-4", response });
   await listLiteracyMockSessions({ client, classId: "class" });
   await getLiteracyMockReport({ client, sessionId: "session" });
-  assert.deepEqual(calls[0], { name: "teacher_prepare_literacy_mock_session_v12", args: { p_class_id: "class", p_student_ids: [], p_whole_class: true, p_duration_minutes: 20, p_item_count: 124, p_request_id: null, p_window_mode: "pause_at_window_end" } });
+  assert.deepEqual(calls[0], { name: "teacher_prepare_literacy_mock_session_v14", args: { p_class_id: "class", p_student_ids: [], p_whole_class: true, p_duration_minutes: 20, p_item_count: 25, p_request_id: null, p_window_mode: "pause_at_window_end" } });
   assert.deepEqual(calls[3].args, { p_token: "opaque", p_session_id: "session", p_request_id: "answer-4", p_expected_revision: 4, p_plan: null, p_response: response });
   assert.equal(calls.every(call => BOUNDARY_RPCS.includes(call.name)), true);
   assert.equal(calls.some(call => Object.hasOwn(call.args, "p_student_id")), false);
@@ -28,16 +28,16 @@ test("offline and transport failures stay failures", async () => {
   await assert.rejects(saveStudentLiteracyMockRun({ client: { call: async () => ({ data: null, error }) } }), error);
 });
 
-test("V13 availability keeps missing backend support distinct from a failed lookup", async () => {
+test("V14 availability keeps missing backend support distinct from a failed lookup", async () => {
   const call = async (name, args) => {
-    assert.equal(name, "teacher_literacy_mock_v13_available");
+    assert.equal(name, "teacher_literacy_mock_v14_available");
     assert.deepEqual(args, {});
     return { data: true, error: null };
   };
-  assert.equal(await getLiteracyMockV13Availability({ client: { call } }), true);
+  assert.equal(await getLiteracyMockV14Availability({ client: { call } }), true);
   const rejected = code => ({ call: async () => ({ data: null, error: Object.assign(new Error(code), { code }) }) });
-  assert.equal(await getLiteracyMockV13Availability({ client: rejected("PGRST202") }), false);
-  await assert.rejects(getLiteracyMockV13Availability({ client: rejected("transport") }), /transport/);
+  assert.equal(await getLiteracyMockV14Availability({ client: rejected("PGRST202") }), false);
+  await assert.rejects(getLiteracyMockV14Availability({ client: rejected("transport") }), /transport/);
 });
 
 test("mock clock and run envelopes reject malformed server content", () => {
@@ -122,9 +122,9 @@ test('preparation retries retain their original version without sending client v
   await prepareLiteracyMockSession({ ...payload, contentVersion: 'literacy-mock-v10' });
   await prepareLiteracyMockSession({ ...payload, contentVersion: 'literacy-mock-v11' });
   await prepareLiteracyMockSession({ ...payload, contentVersion: 'literacy-mock-v13' });
-  assert.deepEqual(calls.map(call => call.name), ['teacher_prepare_literacy_mock_session_v3', 'teacher_prepare_literacy_mock_session_v4', 'teacher_prepare_literacy_mock_session_v12', 'teacher_prepare_literacy_mock_session_v8', 'teacher_prepare_literacy_mock_session_v10', 'teacher_prepare_literacy_mock_session_v11', 'teacher_prepare_literacy_mock_session_v13']);
+  assert.deepEqual(calls.map(call => call.name), ['teacher_prepare_literacy_mock_session_v3', 'teacher_prepare_literacy_mock_session_v4', 'teacher_prepare_literacy_mock_session_v14', 'teacher_prepare_literacy_mock_session_v8', 'teacher_prepare_literacy_mock_session_v10', 'teacher_prepare_literacy_mock_session_v11', 'teacher_prepare_literacy_mock_session_v13']);
   assert.deepEqual(calls[0].args, calls[1].args);
-  assert.equal(calls[2].args.p_item_count, 124);
+  assert.equal(calls[2].args.p_item_count, 25);
   assert.equal(calls[4].args.p_item_count, 67);
   assert.equal(calls[5].args.p_item_count, 124);
   assert.equal(calls[6].args.p_item_count, 25);

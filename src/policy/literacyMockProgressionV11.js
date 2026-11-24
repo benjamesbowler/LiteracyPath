@@ -13,6 +13,12 @@ export const LITERACY_MOCK_V11_AREA_BUDGETS = Object.freeze(Object.fromEntries(
   Object.entries(LITERACY_MOCK_AREA_MAX).map(([domain, maximum]) => [domain, 2 * maximum + 5])));
 export const LITERACY_MOCK_V11_MAX_ITEMS = Object.values(LITERACY_MOCK_V11_AREA_BUDGETS).reduce((a,b) => a+b,0);
 
+// V14 starts at 1 and moves after each independent observation. Keep enough
+// visits to sample every higher operation and repeat a ceiling observation.
+export const LITERACY_MOCK_V14_AREA_BUDGETS = Object.freeze(Object.fromEntries(
+  Object.entries(LITERACY_MOCK_AREA_MAX).map(([area, ceiling]) => [area, ceiling + 2])));
+export const LITERACY_MOCK_V14_MAX_ITEMS = Object.values(LITERACY_MOCK_V14_AREA_BUDGETS).reduce((sum, count) => sum + count, 0);
+
 const itemBand = item => item?.adaptiveAreaBand ?? item?.itemSnapshot?.adaptiveAreaBand;
 const byIdentity = bank => bank instanceof Map ? bank : Array.isArray(bank) ? new Map(bank.map(item => [item.id, item])) : null;
 const canonical = (row, byId) => byId ? byId.get(row.questionId) : row.itemSnapshot || row.questionSnapshot || row;
@@ -21,10 +27,11 @@ const canonical = (row, byId) => byId ? byId.get(row.questionId) : row.itemSnaps
  * learner level, mastery or calibrated item difficulty. Assistance and known
  * familiarity cannot confirm a boundary. All answered tasks still consume the
  * bounded sitting budget and encountered print targets remain encountered. */
-export function literacyMockProgressionV11(rows = [], { bank } = {}) {
+export function literacyMockProgressionV11(rows = [], { bank, immediateRouting = false } = {}) {
   const byId = byIdentity(bank);
+  const budgets = immediateRouting ? LITERACY_MOCK_V14_AREA_BUDGETS : LITERACY_MOCK_V11_AREA_BUDGETS;
   const states = Object.fromEntries(LITERACY_MOCK_AREA_ORDER.map(domainId => [domainId, {
-    domainId, nextBand: 0, answered: 0, eligible: 0,
+    domainId, nextBand: immediateRouting ? 1 : 0, answered: 0, eligible: 0,
     correctByBand: Array(LITERACY_MOCK_AREA_MAX[domainId] + 1).fill(0),
     incorrectByBand: Array(LITERACY_MOCK_AREA_MAX[domainId] + 1).fill(0),
     lastCorrectByBand: Array(LITERACY_MOCK_AREA_MAX[domainId] + 1).fill(0),
@@ -64,9 +71,9 @@ export function literacyMockProgressionV11(rows = [], { bank } = {}) {
     state.correctStreak = row.isCorrect ? state.correctStreak + 1 : 0;
     state.incorrectStreak = row.isCorrect ? 0 : state.incorrectStreak + 1;
     state.nextBand = band;
-    if (state.correctStreak >= literacyMockSuccessesToAdvanceV11(band)) {
+    if (immediateRouting ? row.isCorrect : state.correctStreak >= literacyMockSuccessesToAdvanceV11(band)) {
       state.nextBand = Math.min(LITERACY_MOCK_AREA_MAX[domainId], band + 1);
-    } else if (state.incorrectStreak >= LITERACY_MOCK_V11_ERRORS_TO_LOWER) {
+    } else if (immediateRouting || state.incorrectStreak >= LITERACY_MOCK_V11_ERRORS_TO_LOWER) {
       state.nextBand = Math.max(0, band - 1);
     }
   }
@@ -93,7 +100,7 @@ export function literacyMockProgressionV11(rows = [], { bank } = {}) {
     if (!state.stopReason && state.nonIndependentStreak >= 2) state.stopReason = 'independent_followup_needed';
     if (!state.stopReason && state.domainId === 'print' && state.nextBand <= 1
       && letters.size >= LITERACY_MOCK_V11_PRINT_LETTER_LIMIT) state.stopReason = 'letter_limit';
-    if (!state.stopReason && state.answered >= LITERACY_MOCK_V11_AREA_BUDGETS[state.domainId]) state.stopReason = 'budget_limit';
+    if (!state.stopReason && state.answered >= budgets[state.domainId]) state.stopReason = 'budget_limit';
     state.complete = state.stopReason !== null;
   }
   return states;

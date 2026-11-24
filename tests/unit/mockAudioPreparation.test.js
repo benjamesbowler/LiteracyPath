@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mockSpeechBounds, mockSpeechWav, prepareMockAudio } from '../../src/utils/mockAudioPreparation.js';
+import { mockSpeechBounds, mockSpeechGain, mockSpeechWav, prepareMockAudio } from '../../src/utils/mockAudioPreparation.js';
 
 const buffer = channels => ({ numberOfChannels: channels.length, length: channels[0].length,
   sampleRate: 1000, getChannelData: i => channels[i] });
@@ -61,4 +61,32 @@ test('offline audio is decoded from retained bytes without a CSP-blocked blob fe
   const sources = await preparation.ready;
   assert.equal(decoded, true); assert.ok(sources.get('/cached.mp3').src.startsWith('blob:'));
   preparation.dispose();
+});
+
+
+test('quiet speech is audible in the prepared WAV including consonants below the original trim threshold', async () => {
+  const samples = new Float32Array(1000);
+  samples.fill(0.0002, 100, 180);
+  samples.fill(-0.002, 200, 450);
+  samples.fill(0.003, 650, 850);
+  const speech = buffer([samples]);
+  const gain = mockSpeechGain(speech);
+  assert.ok(gain > 35);
+  const { start } = mockSpeechBounds(speech, gain);
+  assert.equal(start, 85);
+  const wav = new DataView(await mockSpeechWav(speech).arrayBuffer());
+  const sample = at => wav.getInt16(44 + 2 * (at - start), true) / 32768;
+  assert.ok(sample(120) > 0.005);
+  assert.ok(sample(300) < -0.07);
+  assert.equal(sample(500), 0);
+  assert.ok(sample(700) > 0.1);
+});
+
+test('gain uses shared stereo headroom and ignores the length of internal silence', () => {
+  const samples = new Float32Array(1000).fill(0.01);
+  samples[900] = 0.8;
+  const gain = mockSpeechGain(buffer([samples, samples.map(x => x * 0.5)]));
+  assert.ok(gain >= 1 && gain * samples[900] <= 0.891);
+  const padded = Float32Array.from([...samples, ...new Float32Array(1000)]);
+  assert.equal(mockSpeechGain(buffer([samples])), mockSpeechGain(buffer([padded])));
 });

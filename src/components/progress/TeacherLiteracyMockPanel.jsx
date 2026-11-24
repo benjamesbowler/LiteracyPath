@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { LITERACY_MOCK_SHORT_ITEM_COUNTS } from '../../policy/literacyMockQuestionLimit.js';
-import { LITERACY_MOCK_BALANCED_VERSION, LITERACY_MOCK_VERSION } from '../../policy/literacyMockVersions.js';
-import { prepareLiteracyMockSession, controlLiteracyMockSession, listLiteracyMockHistoryPage, getLiteracyMockReport, getLiteracyMockV13Availability, resolveLiteracyMockSupport, prepareLiteracyMockFreshCheck, prepareLiteracyMockEntryCheck, requireLiteracyMockSuccess } from "../../data/literacyMockSessionCore.js";
+import { LITERACY_MOCK_ADAPTIVE_VERSION, LITERACY_MOCK_BALANCED_VERSION } from '../../policy/literacyMockVersions.js';
+import { prepareLiteracyMockSession, controlLiteracyMockSession, listLiteracyMockHistoryPage, getLiteracyMockReport, getLiteracyMockV14Availability, resolveLiteracyMockSupport, prepareLiteracyMockFreshCheck, prepareLiteracyMockEntryCheck, requireLiteracyMockSuccess } from "../../data/literacyMockSessionCore.js";
 import { getLiteracyMockTeacherStatus } from "../../data/literacyMockTeacherStatus.js";
 import { buildLiteracyMockReport, literacyMockStudentName, literacyMockControlError } from "../../utils/literacyMockReport.js";
 import { readMockTeacherPending, saveMockTeacherPending, clearMockTeacherPending } from "../../utils/literacyMockTeacherPending.js";
@@ -233,8 +233,8 @@ function TeacherLiteracyMockPanelBody({ client, teacherId, classId, className, s
     setBusy(true); setMessage("");
     try {
       if (!args) {
-        const v13 = await boundedRequest(getLiteracyMockV13Availability({ client }));
-        args = { classId, wholeClass, studentIds: wholeClass ? [] : roster.filter(student => studentIds.includes(String(student.id))).map(student => student.id), durationMinutes, itemCount, windowMode, contentVersion: v13 ? LITERACY_MOCK_BALANCED_VERSION : LITERACY_MOCK_VERSION, requestId: requestId() };
+        if (!await boundedRequest(getLiteracyMockV14Availability({ client }))) throw new Error("The adaptive question catalogue is unavailable. Try preparing the test again shortly.");
+        args = { classId, wholeClass, studentIds: wholeClass ? [] : roster.filter(student => studentIds.includes(String(student.id))).map(student => student.id), durationMinutes, itemCount, windowMode, contentVersion: LITERACY_MOCK_ADAPTIVE_VERSION, requestId: requestId() };
       }
       retainMutation("preparation", args);
       dispatched = true;
@@ -247,7 +247,9 @@ function TeacherLiteracyMockPanelBody({ client, teacherId, classId, className, s
       } else {
         setSessionId(result.session.id); setPhase("prepare"); setSetupOpen(false);
         onSessionPrepared?.(result);
-        const routing = args.contentVersion === LITERACY_MOCK_BALANCED_VERSION
+        const routing = args.contentVersion === LITERACY_MOCK_ADAPTIVE_VERSION
+          ? "Each area starts at Starter. The next question in that area gets harder or easier after an independent answer."
+          : args.contentVersion === LITERACY_MOCK_BALANCED_VERSION
           ? args.itemCount === 15 ? "Expect one or two First steps questions per area."
             : args.itemCount === 25 ? "Most questions establish starting evidence, with room to sample Starter."
               : "Successful areas can reach Starter with room for follow-up observations."
