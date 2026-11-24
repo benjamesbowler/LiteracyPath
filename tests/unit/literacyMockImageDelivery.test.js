@@ -4,7 +4,10 @@ import fs from 'node:fs';
 import { createHash } from 'node:crypto';
 import { LITERACY_MOCK_IMAGE_DELIVERY, resolveLiteracyMockImagePath } from '../../src/data/literacyMockImageDelivery.js';
 import { withRepairedImageVersion } from '../../src/utils/repairedImageVersion.js';
-import { prepareMockOfflineMedia } from '../../src/utils/literacyMockOfflineMedia.js';
+import { mockOfflineMediaAssetLimit, mockOfflineMediaPaths, prepareMockOfflineMedia } from '../../src/utils/literacyMockOfflineMedia.js';
+import { loadLiteracyMockRuntimeBank, literacyMockTutorialIdsForVersion } from '../../src/data/literacyMockRuntimeBank.js';
+import { selectLiteracyMockPlan } from '../../src/utils/literacyMockPlanner.js';
+import { literacyMockReadingInstructionPath } from '../../src/utils/literacyMockNarration.js';
 import { appVisualAssetReview } from '../../src/content/appVisualAssetReviews.generated.js';
 import { ASSESSMENT_MEDIA_AUDIT_REJECTED_HASHES } from '../../src/content/assessments/v3/assessmentMediaAuditRejectedHashes.generated.js';
 import { loadLiteracyMockBank } from '../../src/data/literacyMockBank.js';
@@ -13,6 +16,23 @@ import { createLiteracyMockManifest } from '../../tools/generateLiteracyMockMani
 const original = '/images/assessment/hfw/look.webp';
 const current = '/images/assessment/release-support/targets/look-e09315.webp';
 const publicFile = src => new URL('../../public' + src, import.meta.url);
+
+test('a V15 reserve with several full-scene picture questions fits the offline cache', async () => {
+  const version = 'literacy-mock-v15';
+  const bank = await loadLiteracyMockRuntimeBank({ contentVersion: version, mixed: true });
+  const retained = new Set(Object.values(literacyMockTutorialIdsForVersion(version)));
+  // This actual 25-question reserve used 56,167,609 bytes with the original PNG deliveries.
+  selectLiteracyMockPlan(bank, {
+    sessionId: '70000000-0000-4000-8000-00000000041f', studentId: 'audit-incorrect-5',
+    itemCount: 25, routingPolicy: 'continuous-v1', onOfflineItems: ids => ids.forEach(id => retained.add(id)),
+  });
+  const items = bank.filter(item => retained.has(item.id));
+  const paths = mockOfflineMediaPaths(items, items.map(literacyMockReadingInstructionPath).filter(Boolean));
+  const bytes = paths.reduce((total, path) => total + fs.statSync(publicFile(resolveLiteracyMockImagePath(path))).size, 0);
+  assert.ok(paths.some(path => path.startsWith('/images/prepositions/')));
+  assert.ok(paths.length <= mockOfflineMediaAssetLimit(version));
+  assert.ok(bytes <= 48 * 1024 * 1024, 'The complete reserve requires ' + bytes + ' bytes.');
+});
 
 test('frozen image delivery uses an exact reviewed target without reviving retired art', () => {
   assert.equal(fs.existsSync(publicFile(original)), false);

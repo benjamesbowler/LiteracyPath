@@ -258,6 +258,11 @@ export async function loadLiteracyMockV13Candidates() {
 export async function loadLiteracyMockBank({ includeUnavailable = false, contentVersion = LITERACY_MOCK_VERSION } = {}) {
   if (!LITERACY_MOCK_VERSIONS.includes(contentVersion)) throw new Error('Unsupported literacy mock content version.');
   if (!pendingBanks.has(contentVersion)) pendingBanks.set(contentVersion, (async () => {
+    if (contentVersion === 'literacy-mock-v15') {
+      const { buildLiteracyMockV15 } = await import('./literacyMockV15.js');
+      const previous = await loadLiteracyMockBank({contentVersion:'literacy-mock-v14', includeUnavailable:true});
+      return buildLiteracyMockV15(previous);
+    }
     if (contentVersion === 'literacy-mock-v14') return buildLiteracyMockV14(await loadLiteracyMockV13Candidates());
     if (contentVersion === 'literacy-mock-v13') return partitionLiteracyMockV13(await loadLiteracyMockV13Candidates()).scored;
     if (contentVersion === 'literacy-mock-v12') return buildLiteracyMockV12(await loadLiteracyMockBank({includeUnavailable:true,contentVersion:'literacy-mock-v11'}),source=>normalizeLiteracyMockItem(source,{contentVersion}));

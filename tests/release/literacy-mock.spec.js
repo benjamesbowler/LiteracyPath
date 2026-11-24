@@ -1363,7 +1363,7 @@ test('an older pending V14 preparation resumes through its original service afte
 });
 
 for (const scenario of [
-  { name: 'V14', query: '&version=literacy-mock-v14', rpc: 'teacher_prepare_literacy_mock_continuous_session', copy: 'The test starts at Starter and adjusts across areas' },
+  { name: 'V15', query: '&version=literacy-mock-v15', rpc: 'teacher_prepare_literacy_mock_session_v15', copy: 'The test starts at Starter and adjusts across areas' },
   { name: 'an unavailable catalogue', query: '&version=literacy-mock-v14&availability=missing', rpc: null, copy: 'The adaptive question catalogue is unavailable.' },
   { name: 'a transport failure', query: '&availability=network', rpc: null, copy: 'Test availability could not be checked.' }
 ]) test(`mock preparation shows the actual route for ${scenario.name}`, async ({ page }) => {

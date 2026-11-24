@@ -13,6 +13,12 @@ The [Reporting Bible](../reporting/REPORTING_BIBLE.md),
 surface. [The former literacy practice guide](MAP_PREPARATION.md) retains the
 source and evidence contracts for historical learning and rehearsal records.
 
+## Reviewed mixed assessments — V15
+
+New whole-class and pupil tests use the same V15 questions, response controls, scoring and routing. The reviewed catalogue tightens distractors and removes shortcuts from the visible and spoken material. The selector compares the actual tasks across skills and samples print before its navigation tasks would be too easy. Earlier assignments retain their original question snapshots, routing and reports. [Cross-skill demand and ceiling behavior](LITERACY_MOCK_DEMAND_LADDER.md)
+
+The versioned readiness check and teacher preparation RPC require the V15 publication. The forward migrations are `20261124143000_literacy_mock_reviewed_v15.sql` and `20261124143100_literacy_mock_catalogue_v15.sql`.
+
 ## One adaptive test through Teach and pupil devices — V14
 
 Teachers can present a sitting to the whole class or assign it to pupil devices. Both use the same mixed question catalogue, starting demand, 15/25/40 maximums, selection algorithm, shuffled choices, question screen, recorded audio, and scoring. A projected sitting records the group's answers locally for routing. An assigned sitting saves each pupil's responses for the teacher. Identical seed, evidence and responses produce the same questions through either entry. An individual pupil's exposure history can change which fresh question the planner selects.

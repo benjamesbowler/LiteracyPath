@@ -76,7 +76,7 @@ const names = words(`ada ali amir arlo ava ben bo cora dylan elena eli esme eva 
 const union = (...lists) => Object.freeze([...new Set(lists.flat())].sort());
 export const LITERACY_MOCK_BEGINNER_VOCABULARY = Object.freeze({
   // Historical publications keep their original admission and saved evidence.
-  contentVersions: words('literacy-mock-v12 literacy-mock-v13 literacy-mock-v14'),
+  contentVersions: words('literacy-mock-v12 literacy-mock-v13 literacy-mock-v14 literacy-mock-v15'),
   areaVersions: words('areas-v6'),
   bands: Object.freeze([0, 1]),
   families: Object.freeze({
@@ -90,6 +90,11 @@ export const LITERACY_MOCK_BEGINNER_VOCABULARY = Object.freeze({
     print: Object.freeze({ skills: words('letter_knowledge'), allowedWords: union(directions, functionWords, words('the to'), 'abcdefghijklmnopqrstuvwxyz'.split('')) }),
   }),
 });
+
+// Familiar actions, inflections and spatial relations in the reviewed Starter
+// scene recordings and their descriptive picture alternatives. Other entry
+// tasks retain their own vocabulary inventories.
+const listeningSceneWords = new Set(words(`above adds among apples around balloon below between bites blocks bookmark books boots bow bridge brushes builds cereal chases children colours crack curtain draws dries drinking eagle enters fence fill filling finds flies flower flowers folds football front garage garden geese gift gives goal goes hands hard head inside jumped jumps kicks kites kitten laying light make near next opens outside over pencils pick picked picks plane plant plants pours puts rolls rubbing rubbish shelf shoes shuts sits slippers snowball snowman soap stacks stands stool stream teeth throws ties tower town trees tunnel tying under washes washing waters wetting wrap wraps zips`));
 
 const families = new Map(Object.entries(LITERACY_MOCK_BEGINNER_VOCABULARY.families)
   .map(([domain, policy]) => [domain, { skills: new Set(policy.skills), words: new Set(policy.allowedWords) }]));
@@ -110,8 +115,10 @@ export function literacyMockBeginnerVocabularyIssue(snapshot = {}) {
     ...(snapshot.choices || []).map(choice => typeof choice === 'string' ? choice : choice.label ?? choice.text ?? choice.value),
     ...(snapshot.requiredAudioCues || []).map(cue => cue.text)];
   // V13 uses kid as an exact final-sound contrast for the pictured kit.
-  const isFamiliar = word => family.words.has(word)
-    || (['literacy-mock-v13', 'literacy-mock-v14'].includes(snapshot.contentVersion) && snapshot.domainId === 'phonics' && word === 'kid');
+  const listeningScene = snapshot.contentVersion === 'literacy-mock-v15' && snapshot.domainId === 'listening'
+    && snapshot.adaptiveAreaBand === 1 && snapshot.sourceProvenance?.v15Review?.operation === 'understand-spoken-scene';
+  const isFamiliar = word => family.words.has(word) || (listeningScene && listeningSceneWords.has(word))
+    || (['literacy-mock-v13', 'literacy-mock-v14', 'literacy-mock-v15'].includes(snapshot.contentVersion) && snapshot.domainId === 'phonics' && word === 'kid');
   const unfamiliarWords = [...new Set(text.flatMap(tokens).filter(word => !isFamiliar(word)))].sort();
   if (!unfamiliarWords.length) return null;
   return {

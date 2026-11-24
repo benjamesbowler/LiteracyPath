@@ -7,6 +7,10 @@ const pending = new Map();
 export async function loadLiteracyMockRuntimeBank({contentVersion = LITERACY_MOCK_VERSION, mixed = false} = {}) {
   const key = `${contentVersion}:${mixed}`;
   if (!pending.has(key)) pending.set(key, (async()=>{
+    if (mixed && contentVersion === 'literacy-mock-v15') {
+      const { LITERACY_MOCK_RUNTIME_V15 } = await import('./generated/literacyMockRuntimeV15.generated.js');
+      return LITERACY_MOCK_RUNTIME_V15.filter(item => item.mediaReady);
+    }
     if (mixed && contentVersion === 'literacy-mock-v14') {
       const { LITERACY_MOCK_RUNTIME_V14 } = await import('./generated/literacyMockRuntimeV14.generated.js');
       return LITERACY_MOCK_RUNTIME_V14.filter(item => item.mediaReady);

@@ -13938,7 +13938,8 @@ export const ASSESSMENT_LEDA_GAP_AUDIO_BY_ROLE = Object.freeze({
     "use. which vowel pattern completes the word": "/audio/production/en-US/assessment_prompt/use-which-vowel-pattern-completes-the-word-c45a3cb838.mp3",
     "set. which printed word matches the recording": "/audio/production/en-US/assessment_prompt/set-which-printed-word-matches-the-recording-b56b6c95ed.mp3",
     "what does carlos's habit of checking the time mean": "/audio/production/en-US/assessment_prompt/what-does-carlos-s-habit-of-checking-the-time-mean-8c6e383cbe.mp3",
-    "what does the alligator do while waiting for her eggs to hatch": "/audio/production/en-US/assessment_prompt/what-does-the-alligator-do-while-waiting-for-her-eggs-to-hatch-a352a4592e.mp3"
+    "what does the alligator do while waiting for her eggs to hatch": "/audio/production/en-US/assessment_prompt/what-does-the-alligator-do-while-waiting-for-her-eggs-to-hatch-a352a4592e.mp3",
+    "match each use of the word to its meaning": "/audio/production/en-US/assessment_prompt/match-each-use-of-the-word-to-its-meaning-aafeb186d2.mp3"
   },
   "assessment_passage": {
     "the classroom clock stopped during reading. ella noticed that both hands stayed on twelve. mr. reed changed the battery after lunch. the clock began ticking again before home time": "/audio/production/en-US/assessment_passage/the-classroom-clock-stopped-during-reading-ella-noticed-that-both-hands-st-121f8bb5fe.mp3",

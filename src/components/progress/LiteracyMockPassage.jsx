@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 /** Keep the complete authored text readable while answer controls stay in view. */
-export function LiteracyMockPassage({ text }) {
+export function LiteracyMockPassage({ text, instruction = 'Read the box, then choose your answer.' }) {
   const body = useRef(null);
   const measure = useRef(null);
   const [pages, setPages] = useState([text]);
@@ -45,7 +45,7 @@ export function LiteracyMockPassage({ text }) {
         <button type="button" disabled={index === 0} onClick={() => setIndex(value => value - 1)}>Previous part</button>
         <span role="status">Part {index + 1} of {pages.length}</span>
         <button type="button" disabled={index === pages.length - 1} onClick={() => setIndex(value => value + 1)}>Read next part</button>
-      </> : <span>Read the box, then choose your answer.</span>}
+      </> : <span>{instruction}</span>}
     </nav>
   </>;
 }
