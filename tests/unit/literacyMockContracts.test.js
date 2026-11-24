@@ -1,9 +1,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { loadLiteracyMockBank, LITERACY_MOCK_VERSION } from '../../src/data/literacyMockBank.js';
+import { loadLiteracyMockBank } from '../../src/data/literacyMockBank.js';
+import { LITERACY_MOCK_ADAPTIVE_VERSION } from '../../src/policy/literacyMockVersions.js';
 import { auditLiteracyMockItem, currentLiteracyMockAuditItems } from '../../tools/lib/literacyMockContracts.mjs';
 
-const bank=await loadLiteracyMockBank({includeUnavailable:true,contentVersion:LITERACY_MOCK_VERSION});
+const bank=await loadLiteracyMockBank({includeUnavailable:true,contentVersion:LITERACY_MOCK_ADAPTIVE_VERSION});
 const admitted=currentLiteracyMockAuditItems(bank);
 const sourceItems=new Map(bank.map(q=>[q.id,q]));
 const copy=q=>structuredClone(q);

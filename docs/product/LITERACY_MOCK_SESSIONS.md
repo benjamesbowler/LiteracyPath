@@ -13,6 +13,18 @@ The [Reporting Bible](../reporting/REPORTING_BIBLE.md),
 surface. [The former literacy practice guide](MAP_PREPARATION.md) retains the
 source and evidence contracts for historical learning and rehearsal records.
 
+## One adaptive test through Teach and pupil devices — V14
+
+Teachers can present a sitting to the whole class or assign it to pupil devices. Both use the same mixed question catalogue, starting demand, 15/25/40 maximums, selection algorithm, shuffled choices, question screen, recorded audio, and scoring. A projected sitting records the group's answers locally for routing. An assigned sitting saves each pupil's responses for the teacher. Identical seed, evidence and responses produce the same questions through either entry. An individual pupil's exposure history can change which fresh question the planner selects.
+
+Each area starts at Starter. The scheduler pairs observations within an area and rotates the starting area across sittings. Fresh independent success raises that area's next demand by one step, and an independent error lowers it one step within the area's limits. Paired questions make both directions visible early. The distinction between changing the next question and confirming a boundary matters for reports. A short sitting can show which task the pupil attempted next while leaving their boundary unconfirmed.
+
+The question screen supports single answers, select-all and exact-count sets, highlighting text, matching, ordering and spelling. The sound and image requirements travel with the item. The player measures active speech before trimming and boosts quiet recordings with headroom for peaks. Internal pauses and differences between sounds within the same recording are preserved.
+
+The public K–2 design informed the recorded directions, touch-friendly response controls and spelling interface. NWEA describes its operational assessment as adaptive and its public practice forms as fixed demonstrations. These original Literacy Guide tasks use authored demands and classroom evidence. [NWEA K–2 test description](https://teach.mapnwea.org/assist/help_map/Content/AboutMAP/GrowthK2Tests.htm) · [NWEA public practice forms](https://connection.nwea.org/articles/Knowledge/Practice-tests-for-MAP-Growth) · [NWEA student interface examples](https://www.nwea.org/tour-map-growth/engaging-students.html)
+
+V14 checks for its database publication before starting new mixed sittings. Earlier sittings retain their own published catalogue, route, answers and scoring. The forward migrations are `20261124090000_literacy_mock_adaptive_v14.sql`, `20261124090100_literacy_mock_catalogue_v14.sql` and `20261124090200_literacy_mock_v14_picture_quarantine.sql`. The third excludes three ambiguous pictures from new routes and marks any affected observations as unscored.
+
 ## Balanced short sittings and separate class practice — V13
 
 The teacher chooses a maximum of **15, 25 or 40** questions for the whole

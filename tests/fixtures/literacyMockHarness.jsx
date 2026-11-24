@@ -24,18 +24,18 @@ const contentVersion = query.get("version") || 'literacy-mock-v4';
 const boundaryAdaptive = isLiteracyMockBoundaryVersion(contentVersion);
 const areaAdaptive = boundaryAdaptive || ['literacy-mock-v5','literacy-mock-v6','literacy-mock-v7','literacy-mock-v8'].includes(contentVersion);
 const v3 = LITERACY_MOCK_EVIDENCE_VERSIONS.includes(contentVersion);
-const v13 = contentVersion === 'literacy-mock-v13';
+const currentShortRoute = ['literacy-mock-v13','literacy-mock-v14'].includes(contentVersion);
 const capabilities = { presentationReceipts: v3, supportResolution: v3, freshChecks: v3, entryChecks: v3, windowModes: v3,
-  offlineDelivery:query.has('device'), contentQuarantineRepair: !query.has('legacyContentBackend'), preRenderMediaFailure: v13 };
+  offlineDelivery:query.has('device'), contentQuarantineRepair: !query.has('legacyContentBackend'), preRenderMediaFailure: currentShortRoute };
 const requestedCount = Number(query.get('count'));
-const shortCount = (v13 || contentVersion === 'literacy-mock-v12') && LITERACY_MOCK_SHORT_ITEM_COUNTS.includes(requestedCount) ? requestedCount : null;
-const itemCount = shortCount ?? (v13 ? 25 : ['literacy-mock-v11','literacy-mock-v12'].includes(contentVersion) ? 124 : boundaryAdaptive ? 67 : areaAdaptive || requestedCount === 43 ? 43 : 24);
+const shortCount = (currentShortRoute || contentVersion === 'literacy-mock-v12') && LITERACY_MOCK_SHORT_ITEM_COUNTS.includes(requestedCount) ? requestedCount : null;
+const itemCount = shortCount ?? (currentShortRoute ? 25 : ['literacy-mock-v11','literacy-mock-v12'].includes(contentVersion) ? 124 : boundaryAdaptive ? 67 : areaAdaptive || requestedCount === 43 ? 43 : 24);
 const bank = await loadLiteracyMockBank({ includeUnavailable: true, contentVersion });
 const available = bank.filter(item => item.mediaReady);
 const key = `literacy-mock-browser-server:${query.get('case') || 'default'}`;
 // The simulated external V11 database has its own storage bucket. Keep its
 // test records from consuming the real learner outbox's localStorage quota.
-const fixtureServerStorage = ['literacy-mock-v11','literacy-mock-v12','literacy-mock-v13'].includes(contentVersion) ? sessionStorage : localStorage;
+const fixtureServerStorage = ['literacy-mock-v11','literacy-mock-v12','literacy-mock-v13','literacy-mock-v14'].includes(contentVersion) ? sessionStorage : localStorage;
 let releaseHistoryRead;
 const heldHistoryRead = query.has('holdHistory') ? new Promise(resolve => { releaseHistoryRead = resolve; }) : null;
 const clone = value => structuredClone(value);
@@ -196,10 +196,10 @@ const client = { async call(name, args = {}) {
   const target = sessionRecord(args.p_session_id || args.p_source_session_id);
   if ((state.fault === 'hang-read' && name === 'student_get_literacy_mock_run') || (state.fault === 'hang-save' && name === 'student_save_literacy_mock_run') || (state.fault === 'hang-event' && name === 'student_record_literacy_mock_event') || (state.fault === 'hang-prepare' && name.startsWith('teacher_prepare_literacy_mock_session')) || (state.fault === 'hang-report' && name === 'teacher_get_literacy_mock_report') || (state.fault === 'hang-status' && name === 'teacher_get_literacy_mock_status')) return new Promise(() => {});
   if (state.fault === 'offline') throw new Error('Simulated disconnected network');
-  if (name === 'teacher_literacy_mock_v13_available') {
+  if (name === 'teacher_literacy_mock_v14_available') {
     if (query.get('availability') === 'missing') return { error: Object.assign(new Error('Function missing'), { code: 'PGRST202' }) };
     if (query.get('availability') === 'network') throw new Error('Test availability could not be checked.');
-    return { data: v13 };
+    return { data: true };
   }
   if (name === 'teacher_get_literacy_mock_status') return { data: teacherStatus(target) };
   if (name === 'teacher_get_literacy_mock_report' && state.fault === 'fail-report') return { error: new Error('Simulated detailed report failure') };
@@ -253,7 +253,7 @@ const client = { async call(name, args = {}) {
   }
   if (state.fault === 'stale') { state.fault = null; persist(); return { data: { ok: false, error: 'stale_revision' } }; }
   let result;
-  if (/^teacher_prepare_literacy_mock_session(?:_v(?:[3-9]|1[0-3]))?$/.test(name)) {
+  if (/^teacher_prepare_literacy_mock_session(?:_v(?:[3-9]|1[0-4]))?$/.test(name)) {
     if (args.p_whole_class && args.p_student_ids.length) return { data: { ok: false, error: 'whole_class_ids_must_be_empty' } };
     state.archives.push({ session: clone(state.session), run: clone(state.run), memberIds: state.memberIds });
     state.session = { ...clone(target.session), id: `prepared-session-${state.archives.length}`, status: 'prepared', started_at: timestamp(), mock: { ...target.session.mock, plan_kind: 'mixed', window_mode: args.p_window_mode || 'timed_sample', state: 'prepared', revision: 1, item_count: args.p_item_count, duration_seconds: args.p_duration_minutes * 60, remaining_seconds: args.p_duration_minutes * 60, time_extension_count: 0, deadline_at: null } };
@@ -360,7 +360,7 @@ const client = { async call(name, args = {}) {
       if (!item || item.id !== response.questionId) return { data: { ok: false, error: 'unexpected_question' } };
       if (capabilities.contentQuarantineRepair && literacyItemQualityIssue(item)) return { data: { ok: false, error: 'content_item_withdrawn' } };
       const presentation = target.run.presentations.find(value => value.questionId === item.id);
-      if (v3 && !presentation && !(v13 && response.responseStatus === 'media_failed')) return { data: { ok: false, error: 'presentation_required' } };
+      if (v3 && !presentation && !(currentShortRoute && response.responseStatus === 'media_failed')) return { data: { ok: false, error: 'presentation_required' } };
       const scored = response.responseStatus === 'answered';
       const canonical = { ...clone(response), itemSnapshot: clone(item.itemSnapshot || item), skillId: item.skillId, domainId: item.domainId, level: item.level,
         isCorrect: scored ? correct(item, response.selected) : null, knownFamiliar: presentation?.knownFamiliar === true || response.knownFamiliar === true ? true : null,

@@ -47,7 +47,6 @@ test('closing the writer lets a standby tab continue the same offline queue and 
   const standby = await context.newPage();
   await standby.goto(url);
   await expect(standby.getByRole('heading', { name: 'Your test is open in another tab.' })).toBeVisible();
-  await standby.getByRole('button', { name: 'Continue here' }).click();
   await expect(standby.getByRole('heading', { name: 'Your test is open in another tab.' })).toBeVisible();
   await expect(standby.locator('.literacy-mock-choice')).toHaveCount(0);
 
@@ -56,11 +55,9 @@ test('closing the writer lets a standby tab continue the same offline queue and 
   await answerCurrent(page, 1);
   const saved = await device(page);
   expect(saved.serverRun.responses).toHaveLength(0);
-  await page.close();
-
-  await standby.bringToFront();
   await standby.evaluate(() => window.__literacyMock.setFault('offline'));
-  await standby.getByRole('button', { name: 'Continue here' }).click();
+  await page.close();
+  await standby.bringToFront();
   await expect(question(standby, 2)).toBeVisible({ timeout: 60000 });
   const resumed = await device(standby);
   expect(resumed.run.responses).toEqual(saved.run.responses);
@@ -100,7 +97,7 @@ test('a prior mount releasing its lock does not leave the new assessment in stan
         requested = true;
         // Model the previous mount finishing its cleanup after the new mount
         // requests ownership, through the browser's actual lock manager.
-        setTimeout(() => release(), 100);
+        setTimeout(() => release(), 1000);
       }
       return request(name, options, callback);
     };

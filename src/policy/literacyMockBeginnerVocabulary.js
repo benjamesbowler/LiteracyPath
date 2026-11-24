@@ -76,7 +76,7 @@ const names = words(`ada ali amir arlo ava ben bo cora dylan elena eli esme eva 
 const union = (...lists) => Object.freeze([...new Set(lists.flat())].sort());
 export const LITERACY_MOCK_BEGINNER_VOCABULARY = Object.freeze({
   // Historical publications keep their original admission and saved evidence.
-  contentVersions: words('literacy-mock-v12 literacy-mock-v13'),
+  contentVersions: words('literacy-mock-v12 literacy-mock-v13 literacy-mock-v14'),
   areaVersions: words('areas-v6'),
   bands: Object.freeze([0, 1]),
   families: Object.freeze({
@@ -111,7 +111,7 @@ export function literacyMockBeginnerVocabularyIssue(snapshot = {}) {
     ...(snapshot.requiredAudioCues || []).map(cue => cue.text)];
   // V13 uses kid as an exact final-sound contrast for the pictured kit.
   const isFamiliar = word => family.words.has(word)
-    || (snapshot.contentVersion === 'literacy-mock-v13' && snapshot.domainId === 'phonics' && word === 'kid');
+    || (['literacy-mock-v13', 'literacy-mock-v14'].includes(snapshot.contentVersion) && snapshot.domainId === 'phonics' && word === 'kid');
   const unfamiliarWords = [...new Set(text.flatMap(tokens).filter(word => !isFamiliar(word)))].sort();
   if (!unfamiliarWords.length) return null;
   return {

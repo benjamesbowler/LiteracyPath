@@ -2,10 +2,11 @@ import { LITERACY_MOCK_AREA_ORDER,LITERACY_MOCK_AREA_MAX } from './literacyMockA
 import { literacyMockBoundaryStateV9, literacyMockBoundaryScheduleV9,
   LITERACY_MOCK_V9_AREA_BUDGETS, LITERACY_MOCK_V9_MAX_ITEMS, LITERACY_MOCK_V9_AREA_VERSION } from './literacyMockBoundaryV9.js';
 import { literacyMockProgressionV11, LITERACY_MOCK_V11_AREA_BUDGETS,
-  LITERACY_MOCK_V11_MAX_ITEMS, LITERACY_MOCK_V11_AREA_VERSION, literacyMockSuccessesToAdvanceV11 } from './literacyMockProgressionV11.js';
-import { isLiteracyMockProgressionVersion, LITERACY_MOCK_BALANCED_VERSION } from './literacyMockVersions.js';
+  LITERACY_MOCK_V14_MAX_ITEMS, LITERACY_MOCK_V14_AREA_BUDGETS, LITERACY_MOCK_V11_MAX_ITEMS, LITERACY_MOCK_V11_AREA_VERSION, literacyMockSuccessesToAdvanceV11 } from './literacyMockProgressionV11.js';
+import { isLiteracyMockProgressionVersion, LITERACY_MOCK_ADAPTIVE_VERSION, LITERACY_MOCK_BALANCED_VERSION } from './literacyMockVersions.js';
 
 export function literacyMockBoundaryLimits(version) {
+  if (version === LITERACY_MOCK_ADAPTIVE_VERSION) return { budgets: LITERACY_MOCK_V14_AREA_BUDGETS, maximum: LITERACY_MOCK_V14_MAX_ITEMS, areaVersion: LITERACY_MOCK_V11_AREA_VERSION };
   return isLiteracyMockProgressionVersion(version)
     ? { budgets: LITERACY_MOCK_V11_AREA_BUDGETS, maximum: LITERACY_MOCK_V11_MAX_ITEMS, areaVersion: LITERACY_MOCK_V11_AREA_VERSION }
     : { budgets: LITERACY_MOCK_V9_AREA_BUDGETS, maximum: LITERACY_MOCK_V9_MAX_ITEMS, areaVersion: LITERACY_MOCK_V9_AREA_VERSION };
@@ -18,8 +19,9 @@ export function literacyMockBoundaryVersion(rows = [], { bank, contentVersion } 
     || rows.find(row => row.contentVersion)?.contentVersion;
 }
 export function literacyMockBoundaryState(rows = [], options = {}) {
-  return isLiteracyMockProgressionVersion(literacyMockBoundaryVersion(rows, options))
-    ? literacyMockProgressionV11(rows, options) : literacyMockBoundaryStateV9(rows, options);
+  const version = literacyMockBoundaryVersion(rows, options);
+  return isLiteracyMockProgressionVersion(version)
+    ? literacyMockProgressionV11(rows, { ...options, immediateRouting: version === LITERACY_MOCK_ADAPTIVE_VERSION }) : literacyMockBoundaryStateV9(rows, options);
 }
 export function literacyMockBoundarySchedule(rows = [], options = {}) {
   const version = literacyMockBoundaryVersion(rows, options);
@@ -33,8 +35,8 @@ export function literacyMockBoundarySchedule(rows = [], options = {}) {
     if (states[domain].answered > budgets[domain]) throw Error('Invalid adaptive boundary history.');
     seen[domain] = 0;
   }
-  if (version === LITERACY_MOCK_BALANCED_VERSION) {
-    return [...prefix, ...literacyMockBalancedFuture(states, options.sessionId)];
+  if ([LITERACY_MOCK_BALANCED_VERSION, LITERACY_MOCK_ADAPTIVE_VERSION].includes(version)) {
+    return [...prefix, ...literacyMockBalancedFuture(states, options.sessionId, budgets, version === LITERACY_MOCK_ADAPTIVE_VERSION ? 2 : 1)];
   }
   for (let round=0; round<Math.ceil(Math.max(...Object.values(budgets))/2); round++) {
     for (const domain of LITERACY_MOCK_AREA_ORDER) for(let slot=0;slot<2;slot++) {
@@ -45,16 +47,18 @@ export function literacyMockBoundarySchedule(rows = [], options = {}) {
   return [...prefix,...future];
 }
 
-// One slot per area per pass prevents the cap from skipping the early pass
-// for later areas. Rotate ties across sittings without changing the saved prefix.
-function literacyMockBalancedFuture(states, sessionId) {
+// V13 offers one observation per area per pass. V14 pairs observations so
+// the second question can respond immediately to the first. Rotate the opening.
+function literacyMockBalancedFuture(states, sessionId, budgets, slotsPerArea) {
   const tail = String(sessionId || '').slice(-1);
   const shift = /^[\da-f]$/i.test(tail) ? parseInt(tail, 16) % LITERACY_MOCK_AREA_ORDER.length : 0;
   const order = [...LITERACY_MOCK_AREA_ORDER.slice(shift), ...LITERACY_MOCK_AREA_ORDER.slice(0, shift)];
   const future = [];
-  for (let ordinal = 1; ordinal <= Math.max(...Object.values(LITERACY_MOCK_V11_AREA_BUDGETS)); ordinal++) {
+  for (let first = 1; first <= Math.max(...Object.values(budgets)); first += slotsPerArea) {
     for (const area of order) {
-      if (!states[area].complete && ordinal > states[area].answered && ordinal <= LITERACY_MOCK_V11_AREA_BUDGETS[area]) future.push(area);
+      for (let ordinal = first; ordinal < first + slotsPerArea; ordinal++) {
+        if (!states[area].complete && ordinal > states[area].answered && ordinal <= budgets[area]) future.push(area);
+      }
     }
   }
   return future;
@@ -69,6 +73,7 @@ export function literacyMockFirstPossibleOrdinal(band) {
 // Unseen placeholders reserve a feasible spread of tasks; they never predict
 // a response. The next unseen item alone is replaced by the observed demand.
 export function literacyMockBoundaryPlaceholderBand(version,domain,ordinal){
+ if(version === LITERACY_MOCK_ADAPTIVE_VERSION) return Math.min(LITERACY_MOCK_AREA_MAX[domain], ordinal);
  if(domain==='print')return ordinal>5?2:0;
  if(!isLiteracyMockProgressionVersion(version))return 0;
  return Math.min(LITERACY_MOCK_AREA_MAX[domain],ordinal<=3?0:1+Math.floor((ordinal-4)/2));

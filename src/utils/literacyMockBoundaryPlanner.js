@@ -5,7 +5,7 @@ import { LITERACY_MOCK_AREA_MAX, LITERACY_MOCK_AREA_ORDER } from '../policy/lite
 import { literacyMockBoundaryState, literacyMockBoundarySchedule, literacyMockBoundaryLimits,
   literacyMockBoundaryPlaceholderBand, literacyMockFirstPossibleOrdinal } from '../policy/literacyMockBoundaryPolicy.js';
 import { LITERACY_MOCK_V11_PRINT_LETTER_LIMIT } from '../policy/literacyMockProgressionV11.js';
-import { LITERACY_MOCK_BALANCED_VERSION, isLiteracyMockBoundaryVersion, isLiteracyMockProgressionVersion } from '../policy/literacyMockVersions.js';
+import { LITERACY_MOCK_ADAPTIVE_VERSION, LITERACY_MOCK_BALANCED_VERSION, isLiteracyMockBoundaryVersion, isLiteracyMockProgressionVersion } from '../policy/literacyMockVersions.js';
 import { literacyMockTaskKey, sameLiteracyMockTask } from './literacyMockConditions.js';
 import { selectLiteracyMockPrintRetakePool } from './literacyMockRetakePool.js';
 import { literacyMockQuestionLimit } from '../policy/literacyMockQuestionLimit.js';
@@ -97,12 +97,12 @@ function historicalOfflinePool(candidates, plan, byId) {
   return reserved.map(item => item.id);
 }
 
-function balancedOfflinePool(candidates, plan, byId, limit) {
+function balancedOfflinePool(candidates, plan, byId, limit, version) {
   const initial = plan.itemIds.map(id => byId.get(id));
   const reserved = [...initial], assets = new Set(reserved.flatMap(mediaPaths));
-  const { budgets } = literacyMockBoundaryLimits(LITERACY_MOCK_BALANCED_VERSION);
-  // All areas receive one question before any receives a second. Two visits
-  // are necessary to stop any area, so no third visit can occur before 16.
+  const { budgets } = literacyMockBoundaryLimits(version);
+  // Both schedules give every area two visits by the end of question 16.
+  // No area can finish before its second response.
   const minOtherAnswers = 2 * (LITERACY_MOCK_AREA_ORDER.length - 1);
   const possibleAreaVisits = Math.max(2, limit - minOtherAnswers);
   const keep = items => {
@@ -115,7 +115,8 @@ function balancedOfflinePool(candidates, plan, byId, limit) {
   for (const [domain, maximum] of Object.entries(LITERACY_MOCK_AREA_MAX)) {
     const visits = Math.min(budgets[domain], possibleAreaVisits);
     for (let stage = 0; stage <= maximum; stage++) {
-      const reachable = visits - literacyMockFirstPossibleOrdinal(stage) + 1;
+      const firstVisit = version === LITERACY_MOCK_ADAPTIVE_VERSION ? 1 + Math.abs(stage - 1) : literacyMockFirstPossibleOrdinal(stage);
+      const reachable = visits - firstVisit + 1;
       if (reachable < 1) break;
       const here = item => item.domainId === domain && band(item) === stage;
       const branch = reserved.filter(here);
@@ -130,6 +131,19 @@ function balancedOfflinePool(candidates, plan, byId, limit) {
         const selected = allocateIndependentItems(Array.from({ length: amount }, () => pool));
         if (selected) { keep(selected); break; }
         amount--;
+      }
+    }
+  }
+  if (version === LITERACY_MOCK_ADAPTIVE_VERSION) {
+    // Media reuse alone would discard less common interactions. Keep a fresh
+    // representative of each response format at each reachable area/demand.
+    const key = item => JSON.stringify([item.domainId, band(item), item.format]);
+    const held = new Set(reserved.map(key));
+    const reachable = new Set(reserved.map(item => JSON.stringify([item.domainId, band(item)])));
+    for (const item of shuffleLiteracyMock(candidates, `${plan.seed}:formats`)) {
+      if (!held.has(key(item)) && reachable.has(JSON.stringify([item.domainId, band(item)]))) {
+        keep([item]);
+        held.add(key(item));
       }
     }
   }
@@ -166,8 +180,8 @@ export function selectLiteracyMockBoundaryPlan(bank, { sessionId, studentId, ite
   const plan = { itemIds: selected.map(item => item.id), seed: planSeed };
   if (onOfflineItems) {
     const byId = new Map(bank.map(item => [item.id, item]));
-    onOfflineItems(version === LITERACY_MOCK_BALANCED_VERSION
-      ? balancedOfflinePool(candidates, plan, byId, limit)
+    onOfflineItems([LITERACY_MOCK_ADAPTIVE_VERSION, LITERACY_MOCK_BALANCED_VERSION].includes(version)
+      ? balancedOfflinePool(candidates, plan, byId, limit, version)
       : historicalOfflinePool(candidates, plan, byId));
   }
   return plan;
@@ -198,6 +212,22 @@ export function adaptLiteracyMockBoundaryPlan(bank, plan, responses = [], failur
     if (index >= responses.length && !firstByArea.has(domain)) firstByArea.set(domain, index);
   }
   for (const row of responses) if (isEligibleLiteracyResponse(row)) counts.set(row.skillId, (counts.get(row.skillId) || 0) + 1);
+  const formatCounts = new Map();
+  const recentFoils = new Set();
+  const repeatedFoils = new Map();
+  if (version === LITERACY_MOCK_ADAPTIVE_VERSION && responses.length) {
+    for (const { questionId } of responses) {
+      const format = byId.get(questionId).format;
+      formatCounts.set(format, (formatCounts.get(format) || 0) + 1);
+    }
+    const foilLabels = item => item.format === 'choice' ? item.choices
+      .filter(choice => choice.id !== item.answer && choice.label)
+      .map(choice => choice.label.trim().toLowerCase()) : [];
+    for (const { questionId } of responses.slice(-4)) {
+      for (const label of foilLabels(byId.get(questionId))) recentFoils.add(label);
+    }
+    for (const item of candidates) repeatedFoils.set(item.id, foilLabels(item).filter(label => recentFoils.has(label)).length);
+  }
   const domainOrdinals = {};
   const options = [];
   const editable = [];
@@ -207,7 +237,11 @@ export function adaptLiteracyMockBoundaryPlan(bank, plan, responses = [], failur
     const demand = firstByArea.get(domain) === index ? states[domain].nextBand : literacyMockBoundaryPlaceholderBand(bank[0]?.contentVersion,domain, ordinal);
     const original = byId.get(plan.itemIds[index]);
     const pool = shuffleLiteracyMock(candidates.filter(item => item.domainId === domain && band(item) === demand), `${plan.seed}:${index}:${responses.length}:${demand}`);
-    pool.sort((left, right) => (counts.get(left.skillId) || 0) - (counts.get(right.skillId) || 0) || Number(right.id === original?.id) - Number(left.id === original?.id));
+    pool.sort((left, right) =>
+      (formatCounts.get(left.format) || 0) - (formatCounts.get(right.format) || 0)
+      || (counts.get(left.skillId) || 0) - (counts.get(right.skillId) || 0)
+      || (repeatedFoils.get(left.id) || 0) - (repeatedFoils.get(right.id) || 0)
+      || Number(right.id === original?.id) - Number(left.id === original?.id));
     editable.push(index); options.push(pool);
   }
   const selected = allocateIndependentItems(options, editable.map(index => schedule[index]));

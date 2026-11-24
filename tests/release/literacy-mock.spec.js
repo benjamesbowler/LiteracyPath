@@ -316,10 +316,10 @@ test('teacher can switch from a selected pupil to full class and prepare valid w
   await page.getByRole('button', { name: 'Prepare for 2 students', exact: true }).click();
   await page.getByRole('button', { name: 'Retry the same preparation', exact: true }).click();
   await expect(page.getByRole('button', { name: 'Start assessment', exact: true })).toBeVisible();
-  const call = (await server(page)).calls.find(call => call.name === 'teacher_prepare_literacy_mock_session_v12');
+  const call = (await server(page)).calls.find(call => call.name === 'teacher_prepare_literacy_mock_session_v14');
   expect(call.args.p_student_ids).toEqual([]);
   expect(call.args.p_whole_class).toBe(true);
-  const preparations = (await server(page)).calls.filter(call => call.name === 'teacher_prepare_literacy_mock_session_v12');
+  const preparations = (await server(page)).calls.filter(call => call.name === 'teacher_prepare_literacy_mock_session_v14');
   expect(preparations).toHaveLength(2);
   expect(preparations[0].args).toEqual(preparations[1].args);
   const preparedId = (await server(page)).session.id;
@@ -481,7 +481,7 @@ test('teacher timeouts preserve verified rows and recover preparation without a 
   await page.evaluate(() => window.__literacyMock.setFault(null));
   await page.getByRole('button', { name: 'Retry the same preparation', exact: true }).click();
   await expect(page.getByRole('button', { name: 'Start assessment', exact: true })).toBeVisible();
-  const requests = (await server(page)).calls.filter(call => call.name === 'teacher_prepare_literacy_mock_session_v12');
+  const requests = (await server(page)).calls.filter(call => call.name === 'teacher_prepare_literacy_mock_session_v14');
   expect(requests).toHaveLength(2); expect(requests[0].args).toEqual(requests[1].args);
 });
 
@@ -1340,8 +1340,8 @@ test('the 28-pupil mock class opens at the summary and returns keyboard focus to
 });
 
 for (const scenario of [
-  { name: 'V13', query: '&version=literacy-mock-v13', rpc: 'v13', copy: 'Expect one or two First steps questions per area.' },
-  { name: 'the V12 fallback', query: '&version=literacy-mock-v12&availability=missing', rpc: 'v12', copy: 'This session uses the earlier version.' },
+  { name: 'V14', query: '&version=literacy-mock-v14', rpc: 'v14', copy: 'Each area starts at Starter.' },
+  { name: 'an unavailable catalogue', query: '&version=literacy-mock-v14&availability=missing', rpc: null, copy: 'The adaptive question catalogue is unavailable.' },
   { name: 'a transport failure', query: '&availability=network', rpc: null, copy: 'Test availability could not be checked.' }
 ]) test(`mock preparation shows the actual route for ${scenario.name}`, async ({ page }) => {
   await open(page, `&mode=teacher${scenario.query}`);

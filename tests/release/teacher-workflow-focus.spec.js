@@ -1,3 +1,6 @@
+import { LITERACY_MOCK_RUNTIME_V14 as mockBank } from '../../src/data/generated/literacyMockRuntimeV14.generated.js';
+import { createWholeClassMockSession } from '../../src/components/teacher/wholeClassPracticeModel.js';
+import { fillMockQuestion } from './support/mockAnswer.js';
 import { expect, test } from "@playwright/test";
 import { readDownloadWorkbook, worksheetText } from "./support/workbookDownload.js";
 import { chooseStudentReportView } from "./support/studentReportNavigation.js";
@@ -8,14 +11,14 @@ test.setTimeout(90000);
 
 test('whole-class practice recovers a missing picture and offers recovery when questions cannot load', async ({page}) => {
   await page.goto('/preview/teacher-a11y.html?surface=resources');
-  await page.route('**/literacyMockClassPractice.generated.js*', route=>route.abort());
-  await page.getByRole('button',{name:'Open MAP Mock practice',exact:true}).click();
+  await page.route('**/literacyMockRuntimeV14.generated.js*', route=>route.abort());
+  await page.getByRole('button',{name:'Open Mock MAP class test',exact:true}).click();
   await expect(page.getByRole('alert')).toContainText('Questions could not load.');
-  await expect(page.getByRole('button',{name:'Start class practice',exact:true})).toBeDisabled();
-  await page.unroute('**/literacyMockClassPractice.generated.js*');
+  await expect(page.getByRole('button',{name:'Start class test',exact:true})).toBeDisabled();
+  await page.unroute('**/literacyMockRuntimeV14.generated.js*');
   await page.getByRole('button',{name:'Reload Teach',exact:true}).click();
-  await page.getByRole('button',{name:'Open MAP Mock practice',exact:true}).click();
-  await expect(page.getByRole('button',{name:'Start class practice',exact:true})).toBeEnabled();
+  await page.getByRole('button',{name:'Open Mock MAP class test',exact:true}).click();
+  await expect(page.getByRole('button',{name:'Start class test',exact:true})).toBeEnabled();
   await page.getByRole('button',{name:'Back to Teach',exact:true}).click();
   await page.getByRole('button',{name:'Open Cycles practice',exact:true}).click();
   await page.getByRole('combobox',{name:'Activity',exact:true}).selectOption('letterMatch');
@@ -116,31 +119,32 @@ test('Teach opens class Cycles practice, keeps mistakes for discussion and never
   expect(await page.evaluate(()=>[...Object.keys(localStorage),...Object.keys(sessionStorage)].filter(key=>/lp-(?:cycle-practice|mock-selection|mock-outbox|mock-pending)/.test(key)))).toEqual([]);
 });
 
-for(const width of [1920,1024])test(`MAP Mock class practice checks and reveals answers without learner writes at ${width}px`,async({page})=>{
+for(const width of [1920,1024])test(`MAP Mock class practice uses the pupil assessment controls without learner writes at ${width}px`,async({page})=>{
   await page.setViewportSize({width,height:1080});
   await page.addInitScript(() => Object.defineProperty(crypto,'randomUUID',{value:()=> 'teacher-whole-class-audit'}));
   await page.goto('/preview/teacher-a11y.html?surface=resources');
   const writes=[];page.on('request',request=>{if(request.method()==='POST'&&/rpc|rest\/v1/.test(request.url()))writes.push(request.url());});
-  await page.getByRole('button',{name:'Open MAP Mock practice',exact:true}).click();
-  await page.getByRole('combobox',{name:'Area',exact:true}).selectOption('print');
+  await page.getByRole('button',{name:'Open Mock MAP class test',exact:true}).click();
   await page.getByRole('combobox',{name:'Questions',exact:true}).selectOption('25');
-  await page.getByRole('button',{name:'Start class practice',exact:true}).click();
+  await page.getByRole('button',{name:'Start class test',exact:true}).click();
   await expect(page.locator('.literacy-mock-question')).toBeVisible();
-  await page.locator('.literacy-mock-choice').first().click();
-  const check=page.getByRole('button',{name:'Check answer',exact:true});
-  // Native recorded playback must actually finish before the shared question
-  // renderer accepts a response, just as in the learner implementation.
-  await expect(check).toBeEnabled({timeout:30000});await check.click();
-  await expect(page.locator('.whole-class-feedback')).toBeVisible();
-  await page.getByRole('button',{name:'Show answer',exact:true}).click();
-  await expect(page.locator('.whole-class-answer')).toBeVisible();
+  await expect(page.getByRole('dialog',{name:'Class assessment'})).toBeVisible();
+  expect(await page.locator('.literacy-mock-class-screen').evaluate(el=>el.matches(':modal'))).toBe(true);
+  const bounds = await page.locator('main.literacy-mock').boundingBox();
+  expect(bounds).toEqual({x:0,y:0,width,height:1080});
+  const session = createWholeClassMockSession(mockBank.filter(item=>item.mediaReady),{sessionId:'teacher-whole-class-audit',itemCount:25});
+  await fillMockQuestion(page,session.rounds[0],session.seed,true);
+  const next=page.getByRole('button',{name:'Next question',exact:true});
+  await expect(next).toBeEnabled({timeout:60000});
+  await expect(page.getByRole('button',{name:/^(Check answer|Show answer|Previous question)$/})).toHaveCount(0);
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);
-  await page.screenshot({path:`.artifacts/teach-class-practice-20261020/map-${width}.png`,fullPage:true});
-  await page.getByRole('button',{name:'Next question',exact:true}).click();
-  await expect(page.getByText('Practice question 2 of 25',{exact:true})).toBeVisible();
-  await expect(page.locator('.whole-class-answer')).toHaveCount(0);
+  await page.screenshot({path:test.info().outputPath(`map-${width}.png`),fullPage:true});
+  await next.click();
+  await expect(page.locator('[data-child-progress]')).toHaveText('Question 2 of 25');
+  await expect(page.locator('.whole-class-feedback, .whole-class-answer')).toHaveCount(0);
+  await page.getByRole('button',{name:'End class test',exact:true}).click();
   await page.getByRole('button',{name:'Back to Teach',exact:true}).click();
-  await expect(page.getByRole('button',{name:'Open MAP Mock practice',exact:true})).toBeFocused();
+  await expect(page.getByRole('button',{name:'Open Mock MAP class test',exact:true})).toBeFocused();
   expect(writes).toEqual([]);
   expect(await page.evaluate(()=>[...Object.keys(localStorage),...Object.keys(sessionStorage)].filter(key=>/lp-(?:assessment-draft|mock-selection|mock-outbox|mock-pending)/.test(key)))).toEqual([]);
 });
