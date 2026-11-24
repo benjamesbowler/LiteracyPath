@@ -180,8 +180,9 @@ export function literacyMockMixedTaskGroups(bank, { exposures = [] } = {}) {
 }
 
 /** Reserve entry, follow-up and confirmation for the same actual task. */
-export function selectLiteracyMockPlan(bank, { sessionId, studentId, itemCount, seed, exposures = [], onOfflineItems } = {}) {
-  if(bank.some(q=>isLiteracyMockBoundaryVersion(q.contentVersion)))return selectLiteracyMockBoundaryPlan(bank,{sessionId,studentId,itemCount,seed,exposures,onOfflineItems});
+export function selectLiteracyMockPlan(bank, options = {}) {
+  if (bank.some(q => isLiteracyMockBoundaryVersion(q.contentVersion))) return selectLiteracyMockBoundaryPlan(bank, options);
+  let { sessionId, studentId, itemCount, seed, exposures = [], onOfflineItems } = options;
   if(bank.some(q=>['literacy-mock-v5','literacy-mock-v6','literacy-mock-v7','literacy-mock-v8'].includes(q.contentVersion)))return selectLiteracyMockAreaPlan(bank,{sessionId,studentId,itemCount:itemCount??43,seed,exposures,onOfflineItems});
   itemCount??=24;
   if (!sessionId || !studentId || ![24, 43].includes(itemCount)) throw new Error('Mock plans need a session, learner, and 24 or 43 questions.');
@@ -345,8 +346,9 @@ function contingentLiteracyMockOptions(slots, pending, candidates, seed) {
 }
 
 /** Change only unoffered slots using independent evidence in that same task. */
-export function adaptLiteracyMockPlan(bank, plan, responses = [], mediaFailures = [], presentations = [], { resetUnsupported = false, exposures = [], itemCount, sessionId } = {}) {
-  if(bank.some(q=>isLiteracyMockBoundaryVersion(q.contentVersion)))return adaptLiteracyMockBoundaryPlan(bank,plan,responses,mediaFailures,presentations,{exposures,itemCount,sessionId});
+export function adaptLiteracyMockPlan(bank, plan, responses = [], mediaFailures = [], presentations = [], options = {}) {
+  if (bank.some(q => isLiteracyMockBoundaryVersion(q.contentVersion))) return adaptLiteracyMockBoundaryPlan(bank, plan, responses, mediaFailures, presentations, options);
+  const { resetUnsupported = false, exposures = [] } = options;
   if(bank.some(q=>['literacy-mock-v5','literacy-mock-v6','literacy-mock-v7','literacy-mock-v8'].includes(q.contentVersion)))return adaptLiteracyMockAreaPlan(bank,plan,responses,mediaFailures,presentations,{exposures});
   const byId = validateHistory(bank, plan, responses);
   const recent = new Map();
@@ -413,16 +415,18 @@ export function adaptLiteracyMockPlan(bank, plan, responses = [], mediaFailures 
 }
 
 /** Replace failed evidence without consuming a response or changing the skill blueprint. */
-export function replaceFailedLiteracyMockMedia(bank, plan, responses = [], mediaFailures = [], presentations = [], { exposures = [] } = {}) {
-  if(bank.some(q=>isLiteracyMockBoundaryVersion(q.contentVersion)))return repairLiteracyMockBoundaryPlan(bank,plan,responses,mediaFailures,presentations,{exposures});
+export function replaceFailedLiteracyMockMedia(bank, plan, responses = [], mediaFailures = [], presentations = [], options = {}) {
+  if (bank.some(q => isLiteracyMockBoundaryVersion(q.contentVersion))) return repairLiteracyMockBoundaryPlan(bank, plan, responses, mediaFailures, presentations, options);
+  const { exposures = [] } = options;
   if(bank.some(q=>['literacy-mock-v5','literacy-mock-v6','literacy-mock-v7','literacy-mock-v8'].includes(q.contentVersion)))return repairLiteracyMockAreaPlan(bank,plan,responses,mediaFailures,presentations,{exposures});
   const failed = mediaFailureFilter(mediaFailures);
   return replaceLiteracyMockSlots(bank, plan, responses, mediaFailures, presentations, { exposures, failed, reason: 'media' });
 }
 
 /** Withdraw a defective unanswered item without inventing an answer or media failure. */
-export function replaceInvalidLiteracyMockContent(bank, plan, responses = [], mediaFailures = [], presentations = [], { exposures = [] } = {}) {
-  if(bank.some(q=>isLiteracyMockBoundaryVersion(q.contentVersion)))return repairLiteracyMockBoundaryPlan(bank,plan,responses,mediaFailures,presentations,{exposures,content:true});
+export function replaceInvalidLiteracyMockContent(bank, plan, responses = [], mediaFailures = [], presentations = [], options = {}) {
+  if (bank.some(q => isLiteracyMockBoundaryVersion(q.contentVersion))) return repairLiteracyMockBoundaryPlan(bank, plan, responses, mediaFailures, presentations, { ...options, content: true });
+  const { exposures = [] } = options;
   if(bank.some(q=>['literacy-mock-v5','literacy-mock-v6','literacy-mock-v7','literacy-mock-v8'].includes(q.contentVersion)))return repairLiteracyMockAreaPlan(bank,plan,responses,mediaFailures,presentations,{exposures,content:true});
   return replaceLiteracyMockSlots(bank, plan, responses, mediaFailures, presentations,
     { exposures, failed: item => !isLiteracyItemEligible(item), reason: 'content' });

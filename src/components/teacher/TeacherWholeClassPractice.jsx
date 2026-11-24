@@ -1,7 +1,7 @@
 import { createPortal } from 'react-dom';
 import { useEffect, useRef, useState } from 'react';
 import { LITERACY_MOCK_SHORT_ITEM_COUNTS } from '../../policy/literacyMockQuestionLimit.js';
-import { LITERACY_MOCK_ADAPTIVE_VERSION } from '../../policy/literacyMockVersions.js';
+import { LITERACY_MOCK_ADAPTIVE_VERSION, LITERACY_MOCK_CONTINUOUS_ROUTING } from '../../policy/literacyMockVersions.js';
 import { TeacherPageHeader, TeacherPageShell } from './ui/TeacherPrimitives.jsx';
 import { teacherCycleOptions } from './teacherCycleReference.js';
 import { elSkillsBlockCycles } from '../../data/elSkillsBlockCycles.js';
@@ -159,7 +159,11 @@ export default function TeacherWholeClassPractice({ kind, initialCycleId, client
     } else {
       try {
         primeMockAudioElement(getMockAudioElement(noop));
-        setSession(createWholeClassMockSession(bank, { sessionId: globalThis.crypto?.randomUUID?.() || seed, itemCount: Number(count) }));
+        setSession(createWholeClassMockSession(bank, {
+          sessionId: globalThis.crypto?.randomUUID?.() || seed,
+          itemCount: Number(count),
+          routingPolicy: LITERACY_MOCK_CONTINUOUS_ROUTING,
+        }));
       } catch (error) {
         setFeedback({ tone: 'incorrect', text: error.message });
         return;
@@ -208,7 +212,7 @@ export default function TeacherWholeClassPractice({ kind, initialCycleId, client
         {teacherCycleOptions().map(cycle => <option key={cycle.id} value={cycle.id}>{cycle.label}</option>)}</select></label>
         <label>Activity<select value={activity} onChange={event => setActivity(event.target.value)}><option value="all">Mixed activities</option>
           {WHOLE_CLASS_CYCLE_ACTIVITIES.map(([id,label]) => <option key={id} value={id}>{label}</option>)}</select></label></>
-        : <p>Start the same eight-area adaptive test used on pupil devices. Each area begins at Starter.</p>}
+        : <p>Start the same eight-area adaptive test used on pupil devices. The test starts at Starter and adjusts across areas as the class answers.</p>}
       <label>Questions<select value={count} onChange={event => setCount(event.target.value)}>{(cycles ? [12,24] : LITERACY_MOCK_SHORT_ITEM_COUNTS).map(value => <option key={value} value={value}>{cycles ? '' : 'Up to '}{value} questions</option>)}{cycles && <option value="all">All available questions</option>}</select></label>
       {feedback && <p role="alert">{feedback.text}</p>}
       {load === 'loading' && <p role="status">Loading practice questions…</p>}

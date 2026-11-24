@@ -4,6 +4,8 @@ import { LITERACY_MOCK_RUNTIME_V12 as legacy } from '../../src/data/generated/li
 import { createWholeClassMockSession, submitWholeClassMockAnswer } from '../../src/components/teacher/wholeClassPracticeModel.js';
 import { scoreLiteracyMockResponse } from '../../src/data/literacyMockRuntimeContract.js';
 import { mockChoices } from '../../src/utils/literacyMockPlanner.js';
+import { LITERACY_MOCK_AREA_MAX } from '../../src/policy/literacyMockAdaptivePolicy.js';
+import { LITERACY_MOCK_CONTINUOUS_ROUTING } from '../../src/policy/literacyMockVersions.js';
 import { fillMockQuestion } from './support/mockAnswer.js';
 
 test.describe.configure({ mode:'parallel' });
@@ -33,13 +35,13 @@ for (const [pattern, count] of [['correct',15],['incorrect',25],['reversal',40]]
     const writes = [];
     page.on('request', request => { if (request.method() === 'POST' && /rpc|rest\/v1/.test(request.url())) writes.push(request.url()); });
     await page.getByRole('button', { name:'Start class test', exact:true }).click();
-    let session = createWholeClassMockSession(bank.filter(item=>item.mediaReady), { sessionId, itemCount:count });
+    let session = createWholeClassMockSession(bank.filter(item=>item.mediaReady), { sessionId, itemCount:count, routingPolicy:LITERACY_MOCK_CONTINUOUS_ROUTING });
     const history = [];
     while (session.run.responses.length < session.rounds.length) {
       const index = session.run.responses.length;
       expect(index).toBeLessThan(count);
       const item = session.rounds[index];
-      const correct = pattern === 'correct' || pattern === 'reversal' && index < Math.floor(count/2);
+      const correct = pattern === 'correct' || pattern === 'reversal' && (index < 12 || index >= 26);
       await expect(page.locator('[data-child-instruction]')).toHaveText(item.prompt);
       await expect(page.getByRole('button', { name:/^(Check answer|Previous question|Show answer)$/ })).toHaveCount(0);
       const selected = await fillMockQuestion(page, item, session.seed, correct);
@@ -62,6 +64,18 @@ for (const [pattern, count] of [['correct',15],['incorrect',25],['reversal',40]]
     expect(new Set(history.map(row=>row.item)).size).toBe(history.length);
     expect(new Set(history.map(row=>row.domain)).size).toBe(8);
     expect(history.some(row=>row.demand !== history[0].demand)).toBe(true);
+    expect(history[0].demand).toBe(1);
+    const switches = [];
+    for (const [index, current] of history.entries()) {
+      if (index === 0) continue;
+      const previous = history[index - 1];
+      const from = previous.demand / LITERACY_MOCK_AREA_MAX[previous.domain];
+      const to = current.demand / LITERACY_MOCK_AREA_MAX[current.domain];
+      if (previous.correct && from < 1) expect(to, current.item).toBeGreaterThan(from);
+      if (!previous.correct && from > 0) expect(to, current.item).toBeLessThan(from);
+      if (previous.domain !== current.domain) switches.push(Math.sign(to - from));
+    }
+    if (pattern === 'reversal') expect(switches).toEqual(expect.arrayContaining([-1,1]));
     expect(writes).toEqual([]);
     await info.attach('delivered-questions', { body:JSON.stringify(history,null,2), contentType:'application/json' });
   });

@@ -119,27 +119,26 @@ test('an unrelated passage recording can fail without blocking a starting-sound 
   expect((await device(page)).run.mediaFailures).toHaveLength(0);
 });
 
-for (const status of [404, 503]) test(`a required asset returning ${status} preserves evidence and ${status === 404 ? 'offers an exact replacement' : 'resumes the same question'}`, async ({ context, page }, info) => {
+for (const [version,status,routingPolicy] of [['literacy-mock-v13',404],['literacy-mock-v13',503],['literacy-mock-v14',404,'continuous-v1']]) test(`${version} required asset returning ${status} preserves evidence and ${status === 404 ? 'offers an exact replacement' : 'resumes the same question'}`, async ({ context, page }, info) => {
   test.setTimeout(120000);
   await simulatedPlayback(context);
-  const version = 'literacy-mock-v13';
   const bank = await loadLiteracyMockBank({ contentVersion: version });
-  const plan = selectLiteracyMockPlan(bank, { sessionId: 'mock-session', studentId: 'student-a', itemCount: 15 });
+  const plan = selectLiteracyMockPlan(bank, { sessionId: 'mock-session', studentId: 'student-a', itemCount: 15,routingPolicy });
   const first = bank.find(item => item.id === plan.itemIds[0]);
   const path = first.requiredAudioPaths.find(mediaPath => {
     const failure = [{ questionId: first.id, failedMediaPaths: [mediaPath] }];
     return mediaPath !== first.requiredAudioPaths[0] && bank.filter(item => item.requiredAudioPaths.includes(mediaPath)).length > 1
-      && !replaceFailedLiteracyMockMedia(bank, plan, [], failure).unavailable;
+      && !replaceFailedLiteracyMockMedia(bank, plan, [], failure, [], {routingPolicy}).unavailable;
   });
   expect(path).toBeTruthy();
   let blocked = true;
   let tries = 0;
-  await page.route(`**${path}`, route => {
+  await context.route(`**${path}`, route => {
     if (!blocked) return route.continue();
     tries++;
     return route.fulfill({ status });
   });
-  await page.goto(`${fixture}?case=${encodeURIComponent(info.testId)}&device=1&version=${version}&count=15&thinPool=1`);
+  await page.goto(`${fixture}?case=${encodeURIComponent(info.testId)}&device=1&version=${version}&count=15&thinPool=1${routingPolicy ? '&policy='+routingPolicy : ''}`);
   await expect.poll(() => tries).toBeGreaterThan(0);
   await expect(question(page, 1)).toHaveCount(0);
   const before = await device(page);
@@ -153,6 +152,9 @@ for (const status of [404, 503]) test(`a required asset returning ${status} pres
     const box = await device(page);
     expect(box.run.mediaFailures[0]).toMatchObject({ questionId: first.id, selected: null, responseStatus: 'media_failed', failedMediaPaths: [path] });
     expect(box.run.plan.itemIds[0]).not.toBe(first.id);
+    const replacement=bank.find(item=>item.id===box.run.plan.itemIds[0]);
+    expect(replacement.adaptiveAreaBand).toBe(first.adaptiveAreaBand);
+    expect(replacement.constructClaim).toBe(first.constructClaim);
     expect(before.mediaItemIds).not.toContain(box.run.plan.itemIds[0]);
     expect(box.mediaItemIds).toContain(box.run.plan.itemIds[0]);
     expect(box.run.presentations.some(row => row.questionId === first.id)).toBe(false);

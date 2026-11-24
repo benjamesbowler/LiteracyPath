@@ -133,6 +133,22 @@ test('preparation retries retain their original version without sending client v
   assert.throws(() => prepareLiteracyMockSession({ ...payload, contentVersion: 'unknown' }), /Unsupported/);
 });
 
+test('a continuous preparation and its retry use the same RPC while a pending V14 preparation retains its original route', async () => {
+  const calls = [];
+  const client = { call: async (name, args) => { calls.push({ name, args }); return { data: { ok: true } }; } };
+  const saved = { client, classId: 'class', requestId: 'known-id', contentVersion: 'literacy-mock-v14' };
+  for (const legacyPending of [false, true]) {
+    await prepareLiteracyMockSession({ ...saved, routingPolicy: 'continuous-v1', legacyPending });
+  }
+  await prepareLiteracyMockSession({ ...saved, legacyPending: true });
+  assert.equal(calls[0].name, 'teacher_prepare_literacy_mock_continuous_session');
+  assert.deepEqual(calls[1], calls[0]);
+  assert.equal(calls[2].name, 'teacher_prepare_literacy_mock_session_v14');
+  assert.deepEqual(calls[2].args, calls[0].args);
+  assert.throws(() => prepareLiteracyMockSession({ ...saved, routingPolicy: 'unknown' }), /Unsupported/);
+  assert.throws(() => prepareLiteracyMockSession({ ...saved, contentVersion: 'literacy-mock-v13', routingPolicy: 'continuous-v1' }), /Unsupported/);
+});
+
 test('only an explicit false result is a confirmed rejection', () => {
   for (const result of [null, undefined, {}, { ok: 'true' }, { ok: 1 }, { error: 'network' }]) {
     assert.throws(() => requireLiteracyMockSuccess(result), error => error.confirmedRejection === false);

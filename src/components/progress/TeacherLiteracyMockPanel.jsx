@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { LITERACY_MOCK_SHORT_ITEM_COUNTS } from '../../policy/literacyMockQuestionLimit.js';
-import { LITERACY_MOCK_ADAPTIVE_VERSION, LITERACY_MOCK_BALANCED_VERSION } from '../../policy/literacyMockVersions.js';
+import { LITERACY_MOCK_ADAPTIVE_VERSION, LITERACY_MOCK_BALANCED_VERSION, LITERACY_MOCK_CONTINUOUS_ROUTING } from '../../policy/literacyMockVersions.js';
 import { prepareLiteracyMockSession, controlLiteracyMockSession, listLiteracyMockHistoryPage, getLiteracyMockReport, getLiteracyMockV14Availability, resolveLiteracyMockSupport, prepareLiteracyMockFreshCheck, prepareLiteracyMockEntryCheck, requireLiteracyMockSuccess } from "../../data/literacyMockSessionCore.js";
 import { getLiteracyMockTeacherStatus } from "../../data/literacyMockTeacherStatus.js";
 import { buildLiteracyMockReport, literacyMockStudentName, literacyMockControlError } from "../../utils/literacyMockReport.js";
@@ -234,12 +234,13 @@ function TeacherLiteracyMockPanelBody({ client, teacherId, classId, className, s
     try {
       if (!args) {
         if (!await boundedRequest(getLiteracyMockV14Availability({ client }))) throw new Error("The adaptive question catalogue is unavailable. Try preparing the test again shortly.");
-        args = { classId, wholeClass, studentIds: wholeClass ? [] : roster.filter(student => studentIds.includes(String(student.id))).map(student => student.id), durationMinutes, itemCount, windowMode, contentVersion: LITERACY_MOCK_ADAPTIVE_VERSION, requestId: requestId() };
+        args = { classId, wholeClass, studentIds: wholeClass ? [] : roster.filter(student => studentIds.includes(String(student.id))).map(student => student.id), durationMinutes, itemCount, windowMode, contentVersion: LITERACY_MOCK_ADAPTIVE_VERSION, routingPolicy: LITERACY_MOCK_CONTINUOUS_ROUTING, requestId: requestId() };
       }
       retainMutation("preparation", args);
       dispatched = true;
       const result = validResult(await boundedRequest(prepareLiteracyMockSession({ client, ...args, legacyPending: Boolean(retry) })));
       if (result.session?.class_id !== classId || !result.session?.id) throw new Error("Prepared session identity could not be verified.");
+      if (args.routingPolicy && result.session.mock?.routing_policy !== args.routingPolicy) throw new Error("Prepared routing policy could not be verified.");
       confirmMutation(args);
       if (!alive.current) return;
       if (retry && initialSessionId && initialSessionId !== result.session.id) {
@@ -247,7 +248,9 @@ function TeacherLiteracyMockPanelBody({ client, teacherId, classId, className, s
       } else {
         setSessionId(result.session.id); setPhase("prepare"); setSetupOpen(false);
         onSessionPrepared?.(result);
-        const routing = args.contentVersion === LITERACY_MOCK_ADAPTIVE_VERSION
+        const routing = args.routingPolicy === LITERACY_MOCK_CONTINUOUS_ROUTING
+          ? "The test starts at Starter and adjusts across areas with each independent answer."
+          : args.contentVersion === LITERACY_MOCK_ADAPTIVE_VERSION
           ? "Each area starts at Starter. The next question in that area gets harder or easier after an independent answer."
           : args.contentVersion === LITERACY_MOCK_BALANCED_VERSION
           ? args.itemCount === 15 ? "Expect one or two First steps questions per area."

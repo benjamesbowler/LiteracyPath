@@ -1,7 +1,7 @@
 /** Token-scoped mock evidence uses its own RPC store, never practice/mastery. */
 // The server chooses a fully published version; existing sessions keep theirs.
 import { literacyMockBoundaryLimits } from '../policy/literacyMockBoundaryPolicy.js';
-import { isLiteracyMockBoundaryVersion, LITERACY_MOCK_EVIDENCE_VERSIONS, LITERACY_MOCK_ADAPTIVE_VERSION, LITERACY_MOCK_VERSIONS } from '../policy/literacyMockVersions.js';
+import { isLiteracyMockBoundaryVersion, LITERACY_MOCK_EVIDENCE_VERSIONS, LITERACY_MOCK_ADAPTIVE_VERSION, LITERACY_MOCK_CONTINUOUS_ROUTING, LITERACY_MOCK_VERSIONS } from '../policy/literacyMockVersions.js';
 import { literacyMockQuestionLimit } from '../policy/literacyMockQuestionLimit.js';
 export const LITERACY_MOCK_CONTENT_VERSION = LITERACY_MOCK_ADAPTIVE_VERSION;
 export const LITERACY_MOCK_SUPPORTED_VERSIONS = LITERACY_MOCK_VERSIONS;
@@ -24,11 +24,15 @@ export async function getLiteracyMockV14Availability({ client, signal } = {}) {
   }
 }
 
-export function prepareLiteracyMockSession({ client, classId, studentIds = [], wholeClass = false, durationMinutes = 20, itemCount, requestId = null, windowMode = "pause_at_window_end", contentVersion, legacyPending = false }) {
+export function prepareLiteracyMockSession({ client, classId, studentIds = [], wholeClass = false, durationMinutes = 20, itemCount, requestId = null, windowMode = "pause_at_window_end", contentVersion, routingPolicy, legacyPending = false }) {
   const version = contentVersion || (legacyPending ? 'literacy-mock-v3' : LITERACY_MOCK_CONTENT_VERSION);
   if (!LITERACY_MOCK_EVIDENCE_VERSIONS.includes(version)) throw new Error('Unsupported mock preparation version.');
   const count = itemCount ?? (isLiteracyMockBoundaryVersion(version) ? literacyMockQuestionLimit(version, undefined, literacyMockBoundaryLimits(version).maximum) : 43);
-  return callMockRpc(client, `teacher_prepare_literacy_mock_session_${version.replace('literacy-mock-', '')}`, {
+  if (routingPolicy != null && (routingPolicy !== LITERACY_MOCK_CONTINUOUS_ROUTING || version !== LITERACY_MOCK_ADAPTIVE_VERSION)) throw new Error('Unsupported mock routing policy.');
+  const rpc = routingPolicy === LITERACY_MOCK_CONTINUOUS_ROUTING
+    ? 'teacher_prepare_literacy_mock_continuous_session'
+    : `teacher_prepare_literacy_mock_session_${version.replace('literacy-mock-', '')}`;
+  return callMockRpc(client, rpc, {
     p_class_id: classId, p_student_ids: studentIds, p_whole_class: Boolean(wholeClass),
     p_duration_minutes: durationMinutes, p_item_count: count, p_request_id: requestId, p_window_mode: windowMode
   });

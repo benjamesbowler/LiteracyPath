@@ -41,7 +41,7 @@ test('pupil setup sends each selected question maximum to the session service', 
     await selector.selectOption(String(count));
     await page.getByRole('button', { name:'Prepare for 2 students', exact:true }).click();
     await expect.poll(() => page.evaluate(() => window.__literacyMock.state().session.mock.item_count)).toBe(count);
-    const args = await page.evaluate(() => window.__literacyMock.state().calls.find(call => call.name === 'teacher_prepare_literacy_mock_session_v14').args);
+    const args = await page.evaluate(() => window.__literacyMock.state().calls.find(call => call.name === 'teacher_prepare_literacy_mock_continuous_session').args);
     expect(args.p_item_count).toBe(count);
   }
 });

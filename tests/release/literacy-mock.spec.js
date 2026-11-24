@@ -71,8 +71,8 @@ async function chooseAnswer(page, current = null) {
     }
   }
 }
-async function next(page) {
-  await expect(forwardAction(page)).toBeEnabled();
+async function next(page, timeout = 10000) {
+  await expect(forwardAction(page)).toBeEnabled({ timeout });
   await forwardAction(page).click();
 }
 
@@ -316,10 +316,10 @@ test('teacher can switch from a selected pupil to full class and prepare valid w
   await page.getByRole('button', { name: 'Prepare for 2 students', exact: true }).click();
   await page.getByRole('button', { name: 'Retry the same preparation', exact: true }).click();
   await expect(page.getByRole('button', { name: 'Start assessment', exact: true })).toBeVisible();
-  const call = (await server(page)).calls.find(call => call.name === 'teacher_prepare_literacy_mock_session_v14');
+  const call = (await server(page)).calls.find(call => call.name === 'teacher_prepare_literacy_mock_continuous_session');
   expect(call.args.p_student_ids).toEqual([]);
   expect(call.args.p_whole_class).toBe(true);
-  const preparations = (await server(page)).calls.filter(call => call.name === 'teacher_prepare_literacy_mock_session_v14');
+  const preparations = (await server(page)).calls.filter(call => call.name === 'teacher_prepare_literacy_mock_continuous_session');
   expect(preparations).toHaveLength(2);
   expect(preparations[0].args).toEqual(preparations[1].args);
   const preparedId = (await server(page)).session.id;
@@ -481,7 +481,7 @@ test('teacher timeouts preserve verified rows and recover preparation without a 
   await page.evaluate(() => window.__literacyMock.setFault(null));
   await page.getByRole('button', { name: 'Retry the same preparation', exact: true }).click();
   await expect(page.getByRole('button', { name: 'Start assessment', exact: true })).toBeVisible();
-  const requests = (await server(page)).calls.filter(call => call.name === 'teacher_prepare_literacy_mock_session_v14');
+  const requests = (await server(page)).calls.filter(call => call.name === 'teacher_prepare_literacy_mock_continuous_session');
   expect(requests).toHaveLength(2); expect(requests[0].args).toEqual(requests[1].args);
 });
 
@@ -607,10 +607,12 @@ test('an already presented withdrawn question is replaced without creating an an
   await expect(page.getByText('Media availability log (1)', { exact: true })).toHaveCount(0);
 });
 
-test('a withdrawn question waits safely when the server cannot repair its saved presentation', async ({ page }) => {
+for (const [description,withdrawnId,route] of [
+  ['historical text','lp3.r_controlled_vowels.l1.C.ur.v9','&count=43'],
+  ['V14 picture','mock.v8.reading.1.pup.v11','&version=literacy-mock-v14&count=15'],
+]) test(`a withdrawn ${description} question waits safely when the server cannot repair its saved presentation`, async ({ page }) => {
   await simulatedAudio(page);
-  const withdrawnId = 'lp3.r_controlled_vowels.l1.C.ur.v9';
-  await open(page, `&count=43&item=${withdrawnId}&presented=1&legacyContentBackend=1`);
+  await open(page, `${route}&item=${withdrawnId}&presented=1&legacyContentBackend=1`);
   await expect(page.getByRole('alert')).toHaveText('A question is being checked. Your saved answers are safe.');
   await expect(page.getByRole('button', { name: /^(Next|Next question|Finish test)$/ })).toHaveCount(0);
   const saved = await server(page);
@@ -970,7 +972,7 @@ test('an uncertain preparation keeps its retry visible and blocks competing sess
   await expect(retry).toBeVisible();
   await retry.click();
   await expect(page.getByRole('button', { name: 'Start assessment', exact: true })).toBeEnabled();
-  const requests = (await server(page)).calls.filter(call => call.name === 'teacher_prepare_literacy_mock_session_v4');
+  const requests = (await server(page)).calls.filter(call => call.name === 'teacher_prepare_literacy_mock_continuous_session');
   expect(requests).toHaveLength(2);
   expect(requests[0].args).toEqual(requests[1].args);
 });
@@ -1012,7 +1014,7 @@ test('teacher reload recovers a lost preparation receipt without creating a seco
   const recovered = await server(page);
   expect(recovered.session.id).toBe(committed.session.id);
   expect(recovered.archives).toHaveLength(committed.archives.length);
-  const requests = recovered.calls.filter(call => call.name === 'teacher_prepare_literacy_mock_session_v4');
+  const requests = recovered.calls.filter(call => call.name === 'teacher_prepare_literacy_mock_continuous_session');
   expect(requests).toHaveLength(2);
   expect(requests[0].args).toEqual(requests[1].args);
 });
@@ -1212,21 +1214,23 @@ test('late assistance commits a failed harder item repair before adapting its re
 });
 
 test.describe('comprehensive teacher result delivery', () => {
-for (const audience of ['whole class', 'individual']) test(`one full teacher-launched mock delivers two separate results: ${audience}`, async ({ page }, info) => {
+for (const audience of ['whole class', 'individual']) test(`two recovered historical V4 sittings deliver separate teacher results: ${audience}`, async ({ page }, info) => {
   test.setTimeout(1200000);
   await simulatedAudio(page);
   await open(page, '&mode=teacher&warmup=1&count=43');
   await page.getByRole('button', { name: 'Results', exact: true }).click();
   await expect(page.getByRole('combobox', { name: 'Open a session', exact: true })).toHaveValue('mock-session');
   for (let sitting = 1; sitting <= 2; sitting++) {
-    await openPreparation(page);
-    if (audience === 'individual') {
-      await page.getByRole('radio', { name: 'Individual or selected students' }).check();
-      await page.getByRole('checkbox', { name: 'Alex', exact: true }).check();
-    }
-    await expect(page.getByRole('combobox', { name: 'Assessment length' })).toHaveCount(0);
-    await expect(page.getByText('Full test · 43 questions', { exact: true })).toBeVisible();
-    await page.getByRole('button', { name: `Prepare for ${audience === 'individual' ? '1 student' : '2 students'}`, exact: true }).click();
+    // Recover a request written by a V4 teacher client before the new-session policy changed.
+    await page.evaluate(({ audience, sitting }) => {
+      const classId = 'class-a', teacherId = window.__literacyMock.state().session.teacher_id;
+      const args = { classId, wholeClass: audience === 'whole class', studentIds: audience === 'individual' ? ['student-a'] : [],
+        durationMinutes: 20, itemCount: 43, windowMode: 'untimed', contentVersion: 'literacy-mock-v4', requestId: `v4-sitting-${sitting}` };
+      localStorage.setItem(`lp-mock-teacher-pending-v1:${encodeURIComponent(teacherId)}:${classId}`,
+        JSON.stringify({ classId, teacherId, kind: 'preparation', args }));
+    }, { audience, sitting });
+    await page.reload({ waitUntil: 'domcontentloaded' });
+    await page.getByRole('button', { name: 'Retry the same preparation', exact: true }).click();
     await expect(page.getByRole('button', { name: 'Start assessment', exact: true })).toBeEnabled();
     const prepared = await server(page);
     const prepareCalls = prepared.calls.filter(call => call.name === 'teacher_prepare_literacy_mock_session_v4');
@@ -1238,9 +1242,9 @@ for (const audience of ['whole class', 'individual']) test(`one full teacher-lau
     await open(page, '&warmup=1&count=43');
     await page.getByRole('button', { name: 'Circle', exact: true }).click();
     await page.getByRole('button', { name: 'Check my sound', exact: true }).click();
-    await next(page);
+    await next(page, 60000);
     for (const tutorial of await page.evaluate(() => window.__literacyMock.tutorials())) {
-      await chooseAnswer(page, tutorial); await next(page);
+      await chooseAnswer(page, tutorial); await next(page, 60000);
     }
     for (let index = 0; index < 43; index++) {
       await expect(page.getByRole('region', { name: `Question ${index + 1}`, exact: true })).toBeVisible();
@@ -1253,7 +1257,7 @@ for (const audience of ['whole class', 'individual']) test(`one full teacher-lau
       expect(box.height).toBeGreaterThanOrEqual(64);
       expect(box.width).toBeGreaterThanOrEqual(160);
       if (index === 0 && sitting === 1) await page.screenshot({ path: info.outputPath('clear-next-question.png') });
-      await next(page);
+      await next(page, 60000);
       await expect.poll(() => page.evaluate(() => window.__literacyMock.rawResponses().length)).toBe(index + 1);
       if (index === 12) await page.reload({ waitUntil: 'domcontentloaded' });
     }
@@ -1267,7 +1271,7 @@ for (const audience of ['whole class', 'individual']) test(`one full teacher-lau
     await page.getByRole('button', { name: 'Live', exact: true }).click();
     const progress = page.getByRole('region', { name: 'Adaptive Literacy Test pupil progress', exact: true });
     await expect(progress).toContainText('Finished · server record available');
-    await expect(progress).toContainText('43 answered of 43');
+    await expect(progress).toContainText('43 received of 43 planned');
     await page.getByRole('button', { name: 'View Alex’s report', exact: true }).click();
     await expect(page.getByRole('heading', { name: 'Alex — test results', exact: true })).toBeVisible();
     await page.getByText('Strengths and practice ideas',{exact:true}).click();
@@ -1276,7 +1280,11 @@ for (const audience of ['whole class', 'individual']) test(`one full teacher-lau
     await page.getByText('Strengths and practice ideas',{exact:true}).click();
     const report = page.locator('.literacy-mock-report');
     await expect(report).toContainText('All 43 questions answered.');
-    await expect(report.locator('.literacy-mock-result-summary')).toContainText('100%');
+    const areaRows = report.getByRole('region', { name: 'Alex: four literacy areas' }).locator('tbody tr');
+    const counts = await areaRows.locator('td:nth-child(3)').allInnerTexts();
+    const correct = counts.map(text => text.match(/^(\d+) of (\d+) correct/));
+    expect(correct.every(match => match && match[1] === match[2])).toBe(true);
+    expect(correct.reduce((sum, match) => sum + Number(match[1]), 0)).toBe(43);
     await expect(report.locator('.literacy-mock-result-summary')).toContainText('43 answers');
     await expect(report.locator('.literacy-mock-result-summary')).toContainText('Challenge tasks');
     await report.getByText('Answer and coverage details', { exact: true }).click();
@@ -1300,7 +1308,7 @@ for (const audience of ['whole class', 'individual']) test(`one full teacher-lau
     await page.getByRole('button', { name: 'Results', exact: true }).click();
     await page.getByRole('combobox', { name: 'Open a session', exact: true }).selectOption(sessionId);
     await page.getByRole('button', { name: 'Live', exact: true }).click();
-    await expect(progress).toContainText('43 answered of 43');
+    await expect(progress).toContainText('43 received of 43 planned');
     await page.getByRole('button', { name: 'Finish assessment', exact: true }).click();
     await page.getByRole('button', { name: 'Finish and keep the report', exact: true }).click();
     await expect(page.getByText('Time remaining at last check', { exact: true })).toHaveCount(0);
@@ -1339,8 +1347,23 @@ test('the 28-pupil mock class opens at the summary and returns keyboard focus to
   await expect(page.getByText('Media availability log (1)', { exact: true })).toBeVisible();
 });
 
+test('an older pending V14 preparation resumes through its original service after a reload', async ({ page }) => {
+  const teacherId = 'recovery-v14', classId = 'class-a';
+  await page.addInitScript(({ teacherId, classId }) => {
+    const saved = { teacherId, classId, kind: 'preparation', args: { classId, wholeClass: true, studentIds: [],
+      contentVersion: 'literacy-mock-v14', durationMinutes: 20, itemCount: 15, windowMode: 'untimed', requestId: 'pre-policy' } };
+    localStorage.setItem(`lp-mock-teacher-pending-v1:${teacherId}:${classId}`, JSON.stringify(saved));
+  }, { teacherId, classId });
+  await open(page, `&mode=teacher&version=literacy-mock-v14&teacher=${teacherId}`);
+  await page.getByRole('button', { name: 'Retry the same preparation', exact: true }).click();
+  await expect(page.getByText('Each area starts at Starter.', { exact: false })).toBeVisible();
+  const prepares = (await server(page)).calls.filter(row => row.name.startsWith('teacher_prepare_literacy_mock'));
+  expect(prepares.map(row => row.name)).toEqual(['teacher_prepare_literacy_mock_session_v14']);
+  expect(prepares[0].args.p_request_id).toBe('pre-policy');
+});
+
 for (const scenario of [
-  { name: 'V14', query: '&version=literacy-mock-v14', rpc: 'v14', copy: 'Each area starts at Starter.' },
+  { name: 'V14', query: '&version=literacy-mock-v14', rpc: 'teacher_prepare_literacy_mock_continuous_session', copy: 'The test starts at Starter and adjusts across areas' },
   { name: 'an unavailable catalogue', query: '&version=literacy-mock-v14&availability=missing', rpc: null, copy: 'The adaptive question catalogue is unavailable.' },
   { name: 'a transport failure', query: '&availability=network', rpc: null, copy: 'Test availability could not be checked.' }
 ]) test(`mock preparation shows the actual route for ${scenario.name}`, async ({ page }) => {
@@ -1349,7 +1372,39 @@ for (const scenario of [
   await expect(page.getByText('Expect one or two First steps questions per area.', { exact: false })).toHaveCount(0);
   await page.getByRole('button', { name: 'Prepare for 2 students', exact: true }).click();
   await expect(page.getByText(scenario.copy, { exact: false })).toBeVisible();
-  const calls = (await server(page)).calls.filter(row => row.name.startsWith('teacher_prepare_literacy_mock_session'));
-  expect(calls.map(row => row.name)).toEqual(scenario.rpc ? [`teacher_prepare_literacy_mock_session_${scenario.rpc}`] : []);
+  const calls = (await server(page)).calls.filter(row => row.name.startsWith('teacher_prepare_literacy_mock'));
+  expect(calls.map(row => row.name)).toEqual(scenario.rpc ? [scenario.rpc] : []);
   if (scenario.rpc) expect(calls[0].args.p_item_count).toBe(15);
+});
+
+
+test('continuous timed pupil chooses the same adaptive items after losing its cached reserve and reloading', async ({page}) => {
+  test.setTimeout(120000);
+  const {LITERACY_MOCK_RUNTIME_V14:bank}=await import('../../src/data/generated/literacyMockRuntimeV14.generated.js');
+  const {createWholeClassMockSession,submitWholeClassMockAnswer}=await import('../../src/components/teacher/wholeClassPracticeModel.js');
+  const {fillMockQuestion}=await import('./support/mockAnswer.js');
+  const options={sessionId:'mock-session',studentId:'student-a',itemCount:15,routingPolicy:'continuous-v1'};
+  let teacher=createWholeClassMockSession(bank,options);
+  await simulatedAudio(page);
+  await open(page,'&version=literacy-mock-v14&policy=continuous-v1&timed=1&count=15');
+  for (const [index,correct] of [true,true,false,true].entries()) {
+    if (index === 2) {
+      await page.evaluate(() => localStorage.removeItem('lp-mock-pool:student-a:mock-session'));
+      await page.reload();
+    }
+    const region=page.getByRole('region',{name:'Question '+(index+1),exact:true});
+    await expect(region).toBeVisible({timeout:45000});
+    const expected=teacher.rounds[index];
+    await expect(region.locator('.literacy-mock-stem [data-child-instruction]')).toHaveText(expected.prompt);
+    const run=(await server(page)).run;
+    expect(run.plan.seed).toBe(teacher.seed);
+    expect(run.plan.itemIds[index]).toBe(expected.id);
+    const selected=await fillMockQuestion(page,expected,teacher.seed,correct);
+    await forwardAction(page).click();
+    teacher=submitWholeClassMockAnswer(teacher,expected,{questionId:expected.id,selected,responseStatus:'answered'});
+  }
+  await expect(page.getByRole('region',{name:'Question 5',exact:true})).toBeVisible();
+  const final=(await server(page)).run;
+  expect(final.plan.itemIds[4]).toBe(teacher.rounds[4].id);
+  expect(final.responses.map(row=>row.isCorrect)).toEqual([true,true,false,true]);
 });

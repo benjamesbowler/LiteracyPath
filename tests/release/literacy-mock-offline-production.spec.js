@@ -3,6 +3,8 @@ import { writeFile } from 'node:fs/promises';
 import { loadLiteracyMockBank } from '../../src/data/literacyMockBank.js';
 import { mockChoices } from '../../src/utils/literacyMockPlanner.js';
 import { resolveLiteracyMockImagePath } from '../../src/data/literacyMockImageDelivery.js';
+import { fillMockQuestion } from './support/mockAnswer.js';
+import { LITERACY_MOCK_AREA_MAX } from '../../src/policy/literacyMockAdaptivePolicy.js';
 import { withRepairedImageVersion } from '../../src/utils/repairedImageVersion.js';
 test.describe.configure({timeout:600000});
 test.skip(process.env.LP_MOCK_PRODUCTION_PROOF!=='1','Run against the temporary production offline-proof build.');
@@ -114,7 +116,7 @@ test.describe('V14 short sittings through the production offline shell', () => {
     await page.getByRole('button', { name: 'Start assessment', exact: true }).click();
     await expect(page.getByRole('button', { name: 'Pause assessment', exact: true })).toBeEnabled();
     const assignmentId = await page.evaluate(() => window.__literacyMock.state().session.id);
-    const prepare = await page.evaluate(() => window.__literacyMock.state().calls.find(call => call.name === 'teacher_prepare_literacy_mock_session_v14'));
+    const prepare = await page.evaluate(() => window.__literacyMock.state().calls.find(call => call.name === 'teacher_prepare_literacy_mock_continuous_session'));
     expect(prepare.args.p_item_count).toBe(count);
 
     await page.goto(fixture);
@@ -133,6 +135,8 @@ test.describe('V14 short sittings through the production offline shell', () => {
     await answerOne(page, 2);
     const before = await page.evaluate(() => window.__literacyMock.device());
     expect(before.run.contentVersion).toBe('literacy-mock-v14');
+    expect(before.mock.routing_policy).toBe('continuous-v1');
+    const expectedScores=[true,true];
     const bank = await loadLiteracyMockBank({ contentVersion: before.run.contentVersion });
     const paths = retainedMediaPaths(bank, before.mediaItemIds);
     await expect.poll(() => page.evaluate(async urls => {
@@ -157,7 +161,14 @@ test.describe('V14 short sittings through the production offline shell', () => {
       expect(box.run.responses).toHaveLength(index);
       const current = bank.find(item => item.id === box.run.plan.itemIds[index]);
       expect(current).toBeTruthy();
-      await chooseAnswer(page, current, mockChoices(current, box.run.plan.seed));
+      const prior=box.run.responses.at(-1), previous=prior.itemSnapshot;
+      const maximum=LITERACY_MOCK_AREA_MAX[current.domainId];
+      const position=previous.adaptiveAreaBand * maximum / LITERACY_MOCK_AREA_MAX[previous.domainId];
+      const next=prior.isCorrect ? Math.min(maximum,Math.floor(position)+1) : Math.max(0,Math.ceil(position)-1);
+      expect(current.adaptiveAreaBand).toBe(next);
+      const correct=current.adaptiveAreaBand / maximum < 0.55;
+      expectedScores.push(correct);
+      await fillMockQuestion(page,current,box.run.plan.seed,correct);
       await page.getByRole('button', { name: index === count - 1 ? 'Finish test' : 'Next question', exact: true }).click({ timeout: answerTimeout });
       await expect.poll(async () => (await device()).run.responses.length).toBe(index + 1);
     }
@@ -180,12 +191,16 @@ test.describe('V14 short sittings through the production offline shell', () => {
     await expect(pupil).toContainText(`${count} of ${count}`);
     const report = await page.evaluate(() => window.__literacyMock.state().run.responses);
     expect(report.map(answer => answer.questionId)).toEqual(finished.run.responses.map(answer => answer.questionId));
-    expect(report.every(answer => answer.isCorrect === true && answer.evidenceType === 'independent')).toBe(true);
-    await info.attach('offline-collection-verification', { contentType: 'application/json', body: JSON.stringify({
-      buildId: metadata.buildId, cap: count, beforeDisconnection: before.run.responses.length,
+    expect(report.map(answer=>answer.isCorrect)).toEqual(expectedScores);
+    expect(report.every(answer=>answer.evidenceType==='independent')).toBe(true);
+    const receiptPath=info.outputPath('offline-collection-verification.json');
+    await writeFile(receiptPath,JSON.stringify({
+      buildId: metadata.buildId, routingPolicy:before.mock.routing_policy, cap: count, beforeDisconnection: before.run.responses.length,
       continuedAfterOfflineReload: [2, Math.floor(count / 2)], preservedDistinctResponses: report.length,
       pendingRequestsAfterCollection: (await device()).requests.length,
-    }) });
+      answers:report.map(row=>({questionId:row.questionId,area:row.domainId,band:row.itemSnapshot.adaptiveAreaBand,correct:row.isCorrect})),
+    },null,2));
+    await info.attach('offline-collection-verification',{path:receiptPath,contentType:'application/json'});
   });
 });
 

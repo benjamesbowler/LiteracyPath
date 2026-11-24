@@ -18,6 +18,29 @@ export function readMockOutbox(studentId, sessionId, storage) {
   return record.value;
 }
 
+/** Polls and mutation receipts can arrive out of order. Only the server may
+ * revise assistance/familiarity annotations on an otherwise immutable answer. */
+export function mockRunExtends(previous, incoming) {
+  if (!incoming || !Number.isInteger(incoming.revision) || !Array.isArray(incoming.responses)) return false;
+  if (!previous) return true;
+  return incoming.assignmentId === previous.assignmentId && incoming.studentId === previous.studentId
+    && incoming.contentVersion === previous.contentVersion && incoming.plan?.seed === previous.plan?.seed
+    && incoming.revision >= previous.revision && (incoming.eventRevision || 0) >= (previous.eventRevision || 0)
+    && (previous.status !== 'completed' || incoming.status === 'completed')
+    && incoming.responses.length >= previous.responses.length
+    && previous.responses.every((row,index) => JSON.stringify(answer(row)) === JSON.stringify(answer(incoming.responses[index])))
+    && (incoming.revision > previous.revision || JSON.stringify(incoming.plan?.itemIds) === JSON.stringify(previous.plan?.itemIds));
+}
+
+// Compact focus polls and batch receipts can carry different session revisions.
+export function latestMockSettings(previous, incoming) {
+  if (!incoming) return previous;
+  if (!previous) return incoming;
+  if (incoming.revision < previous.revision || (incoming.revision === previous.revision
+    && Date.parse(incoming.server_now) < Date.parse(previous.server_now))) return previous;
+  return previous.routing_policy && !incoming.routing_policy ? { ...incoming, routing_policy:previous.routing_policy } : incoming;
+}
+
 /** Verify durable readback before allowing the child to leave the current question. */
 export function writeMockOutbox(value, storage, expected = value) {
   if (!validMockOutbox(value,value?.studentId,value?.sessionId)) return false;
@@ -177,7 +200,7 @@ export function acknowledgeMockOutbox(current, sent, result, projectionFor, stor
   const remaining = current.requests.slice(sent.requests.length);
   let run = clone(result.run);
   for (const request of remaining) run = projectMockMutation(run,request,projectionFor(request));
-  const next = { ...current, serverRun:clone(result.run), run, requests:remaining, delivery:null, mock:clone(result.mock || current.mock), lastServerContactAt:new Date().toISOString() };
+  const next = { ...current, serverRun:clone(result.run), run, requests:remaining, delivery:null, mock:clone(latestMockSettings(current.mock,result.mock)), lastServerContactAt:new Date().toISOString() };
   if (!writeMockOutbox(next,storage,current)) throw Object.assign(new Error('The delivery receipt could not be retained.'),{ code:'device_storage_failed' });
   return next;
 }
