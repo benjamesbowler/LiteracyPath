@@ -143,8 +143,13 @@ test('a continuous preparation and its retry use the same RPC while a pending V1
   await prepareLiteracyMockSession({ ...saved, legacyPending: true });
   assert.equal(calls[0].name, 'teacher_prepare_literacy_mock_continuous_session');
   assert.deepEqual(calls[1], calls[0]);
-  assert.equal(calls[2].name, 'teacher_prepare_literacy_mock_session_v15');
+  assert.equal(calls[2].name, 'teacher_prepare_literacy_mock_session_v14');
   assert.deepEqual(calls[2].args, calls[0].args);
+  for (const legacyPending of [false, true]) {
+    await prepareLiteracyMockSession({ ...saved, contentVersion: 'literacy-mock-v15', routingPolicy: 'continuous-v1', legacyPending });
+  }
+  assert.equal(calls[3].name, 'teacher_prepare_literacy_mock_session_v15');
+  assert.deepEqual(calls[4], calls[3]);
   assert.throws(() => prepareLiteracyMockSession({ ...saved, routingPolicy: 'unknown' }), /Unsupported/);
   assert.throws(() => prepareLiteracyMockSession({ ...saved, contentVersion: 'literacy-mock-v13', routingPolicy: 'continuous-v1' }), /Unsupported/);
 });
