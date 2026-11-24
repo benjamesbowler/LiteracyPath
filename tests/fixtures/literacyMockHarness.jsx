@@ -21,6 +21,7 @@ import { LITERACY_MOCK_SHORT_ITEM_COUNTS } from '../../src/policy/literacyMockQu
 const query = new URLSearchParams(location.search);
 // Historical interaction cases default to their published v4 protocol. New area cases request v5 explicitly.
 const contentVersion = query.get("version") || 'literacy-mock-v4';
+const routingPolicy = query.get('policy');
 const boundaryAdaptive = isLiteracyMockBoundaryVersion(contentVersion);
 const areaAdaptive = boundaryAdaptive || ['literacy-mock-v5','literacy-mock-v6','literacy-mock-v7','literacy-mock-v8'].includes(contentVersion);
 const v3 = LITERACY_MOCK_EVIDENCE_VERSIONS.includes(contentVersion);
@@ -50,7 +51,7 @@ const chosen = query.get('item') ? bank.find(item => item.id === query.get('item
 function initialState() {
   const durationSeconds = query.get('windowMinutes') === '10' ? 600 : 1200;
   let mediaItemIds=[];
-  const plan = selectLiteracyMockPlan(available, { sessionId: 'mock-session', studentId: 'student-a', itemCount,onOfflineItems:ids=>{mediaItemIds=ids;} });
+  const plan = selectLiteracyMockPlan(available, { sessionId: 'mock-session', studentId: 'student-a', itemCount,routingPolicy,onOfflineItems:ids=>{mediaItemIds=ids;} });
   if (query.get('item')) plan.itemIds[0] = chosen.id;
   if(query.has('thinPool'))mediaItemIds=[...plan.itemIds];
   if (query.has('device')) { localStorage.setItem('lp-mock-pool:student-a:mock-session',JSON.stringify(mediaItemIds)); }
@@ -91,7 +92,7 @@ function initialState() {
   }
   return {
     session: { id: 'mock-session', content_version: contentVersion, class_id: 'class-a', teacher_id:`teacher-${query.get('case') || 'default'}`, target:'progress_check', resolved_config:{plan_kind:'mock',bank_version:contentVersion,track_id:'all'}, content_ok:true, status: query.has('warmup') ? 'prepared' : 'active', expires_at:new Date(Date.now()+12*3600000).toISOString(), selection_scope: 'whole_class', started_at: timestamp(), mock: {
-      content_version: contentVersion, capabilities, plan_kind: 'mixed', delivery_mode:'collect', window_mode:query.has('device') ? 'untimed' : query.has('timed') || !v3 ? 'timed_sample' : 'pause_at_window_end', state: query.has('warmup') ? 'prepared' : 'running', revision: 1, item_count: itemCount, duration_seconds: durationSeconds, remaining_seconds: durationSeconds, time_extension_count: 0,
+      content_version: contentVersion, capabilities, plan_kind: 'mixed', ...(routingPolicy ? {routing_policy:routingPolicy} : {}), delivery_mode:'collect', window_mode:query.has('device') ? 'untimed' : query.has('timed') || !v3 ? 'timed_sample' : 'pause_at_window_end', state: query.has('warmup') ? 'prepared' : 'running', revision: 1, item_count: itemCount, duration_seconds: durationSeconds, remaining_seconds: durationSeconds, time_extension_count: 0,
       deadline_at: query.has('warmup') || query.has('device') ? null : new Date(Date.now() + durationSeconds * 1000).toISOString(), server_now: timestamp(),
       ...(freshExposure ? { plan_kind: 'fresh_check', item_count: 1, focus: literacyMockFocus(first),
         candidate_item_ids: available.filter(item => !item.tutorialOnly && sameLiteracyMockTask(item, first, { includeLevel: true })).map(item => item.id) } : {})
@@ -194,7 +195,9 @@ function batchReceipt(value,compact=false){
 const client = { async call(name, args = {}) {
   state.calls.push({ name, args: clone(args) }); persist();
   const target = sessionRecord(args.p_session_id || args.p_source_session_id);
-  if ((state.fault === 'hang-read' && name === 'student_get_literacy_mock_run') || (state.fault === 'hang-save' && name === 'student_save_literacy_mock_run') || (state.fault === 'hang-event' && name === 'student_record_literacy_mock_event') || (state.fault === 'hang-prepare' && name.startsWith('teacher_prepare_literacy_mock_session')) || (state.fault === 'hang-report' && name === 'teacher_get_literacy_mock_report') || (state.fault === 'hang-status' && name === 'teacher_get_literacy_mock_status')) return new Promise(() => {});
+  const continuousPreparation = name === 'teacher_prepare_literacy_mock_continuous_session';
+  const mockPreparation = continuousPreparation || /^teacher_prepare_literacy_mock_session(?:_v(?:[3-9]|1[0-4]))?$/.test(name);
+  if ((state.fault === 'hang-read' && name === 'student_get_literacy_mock_run') || (state.fault === 'hang-save' && name === 'student_save_literacy_mock_run') || (state.fault === 'hang-event' && name === 'student_record_literacy_mock_event') || (state.fault === 'hang-prepare' && mockPreparation) || (state.fault === 'hang-report' && name === 'teacher_get_literacy_mock_report') || (state.fault === 'hang-status' && name === 'teacher_get_literacy_mock_status')) return new Promise(() => {});
   if (state.fault === 'offline') throw new Error('Simulated disconnected network');
   if (name === 'teacher_literacy_mock_v14_available') {
     if (query.get('availability') === 'missing') return { error: Object.assign(new Error('Function missing'), { code: 'PGRST202' }) };
@@ -253,10 +256,10 @@ const client = { async call(name, args = {}) {
   }
   if (state.fault === 'stale') { state.fault = null; persist(); return { data: { ok: false, error: 'stale_revision' } }; }
   let result;
-  if (/^teacher_prepare_literacy_mock_session(?:_v(?:[3-9]|1[0-4]))?$/.test(name)) {
+  if (mockPreparation) {
     if (args.p_whole_class && args.p_student_ids.length) return { data: { ok: false, error: 'whole_class_ids_must_be_empty' } };
     state.archives.push({ session: clone(state.session), run: clone(state.run), memberIds: state.memberIds });
-    state.session = { ...clone(target.session), id: `prepared-session-${state.archives.length}`, status: 'prepared', started_at: timestamp(), mock: { ...target.session.mock, plan_kind: 'mixed', window_mode: args.p_window_mode || 'timed_sample', state: 'prepared', revision: 1, item_count: args.p_item_count, duration_seconds: args.p_duration_minutes * 60, remaining_seconds: args.p_duration_minutes * 60, time_extension_count: 0, deadline_at: null } };
+    state.session = { ...clone(target.session), id: `prepared-session-${state.archives.length}`, status: 'prepared', started_at: timestamp(), mock: { ...target.session.mock, plan_kind: 'mixed', routing_policy: continuousPreparation ? 'continuous-v1' : null, window_mode: args.p_window_mode || 'timed_sample', state: 'prepared', revision: 1, item_count: args.p_item_count, duration_seconds: args.p_duration_minutes * 60, remaining_seconds: args.p_duration_minutes * 60, time_extension_count: 0, deadline_at: null } };
     state.memberIds = args.p_whole_class ? students.map(student => student.id) : args.p_student_ids;
     state.run = null; result = teacherResult();
   } else if (name === 'teacher_control_literacy_mock_session') {

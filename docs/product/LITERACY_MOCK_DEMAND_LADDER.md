@@ -1,6 +1,12 @@
 # Adaptive Literacy Test: actual task demand
 
-V14 uses the same authored ladder and eight areas through both launch methods. New mixed sittings begin each area at Starter. The next fresh independent response in that area moves one adjacent demand up or down. Pairs rotate across all eight areas, with the starting area set by the session. The 15-, 25- and 40-question caps bound the sitting. Early stopping and evidence requirements still govern reporting. See the [current session contract](LITERACY_MOCK_SESSIONS.md).
+V14 uses the same eight authored ladders through Teach and pupil devices. New mixed sittings use the `continuous-v1` routing policy. The first question starts at Starter. After each fresh independent answer, the next question moves one available step in the appropriate direction, even when the area changes. Pairs rotate across all eight areas, with the starting area set by the session. The sitting has a maximum of 15, 25 or 40 questions. Area-specific evidence and early stopping still govern reporting. [Current session contract](LITERACY_MOCK_SESSIONS.md)
+
+Each area's ladder runs from zero to its authored ceiling. To move between areas, take the position of the question just answered on its ladder. Following independent success, choose the first destination step strictly above that position. Following an independent error, choose the first strictly below. At either endpoint, keep the endpoint when the requested direction has no further step. Following a supported, familiar or unscored response, use the nearest destination step, rounding an exact midpoint upward. For example, after a correct phonics question at step 2 of 6, move to print step 2 of 4. After an incorrect answer to the same phonics question, move to print step 1 of 4. These fractions order the available tasks for routing. A teacher report draws evidence for print only from actual print responses.
+
+Earlier V14 assignments use the original paired-area policy. Each area starts at Starter and adjusts on the next visit to that area.
+
+The device reserves fresh questions and media for several possible paths. If the usual set of future placeholders would exhaust a word or passage family, the device can reserve a different step in the same area for a future slot. Before a question is shown or scored, the actual demand must match the learner's answers. If no fresh item at that demand is available, saved responses are retained and the test reports the capacity limit.
 
 ## Historical starting and progression rules
 

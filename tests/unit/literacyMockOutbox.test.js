@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { createMockOutbox, readMockOutbox, writeMockOutbox, appendMockOutbox, verifyMockOutboxReceipt, acknowledgeMockOutbox, readCachedMockFocus } from '../../src/utils/literacyMockOutbox.js';
+import { mockRunExtends, latestMockSettings, createMockOutbox, readMockOutbox, writeMockOutbox, appendMockOutbox, verifyMockOutboxReceipt, acknowledgeMockOutbox, readCachedMockFocus } from '../../src/utils/literacyMockOutbox.js';
 import { clearLearnerAssessmentDrafts } from '../../src/utils/assessmentDraftStorage.js';
 const storage = () => { const data = new Map(); return { get length(){return data.size;}, key:index=>[...data.keys()][index], getItem:key=>data.get(key)??null, setItem:(key,value)=>data.set(key,String(value)), removeItem:key=>data.delete(key) }; };
 const item = { id:'q1',skillId:'rhyming',domainId:'sound_awareness',level:1,prompt:'Choose.' };
@@ -19,6 +19,30 @@ test('device answers persist before advancing, retain their exact selection and 
  assert.equal(readMockOutbox('different-child','assignment',target),null);
  assert.equal(readCachedMockFocus('outbox-child',target,Date.parse('2026-10-14T04:00:00Z')).focusSession.id,'assignment');
  assert.equal(readCachedMockFocus('outbox-child',target,Date.parse('2026-10-14T07:00:00Z')),null);
+});
+test('poll hydration preserves the committed prefix, accepted event revision and frozen route', () => {
+ const previous=appendMockOutbox(initial(),response,options,storage()).run;
+ previous.eventRevision=2;
+ const unchanged=structuredClone(previous);
+ assert.ok(mockRunExtends(previous,unchanged));
+ for (const stale of [
+   {...unchanged,revision:1,responses:[]}, {...unchanged,eventRevision:1},
+   {...unchanged,revision:3,responses:[]},
+   {...unchanged,revision:3,responses:[{...unchanged.responses[0],selected:'c3'}]},
+   {...unchanged,plan:{...unchanged.plan,seed:'other-session'}},
+   {...unchanged,plan:{...unchanged.plan,itemIds:['q1','q3']}}
+ ]) assert.equal(mockRunExtends(previous,stale),false);
+ assert.ok(mockRunExtends(previous,{...unchanged,eventRevision:3,
+   responses:[{...unchanged.responses[0],supportUsed:true,evidenceType:'supported'}]}));
+ assert.ok(mockRunExtends(previous,{...unchanged,revision:3,plan:{...unchanged.plan,itemIds:['q1','q3']}}));
+});
+
+test('a delayed session read cannot rewind a pause or remove its continuous routing assignment', () => {
+ const pause={routing_policy:'continuous-v1',revision:3,state:'paused',server_now:'2026-11-24T05:00:00Z'};
+ assert.equal(latestMockSettings(pause,{revision:2,state:'running'}),pause);
+ assert.equal(latestMockSettings(pause,{revision:3,state:'running',server_now:'2026-11-24T04:59:00Z'}),pause);
+ assert.deepEqual(latestMockSettings(pause,{revision:4,state:'running'}),{revision:4,state:'running',routing_policy:'continuous-v1'});
+ assert.deepEqual(latestMockSettings(null,{revision:1}),{revision:1});
 });
 test('storage denial or failed readback keeps the current question and the original queue unchanged', () => {
  const before=initial(), bad={getItem:()=>null,setItem:()=>{throw Error('quota');},removeItem:()=>{}};

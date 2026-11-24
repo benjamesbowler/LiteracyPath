@@ -10,9 +10,9 @@ export const WHOLE_CLASS_CYCLE_ACTIVITIES = Object.freeze([
 
 // A teacher operates the same test locally. Project answers with the pupil
 // device's scoring/evidence rules without writing a learner record.
-export function createWholeClassMockSession(bank, { sessionId, studentId = 'whole-class', seed, itemCount, exposures = [] }) {
+export function createWholeClassMockSession(bank, { sessionId, studentId = 'whole-class', seed, itemCount, exposures = [], routingPolicy }) {
   let reserve;
-  const options = { sessionId, studentId, seed, itemCount, exposures };
+  const options = { sessionId, studentId, seed, itemCount, exposures, routingPolicy };
   const plan = selectLiteracyMockPlan(bank, {
     ...options,
     onOfflineItems(ids) {
