@@ -1,3 +1,6 @@
+import { reviewedFoundationBand } from '../../src/data/literacyMockReviewedFoundations.js';
+import { reviewedLanguageBand } from '../../src/data/literacyMockReviewedLanguage.js';
+import { reviewedComprehensionBand } from '../../src/data/literacyMockReviewedComprehension.js';
 import { validV14ActionContrast } from '../../src/data/literacyMockV14.js';
 import { LITERACY_MOCK_V14_ORIGINAL_SOURCE } from '../../src/data/literacyMockV14Items.js';
 import {literacyMockDemandV12} from '../../src/policy/literacyMockDemandV12.js';
@@ -97,14 +100,16 @@ function classifyV14(q, sourceItems) {
 
 /** Validate the normalized Mock shape directly. Its ID-valued keys and
  * per-role cues are different from the public practice question schema. */
-export function auditLiteracyMockItem(q,{assetExists=publicFileExists,sourceItems}={}) {
+export function auditLiteracyMockItem(q,{assetExists=publicFileExists,sourceItems,previousItems}={}) {
   const issues=[];
   const add=(code,message)=>issues.push({code,message});
   const choices=Array.isArray(q.choices)?q.choices:[],ids=choices.map(c=>c.id);
   const cues=Array.isArray(q.requiredAudioCues)?q.requiredAudioCues:[];
   const band=q.adaptiveAreaBand,operation=q.adaptiveDemand?.operation;
   const hasProgression=isLiteracyMockProgressionVersion(q.contentVersion);
-  const isV14 = q.contentVersion === 'literacy-mock-v14';
+  const isV14 = ['literacy-mock-v14', 'literacy-mock-v15'].includes(q.contentVersion);
+  const reviewedBand = q.contentVersion === 'literacy-mock-v15'
+    ? reviewedFoundationBand(q) ?? reviewedLanguageBand(q,previousItems?.get(q.id)) ?? reviewedComprehensionBand(q) : null;
   const originalV14 = isV14 && q.sourceProvenance?.file === LITERACY_MOCK_V14_ORIGINAL_SOURCE;
   const classify=isV14 ? q => classifyV14(q,sourceItems) : ['literacy-mock-v12','literacy-mock-v13'].includes(q.contentVersion)?q=>literacyMockDemandV12(q,{sourceItems}):q.contentVersion==='literacy-mock-v11'?q=>literacyMockDemandV11(q,{sourceItems}):q.contentVersion==='literacy-mock-v10'?literacyMockDemandV10:literacyMockDemandV9;
   const ladders=hasProgression?LITERACY_MOCK_V11_LADDERS:q.contentVersion==='literacy-mock-v10'?LITERACY_MOCK_V10_LADDERS:LITERACY_MOCK_V9_LADDERS;
@@ -112,8 +117,8 @@ export function auditLiteracyMockItem(q,{assetExists=publicFileExists,sourceItem
     || !LITERACY_MOCK_AREA_ORDER.includes(q.domainId)||!formats.has(q.format)
     ||choices.length<2||new Set(ids).size!==ids.length||choices.some(c=>!text(c.id)||!text(c.label)))add('Q-MOCK-SHAPE','A normalized item needs a stable ID, literal prompt/construct, domain, source level and distinct labelled response IDs.');
   if(q.adaptiveAreaVersion!==(hasProgression?literacyMockBoundaryLimits(q.contentVersion).areaVersion:LITERACY_MOCK_V9_AREA_VERSION)||!Number.isInteger(band)||band<0||band>LITERACY_MOCK_AREA_MAX[q.domainId]
-    ||(!originalV14 && JSON.stringify(q.adaptiveDemand)!==JSON.stringify(ladders[q.domainId]?.[band]))
-    ||classify(q)!==band)add('Q-MOCK-DEMAND','The declared current adaptive band must match the actual admitted operation and its literal evidence contract.');
+    ||(reviewedBand == null && !originalV14 && JSON.stringify(q.adaptiveDemand)!==JSON.stringify(ladders[q.domainId]?.[band]))
+    ||(reviewedBand ?? classify(q))!==band)add('Q-MOCK-DEMAND','The declared current adaptive band must match the actual admitted operation and its literal evidence contract.');
 
   if(hasProgression&&q.format==='choice'&&choices.length!==4)add('Q-MOCK-FOUR-CHOICES','Every current single-answer multiple-choice question needs one key and three distractors.');
   if((isV14 || q.contentVersion==='literacy-mock-v13')&&q.format==='choice'&&band===1&&['reading','phonics'].includes(q.domainId)
@@ -165,7 +170,7 @@ export function auditLiteracyMockItem(q,{assetExists=publicFileExists,sourceItem
       ||proof.source!==q.passage||proof.retained!==key||!Array.isArray(proof.rejected)
       ||!sameValues(proof.rejected,choices.filter(c=>c.id!==q.answer).map(c=>c.label))||!text(proof.distinction))add('Q-MOCK-SCOPE-PROOF','A scope claim needs reviewed literal source, retained key, every rejected scope contrast and named distinction; matching all/only vocabulary is insufficient.');
   }
-  if(constructionOperations.has(operation)){
+  if(constructionOperations.has(operation) && !(q.contentVersion === 'literacy-mock-v15' && q.alphabetSpelling && reviewedBand === band)){
     const proof=q.taskDemand?.proof||{},features=q.taskDemand?.features||{};
     const units=Array.isArray(proof.responseTiles)?proof.responseTiles:[],phones=Array.isArray(proof.phonemes)?proof.phonemes:[],spares=Array.isArray(proof.spareTiles)?proof.spareTiles:[];
     if(q.taskDemand?.reviewed!==true||q.format!=='build_word'||q.modality!=='dictation'||q.evidenceModality!=='audio+print'

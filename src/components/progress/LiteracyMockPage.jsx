@@ -92,7 +92,7 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
   const publishedItems = useMemo(() => new Map(bank?.map(item => [item.id,item])),[bank]);
   const itemIssue = id => literacyItemQualityIssue(publishedItems.get(id) || {id,contentVersion});
   const hasWithdrawnQuestions = Boolean(run?.plan?.itemIds?.slice(run.responses?.length || 0).some(itemIssue));
-  const mixedRuntime = ['literacy-mock-v10','literacy-mock-v11','literacy-mock-v12','literacy-mock-v13','literacy-mock-v14'].includes(contentVersion) && mock?.plan_kind === 'mixed';
+  const mixedRuntime = ['literacy-mock-v10','literacy-mock-v11','literacy-mock-v12','literacy-mock-v13','literacy-mock-v14','literacy-mock-v15'].includes(contentVersion) && mock?.plan_kind === 'mixed';
   const continuous = mock?.routing_policy === LITERACY_MOCK_CONTINUOUS_ROUTING && mock?.plan_kind === 'mixed';
   const mediaItemIds = boxState?.mediaItemIds || (continuous ? savedPool : null);
   const savePool = useCallback(ids => {

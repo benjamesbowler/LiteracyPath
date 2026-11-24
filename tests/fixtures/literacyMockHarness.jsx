@@ -25,7 +25,7 @@ const routingPolicy = query.get('policy');
 const boundaryAdaptive = isLiteracyMockBoundaryVersion(contentVersion);
 const areaAdaptive = boundaryAdaptive || ['literacy-mock-v5','literacy-mock-v6','literacy-mock-v7','literacy-mock-v8'].includes(contentVersion);
 const v3 = LITERACY_MOCK_EVIDENCE_VERSIONS.includes(contentVersion);
-const currentShortRoute = ['literacy-mock-v13','literacy-mock-v14'].includes(contentVersion);
+const currentShortRoute = ['literacy-mock-v13','literacy-mock-v14','literacy-mock-v15'].includes(contentVersion);
 const capabilities = { presentationReceipts: v3, supportResolution: v3, freshChecks: v3, entryChecks: v3, windowModes: v3,
   offlineDelivery:query.has('device'), contentQuarantineRepair: !query.has('legacyContentBackend'), preRenderMediaFailure: currentShortRoute };
 const requestedCount = Number(query.get('count'));
@@ -36,7 +36,7 @@ const available = bank.filter(item => item.mediaReady);
 const key = `literacy-mock-browser-server:${query.get('case') || 'default'}`;
 // The simulated external V11 database has its own storage bucket. Keep its
 // test records from consuming the real learner outbox's localStorage quota.
-const fixtureServerStorage = ['literacy-mock-v11','literacy-mock-v12','literacy-mock-v13','literacy-mock-v14'].includes(contentVersion) ? sessionStorage : localStorage;
+const fixtureServerStorage = ['literacy-mock-v11','literacy-mock-v12','literacy-mock-v13','literacy-mock-v14','literacy-mock-v15'].includes(contentVersion) ? sessionStorage : localStorage;
 let releaseHistoryRead;
 const heldHistoryRead = query.has('holdHistory') ? new Promise(resolve => { releaseHistoryRead = resolve; }) : null;
 const clone = value => structuredClone(value);
@@ -195,11 +195,11 @@ function batchReceipt(value,compact=false){
 const client = { async call(name, args = {}) {
   state.calls.push({ name, args: clone(args) }); persist();
   const target = sessionRecord(args.p_session_id || args.p_source_session_id);
-  const continuousPreparation = name === 'teacher_prepare_literacy_mock_continuous_session';
-  const mockPreparation = continuousPreparation || /^teacher_prepare_literacy_mock_session(?:_v(?:[3-9]|1[0-4]))?$/.test(name);
+  const continuousPreparation = ['teacher_prepare_literacy_mock_continuous_session','teacher_prepare_literacy_mock_session_v15'].includes(name);
+  const mockPreparation = continuousPreparation || /^teacher_prepare_literacy_mock_session(?:_v(?:[3-9]|1[0-5]))?$/.test(name);
   if ((state.fault === 'hang-read' && name === 'student_get_literacy_mock_run') || (state.fault === 'hang-save' && name === 'student_save_literacy_mock_run') || (state.fault === 'hang-event' && name === 'student_record_literacy_mock_event') || (state.fault === 'hang-prepare' && mockPreparation) || (state.fault === 'hang-report' && name === 'teacher_get_literacy_mock_report') || (state.fault === 'hang-status' && name === 'teacher_get_literacy_mock_status')) return new Promise(() => {});
   if (state.fault === 'offline') throw new Error('Simulated disconnected network');
-  if (name === 'teacher_literacy_mock_v14_available') {
+  if (name === 'teacher_literacy_mock_v15_available') {
     if (query.get('availability') === 'missing') return { error: Object.assign(new Error('Function missing'), { code: 'PGRST202' }) };
     if (query.get('availability') === 'network') throw new Error('Test availability could not be checked.');
     return { data: true };

@@ -16,7 +16,25 @@ export const LITERACY_MOCK_IMAGE_DELIVERY = Object.freeze({
   "/images/child-mode/reviewed/sat.webp": "/images/child-mode/short-i/sit.webp",
   "/images/child-mode/vocabulary/dug.webp": "/images/assessment/literacy-mock/capacity/foundation-dig.webp",
   "/media/vocabulary/images/eat.webp": "/images/assessment/literacy-mock/clarity/eat-v1.webp",
-  "/media/vocabulary/images/point.webp": "/images/assessment/literacy-mock/capacity/foundation-point.webp"
+  "/media/vocabulary/images/point.webp": "/images/assessment/literacy-mock/capacity/foundation-point.webp",
+  // The original preposition scenes retain their full dimensions in WebP.
+  // The offline reserve may need several of these illustrations at once.
+  "/images/prepositions/ball_on_chair.png": "/images/assessment/literacy-mock/prepositions/ball_on_chair.webp",
+  "/images/prepositions/bear_behind_tree.png": "/images/assessment/literacy-mock/prepositions/bear_behind_tree.webp",
+  "/images/prepositions/bike_in_front_of_garage.png": "/images/assessment/literacy-mock/prepositions/bike_in_front_of_garage.webp",
+  "/images/prepositions/bird_above_tree.png": "/images/assessment/literacy-mock/prepositions/bird_above_tree.webp",
+  "/images/prepositions/child_behind_curtain.png": "/images/assessment/literacy-mock/prepositions/child_behind_curtain.webp",
+  "/images/prepositions/cup_between_books.png": "/images/assessment/literacy-mock/prepositions/cup_between_books.webp",
+  "/images/prepositions/cup_next_to_plate.png": "/images/assessment/literacy-mock/prepositions/cup_next_to_plate.webp",
+  "/images/prepositions/dog_under_table.png": "/images/assessment/literacy-mock/prepositions/dog_under_table.webp",
+  "/images/prepositions/fence_around_garden.png": "/images/assessment/literacy-mock/prepositions/fence_around_garden.webp",
+  "/images/prepositions/horse_over_gate.png": "/images/assessment/literacy-mock/prepositions/horse_over_gate.webp",
+  "/images/prepositions/plane_over_town.png": "/images/assessment/literacy-mock/prepositions/plane_over_town.webp",
+  "/images/prepositions/rabbit_beside_basket.png": "/images/assessment/literacy-mock/prepositions/rabbit_beside_basket.webp",
+  "/images/prepositions/rain_through_tent_crack.png": "/images/assessment/literacy-mock/prepositions/rain_through_tent_crack.webp",
+  "/images/prepositions/shoes_near_door.png": "/images/assessment/literacy-mock/prepositions/shoes_near_door.webp",
+  "/images/prepositions/slippers_under_bed.png": "/images/assessment/literacy-mock/prepositions/slippers_under_bed.webp",
+  "/images/prepositions/train_through_tunnel.png": "/images/assessment/literacy-mock/prepositions/train_through_tunnel.webp",
 });
 
 export function resolveLiteracyMockImagePath(src = "") {

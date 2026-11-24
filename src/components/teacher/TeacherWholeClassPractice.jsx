@@ -1,7 +1,7 @@
 import { createPortal } from 'react-dom';
 import { useEffect, useRef, useState } from 'react';
 import { LITERACY_MOCK_SHORT_ITEM_COUNTS } from '../../policy/literacyMockQuestionLimit.js';
-import { LITERACY_MOCK_ADAPTIVE_VERSION, LITERACY_MOCK_CONTINUOUS_ROUTING } from '../../policy/literacyMockVersions.js';
+import { LITERACY_MOCK_REVIEWED_VERSION, LITERACY_MOCK_CONTINUOUS_ROUTING } from '../../policy/literacyMockVersions.js';
 import { TeacherPageHeader, TeacherPageShell } from './ui/TeacherPrimitives.jsx';
 import { teacherCycleOptions } from './teacherCycleReference.js';
 import { elSkillsBlockCycles } from '../../data/elSkillsBlockCycles.js';
@@ -10,7 +10,7 @@ import { CycleActivityRenderer } from '../cycle-practice/CycleActivityRenderer.j
 import { resolveCyclePracticeAudio } from '../cycle-practice/cyclePracticeAudio.js';
 import { playCueAudio, playCueSequence, stopCueAudio } from '../../utils/audio/cuePlayer.js';
 import { loadLiteracyMockRuntimeBank } from '../../data/literacyMockRuntimeBank.js';
-import { getLiteracyMockV14Availability } from '../../data/literacyMockSessionCore.js';
+import { getLiteracyMockAvailability } from '../../data/literacyMockSessionCore.js';
 import { getMockAudioElement, primeMockAudioElement } from '../../utils/mockAudioElement.js';
 import { LiteracyMockHeader } from '../progress/LiteracyMockHeader.jsx';
 import { LiteracyMockQuestion } from '../progress/LiteracyMockQuestion.jsx';
@@ -133,9 +133,9 @@ export default function TeacherWholeClassPractice({ kind, initialCycleId, client
     let active = true;
     const controller = new AbortController();
     async function loadBank() {
-      const ready = !client || await getLiteracyMockV14Availability({ client, signal: controller.signal });
+      const ready = !client || await getLiteracyMockAvailability({ client, signal: controller.signal });
       if (!ready) throw new Error('Adaptive question catalogue unavailable');
-      return loadLiteracyMockRuntimeBank({ contentVersion: LITERACY_MOCK_ADAPTIVE_VERSION, mixed: true });
+      return loadLiteracyMockRuntimeBank({ contentVersion: LITERACY_MOCK_REVIEWED_VERSION, mixed: true });
     }
     loadBank().then(rows => {
       if (active) { setBank(rows); setLoad('ready'); }

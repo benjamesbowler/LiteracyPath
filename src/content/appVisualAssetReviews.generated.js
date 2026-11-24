@@ -6,7 +6,7 @@ export const appVisualAssetReview = {
   "reviewedBy": "codex-direct-visual-audit",
   "status": "complete",
   "scope": {
-    "imageCount": 12768,
+    "imageCount": 12784,
     "sources": [
       "runtime-media-registry",
       "source-literals",
@@ -14,7 +14,7 @@ export const appVisualAssetReview = {
     ],
     "method": "Every displayable inventory path inspected in indexed full-aspect sheets; all book pages and covers compared in ordered sequences; flagged images opened natively. All repaired bytes checked against final visual receipts, all shared card derivatives independently re-reviewed. Retained held sources have separately verified current non-display purposes; no pixel approval.",
     "heldSourceCount": 458,
-    "directlyReviewedImageCount": 12310
+    "directlyReviewedImageCount": 12326
   },
   "assets": [
     {
@@ -36906,6 +36906,102 @@ export const appVisualAssetReview = {
       "sha256": "233d2f96521689e59dea0aef90a75a6572c09b08afe5af7b631a8e140f81ee72",
       "status": "approved",
       "reviewedAt": "2026-11-01"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/prepositions/ball_on_chair.webp",
+      "sha256": "b58fbf84343c1a3400d65ac8e520efcbb1f192b6e492260190f31737c7debbb7",
+      "status": "approved",
+      "reviewedAt": "2026-11-24"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/prepositions/bear_behind_tree.webp",
+      "sha256": "9b636939114e69c3385d74b2113e04215a9a29e39ff2cb8dad5af61fb1918b96",
+      "status": "approved",
+      "reviewedAt": "2026-11-24"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/prepositions/bike_in_front_of_garage.webp",
+      "sha256": "b9b4871cc1b001cb27e91c4916dfbfdd54a09e1178e6a1c86650261ae217000e",
+      "status": "approved",
+      "reviewedAt": "2026-11-24"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/prepositions/bird_above_tree.webp",
+      "sha256": "6aa3df15de4d210131359633b5e8cc04159e605139898f4de5c213b0b9ae2769",
+      "status": "approved",
+      "reviewedAt": "2026-11-24"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/prepositions/child_behind_curtain.webp",
+      "sha256": "fc6bc335f2790ad38eecb4c0fdbcfc0a0d5fdd41b33f3682c5970697df286d41",
+      "status": "approved",
+      "reviewedAt": "2026-11-24"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/prepositions/cup_between_books.webp",
+      "sha256": "fa936a29b80787981900b933d915382d25fc008aaa14e26cdd7821fe34350e38",
+      "status": "approved",
+      "reviewedAt": "2026-11-24"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/prepositions/cup_next_to_plate.webp",
+      "sha256": "124aaba651dc812f7a8242c94646e8f6c8b84c35ee5f6e8eff467c7aa8526b87",
+      "status": "approved",
+      "reviewedAt": "2026-11-24"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/prepositions/dog_under_table.webp",
+      "sha256": "566f4cb14d767aedb53234b37da1b9c6515dde6d3ec6692e222dfd9d07389fa6",
+      "status": "approved",
+      "reviewedAt": "2026-11-24"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/prepositions/fence_around_garden.webp",
+      "sha256": "669796aca32e4bcbfa5aa872ceedea544038fed1f40a8f253f19daaa4379faeb",
+      "status": "approved",
+      "reviewedAt": "2026-11-24"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/prepositions/horse_over_gate.webp",
+      "sha256": "0155db8cb2e8331f59271bc868289d3b655775d96f80976d30840e7a0d88acea",
+      "status": "approved",
+      "reviewedAt": "2026-11-24"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/prepositions/plane_over_town.webp",
+      "sha256": "b4b26249b03e7635f0327451b85cb5c05c245182d813aed7deb221843d67e1ba",
+      "status": "approved",
+      "reviewedAt": "2026-11-24"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/prepositions/rabbit_beside_basket.webp",
+      "sha256": "bf37415d0a88e326b30d759f21a25542b084b44ad698e1114243c1323a6578a5",
+      "status": "approved",
+      "reviewedAt": "2026-11-24"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/prepositions/rain_through_tent_crack.webp",
+      "sha256": "3789af5677c1012eadd9d5c641aaba2e461e4c852a5be669b7c8a3d0a27318ef",
+      "status": "approved",
+      "reviewedAt": "2026-11-24"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/prepositions/shoes_near_door.webp",
+      "sha256": "82bb0fe47b5a24d28174b77ae900575aef00ba2691cb317883bd38795e176622",
+      "status": "approved",
+      "reviewedAt": "2026-11-24"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/prepositions/slippers_under_bed.webp",
+      "sha256": "cf8fe85774338cce3eba208044fb1104b2527b692ee6cc13e44bbbcc2021c85e",
+      "status": "approved",
+      "reviewedAt": "2026-11-24"
+    },
+    {
+      "path": "/images/assessment/literacy-mock/prepositions/train_through_tunnel.webp",
+      "sha256": "73e3b7b970155d05bba11a2aebbcca015bb6be3e871c848f0d30cc70cf5be957",
+      "status": "approved",
+      "reviewedAt": "2026-11-24"
     },
     {
       "path": "/images/assessment/long-vowels/beach.webp",

@@ -1,5 +1,5 @@
 import { literacySkill } from './literacyPracticePolicy.js';
-import { LITERACY_MOCK_BALANCED_VERSION, LITERACY_MOCK_ADAPTIVE_VERSION } from './literacyMockVersions.js';
+import { LITERACY_MOCK_BALANCED_VERSION, LITERACY_MOCK_ADAPTIVE_VERSION, LITERACY_MOCK_REVIEWED_VERSION } from './literacyMockVersions.js';
 
 export const LITERACY_MOCK_AREA_VERSION = 'areas-v1';
 export const LITERACY_MOCK_FOUNDATION_SKILLS = Object.freeze([
@@ -15,7 +15,7 @@ export const LITERACY_MOCK_BAND_NAMES = Object.freeze(['First steps','Starter','
 // Published bands and saved answers stay immutable. New phonics selection must
 // also satisfy the task ladder: frequency-list position is not word difficulty.
 export function isLiteracyMockAreaRouteItem(item) {
-  if(['literacy-mock-v6','literacy-mock-v7','literacy-mock-v8','literacy-mock-v9','literacy-mock-v10','literacy-mock-v11','literacy-mock-v12',LITERACY_MOCK_BALANCED_VERSION,LITERACY_MOCK_ADAPTIVE_VERSION].includes(item.contentVersion))return item.adaptiveMixedEligible===true&&Boolean(item.adaptiveDemand);
+  if(['literacy-mock-v6','literacy-mock-v7','literacy-mock-v8','literacy-mock-v9','literacy-mock-v10','literacy-mock-v11','literacy-mock-v12',LITERACY_MOCK_BALANCED_VERSION,LITERACY_MOCK_ADAPTIVE_VERSION, LITERACY_MOCK_REVIEWED_VERSION].includes(item.contentVersion))return item.adaptiveMixedEligible===true&&Boolean(item.adaptiveDemand);
   if (item.domainId !== 'phonics') return true;
   if (item.adaptiveAreaBand === 0) return item.format === 'choice' && !item.passage
     && ['spoken_to_print_high_frequency_word_recognition', 'spoken_to_print_hfw_orthographic_discrimination'].includes(item.constructClaim);

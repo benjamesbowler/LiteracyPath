@@ -185,3 +185,36 @@ test('select-all accepts an independent subset without revealing the answer coun
   await next.click();
   expect(await page.evaluate(()=>window.__literacyMock.state().lastSubmission.selected)).toHaveLength(1);
 });
+
+for (const width of [390,1024]) {
+  test(`contextual matching keeps full meanings draggable and independently editable at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({width,height:width===390 ? 844 : 768});
+    const id = 'mock.v4.context.bank.l2.v11';
+    await page.goto(`${root}?case=context-matching-${width}&mode=format&version=literacy-mock-v15&item=${id}`);
+    await page.getByRole('button',{name:'Listen to the question'}).click();
+    const bank = page.getByRole('group',{name:'Tiles to place'});
+    const meaning = label => bank.getByRole('button',{name:label,exact:true});
+    const next = page.getByRole('button',{name:'Next question',exact:true});
+    const first = page.getByRole('button',{name:/^Space 1 for First use/});
+    const second = page.getByRole('button',{name:/^Space 2 for Second use/});
+    const edge = meaning('the edge of a river'), money = meaning('a place that keeps money');
+    const distractor = meaning('a deep part of a river');
+    await expect(bank.locator('[draggable=true]')).toHaveCount(4);
+    await expect(bank.getByRole('button',{name:/Hear answer/})).toHaveCount(4);
+    await distractor.tap(); await first.tap();
+    await expect(first).toHaveText('a deep part of a river');
+    await expect(next).toBeDisabled();
+    await edge.dragTo(first);
+    await expect(first).toHaveText('the edge of a river');
+    await expect(distractor).toBeEnabled();
+    await money.focus(); await page.keyboard.press('Enter');
+    await second.focus(); await page.keyboard.press('Space');
+    await expect(second).toHaveText('a place that keeps money');
+    await expect(next).toBeEnabled({timeout:60000});
+    await next.click();
+    const saved = await page.evaluate(()=>window.__literacyMock.state().lastSubmission);
+    expect(saved.selected).toEqual(['c0','c1']);
+    expect(Object.keys(saved.audioDelivery)).toHaveLength(7);
+    expect(Object.values(saved.audioDelivery).every(state=>state==='completed')).toBe(true);
+  });
+}

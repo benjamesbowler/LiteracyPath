@@ -171,7 +171,7 @@ export function LiteracyMockQuestion({ item, seed, index, total, studentName, st
       </aside>}
       {showPassage && <section className="literacy-mock-reading-text" aria-label="Passage">
         <h2>{item.modality === 'reading' ? 'Read this' : 'The passage'}</h2>
-        {item.textFeature ? <AssessmentTextFeature feature={item.textFeature}/> : <LiteracyMockPassage key={item.id} text={item.passage}/>}
+        {item.textFeature ? <AssessmentTextFeature feature={item.textFeature}/> : <LiteracyMockPassage key={item.id} text={item.passage} instruction={item.constructClaim === 'match_competing_contextual_meanings' ? 'Read both uses, then match their meanings.' : undefined}/>}
       </section>}
       <div className="literacy-mock-stem">
         <button type="button" className="literacy-mock-speaker" aria-label="Listen to the question" disabled={disabled} onClick={() => audio.play()}><SpeakerHigh weight="fill" aria-hidden="true"/></button>
@@ -206,7 +206,7 @@ export function LiteracyMockQuestion({ item, seed, index, total, studentName, st
                 onDragOver={event => event.preventDefault()} onDrop={event => drop(event, i)} onClick={() => activateSlot(i)} aria-label={`Space ${i + 1}${id ? `: ${choices.find(x => x.id === id)?.label}` : ', empty'}`}>{id ? choices.find(x => x.id === id)?.label : <span className="literacy-mock-drop-label" aria-hidden="true">Place here</span>}</button>; })}
             </div>
           </>}
-          {placement && <p className="literacy-mock-pickup-status" role="status">{pickedChoice ? `${pickedChoice.label} selected. Choose a box.` : 'Choose a tile below.'}</p>}
+          {placement && <p className="literacy-mock-pickup-status" role="status">{pickedChoice ? `${pickedChoice.label} selected. Choose a box.` : item.format === 'match' && mockResponseComplete(item, selection) ? 'Choose a filled box to change it.' : 'Choose a tile below.'}</p>}
           <div className="literacy-mock-choice-bank" role={placement ? 'group' : undefined} aria-label={placement ? 'Tiles to place' : undefined}>{choices.map(choiceButton)}</div>
         </>}
       </div>

@@ -5,7 +5,8 @@ import { LITERACY_MOCK_AREA_MAX, LITERACY_MOCK_AREA_ORDER } from '../policy/lite
 import { literacyMockBoundaryState, literacyMockBoundarySchedule, literacyMockBoundaryLimits,
   literacyMockBoundaryPlaceholderBand, literacyMockFirstPossibleOrdinal } from '../policy/literacyMockBoundaryPolicy.js';
 import { LITERACY_MOCK_V11_PRINT_LETTER_LIMIT } from '../policy/literacyMockProgressionV11.js';
-import { LITERACY_MOCK_ADAPTIVE_VERSION, LITERACY_MOCK_BALANCED_VERSION, LITERACY_MOCK_CONTINUOUS_ROUTING, isLiteracyMockBoundaryVersion, isLiteracyMockProgressionVersion } from '../policy/literacyMockVersions.js';
+import { LITERACY_MOCK_REVIEWED_VERSION, usesPairedLiteracyMockRouting, LITERACY_MOCK_BALANCED_VERSION, LITERACY_MOCK_CONTINUOUS_ROUTING, isLiteracyMockBoundaryVersion, isLiteracyMockProgressionVersion } from '../policy/literacyMockVersions.js';
+import { reviewedLiteracyMockNextBand } from '../policy/literacyMockReviewedDemand.js';
 import { continuousLiteracyMockBand, LITERACY_MOCK_CONTINUOUS_EXCLUDED_IDS } from '../policy/literacyMockContinuousRouting.js';
 import { literacyMockTaskKey, sameLiteracyMockTask } from './literacyMockConditions.js';
 import { selectLiteracyMockPrintRetakePool } from './literacyMockRetakePool.js';
@@ -20,7 +21,7 @@ const blocked = failures => {
   return item => ids.has(item.id) || mediaPaths(item).some(path => paths.has(path));
 };
 const continuousExclusions = new Set(LITERACY_MOCK_CONTINUOUS_EXCLUDED_IDS);
-const continuousRouting = (version, policy) => version === LITERACY_MOCK_ADAPTIVE_VERSION && policy === LITERACY_MOCK_CONTINUOUS_ROUTING;
+const continuousRouting = (version, policy) => usesPairedLiteracyMockRouting(version) && policy === LITERACY_MOCK_CONTINUOUS_ROUTING;
 function usable(bank, failures = [], routingPolicy) {
   const versions = new Set(bank.filter(item => isLiteracyMockBoundaryVersion(item.contentVersion)).map(item => item.contentVersion));
   if (versions.size > 1) throw new Error('A boundary plan must use one frozen content publication.');
@@ -128,7 +129,7 @@ function balancedOfflinePool(candidates, plan, byId, limit, version, routingPoli
     for (let stage = 0; stage <= maximum; stage++) {
       // A new area can inherit any reachable step on its very first visit.
       const firstVisit = continuousRouting(version, routingPolicy) ? 1
-        : version === LITERACY_MOCK_ADAPTIVE_VERSION ? 1 + Math.abs(stage - 1) : literacyMockFirstPossibleOrdinal(stage);
+        : usesPairedLiteracyMockRouting(version) ? 1 + Math.abs(stage - 1) : literacyMockFirstPossibleOrdinal(stage);
       const reachable = visits - firstVisit + 1;
       if (reachable < 1) break;
       const here = item => item.domainId === domain && band(item) === stage;
@@ -147,7 +148,7 @@ function balancedOfflinePool(candidates, plan, byId, limit, version, routingPoli
       }
     }
   }
-  if (version === LITERACY_MOCK_ADAPTIVE_VERSION) {
+  if (usesPairedLiteracyMockRouting(version)) {
     // Media reuse alone would discard less common interactions. Keep a fresh
     // representative of each response format at each reachable area/demand.
     const key = item => JSON.stringify([item.domainId, band(item), item.format]);
@@ -212,7 +213,7 @@ export function selectLiteracyMockBoundaryPlan(bank, { sessionId, studentId, ite
   const plan = { itemIds: selected.map(item => item.id), seed: planSeed };
   if (onOfflineItems) {
     const byId = new Map(bank.map(item => [item.id, item]));
-    onOfflineItems([LITERACY_MOCK_ADAPTIVE_VERSION, LITERACY_MOCK_BALANCED_VERSION].includes(version)
+    onOfflineItems((version === LITERACY_MOCK_BALANCED_VERSION || usesPairedLiteracyMockRouting(version))
       ? balancedOfflinePool(candidates, plan, byId, limit, version, routingPolicy)
       : historicalOfflinePool(candidates, plan, byId));
   }
@@ -249,7 +250,7 @@ export function adaptLiteracyMockBoundaryPlan(bank, plan, responses = [], failur
   const formatCounts = new Map();
   const recentFoils = new Set();
   const repeatedFoils = new Map();
-  if (version === LITERACY_MOCK_ADAPTIVE_VERSION && responses.length) {
+  if (usesPairedLiteracyMockRouting(version) && responses.length) {
     for (const { questionId } of responses) {
       const format = byId.get(questionId).format;
       formatCounts.set(format, (formatCounts.get(format) || 0) + 1);
@@ -269,7 +270,9 @@ export function adaptLiteracyMockBoundaryPlan(bank, plan, responses = [], failur
     if (index < prefix.length) continue;
     let demand = firstByArea.get(domain) === index ? states[domain].nextBand : literacyMockBoundaryPlaceholderBand(version, domain, ordinal);
     if (continuous && index === responses.length) {
-      demand = continuousLiteracyMockBand(lastAnswer, byId.get(lastAnswer?.questionId), domain);
+      demand = version === LITERACY_MOCK_REVIEWED_VERSION
+        ? reviewedLiteracyMockNextBand(responses, byId, domain)
+        : continuousLiteracyMockBand(lastAnswer, byId.get(lastAnswer?.questionId), domain);
     }
     const original = byId.get(plan.itemIds[index]);
     const pool = shuffleLiteracyMock(candidates.filter(item => item.domainId === domain && band(item) === demand), `${plan.seed}:${index}:${responses.length}:${demand}`);

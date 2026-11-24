@@ -51,7 +51,7 @@ function fakeRawClient({ authResponse, rpcResponses = {}, tableResponses = {} } 
 
 test("all domain registries expose the complete reviewed backend surface", () => {
   assert.equal(BOUNDARY_TABLES.length, 25);
-  assert.equal(BOUNDARY_RPCS.length, 120);
+  assert.equal(BOUNDARY_RPCS.length, 122);
   assert.ok(BOUNDARY_RPCS.includes('teacher_prepare_literacy_mock_session_v4'));
   assert.ok(BOUNDARY_RPCS.includes('teacher_prepare_literacy_mock_session_v5'));
   assert.ok(BOUNDARY_RPCS.includes('teacher_prepare_literacy_mock_session_v6'));
@@ -61,7 +61,7 @@ test("all domain registries expose the complete reviewed backend surface", () =>
   assert.ok(BOUNDARY_RPCS.includes('teacher_prepare_literacy_mock_session_v10'));
   assert.ok(BOUNDARY_RPCS.includes('teacher_prepare_literacy_mock_session_v11'));
   assert.ok(BOUNDARY_RPCS.includes('teacher_prepare_literacy_mock_session_v12'));
-  for (const rpc of ['teacher_prepare_literacy_mock_session_v13','teacher_literacy_mock_v13_available','teacher_prepare_literacy_mock_session_v14','teacher_prepare_literacy_mock_continuous_session','teacher_literacy_mock_v14_available','teacher_get_literacy_mock_status']) {
+  for (const rpc of ['teacher_prepare_literacy_mock_session_v13','teacher_literacy_mock_v13_available','teacher_prepare_literacy_mock_session_v14','teacher_prepare_literacy_mock_continuous_session','teacher_literacy_mock_v14_available','teacher_prepare_literacy_mock_session_v15','teacher_literacy_mock_v15_available','teacher_get_literacy_mock_status']) {
     assert.ok(BOUNDARY_RPCS.includes(rpc));
     assert.ok(FACADE_RPCS.includes(rpc));
   }

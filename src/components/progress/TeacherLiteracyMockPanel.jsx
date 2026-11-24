@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { LITERACY_MOCK_SHORT_ITEM_COUNTS } from '../../policy/literacyMockQuestionLimit.js';
-import { LITERACY_MOCK_ADAPTIVE_VERSION, LITERACY_MOCK_BALANCED_VERSION, LITERACY_MOCK_CONTINUOUS_ROUTING } from '../../policy/literacyMockVersions.js';
-import { prepareLiteracyMockSession, controlLiteracyMockSession, listLiteracyMockHistoryPage, getLiteracyMockReport, getLiteracyMockV14Availability, resolveLiteracyMockSupport, prepareLiteracyMockFreshCheck, prepareLiteracyMockEntryCheck, requireLiteracyMockSuccess } from "../../data/literacyMockSessionCore.js";
+import { LITERACY_MOCK_REVIEWED_VERSION, LITERACY_MOCK_ADAPTIVE_VERSION, LITERACY_MOCK_BALANCED_VERSION, LITERACY_MOCK_CONTINUOUS_ROUTING } from '../../policy/literacyMockVersions.js';
+import { prepareLiteracyMockSession, controlLiteracyMockSession, listLiteracyMockHistoryPage, getLiteracyMockReport, getLiteracyMockAvailability, resolveLiteracyMockSupport, prepareLiteracyMockFreshCheck, prepareLiteracyMockEntryCheck, requireLiteracyMockSuccess } from "../../data/literacyMockSessionCore.js";
 import { getLiteracyMockTeacherStatus } from "../../data/literacyMockTeacherStatus.js";
 import { buildLiteracyMockReport, literacyMockStudentName, literacyMockControlError } from "../../utils/literacyMockReport.js";
 import { readMockTeacherPending, saveMockTeacherPending, clearMockTeacherPending } from "../../utils/literacyMockTeacherPending.js";
@@ -233,8 +233,8 @@ function TeacherLiteracyMockPanelBody({ client, teacherId, classId, className, s
     setBusy(true); setMessage("");
     try {
       if (!args) {
-        if (!await boundedRequest(getLiteracyMockV14Availability({ client }))) throw new Error("The adaptive question catalogue is unavailable. Try preparing the test again shortly.");
-        args = { classId, wholeClass, studentIds: wholeClass ? [] : roster.filter(student => studentIds.includes(String(student.id))).map(student => student.id), durationMinutes, itemCount, windowMode, contentVersion: LITERACY_MOCK_ADAPTIVE_VERSION, routingPolicy: LITERACY_MOCK_CONTINUOUS_ROUTING, requestId: requestId() };
+        if (!await boundedRequest(getLiteracyMockAvailability({ client }))) throw new Error("The adaptive question catalogue is unavailable. Try preparing the test again shortly.");
+        args = { classId, wholeClass, studentIds: wholeClass ? [] : roster.filter(student => studentIds.includes(String(student.id))).map(student => student.id), durationMinutes, itemCount, windowMode, contentVersion: LITERACY_MOCK_REVIEWED_VERSION, routingPolicy: LITERACY_MOCK_CONTINUOUS_ROUTING, requestId: requestId() };
       }
       retainMutation("preparation", args);
       dispatched = true;

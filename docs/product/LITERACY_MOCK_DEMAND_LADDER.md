@@ -1,5 +1,26 @@
 # Adaptive Literacy Test: actual task demand
 
+## Reviewed questions and cross-skill demand — V15
+
+The selector compares what the child must do after seeing or hearing the available clues. The shared editorial anchors below locate the tasks in each area's own sequence, from the entry task on the left to its ceiling on the right. They preserve distinctions that a fraction of a ladder misses. For example, tracking one letter in a printed word requires less independent work than spelling a whole dictated CVC word. Correct spelling can therefore lead to navigating a sentence boundary. An error on that same spelling can lead to finding a letter.
+
+| Area | Anchors in local band order |
+| --- | --- |
+| Sounds in words | 0, 1, 2, 3, 5, 8 |
+| Phonics | 0, 2, 3, 4, 5, 6, 8 |
+| Print | 0, 1, 2, 4, 6 |
+| Vocabulary | 0, 1, 2, 4, 6, 8 |
+| Listening | 0, 1, 2, 4, 5, 6, 8 |
+| Language | 0, 1, 2, 4, 6, 8 |
+| Reading | 0, 1, 2, 4, 5, 6, 8 |
+| Writing | 0, 1, 3, 4, 6, 8 |
+
+After an independent correct or incorrect answer, use the nearest strictly higher or lower anchor available in the destination area. A supported, familiar or unscored answer holds the challenge of the first such question in that run. Each new area selects its closest task to that same anchor until independent evidence resumes. At an endpoint the next task can remain at that demand. Following a run of successes, the scheduler samples print before the child outgrows its strongest navigation task. When the next scheduled print question would lower the challenge, it draws from the other unfinished areas. After the available challenging areas are finished, a sitting may end before its selected maximum. Each report still describes only the areas and tasks actually answered.
+
+The shared anchors are an editorial comparison of the stated literacy operations. Actual response difficulty varies with the learner. Establishing item difficulty on a common measurement scale would require learner response data and calibration.
+
+## Earlier V14 sittings
+
 V14 uses the same eight authored ladders through Teach and pupil devices. New mixed sittings use the `continuous-v1` routing policy. The first question starts at Starter. After each fresh independent answer, the next question moves one available step in the appropriate direction, even when the area changes. Pairs rotate across all eight areas, with the starting area set by the session. The sitting has a maximum of 15, 25 or 40 questions. Area-specific evidence and early stopping still govern reporting. [Current session contract](LITERACY_MOCK_SESSIONS.md)
 
 Each area's ladder runs from zero to its authored ceiling. To move between areas, take the position of the question just answered on its ladder. Following independent success, choose the first destination step strictly above that position. Following an independent error, choose the first strictly below. At either endpoint, keep the endpoint when the requested direction has no further step. Following a supported, familiar or unscored response, use the nearest destination step, rounding an exact midpoint upward. For example, after a correct phonics question at step 2 of 6, move to print step 2 of 4. After an incorrect answer to the same phonics question, move to print step 1 of 4. These fractions order the available tasks for routing. A teacher report draws evidence for print only from actual print responses.

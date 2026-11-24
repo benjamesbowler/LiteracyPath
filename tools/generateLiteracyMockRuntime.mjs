@@ -33,7 +33,7 @@ export async function versionSources(version='literacy-mock-v10') {
 }
 
 export async function literacyMockRuntimeSources() {
-  return new Map([...(await versionSources()),...(await versionSources('literacy-mock-v11')),...(await versionSources('literacy-mock-v12')),...(await versionSources('literacy-mock-v13')),...(await versionSources('literacy-mock-v14'))]);
+  return new Map([...(await versionSources()),...(await versionSources('literacy-mock-v11')),...(await versionSources('literacy-mock-v12')),...(await versionSources('literacy-mock-v13')),...(await versionSources('literacy-mock-v14')),...(await versionSources('literacy-mock-v15'))]);
 }
 
 if(process.argv[1] && new URL(`file://${process.argv[1]}`).href===import.meta.url) {

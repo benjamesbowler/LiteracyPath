@@ -293,3 +293,74 @@
   width:100%; max-width:none; height:100dvh; max-height:none;
 }
 .literacy-mock-class-screen::backdrop { background:#e9ebee; }
+
+/* When the stimulus is a passage, tiles and destinations may hold complete
+   definitions. Keep the destination and all four meanings within reach. */
+.question-match.has-passage .literacy-mock-match-targets {
+  display: grid;
+  gap: 8px;
+  padding: 8px;
+}
+.question-match.has-passage .literacy-mock-match-targets > div {
+  display: grid;
+  grid-template-columns: minmax(5rem, 1fr) minmax(0, 2fr);
+  gap: 8px;
+  align-items: stretch;
+}
+.question-match.has-passage .literacy-mock-match-label {
+  min-height: 44px;
+  justify-content: flex-start;
+  font: 600 17px/1.25 Arial, sans-serif;
+}
+.literacy-mock .question-match.has-passage .literacy-mock-slot {
+  min-width: 0;
+  min-height: 48px;
+  border: 1px dashed #45748c;
+  padding: 6px;
+  font-size: 18px !important;
+  line-height: 1.2;
+}
+.question-match.has-passage .literacy-mock-drop-label {
+  color: #37586b;
+  font-size: 15px;
+}
+.literacy-mock .question-match.has-passage .literacy-mock-choice-bank {
+  display: grid;
+  flex: 0 0 auto;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 6px;
+  padding: 6px;
+}
+.literacy-mock .question-match.has-passage .literacy-mock-option {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) auto;
+  gap: 0;
+  border: 1px solid #39798a;
+  border-radius: 3px;
+  background: white;
+}
+.literacy-mock .question-match.has-passage .literacy-mock-choice {
+  min-width: 0;
+  min-height: 56px;
+  padding: 6px;
+  font-size: 18px !important;
+  line-height: 1.25;
+}
+.literacy-mock .question-match.has-passage .literacy-mock-choice.is-placed { opacity: .55; }
+.literacy-mock .question-match.has-passage .literacy-mock-choice-audio {
+  align-self: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 4px;
+  border: 0;
+  color: #23516a;
+  background: transparent;
+}
+@media (min-width:701px) and (min-height:560px) {
+  .literacy-mock-question.question-match.has-passage {
+    grid-template-columns: minmax(0,.85fr) minmax(0,1.2fr);
+  }
+  .question-match.has-passage > .literacy-mock-stem { grid-area: 1 / 1; }
+  .question-match.has-passage > .literacy-mock-reading-text { grid-area: 2 / 1; }
+  .question-match.has-passage > .literacy-mock-responses { grid-area: 1 / 2 / 3 / 3; }
+}

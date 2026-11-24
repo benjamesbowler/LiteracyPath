@@ -1,11 +1,11 @@
-import { LITERACY_MOCK_BALANCED_VERSION, LITERACY_MOCK_ADAPTIVE_VERSION } from './literacyMockVersions.js';
+import { LITERACY_MOCK_BALANCED_VERSION, usesPairedLiteracyMockRouting } from './literacyMockVersions.js';
 
 export const LITERACY_MOCK_SHORT_ITEM_COUNTS = Object.freeze([15, 25, 40]);
 
 // Short V12 sittings cap the existing route; they never lower the number of
 // independent observations needed to promote or confirm an area's boundary.
 export function literacyMockQuestionLimit(version, requested, maximum) {
-  const shortSitting = [LITERACY_MOCK_BALANCED_VERSION, LITERACY_MOCK_ADAPTIVE_VERSION].includes(version);
+  const shortSitting = version === LITERACY_MOCK_BALANCED_VERSION || usesPairedLiteracyMockRouting(version);
   const count = requested ?? (shortSitting ? 25 : maximum);
   if (shortSitting) {
     if (LITERACY_MOCK_SHORT_ITEM_COUNTS.includes(count)) return count;

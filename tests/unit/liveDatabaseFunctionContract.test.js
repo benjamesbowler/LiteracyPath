@@ -66,7 +66,8 @@ test("literacy mock PostgREST parameter keys match the forward migrations exactl
     "20261122032258_literacy_mock_teacher_status.sql",
     "20261122090000_literacy_mock_short_routing_v13.sql",
     "20261124090000_literacy_mock_adaptive_v14.sql",
-    "20261124120000_literacy_mock_continuous_routing.sql"
+    "20261124120000_literacy_mock_continuous_routing.sql",
+    "20261124143000_literacy_mock_reviewed_v15.sql"
   ];
   const sql = files.map(file => readFileSync(new URL(`../../supabase/migrations/${file}`, import.meta.url), "utf8")).join("\n");
   for (const name of [
@@ -95,6 +96,8 @@ test("literacy mock PostgREST parameter keys match the forward migrations exactl
     "teacher_get_literacy_mock_status",
     "teacher_literacy_mock_v13_available",
     "teacher_literacy_mock_v14_available",
+    "teacher_literacy_mock_v15_available",
+    "teacher_prepare_literacy_mock_session_v15",
     "teacher_prepare_literacy_mock_session_v13",
     "teacher_prepare_literacy_mock_session_v14",
     "teacher_prepare_literacy_mock_continuous_session"

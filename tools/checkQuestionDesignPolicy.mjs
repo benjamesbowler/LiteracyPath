@@ -16,7 +16,7 @@ import { auditLiteracyReferenceBank, auditLiteracyReferenceRouting } from "./lib
 import { loadLiteracyInteractionBank } from "../src/data/literacyInteractionBank.js";
 import { auditLiteracyInteractionBank } from "./lib/literacyInteractionContracts.mjs";
 import { loadLiteracyMockBank } from "../src/data/literacyMockBank.js";
-import { LITERACY_MOCK_ADAPTIVE_VERSION } from "../src/policy/literacyMockVersions.js";
+import { LITERACY_MOCK_REVIEWED_VERSION } from "../src/policy/literacyMockVersions.js";
 import { auditLiteracyMockBank, currentLiteracyMockAuditItems } from "./lib/literacyMockContracts.mjs";
 import { buildProgressBank, generatedProgressBankSource, PROGRESS_BANK_PATH } from "./assessmentRebuild/buildProgressBank.mjs";
 import { SENTENCE_FIX } from "../src/data/learnGamesData.js";
@@ -185,15 +185,17 @@ async function auditLiteracyPreparation() {
 }
 
 async function auditCurrentLiteracyMock() {
-  const surface=`Teacher-controlled Mock · ${LITERACY_MOCK_ADAPTIVE_VERSION}`;
+  const surface=`Teacher-controlled Mock · ${LITERACY_MOCK_REVIEWED_VERSION}`;
   const before=failures.length;
   // Include unavailable authored records so missing required media cannot make
   // an incomplete current admission disappear from the policy gate.
-  const bank=await loadLiteracyMockBank({includeUnavailable:true,contentVersion:LITERACY_MOCK_ADAPTIVE_VERSION});
-  const admitted=currentLiteracyMockAuditItems(bank,{contentVersion:LITERACY_MOCK_ADAPTIVE_VERSION});
-  for(const {id,...issue} of auditLiteracyMockBank(bank,{contentVersion:LITERACY_MOCK_ADAPTIVE_VERSION}))record(surface,id,[issue]);
+  const bank=await loadLiteracyMockBank({includeUnavailable:true,contentVersion:LITERACY_MOCK_REVIEWED_VERSION});
+  const previous = await loadLiteracyMockBank({includeUnavailable:true,contentVersion:'literacy-mock-v14'});
+  const previousItems = new Map(previous.map(row => [row.id, row.itemSnapshot]));
+  const admitted=currentLiteracyMockAuditItems(bank,{contentVersion:LITERACY_MOCK_REVIEWED_VERSION});
+  for(const {id,...issue} of auditLiteracyMockBank(bank,{contentVersion:LITERACY_MOCK_REVIEWED_VERSION,previousItems}))record(surface,id,[issue]);
   for(const question of admitted)auditMediaFiles(surface,question.id,{...question,answerOptions:question.choices,imageCards:question.matchTargets});
-  rows.push({surface,contentVersion:LITERACY_MOCK_ADAPTIVE_VERSION,questions:admitted.length,
+  rows.push({surface,contentVersion:LITERACY_MOCK_REVIEWED_VERSION,questions:admitted.length,
     catalogueQuestions:bank.length,excludedQuestions:bank.length-admitted.length,failures:failures.length-before});
 }
 
