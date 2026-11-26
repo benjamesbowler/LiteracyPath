@@ -1,4 +1,5 @@
 import fs from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { chromium } from 'playwright';
 import { COMPREHENSION_PASSAGES } from '../src/content/comprehension/passages.js';
@@ -77,7 +78,8 @@ try{
   await render({passageIds:COMPREHENSION_EXPANSION_IDS,variant},filename);
  }
  await render({passageIds:['muddy-rain'],variant:'pair'},'long-a-colouring-worksheets.pdf');
- const result={documents:count,physicalPages:physical,passages:COMPREHENSION_PASSAGES.length,checkedAt:new Date().toISOString(),picturePages,failures};
+ const editionHash=createHash('sha256').update(JSON.stringify(COMPREHENSION_PASSAGES)).digest('hex');
+ const result={documents:count,physicalPages:physical,passages:COMPREHENSION_PASSAGES.length,editionHash,checkedAt:new Date().toISOString(),picturePages,failures};
  await fs.writeFile(path.join(output,'print-check.json'),JSON.stringify(result,null,2));
  console.log(JSON.stringify(result,null,2));
  if(failures.length)process.exitCode=1;

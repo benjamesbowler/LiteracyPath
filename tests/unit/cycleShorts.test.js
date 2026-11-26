@@ -92,3 +92,11 @@ test('all current Cycle Shorts passages and questions resolve exact Leda clips',
   }
  }
 });
+
+test('Cycle Shorts retains the exact shared recording when a phrase leaves the comprehension bank',()=>{
+ const question=cycleShortFor(1).questions[1];
+ const optionIndex=question.options.indexOf('In a cup');
+ assert.notEqual(optionIndex,-1);
+ const {parts}=resolveComprehensionQuestionAudio(question);
+ assert.equal(parts[2+optionIndex*2].path,'/audio/production/en-US/comprehension/041d03682e4a8adb117e.mp3');
+});

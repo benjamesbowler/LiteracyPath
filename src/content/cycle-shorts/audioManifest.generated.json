@@ -569,12 +569,6 @@
           "sourceId": "cycle-short-15-q2",
           "role": "question-option",
           "authoredIndex": 1
-        },
-        {
-          "passageId": "cycle-short-25",
-          "sourceId": "cycle-short-25-q2",
-          "role": "question-option",
-          "authoredIndex": 2
         }
       ],
       "voice": "en-US-Chirp3-HD-Leda",
@@ -1193,7 +1187,7 @@
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/cycle-shorts/ba96e3820b8f8b2679ab.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/ba96e3820b8f8b2679ab.mp3",
       "references": [
         {
           "passageId": "cycle-short-3",
@@ -1216,10 +1210,10 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-11-01T23:53:13.077Z",
+      "generatedAt": "2026-11-26T03:44:09.632Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "92d6a41500be8628e5b40899966239336affbc0b7b475b724d9ee5867fb8c45c"
+      "audioSha256": "379ca4b535fab5daf2b4956d1e06bef010759c104d100bc624e35212f5403ae1"
     },
     {
       "text": "The mat",
@@ -1379,12 +1373,6 @@
           "sourceId": "cycle-short-11-q1",
           "role": "question-option",
           "authoredIndex": 1
-        },
-        {
-          "passageId": "cycle-short-25",
-          "sourceId": "cycle-short-25-q2",
-          "role": "question-option",
-          "authoredIndex": 0
         }
       ],
       "voice": "en-US-Chirp3-HD-Leda",
@@ -3443,12 +3431,6 @@
           "sourceId": "cycle-short-11-q1",
           "role": "question-option",
           "authoredIndex": 3
-        },
-        {
-          "passageId": "cycle-short-25",
-          "sourceId": "cycle-short-25-q2",
-          "role": "question-option",
-          "authoredIndex": 3
         }
       ],
       "voice": "en-US-Chirp3-HD-Leda",
@@ -3937,12 +3919,6 @@
           "authoredIndex": 1
         },
         {
-          "passageId": "cycle-short-14",
-          "sourceId": "cycle-short-14-q1",
-          "role": "question-option",
-          "authoredIndex": 3
-        },
-        {
           "passageId": "cycle-short-18",
           "sourceId": "cycle-short-18-q1",
           "role": "question-option",
@@ -4046,7 +4022,7 @@
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/cycle-shorts/c8b17f5d438b33f6d605.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/c8b17f5d438b33f6d605.mp3",
       "references": [
         {
           "passageId": "cycle-short-13",
@@ -4057,10 +4033,10 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-11-01T23:53:13.140Z",
+      "generatedAt": "2026-11-26T03:44:09.632Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "8ae09a68b2f9752859daea2d1a04f3b7924ae39daff4ed7fc429e6c2638385ee"
+      "audioSha256": "f00b22c81111e7f753359f1347070fd595884015d1604dc47460e14e0da2d264"
     },
     {
       "text": "The jar lid",
@@ -4254,15 +4230,15 @@
       "audioSha256": "6e6bb8850734db430ebece65b26a937af4360c58f087f3e9f85fa938fc22973d"
     },
     {
-      "text": "Muddy Finds a Lid\n\nMuddy has a pot of soup. Muddy wants a lid for the pot. A small lid sits by the sink. It does not fit the big pot. Muddy gets a bigger lid from a shelf. This lid fits, so Muddy puts it on the pot.",
-      "textSha256": "b35591e303dedf2aff68d34118a2f688a2c530079ec5fc91e18a7a75cf851fb8",
+      "text": "Muddy Finds a Lid\n\nSteam rose from Muddy's pot of soup. A small lid lay by the sink. Muddy tried it on the pot. Part of the soup still showed around the edge. On the shelf was a bigger lid. That one was a good fit and covered all the soup.",
+      "textSha256": "f9287c5aec27f8e27f727da3c7186fbb2b391a46b15ee455b89739b33b0ca86d",
       "segments": [
         "Muddy Finds a Lid",
-        "Muddy has a pot of soup. Muddy wants a lid for the pot. A small lid sits by the sink. It does not fit the big pot. Muddy gets a bigger lid from a shelf. This lid fits, so Muddy puts it on the pot."
+        "Steam rose from Muddy's pot of soup. A small lid lay by the sink. Muddy tried it on the pot. Part of the soup still showed around the edge. On the shelf was a bigger lid. That one was a good fit and covered all the soup."
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/560b712d8b16df28e42d.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/8c3854aac7d91c49c5b1.mp3",
       "references": [
         {
           "passageId": "cycle-short-14",
@@ -4272,20 +4248,20 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:12:42.074Z",
+      "generatedAt": "2026-11-26T03:44:09.632Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "17dd6ceaa2d55c7604d9d05888860ae8108bcb091c110c5a249ec778cba63638"
+      "audioSha256": "6b7816d2323e6d25722820c27879348533d0f6213a62d26ac64b46d36a3f3bce"
     },
     {
-      "text": "What is in the pot?",
-      "textSha256": "50a8719e7d4759d70402704206dc2f222652d66c9a276c02888fad357c8d4b12",
+      "text": "Where was the first lid?",
+      "textSha256": "118bbf82f635c437a2f47b0ff1e15595d9db80d1e35843a6ef2e551d1f9c2ca6",
       "segments": [
-        "What is in the pot?"
+        "Where was the first lid?"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/b84203f9966be9814cf8.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/dfbf0f08aff034ec52c2.mp3",
       "references": [
         {
           "passageId": "cycle-short-14",
@@ -4295,105 +4271,10 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:21:35.333Z",
+      "generatedAt": "2026-11-26T03:44:09.632Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "1d355c2f58ea66fb7f494b2271d865f6bacf7ca4f39c52a2f42b87ab715bd90a"
-    },
-    {
-      "text": "Soup",
-      "textSha256": "ee127f46da9c6053957ed11dc56da7083ca52d0d479df67a3dda2fffc7bd4bd5",
-      "segments": [
-        "Soup"
-      ],
-      "recipe": "leda-exact-segments-pause450-tail150-v2",
-      "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/b2a5ec582d84ef8b87fa.mp3",
-      "references": [
-        {
-          "passageId": "cycle-short-14",
-          "sourceId": "cycle-short-14-q1",
-          "role": "question-option",
-          "authoredIndex": 0
-        }
-      ],
-      "voice": "en-US-Chirp3-HD-Leda",
-      "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:21:35.333Z",
-      "pauseBetweenSegmentsMs": 450,
-      "finalPaddingMs": 150,
-      "audioSha256": "9932882362f7a7a6da681f9cf9ea8ef943b9b3afa1fa1f003f0a99aa11eb907a"
-    },
-    {
-      "text": "Rice",
-      "textSha256": "1b9bc7b7376e6c5c0f1042dfdd42ac68017d8cee72988967d7c670d40c466c85",
-      "segments": [
-        "Rice"
-      ],
-      "recipe": "leda-exact-segments-pause450-tail150-v2",
-      "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/119e48dfca55cf4f3351.mp3",
-      "references": [
-        {
-          "passageId": "cycle-short-14",
-          "sourceId": "cycle-short-14-q1",
-          "role": "question-option",
-          "authoredIndex": 1
-        }
-      ],
-      "voice": "en-US-Chirp3-HD-Leda",
-      "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:21:35.333Z",
-      "pauseBetweenSegmentsMs": 450,
-      "finalPaddingMs": 150,
-      "audioSha256": "668337e496f8b7787d1c7def2e9600e4084e84036ee900757cc33c3d68d889b6"
-    },
-    {
-      "text": "Pasta",
-      "textSha256": "518e479153a320dfb35d3ccf0f0dd831c9db06464582bb610c020d9f69592c58",
-      "segments": [
-        "Pasta"
-      ],
-      "recipe": "leda-exact-segments-pause450-tail150-v2",
-      "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/7076918fbe5149acb350.mp3",
-      "references": [
-        {
-          "passageId": "cycle-short-14",
-          "sourceId": "cycle-short-14-q1",
-          "role": "question-option",
-          "authoredIndex": 2
-        }
-      ],
-      "voice": "en-US-Chirp3-HD-Leda",
-      "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:21:35.333Z",
-      "pauseBetweenSegmentsMs": 450,
-      "finalPaddingMs": 150,
-      "audioSha256": "16fed36f29a506d8efe07b997331dcb47636ff3daa9c9af673ee951668f1a02d"
-    },
-    {
-      "text": "Where is the small lid?",
-      "textSha256": "0a7acd60ec1f503990c7c2e6c07b8ce9fcdb4269fbfe322c61ecbb91e51d0cce",
-      "segments": [
-        "Where is the small lid?"
-      ],
-      "recipe": "leda-exact-segments-pause450-tail150-v2",
-      "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/9343e507350bf38ead23.mp3",
-      "references": [
-        {
-          "passageId": "cycle-short-14",
-          "sourceId": "cycle-short-14-q2",
-          "role": "question-prompt"
-        }
-      ],
-      "voice": "en-US-Chirp3-HD-Leda",
-      "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:21:35.333Z",
-      "pauseBetweenSegmentsMs": 450,
-      "finalPaddingMs": 150,
-      "audioSha256": "b96b7e369f36ea2e9dc93e2a55d24c66c94c1d7369bf5c0d5cf78fb9c5cfbacc"
+      "audioSha256": "1b65e131407d8e67c53c42225136f7242e04134165c3961f3c0310879ee4cb2e"
     },
     {
       "text": "By the sink",
@@ -4407,7 +4288,7 @@
       "references": [
         {
           "passageId": "cycle-short-14",
-          "sourceId": "cycle-short-14-q2",
+          "sourceId": "cycle-short-14-q1",
           "role": "question-option",
           "authoredIndex": 0
         }
@@ -4431,7 +4312,7 @@
       "references": [
         {
           "passageId": "cycle-short-14",
-          "sourceId": "cycle-short-14-q2",
+          "sourceId": "cycle-short-14-q1",
           "role": "question-option",
           "authoredIndex": 1
         }
@@ -4444,14 +4325,133 @@
       "audioSha256": "2b902e3c60d604a287e317efe2cc66382eedbd1ff65cd3213a9d7f6ac83ea7cf"
     },
     {
-      "text": "In the pot",
-      "textSha256": "d5bf0c6a1500e1f5eef9f191e585dea12c6539f0ea397f22ba6bd6b471c50e2d",
+      "text": "Under the pot",
+      "textSha256": "6a1a83f58a5154ee2dadfb7b65a234e3f0c1406a41e785b8d123c386606ef9cd",
       "segments": [
-        "In the pot"
+        "Under the pot"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/ad4d6c40ed83a99a1db7.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/84160960b886b7dfaa70.mp3",
+      "references": [
+        {
+          "passageId": "cycle-short-14",
+          "sourceId": "cycle-short-14-q1",
+          "role": "question-option",
+          "authoredIndex": 2
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-10-30T01:50:01.847Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "f6f30683938066a58099f7044612ac24d74ad7d92c00e1647dae074e6eb6adf9"
+    },
+    {
+      "text": "On the soup",
+      "textSha256": "12b7ddd88b1491d278a1661bd15a517cae388e7ea0650f8e2849170c70363a43",
+      "segments": [
+        "On the soup"
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/comprehension/8acd1ffd215a49acd7b5.mp3",
+      "references": [
+        {
+          "passageId": "cycle-short-14",
+          "sourceId": "cycle-short-14-q1",
+          "role": "question-option",
+          "authoredIndex": 3
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-11-26T03:44:09.632Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "a258e209ab9e575da74a69eec7a828c6a30eca218993023c7cba84fc2dcb6819"
+    },
+    {
+      "text": "How could Muddy tell the small lid did not fit?",
+      "textSha256": "283f075ffb25dde3e3518cd981c12a5b3646cd5c4bb8ec32c05de9bbb89006bb",
+      "segments": [
+        "How could Muddy tell the small lid did not fit?"
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/comprehension/89e57bb7da84fc4fba87.mp3",
+      "references": [
+        {
+          "passageId": "cycle-short-14",
+          "sourceId": "cycle-short-14-q2",
+          "role": "question-prompt"
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-11-26T03:44:09.632Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "3bf1c85743524dd50d498cb5299ba41a2e459ca167bbdeceef29b8ae51bf3548"
+    },
+    {
+      "text": "Some soup still showed",
+      "textSha256": "022bd2170245c51ccf6f1e8361449f9ccf6bacb23c7937bd9861c50241b0223a",
+      "segments": [
+        "Some soup still showed"
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/comprehension/a2ac53f190fabd110b86.mp3",
+      "references": [
+        {
+          "passageId": "cycle-short-14",
+          "sourceId": "cycle-short-14-q2",
+          "role": "question-option",
+          "authoredIndex": 0
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-11-26T03:44:09.632Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "7ef135d88a51d1816628bfe325aaf12982eb6537841b19d7e816ffb2bed1a9a9"
+    },
+    {
+      "text": "No soup showed",
+      "textSha256": "1e97506458505e97bc51bca3bd1016e7e94bd7dfdfd38df388ed662f2eb9cdb5",
+      "segments": [
+        "No soup showed"
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/comprehension/4bcdc81cb0da8f86d5a7.mp3",
+      "references": [
+        {
+          "passageId": "cycle-short-14",
+          "sourceId": "cycle-short-14-q2",
+          "role": "question-option",
+          "authoredIndex": 1
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-11-26T03:44:09.632Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "6a56cbb1c2ee207292e8324356176bf4b989def48a6eaf06e2c15a2eb955177c"
+    },
+    {
+      "text": "The lid covered the edge",
+      "textSha256": "f08255b865e0c9183f7a2baa5d03fbd0a8f1b71d27a1389af50c528c00f738ee",
+      "segments": [
+        "The lid covered the edge"
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/comprehension/e7c37d6efe3f1079a72e.mp3",
       "references": [
         {
           "passageId": "cycle-short-14",
@@ -4462,20 +4462,20 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:21:35.333Z",
+      "generatedAt": "2026-11-26T03:44:09.632Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "98e4785427a295b265b365131e8d9a3ecfcc549eebd25bd1eedc663eedf0bb83"
+      "audioSha256": "3cda810f46e6812276e97c127e765cb8f72838cd169f3ab71dfd5f83d1c58518"
     },
     {
-      "text": "Under the table",
-      "textSha256": "f3ab36689ed360c6a5cfc78b82bd1ec5ff7107eca787d6bf60cb470afd3de94f",
+      "text": "The pot was on the shelf",
+      "textSha256": "253c01be698400b5f243ad65890e32cc4cfacd5c8f9c9941e84c85c3ec2cebb7",
       "segments": [
-        "Under the table"
+        "The pot was on the shelf"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/13d4e64e66f3dbeec2e9.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/6ae48543e8ce4cdd8a3a.mp3",
       "references": [
         {
           "passageId": "cycle-short-14",
@@ -4486,20 +4486,20 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:21:35.333Z",
+      "generatedAt": "2026-11-26T03:44:09.632Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "89657501113750ebf839090adac558eb18e07524074ad217e417d3e5c73d7cb9"
+      "audioSha256": "dcb47cc457a4cffcc5a9607c827dec771ab8ec974761bdaf331adfd45371238b"
     },
     {
-      "text": "Why does Muddy get a bigger lid?",
-      "textSha256": "d5709e16b303aecb17136718b3485317199117c27201ffc52e4ef17008421513",
+      "text": "What made the second lid better?",
+      "textSha256": "131bb794129aef5b885b0fbf7a63717514ef49ad062d8db0d3c5e0daf3335ca9",
       "segments": [
-        "Why does Muddy get a bigger lid?"
+        "What made the second lid better?"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/0eda6b5d94c2781292de.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/d0b21a4611d9e735787b.mp3",
       "references": [
         {
           "passageId": "cycle-short-14",
@@ -4509,20 +4509,20 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:21:35.333Z",
+      "generatedAt": "2026-11-26T03:44:09.632Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "9e6b94aac35449c1eb6bf82641b7c59d0981b857487d27f8fca004aea17c7802"
+      "audioSha256": "41f21ed8e6810e7daf023e7a91b500fb8b4853f1f325c287dc978130b03ef1c3"
     },
     {
-      "text": "The small lid does not fit",
-      "textSha256": "2053c2cf2319cce51cfedaae8111e6334b900063239a1ef142ffa0b5cdea7328",
+      "text": "It covered the whole pot",
+      "textSha256": "ddceb80625755f22e3d0e5ea9eb7c391c5355fb410dff226c9cc505a80510930",
       "segments": [
-        "The small lid does not fit"
+        "It covered the whole pot"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/c8862370b955e59bf762.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/ba21a2ed390b33f6ccdd.mp3",
       "references": [
         {
           "passageId": "cycle-short-14",
@@ -4533,20 +4533,20 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:21:35.333Z",
+      "generatedAt": "2026-11-26T03:44:09.632Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "ba87b5011839c2901e3951b14a7a621f98972a780b6c95b2eae11aea4a7969f4"
+      "audioSha256": "8fccbab9a31a009d9fa541a0691db4aabe278b649dccb512e8c5a8a83f6975f6"
     },
     {
-      "text": "The small lid is broken",
-      "textSha256": "98c270dd5f99da69f7b9a398f05267841f9b519afff272dc3be99e5a34de6cf3",
+      "text": "It sat by the sink",
+      "textSha256": "c73d01c4e232b6d66919d6300aa45d3ec6cb8e13c317399eeb9dca301f87bc75",
       "segments": [
-        "The small lid is broken"
+        "It sat by the sink"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/374a0a218c9da2546433.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/f4631c6ed028bc16ef46.mp3",
       "references": [
         {
           "passageId": "cycle-short-14",
@@ -4557,20 +4557,20 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:21:35.333Z",
+      "generatedAt": "2026-11-26T03:44:09.632Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "6906db508c9ca7c3c5f2f1763474de451c968be22d5f2dc96898cef748bf7a8b"
+      "audioSha256": "507f6d11a7d470787fdd7a0730aacf5ff6576f1572dcbd2507ff796de14d17a0"
     },
     {
-      "text": "The small lid is missing",
-      "textSha256": "ecedeb8ab611da9f4a5a2d071e3a9f7dd12a3e3a5a80bacabf4ad0803ab3cc07",
+      "text": "It covered only the middle",
+      "textSha256": "0f8dfb9519870c60765c6af4ac4938bd3a30a6a8154e0c1c462b0b753dc8299d",
       "segments": [
-        "The small lid is missing"
+        "It covered only the middle"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/24215c7240ec763e40b5.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/09fc02fff6ed59d11029.mp3",
       "references": [
         {
           "passageId": "cycle-short-14",
@@ -4581,20 +4581,20 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:21:35.333Z",
+      "generatedAt": "2026-11-26T03:44:09.632Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "907dd2da5d52da60da44a514fe3281e29075ea691491693db9e5b5d49550bc8f"
+      "audioSha256": "901cb2e4263425aeac8e0ffadbf83b1d7aff86ab0ddf92923976f6396dad105f"
     },
     {
-      "text": "The small lid falls in the soup",
-      "textSha256": "077031be7972431a10dcce7c86916d5e41a9d3ea736a3aa02d30dffeb0d0fda1",
+      "text": "It was the first lid Muddy tried",
+      "textSha256": "d323f67f0bcc539cdc8b8a3d7789679958dcd19ca08ede030b6a9aca5dbc2464",
       "segments": [
-        "The small lid falls in the soup"
+        "It was the first lid Muddy tried"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/4729429e9807eccf6354.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/66480a450fde423240ea.mp3",
       "references": [
         {
           "passageId": "cycle-short-14",
@@ -4605,10 +4605,10 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:21:35.333Z",
+      "generatedAt": "2026-11-26T03:44:09.632Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "ae038d253a58472cc4a7b9c933a125847f6fc3b33db30f228e3c92b4076be681"
+      "audioSha256": "866ec1e38cd31eda343d1012d0b3cc209f19d8caf147b642804766b6dba74de4"
     },
     {
       "text": "The Thin Stick\n\nMuddy and Brave the chick look for a shell. The shell is in a narrow crack by the pond. Muddy cannot reach it. Brave lifts it with a thin stick. “Good work, Brave!” says Muddy.",
@@ -4702,12 +4702,6 @@
           "sourceId": "cycle-short-15-q1",
           "role": "question-option",
           "authoredIndex": 2
-        },
-        {
-          "passageId": "cycle-short-23",
-          "sourceId": "cycle-short-23-q1",
-          "role": "question-option",
-          "authoredIndex": 0
         }
       ],
       "voice": "en-US-Chirp3-HD-Leda",
@@ -5173,9 +5167,9 @@
         },
         {
           "passageId": "cycle-short-20",
-          "sourceId": "cycle-short-20-q1",
+          "sourceId": "cycle-short-20-q2",
           "role": "question-option",
-          "authoredIndex": 0
+          "authoredIndex": 1
         }
       ],
       "voice": "en-US-Chirp3-HD-Leda",
@@ -5227,9 +5221,9 @@
         },
         {
           "passageId": "cycle-short-20",
-          "sourceId": "cycle-short-20-q1",
+          "sourceId": "cycle-short-20-q2",
           "role": "question-option",
-          "authoredIndex": 1
+          "authoredIndex": 0
         }
       ],
       "voice": "en-US-Chirp3-HD-Leda",
@@ -5257,9 +5251,9 @@
         },
         {
           "passageId": "cycle-short-20",
-          "sourceId": "cycle-short-20-q1",
+          "sourceId": "cycle-short-20-q2",
           "role": "question-option",
-          "authoredIndex": 3
+          "authoredIndex": 2
         }
       ],
       "voice": "en-US-Chirp3-HD-Leda",
@@ -5300,7 +5294,7 @@
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/cycle-shorts/c9e0dd3d0492ef86a409.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/c9e0dd3d0492ef86a409.mp3",
       "references": [
         {
           "passageId": "cycle-short-17",
@@ -5311,10 +5305,10 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-11-01T23:53:13.147Z",
+      "generatedAt": "2026-11-26T03:44:09.637Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "27f39b8aeb3895ee233d9021bf4c226c970da46a769c2a3588a89ea99f1eb096"
+      "audioSha256": "06b93bb23acb8ecad6f3132b1abd607631cb36422259c791c7e058a552e7fedc"
     },
     {
       "text": "The box",
@@ -5769,15 +5763,15 @@
       "audioSha256": "a5fd98a1215fb33f2aa3e137a28b11c81c4c70ec321467aad9409de6754fe58d"
     },
     {
-      "text": "Muddy Fills a Floating Cup\n\nMuddy fills a tub with water. Muddy puts an empty cup on the water. The cup floats with its opening up. Muddy pours water into the cup. The cup gets lower and lower. At last, the full cup sinks to the bottom of the tub.",
-      "textSha256": "d01d329269d1e38532783c2e27a34ba93e88144da609a6b076e883ccc978017e",
+      "text": "Muddy Fills a Floating Cup\n\nAn empty cup bobs in Muddy’s tub. Its open end points up, away from the water. Muddy pours a little water into the cup. It sits lower, but part of it still shows. Muddy pours in more. The full cup sinks all the way to the bottom.",
+      "textSha256": "448ac93ebc217bc73fe8afa65f643db6c499969706c475a561e9dc38796fbda9",
       "segments": [
         "Muddy Fills a Floating Cup",
-        "Muddy fills a tub with water. Muddy puts an empty cup on the water. The cup floats with its opening up. Muddy pours water into the cup. The cup gets lower and lower. At last, the full cup sinks to the bottom of the tub."
+        "An empty cup bobs in Muddy’s tub. Its open end points up, away from the water. Muddy pours a little water into the cup. It sits lower, but part of it still shows. Muddy pours in more. The full cup sinks all the way to the bottom."
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/25d5e6f446a53859cab8.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/56b775e1ca75f06df875.mp3",
       "references": [
         {
           "passageId": "cycle-short-19",
@@ -5787,20 +5781,20 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-30T01:50:01.847Z",
+      "generatedAt": "2026-11-26T03:44:09.635Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "616acf6fad92b82be1bd3442080cb8f737962ea3e2d938e6acf2f0ba33d56a12"
+      "audioSha256": "e754f88a4eb01368e1bf9d941b2195c7dae20f9b814a13a5c7ab36bd09e4b912"
     },
     {
-      "text": "What is in the tub?",
-      "textSha256": "16bc9b414f437b62177ec1c16a92f3292731ff682ef4b896bfda0956db41f9aa",
+      "text": "How is the empty cup sitting at first?",
+      "textSha256": "b5f4c7cf188c3daf7edddcf54b082d7d2bb21de0155ab426bdabf0121851205b",
       "segments": [
-        "What is in the tub?"
+        "How is the empty cup sitting at first?"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/af29ce5223b2acf078a6.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/61178b6e011ba989e876.mp3",
       "references": [
         {
           "passageId": "cycle-short-19",
@@ -5810,20 +5804,20 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-30T01:50:01.847Z",
+      "generatedAt": "2026-11-26T03:44:09.635Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "28fea81daf7a95469dc3c8fe522fbea98404d395c7de932e868d2642b9e85ba8"
+      "audioSha256": "9195264ff4042a4204182718991adebc331fee90f906ac0dcf135d4308d1d01d"
     },
     {
-      "text": "Water",
-      "textSha256": "7ca7dea906800f87091b819132ecf2aa2b7ea14c9841fa18b9db121d3bbe82dc",
+      "text": "Opening up on the water",
+      "textSha256": "d3f873f9818e818f07b9973fa2d9ece4772f839e2f7fa4a02ac87bf2be9342b3",
       "segments": [
-        "Water"
+        "Opening up on the water"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/73c63390d9737feb1309.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/1ee27bf069467499e217.mp3",
       "references": [
         {
           "passageId": "cycle-short-19",
@@ -5834,50 +5828,44 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:21:35.332Z",
+      "generatedAt": "2026-11-26T03:44:09.635Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "e5d84f72b775a6e0d98e862f39bb397db4067f21409a50105223e0c78b702d24"
+      "audioSha256": "e98a76cb407633aaac367952c7ea9a185f8729f33234f9fcb3560dbb998333a3"
     },
     {
-      "text": "Sand",
-      "textSha256": "82855c11ae69b0652a292b72967a82d5f4973b88d76c6c793276ef8c5942a803",
+      "text": "Opening down on the water",
+      "textSha256": "2882397b0b9ae10c9e479f8e34ad144e9fa3e3cea9e005d6a4d2d59129f9b792",
       "segments": [
-        "Sand"
+        "Opening down on the water"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/5e44e4d360932c2b99cf.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/1cfad73a6e723478b053.mp3",
       "references": [
         {
           "passageId": "cycle-short-19",
           "sourceId": "cycle-short-19-q1",
           "role": "question-option",
           "authoredIndex": 1
-        },
-        {
-          "passageId": "cycle-short-21",
-          "sourceId": "cycle-short-21-q1",
-          "role": "question-option",
-          "authoredIndex": 2
         }
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:21:35.332Z",
+      "generatedAt": "2026-11-26T03:44:09.635Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "0a73b37e5d7c672db0985bdfa8e3d2d337ae7356d58e25e47e1f687850875cf7"
+      "audioSha256": "2b4b815ef96a7dcf8d09d0cf3899a699b330fe9944ddca4616b72d44e0fbd313"
     },
     {
-      "text": "Leaves",
-      "textSha256": "0e23163adf07b381c77d179daffb12aea79d1eea42f9daaceaf04ba4649e23f1",
+      "text": "Opening up on the bottom",
+      "textSha256": "5ab6d6ce6a56205acdf30b563148c66ba22d5701b1d6730cc4a9e7cc497f9816",
       "segments": [
-        "Leaves"
+        "Opening up on the bottom"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/f21478d04fdbb44c4e0b.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/004b38b2ed34929acc2f.mp3",
       "references": [
         {
           "passageId": "cycle-short-19",
@@ -5888,20 +5876,20 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:21:35.332Z",
+      "generatedAt": "2026-11-26T03:44:09.635Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "1a8185ce0e35a2b3fae51687c478f396fcdb4f8c4c19faf64d61b862694229c5"
+      "audioSha256": "e0be185745d30a7903299037537a78cc2163703b5c2bd9d72bbddcb96310670e"
     },
     {
-      "text": "Paint",
-      "textSha256": "50d0cceb2f7a1090cbae2ee3afa2768bb6914a7e4238bf22ced64174a56823fe",
+      "text": "On its side on the bottom",
+      "textSha256": "277e7a72232bd2c5d187a5d13c1f08a95f2b3991b8236e1b9d34fc34da054fb6",
       "segments": [
-        "Paint"
+        "On its side on the bottom"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/22f323c151c46fe132c5.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/bde73e181f6f2821d404.mp3",
       "references": [
         {
           "passageId": "cycle-short-19",
@@ -5912,20 +5900,20 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-30T01:50:01.847Z",
+      "generatedAt": "2026-11-26T03:44:09.635Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "68d0be81bd1c86facdb8a4848a942c534c0345e6ebe3c5b85c5c7c57fc916ced"
+      "audioSha256": "a0147ae4381f524497a413fd15d91b384e81726391370698390de815b811ebf5"
     },
     {
-      "text": "How is the cup at first?",
-      "textSha256": "fae070a09c23148f2b71164ac72e1d5a9105cd77182310b1223e9d29b06cb6ba",
+      "text": "When does the cup first sit lower?",
+      "textSha256": "2a1e8f3372a5c6aab1b73bac249d0bc0734071abdc0fe2891de3c46b20f32ad9",
       "segments": [
-        "How is the cup at first?"
+        "When does the cup first sit lower?"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/2ec17a87ce6a938f50f3.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/123954baf90d8d207599.mp3",
       "references": [
         {
           "passageId": "cycle-short-19",
@@ -5935,20 +5923,20 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-30T01:50:01.847Z",
+      "generatedAt": "2026-11-26T03:44:09.635Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "68abdb3cd101d4afd9450d3b0ae1682cefb1112b88363fd6edf743d6b4b6e592"
+      "audioSha256": "7154221446f62c18d507e87d418f4a331baf124ed58d9b20d6cee1c1f517c41d"
     },
     {
-      "text": "Empty with its opening up",
-      "textSha256": "1d84951f1b25b91b4dd5baf4014d2cabb0ccb935f64cbf534222a6599ea42ff6",
+      "text": "After Muddy adds a little water",
+      "textSha256": "2cccd79609619821d39eb6c48daebfc4d8f3d9433d06341c5b43eb741b5bfb47",
       "segments": [
-        "Empty with its opening up"
+        "After Muddy adds a little water"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/7397c6ae1513e47e6f86.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/310e639b1b5d0cbc36cd.mp3",
       "references": [
         {
           "passageId": "cycle-short-19",
@@ -5959,20 +5947,20 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-30T01:50:01.847Z",
+      "generatedAt": "2026-11-26T03:44:09.635Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "88c8b4ba7905e82b36bb62cf7fe7d774b37409f3227cf82cc1ee45cad6712db7"
+      "audioSha256": "73361cc8a7fc529f51062563dd3faeb26ee01672d8b153e2c22b088c7e4b3e27"
     },
     {
-      "text": "Full with its opening down",
-      "textSha256": "79133e273c351b3a60c3b1eb717dde0f4a36b630b9090ecd708c42edb191f514",
+      "text": "Before any water goes in",
+      "textSha256": "707a29ddd0a0b2b4318da48d35622a001fba5b470a3500bd65768b9b6e1a6582",
       "segments": [
-        "Full with its opening down"
+        "Before any water goes in"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/295f814f3c604f786e04.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/6f7d8365640ba62fb272.mp3",
       "references": [
         {
           "passageId": "cycle-short-19",
@@ -5983,20 +5971,20 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-30T01:50:01.847Z",
+      "generatedAt": "2026-11-26T03:44:09.635Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "62b037c233805d96cbd08c590f67737357c6243bdbf8bae3ea4de289f6f26cdd"
+      "audioSha256": "8672004a93a01ea481b2af44d31f5d9f86a744f5bc1aa447adcfcefaf5030600"
     },
     {
-      "text": "Broken on its side",
-      "textSha256": "1ab3a640e1af5d930fd763134aa7defbcb92487deb092f4288501c0472e553f9",
+      "text": "Only after the cup is full",
+      "textSha256": "f1095eafc83ee3fd0b4c0034567a35ed3b9d64c04ad9e5bde544e71f706525b8",
       "segments": [
-        "Broken on its side"
+        "Only after the cup is full"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/0626c809e97cb4a80332.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/0b20d7804379f1e5eea5.mp3",
       "references": [
         {
           "passageId": "cycle-short-19",
@@ -6007,20 +5995,20 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-30T01:50:01.847Z",
+      "generatedAt": "2026-11-26T03:44:09.635Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "130c3a21ec55edb8e85a7fbbec7f53698dd29e4712e506c250a726ff4584b90f"
+      "audioSha256": "30bd0afed2e529a9fc0a7bf72b9fdf4f4844a9f50d53317d1af9432f86cfbffd"
     },
     {
-      "text": "Filled with stones",
-      "textSha256": "63674dc979d94f29a5c81056d69952678336c484079e088d1ec9d1f3a9ec5b5f",
+      "text": "After it reaches the bottom",
+      "textSha256": "1b7426755111deb3a153b01f0fe5da9037ef1269abd09f4ba15ea683fc98b259",
       "segments": [
-        "Filled with stones"
+        "After it reaches the bottom"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/877712a68ff17c72a31f.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/ab42a2b33ea0e7f3b98e.mp3",
       "references": [
         {
           "passageId": "cycle-short-19",
@@ -6031,20 +6019,20 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-30T01:50:01.847Z",
+      "generatedAt": "2026-11-26T03:44:09.635Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "6d21e349fad645541b64114c4626b9ff4a4772be0cbbe8097658843124fe2308"
+      "audioSha256": "0a28128a09d4d99f9fe2c37a78483f5c4e940e76104e132a976fc9e5d64cf265"
     },
     {
-      "text": "What happens after the cup fills with water?",
-      "textSha256": "199db48cf286c252d50f7968155778ebd07074465cd19663e9f483b55cba065a",
+      "text": "What changes as more water goes into the cup?",
+      "textSha256": "de3660070f7bc7f87680c812c4baf9dbf22756b51f2a513b66ae51fbd5f897ec",
       "segments": [
-        "What happens after the cup fills with water?"
+        "What changes as more water goes into the cup?"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/a3c0cdf3035b45c23cd1.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/c6777ce46318cde533e2.mp3",
       "references": [
         {
           "passageId": "cycle-short-19",
@@ -6054,20 +6042,20 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-30T01:50:01.847Z",
+      "generatedAt": "2026-11-26T03:44:09.635Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "b9afe53e5b2608974a8078e1eaaa8bd8bd11d7a18c668a44076369ad370e24a1"
+      "audioSha256": "604363abc0b09c066ea40434d7cd83df76dd0484bb4e1cba809a50ed5e4de747"
     },
     {
-      "text": "It sinks",
-      "textSha256": "f32ccd9d8937d8091db110462b3dd7649b6d9f9d4727717151237c6e9e7ae453",
+      "text": "Less of the cup shows above the water",
+      "textSha256": "6feab9a8817471f91fb896de30764ff127b68383606854af56701caeb64c1276",
       "segments": [
-        "It sinks"
+        "Less of the cup shows above the water"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/26e985037dd007f33a0e.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/4537f60eb0124893eefb.mp3",
       "references": [
         {
           "passageId": "cycle-short-19",
@@ -6078,20 +6066,20 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-30T01:50:01.847Z",
+      "generatedAt": "2026-11-26T03:44:09.635Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "aa03c1f45b5f1aa789c6d2ea4f58504849484136f5c21e43f7dd9c4a77b85ce5"
+      "audioSha256": "74dfc61c2a00ad53fac3aa3d3c8886d1aa41eb4274bb1865ebad5d1f75c08fc0"
     },
     {
-      "text": "It flies up",
-      "textSha256": "55ba44adcefc7d46045ba9d8d67d0c35dba44f2e0343e63f9368793519047df4",
+      "text": "More of the cup shows above the water",
+      "textSha256": "b60d58350ee6f138836846cf67c9546449afc9cc110bdbd3d21927fab0b543cd",
       "segments": [
-        "It flies up"
+        "More of the cup shows above the water"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/50a1e11b8ab7b4133809.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/5618b91cc6c8d7c27652.mp3",
       "references": [
         {
           "passageId": "cycle-short-19",
@@ -6102,20 +6090,20 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-30T01:50:01.847Z",
+      "generatedAt": "2026-11-26T03:44:09.635Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "c5f6aef3c904441bee45b08023fb5577b8893f1cfb2f9b0298510632305f6674"
+      "audioSha256": "33b8f37e6bc3751e26e464db12d4938171bb47bf580dd3f44b4b418b3f6c3b42"
     },
     {
-      "text": "It gets bigger",
-      "textSha256": "365e7dfef3d72e75ebfe02e05abc163f242d61f2f3d5c0a387776b2705ae9f4c",
+      "text": "The opening turns towards the bottom",
+      "textSha256": "316a7cadb9f7bf81e3c7081a5be771ab187bfa8227ff974e82078a99b71fca90",
       "segments": [
-        "It gets bigger"
+        "The opening turns towards the bottom"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/ed576a76d0f3b33a5b27.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/387251337ec3a5c2940c.mp3",
       "references": [
         {
           "passageId": "cycle-short-19",
@@ -6126,20 +6114,20 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:21:35.332Z",
+      "generatedAt": "2026-11-26T03:44:09.635Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "27ba5651b59b8bf71432dd160275ba960201f370a6758e584fab8859737654fd"
+      "audioSha256": "00cc1e3b4caf2c33061518926c9082c02375fd6246c4d75331d9be5cea9a0c78"
     },
     {
-      "text": "It turns into ice",
-      "textSha256": "f924a5522709e491eb6873fe7215d3339d64d7a458288b1b5e31ef3e0f6c1017",
+      "text": "The cup rises from the bottom",
+      "textSha256": "9a6d8024b07280b25ee23f058afd6de014b5db6598e8ce144864ea5804aaac0f",
       "segments": [
-        "It turns into ice"
+        "The cup rises from the bottom"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/2e96a9db70f6c55b68d4.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/195e1daa44ba35d8d75f.mp3",
       "references": [
         {
           "passageId": "cycle-short-19",
@@ -6150,21 +6138,21 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-30T01:50:01.847Z",
+      "generatedAt": "2026-11-26T03:44:09.635Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "ef276903724a8aa1b9f9c8d6d47414e9af9ace58df21b6f06ed8731b3d70affc"
+      "audioSha256": "3ea6c0666549b74d812e542fa7718e27375475845df3f0053909bde1fc9ec6d4"
     },
     {
-      "text": "Muddy Packs the Eggs\n\nMuddy gets ten eggs from the hen house. An egg box has six spaces. Muddy fills the six spaces first. Four eggs are left in the basket. Muddy gets another box for those eggs. Muddy carries both boxes carefully.",
-      "textSha256": "ffc65229badb223b2a5ea7736a07b02e07ff180cae8011d389b26e5ec2a075ea",
+      "text": "Muddy Packs the Eggs\n\nMuddy gets ten eggs from the hen house. Beside the basket stands a box with six spaces. One egg goes into each space. The box is full, but the basket is not empty. Four eggs still need a place. Muddy packs those four and carefully carries both boxes.",
+      "textSha256": "4314785d939b1e7a8f1f15cc229843e4440439f9ab7909b2febcbc1e55832ced",
       "segments": [
         "Muddy Packs the Eggs",
-        "Muddy gets ten eggs from the hen house. An egg box has six spaces. Muddy fills the six spaces first. Four eggs are left in the basket. Muddy gets another box for those eggs. Muddy carries both boxes carefully."
+        "Muddy gets ten eggs from the hen house. Beside the basket stands a box with six spaces. One egg goes into each space. The box is full, but the basket is not empty. Four eggs still need a place. Muddy packs those four and carefully carries both boxes."
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/9ff7e44d39ceac5f13dc.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/bd810b0e33ec4bfaece4.mp3",
       "references": [
         {
           "passageId": "cycle-short-20",
@@ -6174,20 +6162,20 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-30T01:50:01.846Z",
+      "generatedAt": "2026-11-26T03:44:09.634Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "37297147495511cc486358b6905a1eed17c01921fbf3c7c74c0f06f4431a702e"
+      "audioSha256": "7a763382cc97e03378f183c933299ed9fd74bbf5d84702f05e4c72c1eada80dd"
     },
     {
-      "text": "How many spaces are in the first box?",
-      "textSha256": "650dc6d4a59275e739030eb1115efa7e6669f81fd4d58d22c88c49a84f2217d9",
+      "text": "Which is empty when Muddy finishes packing?",
+      "textSha256": "3b8e129732bbcd12d72e3417e90b263e87d4750805fee112d6c5ffa104c899fb",
       "segments": [
-        "How many spaces are in the first box?"
+        "Which is empty when Muddy finishes packing?"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/55728e5b1ef11ef3e6a5.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/f8319b0e8827cf6f7194.mp3",
       "references": [
         {
           "passageId": "cycle-short-20",
@@ -6197,20 +6185,68 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-30T01:50:01.846Z",
+      "generatedAt": "2026-11-26T03:44:09.634Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "eafacdcbaad09875507415750eee6a5886c87a26b6b3da78dfecc925453ff9d3"
+      "audioSha256": "6043c543a4c04cb677dcf227b59169d412131b2fa96f641fd2d4aca6ec57ff07"
     },
     {
-      "text": "Eight",
-      "textSha256": "7f9966f44789da6cedfc5ae2e63a0475be88d12144788bffad72a13209f50efd",
+      "text": "The basket",
+      "textSha256": "79fd4a1721f84270b947ff375848ebde82dbed8eee9c98d0fe3df7878faecbd8",
       "segments": [
-        "Eight"
+        "The basket"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/545a5c738c26dca77258.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/1424f03043e728d3ccf7.mp3",
+      "references": [
+        {
+          "passageId": "cycle-short-20",
+          "sourceId": "cycle-short-20-q1",
+          "role": "question-option",
+          "authoredIndex": 0
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-11-26T03:44:09.634Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "4d52a1c4f0a01157a4801305f1897b136843bfcaff68cc9f0dfbe28979619c8c"
+    },
+    {
+      "text": "The first box",
+      "textSha256": "f2cc05ca31fdc9c02bca4944fd93cd93c42d20b422681e401bc525432b344011",
+      "segments": [
+        "The first box"
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/comprehension/fc7ff2fa8cbd81282840.mp3",
+      "references": [
+        {
+          "passageId": "cycle-short-20",
+          "sourceId": "cycle-short-20-q1",
+          "role": "question-option",
+          "authoredIndex": 1
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-11-26T03:44:09.634Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "548f88ef491d048aa3dee09b7f75f8dd5ee9bbbe89e9446b9dc3417b8e71ccde"
+    },
+    {
+      "text": "The second box",
+      "textSha256": "69faf64195019ea689067cdd4617380a7788ca649c14592dfd2f06c35b5dfdbc",
+      "segments": [
+        "The second box"
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/comprehension/294c112de9e0402fe3e8.mp3",
       "references": [
         {
           "passageId": "cycle-short-20",
@@ -6221,20 +6257,44 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-30T01:50:01.846Z",
+      "generatedAt": "2026-11-26T03:44:09.634Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "f18a9a406ccee204eb67cdcf8ed753dd2b73bb93c6714cbf6d12d1e214e1d030"
+      "audioSha256": "bff77012e2cb3c21cf920a3dcf56fabd8bb31a13ab954372a26b5978fa39c232"
     },
     {
-      "text": "Where are the four eggs before Muddy gets another box?",
-      "textSha256": "293fca9341bfc1fac84cf900a390f6525bab163f04414d273ccb2e4b00f8aba8",
+      "text": "Both boxes",
+      "textSha256": "7fc91be2c957b347b317f3dc75385bd98dd756fdb17c0b23f5fa21473b6332c6",
       "segments": [
-        "Where are the four eggs before Muddy gets another box?"
+        "Both boxes"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/ad5c9763f5693336a6af.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/c2a8d8e56a17b020fc61.mp3",
+      "references": [
+        {
+          "passageId": "cycle-short-20",
+          "sourceId": "cycle-short-20-q1",
+          "role": "question-option",
+          "authoredIndex": 3
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-11-26T03:44:09.634Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "8d7966ca168cf00c7cb1258027585e611f32f7a3d6af79e3b7321f66a623ab53"
+    },
+    {
+      "text": "How many eggs stay in the basket when the first box is full?",
+      "textSha256": "ace9f7b30eccf24f1c453a7b20e618be294731c012c3356cda0989bb1eaca1ae",
+      "segments": [
+        "How many eggs stay in the basket when the first box is full?"
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/comprehension/e838967a354168e8f74f.mp3",
       "references": [
         {
           "passageId": "cycle-short-20",
@@ -6244,50 +6304,26 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-30T01:50:01.846Z",
+      "generatedAt": "2026-11-26T03:44:09.634Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "666dbd8db11dcfac4f7d7e6632184226bc8b422f7c0cd5041fa799a678c6acb2"
+      "audioSha256": "2de2808f2c496787f3d000d123d69256ed38e7b2ede528eef5740f9617f32c9d"
     },
     {
-      "text": "In the basket",
-      "textSha256": "a243099d3d429d3473b2500e2954fcd90c2b444ef0b8e61ab0dbc08afc17d472",
+      "text": "One",
+      "textSha256": "8b12507783d5becacbf2ebe5b01a60024d8728a8f86dcc818bce699e8b3320bc",
       "segments": [
-        "In the basket"
+        "One"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/08c26683cab85fbf8d49.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/cfb6f650afc3ad3bdf9d.mp3",
       "references": [
         {
           "passageId": "cycle-short-20",
           "sourceId": "cycle-short-20-q2",
           "role": "question-option",
-          "authoredIndex": 0
-        }
-      ],
-      "voice": "en-US-Chirp3-HD-Leda",
-      "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-30T01:50:01.846Z",
-      "pauseBetweenSegmentsMs": 450,
-      "finalPaddingMs": 150,
-      "audioSha256": "5644103a3c4936ab16c4b275660a025273ab53c7fe2abfd9b530e0828a27d933"
-    },
-    {
-      "text": "On a shelf",
-      "textSha256": "2971108ba840dc58d33485aa80cfa0e299ed1bc40c73540c2933976d9cef3888",
-      "segments": [
-        "On a shelf"
-      ],
-      "recipe": "leda-exact-segments-pause450-tail150-v2",
-      "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/86a60059b2960f5d5775.mp3",
-      "references": [
-        {
-          "passageId": "cycle-short-20",
-          "sourceId": "cycle-short-20-q2",
-          "role": "question-option",
-          "authoredIndex": 1
+          "authoredIndex": 3
         }
       ],
       "voice": "en-US-Chirp3-HD-Leda",
@@ -6295,65 +6331,17 @@
       "generatedAt": "2026-10-27T03:21:35.332Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "ce044d3dc2f22809812059ad5f60c5a46f669ed28ed781102158b31994bf6ba3"
+      "audioSha256": "d80bd2d98d5090b2f0d4427ae0149d158683afca57065fe9edfab15d976f3a0d"
     },
     {
-      "text": "In a pan",
-      "textSha256": "a1d5ca0e10d6420ed049e51b479f1de80dd9b0a5525af886e6eaec4da1886656",
+      "text": "Why does Muddy carry two boxes?",
+      "textSha256": "4785645b6063bff77031e41b0db40b10ff0cf042cad2168101c78d7486b9b062",
       "segments": [
-        "In a pan"
+        "Why does Muddy carry two boxes?"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/64c0ec7b2396032da9cd.mp3",
-      "references": [
-        {
-          "passageId": "cycle-short-20",
-          "sourceId": "cycle-short-20-q2",
-          "role": "question-option",
-          "authoredIndex": 2
-        }
-      ],
-      "voice": "en-US-Chirp3-HD-Leda",
-      "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-30T01:50:01.846Z",
-      "pauseBetweenSegmentsMs": 450,
-      "finalPaddingMs": 150,
-      "audioSha256": "c0d5c16b9b4fa81753f87204c64a0790aabe7f0b42d8b2d79e333c601c30e2dc"
-    },
-    {
-      "text": "Under the first box",
-      "textSha256": "c9c2342684a04b7cb99102470a30396b09a55892f10eb23247c3280b919a5661",
-      "segments": [
-        "Under the first box"
-      ],
-      "recipe": "leda-exact-segments-pause450-tail150-v2",
-      "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/43e3911980d34edd9267.mp3",
-      "references": [
-        {
-          "passageId": "cycle-short-20",
-          "sourceId": "cycle-short-20-q2",
-          "role": "question-option",
-          "authoredIndex": 3
-        }
-      ],
-      "voice": "en-US-Chirp3-HD-Leda",
-      "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-30T01:50:01.846Z",
-      "pauseBetweenSegmentsMs": 450,
-      "finalPaddingMs": 150,
-      "audioSha256": "a76a840dff542712bc6e839067401d4aa934274784cbc5381bfdd53694c9b054"
-    },
-    {
-      "text": "Why does Muddy get another box?",
-      "textSha256": "0325e05c52fa71d4833afb5e94d3143cc518b6e42b424f7da4eaf391a0f130fa",
-      "segments": [
-        "Why does Muddy get another box?"
-      ],
-      "recipe": "leda-exact-segments-pause450-tail150-v2",
-      "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/1629c245daf1296194d9.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/92ff139ea9a6ff2f64e5.mp3",
       "references": [
         {
           "passageId": "cycle-short-20",
@@ -6363,20 +6351,20 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-30T01:50:01.846Z",
+      "generatedAt": "2026-11-26T03:44:09.634Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "75012d8e6efb92ec49ed4831d3b5749eee4aa5d158a4bc44744675e8b2df707c"
+      "audioSha256": "e473cd5802f024366a87cbf9138e1940793e7a274f35e24124fc5a907c4e853a"
     },
     {
-      "text": "Four eggs still need a space",
-      "textSha256": "01c3c55bcfc5cc2170155794a08794d6430d1772e960f2b04c2ce4466ea5de3d",
+      "text": "One box cannot hold ten eggs",
+      "textSha256": "dade1b09bb30f67e0ff1b381557267311db60a1c1c0c546367b838e8680ff674",
       "segments": [
-        "Four eggs still need a space"
+        "One box cannot hold ten eggs"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/481c45ef969fba1ac1c3.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/a93ff2a87ec8186fcfb1.mp3",
       "references": [
         {
           "passageId": "cycle-short-20",
@@ -6387,20 +6375,20 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-30T01:50:01.846Z",
+      "generatedAt": "2026-11-26T03:44:09.634Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "e29ea23288db3630cc1e048d2035d9be57ffaa4637d8b384f7df4f1dae142cbf"
+      "audioSha256": "1f505b9240860cd61cf6434b25fb3080b277d2c8f6073743b688553b1081da29"
     },
     {
-      "text": "The first box is wet",
-      "textSha256": "56bfa1a2ae50e13d191dbe829ee371944c737f36e239138f7700d2c767b6ccde",
+      "text": "Each box holds just one egg",
+      "textSha256": "c7a74be3b20760ebc4563582fcc469310d6897b7c6947fa23eb928f367383c73",
       "segments": [
-        "The first box is wet"
+        "Each box holds just one egg"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/621aaad7f60cc535ea25.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/b2d2c63c4ecac31b08fc.mp3",
       "references": [
         {
           "passageId": "cycle-short-20",
@@ -6411,20 +6399,20 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-30T01:50:01.846Z",
+      "generatedAt": "2026-11-26T03:44:09.634Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "a30856f845bca0af2ccb6a40eb525227b5caef83976f588230c40971855b3f9c"
+      "audioSha256": "68dda908d35346d192230c5b5d08ee13a4b3e4f9326a74ec12f6d24d11239160"
     },
     {
-      "text": "The basket is broken",
-      "textSha256": "c63fc1b8a94df1af681cab018729ee11e54297c5f14d30288b0431a9f766e988",
+      "text": "The basket holds only six eggs",
+      "textSha256": "e6b459ab6598a804003b7deb76aa129fb3795a71438ba2f09b60f9e507b482cf",
       "segments": [
-        "The basket is broken"
+        "The basket holds only six eggs"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/eef6c6fc2b837f1ca8b2.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/40e84e45fd52674c9d04.mp3",
       "references": [
         {
           "passageId": "cycle-short-20",
@@ -6435,20 +6423,20 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-30T01:50:01.846Z",
+      "generatedAt": "2026-11-26T03:44:09.634Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "da5e787bb5a6ed214fc5033344fd2f46c2d546bed9906cd3731a2f99edd4f074"
+      "audioSha256": "8a5aba5b513c552242f02f5affd033994c84d5afe39d1d525c7e4dfabd585cc1"
     },
     {
-      "text": "The hen needs a bed",
-      "textSha256": "47da7d2e72672749fdc6c4aa7e48eb6041d0b3019c659a3a7cb4024a70c7a08d",
+      "text": "The first box must stay empty",
+      "textSha256": "3fc7c55f00a1e6cb3f6a70f5d560065517b8cc8c6160bc6575ea4ae3a691f380",
       "segments": [
-        "The hen needs a bed"
+        "The first box must stay empty"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/593daca38fe899d77153.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/77a9bfd12f2b4a56716b.mp3",
       "references": [
         {
           "passageId": "cycle-short-20",
@@ -6459,10 +6447,10 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-30T01:50:01.846Z",
+      "generatedAt": "2026-11-26T03:44:09.634Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "b0a911db4c28cde97df437c148a40c805ef04fd8dcc74ec49dfc15800ef1d52a"
+      "audioSha256": "a16f351b0bdc301d96039b10bf81a632b7297d091f1761a645ab81a83e147b7b"
     },
     {
       "text": "Who Has the Whisk?\n\nWhat can Muddy use to mix eggs? Who has the whisk? Clucky has it in a pot. When she lifts it, the handle slips. Muddy catches the whisk. Now Clucky can mix the eggs in the pot.",
@@ -6534,6 +6522,30 @@
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
       "audioSha256": "c180a7c94aadda9f65a72c4361aa23326272dcd797d8e44a8d880c2d0eabcc7b"
+    },
+    {
+      "text": "Sand",
+      "textSha256": "82855c11ae69b0652a292b72967a82d5f4973b88d76c6c793276ef8c5942a803",
+      "segments": [
+        "Sand"
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/comprehension/5e44e4d360932c2b99cf.mp3",
+      "references": [
+        {
+          "passageId": "cycle-short-21",
+          "sourceId": "cycle-short-21-q1",
+          "role": "question-option",
+          "authoredIndex": 2
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-10-27T03:21:35.332Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "0a73b37e5d7c672db0985bdfa8e3d2d337ae7356d58e25e47e1f687850875cf7"
     },
     {
       "text": "Who has the whisk at first?",
@@ -6613,7 +6625,7 @@
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/cycle-shorts/276d2c84f5a2d03b861a.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/276d2c84f5a2d03b861a.mp3",
       "references": [
         {
           "passageId": "cycle-short-21",
@@ -6624,10 +6636,10 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-11-01T23:53:13.158Z",
+      "generatedAt": "2026-11-26T03:44:09.634Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "f88744111570a9f6b1da82df48456f76958577175cdf418aef96608ce4dba018"
+      "audioSha256": "3efc250f2829706ae7d27e9ada50a4ad941473950050e2754a440bcf8209099e"
     },
     {
       "text": "An egg",
@@ -6963,15 +6975,15 @@
       "audioSha256": "8963dd9fc997edaf46043dc470560d9dd469349b88183f514477b10b8ce70fbe"
     },
     {
-      "text": "Muddy Hangs the Ring\n\nMuddy has a small bell with a ring on top. Muddy threads a long string through the ring. Muddy ties the string to a low branch. The bell hangs just above the ground. Muddy pulls the bell and lets go. The bell swings and makes a sound.",
-      "textSha256": "b11096a3c9fc09470ac7bc291f287cab96c221b601a8c321b0f3ecc8a2537f5a",
+      "text": "Muddy Hangs the Ring\n\nThe bell has a ring on top. Muddy threads a long string through that ring. The other end is tied round a low branch. Now the bell hangs just above the ground. Muddy pulls it over and lets go. It swings back with a sound.",
+      "textSha256": "14699e807f30e4faa1f0c3eae20752eb4b10a6ef45ba52bc8528e74765a5a3de",
       "segments": [
         "Muddy Hangs the Ring",
-        "Muddy has a small bell with a ring on top. Muddy threads a long string through the ring. Muddy ties the string to a low branch. The bell hangs just above the ground. Muddy pulls the bell and lets go. The bell swings and makes a sound."
+        "The bell has a ring on top. Muddy threads a long string through that ring. The other end is tied round a low branch. Now the bell hangs just above the ground. Muddy pulls it over and lets go. It swings back with a sound."
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/a1db342d0a001c47612b.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/782300ff814f403eadca.mp3",
       "references": [
         {
           "passageId": "cycle-short-23",
@@ -6981,20 +6993,20 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:12:42.074Z",
+      "generatedAt": "2026-11-26T03:44:09.632Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "b87514e5dbf4b2e931dc1f51aeaa079e6529dc125a74e60d327dfcda87af9501"
+      "audioSha256": "22ea219fb4745552f09c7a56ff7604da8db905b32d916e4db98d778c1fa33e0b"
     },
     {
-      "text": "What is on top of the bell?",
-      "textSha256": "7bb5c8b5b74b2eb6277dba7c5f2f4608386630233201baf329448781acf8430d",
+      "text": "Which part was tied around the branch?",
+      "textSha256": "0dfb9d8c4fd8d43656445da7010748caa52406f2e50ceb05232b64a69e29cb74",
       "segments": [
-        "What is on top of the bell?"
+        "Which part was tied around the branch?"
       ],
-      "recipe": "leda-exact-segments-pause450-tail150-v2-tempo0.75",
-      "tempo": 0.75,
-      "audioPath": "/audio/production/en-US/comprehension/14e3bd6ec846f907eb59.mp3",
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/comprehension/0500b466fab961705a80.mp3",
       "references": [
         {
           "passageId": "cycle-short-23",
@@ -7004,20 +7016,44 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:25:45.232Z",
+      "generatedAt": "2026-11-26T03:44:09.632Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "5323ad3f7efeeb8d97eb2b619cd332f0a45dd342de76ae8ccb89f1c28fbae95b"
+      "audioSha256": "c7a2099b952434b7c5fad6f1125e349e38f8035954828595bfb98b41b32f3d81"
     },
     {
-      "text": "A hook",
-      "textSha256": "da79f33c995212f9be5c16f963f9d926ab09b7768b84f5616e43ec193308db46",
+      "text": "The far end of the string",
+      "textSha256": "9954dd9ced42013c13b5ee2b91f7436b4ace3c4f0282f362f6d553ca6d5e95c1",
       "segments": [
-        "A hook"
+        "The far end of the string"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/38ddf0f38f38fa415205.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/8bcef56bcf986474799e.mp3",
+      "references": [
+        {
+          "passageId": "cycle-short-23",
+          "sourceId": "cycle-short-23-q1",
+          "role": "question-option",
+          "authoredIndex": 0
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-11-26T03:44:09.632Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "a44298139e5aa968d284090ea770e511068a251b9e1fba3c0a91eb9e45d95580"
+    },
+    {
+      "text": "The ring on the bell",
+      "textSha256": "6ef9f943078354d1f66db993e3b40d922746d26167b373f189818a5788cc638f",
+      "segments": [
+        "The ring on the bell"
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/comprehension/c9de214195b9728e05dc.mp3",
       "references": [
         {
           "passageId": "cycle-short-23",
@@ -7028,20 +7064,20 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:21:35.333Z",
+      "generatedAt": "2026-11-26T03:44:09.632Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "a8d1efa4fb293bea6ec3d6035fea52e0af039f87feb33a80149798f942e5d6e9"
+      "audioSha256": "796f61fa39f83abba4ab32ad10278b8323063fe344610379b7a2373526d14a62"
     },
     {
-      "text": "A lid",
-      "textSha256": "a7db4d76294cf34e7a437d340bcecd2d936164fc22975d8f25fca15496bcfde1",
+      "text": "The end nearest the bell",
+      "textSha256": "32ce9702e400849fb1938b9d9ddb15faa88553cea98194ca27bbf95c39ac660b",
       "segments": [
-        "A lid"
+        "The end nearest the bell"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/6ff8464a63762b7287a9.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/2571b41f2814057ceca6.mp3",
       "references": [
         {
           "passageId": "cycle-short-23",
@@ -7052,20 +7088,20 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:21:35.333Z",
+      "generatedAt": "2026-11-26T03:44:09.632Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "c01608703a918bc00963bcfc3be25b3903435a7c39bb809199b2f858686c73d4"
+      "audioSha256": "51d8a213695f267075f898b10e31d6e1ca99ae81c15a8c69c6a45b4e140e51b3"
     },
     {
-      "text": "A button",
-      "textSha256": "6868b92c4ce6b8f9cd6efb6e214a89ff84d9a53176e4e8921ca7e52c8c675d25",
+      "text": "The bell itself",
+      "textSha256": "85427068fb5592959fd96c27b33399ba0c224ee46bb67131a2d9a9626ba42064",
       "segments": [
-        "A button"
+        "The bell itself"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/d8440c04d13d203a6818.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/37593180e5bfdda788a5.mp3",
       "references": [
         {
           "passageId": "cycle-short-23",
@@ -7076,20 +7112,20 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:21:35.333Z",
+      "generatedAt": "2026-11-26T03:44:09.632Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "f1bf632f303ecbe7736b373c75fef2f85619fc40c5017f140b331ca0eff30390"
+      "audioSha256": "2a04bcba5c7230b4a24104e7b94cf305881bcaf7389231267e8616f8151e81d8"
     },
     {
-      "text": "Where does Muddy tie the string?",
-      "textSha256": "1c70e03f785203f4288a0599f00e1349d20b67480627efc903e11ce8f2c3b53a",
+      "text": "Which part hung lowest?",
+      "textSha256": "5ad40f84bf4ed088da0be5272ac35ac18217ae6f7bd33ad2e8dbc584089a5ede",
       "segments": [
-        "Where does Muddy tie the string?"
+        "Which part hung lowest?"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/fea80d794eb1a40eb369.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/58b1d7ec5ba0b33f66c2.mp3",
       "references": [
         {
           "passageId": "cycle-short-23",
@@ -7099,20 +7135,20 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:21:35.333Z",
+      "generatedAt": "2026-11-26T03:44:09.632Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "664a8117fb3ce6be3932030c09588e5177f219743aba254d7f50b52f5001be77"
+      "audioSha256": "b57eb166feb0d40b85f0c624eb8bedfb2a2c97cd0e521520b641b0b6830bc065"
     },
     {
-      "text": "To a low branch",
-      "textSha256": "63a156058ff616d1d47b6bf8a0774f2f7469ee55a3ffe7bbcd202511246bd434",
+      "text": "The bell",
+      "textSha256": "03657413b7c1ce05935bef21d6712ff40b1d5f4610aa8e240142dfbbd443c601",
       "segments": [
-        "To a low branch"
+        "The bell"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/6ee474886dcf33e45278.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/6716e887b8691f51df65.mp3",
       "references": [
         {
           "passageId": "cycle-short-23",
@@ -7123,20 +7159,20 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:21:35.333Z",
+      "generatedAt": "2026-11-26T03:44:09.632Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "5ebd3cbb1016bf11d9c2ee0967929a252f4f9609f7869fcf11ab7fd378831bab"
+      "audioSha256": "76e1430b900f439f04c442945623dffa00a5407d5ebc2ed3f990eaa9b12e6d41"
     },
     {
-      "text": "To a gate",
-      "textSha256": "ad81e4fcca71f465835710d739a5fda1262f243e9c18ffa6d11103b9a51bc99f",
+      "text": "The branch",
+      "textSha256": "69a8a73b8e5b4f5d00ffdc25d766244fcdf9cc705246fca59062944a7cf03f93",
       "segments": [
-        "To a gate"
+        "The branch"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/2b19c3090684a01f059b.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/27d4bfed3fdc627cb58f.mp3",
       "references": [
         {
           "passageId": "cycle-short-23",
@@ -7147,20 +7183,20 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:21:35.332Z",
+      "generatedAt": "2026-11-26T03:44:09.630Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "30bc9557663462c5fa69a0de0324a503f15a80b81d0e047b3ea7b711ab2f221a"
+      "audioSha256": "17102080442e4a23f4d5bc64444624d9b78755c84bad12fe488282d68425a783"
     },
     {
-      "text": "To a chair",
-      "textSha256": "184c63a992b41fdf7b8d89704035fe16e2d3088a70c1252690a867377a3a1bd3",
+      "text": "The string around the branch",
+      "textSha256": "1cfff2307314aa5df011a2495f97b7af5684e711ed19a25bf00307030c7ca2ee",
       "segments": [
-        "To a chair"
+        "The string around the branch"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/fd160c54b58c9d28d29f.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/20c3f64a01bc1917a566.mp3",
       "references": [
         {
           "passageId": "cycle-short-23",
@@ -7171,20 +7207,20 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:21:35.333Z",
+      "generatedAt": "2026-11-26T03:44:09.632Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "a4b57cd5da81b186f7aa9bff61ed3d1e9015fc50d9f99c77fb8387932f900786"
+      "audioSha256": "c450b782ff1847921bf878c449577be039ab11c13ad5abcbaf9a6ab174a7ea43"
     },
     {
-      "text": "To a shelf",
-      "textSha256": "0a7cd64ed0fe8c9bfce5f09d73343d1fd8f8d7b148c760062fd7a1628ae5417b",
+      "text": "The ring on top of the bell",
+      "textSha256": "8f8187761b34dc9b0772e9c65717dcb0cd5c3de975dc3f49694000051a121b68",
       "segments": [
-        "To a shelf"
+        "The ring on top of the bell"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/d7dbfbd0995dd0190568.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/777ef60a704ddf544ec1.mp3",
       "references": [
         {
           "passageId": "cycle-short-23",
@@ -7195,20 +7231,20 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:21:35.333Z",
+      "generatedAt": "2026-11-26T03:44:09.632Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "3bd75a5581efdbc08f8cab6f0b8679c52262663d0a0b519d6eac3e0beda9bd68"
+      "audioSha256": "06645ea50bb4e049d1425969a413f60396c56c48a6190d2dce033ad50a351bfb"
     },
     {
-      "text": "What happens when Muddy lets go of the bell?",
-      "textSha256": "777848fd7fda66ff788e0b8f18c92081ec16a94e6d29159b72f75525717fb0fb",
+      "text": "What set the hanging bell swinging?",
+      "textSha256": "2f2be292506d1042879870cf5adb520d5df0aa53797952423cf308bb362ac7e7",
       "segments": [
-        "What happens when Muddy lets go of the bell?"
+        "What set the hanging bell swinging?"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/68439f73c7d9b35b6661.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/6feb16cbcf4406775386.mp3",
       "references": [
         {
           "passageId": "cycle-short-23",
@@ -7218,20 +7254,20 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:21:35.333Z",
+      "generatedAt": "2026-11-26T03:44:09.632Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "49eef48e4ef41a16a810288e98cf443c97b897460398f2e02966ba3d80f1874e"
+      "audioSha256": "e0dfb8d44c952f1209dea0151a172480f28086e07cc4ab3f3bd581a6a655250b"
     },
     {
-      "text": "It swings and makes a sound",
-      "textSha256": "f8962ef9819f6805a773e515966a01fc8d46eadefce8ccd1d85b4110d0637375",
+      "text": "Muddy pulled and let go",
+      "textSha256": "62d9bd7982040b28be463672540f19f2ad5fa700111eaa4032b8ba1bae59bc1b",
       "segments": [
-        "It swings and makes a sound"
+        "Muddy pulled and let go"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/bf5f3f4350430410a6e8.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/808891399b0a6a09969b.mp3",
       "references": [
         {
           "passageId": "cycle-short-23",
@@ -7242,20 +7278,20 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:21:35.333Z",
+      "generatedAt": "2026-11-26T03:44:09.632Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "384e938297e4204bcff47a6e10377c30af39dea608ac52290c486502c7fd1bd2"
+      "audioSha256": "017346eff8ac839a3960b807e40e86cdc4f85bf59fabbcda9edf291f8d6565aa"
     },
     {
-      "text": "It falls into a box",
-      "textSha256": "9ada486cc9f39d14975fd6bcdbb5344662f32b4ddd361dedfd7ea01b04f59f9e",
+      "text": "Muddy threaded the ring",
+      "textSha256": "cc48e7f92848ec3d1fe86f3aea37f44f1f2c95f5371826f28fcfb112499e0bc5",
       "segments": [
-        "It falls into a box"
+        "Muddy threaded the ring"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/ddd166566361ddba1773.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/ce148b9af22b81c81443.mp3",
       "references": [
         {
           "passageId": "cycle-short-23",
@@ -7266,20 +7302,20 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:21:35.333Z",
+      "generatedAt": "2026-11-26T03:44:09.632Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "7a2d6a702f89962d08b6bd7479f4bdbe43e76ab76a4b60cf3aed0465260d0bad"
+      "audioSha256": "ef95867fbca9f2e7cb6ba88ff0788b035abc9463e76bd654073aa3b8a8dcf741"
     },
     {
-      "text": "It stays on the ground",
-      "textSha256": "2570153c0dc165658d1fe9542db64f5c04e9064d4e1f7e3e0ab10e569ad1b46b",
+      "text": "Muddy tied the string",
+      "textSha256": "a62286ea6a758b201b59bce959961b5369374a490b98d91a043585695120d0ec",
       "segments": [
-        "It stays on the ground"
+        "Muddy tied the string"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/299065525164713bfb50.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/8a89310244f33b58aeab.mp3",
       "references": [
         {
           "passageId": "cycle-short-23",
@@ -7290,20 +7326,20 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:21:35.333Z",
+      "generatedAt": "2026-11-26T03:44:09.632Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "01cb2cf1040bf8221db907656be24315fc6b83217a40ff7ddeea23cbce761a1b"
+      "audioSha256": "f108fd1db34eec354d72a2223db598984317fc67a80fe2f3eed1234497f5cc4e"
     },
     {
-      "text": "It rolls down the path",
-      "textSha256": "3329b957290b24919d0107bc5f4c31b20f9de85884e61b291f2fb60ca83dfcb1",
+      "text": "Muddy held the bell still",
+      "textSha256": "2643cad7401862197c5cc463d66e745c9cf48da9ab78d6b9783b29e391fc05fa",
       "segments": [
-        "It rolls down the path"
+        "Muddy held the bell still"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/d1c88b7762d9b60de0b9.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/09e3487ab96ee4862766.mp3",
       "references": [
         {
           "passageId": "cycle-short-23",
@@ -7314,10 +7350,10 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:21:35.333Z",
+      "generatedAt": "2026-11-26T03:44:09.632Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "646e52beb29983c4414b6ffb941a1161ba87adff6ac7a5cb398e6e485e143509"
+      "audioSha256": "32db784b214ac3d2a631ca32632282936b74e5cf163ea62b7be2bd403c49868c"
     },
     {
       "text": "The Picnic Bell\n\nMuddy hears a buzz by the bell. “Which bug is it?” asks Muddy. A bee lands on the bell. Muddy must ring the bell or his friends may miss lunch. He waits for the bee to fly off. Then Muddy rings the bell for lunch.",
@@ -7677,15 +7713,15 @@
       "audioSha256": "b8f413b608c90ee21eb433e03ecb333903c675de5e67f87e234f526d570e5b3d"
     },
     {
-      "text": "Muddy and the Mat\n\nMuddy sat in the mud. The sun was hot. Muddy got up and ran to a mat. The mat was in a hut. Muddy sat on it. The mat was not hot. Muddy had a nap in the hut.",
-      "textSha256": "ece29e4f48fe449ffc6d4c717fe0033f79b788e500a1e78f4cdd45b18cc34774",
+      "text": "Muddy and the Mat\n\nThe mud was warm where Muddy sat. The sun got hot. Across the yard, a mat lay inside a hut. Muddy ran to the hut and felt the mat. It was cool. Muddy curled up on it for a nap.",
+      "textSha256": "f6527f3383b8bc99b4acead6c28b845b701bd382e29796490e4d6c35dddcece4",
       "segments": [
         "Muddy and the Mat",
-        "Muddy sat in the mud. The sun was hot. Muddy got up and ran to a mat. The mat was in a hut. Muddy sat on it. The mat was not hot. Muddy had a nap in the hut."
+        "The mud was warm where Muddy sat. The sun got hot. Across the yard, a mat lay inside a hut. Muddy ran to the hut and felt the mat. It was cool. Muddy curled up on it for a nap."
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/cfa615cc3dc07c3fc9f8.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/07bc071c5906e8ab7c17.mp3",
       "references": [
         {
           "passageId": "cycle-short-25",
@@ -7695,21 +7731,20 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:05:33.485Z",
+      "generatedAt": "2026-11-26T03:44:09.629Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "paddingUpgradeSourceSha256": "3347fb1e38d48a3ad79a81b64c3c25aa41dfd60e23d48b4fe309bffab0ccacc6",
-      "audioSha256": "fb238747e711cfcb96fff86af950bdf4d0f5a671b712eb4cac5b128fab94c255"
+      "audioSha256": "d07c8267d262e37294a40f280088cefe08fa07ac99f347d6205eccca5aa577bd"
     },
     {
-      "text": "Where was Muddy at first?",
-      "textSha256": "d5749884fc213b6c5d5f035d054f049624545e9bc70f1248f5abbf6b653cb3f7",
+      "text": "Where was Muddy sitting when the sun got hot?",
+      "textSha256": "3f64b1a525e2af120ab4e03927bf91eef5a23faa663487370ea45912951c6f6f",
       "segments": [
-        "Where was Muddy at first?"
+        "Where was Muddy sitting when the sun got hot?"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/dc6b681ed8667007be4f.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/7e407080e0fcdd736ff2.mp3",
       "references": [
         {
           "passageId": "cycle-short-25",
@@ -7719,10 +7754,10 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:21:35.331Z",
+      "generatedAt": "2026-11-26T03:44:09.630Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "d36a0cd168ca198389ad921a13f29574c41454a6bb1df00b741230ce81d95d99"
+      "audioSha256": "a0f0c9c1d96534a64a26dd9d843ba046672f2e285222f6221ba9d465057132e3"
     },
     {
       "text": "In the hut",
@@ -7749,14 +7784,14 @@
       "audioSha256": "bee121ac5138850a89abe75aa08f65aac3d5862ca0a56ea446a0ff7a986353d3"
     },
     {
-      "text": "In a bed",
-      "textSha256": "c48c2aac66e683f867ecf524baa4bbee26ea84b3e32d32d6398a1e67a8c14b24",
+      "text": "Across the yard from the mud",
+      "textSha256": "5c50858e151d6b76918d93aa3ec557aa3c8734734c9f515eb46ba6f371082d73",
       "segments": [
-        "In a bed"
+        "Across the yard from the mud"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/1bfe5750f4262ae5c21b.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/16a2858db81905b77093.mp3",
       "references": [
         {
           "passageId": "cycle-short-25",
@@ -7767,20 +7802,20 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:21:35.332Z",
+      "generatedAt": "2026-11-26T03:44:09.630Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "dd18c682c575086610751bdb41953e0000f78d704f7e829358e6fefb65126b85"
+      "audioSha256": "4c2d409870d16acfd6533fda00931143cda711ce2b7e96a85f0e8b078f086947"
     },
     {
-      "text": "Where was the mat?",
-      "textSha256": "5e3da07cda91c4d7911d560ef62a016ca8bfca1942575fa7366a940032a15ca4",
+      "text": "How did Muddy check the mat?",
+      "textSha256": "dc5caf78d5aff43be41bc66f6244430e41e1ce43bfb746a0f22fbe65049deec3",
       "segments": [
-        "Where was the mat?"
+        "How did Muddy check the mat?"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/de170e6d73e3c5f0f1ac.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/91e6cbe296cbe28afdba.mp3",
       "references": [
         {
           "passageId": "cycle-short-25",
@@ -7790,20 +7825,44 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:21:35.332Z",
+      "generatedAt": "2026-11-26T03:44:09.630Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "ca6fe3f01e6eecb408b475b3eb4dddb10b6efe551c694a75a1cf62d6986c5074"
+      "audioSha256": "0ec329023efbfa7e926790b00aee0d1dedbf4b2c1ead026e00a45a26d853635c"
     },
     {
-      "text": "In a van",
-      "textSha256": "b6a4527e6288ec57adebdc326cd99a71b231738cfd69bec3040c659bd9e7f931",
+      "text": "By touching the mat",
+      "textSha256": "02440e00571fd056081c667357d2fae5e9ec04e162321271d8e4ec109ef8e561",
       "segments": [
-        "In a van"
+        "By touching the mat"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/e022714f0e8354650847.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/32b5daae981c056dff41.mp3",
+      "references": [
+        {
+          "passageId": "cycle-short-25",
+          "sourceId": "cycle-short-25-q2",
+          "role": "question-option",
+          "authoredIndex": 0
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-11-26T03:44:09.630Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "74f73377b5763efe0543291f748718b82aca8c7081806c6c1055fc6dcc491b1d"
+    },
+    {
+      "text": "By watching the sun",
+      "textSha256": "7004118f7d6ebb820b7c6d220ff2216068e3d1c4ac10eb5607982a3a0684b0be",
+      "segments": [
+        "By watching the sun"
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/comprehension/707ebf45892de359e42f.mp3",
       "references": [
         {
           "passageId": "cycle-short-25",
@@ -7814,20 +7873,68 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:21:35.332Z",
+      "generatedAt": "2026-11-26T03:44:09.630Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "0e4f16d3b6e1a8a8284f66b1cc43b2c1ddc878ffc7bb48b753be9fda3429f4fc"
+      "audioSha256": "6d77d6e0d71663fb1846d25620daeb821bf691228642125a6ddb884d09ce9521"
     },
     {
-      "text": "Why did Muddy have a nap in the hut?",
-      "textSha256": "4f36b7cc10f876451f9aa2f82eb79d70ad9da2eb108303bf744e63913b9703c4",
+      "text": "By checking the mud",
+      "textSha256": "3dc1dc36459b6d9675a721ae08abd787b32443229130c3dd60a65bcb796e0714",
       "segments": [
-        "Why did Muddy have a nap in the hut?"
+        "By checking the mud"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/0537b5e4b450b2c9fbc5.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/001feb5425daece63eb8.mp3",
+      "references": [
+        {
+          "passageId": "cycle-short-25",
+          "sourceId": "cycle-short-25-q2",
+          "role": "question-option",
+          "authoredIndex": 2
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-11-26T03:44:09.630Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "5a3733dd92877fec76f1916aca5fc555f14951e1b73f69f5d9bfea0e6d6230d6"
+    },
+    {
+      "text": "By looking inside the hut",
+      "textSha256": "df2a7b24b8d8477f9cd3438d7b1272f3e7fa55dbbf7df14a0bd8369db47ac706",
+      "segments": [
+        "By looking inside the hut"
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/comprehension/70bf72ba4a8d8eea0701.mp3",
+      "references": [
+        {
+          "passageId": "cycle-short-25",
+          "sourceId": "cycle-short-25-q2",
+          "role": "question-option",
+          "authoredIndex": 3
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-11-26T03:44:09.630Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "442794ef137862ee9be8e2734b5822e505fbc8740e6a1f81cf28990e956a7fc5"
+    },
+    {
+      "text": "What made the mat better for a nap than the mud?",
+      "textSha256": "ae773a217716922cdcb53b5a2f816fb7562107534f9e0a90137abf382944121b",
+      "segments": [
+        "What made the mat better for a nap than the mud?"
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/comprehension/53846d5acdb3bdcf1e41.mp3",
       "references": [
         {
           "passageId": "cycle-short-25",
@@ -7837,20 +7944,20 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:21:35.332Z",
+      "generatedAt": "2026-11-26T03:44:09.630Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "1505a5860612a94e6bda90cc8024c118bc737c341a188a4fe5cc8e4932651f62"
+      "audioSha256": "e47a1f81546f0b24b0ff89783efa270ba19e54de2001c4af17694025ce114f91"
     },
     {
-      "text": "The mat was not hot",
-      "textSha256": "f76ff98a91e18a43ccf14148ed88bf8c9fbefcd5c9706ff6bb8d8ffa59b516ae",
+      "text": "It felt cooler than the mud",
+      "textSha256": "2608df7d856126af0e40dee3882a8046d335ad1400c7cefdb53ce6885869f4ea",
       "segments": [
-        "The mat was not hot"
+        "It felt cooler than the mud"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/88c21d300c24dfa350c8.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/87f948c1a28facf9a62d.mp3",
       "references": [
         {
           "passageId": "cycle-short-25",
@@ -7861,20 +7968,20 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:21:35.332Z",
+      "generatedAt": "2026-11-26T03:44:09.630Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "340fddf77b2817fe32ed685bd6757065294cc4a96992c8db19ae68960740c538"
+      "audioSha256": "b43012a79ac63830dc2c09f65592a6a2a311094debaeebe3d04106bd50fb94b1"
     },
     {
-      "text": "The mat was wet",
-      "textSha256": "ca678be94a84df67f6815546c2ef815b6bd4b21332e54bae5a8e88ec31a55bda",
+      "text": "It was warmer",
+      "textSha256": "09541ae41b83a888df47522e5d8654a02d3b8b01f6c8ccf5b2f5ff6820c97a50",
       "segments": [
-        "The mat was wet"
+        "It was warmer"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/dbda808bc4ed9b0d9e97.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/64b206b4044e089ddc15.mp3",
       "references": [
         {
           "passageId": "cycle-short-25",
@@ -7885,20 +7992,20 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:21:35.332Z",
+      "generatedAt": "2026-11-26T03:44:09.630Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "d5709a5a718fe5c9a6a33fc872454d4b0bd6788c24159d66aa713c19c1fa6110"
+      "audioSha256": "71940d3a8501485a64373a8fc2ab0a3d6b32cdf4ff9601e7d0fdf605e668a844"
     },
     {
-      "text": "The hut had a bed",
-      "textSha256": "465da352af65f6647943c9bffb7727cd994e48dba17995f234dc29c7b350af15",
+      "text": "It lay in the sun",
+      "textSha256": "05c14461f20be5dc327f256cc3926a6912e83402b0d799e4265f8401fa53a60f",
       "segments": [
-        "The hut had a bed"
+        "It lay in the sun"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/ea2620ac59605eca2eed.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/0da023b8ceaf37136cd2.mp3",
       "references": [
         {
           "passageId": "cycle-short-25",
@@ -7909,20 +8016,20 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:21:35.332Z",
+      "generatedAt": "2026-11-26T03:44:09.630Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "e5255ebc7dba1b27d977c91f99df12fee596e7ed5db310ed79eeaa53988cd4fe"
+      "audioSha256": "f6c6198e197c4f7eb5264e6c7202accf8571559547e17e4e0e06cfcbcaf01fdb"
     },
     {
-      "text": "The mat was in the sun",
-      "textSha256": "ca154d8d82baa82fb7d84238b16fd5d3aa38505ba67ec8d3eecf39c3cf2afc77",
+      "text": "It felt just like the mud",
+      "textSha256": "34aaa27ce389e2e9db4962292f2afb81c36b4d6097f12dc7df68aaf34bfe3c58",
       "segments": [
-        "The mat was in the sun"
+        "It felt just like the mud"
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/32e66a3e8b4b2ca23744.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/c2023987172a434a449f.mp3",
       "references": [
         {
           "passageId": "cycle-short-25",
@@ -7933,10 +8040,10 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:21:35.332Z",
+      "generatedAt": "2026-11-26T03:44:09.630Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "d91522c270f0bc7c4bd7df6dd43403ccb5a84038f423a67aa31ca85f10f8615b"
+      "audioSha256": "d22daf8cca266e67c88a4735753b0cb524fff8d3f620c7627b3604dfe0b4bb8b"
     },
     {
       "text": "Try My Way\n\n“My hat is stuck by the pond,” says Muddy. “Why not try a stick?” says Splashy. The stick is too short. Muddy finds a longer stick by the barn. This time the stick reaches the hat. Muddy lifts the hat onto the grass.",
@@ -8471,7 +8578,7 @@
       ],
       "recipe": "leda-exact-segments-pause450-tail150-v2",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/cycle-shorts/2778886e826a3c2a41e5.mp3",
+      "audioPath": "/audio/production/en-US/comprehension/2778886e826a3c2a41e5.mp3",
       "references": [
         {
           "passageId": "cycle-short-27",
@@ -8482,10 +8589,10 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-11-01T23:53:13.188Z",
+      "generatedAt": "2026-11-26T03:44:09.636Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "d429fb72d462d43fe2a53b1966ec6af68f35d46909cc5dbd35697d74f2546a3b"
+      "audioSha256": "153b238ff474a0a8f4b4d57acdb92926657584d2a744190680d5d10d89a14a52"
     },
     {
       "text": "No apple",
@@ -9076,6 +9183,138 @@
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
       "audioSha256": "aec4234883ae34a4e81680d9c1746846e9945eaef86c59b8245bf71f6c870ee6"
+    },
+    {
+      "text": "The tin",
+      "textSha256": "98d6455f747c609e57932d4051d98369c7279b8085d0143960fcc1dc2f5192ad",
+      "segments": [
+        "The tin"
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/cycle-shorts/ba96e3820b8f8b2679ab.mp3",
+      "references": [
+        {
+          "passageId": "cycle-short-3",
+          "sourceId": "cycle-short-3-q2",
+          "role": "question-option",
+          "authoredIndex": 0
+        },
+        {
+          "passageId": "cycle-short-4",
+          "sourceId": "cycle-short-4-q3",
+          "role": "question-option",
+          "authoredIndex": 1
+        },
+        {
+          "passageId": "cycle-short-17",
+          "sourceId": "cycle-short-17-q2",
+          "role": "question-option",
+          "authoredIndex": 1
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-11-01T23:53:13.077Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "92d6a41500be8628e5b40899966239336affbc0b7b475b724d9ee5867fb8c45c"
+    },
+    {
+      "text": "The zip",
+      "textSha256": "cfa23713dc28890c5f349f1e43ca0af2c6b90b6ffb6d2d7307f8a5f8450bb074",
+      "segments": [
+        "The zip"
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/cycle-shorts/c8b17f5d438b33f6d605.mp3",
+      "references": [
+        {
+          "passageId": "cycle-short-13",
+          "sourceId": "cycle-short-13-q2",
+          "role": "question-option",
+          "authoredIndex": 0
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-11-01T23:53:13.140Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "8ae09a68b2f9752859daea2d1a04f3b7924ae39daff4ed7fc429e6c2638385ee"
+    },
+    {
+      "text": "The lid",
+      "textSha256": "5e0d25280f6fd620c7b0273e2f1b37fe3a41d5c589c7546324ab0713b7efc575",
+      "segments": [
+        "The lid"
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/cycle-shorts/c9e0dd3d0492ef86a409.mp3",
+      "references": [
+        {
+          "passageId": "cycle-short-17",
+          "sourceId": "cycle-short-17-q2",
+          "role": "question-option",
+          "authoredIndex": 0
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-11-01T23:53:13.147Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "27f39b8aeb3895ee233d9021bf4c226c970da46a769c2a3588a89ea99f1eb096"
+    },
+    {
+      "text": "The pot",
+      "textSha256": "e8362bbf0be69505cdd20ac18e03776a58cf7563dce4012f86b6b736026a29f6",
+      "segments": [
+        "The pot"
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/cycle-shorts/276d2c84f5a2d03b861a.mp3",
+      "references": [
+        {
+          "passageId": "cycle-short-21",
+          "sourceId": "cycle-short-21-q3",
+          "role": "question-option",
+          "authoredIndex": 1
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-11-01T23:53:13.158Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "f88744111570a9f6b1da82df48456f76958577175cdf418aef96608ce4dba018"
+    },
+    {
+      "text": "Two apples",
+      "textSha256": "344f57173af6f4bfb5e7bb84134d4560f4b86ceed23add5b21495af48085522f",
+      "segments": [
+        "Two apples"
+      ],
+      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "tempo": 1,
+      "audioPath": "/audio/production/en-US/cycle-shorts/2778886e826a3c2a41e5.mp3",
+      "references": [
+        {
+          "passageId": "cycle-short-27",
+          "sourceId": "cycle-short-27-q3",
+          "role": "question-option",
+          "authoredIndex": 2
+        }
+      ],
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech v1",
+      "generatedAt": "2026-11-01T23:53:13.188Z",
+      "pauseBetweenSegmentsMs": 450,
+      "finalPaddingMs": 150,
+      "audioSha256": "d429fb72d462d43fe2a53b1966ec6af68f35d46909cc5dbd35697d74f2546a3b"
     }
   ]
 }

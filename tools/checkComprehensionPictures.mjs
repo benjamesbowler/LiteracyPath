@@ -6,12 +6,33 @@ import sharp from 'sharp';
 import {pictureColourStats} from './comprehensionPicturePixels.mjs';
 import {COMPREHENSION_PICTURES as runtimePictures} from '../src/content/comprehension/pictures.js';
 import { COMPREHENSION_PASSAGES } from '../src/content/comprehension/passages.js';
-import { COMPREHENSION_PICTURES } from './authoring/comprehensionPictures.mjs';
+import { COMPREHENSION_PICTURES, runtimePictureMetadata } from './authoring/comprehensionPictures.mjs';
+import { REPAIRED_IMAGE_REVISIONS } from '../src/data/generated/repairedImageRevisions.generated.js';
 
 const ROOT = fileURLToPath(new URL('../', import.meta.url));
 const digest = value => createHash('sha256').update(value).digest('hex');
 const sha256 = value => typeof value === 'string' && /^[a-f0-9]{64}$/.test(value);
 const date = value => typeof value === 'string' && Number.isFinite(Date.parse(value));
+
+export function validatePictureDelivery(row, imageSha256) {
+  const revision = REPAIRED_IMAGE_REVISIONS[row.src];
+  const replacement = row.replacement;
+  if (!revision && !replacement) {
+    return row.imageSha256 === imageSha256 ? [] : ['image byte hash differs from provenance'];
+  }
+  const failures = [];
+  if (!replacement || !revision) return ['replacement history and the reviewed asset registry disagree'];
+  if (!sha256(row.imageSha256) || replacement.inputSha256 !== row.imageSha256 || row.imageSha256 === imageSha256) {
+    failures.push('replacement does not link to the original generated delivery');
+  }
+  if (replacement.imageSha256 !== imageSha256 || !imageSha256.startsWith(revision)) {
+    failures.push('replacement bytes differ from provenance or the reviewed asset registry');
+  }
+  if (!/^[0-9a-f]{40}$/.test(replacement.commit) || !replacement.evidence?.length) {
+    failures.push('missing verifiable replacement source');
+  }
+  return failures;
+}
 
 export function validateComprehensionPicturePlans(passages = COMPREHENSION_PASSAGES, pictures = COMPREHENSION_PICTURES) {
   const failures = [];
@@ -36,7 +57,7 @@ export function validateComprehensionPicturePlans(passages = COMPREHENSION_PASSA
     if (typeof record.alt !== 'string' || record.alt.length < 20) fail('missing overall alternative text');
     if (record.src !== `/images/comprehension/passages/${passage.id}.webp`) fail('incorrect local image path');
     if (record.referencePath !== `/images/worksheets/${passage.character}-colouring.webp`) fail('incorrect Guide reference path');
-    if (typeof record.prompt !== 'string' || !record.prompt.includes(passage.text)) fail('prompt must contain the exact passage');
+    if (typeof record.prompt !== 'string' || !record.prompt.includes(record.generationText ?? passage.text)) fail('prompt must contain the exact text used to generate the illustration');
     if (/IDENTITY UNRESOLVED/.test(record.prompt)) fail('Guide identity remains unresolved');
     if (prompts.has(record.prompt)) fail('prompt duplicates another assignment');
     prompts.add(record.prompt);
@@ -64,9 +85,9 @@ export async function checkComprehensionPictures({ root = ROOT, passages = COMPR
   for (const passage of passages) {
     const record = pictures[passage.id];
     if (!record) continue;
-    if(pictures===COMPREHENSION_PICTURES){const metadata={...record};delete metadata.prompt;if(JSON.stringify(runtimePictures[passage.id])!==JSON.stringify(metadata))fail('generated runtime picture metadata differs from authoring');}
-    output[record.kind === 'comic' ? 'comics' : 'scenes']++;
     const fail = message => failures.push(`${passage.id}: ${message}`);
+    if(pictures===COMPREHENSION_PICTURES){const metadata=runtimePictureMetadata(record);if(JSON.stringify(runtimePictures[passage.id])!==JSON.stringify(metadata))fail('generated runtime picture metadata differs from authoring');}
+    output[record.kind === 'comic' ? 'comics' : 'scenes']++;
     let reference;
     try {
       reference = await fs.readFile(path.join(root,'public',record.referencePath));
@@ -84,8 +105,16 @@ export async function checkComprehensionPictures({ root = ROOT, passages = COMPR
       if (metadata.format !== 'webp' || metadata.width < 1024 || metadata.height < 512) fail('expected a real WebP raster of at least 1024×512');
       if (record.kind === 'comic' && metadata.width / metadata.height < 2) fail('three-panel comic must be a wide left-to-right composition');
       if (row) {
-        if (row.src !== record.src || row.textSha256 !== record.textSha256) fail('provenance source differs from the current story');
-        if (row.imageSha256 !== digest(bytes)) fail('image byte hash differs from provenance');
+        const imageSha256 = digest(bytes);
+        if (row.src !== record.src || row.textSha256 !== digest(record.generationText ?? record.sourceText)) fail('source used for generation differs from provenance');
+        if (record.generationText !== undefined) {
+          const review = row.editorialReview;
+          if (review?.textSha256 !== record.textSha256 || review?.imageSha256 !== imageSha256 ||
+              !date(review?.reviewedAt) || !(review?.notes?.trim().length >= 25)) {
+            fail('reused illustration lacks review for these exact words and image bytes');
+          }
+        }
+        for (const error of validatePictureDelivery(row, imageSha256)) fail(error);
         if (row.promptSha256 !== digest(record.prompt) || row.prompt !== record.prompt) fail('generation prompt differs from the authored plan');
         if (!reference || row.referenceSha256 !== digest(reference)) fail('Guide reference hash differs from provenance');
         if (row.width !== metadata.width || row.height !== metadata.height) fail('provenance dimensions differ from decoded image');

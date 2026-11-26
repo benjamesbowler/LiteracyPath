@@ -24,6 +24,22 @@ test('172 original complete passages have exact supported questions and phonics 
   assert.equal(passageById('missing'), null);
 });
 
+test('the editorial edition keeps old practice separate and supplies an oral task for every passage', () => {
+  const p = COMPREHENSION_PASSAGES[0];
+  const oldPassage = { ...p, practiceEdition: undefined };
+  const values = new Map();
+  const storage = { getItem: key => values.get(key), setItem: (key, value) => values.set(key, value) };
+  const old = reducePractice(oldPassage, initialPractice(oldPassage, 'old-edition'), {
+    type: 'answer', questionId: p.questions[0].id, value: p.questions[0].answer
+  });
+  savePractice(storage, 'reader', oldPassage, old);
+  const fresh = readPractice(storage, 'reader', p);
+  assert.deepEqual(fresh.responses, {});
+  assert.deepEqual(readPractice(storage, 'reader', oldPassage), old);
+  assert.equal(new Set(COMPREHENSION_PASSAGES.map(passage => passage.discussion)).size, 172);
+  assert.ok(COMPREHENSION_PASSAGES.every(passage => passage.discussion?.trim() && passage.practiceEdition));
+});
+
 test('a first response stays immutable through supported retry and completion', () => {
   const p = COMPREHENSION_PASSAGES[0]; let s = initialPractice(p);
   const q = p.questions[0]; const wrong = q.options.find(a => a !== q.answer);
