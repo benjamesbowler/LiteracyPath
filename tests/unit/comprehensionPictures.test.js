@@ -4,7 +4,7 @@ import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { COMPREHENSION_PASSAGES } from '../../src/content/comprehension/passages.js';
 import { COMPREHENSION_PICTURES, passagePicture } from '../../src/content/comprehension/pictures.js';
-import { validateComprehensionPicturePlans, checkComprehensionPictures } from '../../tools/checkComprehensionPictures.mjs';
+import { validateComprehensionPicturePlans, validatePictureDelivery, checkComprehensionPictures } from '../../tools/checkComprehensionPictures.mjs';
 
 import { COMPREHENSION_PICTURES as AUTHORING } from '../../tools/authoring/comprehensionPictures.mjs';
 
@@ -29,9 +29,9 @@ test('all 172 exact passages have independently authored, stable picture records
       assert.ok(!scenes.has(panel.scene),`duplicated scene: ${passage.id}`);
       scenes.add(panel.scene);
     }
-    assert.ok(AUTHORING[passage.id].prompt.includes(passage.text));
+    assert.ok(AUTHORING[passage.id].prompt.includes(AUTHORING[passage.id].generationText ?? passage.text));
     assert.equal(picture.prompt,undefined);
-    const metadata={...AUTHORING[passage.id]};delete metadata.prompt;
+    const metadata={...AUTHORING[passage.id]};delete metadata.prompt;delete metadata.generationText;
     assert.deepEqual(picture,metadata);
     assert.ok(picture.alt.length > 20);
   }
@@ -40,7 +40,7 @@ test('all 172 exact passages have independently authored, stable picture records
 test('a changed or unknown passage never inherits stale picture support', () => {
   const passage = COMPREHENSION_PASSAGES[0];
   assert.equal(passagePicture({...passage,text:`${passage.text} `}),null);
-  assert.equal(passagePicture({...passage,text:passage.text.replace('mud.','sand.')}),null);
+  assert.equal(passagePicture({...passage,text:passage.text.slice(1)}),null);
   assert.equal(passagePicture({...passage,id:'missing-passage'}),null);
   assert.equal(passagePicture({id:'toString',text:'anything'}),null);
   for (const value of [null,undefined,{},'muddy-mat',{id:passage.id}]) assert.equal(passagePicture(value),null);
@@ -71,6 +71,17 @@ test('plan gate catches stale hashes, missing coverage, invalid panels and paths
   assert.match(failures,/incorrect local image path/);
   assert.match(failures,/orphan picture plan/);
   assert.match(validateComprehensionPicturePlans([passage],{}).join(),/missing picture plan/);
+});
+
+test('reviewed replacement bytes retain the original generation and a verifiable delivery', () => {
+  const { images } = JSON.parse(readFileSync(new URL('../../docs/content/comprehension-images/provenance.json', import.meta.url)));
+  const row = images.find(image => image.id === 'fluff-blue');
+  const published = row.replacement.imageSha256;
+  assert.deepEqual(validatePictureDelivery(row, published), []);
+  assert.ok(validatePictureDelivery(row, row.imageSha256).length);
+  assert.ok(validatePictureDelivery({...row, replacement: undefined}, published).length);
+  assert.ok(validatePictureDelivery({...row, imageSha256: published}, published).length);
+  assert.ok(validatePictureDelivery({...row, replacement: {...row.replacement, commit: ''}}, published).length);
 });
 
 test('normal asset gate fails on absent real raster/provenance; planning mode cannot claim decoded images', async () => {

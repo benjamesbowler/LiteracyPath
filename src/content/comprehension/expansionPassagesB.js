@@ -1,5 +1,4 @@
-// Original K–3/ESL comprehension expansion: 25 silent-e and 25 vowel-team stories.
-// Each question has one supported answer, three distractors and exact sentence indices.
+// Fifty original silent-e and vowel-team stories. Evidence indices refer to complete sentences.
 export const EXPANSION_DRAFTS_B = [
   [
     "pip-covered-plate",
@@ -11,48 +10,49 @@ export const EXPANSION_DRAFTS_B = [
       "plate",
       "safe"
     ],
-    "Pip puts grapes on a plate for a picnic. Ants walk towards the grapes. Pip puts a mesh cover over the plate. Air can go through the cover, but ants cannot. The grapes stay safe under the cover. Pip takes the plate to the picnic table.",
+    "Ants were heading straight for Pip’s picnic plate. The grapes were still on it. Pip lowered a mesh cover over them. Air could pass through the tiny holes. The ants stayed outside. Pip carried the grapes to the picnic table, safe under the cover.",
     [
       [
-        "What is on the plate?",
-        "Grapes",
+        "What can still pass through the cover?",
+        "Air",
         [
-          "Nuts",
-          "Crackers",
-          "Apple slices"
+          "Ants",
+          "Grapes",
+          "The plate"
         ],
         [
-          0
-        ]
-      ],
-      [
-        "What walks towards the grapes?",
-        "Ants",
-        [
-          "Bees",
-          "Ducks",
-          "Snails"
-        ],
-        [
-          1
-        ]
-      ],
-      [
-        "Why does Pip put a cover over the plate?",
-        "To keep ants off the grapes",
-        [
-          "To warm the grapes",
-          "To dry the plate",
-          "To hide a broken plate"
-        ],
-        [
-          1,
           2,
-          3
+          3,
+          4
+        ]
+      ],
+      [
+        "What happens to the ants after Pip lowers the cover?",
+        "They stay outside",
+        [
+          "They slip through the mesh",
+          "They reach the grapes underneath",
+          "They hide inside the cover"
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      [
+        "Which happened last?",
+        "Pip carried the plate",
+        [
+          "Pip spotted the ants",
+          "Pip lowered the cover",
+          "The ants headed for the plate"
+        ],
+        [
+          5
         ]
       ]
     ],
-    "Draw the covered plate on the picnic table. Write plate and grapes."
+    "Draw the picnic plate. Show what can get through the cover. Write one label."
   ],
   [
     "fluff-paper-plane",
@@ -64,46 +64,49 @@ export const EXPANSION_DRAFTS_B = [
       "plane",
       "tape"
     ],
-    "Fluff folds a paper plane. One wing has a rip. The plane falls close to Fluff. Fluff puts tape over the rip and smooths it down. Both wings are flat now. Fluff throws the plane again. It flies over the mat and lands beside a chair.",
+    "Fluff folded a paper plane and gave it a throw. It landed right at Fluff’s feet. Then Fluff spotted a rip in one wing. Fluff smoothed tape over the rip until both wings lay flat. The next throw sent the plane over the mat. It landed by a chair.",
     [
       [
-        "What is wrong with one wing?",
-        "It has a rip",
+        "When did Fluff find the rip?",
+        "After the first throw",
         [
-          "It is wet",
-          "It has no fold",
-          "It is missing"
+          "After the second throw",
+          "While smoothing the tape",
+          "Before folding the plane"
         ],
         [
-          1
+          1,
+          2
         ]
       ],
       [
-        "What does Fluff put over the rip?",
-        "Tape",
+        "What did Fluff do to the wing?",
+        "Covered the tear with tape",
         [
-          "Paint",
-          "Glue",
-          "String"
+          "Folded the tip back",
+          "Cut the wing shorter",
+          "Taped both wings together"
         ],
         [
+          2,
           3
         ]
       ],
       [
-        "Where does the plane land at the end?",
-        "Beside a chair",
+        "Where did the second throw land?",
+        "Beyond the mat",
         [
-          "Under a bed",
-          "In a box",
-          "On a shelf"
+          "At Fluff’s feet",
+          "On the mat",
+          "Short of the mat"
         ],
         [
-          6
+          4,
+          5
         ]
       ]
     ],
-    "Draw the plane beside the chair. Write plane and wing."
+    "Draw the two places the plane landed. Write first by one of them."
   ],
   [
     "chips-art-space",
@@ -116,39 +119,39 @@ export const EXPANSION_DRAFTS_B = [
       "made",
       "place"
     ],
-    "Chips made a picture of a duck. The shelf has no space for it. A tall vase stands in the middle. Chips moves the vase to another shelf. Now there is a place for the picture. Chips puts the picture where everyone can see the duck.",
+    "“Look at my duck,” said Chips, holding up a picture. Chips had made it for the shelf, but a vase stood there. There was no space beside it. Chips carried the vase to another shelf. Now there was a place for the duck. Chips set the picture there.",
     [
       [
-        "What is in the picture?",
+        "What does Chips want people to see in the picture?",
         "A duck",
         [
-          "A cat",
-          "A frog",
-          "A horse"
+          "A tall vase",
+          "Two shelves",
+          "Chips holding a vase"
         ],
         [
           0
         ]
       ],
       [
-        "What is in the middle of the shelf?",
-        "A tall vase",
+        "Where does the vase end up?",
+        "On a different shelf",
         [
-          "A clock",
-          "A basket",
-          "A toy truck"
+          "Beside the picture",
+          "Behind the picture",
+          "In front of the duck"
         ],
         [
-          2
+          3
         ]
       ],
       [
-        "How does Chips make space for the picture?",
-        "Moves the vase",
+        "Which place does the picture get?",
+        "The spot the vase left",
         [
-          "Cuts the picture",
-          "Adds another shelf",
-          "Takes down the shelf"
+          "The shelf the vase moved to",
+          "The space behind the vase",
+          "The spot beside the vase"
         ],
         [
           3,
@@ -156,7 +159,7 @@ export const EXPANSION_DRAFTS_B = [
         ]
       ]
     ],
-    "Draw the duck picture on the shelf. Write picture and shelf."
+    "Draw the shelf before or after Chips moves the vase. Write before or after."
   ],
   [
     "muddy-picnic-shade",
@@ -169,48 +172,48 @@ export const EXPANSION_DRAFTS_B = [
       "lake",
       "takes"
     ],
-    "Muddy takes lunch to the lake. The bench is in the hot sun. Muddy sees shade under a large tree. Muddy spreads a mat under the tree. The lunch bag goes on the mat. Muddy sits in the shade and eats beside the lake.",
+    "Muddy takes lunch down to the lake. The sun is hot on the bench. A large tree shades a patch of grass. Muddy spreads a mat there and sets the bag on it. Lunch by the lake tastes good in the cool shade.",
     [
       [
-        "Where does Muddy take lunch?",
-        "To the lake",
+        "Which place is in the sun?",
+        "The bench without shade",
         [
-          "To a shop",
-          "To a farm",
-          "To a station"
+          "The mat under the tree",
+          "The grass in the shade",
+          "The spot under the bag"
         ],
         [
-          0
+          1
         ]
       ],
       [
-        "Why does Muddy leave the bench?",
-        "It is in the hot sun",
+        "Where does Muddy spread the mat?",
+        "Under the tree",
         [
-          "It is broken",
-          "It is wet",
-          "It is covered in snow"
+          "Across the bench",
+          "Beside the bench in the sun",
+          "Right on top of the lunch bag"
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      [
+        "Why does Muddy choose this lunch spot?",
+        "It is cooler there",
+        [
+          "The bench is already full",
+          "The ground there is hotter",
+          "The lunch bag is already there"
         ],
         [
           1,
-          2
-        ]
-      ],
-      [
-        "Where does Muddy put the lunch bag?",
-        "On the mat",
-        [
-          "On the bench",
-          "Under a rock",
-          "Inside the tree"
-        ],
-        [
-          3,
           4
         ]
       ]
     ],
-    "Draw Muddy having lunch under the tree. Write shade and mat."
+    "Draw the place Muddy chose for lunch. Write a word that tells how it feels."
   ],
   [
     "socks-missing-game-piece",
@@ -223,46 +226,47 @@ export const EXPANSION_DRAFTS_B = [
       "same",
       "shape"
     ],
-    "Socks opens a game on the table. One round piece is missing. Socks looks inside the game box. A round piece is stuck under the lid. It is the same shape as the other pieces. Socks takes it out and puts it on the board.",
+    "Socks spread a game out on the table. There should have been one more round piece. Socks looked in the box, then turned the lid over. A piece was stuck underneath! It was the same shape as the pieces on the board. Socks lifted it off and put it with the others.",
     [
       [
-        "What shape is the missing piece?",
-        "Round",
+        "What is missing as Socks sets up?",
+        "One round piece",
         [
-          "Square",
-          "Triangle",
-          "Star"
+          "The game board",
+          "The box lid",
+          "Every round piece"
         ],
         [
           1
         ]
       ],
       [
-        "Where is the piece stuck?",
-        "Under the lid",
+        "Which part does Socks turn over?",
+        "The lid",
         [
-          "Under a chair",
-          "Inside a cup",
-          "Behind the door"
+          "The board",
+          "The table",
+          "The piece"
         ],
         [
-          3
+          2
         ]
       ],
       [
-        "What does Socks do after finding the piece?",
-        "Puts it on the board",
+        "Which clue tells Socks where to put the piece?",
+        "Its shape matches the pieces on the board",
         [
-          "Shuts the empty box",
-          "Draws a new piece",
-          "Moves the table"
+          "It is stuck to the lid",
+          "It comes off in one piece",
+          "It fits inside the game box"
         ],
         [
-          5
+          3,
+          4
         ]
       ]
     ],
-    "Draw the round pieces on the game board. Write game and piece."
+    "Draw a clue to where Socks found the piece. Write lid or board to label your clue."
   ],
   [
     "chompy-table-wobble",
@@ -275,48 +279,48 @@ export const EXPANSION_DRAFTS_B = [
       "place",
       "safe"
     ],
-    "Chompy puts a plate of crackers on a table. The plate is very close to the edge. Chompy reaches for a cracker, and the plate starts to tip. An adult holds the plate before it falls. Chompy moves it to a place in the middle. Now the plate is safe, with space around it.",
+    "A plate of crackers sat near the edge of the table. Chompy reached for one. The plate began to tip. An adult caught it before any crackers fell. Chompy found a better place for the plate, in the middle. There was space all around it. The crackers were safe there.",
     [
       [
-        "What is on the plate?",
-        "Crackers",
+        "What is Chompy trying to get when the plate tips?",
+        "A cracker",
         [
-          "Grapes",
-          "Cake",
-          "Toast"
+          "The whole plate",
+          "A place at the table",
+          "Another plate"
         ],
         [
-          0
-        ]
-      ],
-      [
-        "Where is the plate at first?",
-        "Close to the edge",
-        [
-          "In the middle",
-          "Under the table",
-          "On the floor"
-        ],
-        [
+          0,
           1
         ]
       ],
       [
-        "Why does Chompy move the plate to the middle?",
-        "It starts to tip at the edge",
+        "Who catches the plate?",
+        "An adult",
         [
-          "The crackers are too hot",
-          "The table is wet",
-          "The plate has a crack"
+          "Chompy",
+          "A friend beside Chompy",
+          "Two friends together"
         ],
         [
-          1,
-          2,
-          4
+          3
+        ]
+      ],
+      [
+        "Where does Chompy leave the crackers?",
+        "In the middle of the table",
+        [
+          "At the edge of the table",
+          "In the adult’s hands",
+          "On the floor beside the table"
+        ],
+        [
+          4,
+          6
         ]
       ]
     ],
-    "Draw the plate of crackers in the middle of the table. Write plate and table."
+    "Draw the table from above. Mark two places for the plate. Write safe by one."
   ],
   [
     "pip-safe-candle",
@@ -329,15 +333,15 @@ export const EXPANSION_DRAFTS_B = [
       "safe",
       "take"
     ],
-    "Pip wants to make a paper lantern. Pip cuts shapes in paper and folds it. An adult brings a small lamp with a battery. It has no hot flame. Pip puts the safe lamp inside the lantern. They take the lantern outside to see the shapes shine.",
+    "Pip cut shapes in a sheet of paper. A few folds would make it into a lantern. An adult brought a little lamp with a battery. There was no hot flame, so the lamp was safe inside. “Let’s take it outside,” said Pip, picking up the glowing lantern. Light shone through the paper shapes.",
     [
       [
-        "What does Pip make from paper?",
-        "A lantern",
+        "What becomes the outside of the lantern?",
+        "The folded paper",
         [
-          "A crown",
-          "A boat",
-          "A fan"
+          "The little lamp",
+          "The battery",
+          "The light"
         ],
         [
           0,
@@ -345,32 +349,32 @@ export const EXPANSION_DRAFTS_B = [
         ]
       ],
       [
-        "What powers the small lamp?",
-        "A battery",
+        "What do they take outside?",
+        "The lantern with the lamp inside",
         [
-          "A candle",
-          "Wind",
-          "Water"
-        ],
-        [
-          2
-        ]
-      ],
-      [
-        "Why is this lamp safe in the paper lantern?",
-        "It has no hot flame",
-        [
-          "It is made of paper",
-          "It has a long cord",
-          "It is full of water"
+          "The lantern before it is folded",
+          "The lamp before it is inside",
+          "The battery without the lamp"
         ],
         [
           3,
           4
         ]
+      ],
+      [
+        "What makes the lamp a safe choice here?",
+        "It lights up without a hot flame",
+        [
+          "It only lights up outdoors",
+          "It keeps the paper damp",
+          "It keeps the shapes covered"
+        ],
+        [
+          3
+        ]
       ]
     ],
-    "Draw the lamp inside the paper lantern. Write lamp and paper."
+    "Draw the lantern in the dark. Write light where the light comes through."
   ],
   [
     "fluff-birthday-cake",
@@ -383,46 +387,49 @@ export const EXPANSION_DRAFTS_B = [
       "same",
       "plate"
     ],
-    "Fluff has a cake and four small plates. Four friends come to the table. Fluff cuts the cake into four pieces of the same size. One piece goes on each plate. Fluff gives a plate to each friend. No cake is left on the big tray.",
+    "Four friends came for cake. Fluff set out four small plates beside the big tray. Each piece of cake had to be the same size. Fluff cut four pieces and put one on each plate. When the last friend got a plate, the tray was empty.",
     [
       [
-        "How many friends come to the table?",
-        "Four",
+        "How many pieces did one friend get?",
+        "One",
         [
           "Two",
           "Three",
-          "Five"
+          "Four"
         ],
         [
-          1
+          3,
+          4
         ]
       ],
       [
-        "How are the cake pieces alike?",
-        "They are the same size",
+        "How does Fluff share the cake fairly?",
+        "Cuts equal pieces",
         [
-          "They are all round",
-          "They have no icing",
-          "They are in bags"
+          "Saves the biggest piece for last",
+          "Makes the first plate fuller",
+          "Lets two friends share one piece"
         ],
         [
-          2
-        ]
-      ],
-      [
-        "Where does Fluff put each piece?",
-        "On a small plate",
-        [
-          "In a cup",
-          "In a paper bag",
-          "On a napkin"
-        ],
-        [
+          2,
           3
+        ]
+      ],
+      [
+        "Where is the cake at the end?",
+        "On the four plates",
+        [
+          "On the big tray",
+          "On just two plates",
+          "On the tray and one plate"
+        ],
+        [
+          3,
+          4
         ]
       ]
     ],
-    "Draw the four plates with cake. Write cake and four."
+    "Draw the plates after Fluff shares the cake. Write how many friends can eat."
   ],
   [
     "chips-long-ribbon",
@@ -435,49 +442,48 @@ export const EXPANSION_DRAFTS_B = [
       "size",
       "five"
     ],
-    "Chips needs a ribbon for a gift. A short ribbon cannot go around the box. Chips puts a long ribbon beside a ruler. Chips cuts it at the line marked five. This ribbon is the right size. Chips ties it around the box with a bow.",
+    "The short ribbon would not go round the little gift box. Chips laid a longer ribbon beside a ruler. Chips found the line for five inches. Chips cut there and tried the ribbon round the box. It was the right size, and Chips tied a bow.",
     [
       [
-        "What needs a ribbon?",
-        "A gift box",
+        "What is wrong with the first ribbon?",
+        "Its ends cannot meet",
         [
-          "A hat",
-          "A kite",
-          "A basket"
+          "Its ends reach too far",
+          "It is tied around the ruler",
+          "It is cut into five pieces"
         ],
         [
-          0,
-          1
+          0
         ]
       ],
       [
-        "What does Chips put beside the ribbon?",
-        "A ruler",
+        "Where does Chips cut?",
+        "At the mark on the ruler",
         [
-          "A brush",
-          "A spoon",
-          "A leaf"
+          "At the corner of the box",
+          "At the middle of the bow",
+          "At the end of the short ribbon"
         ],
         [
-          2
+          2,
+          3
         ]
       ],
       [
-        "Why does Chips use the longer ribbon?",
-        "The short ribbon won't fit",
+        "How does Chips know the second ribbon works?",
+        "It goes round and ties",
         [
-          "The short ribbon is wet",
-          "The box has no lid",
-          "The ruler is broken"
+          "It lies along the ruler",
+          "It is shorter than the first",
+          "It leaves the box open"
         ],
         [
-          1,
-          2
-        ],
-        { "The short ribbon cannot go around the box": "The short ribbon won't fit" }
+          3,
+          4
+        ]
       ]
     ],
-    "Draw the ribbon around the gift box. Write ribbon and box."
+    "Draw how the ribbons would look around the box. Write short by one."
   ],
   [
     "muddy-ice-tray",
@@ -490,49 +496,47 @@ export const EXPANSION_DRAFTS_B = [
       "inside",
       "time"
     ],
-    "Muddy fills a tray with water. Muddy puts the tray inside the freezer. After some time, the water becomes ice. Muddy bends the tray, but one piece stays inside. Warm water runs over the bottom of the tray. The last piece of ice comes out.",
+    "Muddy put a tray of water inside the freezer. After some time the water turned to ice. Muddy bent the tray. All but one piece fell out. A little warm water ran over the bottom of the tray. The last piece dropped out too.",
     [
       [
-        "What does Muddy put in the freezer?",
-        "A tray of water",
+        "What goes inside the freezer first?",
+        "Water in a tray",
         [
-          "A bowl of soup",
-          "A bag of grapes",
-          "A cup of milk"
+          "Ice in a tray",
+          "A tray with one piece left",
+          "A tray with warm water underneath"
         ],
         [
-          0,
-          1
+          0
         ]
       ],
       [
-        "What does the water become?",
-        "Ice",
+        "When Muddy bends the tray, what stays behind?",
+        "One piece of ice",
         [
-          "Steam",
-          "Juice",
-          "Snow"
+          "All the ice",
+          "Only warm water",
+          "The whole tray of water"
         ],
         [
-          2
+          2,
+          3
         ]
       ],
       [
-        "How does Muddy free the last piece?",
-        "Runs warm water over the tray bottom",
+        "Where does the warm water go?",
+        "Under the tray",
         [
-          "Hits the tray with a spoon",
-          "Adds cold water inside",
-          "Puts the tray in a bag"
+          "Into the full tray",
+          "Inside the freezer",
+          "Onto the loose pieces"
         ],
         [
-          3,
-          4,
-          5
+          4
         ]
       ]
     ],
-    "Draw the ice coming out of the tray. Write ice and tray."
+    "Draw the tray just after Muddy bends it. Write how many pieces are still inside."
   ],
   [
     "socks-bike-basket",
@@ -545,40 +549,39 @@ export const EXPANSION_DRAFTS_B = [
       "ride",
       "side"
     ],
-    "Socks puts books in a basket on the bike. All the books lean to one side. The basket tilts as Socks holds the bike still. Socks moves some books to the other side. Now the basket is level. Socks can ride with the books held safely inside.",
+    "Socks held the bike still and filled the basket with books. All the books leaned to one side. So did the basket. Socks moved a few books across until the basket was level. Now Socks could ride with the books inside.",
     [
       [
-        "What does Socks put in the basket?",
-        "Books",
+        "How are the books packed at first?",
+        "Together on one side",
         [
-          "Balls",
-          "Flowers",
-          "Toys"
+          "Evenly on both sides",
+          "In two baskets",
+          "One on the seat and one in the basket"
         ],
         [
-          0
+          1
         ]
       ],
       [
-        "Why does the basket tilt?",
-        "The books lean to one side",
+        "How does Socks change the load?",
+        "Moves a few books across",
         [
-          "The basket has a hole",
-          "A wheel is flat",
-          "The books are wet"
+          "Moves all the books across",
+          "Takes all the books out",
+          "Puts more books on one side"
         ],
         [
-          1,
-          2
+          3
         ]
       ],
       [
-        "What does Socks do to level the basket?",
-        "Moves some books to the other side",
+        "When is Socks ready to ride?",
+        "Once the basket sits level",
         [
-          "Takes off the basket",
-          "Adds a heavy stone",
-          "Ties the books to the seat"
+          "While the basket still leans",
+          "Before the books go inside",
+          "Before moving any books"
         ],
         [
           3,
@@ -586,7 +589,7 @@ export const EXPANSION_DRAFTS_B = [
         ]
       ]
     ],
-    "Draw the books spread across the bike basket. Write bike and books."
+    "Draw the books as Socks first packs them. Write where some should go next."
   ],
   [
     "chompy-hideout",
@@ -599,48 +602,47 @@ export const EXPANSION_DRAFTS_B = [
       "wide",
       "time"
     ],
-    "Chompy hangs a sheet over two chairs. There is a wide space inside for reading. Chompy puts a cushion and a book on the floor. It is too dark to see the words. Chompy lifts one side of the sheet. Now light comes in for reading time.",
+    "A sheet hung over two chairs. Chompy crawled inside with a book and a cushion. The space was wide enough to sit down. But how could Chompy read in the dark? Chompy lifted one side of the sheet. Light came in. It was reading time.",
     [
       [
-        "What holds up the sheet?",
-        "Two chairs",
+        "What makes the roof over Chompy?",
+        "The sheet",
         [
-          "Two boxes",
-          "A tree branch",
-          "A table"
+          "The cushion",
+          "The book",
+          "The seat of one chair"
         ],
         [
           0
         ]
       ],
       [
-        "What goes on the floor inside?",
-        "A cushion and a book",
+        "What is the problem inside the hideout?",
+        "The page is hard to see",
         [
-          "A pillow and a cup",
-          "A bag and a lamp",
-          "A rug and a toy"
+          "The book is too wide",
+          "The cushion does not fit",
+          "The sheet falls off the chairs"
         ],
         [
-          2
+          3
         ]
       ],
       [
-        "Why does Chompy lift one side of the sheet?",
-        "To let light in",
+        "Which change lets Chompy read?",
+        "Lifting the side of the sheet",
         [
-          "To take the chairs away",
-          "To wash the sheet",
-          "To hide the book"
+          "Pushing the chairs together",
+          "Moving the cushion under the book",
+          "Closing both sides of the sheet"
         ],
         [
-          3,
           4,
           5
         ]
       ]
     ],
-    "Draw the reading tent with one side open. Write tent and book."
+    "Draw one thing Chompy changes. Write how it helps with reading."
   ],
   [
     "pip-striped-socks",
@@ -653,52 +655,54 @@ export const EXPANSION_DRAFTS_B = [
       "stripe",
       "inside"
     ],
-    "Pip finds five socks inside a washing basket. Two have a red stripe. Two have a blue stripe. One is plain white. Pip puts the matching socks in pairs. The white sock has no partner. Pip finds its partner still hanging on the washing line.",
+    "Inside the basket Pip found five socks. Two had a red stripe and two had a blue stripe. Pip set those pairs together. One plain white sock was left. Its partner was still on the washing line. Now even the white sock had a match.",
     [
       [
-        "How many socks are in the basket?",
-        "Five",
+        "Which socks does Pip pair first?",
+        "The ones with stripes",
         [
-          "Four",
-          "Six",
-          "Seven"
+          "The two white socks",
+          "The ones on the line",
+          "One white and one striped sock"
         ],
         [
-          0
+          1,
+          2
         ]
       ],
       [
-        "Which sock has no partner at first?",
-        "The plain white sock",
+        "How many matching pairs could Pip make before going to the line?",
+        "Two",
         [
-          "A red striped sock",
-          "A blue striped sock",
-          "A green striped sock"
+          "One",
+          "None",
+          "Three"
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      [
+        "Where does Pip find the second white sock?",
+        "On the line",
+        [
+          "In the basket",
+          "Beside the red pair",
+          "Beside the blue pair"
         ],
         [
           3,
-          4,
-          5
-        ]
-      ],
-      [
-        "Where is the missing partner?",
-        "On the washing line",
-        [
-          "Under the basket",
-          "Inside a shoe",
-          "On the bed"
-        ],
-        [
-          6
+          4
         ]
       ]
     ],
-    "Draw the three matching pairs of socks. Write socks and pairs."
+    "Draw the five socks in the basket. Write the colour of the one that needs a partner."
   ],
   [
     "fluff-garden-slide",
-    "Fluff Moves a Toy Slide",
+    "The Car’s Second Run",
     "silent",
     "i-e",
     "fluff",
@@ -707,49 +711,47 @@ export const EXPANSION_DRAFTS_B = [
       "side",
       "wide"
     ],
-    "Fluff puts a toy slide in the sand tray. A block stands at the bottom. A toy car hits the block and stops. Fluff moves the block to one side. The car goes down the slide again. Now it rolls into a wide space in the sand.",
+    "Fluff sent a toy car down a slide in the sand tray. At the bottom the car hit a block and stopped. Fluff slid the block to one side. Down went the car again. This time it rolled into a wide patch of sand.",
     [
       [
-        "What goes down the toy slide?",
-        "A toy car",
+        "What stops the car on its first run?",
+        "A block below the slide",
         [
-          "A marble",
-          "A toy bus",
-          "A wooden ball"
+          "Sand inside the tray",
+          "The edge of the tray",
+          "A bump on the slide"
+        ],
+        [
+          1
+        ]
+      ],
+      [
+        "Where does Fluff put the block for the next run?",
+        "Beside the car’s path",
+        [
+          "Back across the car’s path",
+          "At the top of the slide",
+          "Under the wheels"
         ],
         [
           2
         ]
       ],
       [
-        "What stops the car at first?",
-        "A block",
+        "Which run takes the car past the bottom of the slide?",
+        "Only the second run",
         [
-          "A spoon",
-          "A shell",
-          "A stick"
+          "Only the first run",
+          "Both runs",
+          "Neither run"
         ],
         [
           1,
-          2
-        ]
-      ],
-      [
-        "What changes after Fluff moves the block?",
-        "The car rolls into the sand",
-        [
-          "The slide falls over",
-          "The car breaks",
-          "The tray fills with water"
-        ],
-        [
-          3,
-          4,
-          5
+          4
         ]
       ]
     ],
-    "Draw the car in the sand below the slide. Write car and slide."
+    "Draw the two paths the car takes. Write stop where the first one ends."
   ],
   [
     "chips-white-chalk",
@@ -762,48 +764,48 @@ export const EXPANSION_DRAFTS_B = [
       "line",
       "wipe"
     ],
-    "Chips draws a line on a black board. The dark chalk is hard to see. Chips finds white chalk in a box. The white line is easy to see on the board. Chips uses a cloth to wipe away the dark line. Then Chips draws a white star.",
+    "The first line nearly disappeared against the black board. Chips had used dark chalk. In the box was a piece of white chalk. Its line stood out. Chips used a cloth to wipe off the dark mark. Then a bright white star took its place.",
     [
       [
-        "What colour is the board?",
-        "Black",
+        "Why is the first mark hard to see?",
+        "Both chalk and board are dark",
         [
-          "White",
-          "Yellow",
-          "Pink"
+          "Both chalk and board are white",
+          "The cloth covers the mark",
+          "The box covers the board"
         ],
         [
-          0
+          0,
+          1
         ]
       ],
       [
-        "Why does Chips choose white chalk?",
-        "Its marks are easy to see",
+        "Which mark does Chips rub away?",
+        "The dark line",
         [
-          "It feels softer",
-          "It has no dust",
-          "The dark chalk is lost"
+          "The white line",
+          "The white star",
+          "Both lines"
         ],
         [
-          1,
-          2,
-          3
+          4
         ]
       ],
       [
-        "What does Chips draw at the end?",
-        "A star",
+        "Which drawing is on the board at the end?",
+        "A white star",
         [
-          "A house",
-          "A flower",
-          "A boat"
+          "A dark star",
+          "Only a dark line",
+          "A star made with both colours"
         ],
         [
+          4,
           5
         ]
       ]
     ],
-    "Draw the white star on the board. Write chalk and star."
+    "Draw two marks as they might look on the board. Write which is easier to see."
   ],
   [
     "muddy-cone-stack",
@@ -816,47 +818,49 @@ export const EXPANSION_DRAFTS_B = [
       "stones",
       "close"
     ],
-    "Muddy rolls paper into a cone. The cone falls over on the table. Muddy puts small stones around its bottom edge. The stones hold the cone upright. Muddy puts another cone close by. Now the cones stand like mountains in a small toy world.",
+    "Muddy rolled paper into a cone for a toy mountain. It kept falling over on the table. Muddy set little stones around its bottom edge. The cone stood upright. Another cone went close beside it. Now Muddy had two mountains to play with.",
     [
       [
-        "What is the cone made from?",
-        "Paper",
+        "What happens before Muddy brings the stones?",
+        "The cone falls over",
         [
-          "Clay",
-          "Wood",
-          "Ice"
+          "Both cones stand together",
+          "A stone rolls off the table",
+          "The second cone falls over"
         ],
         [
-          0
+          1,
+          2
         ]
       ],
       [
-        "What happens to the first cone?",
-        "It falls over",
+        "What holds the first mountain up?",
+        "Stones around its base",
         [
-          "It gets wet",
-          "It tears in half",
-          "It rolls off the table"
-        ],
-        [
-          1
-        ]
-      ],
-      [
-        "Why does Muddy add stones?",
-        "To hold the cone upright",
-        [
-          "To fill the toy world with water",
-          "To make the cone taller",
-          "To hide the other cone"
+          "A second cone beside it",
+          "Paper tucked under the stones",
+          "One stone on its top"
         ],
         [
           2,
           3
         ]
+      ],
+      [
+        "When does the second mountain appear?",
+        "Once the first cone stands",
+        [
+          "Before the paper is rolled",
+          "Before the first cone falls",
+          "As the first cone falls"
+        ],
+        [
+          3,
+          4
+        ]
       ]
     ],
-    "Draw the two paper cones with stones around them. Write cone and stones."
+    "Draw one of Muddy’s mountains. Write a label for what holds it up."
   ],
   [
     "socks-rope-handle",
@@ -869,39 +873,39 @@ export const EXPANSION_DRAFTS_B = [
       "home",
       "hole"
     ],
-    "Socks wants to carry a box home. The box has no handle. An adult makes a hole in each side. Socks threads a rope through the holes and ties knots. The knots stop the rope from slipping out. Socks lifts the box by the new rope handle.",
+    "Socks had a box to carry home, but no handle. An adult made a hole in each side. Socks passed a rope through both holes. A knot at each end kept the rope from slipping through. Socks picked up the box by its new handle.",
     [
       [
-        "What is the box missing?",
-        "A handle",
+        "Where does the adult make the holes?",
+        "One on each side",
         [
-          "A bottom",
-          "A lid",
-          "A label"
+          "Two in the same side",
+          "Two in the bottom",
+          "One in the bottom and one in a side"
         ],
         [
           1
         ]
       ],
       [
-        "Who makes the holes?",
-        "An adult",
+        "What keeps the rope ends from slipping out?",
+        "The knots",
         [
-          "Socks",
-          "Pip",
-          "Chips"
+          "The lid",
+          "The flat bottom",
+          "The corners of the box"
         ],
         [
-          2
+          3
         ]
       ],
       [
-        "Why does Socks tie knots in the rope?",
-        "To stop it slipping out",
+        "When the box is lifted, what is Socks holding?",
+        "The new rope handle",
         [
-          "To make the box taller",
-          "To close the lid",
-          "To hide the holes"
+          "The bottom of the box",
+          "A knot at one end",
+          "One side of the box"
         ],
         [
           3,
@@ -909,7 +913,7 @@ export const EXPANSION_DRAFTS_B = [
         ]
       ]
     ],
-    "Draw the rope handle on the box. Write rope and box."
+    "Draw the new handle. Write knot next to a part that keeps it in place."
   ],
   [
     "pip-rose-pot",
@@ -922,46 +926,48 @@ export const EXPANSION_DRAFTS_B = [
       "close",
       "home"
     ],
-    "Pip brings a small rose plant home. Pip puts it close to the window. After a week, the stem leans towards the light. Pip turns the pot so the stem faces the room. New leaves grow towards the window again. Pip turns the pot a little each week.",
+    "Pip brought a rose plant home. Its new spot was close to the window. After a week its stem leaned towards the glass. Pip turned the pot so the stem faced the room. But the new leaves grew towards the window again. Each week Pip gave the pot another small turn.",
     [
       [
-        "What plant does Pip bring home?",
-        "A rose",
+        "Where does the rose stay?",
+        "Near the window",
         [
-          "A sunflower",
-          "A bean plant",
-          "A fern"
+          "Across the room",
+          "Behind the glass outside",
+          "In a new spot each week"
         ],
         [
-          0
+          1
         ]
       ],
       [
-        "Which way does the stem lean?",
-        "Towards the light",
+        "After Pip turns the pot, which way do the new leaves grow?",
+        "Back towards the window",
         [
-          "Towards the door",
-          "Towards the floor",
-          "Towards the chair"
+          "Farther into the room",
+          "Straight down the stem",
+          "Around the pot"
         ],
         [
-          2
+          3,
+          4
         ]
       ],
       [
-        "What does Pip do each week?",
-        "Turns the pot a little",
+        "What does Pip change each week?",
+        "Which way the pot faces",
         [
-          "Puts the plant in a box",
-          "Cuts off all the leaves",
-          "Moves the window"
+          "Which window the rose stands by",
+          "Which branch grows leaves",
+          "Which room holds the rose"
         ],
         [
+          3,
           5
         ]
       ]
     ],
-    "Draw the rose plant close to the window. Write rose and pot."
+    "Draw the plant after a week. Write window beside the side it leans towards."
   ],
   [
     "fluff-bone-print",
@@ -974,47 +980,47 @@ export const EXPANSION_DRAFTS_B = [
       "stone",
       "close"
     ],
-    "Fluff presses a toy bone into soft clay. Fluff lifts the bone and sees its shape. Next, Fluff presses a stone close to the first print. The stone makes a round mark. Fluff leaves the clay flat on a shelf. The two prints stay as the clay dries.",
+    "Fluff pushed a toy bone into soft clay and lifted it out. There was its shape, still in the clay! A stone pressed close to the bone print left a round mark. Fluff set the clay flat on a shelf. It dried with both marks still there.",
     [
       [
-        "What does Fluff press into the clay first?",
-        "A toy bone",
+        "What was the clay like before Fluff made the prints?",
+        "Soft enough to press",
         [
-          "A leaf",
-          "A shell",
-          "A button"
+          "Dry enough to keep",
+          "Hard like the stone",
+          "Shaped like the bone"
         ],
         [
           0
         ]
       ],
       [
-        "What shape does the stone make?",
-        "A round mark",
+        "Which mark belongs to the stone?",
+        "The round one",
         [
-          "A star mark",
-          "A square mark",
-          "A long line"
+          "The bone shape",
+          "Both marks together",
+          "The space between the marks"
         ],
         [
-          2,
-          3
+          2
         ]
       ],
       [
-        "Where does Fluff leave the clay?",
-        "On a shelf",
+        "What stays on the shelf to dry?",
+        "The clay with two prints",
         [
-          "Under a chair",
-          "In a bag",
-          "By the door"
+          "The stone inside the bone print",
+          "The bone inside the clay",
+          "The clay before it is pressed"
         ],
         [
+          3,
           4
         ]
       ]
     ],
-    "Draw the bone print and stone print in the clay. Write bone and stone."
+    "Draw the two prints without drawing the objects. Write what made one of them."
   ],
   [
     "chompy-note-delivery",
@@ -1027,46 +1033,47 @@ export const EXPANSION_DRAFTS_B = [
       "home",
       "close"
     ],
-    "Chompy has a note for a friend. The friend is not at home. Chompy sees a letter box close to the door. Chompy folds the note and puts it through the slot. The note lands inside the box. Chompy leaves before the rain begins.",
+    "Chompy came with a note, but nobody was at home. Close to the door was a letter box. Chompy folded the note small enough for the slot. It dropped inside. When the rain began, Chompy had already gone. “Come and play after the rain,” said the note inside.",
     [
       [
-        "Who is the note for?",
-        "A friend",
+        "What does Chompy want the friend to do?",
+        "Come over after the rain",
         [
-          "A shopkeeper",
-          "A teacher",
-          "A driver"
+          "Write a note back",
+          "Play outside in the rain",
+          "Meet at the letter box"
         ],
         [
-          0
+          5
         ]
       ],
       [
-        "Where is the letter box?",
-        "Close to the door",
+        "Why does Chompy fold the note?",
+        "To fit it through the slot",
         [
-          "Behind a tree",
-          "Under a bench",
-          "Beside the pond"
+          "To fit it behind the door",
+          "To take it back home",
+          "To hold it over the box"
         ],
         [
           2
         ]
       ],
       [
-        "How does Chompy leave the note?",
-        "Puts it through the slot",
+        "Where is the note when rain starts?",
+        "Inside the letter box",
         [
-          "Ties it to the gate",
-          "Leaves it on the path",
-          "Pushes it under a stone"
+          "Outside by the door",
+          "With Chompy on the way home",
+          "With the friend at the door"
         ],
         [
-          3
+          4,
+          5
         ]
       ]
     ],
-    "Draw Chompy putting the note in the letter box. Write note and box."
+    "Draw the letter box. Write a short answer to Chompy’s note."
   ],
   [
     "chips-hose-coil",
@@ -1079,27 +1086,28 @@ export const EXPANSION_DRAFTS_B = [
       "stone",
       "home"
     ],
-    "Chips finds a hose across the garden path. A friend will walk along the path soon. Chips moves a stone away from the hose. Then Chips rolls the hose into a circle by the wall. The path is clear. Chips waves as the friend walks safely home.",
+    "A hose stretched across the garden path. Soon a friend would come along that path on the way home. Chips moved a stone away from the hose. Then Chips rolled the hose into a circle by the wall. The friend walked past on the clear path. Chips waved.",
     [
       [
-        "What lies across the path?",
-        "A hose",
+        "Where will the friend need to walk?",
+        "Down the garden path",
         [
-          "A rope",
-          "A branch",
-          "A mat"
+          "Across the garden grass",
+          "Over the hose",
+          "Behind the garden wall"
         ],
         [
-          0
+          0,
+          1
         ]
       ],
       [
-        "What does Chips move before rolling the hose?",
-        "A stone",
+        "What happens just before Chips rolls up the hose?",
+        "Chips moves a stone",
         [
-          "A pot",
-          "A chair",
-          "A bucket"
+          "The friend walks past",
+          "Chips waves goodbye",
+          "The friend steps over the hose"
         ],
         [
           2,
@@ -1107,22 +1115,21 @@ export const EXPANSION_DRAFTS_B = [
         ]
       ],
       [
-        "Why does Chips put the hose by the wall?",
-        "To clear the path",
+        "How has Chips helped the friend?",
+        "There is room to walk past",
         [
-          "To water the wall",
-          "To hide the garden",
-          "To make the path wet"
+          "There is a hose to take home",
+          "There is a new place to sit",
+          "There is a wall to follow"
         ],
         [
           0,
-          1,
           3,
           4
         ]
       ]
     ],
-    "Draw the coiled hose by the wall and the clear path. Write hose and path."
+    "Draw the path as the friend finds it. Write where the hose is now."
   ],
   [
     "muddy-cardboard-tube",
@@ -1134,46 +1141,49 @@ export const EXPANSION_DRAFTS_B = [
       "tube",
       "use"
     ],
-    "Muddy has a cardboard tube. Muddy wants to use it to look at a toy. One end has paper stuck over it. Muddy peels the paper off the end. Now both ends are open. Muddy looks through the tube and sees the toy on the shelf.",
+    "Muddy tried to use a cardboard tube to see a toy. No toy! Paper covered the far end of the tube. Muddy began to peel it off. With both ends open, Muddy looked again. There was the toy, right on the shelf.",
     [
       [
-        "What is the tube made from?",
-        "Cardboard",
+        "What is Muddy hoping to spot?",
+        "The toy",
         [
-          "Glass",
-          "Metal",
-          "Clay"
+          "The paper",
+          "The tube",
+          "The shelf itself"
         ],
         [
           0
         ]
       ],
       [
-        "Why can Muddy not see through it at first?",
-        "Paper covers one end",
-        [
-          "It is full of sand",
-          "The room is dark",
-          "The toy is inside it"
-        ],
-        [
-          2
-        ]
-      ],
-      [
-        "Where is the toy?",
+        "Where is the toy when Muddy finally spots it?",
         "On the shelf",
         [
-          "Under a table",
-          "In a bag",
-          "Beside a window"
+          "Inside the tube",
+          "Behind the paper on the floor",
+          "Under the shelf"
         ],
         [
           5
         ]
+      ],
+      [
+        "What does Muddy change to see the toy?",
+        "Opens the covered end of the tube",
+        [
+          "Moves the toy off the shelf",
+          "Turns the toy to face the tube",
+          "Looks from behind the shelf"
+        ],
+        [
+          2,
+          3,
+          4,
+          5
+        ]
       ]
     ],
-    "Draw Muddy looking through the open tube. Write tube and toy."
+    "Draw what Muddy saw on the first and second looks. Write toy under one view."
   ],
   [
     "socks-flute-rest",
@@ -1186,27 +1196,29 @@ export const EXPANSION_DRAFTS_B = [
       "tune",
       "use"
     ],
-    "Socks plays a short tune on a flute. A friend starts to tell a story. Socks stops playing so everyone can hear the friend. The flute rests on a cloth. When the story ends, the friend asks for music. Socks can use the flute to play again.",
+    "Socks was playing a tune on the flute. A friend began a story. To let everyone hear, Socks set the flute on a cloth. The flute could rest there until the story ended. At the end the friend asked for music. Now Socks could use the flute again.",
     [
       [
-        "What does Socks play?",
-        "A flute",
+        "What comes between the two turns for music?",
+        "The friend’s story",
         [
-          "A drum",
-          "A bell",
-          "A guitar"
+          "A second tune from Socks",
+          "Socks asking for a story",
+          "The friend playing the flute"
         ],
         [
-          0
+          0,
+          1,
+          4
         ]
       ],
       [
-        "Why does Socks stop playing?",
-        "So everyone can hear the story",
+        "What does Socks do for the storyteller?",
+        "Gives the friend a quiet turn",
         [
-          "The flute is broken",
-          "The cloth is missing",
-          "The music is too hard"
+          "Plays softly during the story",
+          "Tells the rest of the story",
+          "Hands the flute to the friend"
         ],
         [
           1,
@@ -1214,20 +1226,19 @@ export const EXPANSION_DRAFTS_B = [
         ]
       ],
       [
-        "When does Socks play again?",
-        "After the story ends",
+        "Who asks for music at the end?",
+        "The friend who told the story",
         [
-          "Before the friend starts",
-          "While the friend is talking",
-          "After everyone leaves"
+          "Socks with the flute",
+          "Everyone listening together",
+          "A friend who missed the story"
         ],
         [
-          4,
-          5
+          4
         ]
       ]
     ],
-    "Draw the flute resting on the cloth. Write flute and cloth."
+    "Draw the part when everyone listens to the friend. Write where the flute is."
   ],
   [
     "pip-cube-tower",
@@ -1239,27 +1250,27 @@ export const EXPANSION_DRAFTS_B = [
       "cube",
       "use"
     ],
-    "Pip wants to use blocks to build a tower. A round block rolls away from the bottom. Pip tries a cube instead. Its flat faces keep it still. Pip adds another cube on top. The tower stands while Pip parks a toy car beside it.",
+    "Pip wanted to use blocks for a tower. The round block rolled out from the bottom. Pip put a cube there instead. This block stayed still on its flat face. Another cube went on top. Beside the finished tower, Pip parked a toy car.",
     [
       [
-        "Which block rolls away?",
-        "The round block",
+        "What went wrong with the first bottom block?",
+        "It rolled away",
         [
-          "The cube",
-          "The long block",
-          "The triangle block"
+          "It fell from the top",
+          "It slid under the car",
+          "It landed on a cube"
         ],
         [
           1
         ]
       ],
       [
-        "Why does the cube stay still?",
-        "It has flat faces",
+        "Which part of the cube helps the tower stand?",
+        "Its flat face",
         [
-          "It has wheels",
-          "It is tied down",
-          "It is stuck in mud"
+          "Its straight edge alone",
+          "One pointed corner",
+          "The space between blocks"
         ],
         [
           2,
@@ -1267,19 +1278,19 @@ export const EXPANSION_DRAFTS_B = [
         ]
       ],
       [
-        "What does Pip park beside the tower?",
-        "A toy car",
+        "Where does Pip put the toy car?",
+        "Beside the finished tower",
         [
-          "A toy train",
-          "A toy boat",
-          "A toy bus"
+          "Under the first cube",
+          "Between the two cubes",
+          "On the top cube"
         ],
         [
           5
         ]
       ]
     ],
-    "Draw the cube tower beside the toy car. Write cube and car."
+    "Draw a bottom block that would work for Pip. Write a word about its shape."
   ],
   [
     "fluff-these-shelves",
@@ -1290,47 +1301,49 @@ export const EXPANSION_DRAFTS_B = [
     [
       "these"
     ],
-    "Fluff wants these two shelves for toy animals. One shelf is high and one is low. Fluff puts a tall giraffe on the low shelf. There is room above it for the long neck. Small toy ducks fit on the high shelf. These animals all have a place now.",
+    "Could Fluff fit all the toy animals on these shelves? The giraffe stood in front of the ducks and hid them. Fluff set it on the low shelf where its long neck fit. The little ducks went up on the high shelf. Now Fluff could see every animal.",
     [
       [
-        "What does Fluff put on the shelves?",
-        "Toy animals",
+        "What was hard to see at first?",
+        "The ducks behind the giraffe",
         [
-          "Books",
-          "Cups",
-          "Plants"
+          "The giraffe behind the ducks",
+          "The giraffe on the high shelf",
+          "Both shelves behind the ducks"
         ],
         [
-          0
+          1
         ]
       ],
       [
-        "Where does the tall giraffe go?",
-        "On the low shelf",
+        "How does Fluff arrange the animals?",
+        "Giraffe below, ducks above",
         [
-          "On the high shelf",
-          "Under a chair",
-          "Inside a box"
-        ],
-        [
-          2
-        ]
-      ],
-      [
-        "Why does the giraffe go on the low shelf?",
-        "There is room above for its neck",
-        [
-          "It is too small to see",
-          "The ducks are too heavy",
-          "The high shelf is wet"
+          "Ducks below, giraffe above",
+          "All the animals on the low shelf",
+          "All the animals on the high shelf"
         ],
         [
           2,
           3
         ]
+      ],
+      [
+        "How did Fluff know the new places worked?",
+        "None of the animals was hidden",
+        [
+          "All the animals were on one shelf",
+          "The giraffe stood in front of the ducks",
+          "The ducks stood behind the long neck"
+        ],
+        [
+          1,
+          3,
+          4
+        ]
       ]
     ],
-    "Draw the giraffe on the low shelf and ducks above. Write giraffe and ducks."
+    "Draw where the toys fit. Write high or low beside each shelf."
   ],
   [
     "muddy-train-bridge",
@@ -1342,47 +1355,47 @@ export const EXPANSION_DRAFTS_B = [
       "train",
       "rail"
     ],
-    "Muddy builds a track for a toy train. The two ends of the rail have a gap. Muddy lays a flat board across the gap. Two blocks hold up the board. The train rolls over the board without falling. Muddy claps and sends the train around again.",
+    "Muddy’s toy train track had a gap in the rail. Muddy set two blocks under a flat board. The board reached from one end of the gap to the other. Across went the train without a fall. “Once more,” said Muddy, clapping as the train went round again.",
     [
       [
-        "What is wrong with the track?",
-        "It has a gap",
+        "What is missing when Muddy starts?",
+        "A way across the gap",
         [
-          "It is wet",
-          "It is too high",
-          "It has no curves"
+          "A train for the track",
+          "A place to set the track",
+          "A block on the train"
+        ],
+        [
+          0
+        ]
+      ],
+      [
+        "What is directly under the board?",
+        "The two blocks",
+        [
+          "The train",
+          "A second board",
+          "The whole rail"
         ],
         [
           1
         ]
       ],
       [
-        "What holds up the board?",
-        "Two blocks",
+        "How can Muddy tell the bridge works?",
+        "The train crosses it",
         [
-          "Two cups",
-          "Two spoons",
-          "Two stones"
-        ],
-        [
-          3
-        ]
-      ],
-      [
-        "How does the train cross the gap?",
-        "It rolls over the board",
-        [
-          "It goes through a tunnel",
-          "It jumps over the gap",
-          "It rides in a box"
+          "The train stops at the gap",
+          "The board rides on the train",
+          "The blocks cross the board"
         ],
         [
           2,
-          4
+          3
         ]
       ]
     ],
-    "Draw the toy train crossing the board bridge. Write train and bridge."
+    "Draw the bridge from the side. Write a label for what the train rolls on."
   ],
   [
     "pip-snail-trail",
@@ -1395,46 +1408,49 @@ export const EXPANSION_DRAFTS_B = [
       "trail",
       "waits"
     ],
-    "Pip sees a snail on the wet path. A shiny trail is behind the snail. Pip puts a leaf beside the path and waits. The snail moves onto the leaf. Pip watches without touching its soft body. Then the snail slides off into the grass.",
+    "A shiny trail crosses the wet path. At one end, Pip spots the snail. Pip puts a leaf beside the path and waits. The snail slides onto the leaf. Off it goes into the grass. Pip watches without touching its soft body.",
     [
       [
-        "What is behind the snail?",
-        "A shiny trail",
+        "What shows where the snail has been?",
+        "The shiny trail",
         [
-          "A pile of sand",
-          "A row of seeds",
-          "A wet feather"
+          "The leaf beside it",
+          "The grass ahead",
+          "The end of the path"
         ],
         [
+          0,
           1
         ]
       ],
       [
-        "Where does Pip put the leaf?",
-        "Beside the path",
+        "Where does the snail go just before the grass?",
+        "Onto the leaf",
         [
-          "On the snail",
-          "In a bucket",
-          "Under a stone"
+          "Across the grass",
+          "Under Pip’s hand",
+          "Back along its trail"
         ],
         [
-          2
+          3,
+          4
         ]
       ],
       [
-        "Where does the snail go at the end?",
-        "Into the grass",
+        "How does Pip treat the snail?",
+        "Lets it move on its own",
         [
-          "Into a box",
-          "Up the tree",
-          "Under the bench"
+          "Carries it to the grass",
+          "Pulls it onto the leaf",
+          "Pushes it across the path"
         ],
         [
+          3,
           5
         ]
       ]
     ],
-    "Draw the snail moving from the leaf into the grass. Write snail and leaf."
+    "Draw the snail’s route. Write leaf where the snail makes a stop."
   ],
   [
     "socks-train-seat",
@@ -1447,47 +1463,47 @@ export const EXPANSION_DRAFTS_B = [
       "wait",
       "rail"
     ],
-    "Socks sits by a window on the train. A friend gets on with a heavy bag. All the seats are full. Socks stands up and offers the seat. The friend puts the bag down and sits. Socks holds the rail to stay steady while they wait to arrive.",
+    "The seat by the train window was a good one. Socks sat there until a friend got on with a heavy bag. Every seat was full. “Sit here,” said Socks, standing as the friend put the bag down. Socks held the rail to stay steady. They could wait for their stop together.",
     [
       [
-        "Where does Socks sit at first?",
-        "By a window",
-        [
-          "By the door",
-          "On the floor",
-          "Beside the driver"
-        ],
-        [
-          0
-        ]
-      ],
-      [
-        "What is the friend carrying?",
+        "What does the friend bring aboard?",
         "A heavy bag",
         [
-          "A folded chair",
-          "A big ball",
-          "A little plant"
+          "A window seat ticket",
+          "A bag for Socks",
+          "A second seat"
         ],
         [
           1
         ]
       ],
       [
-        "Why does Socks stand up?",
-        "To offer the friend a seat",
+        "Why is it helpful for Socks to stand?",
+        "There is no free seat for the friend",
         [
-          "To open a window",
-          "To find a lost ticket",
-          "To pick up the bag"
+          "The friend cannot reach the rail",
+          "The bag belongs by the window",
+          "The train has reached their stop"
         ],
         [
           2,
           3
         ]
+      ],
+      [
+        "What keeps Socks steady after the friend sits?",
+        "Holding the rail",
+        [
+          "Holding the bag",
+          "Sitting by the window",
+          "Waiting at the stop"
+        ],
+        [
+          4
+        ]
       ]
     ],
-    "Draw the friend sitting while Socks holds the rail. Write seat and rail."
+    "Draw the friends after they swap places. Write a word by the thing Socks holds."
   ],
   [
     "chips-chair-paint",
@@ -1500,48 +1516,48 @@ export const EXPANSION_DRAFTS_B = [
       "wait",
       "rain"
     ],
-    "Chips puts paper under an old chair. An adult helps Chips paint the chair blue. The chair needs time to dry. Dark clouds bring rain towards the garden. They move the chair under the porch roof. Chips can wait there without the paint getting wet.",
+    "Chips spread paper under an old chair. An adult helped Chips give it a coat of blue paint. It needed time to dry. Dark clouds came over the garden before the paint was dry. They carried the chair under the porch roof to wait. The rain could come now.",
     [
       [
-        "What goes under the chair?",
-        "Paper",
+        "Where does the paper go before painting?",
+        "Below the chair",
         [
-          "A towel",
-          "A rug",
-          "A tray"
+          "Over the chair",
+          "Across the porch roof",
+          "Over the wet paint"
         ],
         [
           0
         ]
       ],
       [
-        "What colour do they paint the chair?",
-        "Blue",
+        "Why do they carry the chair onto the porch?",
+        "To keep it out of the rain",
         [
-          "Red",
-          "Green",
-          "Yellow"
+          "To paint it a new colour",
+          "To put the paper under it",
+          "To take it into the garden"
         ],
         [
-          1
+          3,
+          4
         ]
       ],
       [
-        "Why do they move the chair under the roof?",
-        "Rain is coming",
+        "What is still wet when they reach the porch?",
+        "The paint on the chair",
         [
-          "The paint is already dry",
-          "The chair is too small",
-          "The paper is lost"
+          "The garden paper",
+          "The porch floor",
+          "The porch roof"
         ],
         [
-          2,
           3,
           4
         ]
       ]
     ],
-    "Draw the painted chair drying under the porch roof. Write chair and roof."
+    "Draw a place for the chair while it dries. Write why you chose it."
   ],
   [
     "chompy-paper-sail",
@@ -1553,47 +1569,47 @@ export const EXPANSION_DRAFTS_B = [
       "sail",
       "waits"
     ],
-    "Chompy floats a toy boat in a water tray. The boat stays in one place. Chompy fixes a paper sail to a short stick. The stick fits into a hole in the boat. Chompy blows gently on the sail and waits. The boat moves across the water.",
+    "The toy boat floats on the tray of water without moving. Chompy fixes a paper sail to a short stick. The stick stands in a hole in the boat. Chompy blows on the sail and waits. There it goes! The boat moves across the tray.",
     [
       [
-        "Where does Chompy put the boat?",
-        "In a water tray",
+        "Which part goes into the hole?",
+        "The stick",
         [
-          "In a sink",
-          "In a pond",
-          "In a bucket"
-        ],
-        [
-          0
-        ]
-      ],
-      [
-        "What is the sail made from?",
-        "Paper",
-        [
-          "Cloth",
-          "Wood",
-          "Foil"
+          "The paper",
+          "The whole sail",
+          "The water tray"
         ],
         [
           2
         ]
       ],
       [
-        "What makes the boat move?",
-        "Blowing on the sail",
+        "When does the boat start moving?",
+        "After the puff of air",
         [
-          "Pulling a string",
-          "Adding a stone",
-          "Tipping the tray"
+          "Before the sail goes on",
+          "While the stick goes in",
+          "As the boat first floats"
         ],
         [
-          4,
+          3,
           5
+        ]
+      ],
+      [
+        "Before the sail goes on, what is the boat already doing?",
+        "Floating in one place",
+        [
+          "Moving across the tray",
+          "Resting on the bottom",
+          "Turning in a circle"
+        ],
+        [
+          0
         ]
       ]
     ],
-    "Draw the boat with its paper sail. Write sail and boat."
+    "Draw the moving boat. Write air by the part Chompy blows on."
   ],
   [
     "fluff-hay-bed",
@@ -1606,47 +1622,47 @@ export const EXPANSION_DRAFTS_B = [
       "day",
       "lay"
     ],
-    "Fluff visits a farm on a cold day. A rabbit needs fresh hay for its bed. An adult opens a bag beside the rabbit pen. They lay the hay in a dry corner. The rabbit hops over and settles on it. Fluff watches the rabbit rest in the soft hay.",
+    "Fluff visits the farm on a cold day. A rabbit needs fresh hay for its bed. An adult opens a bag beside the pen. Fluff and the adult lay the hay in a dry corner. The rabbit hops over and settles on its soft new bed. Fluff watches from outside the pen.",
     [
       [
-        "Which animal needs fresh hay?",
-        "A rabbit",
+        "Who lays the hay in the corner?",
+        "Fluff and the adult",
         [
-          "A horse",
-          "A goat",
-          "A sheep"
-        ],
-        [
-          1
-        ]
-      ],
-      [
-        "Where do they lay the hay?",
-        "In a dry corner",
-        [
-          "In the water dish",
-          "On a wet path",
-          "On the roof"
+          "The adult alone",
+          "Fluff alone",
+          "Fluff and the rabbit"
         ],
         [
           3
         ]
       ],
       [
-        "What does the rabbit do on the hay?",
-        "Rests",
+        "When does the rabbit hop over?",
+        "After the bed is ready",
         [
-          "Digs a hole",
-          "Kicks a ball",
-          "Takes a drink"
+          "Before the bag is opened",
+          "As Fluff arrives at the farm",
+          "Before the hay is laid down"
         ],
         [
-          4,
-          5
+          3,
+          4
+        ]
+      ],
+      [
+        "What shows the rabbit is using the new bed?",
+        "It settles in the hay",
+        [
+          "It stays beside the bag",
+          "It hops out of the pen",
+          "It watches Fluff open the bag"
+        ],
+        [
+          4
         ]
       ]
     ],
-    "Draw the rabbit resting on the hay. Write rabbit and hay."
+    "Draw the corner after the rabbit arrives. Write a word to describe its bed."
   ],
   [
     "pip-clay-bowl",
@@ -1658,48 +1674,48 @@ export const EXPANSION_DRAFTS_B = [
       "clay",
       "tray"
     ],
-    "Pip rolls a lump of clay into a ball. Pip presses a thumb into the middle. The sides are too low to hold many beads. Pip adds more clay around the edge. Now the sides are higher. Pip leaves the bowl on a tray to dry.",
+    "Pip rolled some clay into a ball and pressed a thumb inside. There was a hollow for beads, but it was too shallow. Pip pressed more clay around the edge. Now the sides stood higher. Pip set the little bowl on a tray to dry.",
     [
       [
-        "What does Pip press into the clay?",
-        "A thumb",
+        "How does Pip start the hollow?",
+        "Pushes a thumb into the ball",
         [
-          "A spoon",
-          "A stick",
-          "A shell"
+          "Adds clay around the edge",
+          "Rolls the tray on the clay",
+          "Presses beads into the sides"
         ],
         [
-          1
+          0
         ]
       ],
       [
-        "Why does Pip add clay around the edge?",
-        "To make the sides higher",
+        "What does the extra clay change?",
+        "The height of the sides",
         [
-          "To make a flat tile",
-          "To hide the beads",
-          "To close the bowl"
+          "The size of the tray",
+          "The number of beads",
+          "The place where the bowl dries"
         ],
         [
           2,
-          3,
-          4
+          3
         ]
       ],
       [
-        "Where does Pip leave the bowl?",
-        "On a tray",
+        "What happens after the sides are higher?",
+        "The bowl goes on the tray",
         [
-          "Under a chair",
-          "In a cupboard",
-          "By the sink"
+          "Pip makes the first hollow",
+          "The lump becomes a ball",
+          "Pip adds the extra clay"
         ],
         [
-          5
+          3,
+          4
         ]
       ]
     ],
-    "Draw the clay bowl on the tray. Write clay and bowl."
+    "Draw the bowl from the side before or after Pip adds clay. Write which you drew."
   ],
   [
     "muddy-cup-tray",
@@ -1711,27 +1727,15 @@ export const EXPANSION_DRAFTS_B = [
       "tray",
       "away"
     ],
-    "Muddy puts three empty cups on a tray. Muddy lifts the tray with one hoof. The cups slide towards one edge. Muddy sets the tray down before a cup falls. This time, Muddy uses both front hooves to hold it flat. The cups reach the table without sliding away.",
+    "Three empty cups stood on Muddy’s tray. Muddy lifted it with one hoof and the cups slid sideways. Down went the tray before a cup could fall. Muddy tried again, holding it flat with both front hooves. This time no cup slid away on the way to the table.",
     [
       [
-        "How many cups are on the tray?",
-        "Three",
+        "What tells Muddy to set the tray down?",
+        "The cups start sliding",
         [
-          "Two",
-          "Four",
-          "Six"
-        ],
-        [
-          0
-        ]
-      ],
-      [
-        "What happens when Muddy uses one hoof?",
-        "The cups slide towards one edge",
-        [
-          "The tray breaks",
-          "The cups fill with water",
-          "The cups stick together"
+          "One cup hits the table",
+          "All the cups fall",
+          "One cup is full"
         ],
         [
           1,
@@ -1739,21 +1743,34 @@ export const EXPANSION_DRAFTS_B = [
         ]
       ],
       [
-        "How does Muddy carry the tray safely?",
-        "Holds it flat with both hooves",
+        "What is different on the second try?",
+        "Both hooves hold the tray",
         [
-          "Holds it above the head",
-          "Puts one cup underneath",
-          "Carries it by one corner"
+          "One hoof holds the tray",
+          "Both hooves hold the cups",
+          "One cup goes at a time"
         ],
         [
-          4,
-          5
+          1,
+          3
+        ]
+      ],
+      [
+        "How many cups reach the table?",
+        "Three",
+        [
+          "Two",
+          "One",
+          "None"
         ],
-        { "Uses both front hooves to hold it flat": "Holds it flat with both hooves" }
+        [
+          0,
+          2,
+          4
+        ]
       ]
     ],
-    "Draw Muddy holding the tray flat with both front hooves. Write cups and tray."
+    "Draw the first or second try. Write a clue that tells which it is."
   ],
   [
     "socks-rainy-play",
@@ -1766,46 +1783,48 @@ export const EXPANSION_DRAFTS_B = [
       "play",
       "stay"
     ],
-    "It is a rainy day. Socks wants to play with a ball. The grass outside is too slippery for running. Socks puts the ball away and brings out a puzzle. Friends stay inside and help with the puzzle. They can play with the ball when the grass is dry.",
+    "On a rainy day Socks brought out a ball. One look at the slippery grass was enough. It was too wet to run. Socks put the ball away and chose a puzzle. “Stay and help,” Socks said to some friends. They would play outside once the grass was dry.",
     [
       [
-        "Why is the grass unsafe for running?",
-        "It is too slippery",
+        "What did Socks plan to use outside?",
+        "The ball",
         [
-          "It is too tall",
-          "It has no shade",
-          "It is covered in sand"
+          "The puzzle",
+          "The ball and puzzle together",
+          "A piece of the puzzle"
         ],
         [
-          2
-        ]
-      ],
-      [
-        "What does Socks bring out instead of the ball?",
-        "A puzzle",
-        [
-          "A train set",
-          "A paint box",
-          "A story book"
-        ],
-        [
+          0,
           3
         ]
       ],
       [
-        "When can they play with the ball outside?",
-        "When the grass is dry",
+        "Why does Socks change the plan?",
+        "Running on wet grass is tricky",
         [
-          "While it is raining",
-          "After the lights go off",
-          "Before putting the puzzle away"
+          "The puzzle is out in the rain",
+          "The friends want to run alone",
+          "The ball is lost in the grass"
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      [
+        "What must change before the friends run outside?",
+        "The grass must dry",
+        [
+          "The puzzle must dry",
+          "The friends must leave",
+          "The ball must get wet"
         ],
         [
           5
         ]
       ]
     ],
-    "Draw the friends doing the puzzle inside. Write puzzle and ball."
+    "Draw a choice for the friends on a rainy day. Write why it would work."
   ],
   [
     "chips-damp-clay",
@@ -1818,48 +1837,46 @@ export const EXPANSION_DRAFTS_B = [
       "day",
       "tray"
     ],
-    "Chips makes a clay animal on a tray. It is time to leave for the day. The clay will dry if Chips leaves it uncovered. Chips lays a damp cloth over the animal. The cloth keeps the clay soft overnight. Next morning, Chips can add the ears.",
+    "The clay animal on the tray still needed ears. There was no time left that day. Uncovered clay would be hard by morning. Chips laid a damp cloth over the animal and left it there. Next morning Chips shaped two ears from the still-soft clay.",
     [
       [
-        "What is Chips making?",
-        "A clay animal",
+        "What is unfinished when Chips leaves?",
+        "The ears",
         [
-          "A paper boat",
-          "A wooden house",
-          "A stone wall"
+          "The tray",
+          "The cloth",
+          "The whole body"
         ],
         [
           0
         ]
       ],
       [
-        "What covers the animal overnight?",
-        "A damp cloth",
+        "What would happen without the damp cloth?",
+        "The clay would dry hard",
         [
-          "A dry napkin",
-          "A paper bag",
-          "A plastic cup"
+          "The clay would stay soft",
+          "The clay would get wetter",
+          "The tray would fill with water"
         ],
         [
-          3
+          2
         ]
       ],
       [
-        "Why does Chips cover the clay?",
-        "To keep it soft",
+        "What shows the cloth did its job?",
+        "Chips can shape the ears",
         [
-          "To make it colder",
-          "To flatten the animal",
-          "To change its colour"
+          "Chips can lift the tray",
+          "The animal fits under it",
+          "The clay stays on the tray"
         ],
         [
-          2,
-          3,
           4
         ]
       ]
     ],
-    "Draw the clay animal with its new ears. Write clay and ears."
+    "Draw the animal before Chips goes home. Write which part it still needs."
   ],
   [
     "chompy-sheet-fold",
@@ -1872,46 +1889,48 @@ export const EXPANSION_DRAFTS_B = [
       "feet",
       "three"
     ],
-    "Chompy spreads a clean sheet on the floor. The sheet is longer than three small mats. Chompy steps back so both feet are off it. A friend holds two corners while Chompy holds the others. They bring the corners together. The folded sheet fits neatly on the shelf.",
+    "Chompy’s clean sheet stretched farther than three little mats. Chompy spread it out, then stepped both feet off it. A friend took two corners and Chompy held the other two. Together they brought the corners to meet. The folded sheet fit neatly on the shelf.",
     [
       [
-        "Where does Chompy spread the sheet?",
-        "On the floor",
+        "How do the friends share the corners?",
+        "Each holds two corners",
         [
-          "On the bed",
-          "On a bench",
-          "On a table"
+          "Each holds one corner",
+          "Chompy holds three corners",
+          "The friend holds all four"
         ],
         [
-          0
+          2
         ]
       ],
       [
-        "What does the friend hold?",
-        "Two corners",
+        "When does Chompy step off the sheet?",
+        "Before they lift the corners",
         [
-          "A coat",
-          "A basket",
-          "One mat"
+          "After they put it away",
+          "While it lies on the shelf",
+          "Before spreading it out"
         ],
         [
-          3
+          1,
+          2
         ]
       ],
       [
-        "Where does the folded sheet fit?",
-        "On the shelf",
+        "What lets the friends fit the sheet on the shelf?",
+        "Folding it smaller",
         [
-          "In a cup",
-          "Under a pot",
-          "Inside a shoe"
+          "Spreading it out flat",
+          "Moving the mats",
+          "Standing on the corners"
         ],
         [
-          5
+          3,
+          4
         ]
       ]
     ],
-    "Draw the friends bringing the sheet corners together. Write sheet and corners."
+    "Draw the friends holding the sheet. Write how many corners each one holds."
   ],
   [
     "muddy-bee-distance",
@@ -1924,51 +1943,52 @@ export const EXPANSION_DRAFTS_B = [
       "see",
       "tree"
     ],
-    "Muddy sees a bee on a flower. Muddy wants to see it up close. An adult asks Muddy to watch from beside a tree. The bee moves to another flower. Muddy can see it without touching it. Soon the bee flies away, and Muddy waves goodbye.",
+    "Muddy leaned closer to see a bee on a flower. An adult pointed to a tree a little farther back. Muddy watched from there as the bee visited another flower. Even beside the tree, Muddy could see without touching. When the bee flew away, Muddy waved.",
     [
       [
-        "What is the bee on at first?",
-        "A flower",
+        "What is Muddy doing before the adult points?",
+        "Moving closer to look",
         [
-          "A leaf",
-          "A fence",
-          "A rock"
+          "Moving back to the tree",
+          "Waving to the bee",
+          "Following the bee as it leaves"
         ],
         [
           0
         ]
       ],
       [
-        "Where does the adult ask Muddy to stand?",
-        "Beside a tree",
+        "Where is Muddy when the bee visits the next flower?",
+        "Beside the nearby tree",
         [
-          "Inside a shed",
-          "On a bench",
-          "By the gate"
+          "By the first flower",
+          "Beside the second flower",
+          "Between the two flowers"
         ],
         [
+          1,
           2
         ]
       ],
       [
-        "How does Muddy watch the bee safely?",
-        "Without touching it",
+        "What can Muddy do from the new spot?",
+        "See which flower the bee visits",
         [
-          "By holding its wings",
-          "By putting it in a cup",
-          "By chasing it"
+          "Touch the bee as it lands",
+          "Hold the flower for the bee",
+          "Bring the bee to the tree"
         ],
         [
           2,
-          4
+          3
         ]
       ]
     ],
-    "Draw Muddy beside the tree watching the bee on a flower. Write bee and tree."
+    "Draw Muddy and the bee in their new places. Write where Muddy stands."
   ],
   [
     "pip-green-beads",
-    "Pip Sorts the Green Beads",
+    "Three Beads Under a Chair",
     "teams",
     "ee",
     "pip",
@@ -1977,48 +1997,49 @@ export const EXPANSION_DRAFTS_B = [
       "three",
       "sees"
     ],
-    "Pip tips a bag of beads onto a mat. Three green beads roll under a low chair. Pip sees them but cannot reach with one hand. Pip slides a tray under the chair. A soft brush rolls the beads onto the tray. Pip pulls the tray out and counts all three.",
+    "Pip tips out a bag of beads. Three green ones roll under a low chair. Pip sees them, but the space is too narrow to reach into. Pip slips a tray under the chair. With a soft brush Pip rolls each bead onto it. Pip pulls out the tray and counts: one, two, three.",
     [
       [
-        "How many beads roll under the chair?",
-        "Three",
+        "What keeps Pip from picking up the beads by hand?",
+        "The space under the chair is too small",
         [
-          "Two",
-          "Four",
-          "Five"
+          "The beads roll into the bag",
+          "The tray covers the beads",
+          "The brush pushes them away"
         ],
         [
-          1
+          1,
+          2
         ]
       ],
       [
-        "What colour are those beads?",
-        "Green",
+        "Which job does the brush do?",
+        "Guides beads onto the tray",
         [
-          "Blue",
-          "Red",
-          "Yellow"
-        ],
-        [
-          1
-        ]
-      ],
-      [
-        "What helps Pip bring the beads out?",
-        "A tray and a brush",
-        [
-          "A cup and a spoon",
-          "A bag and a stick",
-          "A box and a cloth"
+          "Pulls the tray out",
+          "Sweeps beads back into the bag",
+          "Pushes the chair aside"
         ],
         [
           3,
-          4,
+          4
+        ]
+      ],
+      [
+        "How does Pip check that no bead is missing?",
+        "Counts the ones on the tray",
+        [
+          "Looks in the empty bag",
+          "Feels under the mat",
+          "Counts the ones left in the bag"
+        ],
+        [
+          1,
           5
         ]
       ]
     ],
-    "Draw the three green beads on the tray. Write beads and three."
+    "Draw Pip reaching under the chair with a tool. Write its name."
   ],
   [
     "fluff-sweep-leaves",
@@ -2031,48 +2052,47 @@ export const EXPANSION_DRAFTS_B = [
       "sweep",
       "keeps"
     ],
-    "Leaves from a tree blow into the doorway. Fluff gets a small broom to sweep them outside. More leaves blow in through the open door. Fluff shuts the door before sweeping again. Now the leaves stay outside. The closed door keeps the floor clear. Fluff puts the broom away.",
+    "Leaves from a tree blow across the doorway. Fluff starts to sweep, but each gust blows more leaves in. Fluff sweeps the last leaves outside and pulls the door shut. Now the broom can go away. The shut door keeps new leaves from blowing in.",
     [
       [
-        "What blows into the doorway?",
-        "Leaves",
+        "What brings more leaves in?",
+        "Wind through the doorway",
         [
-          "Sand",
-          "Snow",
-          "Paper cups"
-        ],
-        [
-          0
-        ]
-      ],
-      [
-        "What does Fluff use to sweep?",
-        "A broom",
-        [
-          "A mop",
-          "A cloth",
-          "A shovel"
+          "Fluff closing the door",
+          "Fluff putting the broom away",
+          "Wind after the door shuts"
         ],
         [
           1
         ]
       ],
       [
-        "Why does Fluff shut the door?",
-        "To stop more leaves blowing in",
+        "What does Fluff do just before shutting the door?",
+        "Sweeps the last leaves out",
         [
-          "To hide the broom",
-          "To warm the leaves",
-          "To wash the doorway"
+          "Puts the broom away",
+          "Brings the leaves back in",
+          "Waits for the tree to stop moving"
         ],
         [
-          2,
+          2
+        ]
+      ],
+      [
+        "Why can Fluff put the broom away?",
+        "Leaves can no longer blow inside",
+        [
+          "The wind no longer moves the tree",
+          "The wind has stopped for the day",
+          "The mat is covering the leaves"
+        ],
+        [
           3,
           4
         ]
       ]
     ],
-    "Draw the leaves outside the closed door. Write leaves and door."
+    "Draw the doorway when Fluff is finished. Write where the leaves are."
   ],
   [
     "socks-meet-tree",
@@ -2085,49 +2105,48 @@ export const EXPANSION_DRAFTS_B = [
       "tree",
       "three"
     ],
-    "Socks and Pip agree to meet by a tree. There are three trees near the playground. Socks points to the tree beside the red bench. Pip nods and goes to fetch a ball. Later, Socks waits beside that tree. Pip finds Socks there without searching the other trees.",
+    "Pip will get a ball, then meet Socks by a tree. But three trees stand by the playground. “Let’s agree on one tree,” says Pip. Socks points to the tree beside a red bench. Pip nods. Later, Pip goes straight to that bench and finds Socks waiting.",
     [
       [
-        "How many trees are near the playground?",
-        "Three",
+        "Why is saying “by a tree” not enough?",
+        "Several trees could be the one",
         [
-          "Two",
-          "Four",
-          "Five"
+          "Three benches stand by the tree",
+          "The playground has no trees",
+          "The red bench moves"
         ],
         [
+          0,
           1
         ]
       ],
       [
-        "Which tree do they choose?",
-        "The one beside the red bench",
+        "What helps Pip choose the right tree?",
+        "The bench beside it",
         [
-          "The one by the gate",
-          "The one near the pond",
-          "The one behind the shed"
+          "The ball under it",
+          "Socks pointing to all three",
+          "The space between the trees"
         ],
         [
-          2
+          3,
+          5
         ]
       ],
       [
-        "Why can Pip find Socks easily?",
-        "They chose the same meeting place",
+        "How can you tell the meeting plan worked?",
+        "Pip goes straight to Socks",
         [
-          "Socks climbs the tree",
-          "The other trees are gone",
-          "Pip follows a trail of stones"
+          "Socks goes to fetch the ball",
+          "Pip visits all three trees",
+          "Socks moves to another bench"
         ],
         [
-          0,
-          2,
-          4,
           5
         ]
       ]
     ],
-    "Draw Socks and Pip by the tree beside the bench. Write tree and bench."
+    "Draw the three trees. Write a clue another reader could use to pick the meeting place."
   ],
   [
     "chips-leaf-book",
@@ -2140,48 +2159,48 @@ export const EXPANSION_DRAFTS_B = [
       "clean",
       "leaves"
     ],
-    "Chips finds a leaf under a tree. The leaf is damp, so Chips pats it with clean paper. Chips puts the leaf between two dry sheets. A heavy book goes on top. After several days, the leaf is flat and dry. Chips adds it to a book of leaves.",
+    "Chips found a damp leaf under a tree. Chips patted it with clean paper. Then Chips tucked the leaf between two dry sheets. A heavy book held them down. Several days later the leaf was dry and flat. Into the book of leaves it went.",
     [
       [
-        "What does Chips pat with clean paper?",
-        "A damp leaf",
+        "What goes straight above and below the leaf?",
+        "Two sheets of dry paper",
         [
-          "A wet stone",
-          "A muddy shell",
-          "A flower pot"
+          "Two heavy books",
+          "One sheet and the book cover",
+          "One book and a damp sheet"
         ],
         [
-          0,
-          1
+          2
         ]
       ],
       [
-        "What goes on top of the two sheets?",
-        "A heavy book",
+        "Why put the heavy book on top?",
+        "To press the leaf flat",
         [
-          "A small cup",
-          "A wooden spoon",
-          "A soft hat"
+          "To pat the leaf dry",
+          "To find another leaf",
+          "To store the damp leaf in the collection"
         ],
         [
-          2,
-          3
-        ]
-      ],
-      [
-        "What happens to the leaf after several days?",
-        "It is flat and dry",
-        [
-          "It grows roots",
-          "It turns into soil",
-          "It becomes wet again"
-        ],
-        [
+          3,
           4
+        ]
+      ],
+      [
+        "When does Chips add the leaf to the collection?",
+        "After it is flat and dry",
+        [
+          "As soon as it is found",
+          "Just before patting it dry",
+          "While it is damp under the tree"
+        ],
+        [
+          4,
+          5
         ]
       ]
     ],
-    "Draw the dry leaf in the leaf book. Write leaf and book."
+    "Draw the stack with the leaf inside. Write a label for the top layer."
   ],
   [
     "chompy-beach-shells",
@@ -2194,46 +2213,48 @@ export const EXPANSION_DRAFTS_B = [
       "sea",
       "each"
     ],
-    "Chompy walks along the beach with an adult. They look at each shell on the sand. One shell moves when a little crab comes out. Chompy puts that shell back beside the sea. The crab walks towards a rock pool. Chompy draws it in a notebook instead of taking it home.",
+    "Chompy walked the beach with an adult, looking at each shell. One of the shells moved! A little crab came out. Chompy put the shell back beside the sea. The crab walked towards a rock pool. Chompy took out a notebook to draw it there.",
     [
       [
-        "What comes out of one shell?",
-        "A little crab",
+        "What makes one shell move?",
+        "The crab inside it",
         [
-          "A small fish",
-          "A worm",
-          "A snail"
+          "The adult lifting it",
+          "Chompy drawing it",
+          "Water in the rock pool"
         ],
         [
+          1,
           2
         ]
       ],
       [
-        "Where does the crab walk?",
-        "Towards a rock pool",
+        "Where does the crab head?",
+        "Towards the rock pool",
         [
-          "Into a bag",
-          "Behind a boat",
-          "Up a tree"
+          "Towards the notebook",
+          "Back along the beach to Chompy",
+          "Into the adult’s hand"
         ],
         [
           4
         ]
       ],
       [
-        "What does Chompy do instead of taking the crab home?",
-        "Draws it in a notebook",
+        "What can Chompy take home from this visit?",
+        "A picture of the crab",
         [
-          "Puts it in a bucket",
-          "Hides it in sand",
-          "Feeds it bread"
+          "The crab in its shell",
+          "A second crab from the pool",
+          "The shell from the rock pool"
         ],
         [
+          4,
           5
         ]
       ]
     ],
-    "Draw the crab beside the rock pool. Write crab and shell."
+    "Draw a page from Chompy’s notebook. Write where the crab was going."
   ],
   [
     "muddy-peach-seed",
@@ -2246,46 +2267,48 @@ export const EXPANSION_DRAFTS_B = [
       "eat",
       "clean"
     ],
-    "An adult cuts a peach for Muddy to eat. A hard stone is in the middle. Muddy puts the stone on a clean plate. The soft peach goes into a bowl. Muddy eats the soft pieces with a spoon. The hard stone stays on the plate.",
+    "An adult cut a peach for Muddy to eat. Inside was a hard stone. Muddy put the stone on a clean plate. Muddy ate the soft fruit from a bowl with a spoon. By the end of the snack, only the stone was left.",
     [
       [
-        "What is in the middle of the peach?",
-        "A hard stone",
+        "Who cuts the peach?",
+        "The adult",
         [
-          "A small leaf",
-          "A green stem",
-          "A drop of milk"
+          "Muddy",
+          "Muddy and the adult together",
+          "Muddy’s friend"
         ],
         [
-          1
+          0
         ]
       ],
       [
-        "Where does Muddy put the stone?",
-        "On a plate",
+        "Which part goes into the bowl?",
+        "The soft fruit",
         [
-          "In the bowl",
-          "In a cup",
-          "On a napkin"
+          "The hard stone",
+          "The whole peach",
+          "The stone and the fruit"
         ],
         [
-          2
+          2,
+          3
         ]
       ],
       [
-        "What does Muddy use to eat the peach?",
-        "A spoon",
+        "What would you see on the plate after the snack?",
+        "The hard peach stone",
         [
-          "A fork",
-          "Fingers",
-          "A straw"
+          "The soft peach pieces",
+          "The whole peach",
+          "A bowl of fruit"
         ],
         [
+          2,
           4
         ]
       ]
     ],
-    "Draw the peach pieces in the bowl and the stone beside it. Write peach and stone."
+    "Draw the plate and the bowl before Muddy eats. Write hard or soft beside each."
   ],
   [
     "pip-reading-team",
@@ -2298,47 +2321,48 @@ export const EXPANSION_DRAFTS_B = [
       "each",
       "team"
     ],
-    "Pip and Socks read a picture book as a team. Pip holds the book so each reader can see. Socks points to a new word. They ask an adult to explain the word. Then they read the page again. Both readers can tell what happened on that page.",
+    "Pip and Socks want to read a picture book as a team. Pip holds it where each can see. Socks points to a word. Neither reader knows what it means, so an adult helps explain it. Now the friends can read that page again. This time both can tell what happened.",
     [
       [
-        "Who reads with Pip?",
-        "Socks",
+        "How does Pip help at the start?",
+        "Holds the book for both readers",
         [
-          "Chips",
-          "Fluff",
-          "Muddy"
-        ],
-        [
-          0
-        ]
-      ],
-      [
-        "Why does Pip hold the book open for both readers?",
-        "So each can see",
-        [
-          "So the book can dry",
-          "So the pages fall out",
-          "So the cover stays hidden"
+          "Explains the new word",
+          "Tells Socks how the page ends",
+          "Points to the last page"
         ],
         [
           1
         ]
       ],
       [
-        "What do they do after the adult explains the word?",
-        "Read the page again",
+        "Why do they ask the adult for help?",
+        "A word is new to both",
         [
-          "Close the book",
-          "Start a new book",
-          "Draw on the page"
+          "The print is hidden from Socks",
+          "Pip cannot find the page",
+          "Both have finished the book"
         ],
         [
-          3,
-          4
+          2,
+          3
+        ]
+      ],
+      [
+        "How can you tell the explanation helped?",
+        "They can tell what happened",
+        [
+          "They can hold the book up",
+          "They can point to the word",
+          "They can see the pictures"
+        ],
+        [
+          4,
+          5
         ]
       ]
     ],
-    "Draw Pip and Socks sharing the picture book. Write book and read."
+    "Draw the moment the readers need help. Write what one reader could ask."
   ],
   [
     "fluff-toast-sharing",
@@ -2350,46 +2374,49 @@ export const EXPANSION_DRAFTS_B = [
       "toast",
       "coat"
     ],
-    "Fluff puts on a coat for a picnic. Fluff packs two pieces of toast in a box. A tomato slice goes on each piece. Fluff closes the box and carries it to the garden. Socks brings a drink for each friend. They share the food on a picnic mat.",
+    "Fluff pulled on a coat and packed two pieces of toast. Each piece got a slice of tomato before the box went shut. At the garden picnic, Socks had a drink for each friend. Fluff opened the box on the mat. There was a lunch to share.",
     [
       [
-        "How many pieces of toast does Fluff pack?",
-        "Two",
+        "What goes into the box last?",
+        "The tomato slices",
         [
-          "One",
-          "Three",
-          "Four"
+          "The two drinks",
+          "The picnic mat",
+          "The two pieces of toast"
         ],
         [
+          0,
           1
         ]
       ],
       [
-        "What goes on each piece of toast?",
-        "A tomato slice",
+        "What does Socks add to the picnic?",
+        "Drinks",
         [
-          "A slice of cheese",
-          "A spoon of jam",
-          "A piece of peach"
+          "Toast",
+          "Tomato slices",
+          "A coat to sit on"
         ],
         [
           2
         ]
       ],
       [
-        "What does Socks bring?",
-        "Drinks",
+        "What can each friend have?",
+        "Toast and a drink",
         [
-          "Cups of soup",
-          "Paper plates",
-          "Napkins"
+          "Two pieces of toast each",
+          "Both drinks and no toast",
+          "Toast without any tomato"
         ],
         [
-          4
+          0,
+          1,
+          2
         ]
       ]
     ],
-    "Draw the two pieces of toast in the picnic box. Write toast and tomato."
+    "Draw one friend’s share of lunch. Write who brought each part."
   ],
   [
     "socks-coat-pocket",
@@ -2401,27 +2428,27 @@ export const EXPANSION_DRAFTS_B = [
       "coat",
       "road"
     ],
-    "Socks puts on a coat before crossing the road. The house key is not on its hook. Socks checks the deep pocket of the coat. The key is under a folded shopping bag. Socks takes it out and locks the door. Then Socks crosses at the crossing with an adult.",
+    "Socks put on a coat, ready to cross the road. The key hook was empty. Socks felt a folded shopping bag deep in the coat pocket. Under the bag, Socks found the house key. Socks locked the door, then used the crossing with an adult.",
     [
       [
-        "What is missing from the hook?",
-        "The house key",
+        "Where does Socks expect the key to be?",
+        "On the hook",
         [
-          "A hat",
-          "A bag",
-          "A scarf"
+          "Under the hook",
+          "Inside the door",
+          "Under the shopping bag"
         ],
         [
           1
         ]
       ],
       [
-        "Where does Socks find the key?",
-        "Under a bag in the coat pocket",
+        "What is hiding the key?",
+        "The bag in the pocket",
         [
-          "In a bowl on the table",
-          "Behind a book on the shelf",
-          "Under a mat by the door"
+          "The hook by the door",
+          "The coat on the hook",
+          "The bag by the crossing"
         ],
         [
           2,
@@ -2429,19 +2456,20 @@ export const EXPANSION_DRAFTS_B = [
         ]
       ],
       [
-        "Where does Socks cross the road?",
-        "At the crossing",
+        "What must Socks do before crossing the road?",
+        "Find the key and lock up",
         [
-          "Between parked cars",
-          "At a bend",
-          "Behind a bus"
+          "Cross to look for the key",
+          "Lock the key in the house",
+          "Leave the key on the hook"
         ],
         [
-          5
+          3,
+          4
         ]
       ]
     ],
-    "Draw the key and folded bag beside the coat pocket. Write key and coat."
+    "Draw the pocket so we can see inside. Write which thing Socks finds first."
   ],
   [
     "chips-low-window",
@@ -2454,46 +2482,46 @@ export const EXPANSION_DRAFTS_B = [
       "low",
       "grow"
     ],
-    "Chips puts a plant by a high window. The wall blocks the light from the small plant. Chips finds a low box and sets it under the pot. Now the leaves reach the light. Chips waters the soil and watches the plant grow. New leaves show after several days.",
+    "Light came through a high window, above the little plant. The wall kept light off the leaves. A low box under the pot lifted the leaves into the light. Chips watered the soil and watched the plant grow. A few days later, new leaves began to show.",
     [
       [
-        "What blocks the light at first?",
+        "Which part blocks light from the plant at first?",
         "The wall",
         [
-          "A curtain",
-          "A tall tree",
-          "A cupboard"
+          "The box",
+          "The pot",
+          "The soil"
         ],
         [
           1
         ]
       ],
       [
-        "What goes under the pot?",
-        "A low box",
+        "Where does Chips put the box?",
+        "Under the pot",
         [
-          "A tall cup",
-          "A soft hat",
-          "A small tray"
+          "Behind the leaves",
+          "Over the soil",
+          "Beside the pot"
         ],
         [
           2
         ]
       ],
       [
-        "What happens after several days?",
-        "New leaves show",
+        "What takes several days to happen?",
+        "New leaves start growing",
         [
-          "All the soil falls out",
-          "The window closes",
-          "The pot breaks"
+          "The pot moves up",
+          "The light reaches it",
+          "The box goes underneath"
         ],
         [
-          5
+          4
         ]
       ]
     ],
-    "Draw the plant raised on the box by the window. Write plant and box."
+    "Draw the plant before and after Chips helps. Write which one gets more light."
   ],
   [
     "chompy-light-shadow",
@@ -2506,47 +2534,48 @@ export const EXPANSION_DRAFTS_B = [
       "bright",
       "high"
     ],
-    "Chompy shines a bright light at a plain wall. A toy stands between the light and the wall. Its shadow looks very big. Chompy moves the toy closer to the wall. The shadow gets smaller. Then Chompy lifts the toy high and watches the shadow move up.",
+    "Chompy pointed a bright lamp at the wall. A toy between the light and the wall made a huge shadow. Chompy moved the toy nearer the wall. Its shadow grew smaller. Then Chompy held the toy high. Up the wall went the little shadow too.",
     [
       [
-        "What stands between the light and the wall?",
-        "A toy",
+        "Where is the light when the toy makes its shadow?",
+        "On the other side of the toy from the wall",
         [
-          "A plant",
-          "A chair",
-          "A cup"
+          "Between the toy and the wall",
+          "Next to the shadow on the wall",
+          "On the other side of the wall"
         ],
         [
           1
         ]
       ],
       [
-        "What happens when the toy moves closer to the wall?",
+        "What changes when the toy moves nearer the wall?",
         "The shadow gets smaller",
         [
           "The shadow gets bigger",
-          "The light goes out",
-          "The wall changes colour"
+          "The wall gets smaller",
+          "The light moves higher"
         ],
         [
-          3,
-          4
+          2,
+          3
         ]
       ],
       [
-        "How does Chompy move the shadow up?",
-        "Lifts the toy high",
+        "How does Chompy make the shadow move up?",
+        "Lifts the toy",
         [
-          "Turns off the light",
-          "Lays the toy down",
-          "Covers the light"
+          "Moves the toy lower",
+          "Lifts the light",
+          "Moves the wall closer"
         ],
         [
+          4,
           5
         ]
       ]
     ],
-    "Draw the toy between the light and its shadow. Write toy and light."
+    "Draw two shadows from Chompy’s story. Write what changed between your pictures."
   ],
   [
     "muddy-blue-puzzle",
@@ -2558,46 +2587,48 @@ export const EXPANSION_DRAFTS_B = [
       "blue",
       "glue"
     ],
-    "Muddy makes a puzzle picture on a board. The blue sky has one empty space. A blue piece is hiding under the board. Muddy lifts the board and finds it. The piece fits, so the sky is complete. An adult adds glue to keep the finished puzzle together.",
+    "Muddy’s puzzle picture was nearly finished. One space in the blue sky still showed the board underneath. Muddy lifted the board. There was the missing blue piece! It fitted the space and made the sky complete. An adult used glue to hold the finished puzzle together.",
     [
       [
-        "Which part of the picture has an empty space?",
-        "The blue sky",
+        "What can Muddy see through the gap?",
+        "The board",
         [
-          "The green grass",
-          "The red house",
-          "The yellow sun"
+          "The glue",
+          "The missing piece",
+          "A different puzzle"
         ],
         [
           1
         ]
       ],
       [
-        "Where is the missing piece?",
-        "Under the board",
+        "Where does Muddy find the piece?",
+        "Beneath the board",
         [
-          "Inside the box",
-          "Behind a chair",
-          "Under the rug"
+          "In the gap already",
+          "On top of the sky",
+          "Beside the glue"
         ],
         [
-          2
+          2,
+          3
         ]
       ],
       [
-        "Why does the adult add glue?",
-        "To keep the puzzle together",
+        "When does the adult use glue?",
+        "After Muddy fills the space",
         [
-          "To change the sky colour",
-          "To cover the empty space",
-          "To make the board bigger"
+          "Before Muddy finds the piece",
+          "While the sky has a gap",
+          "As Muddy lifts the board"
         ],
         [
+          4,
           5
         ]
       ]
     ],
-    "Draw the finished puzzle with the blue sky. Write puzzle and sky."
+    "Draw a clue that would help Muddy find the piece. Write where to look."
   ],
   [
     "pip-new-ball",
@@ -2610,48 +2641,53 @@ export const EXPANSION_DRAFTS_B = [
       "threw",
       "few"
     ],
-    "Pip had a new soft ball. Socks threw it from far away, and Pip missed. Socks took a few steps closer. The next throw was gentle and low. Pip held both hands out and caught the ball. They tried again from the same place before moving farther apart.",
+    "Pip and Socks had a new soft ball. Socks threw it from far away and Pip missed. Socks came a few steps closer for a gentle, low throw. Pip reached out with both hands. A catch! They tried there once more before moving farther apart.",
     [
       [
-        "Who threw the ball to Pip?",
-        "Socks",
+        "How did Pip get ready for the throw that worked?",
+        "Held out both hands",
         [
-          "Chips",
-          "Muddy",
-          "Fluff"
+          "Took a few steps closer",
+          "Moved farther away",
+          "Threw the ball gently"
         ],
         [
-          1
+          2,
+          3,
+          4
         ]
       ],
       [
-        "What did Socks change after Pip missed?",
-        "Moves a few steps closer",
+        "How did the distance change after Pip missed?",
+        "The friends stood closer together",
         [
-          "Uses a smaller ball",
-          "Throws much higher",
-          "Hides the ball"
+          "The friends stood farther apart",
+          "They stayed the same distance apart",
+          "They changed places at the same distance"
         ],
         [
+          1,
           2
         ]
       ],
       [
-        "How did Pip catch the ball?",
-        "With both hands held out",
+        "What happened just after the catch?",
+        "They tried from the same spot",
         [
-          "With one foot",
-          "In a basket",
-          "Under a hat"
+          "They moved farther apart at once",
+          "Socks came closer again",
+          "Pip missed the first throw"
         ],
         [
-          4
+          4,
+          5
         ]
       ]
     ],
-    "Draw Pip catching the soft ball from Socks. Write ball and hands."
+    "Draw the throw that Pip caught. Write a clue about where the friends stood."
   ]
 ];
+
 export const EXPANSION_WORD_HELP_B = {
   "pip-covered-plate": [
     [
@@ -2953,4 +2989,57 @@ export const EXPANSION_WORD_HELP_B = {
       "soft and careful rather than hard or rough"
     ]
   ]
+};
+
+export const EXPANSION_DISCUSSION_B = {
+  "pip-covered-plate": "How would you use your picture to explain why the grapes stayed safe?",
+  "fluff-paper-plane": "What changed between the two throws, and how could Fluff tell it helped?",
+  "chips-art-space": "How could you tell the story using just the two shelves in your drawing?",
+  "muddy-picnic-shade": "What would you tell a friend who wanted to sit on the bench?",
+  "socks-missing-game-piece": "What would Socks have missed by looking only in the open box?",
+  "chompy-table-wobble": "Where would you put a plate for Chompy, and why?",
+  "pip-safe-candle": "How do the paper and the lamp each help make Pip’s lantern?",
+  "fluff-birthday-cake": "How can you tell that nobody got a bigger share of the cake?",
+  "chips-long-ribbon": "What could Chips do to check a ribbon before cutting it?",
+  "muddy-ice-tray": "How did Muddy get the last piece out differently from the others?",
+  "socks-bike-basket": "Use your hands to show how the basket tips and how Socks fixes it.",
+  "chompy-hideout": "What was already comfortable inside, and what still needed fixing?",
+  "pip-striped-socks": "How could you check Pip’s pairs if you had the basket in front of you?",
+  "fluff-garden-slide": "What would you expect on another run if Fluff put the block back?",
+  "chips-white-chalk": "What could you tell someone choosing chalk for a black board?",
+  "muddy-cone-stack": "What might happen if you took the stones away? Which part of the story helps you decide?",
+  "socks-rope-handle": "Explain to a partner how Socks could lift the whole box just by lifting the rope.",
+  "pip-rose-pot": "What do the stem and the new leaves both show Pip?",
+  "fluff-bone-print": "How could a friend work out which print the bone made?",
+  "chompy-note-delivery": "What would you write back to Chompy?",
+  "chips-hose-coil": "What would have been different if the friend had arrived before Chips?",
+  "muddy-cardboard-tube": "Why could Muddy see the toy the second time?",
+  "socks-flute-rest": "How did the friends make room for both the tune and the story?",
+  "pip-cube-tower": "What could you show someone who wanted to start with the round block?",
+  "fluff-these-shelves": "What would you check before swapping the giraffe with the ducks?",
+  "muddy-train-bridge": "Which job does the board do, and which job do the blocks do?",
+  "pip-snail-trail": "How could Pip follow the snail’s journey without picking it up?",
+  "socks-train-seat": "What does Socks notice about the friend and the seats?",
+  "chips-chair-paint": "What might happen to the paint if the chair stayed in the rain?",
+  "chompy-paper-sail": "What could Chompy try if the boat stopped in the middle of the tray?",
+  "fluff-hay-bed": "What would you point to if someone asked whether the rabbit liked the new bed?",
+  "pip-clay-bowl": "What could Pip put in the dry bowl to try it out?",
+  "muddy-cup-tray": "Show with your hands how Muddy held the tray each time. What happened to the cups?",
+  "socks-rainy-play": "What could Socks tell a friend who still wanted to run outside?",
+  "chips-damp-clay": "Why did Chips want this clay to stay soft overnight?",
+  "chompy-sheet-fold": "How could you use a piece of paper to show what the friends did?",
+  "muddy-bee-distance": "What could Muddy still find out about the bee after stepping back?",
+  "pip-green-beads": "Why does Pip need both the brush and the tray?",
+  "fluff-sweep-leaves": "Why was sweeping on its own not enough?",
+  "socks-meet-tree": "Give directions to the meeting place without pointing.",
+  "chips-leaf-book": "What did the heavy book do that patting the leaf with paper could not?",
+  "chompy-beach-shells": "How could Chompy remember this crab and still leave it at the beach?",
+  "muddy-peach-seed": "What would you tell someone who put the whole peach straight into the bowl?",
+  "pip-reading-team": "How did each reader help the other understand the page?",
+  "fluff-toast-sharing": "How do the things Fluff and Socks bring make a lunch for two?",
+  "socks-coat-pocket": "What would Socks miss by checking the hook but leaving the bag in the pocket?",
+  "chips-low-window": "What could Chips change without moving the window?",
+  "chompy-light-shadow": "Show two ways Chompy moved the toy. What happened to its shadow each time?",
+  "muddy-blue-puzzle": "Why would it be better to wait until the end to use the glue?",
+  "pip-new-ball": "What two changes could Socks remember when helping someone else catch?"
 };

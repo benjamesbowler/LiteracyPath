@@ -20,7 +20,7 @@ test('every picture sheet preserves its exact passage and authoritative story il
     assert.ok(document.html.includes(`href="${picture.src}"`));
     assert.ok(document.html.includes(`aria-label="${esc(picture.alt)}"`));
     assert.ok(document.html.includes(`data-picture-kind="${picture.kind}"`));
-    assert.match(document.html, /Tell what happened\. Use first, next and last\./);
+    assert.ok(passage.discussion && document.html.includes(esc(passage.discussion)), passage.id);
     assert.match(document.html, /Colour the story picture\./);
     assert.match(document.html, /data:font\/woff2;base64,/);
     assert.doesNotMatch(document.html, /<script\b|comprehension-portrait-|data-task-kind="draw-retell"/);

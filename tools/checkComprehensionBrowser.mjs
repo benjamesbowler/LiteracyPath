@@ -1,11 +1,14 @@
 import fs from 'node:fs/promises';
 import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
 import {chromium} from 'playwright';
 import AxeBuilder from '@axe-core/playwright';
 import {getPassagePhonicsWords} from '../src/content/comprehension/phonics.js';
 import {resolveComprehensionPassageAudio,resolveComprehensionQuestionAudio} from '../src/content/comprehension/audio.js';
 import {COMPREHENSION_PASSAGES as passages} from '../src/content/comprehension/passages.js';
 const base=process.env.LP_COMPREHENSION_BASE||'http://127.0.0.1:4203';
+const soundOff=process.env.LP_COMPREHENSION_SOUND_OFF==='1';
+const editionHash=createHash('sha256').update(JSON.stringify(passages)).digest('hex');
 const out='.artifacts/comprehension';await fs.mkdir(out,{recursive:true});
 const browser=await chromium.launch({headless:true});const results=[];
 try{
@@ -115,22 +118,35 @@ try{
  assert.equal(await page.locator('.rc-feedback').count(),0);
  assert.equal(await page.locator('.rc-options button').count(),4,'Whole group has four choices');
  await page.locator('.rc-options button').first().click();assert.equal(await page.locator('.rc-feedback').count(),0,'group selection does not reveal the key');
- await page.getByRole('button',{name:'Reveal answer and evidence',exact:true}).click();assert.match(await page.locator('.rc-feedback').innerText(),/For a small plant/);assert.ok(await page.locator('.rc-evidence').count()>0);
+ await page.getByRole('button',{name:'Reveal answer and evidence',exact:true}).click();assert.ok((await page.locator('.rc-feedback').innerText()).includes(passages.find(p=>p.id==='muddy-rain').questions[0].answer));assert.ok(await page.locator('.rc-evidence').count()>0);
  await page.screenshot({path:`${out}/whole-group.png`,fullPage:true});
+ const rainPassage=passages.find(p=>p.id==='muddy-rain');
+ await page.getByRole('button',{name:'Discuss first',exact:true}).click();
+ await visible(page.getByText(rainPassage.discussion,{exact:true}));
+ await page.getByRole('button',{name:'Back to questions',exact:true}).click();
+ await visible(page.getByRole('heading',{name:rainPassage.questions[0].prompt,exact:true}));
+ for(let index=1;index<rainPassage.questions.length;index++)await page.getByRole('button',{name:'Next question',exact:true}).click();
+ await page.getByRole('button',{name:'Discuss the story',exact:true}).click();
+ await visible(page.getByRole('heading',{name:'Talk about the story',exact:true}));
+ await visible(page.getByText(rainPassage.discussion,{exact:true}));
+ await page.getByRole('button',{name:'Back to questions',exact:true}).click();
+ await visible(page.getByRole('heading',{name:rainPassage.questions.at(-1).prompt,exact:true}));
  await page.getByRole('button',{name:'Small group',exact:true}).click();assert.equal(await page.locator('.rc-options button').count(),4,'Small group has four choices');assert.equal(await page.locator('.rc-private h2').count(),0);
  await page.getByRole('button',{name:'Teacher notes · show privately',exact:true}).click();await visible(page.getByRole('heading',{name:'Before',exact:true}));
  await page.screenshot({path:`${out}/small-group.png`,fullPage:true});
- const audioRequests=[];page.on('request',r=>{if(r.url().includes('/audio/production/en-US/comprehension/'))audioRequests.push(new URL(r.url()).pathname);});
- const audioPassage=passages.find(p=>p.id==='muddy-rain');
- await page.getByRole('button',{name:'Hear with Leda',exact:true}).click();await page.locator('.rc-speech-note').filter({hasText:'Playing with Leda.'}).waitFor();
- assert.ok(audioRequests.includes(resolveComprehensionPassageAudio(audioPassage).path));
- await page.getByRole('button',{name:'Stop voice',exact:true}).click();assert.match(await page.locator('.rc-speech-note').innerText(),/stopped/);
- const displayed=await page.locator('.rc-options button').evaluateAll(buttons=>buttons.map(b=>b.getAttribute('aria-label')));
- const narrated=resolveComprehensionQuestionAudio({...audioPassage.questions[0],options:displayed});assert.equal(narrated.status,'ready');
- await page.getByRole('button',{name:'Hear question and choices',exact:true}).click();await page.locator('.rc-speech-note').filter({hasText:'Playing with Leda.'}).waitFor();
- assert.ok(audioRequests.includes(narrated.parts[0].path));
- await page.getByRole('button',{name:'Stop voice',exact:true}).click();
- results.push({ledaStory:true,ledaShuffledQuestion:true,ledaStop:true});
+ if(!soundOff){
+  const audioRequests=[];page.on('request',r=>{if(r.url().includes('/audio/production/en-US/comprehension/'))audioRequests.push(new URL(r.url()).pathname);});
+  const audioPassage=passages.find(p=>p.id==='muddy-rain');
+  await page.getByRole('button',{name:'Hear with Leda',exact:true}).click();await page.locator('.rc-speech-note').filter({hasText:'Playing with Leda.'}).waitFor();
+  assert.ok(audioRequests.includes(resolveComprehensionPassageAudio(audioPassage).path));
+  await page.getByRole('button',{name:'Stop voice',exact:true}).click();assert.match(await page.locator('.rc-speech-note').innerText(),/stopped/);
+  const displayed=await page.locator('.rc-options button').evaluateAll(buttons=>buttons.map(b=>b.getAttribute('aria-label')));
+  const narrated=resolveComprehensionQuestionAudio({...audioPassage.questions[0],options:displayed});assert.equal(narrated.status,'ready');
+  await page.getByRole('button',{name:'Hear question and choices',exact:true}).click();await page.locator('.rc-speech-note').filter({hasText:'Playing with Leda.'}).waitFor();
+  assert.ok(audioRequests.includes(narrated.parts[0].path));
+  await page.getByRole('button',{name:'Stop voice',exact:true}).click();
+  results.push({ledaStory:true,ledaShuffledQuestion:true,ledaStop:true});
+ }
  await page.getByRole('button',{name:'Student practice',exact:true}).click();assert.equal(await page.locator('.rc-private').count(),0);
  await page.screenshot({path:`out/teacher-practice.png`.replace('out',out),fullPage:true});
  await page.getByRole('button',{name:'← All passages',exact:true}).click();
@@ -145,5 +161,6 @@ try{
  await page.goto(`${base}/preview/child-surfaces.html?surface=reading-library`);await page.getByRole('button',{name:'Reading Comprehension',exact:true}).click();await visible(page.locator('[data-child-surface="reading-comprehension"]'));
  results.push({worksheetEntry:true,booksEntry:true});
  assert.deepEqual(errors,[]);
- await fs.writeFile(`${out}/browser-check.json`,JSON.stringify({results,pageErrors:errors},null,2));console.log(JSON.stringify({results,pageErrors:errors},null,2));
+ const receipt={soundOff,editionHash,results,pageErrors:errors};
+ await fs.writeFile(`${out}/${soundOff?'browser-sound-off-check.json':'browser-check.json'}`,JSON.stringify(receipt,null,2));console.log(JSON.stringify(receipt,null,2));
 }finally{await browser.close();}

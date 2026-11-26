@@ -1,4 +1,5 @@
 import fs from 'node:fs/promises';
+import {createHash} from 'node:crypto';
 import assert from 'node:assert/strict';
 import {chromium} from 'playwright';
 import AxeBuilder from '@axe-core/playwright';
@@ -6,18 +7,51 @@ import {COMPREHENSION_PASSAGES as passages} from '../src/content/comprehension/p
 import {passagePicture} from '../src/content/comprehension/pictures.js';
 import {STUDENT_DEVICE_PROFILES} from '../src/policy/studentDeviceMatrix.js';
 const base=process.env.LP_COMPREHENSION_BASE||'http://127.0.0.1:4203';
-const out='.artifacts/comprehension';await fs.mkdir(out,{recursive:true});
+const out=process.env.LP_FULLSCREEN_OUTPUT||'.artifacts/comprehension';await fs.mkdir(out,{recursive:true});
 const browser=await chromium.launch({headless:true});
+const bankSha256=createHash('sha256').update(JSON.stringify(passages)).digest('hex');
+const soundOff=process.env.LP_FULLSCREEN_SOUND_OFF==='1';
 const results=[],errors=[];
 const only=process.env.LP_FULLSCREEN_LIMIT?Number(process.env.LP_FULLSCREEN_LIMIT):passages.length;
 try{
  const context=await browser.newContext();
  // Freeze each tested document while other workers add public raster files.
  // Vite otherwise reloads the lesson mid-click on every new image.
- await context.route('**/@vite/client',async route=>{const response=await route.fetch();const body=(await response.text()).replace('case "full-reload":','case "full-reload": return;').replace('case "update":','case "update": return;');await route.fulfill({response,body});});
+ let frozenViteClient;
+ await context.route('**/@vite/client',async route=>{
+  if(frozenViteClient===undefined){
+   const response=await route.fetch({maxRetries:2});
+   assert.ok(response.ok(),'local preview must serve its Vite client');
+   frozenViteClient=(await response.text()).replace('case "full-reload":','case "full-reload": return;').replace('case "update":','case "update": return;');
+  }
+  await route.fulfill({contentType:'text/javascript',body:frozenViteClient});
+ });
  await context.addInitScript(()=>{Element.prototype.requestFullscreen=()=>Promise.reject(new Error('Fullscreen refused for fallback test'));});
  const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));
+ const child=`${base}/preview/child-surfaces.html?surface=reading-comprehension`;
+ const stage=page.locator('[data-fullscreen-lesson]');
+ const catalogue=page.locator('.rc-child-catalogue');
+ const lessonButton=name=>stage.getByRole('button',{name,exact:true});
+ async function openChild(p){
+  await catalogue.waitFor();
+  const card=catalogue.getByRole('button',{name:`Read ${p.title}`,exact:true});
+  if(!await card.isVisible()){
+   await catalogue.getByRole('button',{name:'Find a story',exact:true}).click();
+   const filter=page.getByRole('dialog',{name:'Find a passage'});
+   await filter.getByRole('searchbox',{name:'Find a story'}).fill(p.title);
+   await filter.getByRole('button',{name:'Show stories',exact:true}).click();
+  }
+  await card.click();
+  await stage.getByRole('heading',{name:p.title,exact:true}).waitFor();
+ }
+ async function exitChild(){
+  await lessonButton('All passages').click();
+  const heading=catalogue.getByRole('heading',{name:'Reading Comprehension',exact:true});
+  await heading.waitFor();
+  await page.waitForFunction(()=>document.activeElement?.matches('.rc-child-catalogue h1'));
+ }
  const teacher=`${base}/preview/teacher-a11y.html?surface=resources`;
+ const navigation={waitUntil:'domcontentloaded',timeout:90000};
  async function fit(label){
   await page.evaluate(()=>document.fonts.ready);await page.waitForTimeout(20);
   const defects=await page.locator('[data-fullscreen-lesson]').evaluate(root=>{
@@ -41,6 +75,8 @@ try{
   assert.deepEqual(defects,[],label);
  }
  async function allText(kind){
+  const previous=page.getByRole('button',{name:`Previous ${kind} page`,exact:true,includeHidden:true});
+  while(await previous.isEnabled()) await previous.click();
   const values=[];
   for(let i=0;i<60;i++){
    values.push((await page.locator(`[data-lesson-text="${kind}"]:visible`).innerText()).trim());
@@ -51,7 +87,7 @@ try{
   assert.fail(`${kind}: pager did not end`);
  }
  for(const {width,height,id} of STUDENT_DEVICE_PROFILES.filter(profile=>!process.env.LP_FULLSCREEN_CHILD_ONLY&&!process.env.LP_FULLSCREEN_STATES_ONLY&&(!process.env.LP_FULLSCREEN_DEVICE||profile.id===process.env.LP_FULLSCREEN_DEVICE)&&(!process.env.LP_FULLSCREEN_DESKTOP_ONLY||profile.width>=960))){
-  await page.setViewportSize({width,height});await page.goto(teacher);
+  await page.setViewportSize({width,height});await page.goto(teacher,navigation);
   await page.getByRole('button',{name:'Open Reading Comprehension',exact:true}).click();
   if(await page.getByRole('button',{name:'← All passages',exact:true}).count())await page.getByRole('button',{name:'← All passages',exact:true}).click();
   for(const p of passages.slice(0,only)){
@@ -65,7 +101,7 @@ try{
    if(width>=960&&height>=650){
     assert.equal(await page.getByRole('button',{name:'Hear story with Leda',exact:true}).count(),1,'desktop story playback stays reachable');
     assert.equal(await page.getByRole('button',{name:'Hear question and choices',exact:true}).count(),1,'desktop question playback stays reachable without hidden view tabs');
-    if(p===passages[0])for(const name of ['Hear story with Leda','Hear question and choices']){
+    if(!soundOff&&p===passages[0])for(const name of ['Hear story with Leda','Hear question and choices']){
      await page.getByRole('button',{name,exact:true}).click();
      await page.locator('.rc-lesson-status').filter({hasText:'Playing with Leda.'}).waitFor();
      await page.getByRole('button',{name:'Stop voice',exact:true}).click();
@@ -80,19 +116,29 @@ try{
    const words=await allText('word help');for(const [word,meaning] of p.wordHelp)assert.ok(words.includes(`${word}: ${meaning}`));
    await page.getByRole('button',{name:'Words',exact:true}).click();
    if(width<960||height<650)await page.getByRole('button',{name:'Questions',exact:true}).click();
+   if(p===passages[0]){
+    await lessonButton('Talk before answering').click();await fit(`${id}:discussion before questions`);
+    assert.equal(await allText('retell'),`${p.discussion} ${p.draw}`);await lessonButton('Back to questions').click();
+   }
    for(let i=0;i<3;i++){
     await fit(`${id}:${p.id}:q${i+1}`);assert.equal(await page.locator('.rc-lesson-options button:visible').count(),4);
     assert.equal(await page.locator('.rc-lesson-options .rc-option-letter:visible').count(),4,'all four visible option letters match the spoken A–D choices');
     await page.locator('.rc-lesson-options button').first().click();
     await page.getByRole('button',{name:'Reveal answer',exact:true}).click();await fit(`${id}:${p.id}:q${i+1}:clue`);
     if(width<960||height<650){const clue=await allText('story clue');assert.ok(clue.includes(p.questions[i].answer));await page.getByRole('button',{name:'Back to choices',exact:true}).click();await fit(`${id}:${p.id}:revealed choices`);}
-    else assert.equal(await page.locator('.rc-lesson-options button:visible').count(),4);
+    else{
+     assert.equal(await page.locator('.rc-lesson-options button:visible').count(),4);
+     const feedback=await allText('answer feedback');
+     assert.ok(feedback.includes(p.questions[i].answer)&&feedback.includes(p.questions[i].evidence.join(' ')),p.questions[i].id);
+    }
     if(i===0&&p===passages[0]){await page.getByRole('button',{name:'Hide answer',exact:true}).click();assert.equal(await page.locator('.rc-lesson-inline-feedback').count(),0);assert.equal(await page.locator('.rc-lesson-options [data-correct]').count(),0);await fit(`${id}:teacher hides answer`);}
     if(i<2)await page.getByRole('button',{name:'Next',exact:true}).click();
    }
+   await lessonButton('Talk about the story').click();await fit(`${id}:${p.id}:discussion`);
+   assert.equal(await allText('retell'),`${p.discussion} ${p.draw}`);await lessonButton('Back to questions').click();
    if(p===passages[0])await page.screenshot({path:`${out}/fullscreen-${width}x${height}.png`});
    await page.keyboard.press('Escape');await page.locator('[data-fullscreen-lesson]').waitFor({state:'detached'});
-   assert.equal(await page.getByRole('button',{name:'Full screen',exact:true}).evaluate(el=>document.activeElement===el),true,'Escape restores entry focus');
+   await page.waitForFunction(()=>document.activeElement?.matches('.rc-fullscreen-entry'));
    await page.getByRole('button',{name:'← All passages',exact:true}).click();
   }
   console.log(`Verified ${Math.min(only,passages.length)} passages at ${width}×${height}`);
@@ -102,25 +148,25 @@ try{
  // surface naming, sound-off task controls and exit instead of inventing a
  // second route-level marker/primary-action policy for the body portal.
  const longestBy=measure=>passages.reduce((longest,p)=>measure(p)>measure(longest)?p:longest);
+ const profiles=STUDENT_DEVICE_PROFILES.filter(profile=>!process.env.LP_FULLSCREEN_DEVICE||profile.id===process.env.LP_FULLSCREEN_DEVICE);
  const childCases=[...new Map([
   longestBy(p=>p.text.length),
   longestBy(p=>Math.max(...p.questions.map(q=>q.prompt.length))),
   longestBy(p=>Math.max(...p.questions.flatMap(q=>q.options.map(o=>o.length))))
  ].map(p=>[p.id,p])).values()];
  async function activeChild(label,p){
-  const dialog=page.getByRole('dialog',{name:`${p.title} · full-screen lesson`,exact:true});
+  const dialog=page.getByRole('dialog',{name:`${p.title} · reading lesson`,exact:true});
   assert.equal(await dialog.getAttribute('aria-modal'),'true',`${label}: modal reader`);
   assert.equal(await dialog.locator('h1:visible').innerText(),p.title,`${label}: active visible title`);
-  assert.equal(await dialog.getByRole('button',{name:`Exit full screen: ${p.title}`,exact:true}).count(),1,`${label}: exit names the active passage`);
+  assert.equal(await dialog.getByRole('button',{name:'All passages',exact:true}).count(),1,`${label}: exit names the catalogue destination`);
   assert.ok(await page.locator('[data-fullscreen-lesson]').evaluate(el=>[...document.body.children].filter(sibling=>sibling!==el).every(sibling=>sibling.inert)),`${label}: hidden route cannot provide interactive controls`);
   await fit(label);
  }
- for(const {width,height} of STUDENT_DEVICE_PROFILES){
+ for(const {width,height} of profiles){
   const compact=width<960||height<650;
-  await page.setViewportSize({width,height});await page.goto(`${base}/preview/child-surfaces.html?surface=reading-comprehension`);
+  await page.setViewportSize({width,height});await page.goto(`${child}&scope=fullscreen-child-${width}`,navigation);
   for(const p of childCases){
-   if(await page.getByRole('button',{name:'← All passages',exact:true}).count())await page.getByRole('button',{name:'← All passages',exact:true}).click();
-   await page.getByRole('button',{name:`Read ${p.title}`,exact:true}).click();await page.getByRole('button',{name:'Start again',exact:true}).click();await page.getByRole('button',{name:'Full screen',exact:true}).click();
+   await openChild(p);
    await activeChild(`child ${width}x${height}:${p.id}:read`,p);assert.equal(await allText('story'),p.text);
    if(compact){
     await page.getByRole('button',{name:'Pictures',exact:true}).click();await activeChild(`child ${width}x${height}:${p.id}:pictures`,p);
@@ -131,63 +177,85 @@ try{
    assert.equal(await page.locator('.rc-lesson-question-title h2:visible').innerText(),p.questions[0].prompt);
    assert.equal(await page.locator('.rc-lesson-options button:visible').count(),4);
    for(let i=0;i<p.questions.length;i++){
-    await page.locator('.rc-lesson-options').getByRole('button',{name:p.questions[i].answer,exact:true}).click();await page.getByRole('button',{name:'Check answer',exact:true}).click();
+    const expected=p.questions[i];
+    assert.equal(await stage.locator('[data-lesson-question-title]').innerText(),expected.prompt,expected.id);
+    const displayed=await stage.locator('.rc-lesson-options button:visible').evaluateAll(buttons=>buttons.map(button=>button.getAttribute('aria-label')));
+    assert.deepEqual(displayed.sort(),[...expected.options].sort(),`${expected.id}: displayed choices`);
+    await stage.getByRole('button',{name:expected.answer,exact:true}).click();await page.getByRole('button',{name:'Check answer',exact:true}).click();
     await activeChild(`child ${width}x${height}:${p.id}:correct clue ${i+1}`,p);
     if(i<p.questions.length-1)await page.getByRole('button',{name:'Next',exact:true}).click();
    }
    await page.getByRole('button',{name:'Finish',exact:true}).click();await activeChild(`child ${width}x${height}:${p.id}:complete`,p);
-   assert.equal(await allText('retell'),`Tell the story in your own words. ${p.draw}`);
-   await page.getByRole('button',{name:`Exit full screen: ${p.title}`,exact:true}).click();
-   assert.equal(await page.getByRole('button',{name:'Full screen',exact:true}).evaluate(el=>document.activeElement===el),true,'child exit restores entry focus');
+   assert.equal(await allText('retell'),`${p.discussion} ${p.draw}`);
+   await exitChild();
   }
  }
- results.push({activeChildCases:childCases.map(p=>p.id),activeChildDevices:6,activeChildStates:['read','pictures','questions','correct clue','complete'],activeSurfaceExitNames:true});
+ results.push({activeChildCases:childCases.map(p=>p.id),activeChildDevices:profiles.length,activeChildStates:['read','pictures','questions','correct clue','complete'],activeSurfaceExitNames:true});
  // Real student state survives lesson entry, view switches, exit and reload.
- await page.setViewportSize({width:320,height:568});await page.goto(`${base}/preview/child-surfaces.html?surface=reading-comprehension`);
- if(await page.getByRole('button',{name:'← All passages',exact:true}).count())await page.getByRole('button',{name:'← All passages',exact:true}).click();
+ await page.setViewportSize({width:320,height:568});await page.goto(`${child}&scope=fullscreen-retry`,navigation);
  const p=passages[0],q=p.questions[0],wrong=q.options.find(o=>o!==q.answer);
- await page.getByRole('button',{name:`Read ${p.title}`,exact:true}).click();await page.getByRole('button',{name:'Start again',exact:true}).click();
- await page.locator('.rc-options').getByRole('button',{name:wrong,exact:true}).click();await page.getByRole('button',{name:'Full screen',exact:true}).click();
- await page.getByRole('button',{name:'Questions',exact:true}).click();assert.equal(await page.getByRole('button',{name:wrong,exact:true}).getAttribute('aria-pressed'),'true');
- await page.getByRole('button',{name:'Check answer',exact:true}).click();await fit('student wrong clue');assert.match(await allText('story clue'),/Try another answer/);
- await page.getByRole('button',{name:'Back to choices',exact:true}).click();await page.getByRole('button',{name:q.answer,exact:true}).click();await page.getByRole('button',{name:'Read',exact:true}).click();await page.getByRole('checkbox',{name:'Read 1',exact:true}).check();await page.getByRole('button',{name:'Questions',exact:true}).click();assert.equal(await page.getByRole('button',{name:q.answer,exact:true}).getAttribute('aria-pressed'),'true');
- await page.getByRole('button',{name:'Check answer',exact:true}).click();await fit('student correct clue');await page.getByRole('button',{name:/^Exit full screen:/}).click();
- assert.equal(await page.getByRole('checkbox',{name:'Read 1',exact:true}).isChecked(),true);assert.match(await page.locator('.rc-feedback').innerText(),/That fits/);
- await page.reload();assert.match(await page.locator('.rc-feedback').innerText(),/That fits/);
- for(let i=1;i<3;i++){await page.getByRole('button',{name:'Next question',exact:true}).click();await page.locator('.rc-options').getByRole('button',{name:p.questions[i].answer,exact:true}).click();await page.getByRole('button',{name:'Check answer',exact:true}).click();}
- await page.getByRole('button',{name:'Finish practice',exact:true}).click();await page.getByRole('button',{name:'Full screen',exact:true}).click();await page.getByRole('button',{name:'Questions',exact:true}).click();await fit('student complete');assert.equal(await allText('retell'),`Tell the story in your own words. ${p.draw}`);
- // Focus stays in lesson, with private notes and print controls unavailable.
- assert.equal(await page.getByRole('button',{name:/Teacher notes|Print|Preview page/}).count(),0);
+ await openChild(p);
+ await lessonButton('Questions').click();await lessonButton(wrong).click();
+ await lessonButton('Read').click();await lessonButton('Questions').click();
+ assert.equal(await lessonButton(wrong).getAttribute('aria-pressed'),'true');
+ await lessonButton('Check answer').click();await fit('student wrong clue');assert.match(await allText('story clue'),/Try another answer/);
+ await lessonButton('Back to choices').click();await lessonButton(q.answer).click();await lessonButton('Read').click();
+ await stage.getByRole('checkbox',{name:'Read 1',exact:true}).check();await lessonButton('Questions').click();
+ assert.equal(await lessonButton(q.answer).getAttribute('aria-pressed'),'true');
+ await lessonButton('Check answer').click();await fit('student correct clue');assert.match(await allText('story clue'),/That fits/);
+ await exitChild();await openChild(p);
+ assert.equal(await stage.getByRole('checkbox',{name:'Read 1',exact:true}).isChecked(),true);
+ await page.reload(navigation);await stage.waitFor();assert.equal(await stage.getByRole('checkbox',{name:'Read 1',exact:true}).isChecked(),true);
+ await lessonButton('Questions').click();assert.equal(await lessonButton(q.answer).getAttribute('aria-pressed'),'true');
+ await lessonButton('Read story clue').click();assert.match(await allText('story clue'),/That fits/);
+ for(let i=1;i<p.questions.length;i++){
+  await lessonButton('Next').click();await lessonButton(p.questions[i].answer).click();await lessonButton('Check answer').click();
+ }
+ await lessonButton('Finish').click();await fit('student complete');assert.equal(await allText('retell'),`${p.discussion} ${p.draw}`);
+ // The pupil may print pupil pages. Private notes and teacher keys stay outside the pupil route.
+ await lessonButton('Print pages').click();
+ assert.equal(await stage.getByRole('button',{name:/Teacher notes|Teacher guide/}).count(),0);
+ assert.equal(await stage.getByRole('option',{name:/Teacher guide/}).count(),0);
+ await lessonButton('Print pages').click();
  const accessibility=await new AxeBuilder({page}).include('[data-fullscreen-lesson]').analyze();assert.deepEqual(accessibility.violations.map(v=>({id:v.id,impact:v.impact,nodes:v.nodes.map(n=>n.target)})),[]);
  const focusable=page.locator('[data-fullscreen-lesson]').locator('button:visible:not(:disabled),input:visible:not(:disabled)');
  await focusable.last().focus();await page.keyboard.press('Tab');assert.equal(await focusable.first().evaluate(el=>document.activeElement===el),true);
  await page.keyboard.press('Shift+Tab');assert.equal(await focusable.last().evaluate(el=>document.activeElement===el),true);
  assert.ok(await page.locator('[data-fullscreen-lesson]').evaluate(el=>el.contains(document.activeElement)));
- await page.getByRole('button',{name:/^Exit full screen:/}).click();
  results.push({studentSelection:true,retry:true,reload:true,reread:true,complete:true,keyboardFocus:true,privateControlsAbsent:true});
- for(const {width,height} of STUDENT_DEVICE_PROFILES){
-  await page.setViewportSize({width,height});await page.getByRole('button',{name:'Full screen',exact:true}).click();
-  const compact=width<960||height<650;if(compact)await page.getByRole('button',{name:'Questions',exact:true}).click();
-  await fit(`complete ${width}x${height}`);assert.equal(await allText('retell'),`Tell the story in your own words. ${p.draw}`);
-  await page.getByRole('button',{name:/^Exit full screen:/}).click();
+ for(const {width,height} of profiles){
+  await page.setViewportSize({width,height});
+  if(await lessonButton('Questions').isVisible())await lessonButton('Questions').click();
+  await fit(`complete ${width}x${height}`);assert.equal(await allText('retell'),`${p.discussion} ${p.draw}`);
  }
+ await exitChild();
  // A failed image has a reachable recovery action without blocking reading or Leda.
  await page.setViewportSize({width:568,height:320});await context.route('**/images/comprehension/passages/*.webp',route=>route.abort());
- await page.getByRole('button',{name:'Full screen',exact:true}).click();await page.getByRole('button',{name:'Pictures',exact:true}).click();
+ await openChild(p);await lessonButton('Pictures').click();
  await page.getByRole('button',{name:'Try picture again',exact:true}).waitFor();await fit('failed image');
  await page.getByRole('button',{name:'Try picture again',exact:true}).click();await page.getByRole('button',{name:'Try picture again',exact:true}).waitFor();
  await page.getByRole('button',{name:'Read',exact:true}).click();assert.equal(await allText('story'),p.text);
+ if(!soundOff){
+  // Cue audio can play through an Audio element outside the DOM.
+  await page.evaluate(()=>{
+   const play=HTMLMediaElement.prototype.play;
+   window.fullscreenPlayedMedia=new Set();
+   HTMLMediaElement.prototype.play=function(...args){window.fullscreenPlayedMedia.add(this);return play.apply(this,args);};
+  });
+  await lessonButton('Hear story with Leda').click();await page.locator('.rc-lesson-status').filter({hasText:'Playing with Leda.'}).waitFor();
+  await lessonButton('Stop voice').click();assert.match(await page.locator('.rc-lesson-status').innerText(),/stopped/);
  await page.getByRole('button',{name:'Hear story with Leda',exact:true}).click();await page.locator('.rc-lesson-status').filter({hasText:'Playing with Leda.'}).waitFor();
- await page.getByRole('button',{name:'Stop voice',exact:true}).click();assert.match(await page.locator('.rc-lesson-status').innerText(),/stopped/);
- await page.getByRole('button',{name:'Hear story with Leda',exact:true}).click();await page.locator('.rc-lesson-status').filter({hasText:'Playing with Leda.'}).waitFor();
- await page.getByRole('button',{name:/^Exit full screen:/}).click();assert.match(await page.locator('.rc-speech-note').innerText(),/stopped/);
- results.push({completionDevices:6,failedImageRecovery:true,failedImageReading:true,ledaStarts:true,ledaStops:true,ledaExitStops:true});
+  assert.ok(await page.evaluate(()=>[...window.fullscreenPlayedMedia].some(audio=>!audio.paused)));
+  await exitChild();assert.ok(await page.evaluate(()=>[...window.fullscreenPlayedMedia].every(audio=>audio.paused)));
+  results.push({ledaStarts:true,ledaStops:true,ledaExitStops:true});
+ }else await exitChild();
+ results.push({completionDevices:profiles.length,failedImageRecovery:true,failedImageReading:true});
 
  // Native API entry and browser-native exit are exercised without the refusal shim.
  const native=await browser.newPage({viewport:{width:1024,height:768}});native.on('pageerror',e=>errors.push(e.message));
- await native.goto(`${base}/preview/child-surfaces.html?surface=reading-comprehension`);await native.getByRole('button',{name:`Read ${p.title}`,exact:true}).click();await native.getByRole('button',{name:'Full screen',exact:true}).click();
+ await native.goto(teacher,navigation);await native.getByRole('button',{name:'Open Reading Comprehension',exact:true}).click();await native.getByRole('button',{name:`Read ${p.title}`,exact:true}).click();await native.getByRole('button',{name:'Full screen',exact:true}).click();
  await native.waitForFunction(()=>document.fullscreenElement?.id==='rc-lesson-stage');
- assert.equal(await native.evaluate(()=>document.fullscreenElement?.id),'rc-lesson-stage','real native fullscreen entry');await native.evaluate(()=>document.exitFullscreen());await native.locator('[data-fullscreen-lesson]').waitFor({state:'detached'});assert.equal(await native.getByRole('button',{name:'Full screen',exact:true}).evaluate(el=>document.activeElement===el),true);
+ assert.equal(await native.evaluate(()=>document.fullscreenElement?.id),'rc-lesson-stage','real native fullscreen entry');await native.evaluate(()=>document.exitFullscreen());await native.locator('[data-fullscreen-lesson]').waitFor({state:'detached'});await native.waitForFunction(()=>document.activeElement?.matches('.rc-fullscreen-entry'));
  results.push({nativeEntry:true,nativeExit:true,fallbackRefusal:true});
- assert.deepEqual(errors,[]);await fs.writeFile(`${out}/${process.env.LP_FULLSCREEN_CHILD_ONLY?'fullscreen-child-check.json':process.env.LP_FULLSCREEN_STATES_ONLY?'fullscreen-states-check.json':process.env.LP_FULLSCREEN_DESKTOP_ONLY?'fullscreen-desktop-check.json':process.env.LP_FULLSCREEN_DEVICE||process.env.LP_FULLSCREEN_LIMIT?'fullscreen-quick-check.json':'fullscreen-check.json'}`,JSON.stringify({results,pageErrors:errors},null,2));console.log(JSON.stringify({results,pageErrors:errors},null,2));
+ assert.deepEqual(errors,[]);await fs.writeFile(`${out}/${soundOff?'fullscreen-sound-off-check.json':process.env.LP_FULLSCREEN_CHILD_ONLY?'fullscreen-child-check.json':process.env.LP_FULLSCREEN_STATES_ONLY?'fullscreen-states-check.json':process.env.LP_FULLSCREEN_DESKTOP_ONLY?'fullscreen-desktop-check.json':process.env.LP_FULLSCREEN_DEVICE||process.env.LP_FULLSCREEN_LIMIT?'fullscreen-quick-check.json':'fullscreen-check.json'}`,JSON.stringify({bankSha256,soundOff,results,pageErrors:errors},null,2));console.log(JSON.stringify({bankSha256,soundOff,results,pageErrors:errors},null,2));
 }finally{await browser.close();}

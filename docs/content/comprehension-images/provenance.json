@@ -19,6 +19,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T06:25:42.702Z",
         "notes": "Exact three beats inspected: hot sun and mud; movement toward hut with mat inside; nap on mat inside. Recognisable Muddy and consistent mat/hut; no answer labels."
+      },
+      "editorialReview": {
+        "textSha256": "29041399727547f29f572601501ce936f7f8685ee0340ad5ae70ecb418d7eba1",
+        "imageSha256": "d2f788b5fcc7b1a4b3eb21fbf79e6f8691abe7eee44703620d97bb4c80f34ee2",
+        "reviewedAt": "2026-11-26T02:40:46.457Z",
+        "notes": "The revised passage retains the illustrated scene. First: Muddy sits in mud in the hot sun. Next: Muddy goes towards the mat in the hut. Last: Muddy naps on the mat inside the hut."
       }
     },
     {
@@ -39,6 +45,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T06:25:42.943Z",
         "notes": "Three panels inspected: packs pen/map in torn bag, retrieves fallen pen, puts contents into box with torn bag on peg. Pip face/tunic match reference; no written answer cues."
+      },
+      "editorialReview": {
+        "textSha256": "4af8f4b61af6354d05aaf54d8951947eeefb5d571c5672e1de382df269fce3ec",
+        "imageSha256": "e467bde5eba9a51af444a78e67d6186281ae767b3f51034d44d4a7d5beca300f",
+        "reviewedAt": "2026-11-26T02:40:46.458Z",
+        "notes": "The revised passage retains the illustrated scene. First: Pip packs a pen and map in a torn bag. Next: The pen falls through the tear. Last: Pip puts the pen and map in a box."
       }
     },
     {
@@ -59,6 +71,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T06:25:43.179Z",
         "notes": "Three panels inspected: fallen Fluff beside rolling log; pushes same log into pit; sits safely on log held in pit. Puppy anatomy/reference preserved and story consequence clear."
+      },
+      "editorialReview": {
+        "textSha256": "b0662e9d2056df3efe7b07ab285d2b558529c54fa390d4cff89dc2eea0498487",
+        "imageSha256": "1b5d9b01cdbf9448a47ca38bbba1d26996e3862d6d3d2f8021aeb899b9daccea",
+        "reviewedAt": "2026-11-26T02:40:46.458Z",
+        "notes": "The revised passage retains the illustrated scene. First: Fluff falls off the rolling log. Next: Fluff puts the log in a hole. Last: Fluff sits on the still log in the hole."
       }
     },
     {
@@ -79,6 +97,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T08:40:47.670Z",
         "notes": "Inspected actual three-panel pixels against monkey reference and exact passage. One Socks per panel with circular ears, heart face, cheek rings, curled tail, buttoned vest, two arms and two legs. First jug pour visibly spills on mat, middle mops with jug and cup nearby, final pour enters cup with dry mat. Clean unfilled B&W outlines, open colouring regions, no labels."
+      },
+      "editorialReview": {
+        "textSha256": "ce6b1452207a01912ebb5f07c99a22cde84a81019519670ad3acd3ef63fed693",
+        "imageSha256": "cf6304f403431611796af016b17d4f534e43a0e256c7865790fdc5e1d5fa4c93",
+        "reviewedAt": "2026-11-26T02:40:46.459Z",
+        "notes": "The revised passage retains the illustrated scene. First: Water spills onto the mat. Next: Socks mops the wet mat. Last: Socks fills the cup without spilling."
       }
     },
     {
@@ -99,6 +123,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T06:31:18.624Z",
         "notes": "Inspected all three panels: four goat limbs in each, bag covers the dish at first, two separate forelimbs move bag and hold dish next, pellets fill dish beside shut shed last; white shed interior and stable collar markings."
+      },
+      "editorialReview": {
+        "textSha256": "5bcf52731ac62cd47eea4a53577d7351df0c583772df59b2bfbce39d0a332989",
+        "imageSha256": "35893b9685c4ba703609b8d6526cfb7784d695349a58f0b39de25c1ab25f98e7",
+        "reviewedAt": "2026-11-26T02:40:46.459Z",
+        "notes": "The revised passage retains the illustrated scene. First: A bag covers the dish in the shed. Next: Chips moves the bag and gets the dish. Last: Chips has the fish-food dish beside the shut shed."
       }
     },
     {
@@ -119,6 +149,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T06:46:11.413Z",
         "notes": "Inspected repaired actual comic: one wood chip on muddy path first, more chips spread over path next, Chompy walks on covered path towards same bench last. Mud, path and all colouring areas white with black outline boundaries, no grey wash. Single Chompy each panel, proper scarf/tail/two arms/two legs, no Muddy or Chips characters."
+      },
+      "editorialReview": {
+        "textSha256": "7cf093beac426bb4f01647ef606a745c248a3624a46079f6c735fdf350f65eca",
+        "imageSha256": "95cbae0e76fad90d2d4f641005f41a726f6297b28508f6e82ead5331583a4667",
+        "reviewedAt": "2026-11-26T02:40:46.459Z",
+        "notes": "The revised passage retains the illustrated scene. First: One wood chip lies on the muddy path. Next: Chompy covers the mud with more wood chips. Last: Chompy walks on the wood-chip path."
       }
     },
     {
@@ -139,6 +175,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T06:31:18.940Z",
         "notes": "Inspected all panels: branch blocks path first, bag stands on ground while two front paws pull branch aside next, bag is carried again on clear path last; one shaggy puppy with four natural limbs each panel and no speech or lettering."
+      },
+      "editorialReview": {
+        "textSha256": "4f084534ed098dd9c7f02db4cdd0284754c04cbbd84bf27eb714cf6a709ffa56",
+        "imageSha256": "2244d33974afc45464c4ae91cc34bf7b18c61db6ef0dbbe125a40f7857966cc0",
+        "reviewedAt": "2026-11-26T02:40:46.459Z",
+        "notes": "The revised passage retains the illustrated scene. First: A branch blocks Fluff's path. Next: Fluff puts down the bag and moves the branch. Last: Fluff walks on with the bag."
       }
     },
     {
@@ -159,6 +201,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T06:53:18.942Z",
         "notes": "Corrected framing inspected: full Pip boots/head/hands contained in all panels; loose peg by lifted tent corner, same peg pushed into ground, tent holds in next wind. Character model consistent."
+      },
+      "editorialReview": {
+        "textSha256": "48039e1507aa2a27626460ee06eb2377396c8cc43e8240b35308e8037cc1e3e3",
+        "imageSha256": "d654a7867804f61991dc67b6002e8fbac9208eb7e54c5f610aad43889fb64845",
+        "reviewedAt": "2026-11-26T02:40:46.459Z",
+        "notes": "The revised passage retains the illustrated scene. First: Wind lifts one side of the tent. Next: Pip puts the peg into the ground. Last: The tent stays up in the wind."
       }
     },
     {
@@ -179,6 +227,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T06:35:05.244Z",
         "notes": "Inspected ball and shaking outdoor table, Muddy catching the plate at the edge, and same cake safe on kitchen table. Key object states and setting change match exact source."
+      },
+      "editorialReview": {
+        "textSha256": "a633b7891cc777c96e727aa5a8b481fb5d1e5c8fd362f6e5d13fa320e470131b",
+        "imageSha256": "108c473b8ab480c63b05b88f28eff01e65fe303d16013fa0aac14c568578c3c2",
+        "reviewedAt": "2026-11-26T02:40:46.459Z",
+        "notes": "The revised passage retains the illustrated scene. First: A ball shakes the table beneath the cake. Next: Muddy catches the cake plate. Last: The cake is safe on the kitchen table."
       }
     },
     {
@@ -205,7 +259,13 @@
           "file": "exec-b4e523d5-afba-4284-96f7-ee253ed56311.png",
           "sha256": "403c0b2fe5f68ed16ac946871937aacb68f8d584c233d19510b66ef451e240f3"
         }
-      ]
+      ],
+      "editorialReview": {
+        "textSha256": "b3ad6a3419964717bf72760bf0ec4a1f8d046a487e65157e422e24d7fd1a49b2",
+        "imageSha256": "9b83eabfea94a093be5857d00ac949d39add08e2cee08eafbc788474150822cd",
+        "reviewedAt": "2026-11-26T02:40:46.459Z",
+        "notes": "The revised passage retains the illustrated scene. First: A stone traps the kite line. Next: Socks frees the line from under the stone. Last: The kite flies high on the free line."
+      }
     },
     {
       "id": "pip-home",
@@ -225,6 +285,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T06:41:01.485Z",
         "notes": "Inspected note reads exactly Look under the rope swing; cap appears inside box under swing, then Pip wears it and carries box home. Same character and cap design, no false answer labels."
+      },
+      "editorialReview": {
+        "textSha256": "7431ca79bf3ee9099b89e8842c775e425896a9fd06f0d2a7190fde36d405c9a8",
+        "imageSha256": "56487fbdfa81dd468fd4fd4f10e5dfbb9a3253713e14016b630ac0c5f8128719",
+        "reviewedAt": "2026-11-26T02:40:46.459Z",
+        "notes": "The revised passage retains the illustrated scene. First: Pip finds a note on the gate. Next: Pip finds the cap in a box under the swing. Last: Pip carries the box home wearing the cap."
       }
     },
     {
@@ -245,6 +311,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T06:31:19.258Z",
         "notes": "Inspected all panels: Fluff plays flute beside open-beaked ducks first, carries flute away next, plays at a tree well away from smaller distant ducks last; correct shaggy puppy, four limbs, white colouring areas and no musical symbols."
+      },
+      "editorialReview": {
+        "textSha256": "de76067b80a52dd807fbfc4d4d55c0309945b82bc0030e9be38991643e3bbd3a",
+        "imageSha256": "39660d6a7cfb7bc3972e7864302aaeab586c5fac90a4aa2055211eacdf6dbdbd",
+        "reviewedAt": "2026-11-26T02:40:46.459Z",
+        "notes": "The revised passage retains the illustrated scene. First: Fluff plays beside loudly quacking ducks. Next: Fluff carries the flute away from the ducks. Last: Fluff plays by a tree away from the pond."
       }
     },
     {
@@ -265,6 +337,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T06:35:00.276Z",
         "notes": "Inspected solid cube in tub first, small melting remnant surrounded by water under sun next, soil tub and seeds last with no grown plants; consistent goat collar and patches, white backgrounds and four-limb anatomy without duplicate limbs."
+      },
+      "editorialReview": {
+        "textSha256": "feb2eab848c3a1da73fdf7ab642a980958d4da1dc2967d0e9989d60040eb30b0",
+        "imageSha256": "aa1bdc50a134effdac40bc57f7e6107017645e30a0e2bc167b5e6f13101a7948",
+        "reviewedAt": "2026-11-26T02:40:46.460Z",
+        "notes": "The revised passage retains the illustrated scene. First: A large ice cube fills the tub. Next: The ice melts into water in the sun. Last: Chips gets ready to plant seeds in the soil."
       }
     },
     {
@@ -285,6 +363,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T06:37:27.551Z",
         "notes": "Inspected actual repaired comic pixels and counted every stone: first panel four waiting beside start line and one stopped before cup; middle the same five while cup moves closer; last three waiting plus one outside and one inside cup, exactly five total. Single dinosaur per panel with scarf, two arms, two legs and tail. No text or grey wash."
+      },
+      "editorialReview": {
+        "textSha256": "15d534dece38d0026ffe082048f0fef033b3b1872c9b71332bf9be5a37723add",
+        "imageSha256": "3f73c8921d76ff26e6a24f65b2c66d6df67c7d6882792712cf324d1c29037c2b",
+        "reviewedAt": "2026-11-26T02:40:46.460Z",
+        "notes": "The revised passage retains the illustrated scene. First: The first stone stops before the cup. Next: Chompy moves the cup closer. Last: The next stone reaches the cup."
       }
     },
     {
@@ -311,7 +395,13 @@
           "file": "exec-751c19fc-02da-415f-986e-ceb8aad995b0.png",
           "sha256": "526ba85395972253e225a9c337aad8054546b7a010b8dd7d80b49affb33ebc9c"
         }
-      ]
+      ],
+      "editorialReview": {
+        "textSha256": "9b488de843764a99f5786496fadb90255b8954e5bf45a3c7798e51123e9300fb",
+        "imageSha256": "61fb0872a9e924b84a8c5388922ef06366624688ca8e876c57a398d2a8592597",
+        "reviewedAt": "2026-11-26T02:40:46.460Z",
+        "notes": "The revised passage retains the illustrated scene. A bowl catches water dripping through the hole in Muddy's pail."
+      }
     },
     {
       "id": "pip-play",
@@ -331,6 +421,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T06:41:01.809Z",
         "notes": "Inspected tipped tray on grass, tray placed level on low box, and same two puppets on steady tray. Distinct cause/action/result match story with reference Pip."
+      },
+      "editorialReview": {
+        "textSha256": "7dd34253629b90d2c0f37fa75cdc275d8336c2b160661c4b8aaa5894a6669037",
+        "imageSha256": "13ef73d7eec7bf237e57b5cc49781827220f3970216d4d792df96bee70ef8d19",
+        "reviewedAt": "2026-11-26T02:40:46.460Z",
+        "notes": "The revised passage retains the illustrated scene. First: The tray tips on the grass. Next: Pip puts the tray on a flat box. Last: The puppets stand on the steady tray stage."
       }
     },
     {
@@ -351,6 +447,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T06:35:00.908Z",
         "notes": "Counted exactly three seeds in first panel, exactly two shoots while puppy waters next, exactly three shoots last. Same little pot and shaggy puppy, four natural limbs, white large colouring regions without letters or extra plants."
+      },
+      "editorialReview": {
+        "textSha256": "70e1f4e7c2a4d1a7f581e260cc10edcea6be5528127475aa8633cb26c2b269d1",
+        "imageSha256": "b635904c9b17691a2da070f3c7420b9ae4726f321fd1d5879ffafc430643cff8",
+        "reviewedAt": "2026-11-26T02:40:46.460Z",
+        "notes": "The revised passage retains the illustrated scene. First: Fluff plants three seeds in a pot. Next: Fluff waters the pot with two plants. Last: Three plants grow in the pot."
       }
     },
     {
@@ -371,6 +473,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T08:40:47.975Z",
         "notes": "Inspected actual three-panel pixels against exact beach passage and monkey reference. Unreachable cap high on rock, long stick contacting cap, then recovered cap held safely on sand; sea supplies location. Same monkey ears, heart face, cheek rings, curled tail and two-button vest; no extra limbs or duplicate caps. Clean B&W, legible props, no words."
+      },
+      "editorialReview": {
+        "textSha256": "a13ba251e8badac67497e3650e2d00ad890d888eb050bd50c161d87492eb04a9",
+        "imageSha256": "0f83129a4b5e1c082536c00b199501f1020f9dbad43d99cfdbcddf71b82a3ce5",
+        "reviewedAt": "2026-11-26T02:40:46.460Z",
+        "notes": "The revised passage retains the illustrated scene. First: Socks cannot reach the cap on the rock. Next: Socks pushes the cap with a long stick. Last: Socks holds the recovered cap on the beach."
       }
     },
     {
@@ -391,6 +499,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T06:35:00.610Z",
         "notes": "Inspected leaf weighted down by one stone first, goat removes stone and adds one small forked stick next, leaf floats carrying only the stick last. No stone in final boat, four goat limbs and retained eye patch and bell collar."
+      },
+      "editorialReview": {
+        "textSha256": "827df4241753a2e07fbde35e3ed6f66ef6c4fc1207b3ad47e567f24779bf17d1",
+        "imageSha256": "bcacc1815464292db3d0eb0f690220a3e949426cb89cf091a2dd1cc9f1542329",
+        "reviewedAt": "2026-11-26T02:40:46.460Z",
+        "notes": "The revised passage retains the illustrated scene. First: A stone makes the leaf boat sink. Next: Chips replaces the stone with a small stick. Last: The leaf boat floats with the stick."
       }
     },
     {
@@ -411,6 +525,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T06:37:27.836Z",
         "notes": "Inspected actual repaired comic pixels: first ball rolls downhill towards row of stones, middle Chompy heaps a separate mound ahead of ball rather than on top, final ball rests against mound with visible gap before untouched stones. Stone interiors white, no grey fills, consistent Chompy face/scarf/limbs and three events in source order."
+      },
+      "editorialReview": {
+        "textSha256": "f45321c40d4da13a33ddd8224e92e1e07c38006ed3798dd4ca26bd585438a52d",
+        "imageSha256": "3a9fc29d8f3124a9ad4e10ad8796664fa9832bbccc9f1217a1865059c6d809ba",
+        "reviewedAt": "2026-11-26T02:40:46.460Z",
+        "notes": "The revised passage retains the illustrated scene. First: A snowball rolls towards stones. Next: Chompy puts snow in front of the ball. Last: The snowball stops before the stones."
       }
     },
     {
@@ -431,6 +551,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T06:47:09.370Z",
         "notes": "Inspected high lamp search, same lamp lowered to key beside stone, and recovered key carried into house. Night symbols and character identity consistent; key and stone remain clear."
+      },
+      "editorialReview": {
+        "textSha256": "8e93d1c482efb7082e7be616474e3a260417a0b75766e0584ca0988314af9fd0",
+        "imageSha256": "25d2567dfca616e247376bf3013f97ffc661660e90c413182c3ab37fa2770870",
+        "reviewedAt": "2026-11-26T02:40:46.460Z",
+        "notes": "The revised passage retains the illustrated scene. First: Pip searches the grass with a light held high. Next: The low light reveals the key beside a stone. Last: Pip picks up the key."
       }
     },
     {
@@ -451,6 +577,20 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T06:43:49.273Z",
         "notes": "Counted nine seeds in three rows of three first, ten seeds as three rows of three plus one next with both paws empty, closed seed bag and glued blank sign last. Correct puppy silhouette, no written numbers, no answer cues and no extra seeds."
+      },
+      "editorialReview": {
+        "textSha256": "54d4c8187e585684c3d75c1f38264783dd9925b0a1d524c23db1c1a37fa17a22",
+        "imageSha256": "bf5b9e5ff5fda2a8d82d7e725750bbdbe50344d958494ea1ec0210affa1bb817",
+        "reviewedAt": "2026-11-26T02:46:17.095Z",
+        "notes": "The first panel has nine seeds in three rows. The next has ten, with one seed below the rows. In the last panel the bag is tied and Fluff applies glue to the sign. The lower panel borders are clean."
+      },
+      "replacement": {
+        "commit": "1c8aa0a049f3a20f7986738dedb49c9bb021f2e3",
+        "inputSha256": "95f23dcb31f9a005d30a6eab5304cc2c06f88c1dd4d5c0531d00f9b36a9ae86f",
+        "imageSha256": "bf5b9e5ff5fda2a8d82d7e725750bbdbe50344d958494ea1ec0210affa1bb817",
+        "evidence": "Documented comic border repair in .artifacts/app-image-logic-audit/shard-2/repairs/additional-receipts.json and the exact delivery in the cited commit.",
+        "editPrompt": "Surgically clean this existing THREE-panel black-and-white children's comic. Remove ONLY the unwanted thin barcode-like/pseudotext strip along the extreme bottom edge below the three panels: replace that strip with plain white canvas and a single simple clean black lower panel border. Preserve all three illustrations EXACTLY, all characters, expressions, seed counts, bags, table, sign and glue unchanged. Panel 1 MUST retain exactly NINE seeds in 3 rows of 3. Panel 2 MUST retain exactly TEN seeds (3 rows of 3 plus one below), empty paws except pointing finger. Panel3 retains filled tied bag, glue bottle and blank sign. Maintain 3 equal panels with white gutters and clean black rectangular borders, existing landscape aspect ratio. Pure black line art on white; no added text, symbols, barcodes, watermark or color. This is a bottom-edge cleanup only.",
+        "sourceImage": "exec-69e13f54-0f86-4011-a54a-2025e051e35c.png"
       }
     },
     {
@@ -471,6 +611,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T08:40:48.309Z",
         "notes": "Inspected actual three-panel pixels: wet torn paper arrow in rain, Socks arranges flat stones as replacement arrow, intact arrows lead toward visible picnic while Socks carries food bag. Monkey identity, two-button vest, tail and natural two-arm two-leg anatomy retained. Large unfilled regions and clear black outlines, no colour or text."
+      },
+      "editorialReview": {
+        "textSha256": "df5877cb3af3b0462b6a1836576099c4f8347c8c3f1ee5c7ed4a3528dadf8eae",
+        "imageSha256": "2d6995bcb11fee0c8eecb9e7be5465ff2aff23b255da7b8d17c21ea86061f3ac",
+        "reviewedAt": "2026-11-26T02:40:46.461Z",
+        "notes": "The revised passage retains the illustrated scene. First: Rain tears a paper trail arrow. Next: Socks makes a new arrow from stones. Last: Socks follows the stone arrows to the picnic."
       }
     },
     {
@@ -491,6 +637,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T06:41:02.115Z",
         "notes": "Inspected one wide board supported by exactly two short logs on level ground beside tree; Muddy reads on the stable seat. No extra support legs or invented events."
+      },
+      "editorialReview": {
+        "textSha256": "0f8f402ea67807a6ee82c7696de86a5495c561c55868bec3f5f72d1f800431ed",
+        "imageSha256": "81bc13c502bce7852f96318f31d7527f4ec683c909f8b9be1df75ff8607da34b",
+        "reviewedAt": "2026-11-26T02:40:46.461Z",
+        "notes": "The revised passage retains the illustrated scene. Muddy reads on the steady seat."
       }
     },
     {
@@ -511,6 +663,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T06:47:09.684Z",
         "notes": "Inspected hat emerging from bag in hot sun by shop, hat on while seated with same bag, then boards stopped bus with bag and hat. Bus symbol has no pseudo destination text."
+      },
+      "editorialReview": {
+        "textSha256": "293f2bcd5683e5b8e3005942a6ac58effcfd37ecbcde166753be05e2238a2890",
+        "imageSha256": "6227705fc3c77b0b73a333a2dfe10621b75fe5ccb0c95ea33b6091b5091062fa",
+        "reviewedAt": "2026-11-26T02:40:46.461Z",
+        "notes": "The revised passage retains the illustrated scene. First: Muddy finds a hat in the bag at the bus stop. Next: Muddy waits on the bench wearing the hat. Last: Muddy takes the bag onto the bus."
       }
     },
     {
@@ -531,6 +689,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T06:53:19.241Z",
         "notes": "Corrected continuity inspected: same soup pot remains beside same sink on counter in all panels; small lid cannot cover rim, large lid comes from shelf, large lid fits. No pot teleports to shelf."
+      },
+      "editorialReview": {
+        "textSha256": "3797ffe5a3438f8f3a66f6e92254b62bf72341544575a31be2fa2ad3aea0beda",
+        "imageSha256": "c806fa6fd8dad0f234acf1451399c98cf2897f0096ccdb9b7859e10148633afe",
+        "reviewedAt": "2026-11-26T02:40:46.461Z",
+        "notes": "The revised passage retains the illustrated scene. First: The small lid does not fit the big pot. Next: Muddy gets a bigger lid from the shelf. Last: The bigger lid fits the pot."
       }
     },
     {
@@ -551,6 +715,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T06:53:19.560Z",
         "notes": "Inspected cap brim caught in zipper, Pip pushes cap down with open zipper, then carries closed bag in park. Cap/bag design and Pip face/tunic preserved."
+      },
+      "editorialReview": {
+        "textSha256": "006926acac54813506998630f5d0bcdf7f2d5b30e1efa1b55981624280980cfd",
+        "imageSha256": "e7763b2116c50c215304c6f7b5ee6015cd6a07bfcae03fbc41a42860284b3382",
+        "reviewedAt": "2026-11-26T02:40:46.461Z",
+        "notes": "The revised passage retains the illustrated scene. First: The cap catches in the zip. Next: Pip pushes the cap away from the zip. Last: Pip takes the closed bag to the park."
       }
     },
     {
@@ -571,6 +741,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T07:00:55.565Z",
         "notes": "Inspected cat food from tin into dish, empty dish placed in sink after meal, closed tin returned to shelf with dish still in sink. Ordinary small cat remains distinct from Guide characters."
+      },
+      "editorialReview": {
+        "textSha256": "eb9709e286febe810049c0c7dc010d9dccb558b37967748e41989c3faa415b92",
+        "imageSha256": "e1e03478b517f7af0dd32e066e15fb467dff64ab7ce256b27e80509c67ca018a",
+        "reviewedAt": "2026-11-26T02:40:46.461Z",
+        "notes": "The revised passage retains the illustrated scene. First: Pip gives the cat food from a tin. Next: Pip puts the empty cat dish in the sink. Last: Pip stores the closed tin on the shelf."
       }
     },
     {
@@ -591,6 +767,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T06:38:01.834Z",
         "notes": "Inspected first sheet stays blank under dry pen with spare pen beside it, failed pen drops in bin next, working pen produces a simple hen outline last. Same shaggy puppy with two front paws, no lettering or extra marks on the test sheet."
+      },
+      "editorialReview": {
+        "textSha256": "06a78969a1fbc94437915a9fb693da32ad7a2b6851e24c8916df102aff2d7746",
+        "imageSha256": "a30544d70e05c0208688d99b6e0cfb4bdfa57fa1a293a2e568ff35deb3c33ed3",
+        "reviewedAt": "2026-11-26T02:40:46.461Z",
+        "notes": "The revised passage retains the illustrated scene. First: The dry pen makes no mark. Next: Fluff puts the dry pen in the bin. Last: Fluff draws a hen with the working pen."
       }
     },
     {
@@ -611,6 +793,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T08:41:50.495Z",
         "notes": "Inspected full cup with nuts/raisins and spare nuts, mix tipped into larger bowl with room, then Fluff puppy and existing Socks monkey share the bowl. Distinct two reference identities, no extra limbs or coloured fills."
+      },
+      "editorialReview": {
+        "textSha256": "d2bd54400ea397085b59d060d93846422f7cf5cb8b1e74d47c3a8b7240cec26f",
+        "imageSha256": "cdfc9bb43b2615880f9cfe6f30ba6662b7b200752b0dbdb4abd2360e91735acc",
+        "reviewedAt": "2026-11-26T02:40:46.461Z",
+        "notes": "The revised passage retains the illustrated scene. First: The cup is too full for more nuts. Next: Fluff moves the mix into a big bowl. Last: Fluff and Socks share the snack."
       }
     },
     {
@@ -637,7 +825,13 @@
           "file": "exec-1e652e49-a577-4193-83df-2e8f16e34b24.png",
           "sha256": "163ac2f4251e2547f150cdbf4dcd8fb7d09b43e4ebfd64179b2581432d9f4c40"
         }
-      ]
+      ],
+      "editorialReview": {
+        "textSha256": "9e35a93562d9370eff021a9c7f526d419774ee4d02d8e98ea8582977cb5e1931",
+        "imageSha256": "04a6d98505694d3433f4ed59b80772f86a914b828b9b738b4a396cd38a0e3090",
+        "reviewedAt": "2026-11-26T02:40:46.461Z",
+        "notes": "The revised passage retains the illustrated scene. First: Water drips from the hat on the peg. Next: Socks checks the dry hat. Last: Socks puts the dry hat in the bag."
+      }
     },
     {
       "id": "socks-six-pens",
@@ -657,6 +851,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T08:40:48.620Z",
         "notes": "Counted actual image pixels: first panel exactly five separate pens in open box and one additional pen peeking from beneath book; middle exactly five remain in box while sixth is retrieved with book lifted; final exactly six pens around six table places with empty box and no seventh pen. Socks monkey face, ears, curled tail and buttoned clothing match reference; limbs naturally occluded by table where appropriate. Clean B&W and no numbers or answer cues."
+      },
+      "editorialReview": {
+        "textSha256": "b984b0121c5b3157f002d61ef089b579b67630cb20ea00d28c76f3e335434bcf",
+        "imageSha256": "82f7b15d1fcfad525281cd70736ed37560d4d161b2cb47f4cfef0d856a59261d",
+        "reviewedAt": "2026-11-26T02:40:46.461Z",
+        "notes": "The revised passage retains the illustrated scene. First: Five pens are in the box and one is under a book. Next: Socks gets the pen from under the book. Last: Six places each have one pen."
       }
     },
     {
@@ -677,6 +877,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T06:38:02.150Z",
         "notes": "Inspected goat wears same cap and collar throughout, kicks ball beside bag and tree first, ball is behind tree next, ball goes into bag last. Four limbs each panel with no duplicated hooves and clean white open colouring areas."
+      },
+      "editorialReview": {
+        "textSha256": "884a217ddd005af9f0236e566eaebb5b8eb3e9fc05a8c45a58888bf52d4254f7",
+        "imageSha256": "60a3f21e6b1eb177e7d8de7304531e406e6faaa7b6fc8dd6fe177a5812f309b6",
+        "reviewedAt": "2026-11-26T02:40:46.461Z",
+        "notes": "The revised passage retains the illustrated scene. First: Chips plays with a ball beside the tree. Next: Chips finds the ball behind the tree. Last: Chips puts the ball in the bag."
       }
     },
     {
@@ -697,6 +903,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T06:43:49.890Z",
         "notes": "Inspected path fork with swings behind and pond along left fork, goat checks unlettered map then follows path to pond and sits on bench watching smaller ducks. Correct horns eye patch and bell collar, no invented map lettering or answer labels."
+      },
+      "editorialReview": {
+        "textSha256": "d72f899267598741246a29abf0a4e09f0014035eeab18961d773d4b4b4c6bcfd",
+        "imageSha256": "b4347e91f5ea9c38c13c536eecfae84e039484e387834510f5c3e3e034b15184",
+        "reviewedAt": "2026-11-26T02:40:46.461Z",
+        "notes": "The revised passage retains the illustrated scene. First: Chips looks at the map at a fork in the path. Next: Chips takes the left path to the pond. Last: Chips watches ducks from a bench."
       }
     },
     {
@@ -723,7 +935,13 @@
           "file": "socks-colouring.webp",
           "sha256": "1897e61527b5e211af9c4cd1c6d63f3a38fcb4ab45742a42eeacc69f81e0e7ef"
         }
-      ]
+      ],
+      "editorialReview": {
+        "textSha256": "aa908a9cec4deac20e42eb3c229132685ba0263ab7ea4c13abb11d20c75d1524",
+        "imageSha256": "d778c1e1fa38882322456293f3484039ecc2bba9b7c36c185271fc15a25d473e",
+        "reviewedAt": "2026-11-26T02:40:46.461Z",
+        "notes": "The revised passage retains the illustrated scene. First: The jam jar is shut tight. Next: Socks helps Chompy open the jar. Last: Chompy shares the jam bread with Socks."
+      }
     },
     {
       "id": "chompy-bin",
@@ -743,6 +961,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T06:34:49.886Z",
         "notes": "Inspected actual three-panel pixels: one can and one paper bag beside exactly two bins; can goes into first bin while bag stays held, then bag goes into other bin with can still visible. Blank labels, no writing, clean outlines, consistent scarf, tail, two arms and two legs."
+      },
+      "editorialReview": {
+        "textSha256": "40d09fcaec699f4f7b368b2c0f7ad200881103aa1d950781774867c0b222f8cd",
+        "imageSha256": "3d43fcfaa86c2509bb4f813a15e48c6c9e5ee0484e0d96518e6f07d12902fa99",
+        "reviewedAt": "2026-11-26T02:40:46.462Z",
+        "notes": "The revised passage retains the illustrated scene. First: Chompy has a can and paper bag by two bins. Next: Chompy puts the can in one bin. Last: Chompy puts the paper bag in the other bin."
       }
     },
     {
@@ -763,6 +987,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T07:00:55.912Z",
         "notes": "Inspected exact list milk/bread/apples, milk from cold shelf, bread added, then exactly three apples in basket at payment. Unnamed cashier supports the implied payment only; no new plot event or answer labels."
+      },
+      "editorialReview": {
+        "textSha256": "edf12eb1fb45e08103c9219544b32f3434ad40537b39c4a006edef2fd83f2e40",
+        "imageSha256": "8cdc17ff6519f89eab688c911a5fd825fca2e32b004a2ec9bcacb8c2299dc612",
+        "reviewedAt": "2026-11-26T02:40:46.462Z",
+        "notes": "The revised passage retains the illustrated scene. First: Muddy gets milk from the cold shelf. Next: Muddy adds bread to the basket. Last: Muddy pays for milk, bread and three apples."
       }
     },
     {
@@ -783,6 +1013,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T07:00:56.214Z",
         "notes": "Inspected one string through bell top ring, tied to low branch with bell above ground, then same bell swings after release. Muddy model and bell/string remain consistent."
+      },
+      "editorialReview": {
+        "textSha256": "9ee26e49f970725c39a1eca8e9e04c72d4b6f6d18492bfa0ba4e8bc72c96acc1",
+        "imageSha256": "35c59d3d8a62287aea6716180f6f458d27f6562b39aac6e93b1534ac82b0ff1b",
+        "reviewedAt": "2026-11-26T02:40:46.462Z",
+        "notes": "The revised passage retains the illustrated scene. First: Muddy threads string through the bell's ring. Next: The bell hangs from a low branch. Last: The hanging bell swings after Muddy lets go."
       }
     },
     {
@@ -803,6 +1039,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T07:06:02.338Z",
         "notes": "Inspected full lunch box with carrot sticks, cheese and sandwich, apple placed in separate bag, and both packed containers carried to picnic table. Same Pip and objects; no extra apple in lunch box."
+      },
+      "editorialReview": {
+        "textSha256": "771d161f973d87ab315d37485ea83d3c52e7ab9d8b48896aced8a68a7b673e65",
+        "imageSha256": "0bcfcf4958a96d1a574739077107ff8694afd578cbaab23caf4186271c18b13f",
+        "reviewedAt": "2026-11-26T02:40:46.462Z",
+        "notes": "The revised passage retains the illustrated scene. First: The lunch box has no room for the apple. Next: Pip puts the apple in a small bag. Last: Pip takes the box and bag to the picnic table."
       }
     },
     {
@@ -829,7 +1071,13 @@
           "file": "exec-34417fce-6b50-4f7c-acc4-578a6c99224a.png",
           "sha256": "8357a4cb954cd9b074647545cf4ab7c31930b93aa9662cdcaa96f9cbfb62501b"
         }
-      ]
+      ],
+      "editorialReview": {
+        "textSha256": "01806a4cd5c1f0fd9bf8e7bd342f60b35744165c124a078bd23919c60ff3f2cd",
+        "imageSha256": "91b6ce576e96d792ac491453a273355c6822d37092d3ea943e47ac87952252e3",
+        "reviewedAt": "2026-11-26T02:40:46.462Z",
+        "notes": "The revised passage retains the illustrated scene. First: Water splashes as Pip washes the brush. Next: Pip wipes the side of the sink. Last: The cloth and brush dry beside the clean sink."
+      }
     },
     {
       "id": "fluff-bath-toy",
@@ -849,6 +1097,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T06:43:49.575Z",
         "notes": "Inspected dusty duck toy beneath shelf first, same toy being washed in bowl next, clean toy beside bath and towel on hook last. No duplicate toy, correct shaggy puppy limbs, white colouring areas without lettering."
+      },
+      "editorialReview": {
+        "textSha256": "b581c2d3109ae943e792dd0a4694d540c6db522e629995dc6cbd3cedceec2784",
+        "imageSha256": "e864aeecc8e0af96572b9dc9ce9e02978bdf9cb6e91be2fb9b180cb465b22732",
+        "reviewedAt": "2026-11-26T02:40:46.462Z",
+        "notes": "The revised passage retains the illustrated scene. First: Fluff finds a dusty toy under the shelf. Next: Fluff washes the toy in a bowl. Last: The clean toy is by the bath and the towel dries."
       }
     },
     {
@@ -869,6 +1123,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T06:47:12.245Z",
         "notes": "Inspected empty open battery compartment first, one new battery being inserted next, clock hung above desk with unnumbered ticks and visible hands last. Correct shaggy puppy, same clock design, no extra batteries or answer-letter labels."
+      },
+      "editorialReview": {
+        "textSha256": "9f632d0396a85e5e7c4e74dbda51147870cac99c537da1a644ace1b6427984b0",
+        "imageSha256": "df18debc4da3ea522d7b120db32c039a26e6f75d9af95bfa71df536001d010ef",
+        "reviewedAt": "2026-11-26T02:40:46.462Z",
+        "notes": "The revised passage retains the illustrated scene. First: The clock has no battery. Next: Fluff puts a battery in the clock. Last: Fluff checks the clock above the desk."
       }
     },
     {
@@ -889,6 +1149,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T08:36:23.564Z",
         "notes": "Inspected actual pixels: blocked clay-filled bead cannot thread; next that bead stays aside while open-hole bead threads; final ends tied and beads hang by window with blocked bead unused below. Existing monkey face patch, round ears, vest, curled tail, two arms and two legs preserved. White open colouring areas, no text."
+      },
+      "editorialReview": {
+        "textSha256": "76f0a30eeefaf6082d41252cb2319bb7659b8ce23bb0908c33d666fb96f47a9b",
+        "imageSha256": "01c29ab9b067ac4fa0928ef7c57249b7872a80b096bcf36a7b703c30689a737b",
+        "reviewedAt": "2026-11-26T02:40:46.462Z",
+        "notes": "The revised passage retains the illustrated scene. First: Clay blocks one bead's hole. Next: Socks chooses a bead with an open hole. Last: The tied beads hang by the window."
       }
     },
     {
@@ -909,6 +1175,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T08:36:23.895Z",
         "notes": "Inspected actual pixels: Socks sweeps leaves from top outside step, then lower step towards path with upper steps clear, then bags leaf pile beside completely clear steps. Broom persists nearby, natural two-arm/two-leg monkey anatomy and reference vest/tail retained, no grey wash or added writing."
+      },
+      "editorialReview": {
+        "textSha256": "8f4ac6166c3dbb4a4b89c8f015e9245cfea45eb77cc3452ca62bb325e768131c",
+        "imageSha256": "6eff7f929715659e4c733a45404a95ad30ce6b7039bd60e3619ddf0e903cfbd9",
+        "reviewedAt": "2026-11-26T02:40:46.463Z",
+        "notes": "The revised passage retains the illustrated scene. First: Socks starts sweeping at the top step. Next: Socks sweeps leaves down onto the path. Last: Socks bags the leaves beside the clear steps."
       }
     },
     {
@@ -929,6 +1201,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T06:47:11.959Z",
         "notes": "Inspected wet brush painting wooden box first, same brush washed beneath tap next, clean dry brush laid flat beside paint on shelf last. No wet paint remains on final brush, correct patched goat collar and two visible front limbs, white areas."
+      },
+      "editorialReview": {
+        "textSha256": "e0a9b4735bfed969e3717243d70f0ddd2517e06cbf267da454bc9a7b72bfb9ad",
+        "imageSha256": "a184ac1995792a460c179b94e27dfa4b7adf421e237f2fe6ca0a130e2dc705fc",
+        "reviewedAt": "2026-11-26T02:40:46.463Z",
+        "notes": "The revised passage retains the illustrated scene. First: Chips paints a wooden box. Next: Chips washes the paint from the brush. Last: The dry brush lies flat beside the paint."
       }
     },
     {
@@ -949,6 +1227,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T06:47:11.669Z",
         "notes": "Inspected shut chest with latch down first, goat lifting latch while lid starts to open next, hat visible in open chest and recovered scarf wrapped around puppet last. Four goat limbs retained, puppet clearly smaller and no duplicate arms or lettering."
+      },
+      "editorialReview": {
+        "textSha256": "3246fa57822c3e1dfd5b4dd89304bc22d31ae33216794af0499a21154f55c896",
+        "imageSha256": "23124ddf57bac39da8dc34080bde5763d3e03a211dac00a743836c7d9ee04967",
+        "reviewedAt": "2026-11-26T02:40:46.463Z",
+        "notes": "The revised passage retains the illustrated scene. First: The latch keeps the chest shut. Next: Chips lifts the latch. Last: Chips wraps the scarf around the puppet."
       }
     },
     {
@@ -969,6 +1253,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T06:34:50.199Z",
         "notes": "Inspected actual three-panel pixels: first sheet resists folding, separate thin sheet folds with two hands, toy bear wears completed paper hat on chair. Bear smaller than Chompy, correct scarf and dinosaur silhouette, white colouring areas, no lettering or extra characters."
+      },
+      "editorialReview": {
+        "textSha256": "8bf0c4116a2fbd1319f464e5e784fbaad0743ecc22ddfd4a7ab960f7c957e8d8",
+        "imageSha256": "aba6ada2baf3a9de81123fb6f9ac2d34bb8b115aaa01b6c610661b76639eae33",
+        "reviewedAt": "2026-11-26T02:40:46.463Z",
+        "notes": "The revised passage retains the illustrated scene. First: The thick paper is hard to fold. Next: Chompy folds the thin paper. Last: The toy bear wears the paper hat."
       }
     },
     {
@@ -989,6 +1279,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T06:42:52.946Z",
         "notes": "Inspected repaired actual comic pixels: card goes into envelope; exactly one blank stamp attaches to upper right of visible plain front address face with no flap diagonals; closed envelope goes through post-box slot. No invented address marks, no Fluff character, consistent Chompy face/scarf/limbs and clean white regions."
+      },
+      "editorialReview": {
+        "textSha256": "7e4269a08b0935e550eef4551009ee1dba3d1e90f9ad9d086f0b2fb830d11545",
+        "imageSha256": "a8c62a436dae7e2578e42e3ceb8255a602cc7e01bc09228a6becd7c883fc38a8",
+        "reviewedAt": "2026-11-26T02:40:46.463Z",
+        "notes": "The revised passage retains the illustrated scene. First: Chompy puts the card in an envelope. Next: Chompy stamps and closes the envelope. Last: Chompy posts the envelope through the slot."
       }
     },
     {
@@ -1009,6 +1305,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T07:13:59.364Z",
         "notes": "Inspected flat front tyre, bike on side while air pump connects to tyre, then firm tyres with Muddy wearing helmet and checking handlebar brakes. Same bike and pig, no added riding hazard."
+      },
+      "editorialReview": {
+        "textSha256": "4e6c3c8aba2b4fec3bdce3f966570c4e2ea89de2bfe386d6cdb0f7fdaf2d57c2",
+        "imageSha256": "15ca0851db05708a19ad5f1119be68f3f6b56fa7eaca5e43b81699f61b9c54f0",
+        "reviewedAt": "2026-11-26T02:40:46.463Z",
+        "notes": "The revised passage retains the illustrated scene. First: Muddy finds a flat bike tyre. Next: Muddy pumps up the tyre. Last: Muddy checks the ready bike while wearing a helmet."
       }
     },
     {
@@ -1029,6 +1331,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T07:13:59.681Z",
         "notes": "Inspected stone stops gate below, Muddy moves that stone beside flower pot, gate then closed and stone remains by pot. House/gate layout and character anatomy consistent."
+      },
+      "editorialReview": {
+        "textSha256": "cce457d38e426ab26178a5a0026417160c7ba3e7822207b0180cfcb78ee621e3",
+        "imageSha256": "31625b9d912e2ba3de7a3244e965152f6eef9c0e90026b662b2727283ad873b2",
+        "reviewedAt": "2026-11-26T02:40:46.463Z",
+        "notes": "The revised passage retains the illustrated scene. First: A stone stops the garden gate closing. Next: Muddy puts the stone beside a pot. Last: The clear garden gate stays shut."
       }
     },
     {
@@ -1049,6 +1357,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T08:33:35.670Z",
         "notes": "Inspected small tear near bottom of right page, hands add clear outlined tape while book lies flat, then page turns with tape joining torn parts. Intact page keeps tree illustration; no pseudo writing."
+      },
+      "editorialReview": {
+        "textSha256": "7a6b4f4045036cc8451cc9b29c6f8870b7044758a05f8c35101f68fd51c2f09e",
+        "imageSha256": "33e7b1659c29c519770443c854c4b1baf50ba7e4879c68e99fe346ca752ddeed",
+        "reviewedAt": "2026-11-26T02:40:46.463Z",
+        "notes": "The revised passage retains the illustrated scene. First: Pip finds a torn book page. Next: Pip tapes the torn parts together. Last: Pip turns the repaired page slowly."
       }
     },
     {
@@ -1075,7 +1389,13 @@
           "file": "exec-e1da238e-b5ba-41d6-ad70-9fa76a4fbb8e.png",
           "sha256": "c1ef83f007bc09b903380689c0d1a6cb6b8f7f59b1d21c61952f266db9cf8351"
         }
-      ]
+      ],
+      "editorialReview": {
+        "textSha256": "9332483bbaef4d331ac667a5351a034a75d5d07982f991b94c7e6b9e8a34aafc",
+        "imageSha256": "b0c8b51bb3262cb65fb21da7e74156f95535c44f47b99ca60875ec154df54823",
+        "reviewedAt": "2026-11-26T02:40:46.463Z",
+        "notes": "The revised passage retains the illustrated scene. First: Pip's wet boots drip by the door. Next: Pip marks the damp floor with a cone. Last: Pip puts the cone away after the floor dries."
+      }
     },
     {
       "id": "fluff-hike",
@@ -1095,6 +1415,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T06:50:57.893Z",
         "notes": "Inspected single hilltop scene: shaggy puppy rests on bench beyond wide tree, bag and water remain on near side of trunk, path slopes downhill. No extra event or duplicate puppy, correct four limbs and clean open white colouring areas."
+      },
+      "editorialReview": {
+        "textSha256": "2f0b6baa97d6ea4c9486385b486bd4cccece9581651c1d64684badd0d91c2ff1",
+        "imageSha256": "893d7d061b209f6cd2a7551e101355945736070d7d79161dd35ac15298832891",
+        "reviewedAt": "2026-11-26T02:40:46.463Z",
+        "notes": "The revised passage retains the illustrated scene. Fluff rests on a bench beyond the wide tree at the top of the hill."
       }
     },
     {
@@ -1121,7 +1447,13 @@
           "file": "exec-bd69da09-0d50-4222-afb1-c3672e854cae.png",
           "sha256": "f39ad6b14d3ae3cfa3c87502f0c47aebc9f2d1d6dad1e9e0a6922c7a1192e54c"
         }
-      ]
+      ],
+      "editorialReview": {
+        "textSha256": "046f2ad0f7c354174b8860e66504c0c79c782337bd3979ae8e3dfac49660f125",
+        "imageSha256": "a13356095cef7732cc466bbae46342aaa9a781cc6279166a0c26f550328a5f51",
+        "reviewedAt": "2026-11-26T02:40:46.463Z",
+        "notes": "The revised passage retains the illustrated scene. First: A chair leg bends the hose shut. Next: Socks frees and straightens the hose. Last: Socks waters the rose with the flowing hose."
+      }
     },
     {
       "id": "chips-race",
@@ -1141,6 +1473,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T07:02:01.224Z",
         "notes": "Counted exactly five distinct toy cars in EACH panel: five wait at line, five roll on raised board, one stopped early plus three intermediate and one at far end last. Block supports same slope, correct goat collar and four limbs, no winner labels or invented colour keys."
+      },
+      "editorialReview": {
+        "textSha256": "592c46df37364ea9a1f063e6ae4e2483b8d23104468984f5239ecd94c828eb86",
+        "imageSha256": "3b84d77a629c1b475e1a6f79a1675e2b7137708fd19e7fb1330ba63692d703ea",
+        "reviewedAt": "2026-11-26T02:40:46.463Z",
+        "notes": "The revised passage retains the illustrated scene. First: Five toy cars wait on the board's line. Next: Chips makes a slope and the cars roll down. Last: One car stops early and another reaches the end."
       }
     },
     {
@@ -1167,7 +1505,13 @@
           "file": "pip-colouring.webp",
           "sha256": "4be75ae3bfbba9f1b495b2daa35a2a9e5855dbbbf3b0b898e26190ad7589b2ed"
         }
-      ]
+      ],
+      "editorialReview": {
+        "textSha256": "651f754bf9fe5586ce4de4c9810d8898087386f9c911270d6fedfa2c182e0b39",
+        "imageSha256": "9f6c30b41960ab7609eb8eee7314591fe24d7b6edf2b84aa8bba6cdf69b7ccf3",
+        "reviewedAt": "2026-11-26T02:40:46.464Z",
+        "notes": "The revised passage retains the illustrated scene. First: Chompy packs a case beside Pip's matching case. Next: Chompy hangs a card from the case handle. Last: Chompy checks the card on the case by the door."
+      }
     },
     {
       "id": "muddy-train",
@@ -1187,6 +1531,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T08:33:34.653Z",
         "notes": "Inspected waiting safely behind platform strip, ticket and door each clearly show matching numeral 2, then Muddy seated inside with doors shut. No colour fill or invented train action."
+      },
+      "editorialReview": {
+        "textSha256": "f74f100e077fe941f91521ce7c0696b859e9b50f3031a2e8afe610460b162681",
+        "imageSha256": "774841ae7c539a8a833526ea2373c82d4f89affc08463263e715af39b91c4b00",
+        "reviewedAt": "2026-11-26T02:40:46.464Z",
+        "notes": "The revised passage retains the illustrated scene. First: Muddy waits behind the platform line. Next: Muddy checks the ticket at the train door. Last: Muddy sits inside after the train doors close."
       }
     },
     {
@@ -1207,6 +1557,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T08:33:35.024Z",
         "notes": "Inspected hay from tray into rabbit rack, spilled hay swept into bucket outside pen, rabbits eat from same full rack while cleared floor and bucket remain. Same Muddy and two rabbits."
+      },
+      "editorialReview": {
+        "textSha256": "2b147861fdbb95ea49d3c963cc76e45dad55e553c538b898142db073b6643d38",
+        "imageSha256": "d75aa01429a4046d67a34463df58156088baf6f48777ea79e0abc09330c6c156",
+        "reviewedAt": "2026-11-26T02:40:46.464Z",
+        "notes": "The revised passage retains the illustrated scene. First: Muddy fills the rabbits' hay rack. Next: Muddy sweeps spilled hay into a bucket. Last: The rabbits eat from the filled rack."
       }
     },
     {
@@ -1227,6 +1583,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T08:33:35.347Z",
         "notes": "Inspected exactly three sheep: two standing by tree and third resting beyond foreground bush. Pip looks around bush from fence area and all three are visible from ending viewpoint."
+      },
+      "editorialReview": {
+        "textSha256": "e8a901c0abc806c964a6f887ed07bab882ff21c994a857d745ac45359282734c",
+        "imageSha256": "b8301e00529090406383672b1a71b85349e626440f71e83f169acad339cf735c",
+        "reviewedAt": "2026-11-26T02:40:46.464Z",
+        "notes": "The revised passage retains the illustrated scene. Pip sees all three sheep from the new spot."
       }
     },
     {
@@ -1247,6 +1609,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T08:41:50.053Z",
         "notes": "Inspected exactly two iced tea cups, one lemon slice per cup, and final Socks monkey carries one cup while Pip carries other cup and cracker plate to garden table. Monkey smaller than Pip; reference faces and vest/tunic preserved."
+      },
+      "editorialReview": {
+        "textSha256": "155d0b560755c5b524036ff459db68d68ddb9e40b30b9367617420c00da88b3d",
+        "imageSha256": "f465275fb2cac794cc31824b313f91818d6ca9ecd42e642c4e66c9cec3cfdbc7",
+        "reviewedAt": "2026-11-26T02:40:46.464Z",
+        "notes": "The revised passage retains the illustrated scene. First: Pip pours cool tea into two cups with ice. Next: Pip adds lemon to the two cups. Last: Pip and Socks take the tea and crackers outside."
       }
     },
     {
@@ -1267,6 +1635,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T06:50:58.440Z",
         "notes": "Inspected single meal scene: puppy brings plate with exactly two toast slices, butter on one and jam on the other, with cup of milk at table. Correct shaggy puppy face and two front paws, no writing or additional meal items."
+      },
+      "editorialReview": {
+        "textSha256": "b9d76bbdc82190760b321ecefd917888464f33cd0d484ddd7018925bea7b3e9c",
+        "imageSha256": "c730a381a64bb4b46db745ccc28af71d316c3abb057c2c1ae00cdf2813e7e16b",
+        "reviewedAt": "2026-11-26T02:40:46.464Z",
+        "notes": "The revised passage retains the illustrated scene. Fluff brings the two toast slices and milk to the table."
       }
     },
     {
@@ -1287,6 +1661,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T07:02:00.031Z",
         "notes": "Inspected one puppy in each panel: snow brushed off outside, two removed boots placed on tray below window, one tiny remaining patch melts into drops caught inside tray last. Floor outside tray stays dry, no large final snow heaps or missing middle protagonist."
+      },
+      "editorialReview": {
+        "textSha256": "2badeb216a692ee8b245f10a1d482837823b27768f89e7efa0076ce8ebdbcc6d",
+        "imageSha256": "7f5322b101b56d688b0a72b51e0c6d67e415c7991b17049182d6c5f045926c03",
+        "reviewedAt": "2026-11-26T02:40:46.464Z",
+        "notes": "The revised passage retains the illustrated scene. First: Fluff brushes snow from the boots outside. Next: Fluff puts the boots on a tray below the window. Last: The tray catches melting snow and keeps the floor dry."
       }
     },
     {
@@ -1307,6 +1687,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T07:02:00.683Z",
         "notes": "Inspected towel and goggles packed first while swimsuit lies on bed, lit lamp and swimsuit folding next, full bag containing towel goggles and folded swimsuit beside door last. Night window is white with outlined moon, correct shaggy puppy and no dark background fill."
+      },
+      "editorialReview": {
+        "textSha256": "7a1c61e7ca1659a4b898093792acbc363a290543940543e901aefc57bd975da4",
+        "imageSha256": "ea51157e8ad2cdd5447cc54c2c00fd7e72f98a46bea0658afef03a3557c38c25",
+        "reviewedAt": "2026-11-26T02:40:46.464Z",
+        "notes": "The revised passage retains the illustrated scene. First: Fluff packs the towel and goggles. Next: Fluff folds the swimsuit left on the bed. Last: The packed swimming bag waits by the door."
       }
     },
     {
@@ -1327,6 +1713,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T08:40:02.148Z",
         "notes": "Inspected actual pixels: paper corner lifts from small box, glue goes beneath lifted corner while other hand holds paper down, final smooth finished box holds pencils beside blank notebook. Genuine black outlines and white paper despite source colour word blue; reference monkey face/vest/tail and two-arm anatomy retained."
+      },
+      "editorialReview": {
+        "textSha256": "56d24b292b4d3ebb2eb36b8c4cd1534fdb8d97047f8c802fbf97d428de339dd2",
+        "imageSha256": "bf7667beec4d7ed0917dad12e08c544106ff756bf0fc6ff88531279188f5c6c4",
+        "reviewedAt": "2026-11-26T02:40:46.464Z",
+        "notes": "The revised passage retains the illustrated scene. First: One paper corner lifts off the box. Next: Socks glues and holds the loose corner down. Last: Pencils stand in the finished box."
       }
     },
     {
@@ -1347,6 +1739,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T08:40:02.473Z",
         "notes": "Inspected actual pixels: Socks lifts paper from grass with bottle visible under picnic table; recovered bottle and same paper go into bag; final tied litter bag carried to two bins by gate with no litter remaining. One paper and one bottle, two natural arms and legs, no text or coloured fills."
+      },
+      "editorialReview": {
+        "textSha256": "a3030e82572db94bd1ac3ad274e8f0926667f1590fa7f3f13438a2b60cdbd0c0",
+        "imageSha256": "4df6fc57c805083030db66ce0aafece2acba5ab0a8cc5df8c1c70fdb784aea5f",
+        "reviewedAt": "2026-11-26T02:40:46.465Z",
+        "notes": "The revised passage retains the illustrated scene. First: Socks picks up litter in the field. Next: Socks puts the paper and bottle in a bag. Last: Socks takes the litter bag to the bins."
       }
     },
     {
@@ -1373,7 +1771,13 @@
           "file": "exec-ca614ac7-bcc7-4f75-b545-ff564d7735a1.png",
           "sha256": "c87c5789c2ac6c0e8bf2e60413bff53292e4fd58b5d27317f6113bc208576395"
         }
-      ]
+      ],
+      "editorialReview": {
+        "textSha256": "a4e8f9065b824bcbea9a9d11be31abf22560bd48e44f5c474508f2b6f314bde2",
+        "imageSha256": "a26d82bfcce0ccff46890bef45aeaa207388407a8daddad57cd89c399ba8c844",
+        "reviewedAt": "2026-11-26T02:40:46.465Z",
+        "notes": "The revised passage retains the illustrated scene. First: Socks finds blocks in one book box. Next: Socks moves the blocks to the toy shelf. Last: The two book boxes sit beside the reading mat."
+      }
     },
     {
       "id": "chips-stew",
@@ -1393,6 +1797,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T06:59:03.935Z",
         "notes": "Inspected goat blows on spoonful without eating while steam rises first, stirs and waits next, tastes comfortably with no steam last. Same bowl and bell collar, two separate forelimbs, white background and no extra meal props."
+      },
+      "editorialReview": {
+        "textSha256": "770049a82ce316145b7da35f22fd05f714749b9da2cc24750d235dbd9f6df1ae",
+        "imageSha256": "11d58338e3623c7faa2b9418c9b62f883fbeb88ea4b1ba45358a66ebfbc4dabe",
+        "reviewedAt": "2026-11-26T02:40:46.465Z",
+        "notes": "The revised passage retains the illustrated scene. First: Chips blows on the hot stew. Next: Chips stirs and waits for the stew to cool. Last: Chips tastes the cooled stew."
       }
     },
     {
@@ -1413,6 +1823,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T06:59:04.555Z",
         "notes": "Inspected oversized sleeves completely cover both front hooves first, larger coat returned to hook while smaller sleeves reveal hooves next, fitted coat and boots outside with taller Moonwood Pip last. Distinct species and reference costumes, white rain scene without grey fills."
+      },
+      "editorialReview": {
+        "textSha256": "0014dd4a0a655fbb7e14101b33e9347c464b568fe3e5364dc930f2308ade102e",
+        "imageSha256": "33ce522fbe2a4542dde630e5390d0f22c0593b570c4167585916baee2dff56d5",
+        "reviewedAt": "2026-11-26T02:40:46.465Z",
+        "notes": "The revised passage retains the illustrated scene. First: The first raincoat covers Chips's hands. Next: Chips chooses a coat that fits. Last: Chips meets Pip wearing the fitting coat and boots."
       }
     },
     {
@@ -1433,6 +1849,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T06:59:04.236Z",
         "notes": "Inspected one bottle apple and wide map on tray first, bottle and apple packed while goat folds map next, folded map packed in pocket and empty tray put away last. Four goat limbs with separate hands, blank route-only map and no labels."
+      },
+      "editorialReview": {
+        "textSha256": "a928088b9b54674687c3d9b8854364d16d0eae639432b37f5ac4ac6f9d142a9c",
+        "imageSha256": "a1068fa2eaf2e35d40a4fb9bba3ce1daf7791540bed86e9f27eb1d000d9a546a",
+        "reviewedAt": "2026-11-26T02:40:46.465Z",
+        "notes": "The revised passage retains the illustrated scene. First: Chips gets a bottle, apple and map ready. Next: Chips folds the wide map for the small pocket. Last: Chips finishes packing and puts away the tray."
       }
     },
     {
@@ -1453,6 +1875,12 @@
         "status": "passed",
         "reviewedAt": "2026-10-27T06:34:50.500Z",
         "notes": "Inspected actual three-panel pixels: Chompy brushes with visible foam at mirror, rinses brush over sink while spitting foam, then wipes mouth with towel and brush standing in cup. Reflection is confined to mirror, scarf dry, consistent face and two-arm anatomy, no text or grey wash."
+      },
+      "editorialReview": {
+        "textSha256": "76cebfcf52e960296edf7e8d17f1e3ebad6b6a391ea599ecd1c36705dd5863e8",
+        "imageSha256": "2432a03ffb8203b888fd1a321cce168fd443ce13882e758fac89844173507bc1",
+        "reviewedAt": "2026-11-26T02:40:46.465Z",
+        "notes": "The revised passage retains the illustrated scene. First: Chompy brushes teeth at the mirror. Next: Chompy rinses after brushing. Last: Chompy wipes the mouth with the brush in its cup."
       }
     },
     {
@@ -1483,7 +1911,13 @@
           "file": "pip-colouring.webp",
           "sha256": "4be75ae3bfbba9f1b495b2daa35a2a9e5855dbbbf3b0b898e26190ad7589b2ed"
         }
-      ]
+      ],
+      "editorialReview": {
+        "textSha256": "27bf38ec845e82bf8cb5e3b1d3fa156b7148f545fe0da45a38b3988326cb6267",
+        "imageSha256": "dbb768ca8386713bc49c5ee18aaf36c16038a508d2e8a04648e4018b0cbb2656",
+        "reviewedAt": "2026-11-26T02:40:46.465Z",
+        "notes": "The revised passage retains the illustrated scene. First: Muddy cuts the peach around its stone. Next: Chompy shares two slices each with Muddy and Pip. Last: Muddy washes up after the peach snack."
+      }
     },
     {
       "id": "chompy-road",
@@ -1509,7 +1943,13 @@
           "file": "muddy-colouring.webp",
           "sha256": "6e7e9d1338353261677a8e91a08939cadb47d36fee772511b8074b6f9471e577"
         }
-      ]
+      ],
+      "editorialReview": {
+        "textSha256": "6e5a863c3a6f11d1a9775d7c0935ef13fe5e52507ef185c00d9eb39f10e314cf",
+        "imageSha256": "bdd3be80122da2f5891587015ad0710e1d3540ce6a0b4daf9c28607b3a7baed5",
+        "reviewedAt": "2026-11-26T02:40:46.465Z",
+        "notes": "The revised passage retains the illustrated scene. First: Chompy presses the crossing button beside Muddy. Next: Chompy and Muddy check the cars have stopped. Last: Chompy and Muddy cross together towards the library."
+      }
     },
     {
       "id": "muddy-sand-marks",
@@ -1544,6 +1984,12 @@
         "reviewedAt": "2026-10-30T02:10:30.288Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected full contact image: recognised Muddy and Pip beside a sand pan; cloven hoof impression and separate leaf mark are clear, with open colouring areas."
+      },
+      "editorialReview": {
+        "textSha256": "729324386dd6693c2fec2edd016b9a72520ae291abd35049860d23e257d80d43",
+        "imageSha256": "57277b05abea68dc5bf4089b5df1a4575e5c45a2814974aa7610f7c05d29ebbb",
+        "reviewedAt": "2026-11-26T02:40:46.467Z",
+        "notes": "The revised passage retains the illustrated scene. Muddy shows Pip the hoof mark and leaf mark."
       }
     },
     {
@@ -1575,6 +2021,12 @@
         "reviewedAt": "2026-10-30T02:10:30.290Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected full image and contact: approved pointed-eared Pip stands on land and lifts one can in a net above the pond; clear safe scene and matching tunic."
+      },
+      "editorialReview": {
+        "textSha256": "27cbece789da11d027de887e307c5facb040d453a635962407937a2649f2b6ba",
+        "imageSha256": "817dfa3efd7f8939dd4ee91c3195a33a9fbc6bf1009bdddbd016208cd0ec1b90",
+        "reviewedAt": "2026-11-26T02:40:46.467Z",
+        "notes": "The revised passage retains the illustrated scene. At the pond, Pip lifts an empty can with the net."
       }
     },
     {
@@ -1606,6 +2058,12 @@
         "reviewedAt": "2026-10-30T02:10:30.291Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected contact: shaggy puppy beside two differently sized lids and paper with one circle inside another; correct final print and open line art."
+      },
+      "editorialReview": {
+        "textSha256": "bae2cf958a7c452d766a27a948951dc6253aa443091f03e9d7633570f29eaafb",
+        "imageSha256": "985521659ed74abe377e63b21da46a70e16163a1c7a5c03caa058bd7022ec264",
+        "reviewedAt": "2026-11-26T02:40:46.467Z",
+        "notes": "The revised passage retains the illustrated scene. The finished circle picture lies flat to dry."
       }
     },
     {
@@ -1641,6 +2099,12 @@
         "reviewedAt": "2026-10-30T02:10:30.293Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected contact: vest-wearing monkey taps a box and pot with spoon tools while Pip claps; both story props and distinct characters are clear."
+      },
+      "editorialReview": {
+        "textSha256": "b3d5517afcc8e6b9220970f4af09dc69869f3dbcb4f00275d10c0115278af8b3",
+        "imageSha256": "24ea328bed0087b7cd0467e32d33006b101de1a2de512e65f07c332da8d0edb7",
+        "reviewedAt": "2026-11-26T02:40:46.467Z",
+        "notes": "The revised passage retains the illustrated scene. Socks taps both objects while Pip claps."
       }
     },
     {
@@ -1672,6 +2136,12 @@
         "reviewedAt": "2026-10-30T02:10:30.294Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected contact: horned goat with bell holds empty cup beside a bug on a leaf outdoors; correct final bug-release moment and uncluttered line art."
+      },
+      "editorialReview": {
+        "textSha256": "1b0f3e4c992791d09d6a9b8c19570c8e49e1e7a1085d29f3de890846d538b80d",
+        "imageSha256": "03967bdfb5d0cf94750a52a1e312e2e35c4582cf1ae0c593824778416bb3aef4",
+        "reviewedAt": "2026-11-26T02:40:46.467Z",
+        "notes": "The revised passage retains the illustrated scene. The bug rests on a leaf while Chips holds the empty cup."
       }
     },
     {
@@ -1703,6 +2173,12 @@
         "reviewedAt": "2026-10-30T02:10:30.296Z",
         "reviewer": "Codex visual inspection",
         "notes": "Chompy retains neckerchief, rounded head, ridges and outlined spots; shopkeeper places cap inside a paper shopping bag; clean white unfilled line art."
+      },
+      "editorialReview": {
+        "textSha256": "c04b86491c4cd30381e6d7ad24b78177842332409a188dd3ffd29690eeffd620",
+        "imageSha256": "05b6427f53e317170777a808d905eafe67ef28c31d667d0fcc096d81f13bfcfd",
+        "reviewedAt": "2026-11-26T02:40:46.467Z",
+        "notes": "The revised passage retains the illustrated scene. A shopkeeper puts the smaller cap in a paper bag."
       }
     },
     {
@@ -1734,6 +2210,12 @@
         "reviewedAt": "2026-10-30T02:10:30.297Z",
         "reviewer": "Codex visual inspection",
         "notes": "Regenerated and rechecked: exactly two open egg cartons, six eggs in left carton and four in right; no basket or extra eggs. Muddy complete pig silhouette/mud patches."
+      },
+      "editorialReview": {
+        "textSha256": "baa3df6b3c709b36be837b287aee009ddddcb8d5e5663bd8029c1c45ad40ce5b",
+        "imageSha256": "253f038f28979f7fa2535affd6d6a854b4302b24d6e3896b4f10b8b65a1c8f4b",
+        "reviewedAt": "2026-11-26T02:40:46.467Z",
+        "notes": "The revised passage retains the illustrated scene. Muddy carries two egg boxes carefully."
       }
     },
     {
@@ -1765,6 +2247,12 @@
         "reviewedAt": "2026-10-30T02:10:30.298Z",
         "reviewer": "Codex visual inspection",
         "notes": "Regenerated and rechecked: Pip fully visible with both boots, correct ears/tunic/belt; wheel picture lies flat under four corner pins with clear white inset."
+      },
+      "editorialReview": {
+        "textSha256": "5f58de44b2e989abc6dfe9cf7c07329c3525ee99cf1255d4c7502c6d43c30487",
+        "imageSha256": "86e736c7077e6faf49bace1e0c7e2c214d031f242197ad5615b84e12817f8507",
+        "reviewedAt": "2026-11-26T02:40:46.467Z",
+        "notes": "The revised passage retains the illustrated scene. Four corner pins hold the complete picture flat."
       }
     },
     {
@@ -1796,6 +2284,12 @@
         "reviewedAt": "2026-10-30T02:10:30.299Z",
         "reviewer": "Codex visual inspection",
         "notes": "Shaggy puppy matches reference; car is entering side-lying pot, block moved onto top and held clear of opening. Four paws, no added event."
+      },
+      "editorialReview": {
+        "textSha256": "b1e1a59504a11ab43d635032d2c058989772ff23fcd97ff2d800319c5a2d88ee",
+        "imageSha256": "6d5e1df5f7d2c2df82f1243eef3ea22054be26ea1bf0643b555942e171418f1b",
+        "reviewedAt": "2026-11-26T02:40:46.467Z",
+        "notes": "The revised passage retains the illustrated scene. Fluff moves the block to the top and the toy car goes inside."
       }
     },
     {
@@ -1827,6 +2321,12 @@
         "reviewedAt": "2026-10-30T02:10:30.300Z",
         "reviewer": "Codex visual inspection",
         "notes": "Socks monkey with button vest and curled tail opens rolled rug on clean floor; clear unfilled outline scene."
+      },
+      "editorialReview": {
+        "textSha256": "73e443dbf9e2fb66c093717c9598ee0dc5064b89b1f259908dadd0990df6ef53",
+        "imageSha256": "b6c038e65c790c5a8cac2a6cf4bce6d5549f5a1617a25aa66ef76f95e63f33b1",
+        "reviewedAt": "2026-11-26T02:40:46.468Z",
+        "notes": "The revised passage retains the illustrated scene. Socks unrolls the rug onto the freshly swept floor."
       }
     },
     {
@@ -1858,6 +2358,12 @@
         "reviewedAt": "2026-10-30T02:10:30.301Z",
         "reviewer": "Codex visual inspection",
         "notes": "Chips goat has horns, spots and bell collar; folded map is being placed in open bag at table; clean line art."
+      },
+      "editorialReview": {
+        "textSha256": "7a6cb59d4343c40e793008199e67e2463649d64d58b3550eea3d3d652a5ecddf",
+        "imageSha256": "8c4d56e009659dea6b8dd56d0e2a9f2016199fa9a9fdbf615da6a02cb25c275f",
+        "reviewedAt": "2026-11-26T02:40:46.468Z",
+        "notes": "The revised passage retains the illustrated scene. Chips folds the finished map and puts it into a bag."
       }
     },
     {
@@ -1889,6 +2395,12 @@
         "reviewedAt": "2026-10-30T02:10:30.302Z",
         "reviewer": "Codex visual inspection",
         "notes": "Chompy covers toy bear inside box bed, pillow supports head and face remains uncovered; neckerchief and dinosaur features retained."
+      },
+      "editorialReview": {
+        "textSha256": "8b6af74a9bad4d06342be455cc44b127d93e4029339f60195db9b6957946511b",
+        "imageSha256": "030d81aa682fc4e7dbccf5081c0d8ad4c3deee14af71d55d57dee71aeb6e05a9",
+        "reviewedAt": "2026-11-26T02:40:46.468Z",
+        "notes": "The revised passage retains the illustrated scene. The bear lies under a small blanket with its face uncovered."
       }
     },
     {
@@ -1924,6 +2436,12 @@
         "reviewedAt": "2026-10-30T02:10:30.303Z",
         "reviewer": "Codex visual inspection",
         "notes": "Regenerated and rechecked: exactly four long sticks form square with joined corners; Pip gestures with empty hands beside Muddy, no extra sticks or tin."
+      },
+      "editorialReview": {
+        "textSha256": "487b24390f39dc0bce66efbedb290354bdd4d55e0e80fd07b62f54a7d0734393",
+        "imageSha256": "447a269670271da5397b19bac18b155788353fb71d8c7dde186e3b1afb18f7b9",
+        "reviewedAt": "2026-11-26T02:40:46.468Z",
+        "notes": "The revised passage retains the illustrated scene. Pip brings four longer sticks and the larger square has joined corners."
       }
     },
     {
@@ -1959,6 +2477,12 @@
         "reviewedAt": "2026-10-30T02:10:30.304Z",
         "reviewer": "Codex visual inspection",
         "notes": "Pip and Socks match two references; chalk hop spots clearly run across ground with Socks on near intermediate spot."
+      },
+      "editorialReview": {
+        "textSha256": "82d6c46bdfa1afcc4ad8323042199b2b611a6f05f5697a06d980b48e3d65c80a",
+        "imageSha256": "cb7027f10c8c65714aaa62e8e74e8ccc09aba5fb0f878bf9b987b1eaf97cbdbb",
+        "reviewedAt": "2026-11-26T02:40:46.468Z",
+        "notes": "The revised passage retains the illustrated scene. Socks stops on the extra spot Pip added near the start."
       }
     },
     {
@@ -1994,6 +2518,12 @@
         "reviewedAt": "2026-10-30T02:10:30.306Z",
         "reviewer": "Codex visual inspection",
         "notes": "Fluff hands mug to Socks beside garden gate; two correct identities, one each, complete bodies, unfilled line art."
+      },
+      "editorialReview": {
+        "textSha256": "1cf452f3a3abf77919ec2ec1f7ad541d288eb1daf3a176bfb000303d2994c0bc",
+        "imageSha256": "475ff1cc7535e9ff841e4e7806eb9a03d56e81681fab19eb262c7016aac24b43",
+        "reviewedAt": "2026-11-26T02:40:46.468Z",
+        "notes": "The revised passage retains the illustrated scene. Fluff hands the mug to Socks beside a gate."
       }
     },
     {
@@ -2025,6 +2555,12 @@
         "reviewedAt": "2026-10-30T02:10:30.307Z",
         "reviewer": "Codex visual inspection",
         "notes": "Adult controls hot pan and spatula while Socks watches from behind counter. Pancake turning action, correct monkey vest/tail and unfilled kitchen line art; lower bodies intentionally occluded by counter."
+      },
+      "editorialReview": {
+        "textSha256": "aa5b3104ff552baea02dddcad0c1ea8c2d6032a0908baa2eff8ffb178ab64f78",
+        "imageSha256": "b517754503a8fcb9af24155be0f37242207a7c8e2336946236e4a73d9e4015e3",
+        "reviewedAt": "2026-11-26T02:40:46.468Z",
+        "notes": "The revised passage retains the illustrated scene. An adult turns the pancake in the pan while Socks watches."
       }
     },
     {
@@ -2056,6 +2592,12 @@
         "reviewedAt": "2026-10-30T02:10:30.308Z",
         "reviewer": "Codex visual inspection",
         "notes": "Chips goat stands beside table with folded card clearly under one front leg and cup steady on top; four goat legs, bell and spots retained."
+      },
+      "editorialReview": {
+        "textSha256": "075e6d997dd90b5acd30bf23339b7786771acf96b542a49d180cb6adef6fd86f",
+        "imageSha256": "279d4bd738b82268b34268ff11e30dfade0c43719dcf62a1fb61765cd4418ba8",
+        "reviewedAt": "2026-11-26T02:40:46.468Z",
+        "notes": "The revised passage retains the illustrated scene. A cup rests on the now steady table."
       }
     },
     {
@@ -2087,6 +2629,12 @@
         "reviewedAt": "2026-10-30T02:10:30.309Z",
         "reviewer": "Codex visual inspection",
         "notes": "Chompy holds flower stamp over one of two ink pads; paper shows two flower prints. No added marks or colour fills; table occludes lower body naturally."
+      },
+      "editorialReview": {
+        "textSha256": "a951bd7ba757f6b068c66f82bc5dc7adc7b155e8c93f560739a575cf8432e1e7",
+        "imageSha256": "50874a79b230ec96c036085b3bcd51cc49c974c94d9567fd584df92b24ec4db3",
+        "reviewedAt": "2026-11-26T02:40:46.468Z",
+        "notes": "The revised passage retains the illustrated scene. Chompy prints a second flower beside the first using the blue pad."
       }
     },
     {
@@ -2118,6 +2666,12 @@
         "reviewedAt": "2026-10-30T02:10:30.310Z",
         "reviewer": "Codex visual inspection",
         "notes": "Muddy seated on bus touches clear circle with hoof; tree visible through circle, surrounding condensation outlined on window; pig mud patches retained."
+      },
+      "editorialReview": {
+        "textSha256": "5da1b442cb0c6261bc1a908001e877d6e242d610c335764b66d85b2fc2cd93c9",
+        "imageSha256": "c077ff575d2bd356d7424e928c7478b8befca592e22d914966ea810f50fda39f",
+        "reviewedAt": "2026-11-26T02:40:46.468Z",
+        "notes": "The revised passage retains the illustrated scene. Muddy looks at a tree through the clear circle."
       }
     },
     {
@@ -2149,6 +2703,12 @@
         "reviewedAt": "2026-10-30T02:10:30.311Z",
         "reviewer": "Codex visual inspection",
         "notes": "Exactly five cups: four with nut shells and one empty. Pip picks up fifth shell from fallen leaves, matching moment before filling last cup; complete figure and recognisable shells."
+      },
+      "editorialReview": {
+        "textSha256": "d6302f516a53ff7f71c22af0e1157d60f56b51bc0ba79be43ebad3bd1c0b08a0",
+        "imageSha256": "5d7c69190a7ab221455a22d3fbcec9c561668cdb771df7d3e16b7f1b0f40bdeb",
+        "reviewedAt": "2026-11-26T02:40:46.468Z",
+        "notes": "The revised passage retains the illustrated scene. Pip takes a fifth shell from beneath fallen leaves."
       }
     },
     {
@@ -2180,6 +2740,12 @@
         "reviewedAt": "2026-10-30T02:10:30.312Z",
         "reviewer": "Codex visual inspection",
         "notes": "Fluff holds folded paper fan with a paw; airflow movement lines carry leaf across table, correct shaggy puppy and white unfilled regions."
+      },
+      "editorialReview": {
+        "textSha256": "9ce0fcfee75e76d506f0f20e9ebe775116004badcc572d3206ec97cb4df71004",
+        "imageSha256": "ff5d8fc60f73d615b13cdd25cdbb828de4a24f7ce085fdae314fedc443e09c50",
+        "reviewedAt": "2026-11-26T02:40:46.468Z",
+        "notes": "The revised passage retains the illustrated scene. Fluff waves the fan and air pushes the leaf across the table."
       }
     },
     {
@@ -2211,6 +2777,12 @@
         "reviewedAt": "2026-10-30T02:10:30.313Z",
         "reviewer": "Codex visual inspection",
         "notes": "Cat sleeps curled in bed below low shelf, Socks sits beside bed; door remains separate at left and does not obscure the quiet spot."
+      },
+      "editorialReview": {
+        "textSha256": "c660f94ad2c5012592e816c32ab1b5ec5e365573c0521c3e72ffd41639908aee",
+        "imageSha256": "4a02b76c811d667582b8f36cac18560a7fdd49db8a702c4cff3a29f9dd6770fc",
+        "reviewedAt": "2026-11-26T02:40:46.468Z",
+        "notes": "The revised passage retains the illustrated scene. The cat sleeps curled up in the bed beneath the shelf."
       }
     },
     {
@@ -2242,6 +2814,12 @@
         "reviewedAt": "2026-10-30T02:10:30.314Z",
         "reviewer": "Codex visual inspection",
         "notes": "Chips goat places fitted lid on garden bin beside tall plant pot; lid fully covers bin as required, no contradictory food visible."
+      },
+      "editorialReview": {
+        "textSha256": "0a4da0d6b25527c1ffac7cc6fb3ea262550d6e81cdc026ee1d9d1d2df40a7071",
+        "imageSha256": "7ef8dc2bba278535fbf692f1c6059cf705f3de6881a25b46c56162ab69a419ab",
+        "reviewedAt": "2026-11-26T02:40:46.469Z",
+        "notes": "The revised passage retains the illustrated scene. The clean lid fits tightly over the garden bin."
       }
     },
     {
@@ -2273,6 +2851,12 @@
         "reviewedAt": "2026-10-30T02:10:30.316Z",
         "reviewer": "Codex visual inspection",
         "notes": "Regenerated and rechecked: large open book on low table; fox beside log and mouse on log occur exclusively within bordered photograph on page. Chompy points at mouse; no live animals outside book."
+      },
+      "editorialReview": {
+        "textSha256": "1db784e2970c2fd4d1f67d729cad64a55500bd16648b8730eb78cb5c012beb17",
+        "imageSha256": "f71429344978441624694b91a54abd49753c4c9ff22346c8c621ffa687c5783c",
+        "reviewedAt": "2026-11-26T02:40:46.469Z",
+        "notes": "The revised passage retains the illustrated scene. Chompy notices a small mouse on that log in the same photo."
       }
     },
     {
@@ -2304,6 +2888,12 @@
         "reviewedAt": "2026-10-30T02:10:30.317Z",
         "reviewer": "Codex visual inspection",
         "notes": "Muddy watches cup resting at bottom of water-filled tub, shown as clear cutaway; cup upright and below water surface, correct pig outline anatomy."
+      },
+      "editorialReview": {
+        "textSha256": "73c8381dfb218a4361a21f1bc6745e91d1ed88c721fdb480a01142cfc522939a",
+        "imageSha256": "56f4eedf643ffc75e8f7db4f856b9401a1d1ea866332d7de3d31475df9109d16",
+        "reviewedAt": "2026-11-26T02:40:46.469Z",
+        "notes": "The revised passage retains the illustrated scene. The full cup rests on the bottom of the tub."
       }
     },
     {
@@ -2339,6 +2929,12 @@
         "reviewedAt": "2026-10-30T02:10:30.318Z",
         "reviewer": "Codex visual inspection",
         "notes": "Regenerated and rechecked: dishes rest on clearly two-tier low shelf unit; long conical shells grouped in one, round shells in the other. Correct Muddy and Pip references."
+      },
+      "editorialReview": {
+        "textSha256": "1f0b1c45b864746453e90dd4d7ac6fd5f25941e6caf736410c05585f2db1f38d",
+        "imageSha256": "ad6c354e67969982f81da6a8f6f1c506cee31217afad880bb18c7b2e5344cbb8",
+        "reviewedAt": "2026-11-26T02:40:46.469Z",
+        "notes": "The revised passage retains the illustrated scene. The two dishes sit on a low shelf while Muddy shows Pip."
       }
     },
     {
@@ -2370,6 +2966,12 @@
         "reviewedAt": "2026-10-30T02:10:30.319Z",
         "reviewer": "Codex visual inspection",
         "notes": "Shopkeeper retrieves brush from high shelf after emerging from back room; Pip waits beside counter bell; correct elf identity and complete figures."
+      },
+      "editorialReview": {
+        "textSha256": "f2fe30fb42a54efa3ee638423346154a1bedfa58cb9a2c0eab8148fe2d130366",
+        "imageSha256": "4ff1574fffee70b51459badeadb622fb68e4fede11674d61e3166e67f2dba5e7",
+        "reviewedAt": "2026-11-26T02:40:46.469Z",
+        "notes": "The revised passage retains the illustrated scene. A shopkeeper comes from the back room and gets the brush."
       }
     },
     {
@@ -2405,6 +3007,12 @@
         "reviewedAt": "2026-10-30T02:10:30.321Z",
         "reviewer": "Codex visual inspection",
         "notes": "Fluff shows Socks toy cars on dry painted road, dashed middle lines and open park space; both reference identities correct, no unrelated event."
+      },
+      "editorialReview": {
+        "textSha256": "bae5ad3e68b4bedec823b1236898d68009e092be74f69abc7a2175462bf17e20",
+        "imageSha256": "59f0264d38f4e541961f557bd87e5d57e284c0801985c6d5a4b389b48c60248f",
+        "reviewedAt": "2026-11-26T02:40:46.469Z",
+        "notes": "The revised passage retains the illustrated scene. Toy cars stand on the dry painted road while Fluff shows Socks."
       }
     },
     {
@@ -2440,6 +3048,12 @@
         "reviewedAt": "2026-10-30T02:10:30.322Z",
         "reviewer": "Codex visual inspection",
         "notes": "Regenerated and rechecked: Socks raised-arm shadow contour and smaller leaf shadow contour on wall have pure white interiors and black outlines, no grey fill. Socks/Pip identities and leaf shape match."
+      },
+      "editorialReview": {
+        "textSha256": "a9dcfdf279fec70a95b5cc529a49da426ed7dee55cd5d351feac4a842d895747",
+        "imageSha256": "3c16b3bda0f516b26962bd380872017d1fc59c55accd2d37f0c83efdd237a665",
+        "reviewedAt": "2026-11-26T02:40:46.469Z",
+        "notes": "The revised passage retains the illustrated scene. Pip holds a leaf beside Socks, making a smaller leaf shadow on the wall."
       }
     },
     {
@@ -2471,6 +3085,12 @@
         "reviewedAt": "2026-10-30T02:10:30.323Z",
         "reviewer": "Codex visual inspection",
         "notes": "Exactly three dishes nested large/middle/small on shelf; towel hangs on hook, Chips reference horns/bell/spots and four limbs retained."
+      },
+      "editorialReview": {
+        "textSha256": "add73d3024227e03c847670b47bc3d4be99dbfa6f55cb022b46c4271b384d6e1",
+        "imageSha256": "ebd2b89484e024f8ecad45e2b4f50060a8166eb7829ec3cdb7deae8519a02c94",
+        "reviewedAt": "2026-11-26T02:40:46.469Z",
+        "notes": "The revised passage retains the illustrated scene. All three dishes nest together with the little dish on top."
       }
     },
     {
@@ -2510,6 +3130,12 @@
         "reviewedAt": "2026-10-30T02:10:30.324Z",
         "reviewer": "Codex visual inspection",
         "notes": "Regenerated using Chompy, Pip and Socks references; all three correct identities appear once. Three plates each have exactly two cheese triangles, lunch box is visibly empty."
+      },
+      "editorialReview": {
+        "textSha256": "bcef72f5a0eb3e6eb419f06ec999eb3a3b789bc500f4b09a95de7448a39d8e99",
+        "imageSha256": "a507026c385b5985f08363068663eae2c5a98a6e8bc6eb4b037de08a63a6b765",
+        "reviewedAt": "2026-11-26T02:40:46.469Z",
+        "notes": "The revised passage retains the illustrated scene. Three plates have two cheese triangles each and the box is empty."
       }
     },
     {
@@ -2541,6 +3167,12 @@
         "reviewedAt": "2026-10-30T02:10:30.325Z",
         "reviewer": "Codex visual inspection",
         "notes": "Muddy eats from lunch box on dry bench beneath roof; small bird clearly sits on separate wet bench with drips. Correct pig face/mud patches and complete main subject."
+      },
+      "editorialReview": {
+        "textSha256": "0061cb2d81990cc32ed6168148f4640a4d388bc6f69a38cadd6caeefb31f5fc5",
+        "imageSha256": "26e4a4f42367f38e0570fc50ea48bd2a11e5637fb7da27115fb4fed3cec88473",
+        "reviewedAt": "2026-11-26T02:40:46.469Z",
+        "notes": "The revised passage retains the illustrated scene. Muddy eats under the roof while a bird sits on the wet bench."
       }
     },
     {
@@ -2576,6 +3208,12 @@
         "reviewedAt": "2026-10-30T02:10:30.327Z",
         "reviewer": "Codex visual inspection",
         "notes": "Pip checks visible chalk arrow at tree bend while Socks pushes toy car towards it; both references correct and arrow points along track."
+      },
+      "editorialReview": {
+        "textSha256": "c76c65e3d0738ce61a91526d9e45382f313306a5e7bb7fd74467efdf39cca5fb",
+        "imageSha256": "20f9e2cdf13b5d7a5dd8565b55552e189e8c5b65e801007c194106e26d850d49",
+        "reviewedAt": "2026-11-26T02:40:46.469Z",
+        "notes": "The revised passage retains the illustrated scene. Socks pushes a toy car towards the arrow while Pip checks its visibility."
       }
     },
     {
@@ -2611,6 +3249,12 @@
         "reviewedAt": "2026-10-30T02:10:30.328Z",
         "reviewer": "Codex visual inspection",
         "notes": "Fluff has sock puppet on paw with two button eyes and hanging cloth tongue; Pip watches and laughs. Correct two identities and full visible characters."
+      },
+      "editorialReview": {
+        "textSha256": "87cca1031d7cd2d7c473b76c2dfe5cea7a8b26e746258db115d815d4001192d9",
+        "imageSha256": "7222a97e02d77b7b6575f2068e218ae6e5cb917d1f901e3b5f5e666037794b32",
+        "reviewedAt": "2026-11-26T02:40:46.469Z",
+        "notes": "The revised passage retains the illustrated scene. Fluff wears the finished sock puppet on a paw and bows it towards Pip."
       }
     },
     {
@@ -2642,6 +3286,12 @@
         "reviewedAt": "2026-10-30T02:10:30.329Z",
         "reviewer": "Codex visual inspection",
         "notes": "Socks monkey sits at café table with cheese sandwich on plate and tall cup of water; no soup substituted, proper vest/tail and clean unfilled outlines."
+      },
+      "editorialReview": {
+        "textSha256": "01b9bd26260f6b9ddc6084d00bcfd32b49d0ad77d3a4236fcf63e68564756974",
+        "imageSha256": "3445a3be56a2af072a92d5645da1d52ecfda9c463c7ef83ee872655ff6074404",
+        "reviewedAt": "2026-11-26T02:40:46.469Z",
+        "notes": "The revised passage retains the illustrated scene. Socks sits at an empty table with the sandwich and a tall cup of water."
       }
     },
     {
@@ -2673,6 +3323,12 @@
         "reviewedAt": "2026-10-30T02:10:30.330Z",
         "reviewer": "Codex visual inspection",
         "notes": "Regenerated and rechecked: three distinct horizontal thread rows and three tied rear knots shown unobscured on card; three thread balls on table. Correct goat horns, eye patch, bell and spots."
+      },
+      "editorialReview": {
+        "textSha256": "02d7d390287e76d578155d012d00fd1e4129dbc7c7843a4a39695ce2660b743c",
+        "imageSha256": "3ec6004449e88357ed8e0aa3f181efe339991bb3f00cee4608b2ac45493063b9",
+        "reviewedAt": "2026-11-26T02:40:46.470Z",
+        "notes": "The revised passage retains the illustrated scene. Chips ties the loose thread ends behind the finished card."
       }
     },
     {
@@ -2708,6 +3364,12 @@
         "reviewedAt": "2026-10-30T02:10:30.331Z",
         "reviewer": "Codex visual inspection",
         "notes": "Chompy and Muddy wait beside exactly two filled steaming bowls on table; correct identities and clear cooling-before-eating moment."
+      },
+      "editorialReview": {
+        "textSha256": "cd1965039770ab4d6e847ac37186e1eb6a930b103208cccd56b0d90f6e3def4a",
+        "imageSha256": "4e8a37628a547ce5500bf1b4f40af5e77b88d5f527f097c06ddd2b2fd2189a22",
+        "reviewedAt": "2026-11-26T02:40:46.470Z",
+        "notes": "The revised passage retains the illustrated scene. Two filled bowls of soup sit to cool before Chompy and Muddy eat."
       }
     },
     {
@@ -2739,6 +3401,12 @@
         "reviewedAt": "2026-10-30T02:10:30.332Z",
         "reviewer": "Codex visual inspection",
         "notes": "Muddy dries toy sailboat with cloth beside bath and shelf; clean unfilled outlines and pig hooves, boat is held outside bath."
+      },
+      "editorialReview": {
+        "textSha256": "458444c44b0904cc5f5d6ba2c79de6788dd33c39edc08df05d437d681d80577e",
+        "imageSha256": "4b01dadc600766d913e9ab62a8a22a58e601e00a7915ba171631810b58634c27",
+        "reviewedAt": "2026-11-26T02:45:33.862Z",
+        "notes": "The revised passage retains the illustrated scene. Muddy dries the emptied boat with a cloth beside a shelf."
       }
     },
     {
@@ -2770,6 +3438,12 @@
         "reviewedAt": "2026-10-30T02:10:30.333Z",
         "reviewer": "Codex visual inspection",
         "notes": "Regenerated and rechecked: exactly three plant pots on windowsill; Pip holds only an empty saucer and pours water into bucket. No fourth plant or soil spill; correct Pip face/tunic/ears."
+      },
+      "editorialReview": {
+        "textSha256": "f21de8d08bf5b22158281bbd665ef574ffa733d0b85db6f1ac084433600f4773",
+        "imageSha256": "e280d53ca4c7bb968908135d66615cee3ce2eda3e694d99c8cecff77f1a933ff",
+        "reviewedAt": "2026-11-26T02:40:46.470Z",
+        "notes": "The revised passage retains the illustrated scene. Pip empties water from the third pot’s tray."
       }
     },
     {
@@ -2801,6 +3475,12 @@
         "reviewedAt": "2026-10-30T02:10:30.335Z",
         "reviewer": "Codex visual inspection",
         "notes": "Folded card spans exactly two blocks with toy car supported above gap; Fluff puppy reference retained, no middle sag, clear final successful bridge."
+      },
+      "editorialReview": {
+        "textSha256": "4b4c3d0d78498e6660ba5f2321f8f8e5c5704a8fdea930d105dfe2da116ccfb5",
+        "imageSha256": "69d7ba069fb75074c1c8d4dc22a51aac47d78a49d64e8affed7dee0cc65c1ceb",
+        "reviewedAt": "2026-11-26T02:40:46.470Z",
+        "notes": "The revised passage retains the illustrated scene. Folded thick card spans the blocks and supports the toy car."
       }
     },
     {
@@ -2836,6 +3516,12 @@
         "reviewedAt": "2026-10-30T02:10:30.336Z",
         "reviewer": "Codex visual inspection",
         "notes": "Rejected first image because repeated physical sticks replaced chalk marks. Inspected repaired full image: Pip holds one short measuring stick flat, Socks holds one visibly longer stick, and the path has chalk strokes rather than spare sticks; approved identities and distinct tool lengths."
+      },
+      "editorialReview": {
+        "textSha256": "334d912fc8603074237ad2fa2b7715d4bc4a97cb52a89308dd43b0a40af6e6bf",
+        "imageSha256": "5455da6e68f3c893b0e4b8308a32acca98b627f3511f0b158cbc6cac0f945101",
+        "reviewedAt": "2026-11-26T02:40:46.470Z",
+        "notes": "The revised passage retains the illustrated scene. Pip uses a shorter stick along the same path, making more lengths."
       }
     },
     {
@@ -2867,6 +3553,12 @@
         "reviewedAt": "2026-10-30T02:10:30.337Z",
         "reviewer": "Codex visual inspection",
         "notes": "Rejected first image because its extra later star would break the repaired pattern. Inspected repaired full image: exactly star-circle-star-circle-circle printed in one row, with a loose paper star held above the final extra circle; correct alternating result after covering."
+      },
+      "editorialReview": {
+        "textSha256": "4738028d317a89664e43743d68492a74be86613ed7255af43a050a0294a9aceb",
+        "imageSha256": "de28dfbb551acdff124a2aeb723ba91506892bbd8669e3b417609d043e7ff1f3",
+        "reviewedAt": "2026-11-26T02:40:46.470Z",
+        "notes": "The revised passage retains the illustrated scene. Chips covers the extra circle with a small paper star."
       }
     },
     {
@@ -2898,6 +3590,12 @@
         "reviewedAt": "2026-10-30T02:10:30.338Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected contact: Chompy puts the picture list into storage after tidying, with clear floor, books on shelf, blocks and cars put away; correct final action and neckerchief identity."
+      },
+      "editorialReview": {
+        "textSha256": "14f8de53114d4674848f695f1f163298ad09dafe4b86f2d86979010d5b6c0d01",
+        "imageSha256": "8f3056356481b1bf7edd0489f0ace52ba6870ec7a9df2b5e8a033779a03829b1",
+        "reviewedAt": "2026-11-26T02:40:46.470Z",
+        "notes": "The revised passage retains the illustrated scene. Chompy stands on the clear floor and puts the finished list away."
       }
     },
     {
@@ -2933,6 +3631,12 @@
         "reviewedAt": "2026-10-30T02:10:30.339Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected contact: Pip stands in clear tent doorway below a rolled flap held by exactly two straps, beside approved Muddy; entrance and air opening remain clear."
+      },
+      "editorialReview": {
+        "textSha256": "0f83df21aef35fab5e47728d7ccf18c78575bcc669e22968cf14f86fe033de7b",
+        "imageSha256": "381604dac52af974e37e075d9bc56dd89d2f8078bca123a7d636bcd5b010ada0",
+        "reviewedAt": "2026-11-26T02:40:46.470Z",
+        "notes": "The revised passage retains the illustrated scene. Pip stands in the clear tent doorway below the rolled flap."
       }
     },
     {
@@ -2964,6 +3668,12 @@
         "reviewedAt": "2026-10-30T02:10:30.340Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected contact: exactly two potted plants, one round-leaved and one long-leaved, with matching leaf-shape cards in front; correct nonverbal labels and approved Pip."
+      },
+      "editorialReview": {
+        "textSha256": "d93ca9751350fb2e7d9138dd636ee37420febebb537733e9dac160520a79a38e",
+        "imageSha256": "f06dbdeace582e565bee407e683a9ecc978c0ad58ac5e58382afc49cac9e13b9",
+        "reviewedAt": "2026-11-26T02:40:46.470Z",
+        "notes": "The revised passage retains the illustrated scene. Each plant stands behind its matching leaf-shape card."
       }
     },
     {
@@ -2999,6 +3709,12 @@
         "reviewedAt": "2026-10-30T02:10:30.343Z",
         "reviewer": "Codex visual inspection",
         "notes": "Rejected original generic schoolboy. Inspected repaired full image: approved pointed-eared Pip with hooded wrap tunic listens to cup while Fluff speaks; one loose sagging string connects their cups; correct characters, action and string state."
+      },
+      "editorialReview": {
+        "textSha256": "8c84154f5fa2b08282bfe8393245d01ef6452be7e0fb61a810ef619dfc0773e6",
+        "imageSha256": "48c0a7baba758ce51aab0e2886a8ecf0f109cd26769dc8539cac5be6a054c610",
+        "reviewedAt": "2026-11-26T02:40:46.470Z",
+        "notes": "The revised passage retains the illustrated scene. The string hangs loose between the cups and the words are no longer clear."
       }
     },
     {
@@ -3030,6 +3746,12 @@
         "reviewedAt": "2026-10-30T02:10:30.347Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected contact: approved vest-wearing Socks hangs long paper-link chain above a reading corner with books and cushions, clear connected rings and no lettering."
+      },
+      "editorialReview": {
+        "textSha256": "8ab0b7cad98546456e7567ad5fbdf35dbad89a33346d264646dcd2d05e5b5af2",
+        "imageSha256": "07be902cc846d6361e33a5b6300706e32b941cad6814d4a7d465f3037065aca5",
+        "reviewedAt": "2026-11-26T02:40:46.470Z",
+        "notes": "The revised passage retains the illustrated scene. A long chain of paper rings hangs above a reading corner."
       }
     },
     {
@@ -3061,6 +3783,12 @@
         "reviewedAt": "2026-10-30T02:10:30.348Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected contact: approved goat adds two crackers to one apple bag, with two completed apple-and-two-cracker bags beside it; correct quantities and packing action."
+      },
+      "editorialReview": {
+        "textSha256": "f3ffc65ad4bd7c8465907b1f1658c90b7b3122a192716d1c743e4e5eb8e98b82",
+        "imageSha256": "919aa3481e6069c2fc020e0ad614a477912527d74a7ac3f6e80ce77b68b64d70",
+        "reviewedAt": "2026-11-26T02:40:46.470Z",
+        "notes": "The revised passage retains the illustrated scene. Chips adds two crackers to that bag before closing all the bags."
       }
     },
     {
@@ -3092,6 +3820,12 @@
         "reviewedAt": "2026-10-30T02:10:30.352Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected contact: Chompy watches toy train pass clear curved track, with a toy house on the block beside the bend; obstacle is off the track and main props match."
+      },
+      "editorialReview": {
+        "textSha256": "0e5fd9d4ecda0220515f432653d6415bc521c67ff93d08ed0ce57bc825fdf578",
+        "imageSha256": "6ec29bf0f90f4c4b421e7c0929e8fdd378f8c250250b22b803a01018962870a7",
+        "reviewedAt": "2026-11-26T02:40:46.471Z",
+        "notes": "The revised passage retains the illustrated scene. The train passes the bend and a toy house stands on the block beside it."
       }
     },
     {
@@ -3127,6 +3861,12 @@
         "reviewedAt": "2026-10-30T02:10:30.354Z",
         "reviewer": "Codex visual inspection",
         "notes": "Rejected obscured block count. Inspected repaired full image: exactly two stacked wooden blocks individually visible beneath clock, tall book in front, clock above book and visible to approved Pip; Muddy retains pig hooves and outlined patches."
+      },
+      "editorialReview": {
+        "textSha256": "13a098e12d4052c1766f125053cde202179c79a169bfdd3f29f805fae8065cb4",
+        "imageSha256": "29dd3c54a98ce4feb8b540806f6987a74b7eb846884e5dd4599ad94f58b079cf",
+        "reviewedAt": "2026-11-26T02:40:46.471Z",
+        "notes": "The revised passage retains the illustrated scene. The clock sits on the blocks above the book and Pip can see it."
       }
     },
     {
@@ -3158,6 +3898,12 @@
         "reviewedAt": "2026-10-30T02:10:30.355Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected contact: Pip at picnic table with grapes beneath mesh dome and ants outside cover; grapes and protective cover are recognisable."
+      },
+      "editorialReview": {
+        "textSha256": "b7fa7e784cf76c051b3cfaa2224c9480a29c6abab7b4e6a7c00bf5d75b60d53e",
+        "imageSha256": "e092e8fa8fc937f6769b7ffba58be280a3df0162c6394bacfc714090796af603",
+        "reviewedAt": "2026-11-26T02:40:46.471Z",
+        "notes": "The revised passage retains the illustrated scene. The plate sits under the mesh cover on a picnic table."
       }
     },
     {
@@ -3189,6 +3935,12 @@
         "reviewedAt": "2026-10-30T02:10:30.356Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected contact: puppy beside paper plane bearing visible repair tape, landed beside a chair; matching final moment and recognisable plane."
+      },
+      "editorialReview": {
+        "textSha256": "4eb664ccec4d6e87a3306981d9bd3cbd269cb618769cb2da56f912e03319c91f",
+        "imageSha256": "cdb928b3036aa4ecd45c4321f196f53ca94d78755b59dd21a86d96f2c3523f9c",
+        "reviewedAt": "2026-11-26T02:40:46.471Z",
+        "notes": "The revised passage retains the illustrated scene. The repaired paper plane has landed beside a chair."
       }
     },
     {
@@ -3220,6 +3972,18 @@
         "reviewedAt": "2026-10-30T02:10:30.357Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected contact: goat with bell places a duck picture on cleared shelf; moved vase is visible on a separate lower shelf."
+      },
+      "editorialReview": {
+        "textSha256": "bf22d944abf94e546901d645294b4e8fadd7a99b0665aabb454690cd1fc190e3",
+        "imageSha256": "c2b07463defa6352278fd516b86dd0840b0352dcc51e5438e63376835d6bdc61",
+        "reviewedAt": "2026-11-26T02:46:17.745Z",
+        "notes": "Chips holds the framed duck picture on the higher shelf. The vase stands on the shelf below, so the picture has its own space. The goat’s bell and hooves are visible."
+      },
+      "replacement": {
+        "commit": "28d8b1f0404dfc12ed9c87290ca68d396ed56b24",
+        "inputSha256": "3692dd48b150754570782adfec85a51c168df909fcc4429684d762f310de9db3",
+        "imageSha256": "c2b07463defa6352278fd516b86dd0840b0352dcc51e5438e63376835d6bdc61",
+        "evidence": "Clean cartoon checkpoint documented in docs/design/CLEAN_CARTOON_REFRESH_CHECKPOINT.md. The cited commit replaces this exact path and records the delivered digest prefix in src/data/generated/repairedImageRevisions.generated.js."
       }
     },
     {
@@ -3251,6 +4015,12 @@
         "reviewedAt": "2026-10-30T02:10:30.358Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected contact: Muddy eats on a mat under tree beside lake, lunch bag on mat; final shaded picnic scene matches source."
+      },
+      "editorialReview": {
+        "textSha256": "805c4b098c022cc1e122e5034355889dfdb8f1c1aea00f0cb63897d7bfb9b875",
+        "imageSha256": "04776740baa6480e5690f2d63bf040379cd25a82698e3954b5b10fc0e21339ff",
+        "reviewedAt": "2026-11-26T02:40:46.471Z",
+        "notes": "The revised passage retains the illustrated scene. Muddy sits on the mat beside the lunch bag in tree shade."
       }
     },
     {
@@ -3282,6 +4052,12 @@
         "reviewedAt": "2026-10-30T02:10:30.359Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected contact: approved monkey in vest places round game piece on board, with open game box beside it; correct round shape and final action."
+      },
+      "editorialReview": {
+        "textSha256": "eb7fb4a3545849222ea10ef88803ea6c3baa9a19b3bc01432ef19b73b5666ee1",
+        "imageSha256": "9b9f89d849d89772626057f64c46e0a76fe1deeb9944f9d1df03e4b31a3824fb",
+        "reviewedAt": "2026-11-26T02:40:46.471Z",
+        "notes": "The revised passage retains the illustrated scene. Socks places the recovered round piece on the board."
       }
     },
     {
@@ -3313,6 +4089,12 @@
         "reviewedAt": "2026-10-30T02:10:30.360Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected contact after story/art replacement: Chompy and an adult sit beside a plate of crackers in the middle of a stable table; the plate has clear space around it. Recognisable bandana dinosaur and no superseded short-leg repair props."
+      },
+      "editorialReview": {
+        "textSha256": "7de5a85b3153d7c3d3c36e7dbd02b9d8b8c3f42ebb4fb52a0f33dd5c2983dbd1",
+        "imageSha256": "cec64286d741a3a16bb396a62c7434eae33845ba825c6f8daa9645a1c9dc5939",
+        "reviewedAt": "2026-11-26T02:40:46.471Z",
+        "notes": "The revised passage retains the illustrated scene. The plate is safe in the middle of the table."
       }
     },
     {
@@ -3344,6 +4126,12 @@
         "reviewedAt": "2026-10-30T02:10:30.361Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected contact: pointed-eared Pip and an adult are outdoors beside a cut-paper lantern containing a small battery lamp. No candle flame appears; open outline shapes suit colouring."
+      },
+      "editorialReview": {
+        "textSha256": "79249d620d91cfb70f8938bc0c17ff92d19023e7411400c48ba17ee15b08ca90",
+        "imageSha256": "adc5875603cd71782924236de5ea46cca26e62dac9896b3da58e1e834aa2217a",
+        "reviewedAt": "2026-11-26T02:40:46.471Z",
+        "notes": "The revised passage retains the illustrated scene. The lamp lights the paper lantern outdoors beside Pip and the adult."
       }
     },
     {
@@ -3375,6 +4163,12 @@
         "reviewedAt": "2026-10-30T02:10:30.362Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected repaired contact: Fluff has no cake plate; four other friends each have one distinct plate with one cake piece. Exactly four pieces and four plates surround an empty serving tray, with no candles or extra cake."
+      },
+      "editorialReview": {
+        "textSha256": "634b0798bd9f71459029e122e3e547e1a0cb9a172e0596c9065cc037d0b7735e",
+        "imageSha256": "a5e4a7bdfcde81277255e5ab3b5147990ed818dc5ac595d0c0e0c3d7b763681c",
+        "reviewedAt": "2026-11-26T02:40:46.471Z",
+        "notes": "The revised passage retains the illustrated scene. Each of the four friends has one cake plate; the tray is empty."
       }
     },
     {
@@ -3406,6 +4200,12 @@
         "reviewedAt": "2026-10-30T02:10:30.363Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected contact: horned goat Chips with bell stands beside a gift box wrapped with ribbon and a bow. Final wrapped gift is clear; no invented ruler numbers or text."
+      },
+      "editorialReview": {
+        "textSha256": "38a199d77f6a37528e4223f0d5226ec69310af669fc71feb9b56cff17ea73944",
+        "imageSha256": "745b6814cbd33418b76c3142d5097dc0382e4052a8d05be84f3723866edb9403",
+        "reviewedAt": "2026-11-26T02:40:46.471Z",
+        "notes": "The revised passage retains the illustrated scene. The gift box has a ribbon tied around it with a bow."
       }
     },
     {
@@ -3437,6 +4237,12 @@
         "reviewedAt": "2026-10-30T02:10:30.364Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected contact: Muddy holds the inverted tray over a sink, tap water runs over its bottom and the last ice piece drops below. Pig identity and four limbs remain recognisable."
+      },
+      "editorialReview": {
+        "textSha256": "b7c50b4c129e5a1ced66f176c31315e8ebba0cd347fb3b28e13f56468990a340",
+        "imageSha256": "33bad95135fed2c8d9d64f7f7de218000082f6fb3caf684c17a71a890c2d0ffd",
+        "reviewedAt": "2026-11-26T02:40:46.471Z",
+        "notes": "The revised passage retains the illustrated scene. Warm tap water runs over the inverted tray bottom above a sink."
       }
     },
     {
@@ -3468,6 +4274,12 @@
         "reviewedAt": "2026-10-30T02:10:30.365Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected contact: vest-wearing monkey Socks stands beside a stationary bike; upright books are distributed in a level front basket. Bike, books and balancing result are readily identifiable."
+      },
+      "editorialReview": {
+        "textSha256": "be3b7e01138c576ed4a677dd05a008cc42b4f44bac656e3253644fe5d5578f6b",
+        "imageSha256": "54d87a22394a1e41fb47c7f745e339524ec9e1ef78aaa15738664a14ac4f8dd4",
+        "reviewedAt": "2026-11-26T02:40:46.471Z",
+        "notes": "The revised passage retains the illustrated scene. Socks stands beside the bike with books balanced in a level basket."
       }
     },
     {
@@ -3499,6 +4311,12 @@
         "reviewedAt": "2026-10-30T02:10:30.366Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected contact: Chompy lifts the side of a sheet tent held by two chairs; daylight comes through a nearby window, with cushion and open book inside. Final bright reading space matches source."
+      },
+      "editorialReview": {
+        "textSha256": "cc51d8ed73e45c53f07a5d7102b99312d071b5e655d57454d84e8b66e78c2e91",
+        "imageSha256": "6565007eb1a1f8b8cabd1ac3e91c577c4f8501a5325e5b967d0f05288195a226",
+        "reviewedAt": "2026-11-26T02:40:46.471Z",
+        "notes": "The revised passage retains the illustrated scene. One side of the sheet is lifted so daylight enters the tent."
       }
     },
     {
@@ -3530,6 +4348,12 @@
         "reviewedAt": "2026-10-30T02:10:30.367Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected repaired contact: Pip takes a single plain sock from an otherwise empty washing line. Basket shows four striped socks and one plain sock, making six socks total including the missing partner. No extra line socks remain."
+      },
+      "editorialReview": {
+        "textSha256": "6896392ee450e7c122ab815dcd515880de31dfcda9340ee44ea4f71a59fc431d",
+        "imageSha256": "6237786d3eda06384b701a5e7a90db066bd7e0bd2d7d25c74963f535d8efdf3f",
+        "reviewedAt": "2026-11-26T02:40:46.471Z",
+        "notes": "The revised passage retains the illustrated scene. Pip takes a second plain white sock from the washing line."
       }
     },
     {
@@ -3561,6 +4385,12 @@
         "reviewedAt": "2026-10-30T02:10:30.368Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected contact: shaggy puppy Fluff is beside a sand tray containing a toy slide, toy car at the bottom and a block moved off to the side. Car has a clear route into sand, with uncluttered outlines."
+      },
+      "editorialReview": {
+        "textSha256": "31aed08900fd86a008cbdd0d8871dd408f2252f356510a7bf29b5aef6950aefc",
+        "imageSha256": "b15825646318fa11aeabd9b28e46c6726cfc2f33003a45896bde7befff791309",
+        "reviewedAt": "2026-11-26T02:40:46.472Z",
+        "notes": "The revised passage retains the illustrated scene. The block is off to one side and the car rolls into open sand."
       }
     },
     {
@@ -3592,6 +4422,18 @@
         "reviewedAt": "2026-10-30T02:10:30.372Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected repaired contact: Chips holds white chalk beside an intentionally solid black board bearing one white chalk star. Cloth and chalk box are visible, with no dark line or extra decorative stars; other regions remain open line art."
+      },
+      "editorialReview": {
+        "textSha256": "9fbe09dbd9c14e3cfa719a2752adf2ce82b223001dcb4ba99de5955d9217b3e9",
+        "imageSha256": "53e191e34d0bb65f7049641e0d1ff6d475758022c7142d55c4c4b961ef3cda01",
+        "reviewedAt": "2026-11-26T02:46:18.118Z",
+        "notes": "Chips holds white chalk in front of one white star on the black board. The chalk box and wiping cloth are on the table, and the earlier dark line is gone."
+      },
+      "replacement": {
+        "commit": "28d8b1f0404dfc12ed9c87290ca68d396ed56b24",
+        "inputSha256": "2b76096526ba4b2346c294329c0f244b5ca2e7eb3d57f01a6d7a8f2ae9fa21a5",
+        "imageSha256": "53e191e34d0bb65f7049641e0d1ff6d475758022c7142d55c4c4b961ef3cda01",
+        "evidence": "Clean cartoon checkpoint documented in docs/design/CLEAN_CARTOON_REFRESH_CHECKPOINT.md. The cited commit replaces this exact path and records the delivered digest prefix in src/data/generated/repairedImageRevisions.generated.js."
       }
     },
     {
@@ -3623,6 +4465,12 @@
         "reviewedAt": "2026-10-30T02:10:30.373Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected contact: Muddy is beside two upright paper cones, each supported by small stones around its base, in a simple toy landscape. Two cones and stabilising stones are clear."
+      },
+      "editorialReview": {
+        "textSha256": "80fe87ed00740455876c9573e09263ac93edc68130bb887e243c10ace24a3947",
+        "imageSha256": "f26342f7119dd7cbf07bb9293f9c38f127deba7093397c494e789e551458f0e3",
+        "reviewedAt": "2026-11-26T02:40:46.472Z",
+        "notes": "The revised passage retains the illustrated scene. Two upright paper cones stand close together in a simple toy landscape."
       }
     },
     {
@@ -3654,6 +4502,12 @@
         "reviewedAt": "2026-10-30T02:10:30.374Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected contact: approved monkey Socks lifts a plain box by its rope handle. Rope passes through side holes with visible end knots; no invented text or answer markers."
+      },
+      "editorialReview": {
+        "textSha256": "c8fa4e4b046c76c8c695dfbcd9f27d4fc46358c77f0f9bcd131efaeb3a3671d2",
+        "imageSha256": "bf08269feb91c425cc45a7d05b1d3c2cc4edbc1939c13c14dd9fa0daed911113",
+        "reviewedAt": "2026-11-26T02:40:46.472Z",
+        "notes": "The revised passage retains the illustrated scene. Socks lifts the box by a rope handle secured with visible end knots."
       }
     },
     {
@@ -3685,6 +4539,12 @@
         "reviewedAt": "2026-10-30T02:10:30.375Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected full-resolution repaired image: window is on the right and the single rose stem leans left into the room. Pip holds the pot securely on a table, matching the rotation away from window light."
+      },
+      "editorialReview": {
+        "textSha256": "2a298ee80ebfac919c467cc06bd382034e4f82ef4d3880635fd28fc1f71e374a",
+        "imageSha256": "fad494ee01846095c1494b600224c146f4100f92709a890973ceb3138b2c48bd",
+        "reviewedAt": "2026-11-26T02:40:46.472Z",
+        "notes": "The revised passage retains the illustrated scene. Pip rotates the pot so the leaning stem faces the room."
       }
     },
     {
@@ -3716,6 +4576,12 @@
         "reviewedAt": "2026-10-30T02:10:30.376Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected contact: Fluff sits beside a flat clay slab on a shelf, with a distinct bone-shaped impression and a separate round stone impression. Both prints and the drying location match the final moment."
+      },
+      "editorialReview": {
+        "textSha256": "769d7a302ed3dd59e322febe0af51124d0c4baa279a44cda7cfd7e68e450896c",
+        "imageSha256": "c872dde730a5fc273e607aab0e8433ea115d680acc7e2d3d4a834d73bfc857f8",
+        "reviewedAt": "2026-11-26T02:40:46.472Z",
+        "notes": "The revised passage retains the illustrated scene. The flat clay slab dries on a shelf with both prints visible."
       }
     },
     {
@@ -3747,6 +4613,12 @@
         "reviewedAt": "2026-10-30T02:10:30.377Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected full-resolution repaired image: Chompy feeds a folded blank note through a slot in a separate wall-mounted letter box beside the closed door. The door itself has no letter slot; dinosaur identity and note action are clear."
+      },
+      "editorialReview": {
+        "textSha256": "72889cf8d0ca9998f14e97583b1e4ea68cc374937c9197cd9402b35a4de9b209",
+        "imageSha256": "635609cf688443ad8ff56bbf053683ddbde06f15f9a076a35de28b43cee844cd",
+        "reviewedAt": "2026-11-26T02:40:46.472Z",
+        "notes": "The revised passage retains the illustrated scene. Chompy pushes the folded note through the letter-box slot."
       }
     },
     {
@@ -3778,6 +4650,12 @@
         "reviewedAt": "2026-10-30T02:10:30.378Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected contact: Chips waves beside a coiled hose by the wall; an unnamed friend walks along the clear garden path. Hose is away from the walking route, matching the final safety result."
+      },
+      "editorialReview": {
+        "textSha256": "c4d1226745f5ab703190b9ac97443c9f9fa1d7273cc3e779b71ab123c662edb0",
+        "imageSha256": "725ca838dc8cfd37e0b7d53c659f762b627fdf9063e1c9c1aaa81ca6eab5c702",
+        "reviewedAt": "2026-11-26T02:40:46.472Z",
+        "notes": "The revised passage retains the illustrated scene. A friend walks along the clear path as Chips waves."
       }
     },
     {
@@ -3809,6 +4687,18 @@
         "reviewedAt": "2026-10-30T02:10:30.379Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected contact: Muddy looks through an open cardboard tube towards a toy car on a shelf. Both tube ends are open, with no remaining paper cover; no extra limbs or clothing."
+      },
+      "editorialReview": {
+        "textSha256": "886a63651f9e7e90ba3097f2be48a33e8fe735bd9bfaad1dd7dbf05afac6061f",
+        "imageSha256": "bae459d4ee85ef5c96dbb692e87c69cd6f9de687c4c0e8b0c6b9f9e4859a68a3",
+        "reviewedAt": "2026-11-26T02:46:18.393Z",
+        "notes": "Muddy holds the open cardboard tube up to one eye, pointing it towards the toy car on the shelf. The far opening is clear of the paper cover."
+      },
+      "replacement": {
+        "commit": "28d8b1f0404dfc12ed9c87290ca68d396ed56b24",
+        "inputSha256": "905193efce3a8ecfd7081a25ec0928e5c350dd2aef1ae6ad9f18c67384c2305f",
+        "imageSha256": "bae459d4ee85ef5c96dbb692e87c69cd6f9de687c4c0e8b0c6b9f9e4859a68a3",
+        "evidence": "Clean cartoon checkpoint documented in docs/design/CLEAN_CARTOON_REFRESH_CHECKPOINT.md. The cited commit replaces this exact path and records the delivered digest prefix in src/data/generated/repairedImageRevisions.generated.js."
       }
     },
     {
@@ -3840,6 +4730,12 @@
         "reviewedAt": "2026-10-30T02:10:30.380Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected contact: Socks sits with an unnamed friend beside a flute on a cloth. Friend gestures while the flute remains at rest, fitting the request to play after the story rather than adding a second instrument."
+      },
+      "editorialReview": {
+        "textSha256": "1dca33d4319099bd18a5cd2ee561e49c32933eeecc211d62aab288c1bf11b434",
+        "imageSha256": "779a4ee85de119d177edd08a118533421ab82331a56d4a5ae48f63ba508208ad",
+        "reviewedAt": "2026-11-26T02:40:46.472Z",
+        "notes": "The revised passage retains the illustrated scene. The friend has finished and asks Socks to play the flute again."
       }
     },
     {
@@ -3871,6 +4767,12 @@
         "reviewedAt": "2026-10-30T02:10:30.381Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected contact: Pip sits beside two square cube blocks stacked into a tower, with a toy car parked beside them. Flat block faces and the stable final tower are clear."
+      },
+      "editorialReview": {
+        "textSha256": "58defb8ab8b450bd17b5f880f87fcb3484b1aa72d41215a2d89130838b9fb7df",
+        "imageSha256": "c6422400dfde13ccaf512d8bed0ee2f1b6eec84ebe1e7f216c815c4a49ac404b",
+        "reviewedAt": "2026-11-26T02:40:46.472Z",
+        "notes": "The revised passage retains the illustrated scene. Two stacked cube blocks form a tower beside a toy car."
       }
     },
     {
@@ -3902,6 +4804,12 @@
         "reviewedAt": "2026-10-30T02:10:30.382Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected contact: Fluff is beside a two-level shelf; tall toy giraffe stands below with headroom and small ducks stand on the upper shelf. Correct animal placement directly matches the source."
+      },
+      "editorialReview": {
+        "textSha256": "f1ab346552cbcdc902485e8ca23db5b944ddb561bd91cbb7ac14e75036bf1b28",
+        "imageSha256": "3f18e8088fa7e6197b73b9f3027daff527d16e7c3f65e596265f2904d9b5599c",
+        "reviewedAt": "2026-11-26T02:45:33.864Z",
+        "notes": "The revised passage retains the illustrated scene. The giraffe stands below and the small ducks stand on the upper shelf."
       }
     },
     {
@@ -3933,6 +4841,12 @@
         "reviewedAt": "2026-10-30T02:10:30.383Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected contact: Muddy watches a toy train cross a flat board over the track gap. Two blocks support the board and the train remains on top, matching the bridge solution."
+      },
+      "editorialReview": {
+        "textSha256": "9ba92bd626d01bb1c4c423c1eaf3d252f7784ad6c12fad8240618c954769b9e4",
+        "imageSha256": "6bb330aa209d76f34c6ade6259ce048ed532f7ff048c8514b6c1efead9630cc3",
+        "reviewedAt": "2026-11-26T02:40:46.472Z",
+        "notes": "The revised passage retains the illustrated scene. A toy train rolls across the new board bridge."
       }
     },
     {
@@ -3964,6 +4878,12 @@
         "reviewedAt": "2026-10-30T02:10:30.384Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected contact: Pip watches without touching as a snail slides from a leaf into grass beside the path. Leaf, snail and grass destination are clear; no added container or handling."
+      },
+      "editorialReview": {
+        "textSha256": "4c2d576a1b75eff89e08a3e583c8c166d94e3a6fa7e1b63a9e85e0b14180708a",
+        "imageSha256": "e59fcd57e7644df5cca26b8eb0abbbf477936e05a9077b1cf718fb7a6a9f3b0f",
+        "reviewedAt": "2026-11-26T02:40:46.473Z",
+        "notes": "The revised passage retains the illustrated scene. Pip watches the snail slide from the leaf into grass."
       }
     },
     {
@@ -3995,6 +4915,12 @@
         "reviewedAt": "2026-10-30T02:10:30.385Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected contact: Socks the vest-wearing monkey stands holding a rail inside a train while an unnamed friend sits beside a heavy bag on the floor. Seat offering and steady standing match the final scene."
+      },
+      "editorialReview": {
+        "textSha256": "f49f509cadf6d6b3dd3799bb2a8f70945f5626edf6c1046cd4fb70ff9aad5696",
+        "imageSha256": "d8f7504a2d0147bd05ba6f5603ce5ed5d7265c9c11abe7f4cdb665640850178c",
+        "reviewedAt": "2026-11-26T02:40:46.473Z",
+        "notes": "The revised passage retains the illustrated scene. The friend sits with the bag on the floor while Socks holds a rail."
       }
     },
     {
@@ -4026,6 +4952,12 @@
         "reviewedAt": "2026-10-30T02:10:30.386Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected full-resolution repaired image: chair stands drying on protective paper under the porch roof while rain falls beyond the shelter. Adult holds the brush away from the chair beside Chips; nobody is still painting."
+      },
+      "editorialReview": {
+        "textSha256": "9c7d7313f7cf183a7dffcfbbb4bd6a6c76f7a6971691c3d6f223179fa87c5f54",
+        "imageSha256": "8e52f8f834a4c80fe7d4297becbee11a0675f24076bc529da2d33ec7f8236e88",
+        "reviewedAt": "2026-11-26T02:40:46.473Z",
+        "notes": "The revised passage retains the illustrated scene. The chair sits under a porch roof with rain falling beyond it."
       }
     },
     {
@@ -4057,6 +4989,12 @@
         "reviewedAt": "2026-10-30T02:10:30.387Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected contact: Chompy gently blows towards a paper sail on a small boat floating in a water tray. Sail, mast and water movement are clear, with no strings or stones changing the cause."
+      },
+      "editorialReview": {
+        "textSha256": "72a400473791e219986f1a908156955f9556999309dfb2c07f6361a150eae910",
+        "imageSha256": "276b9bc8ca14cae1f66375b125d6c73db6c807b765097c275ffbc012f482d42b",
+        "reviewedAt": "2026-11-26T02:40:46.473Z",
+        "notes": "The revised passage retains the illustrated scene. Chompy gently blows towards the sail as the boat moves across the tray."
       }
     },
     {
@@ -4088,6 +5026,12 @@
         "reviewedAt": "2026-10-30T02:10:30.388Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected contact: Fluff watches outside a fenced pen while a rabbit rests on a fresh hay bed in its sheltered space. Rabbit is smaller than Fluff and the scene contains no handling or added action."
+      },
+      "editorialReview": {
+        "textSha256": "01304c9ea5ef1f468b75271a2316e631dd6c6cfa7d83e50d0fc0359d4df2852b",
+        "imageSha256": "51fa3cbf83168c0ef0d8a6a3e9bd1873819a4d31ec4b07975e98bff2a84fb7ad",
+        "reviewedAt": "2026-11-26T02:40:46.473Z",
+        "notes": "The revised passage retains the illustrated scene. The rabbit rests on the new hay while Fluff watches outside the pen."
       }
     },
     {
@@ -4119,6 +5063,12 @@
         "reviewedAt": "2026-10-30T02:10:30.389Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected contact: Pip is beside a handmade clay bowl resting on a flat tray. Raised bowl sides and the drying location are clear; no kiln, heat or unrelated props."
+      },
+      "editorialReview": {
+        "textSha256": "cefeb726a91957eb58280fc495fe02380fcdd727abb6a18ee5cf4c0ec9d71955",
+        "imageSha256": "a4affd3d52b4ba9f21254f41fa11cc3dfa6fcae38b88bc044de2e0b065aabe40",
+        "reviewedAt": "2026-11-26T02:40:46.473Z",
+        "notes": "The revised passage retains the illustrated scene. The finished clay bowl dries on a flat tray."
       }
     },
     {
@@ -4150,6 +5100,12 @@
         "reviewedAt": "2026-10-30T02:10:30.390Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected contact: Muddy supports a level tray containing exactly three separate cups with both front hooves beside a table. Cups stay upright; pig snout, mud markings and natural limb count remain recognisable."
+      },
+      "editorialReview": {
+        "textSha256": "0ae57cc51a6aedf006829dcd96eaec33bc740718f65ce8ebeb35b2a1481bba74",
+        "imageSha256": "a200081535a9656dec9e486de268d1b043885b123a523fe5d86dbf6f8b8235c8",
+        "reviewedAt": "2026-11-26T02:40:46.473Z",
+        "notes": "The revised passage retains the illustrated scene. Muddy holds the level tray with both front hooves by the table."
       }
     },
     {
@@ -4181,6 +5137,12 @@
         "reviewedAt": "2026-10-30T02:10:30.391Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected contact: Socks and unnamed friends assemble a puzzle indoors beside a window showing rain. Ball is stored on a shelf; the group is safely inside rather than running on wet grass."
+      },
+      "editorialReview": {
+        "textSha256": "78caffaa849d42034e3f5fab703eec5c20642a704ff0a132c7095efefd2c13cd",
+        "imageSha256": "197509c85dc9b2070b7b79c7e27531d566f45e0ecd4e094566564fdf2ff6f248",
+        "reviewedAt": "2026-11-26T02:40:46.473Z",
+        "notes": "The revised passage retains the illustrated scene. Socks and friends work on the puzzle indoors beside the window."
       }
     },
     {
@@ -4212,6 +5174,12 @@
         "reviewedAt": "2026-10-30T02:10:30.391Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected contact: Chips adds two pointed ears to a clay animal on a tray, with spare clay nearby. Horns and bell retain Chips's identity; depicted activity is the next-morning finishing moment."
+      },
+      "editorialReview": {
+        "textSha256": "4655681221ed043b1529afa74e60057f3dfbc5ed3827b3e4c83617a47b906e4d",
+        "imageSha256": "0c6be32937e616bc9cc9d9a2e0f9fb4a95da734ed41006c50d3dc8b54dbaa766",
+        "reviewedAt": "2026-11-26T02:40:46.473Z",
+        "notes": "The revised passage retains the illustrated scene. Next morning Chips adds two ears to the still-soft clay animal."
       }
     },
     {
@@ -4243,6 +5211,12 @@
         "reviewedAt": "2026-10-30T02:10:30.392Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected contact: Chompy and an unnamed friend stand beside a neatly folded sheet on a shelf. The sheet is a single folded stack and both characters fit inside the picture."
+      },
+      "editorialReview": {
+        "textSha256": "4d5483af504f5d801eb11bbe80a11f25902f4d6aab986c20f37ceba6e447c974",
+        "imageSha256": "509be668fd85c82ff67f88a50362baddc39be434a87a44443ce300f322b7b64f",
+        "reviewedAt": "2026-11-26T02:40:46.473Z",
+        "notes": "The revised passage retains the illustrated scene. The neatly folded sheet rests on a shelf."
       }
     },
     {
@@ -4274,6 +5248,12 @@
         "reviewedAt": "2026-10-30T02:10:30.393Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected contact: Muddy watches from beside a tree while one bee visits a nearby flower. Pig does not touch or hold the bee; tree, flower and distance are visibly distinct."
+      },
+      "editorialReview": {
+        "textSha256": "f0bc47d591bc6277ae6f9b81ed267231aa426380bc0cd748412ba5231a9d4b9f",
+        "imageSha256": "956af2d59d3bea5917cb596b9d2f00e450826530a04129bfe4c1edf4182db196",
+        "reviewedAt": "2026-11-26T02:40:46.474Z",
+        "notes": "The revised passage retains the illustrated scene. Muddy watches from the tree as the bee visits another flower."
       }
     },
     {
@@ -4305,6 +5285,12 @@
         "reviewedAt": "2026-10-30T02:10:30.394Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected contact: Pip points to exactly three beads with threading holes on a retrieved tray, with a soft brush and low chair nearby. Correct count, collection tools and final counting action match source."
+      },
+      "editorialReview": {
+        "textSha256": "dc2c07c488512012e8ff70a64bd3c19b3a572f16521921a5ae33bd4076e93391",
+        "imageSha256": "0f6d38b4e27b1745b72423b0a96c9f2432b49a9be346c9ddd66a378ce10d62e2",
+        "reviewedAt": "2026-11-26T02:40:46.474Z",
+        "notes": "The revised passage retains the illustrated scene. Pip counts the three beads on the retrieved tray."
       }
     },
     {
@@ -4336,6 +5322,12 @@
         "reviewedAt": "2026-10-30T02:10:30.395Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected full-resolution repaired image: Fluff stores the broom indoors beside a fully shut door flush in its frame. Outdoor leaves are visible only through a closed side window; indoor floor is clear, with no open doorway gap."
+      },
+      "editorialReview": {
+        "textSha256": "c34aeffa4a3ff0b7ed359af0cb5d378e20b25f46f8b998b306145405de01159d",
+        "imageSha256": "2321f37eb3478c10dc36d3d91816b4b4139498f4ea8c654f30bbd5b6f214079f",
+        "reviewedAt": "2026-11-26T02:40:46.474Z",
+        "notes": "The revised passage retains the illustrated scene. Leaves remain outside the closed door while Fluff stores the broom."
       }
     },
     {
@@ -4371,6 +5363,12 @@
         "reviewedAt": "2026-10-30T02:10:30.397Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected contact: correct vest-wearing monkey Socks waits by a tree beside a bench as pointed-eared Pip returns carrying a ball. Two other trees remain visible, giving three trees total and preserving the selected meeting place."
+      },
+      "editorialReview": {
+        "textSha256": "cc7fdbbc2e36b74f795efe39ea5c4d1748c7c9a8b31f40cf70d02e8585b1371a",
+        "imageSha256": "05c696db13e62322b66cde1fd9a6a8cede61755b88d15ed8086ca58d633eddbc",
+        "reviewedAt": "2026-11-26T02:40:46.474Z",
+        "notes": "The revised passage retains the illustrated scene. Pip returns carrying a ball to meet Socks beside that same tree."
       }
     },
     {
@@ -4402,6 +5400,12 @@
         "reviewedAt": "2026-10-30T02:10:30.398Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected original full image and 768px contact: approved horned goat with bell places one flattened leaf into an open leaf-collection book; another mounted leaf shows the collection context. Clear open line art and correct final moment."
+      },
+      "editorialReview": {
+        "textSha256": "34528e152625bc91f89e8262fc70001194f3dd04445241a03e7d1a45c30a2245",
+        "imageSha256": "fbfb3f8712ab48fc79e52eb16b0a25f7caca49b55ab07d6a3ba07548889e4e9c",
+        "reviewedAt": "2026-11-26T02:40:46.474Z",
+        "notes": "The revised passage retains the illustrated scene. Chips places the flattened dry leaf in an open collection book."
       }
     },
     {
@@ -4433,6 +5437,12 @@
         "reviewedAt": "2026-10-30T02:10:30.399Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected full image and contact: neckerchief-wearing Chompy holds pencil and notebook beside a small crab moving near the rock pool on a beach. No crab is being collected; readable shells, pool and drawing action."
+      },
+      "editorialReview": {
+        "textSha256": "f07010eba3648bd5f64fb4fb48b40459847497efd757849972add56f652316b1",
+        "imageSha256": "86738ccafcdbc6980186e93316eca0de5453f27065bae4a1f5c296abc829d349",
+        "reviewedAt": "2026-11-26T02:40:46.474Z",
+        "notes": "The revised passage retains the illustrated scene. Chompy sketches the crab as it walks towards a rock pool."
       }
     },
     {
@@ -4464,6 +5474,12 @@
         "reviewedAt": "2026-10-30T02:10:30.399Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected full image and contact: approved Muddy eats a soft peach piece with a spoon from a bowl; one ridged hard peach stone remains separate on a plate. Clear distinction between edible pieces and hard stone."
+      },
+      "editorialReview": {
+        "textSha256": "cdbb89fb7eb17bd8b3c634a93bb9474367aaeaeb1a89248481d626e61947ce91",
+        "imageSha256": "b0cdb3412d1ad9b1cfece803c11582820e441c337b64b82a5ed61e4a7834c674",
+        "reviewedAt": "2026-11-26T02:45:33.865Z",
+        "notes": "The revised passage retains the illustrated scene. Muddy eats the peach with a spoon beside the plate holding the stone."
       }
     },
     {
@@ -4499,6 +5515,12 @@
         "reviewedAt": "2026-10-30T02:10:30.401Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected full image and contact: approved pointed-eared Pip and vest-wearing Socks monkey share one open book between them. Both can see its pages; Socks points toward the book. No invented readable words or answer cues."
+      },
+      "editorialReview": {
+        "textSha256": "3e58c8054358978596b8db31da3783a121b5eb7ba44532a3b7bf38e3a417708d",
+        "imageSha256": "a05b38dcf2b7d10b0599331d66c7403c265b5f34a2289381aa69444c285d1bdb",
+        "reviewedAt": "2026-11-26T02:40:46.474Z",
+        "notes": "The revised passage retains the illustrated scene. Pip and Socks read the same page again with the book between them."
       }
     },
     {
@@ -4536,6 +5558,12 @@
         "reviewedAt": "2026-10-30T02:10:30.404Z",
         "reviewer": "Codex visual inspection",
         "notes": "Rejected first picture because it showed three toast slices and omitted the source coat. Inspected edited final full image and contact: exactly two tomato-topped toast slices, one per friend, exactly two drinks, an empty lunch box, and Fluff wearing a coat. Puppy and approved vest-wearing monkey retain reference identities."
+      },
+      "editorialReview": {
+        "textSha256": "c5739fcfecf1da565111dac815a3d418fc8d3f4be47b828b0b929e55ef47ac7c",
+        "imageSha256": "80b2ef8064aee6b2e8527a26151f5d33f5f57e364ca13de3e620a100a24b6bec",
+        "reviewedAt": "2026-11-26T02:40:46.474Z",
+        "notes": "The revised passage retains the illustrated scene. Fluff and Socks share toast and two drinks on a picnic mat."
       }
     },
     {
@@ -4567,6 +5595,12 @@
         "reviewedAt": "2026-10-30T02:10:30.405Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected full image and contact: approved Socks monkey wears a coat and holds an adult hand on a marked pedestrian crossing. Car remains behind the crossing. Correct source final moment, with clear outlined road markings and no written labels."
+      },
+      "editorialReview": {
+        "textSha256": "a8bb6a341dfe601922218dce09a15bafdc84c75eba0dd30d4f9426905fac0ea8",
+        "imageSha256": "fd25870289080aeca5a755b1377b51cf7de31e44fc4bdfc4075b1f963ff16c4c",
+        "reviewedAt": "2026-11-26T02:40:46.474Z",
+        "notes": "The revised passage retains the illustrated scene. Socks crosses at a pedestrian crossing beside an adult."
       }
     },
     {
@@ -4598,6 +5632,12 @@
         "reviewedAt": "2026-10-30T02:10:30.406Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected full image and contact: approved goat with curved horns and bell stands beside a pot raised on a low box, with plant leaves reaching the window light and small leaves visible at the top. Correct box-pot-window relationship."
+      },
+      "editorialReview": {
+        "textSha256": "7c35fb2bb240052aa31218e725902f5dd343237fc22b1c95ab00742a4ae02807",
+        "imageSha256": "bd7f100c23d6130a6e874267102306469badfdf07225cba83ced0cb883369b9e",
+        "reviewedAt": "2026-11-26T02:40:46.474Z",
+        "notes": "The revised passage retains the illustrated scene. New leaves appear on the plant on its box beside the window."
       }
     },
     {
@@ -4631,6 +5671,12 @@
         "reviewedAt": "2026-10-30T02:10:30.407Z",
         "reviewer": "Codex visual inspection",
         "notes": "Rejected first picture because the raised toy sat outside the flashlight beam. Inspected edited final full image and contact: flashlight points through the raised toy toward its matching simple outlined shape higher on the wall. Chompy has two natural arms, and the beam contains the toy. White interiors preserve colouring areas."
+      },
+      "editorialReview": {
+        "textSha256": "f263f8cceb370ae6f7b48c53e0b1f9a489ba8561ed72302fd58f8b8ac16d3917",
+        "imageSha256": "0f712a94d96be16308cb7402d653942039c30c1dfe3bc12a91753597eb9b58d9",
+        "reviewedAt": "2026-11-26T02:40:46.474Z",
+        "notes": "The revised passage retains the illustrated scene. Chompy raises the toy so its smaller shadow is higher on the wall."
       }
     },
     {
@@ -4662,6 +5708,12 @@
         "reviewedAt": "2026-10-30T02:10:30.408Z",
         "reviewer": "Codex visual inspection",
         "notes": "Inspected full image and contact: Muddy watches an adult apply glue to a complete sky puzzle on its board. All puzzle spaces are filled, with clear outline clouds and sun and no colour or written answers."
+      },
+      "editorialReview": {
+        "textSha256": "06f71c7a57855936f6e2a0f8855c52ac4ced44e03af57fb313f0c78dd80643e4",
+        "imageSha256": "18b89ef8af008aab83c565fdaca03652e7983e70cf1d7b252826977c67b96545",
+        "reviewedAt": "2026-11-26T02:40:46.474Z",
+        "notes": "The revised passage retains the illustrated scene. The complete puzzle sits on the board as an adult adds puzzle glue."
       }
     },
     {
@@ -4699,6 +5751,12 @@
         "reviewedAt": "2026-10-30T02:10:30.409Z",
         "reviewer": "Codex visual inspection",
         "notes": "Rejected first picture because the thrower was an invented fox. Inspected two edited finals and final contact: approved Guide Socks monkey now throws toward Pip, with circular ears, heart face patch, buttoned vest, bare furry monkey legs and curled tail. Pip catches the low ball with both hands. Removed fox features and inherited trousers."
+      },
+      "editorialReview": {
+        "textSha256": "942cbf468aef42dbe1438b6d0ccafdbf78c792dd3d53dd8310aa9b8ac9e7ebf9",
+        "imageSha256": "e52a92ac6d8443e3c006a1f869debb95481f372993a33d069ee2c2d0b95fcf19",
+        "reviewedAt": "2026-11-26T02:40:46.475Z",
+        "notes": "The revised passage retains the illustrated scene. Pip catches a gentle low throw with both hands out."
       }
     }
   ]

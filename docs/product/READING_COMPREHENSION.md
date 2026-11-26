@@ -25,12 +25,12 @@ passages available together for group checks and print selection.
 ## Modes and evidence
 
 - **Whole group:** four visible A–D choices, optional group selection and
-  teacher-controlled answer/evidence reveals. Selecting does not reveal a key.
+  teacher-controlled answer/evidence reveals. Teachers can open the passage’s oral discussion before the first choice or after the third, then return to the same question. Selecting does not reveal a key.
 - **Small group:** the same four choices and reading with initially hidden before/during/after
-  notes and answer guidance; hide teacher notes before sharing the screen.
+  notes and answer guidance. Preview the one or two glossary words and the phonics targets, then use the authored discussion and drawing tasks with partners. Hide teacher notes before sharing the screen.
 - **Student practice:** passage remains available, one question at a time,
   explicit Check, evidence feedback and supported retry. Four answers come
-  from the authored record. Completion means the practice was finished.
+  from the authored record. The finish screen invites a child to discuss the story and try its written or illustrated extension. Completion means the choice practice was finished.
 
 Teacher preview uses a separate storage scope. Practice and three optional
 rereading ticks live only in session storage, keyed by account/learner and
@@ -41,7 +41,7 @@ run. Answer values remain attached to their choices; group selections do not
 write student responses. Reload validates saved
 shape/content; corrupt or unavailable storage starts safely or keeps the
 current work in memory. Start again clears that passage's current practice.
-No new hosted assignment protocol, synchronization or database write is added.
+Practice for a substantive editorial revision has its own storage key so an earlier answer cannot count towards a different question. Earlier runs retain their original key. No new hosted assignment protocol, synchronization or database write is added.
 
 Teachers can tick **Whole group completed** on each catalogue card, passage or
 full-screen lesson. This is a reversible teacher record, separate from individual
@@ -101,7 +101,7 @@ know. They appear in Words to read together and on both child print pages,
 and inform the teacher’s before-reading notes. Meanings explain vocabulary;
 they must not answer a comprehension question. Concrete why/how questions
 remain welcome when the story gives the cause or action. Drawing directions
-name what to draw and which words to write. Retelling uses first, next and last.
+give children a concrete way to represent their thinking and a short writing task. Activities include drawing a comparison, tracing a route, showing a change and labelling evidence. A chronological retell can use first, next and last. The same passage-specific oral prompt appears in the group discussion, student completion screen, small-group notes, teacher guide and picture worksheet.
 
 K–3 describes the intended teaching range, not a measured grade or a promise
 that every kindergarten ESL learner can read every passage independently.
@@ -141,7 +141,7 @@ browser metadata to `pictures.js`; prompts stay outside learner code. Accepted
 image/source/prompt/reference hashes and actual visual-review notes live in
 `docs/content/comprehension-images/provenance.json`. Final art is served from
 `/images/comprehension/passages/`; older shared comprehension images remain separate. The image gate decodes
-every raster, rejects coloured fills and stale metadata, and checks coverage.
+every raster, rejects coloured fills and stale metadata, and checks coverage. When a manuscript is revised and its illustration still fits, retain the actual generation text and prompt. A new editorial review binds the revised manuscript hash to the checked raster hash.
 
 The user's explicit 27 October 2026 decision keeps **Guide Socks as the existing
 monkey** with buttoned vest and curled tail. This comprehension identity is
@@ -155,7 +155,7 @@ from the same records. Each passage provides a one-page multiple-choice sheet, a
 written-answer alternative, a one-page drawing/word-study/retell extension and
 a separate teacher guide. The default two-sheet pack is multiple choice plus
 drawing. A separate **Picture story** page pairs the complete text with its
-approved scene/comic and a short retell/colour task; it preserves the child's
+approved scene/comic and its oral discussion and colouring task; it preserves the child's
 independent drawing activity. Printed A–D order is deterministic Fisher–Yates by question ID; the
 teacher guide uses that same order and states that letters match print.
 Teachers can select all shown passages or add individual stories to a pack;
@@ -181,6 +181,7 @@ cycle generator in the Worksheet Design Bible. Neither replaces the other.
 
 ## Gates
 
+- `node tools/auditComprehensionItems.mjs` measures word overlap, answer length and repeated openings across both collections. Tied choices share credit equally. Pass an exported runtime-bank JSON file to score an earlier edition with the same rules. Read the questions against their passages to judge comprehension and answer validity.
 - `node --test tests/unit/comprehension*.test.js`: bank/evidence/language,
   exhaustive focused-word audit, saved shuffles, immutable first try, scoped
   storage, large-pack portrait pooling, exact narration and cue ownership.
@@ -218,6 +219,7 @@ is a separate boundary from the local component/navigation harness.
 Long Leda passage clips that exceeded the shared 350 KiB speech budget use
 96 kbps encoding, with unchanged words, voice, pacing and pauses. The exact
 text-hash overrides live in `tools/comprehensionLedaEncoding.json`; the encoding
-is part of the recipe and asset path so clients request fresh bytes. Thirteen
-explicit compatibility URLs serve identical optimised recordings to cached
-previous-release lessons; their text and byte hashes remain in the manifest.
+is part of the recipe and asset path so clients request fresh bytes. Cached
+previous-release lessons retain their released recording URLs. The manifest
+keeps the text and byte hash for each historical recording, including the
+earlier optimised aliases.

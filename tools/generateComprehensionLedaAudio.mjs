@@ -22,6 +22,11 @@ const scratchDir = path.join(root, `.artifacts/${family}/leda-generation`);
 const cacheDir = path.join(root, `.artifacts/${family}/leda-source-cache`);
 const manifestPath = path.join(root, `src/content/${family}/audioManifest.generated.json`);
 const modulePath = path.join(root, `src/content/${family}/audio.generated.js`);
+const previousManifest = JSON.parse(await readFile(manifestPath, 'utf8').catch(error => {
+  if (error.code === 'ENOENT') return '{"clips":[]}';
+  throw error;
+}));
+const previouslySharedCyclePaths = new Set(cycleShorts ? previousManifest.clips.map(clip => clip.audioPath) : []);
 const projectId = 'project-3c66c1c8-cc9e-4d6d-bdf';
 const endpoint = 'https://texttospeech.googleapis.com/v1/text:synthesize';
 const sha256 = value => createHash('sha256').update(value).digest('hex');
@@ -57,9 +62,14 @@ export function comprehensionNarrationRecords(passages) {
       const trim = leadTrims.get(text);
       const clipRecipe = trim ? `${encodedRecipe}${trimRecipeSuffix(trim)}` : encodedRecipe;
       const filename = `${sha256(`${voice}|${clipRecipe}|${text}`).slice(0, 20)}.mp3`;
+      const comprehensionPath = `/audio/production/en-US/comprehension/${filename}`;
+      // A phrase retired from Comprehension can still be current in Cycle Shorts.
+      // Its released path identifies the same voice, exact text and encoding recipe.
+      const sharedPath = cycleShorts && (COMPREHENSION_LEDA_AUDIO[text] ||
+        (previouslySharedCyclePaths.has(comprehensionPath) && comprehensionPath));
       records.set(text, { text, textSha256, segments: item.segments, recipe: clipRecipe, tempo, ...(bitrate !== 128 ? { bitrateKbps: bitrate } : {}),
         ...trim,
-        audioPath: (cycleShorts && COMPREHENSION_LEDA_AUDIO[text]) || `/audio/production/en-US/${family}/${filename}`, references: [reference] });
+        audioPath: sharedPath || `/audio/production/en-US/${family}/${filename}`, references: [reference] });
     }
   }
   for (const passage of passages) {
@@ -115,7 +125,7 @@ async function assemble(record, segmentFiles) {
 
 export async function generateComprehensionLedaAudio() {
   const records = comprehensionNarrationRecords(passages);
-  const previous = JSON.parse(await readFile(manifestPath, 'utf8').catch(() => '{"clips":[]}'));
+  const previous = previousManifest;
   const externalClips = cycleShorts ? JSON.parse(await readFile(path.join(root, 'src/content/comprehension/audioManifest.generated.json'), 'utf8')).clips : [];
   const previousCompatibility = previous.compatibilityClips || [];
   const previousByPath = new Map([...previousCompatibility, ...previous.clips, ...externalClips].map(clip => [clip.audioPath, clip]));

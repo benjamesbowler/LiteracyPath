@@ -7,48 +7,61 @@
 // has /ʌ/ but is not an example of the focused short-u spelling. US-English
 // teaching conventions apply (grass/path/half/past have short a); those words
 // vary in accents with the BATH vowel. th includes voiced and unvoiced sounds.
+// The short-o set uses the US /ɑ/ reading of long/along, which varies by accent.
+// The unstressed ending in raisins is not a short-i example.
 // u-e/ue/ew include both /uː/ and /juː/, as in flute/cube and blew/stew.
 // Known character names qualify when their regular spelling carries the focus.
 // They remain support words; a mark makes no full-word decodability claim.
 const vocabulary = {
   'short a': `adds an and as at back bad bag bags bat can cannot cans cap cat
     flat grass had half ham hand hands hangs has hat jam lap last man map mat
-    nap pan past path ran sad sat scrap snack stand tag tan tap that van sand fan pancake`,
+    nap pan past path ran sad sat scrap snack stand tag tan tap that van sand fan pancake
+    halfway pats`,
   'short e': `bed bench empty end fell fed get gets hen help helps left leg
     let men met net peg pen pens pet red set shelf step steps ten tent them
-    then wet yet egg eggs rests when legs rest`,
+    then wet yet egg eggs rests when legs rest
+    every resting tells together went`,
   'short i': `big bigger bin bins bit bits did dig dip dish fills fit fits him
     his hit if in ink into is it kick kicks kid lid lifts lip little mix picks
-    chips pig pin pip pit raisins rip sits sit six sink spills still stick sticks swimming this
-    tin tip tips which will wind with zip print inside until picture pins brings pink`,
+    chips pig pin pip pit rip sits sit six sink spills still stick sticks swimming this
+    tin tip tips which will wind with zip print inside until picture pins brings pink
+    anything changing dropping falling fill its lids lifted missing resting taking washing without`,
   'short o': `box cannot chompy dot dog got hop hot log logs mop not off on onto pond
-    pot rock shop sock socks spot stop stops top block spots fog fox`,
+    pot rock shop sock socks spot stop stops top block spots fog fox along long`,
   'short u': `bucket bug bus but cup cut cuts duck ducks dug fluff fun hug hut jug
-    jump mud muddy mug mum nut nuts rub rug run shut shuts sun tub tug under until up dust button cups`,
+    jump mud muddy mug mum nut nuts rub rug run shut shuts sun tub tug under until up dust button cups
+    just underneath unrolls`,
   sh: `brush brushes dish fish pushes shelf shed shop shopping shuts splashes washes shells shapes dishes show shopkeeper sheet short shows sunshine shadow shape shadows`,
-  ch: `bench check checks cheese chest chip chips chompy chops each kitchen latch lunch much sandwich watches chooses chalk chin`,
+  ch: `bench check checks cheese chest chip chips chompy chops each kitchen latch lunch much sandwich watches chooses chalk chin
+    reaching which`,
   th: `another bath both cloth other path that the them then there these thick
-    thin third this three through threads with without thread they others`,
+    thin third this three through threads with without thread they others
+    together`,
   st: `dust fast first gust just last list lost post resting stamp stand stands
-    starts stay stays step steps stick sticks still stops stone star mistake straps`,
+    starts stay stays step steps stick sticks still stops stone star mistake straps
+    against started stayed`,
   nt: `front into plant plants tent until wants`,
   ng: `along hangs long ring string swings hang longer rings reading`,
   nk: `drink drinks ink pink sink`,
   ck: `back block blocks check checks clock pack packs picks rock sick snack
     stick sticks stuck tick crackers track stacks`,
   'a-e': `brakes cake case cases game gate made make makes name page place
-    plate race safe same shake space stage take takes tape grapes plane vase lake shade shape shapes flame plates`,
+    plate race safe same shake space stage take takes tape grapes plane vase lake shade shape shapes flame plates
+    came gave shades tastes`,
   'i-e': `beside bike five hike ice inside kite like line lines nine ride side size
     slide slides time wide wipe wipes write writes stripe white`,
   'o-e': `bone close closer closes cone home hose nose note rose rope stone stones cones hole holes`,
   'u-e': `cube cute flute mule tube tune use uses`,
   'e-e': `these`,
-  ai: `pail rail rain raincoat trail train wait waited waiting waits snail paint sail`,
-  ay: `away day hay lay lays may pay pays play plays say stay stays tray way clay`,
+  ai: `pail rail rain raincoat trail train wait waited waiting waits snail paint sail
+    laid`,
+  ay: `away day hay lay lays may pay pays play plays say stay stays tray way clay
+    sideways`,
   ee: `bee feel feels feet green keep keeps meet need needs see seed seeds sees
-    sheep sheet sleep sleeps squeeze squeezes sweep sweeps teeth three tree week trees`,
+    sheep sheet sleep sleeps squeeze squeezes sweep sweeps teeth three tree week trees
+    agree`,
   ea: `beach clean cleans each eat eats leaf leaves peach reach read sea seat
-    steam tea team reader readers`,
+    steam tea team reader readers means`,
   oa: `boat coat coats float foam road soak toast toaster`,
   ow: `arrow arrows below blow blows bowl follow follows grow grows grown low
     row show shows slow slowly snow snowball throw throws window yellow`,

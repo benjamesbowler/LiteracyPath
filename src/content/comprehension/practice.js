@@ -26,7 +26,7 @@ export function reducePractice(passage,state,action) {
  const responses={...state.responses,[q.id]:{first:old?.first??action.value,last:action.value,attempts:(old?.attempts||0)+1,correct:action.value===q.answer}};
  return {...state,responses,completed:passage.questions.every(q=>responses[q.id]?.correct===true)};
 }
-function key(scope,p) {return `lp-comprehension:v${VERSION}:${encodeURIComponent(scope)}:${p.id}`;}
+function key(scope,p) {return `lp-comprehension:v${VERSION}:${encodeURIComponent(scope)}:${p.id}${p.practiceEdition ? `:${p.practiceEdition}` : ''}`;}
 function valid(p,s) {
  if(!s||typeof s.runSeed!=='string'||!s.runSeed.length||s.runSeed.length>200||s.version!==VERSION||s.passageId!==p.id||!Array.isArray(s.reads)||s.reads.length!==3||s.reads.some(v=>typeof v!=='boolean')||!s.responses||typeof s.responses!=='object'||Array.isArray(s.responses))return false;
  for(const [id,r] of Object.entries(s.responses)){

@@ -36,9 +36,16 @@ function choiceWorksheet(p){p={...p,questions:printQuestions(p)};return `${story
 function extension(p){return `${story(p,'extension')}${wordHelp(p)}${task(p,'word-study',`<h2>Circle these words in the story.</h2><p class="word-bank">${p.targetWords.map(esc).join(' · ')}</p>`,p.targetWords.join(' | '))}${task(p,'draw-retell',`<h2>${esc(p.draw)}</h2><div class="draw-box"></div><p>Tell what happened. Use first, next and last.</p>${lines(3)}`)}<p class="colour">Use the story to help you draw and write.</p>`;}
 function pictureWorksheet(p){
  const picture=requirePicture(p);
- return `${task(p,'passage',`<p class="passage">${esc(p.text)}</p>`,'','picture')}${task(p,'picture-retell',`<svg class="story-picture" viewBox="0 0 184 135" role="img" aria-label="${esc(picture.alt)}" data-picture-kind="${picture.kind}"><use href="#comprehension-picture-${p.id}"></use></svg><h2>Tell what happened. Use first, next and last.</h2><p class="colour">Colour the story picture.</p>`,'','picture')}`;
+ return `${task(p,'passage',`<p class="passage">${esc(p.text)}</p>`,'','picture')}${task(p,'picture-retell',`<svg class="story-picture" viewBox="0 0 184 135" role="img" aria-label="${esc(picture.alt)}" data-picture-kind="${picture.kind}"><use href="#comprehension-picture-${p.id}"></use></svg><h2>${esc(p.discussion)}</h2><p class="colour">Use the words and picture to help you explain. Colour the story picture.</p>`,'','picture')}`;
 }
-export function teachingPrompts(p){return {before:`Read the support words together: ${p.supportWords.join(', ')}. Explain the word help: ${p.wordHelp.map(([word,meaning])=>`${word}: ${meaning}`).join('; ')}. Check that ${p.focus} has been taught.`,during:'Read the story together. Read it again with a partner. Ask each reader to point to the words that help answer the question.',after:`Ask what happened first, next and last. ${p.draw} Accept answers in the reader’s own words when they match the story.`};}
+export function teachingPrompts(p) {
+ const vocabulary = p.wordHelp.map(([word, meaning]) => `${word} (${meaning})`).join(', ');
+ return {
+  before: [vocabulary && `Introduce ${vocabulary}.`, `Practise ${p.targetWords.join(', ')} together.`].filter(Boolean).join(' '),
+  during: p.discussion || 'Read the story together. Find the words that help answer the question.',
+  after: `Take turns. One partner shows what changed. The other uses the story to explain it. ${p.draw}`,
+ };
+}
 function teacherGuide(p){p={...p,questions:printQuestions(p)};const t=teachingPrompts(p);return `<p><strong>${p.wordCount} words · ${esc(p.readingMode)}</strong></p><p>Prerequisites: ${p.prerequisites.map(esc).join('; ')}.</p><p>Target words: ${p.targetWords.map(esc).join(', ')}.</p><p><strong>Before:</strong> ${esc(t.before)}</p><p><strong>During:</strong> ${esc(t.during)}</p><p>Answer letters match the printed choice sheets. Check the answer words on screen.</p><section class="teacher-answers">${p.questions.map((q,i)=>`<div class="teacher-answer" data-question-id="${q.id}"><p><strong>${i+1}. ${esc(q.prompt)}</strong></p><p>Answer: ${'ABCD'[q.options.indexOf(q.answer)]}. ${esc(q.answer)}.</p><p>Evidence: ${q.evidence.map(esc).join(' ')}</p></div>`).join('')}</section><p><strong>After:</strong> ${esc(t.after)}</p><p>Drawing/retelling: varied responses. Look for the named objects and events in the story. Rereading ticks record practice, not measured fluency. Teacher-read or Leda narration is supported comprehension, not evidence of independent decoding.</p>`;}
 export const COMPREHENSION_PRINT_CSS=`
 @font-face{font-family:"Worksheet Andika";src:url(data:font/woff2;base64,${WORKSHEET_PRINT_FONT}) format('woff2');font-style:normal;font-weight:400;font-display:block}
